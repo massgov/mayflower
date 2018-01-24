@@ -12,7 +12,7 @@ import Button from '../src/components/atoms/Button';
 import Footer from '../src/components/organisms/Footer';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
-storiesOf('Button', module)
+storiesOf('Atoms', module)
   .add('Button', () => <Button>Submit</Button>);
-storiesOf('Footer', module)
+storiesOf('Organisms', module)
   .add('Footer', () => <Footer />);
