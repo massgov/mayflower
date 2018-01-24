@@ -4,10 +4,13 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { Button, Welcome } from '@storybook/react/demo';
+import '@massds/mayflower/css/index-generated.css';
+import '@massds/mayflower/css/base-theme-generated.css';
+
+import { Welcome } from '@storybook/react/demo';
+import Footer from '../src/components/organisms/Footer';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>);
+storiesOf('Footer', module)
+  .add('Footer', () => <Footer />);
