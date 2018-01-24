@@ -1,16 +1,12 @@
 # mayflower-react
 
-[![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
 
-Describe mayflower-react here.
+mayflower-react is a library of [Mayflower design system](https://github.com/massgov/mayflower) UI components written in react.
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
+### To use this package:
+@todo
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+[npm-badge]: https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square
+[npm]: https://www.npmjs.com/package/@massds/mayflower-react
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
