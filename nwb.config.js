@@ -8,5 +8,8 @@ module.exports = {
         react: 'React'
       }
     }
+  },
+  babel: {
+    stage: 1
   }
 }
