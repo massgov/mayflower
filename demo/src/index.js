@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {render} from 'react-dom'
 
 // Import styles from @massds/mayflower npm package
-import '../../node_modules/@massds/mayflower/css/index-generated.css'
-import '../../node_modules/@massds/mayflower/css/base-theme-generated.css'
+import '@massds/mayflower/css/index-generated.css'
+import '@massds/mayflower/css/base-theme-generated.css'
 
 // Import vendor JS from @massds/mayflower npm package
 // import '../node_modules/@massds/mayflower/js/vendor-generated.js'
