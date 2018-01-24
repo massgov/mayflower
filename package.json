@@ -1,7 +1,8 @@
 {
-  "name": "mayflower-react",
-  "version": "1.0.0",
-  "description": "mayflower-react React component",
+  "name": "@massds/mayflower-react",
+  "description": "React versions of Mayflower design system UI components",
+  "author": "Massachusetts Digital Services (MDS)",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -18,7 +19,9 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@massds/mayflower": "^5.10.0"
+  },
   "peerDependencies": {
     "react": "16.x"
   },
@@ -27,10 +30,9 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
-  "author": "",
   "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/massgov/mayflower-react",
   "keywords": [
     "react-component"
   ]
