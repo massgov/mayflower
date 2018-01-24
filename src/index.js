@@ -1,9 +1,16 @@
-import React, {Component} from 'react'
+/*
+  Since we are package a library of UI components, export each component here
+  @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
+*/
 
-export default class extends Component {
-  render() {
-    return <div>
-      <h2>Welcome to React components</h2>
-    </div>
-  }
-}
+// base / helpers
+export SocialIcon from './components/SocialIcon'
+
+// @atoms
+
+// @molecules
+export FooterLinks from './components/molecules/FooterLinks'
+export SocialLinks from './components/molecules/SocialLinks'
+
+// @organisms
+export Footer from './components/organisms/Footer'
