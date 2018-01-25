@@ -7,6 +7,7 @@
 export SocialIcon from './components/SocialIcon';
 
 // @atoms
+export SidebarHeading from './components/atoms/headings/SidebarHeading/SidebarHeading';
 
 // @molecules
 export FooterLinks from './components/molecules/FooterLinks';
