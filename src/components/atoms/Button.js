@@ -7,7 +7,7 @@ class Button extends React.Component {
 		const buttonStyle = this.props.outline ? " ma__button--minor" : "";
 		const buttonTheme = this.props.theme ? " ma__button--" + this.props.theme : "";
 		const classNames = "ma__button" + buttonSize + buttonStyle + buttonTheme;
-		const Element = href ? "a" : "button";
+		const Element = this.props.href ? "a" : "button";
 		return (
 			<Element className={classNames} type={this.props.type} href={this.props.href} title={this.props.info} aria-label={this.props.info} onClick={this.props.onClick}>{this.props.text}</Element>
 		);
@@ -26,7 +26,6 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-	href: "",
 	size: "",
 	theme: "",
 	outline: false
