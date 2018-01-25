@@ -26,6 +26,7 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
+	text: "Button",
 	size: "",
 	theme: "",
 	outline: false
