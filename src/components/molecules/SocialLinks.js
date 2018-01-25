@@ -1,6 +1,6 @@
-import React from 'react'
-import data from '../../data/socialLinks.json'
-import SocialIcon from '../SocialIcon'
+import React from 'react';
+import data from '../../data/socialLinks.json';
+import SocialIcon from '../SocialIcon';
 
 /**
  * Scaffolds out Mayflower social links pattern: @molecules/social-links
@@ -17,37 +17,37 @@ import SocialIcon from '../SocialIcon'
  *   }]
  */
 const SocialLinks = () => {
-  const {socialLinks} = data;
+  const { socialLinks } = data;
   let label = null;
   if (socialLinks.label) {
-    label = <span class="ma__social-links__label">{socialLinks.label}</span>;
+    label = <span className="ma__social-links__label">{socialLinks.label}</span>;
   }
   return(
-    <section class="ma__social-links">
+    <section className="ma__social-links">
       { label }
-      <ul class="ma__social-links__items">
+      <ul className="ma__social-links__items">
         {
-          socialLinks.items.map((socialLink, i)=>{
-            return(
-              <SocialLink data={socialLink} key={`socialLink_${i}`} index={i}/>
-            )
-          })
+          socialLinks.items.map((socialLink, i) => (
+            <SocialLink data={socialLink} key={`socialLink_${i}`} index={i} />
+            ))
         }
       </ul>
     </section>
-  )
+  );
 };
 
-const SocialLink = ({data}) => {
-  const {href, altText, component, linkType} = data;
-  return (
-    <li class="ma__social-links__item">
-      <a href={ href } class="ma__social-links__link js-social-share" data-social-share={ linkType } title={ altText }>
-        {/*Include a dynamically named component based on data passed in*/}
+const SocialLink = ({ data }) => {
+  const {
+    href, altText, component, linkType
+  } = data;
+  return(
+    <li className="ma__social-links__item">
+      <a href={href} className="ma__social-links__link js-social-share" data-social-share={linkType} title={altText}>
+        {/* Include a dynamically named component based on data passed in */}
         <SocialIcon data={component} />
       </a>
     </li>
-  )
+  );
 };
 
 export default SocialLinks;
