@@ -1,17 +1,25 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-class Button extends React.Component {
-	render(){
-		const buttonSize = this.props.size ? " ma__button--" + this.props.size : "";
-		const buttonStyle = this.props.outline ? " ma__button--minor" : "";
-		const buttonTheme = this.props.theme ? " ma__button--" + this.props.theme : "";
-		const classNames = "ma__button" + buttonSize + buttonStyle + buttonTheme;
-		const Element = this.props.href ? "a" : "button";
-		return (
-			<Element className={classNames} type={this.props.type} href={this.props.href} title={this.props.info} aria-label={this.props.info} onClick={this.props.onClick}>{this.props.text}</Element>
-		);
-	}
+const Button = (props) => {
+	const buttonSize = props.size ? " ma__button--" + props.size : "";
+	const buttonStyle = props.outline ? " ma__button--minor" : "";
+	const buttonTheme = props.theme ? " ma__button--" + props.theme : "";
+	const classNames = "ma__button" + buttonSize + buttonStyle + buttonTheme;
+	const Element = props.href ? "a" : "button";
+
+	return (
+		<Element 
+			className={classNames}
+			type={props.type}
+			href={props.href}
+			title={props.info}
+			aria-label={props.info}
+			onClick={props.onClick}
+		>
+		{props.text}
+		</Element>
+	);
 }
 
 Button.propTypes = {
@@ -31,6 +39,5 @@ Button.defaultProps = {
 	theme: "",
 	outline: false
 }
-
 
 export default Button;
