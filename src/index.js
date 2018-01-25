@@ -7,6 +7,7 @@
 export SocialIcon from './components/SocialIcon';
 
 // @atoms
+export LatLonGlobe from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
 
 // @molecules
 export FooterLinks from './components/molecules/FooterLinks';
