@@ -7,7 +7,8 @@
 export { SocialIcon } from './components/SocialIcon';
 
 // @atoms
-export SiteLogo from './components/atoms/media/site-logo/SiteLogo';
+export { Button } from './components/atoms/buttons/Button';
+export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
 
 // @molecules
 export { FooterLinks } from './components/molecules/FooterLinks';

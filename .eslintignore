@@ -1,1 +1,4 @@
 tests/
+es/
+lib/
+umd/
