@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { linkTo } from '@storybook/addon-links';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs/react';
 
 
 const stories = storiesOf('Storybook Knobs', module);
@@ -20,6 +20,7 @@ import '@massds/mayflower/css/base-theme-generated.css';
 
 import { Welcome } from '@storybook/react/demo';
 import Button from '../src/components/atoms/Button';
+import InputDate from '../src/components/atoms/forms/InputDate';
 import SiteLogo from '../src/components/atoms/media/site-logo/SiteLogo';
 import Footer from '../src/components/organisms/Footer';
 
@@ -31,16 +32,7 @@ storiesOf('Atoms/Media/Site Logo', module)
   .add('Site Logo', () => <SiteLogo data={siteLogoData} />);
 
 storiesOf('Atoms/Button', module).addDecorator(withKnobs)
-  .add('Button', () => <Button>Submit</Button>)
-  .add('Button with info', () => <Button info="Testing info">Submit</Button>)
-  .add('Button with text', () => <Button text="Example text"></Button>)
-  .add('Button with type', () => <Button type="submit">Submit</Button>)
-  .add('Button with size', () => <Button size="small">Submit</Button>)
-  .add('Button with theme', () => <Button theme="secondary">Submit</Button>)
-  .add('Button with href', () => <Button href="http://www.google.com">Click></Button>)
-  .add('Button as quarternary', () => <Button theme='quaternary'></Button>)
-  .add('Button as secondary', () => <Button theme='secondary'></Button>)
-  .add('Button Test', 
+  .add('Button', 
     withInfo(`
       Testing this... 
     
@@ -49,12 +41,37 @@ storiesOf('Atoms/Button', module).addDecorator(withKnobs)
       ~~~
     
     `)(() => {
-    	const theme = text('theme','quaternary');
-    	const type = text('type','submit');
-    	const outline = boolean('outline', false);
-    	const size = text('size','small');
+    	const themeOptions = { '': 'default', secondary: 'secondary', quaternary: 'quaternary', };
+    	const theme = select( 'theme', themeOptions );
+    	
+    	const typeOptions = { submit: 'submit', reset: 'reset', button: 'button', '': 'default', };
+    	const type = select('type',typeOptions);
+    	
+    	const defaultValue = false;
+    	const outline = boolean('outline', defaultValue);
+    	
+    	const sizeOptions = { '': 'default', small: 'small', };
+    	const size = select( 'size', sizeOptions);
+    	
     	const info = text('info','information')
-    	return(<Button theme={theme} type={type} size={size} info={info}></Button>)
+    	const buttonText = text('text', 'button')
+    	const href = text('href','/welcome')
+
+    	return(<Button theme={theme} type={type} size={size} info={info} text={buttonText} href={href} outline={outline}></Button>)
+    })
+  );
+
+  storiesOf('Atoms/Forms/InputDate', module).addDecorator(withKnobs)
+  .add('InputDate', 
+    withInfo(`
+      Testing this... 
+    
+      ~~~js
+      <InputDate></InputDate>
+      ~~~
+    
+    `)(() => {
+    	return(<InputDate></InputDate>)
     })
   );
 

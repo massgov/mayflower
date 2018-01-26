@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 const Button = (props) => {
+	
 	const buttonSize = props.size ? " ma__button--" + props.size : "";
 	const buttonStyle = props.outline ? " ma__button--minor" : "";
 	const buttonTheme = props.theme ? " ma__button--" + props.theme : "";
