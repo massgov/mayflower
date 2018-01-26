@@ -7,6 +7,7 @@
 export SocialIcon from './components/SocialIcon';
 
 // @atoms
+export SvgArrow from './components/atoms/icons/SvgArrow/SvgArrow';
 
 // @molecules
 export FooterLinks from './components/molecules/FooterLinks';
