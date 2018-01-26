@@ -8,6 +8,8 @@ export { SocialIcon } from './components/SocialIcon';
 
 // @atoms
 export SiteLogo from './components/atoms/media/site-logo/SiteLogo';
+export SvgSearch from './components/atoms/icons/SvgSearch';
+export CompHeading from './components/atoms/headings/comp-heading/CompHeading';
 
 // @molecules
 export { FooterLinks } from './components/molecules/FooterLinks';

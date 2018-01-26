@@ -1,7 +1,7 @@
 import React from 'react';
 import stateSeal from '@massds/mayflower/images/stateseal.png';
-import FooterLinks from '../molecules/FooterLinks';
-import SocialLinks from '../molecules/SocialLinks';
+import FooterLinks from '../../molecules/FooterLinks';
+import SocialLinks from '../../molecules/SocialLinks';
 
 /**
  * Scaffolds out Mayflower footer pattern: @organisms/by-template/footer
