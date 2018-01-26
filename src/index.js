@@ -7,7 +7,7 @@
 export { SocialIcon } from './components/SocialIcon';
 
 // @atoms
-export Button from './components/atoms/Button';
+export { Button } from './components/atoms/Button';
 
 // @molecules
 export { FooterLinks } from './components/molecules/FooterLinks';

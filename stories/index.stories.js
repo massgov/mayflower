@@ -13,7 +13,7 @@ import Footer from '../src/components/organisms/Footer';
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 storiesOf('Atoms/Button', module)
   .add('Button', () => <Button>Submit</Button>)
-  .add('Button with text', () => <Button text="Example text"></Button>)
+  .add('Button with text', () => <Button text="Example text" />)
   .add('Button with size', () => <Button size="small">Submit</Button>)
   .add('Button with theme', () => <Button theme="secondary">Submit</Button>)
   .add('Button with href', () => <Button href="http://www.google.com">Click</Button>);

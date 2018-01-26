@@ -23,7 +23,8 @@
     "test:watch": "nwb test-react --server",
     "prepublishOnly": "npm run build && npm run copy-data",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prop-types": "^15.6.0"
   },
   "dependencies": {
     "@massds/mayflower": "^5.10.0"
@@ -38,7 +39,6 @@
     "@storybook/react": "^3.3.10",
     "babel-core": "^6.26.0",
     "nwb": "0.21.x",
-    "prop-types": "^15.6.0",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
