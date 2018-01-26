@@ -1,27 +1,28 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
+import { Welcome } from '@storybook/react/demo';
 
 import '@massds/mayflower/css/index-generated.css';
 import '@massds/mayflower/css/base-theme-generated.css';
 
-import { Welcome } from '@storybook/react/demo';
-import Button from '../src/components/atoms/Button';
+import siteLogoData from '../src/components/atoms/media/site-logo/SiteLogo.json';
+
+import SiteLogo from '../src/components/atoms/media/site-logo/SiteLogo';
+import Button from '../src/components/atoms/buttons/Button';
 import Footer from '../src/components/organisms/Footer';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
-storiesOf('Atoms/Button', module)
+storiesOf('Atoms/Buttons/Button', module)
   .add('Button', () => <Button>Submit</Button>)
-  .add('Button with info', () => <Button info="Testing info">Submit</Button>)
-  .add('Button with text', () => <Button text="Example text"></Button>)
-  .add('Button with type', () => <Button type="submit">Submit</Button>)
+  .add('Button with text', () => <Button text="Example text" />)
   .add('Button with size', () => <Button size="small">Submit</Button>)
   .add('Button with theme', () => <Button theme="secondary">Submit</Button>)
-  .add('Button with href', () => <Button href="http://www.google.com">Click></Button>)
-  .add('Button as quarternary', () => <Button theme='quaternary'></Button>)
-  .add('Button as secondary', () => <Button theme='secondary'></Button>);
+  .add('Button with href', () => <Button href="http://www.google.com">Click</Button>);
+
+storiesOf('Atoms/Media/Site Logo', module)
+  .add('Site Logo', () => <SiteLogo data={siteLogoData} />);
 
 storiesOf('Organisms', module)
   .add('Footer', () => <Footer />);
