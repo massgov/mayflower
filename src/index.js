@@ -7,13 +7,11 @@
 export { SocialIcon } from './components/SocialIcon';
 
 // @atoms
-export SiteLogo from './components/atoms/media/site-logo/SiteLogo';
-export SvgSearch from './components/atoms/icons/SvgSearch';
-export CompHeading from './components/atoms/headings/comp-heading/CompHeading';
+export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
 
 // @molecules
 export { FooterLinks } from './components/molecules/FooterLinks';
 export { SocialLinks } from './components/molecules/SocialLinks';
 
 // @organisms
-export { Footer } from './components/organisms/Footer';
+export { Footer } from './components/organisms/footer/Footer';
