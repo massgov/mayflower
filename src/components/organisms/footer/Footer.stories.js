@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import Footer from '../footer/Footer';
+import Footer from './Footer';
 
 storiesOf('Organisms/Footer', module)
   .add('Footer', () => <Footer />);
