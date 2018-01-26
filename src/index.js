@@ -8,8 +8,6 @@ export SocialIcon from './components/SocialIcon';
 
 // @atoms
 export Button from './components/atoms/Button';
-export iconSearch from './components/atoms/icons/iconSearch'
-
 
 // @molecules
 export FooterLinks from './components/molecules/FooterLinks';
