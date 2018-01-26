@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import '@massds/mayflower/css/index-generated.css';
@@ -17,7 +16,7 @@ storiesOf('Atoms/Button', module)
   .add('Button with text', () => <Button text="Example text"></Button>)
   .add('Button with size', () => <Button size="small">Submit</Button>)
   .add('Button with theme', () => <Button theme="secondary">Submit</Button>)
-  .add('Button with href', () => <Button href="http://www.google.com">Click></Button>);
+  .add('Button with href', () => <Button href="http://www.google.com">Click</Button>);
 
 storiesOf('Organisms', module)
   .add('Footer', () => <Footer />);
