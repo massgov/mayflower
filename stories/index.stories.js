@@ -2,13 +2,12 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { linkTo } from '@storybook/addon-links';
-import siteLogoDocs from '../src/components/atoms/media/site-logo/SiteLogo.md';
-import siteLogoData from '../src/components/atoms/media/site-logo/SiteLogo.json';
+import { Welcome } from '@storybook/react/demo';
 
 import '@massds/mayflower/css/index-generated.css';
 import '@massds/mayflower/css/base-theme-generated.css';
 
-import { Welcome } from '@storybook/react/demo';
+import siteLogoData from '../src/components/atoms/media/site-logo/SiteLogo.json';
 
 import SiteLogo from '../src/components/atoms/media/site-logo/SiteLogo';
 import Button from '../src/components/atoms/buttons/Button';
