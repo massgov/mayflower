@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs/react';
@@ -13,17 +12,23 @@ const stories = storiesOf('Storybook Knobs', module);
 // You can also configure `withKnobs` as a global decorator.
 stories.addDecorator(withKnobs);
 
-//storiesOf('Storybook Knobs', module).addDecorator(withKnobs);
+import siteLogoDocs from '../src/components/atoms/media/site-logo/SiteLogo.md'
+import siteLogoData from '../src/components/atoms/media/site-logo/SiteLogo.json'
 
 import '@massds/mayflower/css/index-generated.css';
 import '@massds/mayflower/css/base-theme-generated.css';
 
 import { Welcome } from '@storybook/react/demo';
 import Button from '../src/components/atoms/Button';
+import SiteLogo from '../src/components/atoms/media/site-logo/SiteLogo';
 import Footer from '../src/components/organisms/Footer';
 
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
+storiesOf('Welcome', module)
+  .add('to Storybook', () => <Welcome showApp={linkTo('Button')} />)
+
+storiesOf('Atoms/Media/Site Logo', module)
+  .add('Site Logo', () => <SiteLogo data={siteLogoData} />);
 
 storiesOf('Atoms/Button', module).addDecorator(withKnobs)
   .add('Button', () => <Button>Submit</Button>)
@@ -52,8 +57,6 @@ storiesOf('Atoms/Button', module).addDecorator(withKnobs)
     	return(<Button theme={theme} type={type} size={size} info={info}></Button>)
     })
   );
-
-
 
 storiesOf('Organisms', module)
   .add('Footer', () => <Footer />);

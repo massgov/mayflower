@@ -4,14 +4,15 @@
 */
 
 // base / helpers
-export SocialIcon from './components/SocialIcon';
+export { SocialIcon } from './components/SocialIcon';
 
 // @atoms
 export Button from './components/atoms/Button';
+export SiteLogo from './components/atoms/media/site-logo/SiteLogo';
 
 // @molecules
-export FooterLinks from './components/molecules/FooterLinks';
-export SocialLinks from './components/molecules/SocialLinks';
+export { FooterLinks } from './components/molecules/FooterLinks';
+export { SocialLinks } from './components/molecules/SocialLinks';
 
 // @organisms
-export Footer from './components/organisms/Footer';
+export { Footer } from './components/organisms/Footer';
