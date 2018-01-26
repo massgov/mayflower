@@ -1,5 +1,5 @@
-import React from 'react';
-import data from '../../data/footerLinks.json';
+import React from 'react'
+import data from '../../data/footerLinks.json'
 
 /**
  * Scaffolds out Mayflower footer links pattern: @molecules/footer-links
@@ -17,41 +17,45 @@ import data from '../../data/footerLinks.json';
  *    }
  */
 const FooterLinks = () => {
-  const { footerLinks } = data;
+  const {footerLinks} = data;
   return(
-    <section className="ma__footer-links">
+    <section class="ma__footer-links">
       {
-        footerLinks.items.map((footerLinksNav, i) => (
-          <FooterLinksNav data={footerLinksNav} key={`footerLinksNav_${i}`} index={i} />
-          ))
+        footerLinks.items.map((footerLinksNav, i)=>{
+          return(
+            <FooterLinksNav data={footerLinksNav} key={`footerLinksNav_${i}`} index={i}/>
+          )
+        })
       }
     </section>
-  );
+  )
 };
 
-const FooterLinksNav = ({ data }) => {
-  const { id, heading, links } = data;
-  return(
-    <nav aria-labelledby={id}>
-      <h2 className="visually-hidden" id={id}>{heading}</h2>
-      <ul className="ma__footer-links__items">
+const FooterLinksNav = ({data}) => {
+  const {id, heading, links} = data;
+  return (
+    <nav role="navigation" aria-labeledby={id}>
+      <h2 class="visually-hidden" id={id}>{heading}</h2>
+      <ul class="ma__footer-links__items">
         {
-          links.map((link, i) => (
-            <FooterLink data={link} key={`footerLink_${i}`} />
-            ))
+          links.map((link, i)=>{
+            return(
+              <FooterLink data={link} key={`footerLink_${i}`}/>
+            )
+          })
         }
       </ul>
     </nav>
-  );
+  )
 };
 
-const FooterLink = ({ data }) => {
-  const { href, text } = data;
-  return(
-    <li className="ma__footer-links__item">
-      <a href={href} className="ma__footer-links__link">{text}</a>
+const FooterLink = ({data}) => {
+  const {href, text} = data;
+  return (
+    <li class="ma__footer-links__item">
+      <a href={href} class="ma__footer-links__link">{text}</a>
     </li>
-  );
+  )
 };
 
 export default FooterLinks;
