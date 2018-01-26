@@ -5,8 +5,8 @@ import { linkTo } from '@storybook/addon-links';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs/react';
 
-import siteLogoDocs from '../src/components/atoms/media/site-logo/SiteLogo.md'
-import siteLogoData from '../src/components/atoms/media/site-logo/SiteLogo.json'
+import siteLogoDocs from '../src/components/atoms/media/site-logo/SiteLogo.md';
+import siteLogoData from '../src/components/atoms/media/site-logo/SiteLogo.json';
 
 import '@massds/mayflower/css/index-generated.css';
 import '@massds/mayflower/css/base-theme-generated.css';
