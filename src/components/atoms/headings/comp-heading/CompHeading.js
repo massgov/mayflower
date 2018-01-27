@@ -17,7 +17,7 @@ const CompHeading = (props) => {
   classes = classes.join(' ');
 
   return(
-    <Element className={classes} tabIndex="-1" id={props.id}>
+    <Element className={classes} tabIndex="-1" id={props.id ? props.id : null}>
       {props.title}
       {props.titleContext && <span className="visually-hidden" >{props.titleContext}</span>}
     </Element>
