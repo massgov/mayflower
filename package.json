@@ -27,11 +27,12 @@
   },
   "dependencies": {
     "@massds/mayflower": "^5.10.0",
-    "prop-types": "^15.6.0",
-    "@storybook/react": "^3.3.10",
-    "@storybook/addon-links": "^3.3.10",
     "@storybook/addon-info": "^3.3.10",
-    "@storybook/addon-knobs": "^3.3.10"
+    "@storybook/addon-knobs": "^3.3.10",
+    "@storybook/addon-links": "^3.3.10",
+    "@storybook/react": "^3.3.10",
+    "prop-types": "^15.6.0",
+    "react-select": "^1.2.1"
   },
   "peerDependencies": {
     "react": "16.x"
