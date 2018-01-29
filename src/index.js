@@ -4,14 +4,16 @@
 */
 
 // base / helpers
-export SocialIcon from './components/SocialIcon';
+export { SocialIcon } from './components/SocialIcon';
 
 // @atoms
-export SidebarHeading from './components/atoms/headings/SidebarHeading/SidebarHeading';
+export { Button } from './components/atoms/buttons/Button';
+export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
+export { SidebarHeading } from './components/atoms/headings/SidebarHeading/SidebarHeading';
 
 // @molecules
-export FooterLinks from './components/molecules/FooterLinks';
-export SocialLinks from './components/molecules/SocialLinks';
+export { FooterLinks } from './components/molecules/FooterLinks';
+export { SocialLinks } from './components/molecules/SocialLinks';
 
 // @organisms
-export Footer from './components/organisms/Footer';
+export { Footer } from './components/organisms/footer/Footer';
