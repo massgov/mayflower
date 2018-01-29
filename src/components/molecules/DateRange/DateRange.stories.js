@@ -25,7 +25,7 @@ storiesOf('Molecules/DateRange', module).addDecorator(withKnobs)
       const defaultStartDate = {labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'today', restrict: 'min'};
       const startDate = object('startDate', defaultStartDate);
 
-      const defaultEndDate = {labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'mm/dd/yy', restrict: ''};
+      const defaultEndDate = {labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'mm/dd/yy', restrict: 'min'};
       const endDate = object('endDate', defaultEndDate);
 
     	return(<DateRange label={label} startDate={startDate} endDate={endDate}></DateRange>)
