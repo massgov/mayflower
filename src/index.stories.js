@@ -10,7 +10,5 @@ import { Welcome } from '@storybook/react/demo';
 import '@massds/mayflower/css/index-generated.css';
 import '@massds/mayflower/css/base-theme-generated.css';
 
-
 storiesOf('Welcome', module)
   .add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
-
