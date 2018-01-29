@@ -16,7 +16,10 @@ class SelectBox extends React.Component {
     var selectedValue = event.target[selectedIndex].value
     this.setState({selected})
 
-    // invoke custom function here - to do
+    // invokes custom function if passed in the component
+    if (typeof this.props.onChangeCallback === "function") {
+      this.props.onChangeCallback(selectedIndex, selected, selectedValue);
+    }
   }
 
   render () {
@@ -33,8 +36,8 @@ class SelectBox extends React.Component {
             name={this.props.id}
             id={this.props.id}
             className={selectClassNames}
-            //onChange={this.props.onChange}
             onChange={this.handleSelect}
+            onChangeCallback = {this.props.onChangeCallback}
           >
             { this.props.options.map(option =>
               <option key={option.value} value={option.value}>
@@ -65,7 +68,8 @@ SelectBox.propTypes = {
       PropTypes.string
     ]),
   })).isRequired,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  onChangeCallback: PropTypes.func 
 };
 
 SelectBox.defaultProps = {

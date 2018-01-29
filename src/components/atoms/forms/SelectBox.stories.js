@@ -30,5 +30,5 @@ storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
       const defaultValue = true;
       const required = boolean('required', defaultValue);
 
-      return(<SelectBox label={label} options={options} id={id} required={required} onChange={action('on-change')}/>) })
+      return(<SelectBox label={label} options={options} id={id} required={required} onChange={action('on-change')} onChangeCallback={ () => console.log('Hi!')}/>) })
   );
