@@ -10,11 +10,6 @@ import { Welcome } from '@storybook/react/demo';
 import '@massds/mayflower/css/index-generated.css';
 import '@massds/mayflower/css/base-theme-generated.css';
 
-import LatLonGlobe from '../src/components/atoms/icons/LatLonGlobe/LatLonGlobe';
-
-
 storiesOf('Welcome', module)
   .add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
-storiesOf('Atoms/Icons', module)
-  .add('LatLonGlobe', () => <LatLonGlobe />);
