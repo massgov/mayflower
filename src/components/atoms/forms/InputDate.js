@@ -15,8 +15,6 @@ class InputDate extends React.Component {
 
   componentDidMount() {
   	this.startPikaday();
-  	console.log(this);
-
   	this.setState(
 		{ type: "text"}
 	)

@@ -43,7 +43,8 @@ DateRange.propTypes = {
 
 DateRange.defaultProps = {
   label: 'Filter by date',
-  startDate: {labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'mm/dd/yy', restrict: ''}, endDate: {labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'mm/dd/yy', restrict: ''}
+  startDate: {labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'mm/dd/yy', restrict: ''}, 
+  endDate: {labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'mm/dd/yy', restrict: ''}
 }
 
 export default DateRange;
