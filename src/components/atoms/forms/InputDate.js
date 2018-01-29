@@ -23,13 +23,12 @@ class InputDate extends React.Component {
   }
 
   startPikaday() {
-  	console.log(this.dateInput)
+  	const restrict = this.props.restrict;
   	const picker = new Pikaday({
   		field: this.dateInput,
   		format: 'MM/DD/YY'
   	});
-  	const restrict = this.props.restrict;
-
+  	
   	switch(restrict) {
      case 'max':
        picker.setMaxDate(new Date());
