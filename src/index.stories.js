@@ -12,3 +12,4 @@ import '@massds/mayflower/css/base-theme-generated.css';
 
 storiesOf('Welcome', module)
   .add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+
