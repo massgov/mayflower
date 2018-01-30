@@ -76,7 +76,8 @@ SelectBox.defaultProps = {
   onChange: () => {},
   label: 'Color Scheme:',
   required: true,
-  id: 'color-select' 
+  id: 'color-select',
+  options: {text: "Green", value: "green"}
 };
 
 export default SelectBox;
