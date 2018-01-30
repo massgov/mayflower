@@ -11,7 +11,7 @@ export { SvgArrow } from './components/atoms/icons/SvgArrow/index';
 export { Button } from './components/atoms/buttons/Button';
 export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
 export { LatLonGlobe } from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
-export { SvgSearch } from './components/atoms/icons/SvgSearch';
+export { SvgSearch } from './components/atoms/icons/index';
 export { SvgArrowBent } from './components/atoms/icons/SvgArrowBent/index';
 
 // @molecules
