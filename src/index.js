@@ -8,9 +8,14 @@ export { SocialIcon } from './components/SocialIcon';
 
 // @atoms
 export { Button } from './components/atoms/buttons/Button';
+// @atoms/@media
 export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
+// @atoms/@icons
 export { LatLonGlobe } from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
 export { SidebarHeading } from './components/atoms/headings/SidebarHeading/SidebarHeading';
+export { SvgArrow } from './components/atoms/icons/SvgArrow';
+export { SvgSearch } from './components/atoms/icons/SvgSearch';
+export { SvgArrowBent } from './components/atoms/icons/SvgArrowBent';
 
 // @molecules
 export { FooterLinks } from './components/molecules/FooterLinks';
