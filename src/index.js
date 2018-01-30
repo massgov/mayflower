@@ -9,6 +9,7 @@ export { SocialIcon } from './components/SocialIcon';
 // @atoms
 export { Button } from './components/atoms/buttons/Button';
 export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
+export { LatLonGlobe } from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
 export { SidebarHeading } from './components/atoms/headings/SidebarHeading/SidebarHeading';
 
 // @molecules
