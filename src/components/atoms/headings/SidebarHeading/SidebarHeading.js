@@ -12,7 +12,10 @@ const SidebarHeading = ({ data }) => {
 };
 
 SidebarHeading.propTypes = {
-  data: PropTypes.node
+  data: PropTypes.shape({
+    level: PropTypes.number,
+    title: PropTypes.string
+  })
 };
 
 SidebarHeading.defaultProps = {
