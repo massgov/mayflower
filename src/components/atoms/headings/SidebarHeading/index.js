@@ -2,16 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SidebarHeading = (props) => {
-
-  const sidebarHeading = props
+  const sidebarHeading = props;
   const Element = `h${sidebarHeading.level || 2}`;
-  
+
   return(
     <Element className="ma__sidebar-heading">
       { sidebarHeading.title }
     </Element>
   );
-
 };
 
 SidebarHeading.propTypes = {

@@ -9,18 +9,17 @@ import SidebarHeading from './index';
 
 storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
   .add('SidebarHeading', withInfo({ sidebarMarkdown })(() => {
+    const levelOptions = {
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+      6: 6
+    };
 
-  	const levelOptions = {
-        1: '1',
-        2: '2',
-        3: '3',
-        4: '4',
-        5: '5',
-        6: '6'
-      };
-    
     const title = text('sidebarHeading.title', 'Key Agencies');
-    const level = select('sidebarHeading.level', levelOptions, levelOptions[2] );
+    const level = select('sidebarHeading.level', levelOptions, levelOptions[2]);
 
     return(<SidebarHeading title={title} level={level} />);
   }));
