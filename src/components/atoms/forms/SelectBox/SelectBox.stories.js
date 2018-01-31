@@ -6,27 +6,17 @@ import { withKnobs, text, boolean, number, select, object } from '@storybook/add
 import { action } from '@storybook/addon-actions';
 
 import SelectBox from './index';
+import selectOptions from './SelectBox.knobs.options';
 // import SelectBox from './SelectBox.md';
 
 storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
   .add('SelectBox',
-    withInfo(`
-      
-      ### Description
-      
-      This is the standard pattern for a select box.
-    
-      ~~~js
-      <SelectBox></SelectBox>
-      ~~~
-    
-    `)(() => {
+    withInfo()(() => {
 
       const label = text('info','Color Scheme:');
       const id = text('id', 'color-select');
-
-      const defaultOptions = [{text: "Green", value: "green",}, {text: "Blue", value: "blue",}];
-      const options = object('options', defaultOptions);
+      // selectOptions imported above
+      const options = object('options', selectOptions);
 
       const defaultValue = true;
       const required = boolean('required', defaultValue);
