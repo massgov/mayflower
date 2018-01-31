@@ -4,12 +4,8 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs/react';
 
-<<<<<<< Updated upstream:src/components/atoms/buttons/Button/Button.stories.js
-import Button from './index';
-=======
 import Button from './Button';
 import buttonOptions from './Button.knobs.options';
->>>>>>> Stashed changes:src/components/atoms/buttons/Button.stories.js
 
 storiesOf('Atoms/Buttons/Button', module).addDecorator(withKnobs)
   .add(

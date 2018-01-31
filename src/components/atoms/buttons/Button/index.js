@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Ports the @atoms/buttons/button pattern with variants.
+ * @see https://mayflower.digital.mass.gov/?p=atoms-button
+ */
 const Button = (props) => {
   const button = props;
   const buttonSize = button.size ? ` ma__button--${button.size}` : '';
@@ -24,13 +28,21 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
+  /** Custom click handler function. */
   onClick: PropTypes.func,
+  /** When populated with a url, this component renders a <a> vs a <button> */
   href: PropTypes.string,
+  /** The text which renders in the standard browser tooltip on hover */
   info: PropTypes.string,
+  /** Button or link text */
   text: PropTypes.string,
+  /** HTML <button> 'type' attribute  */
   type: PropTypes.oneOf(['submit', 'reset', 'button', '']),
+  /** Create a smaller button */
   size: PropTypes.oneOf(['', 'small']),
+  /** Themes correspond to site color scheme i.e. sass variables */
   theme: PropTypes.oneOf(['', 'secondary', 'quaternary']),
+  /** Whether or not to make a ghost button */
   outline: PropTypes.bool
 };
 

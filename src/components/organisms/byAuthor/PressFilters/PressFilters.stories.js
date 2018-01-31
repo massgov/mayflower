@@ -5,6 +5,10 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs/react';
 
 import PressFilters from './index';
+// import knob options for child patterns
+import buttonOptions from '../../../atoms/buttons/Button.knobs.options';
+import headingOptions from '../../../atoms/headings/Headings.knob.options';
+import coloredHeadingOptions from '../../../atoms/headings/ColoredHeading/ColoredHeadings.knob.options'
 
 storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
     .add('PressFilters',
@@ -30,17 +34,13 @@ storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
             6: '6'
           };
 
-          // @todo define somewhere so that we can use them whenever we implement this pattern
-          const colorOptions = {
-            "": "grey (default)",
-            green: "green"
-          };
-
           const action = text('Action','#');
+
+          const defaultHeadingLevel = '2';
           const coloredHeading = {
             text:  text('Colored Heading Text', "Filter Results"),
-            color:  select('Colored Heading Color', colorOptions, ""),
-            level: select('Colored Heading Level', headingLevels, headingLevels[2])
+            color:  select('Colored Heading Color', coloredHeadingOptions.color, ""),
+            level: select('Colored Heading Level', headingOptions.levels, defaultHeadingLevel)
           };
 
           // @todo define somewhere so that we can use them whenever we implement this pattern
@@ -75,16 +75,12 @@ storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
             endDate: object('Date Range endDate', defaultEndDate)
           };
 
-          // @todo define somewhere so that we can use them whenever we implement this pattern
-          const buttonThemeOptions = {'': 'primary (default)', secondary: 'secondary', quaternary: 'quaternary'};
-          const buttonSizeOptions = { '': 'default', small: 'small' };
-          const buttonTypeOptions = {"": "no button type", submit: 'submit', reset: 'reset', button: 'button'};
-
+          // options imported from ./Button.knobs.options
           const submitButton = {
             text: text("Button text", "Submit"),
-            type: select("Button type", buttonTypeOptions, "submit"),
-            size: select("Button size", buttonSizeOptions, "small"),
-            theme: select("Button theme", buttonThemeOptions, ""),
+            type: select("Button type", buttonOptions.type, "submit"),
+            size: select("Button size", buttonOptions.size, "small"),
+            theme: select("Button theme", buttonOptions.theme, ""),
             outline: boolean('Button Outline', false)
           };
 
