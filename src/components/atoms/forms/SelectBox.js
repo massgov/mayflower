@@ -11,22 +11,22 @@ class SelectBox extends React.Component {
   }
 
   handleSelect = (event) => {
-    var selectedIndex = event.nativeEvent.target.selectedIndex
-    var selected = event.target[selectedIndex].text
-    var selectedValue = event.target[selectedIndex].value
-    this.setState({selected})
+    const selectedIndex = event.nativeEvent.target.selectedIndex;
+    const selected = event.target[selectedIndex].text;
+    const selectedValue = event.target[selectedIndex].value;
+    this.setState({selected});
 
     // invokes custom function if passed in the component
     if (typeof this.props.onChangeCallback === "function") {
       this.props.onChangeCallback(selectedIndex, selected, selectedValue);
     }
-  }
+  };
 
   render () {
 
     const classNames = !this.props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown';
     const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
-    const selected = this.state.selected
+    const selected = this.state.selected;
     return (
       <section className={classNames}>
         <label htmlFor={this.props.id} className="ma__select-box__label">{this.props.label}</label>
@@ -36,9 +36,7 @@ class SelectBox extends React.Component {
             name={this.props.id}
             id={this.props.id}
             className={selectClassNames}
-            onChange={this.handleSelect}
-            onChangeCallback = {this.props.onChangeCallback}
-          >
+            onChange={this.handleSelect}>
             { this.props.options.map(option =>
               <option key={option.value} value={option.value}>
                 {option.text}
@@ -53,7 +51,7 @@ class SelectBox extends React.Component {
       </section>
     )
   };
-};
+}
 
 SelectBox.propTypes = {
   label: PropTypes.string.isRequired,
@@ -68,12 +66,10 @@ SelectBox.propTypes = {
       PropTypes.string
     ]),
   })).isRequired,
-  onChange: PropTypes.func,
   onChangeCallback: PropTypes.func
 };
 
 SelectBox.defaultProps = {
-  onChange: () => {},
   label: 'Color Scheme:',
   required: true,
   id: 'color-select',
