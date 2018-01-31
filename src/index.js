@@ -12,6 +12,7 @@ export { Button } from './components/atoms/buttons/Button';
 export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
 // @atoms/@icons
 export { LatLonGlobe } from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
+export { DecorativeLink } from './components/atoms/links/DecorativeLink';
 export { SvgArrow } from './components/atoms/icons/SvgArrow';
 export { SvgSearch } from './components/atoms/icons/SvgSearch';
 export { SvgArrowBent } from './components/atoms/icons/SvgArrowBent';
