@@ -30,7 +30,6 @@ storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
             6: '6'
           };
 
-
           // @todo define somewhere so that we can use them whenever we implement this pattern
           const colorOptions = {
             "": "grey (default)",
@@ -39,11 +38,9 @@ storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
 
           const action = text('Action','#');
           const coloredHeading = {
-            coloredHeading: {
-              text:  text('Colored Heading Text', "Filter Results"),
-              color:  select('Colored Heading Color', colorOptions, ""),
-              level: select('Colored Heading Level', headingLevels, headingLevels[2])
-            }
+            text:  text('Colored Heading Text', "Filter Results"),
+            color:  select('Colored Heading Color', colorOptions, ""),
+            level: select('Colored Heading Level', headingLevels, headingLevels[2])
           };
 
           // @todo define somewhere so that we can use them whenever we implement this pattern

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ColoredHeading = (props) => {
-  const { coloredHeading } = props;
+  const coloredHeading = props;
   const Element = `h${coloredHeading.level}`;
 
   let classes = ['ma__colored-heading'];
@@ -19,19 +19,15 @@ const ColoredHeading = (props) => {
 };
 
 ColoredHeading.propTypes = {
-  coloredHeading: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    level: PropTypes.string,
-    color: PropTypes.oneOf(['','green','blue'])
-  })
+  text: PropTypes.string.isRequired,
+  level: PropTypes.string,
+  color: PropTypes.oneOf(['','green','blue'])
 };
 
 ColoredHeading.defaultProps = {
-  coloredHeading: {
-    text: 'Colored Heading',
-    level: '2',
-    color: ''
-  }
+  text: 'Colored Heading',
+  level: '2',
+  color: ''
 };
 
 export default ColoredHeading;
