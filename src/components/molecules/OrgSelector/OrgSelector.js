@@ -40,24 +40,24 @@ OrgSelector.propTypes = {
   selectBox: PropTypes.instanceOf(SelectBox).isRequired,
   organizations: PropTypes.arrayOf(PropTypes.shape({
     value:  PropTypes.string.isRequired,
-    image: PropTypes.arrayOf(PropTypes.shape({
+    image: PropTypes.shape({
       href: PropTypes.string.isRequired,
       alt: PropTypes.string.isRequired,
       src: PropTypes.string.isRequired,
       height: PropTypes.string.isRequired,
       width: PropTypes.string.isRequired,
-    })),
-    name: PropTypes.arrayOf(PropTypes.shape({
+    }),
+    name: PropTypes.shape({
       text: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
-    })),
+    }),
     jobTitle: PropTypes.string.isRequired,
     message:  PropTypes.string.isRequired,
-    moreLink: PropTypes.arrayOf(PropTypes.shape({
+    moreLink: PropTypes.shape({
       text: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       info: PropTypes.string,
-    })),
+    }),
   })).isRequired,
 };
 
