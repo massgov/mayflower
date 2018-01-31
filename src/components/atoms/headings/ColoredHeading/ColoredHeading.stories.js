@@ -18,7 +18,7 @@ storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
       };
       const coloredHeading = {
         text: text('text', 'Title text'),
-        level: select('level', levelOptions),
+        level: select('level', levelOptions, 2),
         color: select('color', { '': '', green: 'green' })
       };
       return(<ColoredHeading coloredHeading={coloredHeading} />);
