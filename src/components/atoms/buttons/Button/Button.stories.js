@@ -4,37 +4,30 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs/react';
 
-<<<<<<< Updated upstream:src/components/atoms/buttons/Button/Button.stories.js
 import Button from './index';
-=======
-import Button from './Button';
 import buttonOptions from './Button.knobs.options';
->>>>>>> Stashed changes:src/components/atoms/buttons/Button.stories.js
 
-storiesOf('Atoms/Buttons/Button', module).addDecorator(withKnobs)
+storiesOf('Atoms/Buttons', module).addDecorator(withKnobs)
   .add(
     'Button',
-    withInfo()(() => {
-      // options imported from ./Button.knobs.options
-      const theme = select('Button theme', buttonOptions.theme);
-      const type = select('Button type', buttonOptions.type);
-      const size = select('Button size', buttonOptions.size);
+    withInfo(`
+      This is the standard button pattern (with variants)
+      
+      @see [@atoms/buttons/button](https://mayflower.digital.mass.gov/?p=atoms-button&view=c)
+    `)(() => {
       const defaultOutline = false;
-      const outline = boolean('Button outline', defaultOutline);
-      const info = text('Button info', 'this will be the tooltip text on hover');
-      const buttonText = text('Button text', 'button');
-      const href = text('Button href', '');
+      const props = {
+        theme: select('button.theme', buttonOptions.theme),
+        type: select('button.type', buttonOptions.type),
+        size: select('button.size', buttonOptions.size),
+        outline: boolean('button.outline', defaultOutline),
+        info: text('button.info', 'this will be the tooltip text on hover'),
+        buttonText: text('button.text', 'button'),
+        href: text('button.href', '')
+      };
 
       return(
-        <Button
-          theme={theme}
-          type={type}
-          size={size}
-          info={info}
-          text={buttonText}
-          href={href}
-          outline={outline}
-        />
+        <Button {...props} />
       );
     })
   );

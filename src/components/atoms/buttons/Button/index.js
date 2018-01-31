@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/**
- * Ports the @atoms/buttons/button pattern with variants.
- * @see https://mayflower.digital.mass.gov/?p=atoms-button
- */
 const Button = (props) => {
   const button = props;
   const buttonSize = button.size ? ` ma__button--${button.size}` : '';
