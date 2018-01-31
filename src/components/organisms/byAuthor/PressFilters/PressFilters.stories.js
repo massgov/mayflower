@@ -5,85 +5,56 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs/react';
 
 import PressFilters from './index';
-// import knob options for child patterns
-import buttonOptions from '../../../atoms/buttons/Button.knobs.options';
-import headingOptions from '../../../atoms/headings/Headings.knob.options';
-import coloredHeadingOptions from '../../../atoms/headings/ColoredHeading/ColoredHeadings.knob.options'
 
-storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
+// import knob options for child patterns
+import buttonOptions from '../../../atoms/buttons/Button/Button.knobs.options';
+import headingOptions from '../../../atoms/headings/Headings.knob.options';
+import coloredHeadingOptions from '../../../atoms/headings/ColoredHeading/ColoredHeadings.knob.options';
+import selectOptions from '../../../atoms/forms/SelectBox/SelectBox.knobs.options';
+
+storiesOf('Organisms/By-Author', module).addDecorator(withKnobs)
     .add('PressFilters',
         withInfo(`
-      
-      ### Description
-      
-      This is the standard press filters pattern
-    
-      ~~~js
-      <PressFilters></PressFilters>
-      ~~~
-    
-    `)(() => {
-
-          // @todo define somewhere so that we can use them whenever we implement this pattern
-          const headingLevels = {
-            1: '1',
-            2: '2',
-            3: '3',
-            4: '4',
-            5: '5',
-            6: '6'
-          };
-
-          const action = text('Action','#');
+          This pattern shows a Form with inputs tailored to filtering Press Articles
+          
+          @see [@organisms/by-author/press-listing](https://mayflower.digital.mass.gov/?p=organisms-press-filters&view=c)
+        `)(() => {
 
           const defaultHeadingLevel = '2';
-          const coloredHeading = {
-            text:  text('Colored Heading Text', "Filter Results"),
-            color:  select('Colored Heading Color', coloredHeadingOptions.color, ""),
-            level: select('Colored Heading Level', headingOptions.levels, defaultHeadingLevel)
+          const pressFilterStartDate = {labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'mm/dd/yyyy', restrict: 'max'};
+          const pressFilterEndDate = {labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'today', restrict: 'max'};
+
+          const props = {
+            action: text('pressFilter.action', '#'),
+            coloredHeading: {
+              text: text('pressFilter.coloredHeading.text', "Filter Results"),
+              color: select('pressFilter.coloredHeading.color', coloredHeadingOptions.color, ""),
+              level: select('pressFilter.coloredHeading.level', headingOptions.levels, defaultHeadingLevel)
+            },
+            topic: {
+              label: text('pressFilter.topic.label', "Filter by Topic"),
+              id: "topic",
+              options: object('pressFilter.topic.options', selectOptions.options.topics)
+            },
+            pressType: {
+              label: text('pressFilter.pressType.label', "Filter by Announcement Type"),
+              id: "announcement-type",
+              options: object('pressFilter.pressType.options', selectOptions.options.pressTypes)
+            },
+            dateRange: {
+              label: text('pressFilter.dateRange.label', 'Date range'),
+              startDate: object('pressFilter.dateRange.startDate', pressFilterStartDate),
+              endDate: object('pressFilter.dateRange.endDate', pressFilterEndDate)
+            },
+            submitButton: {
+              text: text("pressFilter.submitButton.text", "Submit"),
+              type: select("pressFilter.submitButton.type", buttonOptions.type, "submit"),
+              size: select("pressFilter.submitButton.size", buttonOptions.size, "small"),
+              theme: select("pressFilter.submitButton.theme", buttonOptions.theme, ""),
+              outline: boolean("pressFilter.submitButton.outline", false)
+            }
           };
 
-          // @todo define somewhere so that we can use them whenever we implement this pattern
-          const topicOptions = [{text: "Select", value: ""},{text: "Topic 1", value: "topic1",}, {text: "Topic 2", value: "topic2"},{text: "Topic 3", value: "topic3"}];
-
-          const topic = {
-            label: text('Topic Filter label', "Filter by Topic"),
-            id: "topic",
-            options: object('Topic Filter options', topicOptions)
-          };
-
-          // @todo define somewhere so that we can use them whenever we implement this pattern
-          const pressTypeOptions = [{text: "Select", value: ""},{text: "Press Release", value: "press-release",}, {text: "Press Statement", value: "press-statement"},{text: "News Article", value: "news-article"}, {text: "Blog Post", value: "blog-poast"},{text: "Speech", value: "speech"}];
-
-          // @todo define somewhere so that we can use them whenever we implement this pattern
-          const pressType = {
-            label: text('Press Type label', "Filter by Announcement Type"),
-            id: "announcement-type",
-            options: object('Press Type Options', pressTypeOptions)
-          };
-
-          // If we want to augment the default for the orgSelector uncomment and populate below.
-          // const orgSelector = {}
-
-          // @todo define somewhere so that we can use them whenever we implement this pattern
-          const defaultStartDate = {labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'mm/dd/yyyy', restrict: 'max'};
-          const defaultEndDate = {labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'today', restrict: 'max'};
-
-          const dateRange = {
-            label: text('Date Range label', 'Date range'),
-            startDate: object('Date Range startDate', defaultStartDate),
-            endDate: object('Date Range endDate', defaultEndDate)
-          };
-
-          // options imported from ./Button.knobs.options
-          const submitButton = {
-            text: text("Button text", "Submit"),
-            type: select("Button type", buttonOptions.type, "submit"),
-            size: select("Button size", buttonOptions.size, "small"),
-            theme: select("Button theme", buttonOptions.theme, ""),
-            outline: boolean('Button Outline', false)
-          };
-
-          return(<PressFilters action={action} coloredHeading={coloredHeading} topic={topic} pressType={pressType} dateRange={dateRange} submitButton={submitButton}/>)
+          return(<PressFilters {...props}/>)
         })
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
+// import child components
 import Button from '../../../atoms/buttons/Button';
 import ColoredHeading from "../../../atoms/headings/ColoredHeading";
 import DateRange from '../../../molecules/DateRange';
@@ -46,28 +46,30 @@ class PressFilters extends React.Component {
 }
 
 PressFilters.propTypes = {
-  pressFilters: PropTypes.shape({
-    action: PropTypes.string,
-    // coloredHeading: PropTypes.shape({coloredHeading: PropTypes.oneOf([ColoredHeading])}),
-    coloredHeading: PropTypes.instanceOf(ColoredHeading),
-    topic: PropTypes.instanceOf(SelectBox).isRequired,
-    pressType: PropTypes.instanceOf(SelectBox).isRequired,
-    orgSelector: PropTypes.instanceOf(OrgSelector).isRequired,
-    dateRange: PropTypes.instanceOf(DateRange).isRequired,
-    submitButton: PropTypes.instanceOf(Button).isRequired
-  })
+  /** The form action  */
+  action: PropTypes.string,
+  /** @atoms/headings/ColoredHeading */
+  coloredHeading: PropTypes.instanceOf(ColoredHeading),
+  /** @atoms/forms/SelectBox */
+  topic: PropTypes.instanceOf(SelectBox).isRequired,
+  /** @atoms/forms/SelectBox */
+  pressType: PropTypes.instanceOf(SelectBox).isRequired,
+  /** @molecules/OrgSelector */
+  orgSelector: PropTypes.instanceOf(OrgSelector).isRequired,
+  /** @molecules/DateRange */
+  dateRange: PropTypes.instanceOf(DateRange).isRequired,
+  /** @atoms/forms/Button */
+  submitButton: PropTypes.instanceOf(Button).isRequired
 };
 
 PressFilters.defaultProps = {
-  pressFilters: {
-    action: '#',
-    coloredHeading: ColoredHeading.defaultProps,
-    topic: SelectBox.defaultProps,
-    pressType: SelectBox.defaultProps,
-    orgSelector: OrgSelector.defaultProps,
-    dateRange: DateRange.defaultProps,
-    submitButton: Button.defaultProps
-  }
+  action: '#',
+  coloredHeading: ColoredHeading.defaultProps,
+  topic: SelectBox.defaultProps,
+  pressType: SelectBox.defaultProps,
+  orgSelector: OrgSelector.defaultProps,
+  dateRange: DateRange.defaultProps,
+  submitButton: Button.defaultProps
 };
 
 export default PressFilters;
