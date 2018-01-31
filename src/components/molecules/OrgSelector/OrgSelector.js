@@ -205,7 +205,7 @@ class OrgInfo extends React.Component {
 }
 
 OrgInfo.propTypes = {
-  org: PropTypes.string
+  org: PropTypes.object
 };
 
 export default OrgSelector;

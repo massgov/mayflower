@@ -21,7 +21,7 @@ const ColoredHeading = (props) => {
 ColoredHeading.propTypes = {
   coloredHeading: PropTypes.shape({
     text: PropTypes.string.isRequired,
-    level: PropTypes.number,
+    level: PropTypes.string,
     color: PropTypes.oneOf(['','green','blue'])
   })
 };
@@ -29,7 +29,7 @@ ColoredHeading.propTypes = {
 ColoredHeading.defaultProps = {
   coloredHeading: {
     text: 'Colored Heading',
-    level: 2,
+    level: '2',
     color: ''
   }
 };

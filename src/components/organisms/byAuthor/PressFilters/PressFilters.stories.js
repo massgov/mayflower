@@ -22,12 +22,12 @@ storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
 
           // @todo define somewhere so that we can use them whenever we implement this pattern
           const headingLevels = {
-            1: 1,
-            2: 2,
-            3: 3,
-            4: 4,
-            5: 5,
-            6: 6
+            1: '1',
+            2: '2',
+            3: '3',
+            4: '4',
+            5: '5',
+            6: '6'
           };
 
 
@@ -42,7 +42,7 @@ storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
             coloredHeading: {
               text:  text('Colored Heading Text', "Filter Results"),
               color:  select('Colored Heading Color', colorOptions, ""),
-              level: select('Colored Heading Level', headingLevels, 2)
+              level: select('Colored Heading Level', headingLevels, headingLevels[2])
             }
           };
 
