@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SelectBox extends React.Component {
-  
+
   constructor(props){
     super(props)
     this.state = {
@@ -30,7 +30,7 @@ class SelectBox extends React.Component {
     return (
       <section className={classNames}>
         <label htmlFor={this.props.id} className="ma__select-box__label">{this.props.label}</label>
-        
+
         <div className="ma__select-box__field">
           <select
             name={this.props.id}
@@ -51,7 +51,7 @@ class SelectBox extends React.Component {
             <span className="ma__select-box__icon"></span></div>
         </div>
       </section>
-    ) 
+    )
   };
 };
 
@@ -69,7 +69,7 @@ SelectBox.propTypes = {
     ]),
   })).isRequired,
   onChange: PropTypes.func,
-  onChangeCallback: PropTypes.func 
+  onChangeCallback: PropTypes.func
 };
 
 SelectBox.defaultProps = {
@@ -77,7 +77,7 @@ SelectBox.defaultProps = {
   label: 'Color Scheme:',
   required: true,
   id: 'color-select',
-  options: {text: "Green", value: "green"}
+  options: [{text: "Green", value: "green"},{text:"Blue", value: "blue"}]
 };
 
 export default SelectBox;
