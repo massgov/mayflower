@@ -28,7 +28,7 @@ ColoredHeading.propTypes = {
 
 ColoredHeading.defaultProps = {
   coloredHeading: {
-    text: '',
+    text: 'Colored Heading',
     level: 2,
     color: ''
   }
