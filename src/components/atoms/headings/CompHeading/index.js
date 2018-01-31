@@ -28,13 +28,21 @@ const CompHeading = (props) => {
 };
 
 CompHeading.propTypes = {
+      /** The heading text displayed. */
       title: PropTypes.string.isRequired,
+      /** Hidden context of title element for accessibility. */
       titleContext: PropTypes.string,
+      /** The heading level e.g. H1, H2, etc. */
       level: PropTypes.number,
+      /** Being deprecated, use level instead. */
       sub: PropTypes.bool,
+      /** The color of the heading underling. */
       color: PropTypes.string,
+      /** The heading id. */
       id: PropTypes.string,
+      /** Whether you want the heading to be centered or left on the page. */
       centered: PropTypes.bool,
+      /** Whether you want the heading to be a sidebar or not. */
       sidebar: PropTypes.bool
 };
 
