@@ -2,16 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SidebarHeading = (props) => {
-  const SidebarHeadingDynamicLevel = `h${props.level || 2}`;
+
+  const sidebarHeading = props
+  const Element = `h${sidebarHeading.level || 2}`;
+  
   return(
-    <SidebarHeadingDynamicLevel className="ma__sidebar-heading">
-      { props.title }
-    </SidebarHeadingDynamicLevel>
+    <Element className="ma__sidebar-heading">
+      { sidebarHeading.title }
+    </Element>
   );
+
 };
 
 SidebarHeading.propTypes = {
+  /** The heading level e.g. H1, H2, etc. */
   level: PropTypes.number,
+  /**  The title text shown by the heading */
   title: PropTypes.string
 };
 

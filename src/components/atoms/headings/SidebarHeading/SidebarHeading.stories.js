@@ -2,16 +2,25 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { text, number, withKnobs } from '@storybook/addon-knobs/react';
+import { text, select, withKnobs } from '@storybook/addon-knobs/react';
 
 import sidebarMarkdown from './SidebarHeading.md';
-import SidebarHeading from './SidebarHeading';
-import data from './SidebarHeading.json';
+import SidebarHeading from './index';
 
 storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
   .add('SidebarHeading', withInfo({ sidebarMarkdown })(() => {
-    const title = text('title', data.sidebarHeading.title || '');
-    const level = number('level', data.sidebarHeading.level || 2);
+
+  	const levelOptions = {
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5',
+        6: '6'
+      };
+    
+    const title = text('sidebarHeading.title', 'Key Agencies');
+    const level = select('sidebarHeading.level', levelOptions, levelOptions[2] );
 
     return(<SidebarHeading title={title} level={level} />);
   }));
