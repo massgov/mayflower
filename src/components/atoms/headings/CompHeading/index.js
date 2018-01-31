@@ -27,27 +27,31 @@ const CompHeading = ({ data }) => {
 };
 
 CompHeading.propTypes = {
-  data: PropTypes.objectOf({
-    title: PropTypes.string.isRequired,
-    titleContext: PropTypes.string,
-    level: PropTypes.number,
-    sub: PropTypes.bool,
-    color: PropTypes.string,
-    id: PropTypes.string,
-    centered: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
-    sidebar: PropTypes.bool
+  data: PropTypes.shape({
+    compHeading: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      titleContext: PropTypes.string,
+      level: PropTypes.number,
+      sub: PropTypes.bool,
+      color: PropTypes.string,
+      id: PropTypes.string,
+      centered: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+      sidebar: PropTypes.bool
+    })
   })
 };
 
 CompHeading.defaultProps = {
   data: {
-    titleContext: '',
-    level: 2,
-    sub: false,
-    color: '',
-    id: '',
-    centered: false,
-    sidebar: false
+    compHeading: {
+      titleContext: '',
+      level: 2,
+      sub: false,
+      color: '',
+      id: '',
+      centered: false,
+      sidebar: false
+    }
   }
 };
 
