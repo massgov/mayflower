@@ -2,22 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = (props) => {
-  const buttonSize = props.size ? ` ma__button--${props.size}` : '';
-  const buttonStyle = props.outline ? ' ma__button--minor' : '';
-  const buttonTheme = props.theme ? ` ma__button--${props.theme}` : '';
+  const button = props;
+  const buttonSize = button.size ? ` ma__button--${button.size}` : '';
+  const buttonStyle = button.outline ? ' ma__button--minor' : '';
+  const buttonTheme = button.theme ? ` ma__button--${button.theme}` : '';
   const classNames = `ma__button${buttonSize}${buttonStyle}${buttonTheme}`;
-  const Element = props.href ? 'a' : 'button';
+  const Element = button.href ? 'a' : 'button';
 
   return(
     <Element
       className={classNames}
-      type={props.type}
-      href={props.href}
-      title={props.info}
-      aria-label={props.info}
-      onClick={props.onClick}
+      type={button.type}
+      href={button.href}
+      title={button.info}
+      aria-label={button.info}
+      onClick={button.onClick}
     >
-      {props.text}
+      {button.text}
     </Element>
   );
 };
@@ -34,7 +35,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  onClick: () => {},
   href: '',
   info: '',
   type: 'button',

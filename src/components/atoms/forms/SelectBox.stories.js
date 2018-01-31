@@ -8,7 +8,7 @@ import { action } from '@storybook/addon-actions';
 import SelectBox from './SelectBox';
 
 storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
-  .add('SelectBox', 
+  .add('SelectBox',
     withInfo(`
       
       ### Description
@@ -21,8 +21,8 @@ storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
     
     `)(() => {
 
-      const label = text('info','Color Scheme:')
-      const id = text('id', 'color-select')
+      const label = text('info','Color Scheme:');
+      const id = text('id', 'color-select');
 
       const defaultOptions = [{text: "Green", value: "green",}, {text: "Blue", value: "blue",}];
       const options = object('options', defaultOptions);
@@ -30,5 +30,9 @@ storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
       const defaultValue = true;
       const required = boolean('required', defaultValue);
 
-      return(<SelectBox label={label} options={options} id={id} required={required} onChange={action('on-change')} onChangeCallback={ () => console.log('Hi!')}/>) })
+      const onChangeCallback = () => {
+        console.log('This is a custom onChange callback passed to the select!')
+      };
+
+      return(<SelectBox label={label} options={options} id={id} required={required} onChange={action('on-change')} onChangeCallback={ onChangeCallback }/>) })
   );

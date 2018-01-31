@@ -15,30 +15,28 @@ class PressFilters extends React.Component {
   }
 
   render () {
-    const {pressFilters} = this.props;
-    console.log(this.props);
-    console.log(pressFilters);
+    const {action, coloredHeading, topic, orgSelector, pressType, dateRange, submitButton} = this.props;
     return(
       <section className="ma__press-filters">
         <div className="ma__press-filters__container">
           <header className="ma__press-filters__heading">
-            <ColoredHeading {...pressFilters.coloredHeading} />
+            <ColoredHeading {...coloredHeading} />
           </header>
-          <form className="ma__press-filters__form js-press-filters" action={ pressFilters.action }>
+          <form className="ma__press-filters__form js-press-filters" action={ action }>
             <div className="ma__press-filters__organizations">
-              <OrgSelector {...pressFilters.orgSelector} />
+              <OrgSelector {...orgSelector} />
             </div>
             <div className="ma__press-filters__topic">
-              <SelectBox {...pressFilters.topic}/>
+              <SelectBox {...topic}/>
             </div>
             <div className="ma__press-filters__type">
-              <SelectBox {...pressFilters.pressType}/>
+              <SelectBox {...pressType}/>
             </div>
             <div className="ma__press-filters__date">
-              <DateRange {...pressFilters.dateRange} />
+              <DateRange {...dateRange} />
             </div>
             <div className="ma__press-filters__button">
-              <Button {...pressFilters.submitButton} />
+              <Button {...submitButton} />
             </div>
           </form>
         </div>
@@ -50,6 +48,7 @@ class PressFilters extends React.Component {
 PressFilters.propTypes = {
   pressFilters: PropTypes.shape({
     action: PropTypes.string,
+    // coloredHeading: PropTypes.shape({coloredHeading: PropTypes.oneOf([ColoredHeading])}),
     coloredHeading: PropTypes.instanceOf(ColoredHeading),
     topic: PropTypes.instanceOf(SelectBox).isRequired,
     pressType: PropTypes.instanceOf(SelectBox).isRequired,
