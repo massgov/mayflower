@@ -18,7 +18,7 @@ const CompHeading = ({ data }) => {
   classes = classes.join(' ');
 
   return(
-    <Element className={classes} tabIndex="-1" id={compHeading.id ? compHeading.id : null}>
+    <Element className={classes} tabIndex="-1" id={compHeading.id || null}>
       {compHeading.title}
       {compHeading.titleContext &&
       <span className="visually-hidden" >{compHeading.titleContext}</span>}
