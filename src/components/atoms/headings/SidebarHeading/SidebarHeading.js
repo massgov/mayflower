@@ -1,25 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SidebarHeading = ({ data }) => {
-  const { sidebarHeading } = data;
-  const SidebarHeadingDynamicLevel = `h${sidebarHeading.level || 2}`;
+const SidebarHeading = (props) => {
+  const SidebarHeadingDynamicLevel = `h${props.level || 2}`;
   return(
     <SidebarHeadingDynamicLevel className="ma__sidebar-heading">
-      { sidebarHeading.title }
+      { props.title }
     </SidebarHeadingDynamicLevel>
   );
 };
 
 SidebarHeading.propTypes = {
-  data: PropTypes.shape({
-    level: PropTypes.number,
-    title: PropTypes.string
-  })
+  level: PropTypes.number,
+  title: PropTypes.string
 };
 
 SidebarHeading.defaultProps = {
-  data: {}
+  level: 2,
+  title: ''
 };
 
 export default SidebarHeading;
