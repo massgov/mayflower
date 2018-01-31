@@ -5,7 +5,7 @@ import SelectBox from '../../atoms/forms/SelectBox';
 class OrgSelector extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       org: {}
     };
@@ -62,22 +62,74 @@ OrgSelector.propTypes = {
 };
 
 OrgSelector.defaultProps = {
-  selectBox: {label: 'State organization', required: false, options: [{value: '', text: 'All Organizations'},{value: 'attorney-general-office', text: 'Attorney General\'s Office'},{value: 'governors-office', text: 'Governor\'s Office'}]},
+  selectBox: {
+    label: 'State organization',
+    required: false,
+    options: [
+      {
+        value: '',
+        text: 'All Organizations'
+      },
+      {
+        value: 'attorney-general-office',
+        text: 'Attorney General\'s Office'
+      },
+      {
+        value: 'governors-office',
+        text: 'Governor\'s Office'
+      }
+    ]
+  },
   organizations: [
-  { value: '' },
-  { value: 'attorney-general-office',
-    image: { href: '#', alt: 'Maura Healey', src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png', height: '100', width: '100', },
-    name: { href: '#', text: 'Maura Healey', },
+  {
+    value: '',
+    image: null,
+    name: null,
+    jobTitle: '',
+    message: '',
+    moreLink: null
+  },
+  {
+    value: 'attorney-general-office',
+    image: {
+      href: '#',
+      alt: 'Maura Healey',
+      src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+      height: '100',
+      width: '100',
+    },
+    name: {
+      href: '#',
+      text: 'Maura Healey',
+    },
     jobTitle: "Attorney General",
     message: 'The Attorney General is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.',
-    moreLink: { href: '#', text: 'more information', info: 'learn more about the Organization', },
-  }, {
+    moreLink: {
+      href: '#',
+      text: 'more information',
+      info: 'learn more about the Organization',
+    },
+  },
+  {
     value: 'governors-office',
-    image: {href: '#', alt: 'Charles Baker', src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png', height: '100', width: '100', },
-    name: {href: '#', text: 'Charles Baker', },
+    image: {
+      href: '#',
+      alt: 'Charles Baker',
+      src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+      height: '100',
+      width: '100',
+    },
+    name: {
+      href: '#',
+      text: 'Charles Baker',
+    },
     jobTitle: "Governor",
     message: 'The Governor is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.',
-    moreLink: { href: '#', text: 'more information', info: 'learn more about the Organization', },
+    moreLink: {
+      href: '#',
+      text: 'more information',
+      info: 'learn more about the Organization',
+    },
   }]
 };
 
@@ -153,7 +205,7 @@ class OrgInfo extends React.Component {
 }
 
 OrgInfo.propTypes = {
-  org: PropTypes.objectOf(PropTypes.string),
+  org: PropTypes.string
 };
 
 export default OrgSelector;
