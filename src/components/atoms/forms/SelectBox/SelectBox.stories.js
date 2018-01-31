@@ -16,7 +16,7 @@ storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
       const label = text('info','Color Scheme:');
       const id = text('id', 'color-select');
       // selectOptions imported above
-      const options = object('options', selectOptions);
+      const options = object('options', selectOptions.colors);
 
       const defaultValue = true;
       const required = boolean('required', defaultValue);
