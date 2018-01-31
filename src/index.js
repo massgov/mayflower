@@ -10,6 +10,7 @@ export { SocialIcon } from './components/SocialIcon';
 export { Button } from './components/atoms/buttons/Button';
 // @atoms/@media
 export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
+// @atoms/@forms
 export { InputDate } from './components/atoms/forms/InputDate';
 export { SelectBox } from './components/atoms/forms/SelectBox';
 // @atoms/@icons

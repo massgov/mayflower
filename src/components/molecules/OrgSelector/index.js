@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectBox from '../../atoms/forms/SelectBox';
+import SelectBox from '../../atoms/forms/SelectBox/index';
 
 class OrgSelector extends React.Component {
 

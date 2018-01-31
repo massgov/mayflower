@@ -5,7 +5,8 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import SelectBox from './SelectBox';
+import SelectBox from './index';
+// import SelectBox from './SelectBox.md';
 
 storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
   .add('SelectBox',

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 
 import Button from '../../../atoms/buttons/Button';
-import ColoredHeading from "../../../atoms/headings/ColoredHeading/index";
-import DateRange from '../../../molecules/DateRange/DateRange';
-import OrgSelector from '../../../molecules/OrgSelector/OrgSelector';
+import ColoredHeading from "../../../atoms/headings/ColoredHeading";
+import DateRange from '../../../molecules/DateRange';
+import OrgSelector from '../../../molecules/OrgSelector';
 import SelectBox from '../../../atoms/forms/SelectBox';
 
 class PressFilters extends React.Component {
