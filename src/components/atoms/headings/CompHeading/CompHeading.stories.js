@@ -16,17 +16,15 @@ storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
       5: 5,
       6: 6
     };
-    const data = {
-      compHeading: {
-        title: text('title', 'Title text'),
-        titleContext: text('titleContext', ''),
-        id: text('id', ''),
-        sub: boolean('sub', false),
-        level: select('level', levelOptions),
-        color: select('color', { '': '', yellow: 'yellow' }),
-        centered: boolean('centered', false),
-        sidebar: boolean('sidebar', false)
-      }
-    };
-    return(<CompHeading data={data} />);
+    const props = {
+        title: text('compHeading.title', 'Title text'),
+        titleContext: text('compHeading.titleContext', ''),
+        id: text('compHeading.id', ''),
+        sub: boolean('compHeading.sub', false),
+        level: select('compHeading.level', levelOptions, levelOptions[3]),
+        color: select('compHeading.color', { '': 'green (default)', yellow: 'yellow' }),
+        centered: boolean('compHeading.centered', false),
+        sidebar: boolean('compHeading.sidebar', false)
+      };
+    return(<CompHeading {...props} />);
   }));

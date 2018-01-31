@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CompHeading = ({ data }) => {
-  const { compHeading } = data;
+const CompHeading = (props) => {
+  
+  const compHeading  = props;
   const Element = `h${compHeading.sub ? 3 : compHeading.level}`;
 
   let classes = ['ma__comp-heading'];
@@ -27,23 +28,17 @@ const CompHeading = ({ data }) => {
 };
 
 CompHeading.propTypes = {
-  data: PropTypes.shape({
-    compHeading: PropTypes.shape({
       title: PropTypes.string.isRequired,
       titleContext: PropTypes.string,
       level: PropTypes.number,
       sub: PropTypes.bool,
       color: PropTypes.string,
       id: PropTypes.string,
-      centered: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
+      centered: PropTypes.bool,
       sidebar: PropTypes.bool
-    })
-  })
 };
 
 CompHeading.defaultProps = {
-  data: {
-    compHeading: {
       titleContext: '',
       level: 2,
       sub: false,
@@ -51,8 +46,6 @@ CompHeading.defaultProps = {
       id: '',
       centered: false,
       sidebar: false
-    }
-  }
 };
 
 export default CompHeading;
