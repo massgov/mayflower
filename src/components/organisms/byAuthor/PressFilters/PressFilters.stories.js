@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs/react';
 
-import PressFilters from './PressFilters';
+import PressFilters from './index';
 
 storiesOf('Organisms/By-Author/PressFilters', module).addDecorator(withKnobs)
     .add('PressFilters',
