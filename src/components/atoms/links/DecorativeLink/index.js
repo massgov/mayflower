@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SvgArrow from '../../icons/SvgArrow/SvgArrow';
+import SvgArrow from '../../icons/SvgArrow/';
 
 const DecorativeLink = props => (
   <span className="ma__decorative-link">
