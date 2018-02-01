@@ -45,7 +45,13 @@ Button.propTypes = {
   outline: PropTypes.bool
 };
 
-// Use data from the pattern json file as default
-Button.defaultProps = data.button;
+// Only set defaults for the configuration variables which need to be opted in to activate.
+Button.defaultProps = {
+  href: '',
+  type: '',
+  size: '',
+  theme: '',
+  outline: false
+};
 
 export default Button;
