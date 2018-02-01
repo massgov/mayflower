@@ -7,6 +7,7 @@ class SelectBox extends React.Component {
     this.state = {
       selected: props.options[0].text
     };
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleSelect(event) {
@@ -69,13 +70,7 @@ SelectBox.propTypes = {
 };
 
 SelectBox.defaultProps = {
-  required: true,
-  onChange: () => {},
-  onChangeCallback: () => {},
-  options: [
-    { text: 'Green', value: 'green' },
-    { text: 'Blue', value: 'blue' }
-  ]
+  required: false
 };
 
 export default SelectBox;
