@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object } from '@storybook/addon-knobs/react';
 
 import DateRange from './index';
 
@@ -32,6 +32,6 @@ storiesOf('Molecules/DateRange', module).addDecorator(withKnobs)
       };
       const endDate = object('endDate', defaultEndDate);
 
-    	return(<DateRange label={label} startDate={startDate} endDate={endDate} />);
+      return(<DateRange label={label} startDate={startDate} endDate={endDate} />);
     })
   );

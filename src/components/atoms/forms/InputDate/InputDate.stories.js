@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
 
 import InputDate from './index';
 // import InputDate from './InputDate.md';
@@ -33,6 +33,6 @@ storiesOf('Atoms/Forms/InputDate', module).addDecorator(withKnobs)
       const restrictOptions = { '': 'default', min: 'min', max: 'max' };
       const restrict = select('restrict', restrictOptions);
 
-    	return(<InputDate labelText={labelText} required={required} id={id} name={name} placeholder={placeholder} restrict={restrict} />);
+      return(<InputDate labelText={labelText} required={required} id={id} name={name} placeholder={placeholder} restrict={restrict} />);
     })
   );

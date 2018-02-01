@@ -7,12 +7,12 @@ import { withKnobs, text, boolean, number, select, object } from '@storybook/add
 import PressFilters from './index';
 
 // import knob options for child patterns
-import buttonOptions from '../../../atoms/buttons/Button/Button.knobs.options';
-import headingOptions from '../../../atoms/headings/Headings.knob.options';
-import coloredHeadingOptions from '../../../atoms/headings/ColoredHeading/ColoredHeadings.knob.options';
-import selectOptions from '../../../atoms/forms/SelectBox/SelectBox.knobs.options';
+import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
+import headingOptions from '../../atoms/headings/Headings.knob.options';
+import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeadings.knob.options';
+import selectOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 
-storiesOf('Organisms/By-Author', module).addDecorator(withKnobs)
+storiesOf('Organisms/PressFilters', module).addDecorator(withKnobs)
   .add(
     'PressFilters',
     withInfo(`
