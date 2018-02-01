@@ -2,3 +2,5 @@ tests/
 es/
 lib/
 umd/
+demo/
+stories/

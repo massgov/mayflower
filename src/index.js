@@ -25,7 +25,6 @@ export { SvgArrowBent } from './components/atoms/icons/SvgArrowBent';
 // @molecules
 export { FooterLinks } from './components/molecules/FooterLinks';
 export { SocialLinks } from './components/molecules/SocialLinks';
-export { DateRange } from './components/molecules/DateRange/DateRange';
 export { DateRange } from './components/molecules/DateRange';
 
 // @organisms

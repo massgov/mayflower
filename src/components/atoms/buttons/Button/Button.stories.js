@@ -10,18 +10,17 @@ import buttonOptions from './Button.knobs.options';
 
 storiesOf('@atoms/buttons', module).addDecorator(withKnobs)
   .add('Button', withInfo(ButtonDocs)(() => {
-      const defaultOutline = false;
-      const props = {
-        theme: select('button.theme', buttonOptions.theme),
-        type: select('button.type', buttonOptions.type),
-        size: select('button.size', buttonOptions.size),
-        outline: boolean('button.outline', defaultOutline),
-        info: text('button.info', 'this will be the tooltip text on hover'),
-        text: text('button.text', 'button'),
-        href: text('button.href', '')
-      };
+    const defaultOutline = false;
+    const props = {
+      theme: select('button.theme', buttonOptions.theme),
+      type: select('button.type', buttonOptions.type),
+      size: select('button.size', buttonOptions.size),
+      outline: boolean('button.outline', defaultOutline),
+      info: text('button.info', 'this will be the tooltip text on hover'),
+      text: text('button.text', 'button'),
+      href: text('button.href', '')
+    };
     return(
-        <Button {...props} />
-      );
-      })
-  );
+      <Button {...props} />
+    );
+  }));
