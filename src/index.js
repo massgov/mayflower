@@ -28,4 +28,4 @@ export { SocialLinks } from './components/molecules/SocialLinks';
 export { DateRange } from './components/molecules/DateRange';
 
 // @organisms
-export { Footer } from './components/organisms/Footer';
+export { Footer } from './components/organisms/footer';
