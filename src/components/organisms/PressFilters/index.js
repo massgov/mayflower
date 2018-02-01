@@ -9,9 +9,7 @@ import OrgSelector from '../../molecules/OrgSelector';
 import SelectBox from '../../atoms/forms/SelectBox';
 
 const PressFilters = (props) => {
-  const {
-    action, coloredHeading, topic, orgSelector, pressType, dateRange, submitButton
-  } = this.props;
+  const { action, coloredHeading, topic, orgSelector, pressType, dateRange, submitButton } = props;
   return(
     <section className="ma__press-filters">
       <div className="ma__press-filters__container">
