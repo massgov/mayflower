@@ -49,7 +49,7 @@ class OrgSelector extends React.Component {
  */
 const OrgInfo = (props) => {
   const org = props.org;
-  if (Object.keys(org).length > 0 && org.hasOwnProperty('value')) {
+  if (Object.keys(org).length > 0 && Object.prototype.hasOwnProperty.call(org, 'value')) {
     return(
       <div className="ma__org-selector__org-info js-org-info">
         <section className="ma__org-info">
