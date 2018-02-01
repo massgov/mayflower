@@ -16,10 +16,10 @@ storiesOf('atoms/headings', module).addDecorator(withKnobs)
       5: '5',
       6: '6'
     };
-    const coloredHeading = {
+    const props = {
       text: text('text', 'Title text'),
       level: select('level', levelOptions, 2),
       color: select('color', { '': '', green: 'green' })
     };
-    return(<ColoredHeading coloredHeading={coloredHeading} />);
+    return(<ColoredHeading {...props} />);
   }));
