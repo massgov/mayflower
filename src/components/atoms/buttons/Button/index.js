@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import button default data from pattern json
-import data from './button.json';
-
 const Button = (props) => {
   const button = props;
   const buttonSize = button.size ? ` ma__button--${button.size}` : '';
