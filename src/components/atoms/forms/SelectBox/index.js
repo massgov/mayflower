@@ -2,32 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SelectBox extends React.Component {
-
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       selected: props.options[0].text
-    }
+    };
   }
 
-  handleSelect = (event) => {
+  handleSelect(event) {
     const selectedIndex = event.nativeEvent.target.selectedIndex;
     const selected = event.target[selectedIndex].text;
     const selectedValue = event.target[selectedIndex].value;
-    this.setState({selected});
+    this.setState({ selected });
 
     // invokes custom function if passed in the component
-    if (typeof this.props.onChangeCallback === "function") {
+    if (typeof this.props.onChangeCallback === 'function') {
       this.props.onChangeCallback(selectedIndex, selected, selectedValue);
     }
-  };
+  }
 
-  render () {
-
+  render() {
     const classNames = !this.props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown';
     const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
     const selected = this.state.selected;
-    return (
+    return(
       <section className={classNames}>
         <label htmlFor={this.props.id} className="ma__select-box__label">{this.props.label}</label>
 
@@ -36,21 +34,22 @@ class SelectBox extends React.Component {
             name={this.props.id}
             id={this.props.id}
             className={selectClassNames}
-            onChange={this.handleSelect}>
-            { this.props.options.map(option =>
+            onChange={this.handleSelect}
+          >
+            {this.props.options.map(option => (
               <option key={option.value} value={option.value}>
                 {option.text}
               </option>
-              )
-            }
+            ))}
           </select>
-        <div className="ma__select-box__link">
+          <div className="ma__select-box__link">
             <span className="js-dropdown-link">{selected}</span>
-            <span className="ma__select-box__icon"></span></div>
+            <span className="ma__select-box__icon" />
+          </div>
         </div>
       </section>
-    )
-  };
+    );
+  }
 }
 
 SelectBox.propTypes = {
@@ -64,16 +63,15 @@ SelectBox.propTypes = {
     ]),
     text: PropTypes.oneOfType([
       PropTypes.string
-    ]),
+    ])
   })).isRequired,
   onChangeCallback: PropTypes.func
 };
 
 SelectBox.defaultProps = {
-  label: 'Color Scheme:',
   required: true,
-  id: 'color-select',
-  options: [{text: "Green", value: "green"},{text:"Blue", value: "blue"}]
+  onChange: () => {},
+  onChangeCallback: () => {}
 };
 
 export default SelectBox;

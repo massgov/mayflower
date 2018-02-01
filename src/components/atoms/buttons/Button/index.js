@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = (props) => {
-  const button = props;
+const Button = (button) => {
   const buttonSize = button.size ? ` ma__button--${button.size}` : '';
   const buttonStyle = button.outline ? ' ma__button--minor' : '';
   const buttonTheme = button.theme ? ` ma__button--${button.theme}` : '';
@@ -43,6 +42,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  onClick: () => {},
   href: '',
   info: '',
   type: 'button',

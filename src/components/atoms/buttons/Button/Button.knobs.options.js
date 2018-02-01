@@ -17,4 +17,4 @@ export default {
     '': 'no size (default)',
     small: 'small'
   }
-}
+};
