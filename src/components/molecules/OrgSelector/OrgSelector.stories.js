@@ -7,7 +7,8 @@ import { withKnobs, text, boolean, number, select, object } from '@storybook/add
 import OrgSelector from './index';
 
 storiesOf('Molecules/OrgSelector', module).addDecorator(withKnobs)
-  .add('OrgSelector', 
+  .add(
+    'OrgSelector',
     withInfo(`
       
       ### Description
@@ -18,7 +19,5 @@ storiesOf('Molecules/OrgSelector', module).addDecorator(withKnobs)
       <DateRange></DateRange>
       ~~~
     
-    `)(() => {
-    	return(<OrgSelector></OrgSelector>)
-    })
+    `)(() => (<OrgSelector />))
   );

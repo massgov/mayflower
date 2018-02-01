@@ -22,7 +22,7 @@ ColoredHeading.propTypes = {
   /** The heading text  */
   text: PropTypes.string.isRequired,
   level: PropTypes.number,
-  color: PropTypes.oneOf(['','green','blue'])
+  color: PropTypes.oneOf(['', 'green', 'blue'])
 };
 
 ColoredHeading.defaultProps = {

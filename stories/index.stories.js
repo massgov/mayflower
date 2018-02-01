@@ -30,13 +30,13 @@ storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo(
 storiesOf('Atoms/Buttons/Button', module)
   .add('Button', () => <Button>Submit</Button>)
   .add('Button with info', () => <Button info="Testing info">Submit</Button>)
-  .add('Button with text', () => <Button text="Example text"></Button>)
+  .add('Button with text', () => <Button text="Example text" />)
   .add('Button with type', () => <Button type="submit">Submit</Button>)
   .add('Button with size', () => <Button size="small">Submit</Button>)
   .add('Button with theme', () => <Button theme="secondary">Submit</Button>)
   .add('Button with href', () => <Button href="http://www.google.com">Click></Button>)
-  .add('Button as quarternary', () => <Button theme='quaternary'></Button>)
-  .add('Button as secondary', () => <Button theme='secondary'></Button>);
+  .add('Button as quarternary', () => <Button theme="quaternary" />)
+  .add('Button as secondary', () => <Button theme="secondary" />);
 
 
 storiesOf('Atoms/Media/Site Logo', module)
@@ -44,7 +44,8 @@ storiesOf('Atoms/Media/Site Logo', module)
 
 
 storiesOf('Atoms/Button', module).addDecorator(withKnobs)
-  .add('Button', 
+  .add(
+    'Button',
     withInfo(`
       Testing this... 
     
@@ -53,28 +54,31 @@ storiesOf('Atoms/Button', module).addDecorator(withKnobs)
       ~~~
     
     `)(() => {
-    	const themeOptions = { '': 'default', secondary: 'secondary', quaternary: 'quaternary', };
-    	const theme = select( 'theme', themeOptions );
-    	
-    	const typeOptions = { submit: 'submit', reset: 'reset', button: 'button', '': 'default', };
-    	const type = select('type',typeOptions);
-    	
+    	const themeOptions = { '': 'default', secondary: 'secondary', quaternary: 'quaternary' };
+    	const theme = select('theme', themeOptions);
+
+    	const typeOptions = {
+        submit: 'submit', reset: 'reset', button: 'button', '': 'default'
+      };
+    	const type = select('type', typeOptions);
+
     	const defaultValue = false;
     	const outline = boolean('outline', defaultValue);
-    	
-    	const sizeOptions = { '': 'default', small: 'small', };
-    	const size = select( 'size', sizeOptions);
-    	
-    	const info = text('info','information')
-    	const buttonText = text('text', 'button')
-    	const href = text('href','')
 
-    	return(<Button theme={theme} type={type} size={size} info={info} text={buttonText} href={href} outline={outline}></Button>)
+    	const sizeOptions = { '': 'default', small: 'small' };
+    	const size = select('size', sizeOptions);
+
+    	const info = text('info', 'information');
+    	const buttonText = text('text', 'button');
+    	const href = text('href', '');
+
+    	return(<Button theme={theme} type={type} size={size} info={info} text={buttonText} href={href} outline={outline} />);
     })
   );
 
-  storiesOf('Atoms/Forms/InputDate', module).addDecorator(withKnobs)
-  .add('InputDate', 
+storiesOf('Atoms/Forms/InputDate', module).addDecorator(withKnobs)
+  .add(
+    'InputDate',
     withInfo(`
       Testing this... 
     
@@ -82,9 +86,7 @@ storiesOf('Atoms/Button', module).addDecorator(withKnobs)
       <InputDate></InputDate>
       ~~~
     
-    `)(() => {
-    	return(<InputDate></InputDate>)
-    })
+    `)(() => (<InputDate />))
   );
 
 storiesOf('Organisms', module)
