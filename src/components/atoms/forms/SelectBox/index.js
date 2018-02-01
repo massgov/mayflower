@@ -64,14 +64,18 @@ SelectBox.propTypes = {
     text: PropTypes.oneOfType([
       PropTypes.string
     ])
-  })).isRequired,
+  })),
   onChangeCallback: PropTypes.func
 };
 
 SelectBox.defaultProps = {
   required: true,
   onChange: () => {},
-  onChangeCallback: () => {}
+  onChangeCallback: () => {},
+  options: [
+    { text: 'Green', value: 'green' },
+    { text: 'Blue', value: 'blue' }
+  ]
 };
 
 export default SelectBox;

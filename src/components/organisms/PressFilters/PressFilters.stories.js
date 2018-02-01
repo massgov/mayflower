@@ -12,7 +12,7 @@ import headingOptions from '../../atoms/headings/Headings.knob.options';
 import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeadings.knob.options';
 import selectOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 
-storiesOf('Organisms/By-Author', module).addDecorator(withKnobs)
+storiesOf('Organisms', module).addDecorator(withKnobs)
   .add(
     'PressFilters',
     withInfo(`
