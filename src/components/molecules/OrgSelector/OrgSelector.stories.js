@@ -24,14 +24,13 @@ storiesOf('molecules', module).addDecorator(withKnobs)
     `)(() => {
       const props = {
         selectBox: {
-          label: text('orgSelector.selectBox.label', "State organization"),
-          id: "state-organization",
-          options: object('orgSelector.selectBox.options', selectBoxOptions.options.orgSelector),
+          label: text('orgSelector.selectBox.label', 'State organization'),
+          id: 'state-organization',
+          options: object('orgSelector.selectBox.options', selectBoxOptions.options.orgSelector)
         },
         organizations: object('orgSelector.organizations', orgSelectorOptions.organizations)
       };
 
-      return(<OrgSelector {...props}/>)
-
+      return(<OrgSelector {...props} />);
     })
   );

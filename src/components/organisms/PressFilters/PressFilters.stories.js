@@ -38,9 +38,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         },
         orgSelector: {
           selectBox: {
-            label: text('orgSelector.selectBox.label', "State organization"),
-            id: "state-organization",
-            options: object('orgSelector.selectBox.options', selectOptions.options.orgSelector),
+            label: text('orgSelector.selectBox.label', 'State organization'),
+            id: 'state-organization',
+            options: object('orgSelector.selectBox.options', selectOptions.options.orgSelector)
           },
           organizations: object('orgSelector.organizations', orgSelectorOptions.organizations)
         },
