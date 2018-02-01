@@ -37,7 +37,7 @@ class InputDate extends React.Component {
           className={classNames}
           name={this.props.name}
           id={this.props.id}
-          type="text"
+          type="date"
           placeholder={this.props.placeholder}
           data-type="date"
           data-restrict={this.props.restrict}
