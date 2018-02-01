@@ -36,7 +36,7 @@ class OrgSelector extends React.Component {
     const orgSelector = this.props;
     return(
       <section className="ma__org-selector js-org-selector">
-        <SelectBox id={orgSelector.selectBox.id} options={orgSelector.selectBox.options} label={orgSelector.selectBox.label} onChangeCallback={this.setSelectedOrgState} />
+        <SelectBox {...orgSelector.selectBox} onChangeCallback={this.setSelectedOrgState} />
         <OrgInfo org={this.state.selectedOrg} />
       </section>
     );
