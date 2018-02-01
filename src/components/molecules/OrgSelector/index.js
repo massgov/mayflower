@@ -13,18 +13,17 @@ class OrgSelector extends React.Component {
 
   /**
    * Sets the state of selected from the SelectBox, so <OrgInfo/> knows what to render.
-   * @param selectedIndex
-   * @param selected
    * @param selectedValue
    */
-  setSelectedOrgState(selectedIndex, selected, selectedValue) {
-    // Get the selected org based on the selected value
+  setSelectedOrgState(selectedValue) {
+    // Get the selected org based on the selected value.
     const selectedOrg = this.props.organizations.filter(org => org.value === selectedValue);
-    // If there is an org that matches the value, return it
+    // If there is an org that matches the value, return it.
     if (selectedOrg.length > 0) {
       this.setState({
         selectedOrg: selectedOrg[0] // protect against multiple matches by returning the first
       });
+    // If there is no org match, reset state so no orgInfo renders.
     } else {
       this.setState({
         selectedOrg: {}
@@ -134,6 +133,7 @@ const OrgInfo = (props) => {
 };
 
 OrgInfo.propTypes = {
+  /** An object which has the image, name, title, description, and link to an org.  */
   org: PropTypes.shape({
     value: PropTypes.string.isRequired,
     image: PropTypes.shape({
