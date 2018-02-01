@@ -8,7 +8,7 @@ import Button from './index';
 import ButtonDocs from './Button.md';
 import buttonOptions from './Button.knobs.options';
 
-storiesOf('@atoms/buttons', module).addDecorator(withKnobs)
+storiesOf('atoms/buttons', module).addDecorator(withKnobs)
   .add('Button', withInfo(ButtonDocs)(() => {
     const defaultOutline = false;
     const props = {

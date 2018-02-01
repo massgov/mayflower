@@ -6,5 +6,5 @@ import { withInfo } from '@storybook/addon-info';
 import SvgArrowBent from './index';
 import svgArrowMarkdown from './SvgArrowBent.md';
 
-storiesOf('Atoms/Icons', module)
+storiesOf('atoms/icons', module)
   .add('SvgArrowBent', withInfo({ svgArrowMarkdown })(() => <SvgArrowBent />));

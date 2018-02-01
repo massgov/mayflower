@@ -4,5 +4,5 @@ import { storiesOf } from '@storybook/react';
 
 import Footer from '.';
 
-storiesOf('Organisms/Footer', module)
+storiesOf('organisms', module)
   .add('Footer', () => <Footer />);

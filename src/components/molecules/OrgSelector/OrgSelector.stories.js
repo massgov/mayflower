@@ -6,7 +6,7 @@ import { withKnobs } from '@storybook/addon-knobs/react';
 
 import OrgSelector from './index';
 
-storiesOf('Molecules/OrgSelector', module).addDecorator(withKnobs)
+storiesOf('molecules', module).addDecorator(withKnobs)
   .add(
     'OrgSelector',
     withInfo(`

@@ -6,6 +6,6 @@ import { withInfo } from '@storybook/addon-info';
 import SvgArrow from './index';
 import svgArrowMarkdown from './SvgArrow.md';
 
-storiesOf('Atoms/Icons', module)
+storiesOf('atoms/icons', module)
   .add('SvgArrow', withInfo(svgArrowMarkdown)(() => <SvgArrow />));
 
