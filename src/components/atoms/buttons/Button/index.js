@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// import button default data from pattern json
+import data from './button.json';
+
 const Button = (props) => {
   const button = props;
   const buttonSize = button.size ? ` ma__button--${button.size}` : '';
@@ -42,14 +45,7 @@ Button.propTypes = {
   outline: PropTypes.bool
 };
 
-Button.defaultProps = {
-  href: '',
-  info: '',
-  type: 'button',
-  text: 'Button',
-  size: '',
-  theme: '',
-  outline: false
-};
+// Use data from the pattern json file as default
+Button.defaultProps = data.button;
 
 export default Button;
