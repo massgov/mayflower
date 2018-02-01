@@ -3,7 +3,7 @@
  */
 export default {
   color: {
-    "": "grey (default)",
-    green: "green"
+    '': 'grey (default)',
+    green: 'green'
   }
-}
+};

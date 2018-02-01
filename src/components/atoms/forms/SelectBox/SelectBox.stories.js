@@ -10,10 +10,10 @@ import selectOptions from './SelectBox.knobs.options';
 // import SelectBox from './SelectBox.md';
 
 storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
-  .add('SelectBox',
+  .add(
+    'SelectBox',
     withInfo()(() => {
-
-      const label = text('info','Color Scheme:');
+      const label = text('info', 'Color Scheme:');
       const id = text('id', 'color-select');
       // selectOptions imported above
       const options = object('options', selectOptions.colors);
@@ -22,8 +22,9 @@ storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
       const required = boolean('required', defaultValue);
 
       const onChangeCallback = () => {
-        console.log('This is a custom onChange callback passed to the select!')
+        console.log('This is a custom onChange callback passed to the select!');
       };
 
-      return(<SelectBox label={label} options={options} id={id} required={required} onChange={action('on-change')} onChangeCallback={ onChangeCallback }/>) })
+      return(<SelectBox label={label} options={options} id={id} required={required} onChange={action('on-change')} onChangeCallback={onChangeCallback} />);
+    })
   );

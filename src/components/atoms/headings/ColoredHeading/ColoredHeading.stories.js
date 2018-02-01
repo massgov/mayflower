@@ -7,19 +7,19 @@ import ColoredHeading from './index';
 // import CompReadme from './CompHeading.md';
 
 storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
-    .add('Colored Heading', withInfo()(() => {
-      const levelOptions = {
-        1: '1',
-        2: '2',
-        3: '3',
-        4: '4',
-        5: '5',
-        6: '6'
-      };
-      const coloredHeading = {
-        text: text('text', 'Title text'),
-        level: select('level', levelOptions, 2),
-        color: select('color', { '': '', green: 'green' })
-      };
-      return(<ColoredHeading coloredHeading={coloredHeading} />);
-    }));
+  .add('Colored Heading', withInfo()(() => {
+    const levelOptions = {
+      1: '1',
+      2: '2',
+      3: '3',
+      4: '4',
+      5: '5',
+      6: '6'
+    };
+    const coloredHeading = {
+      text: text('text', 'Title text'),
+      level: select('level', levelOptions, 2),
+      color: select('color', { '': '', green: 'green' })
+    };
+    return(<ColoredHeading coloredHeading={coloredHeading} />);
+  }));
