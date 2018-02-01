@@ -6,15 +6,10 @@ class InputDate extends React.Component {
   constructor(props) {
     super(props);
     this.startPikaday = this.startPikaday.bind(this);
-    this.state = {
-      type: 'date'
-    };
   }
 
   componentDidMount() {
     this.startPikaday();
-    // TODO: This is not a correct use of setState.
-    this.setState({ type: 'text' });
   }
 
   startPikaday() {
@@ -23,6 +18,7 @@ class InputDate extends React.Component {
       field: this.dateInput,
       format: 'MM/DD/YY'
     });
+    this.dateInput.setAttribute('type', 'text');
 
     if (restrict === 'max') {
       picker.setMaxDate(new Date());
@@ -41,7 +37,7 @@ class InputDate extends React.Component {
           className={classNames}
           name={this.props.name}
           id={this.props.id}
-          type={this.state.type}
+          type="text"
           placeholder={this.props.placeholder}
           data-type="date"
           data-restrict={this.props.restrict}
