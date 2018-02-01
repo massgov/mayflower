@@ -7,7 +7,7 @@ import { withKnobs, text, boolean, number, select } from '@storybook/addon-knobs
 import Button from './index';
 import buttonOptions from './Button.knobs.options';
 
-storiesOf('Atoms/Buttons', module).addDecorator(withKnobs)
+storiesOf('@atoms/buttons', module).addDecorator(withKnobs)
   .add(
     'Button',
     withInfo(`
