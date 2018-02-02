@@ -2,7 +2,7 @@ This is the standard button pattern (with variants)
 
 @see [@atoms/buttons/button](https://mayflower.digital.mass.gov/?p=atoms-button&view=c)
 
-**Prop recipes**
+**Prop variant recipes**
 1. [Button as "small"](https://mayflower.digital.mass.gov/?p=atoms-button-as-small&view=c)
     - Set the `size` prop to "small"
 1.  [Button as "secondary color"](https://mayflower.digital.mass.gov/?p=atoms-button-as-secondary-color&view=c)
