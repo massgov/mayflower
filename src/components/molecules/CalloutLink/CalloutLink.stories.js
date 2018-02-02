@@ -12,7 +12,8 @@ storiesOf('molecules', module).addDecorator(withKnobs)
     const props = {
       text: text('calloutLink.text', 'Link to another page'),
       href: text('calloutLink.href', ''),
-      info: text('calloutLink.info', 'this will be the tooltip text on hover')
+      info: text('calloutLink.info', 'this will be the tooltip text on hover'),
+      description: text('calloutLink.description', '')
     };
     return(
       <CalloutLink {...props} />
