@@ -7,7 +7,7 @@ import { text, select, withKnobs } from '@storybook/addon-knobs/react';
 import sidebarMarkdown from './SidebarHeading.md';
 import SidebarHeading from './index';
 
-storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
+storiesOf('atoms/headings', module).addDecorator(withKnobs)
   .add('SidebarHeading', withInfo({ sidebarMarkdown })(() => {
     const levelOptions = {
       1: 1,

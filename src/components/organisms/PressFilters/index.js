@@ -11,7 +11,7 @@ import SelectBox from '../../atoms/forms/SelectBox';
 const PressFilters = (props) => {
   const {
     action, coloredHeading, topic, orgSelector, pressType, dateRange, submitButton
-  } = this.props;
+  } = props;
   return(
     <section className="ma__press-filters">
       <div className="ma__press-filters__container">

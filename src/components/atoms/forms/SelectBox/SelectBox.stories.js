@@ -9,14 +9,14 @@ import SelectBox from './index';
 import selectOptions from './SelectBox.knobs.options';
 // import SelectBox from './SelectBox.md';
 
-storiesOf('Atoms/Forms/SelectBox', module).addDecorator(withKnobs)
+storiesOf('atoms/forms', module).addDecorator(withKnobs)
   .add(
     'SelectBox',
     withInfo()(() => {
       const label = text('info', 'Color Scheme:');
       const id = text('id', 'color-select');
       // selectOptions imported above
-      const options = object('options', selectOptions.colors);
+      const options = object('options', selectOptions.options.colors);
 
       const defaultValue = true;
       const required = boolean('required', defaultValue);

@@ -9,9 +9,6 @@ class DateRange extends React.Component {
     };
   }
 
-  componentDidMount() {
-  }
-
   render() {
     return(
       <div className="ma__date-range">

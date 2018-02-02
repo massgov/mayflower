@@ -7,7 +7,7 @@ import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
 import InputDate from './index';
 // import InputDate from './InputDate.md';
 
-storiesOf('Atoms/Forms/InputDate', module).addDecorator(withKnobs)
+storiesOf('atoms/forms', module).addDecorator(withKnobs)
   .add(
     'InputDate',
     withInfo(`

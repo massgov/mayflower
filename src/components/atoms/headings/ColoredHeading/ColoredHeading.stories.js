@@ -6,8 +6,8 @@ import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 import ColoredHeading from './index';
 // import CompReadme from './CompHeading.md';
 
-storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
-  .add('Colored Heading', withInfo()(() => {
+storiesOf('atoms/headings', module).addDecorator(withKnobs)
+  .add('ColoredHeading', withInfo()(() => {
     const levelOptions = {
       1: '1',
       2: '2',
@@ -16,10 +16,10 @@ storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
       5: '5',
       6: '6'
     };
-    const coloredHeading = {
+    const props = {
       text: text('text', 'Title text'),
       level: select('level', levelOptions, 2),
       color: select('color', { '': '', green: 'green' })
     };
-    return(<ColoredHeading coloredHeading={coloredHeading} />);
+    return(<ColoredHeading {...props} />);
   }));

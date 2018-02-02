@@ -7,7 +7,7 @@ import { text, withKnobs } from '@storybook/addon-knobs/react';
 import DecorativeLink from '../../links/DecorativeLink';
 import linkMarkdown from './DecorativeLink.md';
 
-storiesOf('Atoms/Links', module).addDecorator(withKnobs)
+storiesOf('atoms/links', module).addDecorator(withKnobs)
   .add('DecorativeLink', withInfo({ linkMarkdown })(() => {
     const info = text('info', '');
     const linkText = text('text', 'Lorem ipsum dolor sit amet');
