@@ -8,7 +8,7 @@ import CalloutLink from './index';
 import CalloutLinkDocs from './CalloutLink.md';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('CalloutLink', withInfo(`<div>`+CalloutLinkDocs+`</div>`)(() => {
+  .add('CalloutLink', withInfo(`<div>${CalloutLinkDocs}</div>`)(() => {
     const props = {
       text: text('calloutLink.text', 'Link to another page'),
       href: text('calloutLink.href', ''),

@@ -4,7 +4,7 @@ import SvgArrow from '../../atoms/icons/SvgArrow';
 
 const CalloutLink = (props) => {
   const calloutLink = props;
-  ;
+
 
   return(
     <div className="ma__callout-link" title={calloutLink.info}>
