@@ -9,7 +9,7 @@ import ButtonDocs from './Button.md';
 import buttonOptions from './Button.knobs.options';
 
 storiesOf('atoms/buttons', module).addDecorator(withKnobs)
-  .add('Button', withInfo(ButtonDocs)(() => {
+  .add('Button', withInfo(`<div>`+ButtonDocs+`</div>`)(() => {
     const defaultOutline = false;
     const props = {
       theme: select('button.theme', buttonOptions.theme),
