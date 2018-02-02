@@ -137,26 +137,26 @@ const OrgInfo = (props) => {
 OrgInfo.propTypes = {
   /** An object which has the image, name, title, description, and link to an org.  */
   org: PropTypes.shape({
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     image: PropTypes.shape({
-      href: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
-      height: PropTypes.string.isRequired,
-      width: PropTypes.string.isRequired
+      href: PropTypes.string,
+      alt: PropTypes.string,
+      src: PropTypes.string,
+      height: PropTypes.string,
+      width: PropTypes.string
     }),
     name: PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired
+      text: PropTypes.string,
+      href: PropTypes.string
     }),
-    jobTitle: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
+    jobTitle: PropTypes.string,
+    message: PropTypes.string,
     moreLink: PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
+      text: PropTypes.string,
+      href: PropTypes.string,
       info: PropTypes.string
     })
-  }).isRequired
+  })
 };
 
 OrgSelector.propTypes = {

@@ -10,6 +10,13 @@ class SelectBox extends React.Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
 
+  /**
+   * Default event handler which renders selected item in the patter div.
+   *
+   * @param event The DOM onChange event
+   *
+   * Invokes custom callback passed as prop onChangeCallback, passing object with select information.
+   */
   handleSelect(event) {
     const selectedIndex = event.nativeEvent.target.selectedIndex;
     const selected = event.target[selectedIndex].text;
