@@ -3,28 +3,14 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
 
+import compHeadingOptions from '../../../atoms/headings/CompHeading/CompHeading.knob.options';
+
 import CompHeading from './index';
 import CompReadme from './CompHeading.md';
 
 storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
   .add('Comp Heading', withInfo({ CompReadme })(() => {
-    const levelOptions = {
-      1: 1,
-      2: 2,
-      3: 3,
-      4: 4,
-      5: 5,
-      6: 6
-    };
-    const props = {
-      title: text('compHeading.title', 'Title text'),
-      titleContext: text('compHeading.titleContext', ''),
-      id: text('compHeading.id', ''),
-      sub: boolean('compHeading.sub', false),
-      level: select('compHeading.level', levelOptions, levelOptions[3]),
-      color: select('compHeading.color', { '': 'green (default)', yellow: 'yellow' }),
-      centered: boolean('compHeading.centered', false),
-      sidebar: boolean('compHeading.sidebar', false)
-    };
-    return(<CompHeading {...props} />);
+    const compOptionsWithKnobs = Object.assign(...Object.entries(compHeadingOptions).map(([k, v]) => (
+      { [k]: v(CompHeading.defaultProps[k]) })));
+    return(<CompHeading {...compOptionsWithKnobs} />);
   }));

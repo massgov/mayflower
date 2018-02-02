@@ -29,3 +29,4 @@ export { DateRange } from './components/molecules/DateRange/DateRange'
 
 // @organisms
 export { Footer } from './components/organisms/footer/Footer';
+export { RichText } from './components/organisms/byAuthor/RichText';

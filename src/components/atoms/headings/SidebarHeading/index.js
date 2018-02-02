@@ -24,4 +24,6 @@ SidebarHeading.defaultProps = {
   title: ''
 };
 
+
+
 export default SidebarHeading;
