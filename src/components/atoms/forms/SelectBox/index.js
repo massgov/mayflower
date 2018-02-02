@@ -18,7 +18,7 @@ class SelectBox extends React.Component {
 
     // invokes custom function if passed in the component
     if (typeof this.props.onChangeCallback === 'function') {
-      this.props.onChangeCallback(selectedIndex, selected, selectedValue);
+      this.props.onChangeCallback({ selectedIndex, selected, selectedValue });
     }
   }
 

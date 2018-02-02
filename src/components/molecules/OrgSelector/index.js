@@ -13,11 +13,13 @@ class OrgSelector extends React.Component {
 
   /**
    * Sets the state of selected from the SelectBox, so <OrgInfo/> knows what to render.
-   * @param selectedValue
+   *
+   * @param selectBox object
+   *   @see SelectBox handleSelect method.
    */
-  setSelectedOrgState(selectedValue) {
+  setSelectedOrgState(selectBox) {
     // Get the selected org based on the selected value.
-    const selectedOrg = this.props.organizations.filter(org => org.value === selectedValue);
+    const selectedOrg = this.props.organizations.filter(org => Object.prototype.hasOwnProperty.call(org, 'value') && org.value === selectBox.selectedValue);
     // If there is an org that matches the value, return it.
     if (selectedOrg.length > 0) {
       this.setState({
