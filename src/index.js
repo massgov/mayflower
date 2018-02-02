@@ -18,7 +18,6 @@ export { CompHeading } from './components/atoms/headings/CompHeading';
 export { SidebarHeading } from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
 export { LatLonGlobe } from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
-export { SidebarHeading } from './components/atoms/headings/SidebarHeading/SidebarHeading';
 export { SvgArrow } from './components/atoms/icons/SvgArrow';
 export { SvgArrowBent } from './components/atoms/icons/SvgArrowBent';
 export { SvgSearch } from './components/atoms/icons/SvgSearch';
