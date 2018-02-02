@@ -41,12 +41,10 @@ Button.propTypes = {
   outline: PropTypes.bool
 };
 
+// Only set defaults for the configuration variables which need to be opted in to activate.
 Button.defaultProps = {
-  onClick: () => {},
   href: '',
-  info: '',
-  type: 'button',
-  text: 'Button',
+  type: '',
   size: '',
   theme: '',
   outline: false

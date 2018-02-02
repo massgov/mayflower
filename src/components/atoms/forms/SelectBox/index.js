@@ -7,8 +7,16 @@ class SelectBox extends React.Component {
     this.state = {
       selected: props.options[0].text
     };
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
+  /**
+   * Default event handler which renders selected item in the patter div.
+   *
+   * @param event The DOM onChange event
+   *
+   * Invokes custom callback passed as prop onChangeCallback, passing object with select information.
+   */
   handleSelect(event) {
     const selectedIndex = event.nativeEvent.target.selectedIndex;
     const selected = event.target[selectedIndex].text;
@@ -17,7 +25,7 @@ class SelectBox extends React.Component {
 
     // invokes custom function if passed in the component
     if (typeof this.props.onChangeCallback === 'function') {
-      this.props.onChangeCallback(selectedIndex, selected, selectedValue);
+      this.props.onChangeCallback({ selectedIndex, selected, selectedValue });
     }
   }
 
@@ -69,13 +77,7 @@ SelectBox.propTypes = {
 };
 
 SelectBox.defaultProps = {
-  required: true,
-  onChange: () => {},
-  onChangeCallback: () => {},
-  options: [
-    { text: 'Green', value: 'green' },
-    { text: 'Blue', value: 'blue' }
-  ]
+  required: false
 };
 
 export default SelectBox;

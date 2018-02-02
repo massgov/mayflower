@@ -6,8 +6,8 @@ import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
 import CompHeading from './index';
 import CompReadme from './CompHeading.md';
 
-storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
-  .add('Comp Heading', withInfo({ CompReadme })(() => {
+storiesOf('atoms/headings', module).addDecorator(withKnobs)
+  .add('CompHeading', withInfo({ CompReadme })(() => {
     const levelOptions = {
       1: 1,
       2: 2,

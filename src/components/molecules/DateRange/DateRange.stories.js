@@ -6,7 +6,7 @@ import { withKnobs, text, object } from '@storybook/addon-knobs/react';
 
 import DateRange from './index';
 
-storiesOf('Molecules/DateRange', module).addDecorator(withKnobs)
+storiesOf('molecules', module).addDecorator(withKnobs)
   .add(
     'DateRange',
     withInfo(`
