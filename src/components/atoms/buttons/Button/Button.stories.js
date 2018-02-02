@@ -18,7 +18,8 @@ storiesOf('atoms/buttons', module).addDecorator(withKnobs)
       outline: boolean('button.outline', defaultOutline),
       info: text('button.info', 'this will be the tooltip text on hover'),
       text: text('button.text', 'button'),
-      href: text('button.href', '')
+      href: text('button.href', ''),
+      onClick: () => {console.log("custom on click function!")}
     };
     return(
       <Button {...props} />
