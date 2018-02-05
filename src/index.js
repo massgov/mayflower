@@ -7,26 +7,33 @@
 export { SocialIcon } from './components/SocialIcon';
 
 // @atoms
+// @atoms/@buttons
 export { Button } from './components/atoms/buttons/Button';
-export { CompHeading } from './components/atoms/headings/CompHeading';
-// @atoms/@media
-export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
 // @atoms/@forms
 export { InputDate } from './components/atoms/forms/InputDate';
 export { SelectBox } from './components/atoms/forms/SelectBox';
+// @atoms/@headings
+export { ColoredHeading } from './components/atoms/headings/ColoredHeading';
+export { CompHeading } from './components/atoms/headings/CompHeading';
+export { SidebarHeading } from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
 export { LatLonGlobe } from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
-export { SidebarHeading } from './components/atoms/headings/SidebarHeading/SidebarHeading';
-export { DecorativeLink } from './components/atoms/links/DecorativeLink';
 export { SvgArrow } from './components/atoms/icons/SvgArrow';
-export { SvgSearch } from './components/atoms/icons/SvgSearch';
 export { SvgArrowBent } from './components/atoms/icons/SvgArrowBent';
+export { SvgSearch } from './components/atoms/icons/SvgSearch';
+// @atoms/@links
+export { DecorativeLink } from './components/atoms/links/DecorativeLink';
+// @atoms/@media
+export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
 
 // @molecules
+export { DateRange } from './components/molecules/DateRange';
 export { FooterLinks } from './components/molecules/FooterLinks';
+export { OrgSelector } from './components/molecules/OrgSelector';
 export { SocialLinks } from './components/molecules/SocialLinks';
-export { DateRange } from './components/molecules/DateRange/DateRange'
 
 // @organisms
 export { Footer } from './components/organisms/footer/Footer';
 export { RichText } from './components/organisms/byAuthor/RichText';
+export { Footer } from './components/organisms/Footer';
+export { PressFilters } from './components/organisms/PressFilters';

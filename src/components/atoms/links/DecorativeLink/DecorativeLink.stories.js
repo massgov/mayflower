@@ -9,7 +9,7 @@ import decorativeLinkOptions from '../../../atoms/links/DecorativeLink/Decorativ
 
 import linkMarkdown from './DecorativeLink.md';
 
-storiesOf('Atoms/Links', module).addDecorator(withKnobs)
+storiesOf('atoms/links', module).addDecorator(withKnobs)
   .add('DecorativeLink', withInfo({ linkMarkdown })(() => {
     const decoreOptionsWithKnobs = Object.assign(...Object.entries(decorativeLinkOptions).map(([k, v]) => (
       { [k]: v(DecorativeLink.defaultProps[k]) })));

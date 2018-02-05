@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 
 import LatLonGlobe from './LatLonGlobe';
 
-storiesOf('Atoms/Icons', module)
+storiesOf('atoms/icons', module)
   .add('LatLonGlobe', () => <LatLonGlobe />);

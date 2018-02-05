@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = (props) => {
-  const button = props;
+const Button = (button) => {
   const buttonSize = button.size ? ` ma__button--${button.size}` : '';
   const buttonStyle = button.outline ? ' ma__button--minor' : '';
   const buttonTheme = button.theme ? ` ma__button--${button.theme}` : '';
@@ -42,11 +41,10 @@ Button.propTypes = {
   outline: PropTypes.bool
 };
 
+// Only set defaults for the configuration variables which need to be opted in to activate.
 Button.defaultProps = {
   href: '',
-  info: '',
-  type: 'button',
-  text: 'Button',
+  type: '',
   size: '',
   theme: '',
   outline: false
