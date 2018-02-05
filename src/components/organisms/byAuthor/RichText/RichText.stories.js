@@ -8,6 +8,8 @@ import compHeadingOptions from '../../../atoms/headings/CompHeading/CompHeading.
 import sidebarHeadingOptions from '../../../atoms/headings/SidebarHeading/SidebarHeading.knob.options';
 import decorativeLinkOptions from '../../../atoms/links/DecorativeLink/DecorativeLink.knob.options';
 
+import textMarkdown from './RichText.md';
+
 import CompHeading from '../../../atoms/headings/CompHeading';
 import SidebarHeading from '../../../atoms/headings/SidebarHeading';
 import DecorativeLink from '../../../atoms/links/DecorativeLink';
@@ -18,7 +20,7 @@ storiesOf('Organisms/By-Author', module)
   .addDecorator(withKnobs)
   .add(
     'RichText',
-    withInfo()(() => {
+    withInfo({ textMarkdown })(() => {
       const decoreOptionsWithKnobs = Object.assign(...Object.entries(decorativeLinkOptions).map(([k, v]) => (
         { [k]: v(DecorativeLink.defaultProps[k]) })));
       const compOptionsWithKnobs = Object.assign(...Object.entries(compHeadingOptions).map(([k, v]) => (
