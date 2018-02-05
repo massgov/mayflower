@@ -25,9 +25,4 @@ CalloutLink.propTypes = {
   description: PropTypes.string
 };
 
-CalloutLink.defaultProps = {
-  info: '',
-  description: ''
-};
-
 export default CalloutLink;
