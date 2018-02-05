@@ -13,18 +13,19 @@ class OrgSelector extends React.Component {
 
   /**
    * Sets the state of selected from the SelectBox, so <OrgInfo/> knows what to render.
-   * @param selectedIndex
-   * @param selected
-   * @param selectedValue
+   *
+   * @param selectBox object
+   *   @see SelectBox handleSelect method.
    */
-  setSelectedOrgState(selectedIndex, selected, selectedValue) {
-    // Get the selected org based on the selected value
-    const selectedOrg = this.props.organizations.filter(org => org.value === selectedValue);
-    // If there is an org that matches the value, return it
+  setSelectedOrgState(selectBox) {
+    // Get the selected org based on the selected value.
+    const selectedOrg = this.props.organizations.filter(org => Object.prototype.hasOwnProperty.call(org, 'value') && org.value === selectBox.selectedValue);
+    // If there is an org that matches the value, return it.
     if (selectedOrg.length > 0) {
       this.setState({
         selectedOrg: selectedOrg[0] // protect against multiple matches by returning the first
       });
+    // If there is no org match, reset state so no orgInfo renders.
     } else {
       this.setState({
         selectedOrg: {}
@@ -134,27 +135,28 @@ const OrgInfo = (props) => {
 };
 
 OrgInfo.propTypes = {
+  /** An object which has the image, name, title, description, and link to an org.  */
   org: PropTypes.shape({
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     image: PropTypes.shape({
-      href: PropTypes.string.isRequired,
-      alt: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
-      height: PropTypes.string.isRequired,
-      width: PropTypes.string.isRequired
+      href: PropTypes.string,
+      alt: PropTypes.string,
+      src: PropTypes.string,
+      height: PropTypes.string,
+      width: PropTypes.string
     }),
     name: PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired
+      text: PropTypes.string,
+      href: PropTypes.string
     }),
-    jobTitle: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired,
+    jobTitle: PropTypes.string,
+    message: PropTypes.string,
     moreLink: PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
+      text: PropTypes.string,
+      href: PropTypes.string,
       info: PropTypes.string
     })
-  }).isRequired
+  })
 };
 
 OrgSelector.propTypes = {

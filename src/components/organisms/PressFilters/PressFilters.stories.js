@@ -2,9 +2,10 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
 
 import PressFilters from './index';
+import PressFiltersDocs from './PressFilters.md';
 
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
@@ -16,11 +17,7 @@ import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.op
 storiesOf('organisms', module).addDecorator(withKnobs)
   .add(
     'PressFilters',
-    withInfo(`
-          This pattern shows a Form with inputs tailored to filtering Press Articles
-          
-          @see [@organisms/by-author/press-listing](https://mayflower.digital.mass.gov/?p=organisms-press-filters&view=c)
-        `)(() => {
+    withInfo(PressFiltersDocs)(() => {
       const defaultHeadingLevel = '2';
       const pressFiltersStartDate = {
         labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'mm/dd/yyyy', restrict: 'max'
@@ -38,21 +35,24 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         },
         orgSelector: {
           selectBox: {
-            label: text('orgSelector.selectBox.label', 'State organization'),
+            label: text('pressFilters.orgSelector.selectBox.label', 'State organization'),
             id: 'state-organization',
-            options: object('orgSelector.selectBox.options', selectOptions.options.orgSelector)
+            options: object('pressFilters.orgSelector.selectBox.options', selectOptions.options.orgSelector),
+            required: boolean('pressFilters.orgSelector.selectBox.required', true)
           },
-          organizations: object('orgSelector.organizations', orgSelectorOptions.organizations)
+          organizations: object('pressFilters.orgSelector.organizations', orgSelectorOptions.organizations)
         },
         topic: {
           label: text('pressFilters.topic.label', 'Filter by Topic'),
           id: 'topic',
-          options: object('pressFilters.topic.options', selectOptions.options.topics)
+          options: object('pressFilters.topic.options', selectOptions.options.topics),
+          required: boolean('pressFilters.topic.required', true)
         },
         pressType: {
           label: text('pressFilters.pressType.label', 'Filter by Announcement Type'),
           id: 'announcement-type',
-          options: object('pressFilters.pressType.options', selectOptions.options.pressTypes)
+          options: object('pressFilters.pressType.options', selectOptions.options.pressTypes),
+          required: boolean('pressFilters.pressType.required', true)
         },
         dateRange: {
           label: text('pressFilters.dateRange.label', 'Date range'),

@@ -43,7 +43,6 @@ Button.propTypes = {
 
 // Only set defaults for the configuration variables which need to be opted in to activate.
 Button.defaultProps = {
-  onClick: () => {},
   href: '',
   type: '',
   size: '',

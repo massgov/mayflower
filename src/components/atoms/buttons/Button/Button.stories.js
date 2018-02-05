@@ -9,7 +9,7 @@ import ButtonDocs from './Button.md';
 import buttonOptions from './Button.knobs.options';
 
 storiesOf('atoms/buttons', module).addDecorator(withKnobs)
-  .add('Button', withInfo(ButtonDocs)(() => {
+  .add('Button', withInfo(`<div>${ButtonDocs}</div>`)(() => {
     const defaultOutline = false;
     const props = {
       theme: select('button.theme', buttonOptions.theme),
@@ -18,7 +18,8 @@ storiesOf('atoms/buttons', module).addDecorator(withKnobs)
       outline: boolean('button.outline', defaultOutline),
       info: text('button.info', 'this will be the tooltip text on hover'),
       text: text('button.text', 'button'),
-      href: text('button.href', '')
+      href: text('button.href', ''),
+      onClick: () => { console.log('custom on click function!'); }
     };
     return(
       <Button {...props} />

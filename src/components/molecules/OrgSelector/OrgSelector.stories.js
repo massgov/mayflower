@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object } from '@storybook/addon-knobs/react';
 
 import OrgSelector from './index';
 import orgSelectorOptions from './OrgSelector.knobs.options';
