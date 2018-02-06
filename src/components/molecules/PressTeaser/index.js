@@ -69,7 +69,7 @@ PressTeaser.propTypes = {
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string/* , */
   /** A short description of the teaser content */
-  /*description: PropTypes.instanceOf(RichText) */
+  /* description: PropTypes.instanceOf(RichText) */
 };
 
 export default PressTeaser;
