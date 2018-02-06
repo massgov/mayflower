@@ -25,5 +25,4 @@ SidebarHeading.defaultProps = {
 };
 
 
-
 export default SidebarHeading;
