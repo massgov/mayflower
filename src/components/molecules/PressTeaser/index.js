@@ -51,16 +51,25 @@ const PressTeaser = (props) => {
 };
 
 PressTeaser.propTypes = {
+  /** The image to be displayed in the teaser */
   image: PropTypes.shape({
+    /** The src url for the image */
     src: PropTypes.string.isRequired,
+    /** The alternate text explaining the image, required for accessibility */
     alt: PropTypes.string.isRequired
   }),
+  /** The short for tag that will appear in the eyebrow, e.g. press release */
   eyebrow: PropTypes.string,
+  /** A linked title for the teaser content, @atoms/links/DecorativeLink */
   title: PropTypes.instanceOf(DecorativeLink).isRequired,
+  /** The heading level */
   level: PropTypes.number,
+  /** The date the teaser content represents */
   date: PropTypes.string,
-  org: PropTypes.string/* ,
-  description: PropTypes.instanceOf(RichText) */
+  /** The author/publishing entity of the teaser content */
+  org: PropTypes.string/* , */
+  /** A short description of the teaser content */
+  /*description: PropTypes.instanceOf(RichText) */
 };
 
 export default PressTeaser;
