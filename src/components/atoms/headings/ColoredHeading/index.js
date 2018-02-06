@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ColoredHeading = (props) => {
-  const coloredHeading = props;
+const ColoredHeading = (coloredHeading) => {
   const Element = `h${coloredHeading.level}`;
 
   let classes = ['ma__colored-heading'];
