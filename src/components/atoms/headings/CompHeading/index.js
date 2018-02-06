@@ -1,4 +1,5 @@
 import React from 'react';
+import addons from '@storybook/addons';
 import PropTypes from 'prop-types';
 
 const CompHeading = (props) => {
