@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // import child components
-import DecorativeLink from '../../../atoms/links/DecorativeLink';
-import CompHeading from '../../../atoms/headings/CompHeading';
-import SidebarHeading from '../../../atoms/headings/SidebarHeading';
+import DecorativeLink from '../../atoms/links/DecorativeLink/index';
+import CompHeading from '../../atoms/headings/CompHeading/index';
+import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
 
 const RichText = (props) => {
   const decorative = props.children[2] || props.decorativeLink;
@@ -21,7 +21,6 @@ const RichText = (props) => {
       }
     </section>);
 };
-
 
 RichText.propTypes = {
   headerIndent: PropTypes.bool,

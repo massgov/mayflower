@@ -33,7 +33,6 @@ export { OrgSelector } from './components/molecules/OrgSelector';
 export { SocialLinks } from './components/molecules/SocialLinks';
 
 // @organisms
-export { Footer } from './components/organisms/footer/Footer';
-export { RichText } from './components/organisms/byAuthor/RichText';
-export { Footer } from './components/organisms/Footer';
+export { Footer } from './components/organisms/footer';
+export { RichText } from './components/organisms/RichText';
 export { PressFilters } from './components/organisms/PressFilters';

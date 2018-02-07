@@ -4,19 +4,19 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 
-import compHeadingOptions from '../../../atoms/headings/CompHeading/CompHeading.knob.options';
-import sidebarHeadingOptions from '../../../atoms/headings/SidebarHeading/SidebarHeading.knob.options';
-import decorativeLinkOptions from '../../../atoms/links/DecorativeLink/DecorativeLink.knob.options';
+import compHeadingOptions from '../../atoms/headings/CompHeading/CompHeading.knob.options';
+import sidebarHeadingOptions from '../../atoms/headings/SidebarHeading/SidebarHeading.knob.options';
+import decorativeLinkOptions from '../../atoms/links/DecorativeLink/DecorativeLink.knob.options';
 
 import textMarkdown from './RichText.md';
 
-import CompHeading from '../../../atoms/headings/CompHeading';
-import SidebarHeading from '../../../atoms/headings/SidebarHeading';
-import DecorativeLink from '../../../atoms/links/DecorativeLink';
+import CompHeading from '../../atoms/headings/CompHeading/index';
+import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
+import DecorativeLink from '../../atoms/links/DecorativeLink/index';
 
 import RichText from './index';
 
-storiesOf('organisms/byAuthor', module)
+storiesOf('organisms', module)
   .addDecorator(withKnobs)
   .add(
     'RichText',
