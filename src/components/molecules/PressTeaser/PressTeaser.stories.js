@@ -25,7 +25,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       date: text('pressTeaser.date', '4/3/2017'),
       org: text('pressTeaser.org', 'Org Name'),
       description: {
-        text: text('pressTeaser.description.text','Optional description')
+        text: text('pressTeaser.description.text','Optional description <strong>search term</strong>.')
       }
     };
 
