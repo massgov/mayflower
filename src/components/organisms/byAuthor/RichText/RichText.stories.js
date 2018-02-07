@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs/react';
 
 import {
   Paragraph,
@@ -36,9 +36,10 @@ storiesOf('organisms/byAuthor', module)
         { [k]: v(Paragraph.defaultProps[k]) })));
       const orderedOptionsWithKnobs = Object.assign(...Object.entries(unorderedOptions).map(([k, v]) => (
         { [k]: v(UnorderedList.defaultProps[k]) })));
-
+      const headerIndent = boolean('headerIndent', RichText.defaultProps.headerIndent);
+      const anchorLinks = boolean('anchorLinks', RichText.defaultProps.anchorLinks);
       return(
-        <RichText>
+        <RichText headerIndent={headerIndent} anchorLinks={anchorLinks}>
           <CompHeading {...compOptionsWithKnobs} />
           <SidebarHeading {...sideOptionsWithKnobs} />
           <Paragraph {...paraOptionsWithKnobs} />
