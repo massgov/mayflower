@@ -8,7 +8,7 @@ import compHeadingOptions from '../../../atoms/headings/CompHeading/CompHeading.
 import CompHeading from './index';
 import CompReadme from './CompHeading.md';
 
-storiesOf('Atoms/Headings', module).addDecorator(withKnobs)
+storiesOf('atoms/headings', module).addDecorator(withKnobs)
   .add('Comp Heading', withInfo({ CompReadme })(() => {
     const compOptionsWithKnobs = Object.assign(...Object.entries(compHeadingOptions).map(([k, v]) => (
       { [k]: v(CompHeading.defaultProps[k]) })));
