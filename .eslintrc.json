@@ -19,6 +19,8 @@
         "react/no-array-index-key": ["warn"],
         "react/prefer-stateless-function": ["warn"],
         "react/prop-types": ["warn"],
-        "react/require-default-props": ["off"]
+        "react/require-default-props": ["off"],
+        "no-underscore-dangle": ["off"],
+        "no-use-before-define": ["off"]
     }
 }
