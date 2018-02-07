@@ -2,21 +2,26 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 
-import compHeadingOptions from '../../../atoms/headings/CompHeading/CompHeading.knob.options';
-import sidebarHeadingOptions from '../../../atoms/headings/SidebarHeading/SidebarHeading.knob.options';
-import decorativeLinkOptions from '../../../atoms/links/DecorativeLink/DecorativeLink.knob.options';
-
-import textMarkdown from './RichText.md';
-
-import CompHeading from '../../../atoms/headings/CompHeading';
-import SidebarHeading from '../../../atoms/headings/SidebarHeading';
-import DecorativeLink from '../../../atoms/links/DecorativeLink';
+import {
+  Paragraph,
+  Heading,
+  CompHeading,
+  SidebarHeading,
+  DecorativeLink,
+  UnorderedList,
+  compHeadingOptions,
+  sidebarHeadingOptions,
+  decorativeLinkOptions,
+  paragraphOptions,
+  unorderedOptions
+} from './RichText.require';
 
 import RichText from './index';
+import textMarkdown from './RichText.md';
 
-storiesOf('Organisms/By-Author', module)
+storiesOf('organisms/byAuthor', module)
   .addDecorator(withKnobs)
   .add(
     'RichText',
@@ -27,10 +32,19 @@ storiesOf('Organisms/By-Author', module)
         { [k]: v(CompHeading.defaultProps[k]) })));
       const sideOptionsWithKnobs = Object.assign(...Object.entries(sidebarHeadingOptions).map(([k, v]) => (
         { [k]: v(SidebarHeading.defaultProps[k]) })));
+      const paraOptionsWithKnobs = Object.assign(...Object.entries(paragraphOptions).map(([k, v]) => (
+        { [k]: v(Paragraph.defaultProps[k]) })));
+      const orderedOptionsWithKnobs = Object.assign(...Object.entries(unorderedOptions).map(([k, v]) => (
+        { [k]: v(UnorderedList.defaultProps[k]) })));
+
       return(
         <RichText>
           <CompHeading {...compOptionsWithKnobs} />
           <SidebarHeading {...sideOptionsWithKnobs} />
+          <Paragraph {...paraOptionsWithKnobs} />
+          <Paragraph text={text('Paragraph2.text', 'foobarbaz')} />
+          <Heading text={text('Heading1.text', 'This is a heading')} level={1} />
+          <UnorderedList {...orderedOptionsWithKnobs} />
           <DecorativeLink {...decoreOptionsWithKnobs} />
         </RichText>);
     })

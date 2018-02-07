@@ -54,7 +54,9 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-key-index": "^0.1.1",
+    "hashids": "^1.1.4"
   },
   "homepage": "",
   "license": "MIT",
