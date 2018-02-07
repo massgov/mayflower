@@ -2,10 +2,10 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { text, withKnobs } from '@storybook/addon-knobs/react';
+import { withKnobs } from '@storybook/addon-knobs/react';
 
-import DecorativeLink from '../../links/DecorativeLink';
-import decorativeLinkOptions from '../../../atoms/links/DecorativeLink/DecorativeLink.knob.options';
+import DecorativeLink from './index';
+import decorativeLinkOptions from './DecorativeLink.knob.options';
 
 import linkMarkdown from './DecorativeLink.md';
 

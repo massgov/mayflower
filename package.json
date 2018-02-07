@@ -25,7 +25,9 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "pre-push": ["lint"],
+  "pre-push": [
+    "lint"
+  ],
   "dependencies": {
     "@massds/mayflower": "^5.10.0",
     "@storybook/addon-info": "^3.3.10",

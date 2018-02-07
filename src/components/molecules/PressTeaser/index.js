@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
-import RichText from '../../organisms/byAuthor/RichText';
-// import Paragraph from '../../atoms/text/Paragraph';
+import RichText from '../../organisms/RichText';
 
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';
@@ -44,7 +43,7 @@ const PressTeaser = (pressTeaser) => {
         )}
         { pressTeaser.description && (
         <div className="ma__press-teaser__description">
-          <Paragraph {...pressTeaser.description} />
+          <RichText {...pressTeaser.description} />
         </div>
           )
         }
@@ -54,11 +53,11 @@ const PressTeaser = (pressTeaser) => {
 };
 
 PressTeaser.propTypes = {
-  /** The image to be displayed in the teaser */
+  /** The image to be displayed in the teaser
+    src: The src url for the image
+    alt: The alternate text explaining the image, required for accessibility */
   image: PropTypes.shape({
-    /** The src url for the image */
     src: PropTypes.string.isRequired,
-    /** The alternate text explaining the image, required for accessibility */
     alt: PropTypes.string.isRequired
   }),
   /** The short for tag that will appear in the eyebrow, e.g. press release */
@@ -72,8 +71,6 @@ PressTeaser.propTypes = {
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
   /** A short description of the teaser content */
-  // description: PropTypes.instanceOf(Paragraph)
-  // need to refactor back to richtext when ready
   description: PropTypes.instanceOf(RichText)
 };
 

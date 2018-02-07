@@ -39,4 +39,5 @@ export { SocialLinks } from './components/molecules/SocialLinks';
 // @organisms
 export { Footer } from './components/organisms/Footer';
 export { RichText } from './components/organisms/byAuthor/RichText';
+export { RichText } from './components/organisms/RichText';
 export { PressFilters } from './components/organisms/PressFilters';
