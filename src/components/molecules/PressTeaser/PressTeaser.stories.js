@@ -7,6 +7,7 @@ import { withKnobs, text, object, select } from '@storybook/addon-knobs/react';
 import PressTeaser from './index';
 import PressTeaserDocs from './PressTeaser.md';
 import headingsOptions from '../../atoms/headings/Headings.knobs.options';
+import { Paragraph } from '../../organisms/RichText/RichText.require';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('PressTeaser', withInfo(`<div>${PressTeaserDocs}</div>`)(() => {
@@ -25,7 +26,14 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       date: text('pressTeaser.date', '4/3/2017'),
       org: text('pressTeaser.org', 'Org Name'),
       description: {
-        text: text('pressTeaser.description.text', 'Optional description <strong>search term</strong>.')
+        text: "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Optional description"
+            }
+          }
+        }]
       }
     };
 
