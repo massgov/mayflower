@@ -10,7 +10,7 @@ import PressFiltersDocs from './PressFilters.md';
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import headingOptions from '../../atoms/headings/Headings.knobs.options';
-import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeadings.knob.options';
+import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeading.knobs.options';
 import selectOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.options';
 

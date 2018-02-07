@@ -23,17 +23,11 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       },
       level: select('pressTeaser.level', headingsOptions.levels, 2),
       date: text('pressTeaser.date', '4/3/2017'),
-      org: text('pressTeaser.org', 'Org Name')// ,
-      // description: {
-      //   rteElements: [{
-      //     path: '@atoms/11-text/paragraph.twig',
-      //     data: {
-      //       paragraph: {
-      //         text: 'Optional description'
-      //       }
-      //     }
-      //   }]
-      // }
+      org: text('pressTeaser.org', 'Org Name'),
+      description: {
+        text: text('pressTeaser.description.text','Optional description')
+      }
     };
+
     return(<PressTeaser {...props} />);
   }));
