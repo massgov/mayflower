@@ -50,10 +50,10 @@ Pagination.propTypes = {
   /** Pages is an array that defines what page numbers users are able to paginate through.
       pages.active: Defines whether the page number is active or not.
       pages.text: Defines the text shown for page number. */
-  pages: PropTypes.shape({
+  pages: PropTypes.arrayOf(PropTypes.shape({
     active: PropTypes.bool,
     text: PropTypes.string.isRequired
-  })
+  }))
 };
 
 export default Pagination;
