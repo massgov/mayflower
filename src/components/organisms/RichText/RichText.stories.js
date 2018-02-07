@@ -21,7 +21,7 @@ import {
 import RichText from './index';
 import textMarkdown from './RichText.md';
 
-storiesOf('organisms/byAuthor', module)
+storiesOf('organisms', module)
   .addDecorator(withKnobs)
   .add(
     'RichText',
