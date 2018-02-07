@@ -11,7 +11,7 @@ const Pagination = (pagination) => (
       >
         {pagination.prev.text}
       </button>
-      { pagination.pages.map(page => (
+      { pagination.pages.map((page) => (
           page.text === 'spacer' ?
             <span className="ma__pagination__spacer">&hellip;</span> :
             <button
