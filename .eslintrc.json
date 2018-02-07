@@ -6,7 +6,7 @@
         "keyword-spacing": ["error", { "overrides": {
             "return": { "after": false }
             } }],
-        "max-len": ["warn", { "code": 100 }],
+        "max-len": ["off", { "code": 100 }],
         "no-shadow": ["warn"],
         "no-eval": ["warn"],
         "no-unused-vars": ["warn"],
@@ -15,7 +15,7 @@
         "jsx-a11y/label-has-for": ["warn"],
         "react/forbid-prop-types": ["warn"],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react/no-unused-prop-types": ["warn"],
+        "react/no-unused-prop-types": ["off"],
         "react/no-array-index-key": ["warn"],
         "react/prefer-stateless-function": ["warn"],
         "react/prop-types": ["warn"],
