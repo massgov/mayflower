@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
-//import RichText from '../../organisms/byAuthor/RichText';
-import Paragraph from '../../atoms/text/Paragraph';
+import RichText from '../../organisms/byAuthor/RichText';
+// import Paragraph from '../../atoms/text/Paragraph';
 
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';
   const Element = `h${pressTeaser.level || 2}`;
-  console.log(pressTeaser.description)
+  console.log(pressTeaser.description);
   return(
     <section className={imageClass}>
       { pressTeaser.image && (
@@ -21,12 +21,12 @@ const PressTeaser = (pressTeaser) => {
             role="img"
             style={{ backgroundImage: `url(${pressTeaser.image.src})` }}
           />
-        </a> )}
+        </a>)}
       <div className="ma__press-teaser__details">
         { pressTeaser.eyebrow && (
           <div className="ma__press-teaser__eyebrow">
             <span>{pressTeaser.eyebrow}</span>
-          </div> )
+          </div>)
         }
         <Element className="ma__press-teaser__title">
           <DecorativeLink {...pressTeaser.title} />
@@ -38,14 +38,14 @@ const PressTeaser = (pressTeaser) => {
               )
             }
             { pressTeaser.org && (
-              <span className="ma__press-teaser__org">{pressTeaser.org}</span> )
+              <span className="ma__press-teaser__org">{pressTeaser.org}</span>)
             }
           </div>
         )}
         { pressTeaser.description && (
-            <div className="ma__press-teaser__description">
-              <Paragraph {...pressTeaser.description} />
-            </div>
+        <div className="ma__press-teaser__description">
+          <Paragraph {...pressTeaser.description} />
+        </div>
           )
         }
       </div>
@@ -72,9 +72,9 @@ PressTeaser.propTypes = {
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
   /** A short description of the teaser content */
-  description: PropTypes.instanceOf(Paragraph)
-  //need to refactor back to richtext when ready
-  //description: PropTypes.instanceOf(RichText)
+  // description: PropTypes.instanceOf(Paragraph)
+  // need to refactor back to richtext when ready
+  description: PropTypes.instanceOf(RichText)
 };
 
 export default PressTeaser;
