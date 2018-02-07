@@ -24,7 +24,7 @@ class Pagination extends React.Component {
             {pagination.prev.text}
           </button>
           { pagination.pages.map(page => (
-            page.text == 'spacer' ?
+            page.text === 'spacer' ?
               <span className="ma__pagination__spacer">&hellip;</span> :
               <button
                 className={page.active ? 'ma__pagination__page js-pagination-page is-active' : 'ma__pagination__page js-pagination-page'}
@@ -49,15 +49,15 @@ class Pagination extends React.Component {
 
 Pagination.propTypes = {
   next: PropTypes.shape({
-    disabled: PropTypes.boolean,
+    disabled: PropTypes.bool,
     text: PropTypes.string.isRequired
   }),
   prev: PropTypes.shape({
-    disabled: PropTypes.boolean,
+    disabled: PropTypes.bool,
     text: PropTypes.string.isRequired
   }),
   pages: PropTypes.shape({
-    active: PropTypes.boolean,
+    active: PropTypes.bool,
     text: PropTypes.string.isRequired
   })
 };
