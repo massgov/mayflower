@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
-const Pagination = pagination => (
+const Pagination = (pagination) => (
   <div className="ma__pagination js-pagination">
     <div className="ma__pagination__container">
       <button
@@ -13,16 +12,17 @@ const Pagination = pagination => (
         {pagination.prev.text}
       </button>
       { pagination.pages.map(page => (
-            page.text === 'spacer' ?
-              <span className="ma__pagination__spacer">&hellip;</span> :
-              <button
-                className={page.active ? 'ma__pagination__page js-pagination-page is-active' : 'ma__pagination__page js-pagination-page'}
-                type="button"
-                data-page={page.text}
-              >
-                {page.text}
-              </button>
-          ))}
+          page.text === 'spacer' ?
+            <span className="ma__pagination__spacer">&hellip;</span> :
+            <button
+              className={page.active ? 'ma__pagination__page js-pagination-page is-active' : 'ma__pagination__page js-pagination-page'}
+              type="button"
+              data-page={page.text}
+            >
+              {page.text}
+            </button>
+        ))
+      }
       <button
         className="ma__pagination__next js-pagination-next"
         type="button"

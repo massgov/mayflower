@@ -1,6 +1,7 @@
 {
     "extends": "airbnb",
     "rules": {
+        "arrow-parens": ["warn", "always"],
         "comma-dangle": ["error", "never"],
         "keyword-spacing": ["error", { "overrides": {
             "return": { "after": false }
