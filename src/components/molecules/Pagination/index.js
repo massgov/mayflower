@@ -35,14 +35,21 @@ const Pagination = pagination => (
 );
 
 Pagination.propTypes = {
+  /** next.disabled: Defines whether the next button is available or not to users.
+      next.text: Defines the text shown for the next button. */
   next: PropTypes.shape({
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired
   }),
+  /** prev.disabled: Defines whether the prev button is available or not to users.
+      prev.text: Defines the text shown for the previous button. */
   prev: PropTypes.shape({
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired
   }),
+  /** Pages is an array that defines what page numbers users are able to paginate through.
+      pages.active: Defines whether the page number is active or not.
+      pages.text: Defines the text shown for page number. */
   pages: PropTypes.shape({
     active: PropTypes.bool,
     text: PropTypes.string.isRequired
