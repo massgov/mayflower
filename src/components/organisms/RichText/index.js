@@ -28,6 +28,7 @@ const RichText = (props) => {
         if (Object.prototype.hasOwnProperty.call(elementProperties, eleIndex)) {
           return elementProperties[eleIndex](eleValue);
         }
+        return null;
       });
     });
   }
