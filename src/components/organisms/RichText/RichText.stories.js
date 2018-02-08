@@ -47,6 +47,23 @@ storiesOf('organisms', module)
               text: text('rteParagraph', 'Optional description')
             }
           }
+        },
+        {
+          path: '@atoms/08-lists/unordered-list.twig',
+          data: {
+            unorderedList: [
+              { text: 'This is a list item in an unordered list' },
+              { text: 'An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line.' },
+              {
+                text: 'Lists can be nested inside of each other',
+                sublist: [
+                  { text: 'This is a nested list item' },
+                  { text: 'This is another nested list item in an unordered list' }
+                ]
+              },
+              { text: 'This is the last list item' }
+            ]
+          }
         }]
       };
       return(

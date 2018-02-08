@@ -30,7 +30,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
           path: '@atoms/11-text/paragraph.twig',
           data: {
             paragraph: {
-              text: text('pressTeaser.description.text', 'Optional description')
+              text: text('pressTeaser.description.text', 'Optional description <strong>search term</strong>')
             }
           }
         }]

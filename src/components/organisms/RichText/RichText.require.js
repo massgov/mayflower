@@ -2,12 +2,12 @@
   Exports Components required for RichText.
 */
 
-import Paragraph from '../../atoms/text/Paragraph';
-import Heading from '../../atoms/headings/Heading';
-import CompHeading from '../../atoms/headings/CompHeading';
-import SidebarHeading from '../../atoms/headings/SidebarHeading';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import UnorderedList from '../../atoms/lists/UnorderedList';
+import Paragraph from '../../atoms/text/Paragraph/index';
+import Heading from '../../atoms/headings/Heading/index';
+import CompHeading from '../../atoms/headings/CompHeading/index';
+import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
+import DecorativeLink from '../../atoms/links/DecorativeLink/index';
+import UnorderedList from '../../atoms/lists/UnorderedList/index';
 
 // Knob Options
 import compHeadingOptions from '../../atoms/headings/CompHeading/CompHeading.knob.options';

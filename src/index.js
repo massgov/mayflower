@@ -6,6 +6,7 @@
 // @atoms
 // @atoms/@buttons
 export { Button } from './components/atoms/buttons/Button';
+export { ButtonSearch } from './components/atoms/buttons/ButtonSearch';
 // @atoms/@forms
 export { InputDate } from './components/atoms/forms/InputDate';
 export { SelectBox } from './components/atoms/forms/SelectBox';
