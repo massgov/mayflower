@@ -32,8 +32,9 @@ storiesOf('organisms', module)
         { [k]: v(CompHeading.defaultProps[k]) })));
       const sideOptionsWithKnobs = Object.assign(...Object.entries(sidebarHeadingOptions).map(([k, v]) => (
         { [k]: v(SidebarHeading.defaultProps[k]) })));
-      const paraOptionsWithKnobs = Object.assign(...Object.entries(paragraphOptions).map(([k, v]) => (
-        { [k]: v(Paragraph.defaultProps[k]) })));
+      const paraOptionsWithKnobs = {
+        text: text('RichText.paragraph', 'A <strong>paragraph</strong> (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.')
+      };
       const orderedOptionsWithKnobs = Object.assign(...Object.entries(unorderedOptions).map(([k, v]) => (
         { [k]: v(UnorderedList.defaultProps[k]) })));
       const headerIndent = boolean('headerIndent', RichText.defaultProps.headerIndent);
