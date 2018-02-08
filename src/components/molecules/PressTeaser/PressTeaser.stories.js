@@ -26,14 +26,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       date: text('pressTeaser.date', '4/3/2017'),
       org: text('pressTeaser.org', 'Org Name'),
       description: {
-        text: "rteElements": [{
-          "path": "@atoms/11-text/paragraph.twig",
-          "data": {
-            "paragraph" : {
-              "text": "Optional description"
-            }
-          }
-        }]
+        text: text('pressTeaser.description.text', 'Optional description')
       }
     };
 

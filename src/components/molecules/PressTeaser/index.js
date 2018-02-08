@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
-import RichText from '../../organisms/RichText';
+//import RichText from '../../organisms/RichText';
+import Paragraph from '../../atoms/text/Paragraph';
 
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';
@@ -30,20 +31,21 @@ const PressTeaser = (pressTeaser) => {
         <Element className="ma__press-teaser__title">
           <DecorativeLink {...pressTeaser.title} />
         </Element>
-        { pressTeaser.date || pressTeaser.org && (
+        { (pressTeaser.date || pressTeaser.org) && (
           <div className="ma__press-teaser__details">
             { pressTeaser.date && (
               <span className="ma__press-teaser__date">{pressTeaser.date}</span>
               )
             }
             { pressTeaser.org && (
-              <span className="ma__press-teaser__org">{pressTeaser.org}</span>)
+              <span className="ma__press-teaser__org">{pressTeaser.org}</span>
+              )
             }
           </div>
         )}
         { pressTeaser.description && (
         <div className="ma__press-teaser__description">
-          <RichText {...pressTeaser.description} />
+          <Paragraph {...pressTeaser.description}/>
         </div>
           )
         }
@@ -71,7 +73,8 @@ PressTeaser.propTypes = {
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
   /** A short description of the teaser content */
-  description: PropTypes.instanceOf(RichText)
+  description: PropTypes.instanceOf(Paragraph)
+  //description: PropTypes.instanceOf(RichText)
 };
 
 export default PressTeaser;
