@@ -1,19 +1,58 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import keyIndex from 'react-key-index';
 
 // import child components
 import DecorativeLink from '../../atoms/links/DecorativeLink/index';
 import CompHeading from '../../atoms/headings/CompHeading/index';
 import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
+import Paragraph from '../../atoms/text/Paragraph';
+import UnorderedList from '../../atoms/lists/UnorderedList';
 
 const RichText = (props) => {
-  const decorative = props.children[2] || props.decorativeLink;
+  this.listIndex = 1;
   const headerIndent = props.headerIndent ? 'js-ma-outline-indent' : '';
   const anchorLinks = props.anchorLinks ? 'js-ma-insert-heading-anchors' : '';
+  const children = React.Children.toArray(props.children);
+  const optional = ['CompHeading', 'DecorativeLink', 'SidebarHeading'];
+  const elementProperties = {
+    paragraph: (value) => <Paragraph {...value} />,
+    unorderedList: (value) => <UnorderedList {...value} />
+  };
+  const rteElements = props.rteElements || null;
+  let requiredElements = [];
+  if (typeof rteElements !== 'undefined' && rteElements !== null) {
+    requiredElements = rteElements.map((element) => {
+      if (typeof element.data === 'undefined' || element.data === null) {
+        return[];
+      }
+      const newElementData = keyIndex([element.data], this.listIndex)[0];
+      this.listIndex += 1;
+      return Object.entries(element.data).map(([eleIndex, eleValue]) => {
+        if (Object.prototype.hasOwnProperty.call(elementProperties, eleIndex)) {
+          const newEleValue = eleValue;
+          newEleValue.key = newElementData[`_${eleIndex}Id`];
+          const eleProps = elementProperties[eleIndex](newEleValue);
+          return eleProps;
+        }
+        return null;
+      });
+    });
+  }
+  const optionalElements = [];
+  children.forEach((value) => {
+    if (optional.indexOf(value.type.name) >= 0) {
+      optionalElements[value.type.name] = value;
+    } else {
+      requiredElements.push(value);
+    }
+  });
+  const decorative = optionalElements.DecorativeLink || null;
   return(
     <section className={`ma__rich-text js-ma-rich-text ${headerIndent} ${anchorLinks}`}>
-      {props.children[0] || props.compHeading}
-      {props.children[1] || props.sidebarHeading}
+      {optionalElements.CompHeading}
+      {optionalElements.SidebarHeading}
+      {requiredElements}
       {decorative &&
       <div className="ma__rich-text__more">
         {decorative}
@@ -35,8 +74,8 @@ RichText.propTypes = {
 };
 
 RichText.defaultProps = {
-  headerIndent: true,
-  anchorLinks: true,
+  headerIndent: false,
+  anchorLinks: false,
   compHeading: <CompHeading {...CompHeading.defaultProps} />,
   sidebarHeading: <SidebarHeading {...SidebarHeading.defaultProps} />,
   decorativeLink: <DecorativeLink {...DecorativeLink.defaultProps} />,
