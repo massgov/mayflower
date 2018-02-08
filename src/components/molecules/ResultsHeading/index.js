@@ -37,10 +37,6 @@ const ResultsHeading = (resultsHeading) => {
   );
 };
 
-//{tag.type && (data-ma-filter-type={tag.type})}
-                //{tag.value && (data-ma-filter-value={tag.value})}>
-                //{tag.text}
-
 ResultsHeading.propTypes = {
   /** The range of results being displayed, e.g. 1-10 */
   numResults: PropTypes.string,
@@ -48,7 +44,10 @@ ResultsHeading.propTypes = {
   totalResults: PropTypes.string,
   /** The sort options available*/
   sortResults: PropTypes.instanceOf(SortResults),
-  /** The tags applied to the search list */
+  /** The tags applied to the search list
+        type: The type of tag
+        text: The text displayed by the tag (required)
+        value: The value of the tag  */
   tags: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.string,
     text: PropTypes.string.isRequired,
