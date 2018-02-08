@@ -29,7 +29,6 @@ class InputDate extends React.Component {
 
   render() {
     const classNames = this.props.required ? 'ma__input-date js-input-date js-is-required' : 'ma__input-date js-input-date ';
-    const dataRequired = this.props.required ? 'required' : '';
     return(
       <span>
         <label htmlFor={this.props.id}>{this.props.labelText}</label>
@@ -42,6 +41,7 @@ class InputDate extends React.Component {
           data-type="date"
           data-restrict={this.props.restrict}
           ref={(input) => { this.dateInput = input; }}
+          required={this.props.required}
         />
       </span>
     );

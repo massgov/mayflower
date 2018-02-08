@@ -2,12 +2,11 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, number, select, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, object } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 import SelectBox from './index';
 import selectOptions from './SelectBox.knobs.options';
-// import SelectBox from './SelectBox.md';
 
 storiesOf('atoms/forms', module).addDecorator(withKnobs)
   .add(

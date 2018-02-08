@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 
 import CalloutLink from './index';
 import CalloutLinkDocs from './CalloutLink.md';
