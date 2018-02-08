@@ -6,7 +6,7 @@ import RichText from '../../organisms/RichText';
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';
   const Element = `h${pressTeaser.level || 2}`;
-  console.log(pressTeaser.description);
+
   return(
     <section className={imageClass}>
       { pressTeaser.image && (
