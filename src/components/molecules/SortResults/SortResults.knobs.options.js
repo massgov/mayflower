@@ -4,14 +4,14 @@
 export default {
   sortButtons: [
     {
-      "text": "Date",
-      "direction": "dsc"
-    },{
-      "text": "Price",
-      "direction": ""
-    },{
-      "text": "Color",
-      "direction": ""
+      text: 'Date',
+      direction: 'dsc'
+    }, {
+      text: 'Price',
+      direction: ''
+    }, {
+      text: 'Color',
+      direction: ''
     }
   ]
 };

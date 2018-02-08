@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SortResults from '../SortResults'
-
+import SortResults from '../SortResults';
 
 
 const ResultsHeading = (resultsHeading) => {
-  const resultsHeadingTotal = resultsHeading.totalResults && (` of ${resultsHeading.totalResults}` );
-  const resultsHeadingTags = resultsHeading.tags && (` for: ` );
+  const resultsHeadingTotal = resultsHeading.totalResults && (` of ${resultsHeading.totalResults}`);
+  const resultsHeadingTags = resultsHeading.tags && (' for: ');
   const resultsHeadingTitle = `Showing ${resultsHeading.numResults}${resultsHeadingTotal}${resultsHeadingTags}`;
   return(
     <div className="ma__results-heading js-results-heading">
@@ -17,23 +16,24 @@ const ResultsHeading = (resultsHeading) => {
         {resultsHeading.tags && (
           <div className="ma__results-heading__tags">
             { resultsHeading.tags.map((tag) => (
-                <button
-                  type="button"
-                  className="ma__results-heading__tag js-results-heading-tag"
-                  data-ma-filter-type={tag.type}
-                  data-ma-filter-value={tag.value}>
-                  {tag.text}
-                </button>
+              <button
+                type="button"
+                className="ma__results-heading__tag js-results-heading-tag"
+                data-ma-filter-type={tag.type}
+                data-ma-filter-value={tag.value}
+              >
+                {tag.text}
+              </button>
            ))}
-          <button type="button" className="ma__results-heading__clear js-results-heading-clear">Clear all</button>
-        </div>)}
+            <button type="button" className="ma__results-heading__clear js-results-heading-clear">Clear all</button>
+          </div>)}
         {resultsHeading.sortResults && (
-      <div className="ma__results-heading__sort">
-        <SortResults {...resultsHeading.sortResults}/>
-      </div>
+        <div className="ma__results-heading__sort">
+          <SortResults {...resultsHeading.sortResults} />
+        </div>
     )}
-  </div>
-</div>
+      </div>
+    </div>
   );
 };
 
@@ -42,7 +42,7 @@ ResultsHeading.propTypes = {
   numResults: PropTypes.string,
   /** The total count of results */
   totalResults: PropTypes.string,
-  /** The sort options available*/
+  /** The sort options available */
   sortResults: PropTypes.instanceOf(SortResults),
   /** The tags applied to the search list
         type: The type of tag

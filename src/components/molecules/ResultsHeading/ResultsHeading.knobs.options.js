@@ -3,20 +3,20 @@
  */
 export default {
   tags: [{
-      "type": "zipcode",
-      "text": "02341",
-      "value": "02341"
-    },{
-      "type": "activity",
-      "text": "Hiking",
-      "value": "hiking"
-    },{
-      "type": "keyword",
-      "text": "Beginner",
-      "value": "beginner"
-    },{
-      "type": "tag",
-      "text": "Wheelchair Accessible",
-      "value": "wheelchair-accessible"
-    }]
+    type: 'zipcode',
+    text: '02341',
+    value: '02341'
+  }, {
+    type: 'activity',
+    text: 'Hiking',
+    value: 'hiking'
+  }, {
+    type: 'keyword',
+    text: 'Beginner',
+    value: 'beginner'
+  }, {
+    type: 'tag',
+    text: 'Wheelchair Accessible',
+    value: 'wheelchair-accessible'
+  }]
 };
