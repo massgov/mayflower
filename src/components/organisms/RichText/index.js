@@ -5,13 +5,33 @@ import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink/index';
 import CompHeading from '../../atoms/headings/CompHeading/index';
 import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
+import Paragraph from '../../atoms/text/Paragraph';
+import UnorderedList from '../../atoms/lists/UnorderedList';
 
 const RichText = (props) => {
   const headerIndent = props.headerIndent ? 'js-ma-outline-indent' : '';
   const anchorLinks = props.anchorLinks ? 'js-ma-insert-heading-anchors' : '';
   const children = React.Children.toArray(props.children);
   const optional = ['CompHeading', 'DecorativeLink', 'SidebarHeading'];
-  const requiredElements = [];
+  const elementProperties = {
+    paragraph: (value) => <Paragraph {...value} />,
+    unorderedList: (value) => <UnorderedList {...value} />
+  };
+  const rteElements = props.rteElements || null;
+  let requiredElements = [];
+  if (typeof rteElements !== 'undefined' && rteElements !== null) {
+    requiredElements = rteElements.map((element) => {
+      if (typeof element.data === 'undefined' || element.data === null) {
+        return[];
+      }
+      return Object.entries(element.data).map(([eleIndex, eleValue]) => {
+        if (Object.prototype.hasOwnProperty.call(elementProperties, eleIndex)) {
+          return elementProperties[eleIndex](eleValue);
+        }
+        return null;
+      });
+    });
+  }
   const optionalElements = [];
   children.forEach((value) => {
     if (optional.indexOf(value.type.name) >= 0) {

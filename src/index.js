@@ -3,9 +3,6 @@
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
 */
 
-// base / helpers
-export { SocialIcon } from './components/SocialIcon';
-
 // @atoms
 // @atoms/@buttons
 export { Button } from './components/atoms/buttons/Button';

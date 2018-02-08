@@ -10,6 +10,6 @@ const levelOptions = {
 };
 
 export default {
-  title: value => text('sidebarHeading.title', value),
-  level: value => select('sidebarHeading.level', levelOptions, value)
+  title: (value) => text('sidebarHeading.title', value),
+  level: (value) => select('sidebarHeading.level', levelOptions, value)
 };
