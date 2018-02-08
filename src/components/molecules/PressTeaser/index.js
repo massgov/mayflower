@@ -30,7 +30,7 @@ const PressTeaser = (pressTeaser) => {
         <Element className="ma__press-teaser__title">
           <DecorativeLink {...pressTeaser.title} />
         </Element>
-        { pressTeaser.date || pressTeaser.org && (
+        { pressTeaser.org && (
           <div className="ma__press-teaser__details">
             { pressTeaser.date && (
               <span className="ma__press-teaser__date">{pressTeaser.date}</span>
