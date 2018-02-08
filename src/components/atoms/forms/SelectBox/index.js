@@ -44,7 +44,7 @@ class SelectBox extends React.Component {
             className={selectClassNames}
             onChange={this.handleSelect}
           >
-            {this.props.options.map(option => (
+            {this.props.options.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.text}
               </option>

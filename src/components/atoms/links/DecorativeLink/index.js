@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import SvgArrow from '../../icons/SvgArrow';
 
-const DecorativeLink = props => (
+const DecorativeLink = (props) => (
   <span className="ma__decorative-link">
     <a
       href={props.href}
