@@ -38,8 +38,18 @@ storiesOf('organisms', module)
         { [k]: v(UnorderedList.defaultProps[k]) })));
       const headerIndent = boolean('headerIndent', RichText.defaultProps.headerIndent);
       const anchorLinks = boolean('anchorLinks', RichText.defaultProps.anchorLinks);
+      const description = {
+        rteElements: [{
+          path: '@atoms/11-text/paragraph.twig',
+          data: {
+            paragraph: {
+              text: text('rteParagraph', 'Optional description')
+            }
+          }
+        }]
+      };
       return(
-        <RichText headerIndent={headerIndent} anchorLinks={anchorLinks}>
+        <RichText headerIndent={headerIndent} anchorLinks={anchorLinks} {...description}>
           <CompHeading {...compOptionsWithKnobs} />
           <SidebarHeading {...sideOptionsWithKnobs} />
           <Paragraph {...paraOptionsWithKnobs} />
