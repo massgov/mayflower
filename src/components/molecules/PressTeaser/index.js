@@ -71,7 +71,7 @@ PressTeaser.propTypes = {
   date: PropTypes.string,
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
-  /** A short description of the teaser content */
+  /** A short description of the teaser content, rendered as a paragraph */
   description: PropTypes.instanceOf(RichText)
 };
 
