@@ -2,7 +2,7 @@
   Exports Components required for RichText.
 */
 
-import Paragraph from '../../atoms/text/Paragraph/';
+import Paragraph from '../../atoms/text/Paragraph';
 import Heading from '../../atoms/headings/Heading';
 import CompHeading from '../../atoms/headings/CompHeading';
 import SidebarHeading from '../../atoms/headings/SidebarHeading';
