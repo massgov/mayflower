@@ -3,12 +3,10 @@
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
 */
 
-// base / helpers
-export { SocialIcon } from './components/SocialIcon';
-
 // @atoms
 // @atoms/@buttons
 export { Button } from './components/atoms/buttons/Button';
+export { ButtonSearch } from './components/atoms/buttons/ButtonSearch';
 // @atoms/@forms
 export { InputDate } from './components/atoms/forms/InputDate';
 export { SelectBox } from './components/atoms/forms/SelectBox';
@@ -34,4 +32,5 @@ export { SocialLinks } from './components/molecules/SocialLinks';
 
 // @organisms
 export { Footer } from './components/organisms/Footer';
+export { RichText } from './components/organisms/RichText';
 export { PressFilters } from './components/organisms/PressFilters';

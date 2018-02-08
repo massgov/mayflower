@@ -2,21 +2,17 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { text, withKnobs } from '@storybook/addon-knobs/react';
+import { withKnobs } from '@storybook/addon-knobs/react';
 
-import DecorativeLink from '../../links/DecorativeLink';
+import DecorativeLink from './index';
+import decorativeLinkOptions from './DecorativeLink.knob.options';
+
 import linkMarkdown from './DecorativeLink.md';
 
 storiesOf('atoms/links', module).addDecorator(withKnobs)
   .add('DecorativeLink', withInfo({ linkMarkdown })(() => {
-    const info = text('info', '');
-    const linkText = text('text', 'Lorem ipsum dolor sit amet');
-    const href = text('href', '#');
-
-    return(<DecorativeLink
-      info={info}
-      text={linkText}
-      href={href}
-    />);
+    const decoreOptionsWithKnobs = Object.assign(...Object.entries(decorativeLinkOptions).map(([k, v]) => (
+      { [k]: v(DecorativeLink.defaultProps[k]) })));
+    return(<DecorativeLink {...decoreOptionsWithKnobs} />);
   }));
 
