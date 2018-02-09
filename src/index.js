@@ -25,7 +25,7 @@ export { DecorativeLink } from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
 export { UnorderedList } from './components/atoms/lists/UnorderedList';
 // @atoms/@media
-export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
+export { SiteLogo } from './components/atoms/media/SiteLogo';
 // @atoms/@text
 export { Paragraph } from './components/atoms/text/Paragraph';
 // @molecules
