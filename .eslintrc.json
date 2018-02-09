@@ -10,9 +10,13 @@
         "no-shadow": ["warn"],
         "no-eval": ["warn"],
         "no-unused-vars": ["warn"],
-        "prefer-destructuring": ["warn"],
-        "import/no-extraneous-dependencies": ["warn"],
-        "jsx-a11y/label-has-for": ["warn"],
+        "prefer-destructuring": ["off"],
+        "import/no-extraneous-dependencies": ["off"],
+        "jsx-a11y/label-has-for": [ "warn", {
+            "required": {
+                "some": [ "nesting", "id" ]
+            }
+        }],
         "react/forbid-prop-types": ["warn"],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/no-unused-prop-types": ["off"],
