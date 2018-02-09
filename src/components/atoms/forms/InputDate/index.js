@@ -30,7 +30,7 @@ class InputDate extends React.Component {
   render() {
     const classNames = this.props.required ? 'ma__input-date js-input-date js-is-required' : 'ma__input-date js-input-date ';
     return(
-      <span>
+      <React.Fragment>
         <label htmlFor={this.props.id}>{this.props.labelText}</label>
         <input
           className={classNames}
@@ -43,7 +43,7 @@ class InputDate extends React.Component {
           ref={(input) => { this.dateInput = input; }}
           required={this.props.required}
         />
-      </span>
+      </React.Fragment>
     );
   }
 }
