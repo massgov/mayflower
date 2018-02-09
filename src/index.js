@@ -9,11 +9,13 @@ export { Button } from './components/atoms/buttons/Button';
 export { ButtonSearch } from './components/atoms/buttons/ButtonSearch';
 // @atoms/@forms
 export { InputDate } from './components/atoms/forms/InputDate';
+export { InputText } from './components/atoms/forms/InputText';
 export { SelectBox } from './components/atoms/forms/SelectBox';
 // @atoms/@headings
 export { ColoredHeading } from './components/atoms/headings/ColoredHeading';
 export { CompHeading } from './components/atoms/headings/CompHeading';
 export { SidebarHeading } from './components/atoms/headings/SidebarHeading';
+export { Heading } from './components/atoms/headings/Heading';
 // @atoms/@icons
 export { LatLonGlobe } from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
 export { SvgArrow } from './components/atoms/icons/SvgArrow';
@@ -21,13 +23,17 @@ export { SvgArrowBent } from './components/atoms/icons/SvgArrowBent';
 export { SvgSearch } from './components/atoms/icons/SvgSearch';
 // @atoms/@links
 export { DecorativeLink } from './components/atoms/links/DecorativeLink';
+// @atoms/@lists
+export { UnorderedList } from './components/atoms/lists/UnorderedList';
 // @atoms/@media
-export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
-
+export { SiteLogo } from './components/atoms/media/SiteLogo';
+// @atoms/@text
+export { Paragraph } from './components/atoms/text/Paragraph';
 // @molecules
 export { DateRange } from './components/molecules/DateRange';
 export { FooterLinks } from './components/molecules/FooterLinks';
 export { OrgSelector } from './components/molecules/OrgSelector';
+export { SearchBannerForm } from './components/molecules/SearchBannerForm';
 export { SocialLinks } from './components/molecules/SocialLinks';
 
 // @organisms

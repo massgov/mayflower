@@ -25,13 +25,11 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "pre-push": ["lint"],
+  "pre-push": [
+    "lint"
+  ],
   "dependencies": {
     "@massds/mayflower": "^5.10.0",
-    "@storybook/addon-info": "^3.3.10",
-    "@storybook/addon-knobs": "^3.3.10",
-    "@storybook/addon-links": "^3.3.10",
-    "@storybook/react": "^3.3.10",
     "pikaday": "^1.7.0",
     "prop-types": "^15.6.0",
     "react-select": "^1.2.1"
@@ -56,7 +54,9 @@
     "pre-push": "^0.1.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-key-index": "^0.1.1",
+    "hashids": "^1.1.4"
   },
   "homepage": "",
   "license": "MIT",
