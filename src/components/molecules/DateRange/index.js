@@ -30,9 +30,12 @@ class DateRange extends React.Component {
 }
 
 DateRange.propTypes = {
+  /** The text label of the date range input */
   label: PropTypes.string.isRequired,
-  startDate: PropTypes.instanceOf(InputDate).isRequired,
-  endDate: PropTypes.instanceOf(InputDate).isRequired
+  /** The start date of your filter query, @atoms/forms/InputDate */
+  startDate: PropTypes.shape(InputDate.props).isRequired,
+  /** The end date of your filter query, @atoms/forms/InputDate */
+  endDate: PropTypes.shape(InputDate.props).isRequired
 };
 
 export default DateRange;
