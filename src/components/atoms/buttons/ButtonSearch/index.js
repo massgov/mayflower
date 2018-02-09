@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SvgSearch from '../../icons/SvgSearch';
 
 const ButtonSearch = (buttonSearch) => (
-  <button type="submit" className="ma__button-search">
+  <button type="submit" className={buttonSearch.classes.join(' ')}>
     <span>{buttonSearch.text}</span>
     <SvgSearch />
   </button>
@@ -11,9 +11,13 @@ const ButtonSearch = (buttonSearch) => (
 
 ButtonSearch.propTypes = {
   /** The text to display in the button */
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  /** Optional classes to apply to the button in place of the default */
+  classes: PropTypes.arrayOf(PropTypes.string)
 };
 
-ButtonSearch.defaultProps = {};
+ButtonSearch.defaultProps = {
+  classes: ['ma__button-search']
+};
 
 export default ButtonSearch;

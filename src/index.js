@@ -9,6 +9,7 @@ export { Button } from './components/atoms/buttons/Button';
 export { ButtonSearch } from './components/atoms/buttons/ButtonSearch';
 // @atoms/@forms
 export { InputDate } from './components/atoms/forms/InputDate';
+export { InputText } from './components/atoms/forms/InputText';
 export { SelectBox } from './components/atoms/forms/SelectBox';
 // @atoms/@headings
 export { ColoredHeading } from './components/atoms/headings/ColoredHeading';
@@ -32,6 +33,7 @@ export { Paragraph } from './components/atoms/text/Paragraph';
 export { DateRange } from './components/molecules/DateRange';
 export { FooterLinks } from './components/molecules/FooterLinks';
 export { OrgSelector } from './components/molecules/OrgSelector';
+export { SearchBannerForm } from './components/molecules/SearchBannerForm';
 export { SocialLinks } from './components/molecules/SocialLinks';
 
 // @organisms

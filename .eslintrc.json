@@ -9,6 +9,7 @@
         "max-len": ["off", { "code": 100 }],
         "no-shadow": ["warn"],
         "no-eval": ["warn"],
+        "no-param-reassign": ["warn"],
         "no-unused-vars": ["warn"],
         "prefer-destructuring": ["off"],
         "import/no-extraneous-dependencies": ["off"],
