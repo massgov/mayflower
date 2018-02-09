@@ -14,6 +14,7 @@ export { SelectBox } from './components/atoms/forms/SelectBox';
 export { ColoredHeading } from './components/atoms/headings/ColoredHeading';
 export { CompHeading } from './components/atoms/headings/CompHeading';
 export { SidebarHeading } from './components/atoms/headings/SidebarHeading';
+export { Heading } from './components/atoms/headings/Heading';
 // @atoms/@icons
 export { LatLonGlobe } from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
 export { SvgArrow } from './components/atoms/icons/SvgArrow';
@@ -21,9 +22,12 @@ export { SvgArrowBent } from './components/atoms/icons/SvgArrowBent';
 export { SvgSearch } from './components/atoms/icons/SvgSearch';
 // @atoms/@links
 export { DecorativeLink } from './components/atoms/links/DecorativeLink';
+// @atoms/@lists
+export { UnorderedList } from './components/atoms/lists/UnorderedList';
 // @atoms/@media
 export { SiteLogo } from './components/atoms/media/site-logo/SiteLogo';
-
+// @atoms/@text
+export { Paragraph } from './components/atoms/text/Paragraph';
 // @molecules
 export { DateRange } from './components/molecules/DateRange';
 export { FooterLinks } from './components/molecules/FooterLinks';
