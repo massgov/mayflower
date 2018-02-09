@@ -1,16 +1,18 @@
 import React from 'react';
+
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs/react';
-
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 import paragraphOptions from './Paragraph.knob.options';
-
-import Paragraph from './index';
 import paragraphReadme from './Paragraph.md';
+import Paragraph from './index';
 
 storiesOf('atoms/text', module).addDecorator(withKnobs)
   .add('Paragraph', withInfo({ paragraphReadme })(() => {
-    const paraOptionsWithKnobs = Object.assign(...Object.entries(paragraphOptions).map(([k, v]) => (
-      { [k]: v(Paragraph.defaultProps[k]) })));
-    return(<Paragraph {...paraOptionsWithKnobs} />);
+    const props = {
+      text: text('paragraph.text', 'A <strong>paragraph</strong> (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.')
+    };
+    return(
+      <Paragraph {...props} />
+    );
   }));

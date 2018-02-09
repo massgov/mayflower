@@ -1,14 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Paragraph = (props) => {
-  const raw = {
-    __html: props.text
-  };
-  return(
-    <p dangerouslySetInnerHTML={raw} />
-  );
-};
+const Paragraph = (paragraph) => (
+  <p dangerouslySetInnerHTML={{ __html: paragraph.text }} />
+);
 
 Paragraph.propTypes = {
   /** The text displayed. */
