@@ -2,7 +2,7 @@
   "name": "@massds/mayflower-react",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "0.7.0",
+  "version": "0.13.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -12,8 +12,7 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
-    "copy-data": "cp -R src/data lib && cp -R src/data es",
+    "build": "nwb build-react-component --copy-files",
     "clean": "nwb clean-module",
     "start": "npm run storybook",
     "lint": "./node_modules/.bin/eslint .",
@@ -21,7 +20,7 @@
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
-    "prepublishOnly": "npm run build && npm run copy-data",
+    "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -32,7 +31,9 @@
     "@massds/mayflower": "^5.10.0",
     "pikaday": "^1.7.0",
     "prop-types": "^15.6.0",
-    "react-select": "^1.2.1"
+    "react-select": "^1.2.1",
+    "react-key-index": "^0.1.1",
+    "hashids": "^1.1.4"
   },
   "peerDependencies": {
     "react": "16.x"
@@ -53,10 +54,7 @@
     "nwb": "0.21.x",
     "pre-push": "^0.1.1",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-key-index": "^0.1.1",
-    "hashids": "^1.1.4"
+    "react-dom": "^16.2.0"
   },
   "homepage": "",
   "license": "MIT",

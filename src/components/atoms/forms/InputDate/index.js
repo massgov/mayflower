@@ -30,7 +30,7 @@ class InputDate extends React.Component {
   render() {
     const classNames = this.props.required ? 'ma__input-date js-input-date js-is-required' : 'ma__input-date js-input-date ';
     return(
-      <span>
+      <React.Fragment>
         <label htmlFor={this.props.id}>{this.props.labelText}</label>
         <input
           className={classNames}
@@ -43,23 +43,29 @@ class InputDate extends React.Component {
           ref={(input) => { this.dateInput = input; }}
           required={this.props.required}
         />
-      </span>
+      </React.Fragment>
     );
   }
 }
 
 InputDate.propTypes = {
+  /** The label text above the input field */
   labelText: PropTypes.string.isRequired,
+  /** Whether an input date is required or not */
   required: PropTypes.bool,
+  /** The id on the input date element */
   id: PropTypes.string.isRequired,
+  /** The name of the input date element */
   name: PropTypes.string.isRequired,
+  /** The placeholder text in the input box, prompting users for a value */
   placeholder: PropTypes.string,
+  /** Controls whether the user can pick any date (''), today and prior ('max') or today and future ('min') */
   restrict: PropTypes.oneOf(['', 'max', 'min'])
 };
 
+// Only set defaults for the configuration variables which need to be opted in to activate.
 InputDate.defaultProps = {
   required: false,
-  placeholder: 'mm/dd/yy',
   restrict: ''
 };
 
