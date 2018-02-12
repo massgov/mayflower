@@ -9,7 +9,7 @@ const PressTeaser = (pressTeaser) => {
 
   return(
     <section className={imageClass}>
-      { pressTeaser.image && (
+      { pressTeaser.image && pressTeaser.image.src && (
         <a
           className="ma__press-teaser__image"
           href={pressTeaser.title.href}
