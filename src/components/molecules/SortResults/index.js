@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonSort from '../../atoms/buttons/ButtonSort';
 import keyIndex from 'react-key-index';
+import ButtonSort from '../../atoms/buttons/ButtonSort';
 
 const SortResults = (sortResults) => (
   <div className="ma__sort-results js-sort-results">
@@ -12,7 +12,7 @@ const SortResults = (sortResults) => (
       let buttonProps = buttonSort;
       buttonProps.unique = index;
       buttonProps = keyIndex([buttonProps], index)[0];
-      buttonProps.key = buttonProps['_uniqueId'];
+      buttonProps.key = buttonProps._uniqueId;
       return(<ButtonSort {...buttonProps} />);
     })}
   </div>
