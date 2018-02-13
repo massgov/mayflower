@@ -22,7 +22,7 @@
       "altText": "Follow us on Youtube",
       "href": "#",
       "icon": "@atoms/05-icons/svg-youtube.twig",
-      "component": "Youtube",
+      "component": "YouTube",
       "linkType": "youtube"
     }]
   }

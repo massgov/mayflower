@@ -75,7 +75,7 @@ const icons = {
       transform="translate(-125 -55)"
     />
   </svg>,
-  Youtube:
+  YouTube:
   <svg
     id="SvgjsSvg1014"
     xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@ SocialLink.propTypes = {
   /** Alt text for accessibility */
   altText: PropTypes.string.isRequired,
   /** The social link icon to use */
-  component: PropTypes.oneOf(['Facebook', 'Twitter', 'LinkedIn', 'YouTube']).isRequired
+  component: PropTypes.oneOf(['Facebook', 'Twitter', 'LinkedIn', 'YouTube', 'Instagram']).isRequired
 };
 
 SocialLinks.propTypes = {
