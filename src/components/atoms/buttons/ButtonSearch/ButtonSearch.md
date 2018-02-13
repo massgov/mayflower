@@ -6,6 +6,8 @@ A button used for a keyword search.
 
 ### Variables
 ~~~
+onClick:
+  type: function / required
 text:
   type: string / required
 classes:
