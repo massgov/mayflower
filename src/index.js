@@ -33,6 +33,7 @@ export Paragraph from './components/atoms/text/Paragraph';
 export DateRange from './components/molecules/DateRange';
 export FooterLinks from './components/molecules/FooterLinks';
 export OrgSelector from './components/molecules/OrgSelector';
+export PressTeaser from './components/molecules/PressTeaser';
 export SearchBannerForm from './components/molecules/SearchBannerForm';
 export SocialLinks from './components/molecules/SocialLinks';
 
