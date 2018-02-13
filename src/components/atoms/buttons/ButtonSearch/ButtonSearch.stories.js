@@ -16,7 +16,8 @@ storiesOf('atoms/buttons', module)
     withInfo(`<div>${ButtonSearchReadme}</div>`)(() => {
       const buttonSearchOptionsWithKnobs = Object.assign(...Object.entries(buttonSearchOptions).map(([k, v]) => (
         { [k]: v(ButtonSearch.defaultProps[k]) })));
+      buttonSearchOptionsWithKnobs.onClick = action('on-click');
 
-      return(<ButtonSearch {...buttonSearchOptionsWithKnobs} onClick={action('on-click')}/>);
+      return(<ButtonSearch {...buttonSearchOptionsWithKnobs} />);
     })
   );
