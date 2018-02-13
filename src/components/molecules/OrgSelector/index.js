@@ -161,9 +161,9 @@ OrgInfo.propTypes = {
 
 OrgSelector.propTypes = {
   /** @atoms/forms/SelectBox  */
-  selectBox: PropTypes.instanceOf(SelectBox).isRequired,
+  selectBox: PropTypes.shape(SelectBox.props).isRequired,
   /** An array of objects of org info which renders (as <OrgInfo/>) when that org is selected  */
-  organizations: PropTypes.instanceOf(OrgInfo)
+  organizations: PropTypes.arrayOf(PropTypes.shape(OrgInfo.props))
 };
 
 export default OrgSelector;

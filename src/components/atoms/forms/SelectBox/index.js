@@ -61,10 +61,13 @@ class SelectBox extends React.Component {
 }
 
 SelectBox.propTypes = {
+  /** The label text above the select box */
   label: PropTypes.string.isRequired,
+  /** Whether the form field is required or not */
   required: PropTypes.bool,
+  /** The id of the selectbox element */
   id: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
+  /** An array of options for the selectbox */
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.oneOfType([
       PropTypes.string
@@ -73,6 +76,9 @@ SelectBox.propTypes = {
       PropTypes.string
     ])
   })),
+  /** A function ran when a selection in made */
+  onChange: PropTypes.func,
+  /** A custom function users can add for when onchange is triggered */
   onChangeCallback: PropTypes.func
 };
 
