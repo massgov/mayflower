@@ -35,9 +35,6 @@
     "react-key-index": "^0.1.1",
     "hashids": "^1.1.4"
   },
-  "peerDependencies": {
-    "react": "16.x"
-  },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.10",
     "@storybook/addon-info": "^3.3.10",
@@ -54,6 +51,7 @@
     "nwb": "0.21.x",
     "pre-push": "^0.1.1",
     "prop-types": "^15.6.0",
+    "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
   "homepage": "",
