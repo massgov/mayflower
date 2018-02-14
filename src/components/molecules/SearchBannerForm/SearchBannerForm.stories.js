@@ -25,6 +25,10 @@ storiesOf('molecules', module).addDecorator(withKnobs)
         errorMsg: text('searchBannerForm.inputText.errorMsg', '')
       },
       buttonSearch: {
+        onClick: () => {
+          // eslint-disable-next-line no-console
+          console.log('Search button was clicked!');
+        },
         text: text('searchBannerForm.buttonSearch.text', 'Search')
       }
     };

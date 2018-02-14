@@ -22,7 +22,7 @@
       "altText": "Follow us on Youtube",
       "href": "https://www.youtube.com/user/massgov",
       "icon": "@atoms/05-icons/svg-youtube.twig",
-      "component": "Youtube",
+      "component": "YouTube",
       "linkType": "youtube"
     },{
       "altText": "Follow us on Instagram",
