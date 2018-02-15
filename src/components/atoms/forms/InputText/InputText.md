@@ -1,9 +1,6 @@
 ### Description
 A stylized text input field.
 
-### Changes for React
-* `classes` array: To get this to work in React, a wrapper had to be added. To work with the SearchBannerForm component, the wrapper needs to have an appropriate class. This is passed in with the new `classes` array.
-
 ### Variables
 ~~~
 labelText:
@@ -26,6 +23,6 @@ placeholder:
   type: string / optional
 errorMsg:
   type: string / optional
-classes:
-  type: array (string) / optional
+onChange:
+  type: function / optional
 ~~~

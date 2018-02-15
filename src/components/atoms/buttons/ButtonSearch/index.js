@@ -17,12 +17,13 @@ ButtonSearch.propTypes = {
   /** Custom click handler function. */
   onClick: PropTypes.func,
   /** The text to display in the button */
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   /** Optional classes to apply to the button in place of the default */
   classes: PropTypes.arrayOf(PropTypes.string)
 };
 
 ButtonSearch.defaultProps = {
+  text: 'Search',
   classes: ['ma__button-search']
 };
 

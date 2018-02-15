@@ -7,9 +7,9 @@ A button used for a keyword search.
 ### Variables
 ~~~
 onClick:
-  type: function / required
+  type: function / optional
 text:
-  type: string / required
+  type: string / optional
 classes:
   type: array (string) / optional
 ~~~

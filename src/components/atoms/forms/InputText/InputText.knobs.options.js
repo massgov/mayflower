@@ -1,4 +1,4 @@
-import { text, boolean, select, number, array } from '@storybook/addon-knobs/react';
+import { text, boolean, select, number } from '@storybook/addon-knobs/react';
 
 export default {
   hiddenLabel: (value) => boolean('inputText.hiddenLabel', value),
@@ -11,6 +11,5 @@ export default {
   maxlength: () => number('inputText.maxlength', 0),
   pattern: () => text('inputText.pattern', ''),
   placeholder: () => text('inputText.placeholder', 'type something'),
-  errorMsg: () => text('inputText.errorMsg', 'you did not type something'),
-  classes: (value) => array('inputText.classes', value)
+  errorMsg: () => text('inputText.errorMsg', 'you did not type something')
 };
