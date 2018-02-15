@@ -41,3 +41,4 @@ export SocialLinks from './components/molecules/SocialLinks';
 export Footer from './components/organisms/Footer';
 export RichText from './components/organisms/RichText';
 export PressFilters from './components/organisms/PressFilters';
+export UtilityPanel from './components/organisms/UtilityPanel';
