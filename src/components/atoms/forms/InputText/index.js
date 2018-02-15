@@ -15,7 +15,7 @@ const InputText = (inputText) => {
   }
 
   return(
-    <div className={inputText.classes.join(' ') || null}>
+    <React.Fragment>
       {inputText.labelText &&
       <label
         htmlFor={inputText.id}
@@ -35,9 +35,10 @@ const InputText = (inputText) => {
         maxLength={inputText.maxlength || null}
         pattern={inputText.pattern || null}
         style={inputText.width ? { width: `${inputText.width}px` } : null}
+        onChange={inputText.onChange}
         required={inputText.required}
       />
-    </div>
+    </React.Fragment>
   );
 };
 
@@ -64,14 +65,13 @@ InputText.propTypes = {
   placeholder: PropTypes.string,
   /** The message to be displayed in the event of an error */
   errorMsg: PropTypes.string,
-  /** Classes to be applied to the input wrapper */
-  classes: PropTypes.arrayOf(PropTypes.string)
+  /** Custom change function */
+  onChange: PropTypes.func
 };
 
 InputText.defaultProps = {
   hiddenLabel: false,
-  required: false,
-  classes: []
+  required: false
 };
 
 export default InputText;

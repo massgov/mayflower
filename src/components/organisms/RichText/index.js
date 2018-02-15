@@ -76,10 +76,7 @@ RichText.propTypes = {
 RichText.defaultProps = {
   headerIndent: false,
   anchorLinks: false,
-  compHeading: <CompHeading {...CompHeading.defaultProps} />,
-  sidebarHeading: <SidebarHeading {...SidebarHeading.defaultProps} />,
-  decorativeLink: <DecorativeLink {...DecorativeLink.defaultProps} />,
-  rteElements: [{}]
+  rteElements: []
 };
 
 export default RichText;

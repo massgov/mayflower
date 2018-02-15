@@ -12,7 +12,7 @@ import ButtonSearchReadme from './ButtonSearch.md';
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs)
   .add(
-    'Button Search',
+    'ButtonSearch',
     withInfo(`<div>${ButtonSearchReadme}</div>`)(() => {
       const buttonSearchOptionsWithKnobs = Object.assign(...Object.entries(buttonSearchOptions).map(([k, v]) => (
         { [k]: v(ButtonSearch.defaultProps[k]) })));

@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, number } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 
 import SearchBannerForm from '.';
 import SearchBannerDocs from './SearchBannerForm.md';
@@ -10,7 +11,8 @@ import SearchBannerDocs from './SearchBannerForm.md';
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('Search Banner Form', withInfo(`<div>${SearchBannerDocs}</div>`)(() => {
     const props = {
-      action: '',
+      action: '#',
+      onSubmit: action('Form submitted'),
       inputText: {
         hiddenLabel: boolean('searchBannerForm.inputText.hiddenLabel', false),
         labelText: text('searchBannerForm.inputText.labelText', 'Search terms'),
@@ -22,13 +24,11 @@ storiesOf('molecules', module).addDecorator(withKnobs)
         maxlength: number('searchBannerForm.inputText.maxlength', 0),
         pattern: text('searchBannerForm.inputText.pattern', ''),
         placeholder: text('searchBannerForm.inputText.placeholder', 'Search...'),
-        errorMsg: text('searchBannerForm.inputText.errorMsg', '')
+        errorMsg: text('searchBannerForm.inputText.errorMsg', ''),
+        onChange: action('Text input modified')
       },
       buttonSearch: {
-        onClick: () => {
-          // eslint-disable-next-line no-console
-          console.log('Search button was clicked!');
-        },
+        onClick: action('Search button clicked'),
         text: text('searchBannerForm.buttonSearch.text', 'Search')
       }
     };
