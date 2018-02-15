@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import keyIndex from 'react-key-index';
 
-const UnorderedList = (props) => {
-  this.listIndex = 1;
-  return subList(props);
-};
+const UnorderedList = (props) => subList(props);
 
 UnorderedList.propTypes = {
   /** The text displayed. */
@@ -34,26 +30,31 @@ UnorderedList.defaultProps = {
   }]
 };
 
-const listItem = (props) => {
+const listItem = (props, itemIndex, ulIndex) => {
   const raw = {
     __html: props.text
   };
-  return(<li key={props._textId} dangerouslySetInnerHTML={raw} />);
+  const key = `li.${ulIndex}.${itemIndex}`;
+  return(<li key={key} dangerouslySetInnerHTML={raw} />);
 };
 
 const subList = (props) => {
-  const list = keyIndex(props.sublist, this.listIndex);
-  this.listIndex += 1;
-  const ulId = list._sublistId || null;
+  const newProps = Object.assign({}, props);
+  if (!Object.prototype.hasOwnProperty.call(newProps, 'ulIndex')) {
+    newProps.ulIndex = 0;
+  }
+  const ulId = `ul.${newProps.ulIndex}`;
+  newProps.ulIndex += 1;
+  const list = newProps.sublist;
   return(
     <ul key={ulId}>
-      {list && list.map((item) => {
+      {list && list.map((item, itemIndex) => {
         if (item.sublist) {
-          const subitem = [listItem(item)];
+          const subitem = [listItem(item, itemIndex, ulId)];
           subitem.push(subList(item));
           return subitem;
         }
-        return listItem(item);
+        return listItem(item, itemIndex, ulId);
       })}
     </ul>);
 };

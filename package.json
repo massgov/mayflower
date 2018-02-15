@@ -31,9 +31,7 @@
     "@massds/mayflower": "^5.10.0",
     "pikaday": "^1.7.0",
     "prop-types": "^15.6.0",
-    "react-select": "^1.2.1",
-    "react-key-index": "^0.1.1",
-    "hashids": "^1.1.4"
+    "react-select": "^1.2.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.10",

@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import keyIndex from 'react-key-index';
 
-const OrderedList = (props) => {
-  this.listIndex = 1;
-  return subList(props);
-};
+const OrderedList = (props) => subList(props);
 
 OrderedList.propTypes = {
   /** The text displayed. */
@@ -34,26 +30,31 @@ OrderedList.defaultProps = {
   }]
 };
 
-const listItem = (props) => {
+const listItem = (props, itemIndex, olIndex) => {
   const raw = {
     __html: props.text
   };
-  return(<li key={props._textId} dangerouslySetInnerHTML={raw} />);
+  const key = `li.${olIndex}.${itemIndex}`;
+  return(<li key={key} dangerouslySetInnerHTML={raw} />);
 };
 
 const subList = (props) => {
-  const list = keyIndex(props.sublist, this.listIndex);
-  this.listIndex += 1;
-  const ulId = list._sublistId || null;
+  const newProps = Object.assign({}, props);
+  if (!Object.prototype.hasOwnProperty.call(newProps, 'olIndex')) {
+    newProps.olIndex = 0;
+  }
+  const olId = `ol.${newProps.olIndex}`;
+  newProps.olIndex += 1;
+  const list = newProps.sublist;
   return(
-    <ol key={ulId}>
-      {list && list.map((item) => {
+    <ol key={olId}>
+      {list && list.map((item, itemIndex) => {
         if (item.sublist) {
-          const subitem = [listItem(item)];
+          const subitem = [listItem(item, itemIndex, olId)];
           subitem.push(subList(item));
           return subitem;
         }
-        return listItem(item);
+        return listItem(item, itemIndex, olId);
       })}
     </ol>);
 };

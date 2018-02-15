@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import keyIndex from 'react-key-index';
 import ButtonSort from '../../atoms/buttons/ButtonSort';
 
 const SortResults = (sortResults) => (
@@ -9,10 +8,8 @@ const SortResults = (sortResults) => (
         (<span className="ma__sort-results__label">{sortResults.label}</span>)
       }
     {sortResults.sortButtons.map((buttonSort, index) => {
-      let buttonProps = buttonSort;
-      buttonProps.unique = index;
-      buttonProps = keyIndex([buttonProps], index)[0];
-      buttonProps.key = buttonProps._uniqueId;
+      const buttonProps = buttonSort;
+      buttonProps.key = `ButtonSort.${index}`;
       return(<ButtonSort {...buttonProps} />);
     })}
   </div>
