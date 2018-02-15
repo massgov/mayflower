@@ -30,6 +30,7 @@ export SiteLogo from './components/atoms/media/SiteLogo';
 // @atoms/@text
 export Paragraph from './components/atoms/text/Paragraph';
 // @molecules
+export MainNav from './components/molecules/MainNav';
 export DateRange from './components/molecules/DateRange';
 export FooterLinks from './components/molecules/FooterLinks';
 export OrgSelector from './components/molecules/OrgSelector';
