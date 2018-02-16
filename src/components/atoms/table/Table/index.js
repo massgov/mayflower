@@ -11,31 +11,28 @@ const Table = (props) => {
 };
 
 Table.propTypes = {
-  /** The text displayed. */
-  table: PropTypes.shape({
-    head: PropTypes.shape({
-      rows: PropTypes.arrayOf(PropTypes.shape({
-        rowSpanOffset: PropTypes.bool,
-        cells: PropTypes.arrayOf(PropTypes.shape({
-          heading: PropTypes.bool.isRequired,
-          colspan: PropTypes.string,
-          rowspan: PropTypes.string,
-          text: PropTypes.string.isRequired
-        }))
-      }))
-    }),
-    bodies: PropTypes.arrayOf(PropTypes.shape({
-      rows: PropTypes.arrayOf(PropTypes.shape({
-        rowSpanOffset: PropTypes.bool,
-        cells: PropTypes.arrayOf(PropTypes.shape({
-          heading: PropTypes.bool.isRequired,
-          colspan: PropTypes.string,
-          rowspan: PropTypes.string,
-          text: PropTypes.string.isRequired
-        }))
+  head: PropTypes.shape({
+    rows: PropTypes.arrayOf(PropTypes.shape({
+      rowSpanOffset: PropTypes.bool,
+      cells: PropTypes.arrayOf(PropTypes.shape({
+        heading: PropTypes.bool.isRequired,
+        colspan: PropTypes.string,
+        rowspan: PropTypes.string,
+        text: PropTypes.string.isRequired
       }))
     }))
-  })
+  }),
+  bodies: PropTypes.arrayOf(PropTypes.shape({
+    rows: PropTypes.arrayOf(PropTypes.shape({
+      rowSpanOffset: PropTypes.bool,
+      cells: PropTypes.arrayOf(PropTypes.shape({
+        heading: PropTypes.bool.isRequired,
+        colspan: PropTypes.string,
+        rowspan: PropTypes.string,
+        text: PropTypes.string.isRequired
+      }))
+    }))
+  }))
 };
 
 Table.defaultProps = {

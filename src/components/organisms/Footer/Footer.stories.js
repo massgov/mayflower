@@ -13,15 +13,15 @@ import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.jso
 storiesOf('organisms/Footer', module)
   .add('Footer', withInfo({ FooterReadme })(() => {
     const props = {
-      footerLinks: FooterLinksData.footerLinks,
-      socialLinks: SocialLinksData.socialLinks
+      footerLinks: FooterLinksData,
+      socialLinks: SocialLinksData
     };
     return(<Footer {...props} />);
   }))
   .add('Footer with live JSON', withInfo({ FooterReadme })(() => {
     const props = {
-      footerLinks: FooterLinksLiveData.footerLinks,
-      socialLinks: SocialLinksLiveData.socialLinks
+      footerLinks: FooterLinksLiveData,
+      socialLinks: SocialLinksLiveData
     };
     return(<Footer {...props} />);
   }));
