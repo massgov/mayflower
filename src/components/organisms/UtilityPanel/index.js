@@ -6,17 +6,17 @@ import DecorativeLink from '../../atoms/links/DecorativeLink';
 
 const UtilityPanel = (utilityPanel) => {
   const descriptionClasses = ['ma__utility-panel__description'];
-  if (!utilityPanel.links) {
+  const links = utilityPanel.links;
+  if (!Array.isArray(links) || links.length === 0) {
     descriptionClasses.push('ma__utility-panel__description--full');
   }
-
   return(
     <section className="ma__utility-panel">
       <div className={descriptionClasses.join(' ')}>
         <RichText {...utilityPanel.description} />
       </div>
       <ul className="ma__utility-panel__items">
-        {utilityPanel.links.map((decorativeLink, index) => (
+        {links.map((decorativeLink, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <li className="ma__utility-panel__item js-clickable" key={index} >
             <DecorativeLink {...decorativeLink} />
