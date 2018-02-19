@@ -28,7 +28,7 @@
     "lint"
   ],
   "dependencies": {
-    "@massds/mayflower": "^5.10.0",
+    "@massds/mayflower": "^5.13.0",
     "pikaday": "^1.7.0",
     "prop-types": "^15.6.0",
     "react-select": "^1.2.1"
