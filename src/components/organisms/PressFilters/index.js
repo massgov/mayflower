@@ -44,17 +44,17 @@ PressFilters.propTypes = {
   /** The form action  */
   action: PropTypes.string,
   /** @atoms/headings/ColoredHeading */
-  coloredHeading: PropTypes.instanceOf(ColoredHeading),
+  coloredHeading: PropTypes.shape(ColoredHeading.PropTypes),
   /** @atoms/forms/SelectBox */
-  topic: PropTypes.instanceOf(SelectBox).isRequired,
+  topic: PropTypes.shape(SelectBox.PropTypes).isRequired,
   /** @atoms/forms/SelectBox */
-  pressType: PropTypes.instanceOf(SelectBox).isRequired,
+  pressType: PropTypes.shape(SelectBox.PropTypes).isRequired,
   /** @molecules/OrgSelector */
-  orgSelector: PropTypes.instanceOf(OrgSelector).isRequired,
+  orgSelector: PropTypes.shape(OrgSelector.PropTypes).isRequired,
   /** @molecules/DateRange */
-  dateRange: PropTypes.instanceOf(DateRange).isRequired,
+  dateRange: PropTypes.shape(DateRange.PropTypes).isRequired,
   /** @atoms/forms/Button */
-  submitButton: PropTypes.instanceOf(Button).isRequired
+  submitButton: PropTypes.shape(Button.PropTypes).isRequired
 };
 
 PressFilters.defaultProps = {
