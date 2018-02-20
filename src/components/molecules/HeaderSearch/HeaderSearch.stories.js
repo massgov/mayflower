@@ -13,7 +13,10 @@ storiesOf('molecules', module).addDecorator(withKnobs)
     const props = {
       placeholder: text('searchBannerForm.placeholder', 'Search Mass.gov'),
       buttonSearch: {
-        onClick: action('Button clicked')
+        onClick: (e) => {
+          action('Button clicked');
+          e.preventDefault();
+        }
       },
       onSubmit: action('Form submitted'),
       onChange: action('Text input modified')

@@ -6,7 +6,7 @@ const ButtonSearch = (buttonSearch) => (
   <button
     type="submit"
     className={buttonSearch.classes.join(' ')}
-    onClick={buttonSearch.onClick}
+    onClick={(e) => buttonSearch.onClick(e)}
   >
     <span>{buttonSearch.text}</span>
     <SvgSearch />
