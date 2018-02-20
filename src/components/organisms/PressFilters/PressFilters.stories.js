@@ -30,7 +30,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         action: text('pressFilters.action', '#'),
         coloredHeading: {
           text: text('pressFilters.coloredHeading.text', 'Filter Results'),
-          color: select('pressFilters.coloredHeading.color', coloredHeadingOptions.color, ''),
+          color: select('pressFilters.coloredHeading.color', coloredHeadingOptions.color, 'blue'),
           level: select('pressFilters.coloredHeading.level', headingOptions.levels, defaultHeadingLevel)
         },
         orgSelector: {

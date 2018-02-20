@@ -4,6 +4,7 @@
 export default {
   color: {
     '': 'grey (default)',
-    green: 'green'
+    green: 'green',
+    blue: 'blue'
   }
 };

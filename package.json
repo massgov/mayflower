@@ -2,7 +2,7 @@
   "name": "@massds/mayflower-react",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -28,12 +28,10 @@
     "lint"
   ],
   "dependencies": {
-    "@massds/mayflower": "^5.10.0",
+    "@massds/mayflower": "^5.13.0",
     "pikaday": "^1.7.0",
     "prop-types": "^15.6.0",
-    "react-select": "^1.2.1",
-    "react-key-index": "^0.1.1",
-    "hashids": "^1.1.4"
+    "react-select": "^1.2.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.10",

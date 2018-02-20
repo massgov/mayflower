@@ -26,6 +26,7 @@
         "react/prop-types": ["warn"],
         "react/require-default-props": ["off"],
         "no-underscore-dangle": ["off"],
-        "no-use-before-define": ["off"]
+        "no-use-before-define": ["off"],
+        "jsx-a11y/anchor-is-valid": ["warn"]
     }
 }

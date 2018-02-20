@@ -22,6 +22,8 @@ export LatLonGlobe from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
 export SvgArrow from './components/atoms/icons/SvgArrow';
 export SvgArrowBent from './components/atoms/icons/SvgArrowBent';
 export SvgSearch from './components/atoms/icons/SvgSearch';
+export SvgBuilding from './components/atoms/icons/SvgBuilding';
+export SvgLogin from './components/atoms/icons/SvgLogin';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
@@ -52,3 +54,5 @@ export Footer from './components/organisms/Footer';
 export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';
 export UtilityPanel from './components/organisms/UtilityPanel';
+export UtilityNav from './components/organisms/UtilityNav';
+export Header from './components/organisms/Header';

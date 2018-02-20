@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import keyIndex from 'react-key-index';
 
 // import child components
 import DecorativeLink from '../../atoms/links/DecorativeLink/index';
@@ -10,7 +9,6 @@ import Paragraph from '../../atoms/text/Paragraph';
 import UnorderedList from '../../atoms/lists/UnorderedList';
 
 const RichText = (props) => {
-  this.listIndex = 1;
   const headerIndent = props.headerIndent ? 'js-ma-outline-indent' : '';
   const anchorLinks = props.anchorLinks ? 'js-ma-insert-heading-anchors' : '';
   const children = React.Children.toArray(props.children);
@@ -26,14 +24,11 @@ const RichText = (props) => {
       if (typeof element.data === 'undefined' || element.data === null) {
         return[];
       }
-      const newElementData = keyIndex([element.data], this.listIndex)[0];
-      this.listIndex += 1;
       return Object.entries(element.data).map(([eleIndex, eleValue]) => {
         if (Object.prototype.hasOwnProperty.call(elementProperties, eleIndex)) {
-          const newEleValue = eleValue;
-          newEleValue.key = newElementData[`_${eleIndex}Id`];
-          const eleProps = elementProperties[eleIndex](newEleValue);
-          return eleProps;
+          const newEleValue = Object.assign({}, eleValue);
+          newEleValue.key = `element.${eleIndex}`;
+          return elementProperties[eleIndex](newEleValue);
         }
         return null;
       });
