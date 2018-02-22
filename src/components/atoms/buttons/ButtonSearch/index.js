@@ -2,16 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgSearch from '../../icons/SvgSearch';
 
-const ButtonSearch = (buttonSearch) => (
-  <button
-    type="submit"
-    className={buttonSearch.classes.join(' ')}
-    onClick={(e) => buttonSearch.onClick(e)}
-  >
-    <span>{buttonSearch.text}</span>
-    <SvgSearch />
-  </button>
-);
+const ButtonSearch = (buttonSearch) => {
+  const onButtonClick = Object.prototype.hasOwnProperty.call(buttonSearch, 'onClick');
+  return((
+    <button
+      type="submit"
+      className={buttonSearch.classes.join(' ')}
+      onClick={(e) => { if (onButtonClick) buttonSearch.onClick(e); }}
+    >
+      <span>{buttonSearch.text}</span>
+      <SvgSearch />
+    </button>
+  ));
+};
 
 ButtonSearch.propTypes = {
   /** Custom click handler function. */
