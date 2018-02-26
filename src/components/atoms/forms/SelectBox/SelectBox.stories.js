@@ -19,6 +19,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         id: text('selectBox.id', 'color-select'),
         options: object('selectBox.options', selectOptions.options.colors)
       };
+      props.className = text('selectBox.className', !props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown');
       return(<SelectBox {...props} onChangeCallback={action('custom-click on select')} />);
     })
   );

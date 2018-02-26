@@ -15,12 +15,13 @@ const ResultsHeading = (resultsHeading) => {
         </div>
         {resultsHeading.tags && (
           <div className="ma__results-heading__tags">
-            { resultsHeading.tags.map((tag) => (
+            { resultsHeading.tags.map((tag, tagIndex) => (
               <button
                 type="button"
                 className="ma__results-heading__tag js-results-heading-tag"
                 data-ma-filter-type={tag.type}
                 data-ma-filter-value={tag.value}
+                key={`resultsHeading.tag.${tagIndex}`}
               >
                 {tag.text}
               </button>
@@ -43,7 +44,7 @@ ResultsHeading.propTypes = {
   /** The total count of results */
   totalResults: PropTypes.string,
   /** The sort options available */
-  sortResults: PropTypes.instanceOf(SortResults),
+  sortResults: PropTypes.shape(SortResults.propTypes),
   /** The tags applied to the search list
         type: The type of tag
         text: The text displayed by the tag (required)

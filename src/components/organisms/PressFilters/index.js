@@ -22,9 +22,11 @@ const PressFilters = (props) => {
           <div className="ma__press-filters__organizations">
             <OrgSelector {...orgSelector} />
           </div>
-          <div className="ma__press-filters__topic">
-            <SelectBox {...topic} />
-          </div>
+          {topic && (
+            <div className="ma__press-filters__topic">
+              <SelectBox {...topic} />
+            </div>
+          )}
           <div className="ma__press-filters__type">
             <SelectBox {...pressType} />
           </div>
@@ -46,7 +48,7 @@ PressFilters.propTypes = {
   /** @atoms/headings/ColoredHeading */
   coloredHeading: PropTypes.shape(ColoredHeading.PropTypes),
   /** @atoms/forms/SelectBox */
-  topic: PropTypes.shape(SelectBox.PropTypes).isRequired,
+  topic: PropTypes.shape(SelectBox.PropTypes),
   /** @atoms/forms/SelectBox */
   pressType: PropTypes.shape(SelectBox.PropTypes).isRequired,
   /** @molecules/OrgSelector */
