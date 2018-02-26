@@ -9,17 +9,20 @@ const Pagination = (pagination) => (
           className="ma__pagination__prev js-pagination-prev"
           type="button"
           disabled={pagination.prev.disabled}
+          onClick={pagination.prev.onClick}
         >
           {pagination.prev.text}
         </button>
     )}
-      { pagination.pages.map((page) => (
+      { pagination.pages.map((page, pageIndex) => (
           page.text === 'spacer' ?
-            <span className="ma__pagination__spacer">&hellip;</span> :
+            <span key={`pagination.item.${pageIndex}`} className="ma__pagination__spacer">&hellip;</span> :
             <button
               className={page.active ? 'ma__pagination__page js-pagination-page is-active' : 'ma__pagination__page js-pagination-page'}
               type="button"
               data-page={page.text}
+              onClick={page.onClick}
+              key={`pagination.item.${pageIndex}`}
             >
               {page.text}
             </button>
@@ -30,6 +33,7 @@ const Pagination = (pagination) => (
           className="ma__pagination__next js-pagination-next"
           type="button"
           disabled={pagination.next.disabled}
+          onClick={pagination.next.onClick}
         >
           {pagination.next.text}
         </button>
@@ -44,13 +48,15 @@ Pagination.propTypes = {
   next: PropTypes.shape({
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired,
-    hide: PropTypes.bool
+    hide: PropTypes.bool,
+    onClick: PropTypes.func
   }),
   /** prev.disabled: Defines whether the prev button is available or not to users.
       prev.text: Defines the text shown for the previous button. */
   prev: PropTypes.shape({
     disabled: PropTypes.bool,
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    onClick: PropTypes.func
   }),
   /** Pages is an array that defines what page numbers users are able to paginate through.
       pages.active: Defines whether the page number is active or not.
@@ -58,7 +64,8 @@ Pagination.propTypes = {
   pages: PropTypes.arrayOf(PropTypes.shape({
     active: PropTypes.bool,
     text: PropTypes.string.isRequired,
-    hide: PropTypes.bool
+    hide: PropTypes.bool,
+    onClick: PropTypes.func
   }))
 };
 

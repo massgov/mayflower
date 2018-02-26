@@ -14,12 +14,14 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       next: {
         disabled: boolean('pagination.next.disabled', false),
         text: text('pagination.next.text', 'Next'),
-        hide: boolean('pagination.next.hide', false)
+        hide: boolean('pagination.next.hide', false),
+        onClick: (e) => { console.log('Next Clicked.'); }
       },
       prev: {
         disabled: boolean('pagination.prev.disabled', false),
         text: text('pagination.prev.text', 'Previous'),
-        hide: boolean('pagination.prev.hide', false)
+        hide: boolean('pagination.prev.hide', false),
+        onClick: (e) => { console.log('Previous Clicked.'); }
       },
       pages: object('pagination.pages', paginationOptions.pages)
     };

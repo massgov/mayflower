@@ -4,24 +4,31 @@
 export default {
   pages: [{
     active: false,
-    text: '1'
+    text: '1',
+    onClick: (e) => { console.log('Link clicked.'); }
   }, {
     active: true,
-    text: 'spacer'
+    text: 'spacer',
+    onClick: (e) => { console.log('Link clicked.'); }
   }, {
     active: false,
-    text: '3'
+    text: '3',
+    onClick: (e) => { console.log('Link clicked.'); }
   }, {
     active: true,
-    text: '4'
+    text: '4',
+    onClick: (e) => { console.log('Link clicked.'); }
   }, {
     active: false,
-    text: '5'
+    text: '5',
+    onClick: (e) => { console.log('Link clicked.'); }
   }, {
     active: false,
-    text: 'spacer'
+    text: 'spacer',
+    onClick: (e) => { console.log('Link clicked.'); }
   }, {
     active: false,
-    text: '10'
+    text: '10',
+    onClick: (e) => { console.log('Link clicked.'); }
   }]
 };
