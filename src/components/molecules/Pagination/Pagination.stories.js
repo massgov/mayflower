@@ -13,11 +13,13 @@ storiesOf('molecules', module).addDecorator(withKnobs)
     const props = {
       next: {
         disabled: boolean('pagination.next.disabled', false),
-        text: text('pagination.next.text', 'Next')
+        text: text('pagination.next.text', 'Next'),
+        hide: boolean('pagination.next.hide', false)
       },
       prev: {
         disabled: boolean('pagination.prev.disabled', false),
-        text: text('pagination.prev.text', 'Previous')
+        text: text('pagination.prev.text', 'Previous'),
+        hide: boolean('pagination.prev.hide', false)
       },
       pages: object('pagination.pages', paginationOptions.pages)
     };
