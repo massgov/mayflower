@@ -25,7 +25,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       const pressFiltersEndDate = {
         labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'today', restrict: 'max'
       };
-
+      const hideTopic = select('pressFilters.hideTopic', { hide: 'Hide', show: 'Show' }, 'show');
       const props = {
         action: text('pressFilters.action', '#'),
         coloredHeading: {
@@ -42,12 +42,12 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           },
           organizations: object('pressFilters.orgSelector.organizations', orgSelectorOptions.organizations)
         },
-        topic: {
+        topic: ((hideTopic === 'show') ? {
           label: text('pressFilters.topic.label', 'Filter by Topic'),
           id: 'topic',
           options: object('pressFilters.topic.options', selectOptions.options.topics),
           required: boolean('pressFilters.topic.required', true)
-        },
+        } : null),
         pressType: {
           label: text('pressFilters.pressType.label', 'Filter by Announcement Type'),
           id: 'announcement-type',
@@ -67,7 +67,6 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           outline: boolean('pressFilters.submitButton.outline', false)
         }
       };
-
       return(<PressFilters {...props} />);
     })
   );
