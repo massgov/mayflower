@@ -19,7 +19,7 @@ SortResults.propTypes = {
   /** The label text of the sort buttons */
   label: PropTypes.string,
   /** An array of sort button objects */
-  sortButtons: PropTypes.arrayOf(PropTypes.instanceOf(ButtonSort)).isRequired
+  sortButtons: PropTypes.arrayOf(PropTypes.shape(ButtonSort.propTypes)).isRequired
 };
 
 export default SortResults;
