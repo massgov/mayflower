@@ -24,6 +24,9 @@ export SvgArrowBent from './components/atoms/icons/SvgArrowBent';
 export SvgSearch from './components/atoms/icons/SvgSearch';
 export SvgBuilding from './components/atoms/icons/SvgBuilding';
 export SvgLogin from './components/atoms/icons/SvgLogin';
+export SvgPhone from './components/atoms/icons/SvgPhone';
+export SvgLaptop from './components/atoms/icons/SvgLaptop';
+export SvgMarker from './components/atoms/icons/SvgMarker';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
