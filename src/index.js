@@ -27,6 +27,7 @@ export SvgLogin from './components/atoms/icons/SvgLogin';
 export SvgPhone from './components/atoms/icons/SvgPhone';
 export SvgLaptop from './components/atoms/icons/SvgLaptop';
 export SvgMarker from './components/atoms/icons/SvgMarker';
+export SvgFax from './components/atoms/icons/SvgFax';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
@@ -51,6 +52,7 @@ export ResultsHeading from './components/molecules/ResultsHeading';
 export SearchBannerForm from './components/molecules/SearchBannerForm';
 export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
+export ContactGroup from './components/molecules/ContactGroup';
 
 // @organisms
 export Footer from './components/organisms/Footer';
