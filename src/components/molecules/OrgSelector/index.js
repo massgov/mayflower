@@ -31,6 +31,9 @@ class OrgSelector extends React.Component {
         selectedOrg: {}
       });
     }
+    if (typeof this.props.onChangeOrgCallback === 'function') {
+      this.props.onChangeOrgCallback({ selectBox });
+    }
   }
 
   render() {
@@ -163,7 +166,9 @@ OrgSelector.propTypes = {
   /** @atoms/forms/SelectBox  */
   selectBox: PropTypes.shape(SelectBox.props).isRequired,
   /** An array of objects of org info which renders (as <OrgInfo/>) when that org is selected  */
-  organizations: PropTypes.arrayOf(PropTypes.shape(OrgInfo.props))
+  organizations: PropTypes.arrayOf(PropTypes.shape(OrgInfo.props)),
+  /** A custom function users can add for when onchange is triggered */
+  onChangeOrgCallback: PropTypes.func
 };
 
 export default OrgSelector;

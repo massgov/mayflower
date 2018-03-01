@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, object } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 
 import OrgSelector from './index';
 import OrgSelectorDocs from './OrgSelector.md';
@@ -19,7 +20,8 @@ storiesOf('molecules', module).addDecorator(withKnobs)
           id: text('orgSelector.selectBox.id', 'state-organization'),
           options: object('orgSelector.selectBox.options', selectBoxOptions.options.orgSelector)
         },
-        organizations: object('orgSelector.organizations', orgSelectorOptions.organizations)
+        organizations: object('orgSelector.organizations', orgSelectorOptions.organizations),
+        onChangeOrgCallback: action('custom-click on select')
       };
 
       return(<OrgSelector {...props} />);

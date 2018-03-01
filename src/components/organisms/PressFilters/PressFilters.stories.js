@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 
 import PressFilters from './index';
 import PressFiltersDocs from './PressFilters.md';
@@ -40,7 +41,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
             options: object('pressFilters.orgSelector.selectBox.options', selectOptions.options.orgSelector),
             required: boolean('pressFilters.orgSelector.selectBox.required', true)
           },
-          organizations: object('pressFilters.orgSelector.organizations', orgSelectorOptions.organizations)
+          organizations: object('pressFilters.orgSelector.organizations', orgSelectorOptions.organizations),
+          onChangeOrgCallback: action('custom-click on select')
         },
         topic: ((hideTopic === 'show') ? {
           label: text('pressFilters.topic.label', 'Filter by Topic'),
