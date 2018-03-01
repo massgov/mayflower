@@ -6,17 +6,25 @@ class InputDate extends React.Component {
   constructor(props) {
     super(props);
     this.startPikaday = this.startPikaday.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
     this.startPikaday();
   }
 
+  handleChange(date) {
+    if (typeof this.props.onChangeCallback === 'function') {
+      this.props.onChangeCallback({ date });
+    }
+  }
+
   startPikaday() {
     const restrict = this.props.restrict;
     const picker = new Pikaday({
       field: this.dateInput,
-      format: 'MM/DD/YY'
+      format: 'MM/DD/YY',
+      onSelect: this.handleChange
     });
     this.dateInput.setAttribute('type', 'text');
 
@@ -60,7 +68,9 @@ InputDate.propTypes = {
   /** The placeholder text in the input box, prompting users for a value */
   placeholder: PropTypes.string,
   /** Controls whether the user can pick any date (''), today and prior ('max') or today and future ('min') */
-  restrict: PropTypes.oneOf(['', 'max', 'min'])
+  restrict: PropTypes.oneOf(['', 'max', 'min']),
+  /** Custom onChange function that receives the selected date input */
+  onChangeCallback: PropTypes.func
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.

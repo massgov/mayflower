@@ -17,11 +17,11 @@ class DateRange extends React.Component {
             {this.props.label}
           </legend>
           <div className="ma__date-range__start js-filter-by-date-range__start">
-            <InputDate name={this.props.startDate.name} id={this.props.startDate.id} restrict={this.props.startDate.restrict} placeholder={this.props.startDate.placeholder} required={this.props.startDate.required} labelText={this.props.startDate.labelText} />
+            <InputDate {...this.props.startDate} />
           </div>
           <div className="ma__date-range__divider">to</div>
           <div className="ma__date-range__end js-filter-by-date-range__end">
-            <InputDate name={this.props.endDate.name} id={this.props.endDate.id} restrict={this.props.endDate.restrict} placeholder={this.props.endDate.placeholder} required={this.props.endDate.required} labelText={this.props.endDate.labelText} />
+            <InputDate {...this.props.endDate} />
           </div>
         </fieldset>
       </div>
