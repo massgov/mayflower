@@ -14,8 +14,9 @@ class InputDate extends React.Component {
   }
 
   handleChange(date) {
+    const newDate = (new Date(date)).toISOString().slice(0, 10).replace(/-/g, '');
     if (typeof this.props.onChangeCallback === 'function') {
-      this.props.onChangeCallback({ date });
+      this.props.onChangeCallback({ newDate });
     }
   }
 
@@ -24,6 +25,7 @@ class InputDate extends React.Component {
     const picker = new Pikaday({
       field: this.dateInput,
       format: 'MM/DD/YY',
+      formatStrict: 'YYYMMDD',
       onSelect: this.handleChange
     });
     this.dateInput.setAttribute('type', 'text');
