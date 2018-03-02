@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SortResults from '../SortResults';
+import ButtonToggle from '../../atoms/buttons/ButtonToggle';
 
 
 const ResultsHeading = (resultsHeading) => {
@@ -30,7 +30,7 @@ const ResultsHeading = (resultsHeading) => {
           </div>)}
         {resultsHeading.sortResults && (
         <div className="ma__results-heading__sort">
-          <SortResults {...resultsHeading.sortResults} />
+          <ButtonToggle {...resultsHeading.sortResults} />
         </div>
     )}
       </div>
@@ -43,8 +43,8 @@ ResultsHeading.propTypes = {
   numResults: PropTypes.string,
   /** The total count of results */
   totalResults: PropTypes.string,
-  /** The sort options available */
-  sortResults: PropTypes.shape(SortResults.propTypes),
+  /** The sort toggle options */
+  sortResults: PropTypes.shape(ButtonToggle.propTypes),
   /** The tags applied to the search list
         type: The type of tag
         text: The text displayed by the tag (required)
