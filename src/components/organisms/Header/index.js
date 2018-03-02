@@ -15,9 +15,10 @@ const Header = (header) => {
   } : null;
   return((
     <header className="ma__header" id="header">
+      { !header.hideBackTo && (
       <div className="ma__header__backto">
         <a href="http://www.mass.gov">Go to classic Mass.gov</a>
-      </div>
+      </div>)}
       <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
       <div className="ma__header__utility-nav ma__header__utility-nav--wide">
         {HeaderUtilityNav}
@@ -59,14 +60,21 @@ const Header = (header) => {
 };
 
 Header.propTypes = {
+  /** imports the utilityNav component */
   utilityNav: PropTypes.shape(UtilityNav.propTypes).isRequired,
+  /** imports the headersearch component */
   headerSearch: PropTypes.shape(HeaderSearch.propTypes).isRequired,
+  /** imports the mainnav component */
   mainNav: PropTypes.shape(MainNav.propTypes).isRequired,
-  hideHeaderSearch: PropTypes.bool
+  /** Adds a prop to hide header search in the header */
+  hideHeaderSearch: PropTypes.bool,
+  /** Adds a prop to not display go back to classic.mass.gov */
+  hideBackTo: PropTypes.bool
 };
 
 Header.defaultProps = {
-  hideHeaderSearch: false
+  hideHeaderSearch: false,
+  hideBackTo: false
 };
 
 export default Header;

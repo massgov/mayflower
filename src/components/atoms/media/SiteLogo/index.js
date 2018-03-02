@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '@massds/mayflower/images/pilot-logo.png';
+import logo from './mass-logo.png';
 
 const SiteLogo = (siteLogo) => (
   <div className="ma__site-logo">

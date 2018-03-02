@@ -1,5 +1,7 @@
 ### Description
-This is a pattern for the site header.
+This is a pattern for the site header. The options to hide the search header and back to link are only included in the mayflower react instance of this organism.
+
+@see [@organisms/header](https://mayflower.digital.mass.gov/?p=organisms-header)
 
 ### Pattern Contains
 * Utility Nav
@@ -17,5 +19,11 @@ headerSearch : {
 }
 mainNav: [{
   type: mainNav / required
+}]
+hideHeaderSearch [{
+	type: boolean / optional (added in Mayflower React)
+}]
+hideBackTo: PropTypes.bool [{
+	type: boolean / optional (added in Mayflower React)
 }]
 ~~~
