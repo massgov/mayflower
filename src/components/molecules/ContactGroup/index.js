@@ -42,7 +42,7 @@ const ContactGroup = (contactGroup) => {
           <span>{contactGroup.name}</span>
         </Element>
       )}
-      { contactGroup.items.map((item, itemIndex) => (
+      { contactGroup.items && contactGroup.items.map((item, itemIndex) => (
         <React.Fragment key={`contactGroup.item.${itemIndex}`}>
           <div className="ma__contact-group__item">
             { item.label && (
