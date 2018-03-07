@@ -2,12 +2,11 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
 import PressTeaser from './index';
 import PressTeaserDocs from './PressTeaser.md';
 import headingsOptions from '../../atoms/headings/Headings.knobs.options';
-import { Paragraph } from '../../organisms/RichText/RichText.require';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('PressTeaser', withInfo(`<div>${PressTeaserDocs}</div>`)(() => {

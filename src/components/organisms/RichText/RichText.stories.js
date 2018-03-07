@@ -14,7 +14,6 @@ import {
   compHeadingOptions,
   sidebarHeadingOptions,
   decorativeLinkOptions,
-  paragraphOptions,
   unorderedOptions
 } from './RichText.require';
 

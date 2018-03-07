@@ -7,9 +7,6 @@ import { action } from '@storybook/addon-actions';
 
 import Header from './index';
 import HeaderDocs from './Header.md';
-import UtilityNav from '../UtilityNav';
-import HeaderSearch from '../../molecules/HeaderSearch';
-import MainNav from '../../molecules/MainNav';
 import SvgBuilding from '../../atoms/icons/SvgBuilding';
 import SvgLogin from '../../atoms/icons/SvgLogin';
 import MainNavData from '../../molecules/MainNav/MainNav.knob.options';

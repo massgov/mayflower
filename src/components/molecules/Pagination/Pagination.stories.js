@@ -15,13 +15,13 @@ storiesOf('molecules', module).addDecorator(withKnobs)
         disabled: boolean('pagination.next.disabled', false),
         text: text('pagination.next.text', 'Next'),
         hide: boolean('pagination.next.hide', false),
-        onClick: (e) => { console.log('Next Clicked.'); }
+        onClick: () => { console.log('Next Clicked.'); }
       },
       prev: {
         disabled: boolean('pagination.prev.disabled', false),
         text: text('pagination.prev.text', 'Previous'),
         hide: boolean('pagination.prev.hide', false),
-        onClick: (e) => { console.log('Previous Clicked.'); }
+        onClick: () => { console.log('Previous Clicked.'); }
       },
       pages: object('pagination.pages', paginationOptions.pages)
     };
