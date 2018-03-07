@@ -37,7 +37,7 @@ class SelectBox extends React.Component {
       classNames = !this.props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown';
     }
     const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
-    const selected = this.state.selected;
+    const selected = this.props.selected || this.state.selected;
     return(
       <section className={classNames}>
         <label htmlFor={this.props.id} className="ma__select-box__label">{this.props.label}</label>
@@ -86,7 +86,9 @@ SelectBox.propTypes = {
   /** A custom function users can add for when onchange is triggered */
   onChangeCallback: PropTypes.func,
   /** Wrapper class for section tag */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /** The default value for the select box */
+  selected: PropTypes.string
 };
 
 SelectBox.defaultProps = {
