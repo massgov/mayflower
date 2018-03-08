@@ -16,4 +16,6 @@ buttonSearch:
   type: buttonSearch / optional
 onSubmit:
   type: function / optional
+defaultText:
+  type: string / option
 ~~~

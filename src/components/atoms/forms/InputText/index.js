@@ -1,46 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputText = (inputText) => {
-  const inputLabelClasses = ['ma__label'];
-  if (inputText.labelText) {
-    inputLabelClasses.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
-    if (inputText.hiddenLabel) {
-      inputLabelClasses.push('ma__label--hidden');
-    }
-  }
-  const inputClasses = ['ma__input'];
-  if (inputText.required) {
-    inputClasses.push('js-is-required');
+class InputText extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: '' };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  return(
-    <React.Fragment>
-      {inputText.labelText &&
-      <label
-        htmlFor={inputText.id}
-        className={inputLabelClasses.join(' ')}
-      >
-        {inputText.labelText}
-      </label>}
-      {inputText.errorMsg &&
-      <div className="ma__error-msg">{inputText.errorMsg}</div>}
-      <input
-        className={inputClasses.join(' ')}
-        name={inputText.name}
-        id={inputText.id}
-        type={inputText.type}
-        placeholder={inputText.placeholder || null}
-        data-type={inputText.type}
-        maxLength={inputText.maxlength || null}
-        pattern={inputText.pattern || null}
-        style={inputText.width ? { width: `${inputText.width}px` } : null}
-        onChange={inputText.onChange}
-        required={inputText.required}
-      />
-    </React.Fragment>
-  );
-};
+  componentWillReceiveProps(nextProps) {
+    this.setState({ value: nextProps.defaultText });
+  }
+
+  handleChange(event) {
+    const input = event.target.value;
+    this.setState({ value: input });
+    // invokes custom function if passed in the component
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(input);
+    }
+  }
+
+  render() {
+    const inputText = this.props;
+    const inputLabelClasses = ['ma__label'];
+    if (inputText.labelText) {
+      inputLabelClasses.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
+      if (inputText.hiddenLabel) {
+        inputLabelClasses.push('ma__label--hidden');
+      }
+    }
+    const inputClasses = ['ma__input'];
+    if (inputText.required) {
+      inputClasses.push('js-is-required');
+    }
+    return(
+      <React.Fragment>
+        {inputText.labelText &&
+        <label
+          htmlFor={inputText.id}
+          className={inputLabelClasses.join(' ')}
+        >
+          {inputText.labelText}
+        </label>}
+        {inputText.errorMsg &&
+        <div className="ma__error-msg">{inputText.errorMsg}</div>}
+        <input
+          className={inputClasses.join(' ')}
+          name={inputText.name}
+          id={inputText.id}
+          type={inputText.type}
+          placeholder={inputText.placeholder}
+          data-type={inputText.type}
+          maxLength={inputText.maxlength || null}
+          pattern={inputText.pattern || null}
+          style={inputText.width ? { width: `${inputText.width}px` } : null}
+          onChange={this.handleChange}
+          required={inputText.required}
+          value={this.state.value}
+        />
+      </React.Fragment>
+    );
+  }
+}
 
 InputText.propTypes = {
   /** Whether the label should be hidden or not */
@@ -66,7 +88,9 @@ InputText.propTypes = {
   /** The message to be displayed in the event of an error */
   errorMsg: PropTypes.string,
   /** Custom change function */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /** Default input text value */
+  defaultText: PropTypes.string
 };
 
 InputText.defaultProps = {

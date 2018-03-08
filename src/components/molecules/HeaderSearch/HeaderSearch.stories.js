@@ -11,7 +11,7 @@ import HeaderSearchDocs from './HeaderSearch.md';
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('HeaderSearch', withInfo(`<div>${HeaderSearchDocs}</div>`)(() => {
     const props = {
-      placeholder: text('searchBannerForm.placeholder', 'Search Mass.gov'),
+      placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
       buttonSearch: {
         onClick: (e) => {
           action('Button clicked');
@@ -19,7 +19,8 @@ storiesOf('molecules', module).addDecorator(withKnobs)
         }
       },
       onSubmit: action('Form submitted'),
-      onChange: action('Text input modified')
+      onChange: action('Text input modified'),
+      defaultText: text('HeaderSearch.defaultText', '')
     };
     return(
       <HeaderSearch {...props} />

@@ -25,4 +25,6 @@ errorMsg:
   type: string / optional
 onChange:
   type: function / optional
+defaultText:
+  type: string / optional
 ~~~
