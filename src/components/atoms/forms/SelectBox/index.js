@@ -7,9 +7,13 @@ class SelectBox extends React.Component {
     this.state = {
       selected: props.options[0].text
     };
+    this.selectTag = '';
     this.handleSelect = this.handleSelect.bind(this);
   }
-
+  componentWillReceiveProps(nextProps) {
+    this.setState({ selected: nextProps.selected });
+    this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.text === nextProps.selected);
+  }
   /**
    * Default event handler which renders selected item in the patter div.
    *
@@ -37,7 +41,7 @@ class SelectBox extends React.Component {
       classNames = !this.props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown';
     }
     const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
-    const selected = this.props.selected || this.state.selected;
+    const { selected } = this.state;
     return(
       <section className={classNames}>
         <label htmlFor={this.props.id} className="ma__select-box__label">{this.props.label}</label>
@@ -48,6 +52,7 @@ class SelectBox extends React.Component {
             id={this.props.id}
             className={selectClassNames}
             onChange={this.handleSelect}
+            ref={(select) => { this.selectTag = select; }}
           >
             {this.props.options.map((option) => (
               <option key={option.value} value={option.value}>
