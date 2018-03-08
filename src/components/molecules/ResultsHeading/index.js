@@ -4,9 +4,8 @@ import ButtonToggle from '../../atoms/buttons/ButtonToggle';
 
 
 const ResultsHeading = (resultsHeading) => {
-  const resultsHeadingTotal = resultsHeading.totalResults && (` of ${resultsHeading.totalResults}`);
-  const resultsHeadingTags = resultsHeading.tags && (' for: ');
-  const resultsHeadingTitle = `Showing ${resultsHeading.numResults}${resultsHeadingTotal}${resultsHeadingTags}`;
+  const resultsHeadingTotal = resultsHeading.totalResults ? ` of ${resultsHeading.totalResults} for: ` : '';
+  const resultsHeadingTitle = `Showing results ${resultsHeading.numResults}${resultsHeadingTotal}`;
   return(
     <div className="ma__results-heading js-results-heading">
       <div className="ma__results-heading__container">
