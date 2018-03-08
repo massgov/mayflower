@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object, select } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 import ButtonToggle from './index';
@@ -15,7 +15,8 @@ storiesOf('atoms/buttons', module).addDecorator(withKnobs)
       options: object('buttonToggle.options', buttonToggleOptions.options),
       id: text('buttonToggle.id', 'sort'),
       labelText: text('buttonToggle.labelText', 'Sort by:'),
-      onChangeCallback: action('buttonToggle on select')
+      onChangeCallback: action('buttonToggle on select'),
+      defaultValue: select('buttonToggle.defaultValue', [buttonToggleOptions.options[0].value, buttonToggleOptions.options[1].value], buttonToggleOptions.options[1].value)
     };
     return(
       <ButtonToggle {...props} />

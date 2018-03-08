@@ -6,8 +6,11 @@ class ButtonToggle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: props.options[0].selected ? props.options[0].value : props.options[1].value
+      selected: props.defaultValue
     };
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ selected: nextProps.defaultValue });
   }
   onToggleClick(event) {
     const selected = event.target.value;
@@ -34,13 +37,11 @@ ButtonToggle.propTypes = {
   options: PropTypes.shape([
     {
       value: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      selected: PropTypes.bool.isRequired
+      text: PropTypes.string.isRequired
     },
     {
       value: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      selected: PropTypes.bool.isRequired
+      text: PropTypes.string.isRequired
     }
   ]),
   /** An id that specifies which element the label is bound to */
@@ -48,7 +49,9 @@ ButtonToggle.propTypes = {
   /** A label text displayed for the buttonToggle */
   labelText: PropTypes.string.isRequired,
   /** Custom onChange function that receives the selected value */
-  onChangeCallback: PropTypes.func
+  onChangeCallback: PropTypes.func,
+  /** Default value selected */
+  defaultValue: PropTypes.string.isRequired
 };
 
 

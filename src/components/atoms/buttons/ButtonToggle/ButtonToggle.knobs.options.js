@@ -4,11 +4,9 @@
 export default {
   options: [{
     value: 'date',
-    text: 'Date',
-    selected: false
+    text: 'Date'
   }, {
     value: 'relevance',
-    text: 'Relevance',
-    selected: true
+    text: 'Relevance'
   }]
 };
