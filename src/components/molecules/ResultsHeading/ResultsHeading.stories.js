@@ -23,7 +23,11 @@ storiesOf('molecules', module).addDecorator(withKnobs)
         onChangeCallback: action('resultsHeading sortResults on select'),
         defaultValue: select('resultsHeading.sortResults.defaultValue', [buttonToggleOptions.options[0].value, buttonToggleOptions.options[1].value], 'date')
       },
-      tags: object('resultsHeading.tags', resultsHeadingOptions.tags)
+      tags: {
+        tags: object('resultsHeading.tags', resultsHeadingOptions.tags),
+        onClearCallback: action('resultsHeading tags on clearAll'),
+        onClearThisCallback: action('resultsHeading tags on clearThis')
+      }
     };
     return(
       <ResultsHeading {...props} />
