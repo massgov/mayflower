@@ -3,6 +3,10 @@
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
 */
 
+
+//@base
+export Placeholder from './components/base/Placeholder'
+
 // @atoms
 // @atoms/@buttons
 export Button from './components/atoms/buttons/Button';
@@ -39,6 +43,7 @@ export SiteLogo from './components/atoms/media/SiteLogo';
 export Table from './components/atoms/table/Table';
 // @atoms/@text
 export Paragraph from './components/atoms/text/Paragraph';
+
 // @molecules
 export CalloutLink from './components/molecules/CalloutLink';
 export DateRange from './components/molecules/DateRange';
@@ -61,3 +66,12 @@ export RichText from './components/organisms/RichText';
 export UtilityPanel from './components/organisms/UtilityPanel';
 export UtilityNav from './components/organisms/UtilityNav';
 export Header from './components/organisms/Header';
+export ErrorPage from './components/organisms/ErrorPage';
+
+//@templates
+export NarrowTemplate from './components/templates/NarrowTemplate';
+
+//@pages
+export Error403 from './components/pages/Error403';
+export Error404 from './components/pages/Error404';
+export Error500 from './components/pages/Error500';
