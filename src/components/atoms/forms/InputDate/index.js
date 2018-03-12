@@ -5,35 +5,40 @@ import Pikaday from 'pikaday';
 class InputDate extends React.Component {
   constructor(props) {
     super(props);
+    this.picker = null;
     this.startPikaday = this.startPikaday.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
   componentDidMount() {
     this.startPikaday();
   }
-
+  componentWillReceiveProps(nextProps) {
+    this.picker.setDate(nextProps.defaultDate, true);
+  }
   handleChange(date) {
-    const newDate = (new Date(date)).toISOString().slice(0, 10).replace(/-/g, '');
     if (typeof this.props.onChangeCallback === 'function') {
-      this.props.onChangeCallback({ newDate });
+      this.props.onChangeCallback({ date });
     }
   }
-
   startPikaday() {
     const restrict = this.props.restrict;
-    const picker = new Pikaday({
+    const pickerOptions = {
       field: this.dateInput,
       format: 'MM/DD/YY',
-      formatStrict: 'YYYMMDD',
-      onSelect: this.handleChange
-    });
+      formatStrict: true,
+      onSelect: this.handleChange,
+      setDefaultDate: false
+    };
+    if (this.props.defaultDate !== null) {
+      pickerOptions.defaultDate = this.props.defaultDate;
+      pickerOptions.setDefaultDate = true;
+    }
+    this.picker = new Pikaday(pickerOptions);
     this.dateInput.setAttribute('type', 'text');
-
     if (restrict === 'max') {
-      picker.setMaxDate(new Date());
+      this.picker.setMaxDate(new Date());
     } else if (restrict === 'min') {
-      picker.setMinDate(new Date());
+      this.picker.setMinDate(new Date());
     }
   }
 
@@ -72,13 +77,16 @@ InputDate.propTypes = {
   /** Controls whether the user can pick any date (''), today and prior ('max') or today and future ('min') */
   restrict: PropTypes.oneOf(['', 'max', 'min']),
   /** Custom onChange function that receives the selected date input */
-  onChangeCallback: PropTypes.func
+  onChangeCallback: PropTypes.func,
+  /** The date to set by default */
+  defaultDate: PropTypes.instanceOf(Date)
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.
 InputDate.defaultProps = {
   required: false,
-  restrict: ''
+  restrict: '',
+  defaultDate: null
 };
 
 export default InputDate;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select, date } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 import InputDate from './index';
@@ -17,8 +17,9 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
       required: boolean('inputDate.required', true),
       id: text('inputDate.id', 'date-input'),
       name: text('inputDate.name', 'date-input'),
-      restrict: select('inputDate.restrict', inputDateOptions.restrict),
-      onChangeCallback: action('custom-click on select')
+      restrict: select('inputDate.restrict', inputDateOptions.restrict, ''),
+      onChangeCallback: action('custom-click on select'),
+      defaultDate: new Date(date('dateRange.endDate.defaultDate', new Date('Jan 01 2018')))
     };
     return(
       <InputDate {...props} />
