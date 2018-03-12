@@ -20,30 +20,31 @@ class ButtonToggle extends Component {
     this.setState({ selected });
   }
   render() {
-    const { id, labelText, options } = this.props;
+    const {
+      id, labelText, option1, option2
+    } = this.props;
     const { selected } = this.state;
     return(
       <span>
         <label htmlFor={id} className="ma__label--inline ma__label--small">{ labelText }</label>
-        <button onClick={(e) => this.onToggleClick(e)} value={options[0].value} type="button" className={`ma__button-toggle ${(options[0].value === selected) && 'ma__button-toggle--selected'}`}>{ options[0].text }</button> |
-        <button onClick={(e) => this.onToggleClick(e)} value={options[1].value} type="button" className={`ma__button-toggle ${(options[1].value === selected) && 'ma__button-toggle--selected'}`}>{ options[1].text }</button>
+        <button onClick={(e) => this.onToggleClick(e)} value={option1.value} type="button" className={`ma__button-toggle ${(option1.value === selected) && 'ma__button-toggle--selected'}`}>{ option1.text }</button> |
+        <button onClick={(e) => this.onToggleClick(e)} value={option2.value} type="button" className={`ma__button-toggle ${(option2.value === selected) && 'ma__button-toggle--selected'}`}>{ option2.text }</button>
       </span>
     );
   }
 }
 
 ButtonToggle.propTypes = {
-  /** An array of two options for the buttonToggle */
-  options: PropTypes.shape([
-    {
-      value: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired
-    },
-    {
-      value: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired
-    }
-  ]),
+  /** Option 1 for the buttonToggle */
+  option1: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+  }),
+  /** Option 2 for the buttonToggle */
+  option2: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
+  }),
   /** An id that specifies which element the label is bound to */
   id: PropTypes.string.isRequired,
   /** A label text displayed for the buttonToggle */

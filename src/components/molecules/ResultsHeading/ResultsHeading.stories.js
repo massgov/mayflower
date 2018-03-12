@@ -16,11 +16,12 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       numResults: text('resultsHeading.numResults', '1-12'),
       totalResults: text('resultsHeading.totalResults', '108'),
       sortResults: {
-        options: object('resultsHeading.sortResults.options', buttonToggleOptions.options),
+        option1: object('buttonToggle.option1', buttonToggleOptions.options[0]),
+        option2: object('buttonToggle.option2', buttonToggleOptions.options[1]),
         id: text('resultsHeading.sortResults.id', 'sort'),
         labelText: text('resultsHeading.sortResults.labelText', 'Sort by:'),
         onChangeCallback: action('resultsHeading sortResults on select'),
-        defaultValue: select('resultsHeading.sortResults.defaultValue', [buttonToggleOptions.options[0].value, buttonToggleOptions.options[1].value], buttonToggleOptions.options[1].value)
+        defaultValue: select('resultsHeading.sortResults.defaultValue', [buttonToggleOptions.options[0].value, buttonToggleOptions.options[1].value], 'date')
       },
       tags: object('resultsHeading.tags', resultsHeadingOptions.tags)
     };

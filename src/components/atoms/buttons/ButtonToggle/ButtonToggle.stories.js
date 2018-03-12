@@ -12,7 +12,8 @@ import buttonToggleOptions from './ButtonToggle.knobs.options';
 storiesOf('atoms/buttons', module).addDecorator(withKnobs)
   .add('ButtonToggle', withInfo(`<div>${ButtonToggleDocs}</div>`)(() => {
     const props = {
-      options: object('buttonToggle.options', buttonToggleOptions.options),
+      option1: object('buttonToggle.option1', buttonToggleOptions.options[0]),
+      option2: object('buttonToggle.option2', buttonToggleOptions.options[1]),
       id: text('buttonToggle.id', 'sort'),
       labelText: text('buttonToggle.labelText', 'Sort by:'),
       onChangeCallback: action('buttonToggle on select'),
