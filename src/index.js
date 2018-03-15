@@ -32,6 +32,10 @@ export SvgPhone from './components/atoms/icons/SvgPhone';
 export SvgLaptop from './components/atoms/icons/SvgLaptop';
 export SvgMarker from './components/atoms/icons/SvgMarker';
 export SvgFax from './components/atoms/icons/SvgFax';
+export SvgDocGeneric from './components/atoms/icons/SvgDocGeneric'
+export SvgDocDocx from './components/atoms/icons/SvgDocDocx'
+export SvgDocPdf from './components/atoms/icons/SvgDocPdf'
+export SvgDocXlxs from './components/atoms/icons/SvgDocXlxs'
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
