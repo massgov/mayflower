@@ -24,7 +24,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       },
       endDate: {
         labelText: text('dateRange.endDate.labelText', 'Select an end date:'),
-        placeholder: text('dateRange.endDate.placeholder', 'mm/dd/yy'),
+        placeholder: text('dateRange.endDate.placeholder', 'm/dd/yy'),
         required: boolean('dateRange.endDate.required', false),
         id: text('dateRange.endDate.id', 'end-date'),
         name: text('dateRange.endDate.name', 'end-date'),

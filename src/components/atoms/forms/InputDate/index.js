@@ -24,7 +24,7 @@ class InputDate extends React.Component {
     const restrict = this.props.restrict;
     const pickerOptions = {
       field: this.dateInput,
-      format: 'MM/DD/YY',
+      format: this.props.format,
       formatStrict: true,
       onSelect: this.handleChange,
       setDefaultDate: false
@@ -57,6 +57,7 @@ class InputDate extends React.Component {
           data-restrict={this.props.restrict}
           ref={(input) => { this.dateInput = input; }}
           required={this.props.required}
+          format={this.props.format}
         />
       </React.Fragment>
     );
@@ -76,6 +77,8 @@ InputDate.propTypes = {
   placeholder: PropTypes.string,
   /** Controls whether the user can pick any date (''), today and prior ('max') or today and future ('min') */
   restrict: PropTypes.oneOf(['', 'max', 'min']),
+  /** Controls the date format of input date . The current option are: 'M/DD/YYYY’, 'MM/DD/YYYY’', 'MMM D YYYY', or 'dddd, MMMM Do YYYY' */
+  format: PropTypes.oneOf(['M/DD/YYYY', 'MM/DD/YYYY', 'MM-DD-YYYY', 'YYYYMMDD']),
   /** Custom onChange function that receives the selected date input */
   onChangeCallback: PropTypes.func,
   /** The date to set by default */
@@ -86,7 +89,8 @@ InputDate.propTypes = {
 InputDate.defaultProps = {
   required: false,
   restrict: '',
-  defaultDate: null
+  defaultDate: null,
+  format: 'M/DD/YYYY'
 };
 
 export default InputDate;

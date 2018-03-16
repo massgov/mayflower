@@ -13,7 +13,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
   .add('InputDate', withInfo(`<div>${InputDateDocs}</div>`)(() => {
     const props = {
       labelText: text('inputDate.labelText', 'Select a date:'),
-      placeholder: text('inputDate.placeholder', 'mm/dd/yy'),
+      placeholder: text('inputDate.placeholder', 'm/dd/yy'),
       required: boolean('inputDate.required', true),
       id: text('inputDate.id', 'date-input'),
       name: text('inputDate.name', 'date-input'),

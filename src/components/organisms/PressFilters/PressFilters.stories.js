@@ -21,7 +21,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     withInfo(PressFiltersDocs)(() => {
       const defaultHeadingLevel = '2';
       const pressFiltersStartDate = {
-        labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'mm/dd/yyyy', restrict: 'max'
+        labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'm/dd/yyyy', restrict: 'max'
       };
       const pressFiltersEndDate = {
         labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'today', restrict: 'max'
