@@ -10,7 +10,26 @@ class OrgSelector extends React.Component {
     };
     this.setSelectedOrgState = this.setSelectedOrgState.bind(this);
   }
-
+  componentWillReceiveProps(nextProps) {
+    const selectValue = nextProps.selectBox.options.find((element) => element.text === nextProps.selectBox.selected);
+    if (selectValue !== undefined) {
+      const selectedOrg = nextProps.organizations.filter((org) => Object.prototype.hasOwnProperty.call(org, 'value') && org.value === selectValue);
+      if (selectedOrg.length > 0) {
+        this.setState({
+          selectedOrg: selectedOrg[0] // protect against multiple matches by returning the first
+        });
+        // If there is no org match, reset state so no orgInfo renders.
+      } else {
+        this.setState({
+          selectedOrg: {}
+        });
+      }
+    } else {
+      this.setState({
+        selectedOrg: {}
+      });
+    }
+  }
   /**
    * Sets the state of selected from the SelectBox, so <OrgInfo/> knows what to render.
    *
@@ -18,19 +37,6 @@ class OrgSelector extends React.Component {
    *   @see SelectBox handleSelect method.
    */
   setSelectedOrgState(selectBox) {
-    // Get the selected org based on the selected value.
-    const selectedOrg = this.props.organizations.filter((org) => Object.prototype.hasOwnProperty.call(org, 'value') && org.value === selectBox.selectedValue);
-    // If there is an org that matches the value, return it.
-    if (selectedOrg.length > 0) {
-      this.setState({
-        selectedOrg: selectedOrg[0] // protect against multiple matches by returning the first
-      });
-    // If there is no org match, reset state so no orgInfo renders.
-    } else {
-      this.setState({
-        selectedOrg: {}
-      });
-    }
     if (typeof this.props.onChangeOrgCallback === 'function') {
       this.props.onChangeOrgCallback({ selectBox });
     }
