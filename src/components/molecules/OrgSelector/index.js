@@ -13,7 +13,7 @@ class OrgSelector extends React.Component {
   componentWillReceiveProps(nextProps) {
     const selectValue = nextProps.selectBox.options.find((element) => element.text === nextProps.selectBox.selected);
     if (selectValue !== undefined) {
-      const selectedOrg = nextProps.organizations.filter((org) => Object.prototype.hasOwnProperty.call(org, 'value') && org.value === selectValue);
+      const selectedOrg = nextProps.organizations.filter((org) => Object.prototype.hasOwnProperty.call(org, 'value') && org.value === selectValue.value);
       if (selectedOrg.length > 0) {
         this.setState({
           selectedOrg: selectedOrg[0] // protect against multiple matches by returning the first
