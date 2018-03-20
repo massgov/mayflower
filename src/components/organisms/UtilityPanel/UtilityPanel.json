@@ -1,14 +1,6 @@
 {
   "description": {
-    "rteElements": [
-      {
-        "data": {
-          "paragraph": {
-            "text": "These are the top requested sites you can log in to access state provided services"
-          }
-        }
-      }
-    ]
+    "text": "These are the top requested sites you can log in to access state provided services"
   },
   "links": [
     {

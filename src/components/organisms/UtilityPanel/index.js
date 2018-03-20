@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import RichText from '../RichText';
+import Paragraph from '../../atoms/text/Paragraph';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 
 const UtilityPanel = (utilityPanel) => {
@@ -13,7 +13,7 @@ const UtilityPanel = (utilityPanel) => {
   return(
     <section className="ma__utility-panel">
       <div className={descriptionClasses.join(' ')}>
-        <RichText {...utilityPanel.description} />
+        <Paragraph {...utilityPanel.description} />
       </div>
       <ul className="ma__utility-panel__items">
         {links.map((decorativeLink, index) => (
@@ -29,7 +29,7 @@ const UtilityPanel = (utilityPanel) => {
 
 UtilityPanel.propTypes = {
   /** Text describing the contents of the panel */
-  description: PropTypes.shape(RichText.propTypes).isRequired,
+  description: PropTypes.shape(Paragraph.propTypes).isRequired,
   /** Links to display in the panel */
   links: PropTypes.arrayOf(PropTypes.shape(DecorativeLink.propTypes))
 };

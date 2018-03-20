@@ -10,16 +10,8 @@ export default {
     closeText: 'Close',
     panel: {
       description: {
-        rteElements: [{
-          path: '@atoms/11-text/paragraph.twig',
-          data: {
-            paragraph: {
-              text: 'The <a href="#">A-Z Organizations page</a> provides an alphabetical listing of government organizations, including commissions, departments, and bureaus.'
-            }
-          }
-        }]
-      },
-      links: []
+        text: 'The <a href="#">A-Z Organizations page</a> provides an alphabetical listing of government organizations, including commissions, departments, and bureaus.'
+      }
     }
   }, {
     text: 'Log in to...',
@@ -28,14 +20,7 @@ export default {
     closeText: 'Close',
     panel: {
       description: {
-        rteElements: [{
-          path: '@atoms/11-text/paragraph.twig',
-          data: {
-            paragraph: {
-              text: 'These are the top requested sites you can log in to access state provided services'
-            }
-          }
-        }]
+        text: 'These are the top requested sites you can log in to access state provided services'
       },
       links: [{
         text: 'Unemployment Online',

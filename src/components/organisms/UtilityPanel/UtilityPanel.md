@@ -8,7 +8,7 @@ A Rich Text field followed by 1-3 optional decorative links.
 ### Variables
 ~~~
 description: {
-  type: richText / required
+  type: Paragraph / required
 }
 
 links: [{
