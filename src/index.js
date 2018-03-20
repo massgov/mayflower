@@ -71,6 +71,7 @@ export UtilityPanel from './components/organisms/UtilityPanel';
 export UtilityNav from './components/organisms/UtilityNav';
 export Header from './components/organisms/Header';
 export ErrorPage from './components/organisms/ErrorPage';
+export LinkList from './components/organisms/LinkList';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';
