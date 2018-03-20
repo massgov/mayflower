@@ -67,12 +67,18 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       onSubmit: action('Form submitted'),
       onChange: action('Text input modified')
     };
+    const siteLogoDomainProps = {
+      url: {
+        domain: text('header.siteLogoDomain.url.domain', 'https://www.mass.gov/')
+      }
+    };
     const headerProps = {
       utilityNav: utilityProps,
       headerSearch: headerSearchProps,
       mainNav: mainNavProps,
       hideHeaderSearch: boolean('Header.hideHeaderSearch', false),
-      hideBackTo: boolean('header.hideBackTo', false)
+      hideBackTo: boolean('header.hideBackTo', false),
+      siteLogoDomain: siteLogoDomainProps
     };
     return(<Header {...headerProps} />);
   }));

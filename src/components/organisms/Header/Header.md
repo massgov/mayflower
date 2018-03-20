@@ -26,4 +26,7 @@ hideHeaderSearch [{
 hideBackTo: PropTypes.bool [{
 	type: boolean / optional (added in Mayflower React)
 }]
+siteLogoDomain: [{
+	type: siteLogo / optional (added in Mayflower React)
+}]
 ~~~

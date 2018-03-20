@@ -15,7 +15,9 @@ narrowTemplate: {
   side: 
     type: string ("right" or "left"),
   color: 
-    type: string ("yellow", "green")
+    type: string ("yellow", "green"),
+  siteLogoDomain: 
+	type: siteLogo / optional (added in Mayflower React)
 }
 ~~~
 

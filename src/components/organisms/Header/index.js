@@ -31,7 +31,7 @@ class Header extends React.Component {
         </div>
         <div className="ma__header__container">
           <div className="ma__header__logo">
-            <SiteLogo />
+            <SiteLogo {...header.siteLogoDomain} />
           </div>
           {!header.hideHeaderSearch &&
           <div className="ma__header__search js-header-search-menu">
@@ -81,7 +81,9 @@ Header.propTypes = {
   /** Adds a prop to hide header search in the header */
   hideHeaderSearch: PropTypes.bool,
   /** Adds a prop to not display go back to classic.mass.gov */
-  hideBackTo: PropTypes.bool
+  hideBackTo: PropTypes.bool,
+  /** The domain you want to send users to from the site logo icon */
+  siteLogoDomain: PropTypes.shape(SiteLogo.propTypes)
 };
 
 Header.defaultProps = {

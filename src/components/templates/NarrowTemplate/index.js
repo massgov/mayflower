@@ -10,7 +10,7 @@ const NarrowTemplate = (narrowTemplate) => {
   return(
     <main id="main-content" className={classNames} tabIndex="-1">
       <header className="ma__narrow-template__header">
-        <SiteLogo />
+        <SiteLogo {...narrowTemplate.siteLogoDomain} />
       </header>
       <div className="ma__narrow-template__container">
         <div className="ma__narrow-template__content">
@@ -25,7 +25,9 @@ NarrowTemplate.propTypes = {
   /** Align the template to the right or to the left */
   side: PropTypes.oneOf(['right', 'left']),
   /** Secondary color is yellow or green */
-  color: PropTypes.oneOf(['yellow', 'green'])
+  color: PropTypes.oneOf(['yellow', 'green']),
+  /** The domain you want to send users to from the site logo icon */
+  siteLogoDomain: PropTypes.shape(SiteLogo.propTypes)
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.
