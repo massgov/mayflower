@@ -30,6 +30,7 @@
   "dependencies": {
     "@massds/mayflower": "^5.14.0",
     "moment": "^2.21.0",
+    "object.entries": "^1.0.4",
     "pikaday": "^1.7.0",
     "prop-types": "^15.6.0",
     "react-select": "^1.2.1"

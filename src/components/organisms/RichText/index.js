@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import entries from 'object.entries';
 // import child components
 import DecorativeLink from '../../atoms/links/DecorativeLink/index';
 import CompHeading from '../../atoms/headings/CompHeading/index';
@@ -9,6 +9,9 @@ import Paragraph from '../../atoms/text/Paragraph';
 import UnorderedList from '../../atoms/lists/UnorderedList';
 
 const RichText = (props) => {
+  if (!Object.entries) {
+    entries.shim();
+  }
   const headerIndent = props.headerIndent ? 'js-ma-outline-indent' : '';
   const anchorLinks = props.anchorLinks ? 'js-ma-insert-heading-anchors' : '';
   const children = React.Children.toArray(props.children);
