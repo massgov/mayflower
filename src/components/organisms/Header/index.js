@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import UtilityNav from '../UtilityNav';
@@ -6,13 +6,27 @@ import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
 import SiteLogo from '../../atoms/media/SiteLogo';
 
-class Header extends React.Component {
-  static menuButtonClicked() {
-    document.querySelector('body').classList.toggle('show-menu');
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      utilNavOpen: false
+    };
+  }
+  menuButtonClicked() {
+    const bodyClass = document.querySelector('body').classList;
+    bodyClass.toggle('show-menu');
+    if (bodyClass.value.length > 0) {
+      this.setState({ utilNavOpen: false });
+    } else {
+      this.setState({ utilNavOpen: true });
+    }
   }
   render() {
     const header = this.props;
-    const HeaderUtilityNav = <UtilityNav {...header.utilityNav} />;
+    const utilNavOpen = { isOpen: this.state.utilNavOpen };
+    const HeaderUtilityNavProps = Object.assign({}, header.utilityNav, { isOpen: this.state.utilNavOpen });
+    const HeaderUtilityNav = <UtilityNav {...HeaderUtilityNavProps} />;
     const NavSearchHeader = (!header.hideHeaderSearch) ? () => {
       const newHeaderProps = Object.assign({}, HeaderSearch.defaultProps);
       newHeaderProps.id = 'nav-search';
@@ -47,7 +61,7 @@ class Header extends React.Component {
             </button>
             <button
               className="ma__header__menu-button js-header-menu-button"
-              onClick={Header.menuButtonClicked}
+              onClick={() => this.menuButtonClicked()}
             >
               <span>Menu</span><span className="ma__header__menu-icon" />
             </button>

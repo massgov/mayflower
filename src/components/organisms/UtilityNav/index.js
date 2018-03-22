@@ -10,27 +10,34 @@ class UtilityNav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      navSelected: -1
+      navSelected: -1,
+      isOpen: this.props.isOpen
     };
     this.onClick = this.onClick.bind(this);
+  }
+  componentWillReceiveProps(nextProps) {
+    const { isOpen } = nextProps;
+    this.setState({ isOpen, navSelected: -1 });
   }
   onClick(divId, e) {
     e.preventDefault();
     this.setState({
-      navSelected: (this.state.navSelected === -1) ? divId : -1
+      navSelected: (this.state.navSelected === -1) ? divId : -1,
+      isOpen: true
     });
   }
   render() {
     const { navSelected } = this.state;
-    const utilityNav = this.props;
+    const { googleLanguages, items } = this.props;
     return((
       <section className="ma__utility-nav js-util-nav">
         <ul className="ma__utility-nav__items">
-          {utilityNav.googleLanguages && <GoogleLanguages />}
-          {utilityNav.items.map((item, itemIndex) => {
+          {googleLanguages && <GoogleLanguages />}
+          {items.map((item, itemIndex) => {
             const newItem = Object.assign({}, item);
             newItem.navSelected = navSelected;
-            return(<NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} />);
+            const { isOpen } = this.state;
+            return(<NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />);
           })}
         </ul>
       </section>
@@ -52,16 +59,17 @@ const GoogleLanguages = () => (
 const NavItem = (obj) => {
   const item = obj.data;
   const divId = `nav-content.${obj.index}`;
-  const isExpanded = item.navSelected === divId;
-  const isOpen = isExpanded ? 'is-open' : 'is-closed';
+  const oneIsOpen = obj.isOpen;
+  const thisIsOpen = item.navSelected === divId;
+  const isExpanded = (oneIsOpen && thisIsOpen) ? 'is-open' : 'is-closed';
   const divProps = {
-    className: `ma__utility-nav__content js-util-nav-content ${isOpen}`,
+    className: `ma__utility-nav__content js-util-nav-content ${isExpanded}`,
     'aria-hidden': isExpanded ? 'false' : 'true',
     id: divId
   };
   return((
     <li className="ma__utility-nav__item js-util-nav-toggle">
-      <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isOpen}`} href="#" aria-label={item.ariaLabelText || item.text}>
+      <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
         {item.icon}
         <span>{item.text}</span>
       </a>
@@ -103,7 +111,9 @@ UtilityNav.propTypes = {
     closeText: PropTypes.string.isRequired,
     /** Displays an utility panel when text is clicked. */
     panel: PropTypes.shape(UtilityPanel.propTypes)
-  }))
+  })),
+  /** Boolean that controls if any UtilityNav div should be should be open on mobile. */
+  isOpen: PropTypes.bool
 };
 
 export default UtilityNav;
