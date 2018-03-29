@@ -7,6 +7,12 @@ const Button = (button) => {
   const buttonTheme = button.theme ? ` ma__button--${button.theme}` : '';
   const classNames = `ma__button${buttonSize}${buttonStyle}${buttonTheme}`;
   const Element = button.href ? 'a' : 'button';
+  const onClickCallback = (e) => {
+    e.preventDefault();
+    if (typeof button.onClick === 'function') {
+      button.onClick('Button clicked');
+    }
+  };
 
   return(
     <Element
@@ -15,7 +21,7 @@ const Button = (button) => {
       href={button.href}
       title={button.info}
       aria-label={button.info}
-      onClick={button.onClick}
+      onClick={(e) => onClickCallback(e)}
     >
       {button.text}
     </Element>

@@ -66,7 +66,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           type: select('pressFilters.submitButton.type', buttonOptions.type, 'submit'),
           size: select('pressFilters.submitButton.size', buttonOptions.size, 'small'),
           theme: select('pressFilters.submitButton.theme', buttonOptions.theme, ''),
-          outline: boolean('pressFilters.submitButton.outline', false)
+          outline: boolean('pressFilters.submitButton.outline', false),
+          onClick: action('pressFilters.submitButton clicked')
         }
       };
       return(<PressFilters {...props} />);

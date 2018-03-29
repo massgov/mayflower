@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 
 import Button from './index';
 import ButtonDocs from './Button.md';
@@ -19,7 +20,7 @@ storiesOf('atoms/buttons', module).addDecorator(withKnobs)
       info: text('button.info', 'this will be the tooltip text on hover'),
       text: text('button.text', 'button'),
       href: text('button.href', ''),
-      onClick: () => { console.log('custom on click function!'); }
+      onClick: action('button clicked')
     };
     return(
       <Button {...props} />
