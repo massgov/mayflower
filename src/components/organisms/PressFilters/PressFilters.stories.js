@@ -42,7 +42,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
             required: boolean('pressFilters.orgSelector.selectBox.required', true)
           },
           organizations: object('pressFilters.orgSelector.organizations', orgSelectorOptions.organizations),
-          onChangeOrgCallback: action('custom-click on select')
+          onChangeOrgCallback: action('custom-click on org select')
         },
         topic: ((hideTopic === 'show') ? {
           label: text('pressFilters.topic.label', 'Filter by Topic'),
@@ -68,6 +68,11 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           theme: select('pressFilters.submitButton.theme', buttonOptions.theme, ''),
           outline: boolean('pressFilters.submitButton.outline', false),
           onClick: action('pressFilters.submitButton clicked')
+        },
+        clearButton: {
+          text: text('pressFilters.clearButton.text', 'Clear all filters'),
+          info: text('pressFilters.clearButton.aria-label', buttonOptions.type, 'Clear all filters'),
+          onClearCallback: action('pressFilters on clearAll')
         }
       };
       return(<PressFilters {...props} />);

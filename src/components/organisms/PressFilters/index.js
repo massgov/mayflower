@@ -10,8 +10,13 @@ import SelectBox from '../../atoms/forms/SelectBox';
 
 const PressFilters = (props) => {
   const {
-    action, coloredHeading, topic, orgSelector, pressType, dateRange, submitButton
+    action, coloredHeading, topic, orgSelector, pressType, dateRange, submitButton, clearButton
   } = props;
+  const handleClear = () => {
+    if (typeof props.clearButton.onClearCallback === 'function') {
+      props.clearButton.onClearCallback('Clear all filters!');
+    }
+  };
   return(
     <section className="ma__press-filters">
       <div className="ma__press-filters__container">
@@ -36,6 +41,11 @@ const PressFilters = (props) => {
           <div className="ma__press-filters__button">
             <Button {...submitButton} />
           </div>
+          {clearButton && (
+            <button type="button" aria-label={clearButton.info} className="ma__press-filters__clear js-press-filters-clear" onClick={() => handleClear()}>
+              {clearButton.text}
+            </button>
+          )}
         </form>
       </div>
     </section>
@@ -56,7 +66,13 @@ PressFilters.propTypes = {
   /** @molecules/DateRange */
   dateRange: PropTypes.shape(DateRange.PropTypes).isRequired,
   /** @atoms/forms/Button */
-  submitButton: PropTypes.shape(Button.PropTypes).isRequired
+  submitButton: PropTypes.shape(Button.PropTypes).isRequired,
+  /** Clear all button at the bottom of the filter */
+  clearButton: PropTypes.shape({
+    text: PropTypes.string,
+    info: PropTypes.string,
+    onClearCallback: PropTypes.func
+  })
 };
 
 PressFilters.defaultProps = {
