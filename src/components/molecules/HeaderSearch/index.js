@@ -5,7 +5,7 @@ import ButtonSearch from '../../atoms/buttons/ButtonSearch';
 class HeaderSearch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: this.props.defaultText };
     this.handleChange = this.handleChange.bind(this);
   }
 
