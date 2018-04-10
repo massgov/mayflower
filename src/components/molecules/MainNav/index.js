@@ -11,11 +11,17 @@ class MainNav extends Component {
   }
 
   mouseOver(e) {
+    const bodyClass = document.querySelector('body').classList;
+    bodyClass.toggle('show-submenu');
+
     this.setState({
       navSelected: e.currentTarget.id
     });
   }
   mouseOut() {
+    const bodyClass = document.querySelector('body').classList;
+    bodyClass.toggle('show-submenu');
+
     this.setState({
       navSelected: -1
     });
