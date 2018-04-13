@@ -8,6 +8,7 @@
 export Placeholder from './components/base/Placeholder'
 
 // @atoms
+export Divider from './components/atoms/Divider';
 // @atoms/@buttons
 export Button from './components/atoms/buttons/Button';
 export ButtonSearch from './components/atoms/buttons/ButtonSearch';
@@ -72,6 +73,8 @@ export UtilityNav from './components/organisms/UtilityNav';
 export Header from './components/organisms/Header';
 export ErrorPage from './components/organisms/ErrorPage';
 export LinkList from './components/organisms/LinkList';
+export PageHeader from './components/organisms/PageHeader';
+export IllustratedHeader from './components/organisms/IllustratedHeader';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';
