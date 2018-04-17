@@ -10,7 +10,7 @@ const Button = (button) => {
   const onClickCallback = (e) => {
     e.preventDefault();
     if (typeof button.onClick === 'function') {
-      button.onClick('Button clicked');
+      button.onClick(e);
     }
   };
 
