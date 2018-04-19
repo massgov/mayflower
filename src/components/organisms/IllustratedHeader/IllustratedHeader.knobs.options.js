@@ -4,6 +4,9 @@ export default {
     bgImage: 'https://mayflower.digital.mass.gov/assets/images/placeholder/600x450.png',
     category: 'Guide',
     inverted: false,
+    publishState: {
+      text: 'publish state'
+    },
     pageHeader: {
       title: 'Moving to Massachusetts',
       subTitle: '',

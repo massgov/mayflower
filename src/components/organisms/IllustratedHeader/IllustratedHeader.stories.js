@@ -16,6 +16,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       bgImage: text('illustratedHeader.bgImage', defaultProps.bgImage),
       category: text('illustratedHeader.category', defaultProps.category),
       inverted: boolean('illustratedHeader.inverted', defaultProps.inverted),
+      publishState: {
+        text: text('illustratedHeader.publishState', defaultProps.publishState.text)
+      },
       pageHeader: {
         title: text('illustratedHeader.title', defaultProps.pageHeader.title),
         subTitle: text('illustratedHeader.subtitle', defaultProps.pageHeader.subTitle),
@@ -27,5 +30,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         headerTags: null
       }
     };
-    return(<IllustratedHeader {...props} />);
+    return(
+      <IllustratedHeader {...props}>
+        <hr />
+        <p>Additional Information</p>
+      </IllustratedHeader>);
   }));

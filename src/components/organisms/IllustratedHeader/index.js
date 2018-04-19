@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 // import child components
 import PageHeader from '../PageHeader';
+import PublishState from '../../atoms/text/PublishState';
 
 const IllustratedHeader = (illustratedHeader) => {
   const {
-    bgInfo, bgImage, inverted, category, pageHeader
+    bgInfo, bgImage, inverted, category, pageHeader, publishState, children
   } = illustratedHeader;
   const imageAlt = bgInfo || '';
   const pageHeaderProps = pageHeader;
@@ -15,10 +16,19 @@ const IllustratedHeader = (illustratedHeader) => {
     <section className={`ma__illustrated-header ${illustratedHeaderClass}`}>
       <div className="ma__illustrated-header__container">
         <div className="ma__illustrated-header__content">
+          { illustratedHeader && (
+            <div className="ma__page-header__publish-state">
+              <PublishState {...publishState} />
+            </div>
+          )}
           <div className="ma__illustrated-header__category" aria-hidden="true">
             {category}
           </div>
           <PageHeader {...pageHeaderProps} />
+          {
+            // Allows IllustratedHeader to render custom children component (this feature is used in rideshare report and it's not in Mayflower PatternLab)
+            children
+          }
         </div>
       </div>
       { bgImage ? (
