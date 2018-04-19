@@ -20,6 +20,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           text: text('illustratedHeader.optionalContents.paragraph', defaultProps.optionalContents[0].paragraph.text)
         }
       }],
+      publishState: {
+        text: text('pageHeader.publishState', defaultProps.publishState.text)
+      },
       headerTags: null
     };
     return(<PageHeader {...props} />);

@@ -3,14 +3,21 @@ import PropTypes from 'prop-types';
 
 // import child components
 import Paragraph from '../../atoms/text/Paragraph';
+import PublishState from '../../atoms/text/PublishState';
 
 const PageHeader = (pageHeader) => {
   const {
-    category, title, subTitle, optionalContents
+    category, title, subTitle, optionalContents, publishState
   } = pageHeader;
   return(
     <section className="ma__page-header">
       <div className="ma__page-header__content">
+
+        { publishState && (
+          <div className="ma__page-header__publish-state">
+            <PublishState {...publishState} />
+          </div>
+        )}
         { category && (
           <div className="ma__page-header__category">
             { category }
@@ -40,6 +47,8 @@ const PageHeader = (pageHeader) => {
 };
 
 PageHeader.propTypes = {
+  /** render publish state above category */
+  publishState: PropTypes.shape(PublishState.PropTypes),
   /** render category/prefix above title */
   category: PropTypes.string,
   /** Render title text */

@@ -48,6 +48,7 @@ export SiteLogo from './components/atoms/media/SiteLogo';
 export Table from './components/atoms/table/Table';
 // @atoms/@text
 export Paragraph from './components/atoms/text/Paragraph';
+export PublishState from './components/atoms/text/PublishState';
 
 // @molecules
 export CalloutLink from './components/molecules/CalloutLink';
