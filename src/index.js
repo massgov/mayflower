@@ -37,6 +37,7 @@ export SvgDocGeneric from './components/atoms/icons/SvgDocGeneric'
 export SvgDocDocx from './components/atoms/icons/SvgDocDocx'
 export SvgDocPdf from './components/atoms/icons/SvgDocPdf'
 export SvgDocXlxs from './components/atoms/icons/SvgDocXlxs'
+export SvgChevron from './components/atoms/icons/SvgChevron'
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
