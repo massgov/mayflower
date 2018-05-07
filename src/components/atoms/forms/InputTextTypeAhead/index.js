@@ -21,7 +21,7 @@ class InputTextTypeAhead extends Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.selected });
-    this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.text === nextProps.selected.text);
+    this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.text === nextProps.selected);
   }
   onChange(event, { newValue }) {
     this.setState({
@@ -41,7 +41,7 @@ class InputTextTypeAhead extends Component {
   onSuggestionSelected(event, { suggestion }) {
     // invokes custom function if passed in the component
     if (typeof this.props.onChange === 'function') {
-      this.props.onChange(event, suggestion);
+      this.props.onChange(event, { suggestion });
     }
   }
   getSuggestions(value) {
@@ -54,16 +54,15 @@ class InputTextTypeAhead extends Component {
     }
     return options.filter((item) => regex.test(item.text));
   }
-
-
   render() {
-    const { value, suggestions } = this.state;
+    const { suggestions } = this.state;
+    const value = JSON.parse(JSON.stringify(this.state.value));
     const inputProps = {
       placeholder: this.props.placeholder,
       value,
       onChange: this.onChange
     };
-    const shouldRenderSuggestions = (value) => value.trim().length >= 0;
+    const shouldRenderSuggestions = (x) => x.trim().length >= 0;
     const getSuggestionValue = (suggestion) => suggestion.text;
     const renderSuggestion = (suggestion, { query }) => {
       const suggestionText = `${suggestion.text}`;

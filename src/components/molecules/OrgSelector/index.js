@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SelectBox from '../../atoms/forms/SelectBox/index';
+import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
 
 class OrgSelector extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class OrgSelector extends React.Component {
     this.setSelectedOrgState = this.setSelectedOrgState.bind(this);
   }
   componentWillReceiveProps(nextProps) {
-    const selectValue = nextProps.selectBox.options.find((element) => element.text === nextProps.selectBox.selected);
+    const input = (nextProps.selectBox) ? nextProps.selectBox : nextProps.typeAhead;
+    const selectValue = input.options.find((element) => element.text === input.selected);
     if (selectValue !== undefined) {
       const selectedOrg = nextProps.organizations.filter((org) => Object.prototype.hasOwnProperty.call(org, 'value') && org.value === selectValue.value);
       if (selectedOrg.length > 0) {
@@ -31,22 +33,43 @@ class OrgSelector extends React.Component {
     }
   }
   /**
-   * Sets the state of selected from the SelectBox, so <OrgInfo/> knows what to render.
+   * Sets the state of selected from the input, so <OrgInfo/> knows what to render.
    *
-   * @param selectBox object
+   * @param input object
    *   @see SelectBox handleSelect method.
    */
-  setSelectedOrgState(selectBox) {
+  setSelectedOrgState(input) {
+    const selectValue = (input.suggestion) ? input.suggestion : input;
+    if (selectValue !== undefined) {
+      const checkValue = (input.suggestion) ? selectValue.value : selectValue.selectedValue;
+      const selectedOrg = this.props.organizations.filter((org) => Object.prototype.hasOwnProperty.call(org, 'value') && org.value === checkValue);
+      if (selectedOrg.length > 0) {
+        this.setState({
+          selectedOrg: selectedOrg[0] // protect against multiple matches by returning the first
+        });
+        // If there is no org match, reset state so no orgInfo renders.
+      } else {
+        this.setState({
+          selectedOrg: {}
+        });
+      }
+    } else {
+      this.setState({
+        selectedOrg: {}
+      });
+    }
     if (typeof this.props.onChangeOrgCallback === 'function') {
-      this.props.onChangeOrgCallback({ selectBox });
+      this.props.onChangeOrgCallback({ input });
     }
   }
 
   render() {
-    const orgSelector = this.props;
+    const selectBoxProps = this.props.selectBox;
+    const typeAheadProps = this.props.typeAhead;
     return(
       <section className="ma__org-selector js-org-selector">
-        <SelectBox {...orgSelector.selectBox} onChangeCallback={this.setSelectedOrgState} />
+        {selectBoxProps && <SelectBox {...selectBoxProps} onChangeCallback={this.setSelectedOrgState} />}
+        {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} onChange={this.setSelectedOrgState} />}
         <OrgInfo org={this.state.selectedOrg} />
       </section>
     );
@@ -64,7 +87,7 @@ const OrgInfo = (props) => {
       <div className="ma__org-selector__org-info js-org-info">
         <section className="ma__org-info">
           <div className="ma__org-info__header">
-            {org.image.src && (
+            { org.image.src && (
             <div className="ma__org-info__image">
               <a href={org.image.href}>
                 <img
@@ -170,7 +193,9 @@ OrgInfo.propTypes = {
 
 OrgSelector.propTypes = {
   /** @atoms/forms/SelectBox  */
-  selectBox: PropTypes.shape(SelectBox.props).isRequired,
+  selectBox: PropTypes.shape(SelectBox.props),
+  /** @atoms/forms/InputTextTypeAhead  */
+  typeAhead: PropTypes.shape(InputTextTypeAhead.props),
   /** An array of objects of org info which renders (as <OrgInfo/>) when that org is selected  */
   organizations: PropTypes.arrayOf(PropTypes.shape(OrgInfo.props)),
   /** A custom function users can add for when onchange is triggered */

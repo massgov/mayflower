@@ -14,17 +14,28 @@ storiesOf('molecules', module).addDecorator(withKnobs)
   .add(
     'OrgSelector',
     withInfo(`<div>${OrgSelectorDocs}</div>`)(() => {
+      const input = select('orgSelector.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
-        selectBox: {
+        organizations: object('orgSelector.organizations', orgSelectorOptions.organizations),
+        onChangeOrgCallback: action('OrgSelector onChangeOrgCallback')
+      };
+      if (input === 'selectbox') {
+        props.selectBox = {
           label: text('orgSelector.selectBox.label', 'State organization'),
           stackLabel: boolean('orgSelector.selectBox.stackLabel', true),
           id: text('orgSelector.selectBox.id', 'state-organization'),
           options: object('orgSelector.selectBox.options', selectBoxOptions.options.orgSelector),
           selected: select('orgSelector.selectBox.defaultSelected', selectBoxOptions.options.orgSelector.map((option) => option.text), selectBoxOptions.options.orgSelector[0].text)
-        },
-        organizations: object('orgSelector.organizations', orgSelectorOptions.organizations),
-        onChangeOrgCallback: action('custom-click on select')
-      };
+        };
+      } else {
+        props.typeAhead = {
+          label: text('orgSelector.typeAhead.label', 'State organization'),
+          id: text('orgSelector.typeAhead.id', 'state-organization'),
+          options: object('orgSelector.typeAhead.options', selectBoxOptions.options.orgSelector),
+          selected: select('orgSelector.typeAhead.defaultSelected', selectBoxOptions.options.orgSelector.map((option) => option.text), selectBoxOptions.options.orgSelector[0].text),
+          placeholder: text('orgSelector.typeAhead.placeholder', 'Sample Placeholder Text')
+        };
+      }
 
       return(<OrgSelector {...props} />);
     })
