@@ -37,6 +37,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         orgSelector: {
           selectBox: {
             label: text('pressFilters.orgSelector.selectBox.label', 'State organization'),
+            stackLabel: boolean('pressFilters.orgSelector.selectBox.stackLabel', true),
             id: 'state-organization',
             options: object('pressFilters.orgSelector.selectBox.options', selectOptions.options.orgSelector),
             required: boolean('pressFilters.orgSelector.selectBox.required', true)
@@ -46,12 +47,14 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         },
         topic: ((hideTopic === 'show') ? {
           label: text('pressFilters.topic.label', 'Filter by Topic'),
+          stackLabel: boolean('pressFilters.topic.stackLabel', true),
           id: 'topic',
           options: object('pressFilters.topic.options', selectOptions.options.topics),
           required: boolean('pressFilters.topic.required', true)
         } : null),
         pressType: {
           label: text('pressFilters.pressType.label', 'Filter by Announcement Type'),
+          stackLabel: boolean('pressFilters.pressType.stackLabel', true),
           id: 'announcement-type',
           options: object('pressFilters.pressType.options', selectOptions.options.pressTypes),
           required: boolean('pressFilters.pressType.required', true)

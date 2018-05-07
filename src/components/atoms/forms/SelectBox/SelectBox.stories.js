@@ -15,12 +15,14 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
     withInfo(`<div>${SelectBoxDocs}</div>`)(() => {
       const props = {
         label: text('selectBox.label', 'Color Scheme:'),
+        stackLabel: boolean('selectBox.stackLabel', false),
         required: boolean('selectBox.required', true),
         id: text('selectBox.id', 'color-select'),
         options: object('selectBox.options', selectOptions.options.colors),
-        selected: select('selectBox.defaultSelected', selectOptions.options.colors.map((option) => option.text), selectOptions.options.colors[0].text)
+        selected: select('selectBox.defaultSelected', selectOptions.options.colors.map((option) => option.text), selectOptions.options.colors[0].text),
+        onChangeCallback: action('custom-click on select')
       };
       props.className = text('selectBox.className', !props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown');
-      return(<SelectBox {...props} onChangeCallback={action('custom-click on select')} />);
+      return(<SelectBox {...props} />);
     })
   );

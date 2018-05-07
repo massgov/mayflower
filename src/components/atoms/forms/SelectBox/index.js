@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 class SelectBox extends React.Component {
   constructor(props) {
@@ -42,11 +43,14 @@ class SelectBox extends React.Component {
     }
     const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
     const { selected } = this.state;
+    const { stackLabel } = this.props;
+    const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
+    const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
     return(
       <section className={classNames}>
-        <label htmlFor={this.props.id} className="ma__select-box__label">{this.props.label}</label>
+        <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
 
-        <div className="ma__select-box__field">
+        <div className={`ma__select-box__field ${selectBoxInline}`}>
           <select
             name={this.props.id}
             id={this.props.id}
@@ -73,6 +77,8 @@ class SelectBox extends React.Component {
 SelectBox.propTypes = {
   /** The label text above the select box */
   label: PropTypes.string.isRequired,
+  /** Whether to stack label or inline label */
+  stackLabel: PropTypes.bool,
   /** Whether the form field is required or not */
   required: PropTypes.bool,
   /** The id of the selectbox element */

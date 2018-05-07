@@ -3,7 +3,6 @@
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
 */
 
-
 //@base
 export Placeholder from './components/base/Placeholder'
 
