@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SelectBox from '../../atoms/forms/SelectBox/index';
 import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
+import './style.css';
 
 class OrgSelector extends React.Component {
   constructor(props) {
@@ -9,7 +10,8 @@ class OrgSelector extends React.Component {
     this.state = {
       selectedOrg: {}
     };
-    this.setSelectedOrgState = this.setSelectedOrgState.bind(this);
+    this.handleOrgSelectChange = this.handleOrgSelectChange.bind(this);
+    this.handleOrgTypeAheadChange = this.handleOrgTypeAheadChange.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     const input = (nextProps.selectBox) ? nextProps.selectBox : nextProps.typeAhead;
@@ -33,12 +35,13 @@ class OrgSelector extends React.Component {
     }
   }
   /**
-   * Sets the state of selected from the input, so <OrgInfo/> knows what to render.
+   * Sets the selectedOrg to the item selected from the input, so <OrgInfo/>
+   * knows what to render.
    *
    * @param input object
    *   @see SelectBox handleSelect method.
    */
-  setSelectedOrgState(input) {
+  handleOrgSelectChange(input) {
     const selectValue = (input.suggestion) ? input.suggestion : input;
     if (selectValue !== undefined) {
       const checkValue = (input.suggestion) ? selectValue.value : selectValue.selectedValue;
@@ -59,8 +62,13 @@ class OrgSelector extends React.Component {
       });
     }
     if (typeof this.props.onChangeOrgCallback === 'function') {
-      this.props.onChangeOrgCallback({ input });
+      this.props.onChangeOrgCallback(input);
     }
+  }
+  handleOrgTypeAheadChange(event, input) {
+    // Stop the filters form submission if enter is pressed in the selector.
+    event.preventDefault();
+    this.handleOrgSelectChange(input);
   }
 
   render() {
@@ -68,8 +76,8 @@ class OrgSelector extends React.Component {
     const typeAheadProps = this.props.typeAhead;
     return(
       <section className="ma__org-selector js-org-selector">
-        {selectBoxProps && <SelectBox {...selectBoxProps} onChangeCallback={this.setSelectedOrgState} />}
-        {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} onChange={this.setSelectedOrgState} />}
+        {selectBoxProps && <SelectBox {...selectBoxProps} onChangeCallback={this.handleOrgSelectChange} />}
+        {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} onChange={this.handleOrgTypeAheadChange} />}
         <OrgInfo org={this.state.selectedOrg} />
       </section>
     );

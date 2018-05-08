@@ -20,7 +20,8 @@ class SelectBox extends React.Component {
    *
    * @param event The DOM onChange event
    *
-   * Invokes custom callback passed as prop onChangeCallback, passing object with select information.
+   * Invokes custom callback passed as prop onChangeCallback, passing back the
+   * object with select information.
    */
   handleSelect(event) {
     const selectedIndex = event.nativeEvent.target.selectedIndex;
@@ -92,9 +93,7 @@ SelectBox.propTypes = {
       PropTypes.string
     ])
   })),
-  /** A function ran when a selection in made */
-  onChange: PropTypes.func,
-  /** A custom function users can add for when onchange is triggered */
+  /** Change handler callback provided by the parent */
   onChangeCallback: PropTypes.func,
   /** Wrapper class for section tag */
   className: PropTypes.string,

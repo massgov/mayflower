@@ -14,7 +14,6 @@ import selectOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('ResultsHeading', withInfo(`<div>${ResultsHeadingDocs}</div>`)(() => {
     const inputType = select('sortResults.inputType', { '': 'None', buttonToggle: 'buttonToggle', selectBox: 'selectBox' }, 'selectBox');
-    console.log(inputType);
     const props = {
       numResults: text('resultsHeading.numResults', '1-12'),
       totalResults: text('resultsHeading.totalResults', '108'),

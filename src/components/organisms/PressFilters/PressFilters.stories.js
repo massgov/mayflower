@@ -12,7 +12,7 @@ import PressFiltersDocs from './PressFilters.md';
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import headingOptions from '../../atoms/headings/Headings.knobs.options';
 import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeading.knobs.options';
-import selectOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
+import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.options';
 
 storiesOf('organisms', module).addDecorator(withKnobs)
@@ -27,6 +27,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'today', restrict: 'max'
       };
       const hideTopic = select('pressFilters.hideTopic', { hide: 'Hide', show: 'Show' }, 'show');
+      const input = select('pressFilters.orgSelector.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
         action: text('pressFilters.action', '#'),
         coloredHeading: {
@@ -35,28 +36,21 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           level: select('pressFilters.coloredHeading.level', headingOptions.levels, defaultHeadingLevel)
         },
         orgSelector: {
-          selectBox: {
-            label: text('pressFilters.orgSelector.selectBox.label', 'State organization'),
-            stackLabel: boolean('pressFilters.orgSelector.selectBox.stackLabel', true),
-            id: 'state-organization',
-            options: object('pressFilters.orgSelector.selectBox.options', selectOptions.options.orgSelector),
-            required: boolean('pressFilters.orgSelector.selectBox.required', true)
-          },
           organizations: object('pressFilters.orgSelector.organizations', orgSelectorOptions.organizations),
-          onChangeOrgCallback: action('custom-click on org select')
+          onChangeOrgCallback: action('onChangeOrgCallback')
         },
         topic: ((hideTopic === 'show') ? {
           label: text('pressFilters.topic.label', 'Filter by Topic'),
           stackLabel: boolean('pressFilters.topic.stackLabel', true),
           id: 'topic',
-          options: object('pressFilters.topic.options', selectOptions.options.topics),
+          options: object('pressFilters.topic.options', selectBoxOptions.options.topics),
           required: boolean('pressFilters.topic.required', true)
         } : null),
         pressType: {
           label: text('pressFilters.pressType.label', 'Filter by Announcement Type'),
           stackLabel: boolean('pressFilters.pressType.stackLabel', true),
           id: 'announcement-type',
-          options: object('pressFilters.pressType.options', selectOptions.options.pressTypes),
+          options: object('pressFilters.pressType.options', selectBoxOptions.options.pressTypes),
           required: boolean('pressFilters.pressType.required', true)
         },
         dateRange: {
@@ -78,6 +72,22 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           onClearCallback: action('pressFilters on clearAll')
         }
       };
+      if (input === 'selectbox') {
+        props.orgSelector.selectBox = {
+          label: text('orgSelector.selectBox.label', 'State organization'),
+          id: text('orgSelector.selectBox.id', 'state-organization'),
+          options: object('orgSelector.selectBox.options', selectBoxOptions.options.orgSelector),
+          selected: select('orgSelector.selectBox.defaultSelected', selectBoxOptions.options.orgSelector.map((option) => option.text), selectBoxOptions.options.orgSelector[0].text)
+        };
+      } else {
+        props.orgSelector.typeAhead = {
+          label: text('orgSelector.typeAhead.label', 'State organization'),
+          id: text('orgSelector.typeAhead.id', 'state-organization'),
+          options: object('orgSelector.typeAhead.options', selectBoxOptions.options.orgSelector),
+          selected: select('orgSelector.typeAhead.defaultSelected', selectBoxOptions.options.orgSelector.map((option) => option.text), selectBoxOptions.options.orgSelector[0].text),
+          placeholder: text('orgSelector.typeAhead.placeholder', 'Sample Placeholder Text')
+        };
+      }
       return(<PressFilters {...props} />);
     })
   );

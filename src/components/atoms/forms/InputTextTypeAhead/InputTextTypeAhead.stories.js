@@ -20,6 +20,6 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         options: object('inputTextTypeAhead.options', inputOptions.options.orgSelector),
         selected: select('inputTextTypeAhead.defaultSelected', inputOptions.options.orgSelector.map((option) => option.text), inputOptions.options.orgSelector[0].text)
       };
-      return(<InputTextTypeAhead {...props} onChange={action('custom-click on selected input')} />);
+      return(<InputTextTypeAhead {...props} onChange={action('InputTextTypeAhead onChange')} />);
     })
   );
