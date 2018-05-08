@@ -7,6 +7,8 @@ import ColoredHeading from '../../atoms/headings/ColoredHeading';
 import DateRange from '../../molecules/DateRange';
 import OrgSelector from '../../molecules/OrgSelector';
 import SelectBox from '../../atoms/forms/SelectBox';
+import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
+import './style.css';
 
 const PressFilters = (props) => {
   const {
@@ -17,6 +19,8 @@ const PressFilters = (props) => {
       props.clearButton.onClearCallback('Clear all filters!');
     }
   };
+  const selectBoxProps = pressType.selectBox;
+  const typeAheadProps = pressType.typeAhead;
   return(
     <section className="ma__press-filters">
       <div className="ma__press-filters__container">
@@ -33,7 +37,8 @@ const PressFilters = (props) => {
             </div>
           )}
           <div className="ma__press-filters__type">
-            <SelectBox {...pressType} />
+            {selectBoxProps && <SelectBox {...selectBoxProps} />}
+            {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} />}
           </div>
           <div className="ma__press-filters__date">
             <DateRange {...dateRange} />
@@ -59,8 +64,11 @@ PressFilters.propTypes = {
   coloredHeading: PropTypes.shape(ColoredHeading.PropTypes),
   /** @atoms/forms/SelectBox */
   topic: PropTypes.shape(SelectBox.PropTypes),
-  /** @atoms/forms/SelectBox */
-  pressType: PropTypes.shape(SelectBox.PropTypes).isRequired,
+  /** @atoms/forms/SelectBox or /** @atoms/forms/InputTextTypeAhead  */
+  pressType: PropTypes.oneOf(
+    PropTypes.shape(SelectBox.props),
+    PropTypes.shape(InputTextTypeAhead.props),
+  ),
   /** @molecules/OrgSelector */
   orgSelector: PropTypes.shape(OrgSelector.PropTypes).isRequired,
   /** @molecules/DateRange */

@@ -18,8 +18,9 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         placeholder: text('inputTextTypeAhead.placeholder', 'All Organizations'),
         id: text('inputTextTypeAhead.id', 'org-typeahead'),
         options: object('inputTextTypeAhead.options', inputOptions.options.orgSelector),
-        selected: select('inputTextTypeAhead.defaultSelected', inputOptions.options.orgSelector.map((option) => option.text), inputOptions.options.orgSelector[0].text)
+        selected: select('inputTextTypeAhead.defaultSelected', inputOptions.options.orgSelector.map((option) => option.text), inputOptions.options.orgSelector[0].text),
+        onChange: action('InputTextTypeAhead onChange')
       };
-      return(<InputTextTypeAhead {...props} onChange={action('InputTextTypeAhead onChange')} />);
+      return(<InputTextTypeAhead {...props} />);
     })
   );

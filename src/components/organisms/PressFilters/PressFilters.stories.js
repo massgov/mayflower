@@ -27,7 +27,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'today', restrict: 'max'
       };
       const hideTopic = select('pressFilters.hideTopic', { hide: 'Hide', show: 'Show' }, 'show');
-      const input = select('pressFilters.orgSelector.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
+      const orgSelectorInput = select('pressFilters.orgSelector.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
+      const pressTypeInput = select('pressFilters.pressType.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
         action: text('pressFilters.action', '#'),
         coloredHeading: {
@@ -46,13 +47,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           options: object('pressFilters.topic.options', selectBoxOptions.options.topics),
           required: boolean('pressFilters.topic.required', true)
         } : null),
-        pressType: {
-          label: text('pressFilters.pressType.label', 'Filter by Announcement Type'),
-          stackLabel: boolean('pressFilters.pressType.stackLabel', true),
-          id: 'announcement-type',
-          options: object('pressFilters.pressType.options', selectBoxOptions.options.pressTypes),
-          required: boolean('pressFilters.pressType.required', true)
-        },
+        pressType: {},
         dateRange: {
           label: text('pressFilters.dateRange.label', 'Date range'),
           startDate: object('pressFilters.dateRange.startDate', pressFiltersStartDate),
@@ -72,7 +67,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           onClearCallback: action('pressFilters on clearAll')
         }
       };
-      if (input === 'selectbox') {
+      if (orgSelectorInput === 'selectbox') {
         props.orgSelector.selectBox = {
           label: text('orgSelector.selectBox.label', 'State organization'),
           id: text('orgSelector.selectBox.id', 'state-organization'),
@@ -86,6 +81,24 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           options: object('orgSelector.typeAhead.options', selectBoxOptions.options.orgSelector),
           selected: select('orgSelector.typeAhead.defaultSelected', selectBoxOptions.options.orgSelector.map((option) => option.text), selectBoxOptions.options.orgSelector[0].text),
           placeholder: text('orgSelector.typeAhead.placeholder', 'Sample Placeholder Text')
+        };
+      }
+      if (pressTypeInput === 'selectbox') {
+        props.pressType.selectBox = {
+          label: text('pressFilters.pressType.label', 'Filter by Announcement Type'),
+          stackLabel: boolean('pressFilters.pressType.stackLabel', true),
+          id: 'announcement-type',
+          options: object('pressFilters.pressType.options', selectBoxOptions.options.pressTypes),
+          required: boolean('pressFilters.pressType.required', true)
+        };
+      } else {
+        props.pressType.typeAhead = {
+          label: text('pressFilters.pressType.label', 'Filter by Announcement Type'),
+          id: text('pressFilters.pressType.id', 'press-type'),
+          options: object('pressFilters.pressType.options', selectBoxOptions.options.pressTypes),
+          selected: select('pressFilters.pressType..defaultSelected', selectBoxOptions.options.pressTypes.map((option) => option.text), selectBoxOptions.options.pressTypes[0].text),
+          placeholder: text('pressFilters.pressType.placeholder', 'Sample Placeholder Text'),
+          onChange: action('pressType typeahead onChange')
         };
       }
       return(<PressFilters {...props} />);
