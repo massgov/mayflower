@@ -78,8 +78,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         props.orgSelector.typeAhead = {
           label: text('orgSelector.typeAhead.label', 'State organization'),
           id: text('orgSelector.typeAhead.id', 'state-organization'),
-          options: object('orgSelector.typeAhead.options', selectBoxOptions.options.orgSelector),
-          selected: select('orgSelector.typeAhead.defaultSelected', selectBoxOptions.options.orgSelector.map((option) => option.text), selectBoxOptions.options.orgSelector[0].text),
+          options: object('orgSelector.typeAhead.options', selectBoxOptions.options.orgSelectorType),
+          selected: select('orgSelector.typeAhead.defaultSelected', selectBoxOptions.options.orgSelectorType.map((option) => option.text), selectBoxOptions.options.orgSelectorType[0].text),
           placeholder: text('orgSelector.typeAhead.placeholder', 'Sample Placeholder Text')
         };
       }
