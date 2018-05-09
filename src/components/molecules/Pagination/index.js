@@ -14,20 +14,22 @@ const Pagination = (pagination) => (
           {pagination.prev.text}
         </button>
     )}
-      { pagination.pages.map((page, pageIndex) => (
-          page.text === 'spacer' ?
-            <span key={`pagination.item.${pageIndex}`} className="ma__pagination__spacer">&hellip;</span> :
-            <button
-              className={page.active ? 'ma__pagination__page js-pagination-page is-active' : 'ma__pagination__page js-pagination-page'}
-              type="button"
-              data-page={page.text}
-              onClick={page.onClick}
-              key={`pagination.item.${pageIndex}`}
-            >
-              {page.text}
-            </button>
-        ))
-      }
+      {pagination.pages.map((page, pageIndex) => {
+        const key = `pagination.item.${pageIndex}`;
+        return page.text === 'spacer' ? (
+          <span key={key} className="ma__pagination__spacer">&hellip;</span>
+        ) : (
+          <button
+            className={page.active ? 'ma__pagination__page js-pagination-page is-active' : 'ma__pagination__page js-pagination-page'}
+            type="button"
+            data-page={page.text}
+            onClick={page.onClick}
+            key={key}
+          >
+            {page.text}
+          </button>
+        );
+      })}
       {!pagination.next.hide && (
         <button
           className="ma__pagination__next js-pagination-next"
