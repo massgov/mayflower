@@ -60,7 +60,8 @@ class InputTextTypeAhead extends Component {
     const inputProps = {
       placeholder: this.props.placeholder,
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
+      type: 'search'
     };
     const shouldRenderSuggestions = (x) => x.trim().length >= 0;
     const getSuggestionValue = (suggestion) => suggestion.text;

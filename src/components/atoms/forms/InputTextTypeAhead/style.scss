@@ -26,6 +26,12 @@
   }
 }
 
+input[type=search]{
+  -webkit-appearance: none;
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+    }
+}
 
 .react-autosuggest{
   &__container {
