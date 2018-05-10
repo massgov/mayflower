@@ -4,7 +4,6 @@ import parse from 'autosuggest-highlight/parse';
 import PropTypes from 'prop-types';
 import './style.css';
 
-
 class InputTextTypeAhead extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +26,11 @@ class InputTextTypeAhead extends Component {
     this.setState({
       value: newValue
     });
+    if (newValue.length === 0 && (typeof this.props.onChange === 'function')) {
+      // Change the filter back to "" if the user clears the typeahead input.
+      const suggestion = { text: '', value: '' };
+      this.props.onChange(event, { suggestion });
+    }
   }
   onSuggestionsFetchRequested({ value }) {
     this.setState({
@@ -78,11 +82,12 @@ class InputTextTypeAhead extends Component {
             {
             parts.map((part, index) => {
               const className = part.highlight ? 'highlight' : null;
+              const key = `suggestion_${index}`;
               return(
-                <span className={className} key={`suggestion_${index}`}>{part.text}</span>
+                <span className={className} key={key}>{part.text}</span>
               );
             })
-          }
+            }
           </span>
         </span>
       );

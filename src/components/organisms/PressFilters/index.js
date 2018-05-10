@@ -65,10 +65,10 @@ PressFilters.propTypes = {
   /** @atoms/forms/SelectBox */
   topic: PropTypes.shape(SelectBox.PropTypes),
   /** @atoms/forms/SelectBox or /** @atoms/forms/InputTextTypeAhead  */
-  pressType: PropTypes.oneOf(
-    PropTypes.shape(SelectBox.props),
-    PropTypes.shape(InputTextTypeAhead.props),
-  ),
+  pressType: PropTypes.oneOf([
+    PropTypes.shape({ selectBox: SelectBox.propTypes }),
+    PropTypes.shape({ typeAhead: InputTextTypeAhead.propTypes })
+  ]),
   /** @molecules/OrgSelector */
   orgSelector: PropTypes.shape(OrgSelector.PropTypes).isRequired,
   /** @molecules/DateRange */

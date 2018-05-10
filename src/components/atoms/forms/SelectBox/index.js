@@ -9,7 +9,7 @@ class SelectBox extends React.Component {
       selected: props.options[0].text
     };
     this.selectTag = '';
-    this.handleSelect = this.handleSelect.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ selected: nextProps.selected });
@@ -23,7 +23,7 @@ class SelectBox extends React.Component {
    * Invokes custom callback passed as prop onChangeCallback, passing back the
    * object with select information.
    */
-  handleSelect(event) {
+  handleOnChange(event) {
     const selectedIndex = event.nativeEvent.target.selectedIndex;
     const selected = event.target[selectedIndex].text;
     const selectedValue = event.target[selectedIndex].value;
@@ -56,7 +56,7 @@ class SelectBox extends React.Component {
             name={this.props.id}
             id={this.props.id}
             className={selectClassNames}
-            onChange={this.handleSelect}
+            onChange={this.handleOnChange}
             ref={(select) => { this.selectTag = select; }}
           >
             {this.props.options.map((option) => (

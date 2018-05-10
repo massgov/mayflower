@@ -8,7 +8,7 @@ import { action } from '@storybook/addon-actions';
 import OrgSelector from './index';
 import OrgSelectorDocs from './OrgSelector.md';
 import orgSelectorOptions from './OrgSelector.knobs.options';
-import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
+import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add(
@@ -21,19 +21,19 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       };
       if (input === 'selectbox') {
         props.selectBox = {
-          label: text('orgSelector.selectBox.label', 'State organization'),
+          label: text('orgSelector.selectBox.label', 'State Organization'),
           stackLabel: boolean('orgSelector.selectBox.stackLabel', true),
           id: text('orgSelector.selectBox.id', 'state-organization'),
-          options: object('orgSelector.selectBox.options', selectBoxOptions.options.orgSelector),
-          selected: select('orgSelector.selectBox.defaultSelected', selectBoxOptions.options.orgSelector.map((option) => option.text), selectBoxOptions.options.orgSelector[0].text)
+          options: object('orgSelector.selectBox.options', inputOptions.options.orgSelector),
+          selected: select('orgSelector.selectBox.defaultSelected', inputOptions.options.orgSelector.map((option) => option.text), inputOptions.options.orgSelector[0].text)
         };
       } else {
         props.typeAhead = {
-          label: text('orgSelector.typeAhead.label', 'State organization'),
+          label: text('orgSelector.typeAhead.label', 'State Organization'),
           id: text('orgSelector.typeAhead.id', 'state-organization'),
-          options: object('orgSelector.typeAhead.options', selectBoxOptions.options.orgSelector),
-          selected: select('orgSelector.typeAhead.defaultSelected', selectBoxOptions.options.orgSelector.map((option) => option.text), selectBoxOptions.options.orgSelector[0].text),
-          placeholder: text('orgSelector.typeAhead.placeholder', 'Sample Placeholder Text')
+          options: object('orgSelector.typeAhead.options', inputOptions.options.orgSelector),
+          selected: select('orgSelector.typeAhead.defaultSelected', inputOptions.options.orgSelector.map((option) => option.text), inputOptions.options.orgSelector[0].text),
+          placeholder: text('orgSelector.typeAhead.placeholder', 'All Organizations')
         };
       }
 

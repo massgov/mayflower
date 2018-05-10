@@ -13,6 +13,7 @@ import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import headingOptions from '../../atoms/headings/Headings.knobs.options';
 import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeading.knobs.options';
 import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
+import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.options';
 
 storiesOf('organisms', module).addDecorator(withKnobs)
@@ -38,7 +39,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         },
         orgSelector: {
           organizations: object('pressFilters.orgSelector.organizations', orgSelectorOptions.organizations),
-          onChangeOrgCallback: action('onChangeOrgCallback')
+          onChangeOrgCallback: action('PressFilters onChangeOrgCallback')
         },
         topic: ((hideTopic === 'show') ? {
           label: text('pressFilters.topic.label', 'Filter by Topic'),
@@ -78,9 +79,14 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         props.orgSelector.typeAhead = {
           label: text('orgSelector.typeAhead.label', 'State organization'),
           id: text('orgSelector.typeAhead.id', 'state-organization'),
-          options: object('orgSelector.typeAhead.options', selectBoxOptions.options.orgSelectorType),
-          selected: select('orgSelector.typeAhead.defaultSelected', selectBoxOptions.options.orgSelectorType.map((option) => option.text), selectBoxOptions.options.orgSelectorType[0].text),
-          placeholder: text('orgSelector.typeAhead.placeholder', 'Sample Placeholder Text')
+          options: object('orgSelector.typeAhead.options', inputOptions.options.orgSelector),
+          selected: select(
+            'orgSelector.defaultSelected',
+            [''].concat(inputOptions.options.orgSelector.map((option) => option.text)),
+            ''
+          ),
+          placeholder: text('orgSelector.typeAhead.placeholder', 'All Organizations'),
+          onChange: action('pressFilters.orgSelector typeahead onChange')
         };
       }
       if (pressTypeInput === 'selectbox') {
@@ -95,10 +101,14 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         props.pressType.typeAhead = {
           label: text('pressFilters.pressType.label', 'Filter by Announcement Type'),
           id: text('pressFilters.pressType.id', 'press-type'),
-          options: object('pressFilters.pressType.options', selectBoxOptions.options.pressTypes),
-          selected: select('pressFilters.pressType..defaultSelected', selectBoxOptions.options.pressTypes.map((option) => option.text), selectBoxOptions.options.pressTypes[0].text),
-          placeholder: text('pressFilters.pressType.placeholder', 'Sample Placeholder Text'),
-          onChange: action('pressType typeahead onChange')
+          options: object('pressFilters.pressType.options', inputOptions.options.pressTypes),
+          selected: select(
+            'pressFilters.pressType.defaultSelected',
+            [''].concat(inputOptions.options.pressTypes.map((option) => option.text)),
+            ''
+          ),
+          placeholder: text('pressFilters.pressType.placeholder', 'All Types'),
+          onChange: action('pressFilters.pressType typeahead onChange')
         };
       }
       return(<PressFilters {...props} />);
