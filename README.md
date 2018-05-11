@@ -1,9 +1,7 @@
 # Mayflower-React
 [![npm package][npm-badge]][npm]
-[npm-badge]: https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square
-[npm]: https://www.npmjs.com/package/@massds/mayflower-react
 
-Mayflower-react is a React component library under the enterprise design system for the Commonwealth of Massachusetts. Mayflower-react is a published npm package [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) that is dependent on static assets generate by [Mayflower PatternLab](https://github.com/massgov/mayflower). [Mayflower PatternLab](https://github.com/massgov/mayflower) is published as a dependency npm package [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower). Refer to [Mayflower PatternLab Static Site](https://mayflower.digital.mass.gov) for a complete list of its UI components.
+Mayflower-react is a React component library under the enterprise design system for the Commonwealth of Massachusetts. Mayflower-react is a published npm package [@massds/mayflower-react][npm] that is dependent on static assets generate by [Mayflower PatternLab][mayflower-github]. Mayflower PatternLab is published as a dependency npm package [@massds/mayflower][mayflower-npm]. Refer to [Mayflower PatternLab Static Site][mayflower] for a complete list of its UI components.
 
 # How to use Mayflower-React in your Project!
 
@@ -16,7 +14,7 @@ Mayflower-react is a React component library under the enterprise design system 
 3. Render components in JSX
 ``<Button info="this will be the tooltip text on hover" text="button" onClick={button clicked()} />``
 
-For a guide and information on the components included in mayflower-react and there functionality visit our [mayflower-react storybook](https://mayflower-react.digital.mass.gov). Click on the Info and Knobs tabs for component prop types, details and options.
+For a guide and information on the components included in mayflower-react and there functionality visit our [mayflower-react storybook][mayflower-react]. Click on the Info and Knobs tabs for component prop types, details and options.
 
 # Contributing, Releasing, and Developing in Mayflower-React
 
@@ -100,4 +98,11 @@ We are tracking versions of this project in the package.json, which means when c
 4. $ ``aws cloudfront create-invalidation --distribution-id 	
 [!!PROD_DISTRIBUTION_ID_HERE!!] --paths '/*'`` (Invalidates CloudFront for prod box)
 
-You should see your changes live at https://mayflower-react.digital.mass.gov within a few minutes!
+You should see your changes live at [mayflower-react storybook][mayflower-react] within a few minutes!
+
+[npm-badge]: https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square
+[npm]: https://www.npmjs.com/package/@massds/mayflower-react
+[mayflower-npm]: https://www.npmjs.com/package/@massds/mayflower
+[mayflower-github]: https://github.com/massgov/mayflower
+[mayflower]: https://mayflower.digital.mass.gov
+[mayflower-react]: https://mayflower-react.digital.mass.gov
