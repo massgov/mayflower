@@ -7,3 +7,4 @@
 npm-debug.log*
 
 src/**/*.css
+storybook-static
