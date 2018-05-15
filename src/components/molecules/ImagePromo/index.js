@@ -1,0 +1,116 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import DecorativeLink from '../../atoms/links/DecorativeLink';
+import Image from '../../atoms/media/Image';
+import Paragraph from '../../atoms/text/Paragraph';
+import SvgPhone from '../../atoms/icons/SvgPhone';
+
+const ImagePromo = (props) => {
+  const HeadingElement = `h${props.title.level || 2}`;
+  const sectionClasses = [
+    'ma__image-promo',
+    props.location && props.location.map && 'js-location-listing-link'
+  ];
+
+  return(
+    <section className={sectionClasses.join(' ')}>
+
+      {props.image && props.image.src && (
+        <div
+          className="ma__image-promo__image"
+          style={props.image.width && { flexBasis: `${props.image.width}px` }}
+        >
+          <Image {...props.image} />
+        </div>
+      )}
+
+      <div className="ma__image-promo__details">
+
+        <HeadingElement className="ma__image-promo__title">
+          {props.tags && (
+            <div className="ma__image-promo__tags">
+              {props.tags.map((tag) => (
+                <span key={tag.id} title={tag.label} data-ma-tag-id={tag.id}>{tag.icon}</span>
+              ))}
+            </div>
+          )}
+
+          {props.title.href ? (
+            <DecorativeLink {...props.title} />
+          ) : (
+            <React.Fragment>{props.title.text}</React.Fragment>
+          )}
+        </HeadingElement>
+
+        {props.location && props.location.text && (
+          <div className="ma__image-promo__location">
+            {props.location.text}
+            {props.link && props.link.text && (
+              <div>
+                <DecorativeLink {...props.link} />
+              </div>
+            )}
+          </div>
+        )}
+
+        {props.phone && (
+          <div className="ma__image-promo__phone">
+            <SvgPhone />&nbsp;
+            {props.phone.href ? (
+              <a href={`tel:${props.phone.href}`}>{props.phone.text}</a>
+            ) : (
+              <span>{props.phone.text}</span>
+            )}
+          </div>
+        )}
+
+        {props.description && (
+          <div className="ma__image-promo__description">
+            <Paragraph text={props.description} />
+          </div>
+        )}
+
+        {props.link && !props.location && (
+          <div className="ma__image-promo__link">
+            <DecorativeLink {...props.link} />
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
+ImagePromo.propTypes = {
+  title: PropTypes.shape({
+    level: PropTypes.number,
+    href: PropTypes.string,
+    text: PropTypes.string.isRequired
+  }),
+  tags: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    icon: PropTypes.element
+  })),
+  image: PropTypes.shape({
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    width: PropTypes.number,
+    height: PropTypes.number
+  }),
+  description: PropTypes.string,
+  link: PropTypes.shape({
+    text: PropTypes.string,
+    href: PropTypes.string,
+    info: PropTypes.string
+  }),
+  location: PropTypes.shape({
+    text: PropTypes.string,
+    map: PropTypes.bool
+  }),
+  phone: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    href: PropTypes.string
+  })
+};
+
+export default ImagePromo;
