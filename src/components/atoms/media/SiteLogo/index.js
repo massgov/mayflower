@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from './mass-logo.png';
+import logo from './stateseal.png';
 
 const SiteLogo = (siteLogo) => (
   <div className="ma__site-logo">
     <a href={siteLogo.url.domain ? siteLogo.url.domain : '/'} title="Mass.gov home page">
-      <img src={logo} alt="Mass.gov" width="164" height="75" />
+      <img src={logo} alt="Mass.gov" width="45" height="45" />
+      <span>Mass.gov</span>
     </a>
   </div>
 );
