@@ -37,6 +37,8 @@ export SvgDocDocx from './components/atoms/icons/SvgDocDocx'
 export SvgDocPdf from './components/atoms/icons/SvgDocPdf'
 export SvgDocXlxs from './components/atoms/icons/SvgDocXlxs'
 export SvgChevron from './components/atoms/icons/SvgChevron'
+export SvgWheelchair from './components/atoms/icons/SvgWheelchair'
+export SvgOpenNow from './components/atoms/icons/SvgOpenNow'
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
@@ -64,6 +66,7 @@ export SearchBannerForm from './components/molecules/SearchBannerForm';
 export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
+export ImagePromo from './components/molecules/ImagePromo';
 
 // @organisms
 export Footer from './components/organisms/Footer';
