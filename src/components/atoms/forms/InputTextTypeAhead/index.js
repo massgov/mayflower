@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 import parse from 'autosuggest-highlight/parse';
+import match from 'autosuggest-highlight/match';
 import PropTypes from 'prop-types';
 import './style.css';
 
@@ -71,10 +72,7 @@ class InputTextTypeAhead extends Component {
     const getSuggestionValue = (suggestion) => suggestion.text;
     const renderSuggestion = (suggestion, { query }) => {
       const suggestionText = `${suggestion.text}`;
-      const re = new RegExp(query, 'i');
-      const start = suggestionText.match(re) && suggestionText.match(re).index;
-      const end = start && start > 0 ? (start + query.length) : query.length;
-      const matches = (start >= 0 && end >= 0) ? ([[start, end]]) : [];
+      const matches = match(suggestionText, query);
       const parts = parse(suggestionText, matches);
       return(
         <span className="suggestion-content">
