@@ -1,4 +1,7 @@
-# Summary
+# Table of contents
 
-* [Introduction](README.md)
+* [Mayflower Design System](README.md)
+* [Design Principles](design-principles.md)
+* Components
+  * [Header](components/untitled.md)
 
