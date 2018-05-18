@@ -14,23 +14,6 @@ Using brand pillars helps us identify a few central, critical principles which a
 
 These are the 4 brand pillars that guide us towards achieving Mass.gov’s goal of being the Commonwealth’s customer service desk.
 
-{% tabs %}
-{% tab title="Helpful" %}
-**Mass.gov gives our site visitors the information they need, and we make sure that that information is usable. We make complicated application forms and processes more understandable. We think about what’s most important to our users, and we modify the website in response to those needs.**
-{% endtab %}
-
-{% tab title="Human" %}
-**Mass.gov uses conversational language and a warm tone to break the perception of government as impersonal and bureaucratic. When constituents read content on Mass.gov, it should feel like the voice of a real person. We want our site visitors to feel comfortable, confident, and supported.**
-{% endtab %}
-
-{% tab title="Dignified" %}
-**Mass.gov represents the Massachusetts state government with authority and trustworthiness. Our effort to be human should never detract from the importance of the information we convey, or from the credibility of that information. We should be warm without being overly informal, friendly without**
-{% endtab %}
-
-{% tab title="Modern" %}
-**Mass.gov is a living tool - a platform for continual improvement, which will evolve over time to keep up with changes in technology. Many digital communication tools and techniques that power websites in 2016 \(e.g. social media, certain software packages behind the scenes, visual and design trends, etc.\) either didn’t exist or weren’t widely used 10 years ago - and many tools and techniques that people will take for granted in 10 years don’t exist now. Mass.gov, therefore, must keep pace with the evolution of digital communication both technically and visually in order to remain a relevant tool for our users.**
-{% endtab %}
-{% endtabs %}
 
 
 
