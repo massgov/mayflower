@@ -1,0 +1,21 @@
+{
+  "language": "en",
+  "author": "Minghua Sun",
+  "title": "Mayflower Documentation",
+  "plugins": ["edit-link", "github", "header", "-livereload"],
+  "pluginsConfig": {
+    "layout": {
+      "headerPath" : "header.html"
+    },
+    "lunr": {
+      "ignoreSpecialCharacters": true
+    },
+    "edit-link": {
+      "base": "https://massds.gitbook.io/mayflower/~/edit/primary/",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/massgov/mayflower-doc"
+    }
+  }
+}

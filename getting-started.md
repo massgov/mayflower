@@ -1,7 +1,7 @@
 # Getting Started
 
-### Implement Mayflower as component libraries
+### Mayflower as component libraries
 
-### Mayflower Markup
+### Mayflower as static assets
 
-### Mayflower Inspired
+### Mayflower as styleguide

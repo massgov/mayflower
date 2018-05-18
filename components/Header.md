@@ -4,7 +4,7 @@ This is the global masthead of the Mass.gov site, and is comprised of a few dist
 
 
 
-![](../.gitbook/assets/capture_03-organisms-by-template-header_0_document_1_tablet.png)
+![](https://mayflower.digital.mass.gov/capture/capture_03-organisms-by-template-header_0_document_1_tablet.png)
 
 ### Placement & Guidelines
 

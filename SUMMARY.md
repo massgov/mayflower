@@ -2,6 +2,8 @@
 
 * [Mayflower Design System](README.md)
 * [Design Principles](design-principles.md)
+* Style
+  * [Color](style/Color.md)
 * Components
-  * [Header](components/untitled.md)
+  * [Header](components/Header.md)
 
