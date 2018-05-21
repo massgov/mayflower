@@ -2,8 +2,6 @@
 
 Anytime you make a decision about Mass.gov - about what information should go on a page, how to write something, whether to use an image or not, etc. - run it past these 4 pillars. If your decision satisfies all of them, it’s a good decision.
 
-For purposes of consistency and usability, any Mass.gov-related site should be visually cohesive with the parent Mass.gov brand. It’s important that users know they are on an official government webpage, and the visual cues that come from using a cohesive design help convey that legitimacy.
-
 ## Brand Pillars
 
 A brand is a conceptual thing, but it shares some similarities with real-world objects like buildings. They both rely upon a strong framework to hold their shape. In the same way that buildings are held up by load-bearing pillars, brands are held up by brand pillars.
