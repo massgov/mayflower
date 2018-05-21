@@ -1,9 +1,3 @@
----
-description: >-
-  Mayflower is the enterprise design system for the Commonwealth of
-  Massachusetts.
----
-
 # Mayflower Design System
 
 ## Overview
