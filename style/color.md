@@ -7,6 +7,6 @@
 
 | Color | Hex | Name | Details |
 | --- | --- | --- | --- |
-|  | \#14558f | BAY BLUE | This color is found in the utility nav and content tags, and signifies clickable hyperlinks among text. It is also occasionally used as an accent color. |
-|  | \#8AAAC7 | 50% BAY BLUE | Examples: Illustrated card border color/Button border color /File type icons/Link arrows |
+| <img src="../assets/colors/color_bay-blue.png" />| #14558f | BAY BLUE | This color is found in the utility nav and content tags, and signifies clickable hyperlinks among text. It is also occasionally used as an accent color. |
+| <img src="../assets/colors/color_bay-blue-50.png" /> | \#8AAAC7 | 50% BAY BLUE | Examples: Illustrated card border color/Button border color /File type icons/Link arrows |
 
