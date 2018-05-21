@@ -11,5 +11,5 @@
   * [Typography](style/typography.md)
 * Components
   * [Header](components/header.md)
-  * [Footer](components/test.md)
+  * [Footer](components/footer.md)
 
