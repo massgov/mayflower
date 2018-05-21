@@ -3,7 +3,7 @@
 * [Mayflower Design System](README.md)
 * [Getting Started](getting-started.md)
 * [Design Principles](design-principles.md)
-* Style
+* [Style](style/README.md)
   * [Color](style/color.md)
   * [Typography](style/typography.md)
 * Components
