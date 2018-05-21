@@ -174,38 +174,36 @@ const OrgInfo = (props) => {
   return false;
 };
 
+/** An object which has the image, name, title, description, and link to an org.  */
 OrgInfo.propTypes = {
-  /** An object which has the image, name, title, description, and link to an org.  */
-  org: PropTypes.shape({
-    value: PropTypes.string,
-    image: PropTypes.shape({
-      href: PropTypes.string,
-      alt: PropTypes.string,
-      src: PropTypes.string,
-      height: PropTypes.string,
-      width: PropTypes.string
-    }),
-    name: PropTypes.shape({
-      text: PropTypes.string,
-      href: PropTypes.string
-    }),
-    jobTitle: PropTypes.string,
-    message: PropTypes.string,
-    moreLink: PropTypes.shape({
-      text: PropTypes.string,
-      href: PropTypes.string,
-      info: PropTypes.string
-    })
+  value: PropTypes.string,
+  image: PropTypes.shape({
+    href: PropTypes.string,
+    alt: PropTypes.string,
+    src: PropTypes.string,
+    height: PropTypes.string,
+    width: PropTypes.string
+  }),
+  name: PropTypes.shape({
+    text: PropTypes.string,
+    href: PropTypes.string
+  }),
+  jobTitle: PropTypes.string,
+  message: PropTypes.string,
+  moreLink: PropTypes.shape({
+    text: PropTypes.string,
+    href: PropTypes.string,
+    info: PropTypes.string
   })
 };
 
 OrgSelector.propTypes = {
   /** @atoms/forms/SelectBox  */
-  selectBox: PropTypes.shape(SelectBox.props),
+  selectBox: PropTypes.shape(SelectBox.propTypes),
   /** @atoms/forms/InputTextTypeAhead  */
-  typeAhead: PropTypes.shape(InputTextTypeAhead.props),
+  typeAhead: PropTypes.shape(InputTextTypeAhead.propTypes),
   /** An array of objects of org info which renders (as <OrgInfo/>) when that org is selected  */
-  organizations: PropTypes.arrayOf(PropTypes.shape(OrgInfo.props)),
+  organizations: PropTypes.arrayOf(PropTypes.shape(OrgInfo.propTypes)),
   /** A custom function users can add for when onchange is triggered */
   onChangeOrgCallback: PropTypes.func
 };
