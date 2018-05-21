@@ -7,5 +7,5 @@
   * [Color](style/color.md)
 * Components
   * [Header](components/header.md)
-* [Test](test.md)
+* Test
 
