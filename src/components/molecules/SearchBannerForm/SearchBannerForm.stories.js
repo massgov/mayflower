@@ -29,7 +29,8 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       },
       buttonSearch: {
         onClick: action('Search button clicked'),
-        text: text('searchBannerForm.buttonSearch.text', 'Search')
+        text: text('searchBannerForm.buttonSearch.text', 'Search'),
+        ariaLabel: text('searchBannerForm.buttonSearch.ariaLabel', 'Search')
       }
     };
     return(

@@ -59,9 +59,10 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     const headerSearchProps = {
       placeholder: text('searchBannerForm.placeholder', 'Search Mass.gov'),
       buttonSearch: {
+        ariaLabel: 'Search',
         onClick: (e) => {
+          action('Search button clicked')(e);
           e.preventDefault();
-          action('Button clicked');
         }
       },
       onSubmit: action('Form submitted'),

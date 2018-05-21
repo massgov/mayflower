@@ -68,7 +68,9 @@ HeaderSearch.defaultProps = {
   id: 'header-search',
   label: 'Search terms',
   placeholder: 'Search Mass.gov',
-  buttonSearch: {}
+  buttonSearch: {
+    ariaLabel: 'Search terms'
+  }
 };
 
 export default HeaderSearch;

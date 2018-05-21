@@ -14,9 +14,11 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
       buttonSearch: {
         onClick: (e) => {
-          action('Button clicked');
+          action('Button clicked')(e);
           e.preventDefault();
-        }
+        },
+        ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', 'Search'),
+        text: text('HeaderSearch.buttonSearch.text', 'Search')
       },
       onSubmit: action('Form submitted'),
       onChange: action('Text input modified'),
