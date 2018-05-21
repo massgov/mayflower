@@ -6,8 +6,8 @@ This is the global masthead of the Mass.gov site, and is comprised of a few dist
 
 ## Placement & Guidelines
 
-* Should appear at the top of every pilot page.
-* Should only be used if the page can be accessed through the pilot site, do not use this header if the page content does not live on the site.   
+* Should appear at the top of every Mass.gov page.
+* Should only be used if the page can be accessed through the site, do not use this header if the page content does not live on the site.   
 * The utility navigation has three links with associated icons:
   * A Google language dropdown to translate the site \(note: Google requires the branded Google icon next to the globe icon\)
   * A link for State Organizations, which sends users to an A-Z listing of state organizations. The icon here is meant to represent the State House.
