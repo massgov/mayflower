@@ -2,7 +2,7 @@
   "language": "en",
   "author": "Minghua Sun",
   "title": "Mayflower Documentation",
-  "plugins": ["edit-link", "github", "header", "-livereload", "simpletabs"],
+  "plugins": ["edit-link", "github", "header", "-livereload", "simpletabs", "github-embed"],
   "pluginsConfig": {
     "layout": {
       "headerPath" : "header.html"
@@ -16,6 +16,10 @@
     },
     "github": {
       "url": "https://github.com/massgov/mayflower-doc"
+    },
+    "github-embed": {
+        "showLink": true,
+        "reindent": true 
     }
   }
 }
