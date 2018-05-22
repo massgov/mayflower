@@ -26,8 +26,8 @@ If you have full access to front end code but are not able to implement either o
 CDN resources for Mayflower generated static assets:
 
 * Compiled CSS: 
-  * 1. [https://mayflower.digital.mass.gov/css/index-generated.css](https://mayflower.digital.mass.gov/css/index-generated.css)
-  * 2. [https://mayflower.digital.mass.gov/css/base-theme-generated.css](https://mayflower.digital.mass.gov/css/base-theme-generated.css)
+  * 1.[ ](https://mayflower.digital.mass.gov/assets/css/base-theme-generated.css)[https://mayflower.digital.mass.gov/assets/css/base-theme-generated.css](https://mayflower.digital.mass.gov/assets/css/base-theme-generated.css)
+  * 2. [https://mayflower.digital.mass.gov/assets/css/index-generated.css](https://mayflower.digital.mass.gov/assets/css/index-generated.css)
 * Compiled JS:
   * 1. [https://mayflower.digital.mass.gov/assets/js/vendor-generated.js](https://mayflower.digital.mass.gov/assets/js/vendor-generated.js)
   * 2. [https://mayflower.digital.mass.gov/assets/js/index-generated.js](https://mayflower.digital.mass.gov/assets/js/index-generated.js) 
