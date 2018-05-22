@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, select, number } from '@storybook/addon-knobs/react';
+import { withKnobs, array, text, boolean, select, number } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 import SearchBannerForm from '.';
@@ -28,6 +28,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
         onChange: action('Text input modified')
       },
       buttonSearch: {
+        classes: array('buttonSearch.classes', []),
         onClick: action('Search button clicked'),
         text: text('searchBannerForm.buttonSearch.text', 'Search'),
         ariaLabel: text('searchBannerForm.buttonSearch.ariaLabel', 'Search')

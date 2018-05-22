@@ -5,17 +5,15 @@ import InputText from '../../atoms/forms/InputText';
 import ButtonSearch from '../../atoms/buttons/ButtonSearch';
 
 const SearchBannerForm = (searchBannerForm) => {
-  if (!searchBannerForm.buttonSearch.classes) {
-    searchBannerForm.buttonSearch.classes = [];
-  }
-  searchBannerForm.buttonSearch.classes.push('ma__search-banner__button');
+  let { classes = [] } = searchBannerForm.buttonSearch;
+  classes = classes.concat(['ma__search-banner__button']);
 
   return(
     <form className="ma__search-banner__form" action={searchBannerForm.action} onSubmit={searchBannerForm.onSubmit}>
       <div className="ma__search-banner__input">
         <InputText {...searchBannerForm.inputText} />
       </div>
-      <ButtonSearch {...searchBannerForm.buttonSearch} />
+      <ButtonSearch {...searchBannerForm.buttonSearch} classes={classes} />
     </form>
   );
 };
