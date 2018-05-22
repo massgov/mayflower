@@ -12,10 +12,13 @@ export Divider from './components/atoms/Divider';
 export Button from './components/atoms/buttons/Button';
 export ButtonSearch from './components/atoms/buttons/ButtonSearch';
 export ButtonSort from './components/atoms/buttons/ButtonSort';
+export ButtonToggle from './components/atoms/buttons/ButtonToggle';
+export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 // @atoms/@forms
 export InputDate from './components/atoms/forms/InputDate';
 export InputText from './components/atoms/forms/InputText';
 export SelectBox from './components/atoms/forms/SelectBox';
+export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
 export CompHeading from './components/atoms/headings/CompHeading';
