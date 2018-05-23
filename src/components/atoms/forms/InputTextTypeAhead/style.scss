@@ -1,8 +1,10 @@
+@import 'colors';
+
 .ma__input-typeahead {
   font-size: 1.25rem;
 
   .highlight {
-    color: #43956f;
+    color: $c-theme-green;
     font-weight: bold;
   }
 
@@ -19,7 +21,7 @@
     margin: 0px;
     padding: 0px;
     li {
-      border: 1px solid #dcdcdc;
+      border: 1px solid $c-gray-dcdcdc;
       width: 100%;
       padding: 0px 18px;
     }
@@ -49,7 +51,7 @@ input[type=search]{
       list-style-type: none;
     }
     &--highlighted{
-      background-color: #f2f2f2;
+      background-color: $c-gray-f2f2f2;
     }
   }
 
@@ -63,7 +65,7 @@ input[type=search]{
       max-height: 15.6em;
       overflow-y: auto;
       box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.2);
-      background: #fff;
+      background: $c-white;
     }
   }
 }

@@ -1,7 +1,9 @@
+@import 'colors';
+
 .ma__button-icon {
-  background-color: #fff;
+  background-color: $c-white;
   border: 2px solid;
-  border-color: #dcdcdc;
+  border-color: $c-gray-dcdcdc;
   display: inline-block;
   font-size: 14px;
   font-weight: 700;
@@ -11,7 +13,7 @@
   text-transform: uppercase;
   transition: background-color .4s, color .4s, border .4s, fill .4s;
   white-space: nowrap;
-  color: #43956f;
+  color: $c-theme-green;
 
   &.ma__button-capitalized {
     text-transform: capitalize;
@@ -40,13 +42,13 @@
   & > svg {
     display: inline-block;
     vertical-align: middle;
-    fill: #535353;
+    fill: $c-theme-gray;
     height: 20px;
     transition: fill .4s;
   }
 
   &.ma__icon-green > svg {
-    fill: #43956f;
+    fill: $c-theme-green;
   }
 
   &.ma__icon-small > svg {
@@ -54,12 +56,12 @@
   }
 
   &:hover {
-    background-color: #43956f;
-    border-color: #43956f;
-    color: #fff;
+    background-color: $c-theme-green;
+    border-color: $c-theme-green;
+    color: $c-white;
 
     svg {
-      fill: #fff;
+      fill: $c-white;
     }
   }
 
