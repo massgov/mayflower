@@ -82,6 +82,7 @@ export ErrorPage from './components/organisms/ErrorPage';
 export LinkList from './components/organisms/LinkList';
 export PageHeader from './components/organisms/PageHeader';
 export IllustratedHeader from './components/organisms/IllustratedHeader';
+export FilterBox from './components/organisms/FilterBox';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';
