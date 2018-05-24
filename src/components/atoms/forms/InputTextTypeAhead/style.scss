@@ -26,6 +26,14 @@
       padding: 0px 18px;
     }
   }
+
+  &_boxed {
+    border: 1px solid #dcdcdc;
+    input{
+      margin: .75rem;
+      width: calc(100% - 1.5rem);
+    }
+  }
 }
 
 input[type=search]{

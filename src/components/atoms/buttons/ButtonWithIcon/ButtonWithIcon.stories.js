@@ -30,6 +30,7 @@ storiesOf('atoms/buttons', module)
         iconSize: select('ButtonWithIcon.iconSize', buttonWithIconOptions.size),
         iconColor: select('ButtonWithIcon.iconColor', buttonWithIconOptions.color),
         canExpand: boolean('ButtonWithIcon.canExpand', true),
+        expanded: boolean('ButtonWithIcon.expanded', true),
         capitalized: boolean('ButtonWithIcon.capitalized', true)
       };
 

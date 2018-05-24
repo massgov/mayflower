@@ -70,6 +70,7 @@ export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
 export ImagePromo from './components/molecules/ImagePromo';
+export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 
 // @organisms
 export Footer from './components/organisms/Footer';

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // import child components
 import CompHeading from '../../atoms/headings/CompHeading';
-import SidebarHeading from '../../atoms/headings/SidebarHeading';
 import Paragraph from '../../atoms/text/Paragraph';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 

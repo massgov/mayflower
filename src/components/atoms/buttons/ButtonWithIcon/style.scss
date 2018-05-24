@@ -21,15 +21,15 @@
     letter-spacing: 0.02em;
   }
 
-  &.ma__button-expandable {
+  &--expandable {
     & > svg {
       width: 25px;
     }
+  }
 
-    &.ma__button-expanded {
-      & > svg {
-        transform: rotate(180deg);
-      }
+  &--expanded {
+    & > svg {
+      transform: rotate(180deg);
     }
   }
 
@@ -55,11 +55,10 @@
     height: 10px;
   }
 
-  &:hover {
+  &--expanded, &:hover {
     background-color: $c-theme-green;
     border-color: $c-theme-green;
     color: $c-white;
-
     svg {
       fill: $c-white;
     }

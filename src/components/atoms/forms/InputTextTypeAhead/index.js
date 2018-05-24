@@ -61,12 +61,17 @@ class InputTextTypeAhead extends Component {
   }
   render() {
     const { suggestions } = this.state;
+    const {
+      boxed, id, label, placeholder, autoFocusInput
+    } = this.props;
+    const isBoxed = boxed && 'ma__input-typeahead_boxed';
     const value = JSON.parse(JSON.stringify(this.state.value));
     const inputProps = {
-      placeholder: this.props.placeholder,
+      placeholder,
       value,
       onChange: this.onChange,
-      type: 'search'
+      type: 'search',
+      autoFocus: autoFocusInput
     };
     const shouldRenderSuggestions = (x) => x.trim().length >= 0;
     const getSuggestionValue = (suggestion) => suggestion.text;
@@ -92,8 +97,8 @@ class InputTextTypeAhead extends Component {
     };
     return(
       <React.Fragment>
-        {this.props.label && (<label htmlFor={this.props.id} className="ma__label">{this.props.label}</label>)}
-        <div className="ma__input-typeahead">
+        {label && (<label htmlFor={id} className="ma__label">{label}</label>)}
+        <div className={`ma__input-typeahead ${isBoxed}`}>
           <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
@@ -103,7 +108,7 @@ class InputTextTypeAhead extends Component {
             onSuggestionsClearRequested={this.onSuggestionsClearRequested}
             inputProps={inputProps}
             shouldRenderSuggestions={shouldRenderSuggestions}
-            id={this.props.id}
+            id={id}
             ref={(select) => { this.selectTag = select; }}
           />
         </div>
@@ -113,6 +118,8 @@ class InputTextTypeAhead extends Component {
 }
 
 InputTextTypeAhead.propTypes = {
+  /** Style the input with a box outline */
+  boxed: PropTypes.bool,
   /** The label text above the input text box */
   label: PropTypes.string,
   /** The placeholder text to appear in the input text box */
@@ -131,7 +138,13 @@ InputTextTypeAhead.propTypes = {
   /** Custom change function */
   onChange: PropTypes.func,
   /** The default value for the select box */
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  /** Focus on typeahead input * */
+  autoFocusInput: PropTypes.bool
+};
+
+InputTextTypeAhead.defaultProps = {
+  autoFocusInput: false
 };
 
 export default InputTextTypeAhead;

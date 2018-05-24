@@ -2,18 +2,10 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
-import { action } from '@storybook/addon-actions';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
 
 import LinkList from './index';
 import LinkListDocs from './LinkList.md';
-
-// import knob options for child patterns
-import compHeadingOptions from '../../atoms/headings/CompHeading/CompHeading.knob.options';
-import sidebarHeadingOptions from '../../atoms/headings/SidebarHeading/SidebarHeading.knob.options';
-import paragraphOptions from '../../atoms/text/Paragraph/Paragraph.knob.options';
-import decorativeLinkOptions from '../../atoms/links/DecorativeLink/DecorativeLink.knob.options';
-
 
 storiesOf('organisms', module).addDecorator(withKnobs)
   .add(
