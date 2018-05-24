@@ -6,8 +6,7 @@ description: >-
 
 # Accessibility
 
-In addition to the following items below individual components, colors and page layouts may also have additional accessibility notes. For design purposes the following at minimum must be met, though there may be other applicable guidelines.  
-****
+In addition to the following items below individual components, colors and page layouts may also have additional accessibility notes. For design purposes the following at minimum must be met, though there may be other applicable guidelines.
 
 ## Accessibility Guidelines
 
@@ -30,7 +29,7 @@ In addition to the following items below individual components, colors and page 
 
 #### Iconography
 
- Note that iconography is a special type of image content.
+Note that iconography is a special type of image content.
 
 * * Current guidelines display all icons with a label underneath them
   * If this guideline is followed then the alt tag should be left empty \(but it should still exist\)
@@ -60,12 +59,9 @@ The current tables as defined in components are accessible. However these tables
 * Only use tables for tabular data \(don’t use tables for styling purposes\)
 * All labels within a table must be next to the data they are labeling \(the current examples adhere to this pattern\)
 
-
-
 ## **Accessibility Checkers**
 
-Note that the following checkers will only catch programmatic misses such as missing alt tags or improper contrast ratios. Many accessibility errors can only be caught by humans and hence online checkers should only be one part of the confirmation process.  
-
+Note that the following checkers will only catch programmatic misses such as missing alt tags or improper contrast ratios. Many accessibility errors can only be caught by humans and hence online checkers should only be one part of the confirmation process.
 
 * [Wave](http://wave.webaim.org/)
 * [Access Valet](http://valet.webthing.com/access/url.html)
