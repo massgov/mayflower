@@ -5,6 +5,8 @@
   * [Mayflower Patternlab](getting-started/mayflower-patternlab.md)
   * [Mayflower React](getting-started/mayflower-react.md)
   * [Mayflower Bootstrap](getting-started/mayflower-bootstrap.md)
+* Guidelines
+  * [Accessibility](guidelines/accessibility.md)
 * [Design Principles](design-principles.md)
 * [Style](style/README.md)
   * [Color](style/color.md)
