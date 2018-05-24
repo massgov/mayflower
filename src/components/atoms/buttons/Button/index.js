@@ -8,8 +8,8 @@ const Button = (button) => {
   const classNames = `ma__button${buttonSize}${buttonStyle}${buttonTheme}`;
   const Element = button.href ? 'a' : 'button';
   const onClickCallback = (e) => {
-    e.preventDefault();
     if (typeof button.onClick === 'function') {
+      e.preventDefault();
       button.onClick(e);
     }
   };
