@@ -70,6 +70,7 @@ export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
 export ImagePromo from './components/molecules/ImagePromo';
+export Tabs from './components/molecules/Tabs';
 export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 
 // @organisms
@@ -84,6 +85,7 @@ export LinkList from './components/organisms/LinkList';
 export PageHeader from './components/organisms/PageHeader';
 export IllustratedHeader from './components/organisms/IllustratedHeader';
 export FilterBox from './components/organisms/FilterBox';
+export SearchBanner from './components/organisms/SearchBanner';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';

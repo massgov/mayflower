@@ -1,0 +1,18 @@
+@import "breakpoints";
+
+.ma__search-banner__top {
+  background: #f2f2f2;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+  padding-top: 30px;
+  margin-bottom: 50px;
+  width: 100%;
+
+  @media ($bp-small-max) {
+    margin-bottom: 20px;
+  }
+}
+
+.ma__header-search {
+  max-width: 1000px;
+}
