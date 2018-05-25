@@ -4,6 +4,7 @@
 * [Getting Started](getting-started/README.md)
   * [Mayflower Patternlab](getting-started/mayflower-patternlab.md)
   * [Mayflower React](getting-started/mayflower-react.md)
+  * [Mayflower Starters](getting-started/mayflower-starters.md)
   * [Mayflower Bootstrap](getting-started/mayflower-bootstrap.md)
 * Guidelines
   * [Accessibility](guidelines/accessibility.md)

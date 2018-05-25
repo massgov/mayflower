@@ -2,6 +2,14 @@
 
 `mayflower-bootstrap` is a Mayflower \(Commonwealth design system\) inspired Bootstrap theme. This project is to offer a way to quickly and easily "Mayflowerize" Commonwealth digital products that are currently styled using Bootstrap 4.
 
+{% hint style="info" %}
+[**Mayflower Boostrap github repo**](https://github.com/massgov/mayflower-bootstrap)
+{% endhint %}
+
+{% hint style="info" %}
+[**Mayflower Boostrap live examples**](https://massgov.github.io/mayflower-bootstrap/)
+{% endhint %}
+
 ## Implementation
 
 1. Copy and add the `css/` and `assets/` folders into your project folder.
