@@ -23,4 +23,8 @@ socialLinks {
 backToTopButton {
   type: boolean / optional
 }
+
+privacyPolicy {
+  type: string / required
+}
 ~~~
