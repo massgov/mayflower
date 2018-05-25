@@ -6,6 +6,14 @@ This is the global footer of the Mass.gov site, and is made up of a few sections
 | --- | --- |
 
 
+{% hint style="info" %}
+[**Mayflower PatternLab Footer Pattern**](https://mayflower.digital.mass.gov/?p=organisms-footer?view=c)
+{% endhint %}
+
+{% hint style="info" %}
+[**Mayflower React Footer Component**](http://mayflower-react.digital.mass.gov/?selectedKind=organisms%2FFooter&selectedStory=Footer&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+{% endhint %}
+
 ## **Placement & Guidelines:**
 
 * Should be the last component on every pilot page.

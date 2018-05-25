@@ -2,7 +2,7 @@
   "language": "en",
   "author": "Minghua Sun",
   "title": "Mayflower Documentation",
-  "plugins": ["edit-link", "github", "header", "-livereload", "simpletabs", "github-embed"],
+  "plugins": ["edit-link", "github", "header", "-livereload", "simpletabs", "github-embed", "hints"],
   "pluginsConfig": {
     "layout": {
       "headerPath" : "header.html"
@@ -19,7 +19,7 @@
     },
     "github-embed": {
         "showLink": true,
-        "reindent": true 
+        "reindent": true
     }
   }
 }
