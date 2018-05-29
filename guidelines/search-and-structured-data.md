@@ -21,7 +21,7 @@ description: >-
 | mg\_contact\_details | Contact details related to the main phone number such as hours of operation. | string | `Hours: Mon. - Fri., 8:30 a.m. - 4:30 p.m.` |
 | mg\_location\_listing\_url | An object containing the name and url to access a list of locations for an entity. | structure object with schema:  \[{ "name": "Example",  "url": "https://example.gov" }\] | `[{ "name": "Massachusetts Supreme Judicial Court Locations", "url": "https:\/\/www.mass.gov\/orgs\/massachusetts-supreme-judicial-court\/locations" }]` |
 | mg\_online\_contact\_url | An object containing the name and email/url  for contacting the entity. | structured object with schema: \[{ "name": "email@mass.gov", "url": email@mass.gov" }\] | `[{ "name": "engineerboard@state.ma.us", "url": "engineerboard@state.ma.us" }]` |
-| mg\_key\_actions | An object indicating the key actions related to a government service page. |  |  |
+| mg\_key\_actions | An object indicating the key actions related to a government service page. | structured object with schema: \[{ "name": "key action 1", "url": "https://mass.gov/keyaction1" }\] | `[{ "name": "Compare plans at MassHealthChoices.com", "url": "https:\/\/masshealthchoices.com\/"},{"name": "Enroll in a health plan", "url": "https:\/\/www.mass.gov\/how-to\/enroll-in-a-masshealth-health-plan-individuals-and-families-younger-than-65" }]` |
 
 ### Controlled Vocabularies
 
