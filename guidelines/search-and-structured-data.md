@@ -12,15 +12,16 @@ description: >-
 ### Descriptions
 
 | **Metatag** | **Description** | **Syntax** | **Example** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | mg\_organization | One or more entities responsible for making the resource available such as a publishing house, a government agency or department, or a corporate entity. | lowercase, comma separated list, slug with no special characters or spaces  | `department-of-public-health,department-of-mental-health` |
 | category | A classification scheme that categorizes content into context specific groupings. The available options for this field are from a controlled vocabulary managed by the digital services team.  | lowercase, controlled vocabulary, one value only, slug with no special characters | `news` [\( refer to the controlled vocabulary for category \)](search-and-structured-data.md#category-vocabulary) |
 | mg\_date | A point in time  associated with the resource. | YYYYMMDD | `20180529` |
 | mg\_type | A very specific classification scheme that categorizes content into context specific types. The available options for this field are from a controlled vocabulary managed by the digital services team.   | lowercase, controlled vocabulary, one value only, slug with no special characters | `executive-order` [`(`refer to the controlled vocabulary for mg\_type \)](search-and-structured-data.md#mg_type) |
 | mg\_phone\_number | The main phone number for contacting a specific entity. | XXX-XXX-XXXX | `617-557-1000` |
 | mg\_contact\_details | Contact details related to the main phone number such as hours of operation. | string | `Hours: Mon. - Fri., 8:30 a.m. - 4:30 p.m.` |
-| mg\_location\_listing\_url | An object containing the name and url to access a list of locations for an entity. | object \[{ "name": "Example",  "url": "https://example.gov" }\] | `[{ "name": "Massachusetts Supreme Judicial Court Locations", "url": "https:\/\/www.mass.gov\/orgs\/massachusetts-supreme-judicial-court\/locations" }]` |
-| mg\_online\_contact\_url | An object containing the name and email/url  for contacting the entity. |  |  |
+| mg\_location\_listing\_url | An object containing the name and url to access a list of locations for an entity. | structure object with schema:  \[{ "name": "Example",  "url": "https://example.gov" }\] | `[{ "name": "Massachusetts Supreme Judicial Court Locations", "url": "https:\/\/www.mass.gov\/orgs\/massachusetts-supreme-judicial-court\/locations" }]` |
+| mg\_online\_contact\_url | An object containing the name and email/url  for contacting the entity. | structured object with schema: \[{ "name": "email@mass.gov", "url": email@mass.gov" }\] | `[{ "name": "engineerboard@state.ma.us", "url": "engineerboard@state.ma.us" }]` |
+| mg\_key\_actions | An object indicating the key actions related to a government service page. |  |  |
 
 ### Controlled Vocabularies
 
