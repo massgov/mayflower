@@ -8,6 +8,7 @@
   * [Mayflower Bootstrap](getting-started/mayflower-bootstrap.md)
 * Guidelines
   * [Accessibility](guidelines/accessibility.md)
+  * Search and Structured Data
 * [Design Principles](design-principles.md)
 * [Style](style/README.md)
   * [Color](style/color.md)
@@ -15,5 +16,4 @@
 * Components
   * [Header](components/header.md)
   * [Footer](components/footer.md)
-* Search and Structured Data
 
