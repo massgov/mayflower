@@ -16,6 +16,8 @@ description: >-
 
 ### Controlled Vocabularies
 
+{% page-ref page="search-and-structured-data.md" %}
+
 #### mg\_type
 
 | **category** | **vocabulary** |
