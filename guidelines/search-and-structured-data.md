@@ -41,7 +41,7 @@ description: >-
 ### Integration with Search.Mass.Gov
 
 | **metatag** | **filters** | **sort** | **search result teaser** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | mg\_organization | Controls the ability to filter content by organization on search.mass.gov.  | Not Used | Rendered for content in the category news and laws-regulations.  |
 | category | Controls if content is rendered within a specific tab in the search application. | Not Used | Not Used |
 | mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | Used when sorting by date on everything but the  "All" tab in the search application. | Rendered for content categorized as "laws-regulations"  and "news". |
@@ -50,4 +50,5 @@ description: >-
 | mg\_contact\_details | Not Used | Not Used | Rendered in teaser for content categorized as "state-organizations" |
 | mg\_location\_listing\_url | Not Used | Not Used | Rendered in teaser for content categorized as "state-organizations" |
 | mg\_online\_contact\_url | Not Used | Not Used | Rendered in teaser for content categorized as "state-organizations" |
+| mg\_key\_actions | Not Used | Not Used | Rendered in teaser for content categorized as "state-organizations" or "services" |
 
