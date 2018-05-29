@@ -8,8 +8,6 @@
 [**Mayflower Starters live examples**](https://massgov.github.io/mayflower-starters/)
 {% endhint %}
 
-## 
-
 ## Explanation of Github Pages for hosting apps
 
 With the GitHub pages everytime an individual pushes to master branch the code will be updated on the live site. This could take about \(~10 minutes\) depending on how many dependencies the application is using within the code.
