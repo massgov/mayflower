@@ -60,6 +60,8 @@ description: >-
 | --- | --- |
 | mg\_organization | Controls the ability to filter content by organization on search.mass.gov. |  |
 
+![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png)
+
 #### Sort
 
 #### Search Result Teasers
