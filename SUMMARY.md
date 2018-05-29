@@ -15,4 +15,5 @@
 * Components
   * [Header](components/header.md)
   * [Footer](components/footer.md)
+* Search and Structured Data
 
