@@ -25,13 +25,8 @@ class Header extends Component {
   render() {
     const header = this.props;
     const utilNavOpen = { isOpen: this.state.utilNavOpen };
-    const HeaderUtilityNavProps = Object.assign({}, header.utilityNav, { isOpen: this.state.utilNavOpen });
+    const HeaderUtilityNavProps = Object.assign({}, header.utilityNav, utilNavOpen);
     const HeaderUtilityNav = <UtilityNav {...HeaderUtilityNavProps} />;
-    const NavSearchHeader = (!header.hideHeaderSearch) ? () => {
-      const newHeaderProps = Object.assign({}, HeaderSearch.defaultProps);
-      newHeaderProps.id = 'nav-search';
-      return<HeaderSearch {...newHeaderProps} />;
-    } : null;
 
     return(
       <header className="ma__header" id="header">
@@ -69,7 +64,9 @@ class Header extends Component {
           <div className="ma__header__nav-container">
             {!header.hideHeaderSearch &&
             <div className="ma__header__nav-search">
-              {NavSearchHeader()}
+              {!header.hideHeaderSearch &&
+                <HeaderSearch id="nav-search" />
+              }
             </div>
             }
             <div className="ma__header__main-nav">
