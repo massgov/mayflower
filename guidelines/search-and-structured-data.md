@@ -67,21 +67,26 @@ description: >-
 
 #### Sort
 
-| metatag | sort use | example |
+| **metatag** | **sort use** | **example** |
 | --- | --- |
 | mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/screen-shot-2018-05-30-at-10.10.32-am.png) |
 
 #### Search Result Teasers
 
-| **metatag** | **sort** | **search result teaser** |
+| **metatag** | **search result teaser use** | **example** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | Not Used | Rendered for content in the category news and laws-regulations. |
-| category | Not Used | Not Used |
-| mg\_date | Used when sorting by date on everything but the  "All" tab in the search application. | Rendered for content categorized as "laws-regulations"  and "news". |
-| mg\_type | Not Used | Rendered for content categorized as "laws-regulations"  and "news". |
-| mg\_phone\_number | Not Used | Rendered in teaser for content categorized as "state-organizations" |
-| mg\_contact\_details | Not Used | Rendered in teaser for content categorized as "state-organizations" |
-| mg\_location\_listing\_url | Not Used | Rendered in teaser for content categorized as "state-organizations" |
-| mg\_online\_contact\_url | Not Used | Rendered in teaser for content categorized as "state-organizations" |
-| mg\_key\_actions | Not Used | Rendered in teaser for content categorized as "state-organizations" or "services" |
+| mg\_organization | Rendered for content in the category news and laws-regulations. |  |
+| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". |  |
+| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". |  |
+| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" |  |
+| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" |  |
+| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" |  |
+| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" |  |
+| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" |  |
+
+![](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am.png)
+
+![](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am.png)
+
+
 
