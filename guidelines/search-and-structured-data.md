@@ -27,15 +27,15 @@ description: >-
 
 | **Metatag** | **Syntax** | **Example** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces  | `department-of-public-health,department-of-mental-health` |
+| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces | `department-of-public-health,department-of-mental-health` |
 | category | lowercase, controlled vocabulary, one value only, slug with no special characters | `news` |
 | mg\_date | YYYYMMDD | `20180528` |
 | mg\_type | lowercase, controlled vocabulary, one value only, slug with no special characters | `executive-order` |
 | mg\_phone\_number | XXX-XXX-XXXX | `617-557-1000` |
 | mg\_contact\_details | string | `Hours: Mon. - Fri., 8:30 a.m. - 4:30 p.m.` |
-| mg\_location\_listing\_url | structure object with schema:  \[{ "name": "Example",  "url": "https://example.gov" }\] | `[{ "name": "Massachusetts Supreme Judicial Court Locations", "url": "https:\/\/www.mass.gov\/orgs\/massachusetts-supreme-judicial-court\/locations" }]` |
+| mg\_location\_listing\_url | structure object with schema:  \[{ "name": "Example",  "url": "[https://example.gov](https://example.gov)" }\] | `[{ "name": "Massachusetts Supreme Judicial Court Locations", "url": "https:\/\/www.mass.gov\/orgs\/massachusetts-supreme-judicial-court\/locations" }]` |
 | mg\_online\_contact\_url | structured object with schema: \[{ "name": "email@mass.gov", "url": email@mass.gov" }\] | `[{ "name": "engineerboard@state.ma.us", "url": "engineerboard@state.ma.us" }]` |
-| mg\_key\_actions | structured object with schema: \[{ "name": "key action 1", "url": "https://mass.gov/keyaction1" }\] | `[{ "name": "Compare plans at MassHealthChoices.com", "url": "https:\/\/masshealthchoices.com\/"},{"name": "Enroll in a health plan", "url": "https:\/\/www.mass.gov\/how-to\/enroll-in-a-masshealth-health-plan-individuals-and-families-younger-than-65" }]` |
+| mg\_key\_actions | structured object with schema: \[{ "name": "key action 1", "url": "[https://mass.gov/keyaction1](https://mass.gov/keyaction1)" }\] | `[{ "name": "Compare plans at MassHealthChoices.com", "url": "https:\/\/masshealthchoices.com\/"},{"name": "Enroll in a health plan", "url": "https:\/\/www.mass.gov\/how-to\/enroll-in-a-masshealth-health-plan-individuals-and-families-younger-than-65" }]` |
 
 ### Controlled Vocabularies
 
@@ -59,6 +59,13 @@ description: >-
 | metatag | filter use | example |
 | --- | --- |
 | mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
+| category | Controls if content is rendered within a specific tab in the search application. |  |
+| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. |  |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. |  |
+
+![](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm.png)
+
+![](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm.png)
 
 #### Sort
 
@@ -66,7 +73,7 @@ description: >-
 
 | **metatag** | **filters** | **sort** | **search result teaser** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | Controls the ability to filter content by organization on search.mass.gov.  | Not Used | Rendered for content in the category news and laws-regulations.  |
+| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | Not Used | Rendered for content in the category news and laws-regulations. |
 | category | Controls if content is rendered within a specific tab in the search application. | Not Used | Not Used |
 | mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | Used when sorting by date on everything but the  "All" tab in the search application. | Rendered for content categorized as "laws-regulations"  and "news". |
 | mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | Not Used | Rendered for content categorized as "laws-regulations"  and "news". |
