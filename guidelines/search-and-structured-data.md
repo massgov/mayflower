@@ -60,10 +60,8 @@ description: >-
 | --- | --- |
 | mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm.png) |
 | category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm.png) |
-| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm.png) |
-| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm.png) |
-
-![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png)
+| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm.png) |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm.png) |
 
 #### Sort
 
@@ -75,18 +73,18 @@ description: >-
 
 | **metatag** | **search result teaser use** | **example** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | Rendered for content in the category news and laws-regulations. |  |
-| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". |  |
-| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". |  |
-| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" |  |
-| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" |  |
-| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" |  |
-| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" |  |
-| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" |  |
+| mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
+| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
+| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
+| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am.png) |
+| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am.png) |
+| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am.png) |
+| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am.png) |
+| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am.png) |
 
-![](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am.png)
 
-![](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am.png)
+
+
 
 
 
