@@ -69,9 +69,7 @@ description: >-
 
 | metatag | sort use | example |
 | --- | --- |
-| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. |  |
-
-![](../.gitbook/assets/screen-shot-2018-05-30-at-10.10.32-am.png)
+| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/screen-shot-2018-05-30-at-10.10.32-am.png) |
 
 #### Search Result Teasers
 
