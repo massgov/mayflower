@@ -10,11 +10,8 @@ import FilterBox from './index';
 
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
-import headingOptions from '../../atoms/headings/Headings.knobs.options';
-import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeading.knobs.options';
 import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
-import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.options';
 
 storiesOf('organisms', module).addDecorator(withKnobs)
   .add(
@@ -28,7 +25,6 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       };
       const hideTopic = boolean('filterBox.hideTopic', true);
       const hideOrganization = boolean('filterBox.hideOrganization', true);
-      const orgSelectorInput = select('filterBox.orgSelector.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const pressTypeInput = select('filterBox.pressType.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
         active: boolean('filterBox.active', true),
