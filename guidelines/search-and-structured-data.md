@@ -58,14 +58,13 @@ description: >-
 
 | metatag | filter use | example |
 | --- | --- |
-| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
-| category | Controls if content is rendered within a specific tab in the search application. |  |
-| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. |  |
-| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. |  |
+| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm.png) |
+| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm.png) |
+| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm.png) |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm.png) |
 
-![](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm.png)
 
-![](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm.png)
+![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png)
 
 #### Sort
 
