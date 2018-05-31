@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
 
 import LinkList from './index';
 import LinkListDocs from './LinkList.md';
@@ -27,7 +27,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         },
         stacked: boolean('linkList.stacked', false),
         hideBullets: boolean('linkList.hideBullets', false),
-        links: [{
+        links: object('linkList.links', [{
           href: '#',
           text: 'Lorem ipsum dolor sit amet.',
           info: ''
@@ -47,7 +47,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           href: '#',
           text: 'Lorem ipsum dolor sit amet.',
           info: ''
-        }],
+        }]),
         more: {
           href: text('linkList.more.href', '#'),
           text: text('linkList.more.text', 'See all 10 related services '),
