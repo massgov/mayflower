@@ -18,6 +18,7 @@ class InputTextTypeAhead extends Component {
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.selected });
@@ -59,6 +60,12 @@ class InputTextTypeAhead extends Component {
     }
     return options.filter((item) => regex.test(item.text));
   }
+  handleBlur(e) {
+    // invokes custom function if passed in the component
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur(e);
+    }
+  }
   render() {
     const { suggestions } = this.state;
     const {
@@ -69,9 +76,10 @@ class InputTextTypeAhead extends Component {
     const inputProps = {
       placeholder,
       value,
-      onChange: this.onChange,
+      onChange: (e, newValue) => this.onChange(e, newValue),
       type: 'search',
-      autoFocus: autoFocusInput
+      autoFocus: autoFocusInput,
+      onBlur: (e) => this.handleBlur(e)
     };
     const shouldRenderSuggestions = (x) => x.trim().length >= 0;
     const getSuggestionValue = (suggestion) => suggestion.text;
@@ -139,8 +147,10 @@ InputTextTypeAhead.propTypes = {
   onChange: PropTypes.func,
   /** The default value for the select box */
   selected: PropTypes.string,
-  /** Focus on typeahead input * */
-  autoFocusInput: PropTypes.bool
+  /** Focus on typeahead input */
+  autoFocusInput: PropTypes.bool,
+  /** Custom onBlur callback function */
+  onBlur: PropTypes.func
 };
 
 InputTextTypeAhead.defaultProps = {

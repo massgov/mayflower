@@ -7,13 +7,19 @@ class ButtonWithIcon extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleMouseDown = this.handleMouseDown.bind(this);
   }
   handleClick(e) {
+    e.preventDefault();
     if (typeof this.props.onClick === 'function') {
       this.props.onClick(e);
     }
   }
-
+  handleMouseDown(e) {
+    if (typeof this.props.onMouseDown === 'function') {
+      this.props.onMouseDown(e);
+    }
+  }
   render() {
     let classNames = this.props.classes.join(' ');
     if (this.props.canExpand) {
@@ -29,12 +35,15 @@ class ButtonWithIcon extends React.Component {
     if (this.props.iconColor === 'green') {
       classNames += ' ma__icon-green';
     }
+    const buttonProps = {
+      type: 'submit',
+      className: `ma__button-icon ${classNames}`,
+      onClick: (e) => this.handleClick(e),
+      onMouseDown: (e) => this.handleMouseDown(e),
+      tabIndex: 0
+    };
     return(
-      <button
-        type="submit"
-        className={`ma__button-icon ${classNames}`}
-        onClick={this.handleClick}
-      >
+      <button {...buttonProps}>
         <span>{this.props.text}</span>
         {this.props.icon}
       </button>
@@ -44,6 +53,7 @@ class ButtonWithIcon extends React.Component {
 
 ButtonWithIcon.propTypes = {
   onClick: PropTypes.func,
+  onMouseDown: PropTypes.func,
   text: PropTypes.string,
   classes: PropTypes.arrayOf(PropTypes.string),
   icon: PropTypes.element,
@@ -56,6 +66,7 @@ ButtonWithIcon.propTypes = {
 
 ButtonWithIcon.defaultProps = {
   onClick: () => {},
+  onMouseDown: () => {},
   text: 'Search',
   classes: [],
   icon: <SvgSearch />,
