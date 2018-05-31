@@ -84,7 +84,45 @@ description: >-
 
 ## Adding Structured Metatags to your Website
 
+There are two options for including structured markup in your website for consumption in the search application \(1\) adding page level metatags into the header of each page and \(2\)  adding structured xml markup to your sitemap.
+
 ### Page Level Metatags
 
+```text
+
+```
+
 ### Sitemap Level Metatags
+
+```text
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https:///mass.gov/page/example-one</loc>
+      <lastmod>2018-06-16T01:38Z</lastmod>
+      <changefreq>weekly</changefreq>
+      <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+         <DataObject type="metatags">
+            <Attribute name="mg_organization">department-of-environmental-protection,department-of-conservation-and-recreation</Attribute>
+            <Attribute name="mg_date">20180530</Attribute>
+            <Attribute name="category">laws-regulations</Attribute>
+            <Attribute name="mg_type">regulation</Attribute>
+         </DataObject>
+      </PageMap>
+   </url>
+   <url> 
+      <loc>https://mass.gov/page/example-two</loc> 
+      <lastmod>2018-06-16T01:38Z</lastmod> 
+      <changefreq>daily</changefreq> 
+      <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0"> 
+         <DataObject type="metatags"> 
+            <Attribute name="mg_organization">department-of-public-health,department-of-mental-health</Attribute>
+            <Attribute name="mg_date">20180430</Attribute>
+            <Attribute name="category">news</Attribute>
+            <Attribute name="mg_type">press-release</Attribute>
+         </DataObject> 
+      </PageMap>
+   </url> 
+</urlset>
+```
 
