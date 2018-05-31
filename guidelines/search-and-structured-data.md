@@ -94,6 +94,8 @@ There are two options for including structured markup in your website for consum
 
 ### Sitemap Level Metatags
 
+If you don't want to include PageMap data in the HTML of your pages, you can add PageMap data to a Sitemap. In order for these to be discover by search.mass.gov,  submit that Sitemap via the Google Search Console Sitemaps tool.
+
 ```text
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -111,7 +113,7 @@ There are two options for including structured markup in your website for consum
       </PageMap>
    </url>
    <url> 
-      <loc>https://mass.gov/page/example-two</loc> 
+      <loc>https://mass.gov/page/example-two.pdf</loc> 
       <lastmod>2018-06-16T01:38Z</lastmod> 
       <changefreq>daily</changefreq> 
       <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0"> 
