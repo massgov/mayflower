@@ -88,8 +88,32 @@ There are two options for including structured markup in your website for consum
 
 ### Page Level Metatags
 
-```text
+You can include metadata in the HTML of your pages, specifically in the `<head>` of your pages. Below, you can view an example html page that includes metatags in the head of the content.
 
+```text
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:dc="http://purl.org/dc/terms/" xmlns:og="http://ogp.me/ns#" xmlns:article="http://ogp.me/ns/article#" xmlns:book="http://ogp.me/ns/book#" xmlns:product="http://ogp.me/ns/product#" xmlns:profile="http://ogp.me/ns/profile#" xmlns:video="http://ogp.me/ns/video#" >
+  <head>
+    <link rel="canonical" href="https://mass.gov/example-one"/>
+    <meta name="title" content="Example Page" />
+    <meta property="og:site_name" content="Mass.Gov" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://mayflower.digital.mass.gov/css/base-theme-generated.css">
+    <link rel="stylesheet" href="https://mayflower.digital.mass.gov/css/index-generated.css">
+    <title>Example One Page</title>
+    <meta property="og:title" content="Example One Page">
+    <meta name="mg_online_contact_url" content="[{"name":"example@sao.state.ma.us","url":"example@sao.state.ma.us"},{"name":"Subscribe to our Enewsletter","url":"http:\/\/example.com\/bL-SjD"},{"name":"Request that Elected Official Speak to Your Group or Event","url":"https:\/\/www.mass.gov\/how-to\/request-that-official-speak-to-your-group-or-event"}]">
+    <meta name="mg_phone_number" content="617-123-4567">
+    <meta name="mg_contact_details" content="Open M-F 8am-5pm">
+    <meta name="mg_location_listing_url" content="[{"name":"Example Locations","url":"https:\/\/www.mass.gov\/orgs\/example\/locations"}]">
+  </head>
+  <body>
+    <h1>Example Metatag in Header of Page</h1>
+    <p>Refer to the head tag in the html for example contents.</p>
+  </body>
+</html>
 ```
 
 ### Sitemap Level Metatags
