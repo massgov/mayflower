@@ -60,6 +60,8 @@ Controlled vocabularies provide a way to organize knowledge for subsequent retri
 
 ### Integration with Search.Mass.Gov
 
+Below is a summary of how each metatag is used in [search.mass.gov](https://search.mass.gov) including its role in [advanced search filters](search-and-structured-data.md#advanced-search-filters), [sorting](search-and-structured-data.md#sort), and [rendering of search results](search-and-structured-data.md#search-result-teasers). To see these metatags in action, browse search.mass.gov - testing out its functionality.
+
 #### Advanced Search Filters
 
 | **Metatag** | **Filter Functionality** | **Example** |
