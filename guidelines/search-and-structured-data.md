@@ -9,6 +9,8 @@ description: >-
 
 ## Metatag Dictionary
 
+Below is a dictionary describing the metatag standards implemented in mass.gov web page content and consumed in the Commonwealth's search application, [search.mass.gov](https://search.mass.gov). 
+
 ### Descriptions
 
 | **Metatag** | **Description** |
