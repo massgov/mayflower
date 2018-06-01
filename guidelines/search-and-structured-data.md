@@ -9,8 +9,7 @@ description: >-
 
 ## Metatag Dictionary
 
-
-Below is a dictionary describing the metatag standards implemented in mass.gov web page content and consumed in the Commonwealth's search application, [search.mass.gov](https://search.mass.gov). 
+Below is a dictionary describing the metatag standards implemented in mass.gov web page content and consumed in the Commonwealth's search application, [search.mass.gov](https://search.mass.gov).
 
 ### Descriptions
 
@@ -60,7 +59,6 @@ Controlled vocabularies provide a way to organize knowledge for subsequent retri
 | laws-regulations | general-law, session-law, executive-order, regulation, advisory, policy-advisory, policy-statement, administrative-bulletin, technical-information-release, directive, letter-ruling, memorandum, industry-letter, circular-letter, regulatory-bulletin, administrative-procedure, advisory-ruling, decision, ruling, opinion, settlement, consent-order, cease-directive, cease-order, consent-agreement, temporary-order-to-cease-and-desist, order, temporary-order, rules-of-civil-procedure, rules-of-criminal-procedure, rules-of-appellate-procedure, districtmunicipal-courts-supplemental-rules-of-civil-procedure, rules-of-domestic-relations-procedure, districtmunicipal-courts-supplemental-rules-of-criminal-procedure, trial-court-rules, superior-court-rules, supreme-judicial-court-rules, appeals-court-rules, districtmunicipal-court-rules, probate-and-family-court-rules, housing-court-rules, juvenile-court-rules, land-court-rules, guide-to-evidence, electronic-filing-rules, professional-conduct-rules, districtmunicipal-courts-rules-for-probation-violation-proceedings, special-rules-of-the-district-court, probate-and-family-court-uniform-practices, supplemental-rules-of-the-probate-and-family-court, rules-governing-persons-authorized-to-admit-to-bail-out-of-court, districtmunicipal-courts-rules-of-criminal-procedure, office-of-jury-commissioner-regulations, districtmunicipal-courts-rules-for-appellate-division-appeals, law-library |
 
 ### Integration with Search.Mass.Gov
-
 
 Below is a summary of how each metatag is used in [search.mass.gov](https://search.mass.gov) including its role in [advanced search filters](search-and-structured-data.md#advanced-search-filters), [sorting](search-and-structured-data.md#sort), and [rendering of search results](search-and-structured-data.md#search-result-teasers). To see these metatags in action, browse search.mass.gov - testing out its functionality.
 
@@ -128,7 +126,7 @@ You can include metadata in the HTML of your pages, specifically in the `<head>`
 
 ### Sitemap Level Metatags
 
-If you don't want to include PageMap data in the HTML of your pages, you can add PageMap data to a Sitemap. In order for these to be discoverable by search.mass.gov,  submit your sitemap via the Google Search Console Sitemaps tool. One benefit of leveraging the sitemap option, is that you can include metatags for not html content such as pdfs or documents. Below, you can view an example sitemap including pagemap metatags.
+If you don't want to include PageMap data in the HTML of your pages, you can add PageMap data to a Sitemap. In order for these to be discoverable by search.mass.gov, submit your sitemap via the Google Search Console Sitemaps tool. One benefit of leveraging the sitemap option, is that you can include metatags for not html content such as pdfs or documents. Below, you can view an example sitemap including pagemap metatags.
 
 ```text
 <?xml version="1.0" encoding="UTF-8"?>
@@ -161,3 +159,6 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
    </url> 
 </urlset>
 ```
+
+## Including you Website in Search.Mass.Gov
+
