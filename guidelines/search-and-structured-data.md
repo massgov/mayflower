@@ -9,6 +9,9 @@ description: >-
 
 ## Metatag Dictionary
 
+
+Below is a dictionary describing the metatag standards implemented in mass.gov web page content and consumed in the Commonwealth's search application, [search.mass.gov](https://search.mass.gov). 
+
 ### Descriptions
 
 | **Metatag** | **Description** |
@@ -25,9 +28,11 @@ description: >-
 
 ### Syntax and Examples
 
+In order for the above metatags to be consumed and leveraged consistently in the search application, each metatag has a required syntax. Follow the syntax guidelines precisely for your content to show up as desired in search.mass.gov.
+
 | **Metatag** | **Syntax** | **Example** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces | `department-of-public-health,department-of-mental-health` |
+| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces, one or more values | `department-of-public-health,department-of-mental-health` |
 | category | lowercase, controlled vocabulary, one value only, slug with no special characters | `news` |
 | mg\_date | YYYYMMDD | `20180528` |
 | mg\_type | lowercase, controlled vocabulary, one value only, slug with no special characters | `executive-order` |
@@ -38,6 +43,8 @@ description: >-
 | mg\_key\_actions | structured object with schema: \[{ "name": "key action 1", "url": "[https://mass.gov/keyaction1](https://mass.gov/keyaction1)" }\] | `[{ "name": "Compare plans at MassHealthChoices.com", "url": "https:\/\/masshealthchoices.com\/"},{"name": "Enroll in a health plan", "url": "https:\/\/www.mass.gov\/how-to\/enroll-in-a-masshealth-health-plan-individuals-and-families-younger-than-65" }]` |
 
 ### Controlled Vocabularies
+
+Controlled vocabularies provide a way to organize knowledge for subsequent retrieval. Controlled vocabulary schemes mandate the use of predefined, authorised terms that have been preselected by the designers of the schemes. The vocabularies below are maintained by the digital services team. If you would like to include an additional term in a vocabulary for use in the search application, please contact the digital services team.
 
 #### category vocabulary
 
@@ -53,6 +60,9 @@ description: >-
 | laws-regulations | general-law, session-law, executive-order, regulation, advisory, policy-advisory, policy-statement, administrative-bulletin, technical-information-release, directive, letter-ruling, memorandum, industry-letter, circular-letter, regulatory-bulletin, administrative-procedure, advisory-ruling, decision, ruling, opinion, settlement, consent-order, cease-directive, cease-order, consent-agreement, temporary-order-to-cease-and-desist, order, temporary-order, rules-of-civil-procedure, rules-of-criminal-procedure, rules-of-appellate-procedure, districtmunicipal-courts-supplemental-rules-of-civil-procedure, rules-of-domestic-relations-procedure, districtmunicipal-courts-supplemental-rules-of-criminal-procedure, trial-court-rules, superior-court-rules, supreme-judicial-court-rules, appeals-court-rules, districtmunicipal-court-rules, probate-and-family-court-rules, housing-court-rules, juvenile-court-rules, land-court-rules, guide-to-evidence, electronic-filing-rules, professional-conduct-rules, districtmunicipal-courts-rules-for-probation-violation-proceedings, special-rules-of-the-district-court, probate-and-family-court-uniform-practices, supplemental-rules-of-the-probate-and-family-court, rules-governing-persons-authorized-to-admit-to-bail-out-of-court, districtmunicipal-courts-rules-of-criminal-procedure, office-of-jury-commissioner-regulations, districtmunicipal-courts-rules-for-appellate-division-appeals, law-library |
 
 ### Integration with Search.Mass.Gov
+
+
+Below is a summary of how each metatag is used in [search.mass.gov](https://search.mass.gov) including its role in [advanced search filters](search-and-structured-data.md#advanced-search-filters), [sorting](search-and-structured-data.md#sort), and [rendering of search results](search-and-structured-data.md#search-result-teasers). To see these metatags in action, browse search.mass.gov - testing out its functionality.
 
 #### Advanced Search Filters
 
@@ -84,15 +94,41 @@ description: >-
 
 ## Adding Structured Metatags to your Website
 
-There are two options for including structured markup in your website for consumption in the search application \(1\) adding page level metatags into the header of each page and \(2\)  adding structured xml markup to your sitemap.
+There are two options for including structured markup in your website for consumption in the [search.mass.gov](https://search.mass.gov) application \(1\) adding page level metatags into the header of each page and \(2\) adding structured xml markup to your sitemap.
 
 ### Page Level Metatags
 
-```text
+You can include metadata in the HTML of your pages, specifically in the `<head>` of your pages. Below, you can view an example html page that includes metatags in the head of the content.
 
+```text
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:dc="http://purl.org/dc/terms/" xmlns:og="http://ogp.me/ns#" xmlns:article="http://ogp.me/ns/article#" xmlns:book="http://ogp.me/ns/book#" xmlns:product="http://ogp.me/ns/product#" xmlns:profile="http://ogp.me/ns/profile#" xmlns:video="http://ogp.me/ns/video#" >
+  <head>
+    <link rel="canonical" href="https://mass.gov/example-one"/>
+    <meta name="title" content="Example Page" />
+    <meta property="og:site_name" content="Mass.Gov" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://mayflower.digital.mass.gov/css/base-theme-generated.css">
+    <link rel="stylesheet" href="https://mayflower.digital.mass.gov/css/index-generated.css">
+    <title>Example One Page</title>
+    <meta property="og:title" content="Example One Page">
+    <meta name="mg_online_contact_url" content="[{"name":"example@sao.state.ma.us","url":"example@sao.state.ma.us"},{"name":"Subscribe to our Enewsletter","url":"http:\/\/example.com\/bL-SjD"},{"name":"Request that Elected Official Speak to Your Group or Event","url":"https:\/\/www.mass.gov\/how-to\/request-that-official-speak-to-your-group-or-event"}]">
+    <meta name="mg_phone_number" content="617-123-4567">
+    <meta name="mg_contact_details" content="Open M-F 8am-5pm">
+    <meta name="mg_location_listing_url" content="[{"name":"Example Locations","url":"https:\/\/www.mass.gov\/orgs\/example\/locations"}]">
+  </head>
+  <body>
+    <h1>Example Metatag in Header of Page</h1>
+    <p>Refer to the head tag in the html for example contents.</p>
+  </body>
+</html>
 ```
 
 ### Sitemap Level Metatags
+
+If you don't want to include PageMap data in the HTML of your pages, you can add PageMap data to a Sitemap. In order for these to be discoverable by search.mass.gov,  submit your sitemap via the Google Search Console Sitemaps tool. One benefit of leveraging the sitemap option, is that you can include metatags for not html content such as pdfs or documents. Below, you can view an example sitemap including pagemap metatags.
 
 ```text
 <?xml version="1.0" encoding="UTF-8"?>
@@ -110,8 +146,8 @@ There are two options for including structured markup in your website for consum
          </DataObject>
       </PageMap>
    </url>
-   <url> 
-      <loc>https://mass.gov/page/example-two</loc> 
+   <url>
+      <loc>https://mass.gov/page/example-two.pdf</loc> 
       <lastmod>2018-06-16T01:38Z</lastmod> 
       <changefreq>daily</changefreq> 
       <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0"> 
@@ -125,4 +161,3 @@ There are two options for including structured markup in your website for consum
    </url> 
 </urlset>
 ```
-
