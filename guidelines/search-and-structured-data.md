@@ -43,6 +43,8 @@ In order for the above metatags to be consumed and leveraged consistently in the
 
 ### Controlled Vocabularies
 
+Controlled vocabularies provide a way to organize knowledge for subsequent retrieval. Controlled vocabulary schemes mandate the use of predefined, authorised terms that have been preselected by the designers of the schemes. The vocabularies below are maintained by the digital services team. If you would like to include an additional term in a vocabulary for use in the search application, please contact the digital services team.
+
 #### category vocabulary
 
 | **Vocabulary** |
