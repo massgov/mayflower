@@ -27,9 +27,11 @@ Below is a dictionary describing the metatag standards implemented in mass.gov w
 
 ### Syntax and Examples
 
+In order for the above metatags to be consumed and leveraged consistently in the search application, each metatag has a required syntax. Follow the syntax guidelines precisely for your content to show up as desired in search.mass.gov.
+
 | **Metatag** | **Syntax** | **Example** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces | `department-of-public-health,department-of-mental-health` |
+| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces, one or more values | `department-of-public-health,department-of-mental-health` |
 | category | lowercase, controlled vocabulary, one value only, slug with no special characters | `news` |
 | mg\_date | YYYYMMDD | `20180528` |
 | mg\_type | lowercase, controlled vocabulary, one value only, slug with no special characters | `executive-order` |
