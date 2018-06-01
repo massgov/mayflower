@@ -84,7 +84,7 @@ description: >-
 
 ## Adding Structured Metatags to your Website
 
-There are two options for including structured markup in your website for consumption in the search application \(1\) adding page level metatags into the header of each page and \(2\)  adding structured xml markup to your sitemap.
+There are two options for including structured markup in your website for consumption in the [search.mass.gov](https://search.mass.gov) application \(1\) adding page level metatags into the header of each page and \(2\) adding structured xml markup to your sitemap.
 
 ### Page Level Metatags
 
@@ -94,7 +94,7 @@ There are two options for including structured markup in your website for consum
 
 ### Sitemap Level Metatags
 
-If you don't want to include PageMap data in the HTML of your pages, you can add PageMap data to a Sitemap. In order for these to be discover by search.mass.gov,  submit that Sitemap via the Google Search Console Sitemaps tool.
+If you don't want to include PageMap data in the HTML of your pages, you can add PageMap data to a Sitemap. In order for these to be discoverable by search.mass.gov,  submit your sitemap via the Google Search Console Sitemaps tool. One benefit of leveraging the sitemap option, is that you can include metatags for not html content such as pdfs or documents. Below, you can view an example sitemap including pagemap metatags.
 
 ```text
 <?xml version="1.0" encoding="UTF-8"?>
