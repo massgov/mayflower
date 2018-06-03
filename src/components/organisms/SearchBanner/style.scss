@@ -11,6 +11,11 @@
   @media ($bp-small-max) {
     margin-bottom: 20px;
   }
+
+  &--noTabs {
+    padding-bottom: 30px;
+    text-align: center;
+  }
 }
 
 .ma__header-search {

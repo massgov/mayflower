@@ -21,7 +21,7 @@ class SearchBanner extends Component {
   render() {
     const { tabs, searchBox } = this.props;
     return(
-      <div className="ma__search-banner__top">
+      <div className={`ma__search-banner__top ${!tabs && 'ma__search-banner__top--noTabs'}`}>
         <div className="main-content--two">
           <h2 className="visually-hidden">Search Form</h2>
           <HeaderSearch {...searchBox} />
