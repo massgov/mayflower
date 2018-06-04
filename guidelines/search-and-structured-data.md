@@ -166,24 +166,17 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
 
 ### Adding your Organization Display Details to Search
 
-When a user filters content by organization in search.mass.gov, that organization's name, description, and logo \(if available\) is displayed in a right-rail beside the search results \([refer to examples below](search-and-structured-data.md#example-of-organization-display-details-in-search-mass-gov)\). By default, the information populating this is pulled from a mass.gov endpoint and follows the [schema standard specified below](search-and-structured-data.md#organization-teaser-json-schema-standard). If your organization is not using the Mass.Gov Drupal CMS but you would like your organization's branding included in search.mass.gov, you need to provide the search team with a JSON object following these [schema standards](search-and-structured-data.md#organization-teaser-json-schema-standard). Please note, if you decide to include a logo, the image must be located at a publicly accessible url, should have a white or transparent background, and for the best performance should be reduced to a width of 100 pixels. This area is only for organization-specific logos \(not the state seal\).
+When a user filters content by organization in search.mass.gov, that organization's name, description, and logo \(if available\) is displayed in a right-rail beside the search results \([refer to examples below](search-and-structured-data.md#example-of-organization-display-details-in-search-mass-gov)\). By default, the information populating this is pulled from a mass.gov endpoint and follows the [schema standard specified below](search-and-structured-data.md#organization-teaser-json-schema-standard). If your organization is not using the Mass.Gov Drupal CMS but you would like your organization's branding included in search.mass.gov, you need to provide the search team with a JSON object following these [schema standards](search-and-structured-data.md#organization-teaser-json-schema-standard). Please note, if you decide to include a logo, the image must be located at a publicly accessible url, should have a white or transparent background, and for the best performance should be reduced to a width of 100 pixels.
+ This area is only for organization-specific logos \(not the state seal\).
 
 #### Examples of the Organization Display Details in Search.Mass.Gov
 
 | Organization | Example Display |
 | --- | --- | --- | --- | --- |
-| Department of Public Health |  |
-| Division of Fisheries and Wildlife |  |
-| Registry of Motor Vehicles |  |
-| Office of the Attorney General |  |
-
-![](../.gitbook/assets/ago-organization-display.png)
-
-![](../.gitbook/assets/rmv-organization-display%20%281%29.png)
-
-![](../.gitbook/assets/dfw-organization-display.png)
-
-![](../.gitbook/assets/dph-organization-display.png)
+| Department of Public Health | ![Department of Public Health Details Display](../.gitbook/assets/dph-organization-display.png) |
+| Division of Fisheries and Wildlife | ![Division of Fisheries and Wildlife Details Display](../.gitbook/assets/dfw-organization-display.png) |
+| Registry of Motor Vehicles | ![Registry of Motor Vehicles Details Display](../.gitbook/assets/rmv-organization-display%20%281%29.png) |
+| Office of the Attorney General | ![Office of the Attorney General Details Display](../.gitbook/assets/ago-organization-display.png) |
 
 #### Organization Display Details JSON Schema Standard
 
