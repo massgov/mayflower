@@ -175,7 +175,7 @@ When a user filters content by organization in search.mass.gov, that organizatio
 | --- | --- | --- | --- | --- |
 | Department of Public Health | <img src="../.gitbook/assets/dph-organization-display.png" width="220" height="220"> |
 | Division of Fisheries and Wildlife | <img src="../.gitbook/assets/dfw-organization-display.png" width="220" height="220"> |
-| Registry of Motor Vehicles | <img src="../.gitbook/assets/rmv-organization-display%20%281%29.png" width="220" height="220"> |
+| Registry of Motor Vehicles | <img src="../.gitbook/assets/rmv-organization-display.png" width="220" height="220"> |
 | Office of the Attorney General | <img src="../.gitbook/assets/ago-organization-display.png" width="220" height="220"> |
 
 #### Organization Display Details JSON Schema Standard
