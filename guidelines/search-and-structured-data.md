@@ -168,6 +168,10 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
 
 When a user filters content by organization in search.mass.gov, that organization's name, description, and logo \(if available\) is displayed in a right-rail beside the search results \([refer to examples below](search-and-structured-data.md#example-of-organization-display-details-in-search-mass-gov)\). By default, the information populating this is pulled from a mass.gov endpoint and follows the [schema standard specified below](search-and-structured-data.md#organization-teaser-json-schema-standard). If your organization is not using the Mass.Gov Drupal CMS but you would like your organization's branding included in search.mass.gov, you need to provide the search team with a JSON object following these [schema standards](search-and-structured-data.md#organization-teaser-json-schema-standard). Please note, if you decide to include a logo, the image must be located at a publicly accessible url, should have a white or transparent background, and for the best performance should be reduced to a width of 100 pixels. This area is only for organization-specific logos \(not the state seal\).
 
+#### Organization Display Details JSON Schema Standard
+
+`{ "nid": 9876, "name": "Office of Attorney General Maura Healey", "acronym": "(AGO)", "url": "https://www.mass.gov/orgs/office-of-attorney-general-maura-healey", "logoUrl": "https://www.mass.gov/files/styles/thumbnail/public/2017-06/Massachusetts%20AGO%20seal%20orig%20size_1.png?itok=8kS9QRRO", "description": "Attorney General Maura Healey is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts." }`
+
 #### Examples of the Organization Display Details in Search.Mass.Gov
 
 | Organization | Example Display |
@@ -176,8 +180,4 @@ When a user filters content by organization in search.mass.gov, that organizatio
 | Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display.png) |
 | Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display.png) |
 | Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display.png) |
-
-#### Organization Display Details JSON Schema Standard
-
-`{ "nid": 9876, "name": "Office of Attorney General Maura Healey", "acronym": "(AGO)", "url": "https://www.mass.gov/orgs/office-of-attorney-general-maura-healey", "logoUrl": "https://www.mass.gov/files/styles/thumbnail/public/2017-06/Massachusetts%20AGO%20seal%20orig%20size_1.png?itok=8kS9QRRO", "description": "Attorney General Maura Healey is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts." }`
 
