@@ -173,7 +173,7 @@ When a user filters content by organization in search.mass.gov, that organizatio
 
 | Organization | Example Display |
 | --- | --- | --- | --- | --- |
-| Department of Public Health | ![Department of Public Health Details Display](../.gitbook/assets/dph-organization-display.png) |
+| Department of Public Health | <img src="../.gitbook/assets/dph-organization-display.png"  width="120" height="120"> |
 | Division of Fisheries and Wildlife | ![Division of Fisheries and Wildlife Details Display](../.gitbook/assets/dfw-organization-display.png) |
 | Registry of Motor Vehicles | ![Registry of Motor Vehicles Details Display](../.gitbook/assets/rmv-organization-display%20%281%29.png) |
 | Office of the Attorney General | ![Office of the Attorney General Details Display](../.gitbook/assets/ago-organization-display.png) |
