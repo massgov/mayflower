@@ -38,7 +38,8 @@
     "pikaday": "^1.7.0",
     "prop-types": "^15.6.0",
     "react-autosuggest": "^9.3.4",
-    "react-select": "^1.2.1"
+    "react-select": "^1.2.1",
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.10",

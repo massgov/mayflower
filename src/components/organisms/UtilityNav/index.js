@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 
 import UtilityPanel from '../UtilityPanel';
 import LatLonGlobe from '../../atoms/icons/LatLonGlobe/LatLonGlobe';
@@ -14,6 +15,7 @@ class UtilityNav extends Component {
       isOpen: this.props.isOpen
     };
     this.onClick = this.onClick.bind(this);
+    this.ident = shortid.generate();
   }
   componentWillReceiveProps(nextProps) {
     const { isOpen } = nextProps;
@@ -36,6 +38,8 @@ class UtilityNav extends Component {
           {items.map((item, itemIndex) => {
             const newItem = Object.assign({}, item);
             newItem.navSelected = navSelected;
+            // Use utility nav ident to make unique item ids.
+            newItem.navIdent = this.ident;
             const { isOpen } = this.state;
             return(<NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />);
           })}
@@ -58,7 +62,7 @@ const GoogleLanguages = () => (
 
 const NavItem = (obj) => {
   const item = obj.data;
-  const divId = `nav-content.${obj.index}`;
+  const divId = `nav-content-${item.navIdent}-${obj.index}`;
   const oneIsOpen = obj.isOpen;
   const thisIsOpen = item.navSelected === divId;
   const isExpanded = (oneIsOpen && thisIsOpen) ? 'is-open' : 'is-closed';
