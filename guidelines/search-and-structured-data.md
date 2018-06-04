@@ -176,7 +176,7 @@ When a user filters content by organization in search.mass.gov, that organizatio
 
 | Organization | Example Display |
 | --- | --- | --- | --- | --- |
-| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display.png) |
+| Department of Public Health \(DPH\) | ![](../.gitbook/assets/DPH-Organization-Display.png) |
 | Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display.png) |
 | Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display.png) |
 | Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display.png) |
