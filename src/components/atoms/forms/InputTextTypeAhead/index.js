@@ -10,7 +10,7 @@ class InputTextTypeAhead extends Component {
     super(props);
     this.state = {
       value: '',
-      suggestions: props.options
+      suggestions: []
     };
     this.selectTag = '';
     this.onChange = this.onChange.bind(this);
@@ -18,11 +18,16 @@ class InputTextTypeAhead extends Component {
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.selected });
     this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.text === nextProps.selected);
+  }
+  onKeyDown(event) {
+    if (typeof this.props.onKeyDown === 'function') {
+      this.props.onKeyDown(event);
+    }
   }
   onChange(event, { newValue }) {
     this.setState({
@@ -60,12 +65,7 @@ class InputTextTypeAhead extends Component {
     }
     return options.filter((item) => regex.test(item.text));
   }
-  handleBlur(e) {
-    // invokes custom function if passed in the component
-    if (typeof this.props.onBlur === 'function') {
-      this.props.onBlur(e);
-    }
-  }
+
   render() {
     const { suggestions } = this.state;
     const {
@@ -74,12 +74,12 @@ class InputTextTypeAhead extends Component {
     const isBoxed = boxed && 'ma__input-typeahead_boxed';
     const value = JSON.parse(JSON.stringify(this.state.value));
     const inputProps = {
-      placeholder,
       value,
-      onChange: (e, newValue) => this.onChange(e, newValue),
+      onKeyDown: this.onKeyDown,
+      onChange: this.onChange,
       type: 'search',
       autoFocus: autoFocusInput,
-      onBlur: (e) => this.handleBlur(e)
+      placeholder
     };
     const shouldRenderSuggestions = (x) => x.trim().length >= 0;
     const getSuggestionValue = (suggestion) => suggestion.text;
@@ -143,14 +143,14 @@ InputTextTypeAhead.propTypes = {
       PropTypes.string
     ])
   })),
+  /** Custom keydown callback */
+  onKeyDown: PropTypes.func,
   /** Custom change function */
   onChange: PropTypes.func,
   /** The default value for the select box */
   selected: PropTypes.string,
   /** Focus on typeahead input */
-  autoFocusInput: PropTypes.bool,
-  /** Custom onBlur callback function */
-  onBlur: PropTypes.func
+  autoFocusInput: PropTypes.bool
 };
 
 InputTextTypeAhead.defaultProps = {

@@ -32,7 +32,11 @@ storiesOf('molecules', module).addDecorator(withKnobs)
           label: text('orgSelector.typeAhead.label', 'State Organization'),
           id: text('orgSelector.typeAhead.id', 'state-organization'),
           options: object('orgSelector.typeAhead.options', inputOptions.options.orgSelector),
-          selected: select('orgSelector.typeAhead.defaultSelected', inputOptions.options.orgSelector.map((option) => option.text), inputOptions.options.orgSelector[0].text),
+          selected: select(
+            'orgSelector.typeAhead.defaultSelected',
+            inputOptions.options.orgSelector.map((option) => option.text),
+            ''
+          ),
           placeholder: text('orgSelector.typeAhead.placeholder', 'All Organizations')
         };
       }

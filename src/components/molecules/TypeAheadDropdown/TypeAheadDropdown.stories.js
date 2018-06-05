@@ -3,6 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 
 import TypeAheadDropdown from '.';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
@@ -27,7 +28,8 @@ storiesOf('molecules', module).addDecorator(withKnobs)
           'inputTextTypeAhead.defaultSelected',
           options.map((option) => option.text),
           ''
-        )
+        ),
+        onChange: action('TypeAheadDropdown inputText.onChange')
       }
     };
     return(

@@ -7,34 +7,52 @@ import SvgChevron from '../../atoms/icons/SvgChevron';
 class TypeAheadDropdown extends React.Component {
   constructor(props) {
     super(props);
-    // buttonExpand is only being used for re-rendering now.
-    // Come up with a better way?
     this.state = {
       buttonText: this.props.dropdownButton.text,
       buttonExpand: false
     };
-    this.buttonClicked = false;
-    this.inputBlurred = false;
+
+    this.closeDropDown = this.closeDropDown.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+
+    // Store outer inputText onChange handler.
+    if (typeof props.inputText.onChange === 'function') {
+      this.inputTextOnChangeProp = props.inputText.onChange;
+    }
   }
 
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
   componentWillReceiveProps(nextProps) {
     const selectedValue = nextProps.inputText.selected;
     if (selectedValue !== undefined) {
       this.setState({ buttonText: selectedValue });
     }
   }
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  closeDropDown() {
+    this.setState({ buttonExpand: false });
+  }
+  handleKeyDown(event) {
+    // If the user pressed escape, or pressed enter with nothing selected close
+    // the panel.
+    if ((event.key === 'Escape') ||
+        (event.key === 'Enter' && event.target.value === '')) {
+      this.closeDropDown();
+    }
+  }
   handleClick() {
-    this.buttonClicked = true;
-    // Re-render for clicks.
     this.setState((prevState) => ({
       buttonExpand: !prevState.buttonExpand
     }));
   }
-
   handleSelect(event, input) {
     // Stop the filters form submission if enter is pressed in the selector.
     event.preventDefault();
@@ -42,28 +60,22 @@ class TypeAheadDropdown extends React.Component {
       buttonText: input.suggestion.text,
       buttonExpand: false
     });
-  }
-  handleBlur() {
-    this.inputBlurred = true;
-    // Re-render if the button was not clicked and the input is blurring.
-    if (!this.buttonClicked && this.inputBlurred) {
-      this.setState((prevState) => ({
-        buttonExpand: !prevState.buttonExpand
-      }));
+    if (this.inputTextOnChangeProp) {
+      this.inputTextOnChangeProp(event, input);
     }
   }
-  handleMouseDown() {
-    // MouseDown happens before blur.
-    // If button starts to be clicked, set buttonClicked true.
-    // This allows handleBlur logic to close the button.
-    this.buttonClicked = true;
+  handleClickOutside(event) {
+    // Close the panel if the user clicks outside, or on a div around the panel.
+    if ((this.wrapperRef && !this.wrapperRef.contains(event.target)) || event.target.nodeName === 'DIV') {
+      this.setState({ buttonExpand: false });
+    }
   }
+
   render() {
     const typeAheadDropdown = this.props;
     const dropdownProps = {
       canExpand: true,
-      onClick: (e) => this.handleClick(e),
-      onMouseDown: (e) => this.handleMouseDown(e),
+      onClick: this.handleClick,
       expanded: this.state.buttonExpand,
       icon: <SvgChevron />,
       size: 'small',
@@ -71,29 +83,19 @@ class TypeAheadDropdown extends React.Component {
       ...typeAheadDropdown.dropdownButton
     };
     const inputTextTypeAheadProps = {
-      onChange: (e, input) => this.handleSelect(e, input),
-      onBlur: (e) => this.handleBlur(e),
-      autoFocusInput: true,
-      ...typeAheadDropdown.inputText
+      ...typeAheadDropdown.inputText,
+      onKeyDown: this.handleKeyDown,
+      onChange: this.handleSelect,
+      autoFocusInput: true
     };
-    let showInput = false;
-    if (this.buttonClicked && this.inputBlurred) {
-      this.buttonClicked = false;
-    }
-    if (this.buttonClicked) {
-      if (!this.inputBlurred) {
-        showInput = true;
-      }
-    }
-    this.buttonClicked = false;
-    this.inputBlurred = false;
+
     return(
-      <React.Fragment>
+      <div ref={(node) => { this.wrapperRef = node; }}>
         <ButtonWithIcon {...dropdownProps} text={this.state.buttonText === '' ? 'All Organizations' : this.state.buttonText} />
-        { showInput && (
+        { this.state.buttonExpand && (
           <InputTextTypeAhead {...inputTextTypeAheadProps} />
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }
