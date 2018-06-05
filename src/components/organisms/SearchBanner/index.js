@@ -12,35 +12,28 @@ class SearchBanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchInput: this.props.searchBox.default,
       filterBoxExpanded: false
     };
     this.toggleFilterBox = this.toggleFilterBox.bind(this);
-    this.filterBoxSubmitOnClick = this.filterBoxSubmitOnClick.bind(this);
-
-    // Store the passed filterBox submit button click handler for future use.
-    if (props.filterBox) {
-      this.outerSubmitButtonOnClick = props.filterBox.submitButton.onClick;
-    }
-  }
-  componentWillReceiveProps(nextProps) {
-    if (this.state.searchInput !== nextProps.searchBox.defaultText) {
-      const searchInput = nextProps.searchBox.defaultText;
-      this.setState({ searchInput });
-    }
   }
   toggleFilterBox() {
     this.setState((prevState) => ({ filterBoxExpanded: !prevState.filterBoxExpanded }));
   }
-  filterBoxSubmitOnClick() {
-    this.setState((prevState) => ({ filterBoxExpanded: !prevState.filterBoxExpanded }));
-    if (this.props.filterBox) {
-      this.outerSubmitButtonOnClick();
-    }
-  }
   render() {
     const { tabs, searchBox, filterBox } = this.props;
-    if (filterBox) { filterBox.submitButton.onClick = this.filterBoxSubmitOnClick; }
+    let submitButton;
+
+    if (filterBox) {
+      const outerClickHandler = filterBox.submitButton.onClick;
+      submitButton = {
+        ...filterBox.submitButton,
+        onClick: (e) => {
+          this.toggleFilterBox();
+          outerClickHandler(e);
+        }
+      };
+    }
+
     const toggleButtonClass = `ma__search-banner__filter-box-toggle ${this.state.filterBoxExpanded && 'ma__search-banner__filter-box-toggle--expanded'}`;
     return(
       <div className={`ma__search-banner__top ${!tabs && 'ma__search-banner__top--noTabs'}`}>
@@ -57,7 +50,7 @@ class SearchBanner extends Component {
             </button>
           </div>
         )}
-        {this.state.filterBoxExpanded && <FilterBox {...filterBox} />}
+        { filterBox && this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
       </div>
     );
   }
