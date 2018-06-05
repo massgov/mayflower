@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonSearch from '../../atoms/buttons/ButtonSearch';
+import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
+import './HeaderSearch.css';
 
 class HeaderSearch extends React.Component {
   constructor(props) {
@@ -27,6 +29,8 @@ class HeaderSearch extends React.Component {
     return(
       <section className="ma__header-search">
         <form action="#" className="ma__form js-header-search-form" onSubmit={headerSearch.onSubmit}>
+          { (headerSearch.orgDropdown && headerSearch.orgDropdown.dropdownButton && headerSearch.orgDropdown.inputText)
+          && <TypeAheadDropdown {...headerSearch.orgDropdown} /> }
           <label
             htmlFor={headerSearch.id}
             className="ma__header-search__label"
@@ -61,7 +65,9 @@ HeaderSearch.propTypes = {
   /** Custom change function for the text input */
   onChange: PropTypes.func,
   /** Default input text value */
-  defaultText: PropTypes.string
+  defaultText: PropTypes.string,
+  /** @molecules/TypeAheadDropdown */
+  orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown)
 };
 
 HeaderSearch.defaultProps = {

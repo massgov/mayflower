@@ -5,8 +5,8 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import FilterBox from './index';
-// import PressFiltersDocs from './PressFilters.md';
+import FilterBox from '.';
+import sharedProps from './FilterBox.props';
 
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
@@ -17,19 +17,13 @@ storiesOf('organisms', module).addDecorator(withKnobs)
   .add(
     'FilterBox',
     withInfo()(() => {
-      const filterBoxStartDate = {
-        labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'm/dd/yyyy', restrict: 'max'
-      };
-      const filterBoxEndDate = {
-        labelText: 'Select an end date', required: false, id: 'end-date', name: 'end-date', placeholder: 'today', restrict: 'max'
-      };
       const hideTopic = boolean('filterBox.hideTopic', true);
       const hideOrganization = boolean('filterBox.hideOrganization', true);
       const pressTypeInput = select('filterBox.pressType.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
-        topic: (!hideTopic && {
+        topic: (hideTopic ? undefined : {
           label: text('filterBox.topic.label', 'Filter by Topic'),
           stackLabel: boolean('filterBox.topic.stackLabel', true),
           id: 'topic',
@@ -39,8 +33,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         pressType: {},
         dateRange: {
           label: text('filterBox.dateRange.label', 'Date range'),
-          startDate: object('filterBox.dateRange.startDate', filterBoxStartDate),
-          endDate: object('filterBox.dateRange.endDate', filterBoxEndDate)
+          startDate: object('filterBox.dateRange.startDate', sharedProps.startDate),
+          endDate: object('filterBox.dateRange.endDate', sharedProps.endDate)
         },
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
@@ -48,14 +42,14 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           size: select('filterBox.submitButton.size', buttonOptions.size, 'small'),
           theme: select('filterBox.submitButton.theme', buttonOptions.theme, ''),
           outline: boolean('filterBox.submitButton.outline', false),
-          onClick: action('filterBox.submitButton clicked')
+          onClick: action('FilterBox submitButton.onClick')
         },
         clearButton: {
           text: text('filterBox.clearButton.text', 'Clear all filters'),
-          info: text('filterBox.clearButton.aria-label', buttonOptions.type, 'Clear all filters'),
-          onClearCallback: action('pressFilters on clearAll')
+          info: text('filterBox.clearButton.aria-label', 'Clear all filters'),
+          onClearCallback: action('FilterBox clearButton.onClearCallback')
         },
-        organization: (!hideOrganization && {
+        organization: (hideOrganization ? undefined : {
           label: text('filterBox.organization.label', 'State organization'),
           id: text('filterBox.organization.id', 'state-organization'),
           options: object('filterBox.organization.options', inputOptions.options.orgSelector),

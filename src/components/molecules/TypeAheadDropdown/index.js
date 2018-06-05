@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
 import SvgChevron from '../../atoms/icons/SvgChevron';
+import './style.css';
 
 class TypeAheadDropdown extends React.Component {
   constructor(props) {

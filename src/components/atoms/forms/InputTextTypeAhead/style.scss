@@ -27,8 +27,8 @@
     }
   }
 
-  &_boxed {
-    border: 1px solid #dcdcdc;
+  &--boxed {
+    border: 1px solid $c-gray-dcdcdc;
     input{
       margin: .75rem;
       width: calc(100% - 1.5rem);

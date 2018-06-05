@@ -1,0 +1,11 @@
+.ma__header-search {
+  .ma__form {
+    display: flex;
+    .ma__button-icon {
+      border-right: none;
+    }
+  }
+  &__input {
+    padding-right: 200px;
+  }
+}

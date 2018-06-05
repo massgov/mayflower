@@ -76,7 +76,7 @@ FilterBox.propTypes = {
     PropTypes.shape({ typeAhead: InputTextTypeAhead.propTypes })
   ]),
   /** @atoms/forms/InputTextTypeAhead */
-  organization: PropTypes.shape(InputTextTypeAhead.propTypes).isRequired,
+  organization: PropTypes.shape(InputTextTypeAhead.propTypes),
   /** @molecules/DateRange */
   dateRange: PropTypes.shape(DateRange.PropTypes).isRequired,
   /** @atoms/forms/Button */

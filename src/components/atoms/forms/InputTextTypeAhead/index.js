@@ -71,7 +71,7 @@ class InputTextTypeAhead extends Component {
     const {
       boxed, id, label, placeholder, autoFocusInput
     } = this.props;
-    const isBoxed = boxed && 'ma__input-typeahead_boxed';
+    const isBoxed = boxed && 'ma__input-typeahead--boxed';
     const value = JSON.parse(JSON.stringify(this.state.value));
     const inputProps = {
       value,
@@ -136,12 +136,8 @@ InputTextTypeAhead.propTypes = {
   id: PropTypes.string.isRequired,
   /** An array of options for the typeahead */
   options: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.oneOfType([
-      PropTypes.string
-    ]),
-    text: PropTypes.oneOfType([
-      PropTypes.string
-    ])
+    value: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired
   })),
   /** Custom keydown callback */
   onKeyDown: PropTypes.func,
