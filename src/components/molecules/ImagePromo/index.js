@@ -43,13 +43,12 @@ const ImagePromo = (props) => {
   return(
     <section className={sectionClasses.join(' ')}>
 
-      {props.image && props.image.src && (
-        <div className="ma__image-promo__image">
+      <div className="ma__image-promo__image">
+        {props.image && props.image.src && (
           <Image {...props.image} />
-          { props.stacked && imagePromoHeader }
-        </div>
-
-      )}
+        )}
+        { props.stacked && imagePromoHeader }
+      </div>
 
       <div className="ma__image-promo__details">
         { !props.stacked && imagePromoHeader }
