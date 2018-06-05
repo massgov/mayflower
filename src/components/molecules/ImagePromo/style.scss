@@ -1,0 +1,46 @@
+.ma__image-promo--stacked {
+  flex-direction: column;
+  .ma__image-promo__image, .ma__image-promo__details{
+    flex-basis: auto;
+  }
+
+  .ma__image-promo__image {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    .ma__image {
+      width: auto;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+    .ma__image-promo__header{
+      display: inline-flex;
+      flex-direction: column;
+
+      .ma__image-promo__title, .ma__org-info__job-title {
+        display: block;
+      }
+      .ma__image-promo__tags {
+        float: left;
+      }
+    }
+  }
+}
+
+.ma__image-promo--small{
+  font-size: 18px;
+  .ma__image-promo__title {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .ma__image-promo__subtitle {
+    font-weight: 400;
+    font-size: 1.25rem;
+    margin-top: .5em;
+    margin-bottom: 0;
+  }
+}

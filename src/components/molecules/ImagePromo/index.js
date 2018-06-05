@@ -5,44 +5,54 @@ import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Image from '../../atoms/media/Image';
 import Paragraph from '../../atoms/text/Paragraph';
 import SvgPhone from '../../atoms/icons/SvgPhone';
+import './style.css';
 
 const ImagePromo = (props) => {
   const HeadingElement = `h${props.title.level || 2}`;
   const sectionClasses = [
     'ma__image-promo',
+    props.stacked && 'ma__image-promo--stacked',
+    props.small && 'ma__image-promo--small',
     props.location && props.location.map && 'js-location-listing-link'
   ];
+  const imagePromoHeader = (
+    <div className="ma__image-promo__header">
+      <HeadingElement className="ma__image-promo__title">
+        {props.tags && (
+          <div className="ma__image-promo__tags">
+            {props.tags.map((tag) => (
+              <span key={tag.id} title={tag.label} data-ma-tag-id={tag.id}>{tag.icon}</span>
+            ))}
+          </div>
+        )}
 
+        {props.title ? (
+          <DecorativeLink {...props.title} />
+        ) : (
+          <React.Fragment>{props.title.text}</React.Fragment>
+        )}
+      </HeadingElement>
+
+      {props.subTitle && (
+      <h3 className="ma__org-info__job-title">
+        {props.subTitle}
+      </h3>
+      )}
+    </div>
+  );
   return(
     <section className={sectionClasses.join(' ')}>
 
       {props.image && props.image.src && (
-        <div
-          className="ma__image-promo__image"
-          style={props.image.width && { flexBasis: `${props.image.width}px` }}
-        >
+        <div className="ma__image-promo__image">
           <Image {...props.image} />
+          { props.stacked && imagePromoHeader }
         </div>
+
       )}
 
       <div className="ma__image-promo__details">
-
-        <HeadingElement className="ma__image-promo__title">
-          {props.tags && (
-            <div className="ma__image-promo__tags">
-              {props.tags.map((tag) => (
-                <span key={tag.id} title={tag.label} data-ma-tag-id={tag.id}>{tag.icon}</span>
-              ))}
-            </div>
-          )}
-
-          {props.title.href ? (
-            <DecorativeLink {...props.title} />
-          ) : (
-            <React.Fragment>{props.title.text}</React.Fragment>
-          )}
-        </HeadingElement>
-
+        { !props.stacked && imagePromoHeader }
         {props.location && props.location.text && (
           <div className="ma__image-promo__location">
             {props.location.text}
@@ -84,10 +94,11 @@ const ImagePromo = (props) => {
 ImagePromo.propTypes = {
   title: PropTypes.shape({
     level: PropTypes.number,
-    href: PropTypes.string,
+    href: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
   }),
   tags: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
     label: PropTypes.string,
     icon: PropTypes.element
   })),
@@ -97,6 +108,12 @@ ImagePromo.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number
   }),
+  /** Stack image and details */
+  stacked: PropTypes.bool,
+  /** Stack image and details */
+  small: PropTypes.bool,
+  /** Add a subtitle field below title */
+  subTitle: PropTypes.string,
   description: PropTypes.string,
   link: PropTypes.shape({
     text: PropTypes.string,

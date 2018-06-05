@@ -6,7 +6,7 @@ const Image = ({
   src,
   height,
   width,
-  shape = null
+  shape = ''
 }) => (
   <img
     className={`ma__image${shape && ` ${shape}`}`}
