@@ -11,6 +11,7 @@ class InputDate extends React.Component {
   }
   componentDidMount() {
     this.startPikaday();
+    this.picker.setDate(this.props.defaultDate, true);
   }
   componentWillReceiveProps(nextProps) {
     this.picker.setDate(nextProps.defaultDate, true);
