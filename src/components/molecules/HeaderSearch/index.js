@@ -27,26 +27,28 @@ class HeaderSearch extends React.Component {
   render() {
     const headerSearch = this.props;
     return(
-      <section className="ma__header-search">
-        <form action="#" className="ma__form js-header-search-form" onSubmit={headerSearch.onSubmit}>
-          { (headerSearch.orgDropdown && headerSearch.orgDropdown.dropdownButton && headerSearch.orgDropdown.inputText)
+      <div className="ma__header-search__wrapper">
+        { (headerSearch.orgDropdown && headerSearch.orgDropdown.dropdownButton && headerSearch.orgDropdown.inputText)
           && <TypeAheadDropdown {...headerSearch.orgDropdown} /> }
-          <label
-            htmlFor={headerSearch.id}
-            className="ma__header-search__label"
-          >{headerSearch.label}
-          </label>
-          <input
-            id={headerSearch.id}
-            className="ma__header-search__input"
-            placeholder={headerSearch.placeholder}
-            onChange={this.handleChange}
-            type="text"
-            value={this.state.value}
-          />
-          <ButtonSearch {...headerSearch.buttonSearch} />
-        </form>
-      </section>
+        <section className="ma__header-search">
+          <form action="#" className="ma__form js-header-search-form" onSubmit={headerSearch.onSubmit}>
+            <label
+              htmlFor={headerSearch.id}
+              className="ma__header-search__label"
+            >{headerSearch.label}
+            </label>
+            <input
+              id={headerSearch.id}
+              className="ma__header-search__input"
+              placeholder={headerSearch.placeholder}
+              onChange={this.handleChange}
+              type="text"
+              value={this.state.value}
+            />
+            <ButtonSearch {...headerSearch.buttonSearch} />
+          </form>
+        </section>
+      </div>
     );
   }
 }
