@@ -18,11 +18,6 @@ class TypeAheadDropdown extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-
-    // Store outer inputText onChange handler.
-    if (typeof props.inputText.onChange === 'function') {
-      this.inputTextOnChangeProp = props.inputText.onChange;
-    }
   }
 
   componentDidMount() {
@@ -57,12 +52,14 @@ class TypeAheadDropdown extends React.Component {
   handleSelect(event, input) {
     // Stop the filters form submission if enter is pressed in the selector.
     event.preventDefault();
+
+    // Update this component state and pass the event out to the calling code.
     this.setState({
       buttonText: input.suggestion.text,
       buttonExpand: false
     });
-    if (this.inputTextOnChangeProp) {
-      this.inputTextOnChangeProp(event, input);
+    if (typeof this.props.inputText.onChange === 'function') {
+      this.props.inputText.onChange(event, input);
     }
   }
   handleClickOutside(event) {
@@ -83,6 +80,7 @@ class TypeAheadDropdown extends React.Component {
       iconColor: '',
       ...typeAheadDropdown.dropdownButton
     };
+
     const inputTextTypeAheadProps = {
       ...typeAheadDropdown.inputText,
       onKeyDown: this.handleKeyDown,
