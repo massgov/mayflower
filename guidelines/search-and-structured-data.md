@@ -164,6 +164,8 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
 
 ### Adding your Domain to the Search.Mass.Gov CSE
 
+Currently, the google custom search engine \(CSE\) powering search.mass.gov indexes over 70 commonwealth website properties. A complete list of the web properties is included below. If you believe your website should be included in the results 
+
 ### Adding your Organization Display Details to Search
 
 When a user filters content by organization in search.mass.gov, that organization's name, description, and logo \(if available\) is displayed in a right-rail beside the search results \([refer to examples below](search-and-structured-data.md#example-of-organization-display-details-in-search-mass-gov)\). By default, the information populating this is pulled from a mass.gov endpoint and follows the [schema standard specified below](search-and-structured-data.md#organization-teaser-json-schema-standard). If your organization is not using the Mass.Gov Drupal CMS but you would like your organization's branding included in search.mass.gov, you need to provide the search team with a JSON object following these [schema standards](search-and-structured-data.md#organization-teaser-json-schema-standard). Please note, if you decide to include a logo, the image must be located at a publicly accessible url, should have a white or transparent background, and for the best performance should be reduced to a width of 100 pixels. This area is only for organization-specific logos \(not the state seal\).
@@ -176,7 +178,7 @@ When a user filters content by organization in search.mass.gov, that organizatio
 
 | Organization | Example Display |
 | --- | --- | --- | --- | --- |
-| Department of Public Health \(DPH\) | ![](../.gitbook/assets/DPH-Organization-Display.png) |
+| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display.png) |
 | Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display.png) |
 | Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display.png) |
 | Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display.png) |
