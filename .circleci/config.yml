@@ -1,0 +1,46 @@
+
+version: 2
+
+jobs:
+  build_patternlab:
+    working_directory: /var/www/code
+    docker:
+      - image: massgov/drupal-container:1.0.6-ci
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore NPM Cache
+          keys:
+            - pl-npm-v1-{{ checksum "patternlab/styleguide/yarn.lock" }}
+            - pl-npm-v1-
+      - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && yarn' }
+      - save_cache:
+          name: Save NPM cache
+          key: pl-npm-v1-{{ checksum "patternlab/styleguide/yarn.lock" }}
+          paths: [ styleguide/node_modules ]
+      - run: { name: 'Generate style guide', command: 'php patternlab/styleguide/core/console --generate' }
+      - run: { name: 'Build assets', command: 'cd patternlab/styleguide && node_modules/.bin/gulp prod' }
+      - persist_to_workspace:
+          root: /var/www/code
+          paths: [patternlab]
+
+  test_patternlab:
+      working_directory: /home/circleci/patternlab
+      docker:
+        - image: circleci/python:2.7.14
+      steps:
+        - attach_workspace: {at: /home/circleci}
+        - setup_remote_docker
+        - run: docker-compose up --no-start web backstop
+        - run: |
+            docker cp ./ $(docker-compose ps -q backstop):/src/
+            docker cp ./styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
+        - run: docker-compose run backstop test
+        - run:
+            command: docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
+            when: always
+        - store_artifacts:
+            path: ./backstopjs
+            destination: backstop
+        - store_test_results:
+            path: backstopjs/reports/ci
