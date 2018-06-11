@@ -44,3 +44,10 @@ jobs:
             destination: backstop
         - store_test_results:
             path: backstopjs/reports/ci
+
+workflows:
+  version: 2
+  build_branch:
+    jobs:
+      - build_patternlab
+      - test_patternlab: {requires: [build_patternlab]}
