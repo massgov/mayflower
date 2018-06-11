@@ -14,6 +14,7 @@ class InputTextTypeAhead extends Component {
     };
     this.selectTag = '';
     this.onChange = this.onChange.bind(this);
+    this.onBlur = this.onBlur.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
@@ -37,6 +38,11 @@ class InputTextTypeAhead extends Component {
       // Change the filter back to "" if the user clears the typeahead input.
       const suggestion = { text: '', value: '' };
       this.props.onChange(event, { suggestion });
+    }
+  }
+  onBlur(event) {
+    if (typeof this.props.onBlur === 'function') {
+      this.props.onBlur(event);
     }
   }
   onSuggestionsFetchRequested({ value }) {
@@ -77,6 +83,7 @@ class InputTextTypeAhead extends Component {
       value,
       onKeyDown: this.onKeyDown,
       onChange: this.onChange,
+      onBlur: this.onBlur,
       type: 'search',
       autoFocus: autoFocusInput,
       placeholder
@@ -143,6 +150,8 @@ InputTextTypeAhead.propTypes = {
   onKeyDown: PropTypes.func,
   /** Custom change function */
   onChange: PropTypes.func,
+  /** Custom blur handler function */
+  onBlur: PropTypes.func,
   /** The default value for the select box */
   selected: PropTypes.string,
   /** Focus on typeahead input */

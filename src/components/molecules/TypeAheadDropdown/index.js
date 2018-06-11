@@ -13,15 +13,23 @@ class TypeAheadDropdown extends React.Component {
       buttonExpand: false
     };
 
-    this.closeDropDown = this.closeDropDown.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.wrapperRef = React.createRef();
+    this.setDropDownButtonRef = this.setDropDownButtonRef.bind(this);
+    this.handleRefMouseDown = this.handleRefMouseDown.bind(this);
+
+    this.closeDropdown = this.closeDropdown.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleInputBlur = this.handleInputBlur.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   componentDidMount() {
+    this.buttonClicked = false;
+
     document.addEventListener('mousedown', this.handleClickOutside);
+    this.dropDownButtonRef.addEventListener('mousedown', this.handleRefMouseDown);
   }
   componentWillReceiveProps(nextProps) {
     const selectedValue = nextProps.inputText.selected;
@@ -29,25 +37,42 @@ class TypeAheadDropdown extends React.Component {
       this.setState({ buttonText: selectedValue });
     }
   }
+  componentDidUpdate() {
+    this.buttonClicked = false;
+  }
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
+    this.dropDownButtonRef.removeEventListener('mousedown', this.handleRefMouseDown);
   }
 
-  closeDropDown() {
+  setDropDownButtonRef(node) {
+    this.dropDownButtonRef = node;
+  }
+  closeDropdown() {
     this.setState({ buttonExpand: false });
+  }
+  handleRefMouseDown() {
+    this.buttonClicked = true;
+  }
+
+  handleClick() {
+    this.setState((prevState) => ({ buttonExpand: !prevState.buttonExpand }));
   }
   handleKeyDown(event) {
     // If the user pressed escape, or pressed enter with nothing selected close
     // the panel.
     if ((event.key === 'Escape') ||
         (event.key === 'Enter' && event.target.value === '')) {
-      this.closeDropDown();
+      this.closeDropdown();
+    }
+    if (event.key === 'Escape' && this.dropDownButtonRef) {
+      this.dropDownButtonRef.focus();
     }
   }
-  handleClick() {
-    this.setState((prevState) => ({
-      buttonExpand: !prevState.buttonExpand
-    }));
+  handleInputBlur() {
+    if (!this.buttonClicked) {
+      this.closeDropdown();
+    }
   }
   handleSelect(event, input) {
     // Stop the filters form submission if enter is pressed in the selector.
@@ -64,34 +89,39 @@ class TypeAheadDropdown extends React.Component {
   }
   handleClickOutside(event) {
     // Close the panel if the user clicks outside, or on a div around the panel.
-    if ((this.wrapperRef && !this.wrapperRef.contains(event.target)) || event.target.nodeName === 'DIV') {
-      this.setState({ buttonExpand: false });
+    const node = this.wrapperRef.current;
+    if ((node && !node.contains(event.target)) || event.target.nodeName === 'DIV') {
+      if (this.state.buttonExpand) {
+        this.setState({ buttonExpand: false });
+      }
     }
   }
 
   render() {
-    const typeAheadDropdown = this.props;
-    const dropdownProps = {
-      canExpand: true,
+    const dropdownButton = {
       onClick: this.handleClick,
+      setButtonRef: this.setDropDownButtonRef,
+      canExpand: true,
       expanded: this.state.buttonExpand,
       icon: <SvgChevron />,
       size: 'small',
       iconColor: '',
-      ...typeAheadDropdown.dropdownButton
+      ...this.props.dropdownButton
     };
+    dropdownButton.text = this.state.buttonText || 'All Organizations';
 
     const inputTextTypeAheadProps = {
-      ...typeAheadDropdown.inputText,
+      ...this.props.inputText,
       onKeyDown: this.handleKeyDown,
       onChange: this.handleSelect,
+      onBlur: this.handleInputBlur,
       autoFocusInput: true
     };
 
     return(
-      <div ref={(node) => { this.wrapperRef = node; }}>
-        <ButtonWithIcon {...dropdownProps} text={this.state.buttonText === '' ? 'All Organizations' : this.state.buttonText} />
-        { this.state.buttonExpand && (
+      <div ref={this.wrapperRef}>
+        <ButtonWithIcon {...dropdownButton} />
+        {this.state.buttonExpand && (
           <InputTextTypeAhead {...inputTextTypeAheadProps} />
         )}
       </div>
