@@ -164,7 +164,7 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
 
 ### Adding your Domain to the Search.Mass.Gov CSE
 
-Currently, the google custom search engine \(CSE\) powering search.mass.gov indexes over 70 commonwealth website properties. A complete list of the web properties is included below. If you believe your website should be included in the results 
+Currently, the google custom search engine \(CSE\) powering search.mass.gov indexes over 70 commonwealth website properties. A complete list of the web properties is included below. If you believe your website should be included in the results set returned on mass.gov, please contact the search team for further details.
 
 ### Adding your Organization Display Details to Search
 
