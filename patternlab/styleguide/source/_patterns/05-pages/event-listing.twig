@@ -1,0 +1,10 @@
+{% extends '@templates/single-column.twig' %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/page-header.twig" %}
+{% endblock %}
+{% block pageContent %}
+  {% set eventListingInteractive = mainContent.eventListingInteractive %}
+  {% include "@organisms/by-author/event-listing-interactive.twig" %}
+{% endblock %}
+{% block postContent %}{% endblock %}

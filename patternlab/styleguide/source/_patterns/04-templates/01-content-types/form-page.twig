@@ -1,0 +1,65 @@
+{% block header %}{% endblock %}
+
+<main class="ma__form-page" id="main-content" tabindex="-1">
+  <div class="pre-content">
+    {% block preContent %}
+      {% include "@organisms/by-template/page-header.twig" %}
+    {% endblock %}
+  </div>
+  <div class="main-content main-content--two">
+    <div class="page-content">
+      {% if formRequirements %}
+        {% include "@organisms/by-author/form-requirements.twig" %}
+      {% endif %}
+      {% block pageContentAbove %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page content above form'}} %}
+      {% endblock %}
+      <form class="ma__form-page" action="{{ form.action }}">
+        {% block formContent %}
+          {% if form.errorList %}
+            {% set errorList = form.errorList %}
+            {% include "@molecules/error-list.twig" %}
+          {% endif %}
+          {% for group in form.groups %}
+            {% set compHeading = group.compHeading %}
+            {% include "@atoms/04-headings/comp-heading.twig" %}
+            {% for fieldset in group.fieldsets %}
+              <fieldset>
+                {% if fieldset.legend %}
+                  <legend>{{ fieldset.legend }}</legend>
+                {% endif %}
+                {% for item in fieldset.items %}
+                  {% if item.path %}
+                    {% include item.path with item.data %}
+                  {% endif %}
+                {% endfor %}
+              </fieldset>
+            {% endfor %}
+          {% endfor %}
+        {% endblock %}
+      </form>
+      {% block pageContent %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page content below form'}} %}
+      {% endblock %}
+    </div>
+    <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
+      {% if sideContent.contactList %}
+        {% set contactList = sideContent.contactList %}
+        {% include "@organisms/by-author/contact-list.twig" %}
+      {% endif %}
+
+      {% block sidebar %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Sidebar'}} %}
+      {% endblock %}
+    </aside>
+  </div>
+  <div class="post-content">
+    {% block postContent %}
+      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
+    {% endblock %}
+  </div>
+  {% block schemaContent %}{% endblock %}
+</main>
+
+{% block footer %}{% endblock %}
+

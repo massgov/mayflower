@@ -1,0 +1,8 @@
+{
+  "name": "es6-polyfill",
+  "main": "index.js",
+  "_source": "/Users/velir/www/PewTrusts/web/frontend/search/app/vendor/global/es6-polyfill.js",
+  "_target": "*",
+  "_originalSource": "./es6-polyfill.js",
+  "_direct": true
+}

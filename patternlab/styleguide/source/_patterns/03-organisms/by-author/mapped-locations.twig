@@ -1,0 +1,27 @@
+{% set modClass = mappedLocations.contained ? 'ma__mapped-locations--contained' : '' %}
+<section class="ma__mapped-locations {{ modClass }}">
+  {% if mappedLocations.compHeading or mappedLocations.link %}
+    <div class="ma__mapped-locations__header">
+      {% if mappedLocations.compHeading %}
+       {% set compHeading = mappedLocations.compHeading %}
+       {% include "@atoms/04-headings/comp-heading.twig" %}
+      {% endif %}
+      {% if mappedLocations.link and not mappedLocations.contained %}
+        <div class="ma__mapped-locations__link">
+          {% set decorativeLink = mappedLocations.link %}
+          {% include "@atoms/decorative-link.twig" %}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="ma__mapped-locations__map">
+    {% if mappedLocations.link and mappedLocations.contained %}
+      <div class="ma__mapped-locations__link">
+        {% set decorativeLink = mappedLocations.link %}
+        {% include "@atoms/decorative-link.twig" %}
+      </div>
+    {% endif %}
+    {% set googleMap = mappedLocations.googleMap %}
+    {% include "@molecules/google-map.twig" %}
+  </div>
+</section>

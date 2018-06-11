@@ -1,0 +1,12 @@
+{
+  "featuredItem": {
+    "href": "#",
+    "text": "This is an action",
+    "image": {
+      "alt": "alt text",
+      "src": "../../assets/images/placeholder/400x300.png",
+      "height": "",
+      "width": ""
+    }
+  }
+}

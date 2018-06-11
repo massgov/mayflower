@@ -1,0 +1,18 @@
+{
+  "locationIcons": {
+    "title": "Location Features",
+    "icons": [{
+      "path":"transit",
+      "name":"Transit Friendly"
+    },{
+      "path":"castle",
+      "name":"Historic Site"
+    },{
+      "path":"wheelchair",
+      "name":"Wheelchair Accessible"
+    },{
+      "path":"dog",
+      "name":"Dogs Allowed"
+    }]
+  }
+}

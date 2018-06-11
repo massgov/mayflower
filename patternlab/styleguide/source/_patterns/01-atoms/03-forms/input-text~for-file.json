@@ -1,0 +1,15 @@
+{
+  "inputText": {
+    "hiddenLabel": false,
+    "labelText": "File Upload",
+    "required": false,
+    "id": "file-upload",
+    "name": "file-upload",
+    "type": "file",
+    "width": "",
+    "maxlength": "",
+    "pattern": "",
+    "placeholder": "you@email.com",
+    "errorMsg": ""
+  }
+}

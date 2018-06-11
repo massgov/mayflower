@@ -1,0 +1,25 @@
+.ma__feedback-form {
+
+  &__overlay {
+    background-color: rgba(#000,.6);
+    color: $c-font-inverse;
+  }
+
+  &__title {
+    @include ma-border-decorative($c-theme-tertiary,1);
+    color: $c-font-inverse;
+  }
+
+  &__controls {
+
+    button,
+    input[type="button"],
+    input[type="submit"] {
+      @include ma-button("normal","solid",$c-theme-primary);
+    }
+  }
+
+  &__error-message {
+    color: $c-font-error;
+  }
+}

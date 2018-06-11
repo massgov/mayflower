@@ -1,0 +1,7 @@
+language: php
+install:
+  - pear install package.xml
+php:
+  - 5.4
+sudo: false
+script: cd tests && tar -xvzf ./fixtures.tar.gz && cd .. && phpunit tests/

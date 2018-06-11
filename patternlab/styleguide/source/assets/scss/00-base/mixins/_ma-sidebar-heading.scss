@@ -1,0 +1,14 @@
+@mixin ma-sidebar-heading ($border: transparent, $color: transparent) {
+  
+  @if($border == transparent) {
+    border-bottom: 2px solid;
+    font-size: 1.188rem;
+    letter-spacing: .09em;
+    padding-bottom: .5em;
+    text-transform: uppercase;
+  }
+  @else {
+    border-color: $border;
+    color: $color;
+  }
+}

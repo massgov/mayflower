@@ -1,0 +1,17 @@
+{% extends '@templates/two-column.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block preContent %}{% endblock %}
+
+{% block pageContent %}
+  {% include "@molecules/press-status.twig" %}
+{% endblock %}
+{% block sidebar %}
+  {% include "@base/placeholder.twig" with {'placeholder':{'text':'Right Rail'}} %}
+{% endblock %}
+{% block postContent %}
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

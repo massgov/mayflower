@@ -1,0 +1,38 @@
+{
+  "narrowTemplate": {
+    "side": "right",
+    "color": "yellow"
+  },
+  
+  "errorPage": {
+    "type": "404",
+    "label": "Oops",
+    "title": "We can't find that page",
+    "message": "The link you clicked may be broken or the page may have been removed"
+  },
+
+  "linkList": {
+    "compHeading": {
+      "title": "Helpful Links",
+      "level": 3,
+      "color": "yellow",
+      "centered": true
+    },
+    "description": null,
+    "stacked": false,
+    "hideBullets": true,
+    "links" : [{
+      "href": "#",
+      "text":"Helpful link",
+      "chevron": "true"
+    },{
+      "href": "#",
+      "text":"Another helpful link",
+      "chevron": "true"
+    },{
+      "href": "#",
+      "text":"Yet another helpful link",
+      "chevron": "true"
+    }]
+  }
+}

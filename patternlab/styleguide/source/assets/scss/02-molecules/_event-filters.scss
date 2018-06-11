@@ -1,0 +1,33 @@
+.ma__event-filters {
+  padding-top: 30px;
+  
+  form {
+    @include ma-container;
+    display: flex;
+      flex-wrap: wrap;
+  }
+
+  &__by-location,
+  &__date-range,
+  &__buttons {
+    margin-bottom: 30px;
+    width: 100%;
+
+    @media ($bp-x-large-min) {
+      margin-bottom: 45px;
+    }
+  }
+
+  &__by-location {
+
+    input {
+      max-width: 820px;
+      width: 100%;
+    }
+  }
+
+  // backward compatible with v5.6
+  &__submit {
+    @include ma-button('small');
+  }
+}

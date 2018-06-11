@@ -1,0 +1,13 @@
+.ma__sidebar-widget {
+
+  &__more {
+
+    a {
+
+      &:hover,
+      &:after {
+        border-color: rgba($c-font-link,.5);
+      }
+    }
+  }
+}

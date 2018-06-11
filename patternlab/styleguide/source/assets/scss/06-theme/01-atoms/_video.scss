@@ -1,0 +1,15 @@
+.ma__video {
+
+  &__container {
+    background-color: rgba($c-theme-primary,.1);
+  }
+
+  &__link {
+    font-size: 1.25rem;
+  }
+}
+
+// Backward Compatible - had to add the --new as a variant for the new styling
+.ma__video:not(.ma__video--new) {
+  background-color: rgba($c-theme-primary,.1);
+}

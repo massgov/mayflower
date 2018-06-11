@@ -1,0 +1,54 @@
+{
+  "details": {
+    "contentTitle": "Information Details",
+    "titleContext": ""
+  },
+
+  "pageHeader": {
+    "divider": false,
+    "title": "Page Title",
+    "subTitle": "teaser text",
+    "headerTags": {
+      "label": "More about:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Term 1"
+      },{
+        "href": "#",
+        "text": "Term 2"
+      },{
+        "href": "#",
+        "text": "Term 3"
+      },{
+        "href": "#",
+        "text": "Term 4"
+      }]
+    },
+    "widgets": null
+  },
+
+  "stickyNav": {
+    "titleContext": "",
+    "anchorLinks":[{
+      "href": "jump link",
+      "text": "jump-link",
+      "info": ""
+    },{
+      "href": "another link",
+      "text": "another-link",
+      "info": ""
+    }]
+  },
+
+  "stickyTOC": {
+    "title": "Table of Contents"
+  },
+
+  "pageContent": {
+
+  },
+
+  "sidebar": {
+    "coloredHeadings": false
+  }
+}

@@ -1,0 +1,13 @@
+{% set posClass = video.position ? "ma__video--" ~ video.position : '' %}
+  {# backward compatibile with v5.6 - toggle new styles with ma__video--new #}
+<div class="ma__video ma__video--new {{ posClass }}">
+  <div class="ma__video__container js-ma-responsive-video">
+    <iframe width="{{ video.width }}" height="{{ video.height }}" src="{{ video.src }}" frameborder="0" allowfullscreen aria-label="{{ video.label }}"></iframe>
+    {% if video.link %}
+      <div class="ma__video__link">
+        {% set decorativeLink = video.link %}
+        {% include "@atoms/decorative-link.twig" %}
+      </div>
+    {% endif %}
+  </div>
+</div>

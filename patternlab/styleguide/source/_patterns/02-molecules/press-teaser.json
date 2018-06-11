@@ -1,0 +1,28 @@
+{
+  "pressTeaser" : {
+    "image": {
+      "src":"/assets/images/placeholder/320x180.png",
+      "alt": "placeholder image"
+    },
+    "eyebrow": "Press Release",
+    "title" : {
+      "href":"#",
+      "text":"MassParks",
+      "info": "",
+      "property": ""
+    },
+    "level": "",
+    "date": "4/3/2017",
+    "org": "Org Name",
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Optional description"
+          }
+        }
+      }]
+    }
+  }
+}

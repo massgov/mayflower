@@ -1,0 +1,11 @@
+{
+  "button": {
+    "href": "",
+    "info": "",
+    "text": "Button",
+    "type": "button",
+    "size": "small",
+    "theme": "secondary",
+    "outline": true
+  }
+}

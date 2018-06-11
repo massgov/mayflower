@@ -1,0 +1,32 @@
+{
+  "keyActions": {
+    "compHeading": {
+      "title": "Key Actions",
+      "sub": false,
+      "id": "key-action-id"
+    },
+    "links":[{
+      "text": "Register to Vote",
+      "type": "",
+      "href": "#"
+    },{
+      "text": "Find a Job",
+      "type": "",
+      "href": "#"
+    },{
+      "image": "../../assets/images/placeholder/130x160.png",
+      "text": "File for unemployment",
+      "type": "",
+      "href": "#",
+      "label": "Guide:"
+    },{
+      "text": "Learn more about the tax code",
+      "type": "",
+      "href": "#"
+    },{
+      "text": "Learn more about the tax code",
+      "type": "",
+      "href": "#"
+    }]
+  }
+}

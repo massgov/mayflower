@@ -1,0 +1,30 @@
+.ma__action-step {
+
+  &--accordion {
+    border-color: $c-bd-divider;
+  }
+
+  &--accordion:not(.is-open) &__header {
+    background-color: $c-bg-section;
+  }
+
+  &--accordion.is-open &__header {
+    background-color: transparent;
+  }
+
+  &--accordion &__header:after {
+    color: $c-theme-secondary;
+  }
+
+  &__icon {
+
+    svg {
+      fill: $c-theme-secondary;
+    }
+  }
+
+  &__title {
+    @include ma-h4;
+    font-weight: 700;
+  }
+}

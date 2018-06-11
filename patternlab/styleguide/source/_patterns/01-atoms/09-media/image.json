@@ -1,0 +1,8 @@
+{
+  "image": { 
+    "alt": "alt text", 
+    "src": "../../assets/images/placeholder/800x400.png",
+    "height": "400",
+    "width": "800"
+  }
+}

@@ -1,0 +1,98 @@
+.ma__tooltip {
+
+  &__inner {
+    display: inline-block;
+    position: relative;
+  }
+
+  &__open {
+    border-bottom-style: dotted;
+    border-bottom-width: 2px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: border ease .4s;
+
+    & > svg {
+      margin-bottom: -.2em;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__control {
+    @include ma-visually-hidden;
+  }
+
+  &__modal {
+    margin-top: 10px;
+    max-width: 280px;
+    position: absolute;
+      top: 100%;
+      left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: $z-modal;
+
+    &--below {
+
+      &:before {
+        border-style: solid;
+        border-width: 10px;
+        border-top: none;
+        content: "";
+        height: 0;
+        position: absolute;
+          bottom: 100%;
+          left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+      }
+    }
+  }
+
+  &__control:not(:focus) ~ &__modal {
+    @include ma-visually-hidden;
+  }
+
+  &__container {
+    box-shadow: 2px 2px 4px  rgba(1, 1, 1, 0.1),-2px 2px 4px  rgba(1, 1, 1, 0.1);
+    position: absolute;
+      left: 0;
+      top: 0;
+    width: 280px;
+  }
+
+  &__close {
+    border: 2px solid;
+    display: block;
+    font-size: 1rem;
+    letter-spacing: .02em;
+    line-height: 1.2rem;
+    margin: 0;
+    padding: 8px;
+    text-align: right;
+    text-transform: uppercase;
+    width: 100%;
+
+    &:after {
+      content: "+";
+      display: inline-block;
+      font-size: 2.5em;
+      line-height: 1.2rem;
+      margin-left: .2rem;
+      transform: rotate(45deg);
+      vertical-align: top;
+    }
+  }
+
+  &__title {
+    @include ma-h6;
+    margin: 15px 20px 0;
+  }
+
+  &__message {
+    font-size: 18px;
+    margin: 15px 20px 15px;
+
+  }
+}

@@ -1,0 +1,7 @@
+<section class="ma__action-image">
+  {% if actionImage.title %}
+  <h5 class="ma__action-image__title">{{actionImage.title}}</h5>
+  {% endif %}
+  {% set figure = actionImage.figure %}
+  {% include "@atoms/09-media/figure.twig" %}
+</section>

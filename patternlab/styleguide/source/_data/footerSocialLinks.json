@@ -1,0 +1,29 @@
+{
+  "footerSocialLinks": {
+    "items": [{
+      "altText": "Follow us on Facebook",
+      "href": "#",
+      "icon": "@atoms/05-icons/svg-facebook.twig"
+    },{
+      "altText": "Follow us on Twitter",
+      "href": "#",
+      "icon": "@atoms/05-icons/svg-twitter.twig"
+    },{
+      "altText": "Follow us on LinkedIn",
+      "href": "#",
+      "icon": "@atoms/05-icons/svg-linkedin.twig"
+    },{
+      "altText": "Follow us on Youtube",
+      "href": "#",
+      "icon": "@atoms/05-icons/svg-youtube.twig"
+    },{
+      "altText": "Read our blog",
+      "href": "#",
+      "icon": "@atoms/05-icons/svg-blog.twig"
+    },{
+      "altText": "Follow us on Instagram",
+      "href": "#",
+      "icon": "@atoms/05-icons/svg-instagram.twig"
+    }]
+  }
+}

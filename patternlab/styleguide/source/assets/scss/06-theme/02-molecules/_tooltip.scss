@@ -1,0 +1,62 @@
+.ma__tooltip {
+
+  &__open {
+    border-color: transparent;
+    color: $c-font-dark;
+    font-weight: bold;
+
+    &:hover {
+      border-color: rgba($c-font-link, .5) !important;  // specificity war with &__control:not(:focus)
+    }
+
+    & > svg {
+      fill: tint($c-font-link, 50%);  
+    }
+  }
+
+  &__control:focus ~ &__open,
+  &__control:checked + &__open {
+    border-color: rgba($c-font-link, .5);
+  }
+
+  &__control:not(:focus) ~ &__open {
+    border-color: transparent;
+  }
+
+  &__modal {
+
+    &--below {
+
+      &:before {
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: $c-theme-primary;
+      }
+    }
+  }
+
+  &__container {
+    background-color: $c-bg-section;
+  }
+
+  &__close {
+    background-color: $c-theme-primary;
+    border-color: transparent;
+    color: $c-font-inverse;
+    font-weight: bold;
+
+    &:after {
+      font-weight: 500;
+    }
+  }
+
+  &__control:focus ~ &__modal &__close {
+    border-color: Highlight !important;
+
+    /* WebKit gets its native focus styles.
+     */
+    @media (-webkit-min-device-pixel-ratio:0) {
+      outline-color: -webkit-focus-ring-color;
+    }
+  }
+}

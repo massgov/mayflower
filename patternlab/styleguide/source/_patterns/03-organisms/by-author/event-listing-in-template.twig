@@ -1,0 +1,18 @@
+{% extends '@templates/two-column.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block pageContent %}
+  {% include "@organisms/by-author/event-listing.twig" %}
+{% endblock %}
+{% block sidebar %}
+  {% set eventListing = eventListingRight %}
+  {% include "@organisms/by-author/event-listing.twig" %}
+{% endblock %}
+{% block postContent %}
+  {% set eventListing = eventListingPost %}
+  {% include "@organisms/by-author/event-listing.twig" %}
+{% endblock %}
+
+{% block footer %}{% endblock %}
+

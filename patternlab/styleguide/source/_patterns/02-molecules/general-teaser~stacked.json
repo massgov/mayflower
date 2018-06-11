@@ -1,0 +1,31 @@
+{
+  "generalTeaser" : {
+    "layout": "stacked",
+    "image": {
+      "src": "../../assets/images/placeholder/172x228.png",
+      "alt": "placeholder image",
+      "width": "172",
+      "height": "228"
+    },
+    "eyebrow": "Eyebrow",
+    "title" : {
+      "href": "#",
+      "text": "Link field for a title or name",
+      "info": "",
+      "property": ""
+    },
+    "level": "",
+    "emphasizedText": [
+      "An emphasized text field",
+      "Another emphasized text field"
+    ],
+    "contents": [{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+        }
+      }
+    }]
+  }
+}

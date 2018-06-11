@@ -1,0 +1,10 @@
+*.php ident
+*.html ident
+bin/* ident
+*.css ident
+*.xsl ident
+*.rng ident
+docs export-ignore
+test export-ignore
+.travis.* export-ignore
+composer.lock export-ignore

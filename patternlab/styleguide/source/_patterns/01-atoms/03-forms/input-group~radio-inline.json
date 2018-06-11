@@ -1,0 +1,27 @@
+{
+  "inputGroup": {
+    "required": true,
+    "inline": true,
+    "title": "Group of inputs",
+    "type": "radio",
+    "items": [{
+      "name": "rbi-gender",
+      "value": "male",
+      "id": "rbi-gender-male",
+      "label": "Male",
+      "checked": true
+    },{
+      "name": "rbi-gender",
+      "value": "female",
+      "id": "rbi-gender-female",
+      "label": "Female",
+      "checked": false
+    },{
+      "name": "rbi-gender",
+      "value": "other",
+      "id": "rbi-gender-other",
+      "label": "Other",
+      "checked": false
+    }]
+  }
+}

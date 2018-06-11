@@ -1,0 +1,12 @@
+{
+  "pageBanner": {
+    "bgWide": "../../assets/images/placeholder/800x400.png",
+    "bgNarrow": "../../assets/images/placeholder/800x400.png",
+    "size": "columns",
+    "icon": "",
+    "title": "Unemployment Benefits",
+    "titleSubText": "",
+    "description": "Have you lost your job? You may qualify for temporary income to support you while you look for a new one.",
+    "color": "green"
+  }
+}

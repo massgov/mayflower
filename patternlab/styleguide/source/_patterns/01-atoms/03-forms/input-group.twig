@@ -1,0 +1,23 @@
+<div class="ma__input-group {{ not inputGroup.required ? 'ma__input-group--optional' : '' }}">
+   {% if inputGroup.title %} 
+    <div class="ma__input-group__title">
+      {{ inputGroup.title }}
+    </div>
+  {% endif %}
+  <div class="ma__input-group__items {{ inputGroup.inline ? 'ma__input-group__items--inline' : '' }}">
+    {% if inputGroup.type == 'radio' %}
+      {% for inputRadio in inputGroup.items %}
+        <div class="ma__input-group__item">
+          {% include "@atoms/03-forms/input-radio.twig" %}
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% if inputGroup.type == 'checkbox' %}
+      {% for inputCheckbox in inputGroup.items %}
+        <div class="ma__input-group__item">
+          {% include "@atoms/03-forms/input-checkbox.twig" %}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>

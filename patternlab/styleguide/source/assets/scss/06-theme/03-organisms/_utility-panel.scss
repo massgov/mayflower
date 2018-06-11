@@ -1,0 +1,21 @@
+.ma__utility-panel {
+  background-color: $c-theme-primary; 
+  color: $c-font-inverse;
+
+  &__description {
+    font-weight: 300;
+  }
+
+  &__item {
+    background-color: rgba($c-white, 0.2);
+
+    a {
+      color: $c-font-inverse;
+      font-weight: 500;
+    }
+
+    svg {
+      fill: $c-font-inverse;
+    }
+  }
+}

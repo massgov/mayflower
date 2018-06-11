@@ -1,0 +1,14 @@
+.ma__press-listing {
+
+  &__secondary-items {
+    border-color: $c-bd-divider;
+  }
+
+  &__secondary-item {
+    border-color: $c-bd-divider;
+
+    &:after {
+      border-color: $c-bd-divider;
+    }
+  }
+}

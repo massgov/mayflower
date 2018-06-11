@@ -1,0 +1,142 @@
+{
+  "pressFilters": {
+    "action": "#",
+    "coloredHeading": {
+      "text": "Filter Results",
+      "color": ""
+    },
+    "clearButton": {
+      "text": "Clear all filters",
+      "info": "clear all filters"
+    },
+
+    "orgSelector": {
+      "selectBox":{
+        "label":"State organization",
+        "id":"color-select",
+        "options":[{
+          "value":"",
+          "text":"All Organizations"
+        },{
+          "value":"attorney-general-office",
+          "text":"Attorney General's Office"
+        },{
+          "value":"governors-office",
+          "text":"Governor's Office"
+        }]
+      },
+
+      "organizations": [{
+        "value": "attorney-general-office",
+        "image": {
+          "href": "#",
+          "alt": "Maura Healey",
+          "src": "../../assets/images/placeholder/100x100.png",
+          "height": "100",
+          "width": "100"
+        },
+        "name": {
+          "text": "Maura Healey",
+          "href": "#"
+        },
+        "jobTitle": "Attorney General",
+        "message": "The Attorney General is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.",
+        "moreLink": {
+          "text": "more information",
+          "href": "#",
+          "info": "learn more about Organization"
+        }
+      },{
+        "value": "governors-office",
+        "image": {
+          "href": "#",
+          "alt": "Charles Baker",
+          "src": "../../assets/images/placeholder/100x100.png",
+          "height": "100",
+          "width": "100"
+        },
+        "name": {
+          "text": "Charles Baker",
+          "href": "#"
+        },
+        "jobTitle": "Governor",
+        "message": "The Governor is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.",
+        "moreLink": {
+          "text": "more information",
+          "href": "#",
+          "info": "learn more about Organization"
+        }
+      }]
+    },
+
+    "topic":{
+      "label":"Topic",
+      "id":"topic",
+      "options":[{
+        "value":"",
+        "text":"Select"
+      },{
+        "value":"topic1",
+        "text":"Topic 1"
+      },{
+        "value":"topic2",
+        "text":"Topic 2"
+      },{
+        "value":"topic2",
+        "text":"Topic 2"
+      }]
+    },
+
+    "pressType":{
+      "label":"Announcement type",
+      "id":"announcement-type",
+      "options":[{
+        "value":"",
+        "text":"Select"
+      },{
+        "value":"press-release",
+        "text":"Press release"
+      },{
+        "value":"press-statement",
+        "text":"Press statement"
+      },{
+        "value":"news-article",
+        "text":"News article"
+      },{
+        "value":"blog-post",
+        "text":"Blog post"
+      },{
+        "value":"speech",
+        "text":"Speech"
+      }]
+    },
+
+    "dateRange": {
+      "label": "Date range",
+      "startDate": {
+        "labelText": "Select a start date",
+        "required": false,
+        "id": "start-date",
+        "name": "start-date",
+        "placeholder": "mm/dd/yyyy",
+        "restrict": "max"
+      },
+      "endDate": {
+        "labelText": "Select an end date",
+        "required": false,
+        "id": "end-date",
+        "name": "end-date",
+        "placeholder": "today",
+        "restrict": "max"
+      }
+    },
+
+    "submitButton": {
+      "text": "Submit",
+      "type": "submit",
+      "size": "small",
+      "theme": "",
+      "outline": false
+    }
+  }
+}

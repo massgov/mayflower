@@ -1,0 +1,25 @@
+{
+  "person": {
+    "image": {
+      "alt": "alt text",
+      "src": "../../assets/images/placeholder/250x250.png",
+      "height": "250",
+      "width": "250",
+      "shape": "circular"
+    },
+    "name": {
+      "title": "Deborah B. Goldberg",
+      "level": "2",
+      "color": "transparent",
+      "centered": true
+    },
+    "title" : {
+      "text": "Treasurer & Receiver General",
+      "level": "3"
+    },
+    "bio": {
+      "href": "#",
+      "text":"Learn more about Treasurer Goldberg"
+    }
+  }
+}

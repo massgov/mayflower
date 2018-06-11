@@ -1,0 +1,138 @@
+{
+  "imagePromos": {
+    "promoHeading": "",
+    "compHeading": {
+      "title": "Image Promos",
+      "sub": false,
+      "color": "",
+      "id": "",
+      "centered": ""
+    },
+    "items": [{
+      "title": {
+        "text": "Hiking & Walking",
+        "href": "#"
+      },
+      "image": {
+        "src": "../../assets/images/placeholder/190x107.png",
+        "alt": "hiking image",
+        "href": "#"
+      },
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla."
+            }
+          }
+        }]
+      },
+      "link": {
+        "text": "Details & Maps",
+        "type": "chevron",
+        "href": "#"
+      }
+    },{
+      "title": {
+        "text": "Camping",
+        "href": "#"
+      },
+      "image": {
+        "src": "../../assets/images/placeholder/190x107.png",
+        "alt": "camping image",
+        "href": "#"
+      },
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla."
+            }
+          }
+        }]
+      },
+      "link": {
+        "text": "More",
+        "type": "chevron",
+        "href": "#"
+      }
+    },{
+      "title": {
+        "text": "Winter Sports",
+        "href": "#"
+      },
+      "image": {
+        "src": "../../assets/images/placeholder/190x107.png",
+        "alt": "wintery image",
+        "href": "#"
+      },
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla."
+            }
+          }
+        }]
+      },
+      "link": {
+        "text": "More",
+        "type": "chevron",
+        "href": "#"
+      }
+    },{
+      "title": {
+        "text": "Hunting",
+        "href": "#"
+      },
+      "image": {
+        "src": "../../assets/images/placeholder/190x107.png",
+        "alt": "hunting image",
+        "href": "#"
+      },
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla."
+            }
+          }
+        }]
+      },
+      "link": {
+        "text": "More",
+        "type": "chevron",
+        "href": "#"
+      }
+    },{
+      "title": {
+        "text": "Bird Watching",
+        "href": "#"
+      },
+      "image": {
+        "src": "../../assets/images/placeholder/190x107.png",
+        "alt": "bird image",
+        "href": "#"
+      },
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla."
+            }
+          }
+        }]
+      },
+      "link": {
+        "text": "More",
+        "type": "chevron",
+        "href": "#"
+      }
+    }]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "inputText": {
+    "hiddenLabel": false,
+    "labelText": "Text Input",
+    "required": true,
+    "id": "width-input",
+    "name": "width-input",
+    "type": "text",
+    "width": "500",
+    "maxlength": "",
+    "pattern": "",
+    "placeholder": "this field is 500px wide",
+    "errorMsg": ""
+  }
+}

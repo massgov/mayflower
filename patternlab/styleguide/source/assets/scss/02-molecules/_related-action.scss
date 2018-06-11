@@ -1,0 +1,36 @@
+.paragraph--type--related-link, // mass gov drupal instance
+.ma__related-action {
+
+  & + & {
+    border-top-width: 1px;
+    border-top-style: solid;
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+
+  &__link {
+    margin-bottom: 0;
+  }
+
+  &__description {
+    line-height: 1.5;
+    padding-top: 5px;
+
+    @media ($bp-small-min){
+      font-size: 1.25rem;
+    }
+
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .ma__decorative-link {
+    display: block;
+
+    a {
+      font-size: 1.625rem;
+      line-height: 1.2;
+    }
+  }
+}

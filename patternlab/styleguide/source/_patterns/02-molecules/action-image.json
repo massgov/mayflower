@@ -1,0 +1,14 @@
+{
+  "actionImage": {
+    "title": "This is an Optional Image Title",
+    "figure": {
+      "image": {
+        "alt": "16 x 9 image from your camera",
+        "width": "640",
+        "height": "360",
+        "src": "/assets/images/placeholder/640x360.png"
+      },
+      "caption": "This is an optional caption that can wrap to multiple lines."
+    }
+  }
+}

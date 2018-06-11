@@ -1,0 +1,21 @@
+{
+  "bannerCarousel": {
+    "slides":[{
+      "image":"../../assets/images/placeholder/800x400.png",
+      "imageLarge":"../../assets/images/placeholder/1600x400.png",
+      "alt":"view from the lodge"
+    },{
+      "image":"../../assets/images/placeholder/800x400.png",
+      "imageLarge":"../../assets/images/placeholder/1600x400.png",
+      "alt":"view from the lodge"
+    },{
+      "image":"../../assets/images/placeholder/800x400.png",
+      "imageLarge":"../../assets/images/placeholder/1600x400.png",
+      "alt":"view from the lodge"
+    },{
+      "image":"../../assets/images/placeholder/800x400.png",
+      "imageLarge":"../../assets/images/placeholder/1600x400.png",
+      "alt":"view from the lodge"
+    }]
+  }
+}

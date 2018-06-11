@@ -1,0 +1,7 @@
+{
+    "checkList": [
+        { "text": "This is a list item in an un-ordered list" },
+        { "text": "When the user prints this list, check boxes will appear instead of bullets" },
+        { "text": "This is the last list item"}
+    ]
+}

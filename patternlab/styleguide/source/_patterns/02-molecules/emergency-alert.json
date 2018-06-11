@@ -1,0 +1,11 @@
+{
+  "emergencyAlert": {
+    "message": "MassPort is operating with limited flights due to road closures.",
+    "timeStamp": "02.15.16, 5:00 p.m.",
+    "link": {
+      "href": "#",
+      "text":"Read full alert",
+      "chevron": "true"
+    }
+  }
+}

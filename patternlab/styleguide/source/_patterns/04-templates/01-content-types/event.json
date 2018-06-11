@@ -1,0 +1,584 @@
+{
+  "pageHeader": {
+    "category": "optional type of event",
+    "divider": true,
+    "title": "Event Title",
+    "subTitle": "",
+    "headerTags": {
+      "label": "Related to:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Parent Page"
+      },{
+        "href": "#",
+        "text": "Another Parent Page"
+      }]
+    },
+    "socialLinks": {
+      "label": "Share:",
+      "items": [{
+        "altText": "Follow us on Facebook",
+        "href": "#",
+        "icon": "facebook",
+        "linkType": "facebook"
+      },{
+        "altText": "Follow us on Twitter",
+        "href": "#",
+        "icon": "twitter",
+        "linkType": "twitter"
+      },{
+        "altText": "Follow us on LinkedIn",
+        "href": "#",
+        "icon": "linkedin",
+        "linkType": "linkedin"
+      }]
+    },
+    "optionalContents": [{
+      "path": "@molecules/event-teaser.twig",
+      "data": {
+        "eventTeaser": {
+          "title": null,
+          "location": "",
+          "date": {
+            "summary": "Sunday, November 20, 2017"
+          },
+          "time": "8:00 a.m. - 10:00 a.m.",
+          "description": ""
+        }
+      }
+    },{
+      "path": "@molecules/contact-us.twig",
+      "data": {
+        "contactUs": {
+          "groups": [{
+            "icon": "",
+            "name": "",
+            "items": [{
+              "type": "address",
+              "label": "",
+              "address": "Halibut Point State Park, Gott Avenue, Rockport, MA 01966",
+              "link": {
+                "href": "https://www.google.com/maps/place/Halibut+Point+State+Park",
+                "text": "directions",
+                "info": "directions to Halibut Point State Park",
+                "property": "url"
+              },
+              "details": ""
+            }]
+          }]
+        }
+      }
+    },{
+      "path": "@organisms/by-author/key-actions.twig",
+      "data": {
+        "keyActions": {
+          "links":[{
+            "text": "optional sign up",
+            "type": "",
+            "href": "#"
+          }]
+        }
+      }
+    }],
+    "widgets": [{
+      "path": "@atoms/09-media/image.twig",
+      "data": {
+        "image": {
+          "alt": "Mass Wildlife",
+          "src": "../../assets/images/placeholder/190x220.png",
+          "height": "220",
+          "width": "190"
+        }
+      }
+    }]
+  },
+
+  "mainContent": {
+    "pageOverview": {
+      "compHeading": {
+        "title": "Overview",
+        "sub": "",
+        "color": "",
+        "id": "",
+        "centered": "",
+        "titleContext": ""
+      },
+      "image": {
+        "alt": "alt text",
+        "src": "../../assets/images/placeholder/600x338.png",
+        "width": "600",
+        "height": "338"
+      },
+      "labelledList": {
+        "items": [{
+          "label": "Rain date:",
+          "text": "This event is rain or shine"
+        },{
+          "label": "Fees:",
+          "text": "free"
+        },{
+          "label": "Capacity:",
+          "text": "unlimited"
+        }]
+      },
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sunt deleniti fuga consequuntur laudantium qui repellendus eveniet, culpa ipsum ullam libero quibusdam dolore, sit. Quasi alias sed atque saepe, tempora dolore dolor quod amet. Quaerat omnis illo, totam eligendi at."
+            }
+          }
+        },{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur consectetur eligendi recusandae, blanditiis nisi quibusdam, dolor voluptas dolore unde eius, eos esse doloremque enim? Culpa delectus excepturi beatae eos quod distinctio, ipsam ratione ad architecto doloremque modi eius consectetur at facere. Nobis, laboriosam, officia. Itaque maiores porro voluptates, sint sed dolore! Omnis, iusto sed est!"
+            }
+          }
+        }]
+      }
+    },
+
+    "meetingMinutes": {
+      "richText": null,
+      "formDownloads": {
+        "compHeading": {
+          "title": "Meeting Minutes",
+          "level": 3
+        },
+        "downloadLinks": [{
+          "downloadLink": {
+            "iconSize": "",
+            "icon": "doc-pdf",
+            "decorativeLink": {
+              "text": "PDF download item",
+              "href": "#",
+              "info": "",
+              "property": ""
+            },
+            "size": "30kb",
+            "format": "PDF"
+          }
+        }]
+      }
+    },
+
+    "agenda": {
+      "richText": {
+        "compHeading": {
+          "title": "Agenda",
+          "level": 3
+        },
+        "rteElements": [{
+
+          "path": "@atoms/04-headings/heading-4.twig",
+          "data": {
+            "heading4": {
+              "text": "Opening Remarks"
+            }
+          }
+          }, {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Optional Description Paragraph"
+            }
+          }
+          },{
+          "path": "@atoms/04-headings/heading-4.twig",
+          "data": {
+            "heading4": {
+              "text": "Discussion: Strategic Planning"
+            }
+          }
+        },
+          {
+            "path": "@atoms/08-lists/checklist.twig",
+            "data": {
+              "checkList": [
+                {
+                  "text": "Project Proposal 1"
+                },
+                {
+                  "text": "Project Proposal 2"
+                },
+                {
+                  "text": "Project Proposal 3"
+                }
+              ]
+            }
+        }],
+        "decorativeLink": {
+          "href": "#",
+          "text": "Optional Learn More Link",
+          "info": "Learn More about this information"
+        }
+      },
+      "formDownloads": null
+    },
+
+    "youWillNeed": {
+      "compHeading": {
+        "title": "You will need",
+        "id": "",
+        "sub": true,
+        "titleContext": ""
+      },
+      "rteElements": [{
+        "path": "@atoms/08-lists/checklist.twig",
+        "data": {
+          "checkList": [{
+            "text": "first item to bring"
+          },{
+            "text": "second item to bring"
+          },{
+            "text": "third item to bring"
+          }]
+        }
+      }]
+    },
+
+    "formDownloads": {
+      "compHeading": {
+        "title": "Additional resources",
+        "sub": true,
+        "titleContext": ""
+      },
+      "downloadLinks": [{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-pdf",
+          "decorativeLink": {
+            "text": "PDF download item",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "30kb",
+          "format": "PDF"
+        }
+      },{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-docx",
+          "decorativeLink": {
+            "text": "Word download item",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "40kb",
+          "format": "DOCX"
+        }
+      },{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "laptop",
+          "decorativeLink": {
+            "text": "Online form or information page",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "",
+          "format": "form"
+        }
+      }]
+    },
+
+    "contactList": {
+      "viewSpecific": false,
+      "compHeading":{
+        "title": "Contact",
+        "sub": true,
+        "titleContext": ""
+      },
+      "contacts":[{
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Person to Contact"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "mediaContact": {
+      "viewSpecific": false,
+      "compHeading":{
+        "title": "Media Contact",
+        "sub": true,
+        "titleContext": ""
+      },
+      "contacts":[{
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Media Person to Contact"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "linkList" : {
+      "compHeading": {
+        "title": "Other dates",
+        "sub": true,
+        "titleContext": ""
+      },
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Description about other available dates"
+            }
+          }
+        }]
+      },
+
+      "stacked": true,
+      "links" : [{
+        "href":"#",
+        "text":"first date",
+        "info": "",
+        "property": ""
+      },{
+        "href":"#",
+        "text":"second date",
+        "info": "",
+        "property": ""
+      },{
+        "href":"#",
+        "text":"third date",
+        "info": "",
+        "property": ""
+      }]
+    }
+  },
+
+  "sideContent": {
+    "linkList": {
+      "viewSpecific": true,
+      "sidebarHeading":{
+        "title":  "Participating Organizations"
+      },
+
+      "stacked": true,
+      "links" : [{
+        "href":"#",
+        "text":"Organization One",
+        "info": "",
+        "property": ""
+      },{
+        "href":"#",
+        "text":"Organization Two",
+        "info": "",
+        "property": ""
+      }]
+    },
+
+    "contactList": {
+      "viewSpecific": true,
+      "sidebarHeading":{
+        "title": "Contact",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Person to Contact"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "mediaContact": {
+      "viewSpecific": true,
+      "sidebarHeading":{
+        "title": "Media Contact",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Media Person to Contact"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    }
+  },
+
+  "bottomContent": {
+    "eventListing": {
+      "compHeading":{
+        "title": "Related Events",
+        "centered": true,
+        "titleContext": ""
+      },
+      "events":[{
+        "title": {
+          "href": "#",
+          "text": "Winter Birding Event",
+          "info": "",
+          "property": ""
+        },
+        "location": "Lanesborough, MA",
+        "date": {
+          "summary": "March 30, 2017",
+          "startMonth": "Mar",
+          "startDay": "30",
+          "endMonth": "",
+          "endDay": ""
+        },
+        "time": "12:00 p.m. - 2:00 p.m.",
+        "description": "Event description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias architecto deleniti sunt eum incidunt laboriosam quos repudiandae nesciunt eligendi? Aliquid."
+      },{
+        "title": {
+          "href": "#",
+          "text": "First Day Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Lanesborough, MA",
+        "date": {
+          "summary": "March 30, 2017 - April 10, 2017",
+          "startMonth": "Mar",
+          "startDay": "30",
+          "endMonth": "Apr",
+          "endDay": "10"
+        },
+        "time": "12:00 p.m. - 2:00 p.m.",
+        "description": ""
+      }],
+      "more": null
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "narrowTemplate": {
+    "side": "left",
+    "color": "green"
+  },
+
+  "errorPage": {
+    "type": "",
+    "title": "Welcome to Mayflower, the Commonwealth's Design System",
+    "message": "Use the navigation menu above to browse our pattern library."
+  },
+
+  "linkList": {
+    "compHeading": {
+      "title": "Helpful Links",
+      "level": 3,
+      "color": "yellow",
+      "centered": true
+    },
+    "description": null,
+    "stacked": false,
+    "hideBullets": true,
+    "links" : [{
+      "href": "https://github.com/massgov/mayflower",
+      "text":"Mayflower project on Github",
+      "chevron": "true"
+    }]
+  }
+}

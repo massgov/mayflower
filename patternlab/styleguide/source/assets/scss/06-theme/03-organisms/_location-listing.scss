@@ -1,0 +1,28 @@
+.ma__location-listing {
+
+  &__filters {
+    background-color: $c-bg-subtle;
+
+    .ma__button-search {
+      color: $c-font-base;
+
+      &:hover {
+        background-color: $c-font-base;
+        border-color: $c-font-base;
+        color: $c-font-inverse;
+      }
+    }
+  }
+
+  .ma__image-promo {
+
+    &.is-active,
+    &:hover {
+      border-top-color: $c-theme-tertiary;
+
+      @media ($bp-large-min) {
+        box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+      }
+    }
+  }
+}

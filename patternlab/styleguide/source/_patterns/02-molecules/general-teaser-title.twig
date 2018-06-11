@@ -1,0 +1,9 @@
+{% set headingLevel = level ? : 2 %}
+<h{{ headingLevel }} class="ma__general-teaser__title">
+  {% if title.href %}
+    {% set decorativeLink = title %}
+    {% include "@atoms/decorative-link.twig" %}
+  {% else %}
+    {{ title.text }}
+  {% endif %}
+</h{{ headingLevel }}>

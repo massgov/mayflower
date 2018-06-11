@@ -1,0 +1,10 @@
+.ma__mapped-locations {
+  
+  &--contained &__map {
+    background-color: rgba($c-theme-primary,.1);
+  }
+
+  &--contained &__link {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,25 @@
+.ma__publish-state {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+
+  @media ($bp-small-min) {
+    font-size: 3rem;
+  }
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+    @include ma-container;
+  }
+
+  &:before {
+    content: "\2013";
+    margin-right: .25em;
+  }
+
+  &:after {
+    content: "\2013";
+    margin-left: .25em;
+  }
+}

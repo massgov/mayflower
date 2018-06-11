@@ -1,0 +1,9 @@
+.ma__banner-credit {
+
+  &__icon {
+
+    & > svg {
+      fill: $c-theme-secondary;
+    }
+  }
+}

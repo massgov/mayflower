@@ -1,0 +1,23 @@
+.ma__sidebar-widget {
+  
+  &__more {
+    font-size: 1.375rem;
+    margin-top: 20px;
+    padding-top: 15px;
+    text-align: right;
+
+    a {
+      @include ma-chevron;
+      @include ma-link-underline;
+      padding-bottom: 3px;
+
+      &:after {
+        border-right: 3px solid;
+        border-bottom: 3px solid;
+        height: 8px;
+        margin-left: .3em;
+        width: 8px;
+      }
+    }
+  }
+}

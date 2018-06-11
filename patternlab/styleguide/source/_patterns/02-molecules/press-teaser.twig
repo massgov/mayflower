@@ -1,0 +1,49 @@
+{% set imageClass = pressTeaser.image ? 'ma__press-teaser--image' : '' %}
+
+<section class="ma__press-teaser {{ imageClass }}">
+  {% if pressTeaser.image %}
+    <a 
+      class="ma__press-teaser__image"
+      href="{{ pressTeaser.title.href }}" 
+      title="{{ pressTeaser.title.text }}">
+      {% set image = pressTeaser.image %}
+      <span 
+        aria-label="{{ image.alt }}" 
+        role="img"
+        style="background-image: url('{{ image.src }}')">
+      </span>
+    </a>
+  {% endif %}
+  <div class="ma__press-teaser__details">
+    {% if pressTeaser.eyebrow %}
+      <div class="ma__press-teaser__eyebrow">
+        <span>{{ pressTeaser.eyebrow }}</span>
+      </div>
+    {% endif %}
+    {% set headingLevel = pressTeaser.level ? : 2 %}
+    <h{{ headingLevel }} class="ma__press-teaser__title">
+      {% set decorativeLink = pressTeaser.title %}
+      {% include "@atoms/decorative-link.twig" %}
+    </h{{ headingLevel }}>
+    {% if pressTeaser.date or pressTeaser.org %}
+      <div class="ma__press-teaser__details">
+        {% if pressTeaser.date %}
+          <span class="ma__press-teaser__date">
+            {{ pressTeaser.date }}
+          </span>
+        {% endif %}
+        {% if pressTeaser.org %}
+          <span class="ma__press-teaser__org">
+            {{ pressTeaser.org }}
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if pressTeaser.description %}
+      <div class="ma__press-teaser__description">
+        {% set richText = pressTeaser.description %}
+        {% include "@organisms/by-author/rich-text.twig" %}
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,22 @@
+.ma__press-teaser {
+
+  & + & {
+    border-top-color: $c-bd-divider;
+  }
+
+  &__eyebrow span {
+    background-color: $c-bg-section;
+    font-weight: 700;
+  }
+
+  &__date,
+  &__org {
+    color: $c-font-dark;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  &__org {
+    border-left-color: $c-bd-divider;
+  }
+}

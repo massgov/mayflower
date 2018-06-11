@@ -1,0 +1,81 @@
+{
+  "featuredItemMosaic": {
+    "compHeading":{
+      "title": "Featured Items",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": ""
+    },
+    "columns":[
+      [
+        {
+          "href": "#",
+          "text": "First action",
+          "image": {
+            "alt": "alt text",
+            "src": "../../assets/images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          },
+          "featuredImage": {
+            "alt": "alt text",
+            "src": "../../assets/images/placeholder/300x500.png",
+            "height": "",
+            "width": ""
+          }
+        }
+      ],
+      [
+        {
+          "href": "#",
+          "text": "Second action which has a very long title",
+          "image": {
+            "alt": "alt text",
+            "src": "../../assets/images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          }
+        },
+        {
+          "href": "",
+          "text": "Third action",
+          "image": {
+            "alt": "alt text",
+            "src": "../../assets/images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          }
+        }
+      ],
+      [
+        {
+          "href": "#",
+          "text": "Fourth action",
+          "image": {
+            "alt": "alt text",
+            "src": "../../assets/images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          }
+        },
+        {
+          "href": "#",
+          "text": "The 60th character in this title is in a word past this point",
+          "image": {
+            "alt": "alt text",
+            "src": "../../assets/images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          }
+        }
+      ]
+    ],
+    "more":{
+      "href": "#",
+      "text": "view all events at this location",
+      "info": "",
+      "chevron": true
+    }
+  }
+}

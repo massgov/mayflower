@@ -1,0 +1,388 @@
+{
+  "pageHeader": {
+    "category": "Directive",
+    "divider": false,
+    "title": "Criteria for Determining Whether a Transaction is a Taxable Sale of Pre-written Software or a Non-taxable Service",
+    "subTitle": "",
+    "headerTags": {
+      "label": "Related to:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Department of Revenue"
+      },{
+        "href": "#",
+        "text": "Rules & Regulations Bureau"
+      }]
+    },
+    "socialLinks": null,
+    "publishState": {
+      "text": "Draft"
+    },
+    "optionalContents": [{
+      "path": "@molecules/listing-table.twig",
+      "data": {
+        "listingTable": {
+          "rows": [{
+            "label": "Last Updated:",
+            "text": "3/2/2017"
+          },{
+            "label": "Organization:",
+            "text": "Mark E. Nunnelly, Commissioner of Revenue"
+          },{
+            "label": "Referenced Sources:",
+            "text": "<a href=\"#\">M. G.L. c. 51, § 47C</a><br/><a href=\"#\">G.L. c. 64H, § 6</a>"
+          }]
+        }
+      }
+    },{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "property": "",
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "<b><i>This is a working draft for practitioner comment. Please contact the Rules and Regulations Bureau for feedback.</i></b>"
+              }
+            }
+          },{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Attached for public comment is a draft Directive that addresses the application of the Massachusetts sales and use tax to sales of software and computer related services. This Directive has been drafted in response to the large number of recent ruling requests pertaining to the Computer Industry Services and Products regulation,830 CMR 64H.1.3, particularly involving sales of \"Software as a Service,\" \"Cloud Computing,\" and so-called \"Business Solutions,\" all of which involve software, sometimes bundled with other non-taxable services.  Long established rules provide that software sales involving a tangible medium transferred to the customer are taxable; the focus of this Directive is on the taxation of software sales that involve remote access to software following the statutory change announced in TIR 05-15.  Given that the Department does not have the resources to individually rule on every product involving software, the Directive lists factors that DOR will use in determining if a sale is a taxable sale of software or a non-taxable sale of services. The factors will be considered cumulatively; no one factor is determinative of taxability."
+              }
+            }
+          }]
+        }
+      }
+    }],
+    "widgets": null
+  },
+
+  "jumpLinks": {
+    "title": "In this Section",
+    "links": [{
+      "text": "Working Draft for Practitioner Comment",
+      "href": "working-draft"
+    },{
+      "text": "Another Section",
+      "href": "another-section"
+    },{
+      "text": "Downloads",
+      "href": "downloads"
+    },{
+      "text": "Contact",
+      "href": "contact"
+    }]
+  },
+
+  "mainContent": {
+    "contents": [{
+      "compHeading": {
+        "title": "Working Draft for Practitioner Comment",
+        "sub": false,
+        "color": "",
+        "id": "working-draft",
+        "centered": false
+      },
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "<b>Sales & Use Tax - Directive 13-XX</b>"
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "<b>Criteria for Determining Whether a Transaction is a Taxable Sale of Pre-written Software or a Non-taxable Service</b>"
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "<b>Introduction:</b> This Directive is being issued in response to the large number of recent requests for guidance received by the Department of Revenue pertaining to the Computer Industry Services and Products regulation at 830 CMR 64H.1.3. That regulation explains the application of the Massachusetts sales and use taxes, G.L. c. 64H and G.L. c. 64I, to computer products and software and provides that taxable transfers of prewritten software include sales effected in any of the following ways regardless of the method of delivery (including electronic delivery or load and leave):  licenses, leases, transfers of rights to use software installed on a remote server, upgrades, and license upgrades. A taxable sale may involve a one-time payment or periodic payments, as in the case of transactions structured as a \"subscription.\""
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Long-established rules provide that software sales involving a tangible medium transferred to the customer are taxable.  In 2005, the Massachusetts sales/use tax definition of taxable tangible property was expanded to include software sales that do not involve transfers of or in a tangible medium. St. 2005, c. 163 §§ 27, 29, 34, 59, 61; see TIR 05-15.  The focus of this Directive is on the taxation of software sales that involve remote access to software following that statutory change, which became effective on April 1, 2006."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Software-related products and the terminology used to describe and market them are evolving at a rapid rate.  As technology develops, purchasers increasingly have access to sophisticated software which is hosted on sellers’ or third party servers and marketed in various ways and with terminology that may be suggestive of the provision of services, e.g., as Software-as-a-Service, Cloud Computing, or \"business solutions\". Several recent Letter Rulings have addressed whether sales of various “business solutions” and products were taxable as sales of prewritten software or instead were non-taxable services.<a class=\"ma__rich-text__footnote\" id=\"footnoteref1\" title=\"source for this information\" href=\"#footnotemsg1\">1</a>"
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This Directive is meant to be a general guide for taxpayers, providing criteria the Commissioner considers when determining whether a transaction a taxable sale or other transfer of the right to use pre-written software or, instead, involves a product that is a non-taxable personal or professional service. The factors mentioned below will be considered cumulatively; no one factor is determinative of taxability. In those instances where both services and the right to use software may be integrated or bundled in one transaction, the Commissioner applies an “object of the transaction” test.  Where the object of the transaction is the purchase or use of the software, the transaction will be taxable.  Where the object of the transaction is determined to be a non-taxable service, and any use or access to pre-written software is incidental, the transaction will be non-taxable."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "<b>Issue 1:</b> What criteria indicate to the Commissioner that a transaction is a taxable transfer of pre-written software?"
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "<b>Directive 1:</b> Factors that indicate that a transaction should be characterized as a taxable transfer of pre-written software include the following:"
+          }
+        }
+      },{
+        "path": "@atoms/08-lists/unordered-list.twig",
+        "data": {
+          "unorderedList": [{
+            "text": "A contract or written agreement provides for a transfer by license, sale, subscription, lease, or other means, of prewritten software for consideration."
+          },{
+            "text": "A customer can access a seller’s prewritten software on its own or the seller’s or a third party server, and can enter its own information, manipulate that information, and/or run reports.  (Mere search queries in a seller’s database are not considered \"entering information.\")"
+          },{
+            "text": "The seller provides the customer with the use of software that functions with little or no personal intervention by the seller or seller’s employees other than “help desk” assistance for customers having difficulty using the software."
+          },{
+            "text": "The seller refers to itself as an Application Service Provider (ASP) or its product as Software as a Service (SaaS) or in a similar manner, although the seller’s characterization of a product is not ultimately determinative of its treatment for tax purposes."
+          },{
+            "text": "The seller provides access to software, including operating system software or application software, even if no software is transferred to the customer; this may be referred to as \"cloud computing.\""
+          },{
+            "text": "The software provides an organizational tool or function that is used by customer, e.g., screen sharing."
+          },{
+            "text": "Pre-written software is bundled with a non-taxable service and sold for a single price, but only where the software constitutes the predominant value of the sale."
+          },{
+            "text": "The seller provides an application that is downloaded to any device, including but not limited to a Smart-phone, PC or Tablet, and there is a charge for the application."
+          }]
+        }
+      }]
+    },{
+      "compHeading": {
+        "title": "Another section",
+        "sub": false,
+        "color": "",
+        "id": "another-section",
+        "centered": false
+      },
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Donec gravida posuere arcu. Nulla facilisi. Phasellus imperdiet. Vestibulum at metus. Integer euismod. Nullam placerat rhoncus sapien. Ut euismod. Praesent libero. Morbi pellentesque libero sit amet ante. Maecenas tellus. Maecenas erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+          }
+        }
+      }]
+    }],
+
+    "formDownloads": {
+      "compHeading": {
+        "title": "Downloads",
+        "sub": false,
+        "color": "",
+        "id": "downloads",
+        "centered": ""
+      },
+      "downloadLinks": [{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-pdf",
+          "decorativeLink": {
+            "text": "Signed, official copy of this document",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "1MB",
+          "format": "PDF"
+        }
+      }]
+    },
+
+    "contactList": {
+      "viewSpecific": false,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "contact",
+        "centered": ""
+      },
+      "contacts":[{
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Rules & Regulations Bureau"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "email",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"Rulesandregulations@DOR.State.MA.US",
+              "text": "Rulesandregulations@DOR.State.MA.US",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "footnoteList": {
+      "items": [{
+        "number": 1,
+        "target": "#footnoteref1",
+        "id": "footnotemsg1",
+        "richText": {
+          "property": "",
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "The Department has issued a number of recent Letter Rulings applying the rules in the Computer Industry Services and Products Regulation to specific factual situations, including: LR 12-13, Internet-Based Marketing and Customer-Communications Solutions, LR 12-11, Data Back-up and Restoration, LR 12-10, Screen-sharing Software and the Massachusetts Sales/Use Tax, LR 12-8, Cloud Computing, LR 12-6, Sales/Use Tax on Publishing Software, LR 12-5, MA Sales/Use Tax on Business Offerings to Physician Practice Customers, LR 12-4, Massachusetts Sales/Use Tax on “Call Tracking Service,”  LR 12-1, Teleconferencing Services, LR 11-4, MA Sales/Use Tax: On-line Services for Prospective Employees, LR 11-2, MA Sales/Use Tax: Sales of On-line Services, LR 10-1, Litigation Support Services."
+              }
+            }
+          }]
+        }
+      }]
+    },
+
+    "references": {
+      "label": "Referenced Legislation:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "M. G.L. c. 51, § 47C"
+      },{
+        "href": "#",
+        "text": "G.L. c. 64H, § 6"
+      }]
+    }
+  },
+
+  "sideContent": {
+    "contactList": {
+      "viewSpecific": true,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "",
+        "centered": ""
+      },
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Rules & Regulations Bureau"
+        },
+        "groups": [{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "email",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"Rulesandregulations@DOR.State.MA.US",
+              "text": "Rulesandregulations@DOR.State.MA.US",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "pressListing": {
+      "sidebarHeading": {
+        "title": "Related"
+      },
+      "items": [{
+        "eyebrow": "Letter Ruling",
+        "title" : {
+          "href":"#",
+          "text":"LR 12-3: Internet-Based Marketing and Customer-Communications Solutions",
+          "info": "",
+          "property": ""
+        },
+        "date": "3/12/2016",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "Regulation",
+        "title" : {
+          "href":"#",
+          "text":"830 CMR 64H.1.3",
+          "info": "",
+          "property": ""
+        },
+        "date": "4/17/2016",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "",
+        "title" : {
+          "href":"#",
+          "text":"Related Non News, Announcements, Reg, or Law Here",
+          "info": "",
+          "property": ""
+        },
+        "date": "",
+        "org": "",
+        "description": null
+      }]
+    },
+
+    "eventListing": {
+      "sidebarHeading":{
+        "title": "Upcoming Events"
+      },
+      "events":[{
+        "title": {
+          "href": "#",
+          "text": "Public Hearing",
+          "info": "",
+          "property": ""
+        },
+        "location": "Boston, MA",
+        "date": {
+          "summary": "May 20, 2017"
+        },
+        "time": "12 p.m. - 2 p.m.",
+        "description": "Event description. Ut nulla. Vivamus bibendum, nulla ut congue fringilla, lorem ipsum ultricies risus, ut rutrum velit tortor vel purus."
+      }],
+      "more": null
+    }
+  }
+}
+

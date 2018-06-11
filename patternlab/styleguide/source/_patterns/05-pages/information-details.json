@@ -1,0 +1,556 @@
+{
+  "details": {
+    "contentTitle": "",
+    "titleContext": ""
+  },
+  "preContent": {
+    "pageHeader": {
+      "divider": false,
+      "title": "Why is habitat management needed?",
+      "subTitle": "MassWildlife's Habitat Programs are designed to help wildlife that rely on open habitats (grassland, shrubland, and young forests).",
+      "headerTags": {
+        "label": "More about:",
+        "taxonomyTerms": [
+          {
+            "href": "#",
+            "text": "MassWildlife"
+          },
+          {
+            "href": "#",
+            "text": "MassWildlife's Habitat Programs"
+          }
+        ]
+      },
+      "widgets": null
+    }
+  },
+  "pageContent": {
+    "section1": {
+      "compHeading": {
+        "title": "Human infrastructure and wildlife",
+        "titleContext": "",
+        "level": 2,
+        "color": "",
+        "id": "section1",
+        "centered": ""
+      },
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            }
+          }
+        },
+        {
+          "path": "@atoms/09-media/figure.twig",
+          "data": {
+            "figure": {
+              "align": "full",
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/1600x600.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/form-downloads.twig",
+          "data": {
+            "formDownloads": {
+              "compHeading": {
+                "title": "Additional resources",
+                "sub": false,
+                "titleContext": "",
+                "level": 3
+              },
+              "downloadLinks": [{
+                "downloadLink": {
+                  "iconSize": "",
+                  "icon": "doc-pdf",
+                  "decorativeLink": {
+                    "text": "PDF resource item",
+                    "href": "#",
+                    "info": "",
+                    "property": ""
+                  },
+                  "size": "30kb",
+                  "format": "PDF"
+                }
+              },{
+                "downloadLink": {
+                  "iconSize": "",
+                  "icon": "laptop",
+                  "decorativeLink": {
+                    "text": "Link to an online form",
+                    "href": "#",
+                    "info": "",
+                    "property": ""
+                  },
+                  "size": "",
+                  "format": "form"
+                }
+              },{
+                "downloadLink": {
+                  "iconSize": "",
+                  "icon": "",
+                  "decorativeLink": {
+                    "text": "Link to another page",
+                    "href": "#",
+                    "info": "",
+                    "property": ""
+                  },
+                  "size": "",
+                  "format": "form"
+                }
+              }]
+            }
+          }
+        }
+      ]
+    },
+    "section2": {
+      "compHeading": {
+        "title": "History of the Massachusetts landscape",
+        "titleContext": "",
+        "level": 2,
+        "color": "",
+        "id": "section2",
+        "centered": ""
+      },
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Open habitats (grasslands, shrublands and young forest) were part of the New England landscape for centuries prior to European colonization due to:"
+            }
+          }
+        },
+        {
+          "path": "@atoms/08-lists/ordered-list.twig",
+          "data": {
+            "orderedList": [
+              {
+                "text": "ubiquitous beaver activity"
+              },
+              {
+                "text": "spring flooding and ice scouring along rivers and major streams"
+              },
+              {
+                "text": "wildfires and fires set by Native Americans in coastal areas and major river valleys"
+              },
+              {
+                "text": "occasional catastrophic windstorms"
+              }
+            ]
+          }
+        },
+        {
+          "path": "@organisms/by-author/pullquote.twig",
+          "data": {
+            "pullquoteCallout": {
+              "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "These open habitats started to decline after European colonization due to:"
+            }
+          }
+        },
+        {
+          "path": "@molecules/callout-stats.twig",
+          "data": {
+            "statsCallout": {
+              "pull": "right",
+              "stat": "$75+",
+              "content": "this includes a title and registration fee"
+            }
+          }
+        },
+        {
+          "path": "@atoms/08-lists/ordered-list.twig",
+          "data": {
+            "orderedList": [
+              {
+                "text": "extirpation of beaver from Massachusetts"
+              },
+              {
+                "text": "extensive development  of roads and buildings in portions of the landscape that formerly supported abundant beaver activity"
+              },
+              {
+                "text": "flood control"
+              },
+              {
+                "text": "fire suppression (especially in portions of the landscape that supported fire-associated natural communities like pitch pine/scrub oak)."
+              }
+            ]
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human activity has also reduced the impact of wind storms across the landscape. Today’s forests are relatively young (75-90 year-old) compared to the old growth that once existed, which means that trees are more pliant and resistant to wind disturbance than original old growth forests. Forests are also fragmented by development in many portions of the landscape, which means that when wind disturbance does occur on forested lands, it is typically interrupted by adjacent development."
+            }
+          }
+        },
+        {
+        "path": "@atoms/09-media/iframe.twig",
+          "data": {
+           "iframe": {
+              "src": "https://massgov.github.io",
+              "title": "Embed page title for accessibility",
+              "position": "full",
+              "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "MassWildlife uses active management to provide a range of grassland, shrubland, and young forest habitats that are no longer created frequently enough by natural processes. Forestry practices, along with mowing, prescribed burning, and invasive plant control are often used to manage sites."
+            }
+          }
+        },
+        {
+        "path": "@atoms/09-media/iframe.twig",
+          "data": {
+           "iframe": {
+              "src": "https://massgov.github.io",
+              "title": "Embed page title for accessibility",
+              "position": "full",
+              "height": "200",
+              "caption": "This iframe has a set height of 200."
+            }
+          }
+        }
+      ]
+    },
+    "pullquoteCallout": {
+      "content": "Native grassland and shrubland birds are declining at an alarming rate. Even some forest nesting birds are declining, despite the fact that Massachusetts has more forestland now (nearly 3 million acres) than at any time in the past 300 years."
+    }
+  },
+  "postContent": {
+    "contactList": {
+      "compHeading": {
+        "title": "Contact",
+        "titleContext": "",
+        "level": 2,
+        "color": "",
+        "id": "contact",
+        "centered": ""
+      },
+      "contacts": [
+        {
+          "accordion": true,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Person to Contact",
+            "info": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "email@state.ma.us",
+                    "text": "email@state.ma.us",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "fax-icon",
+              "name": "Fax",
+              "items": [
+                {
+                  "type": "fax",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "Please allow 24 hours for a response"
+                }
+              ]
+            },
+            {
+              "icon": "marker",
+              "name": "Address",
+              "items": [
+                {
+                  "type": "address",
+                  "property": "",
+                  "label": "",
+                  "address": "555 Park Drive\nBoston, MA 02231",
+                  "link": {
+                    "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                    "text": "directions",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ],
+          "decorativeLink": {
+            "href": "#",
+            "text": "Learn more about this organization",
+            "info": "Learn more about this generic"
+          }
+        }
+      ]
+    },
+    "footnoteList": {
+      "items": [
+        {
+          "number": 1,
+          "target": "#footnoteref1",
+          "id": "footnotemsg1",
+          "richText": {
+            "property": "",
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 2,
+          "target": "#footnoteref2",
+          "id": "footnotemsg2",
+          "richText": {
+            "property": "",
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "postDateslistingTable": {
+      "rows": [
+        {
+          "label": "Date Published:",
+          "text": "January 2, 2018"
+        },
+        {
+          "label": "Last Updated:",
+          "text": "January 16, 2018"
+        }
+      ]
+    },
+    "relatedLinkList": {
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": ""
+      },
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "MassWildlife's Habitat Programs",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Habitat management tools",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Featured habitat projects",
+          "info": "",
+          "property": ""
+        }
+      ]
+    },
+    "imageCredit": {
+      "items": [
+        {
+          "caption": "Guide: Getting OutDoors",
+          "link": {
+            "href": "#",
+            "target": "",
+            "text": "Source Name",
+            "chevron": ""
+          },
+          "source": "Source Name"
+        },
+        {
+          "caption": "Guide: Fall Activities",
+          "link": "",
+          "source": "Source Name"
+        }
+      ]
+    }
+  },
+  "sidebar": {
+    "coloredHeadings": false,
+    "contactList": {
+      "viewSpecific": true,
+      "sidebarHeading": {
+        "title": "Contact",
+        "titleContext": ""
+      },
+      "contacts": [
+        {
+          "accordion": false,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "MassWildlife",
+            "chevron": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+16174438765",
+                    "text": "(617) 443-8765",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "",
+                  "link": {
+                    "href": "email@email.com",
+                    "text": "Mass.Wildlife@state.ma.us",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                },
+                {
+                  "type": "online",
+                  "property": "",
+                  "label": "Websites",
+                  "link": {
+                    "href": "#",
+                    "text": "MassWildlife Facebook",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                },
+                {
+                  "type": "online",
+                  "property": "",
+                  "label": "",
+                  "link": {
+                    "href": "#",
+                    "text": "MassWildlife Instagram",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "linkList": {
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": ""
+      },
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "MassWildlife's Habitat Programs",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Habitat management tools",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Featured habitat projects",
+          "info": "",
+          "property": ""
+        }
+      ]
+    }
+  }
+}

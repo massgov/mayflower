@@ -1,0 +1,14 @@
+{
+  "headerAlerts": [{
+    "id": "GUID09058070135",
+    "text": "Lots of Bears.",
+    "href": "#",
+    "info": ""
+  },{
+    "id": "GUID045770870132",
+    "prefix": "Notice",
+    "text": "Lots of Bunnies, too.",
+    "href": "#",
+    "info": ""
+  }]
+}

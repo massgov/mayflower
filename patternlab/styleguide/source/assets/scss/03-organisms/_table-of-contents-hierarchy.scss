@@ -1,0 +1,80 @@
+.ma__toc--hierarchy {
+
+  .ma__colored-heading {
+    margin-bottom: 0 !important;
+    margin-right: 50px;
+    overflow: visible;
+    z-index: 1;
+    max-width: 28em;
+    width: calc(100% - 50px);
+
+    &:after {
+      display: none;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: inherit;
+      height: 100%;
+      width: 50px;
+      transform: skew(-.53rad);
+      right: -25px;
+    }
+  }
+  .ma__toc--hierarchy__container {
+    position: relative;
+    top: -20px;
+    padding: 0;
+    padding-top: 20px;
+    list-style: none;
+
+    .ma__decorative-link {
+      padding: 20px;
+    }
+    .ma__download-link {
+      padding: 20px;
+    }
+  }
+
+}
+
+.ma__toc--hierarchy__accordion {
+  .ma__toc--hierarchy__accordion-content {
+    list-style: none;
+    margin-bottom: 0;
+    display: none;
+    padding: 10px 0 10px 20px;
+  }
+
+  .ma__toc--hierarchy__title {
+    background: transparent;
+    border: none;
+    display: block;
+    padding: 20px;
+    padding-right: 30px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    font-weight: bold;
+
+    &:after {
+      font-size: 2.5rem;
+      font-weight: normal;
+      content: "+";
+      line-height: .65em;
+      overflow: hidden;
+      position: absolute;
+        right: 15px;
+        top: 20px;
+      transform-origin: center center;
+      transition: transform .2s ease;
+    }
+  }
+
+  &.is-open .ma__toc--hierarchy__title:after {
+    transform: rotate(135deg);
+  }
+}

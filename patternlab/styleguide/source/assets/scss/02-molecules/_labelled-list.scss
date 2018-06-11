@@ -1,0 +1,12 @@
+.ma__labelled-list {
+
+  &__items {
+    @include ma-reset-list;
+  }
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+    @include ma-container();
+  }
+}

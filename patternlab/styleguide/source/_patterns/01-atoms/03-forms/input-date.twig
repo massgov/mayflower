@@ -1,0 +1,10 @@
+<label for="{{ inputDate.id }}">{{inputDate.labelText}}</label>
+<input 
+  class="ma__input-date js-input-date {{ inputDate.required ? 'js-is-required' : ''}}" 
+  name="{{ inputDate.name }}" 
+  id="{{ inputDate.id }}" 
+  type="date" 
+  placeholder="{{ inputDate.placeholder }}" 
+  data-type="date"
+  data-restrict="{{ inputDate.restrict }}" 
+  {{ inputDate.required ? 'required' : '' }} />

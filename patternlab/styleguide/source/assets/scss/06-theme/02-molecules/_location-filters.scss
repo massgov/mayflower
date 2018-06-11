@@ -1,0 +1,14 @@
+.ma__location-filters {
+  background-color: $c-bg-section;
+
+  &__tag {
+
+    & > svg {
+      fill: $c-theme-secondary;
+    }
+  }
+
+  &__submit {
+    @include ma-button('','solid',$c-theme-primary);
+  }
+}

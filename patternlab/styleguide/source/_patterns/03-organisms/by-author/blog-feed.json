@@ -1,0 +1,31 @@
+{
+  "blogFeed" : {
+    "title": "The Latest from Our Team",
+    "items": [{
+      "image": {
+        "src": "../../assets/images/placeholder/320x180.png",
+        "alt": "something about this image"
+      },
+      "date": "11.15.16",
+      "link": {
+        "type": "external",
+        "href": "#",
+        "text": "Lorem ipsum dolor sit amet."
+      },
+      "description": "Ne fugit omnium vel. Qui purto oblique fuisset ea, ex autem viderer has, illum paulo saperet te has."
+    },
+    {
+      "image": {
+        "src": "../../assets/images/placeholder/320x180.png",
+        "alt": "something about this image"
+      },
+      "date": "10.14.16",
+      "link": {
+        "type": "external",
+        "href": "#",
+        "text": "Per illum tibique definitiones id"
+      },
+      "description": "Qui summo omnium persius ad. Mollis definiebas dissentiunt ea sea, nibh intellegebat cu pri."
+    }]
+  }
+}

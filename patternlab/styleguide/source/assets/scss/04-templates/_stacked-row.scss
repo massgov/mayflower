@@ -1,0 +1,54 @@
+.ma__stacked-row {
+  position: relative;
+
+  &__section {
+
+    @media ($bp-large-max) {
+      padding-bottom: 45px;
+
+      & ~ & {
+        border-top-width: 1px;
+        border-top-style: solid;
+      }
+
+      & ~ &--borderless {
+        border-top-width: 0;
+      }
+    }
+
+    @media print {
+      padding-bottom: 0;
+    }
+  }
+
+  &__container {
+    @include ma-container;
+  }
+
+  // reduce the width of the title and border
+  &__section--restricted + &__section--restricted &__container {
+    @include ma-container('restricted');
+  }
+
+  &__section ~ &__section &__container:before {
+    content: "";
+    display: block;
+    padding-top: 45px;
+
+    @media print, ($bp-large-min) {
+      border-top-width: 1px;
+      border-top-style: solid;
+      padding-top: 90px;
+    }
+  }
+
+  &__section ~ &__section--borderless &__container:before {
+    @media print, ($bp-large-min) {
+      border-top-width: 0;
+    }
+  }
+
+  &__section--restricted &__title {
+    max-width: 820px;
+  }
+}

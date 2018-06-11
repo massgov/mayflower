@@ -1,0 +1,13 @@
+{
+  "downloadLink": {
+    "iconSize": "",
+    "icon": "doc-generic",
+    "decorativeLink": {
+      "text": "Link with a generic icon",
+      "href": "#",
+      "info": ""
+    },
+    "size": "40kb",
+    "format": "JSON"
+  }
+}

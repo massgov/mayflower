@@ -1,0 +1,42 @@
+{% extends '@templates/two-column.twig' %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/page-header.twig" %}
+{% endblock %}
+
+{% block pageContent %}
+  {% set listingTable = mainContent.listingTable %}
+  {% include "@molecules/listing-table.twig" %}
+
+  {% set contactList = sideContent.contactList %}
+  {% include "@organisms/by-author/contact-list.twig" %}
+
+  {% set personalMessage = mainContent.personalMessage %}
+  {% include "@organisms/by-author/personal-message.twig" %}
+
+  {% set richText = mainContent.richText %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+
+  {% set formDownloads = mainContent.formDownloads %}
+  {% include "@organisms/by-author/form-downloads.twig" %}
+
+  {% set contactList = mainContent.contactList %}
+  {% include "@organisms/by-author/contact-list.twig" %}
+
+
+{% endblock %}
+
+{% block sidebar %}
+  {% set contactList = sideContent.contactList %}
+  {% include "@organisms/by-author/contact-list.twig" %}
+  
+  {% set pressListing = sideContent.pressListing %}
+  {% include "@organisms/by-author/press-listing.twig" %}
+
+  {% set eventListing = sideContent.eventListing %}
+  {% include "@organisms/by-author/event-listing.twig" %}
+{% endblock %}
+{% block postContent %}
+
+{% endblock %}
+

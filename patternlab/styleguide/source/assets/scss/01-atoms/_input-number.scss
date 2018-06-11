@@ -1,0 +1,57 @@
+.ma__input-number {
+  display: inline-block;
+  position: relative;
+
+  input {
+    padding-right: 58px;
+  }
+
+  &__plus,
+  &__minus {
+    @include ma-button-reset;
+    border-style: solid;
+    border-width: 2px;
+    border-bottom: none;
+    display: block;
+    height: 50%;
+    padding: 0;
+    position: absolute;
+      right: 0;
+    width: 40px;
+
+    &:focus {
+      border-bottom-style: dotted;
+      border-bottom-width: 1px;
+    }
+
+    &:after {
+      border-style: solid;
+      border-width: 5px;
+      border-top: none;
+      border-bottom-width: 6px;
+      content: "";
+      display: block;
+      height: 0;
+      margin: 0 auto;
+      position: absolute;
+        bottom: 2px;
+        left: 50%;
+      transform: translateX(-50%);
+      vertical-align: bottom;
+      width: 0;
+    }
+
+    &:focus:after {
+      bottom: 1px;
+    }
+  }
+
+  &__plus {
+    bottom: 50%;
+  }
+
+  &__minus {
+    top: 50%;
+    transform: rotate(180deg);
+  }
+}

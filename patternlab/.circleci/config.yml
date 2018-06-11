@@ -1,0 +1,104 @@
+
+version: 2
+
+# YAML anchors/aliases. See;
+# - https://circleci.com/blog/circleci-hacks-reuse-yaml-in-your-circleci-config-with-yaml/
+# - https://github.com/circleci/frontend/blob/master/.circleci/config.yml
+references:
+  common_config: &common_config
+    working_directory: /var/www/code
+    docker:
+      # @see https://github.com/massgov/Drupal-Container
+      - image: massgov/drupal-container:1.0.1-ci
+
+jobs:
+  build:
+    <<: *common_config
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore NPM Cache
+          keys:
+            - site-npm-v1-{{ checksum "styleguide/yarn.lock" }}
+            - site-npm-v1-
+      - run: { name: 'NPM Install', command: 'cd styleguide && yarn' }
+      - save_cache:
+          name: Save NPM cache
+          key: site-npm-v1-{{ checksum "styleguide/yarn.lock" }}
+          paths: [ styleguide/node_modules ]
+      - run: { name: 'Generate style guide', command: 'php styleguide/core/console --generate' }
+      - run: { name: 'Build assets', command: 'cd styleguide && node_modules/.bin/gulp prod' }
+      - persist_to_workspace:
+          root: /var/www
+          paths: [code]
+
+  test:
+    working_directory: /home/circleci/code
+    docker:
+      - image: circleci/python:2.7.14
+    steps:
+      - attach_workspace: {at: /home/circleci}
+      - setup_remote_docker
+      - run: docker-compose up --no-start web backstop
+      - run: |
+          docker cp ./ $(docker-compose ps -q backstop):/src/
+          docker cp ./styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
+      - run: docker-compose run backstop test
+      - run:
+          command: docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
+          when: always
+      - store_artifacts:
+          path: ./backstopjs
+          destination: backstop
+      - store_test_results:
+          path: backstopjs/reports/ci
+
+  deploy_branch:
+    <<: *common_config
+    steps:
+      - add_ssh_keys
+      - attach_workspace: {at: /var/www}
+      - run:
+          name: "Prepare Git"
+          command: |
+            git config --global user.email "ci.bot@mass.gov"
+            git config --global user.name "MassGov Bot"
+      - run: { name: 'Deploy artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:publish" }
+      - run: { name: 'Deploy S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:publish" }
+
+  deploy_tag:
+    <<: *common_config
+    steps:
+      - add_ssh_keys
+      - attach_workspace: {at: /var/www}
+      - run:
+          name: "Prepare Git"
+          command: |
+            git config --global user.email "ci.bot@mass.gov"
+            git config --global user.name "MassGov Bot"
+      - run: { name: 'Configure NPM', command: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'}
+      - run: { name: 'Release Artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:release" }
+      - run: { name: 'Release S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:release" }
+      - run: { name: 'Release NPM', command: "cd styleguide && node_modules/.bin/gulp npm:release" }
+
+workflows:
+  version: 2
+  build_branch:
+    jobs:
+      - build
+      - test:
+          requires: [build]
+      - deploy_branch:
+          requires: [build]
+
+  build_tag:
+    jobs:
+      - build:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - deploy_tag:
+          requires: [build]
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }

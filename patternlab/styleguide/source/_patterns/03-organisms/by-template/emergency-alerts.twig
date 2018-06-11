@@ -1,0 +1,32 @@
+{% set alertsExist = emergencyAlerts.alerts ? true : false %}
+{% set accordionClass = alertsExist ? 'js-accordion js-emergency-alerts' : '' %}
+
+{% if emergencyAlerts.alerts or emergencyAlerts.emergencyHeader %}
+  <section class="ma__emergency-alerts {{ accordionClass }}" data-id="{{emergencyAlerts.id}}">
+    <div class="ma__emergency-alerts__header">
+      <div class="ma__emergency-alerts__container">
+        {% set emergencyHeader = emergencyAlerts.emergencyHeader %}
+        {% include "@molecules/emergency-header.twig" %}
+        {% if alertsExist %}
+          <div class="ma__emergency-alerts__header-interface js-accordion-link">
+            {% set buttonAlert = emergencyAlerts.buttonAlert %}
+            {% include "@molecules/button-alert.twig" %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% if alertsExist %}
+      <div class="ma__emergency-alerts__content js-accordion-content">
+        <div class="ma__emergency-alerts__container">
+          {% for emergencyAlert in emergencyAlerts.alerts %}
+            {% include "@molecules/emergency-alert.twig" %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="ma__emergency-alerts__interface js-accordion-link">
+        {% set buttonAlert = emergencyAlerts.buttonAlert %}
+        {% include "@molecules/button-alert.twig" %}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

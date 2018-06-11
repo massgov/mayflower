@@ -1,0 +1,32 @@
+{
+  "splitColumns": {
+    "columns": [{
+      "items":[{
+        "path": "@base/placeholder.twig",
+        "data": {
+          "placeholder": {
+            "text": "33%"
+          }
+        }
+      }]
+    },{
+      "items":[{
+        "path": "@base/placeholder.twig",
+        "data": {
+          "placeholder": {
+            "text": "33%"
+          }
+        }
+      }]
+    },{
+      "items":[{
+        "path": "@base/placeholder.twig",
+        "data": {
+          "placeholder": {
+            "text": "33%"
+          }
+        }
+      }]
+    }]
+  }
+}

@@ -1,0 +1,10 @@
+{% extends '@templates/stacked-row-template.twig' %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/content-eyebrow.twig" %}
+  {% include "@organisms/by-template/illustrated-header.twig" %}
+{% endblock %}
+
+{% block postContent %}
+  {% include "@organisms/by-author/suggested-pages.twig" %}
+{% endblock %}

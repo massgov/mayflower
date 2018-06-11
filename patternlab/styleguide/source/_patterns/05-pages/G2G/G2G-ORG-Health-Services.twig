@@ -1,0 +1,19 @@
+{% extends '@templates/stacked-row-template.twig' %}
+
+{% block preContent %}
+  <script>
+    document.querySelector('.js-base-theme').setAttribute('href',govThemeCss);
+  </script>
+  {% include "@organisms/by-template/page-banner.twig" %}
+  {% include "@organisms/by-template/page-header.twig" %}
+{% endblock %}
+
+
+{% block postContent %}{% endblock %}
+
+{% block schemaContent %}
+  {% if schema.governmentOrganization %}
+    {% set governmentOrganization = schema.governmentOrganization %}
+    {% include "@meta/schema/government-organization.twig" %}
+  {% endif %}
+{% endblock %}

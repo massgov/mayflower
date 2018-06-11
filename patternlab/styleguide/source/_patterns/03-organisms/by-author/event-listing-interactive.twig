@@ -1,0 +1,27 @@
+{% set maxItems = eventListingInteractive.maxItems ?: eventListingInteractive.events.length %}
+
+<section class="ma__event-listing-interactive js-event-listing-interactive">
+  {% if eventListingInteractive.eventFilters %}
+    <div class="ma__event-listing-interactive__filters">
+      {% set eventFilters = eventListingInteractive.eventFilters %}
+      {% include "@molecules/event-filters.twig" %}
+    </div>
+  {% endif %}
+  <div class="ma__event-listing-interactive__results js-event-listing-results">
+    {% set resultsHeading = eventListingInteractive.resultsHeading %}
+    {% include "@molecules/results-heading.twig" %}
+    {% set eventListing = eventListingInteractive.eventListing %}
+    {% include "@organisms/by-author/event-listing.twig" %}
+    {% set pagination = eventListingInteractive.pagination %}
+    {% include "@molecules/pagination.twig" %}
+  </div>
+</section>
+
+<script>
+  // Make eventListing data object available in eventListing module js.
+  var ma = ma || {};
+  ma.eventListingInteractive = ma.eventListingInteractive || [];
+  ma.eventListingInteractive.push({{ eventListingInteractive|json_encode|raw }});
+</script>
+
+

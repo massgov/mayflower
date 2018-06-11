@@ -1,0 +1,10 @@
+.ma__stacked-row {
+
+  &__section ~ &__section {
+    border-color: $c-bd-divider;
+  }
+
+  &__section ~ &__section &__container:before {
+    border-color: $c-bd-divider;
+  }
+}

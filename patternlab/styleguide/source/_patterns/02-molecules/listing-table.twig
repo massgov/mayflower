@@ -1,0 +1,54 @@
+<div class="ma__listing-table">
+  <div class="ma__listing-table__container">
+    <table>
+      {% for row in listingTable.rows %}
+        <tr>
+          <th scope="row">{{ row.label }}</th>
+          {# Backwards compatible with 5.8.x where listingTable.rows array item objects expect label and text properties instead of a label and an "items" array. #}
+          {% if row.text %}
+            {% set row = row|merge({'items': [{
+              "text": row.text
+            }]}) %}
+          {% endif %}
+          {# Configure the accordion functionality. #}
+          {% if row.items %}
+            {# Get configured number of visible items. #}
+            {% set visibleItems = row.visibleItems ?: 2 %}
+            {# Determine if we need an accordion. #}
+            {% if row.items|length > visibleItems %}
+              {% set inlineAccordion = true %}
+              {% set accordionClass = " js-accordion" %}
+              {# Get the value of the show/hide button text. #}
+              {% set moreLabel = row.moreLabel ?: "show more" %}
+              {% set lessLabel = row.lessLabel ?: "show less" %}
+            {% endif %}
+
+            <td class="ma__rich-text{{ accordionClass }}">
+              {% if inlineAccordion %}
+                {# Separate items into visible + extra for accordion. #}
+                {% for item in row.items[:visibleItems] %}
+                  <span class="ma__listing-table__data-item">{{ item.text|raw }}</span>
+                {% endfor %}
+                <div class="ma__listing-table__extra js-accordion-content">
+                  {% for item in row.items[visibleItems:last] %}
+                    <span class="ma__listing-table__data-item">{{ item.text|raw }}</span>
+                  {% endfor %}
+                </div>
+                <div class="ma__listing-table__expand">
+                  <button type="button" class="js-accordion-link" aria-expanded="false">
+                    <span>{{ moreLabel }}</span><span>{{ lessLabel }}</span>
+                  </button>
+                </div>
+              {% else %}
+                {# Show all items with no accordion. #}
+                {% for item in row.items %}
+                  <span class="ma__listing-table__data-item">{{ item.text|raw }}</span>
+                {% endfor %}
+              {% endif %}
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>

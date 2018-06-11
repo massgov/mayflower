@@ -1,0 +1,29 @@
+{
+  "contactGroup": {
+    "icon": "fax-icon",
+    "name": "Fax",
+    "level": "",
+    "contactName": "",
+    "items": [{
+      "type": "phone",
+      "label": "Main:",
+      "address": "",
+      "link": {
+        "href": "+14134994262",
+        "text": "(413) 499-4262",
+        "info": ""
+      },
+      "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+    },{
+      "type": "phone",
+      "label": "Toll Free:",
+      "address": "",
+      "link":{
+        "href": "+18004324321",
+        "text": "(800) 432-4321",
+        "info": ""
+      },
+      "details": ""
+    }]
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "eventListingInteractive": {
+    "maxItems": 10,
+    "eventFilters": {
+      "zipcode": {
+        "inputText": {
+          "labelText": "Show closest",
+          "required": false,
+          "id": "find-nearby",
+          "name": "find-nearby",
+          "type": "text",
+          "placeholder": "City, town, or ZIP code"
+        },
+        "placeAutocomplete": {
+          "bounds": {
+            "sw": {
+              "lat": "",
+              "lng": ""
+            },
+            "ne": {
+              "lat": "",
+              "lng": ""
+            }
+          }
+        }
+      },
+
+      "dateRange": {
+        "label": "Filter by date",
+        "startDate": {
+          "labelText": "Select a start date",
+          "required": false,
+          "id": "start-date",
+          "name": "start-date",
+          "placeholder": "today",
+          "restrict": "min"
+        },
+        "endDate": {
+          "labelText": "Select an end date",
+          "required": false,
+          "id": "end-date",
+          "name": "end-date",
+          "placeholder": "mm/dd/yy",
+          "restrict": "min"
+        }
+      },
+
+      "submitButton": "Submit"
+    },
+
+    "resultsHeading": {
+      "numResults": "1-10",
+      "totalResults": "11",
+      "tags": null
+    },
+
+    "eventListing": {
+      "maxItems": 8,
+      "compHeading": null,
+      "events":[{
+        "title": {
+          "href": "#",
+          "text": "Indianapolis Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Indianapolis, IN",
+        "position": {
+          "lat": 39.768403,
+          "lng": -86.158068
+        },
+        "date": {
+          "summary": "December 2, 2017",
+          "startMonth": "Dec",
+          "startDay": "2",
+          "startTimestamp": "12/2/2017 - 14:00",
+          "endMonth": "",
+          "endDay": "",
+          "endTimestamp": "12/2/2017 - 15:00"
+        },
+        "time": "2 p.m. - 3 p.m.",
+        "description": "sit amet, consectetur adipisicing elit"
+      },{
+        "title": {
+          "href": "#",
+          "text": "Albuquerque Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Albuquerque, New Mexico",
+        "position": {
+          "lat": 35.085334,
+          "lng": -106.605553
+        },
+        "date": {
+          "summary": "March 2, 2017 - April 25, 2017",
+          "startMonth": "Mar",
+          "startDay": "2",
+          "startTimestamp": "3/2/2017 - 14:00",
+          "endMonth": "Apr",
+          "endDay": "25",
+          "endTimestamp": "4/25/2017 - 15:00"
+        },
+        "time": "2 p.m. - 3 p.m.",
+        "description": "sit amet, consectetur adipisicing elit"
+      },{
+        "title": {
+          "href": "#",
+          "text": "Winter Birding Event",
+          "info": "",
+          "property": ""
+        },
+        "location": "Lanesborough, MA",
+        "position": {
+          "lat": 42.517306,
+          "lng": -73.228160
+        },
+        "date": {
+          "summary": "June 2, 2017",
+          "startMonth": "Jun",
+          "startDay": "2",
+          "startTimestamp": "6/2/2017 - 12:00",
+          "endMonth": "",
+          "endDay": "",
+          "endTimestamp": "6/2/2017 - 14:00"
+        },
+        "time": "12 p.m. - 2 p.m.",
+        "description": "Event description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias architecto deleniti sunt eum incidunt laboriosam quos repudiandae nesciunt eligendi? Aliquid."
+      },{
+        "title": {
+          "href": "#",
+          "text": "First Day Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Lanesborough, MA",
+        "position": {
+          "lat": 42.517306,
+          "lng": -73.228160
+        },
+        "date": {
+          "summary": "March 30, 2017 - April 10, 2017",
+          "startMonth": "Mar",
+          "startDay": "30",
+          "startTimestamp": "3/30/2017 - 12:00",
+          "endMonth": "Apr",
+          "endDay": "10",
+          "endTimestamp": "4/10/2017 - 14:00"
+        },
+        "time": "12 p.m. - 2 p.m.",
+        "description": ""
+      },{
+        "title": {
+          "href": "#",
+          "text": "First Day Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Chicago, IL",
+        "position": {
+          "lat": 41.878114,
+          "lng": -87.629798
+        },
+        "date": {
+          "summary": "August 26, 2017 - August 30, 2017",
+          "startMonth": "Aug",
+          "startDay": "26",
+          "startTimestamp": "8/26/2017 12:00",
+          "endMonth": "Aug",
+          "endDay": "30",
+          "endTimestamp": "8/30/2017 - 14:00"
+        },
+        "time": "12 p.m. - 2 p.m.",
+        "description": ""
+      },{
+        "title": {
+          "href": "#",
+          "text": "Indianapolis Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Indianapolis, IN",
+        "position": {
+          "lat": 39.768403,
+          "lng": -86.158068
+        },
+        "date": {
+          "summary": "January 12, 2017 - April 25, 2017",
+          "startMonth": "Jan",
+          "startDay": "12",
+          "startTimestamp": "1/12/2017 - 14:00",
+          "endMonth": "Apr",
+          "endDay": "25",
+          "endTimestamp": "4/25/2017 - 15:00"
+        },
+        "time": "2 p.m. - 3 p.m.",
+        "description": "sit amet, consectetur adipisicing elit"
+      },{
+        "title": {
+          "href": "#",
+          "text": "Indianapolis Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Indianapolis, IN",
+        "position": {
+          "lat": 39.768403,
+          "lng": -86.158068
+        },
+        "date": {
+          "summary": "October 16, 2017 - October 18, 2017",
+          "startMonth": "Oct",
+          "startDay": "16",
+          "startTimestamp": "10/16/2017 - 14:00",
+          "endMonth": "Oct",
+          "endDay": "18",
+          "endTimestamp": "10/18/2017 - 15:00"
+        },
+        "time": "2 p.m. - 3 p.m.",
+        "description": "sit amet, consectetur adipisicing elit"
+      },{
+        "title": {
+          "href": "#",
+          "text": "Attleboro Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Attleboro, MA",
+        "position": {
+          "lat": 41.9462525,
+          "lng": -71.289677
+        },
+        "date": {
+          "summary": "June 2, 2017",
+          "startMonth": "Jun",
+          "startDay": "2",
+          "startTimestamp": "6/2/2017 - 14:00",
+          "endMonth": "",
+          "endDay": "",
+          "endTimestamp": "6/2/2017 - 15:00"
+        },
+        "time": "2 p.m. - 3 p.m.",
+        "description": "sit amet, consectetur adipisicing elit"
+      },{
+        "title": {
+          "href": "#",
+          "text": "New York Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "New York, NY",
+        "position": {
+          "lat": 40.712784,
+          "lng": -74.005941
+        },
+        "date": {
+          "summary": "June, 2 2017",
+          "startMonth": "Jun",
+          "startDay": "2",
+          "startTimestamp": "6/2/2017 - 14:00",
+          "endMonth": "",
+          "endDay": "",
+          "endTimestamp": ""
+        },
+        "time": "2 p.m. - 3 p.m.",
+        "description": "sit amet, consectetur adipisicing elit"
+      },{
+        "title": {
+          "href": "#",
+          "text": "Los Angeles Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Los Angeles, CA",
+        "position": {
+          "lat": 34.052234,
+          "lng": -118.243685
+        },
+        "date": {
+          "summary": "September 19, 2017 - September 25, 2017",
+          "startMonth": "Sep",
+          "startDay": "19",
+          "startTimestamp": "9/19/2017 - 14:00",
+          "endMonth": "Sep",
+          "endDay": "25",
+          "endTimestamp": "9/25/2017 - 15:00"
+        },
+        "time": "2 p.m. - 3 p.m.",
+        "description": "sit amet, consectetur adipisicing elit"
+      },{
+        "title": {
+          "href": "#",
+          "text": "Cincinnati Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Cincinnati, OH",
+        "position": {
+          "lat": 39.103118,
+          "lng": -84.512020
+        },
+        "date": {
+          "summary": "February 17, 2017 - February 25, 2017",
+          "startMonth": "Feb",
+          "startDay": "17",
+          "startTimestamp": "2/17/2017 - 14:00",
+          "endMonth": "Feb",
+          "endDay": "25",
+          "endTimestamp": "2/25/2017 - 15:00"
+        },
+        "time": "2 p.m. - 3 p.m.",
+        "description": "sit amet, consectetur adipisicing elit"
+      }],
+      "more": null
+    },
+
+    "pagination": {
+      "next": {
+        "disabled": false,
+        "text": "Next"
+      },
+      "prev": {
+        "disabled": true,
+        "text": "Previous"
+      },
+      "pages": [{
+        "active": true,
+        "text": "1"
+      },{
+        "active": false,
+        "text": "2"
+      }]
+    }
+  }
+}

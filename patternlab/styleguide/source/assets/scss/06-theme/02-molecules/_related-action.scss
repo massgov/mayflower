@@ -1,0 +1,15 @@
+.paragraph--type--related-link, // mass gov drupal instance
+.ma__related-action {
+
+  & + & {
+    border-top-color: $c-bd-divider;
+  }
+
+  &__link {
+
+  }
+
+  &__description {
+
+  }
+}

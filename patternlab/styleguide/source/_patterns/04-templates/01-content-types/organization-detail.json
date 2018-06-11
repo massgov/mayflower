@@ -1,0 +1,44 @@
+{
+  "pageBanner": {
+    "bgWide": "../../assets/images/placeholder/1600x400.png",
+    "bgNarrow": "../../assets/images/placeholder/800x400.png",
+    "size": "large",
+    "icon": null,
+    "title": "Organization Detail Banner",
+    "titleSubText": ""
+  },
+  "stackedRows": [{
+    "title": "Row with image",
+    "id": "row-with-sidebar",
+    "pageContent": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text":"Section Content"
+        }
+      }
+    }],
+
+    "sideBar": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text":"Optional Image"
+        }
+      }
+    }]
+  },{
+    "title": "Row with no image",
+    "id": "full-width-row",
+    "pageContent": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text":"Section content"
+        }
+      }
+    }],
+
+    "sideBar": []
+  }]
+}

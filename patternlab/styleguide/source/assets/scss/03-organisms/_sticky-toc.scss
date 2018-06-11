@@ -1,0 +1,151 @@
+.ma__sticky-toc {
+  margin-bottom: 30px;
+  //position: relative // can't have position relative here or the links won't stick for the height of page-content
+
+  @media ($bp-small-min) {
+    margin-bottom: 60px;
+    padding-top: 30px;
+  }
+
+  @media print {
+    display: none;
+  }
+
+  &__inner {
+
+    @media ($bp-small-min) {
+      padding-bottom: 35px;
+    }
+  }
+
+  &__container {
+    @include ma-container;
+  }
+
+  &__title {
+    @include ma-heading-colored;
+    margin-bottom: 0;
+    position: relative;
+      top: -30px;
+
+    &:after {
+      display: none;
+    }
+
+    @media ($bp-x-small-max) {
+      display: none;
+    }
+
+    @media ($bp-x-small-min) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__links {
+    @include clearfix;
+    position: relative;
+    transition: top .3s;
+    padding-left: 2rem;
+    width: 100%;
+    z-index: $z-sticky-content;
+
+    &:before {
+      content: "false"; // hook for JS to do the mobile sticky
+      display: none;
+    }
+
+    @media ($bp-x-small-max) {
+      left: 0;
+      padding-left: 0;
+
+      &:before {
+        content: "true"; // hook for JS to do the mobile sticky
+      }
+
+      &[data-sticky='middle'] {
+        position: fixed;
+          top: 40px;
+
+        .translated-rtl &,
+        .translated-ltr & {
+          top: 80px;
+        }
+      }
+
+      &[data-sticky='bottom'] {
+        position: absolute;
+          top: auto; // height of one line of text
+          bottom: -30px; // compensate for bottom margin
+      }
+    }
+  }
+
+  &__toggle-link {
+    @include ma-button-reset;
+    font-size: 2.5rem;
+    line-height: .65em;
+    overflow: hidden;
+    position: absolute;
+      right: 10px;
+      top: 9px;
+    transition: transform .2s ease;
+    transform-origin: center center;
+    z-index: 1;
+
+    .is-open & {
+      transform: rotate(135deg);
+    }
+
+    @media ($bp-x-small-min) {
+      display: none;
+    }
+  }
+
+  &__link {
+    line-height: 1.2;
+    padding-bottom: .35em;
+    padding-left: 35px;
+    position: relative;
+
+    & > svg {
+      height: 22px;
+      position: absolute;
+      left: 0;
+      top: 4px;
+      transform: rotate(90deg);
+      width: 22px;
+    }
+
+    a {
+      @include ma-link-underline;
+
+      @media ($bp-x-small-min) {
+        line-height: 1.5;
+      }
+    }
+
+    @media ($bp-x-small-max) {
+      display: none;
+      font-size: 20px;
+      line-height: 1.2;
+      padding: 10px 35px 10px 15px;
+
+      &.is-active {
+        display: block;
+
+        a {
+          border: none;
+        }
+      }
+
+      .is-open & {
+        display: block;
+      }
+
+      .is-open & + & {
+        border-top-width: 1px;
+        border-top-style: solid;
+      }
+    }
+  }
+}

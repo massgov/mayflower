@@ -1,0 +1,27 @@
+{
+  "inputGroup": {
+    "required": false,
+    "inline": true,
+    "title": "Group of inputs",
+    "type": "checkbox",
+    "items": [{
+      "name": "gender",
+      "value": "male",
+      "id": "cbi-gender-male",
+      "label": "Male",
+      "checked": true
+    },{
+      "name": "gender",
+      "value": "female",
+      "id": "cbi-gender-female",
+      "label": "Female",
+      "checked": false
+    },{
+      "name": "gender",
+      "value": "other",
+      "id": "cbi-gender-other",
+      "label": "Other",
+      "checked": false
+    }]
+  }
+}

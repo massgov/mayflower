@@ -1,0 +1,49 @@
+.ma__collapsible-header {
+  
+  &__button {
+    border: none;
+    display: block;
+    padding: 20px 40px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    &:after {
+      font-size: 2.5rem;
+      content: "+";
+      line-height: .65em;
+      overflow: hidden;
+      position: absolute;
+        right: 15px;
+        top: 25px;
+      transform-origin: center center;
+      transition: transform .2s ease;
+
+      .is-open & {
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+      top: 25px;
+      left: 20px;
+    text-align: center;
+
+    & > svg {
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  &__title {
+    @include ma-h5;
+    margin-bottom: 0;
+    min-height: 32px;
+  }
+
+  &__icon + &__title {
+    padding-left: 20px;
+  }
+}

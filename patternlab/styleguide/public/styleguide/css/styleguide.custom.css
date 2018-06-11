@@ -1,0 +1,113 @@
+#sg-vp-wrap {
+  top:36px;
+}
+
+.sg-header {
+  background-color: #14558f;
+  box-shadow: 0 2px 2px #ccc;
+}
+
+.sg-current-size,
+.sg-header a {
+  color:#fff;
+  font-size: .75rem;
+}
+
+.sg-input {
+  background-color: transparent;
+  color:#fff;
+  font-size: .75rem;
+}
+
+.sg-tools-toggle {
+  background-color: transparent;
+  height: 100%;
+}
+
+.sg-tools-toggle svg path{
+    fill: #fff;
+}
+
+.sg-modal {
+  background-color: #fff;
+  border-top: 2px solid #ccc;
+}
+
+.sg-modal .sg-pattern-title {
+  color: #14558f;
+}
+
+.sg-modal .sg-pattern-breadcrumb {
+  font-size: 90%;
+}
+
+.sg-modal .sg-pattern-extra-info a {
+  color: #14558f;
+}
+
+.sg-modal .sg-pattern-extra-info a:hover {
+  color: #14558f;
+  opacity: .7;
+}
+
+.sg-modal-close-btn {
+  background-color: transparent;
+  border: none;
+  z-index: 5;
+}
+.sg-modal-close-btn:hover {
+  background-color: transparent;
+}
+
+.sg-modal-close-btn svg {
+  height: 15px;
+  width: 15px;
+}
+
+.sg-modal-close-btn svg {
+  fill: grey;
+}
+
+.sg-modal.active .sg-modal-close-btn {
+  top: 0;
+}
+
+.sg-tabs-list {
+  z-index: 3;
+}
+
+.sg-tabs-list a {
+  border-bottom: 1px solid #ccc;
+}
+.sg-tab-title-active a {
+  background-color: #fff;
+  border-bottom-color: #fff;
+}
+
+.sg-tabs-panel {
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.sg-tabs-panel code[class*=language-], 
+.sg-tabs-panel pre[class*=language-] {
+  font-size: 16px;
+}
+
+.sg-pattern-desc {
+  font-size: 16px;
+}
+
+.sg-pattern-lineage {
+  font-size: 14px;
+}
+
+.sg-pattern-lineage:first-of-type:before {
+  content: "Lineage";
+  display: block;
+  font-size: 1.34em;
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}

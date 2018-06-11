@@ -1,0 +1,45 @@
+.ma__quick-actions {
+
+  .sidebar & {
+    @media ($bp-large-max) {
+      display: none;
+
+      & + .ma__colored-heading {
+        margin-top: 0;
+      }
+    }
+
+    @media print {
+      display: block;
+    }
+  }
+  .page-content & {
+    margin-bottom: 40px;
+
+    @media print, ($bp-large-min) {
+      display: none;
+
+      & + * {
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  &__items {
+    @include ma-reset-list;
+  }
+
+  &__item {
+
+    & + & {
+      border-top: 1px solid;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    a {
+      font-size: 1.625rem;
+      line-height: 1.2;
+    }
+  }
+}

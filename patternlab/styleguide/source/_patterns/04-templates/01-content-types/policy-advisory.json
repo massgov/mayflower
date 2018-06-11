@@ -1,0 +1,379 @@
+{
+  "pageHeader": {
+    "category": "required category",
+    "divider": false,
+    "title": "Title",
+    "subTitle": "",
+    "headerTags": {
+      "label": "Related to:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Parent Page"
+      },{
+        "href": "#",
+        "text": "Another Parent Page"
+      }]
+    },
+    "socialLinks": null,
+    "publishState": {
+      "text": "Draft"
+    },
+    "optionalContents": [{
+      "path": "@molecules/listing-table.twig",
+      "data": {
+        "listingTable": {
+          "rows": [{
+            "label": "Date:",
+            "text": "3/2/2017"
+          },{
+            "label": "Issuer:",
+            "text": "Mark E. Nunnelly, Commissioner of Revenue"
+          },{
+            "label": "Referenced Legistration:",
+            "text": "<a href=\"#\">M.G.L. c.51, S47C</a><br/><a href=\"#\">G.L. c.64H, S6</a>"
+          }]
+        }
+      }
+    },{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "property": "",
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "<b><i>Optional Description of this policy</i></b>"
+              }
+            }
+          },{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+              }
+            }
+          }]
+        }
+      }
+    }],
+    "widgets": null
+  },
+
+  "jumpLinks": {
+    "title": "In this Section",
+    "links": [{
+      "text": "Rich Text",
+      "href": "rich-text"
+    },{
+      "text": "Downloads",
+      "href": "downloads"
+    },{
+      "text": "Contact",
+      "href": "contact"
+    }]
+  },
+
+  "mainContent": {
+    "contents": [{
+      "compHeading": {
+        "title": "Rich text",
+        "sub": false,
+        "color": "",
+        "id": "rich-text",
+        "centered": ""
+      },
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sunt deleniti fuga consequuntur laudantium qui repellendus eveniet, culpa ipsum ullam libero quibusdam dolore, sit. Quasi alias sed atque saepe, tempora dolore dolor quod amet. Quaerat omnis illo, totam eligendi at."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur consectetur eligendi recusandae<a class=\"ma__rich-text__footnote js-rich-text-footnote\" id=\"footnoteref1\" title=\"source for this information\" href=\"#footnotemsg1\">1</a>, blanditiis nisi quibusdam, dolor voluptas dolore unde eius, eos esse doloremque enim? Culpa delectus excepturi beatae eos quod distinctio, ipsam ratione ad architecto doloremque modi eius consectetur at facere. Nobis, laboriosam, officia. Itaque maiores porro voluptates, sint sed dolore! Omnis, iusto sed est!"
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur<a class=\"ma__rich-text__footnote js-rich-text-footnote\" id=\"footnoteref2\" title=\"source for this information\" href=\"#footnotemsg2\">2</a> adipisicing elit. Tenetur consectetur eligendi recusandae, blanditiis nisi quibusdam, dolor voluptas dolore unde eius, eos esse doloremque enim? Culpa delectus excepturi beatae eos quod distinctio, ipsam ratione ad architecto doloremque modi eius consectetur at facere. Nobis, laboriosam, officia. Itaque maiores porro voluptates, sint sed dolore! Omnis, iusto sed est!"
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur consectetur eligendi recusandae, blanditiis nisi quibusdam, dolor voluptas dolore unde eius, eos esse doloremque enim? Culpa delectus excepturi beatae eos quod distinctio, ipsam ratione ad architecto doloremque modi eius consectetur at facere. Nobis, laboriosam, officia. Itaque maiores porro voluptates, sint sed dolore! Omnis, iusto sed est!"
+          }
+        }
+      }]
+    }],
+
+    "formDownloads": {
+      "compHeading": {
+        "title": "Downloads",
+        "sub": false,
+        "color": "",
+        "id": "downloads",
+        "centered": "",
+        "titleContext": ""
+      },
+      "downloadLinks": [{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-pdf",
+          "decorativeLink": {
+            "text": "PDF download item",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "30kb",
+          "format": "PDF"
+        }
+      },{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-docx",
+          "decorativeLink": {
+            "text": "Word download item",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "40kb",
+          "format": "DOCX"
+        }
+      },{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "laptop",
+          "decorativeLink": {
+            "text": "Online form or information page",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "",
+          "format": "form"
+        }
+      }]
+    },
+
+    "contactList": {
+      "viewSpecific": false,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "contact",
+        "centered": "",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Person to Contact"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "footnoteList": {
+      "items": [{
+        "number": 1,
+        "target": "#footnoteref1",
+        "id": "footnotemsg1",
+        "richText": {
+          "property": "",
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "<b><i>Optional Description of this policy</i></b>"
+              }
+            }
+          },{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+              }
+            }
+          }]
+        }
+      },{
+        "number": 2,
+        "target": "#footnoteref2",
+        "id": "footnotemsg2",
+        "richText": {
+          "property": "",
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "<b><i>Optional Description of this policy</i></b>"
+              }
+            }
+          },{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+              }
+            }
+          }]
+        }
+      }]
+    },
+
+    "references": {
+      "label": "Referenced Legislation:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Reference 1"
+      },{
+        "href": "#",
+        "text": "Reference 2"
+      }]
+    }
+  },
+
+  "sideContent": {
+    "contactList": {
+      "viewSpecific": true,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "",
+        "centered": "",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Person to Contact"
+        },
+        "groups": [{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "pressListing": {
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": ""
+      },
+      "items": [{
+        "eyebrow": "Letter Ruling",
+        "title" : {
+          "href":"#",
+          "text":"Link to Ruling",
+          "info": "",
+          "property": ""
+        },
+        "date": "4/3/2017",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "Regulation",
+        "title" : {
+          "href":"#",
+          "text":"Link to Regulation",
+          "info": "",
+          "property": ""
+        },
+        "date": "4/3/2017",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "Regulation",
+        "title" : {
+          "href":"#",
+          "text":"Link to Regulation",
+          "info": "",
+          "property": ""
+        },
+        "date": "",
+        "org": "",
+        "description": null
+      }]
+    },
+
+    "eventListing": {
+      "sidebarHeading":{
+        "title": "Upcoming Events",
+        "titleContext": ""
+      },
+      "events":[{
+        "title": {
+          "href": "#",
+          "text": "Name of Event",
+          "info": "",
+          "property": ""
+        },
+        "location": "location",
+        "date": {
+          "summary": "Date"
+        },
+        "time": "Time",
+        "description":"This is a description of the event that will happen at a future date"
+      }],
+      "more": null
+    }
+  }
+}

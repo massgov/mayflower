@@ -1,0 +1,15 @@
+<fieldset class="ma__divided-inputs">
+  {% if dividedInputs.title %}
+    <legend class="ma__legend {{ dividedInputs.required ? 'ma__legend--required' : 'ma__legend--optional' }}">{{ dividedInputs.title }}</legend>
+  {% endif %}
+  {% for input in dividedInputs.inputs %}
+    <div class="ma__divided-inputs__input">
+      {% include input.path with input.data %}
+    </div>
+    {% if dividedInputs.divider and not loop.last %}
+      <div class="ma__divided-inputs__divider">
+        {{ dividedInputs.divider }}
+      </div>
+    {% endif %}
+  {% endfor %}
+</fieldset>

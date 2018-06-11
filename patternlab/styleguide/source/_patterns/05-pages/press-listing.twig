@@ -1,0 +1,16 @@
+{% extends '@templates/two-column-reversed.twig' %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/page-header.twig" %}
+{% endblock %}
+{% block sidebar %}
+  {% include "@organisms/by-author/press-filters.twig" %}
+{% endblock %}
+{% block pageContent %}
+  {% include "@molecules/results-heading.twig" %}
+  {% include "@organisms/by-author/press-listing.twig" %}
+  {% include "@molecules/pagination.twig" %}
+{% endblock %}
+{% block postContent %}
+
+{% endblock %}

@@ -1,0 +1,13 @@
+.ma__featured-item-mosaic__toggle {
+  color: $c-font-link;
+  font-weight: 700;
+
+  &:after {
+    border-color: $c-font-link;
+    opacity: .5;
+  }
+
+  &:hover {
+    border-color: rgba($c-font-link,.5);
+  }
+}

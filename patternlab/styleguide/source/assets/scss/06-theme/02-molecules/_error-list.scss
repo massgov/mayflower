@@ -1,0 +1,18 @@
+.ma__error-list {
+
+  &__container {
+    background-color: tint($c-red, 95%);
+    border-color: $c-bd-error;
+    color: $c-font-error;
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__label {
+    border-color: $c-bd-error;
+    color: $c-font-error;
+    font-weight: 400;
+  }
+}

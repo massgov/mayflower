@@ -1,0 +1,86 @@
+{
+  "imageLinkList" : {
+    "blocks": true,
+    "compHeading": {
+      "title": "Link List of Image Blocks",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": false
+    },
+    "itemPluralName": "organizations",
+    "links" : [{
+      "href":"#",
+      "text":"1 Lorem ipsum dolor sit amet.",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"2 Lorem ipsum dolor sit amet, consectetur.",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"3 Lorem ipsum dolor sit.",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"4 Lorem ipsum dolor",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"5 Lorem ipsum dolor sit amet",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"6 Lorem ipsum dolor sit amet, consectetur.",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"7 Lorem ipsum dolor sit amet, consectetur.",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"8 Lorem ipsum dolor sit amet, but also a very very long title with also an acronym (LIDSABAVVLTWAA).",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"9 Lorem ipsum dolor sit amet, consectetur.",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    }]
+  }
+}

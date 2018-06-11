@@ -1,0 +1,34 @@
+.ma__input-checkbox {
+
+  & > svg {
+    fill: $c-theme-secondary;
+  }
+
+  label {
+    font-weight: 400;
+
+    &:before {
+      background-color: $c-white;
+      border-color: $c-bd-input-dark;
+
+      .ma__form--light & {
+        background-color: rgba($c-white, 0.1);
+        border-color: rgba($c-bd-input,.5);
+      }
+    }
+  }
+
+  input.has-error ~ label:before {
+    border-color: $c-bd-error;
+  }
+
+  input:focus ~ label:before {
+    border-color: Highlight !important;
+
+    /* WebKit gets its native focus styles.
+     */
+    @media (-webkit-min-device-pixel-ratio:0) {
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+  }
+}

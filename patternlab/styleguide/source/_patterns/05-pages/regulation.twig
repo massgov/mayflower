@@ -1,0 +1,24 @@
+{% extends '@templates/01-content-types/policy-advisory.twig' %}
+
+{% block header %}
+  {% include "@organisms/by-template/header.twig" %}
+{% endblock %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/page-header.twig" %}
+{% endblock %}
+
+{% block pageContent %}{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block postContent %}
+  {% set backButton = postContent.backButton %}
+  {% include "@molecules/back-button.twig" %}
+  {% set pageFlipper = postContent.pageFlipper %}
+  {% include "@organisms/by-author/page-flipper.twig" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "@organisms/by-template/footer.twig" %}
+{% endblock %}

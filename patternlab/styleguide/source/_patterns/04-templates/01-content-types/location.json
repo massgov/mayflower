@@ -1,0 +1,235 @@
+{
+  "location": {
+    "contentTitle": "The Details",
+    "titleContext": ""
+  },
+
+  "headerAlerts": [{
+    "guid": "GUID09058070136",
+    "text": "Alert Message",
+    "href": "#",
+    "target": ""
+  }],
+
+  "pageHeader": {
+    "divider": false,
+    "title": "Page Title",
+    "subTitle": "",
+    "headerTags": null,
+    "optionalContents": [{
+      "path": "@molecules/contact-us.twig",
+      "data": {
+        "contactUs": {
+          "level": 2,
+          "groups": [{
+            "icon": "",
+            "name": "",
+            "items": [{
+              "type": "address",
+              "label": "",
+              "address": "Visitor's Center, 30 Rockwell Road, Lanesborough, MA 01237",
+              "link": {
+                "href": "https://www.google.com/maps/place/30+Rockwell+Rd,+Cheshire,+MA+01225",
+                "text": "directions",
+                "info": "directions to Mt Greylock State Park Vistor's Center",
+                "property": "url"
+              },
+              "details": ""
+            }]
+          },{
+            "icon": "phone",
+            "name": "Phone",
+            "items": [{
+              "type": "phone",
+              "label":"Main:",
+              "link": {
+                "href": "+14134994262",
+                "text":"(413) 499-4262"
+              },
+              "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+            }]
+          },{
+            "icon": "laptop",
+            "name": "Online",
+            "items": [{
+              "type": "email",
+              "label":"Email:",
+              "link": {
+                "text":"email@email.com",
+                "href":"email@email.com"
+              },
+              "details":""
+            }]
+          }]
+        }
+      }
+    }],
+    "widgets": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text": "Optional widgets"
+        }
+      }      
+    }]
+  },
+  
+  "locationBanner": {
+    "bgTitle":"Mt Greylock State Park",
+    "bgWide":"../../assets/images/placeholder/1600x400.png",
+    "bgNarrow":"../../assets/images/placeholder/800x400.png",
+    "id": "GUID24872901570",
+    "googleMap": {
+      "map": {
+        "center": {
+          "lat": 42.594129,
+          "lng": -73.183715
+        },
+        "zoom": 12
+      },
+      "markers": [{
+        "position": {
+          "lat": 42.554129,
+          "lng": -73.213715
+        },
+        "label": "V",
+        "infoWindow": {
+          "name": "Visitor's Center",
+          "phone": "14134994262",
+          "fax": "",
+          "email": "mass.parks@state.ma.us",
+          "address": "30 Rockwell Road\nLanesborough, MA 01237"
+        }
+      },{
+        "position": {
+          "lat": 42.636875,
+          "lng": -73.166921
+        },
+        "label": "B",
+        "infoWindow": {
+          "name": "Bascom Lodge",
+          "phone": "14137431591",
+          "fax": "",
+          "email": "mail@bascomlodge.net",
+          "address": "30 Rockwell Road\nLanesborough, MA 01237"
+        }
+      }]
+    }
+  },
+
+  "stickyNav": {
+    "titleContext": "Mt Greylock State Park",
+    "anchorLinks":[{
+      "href": "jump link",
+      "text": "jump-link",
+      "info": ""
+    },{
+      "href": "another link",
+      "text": "another-link",
+      "info": ""
+    }]
+  },
+
+  "mainContent": {
+    "contactList": {
+      "viewSpecific": false,
+      "sidebarHeading":{
+        "title": "Contact",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Department name",
+          "chevron":""
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+14134994262",
+              "text": "(413) 499-4262",
+              "info": "",
+              "property": ""
+            },
+            "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Web:",
+            "link": {
+              "href":"#",
+              "text": "Contact Form",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    }
+  },
+
+  "sidebar": {
+    "coloredHeadings": true,
+    "contactList": {
+      "viewSpecific": true,
+      "sidebarHeading":{
+        "title": "Contact",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "accordion": false,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Department name",
+          "chevron":""
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+14134994262",
+              "text": "(413) 499-4262",
+              "info": "",
+              "property": ""
+            },
+            "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Web:",
+            "link": {
+              "href":"#",
+              "text": "Contact Form",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    }
+  }
+}

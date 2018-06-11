@@ -1,0 +1,123 @@
+{
+  "stepsUnordered": {
+    "compHeading": {
+      "title": "Title",
+      "sub": "",
+      "color": "",
+      "id": "title",
+      "centered": ""
+    },
+    "richText": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+          }
+        }
+      }]
+    },
+    "steps": [{
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand step for doing this in person",
+      "icon":"profile",
+      "title":"In Person at State Parks",
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Most parks and beaches that charge daily parking fees sell MassParks Passes at their contact stations during their paid parking seasons. Just ask to purchase a MassParks Pass and show your driver’s license or proof of residency. Please note: most parks cannot accept credit cards, so you’ll have to pay with cash or a check."
+            }
+          }
+        }]
+      }
+    },{
+      "accordion": true,
+      "isExpanded": true,
+      "accordionLabel": "Expand step for doing this in person",
+      "icon":"circle-chevron",
+      "title":"Some Other Method",
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "If you concentrate really hard, a pass might magically appear in front of you"
+            }
+          }
+        }]
+      }
+    },{
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand step for doing this in person",
+      "icon":"laptop",
+      "title":"Online",
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "You can also <a href=\"http://www.google.com\">order a MassParks pass online through Reserve America</a>. There is an additional $2.75 charge to use this online service. Your pass will be mailed to your home within seven days."
+            }
+          }
+        }]
+      }
+    },{
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand step for doing this in person",
+      "icon":"phone",
+      "title":"By Phone",
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imaperdiet purus pellentesque vel."
+            }
+          }
+        }]
+      }
+    },{
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand step for doing this in person",
+      "icon":"mail",
+      "title":"By Mail",
+      "richText" : {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "<i>(only if you're purchasing a Senior MassParks Pass)</i><br />Senior MassParks Passes can be purchased by mail by writing to the following address:</p><p>DCR MassParks<br />251 Causeway Street<br />Boston, MA 02114<br />Attn: Senior MassParks Pass Coordinator</p><p>and including a photocopy of your MA driver’s license or other official proof of MA residency and age, and a check for $10 made payable to the Commonwealth of Massachusetts."
+            }
+          }
+        }]
+      }
+    },{
+      "accordion": true,
+      "isExpanded": false,
+      "accordionLabel": "Expand step for doing this in person",
+      "icon":"fax-icon",
+      "title":"By Fax",
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/08-lists/unordered-list.twig",
+          "data": {
+            "unorderedList": [{ 
+              "text": "Download and fill out an <a href=\"#\">application for an EIN.</a>" 
+            },{ 
+              "text": "Fax it to (855) 641-6935",
+              "sublist" : [{
+                "text":"If you include your fax number, an EIN will be faxed to you within 4 business days."
+              }]
+            }]
+          }
+        }]
+      }
+    }]
+  }
+}

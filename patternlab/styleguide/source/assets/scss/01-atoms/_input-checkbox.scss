@@ -1,0 +1,54 @@
+// Custom Checkboxes
+.ma__input-checkbox {
+  display: inline-block;
+  position: relative;
+
+  input {
+    @include ma-visually-hidden;
+  }
+
+  & > svg {
+    height: 24px;
+    position: absolute;
+      top: 0;
+      right: 0;
+    vertical-align: top;
+    width: 24px;
+  }
+
+  label {
+    font-size: 1.375rem;
+    line-height: 1rem;
+    padding-left: 1.25em;
+
+    &:before {
+      border: 2px solid;
+      content: ""; 
+      display: inline-block;
+      height: 2em;
+      font-size: .5em;
+      line-height: 1.5;
+      padding-top: .25em;
+      position: absolute;
+        top: 0.125em;
+        left: 0;
+      text-align: center;
+      width: 2em;
+    }
+
+    span {
+      line-height: 1.2em;
+    }
+  }
+
+  input:checked ~ label {
+
+    &:before {
+      content: url("../images/checkmark.svg"); //"✔";
+    }
+  }
+
+  svg ~ label {
+    padding-right: 30px;
+  }
+}

@@ -1,0 +1,7 @@
+.ma__action-image {
+  @include clearfix;
+
+  &__title {
+    margin-bottom: 15px;
+  }
+}

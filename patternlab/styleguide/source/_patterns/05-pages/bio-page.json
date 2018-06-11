@@ -1,0 +1,246 @@
+{
+  "headerTags": {
+    "label": "More about:",
+    "taxonomyTerms": [{
+      "href": "#",
+      "text": "Example Office"
+    },{
+      "href": "#",
+      "text": "Example Office 2"
+    },{
+      "href": "#",
+      "text": "Example Office 3"
+    }]
+  },
+  "pageIntro": {
+    "pageTitle": {
+      "text": "Example Person"
+    },
+    "subTitle": "Example job title"
+  },
+  "mainContent": {
+    "richText": {
+      "compHeading": null,
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo."
+          }
+        }
+      }]
+    },
+    "roles": {
+      "compHeading": {
+        "title": "Roles"
+      },
+      "stacked": true,
+      "hideBullets": true,
+      "links": [
+        {
+          "text": "Chair Ex-Officio, The Massachusetts State Retirement Board",
+          "href": "#"
+        },
+        {
+          "text": "Chair, Another board"
+        }
+      ]
+    },
+    "personalMessage": {
+      "imagePromos": [{
+        "title": {
+          "text": "Primary Organization",
+          "href": "#",
+          "type": ""
+        },
+        "tags": null,
+        "image": {
+          "src": "../../assets/images/placeholder/100x100.png",
+          "alt": "placeholder image",
+          "height": "100",
+          "width": "100",
+          "href": "#"
+        },
+        "description": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph" : {
+                  "text": "Small statement about who the Primary Organization is. Could pull from the short description of the org page or be a manually entered field per bio."
+                }
+              }
+            }]
+          }
+        },
+        "link": {
+          "text": "More Information",
+          "href": "#",
+          "info": "More information about the Primary Organization"
+        },
+        "location": null,
+        "phone": null
+      },{
+        "title": {
+          "text": "Secondary Organization",
+          "href": "#",
+          "type": ""
+        },
+        "tags": null,
+        "image": {
+          "src": "../../assets/images/placeholder/100x100.png",
+          "alt": "placeholder image",
+          "height": "100",
+          "width": "100",
+          "href": "#"
+        },
+        "description": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph" : {
+                  "text": "Small statement about who the Secondary Organization is. Could pull from the short description of the org page or be a manually entered field per bio."
+                }
+              }
+            }]
+          }
+        },
+        "location": null,
+        "phone": null
+      }]
+    }
+  },
+
+  "sideContent": {
+    "headshot": {
+      "image": {
+        "src": "../../assets/images/placeholder/285x380.png",
+        "height": "380",
+        "width": "285",
+        "alt": "alt text"
+      },
+      "downloadLink": {
+        "href": "#",
+        "text": "Download high-resolution image"
+      }
+    },
+    "contactList": {
+      "viewSpecific": true,
+      "compHeading": {
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "contact",
+        "centered": "",
+        "titleContext": "for No. 573: Reaffirming and restructuring the Governor's advisory council on veterans' services"
+      },
+      "contacts":[{
+        "accordion": false,
+        "isExpanded": false,
+        "subTitle": {
+          "href": "",
+          "text": "Office of the State Treasurer"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "hidden": "",
+          "items": [{
+            "type": "phone",
+            "property": "telephone",
+            "label": "Main",
+            "link": {
+              "href": "+16177277775",
+              "text": "(617) 727-7775"
+            },
+            "details": "Monday-Friday 9 a.m. - 5 p.m."
+          },{
+            "type": "phone",
+            "property": "telephone",
+            "label": "Toll-free in Massachusetts",
+            "link": {
+              "href": "+16177276618",
+              "text": "(617) 727-6618"
+            }
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "link": {
+              "href": "mailto:eopsinfo@state.ma.us",
+              "text": "eopsinfo@state.ma.us"
+            },
+            "details": ""
+          }]
+        }]
+      }]
+    },
+    "social": {
+      "compHeading": {
+        "title": "Social",
+        "sub": true,
+        "color": "",
+        "id": "",
+        "centered": "",
+        "titleContext": "links for Example Person"
+      },
+      "items": [
+        {
+          "icon": "twitter",
+          "link": {
+            "href": "https://twitter.com/",
+            "text": "Twitter",
+            "chevron": ""
+          }
+        }
+      ]
+    }
+  }
+}

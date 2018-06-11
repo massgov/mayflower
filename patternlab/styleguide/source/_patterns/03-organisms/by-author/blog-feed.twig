@@ -1,0 +1,29 @@
+<section class="ma__blog-feed">
+  <h2 class="ma__blog-feed__title">{{blogFeed.title}}</h2>
+  <div class="ma__blog-feed__items">
+    {% for item in blogFeed.items %}
+      <div class="ma__blog-feed__item">
+        <div class="ma__blog-feed__image-wrapper">
+          <a href="{{item.link.href}}" {{item.link.type == "external" ? 'target="_blank"' : ''}}>
+            <img 
+              src="{{item.image.src}}" 
+              alt="{{item.image.alt}}"
+              width="320"
+              height="180" />
+            <span class="ma__blog-feed__date">{{item.date}}</span>
+          </a>
+        </div>
+        <div class="ma__blog-feed__content">
+          <h4 class="ma__blog-feed__link">
+            {% set decorativeLink = item.link %}
+              {% include "@atoms/decorative-link.twig" with decorativeLink %}
+          </h4>
+          <div class="ma__blog-feed__description">{{item.description}}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="ma__blog-feed__view-all">
+    <a href="#">See all posts</a>
+  </div>
+</section>

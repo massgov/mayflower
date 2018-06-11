@@ -1,0 +1,30 @@
+{% extends '@templates/two-column.twig' %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/page-header.twig" %}
+{% endblock %}
+{% block pageContent %}
+  {% for section in sections %}
+    {% set richText = section.richText %}
+    {% include "@organisms/by-author/rich-text.twig" %}
+    {% if section.video %}
+      {% set video = section.video %}
+      {% include "@atoms/09-media/video.twig" %}
+    {% endif %}
+    {% if section.mappedLocations %}
+      {% set mappedLocations = section.mappedLocations %}
+      {% include "@organisms/by-author/mapped-locations.twig" %}
+    {% endif %}
+    {% if section.formDownloads %}
+      {% set formDownloads = section.formDownloads %}
+      {% include "@organisms/by-author/form-downloads.twig" %}
+    {% endif %}
+  {% endfor %}
+{% endblock %}
+{% block sidebar %}
+  {% set linkList = sidebar.linkList %}
+  {% include "@organisms/by-author/link-list.twig" %}
+{% endblock %}
+{% block postContent %}
+
+{% endblock %}

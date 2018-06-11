@@ -1,0 +1,16 @@
+<section class="ma__tabular-data">
+  {% if tabularData.compHeading %}
+    {% set compHeading = tabularData.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% endif %}
+  {% if tabularData.sidebarHeading %}
+    {% set sidebarHeading = tabularData.sidebarHeading %}
+    {% include "@atoms/04-headings/sidebar-heading.twig" %}
+  {% endif %}
+  {% if tabularData.description %}
+    {% set richText = tabularData.description %}
+    {% include "@organisms/by-author/rich-text.twig" %}
+  {% endif %}
+  {% set table = tabularData.table %}
+  {% include "@atoms/10-table/table.twig" %}
+</section>

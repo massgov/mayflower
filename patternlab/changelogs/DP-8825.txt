@@ -1,0 +1,3 @@
+Added
+Minor
+- DP-8825: Adds teaser listing group organism to apply accordion behavior to multiple teaser listings at once.

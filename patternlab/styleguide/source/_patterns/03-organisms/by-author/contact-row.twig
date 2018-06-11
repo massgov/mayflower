@@ -1,0 +1,51 @@
+<section class="ma__contact-row js-accordion">
+  {% set contactHeading = 2 %}
+  {% set contactHeading = (contactRow.compHeading.level ? : contactHeading) + 1 %}
+
+  {% set compHeading = contactRow.compHeading %}
+  {% include "@atoms/04-headings/comp-heading.twig" %}
+
+  {% block contactImage %}
+    {% if contactRow.image %}
+      {% set image = contactRow.image %}
+      {% include "@atoms/09-media/image.twig" %}
+    {% endif %}
+  {% endblock %}
+
+  {% if contactRow.primaryContact %}
+    <div class="ma__contact-row__primary">
+      {% block primaryContactGroup %}
+        {% set contactGroup = contactRow.primaryContact|merge({"level": contactHeading}) %}
+        {% include "@molecules/contact-group.twig" %}
+      {% endblock %}
+    </div>
+  {% endif %}
+
+  <div class="ma__contact-row__additional {{ contactRow.hasManyAdditional ? 'has-many': ''}}">
+    {% block additionalContacts %}
+      {% for contact in contactRow.additionalContacts %}
+        {% set contactGroup = contact|merge({"level": contactHeading}) %}
+        {% include "@molecules/contact-group.twig" %}
+      {% endfor %}
+    {% endblock %}
+    {% if contactRow.moreLink %}
+      <div class="ma__contact-group">
+        {% block moreLink %}
+          {% set decorativeLink = contactRow.moreLink %}
+          {% include "@atoms/decorative-link.twig" %}
+        {% endblock %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if contactRow.hasManyAdditional %}
+    <div class="ma__contact-row__expand">
+      <button type="button" class="js-accordion-link">
+        Show <span>more</span><span>less</span> contact info
+      </button>
+    </div>
+  {% endif %}
+
+
+
+</section>

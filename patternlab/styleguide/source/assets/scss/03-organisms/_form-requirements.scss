@@ -1,0 +1,47 @@
+.ma__form-requirements {
+  position: relative;
+
+  .main-content--two .page-content > &:before {
+    content: "";
+    height: 100%;
+    position: absolute;
+      right: 100%;
+      top: 0;
+    width: 50vw;  
+  }
+
+  &__title {
+
+    h2 {
+      @include ma-h4;
+    }
+  }
+
+  &__container {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .pre-content > & &__container,
+  .post-content > & &__container,
+  .main-content--full .page-content > & &__container {
+    @include ma-container();
+  }
+
+  &__payment {
+    margin-top: 30px;
+
+    @media ($bp-small-min) {
+      margin-top: 45px;
+    }
+
+    .ma__location-icons__items {
+      justify-content: flex-start;
+    }
+
+    .ma__location-icons__item {
+      flex-grow: 0;
+      flex-basis: 100px;
+    }
+  }
+}

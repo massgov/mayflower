@@ -1,0 +1,37 @@
+<div class="ma__tooltip">
+  <div class="ma__tooltip__inner">
+    <input
+      id="{{ tooltip.controlId }}"
+      type="checkbox"
+      class="ma__tooltip__control"
+      aria-label="{{ tooltip.info }}"
+      aria-hidden="true" />
+    <label
+      for="{{ tooltip.controlId }}"
+      class="ma__tooltip__open"
+      aria-labelledby="{{ tooltip.controlId }}"
+      aria-hidden="true">
+      {{ tooltip.openText }}
+      {% if tooltip.openIcon %}
+        {{ icon(tooltip.openIcon) }}
+      {% endif %}
+    </label>
+    <section class="ma__tooltip__modal {{ tooltip.location == 'above'? ma__tooltip__modal--above : 'ma__tooltip__modal--below' }}">
+      <div class="ma__tooltip__container">
+        <label
+          for="{{ tooltip.controlId }}"
+          class="ma__tooltip__close"
+          tabindex="-1"
+          aria-labelledby="{{ tooltip.controlId }}"
+          aria-hidden="true">{{ tooltip.closeText }}</label>
+        {% if tooltip.title %}
+          {% set headingLevel = tooltip.level ? : 2 %}
+          <h{{ headingLevel }} class="ma__tooltip__title">{{ tooltip.title }}</h{{ headingLevel }}>
+        {% endif %}
+        <div class="ma__tooltip__message">
+          {{ tooltip.message|raw }}
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

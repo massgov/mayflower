@@ -1,0 +1,13 @@
+{
+  "backButton": {
+    "button": {
+      "href": "#",
+      "info": "Back to page about Blah",
+      "text": "Back to previous page",
+      "type": "link",
+      "size": "small",
+      "theme": "",
+      "outline": true
+    }
+  }
+}

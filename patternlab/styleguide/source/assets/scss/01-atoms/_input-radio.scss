@@ -1,0 +1,36 @@
+// Custom Radio Buttons
+.ma__input-radio {
+  display: inline-block;
+  position: relative;
+
+  input {
+    @include ma-visually-hidden;
+  }
+
+  label {
+    font-size: 1.375rem;
+    line-height: 1rem;
+    padding-left: 1.5em;
+
+    &:before {
+      border: 2px solid;
+      border-radius: 50%;
+      content: "\2022";
+      display: inline-block;
+      height: .45em;
+      font-size: 2.5em;
+      line-height: calc(.45em - 11px);
+      margin-right: .125em;
+      position: absolute;
+        top: -.025em;
+        left: 0;
+      text-align: center;
+      width: .45em;
+      overflow: hidden;
+    }
+
+    span {
+      line-height: 1.2em;
+    }
+  }
+}

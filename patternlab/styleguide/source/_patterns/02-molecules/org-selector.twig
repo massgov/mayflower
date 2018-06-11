@@ -1,0 +1,32 @@
+<section class="ma__org-selector js-org-selector">
+  {% set selectBox = orgSelector.selectBox %}
+  {% include "@atoms/03-forms/select-box.twig" %}
+  <div class="ma__org-selector__org-info js-org-info"></div>
+  <script>
+    var orgSelector = orgSelector || [];
+    var organizations = {};
+    {% for orgInfo in orgSelector.organizations %}
+      organizations["{{ orgInfo.value }}"] = {
+        "image": {
+          "href": "{{ orgInfo.image.href|e('js') }}",
+          "alt": "{{ orgInfo.image.alt|e('js') }}",
+          "src": "{{ orgInfo.image.src|e('js') }}",
+          "height": "{{ orgInfo.image.height|e('js') }}",
+          "width": "{{ orgInfo.image.width|e('js') }}"
+        },
+        "name": {
+          "text": "{{ orgInfo.name.text|e('js') }}",
+          "href": "{{ orgInfo.name.href|e('js') }}"
+        },
+        "jobTitle": "{{ orgInfo.jobTitle|e('js') }}",
+        "message": "{{ orgInfo.message|raw|e('js') }}",
+        "moreLink": {
+          "text": "{{ orgInfo.moreLink.text|e('js') }}",
+          "href": "{{ orgInfo.moreLink.href|e('js') }}",
+          "info": "{{ orgInfo.moreLink.info|e('js') }}"
+        }      
+      };
+    {% endfor %}
+    orgSelector.push({ "organizations": organizations });
+  </script>
+</section>

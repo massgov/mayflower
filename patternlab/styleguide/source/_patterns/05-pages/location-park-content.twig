@@ -1,0 +1,43 @@
+{% extends '@templates/01-content-types/location.twig' %}
+
+{% block header %}
+  {% set ajaxPattern = ajaxEmergencyAlerts %}
+  {% include "@organisms/by-template/ajax-pattern.twig" %}
+  {% include "@organisms/by-template/header.twig" %}
+{% endblock %}
+
+{% block pageContent %}
+  {% set richText = mainContent.overview %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+  {% set richText = mainContent.hours %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+  {% set richText = mainContent.parking %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+  {% set googleMap = mainContent.googleMap %}
+  {% include "@molecules/google-map.twig" %}
+  {% set imagePromos = mainContent.imagePromos %}
+  {% include "@organisms/by-author/image-promos.twig" %}
+  {% set richText = mainContent.allActivities %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+  {% set richText = mainContent.facilities %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+  {% set richText = mainContent.acessibility %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+  {% set richText = mainContent.restrictions %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+{% endblock %}
+
+{% block sidebar %}
+  {% if sidebar.eventListing %}
+    {% set eventListing = sidebar.eventListing %}
+    {% include "@organisms/by-author/event-listing.twig" %}
+  {% endif %}
+{% endblock %}
+
+{% block postContent %}
+  {% include "@organisms/by-author/suggested-pages.twig" %}
+{% endblock %}
+
+{% block footer %}
+  {% include "@organisms/by-template/footer.twig" %}
+{% endblock %}

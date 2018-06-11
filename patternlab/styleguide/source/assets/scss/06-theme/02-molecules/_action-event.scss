@@ -1,0 +1,10 @@
+.ma__action-event {
+
+  & + & {
+    border-top-color: $c-bd-divider;
+  }
+
+  &__date {
+    font-weight: 700;
+  }
+}

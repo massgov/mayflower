@@ -1,0 +1,27 @@
+{
+  "inputGroup": {
+    "required": true,
+    "inline": false,
+    "title": "Group of inputs",
+    "type": "radio",
+    "items": [{
+      "name": "gender",
+      "value": "male",
+      "id": "gender-male",
+      "label": "Male",
+      "checked": true
+    },{
+      "name": "gender",
+      "value": "female",
+      "id": "gender-female",
+      "label": "Female",
+      "checked": false
+    },{
+      "name": "gender",
+      "value": "other",
+      "id": "gender-other",
+      "label": "Other",
+      "checked": false
+    }]
+  }
+}

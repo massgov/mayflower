@@ -1,0 +1,50 @@
+{
+  "eventListing": {
+    "compHeading" : null,
+    "sidebarHeading":{
+      "title": "Upcoming Events"
+    },
+    "events":[{
+      "title": {
+        "href": "#",
+        "text": "Winter Birding Event",
+        "info": "",
+        "property": ""
+      },
+      "location": "Lanesborough, MA",
+      "date": {
+        "summary": "March 30, 2017",
+        "startMonth": "",
+        "startDay": "",
+        "endMonth": "",
+        "endDay": ""
+      },
+      "time": "12 p.m. - 2 p.m.",
+      "description": "Event description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias architecto deleniti sunt eum incidunt laboriosam quos repudiandae nesciunt eligendi? Aliquid."
+    },{
+      "title": {
+        "href": "#",
+        "text": "First Day Hike",
+        "info": "",
+        "property": ""
+      },
+      "location": "Lanesborough, MA",
+      "date": {
+        "summary": "March 30, 2017 - April 10, 2017",
+        "startMonth": "",
+        "startDay": "",
+        "endMonth": "",
+        "endDay": ""
+      },
+      "time": "12 p.m. - 2 p.m.",
+      "description": ""
+    }],
+    "more":{
+      "href": "#",
+      "text": "view all events at this location",
+      "info": "view all upcoming events for this location",
+      "chevron": true
+    }
+  }
+}
+ 

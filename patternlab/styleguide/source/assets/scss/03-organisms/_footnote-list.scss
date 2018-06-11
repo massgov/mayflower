@@ -1,0 +1,14 @@
+.ma__footnote-list {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+    @include ma-container('restricted');
+  }
+
+  &__container {
+    border-top-style: dotted;
+    border-top-width: 2px;
+    padding-top: 30px;
+  }
+}

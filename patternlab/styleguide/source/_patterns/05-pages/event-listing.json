@@ -1,0 +1,446 @@
+{
+  "pageHeader": {
+    "category": "",
+    "divider": false,
+    "title": "Event Listing Page Name",
+    "subTitle": "",
+    "headerTags": {
+      "label": "Related to:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Org Name"
+      }]
+    },
+    "socialLinks": null,
+    "optionalContents": null,
+    "widgets": null
+  },
+
+  "mainContent": {
+    "eventListingInteractive": {
+      "maxItems": 10,
+      "eventFilters": {
+        "zipcode": {
+          "inputText": {
+            "labelText": "Search by city or zip code",
+            "required": false,
+            "id": "find-nearby",
+            "name": "find-nearby",
+            "type": "text",
+            "placeholder": "City, town, or ZIP code"
+          },
+          "placeAutocomplete": {
+            "bounds": {
+              "sw": {
+                "lat": "",
+                "lng": ""
+              },
+              "ne": {
+                "lat": "",
+                "lng": ""
+              }
+            }
+          }
+        },
+
+        "dateRange": {
+          "label": "Filter by date",
+          "startDate": {
+            "labelText": "Select a start date",
+            "required": false,
+            "id": "start-date",
+            "name": "start-date",
+            "placeholder": "today",
+            "restrict": "min"
+          },
+          "endDate": {
+            "labelText": "Select an end date",
+            "required": false,
+            "id": "end-date",
+            "name": "end-date",
+            "placeholder": "mm/dd/yy",
+            "restrict": "min"
+          }
+        },
+
+        "submitButton": "Submit"
+      },
+
+      "resultsHeading": {
+        "numResults": "1-10",
+        "totalResults": "11",
+        "tags": null
+      },
+
+      "eventListing": {
+        "maxItems": 8,
+        "compHeading": null,
+        "events":[{
+          "title": {
+            "href": "#",
+            "text": "Taunton District Court",
+            "info": "",
+            "property": ""
+          },
+          "location": "Taunton, MA",
+          "position": {
+            "lat": 41.9032297,
+            "lng": -71.0963431
+          },
+          "date": {
+            "summary": "December 10, 2017",
+            "startMonth": "Dec",
+            "startDay": "10",
+            "startTimestamp": "12/10/2017 - 14:00",
+            "endMonth": "",
+            "endDay": "",
+            "endTimestamp": "12/10/2017 - 14:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias"
+        },{
+          "title": {
+            "href": "#",
+            "text": "Attleboro District Court",
+            "info": "",
+            "property": ""
+          },
+          "location": "Attleboro, MA",
+          "position": {
+            "lat": 41.9462525,
+            "lng": -71.289677
+          },
+          "date": {
+            "summary": "December 2, 2017",
+            "startMonth": "Dec",
+            "startDay": "2",
+            "startTimestamp": "12/02/2017 - 14:00",
+            "endMonth": "",
+            "endDay": "",
+            "endTimestamp": "12/02/2017 - 14:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias sit amet, consectetur adipisicing elit"
+        },{
+          "title": {
+            "href": "#",
+            "text": "Salem Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Salem, MA",
+          "position": {
+            "lat": 42.5233862,
+            "lng": -70.8988276
+          },
+          "date": {
+            "summary": "October 2, 2018 - October 25, 2018",
+            "startMonth": "Oct",
+            "startDay": "2",
+            "startTimestamp": "10/02/2018 - 14:00",
+            "endMonth": "Oct",
+            "endDay": "25",
+            "endTimestamp": "10/25/2018 - 15:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "sit amet, consectetur adipisicing elit"
+        },{
+          "title": {
+            "href": "#",
+            "text": "Boston Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Boston, MA",
+          "position": {
+            "lat": 42.3598093,
+            "lng": -71.0632991
+          },
+          "date": {
+            "summary": "May 2, 2018 - May 7, 2018",
+            "startMonth": "May",
+            "startDay": "2",
+            "startTimestamp": "5/02/2018 - 14:00",
+            "endMonth": "May",
+            "endDay": "7",
+            "endTimestamp": "5/07/2018 - 15:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias"
+        },{
+          "title": {
+            "href": "#",
+            "text": "Berkshire Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Pittsfield, MA",
+          "position": {
+            "lat": 42.4475416,
+            "lng": -73.2546978
+          },
+          "date": {
+            "summary": "April 2, 2018 - April 3, 2018",
+            "startMonth": "Apr",
+            "startDay": "2",
+            "startTimestamp": "4/02/2018 - 14:00",
+            "endMonth": "Apr",
+            "endDay": "3",
+            "endTimestamp": "4/03/2018 - 15:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "sit amet, consectetur adipisicing elit"
+        },{
+          "title": {
+            "href": "#",
+            "text": "Barnstable Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Barnstable, MA",
+          "position": {
+            "lat": 41.70035,
+            "lng": -70.3062102
+          },
+          "date": {
+            "summary": "March 2, 2018 - April 25, 2018",
+            "startMonth": "Mar",
+            "startDay": "2",
+            "startTimestamp": "3/02/2018 - 14:00",
+            "endMonth": "Apr",
+            "endDay": "25",
+            "endTimestamp": "4/25/2018 - 15:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "sit amet, consectetur adipisicing elit"
+        },{
+          "title": {
+            "href": "#",
+            "text": "Winter Birding Event",
+            "info": "",
+            "property": ""
+          },
+          "location": "Lanesborough, MA",
+          "position": {
+            "lat": 42.5173058,
+            "lng": -73.2281596
+          },
+          "date": {
+            "summary": "June 2, 2018",
+            "startMonth": "Jun",
+            "startDay": "2",
+            "startTimestamp": "6/02/2018 - 12:00",
+            "endMonth": "",
+            "endDay": "",
+            "endTimestamp": "6/02/2018 - 14:00"
+          },
+          "time": "12 p.m. - 2 p.m.",
+          "description": "Event description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint."
+        },{
+          "title": {
+            "href": "#",
+            "text": "Cambridge Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Medford, MA",
+          "position": {
+            "lat": 42.4048224,
+            "lng": -71.0894367
+          },
+          "date": {
+            "summary": "March 30, 2018 - April 10, 2018",
+            "startMonth": "Mar",
+            "startDay": "30",
+            "startTimestamp": "3/30/2018 - 12:00",
+            "endMonth": "Apr",
+            "endDay": "10",
+            "endTimestamp": "4/10/2018 - 14:00"
+          },
+          "time": "12 p.m. - 2 p.m.",
+          "description": "Event description. Consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias architecto deleniti sunt eum incidunt laboriosam quos repudiandae nesciunt eligendi? Aliquid."
+        },{
+          "title": {
+            "href": "#",
+            "text": "First Day Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Lanesborough, MA",
+          "position": {
+            "lat": 42.5173058,
+            "lng": -73.2281596
+          },
+          "date": {
+            "summary": "February 30, 2018 - March 10, 2018",
+            "startMonth": "Feb",
+            "startDay": "30",
+            "startTimestamp": "2/30/2018 - 12:00",
+            "endMonth": "Mar",
+            "endDay": "10",
+            "endTimestamp": "3/10/2018 - 14:00"
+          },
+          "time": "12 p.m. - 2 p.m.",
+          "description": ""
+        },{
+          "title": {
+            "href": "#",
+            "text": "Lowell Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Lowell, MA",
+          "position": {
+            "lat": 42.6426951,
+            "lng": -71.3097237
+          },
+          "date": {
+            "summary": "September 26, 2018 - September 30, 2018",
+            "startMonth": "Sep",
+            "startDay": "26",
+            "startTimestamp": "9/26/2018 12:00",
+            "endMonth": "Sep",
+            "endDay": "30",
+            "endTimestamp": "9/30/2018 - 14:00"
+          },
+          "time": "12 p.m. - 2 p.m.",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias"
+        },{
+          "title": {
+            "href": "#",
+            "text": "First Day Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Brookline, MA",
+          "position": {
+            "lat": 42.3341085,
+            "lng": -71.1237564
+          },
+          "date": {
+            "summary": "August 26, 2018 - August 30, 2018",
+            "startMonth": "Aug",
+            "startDay": "26",
+            "startTimestamp": "8/26/2018 12:00",
+            "endMonth": "Aug",
+            "endDay": "30",
+            "endTimestamp": "8/30/2018 - 14:00"
+          },
+          "time": "12 p.m. - 2 p.m.",
+          "description": "Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias architecto deleniti sunt eum incidunt laboriosam quos repudiandae nesciunt eligendi? Aliquid."
+        },{
+          "title": {
+            "href": "#",
+            "text": "Concord Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Concord, MA",
+          "position": {
+            "lat": 42.4539254,
+            "lng": -71.3452413
+          },
+          "date": {
+            "summary": "January 12, 2018 - April 25, 2018",
+            "startMonth": "Jan",
+            "startDay": "12",
+            "startTimestamp": "1/12/2018 - 14:00",
+            "endMonth": "Apr",
+            "endDay": "25",
+            "endTimestamp": "4/25/2018 - 15:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "sit amet, consectetur adipisicing elit"
+        },{
+          "title": {
+            "href": "#",
+            "text": "Marlborough Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Marlborough, MA",
+          "position": {
+            "lat": 41.3903691,
+            "lng": -70.5168911
+          },
+          "date": {
+            "summary": "October 18, 2017 - October 21, 2017",
+            "startMonth": "Oct",
+            "startDay": "18",
+            "startTimestamp": "10/18/2017 - 14:00",
+            "endMonth": "Oct",
+            "endDay": "21",
+            "endTimestamp": "10/21/2017 - 15:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "Event description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, repudiandae nesciunt eligendi? Aliquid."
+        },{
+          "title": {
+            "href": "#",
+            "text": "Edgartown Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Edgartown, MA",
+          "position": {
+            "lat": 41.3903691,
+            "lng": -70.5168911
+          },
+          "date": {
+            "summary": "October 16, 2017 - October 18, 2017",
+            "startMonth": "Oct",
+            "startDay": "16",
+            "startTimestamp": "10/16/2017 - 14:00",
+            "endMonth": "Oct",
+            "endDay": "18",
+            "endTimestamp": "10/18/2017 - 15:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "sit amet, consectetur adipisicing elit"
+        },{
+          "title": {
+            "href": "#",
+            "text": "Attleboro Hike",
+            "info": "",
+            "property": ""
+          },
+          "location": "Attleboro, MA",
+          "position": {
+            "lat": 41.9462525,
+            "lng": -71.289677
+          },
+          "date": {
+            "summary": "June 2, 2018",
+            "startMonth": "Jun",
+            "startDay": "2",
+            "startTimestamp": "6/02/2018 - 14:00",
+            "endMonth": "",
+            "endDay": "",
+            "endTimestamp": "6/02/2018 - 15:00"
+          },
+          "time": "2 p.m. - 3 p.m.",
+          "description": "Event description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias architecto deleniti sunt eum incidunt laboriosam quos repudiandae nesciunt eligendi? Aliquid."
+        }],
+        "more": null
+      },
+
+      "pagination": {
+        "next": {
+          "disabled": false,
+          "text": "Next"
+        },
+        "prev": {
+          "disabled": true,
+          "text": "Previous"
+        },
+        "pages": [{
+          "active": true,
+          "text": "1"
+        },{
+          "active": false,
+          "text": "2"
+        }]
+      }
+    }
+  }
+}

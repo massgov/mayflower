@@ -1,0 +1,49 @@
+{
+  "imageLinkList" : {
+    "sidebarHeading": {
+      "title": "Image Link List",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": false
+    },
+    "itemPluralName": "Organizations",
+    "links" : [{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet.",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet, consectetur.",
+      "info": ""
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit.",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor",
+      "info": "",
+      "image": {
+        "src": "../../assets/images/placeholder/250x250.png",
+        "alt": "logo"
+      }
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet",
+      "info": ""
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet, consectetur.",
+      "info": ""
+    }]
+  }
+}

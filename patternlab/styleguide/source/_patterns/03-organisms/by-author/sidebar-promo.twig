@@ -1,0 +1,20 @@
+{% set link = sidebarPromo.link %}
+
+<section class="ma__sidebar-promo">
+  {% set sidebarHeading = sidebarPromo.sidebarHeading %}
+  {% include "atoms-sidebar-heading" %}
+  {% if sidebarPromo.image %}
+    {% set image = sidebarPromo.image %}
+    <div class="ma__sidebar-promo__image">
+      <a href="{{link.href}}" target="{{link.target}}" title="{{image.src}}">{% include "@atoms/09-media/image.twig" %}</a>
+    </div>
+  {% endif %}
+  {% if sidebarPromo.content %}
+    <div class="ma__sidebar-promo__content">
+      {{sidebarPromo.content}}
+    </div>
+  {% endif %}
+  <div class="ma__sidebar-promo__view-more">
+    {% include "@atoms/11-text/link.twig" %}
+  </div>
+</section>

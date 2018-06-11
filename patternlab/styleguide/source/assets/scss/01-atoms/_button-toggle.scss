@@ -1,0 +1,9 @@
+.ma__button-toggle {
+  @include ma-button-reset;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 0;
+  margin: 0 4px;
+  position: relative;
+  white-space: nowrap;
+}

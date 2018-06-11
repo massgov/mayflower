@@ -1,0 +1,15 @@
+{
+  "inputText": {
+    "hiddenLabel": false,
+    "labelText": "Number input",
+    "required": true,
+    "id": "number-input",
+    "name": "number-input",
+    "type": "number",
+    "width": "",
+    "maxlength": 16,
+    "pattern": "[0-9]",
+    "placeholder": "type something",
+    "errorMsg": ""
+  }
+}

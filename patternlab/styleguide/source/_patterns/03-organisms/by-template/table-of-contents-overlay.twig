@@ -1,0 +1,34 @@
+<div class="ma__toc--overlay js-toc-container" id="{{tableOfContentsOverlay.id}}">
+  <div class="ma__toc__toc__title js-inline-overlay-title" tab-index="-1">
+    <span class="ma__toc__subtitle">This is a part of:</span>
+    {% set decorativeLink = tableOfContentsOverlay.title %}
+    {% include "@atoms/decorative-link.twig" %}
+    <button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="toc-overlay">
+      <span class="show">
+        +
+        <span class="ma__visually-hidden">Show table of contents</span>
+      </span>
+    </button>
+  </div>
+  <div class="ma__toc--overlay__container js-inline-overlay" id="toc-overlay">
+    <div class="ma__toc__toc__title js-inline-overlay-title" tab-index="-1">
+      <span class="ma__toc__subtitle">This is a part of:</span>
+      {% set decorativeLink = tableOfContentsOverlay.title %}
+      {% include "@atoms/decorative-link.twig" %}
+      <button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="true" aria-controls="toc-overlay">
+        <span class="hide">
+          &times;
+          <span class="ma__visually-hidden">Hide table of contents</span>
+        </span>
+      </button>
+    </div>
+    <div class="ma__toc--overlay__content">
+      {% block tableOfContentsOverlaySections %}
+        {% for tocSection in tableOfContentsOverlay.tocSections %}
+          {% set tableOfContentsHierarchy = tocSection %}
+          {% include "@organisms/by-template/table-of-contents-hierarchy.twig" %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+  </div>
+</div>

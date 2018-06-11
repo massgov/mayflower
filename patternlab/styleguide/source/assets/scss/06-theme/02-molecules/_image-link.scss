@@ -1,0 +1,10 @@
+.ma__image-link--block {
+    background: $c-gray-f2f2f2;
+
+    .ma__image-link__text {
+        color: $c-theme-gray;
+    }
+    svg {
+        fill: $c-theme-gray;
+    }
+}

@@ -1,0 +1,9 @@
+{# 
+  modifier classes include ma__callout-stats--left and ma__callout-stats--right 
+#}
+
+{% set modifierClass = statsCallout.pull ? "ma__callout-stats--" ~ statsCallout.pull : "" %}
+<section class="ma__callout-stats {{modifierClass}}">
+  <span class="ma__callout-stats__stat">{{statsCallout.stat}}</span>
+  <span class="ma__callout-stats__content">{{statsCallout.content}}</span>
+</section>

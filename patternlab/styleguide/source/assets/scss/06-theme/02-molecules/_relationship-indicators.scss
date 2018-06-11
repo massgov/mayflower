@@ -1,0 +1,139 @@
+.ma__relationship-indicators {
+  font-weight: 600;
+  font-size: 16px;
+
+  &--label {
+    text-transform: uppercase;
+    margin-right: 10px;
+    white-space: nowrap;
+
+    @media ($bp-medium-min) {
+      padding-top: 6px;
+    }
+  }
+
+  &--section {
+
+    a {
+      display: block;
+      border: 2px solid;
+      padding: 3px 5px;
+      width: 100%;
+
+      @media ($bp-x-small-min) {
+        width: auto;
+        display: inline-block;
+      }
+    }
+
+    button {
+      @include ma-button-reset;
+      @include ma-link-underline;
+      @include ma-chevron;
+      margin-top: -6px;
+      padding-top: 0;
+      padding-left: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
+      display: none;
+
+      &:after {
+        opacity: 0.5;
+        margin-left: 0;
+        border-width: 3px;
+        height: 8px;
+        width: 8px;
+        transform: translateY(-45%) rotate(45deg);
+      }
+
+      .is-open::after {
+        transform: translateY(-55%) rotate(-135deg);
+      }
+
+      @media ($bp-medium-min) {
+        align-self: flex-start;
+        padding-top: 14px;
+        padding-left: 10px;
+      }
+    }
+
+    &.offered-by {
+      display: flex;
+
+      @media ($bp-medium-min) {
+        flex-wrap: nowrap;
+      }
+
+      .ma__relationship-indicators--term {
+        display: none;
+
+        @media ($bp-large-min) {
+          display: block;
+
+          &:nth-child(n+2) {
+            display: none;
+          }
+        }
+      }
+
+      a {
+        color: $c-theme-green;
+        border-color: rgba($c-theme-green, 0.2);
+
+        &:hover {
+          border-color: $c-theme-green;
+        }
+      }
+
+      button {
+        color: $c-theme-green;
+        align-self: flex-end;
+
+        .tags-open & {
+          align-self: basline;
+        }
+
+        @media ($bp-large-min) {
+          align-self: baseline;
+        }
+
+        .tag-count {
+          display: none;
+
+          @media ($bp-large-min) {
+            display: inline-block;
+          }
+        }
+      }
+    }
+
+    &.related-to {
+      padding-top: 15px;
+      flex-wrap: wrap;
+
+      @media ($bp-large-min) {
+        padding-top: 0;
+      }
+
+      .ma__relationship-indicators--term {
+
+        &:nth-child(n+2) {
+          display: none;
+        }
+      }
+
+      a {
+        border-color: rgba($c-theme-blue, 0.2);
+
+        &:hover {
+          border-color: $c-theme-blue;
+        }
+      }
+
+      button {
+        color: $c-theme-blue;
+      }
+    }
+  }
+}

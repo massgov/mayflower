@@ -1,0 +1,10 @@
+.ma__decorative-link {
+  
+  a:hover {
+    border-bottom-color: rgba($c-font-link,.5);
+  }
+
+  svg {
+    fill: rgba($c-font-link,.5);
+  }
+}

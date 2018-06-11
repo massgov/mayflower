@@ -1,0 +1,101 @@
+{
+  "about": {
+    "title": {
+      "title": "About the Treasury",
+      "level": "2"
+    },
+    "content": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Our mission at the office of the State Treasurer is to prudently manage and safeguard the Commonwealth's public deposits and investments through sound business practices for the exclusive benefits of our citizens, and preform these duties with integrity, excellence, and leadership."
+          }
+        }
+      }]
+    },
+    "link": {
+      "href": "#",
+      "text":"Read more and the Treasury",
+      "info": "",
+      "chevron": ""
+    },
+    "person": {
+      "image": {
+        "alt": "alt text",
+        "src": "../../assets/images/placeholder/250x250.png",
+        "height": "250",
+        "width": "250",
+        "shape": "circular"
+      },
+      "name": {
+        "title": "First Person",
+        "level": "2",
+        "color": "transparent",
+        "centered": true
+      },
+      "title" : {
+        "text": "Treasurer & Receiver General",
+        "level": "3"
+      },
+      "bio": {
+        "href": "#",
+        "text":"Learn more about Treasurer Goldberg"
+      }
+    },
+    "secondary_person": {
+      "image": {
+        "alt": "alt text",
+        "src": "../../assets/images/placeholder/250x250.png",
+        "height": "250",
+        "width": "250",
+        "shape": "circular"
+      },
+      "name": {
+        "title": "Secondary Person",
+        "level": "2",
+        "color": "transparent",
+        "centered": true
+      },
+      "title" : {
+        "text": "Treasurer & Receiver General",
+        "level": "3"
+      },
+      "bio": {
+        "href": "#",
+        "text":"Learn more about Treasurer Goldberg"
+      }
+    },
+    "social": {
+      "compHeading": {
+        "title": "Social:",
+        "sub": "",
+        "color": "green",
+        "id": "",
+        "centered": ""
+      },
+      "items": [{
+        "icon": "facebook",
+        "link": {
+          "href": "#",
+          "text": "Facebook",
+          "chevron": ""
+        }
+      },{
+        "icon": "twitter",
+        "link": {
+          "href": "#",
+          "text": "Twitter",
+          "chevron": ""
+        }
+      },{
+        "icon": "instagram",
+        "link": {
+          "href": "#",
+          "text": "Instagram",
+          "chevron": ""
+        }
+      }]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+
+.ma__link-list--image-links,
+.ma__link-list--image-blocks {
+  .ma__link-list__toggle {
+    color: $c-font-link;
+    font-weight: 700;
+
+    &:after {
+    border-color: $c-font-link;
+    opacity: .5;
+    }
+
+    &:hover {
+    border-color: rgba($c-font-link,.5);
+    }
+  }
+}
+

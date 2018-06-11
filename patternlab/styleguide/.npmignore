@@ -1,0 +1,13 @@
+## We package from within a deploy script, essentially within /public/assets/
+
+css/pattern-scaffolding*
+css/pilot*
+css/gov-theme*
+data
+js/helpers
+js/index.js
+js/modules
+js/templates
+js/vendor
+patterns
+.npmrc

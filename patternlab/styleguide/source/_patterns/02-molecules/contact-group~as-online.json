@@ -1,0 +1,29 @@
+{
+  "contactGroup": {
+    "icon": "laptop",
+    "name": "Online",
+    "level": "",
+    "contactName": "",
+    "items": [{
+      "type": "email",
+      "label":"Email:",
+      "address": "",
+      "link": {
+        "href":"email@email.com",
+        "text": "email@email.com",
+        "info": ""
+      },
+      "details":""
+    },{
+      "type": "online",
+      "label":"Web:",
+      "address": "",
+      "link": {
+        "href":"#",
+        "text": "Contact Form",
+        "info": ""
+      },
+      "details":""
+    }]
+  }
+}

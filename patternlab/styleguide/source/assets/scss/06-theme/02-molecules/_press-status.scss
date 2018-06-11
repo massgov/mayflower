@@ -1,0 +1,14 @@
+.ma__press-status {
+  background-color: $c-bg-section;
+
+  .main-content--two .page-content > & {
+
+    &:before {
+      background-color: $c-bg-section;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+}

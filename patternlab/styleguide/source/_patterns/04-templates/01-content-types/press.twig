@@ -1,0 +1,77 @@
+{# site header #}
+{% block header %}{% endblock %}
+
+<main id="main-content" class="ma__press" tabindex="-1"{% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
+  <div class="pre-content">
+    {% block preContent %}
+      {% include "@organisms/by-template/page-header.twig" %}
+    {% endblock %}
+  </div>
+  <div class="main-content main-content--two">
+    <div class="page-content ma__press__page-content">
+      {% if pageContent.pressStatus %}
+        {% set pressStatus = pageContent.pressStatus %}
+        {% include "@molecules/press-status.twig" %}
+      {% endif %}
+
+      {% if sidebar.contactList %}
+        {% set contactList = sidebar.contactList %}
+        {% include "@organisms/by-author/contact-list.twig" %}
+      {% endif %}
+
+      {% if pageContent.figure %}
+        {% set figure = pageContent.figure %}
+        {% include "@atoms/09-media/figure.twig" %}
+      {% endif %}
+
+      {% if pageContent.video %}
+        {% set video = pageContent.video %}
+        {% include "@atoms/09-media/video.twig" %}
+      {% endif %}
+
+      {% set richText = pageContent.richText %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+
+      <div style="margin-top: 1.75rem;">###</div>
+
+      {% block pageContent %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page Content'}} %}
+      {% endblock %}
+
+      {% if pageContent.contactList %}
+        {% set contactList = pageContent.contactList %}
+        {% include "@organisms/by-author/contact-list.twig" %}
+      {% endif %}
+
+      {% if pageContent.personalMessage %}
+        {% set personalMessage = pageContent.personalMessage %}
+        {% include "@organisms/by-author/personal-message.twig" %}
+      {% endif %}
+
+    </div>
+    <aside class="sidebar ma__press__sidebar">
+      {% if sidebar.contactList %}
+        {% set contactList = sidebar.contactList %}
+        {% include "@organisms/by-author/contact-list.twig" %}
+      {% endif %}
+
+      {% if sidebar.pressListing %}
+        {% set pressListing = sidebar.pressListing %}
+        {% include "@organisms/by-author/press-listing.twig" %}
+      {% endif %}
+
+      {% block sidebar %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'sidebar'}} %}
+      {% endblock %}
+    </aside>
+  </div>
+  <div class="post-content">
+    {% block postContent %}
+    {% endblock %}
+  </div>
+  {% block schemaContent %}{% endblock %}
+</main>
+
+{# site footer #}
+{% block footer %}{% endblock %}
+

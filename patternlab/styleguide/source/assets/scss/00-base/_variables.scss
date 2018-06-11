@@ -1,0 +1,12 @@
+// Change the Neat grid settings
+$column: 85px;
+$gutter: 20px;
+$column-with-gutter: $column + $gutter;
+$max-width: 1320px; // use @include outer-container() which sets this and centers;
+
+$header-mobile-controls-height: 40px;
+
+$layout-sidebar-width: ($column * 3) + ($gutter * 2);
+$layout-sidebar-width-reversed: 370px;
+
+$l-max-content-width: 820px;

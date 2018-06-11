@@ -1,0 +1,26 @@
+{
+  "actionEvent": {
+    "name": {
+      "type": "",
+      "href": "#",
+      "text": "Fishing Clinic",
+      "property": "url"
+    },
+    "date":"June 24, 2017, 12:00pm",
+    "description":"This is a description of the event that will happen at a future date",
+    "meta": {
+      "location": {
+        "name":"Event Location Name",
+        "address1":"address 1",
+        "address2":"address 2",
+        "city":"City",
+        "state":"State",
+        "zip":"00000",
+        "image": {
+          "alt":"Image Alt text",
+          "src":"/banner/image/src.jpg"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "pageHeader": {
+    "category": "Decision",
+    "divider": false,
+    "title": "Department of Public Health v. Deli Market",
+    "subTitle": "",
+    "headerTags": {
+      "label": "Related to:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Department of Revenue"
+      },{
+        "href": "#",
+        "text": "Rules & Regulations Bureau"
+      }]
+    },
+    "socialLinks": null,
+    "publishState": null,
+    "optionalContents": [{
+      "path": "@molecules/listing-table.twig",
+      "data": {
+        "listingTable": {
+          "rows": [{
+            "label": "Last Updated:",
+            "text": "8/11/2009"
+          },{
+            "label": "Organization:",
+            "text": "Division of Administrative Law Appeals"
+          },{
+            "label": "Docket Number:",
+            "text": "PH-07-539"
+          },{
+            "label": "Location:",
+            "text": "Suffolk County"
+          },{
+            "label": "Referenced Sources:",
+            "text": "<a href=\"#\">M. G.L. c. 51, § 47C</a><br/><a href=\"#\">G.L. c. 64H, § 6</a>"
+          }]
+        }
+      }
+    },{
+      "path": "@molecules/labelled-list.twig",
+      "data": {
+        "labelledList": {
+          "items": [{
+            "label": "Petitioner:",
+            "text": "Deli Grocery, Shilpi Begum, Owner and Enamul Malik, Manager"
+          },{
+            "label": "Appearance for Petitioner:",
+            "text": "Madeline Grace Piper, Esquire, Deputy General Counsel, MDPH"
+          },{
+            "label": "Appearance for Respondent:",
+            "text": "Pro Se, Enamul Malik, Deli Grocery"
+          },{
+            "label": "Administrative Magistrate:",
+            "text": "Judithann Burke"
+          }]
+        }
+      }
+    },{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "property": "",
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "This is a board decisions page, and this is an optional description field.  For shorter content, authors may choose to use only the overview field.  For longer content, this may be a place to summerize findings or to provide a short introduction. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, ex, eius. Magnam, beatae quibusdam. Nemo adipisci veniam earum minus similique."
+              }
+            }
+          }]
+        }
+      }
+    }],
+    "widgets": null
+  },
+
+  "jumpLinks": {
+    "title": "In this Section",
+    "links": [{
+      "text": "Decision",
+      "href": "decision"
+    },{
+      "text": "Findings of Fact",
+      "href": "finding-of-fact"
+    },{
+      "text": "Conclusion",
+      "href": "conclusion"
+    },{
+      "text": "Downloads",
+      "href": "downloads"
+    },{
+      "text": "Contact",
+      "href": "contact"
+    }]
+  },
+
+  "mainContent": {
+    "contents": [{
+      "compHeading": {
+        "title": "Decision",
+        "sub": false,
+        "color": "",
+        "id": "decision",
+        "centered": false,
+        "titleContext": "on PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "On April 9, 2008, pursuant to 7 CFR 246.12(g)(3)(i), the Petitioner, Department of Public Health-WIC Program (DPH), issued a Notice of Termination of WIC Vendor Agreement and Disqualification from the WIC Program for the period of one year to the Respondents, Deli Grocery, Shilpi Begum, owner, and Enamul Malik, manager, (WIC Vendor No. 5812). (Exhibit 1). The Respondents filed a timely appeal and request for hearing on April 30, 2008. (Exhibit 2). A hearing was held on August 22, 2008 at the offices of the Division of Administrative Law Appeals (DALA), 98 North Washington Street, Boston, MA, pursuant to G.L. 30A, 801 CMR 1.02 et seq., the Informal Rules, and interagency agreement."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "At the hearing, seven (7) exhibits were marked. The Petitioner presented the testimony of: Mary Blocksidge, the DPH WIC Program Director; the undercover compliance buyer for the WIC Program, whose identity was protected by a screen during testimony; and, Lisa Viveiros, Fall River WIC Program Assistant. The Respondent, Enamul Malik, manager of Deli Grocery, provided testimony on behalf of Deli Grocery. Both parties stated their arguments for the record. One (1) tape was made of the proceedings."
+          }
+        }
+      }]
+    },{
+      "compHeading": {
+        "title": "Findings of Fact",
+        "sub": false,
+        "color": "",
+        "id": "findings-of-fact",
+        "centered": false
+      },
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Based upon the testimony and documents submitted during the hearing in the above-entitled matter, I hereby render the following findings of fact:"
+          }
+        }
+      },{
+        "path": "@atoms/08-lists/ordered-list.twig",
+        "data": {
+          "orderedList": [{
+            "text": "The DPH is responsible for administering the Massachusetts WIC Program and enforcing the laws, rules and regulations pertaining to said program. (Testimony)."
+          },{
+            "text": "The WIC Program is a nutrition and education program, whose purpose is to provide food supplements and nutrition information to eligible low-income pregnant women, breastfeeding mothers, infants and children up to five (5) years of age. The WIC Program was created by the Federal Child Nutrition Act of 1996, and is found at 42 U.S.C. s. 1771 et. seq. Regulations governing the WIC Program are found at 7 CFR 246 et. seq. The program is administered on a federal level by the United States Department of Agriculture, and on the state level, by the DPH. (Id.)."
+          },{
+            "text": "Vendors participating in the WIC Program are required to stock mandatory minimum inventory of approved WIC products. (Exhibits 1 and 1A)."
+          },{
+            "text": "Persons eligible for participation in the WIC program are issued WIC checks [vouchers/prescriptions] which can be used to purchase prescribed WIC products at stores authorized to redeem them. (Id.)."
+          },{
+            "text": "These checks can be redeemed only at authorized WIC vendors' stores. A store seeking to become an authorized WIC vendor must apply to the DPH to participate. (Exhibit 6). <a class=\"ma__rich-text__footnote\" id=\"footnoteref1\" title=\"source for this information\" href=\"#footnotemsg1\">1</a>"
+          },{
+            "text": "The WIC Vendor Application is a written document that specifically states that the store owner will be \"bound by the WIC Program regulations and policies\" including: <br/>…accepting responsibility on behalf of the store and its owner(s), manager(s), and employees including new, part-time, paid or unpaid employees for violations of WIC procedures committed."
+          }]
+        }
+      }]
+    },{
+      "compHeading": {
+        "title": "Conclusion",
+        "sub": false,
+        "color": "",
+        "id": "conclusion",
+        "centered": false,
+        "titleContext": "of PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "The DPH has met its burden of proving by a preponderance of the evidence that the statutory and regulatory Class IV violations set forth in the April 9, 2008 Notice of Termination of the WIC Vendor Agreement and Disqualification From the WIC Program took place on February 11, February 26 and April 2, 2008."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "The Petitioner has put forth a strong and credible case both in documentary and testimonial evidence which the Respondent has failed to refute. In rendering this conclusion, I have credited the testimony of the compliance buyer who systematically recorded observations of the store inventory or lack thereof, and any items purchased, all within a very short period of time after each monitoring visit. The individual appeared to be a methodical professional who demonstrated no bias or other hidden agenda against the Respondent or any other motive to be less than truthful. The Respondent did not contest the fact, but rather asked for a reprieve, promising to comply in the future. Unfortunately, this promise is too little too late. The Respondent had already received a letter of warning in March 2008 which went unheeded. The request for leniency cannot halt the disqualification process. Neither DPH nor DALA have any discretion but to uphold the controlling regulations in this case."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "The Respondent raised neither any legitimate legal issues concerning the alleged lack of due process in the Petitioner's management of this case, nor, any regulatory or legal violations by the Petitioner that would negate the Findings of Fact set forth herein or those actions taken by the Petitioner in pursuit of the sanctions to be imposed upon the Respondents."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Accordingly, the Vendor Agreement for Deli Grocery is terminated, and, there is a disqualification from participating in the WIC Program for one year."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "So ordered."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Division of Administrative Law Appeals,<br />BY:<br />----------------------------------------------<br />Judithann Burke<br />Administrative Magistrate"
+          }
+        }
+      }]
+    }],
+
+    "formDownloads": {
+      "compHeading": {
+        "title": "Downloads",
+        "sub": false,
+        "color": "",
+        "id": "downloads",
+        "centered": "",
+        "titleContext": "for PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "downloadLinks": [{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-pdf",
+          "decorativeLink": {
+            "text": "Signed, official copy of this document",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "1MB",
+          "format": "PDF"
+        }
+      }]
+    },
+
+    "contactList": {
+      "viewSpecific": false,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "contact",
+        "centered": "",
+        "titleContext": "for PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "contacts":[{
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Rules & Regulations Bureau"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "email",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"Rulesandregulations@DOR.State.MA.US",
+              "text": "Rulesandregulations@DOR.State.MA.US",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "footnoteList": {
+      "items": [{
+        "number": 1,
+        "target": "#footnoteref1",
+        "id": "footnotemsg1",
+        "richText": {
+          "property": "",
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "The Department has issued a number of recent Letter Rulings applying the rules in the Computer Industry Services and Products Regulation to specific factual situations, including: LR 12-13, Internet-Based Marketing and Customer-Communications Solutions, LR 12-11, Data Back-up and Restoration, LR 12-10, Screen-sharing Software and the Massachusetts Sales/Use Tax, LR 12-8, Cloud Computing, LR 12-6, Sales/Use Tax on Publishing Software, LR 12-5, MA Sales/Use Tax on Business Offerings to Physician Practice Customers, LR 12-4, Massachusetts Sales/Use Tax on “Call Tracking Service,”  LR 12-1, Teleconferencing Services, LR 11-4, MA Sales/Use Tax: On-line Services for Prospective Employees, LR 11-2, MA Sales/Use Tax: Sales of On-line Services, LR 10-1, Litigation Support Services."
+              }
+            }
+          }]
+        }
+      }]
+    },
+
+    "references": {
+      "label": "Referenced Legislation:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "M. G.L. c. 51, § 47C"
+      },{
+        "href": "#",
+        "text": "G.L. c. 64H, § 6"
+      }]
+    }
+  },
+
+  "sideContent": {
+    "contactList": {
+      "viewSpecific": true,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "",
+        "centered": "",
+        "titleContext": "for PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Rules & Regulations Bureau"
+        },
+        "groups": [{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "email",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"Rulesandregulations@DOR.State.MA.US",
+              "text": "Rulesandregulations@DOR.State.MA.US",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "pressListing": {
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": "to PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "items": [{
+        "eyebrow": "Letter Ruling",
+        "title" : {
+          "url":"#",
+          "text":"LR 12-3: Internet-Based Marketing and Customer-Communications Solutions",
+          "info": "",
+          "property": ""
+        },
+        "date": "3/12/2016",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "Regulation",
+        "title" : {
+          "url":"#",
+          "text":"830 CMR 64H.1.3",
+          "info": "",
+          "property": ""
+        },
+        "date": "4/17/2016",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "",
+        "title" : {
+          "url":"#",
+          "text":"Related Non News, Announcements, Reg, or Law Here",
+          "info": "",
+          "property": ""
+        },
+        "date": "",
+        "org": "",
+        "description": null
+      }]
+    },
+
+    "eventListing": {
+      "sidebarHeading":{
+        "title": "Upcoming Events",
+        "titleContext": "for PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "events":[{
+        "title": {
+          "href": "#",
+          "text": "Public Hearing",
+          "info": "",
+          "property": ""
+        },
+        "location": "Boston, MA",
+        "date": {
+          "summary": "May 20, 2017"
+        },
+        "time": "12 p.m. - 2 p.m.",
+        "description": "Event description. Ut nulla. Vivamus bibendum, nulla ut congue fringilla, lorem ipsum ultricies risus, ut rutrum velit tortor vel purus."
+      }],
+      "more": null
+    }
+  }
+}
+

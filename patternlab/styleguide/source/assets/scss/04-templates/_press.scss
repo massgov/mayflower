@@ -1,0 +1,22 @@
+.ma__press {
+
+  &__page-content {
+    
+    .ma__contact-list:first-child,
+    .ma__contact-list:nth-child(2) {
+
+      @media ($bp-large-min) {
+        display: none;
+      }
+    }
+  }
+
+  &__sidebar {
+    .ma__contact-list {
+
+      @media ($bp-large-max) {
+        display: none;
+      }
+    }
+  }
+}

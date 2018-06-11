@@ -1,0 +1,13 @@
+<section class="ma__action-gallery">
+  <ul class="ma__action-gallery__items">
+    {% for item in actionGallery.items %}
+      <li class="ma__action-gallery__item">
+        <img src="{{item.src}}" alt="{{item.alt}}" />
+      </li>
+    {% endfor %}
+      <li class="ma__action-gallery__view-more">
+        {% set decorativeLink = actionGallery.link %}
+        {% include "@atoms/decorative-link.twig" %}
+      </li>
+  </ul>
+</section>

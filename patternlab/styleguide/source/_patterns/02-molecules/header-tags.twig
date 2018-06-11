@@ -1,0 +1,18 @@
+{% set moreLabel = headerTags.moreLabel ?: "show more" %}
+{% set lessLabel = headerTags.lessLabel ?: "show less" %}
+{# Use passed id if it exists, otherwise leave blank to have js assign. #}
+{% set id = headerTags.id ?: '' %}
+
+<div class="ma__header-tags">
+  {% if headerTags.label %}
+    <span>{{ headerTags.label }}</span>
+  {% endif %}
+  <div id="{{ id }}" class="ma__header-tags__terms js-header-tag-link">
+    {% for item in headerTags.taxonomyTerms %}
+      <a href="{{ item.href }}">{{ item.text }}</a>
+    {% endfor %}
+    <button type="button" class="js-header-tag-button">
+      <span>{{ moreLabel }}</span><span>{{ lessLabel }}</span>
+    </button>
+  </div>
+</div>

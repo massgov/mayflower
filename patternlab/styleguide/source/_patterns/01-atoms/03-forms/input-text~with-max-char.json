@@ -1,0 +1,15 @@
+{
+  "inputText": {
+    "hiddenLabel": false,
+    "labelText": "Text Input",
+    "required": false,
+    "id": "length-input",
+    "name": "length-input",
+    "type": "text",
+    "width": "",
+    "maxlength": "10",
+    "pattern": "",
+    "placeholder": "Enter only 10 characters",
+    "errorMsg": ""
+  }
+}

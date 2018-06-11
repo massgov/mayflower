@@ -1,0 +1,23 @@
+{
+    "pageBanner": {
+      "bgWide": "../../assets/images/placeholder/800x400.png",
+      "bgNarrow": "../../assets/images/placeholder/800x400.png",
+      "size": "large",
+      "icon": "",
+      "title": "Office of the Treasurer & Receiver General",
+      "titleSubText": " (TRE)",
+      "primaryLink": {
+        "text": "Charlie Baker",
+        "info": "",
+        "description": "Governor"
+      },
+      "secondaryLink": {
+        "text": "Deborah B. Goldberg",
+        "href": "#",
+        "info": "",
+        "description": "Treasurer & Receiver General"
+      },
+      "color": "green"
+    }
+  }
+

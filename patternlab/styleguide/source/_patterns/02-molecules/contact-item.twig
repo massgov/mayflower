@@ -1,0 +1,60 @@
+{# if using the older 3.4.1 data model #}
+{% if item.link and item.link is not iterable %}
+  {# update the older code's data to match the new version #}
+  {% set link = {
+    "href": item.link,
+    "text": item.type == "address" ? "directions" : item.value,
+    "info": item.info
+  } %}
+{% else %}
+  {% set link = item.link %}
+{% endif %}
+
+{# if using the older 3.4.1 data model #}
+{% if item.value %}
+  {# update the older code's data to match the new version #}
+  {% set address = item.value %}
+{% else %}
+  {% set address = item.address %}
+{% endif %}
+
+<div class="ma__contact-group__item">
+  {% if item.label %}
+    <span class="ma__contact-group__label">{{item.label}}</span>
+  {% endif %}
+
+  {# Online wrap value in a link #}
+  {% if item.type == "online" %}
+    {% set decorativeLink = link %}
+    {% include "@atoms/decorative-link.twig" %}
+    {# Phone - add tel: to href #}
+  {% elseif item.type == "phone" %}
+    <a
+      href="tel:{{ link.href }}"
+      class="ma__content-link ma__content-link--phone">
+      {% if item.contactName %}<span class="visually-hidden">Call {{ item.contactName }}{% if item.label %}, {{item.label}} {% endif %}at </span>{% endif %}{{ link.text }}</a>
+
+    {# Email - add mailto: to href #}
+  {% elseif item.type == "email" %}
+    <a
+      href="mailto:{{ link.href }}"
+      class="ma__content-link">{% if item.contactName %}<span class="visually-hidden">Email {{ item.contactName }} at </span>{% endif %}{{ link.text }}</a>
+
+    {# Address - RTE version of value and look for directions link #}
+  {% elseif item.type == "address" %}
+    <div class="ma__contact-group__address">
+      {{ address|nl2br|raw }}
+    </div>
+    {% if link.href %}
+      <div class="ma__contact-group__directions">
+        {% set decorativeLink = link %}
+        {% include "@atoms/decorative-link.twig" %}
+      </div>
+    {% endif %}
+  {% else %}
+    <span class="ma__contact-group__value">{{ link.text }}</span>
+  {% endif %}
+</div>
+{% if item.details %}
+  <p class="ma__contact-group__details">{{ item.details }}</p>
+{% endif %}

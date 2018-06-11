@@ -1,0 +1,14 @@
+<nav
+  class="ma__sticky-nav js-scroll-anchors"
+  aria-label="Page Contents">
+  <h3 class="visually-hidden">the Contents{% if stickyNav.titleContext %} of the {{stickyNav.titleContext}} page{% endif %}</h3>
+  <button
+    class="ma__sticky-nav__toggle-link js-scroll-anchors-toggle"
+    aria-label="expand or collapse side nav">+</button>
+  {% for anchorLink in stickyNav.anchorLinks %}
+    <div class="ma__sticky-nav__link js-scroll-anchors-link {{ loop.first ? 'is-active' : '' }}">
+      <a href="#{{ anchorLink.href }}"
+        title="{{ anchorLink.info }}">{{ anchorLink.text }}</a>
+    </div>
+  {% endfor %}
+</nav>

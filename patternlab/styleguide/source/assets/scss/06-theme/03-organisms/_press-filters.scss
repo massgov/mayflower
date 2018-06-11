@@ -1,0 +1,16 @@
+.ma__press-filters {
+
+  &__container {
+    background-color: $c-bg-section;
+  }
+
+  &__organizations {
+    border-bottom-color: $c-bd-divider;
+  }
+
+  &__clear {
+    color: $c-font-base;
+    font-weight: 700;
+    border-bottom-color: $c-font-base;
+  }
+}

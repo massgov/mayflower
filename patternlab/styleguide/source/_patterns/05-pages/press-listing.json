@@ -1,0 +1,343 @@
+{
+  "pageHeader": {
+    "divider": false,
+    "title": "News & Announcements",
+    "subTitle": "",
+    "headerTags": null,
+    "optionalContents": null,
+    "widgets": [{
+      "path": "@molecules/social-links.twig",
+      "data": {
+        "socialLinks": {
+          "label": "Get Updates:",
+          "items": [{
+            "altText": "Follow our Blog Feed",
+            "href": "#",
+            "icon": "blog",
+            "linkType": "blog"
+          },{
+            "altText": "Get our emails",
+            "href": "#",
+            "icon": "mail",
+            "linkType": "email"
+          }]
+        }
+      }
+    }]
+  },
+
+  "resultsHeading": {
+    "numResults": "1-12",
+    "totalResults": "108",
+    "sortResults": {
+      "label": "Sort by:",
+      "sortButtons": [{
+        "text": "Date",
+        "direction": "dsc"
+      }]
+    },
+    "tags": null
+  },
+
+  "pressListing": {
+    "items": [{
+      "image": null,
+      "eyebrow": "Press Release",
+      "title" : {
+        "href":"#",
+        "text":"Massachusetts Health Officials Release Quarterly Report on Opioid OD Deaths",
+        "info": "",
+        "property": ""
+      },
+      "date": "4/4/2017",
+      "org": "Health & Human Services, Public Safety",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+            }
+          }
+        }]
+      }
+    },{
+      "image": null,
+      "eyebrow": "Press Statement",
+      "title" : {
+        "href":"#",
+        "text":"Governor Baker Statement on Supreme Court Marriage Equality Decision",
+        "info": "",
+        "property": ""
+      },
+      "date": "4/3/2017",
+      "org": "Office of the Governor",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+            }
+          }
+        }]
+      }
+    },{
+      "image": null,
+      "eyebrow": "News Article",
+      "title" : {
+        "href":"#",
+        "text":"Tree House Brewing Co. Expands Its Horizons",
+        "info": "",
+        "property": ""
+      },
+      "date": "4/3/2017",
+      "org": "Mass Development",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+            }
+          }
+        }]
+      }
+    },{
+      "image": null,
+      "eyebrow": "Blog Post",
+      "title" : {
+        "href":"#",
+        "text":"Surviving the transtition from high school to college",
+        "info": "",
+        "property": ""
+      },
+      "date": "4/3/2017",
+      "org": "Massachusetts Educational Financing Authority",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+            }
+          }
+        }]
+      }
+    },{
+      "image": null,
+      "eyebrow": "Speech",
+      "title" : {
+        "href":"#",
+        "text":"Governor Baker Delivers State of the Commonwealth Address",
+        "info": "",
+        "property": ""
+      },
+      "date": "4/2/2017",
+      "org": "Office of the Governor",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+            }
+          }
+        }]
+      }
+    }]
+  },
+
+  "pagination": {
+    "next": {
+      "disabled": false,
+      "text": "Next"
+    },
+    "prev": {
+      "disabled": false,
+      "text": "Previous"
+    },
+    "pages": [{
+      "active": false,
+      "text": "1"
+    },{
+      "active": true,
+      "text": "spacer"
+    },{
+      "active": false,
+      "text": "3"
+    },{
+      "active": true,
+      "text": "4"
+    },{
+      "active": false,
+      "text": "5"
+    },{
+      "active": false,
+      "text": "spacer"
+    },{
+      "active": false,
+      "text": "10"
+    }]
+  },
+
+  "pressFilters": {
+    "action": "#",
+    "coloredHeading": {
+      "text": "Filter Results",
+      "color": ""
+    },
+
+    "orgSelector": {
+      "selectBox":{
+        "label":"State organization",
+        "id":"color-select",
+        "options":[{
+          "value":"",
+          "text":"All Organizations"
+        },{
+          "value":"attorney-general-office",
+          "text":"Attorney General's Office"
+        },{
+          "value":"governors-office",
+          "text":"Governor's Office"
+        },{
+          "value":"massdot",
+          "text":"massDOT"
+        }]
+      },
+
+      "organizations": [{
+        "value": "attorney-general-office",
+        "image": {
+          "href": "#",
+          "alt": "Maura Healey",
+          "src": "../../assets/images/placeholder/100x100.png",
+          "height": "100",
+          "width": "100"
+        },
+        "name": {
+          "text": "Maura Healey",
+          "href": "#"
+        },
+        "jobTitle": "Attorney General",
+        "message": "The Attorney General is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.",
+        "moreLink": {
+          "text": "more information",
+          "href": "#",
+          "info": "learn more about Organization"
+        }
+      },{
+        "value": "governors-office",
+        "image": {
+          "href": "#",
+          "alt": "Charles Baker",
+          "src": "../../assets/images/placeholder/100x100.png",
+          "height": "100",
+          "width": "100"
+        },
+        "name": {
+          "text": "Charles Baker",
+          "href": "#"
+        },
+        "jobTitle": "Governor",
+        "message": "The Governor is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.",
+        "moreLink": {
+          "text": "more information",
+          "href": "#",
+          "info": "learn more about Organization"
+        }
+      },{
+        "value": "massdot",
+        "image": {
+          "href": "#",
+          "alt": "Mass Dot Logo",
+          "src": "../../assets/images/placeholder/190x107.png",
+          "height": "107",
+          "width": "190"
+        },
+        "name": {
+          "text": "Massachusetts Department of Transportation (MassDOT)",
+          "href": "#"
+        },
+        "jobTitle": "",
+        "message": "MassDOT oversees roads, public transit, aeronautics, and transportation licensing and registration across the state. It includes: the RMV, the MBTA, and the Aeronautics Division",
+        "moreLink": {
+          "text": "more information",
+          "href": "#",
+          "info": "learn more about massDot"
+        }
+      }]
+    },
+
+    "topic":{
+      "label":"Topic",
+      "id":"topic",
+      "options":[{
+        "value":"",
+        "text":"Select"
+      },{
+        "value":"topic1",
+        "text":"Topic 1"
+      },{
+        "value":"topic2",
+        "text":"Topic 2"
+      },{
+        "value":"topic2",
+        "text":"Topic 2"
+      }]
+    },
+
+    "pressType":{
+      "label":"Announcement type",
+      "id":"announcement-type",
+      "options":[{
+        "value":"",
+        "text":"Select"
+      },{
+        "value":"press-release",
+        "text":"Press release"
+      },{
+        "value":"press-statement",
+        "text":"Press statement"
+      },{
+        "value":"news-article",
+        "text":"News article"
+      },{
+        "value":"blog-post",
+        "text":"Blog post"
+      },{
+        "value":"speech",
+        "text":"Speech"
+      }]
+    },
+
+    "dateRange": {
+      "label": "Date range",
+      "startDate": {
+        "labelText": "Select a start date",
+        "required": false,
+        "id": "start-date",
+        "name": "start-date",
+        "placeholder": "mm/dd/yyyy",
+        "restrict": "max"
+      },
+      "endDate": {
+        "labelText": "Select an end date",
+        "required": false,
+        "id": "end-date",
+        "name": "end-date",
+        "placeholder": "today",
+        "restrict": "max"
+      }
+    },
+
+    "submitButton": {
+      "text": "Submit",
+      "type": "submit",
+      "size": "small",
+      "theme": "",
+      "outline": false
+    }
+  }
+}

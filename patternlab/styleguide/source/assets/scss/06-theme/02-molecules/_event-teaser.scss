@@ -1,0 +1,36 @@
+.ma__event-teaser {
+
+  & + & {
+    border-top-color: $c-bd-divider;
+  }
+
+  &__graphic {
+    background-color: tint($c-theme-secondary, 80%);
+  }
+
+  &__spacer {
+    background-color: $c-font-dark;
+  }
+
+  &__month {
+    color: $c-font-dark;
+    font-weight: 800;
+  }
+
+  &__day {
+    color: $c-theme-secondary;
+    font-weight: 800;
+  }
+
+  &__location,
+  &__time,
+  &__date {
+    color: $c-font-dark;
+    font-weight: 700;
+  }
+
+  &__location {
+    font-style: italic;
+    font-weight: 500;
+  }
+}

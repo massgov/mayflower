@@ -1,0 +1,216 @@
+{
+  "pageHeader": {
+    "category": "Emergency Alert",
+    "divider": false,
+    "title": "The State is experiencing severe weather due to the winter storm Paula.",
+    "subTitle": "",
+    "headerTags": null,
+    "optionalContents": null,
+    "widgets": null
+  },
+
+  "stickyNav": null,
+
+  "pageContent": {
+    "alerts": [{
+      "compHeading": {
+        "title": "MassPort is operating with limited flights due to road closures.",
+        "level": "",
+        "color": "yellow",
+        "id": "GUID9827924",
+        "centered": ""
+      },
+      "calloutTime": {
+        "text": "Updated: 02.15.16, 5:00 p.m."
+      },
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/09-media/figure.twig",
+          "data": {
+            "figure": {
+              "align": "align-right",
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/400x300.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "This is a Figure floated right with a caption"
+            }
+          }
+        },{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation."
+            }
+          }
+        }]
+      }
+    },{
+      "compHeading": {
+        "title": "The Governor directs non-emergency executive branch state employees to not come in to work.",
+        "level": "",
+        "color": "yellow",
+        "id": "GUID9827924",
+        "centered": ""
+      },
+      "calloutTime": {
+        "text": "Updated: 02.13.16, 10:00 a.m."
+      },
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation."
+            }
+          }
+        },{
+          "path": "@atoms/08-lists/unordered-list.twig",
+          "data": {
+            "unorderedList": [
+              { "text": "This is a list item in an unordered list" },
+              { "text": "An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line." },
+              {
+                "text": "Lists can be nested inside of each other",
+                "sublist" : [
+                  {"text":"This is a nested list item"},
+                  {"text":"This is another nested list item in an unordered list"}
+                ]
+              },
+              {"text":"This is the last list item"}
+            ]
+          }
+        }]
+      }
+    },{
+      "compHeading": {
+        "title": "The MTBA is operating at a lighter service level, and experiencing delays.",
+        "level": "",
+        "color": "yellow",
+        "id": "GUID9827924",
+        "centered": ""
+      },
+      "calloutTime": {
+        "text": "Updated: 02.15.16, 3:00 p.m."
+      },
+      "richText": {
+        "rteElements": [{
+          "path": "@atoms/09-media/figure.twig",
+          "data": {
+            "figure": {
+              "align": "align-left",
+              "image": {
+                "alt": "alt text",
+                "src": "../../assets/images/placeholder/400x300.png",
+                "height": "",
+                "width": ""
+              },
+              "caption": "This is a Figure floated left with a caption"
+            }
+          }
+        },{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation. This is the body of the alert message.  It can be multiple paragraphs of text that describe in greater detail the alert situation."
+            }
+          }
+        }]
+      }
+    }]
+  },
+
+  "sidebar": {
+    "coloredHeadings": true,
+
+    "contactList": {
+      "viewSpecific": false,
+      "sidebarHeading": {
+        "title": "Contact"
+      },
+      "contacts":[{
+        "accordion": false,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Department name",
+          "chevron":""
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+14134994262",
+              "text": "(413) 499-4262",
+              "info": "",
+              "property": ""
+            },
+            "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Web:",
+            "link": {
+              "href":"#",
+              "text": "Contact Form",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      },{
+        "accordion": false,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Department name",
+          "chevron":""
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+14134994262",
+              "text": "(413) 499-4262",
+              "info": "",
+              "property": ""
+            },
+            "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Web:",
+            "link": {
+              "href":"#",
+              "text": "Contact Form",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    }
+  }
+}

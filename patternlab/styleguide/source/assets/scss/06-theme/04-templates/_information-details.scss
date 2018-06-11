@@ -1,0 +1,44 @@
+.ma__information-details {
+
+  &__content,
+  &__post-content {
+
+    & > * {
+      @include ma-component-spacing;
+    }
+  }
+
+  .ma__figure__caption {
+    font-weight: bold;
+    font-style: normal;
+    padding: 1rem 0;
+    border-bottom: 1px solid $c-black;
+  }
+
+  .ma__image-credit__container {
+    padding-left: 0;
+  }
+
+  &__pre-content-media {
+    margin-bottom: 5rem;
+  }
+
+  .ma__iframe {
+    margin-bottom: 1.75rem;
+  }
+
+  .sidebar {
+
+    @media ($bp-m) {
+      padding-top: 10px;
+    }
+
+    .ma__link-list {
+      display: none;
+
+      @media ($bp-l) {
+        display: block;
+      }
+    }
+  }
+}

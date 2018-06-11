@@ -1,0 +1,38 @@
+<section class="ma__featured-item-mosaic js-accordion">
+  {% if featuredItemMosaic.compHeading %}
+    {% set compHeading = featuredItemMosaic.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% endif %}
+  <div class="ma__featured-item-mosaic__container">
+    {% block featuredItemMosaicColumns %}
+      {% if featuredItemMosaic.columns %}
+        {% for column in featuredItemMosaic.columns|slice(0,2) %}
+          <div class="ma__featured-item-mosaic__column">
+            {% for item in column %}
+              {% set featuredItem = item %}
+              {% if column|length == 1 %}
+                {% set featuredItem = featuredItem|merge({'variation': 'tall'}) %}
+              {% endif %}
+              {% include "@molecules/featured-item.twig" %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+        {% for column in featuredItemMosaic.columns|slice(2) %}
+          <div class="ma__featured-item-mosaic__column js-accordion-content">
+            {% for item in column %}
+              {% set featuredItem = item %}
+              {% if column|length == 1 %}
+                {% set featuredItem = featuredItem|merge({'variation': 'tall'}) %}
+              {% endif %}
+              {% include "@molecules/featured-item.twig" %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endblock %}
+  </div>
+  <button type="button" class="ma__featured-item-mosaic__toggle js-accordion-link" aria-expanded="false">
+    <span class="more">More</span><span class="less">Less</span> featured items
+  </button>
+</section>
+<div class="ma__divider"></div>

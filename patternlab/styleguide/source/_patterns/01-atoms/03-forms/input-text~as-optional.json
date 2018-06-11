@@ -1,0 +1,15 @@
+{
+  "inputText": {
+    "hiddenLabel": false,
+    "labelText": "Text Input",
+    "required": false,
+    "id": "optional-input",
+    "name": "optional-input",
+    "type": "text",
+    "width": "",
+    "maxlength": "",
+    "pattern": "",
+    "placeholder": "Optional input",
+    "errorMsg": ""
+  }
+}

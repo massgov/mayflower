@@ -1,0 +1,13 @@
+{% extends '@templates/single-column.twig' %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/content-eyebrow.twig" %}
+  {% include "@organisms/by-template/page-banner.twig" %}
+{% endblock %}
+
+{% block pageContent %}
+  {% include "@organisms/by-author/sections-three-up.twig" %}
+  {% include "@organisms/by-author/link-list.twig" %}
+{% endblock %}
+
+{% block postContent %}{% endblock %}

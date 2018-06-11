@@ -1,0 +1,12 @@
+<header class="ma__collapsible-header">
+  <button
+    class="ma__collapsible-header__button js-accordion-link"
+    aria-label="{{ collapsibleHeader.info }}">
+    {% if collapsibleHeader.icon %}
+      <div class="ma__collapsible-header__icon">
+        {{ icon(collapsibleHeader.icon) }}
+      </div>
+    {% endif %}
+    <h2 class="ma__collapsible-header__title">{{ collapsibleHeader.title }}</h2>
+  </button>
+</header>

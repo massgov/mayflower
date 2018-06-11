@@ -1,0 +1,12 @@
+.ma__page-intro {
+
+  &__sub-title {
+    font-size: 1.813rem;
+    line-height: 1.2;
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

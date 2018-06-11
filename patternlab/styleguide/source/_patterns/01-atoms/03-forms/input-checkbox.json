@@ -1,0 +1,9 @@
+{
+  "inputCheckbox": {
+    "value": "checkbox",
+    "id": "checkbox-test",
+    "icon": "wheelchair",
+    "label": "Checkbox",
+    "checked": true
+  }
+}

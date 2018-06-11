@@ -1,0 +1,69 @@
+{# site header #}
+{% block header %}{% endblock %}
+
+<main
+  id="main-content"
+  class="ma__information-details"
+  tabindex="-1"
+  {% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
+  <div class="pre-content">
+    {% block preContent %}
+      {% include "@organisms/by-template/page-header.twig" %}
+
+      {% if stickyTOC %}
+      <div class="ma__information-details__pre-content-media">
+        {% block stickyTOC %}
+          {% include "@base/placeholder.twig" with {'placeholder':{'text':'TOC Content'}} %}
+        {% endblock %}
+      </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+  <div class="main-content main-content--two">
+
+    {% if preContentMedia %}
+    <div class="ma__information-details__pre-content-media">
+      {% block preContentMedia %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Pre Content Media: Optional header image/iframe'}} %}
+      {% endblock %}
+    </div>
+    {% endif %}
+
+    <div class="page-content">
+
+      <div class="ma__information-details__content">
+
+        {% block pageContent %}
+          {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page Content'}} %}
+        {% endblock %}
+      </div>
+
+    </div>
+
+    <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
+      {% block sidebar %}
+        {% if sidebar.contactList %}
+          {% set contactList = sidebar.contactList %}
+          {% include "@organisms/by-author/contact-list.twig" %}
+        {% endif %}
+        {% if sidebar %}
+            {% include "@base/placeholder.twig" with {'placeholder':{'text':'Right Rail'}} %}
+        {% endif %}
+      {% endblock %}
+    </aside>
+
+  </div>
+
+  <div class="post-content">
+    {% block postContent %}
+      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
+    {% endblock %}
+  </div>
+
+  {# structured content #}
+  {% block schemaContent %}{% endblock %}
+</main>
+
+{# site footer #}
+{% block footer %}{% endblock %}
+

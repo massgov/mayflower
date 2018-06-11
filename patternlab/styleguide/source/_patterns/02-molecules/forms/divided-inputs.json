@@ -1,0 +1,38 @@
+{
+  "dividedInputs": {
+    "title": "optional legend for these inputs",
+    "required": false,
+    "divider": "/",
+    "inputs": [{
+      "path": "@atoms/03-forms/input-text.twig",
+      "data": {
+        "inputText": {
+          "hiddenLabel": true,
+          "labelText": "Month",
+          "required": true,
+          "id": "exp-month",
+          "name": "exp-month",
+          "type": "text",
+          "width": "85",
+          "placeholder": "",
+          "errorMsg": "missing month"
+        }
+      }
+    },{
+      "path": "@atoms/03-forms/input-text.twig",
+      "data": {
+        "inputText": {
+          "hiddenLabel": true,
+          "labelText": "Year",
+          "required": true,
+          "id": "exp-year",
+          "name": "exp-year",
+          "type": "text",
+          "width": "85",
+          "placeholder": "",
+          "errorMsg": "missing year"
+        }
+      }
+    }]
+  }
+}

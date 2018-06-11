@@ -1,0 +1,31 @@
+{
+  "linkList" : {
+    "compHeading": {
+      "title": "Link List",
+      "sub": true,
+      "color": "yellow",
+      "id": "",
+      "centered": false
+    },
+    "description": null,
+    "stacked": true,
+    "hideBullets": true,
+    "links" : [{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet.",
+      "info": "",
+      "property": ""
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet, consectetur.",
+      "info": "",
+      "property": ""
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit.",
+      "info": "",
+      "property": ""
+    }],
+    "more": null
+  }
+}

@@ -1,0 +1,11 @@
+.ma__form-requirements {
+  background-color: $c-bg-section;
+
+  .main-content--two .page-content > &:before {
+    background-color: $c-bg-section;
+  }
+
+  &__container {
+    background: transparent url('../images/svg-icons/bg-checklist.svg') right 50px bottom -50px no-repeat;
+  }
+}

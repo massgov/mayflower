@@ -1,0 +1,12 @@
+{
+  "figure": {
+    "align": "right",
+    "image": { 
+      "alt": "alt text", 
+      "src": "../../assets/images/placeholder/800x400.png",
+      "height": "",
+      "width": ""
+    },
+    "caption": "This is an optional caption that can wrap to multiple lines."
+  }
+}

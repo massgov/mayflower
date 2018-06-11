@@ -1,0 +1,16 @@
+{% extends '@templates/single-column.twig' %}
+
+{% block preContent %}
+  {% include "@organisms/by-template/page-banner.twig" %}
+{% endblock %}
+
+{% block pageContent %}
+  {% set sectionThreeUp = mainContent.officers %}
+  {% include "@organisms/by-author/sections-three-up.twig" %}
+  {% set sectionThreeUp = mainContent.agencies %}
+  {% include "@organisms/by-author/sections-three-up.twig" %}
+  {% set linkList = mainContent.linkList %}
+  {% include "@organisms/by-author/link-list.twig" %}
+{% endblock %}
+
+{% block postContent %}{% endblock %}

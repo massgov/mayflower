@@ -1,0 +1,14 @@
+{% if contentEyebrow.headerTags.taxonomyTerms or contentEyebrow.socialLinks.items %}
+  <section class="ma__content-eyebrow {{contentEyebrow.hideBorder ? 'ma__content-eyebrow--borderless' : ''}}">
+    <div class="ma__content-eyebrow__tags">
+      {% if contentEyebrow.headerTags.taxonomyTerms %}
+        {% set headerTags = contentEyebrow.headerTags %}
+        {% include "@molecules/header-tags.twig" %}
+      {% endif %}
+      {% if contentEyebrow.socialLinks.items %}
+        {% set socialLinks = contentEyebrow.socialLinks %}
+        {% include "@molecules/social-links.twig" %}
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,147 @@
+// from index.scss
+// $column: 85px;
+// $gutter: 20px;
+
+.ma__action-details {
+
+  &__title {
+    @include ma-heading-colored();
+  }
+
+  &__content {
+    position: relative;
+
+    @media ($bp-medium-min) {
+      margin-left: 160px;
+    }
+
+    @media ($bp-x-large-min) {
+      margin-left: $column-with-gutter * 2;
+    }
+  }
+
+  &__anchor-links {
+    @include clearfix;
+    margin-bottom: 30px;
+    position: relative;
+    transition: top .3s;
+    width: 100%;
+    z-index: $z-sticky-content;
+
+    &:before {
+      content: "true"; // hook for JS to do the mobile sticky
+      display: none;
+
+      @media ($bp-medium-min) {
+        content: "false"; // hook for JS to do the mobile sticky
+      }
+    }
+
+    @media ($bp-medium-max) {
+      left: 0;
+    }
+
+    @media ($bp-medium-min) {
+      margin-left: -160px;
+      margin-bottom: 0;
+      padding-right: $gutter * 2;
+      position: absolute;
+        top: 0;
+      width: 160px;
+    }
+
+    @media ($bp-x-large-min) {
+      margin-left: -$column-with-gutter * 2;
+      width: $column-with-gutter * 2;
+    }
+    @media print {
+      display: none;
+    }
+
+    &[data-sticky='middle'] {
+      position: fixed;
+        top: 40px;
+
+      .translated-rtl &,
+      .translated-ltr & {
+        top: 80px;
+      }
+
+      @media ($bp-medium-min) {
+        top: 15px;
+
+        .translated-rtl &,
+        .translated-ltr & {
+          top: 55px;
+        }
+      }
+    }
+
+    &[data-sticky='bottom'] {
+      position: absolute;
+        top: auto; // height of one line of text
+        bottom: -30px; // compensate for bottom margin
+
+      @media ($bp-medium-min) {
+        top: auto;
+        bottom: -15px;
+      }
+    }
+
+    &.is-open {
+
+      a {
+        display: block;
+      }
+
+      a + a {
+        border-top: 1px solid;
+      }
+    }
+
+    a {
+      display: none;
+      font-size: 20px;
+      line-height: 1.2;
+      padding: 10px 15px;
+
+      @media ($bp-medium-min) {
+        display: block;
+        padding: 0;
+        padding-bottom: 12px;
+      }
+
+      &.is-active, {
+        display: block;
+      }
+    }
+
+    @media ($bp-medium-min) {
+      a + a {
+        border-top: 1px solid;
+        padding-top: 12px;
+      }
+    }
+
+  }
+
+  &__toggle-link {
+    @include ma-button-reset;
+    font-size: 2.5rem;
+    line-height: .65em;
+    overflow: hidden;
+    position: absolute;
+      right: 10px;
+      top: 9px;
+    transition: all .2s ease;
+    transform-origin: center center;
+
+    .is-open & {
+      transform: rotate(135deg);
+    }
+
+    @media ($bp-medium-min) {
+      display: none;
+    }
+  }
+}

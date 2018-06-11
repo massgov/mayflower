@@ -1,0 +1,12 @@
+@mixin ma-link-underline {
+  border-bottom: 3px solid transparent;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  transition: border 0.4s ease;
+
+  &:hover {
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    text-decoration: none;
+  }
+}

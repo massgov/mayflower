@@ -1,0 +1,7 @@
+{
+  "headerSearch" : {
+    "placeholder":"Search Mass.gov",
+    "id":"header-search",
+    "label": "Search terms"
+  }
+}

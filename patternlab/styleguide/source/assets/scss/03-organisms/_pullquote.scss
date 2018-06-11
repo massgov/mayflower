@@ -1,0 +1,21 @@
+.ma__pullquote {
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 15%;
+    height: 30px;
+    background-color: $c-theme-green;
+    position: absolute;
+  }
+
+  &__content {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+
+    @media ($bp-small-min) {
+      font-size: 3rem;
+    }
+  }
+}

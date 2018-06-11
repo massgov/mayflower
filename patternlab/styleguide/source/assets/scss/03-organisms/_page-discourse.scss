@@ -1,0 +1,13 @@
+.ma__page-discourse {
+  padding-bottom: 45px;
+
+  &__container {
+    @include ma-container;
+
+    // not full width
+    .page-content:nth-child(2) &,
+    .page-content:nth-last-child(2) & {
+      padding:0;
+    }
+  }
+}

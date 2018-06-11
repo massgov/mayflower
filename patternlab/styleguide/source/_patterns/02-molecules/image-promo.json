@@ -1,0 +1,35 @@
+{
+  "imagePromo": {
+    "title": {
+      "text": "Activity Title",
+      "href": "#",
+      "info": ""
+    },
+    "level": "",
+    "tags": null,
+    "image": {
+      "src":"../../assets/images/placeholder/190x107.png",
+      "alt": "placeholder image",
+      "width": "190",
+      "height": "107",
+      "href": "#"
+    },
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+          }
+        }
+      }]
+    },
+    "link": {
+      "text": "Read More",
+      "href": "#",
+      "info": "Read More about Activity Title"
+    },
+    "location": null,
+    "phone": null
+  }
+}

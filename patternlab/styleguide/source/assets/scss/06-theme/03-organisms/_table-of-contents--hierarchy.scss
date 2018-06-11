@@ -1,0 +1,19 @@
+.ma__toc--hierarchy {
+  .ma__toc--hierarchy__container {
+    background: $c-gray-f2f2f2;
+    border: 2px solid $c-gray-dcdcdc;
+
+    > * + * {
+      border-top: 1px solid $c-gray-dcdcdc;
+    }
+  }
+
+  .ma__toc--hierarchy__accordion-content  {
+    background: $c-white;
+    border-top: 2px solid $c-gray-dcdcdc;
+  }
+
+  .ma__toc--hierarchy__title {
+    color: $c-theme-blue;
+  }
+}

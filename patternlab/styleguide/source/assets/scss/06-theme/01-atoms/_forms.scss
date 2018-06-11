@@ -1,0 +1,84 @@
+:focus {
+  border-color: Highlight !important;
+
+  /* WebKit gets its native focus styles.
+   */
+  @media (-webkit-min-device-pixel-ratio:0) {
+    outline-color: -webkit-focus-ring-color;
+  }
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: inherit;
+  font-style: italic;
+  opacity: 1;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: inherit;
+  font-style: italic;
+  opacity: 1;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: inherit;
+  font-style: italic;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: inherit;
+  font-style: italic;
+  opacity: 1;
+}
+
+input,
+optgroup,
+select,
+textarea {
+  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+  font-weight: 400;
+}
+
+input {
+  background-color: $c-white;
+  border-color: $c-bd-input;
+  color: $c-font-base;
+
+  &.has-error:not(:focus) {
+    background-image: url('../images/svg-icons/input-error.svg');
+    border-color: $c-bd-error;
+  }
+
+  .ma__form--light & {
+    background-color: rgba($c-white, 0.1);
+    border-color: rgba($c-bd-input,.5);
+    color: $c-font-inverse;
+
+    &.has-error {
+      border-color: $c-bd-error;
+    }
+  }
+}
+
+textarea {
+  background-color: $c-white;
+  border-color: $c-bd-input;
+
+  &.has-error {
+    border-color: $c-bd-error;
+  }
+
+  .ma__form--light & {
+    background-color: rgba($c-white, 0.1);
+    border-color: rgba($c-bd-input,.5);
+    color: $c-font-inverse;
+
+    &.has-error {
+      border-color: $c-bd-error;
+    }
+  }
+}
+
+legend,
+label {
+  font-weight: 500;
+}
+

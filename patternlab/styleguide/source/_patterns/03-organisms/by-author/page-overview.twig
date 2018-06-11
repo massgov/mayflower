@@ -1,0 +1,24 @@
+{% if pageOverview.labelledList or pageOverview.richText %}
+  <section class="ma__page-overview">
+    {% if pageOverview.compHeading %}
+      {% set compHeading = pageOverview.compHeading %}
+      {% include "@atoms/04-headings/comp-heading.twig" %}
+    {% endif %}
+    {% if pageOverview.image %}
+      <div class="ma__page-overview__event-image">
+        {% set image = pageOverview.image %}
+        {% include "@atoms/09-media/image.twig" %}
+      </div>
+    {% endif %}
+    {% if pageOverview.labelledList %}
+      <div class="ma__page-overview__labelled-list">
+        {% set labelledList = pageOverview.labelledList %}
+        {% include "@molecules/labelled-list.twig" %}
+      </div>
+    {% endif %}
+    {% if pageOverview.richText %}
+      {% set richText = pageOverview.richText %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+    {% endif %}
+  </section>
+{% endif %}

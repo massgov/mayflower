@@ -1,0 +1,4 @@
+{% set endpoint = ajaxPattern.endpoint ?: '' %}
+{% set selector = ajaxPattern.customSelector ?: 'js-ajax-pattern' %}
+<div class="ma__ajax-pattern {{ selector }}" data-ma-ajax-endpoint="{{ endpoint }}" data-ma-ajax-render-pattern="{{ ajaxPattern.renderPattern }}">
+</div>

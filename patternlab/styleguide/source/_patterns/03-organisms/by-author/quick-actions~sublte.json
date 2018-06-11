@@ -1,0 +1,21 @@
+{
+  "quickActions":{
+    "coloredHeading": "",
+    "sidebarHeading": {
+      "title": "Quick Actions"
+    },
+    "links": [{
+      "type": "",
+      "href": "#",
+      "text": "Reserve a Campsite"
+    },{
+      "type": "",
+      "href": "#",
+      "text": "Download a Park Map"
+    },{
+      "type": "external",
+      "href": "#",
+      "text": "Download a Trail Map"
+    }]
+  }
+}

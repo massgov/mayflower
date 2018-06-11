@@ -1,0 +1,65 @@
+{
+  "splitColumns": {
+    "columns": [{
+      "items": [{
+        "path": "@organisms/by-author/link-list.twig",
+        "data": {
+          "linkList" : {
+            "sidebarHeading": {
+              "title": "Related Services"
+            },
+            "stacked": true,
+            "links" : [{
+              "href":"#",
+              "text":"Job Search Help"
+            },{
+              "href":"#",
+              "text":"Job Training"
+            },{
+              "href":"#",
+              "text":"Career Counseling"
+            }]
+          }
+        }
+      }]
+    },{
+      "items": [{
+        "path": "@organisms/by-author/form-downloads.twig",
+        "data": {
+          "formDownloads": {
+            "sidebarHeading": {
+              "title": "Additional Resources"
+            },
+            "downloadLinks": [{
+              "downloadLink": {
+                "iconSize": "small",
+                "icon": "doc-pdf",
+                "decorativeLink": {
+                  "text": "Work Search Activity Log",
+                  "href": "#",
+                  "info": "",
+                  "property": ""
+                },
+                "size": "1MB",
+                "format": "PDF"
+              }
+            },{
+              "downloadLink": {
+                "iconSize": "small",
+                "icon": "doc-docx",
+                "decorativeLink": {
+                  "text": "Name of Doc",
+                  "href": "#",
+                  "info": "",
+                  "property": ""
+                },
+                "size": "107KB",
+                "format": "DOCX"
+              }
+            }]
+          }
+        }
+      }]
+    }]
+  }
+}

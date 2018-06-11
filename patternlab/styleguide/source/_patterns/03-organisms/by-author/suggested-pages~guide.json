@@ -1,0 +1,47 @@
+{
+  "suggestedPages": {
+    "title": "Related Guides",
+    "view": "guide",
+    "buttonMinor" : {
+      "href": "#",
+      "text": "Do Something"
+    },
+    "pages": [{
+      "image": {
+        "alt": "Place Holder Image", 
+        "src": "../../assets/images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link I",
+        "info": ""
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image", 
+        "src": "../../assets/images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link II",
+        "info": ""
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image", 
+        "src": "../../assets/images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link III",
+        "info": ""
+      }
+    }]
+  }
+}

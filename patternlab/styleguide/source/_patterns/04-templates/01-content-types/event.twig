@@ -1,0 +1,119 @@
+
+{# site header #}
+{% block header %}{% endblock %}
+
+<main id="main-content" tabindex="-1"{% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
+  <div class="pre-content">
+    {% block preContent %}
+      {% include "@organisms/by-template/page-header.twig" %}
+    {% endblock %}
+  </div>
+  <div class="main-content main-content--two">
+    <div class="page-content">
+      {% if sideContent.contactList %}
+        {% set contactList = sideContent.contactList|merge({'compHeading': sideContent.contactList.sidebarHeading, 'sidebarHeading': null}) %}
+        {% include "@organisms/by-author/contact-list.twig" %}
+      {% endif %}
+      {% if sideContent.mediaContact %}
+        {% set contactList = sideContent.mediaContact|merge({'compHeading': sideContent.mediaContact.sidebarHeading, 'sidebarHeading': null}) %}
+        {% include "@organisms/by-author/contact-list.twig" %}
+      {% endif %}
+
+      {% if mainContent.pageOverview %}
+        {% set pageOverview = mainContent.pageOverview %}
+        {% include "@organisms/by-author/page-overview.twig" %}
+      {% endif %}
+
+      {% block pageContent %}
+        {% if mainContent.meetingMinutes.richText %}
+          {% set richText = mainContent.meetingMinutes.richText %}
+          {% include "@organisms/by-author/rich-text.twig" %}
+        {% endif %}
+
+        {% if mainContent.meetingMinutes.formDownloads %}
+          {% set formDownloads = mainContent.meetingMinutes.formDownloads %}
+          {% include "@organisms/by-author/form-downloads.twig" %}
+        {% endif %}
+
+        {% if mainContent.agenda.richText %}
+          {% set richText = mainContent.agenda.richText %}
+          {% include "@organisms/by-author/rich-text.twig" %}
+        {% endif %}
+
+        {% if mainContent.agenda.formDownloads %}
+          {% set formDownloads = mainContent.agenda.formDownloads %}
+          {% include "@organisms/by-author/form-downloads.twig" %}
+        {% endif %}
+
+        {% if mainContent.youWillNeed %}
+          {% set richText = mainContent.youWillNeed %}
+          {% include "@organisms/by-author/rich-text.twig" %}
+        {% endif %}
+
+        {% if mainContent.formDownloads %}
+          {% set formDownloads = mainContent.formDownloads %}
+          {% include "@organisms/by-author/form-downloads.twig" %}
+        {% endif %}
+
+        {% if mainContent.contactList %}
+          {% set contactList = mainContent.contactList %}
+          {% include "@organisms/by-author/contact-list.twig" %}
+        {% endif %}
+
+        {% if mainContent.mediaContact %}
+          {% set contactList = mainContent.mediaContact %}
+          {% include "@organisms/by-author/contact-list.twig" %}
+        {% endif %}
+
+        {% if mainContent.linkList %}
+          {% set linkList = mainContent.linkList %}
+          {% include "@organisms/by-author/link-list.twig" %}
+        {% endif %}
+      {% endblock %}
+    </div>
+    <aside class="sidebar">
+      {% if sideContent.participants %}
+        {% set linkList = sideContent.participants %}
+        {% include "@organisms/by-author/link-list.twig" %}
+      {% endif %}
+
+      {% if sideContent.contactList %}
+        {% set contactList = sideContent.contactList %}
+        {% include "@organisms/by-author/contact-list.twig" %}
+      {% endif %}
+
+      {% if sideContent.mediaContact %}
+        {% set contactList = sideContent.mediaContact %}
+        {% include "@organisms/by-author/contact-list.twig" %}
+      {% endif %}
+
+      {% if sideContent.eventListing %}
+        {% set eventListing = sideContent.eventListing %}
+        {% include "@organisms/by-author/event-listing.twig" %}
+      {% endif %}
+
+      {% if sideContent.related %}
+        {% set linkList = sideContent.related %}
+        {% include "@organisms/by-author/link-list.twig" %}
+      {% endif %}
+
+      {% block sidebar %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'sidebar'}} %}
+      {% endblock %}
+    </aside>
+  </div>
+  <div class="post-content">
+    {% block postContent %}
+      {% if bottomContent.eventListing %}
+        {% set eventListing = bottomContent.eventListing %}
+        {% include "@organisms/by-author/event-listing.twig" %}
+      {% endif %}
+    {% endblock %}
+  </div>
+
+  {# structured data #}
+  {% block schemaContent %}{% endblock %}
+</main>
+
+{# site footer #}
+{% block footer %}{% endblock %}

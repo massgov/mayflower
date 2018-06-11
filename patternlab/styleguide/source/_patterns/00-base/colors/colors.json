@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "name": "$c-theme-primary-1",
+      "value": "#14558f"
+    },
+    {
+      "name": "$c-theme-primary-2",
+      "value": "#43956f"
+    },
+    {
+      "name": "$c-theme-primary-3",
+      "value": "#535353"
+    },
+    {
+      "name": "$c-theme-primary-4",
+      "value": "#141414"
+    },
+    {
+      "name": "$c-theme-secondary-1",
+      "value": "#f6c51b"
+    },
+    {
+      "name": "$c-gray-f2f2f2",
+      "value": "#f2f2f2"
+    },
+    {
+      "name": "$c-gray-dcdcdc",
+      "value": "#dcdcdc"
+    }
+  ],
+  "meta": {
+    "description": ""
+  }
+}

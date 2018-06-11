@@ -1,0 +1,21 @@
+.ma__featured-item {
+    background-color: $c-gray-f2f2f2;
+}
+.ma__featured-item__title-container {
+    background-color: $c-theme-secondary;
+    color: $c-white;
+
+    span {
+        @include ma-link-transition;
+        border-bottom: 3px solid transparent;
+    }
+
+    .ma__featured-item:hover & span {
+        border-bottom-color: $c-white;
+    }
+
+    svg {
+        fill: $c-white;
+    }
+}
+

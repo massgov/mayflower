@@ -1,0 +1,15 @@
+<section class="ma__icon-links">
+  {% if iconLinks.compHeading %}
+    {% set compHeading = iconLinks.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% endif %}
+  <ul class="ma__icon-links__items">
+    {% block iconLinkItems %}
+      {% for item in iconLinks.items %}
+        <li class="ma__icon-links__item">
+          {% include "@molecules/icon-link-item.twig" %}
+        </li>
+      {% endfor %}
+    {% endblock %}
+  </ul>
+</section>

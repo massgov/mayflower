@@ -1,0 +1,20 @@
+.ma__button-search {
+  background-color: $c-white;
+  border-color: $c-bd-input;
+  color: $c-theme-secondary;
+  font-size: 14px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: $c-theme-secondary;
+    border-color: $c-theme-secondary;
+    color: $c-font-inverse;
+
+    svg {
+      fill: $c-font-inverse;
+    } 
+  }
+  svg {
+    fill: $c-theme-secondary;
+  }
+}

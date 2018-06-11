@@ -1,0 +1,131 @@
+.ma__about-section {
+  @include ma-container();
+
+  @media ($bp-large-extended-min) {
+    max-width: none;
+    min-height: 500px;
+  }
+
+  &__title {
+
+    @media ($bp-large-extended-min) {
+      @include ma-container();
+    }
+  }
+
+  &__content {
+
+    @media ($bp-large-extended-min) {
+      background-color: $c-bg-section;
+    }
+
+    .ma__content-link  {
+      display: inline-block;
+      margin: 5px 0 40px;
+    }
+
+    .ma__person-card__links .ma__content-link {
+      margin: 0;
+    }
+  }
+
+  &__content-container {
+    position: relative;
+
+    @media ($bp-large-extended-min) {
+      @include ma-container();
+      padding-top: 3rem;
+    }
+  }
+
+  &__content-text {
+
+    @media ($bp-large-extended-min) {
+      max-width: 60%;
+    }
+  }
+
+  &__person {
+
+    @media ($bp-large-extended-min) {
+      position: absolute;
+      right: 0;
+      top: -130px;
+    }
+  }
+
+  &__people {
+
+    @media ($bp-large-extended-min) {
+      @include ma-container();
+      margin-top: 2rem;
+      display: flex;
+    }
+
+    .primary {
+      margin-bottom: 1rem;
+
+      @media ($bp-large-extended-min) {
+        margin-bottom: 0;
+        margin-right: 4rem;
+      }
+
+      .ma__person-card::after {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__social {
+    margin-top: 20px;
+
+    @media ($bp-large-extended-min) {
+      @include ma-container();
+    }
+
+    .ma__icon-links {
+
+      @media ($bp-small-min) {
+        display: flex;
+      }
+
+      .ma__icon-links__items {
+        width: 100%;
+
+        @media ($bp-small-min) {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        @media ($bp-large-extended-min) {
+          padding-right: 325px;
+        }
+      }
+
+      .ma__icon-links__item {
+        margin-left: 1rem;
+        max-width: 45%;
+      }
+    }
+
+    .ma__comp-heading {
+      @include ma-h5;
+      text-transform: uppercase;
+      color: $c-theme-green;
+      font-weight: 700;
+      margin-bottom: 0;
+
+      @media ($bp-small-min) {
+        margin-bottom: 0;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .ma__icon-links__item {
+      margin-bottom: 10px;
+    }
+  }
+}

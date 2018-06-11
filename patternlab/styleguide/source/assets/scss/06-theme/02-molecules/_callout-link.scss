@@ -1,0 +1,41 @@
+.ma__callout-link {
+  background-color: tint($c-font-link,90%);
+  border-color: tint($c-font-link,50%);
+  box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+
+  &:hover &__text {
+    border-bottom-color: rgba($c-font-link,.5);
+  }
+
+  &__text {
+    svg {
+      fill: rgba($c-font-link,.5);
+    }
+  }
+
+  &__description {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: rgba($c-font-link,1);
+  }
+
+  &__eyebrow {
+    background-color: $c-bg-section;
+    font-weight: 700;
+  }
+
+  &__header {
+    color: $c-theme-gray;
+  }
+
+  &__emphasized{
+    color: $c-font-dark;
+    font-weight: 700;
+  }
+}
+
+.ma__callout-link--white{
+  background-color: $c-white;
+  border-color: tint($c-theme-gray,70%);
+  box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+}

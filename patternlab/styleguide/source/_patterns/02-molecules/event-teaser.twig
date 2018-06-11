@@ -1,0 +1,47 @@
+<section class="ma__event-teaser">
+  {% if eventTeaser.date.startMonth and eventTeaser.date.startDay %}
+    <div aria-hidden="true" class="ma__event-teaser__graphic">
+      <div class="ma__event-teaser__start-date">
+        <span class="ma__event-teaser__month">{{ eventTeaser.date.startMonth }}</span>
+        <span class="ma__event-teaser__day">{{ eventTeaser.date.startDay }}</span>
+      </div>
+      {% if eventTeaser.date.endMonth and eventTeaser.date.endDay %}
+        <div class="ma__event-teaser__spacer"></div>
+        <div class="ma__event-teaser__end-date">
+          <span class="ma__event-teaser__month">{{ eventTeaser.date.endMonth }}</span>
+          <span class="ma__event-teaser__day">{{ eventTeaser.date.endDay }}</span>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="ma__event-teaser__content">
+    {% if eventTeaser.title %}
+      {% set headingLevel = eventTeaser.level ? : 2 %}
+      <h{{ headingLevel }} class="ma__event-teaser__title">
+        {% set decorativeLink = eventTeaser.title %}
+        {% include "@atoms/decorative-link.twig" %}
+      </h{{ headingLevel }}>
+    {% endif %}
+    {% if eventTeaser.location %}
+      <div class="ma__event-teaser__location">
+        {{ eventTeaser.location|nl2br }}
+      </div>
+    {% endif %}
+    {% if eventTeaser.date.summary %}
+      {# summary should always be included if start or end dates are provided to help screen readers #}
+      <div class="ma__event-teaser__date">
+        {{ eventTeaser.date.summary|raw|nl2br }}
+      </div>
+    {% endif %}
+    {% if eventTeaser.time %}
+      <div class="ma__event-teaser__time">
+        {{ eventTeaser.time }}
+      </div>
+    {% endif %}
+    {% if eventTeaser.description %}
+      <div class="ma__event-teaser__description">
+        {{ eventTeaser.description }}
+      </div>
+    {% endif %}
+  </div>
+</section>

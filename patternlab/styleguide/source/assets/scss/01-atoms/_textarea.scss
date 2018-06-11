@@ -1,0 +1,20 @@
+.ma__textarea {
+
+  &__wrapper {
+    position: relative;
+
+    &:after {
+      content: attr(data-char-left);
+      display: block;
+      font-size: 17px;
+      line-height: 1.625rem;
+      position: absolute;
+        right: 0;
+        top: 100%;
+    }
+
+    textarea {
+      width: 100%;
+    }
+  }
+}

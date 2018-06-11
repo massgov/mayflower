@@ -1,0 +1,23 @@
+.ma__content-link {
+  color: $c-font-link; 
+
+  &:hover {
+    border-bottom-color: rgba($c-font-link, .5);
+  }
+
+  &--chevron {
+
+    &:after {
+      border-color: rgba($c-font-link, .5);
+    }
+
+    span:hover {
+      border-bottom-color: rgba($c-font-link, .5);
+    }
+  }
+
+  &--phone {
+    color: inherit; 
+    font-weight: inherit;
+  }
+}

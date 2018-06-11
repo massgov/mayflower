@@ -1,0 +1,84 @@
+
+{# site header #}
+{% block header %}{% endblock %}
+
+<main id="main-content" class="ma__policy-advisory" tabindex="-1">
+  <div class="pre-content">
+    {% block preContent %}
+      {% include "@organisms/by-template/page-header.twig" %}
+    {% endblock %}
+  </div>
+    <div class="main-content main-content--two ma__policy-advisory__top-contact">
+      <div class="page-content">
+        {% if sideContent.contactList %}
+          {% set contactList = sideContent.contactList %}
+          {% include "@organisms/by-author/contact-list.twig" %}
+        {% endif %}
+      </div>
+    </div>
+  <div class="ma__policy-advisory__content">
+    {% if jumpLinks %}
+      {% include "@organisms/by-template/jump-links.twig" %}
+    {% endif %}
+    <div class="main-content main-content--two">
+      <div class="page-content">
+        {% for richText in mainContent.contents %}
+          {% include "@organisms/by-author/rich-text.twig" %}
+        {% endfor %}
+
+        {% block pageContent %}
+          {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page Content'}} %}
+        {% endblock %}
+
+        {% if mainContent.formDownloads %}
+          {% set formDownloads = mainContent.formDownloads %}
+          {% include "@organisms/by-author/form-downloads.twig" %}
+        {% endif %}
+
+        {% if mainContent.contactList %}
+          {% set contactList = mainContent.contactList %}
+          {% include "@organisms/by-author/contact-list.twig" %}
+        {% endif %}
+
+        {% if mainContent.footnoteList %}
+          {% set footnoteList = mainContent.footnoteList %}
+          {% include "@organisms/by-author/footnote-list.twig" %}
+        {% endif %}
+
+        {% if mainContent.references %}
+          {% set headerTags = mainContent.references %}
+          {% include "@molecules/header-tags.twig" %}
+        {% endif %}
+      </div>
+      <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
+        {% if sideContent.contactList %}
+          {% set contactList = sideContent.contactList %}
+          {% include "@organisms/by-author/contact-list.twig" %}
+        {% endif %}
+        
+        {% if sideContent.pressListing %}
+          {% set pressListing = sideContent.pressListing %}
+          {% include "@organisms/by-author/press-listing.twig" %}
+        {% endif %}
+
+        {% if sideContent.eventListing %}
+          {% set eventListing = sideContent.eventListing %}
+          {% include "@organisms/by-author/event-listing.twig" %}
+        {% endif %}
+
+        {% block sidebar %}
+          {% include "@base/placeholder.twig" with {'placeholder':{'text':'sidebar'}} %}
+        {% endblock %}
+      </aside>
+    </div>
+  </div>
+  <div class="post-content">
+    {% block postContent %}
+      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
+    {% endblock %}
+  </div>
+  {% block schemaContent %}{% endblock %}
+</main>
+
+{# site footer #}
+{% block footer %}{% endblock %}

@@ -1,0 +1,16 @@
+{
+  "arrowNav": {
+    "arrowButton": {
+      "href": "#",
+      "info": "",
+      "direction": "left"
+    },
+    "label": "Previous Section",
+    "title": "previous page's title",
+    "link": {
+      "href": "#",
+      "text": "Page description from the previous page to this one",
+      "info": ""
+    }
+  }
+}

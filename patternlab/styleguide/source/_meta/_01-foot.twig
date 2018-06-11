@@ -1,0 +1,115 @@
+
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: '{{ languages }}', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    document.querySelector('#google_translate_element') !== null ? document.querySelector('#google_translate_element').classList.add('has-rendered') : '';
+  }
+  (function() {
+    var script = document.createElement('script');
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    element = document.getElementsByTagName('head')[0];
+    element.appendChild(script);
+  })();
+</script>
+
+    <!--DO NOT REMOVE-->
+    {{ patternLabFoot | raw }}
+    <script>
+      var ma = ma || {};
+      // path to where the handlebar templates are being stored.
+      ma.themePath = "../../assets";
+      // path to where twig templates are being stored (for twigJS).
+      ma.twigPath = ma.themePath + "/patterns";
+      ma.iconPath = ma.themePath + "/images/svg-icons/"
+      ma.patternPaths = {
+        '@base': ma.twigPath + "/00-base/",
+        '@atoms': ma.twigPath + "/01-atoms/",
+        '@molecules': ma.twigPath + "/02-molecules/",
+        '@organisms': ma.twigPath + "/03-organisms/",
+        '@templates': ma.twigPath + "/04-templates/",
+        '@pages': ma.twigPath + "/05-pages/",
+        '@meta': ma.twigPath + "/07-meta/"
+      };
+    </script>
+    <script src="../../assets/js/vendor-generated.js"></script>
+    <script src="../../assets/js/index-generated.js"></script>
+    <script type="text/javascript">
+      window.initGoogleMaps = function() {
+        // Set a flag that the library has loaded, in case google maps js misses event.
+        window.googleMapsLoaded = true;
+        // Emit an event that the library has loaded.
+        $(document).trigger('ma:LibrariesLoaded:GoogleMaps');
+      }
+    </script>
+
+    {% set mapLibraries = 'geometry,places,geocoder' %}
+    <!-- Set google map libraries for event page -->
+    {% if mainContent.eventListingInteractive %}
+      {% set mapLibraries = 'places' %}
+    {% endif %}
+
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyD5HXUVAA4VyRXVX50taVe2hDY8hy2JSdA&v=3.28&libraries={{ mapLibraries }}&callback=initGoogleMaps"></script>
+
+    <script>
+      try {
+        if($('.main-content').length === 0){
+          var json = JSON.parse($("#sg-pattern-data-footer").html()),
+
+          data = json.patternBreadcrumb.patternType;
+
+          if(data !== 'templates' && data !== 'pages') {
+            $('body').addClass('page-content');
+            $('html').addClass('main-content').addClass('main-content--full');
+          }
+        }
+      } catch(e) {}
+    </script>
+
+    <!-- JS to switch theme colors -->
+    <script>
+      (function(window, document, undefined) {
+        "use strict";
+
+        var forms = document.querySelectorAll('.js-header-search-form');
+        var themeCssEl = document.querySelector('.js-base-theme');
+        var cranberry = false;
+
+        for (var i = 0; i < forms.length; ++i) {
+          forms[i].addEventListener("submit", function(e){
+            e.preventDefault();
+            var color = this.querySelector('.ma__header-search__input').value;
+            if (color === 'cranberry') {
+              if (cranberry) { // revert back to base
+                themeCssEl.setAttribute('href',baseThemeCss);
+                switchClass('ma__colored-heading--cranberry', 'ma__colored-heading--green');
+                switchClass('ma__narrow-template--cranberry', 'ma__narrow-template--green');
+                switchClass('ma__action-card__item--cranberry', 'ma__action-card__item--green');
+                switchClass('ma__page-banner--cranberry', 'ma__page-banner--blue');
+              } else {  // convert to cranberry
+                themeCssEl.setAttribute('href',govThemeCss);
+                switchClass('ma__colored-heading--green', 'ma__colored-heading--cranberry');
+                switchClass('ma__narrow-template--green', 'ma__narrow-template--cranberry');
+                switchClass('ma__action-card__item--green', 'ma__action-card__item--cranberry');
+                switchClass('ma__page-banner--blue', 'ma__page-banner--cranberry');
+              }
+              cranberry = !cranberry;
+            }
+          });
+        }
+
+        function switchClass(source, update) {
+          var el = document.querySelectorAll('.' + source);
+
+          for (var i = 0; i < el.length; ++i) {
+            el[i].classList.remove(source);
+            el[i].classList.add(update);
+          }
+        }
+
+      })(window, document);
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<section class="ma__page-intro">
+  {% set pageTitle = pageIntro.pageTitle %}
+  {% include "@atoms/04-headings/page-title.twig" %}
+  {% if pageIntro.subTitle %}
+    <div class="ma__page-intro__sub-title">{{ pageIntro.subTitle }}</div>
+  {% endif %}
+</section>

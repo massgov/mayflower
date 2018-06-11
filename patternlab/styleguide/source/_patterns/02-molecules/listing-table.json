@@ -1,0 +1,27 @@
+{
+  "listingTable": {
+    "rows": [{
+      "label": "Sponsoring legislator:",
+      "text": "The Massachusetts State Ethics Commission"
+    },{
+      "label": "Referenced Sources:",
+      "items": [{
+        "text": "<a href=\"#\">760 CMR 4.00: M.G.L. c. 121B §§ 26, 29, 31 and 34;</a>"
+      },{
+        "text": "M.G.L. c. 23B; E.O. 227, 390, 246, and 253"
+      }]
+    },{
+      "label": "Updates:",
+      "visibleItems": 2,
+      "moreLabel": "show more updates",
+      "lessLabel": "show less updates",
+      "items": [{
+        "text": "<a href=\"#\">Amended September 24, 2015, effective January 1, 2016</a>"
+      },{
+        "text": "Amended July 17, 2007 effective October 1, 2007"
+      },{
+        "text": "Amended June 2, 2003 effective October 18, 2003"
+      }]
+    }]
+  }
+}

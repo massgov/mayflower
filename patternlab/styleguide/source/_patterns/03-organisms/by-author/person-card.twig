@@ -1,0 +1,25 @@
+<div class="ma__person-card">
+  <div class="ma__person-card__wrapper">
+    <div class="ma__person-card__image">
+      {% block personCardImage %}
+        {% set image = person.image %}
+        {% include "@atoms/09-media/image.twig" %}
+      {% endblock %}
+    </div>
+    <div class="ma__person-card__person-info">
+      <div class="ma__person-card__name">
+        {% set compHeading = person.name %}
+        {% include "@atoms/04-headings/comp-heading.twig" %}
+      </div>
+      <div class="ma__person-card__title">
+        {% set columnHeading = person.title %}
+        {% include "@atoms/04-headings/column-heading.twig" %}
+      </div>
+    </div>
+    <div class="ma__person-card__links">
+      {% include "@atoms/divider.twig" %}
+      {% set link = person.bio %}
+      {% include "@atoms/11-text/link.twig" %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<section class="ma__image-promo js-location-listing-link">
+  {{#if image}}
+  <div class="ma__image-promo__image">
+    {{#if image.href}}<a href="{{image.href}}">{{/if}}
+      <img alt="placeholder image" src="{{image.src}}">
+    {{#if image.href}}</a>{{/if}}
+  </div>
+  {{/if}}
+  <div class="ma__image-promo__details">
+    <h2 class="ma__image-promo__title">
+      {{#if tagsFormatted}}
+      <div class="ma__image-promo__tags">
+        {{#each tagsFormatted}}
+        <span title="{{this.label}}">{{{this.svg}}}</span>
+        {{/each}}
+      </div>
+      {{/if}}
+      <span class="ma__decorative-link">
+        <a href="{{title.href}}" class="js-clickable-link">{{{title.text}}}&nbsp;<svg aria-hidden="true" id="SvgjsSvg1000" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="16" height="18" viewBox="0 0 16 18"><defs id="SvgjsDefs1001"></defs><path id="SvgjsPath1007" d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)"></path></svg>
+        </a>
+      </span>
+    </h2>
+    <div class="ma__image-promo__location">{{{location.text}}}
+      <div>
+        <span class="ma__decorative-link">
+          <a href="{{link.href}}" class="js-clickable-link">{{link.text}}&nbsp;<svg aria-hidden="true" id="SvgjsSvg1000" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="16" height="18" viewBox="0 0 16 18"><defs id="SvgjsDefs1001"></defs><path id="SvgjsPath1007" d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)"></path></svg>
+          </a>
+        </span>
+      </div>
+    </div>
+    {{#if phone}}
+    <div class="ma__image-promo__phone">
+      <svg aria-hidden="true" id="SvgjsSvg1014" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="33" height="37" viewBox="0 0 33 37"><defs id="SvgjsDefs1015"></defs><path id="SvgjsPath1016" d="M412.841 2040.51C401.798 2045.57 384.657 2012.19 395.451 2006.56L398.60900000000004 2005L403.84400000000005 2015.23L400.72300000000007 2016.77C397.44200000000006 2018.54 404.27600000000007 2031.91 407.63200000000006 2030.28C407.7680000000001 2030.22 410.7150000000001 2028.77 410.72600000000006 2028.76L416.0040000000001 2038.96C415.9920000000001 2038.97 413.02200000000005 2040.43 412.84100000000007 2040.51ZM413.24 2011.28C415.564 2011.98 417.62600000000003 2013.56 418.87 2015.86C420.115 2018.1699999999998 420.309 2020.76 419.616 2023.09L416.926 2022.29C417.413 2020.6499999999999 417.275 2018.83 416.39799999999997 2017.2C415.52399999999994 2015.5800000000002 414.073 2014.47 412.436 2013.98ZM411.838 2016C412.956 2016.33 413.95000000000005 2017.1 414.548 2018.21C415.148 2019.32 415.242 2020.56 414.908 2021.69L410.535 2020.38ZM413.841 2009.26C416.681 2010.11 419.2 2012.04 420.722 2014.86C422.24199999999996 2017.6799999999998 422.479 2020.85 421.63399999999996 2023.6899999999998L424.39199999999994 2024.5199999999998C425.44899999999996 2020.9599999999998 425.15399999999994 2017.0099999999998 423.2509999999999 2013.4899999999998C421.3539999999999 2009.9699999999998 418.20899999999995 2007.5599999999997 414.66399999999993 2006.4999999999998Z " transform="matrix(1,0,0,1,-392,-2005)"></path></svg>        <a href="tel:{{phone.href}}">{{phone.text}}</a>
+    </div>
+    {{/if}}
+    {{#if description}}
+    <div class="ma__image-promo__description">
+      <section class="ma__rich-text js-ma-rich-text">
+        <p>{{description.text}}</p>
+      </section>
+    </div>
+    {{/if}}
+  </div>
+</section>

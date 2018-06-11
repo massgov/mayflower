@@ -1,0 +1,23 @@
+{
+  "helpfulLinks": {
+    "columns": "",
+    "compHeading": {
+      "title": "Helpful Links",
+      "sub": "true",
+      "color": "yellow"
+    },
+    "items": [{
+      "href": "#",
+      "text":"Helpful link",
+      "info": ""
+    },{
+      "href": "#",
+      "text":"Another helpful link",
+      "info": ""
+    },{
+      "href": "#",
+      "text":"Yet another helpful link",
+      "info": ""
+    }]
+  }
+}

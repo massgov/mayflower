@@ -1,0 +1,43 @@
+.ma__action-details {
+
+  &__title {
+    @include ma-heading-colored($c-theme-secondary);
+    color: $c-font-inverse;
+    font-weight: 700;
+  }
+
+  &__anchor-links {
+
+    @media ($bp-medium-max) {
+      background-color: $c-bg-section;
+    }
+
+    &.is-open {
+
+      a + a {
+        border-top-color: $c-bd-divider;
+      }
+    }
+
+    a {
+      font-weight: 500;
+
+      &.is-active {
+        color: $c-font-dark;
+        font-weight: 700;
+      }
+
+      &:hover {
+        color: $c-font-dark;
+      }
+    }
+
+    a + a {
+      border-top-color: $c-bd-divider;
+    }
+  }
+
+  &__toggle-link {
+    color: $c-theme-secondary;
+  }
+}

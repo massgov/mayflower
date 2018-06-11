@@ -1,0 +1,14 @@
+
+<section class="ma__breadcrumbs {{breadcrumbs.light ? 'ma__breadcrumbs--light' : ''}}">
+  <nav class="ma__breadcrumbs__container">
+    <div class="ma__breadcrumbs__label">
+      More in:
+    </div>
+    <ol class="ma__breadcrumbs__items">
+      <li class="ma__breadcrumbs__item"><a href="/">Home</a></li>
+      {% for link in breadcrumbs.links %}
+        <li class="ma__breadcrumbs__item"><a href="{{link.href}}">{{link.text}}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+</section>

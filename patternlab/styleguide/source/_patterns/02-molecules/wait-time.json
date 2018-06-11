@@ -1,0 +1,13 @@
+{
+  "waitTime": {
+    "items":[{
+      "label": "Licensing",
+      "time": "2:00",
+      "units": "hrs"
+    },{
+      "label": "Registration",
+      "time": "24",
+      "units": "mins"
+    }]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "pressListing": {
+    "compHeading": {
+      "title": "Press Listing",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": ""
+    },
+    "items": [{
+      "image": {
+        "src":"/assets/images/placeholder/400x225.png",
+        "alt": "placeholder image",
+        "width": "400",
+        "height": "225",
+        "href": "#"
+      },
+      "eyebrow": "Press Release",
+      "title" : {
+        "href":"#",
+        "text":"Massachusetts Health Officials Release Quarterly Report on Opioid OD Deaths",
+        "info": "",
+        "property": ""
+      },
+      "date": "4/4/2017",
+      "org": "Health & Human Services, Public Safety",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+            }
+          }
+        }]
+      }
+    },{
+      "image": {
+        "src":"/assets/images/placeholder/400x225.png",
+        "alt": "placeholder image",
+        "width": "400",
+        "height": "225",
+        "href": "#"
+      },
+      "eyebrow": "Press Release",
+      "title" : {
+        "href":"#",
+        "text":"MassParks",
+        "info": "",
+        "property": ""
+      },
+      "date": "4/3/2017",
+      "org": "Org Name",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Optional description"
+            }
+          }
+        }]
+      }
+    }]
+  }
+}

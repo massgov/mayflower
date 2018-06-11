@@ -1,0 +1,25 @@
+.ma__callout-alert {
+  
+  &__content {
+    background-color: tint($c-theme-tertiary, 90%);
+    border-color: tint($c-theme-tertiary, 50%);
+    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  }
+
+  &__icon svg {
+    fill: $c-theme-tertiary;
+  }
+
+  &__link {
+    color: $c-font-dark;
+    font-weight: bold;
+
+    svg {
+      fill: rgba($c-font-dark,.5);
+    }
+  }
+
+  &:hover &__link span {
+    border-color: rgba($c-font-dark,.5);
+  }
+}

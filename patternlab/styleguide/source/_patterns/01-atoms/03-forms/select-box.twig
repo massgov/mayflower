@@ -1,0 +1,18 @@
+<section class="ma__select-box js-dropdown {{ not selectBox.required ? 'ma__select-box--optional' : '' }}">
+  <label
+    for="{{selectBox.id}}" 
+    class="ma__select-box__label">{{selectBox.label}}</label>
+  <div class="ma__select-box__field">
+    <select
+      name="{{selectBox.id}}"
+      id="{{selectBox.id}}" 
+      class="ma__select-box__select js-dropdown-select {{ selectBox.required ? 'js-required' : '' }}">
+      {% for option in selectBox.options %}
+        <option value="{{option.value}}">{{ option.text }}</option>
+      {% endfor %}
+    </select>
+    <div class="ma__select-box__link">
+      <span class="js-dropdown-link">{{selectBox.options[0].text}}</span>
+      <span class="ma__select-box__icon"></span></div>
+  </div>
+</section>

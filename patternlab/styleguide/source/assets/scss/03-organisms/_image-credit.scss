@@ -1,0 +1,21 @@
+.ma__image-credit {
+  font-size: 16px;
+  line-height: 1.25em;
+  margin-bottom: 1em;
+
+  &__container {
+    @include ma-container;
+
+    &:before {
+      border-top: 1px solid;
+      content: "";
+      display: block;
+      margin: 5px 0 5px;
+      width: 40px;
+    }
+
+    span {
+      display: inline-block;
+    }
+  }
+}

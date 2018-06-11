@@ -1,0 +1,20 @@
+{% set linkHeading = 2 %}
+
+<section class="ma__sections-3up">
+  {% if sectionThreeUp.compHeading %}
+    {# render sections links with an h3 if the title is present #}
+    {% set linkHeading = (compHeading.level ? : linkHeading) + 1 %}
+    <div class="ma__sections-3up__title">
+      {% set compHeading = sectionThreeUp.compHeading %}
+      {% include "@atoms/04-headings/comp-heading.twig" %}
+    </div>
+  {% endif %}
+  <div class="ma__sections-3up__container">
+    {% block sectionLinks %}
+      {% for sectionLinks in sectionThreeUp.sections %}
+        {% set sectionLinks = sectionLinks|merge({'level': linkHeading }) %}
+        {% include "@molecules/section-links.twig" with sectionLinks %}
+      {% endfor %}
+    {% endblock %}
+  </div>
+</section>

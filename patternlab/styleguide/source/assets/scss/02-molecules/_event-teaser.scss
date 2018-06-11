@@ -1,0 +1,122 @@
+.ma__event-teaser {
+  display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  margin-bottom: -20px;
+
+  & + & {
+    border-top-style: solid;
+    border-top-width: 1px;
+    padding-top: 30px;
+
+    .sidebar & {
+      margin-top: 20px;
+      padding-top: 20px;
+    }
+  }
+
+  &__graphic {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 190px;
+    margin: .4em 30px 20px 0;
+    padding: 18px 0 10px;
+    text-align: center;
+    width: 190px;
+
+    @media ($bp-small-max) {
+      display: none;
+    }
+  }
+
+  &__start-date,
+  &__end-date,
+  &__spacer {
+    display: inline-block;
+    vertical-align: baseline;
+  }
+
+  &__spacer {
+    height: 6px;
+    margin: 0 2px 0.75em;
+    width: 20px;
+  }
+
+  &__month,
+  &__day {
+    display: block;
+    line-height: 1;
+  }
+
+  &__month {
+    display: block;
+  }
+
+  &__day {
+    display: block;
+    font-size: 4rem;
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+
+    a {
+      font-size: 1.625rem;
+      line-height: 1.2;
+    }
+  }
+
+  &__content {
+    margin-bottom: 20px;
+  }
+
+  &__graphic + &__content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 280px;
+  }
+
+  &__graphic + &__content &__date {
+
+    @media ($bp-small-min) {
+      @include ma-visually-hidden;
+    }
+  }
+
+  &__location,
+  &__date,
+  &__time {
+    font-size: 1.125rem;
+
+    .ma__page-header & {
+      font-size: 1.813rem;
+    }
+  }
+
+  &__location {
+    font-size: 1.25rem;
+    margin-bottom: .25em;
+  }
+
+  &__date {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  &__time {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  &__description {
+    font-size: 1.25rem;
+    margin-top: 18px;
+
+    @media ($bp-x-small-max) {
+      display: none;
+    }
+  }
+}

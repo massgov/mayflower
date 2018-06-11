@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<package version="2.0" xmlns="http://pear.php.net/dtd/package-2.0"
+  xmlns:tasks="http://pear.php.net/dtd/tasks-1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+
+  <name>VersionControl_Git</name>
+  <channel>pear.php.net</channel>
+  <summary>Provides OO interface to handle Git repository</summary>
+  <description>
+  VersionControl_Git is a library that provides OO interface to handle Git repository.
+  You can use Git command via the wrapper class. Some features are provided by high-featured interface.
+  </description>
+
+  <lead>
+    <name>Kousuke Ebihara</name>
+    <user>ebihara</user>
+    <email>ebihara@php.net</email>
+    <active>yes</active>
+  </lead>
+
+  <date>2010-09-29</date>
+  <time>16:56:34</time>
+
+  <version>
+    <release>0.4.3</release>
+    <api>0.4.3</api>
+  </version>
+
+  <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+  </stability>
+
+  <license>Apache License</license>
+
+  <notes>
+    * Fix Bug #17125: VersionControl_Git_Util_Command::execute() doesn&apos;t get stderr output [ebihara]
+    * Fix Bug #17402: Failed to VersionControl_Git_Util_CommandTest in before Git 1.6.2.5 [ebihara]
+    * Fix Bug #17403: Fail to test creating clone in before Git v1.6.0-rc1 [ebihara]
+    * Fix Bug #17404: Fail to init repository in before Git v1.5.5.6 [ebihara]
+    * Fix Bug #17406: Unable to clone into empty directory in before Git 1.6.2-rc0 [ebihara]
+    * Fix Bug #17910: VersionControl_Git_Util_Command::createCommandString() must be public [ebihara]
+    * Implement Feature #17283: Add ability to fetch remote branches [ebihara]
+    * Implement Feature #17401: Add ability to fetch Git version [ebihara]
+  </notes>
+
+  <contents>
+    <dir name="/">
+      <dir name="VersionControl">
+        <dir name="Git">
+          <dir name="Object">
+            <file name="Blob.php" role="php" />
+            <file name="Commit.php" role="php" />
+            <file name="Tree.php" role="php" />
+          </dir>
+          <dir name="Util">
+            <file name="Command.php" role="php" />
+            <file name="RevListFetcher.php" role="php" />
+          </dir>
+          <file name="Component.php" role="php" />
+          <file name="Object.php" role="php" />
+          <file name="Exception.php" role="php" />
+        </dir>
+        <file name="Git.php" role="php" />
+      </dir>
+      <dir name="doc">
+        <file name="intro.xml" role="doc" />
+        <file name="tutorial.xml" role="doc" />
+      </dir>
+      <dir name="test">
+        <file name="AllTest.php" role="test" />
+        <file name="checkFixtures.php" role="test" />
+        <file name="VersionControl_GitTest.php" role="test" />
+        <file name="VersionControl_Git_ObjectTest.php" role="test" />
+        <file name="VersionControl_Git_Object_CommitTest.php" role="test" />
+        <file name="VersionControl_Git_Util_CommandTest.php" role="test" />
+        <file name="README" role="test" />
+        <file name="VersionControl_Git_ComponentTest.php" role="test" />
+        <file name="VersionControl_Git_Object_BlobTest.php" role="test" />
+        <file name="VersionControl_Git_Object_TreeTest.php" role="test" />
+      </dir>
+    </dir>
+  </contents>
+
+  <dependencies>
+    <required>
+      <php>
+        <min>5.1</min>
+      </php>
+      <pearinstaller>
+        <min>1.4.0</min>
+      </pearinstaller>
+    </required>
+  </dependencies>
+
+  <phprelease />
+
+  <changelog>
+    <release>
+      <date>2010-02-06</date>
+
+      <version>
+        <release>0.4.2</release>
+        <api>0.4.2</api>
+      </version>
+
+      <stability>
+        <release>alpha</release>
+        <api>alpha</api>
+      </stability>
+
+      <license>Apache License</license>
+
+      <notes>
+        - Fixed a sentence of comment in the Git/Util/Command.php is not valid English (http://github.com/ebihara/VersionControl_Git/issues/closed#issue/4)
+        - Rename Git::initialRepository() to Git::initRepository(). For backward compatibility reason, Git::initialRepository() is now alias of Git::initRepository() (http://github.com/ebihara/VersionControl_Git/issues/closed#issue/5)
+        - Removed fixtures.tar.gz from packaged version (http://github.com/ebihara/VersionControl_Git/issues/closed#issue/6, http://github.com/ebihara/VersionControl_Git/issues/closed#issue/7)
+      </notes>
+    </release>
+    <release>
+      <date>2010-01-29</date>
+
+      <version>
+        <release>0.4.1</release>
+        <api>0.4.1</api>
+      </version>
+
+      <stability>
+        <release>alpha</release>
+        <api>alpha</api>
+      </stability>
+
+      <license>Apache License</license>
+
+      <notes>
+        - VersionControl_Git::createClone() now changes directory to new repository (http://github.com/ebihara/VersionControl_Git/issues/closed#issue/1)
+        - Added package-level exception (fixed in http://github.com/ebihara/VersionControl_Git/issues/closed#issue/2)
+        - Fixed years in copyright notices that are wrong (fixed in http://github.com/ebihara/VersionControl_Git/issues/closed#issue/3)
+      </notes>
+    </release>
+    <release>
+      <date>2010-01-22</date>
+
+      <version>
+        <release>0.4.0</release>
+        <api>0.4.0</api>
+      </version>
+
+      <stability>
+        <release>alpha</release>
+        <api>alpha</api>
+      </stability>
+
+      <license>Apache License</license>
+
+      <notes>
+        Initial release.
+      </notes>
+    </release>
+  </changelog>
+</package>

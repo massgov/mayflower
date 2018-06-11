@@ -1,0 +1,43 @@
+{
+  "locationBanner": {
+    "bgTitle":"Mt Greylock State Park",
+    "bgNarrow":"../../assets/images/placeholder/800x400.png",
+    "id": "GUID24872901570",
+    "googleMap": {
+      "map": {
+        "center": {
+          "lat": 42.594129,
+          "lng": -73.183715
+        },
+        "zoom": 12
+      },
+      "markers": [{
+        "position": {
+          "lat": 42.554129,
+          "lng": -73.213715 
+        },
+        "label": "",
+        "infoWindow": {
+          "name": "Visitor's Center",
+          "phone": "14134994262",
+          "fax": "",
+          "email": "mass.parks@state.ma.us",
+          "address": "30 Rockwell Road\nLanesborough, MA 01237"
+        }
+      },{
+        "position": {
+          "lat": 42.636875,
+          "lng": -73.166921 
+        },
+        "label": "",
+        "infoWindow": {
+          "name": "Bascom Lodge",
+          "phone": "14137431591",
+          "fax": "",
+          "email": "mail@bascomlodge.net",
+          "address": "30 Rockwell Road\nLanesborough, MA 01237"
+        }
+      }]
+    }
+  }
+}

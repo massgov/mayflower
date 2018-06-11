@@ -1,0 +1,61 @@
+.ma__error-list {
+  
+  form & {
+    display: none;
+  }
+
+  .has-error & {
+    display: block;
+  }
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+    @include ma-container;
+  }
+
+  &__container {
+    border-style: solid;
+    border-width: 3px;
+    padding: 20px 25px;
+  }
+  
+  &__header {
+    margin-bottom: 8px;
+  }
+
+  &__title,
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+  }
+
+  &__icon {
+    font-size: 0;
+    margin-right: 7px;
+  }
+
+
+  &__messages {
+    font-size: 1rem;
+    margin-bottom: 0;
+    padding-left: 53px;
+  }
+
+  &__label {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: inline-block;
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+
+    &:hover {
+      border-bottom-width: 3px;
+      margin-bottom: 0;
+    }
+  }
+}

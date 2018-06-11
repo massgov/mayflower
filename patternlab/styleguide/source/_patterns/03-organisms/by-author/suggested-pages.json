@@ -1,0 +1,66 @@
+{
+  "suggestedPages": {
+    "title": "Related Locations",
+    "titleContext": "",
+    "view":"",
+    "buttonMinor" : {
+      "href": "#",
+      "text": "Do Something"
+    },
+    "pages": [{
+      "image": {
+        "alt": "Place Holder Image", 
+        "src": "../../assets/images/placeholder/230x130.png",
+        "height": "130",
+        "width": "230"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link I",
+        "info": ""
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image", 
+        "src": "../../assets/images/placeholder/230x130.png",
+        "height": "130",
+        "width": "230"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link II",
+        "info": ""
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image", 
+        "src": "../../assets/images/placeholder/230x130.png",
+        "height": "130",
+        "width": "230"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link III",
+        "info": ""
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image", 
+        "src": "../../assets/images/placeholder/230x130.png",
+        "height": "130",
+        "width": "230"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link IV",
+        "info": ""
+      }
+    }],
+    "more":{
+      "href": "#",
+      "text": "See all related pages",
+      "info": "",
+      "chevron": true
+    }
+  }
+}

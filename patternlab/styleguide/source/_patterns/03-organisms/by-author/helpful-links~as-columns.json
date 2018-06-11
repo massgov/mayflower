@@ -1,0 +1,32 @@
+{
+  "helpfulLinks": {
+    "columns": "true",
+    "compHeading": {
+      "title": "Helpful Links",
+      "sub": "true",
+      "color": "yellow",
+      "centered": "true"
+    },
+    "items": [{
+      "href": "#",
+      "text":"Apply for Unemployment",
+      "chevron": "true"
+    },{
+      "href": "#",
+      "text":"Register my Vehicle",
+      "chevron": "true"
+    },{
+      "href": "#",
+      "text":"Find My Local Polling Station",
+      "chevron": "true"
+    },{
+      "href": "#",
+      "text":"Search for Unclaimed Property",
+      "chevron": "true"
+    },{
+      "href": "#",
+      "text":"Learn about Fishing and Hunting",
+      "chevron": "true"
+    }]
+  }
+}

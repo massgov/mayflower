@@ -1,0 +1,380 @@
+.ma__sticky-toc {
+
+  &__inner {
+
+    @media ($bp-x-small-min) {
+      background-color: $c-bg-section;
+    }
+  }
+
+  &__title {
+    background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-theme-secondary 35px);
+    color: $c-white;
+    font-weight: 700;
+  }
+
+  &__links {
+
+    @media ($bp-x-small-max) {
+      background-color: $c-bg-section;
+    }
+  }
+
+  &__link {
+
+    & > svg {
+      fill: $c-theme-secondary;
+
+      @media ($bp-x-small-max) {
+        display: none;
+      }
+    }
+
+    &:hover a {
+      border-bottom-color: rgba($c-font-link,.5);
+    }
+
+    &:nth-child(n+12) {
+      display:  none;
+
+      .open & {
+        display: block;
+      }
+
+      .is-open & {
+        display: block;
+      }
+    }
+
+    @media ($bp-x-small-max) {
+      a {
+        font-weight: 500;
+      }
+
+      &.is-active a {
+        color: $c-font-dark;
+        font-weight: 700;
+      }
+
+      &.is-active:hover a {
+        color: $c-font-dark;
+        border-bottom-color: transparent;
+      }
+
+      & + & {
+        border-top-color: $c-bd-divider;
+      }
+
+    }
+  }
+
+  &__toggle-link {
+    color: $c-theme-secondary;
+  }
+
+  &__footer {
+    border-top: 1px solid $c-bd-divider;
+    font-size: 1.25rem;
+    padding: 20px;
+    width: 95%;
+    margin: 0 auto;
+
+    @media ($bp-x-small-max) {
+      display: none;
+    }
+
+    button {
+      position: relative;
+      color: $c-theme-blue;
+      font-weight: 700;
+      background-color: transparent;
+      border: none;
+      padding: 3px 20px 1px;
+      border-bottom: 3px solid transparent;
+      transition: border 0.4s ease;
+      font-size: 19px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        right: 0;
+        display: inline-block;
+        border-right: 4px solid rgba($c-theme-blue, 0.3);
+        border-bottom: 4px solid rgba($c-theme-blue, 0.3);
+        height: 10px;
+        width: 10px;
+        transition: all .2s;
+        vertical-align: middle;
+      }
+
+      &.open::after {
+        transform: translateY(-50%) rotate(225deg);
+      }
+    }
+  }
+
+  .ma__sticky-toc__stuck {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    transition: height 0.1s ease-out;
+    width: 100%;
+    background-color: $c-bg-subtle;
+    z-index: 79;
+
+    @media ($bp-header-toggle-min) {
+      top: 0;
+    }
+  }
+}
+
+.ma__sticky-toc.stuck {
+
+  .ma__sticky-toc__stuck {
+    padding-top: 15px;
+    height: 75px;
+    transition: height 0.2s ease-in;
+
+    @media ($bp-header-toggle-min) {
+      height: 70px;
+      padding-top: 10px;
+    }
+  }
+}
+
+.ma__sticky-toc__stuck--inner-wrapper {
+  @include ma-container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ma__sticky-toc__tools {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+  width: 100%;
+  max-width: 320px;
+
+  .ma__sticky-toc__sticky-top {
+    padding-right: 30px;
+    margin-right: 30px;
+    border-right: 1px solid $c-bd-divider;
+
+    button {
+      border: 4px solid rgba($c-theme-primary, .5);
+      height: 47px;
+      position: relative;
+
+      svg {
+        fill: rgba($c-theme-primary, 0.5);
+        transform: rotate(-90deg);
+        width: 11px;
+        height: 12px;
+        margin-bottom: 5px;
+
+        use > svg {// For the bug in Firefox 55>
+          transform: rotate(0deg);
+        }
+      }
+
+      span {
+        display: block;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: $c-theme-primary;
+        letter-spacing: 1px;
+        margin-top: -4px;
+      }
+    }
+  }
+
+  .ma__sticky-toc__sticky-toggle {
+    width: 100%;
+
+    button {
+      @include ma-button("","solid",$c-theme-primary);
+      font-size: 1.3rem;
+      padding: 10px 0;
+      width: 100%;
+    }
+  }
+}
+
+.ma__sticky-toc__secondary-label {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $c-font-dark;
+  padding: 10px 35px 10px 15px;
+  border: 1px solid $c-bd-divider;
+  border-width: 1px 0 1px 0;
+
+  @media ($bp-x-small-min) {
+    display: none;
+  }
+
+  .secondary-label-close {
+    display: none;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background-color: $c-theme-primary;
+    color: $c-white;
+
+    .sticky-nav-open & {
+      display: block;
+    }
+
+    &::after {
+      content: '\00d7';
+      font-size: 2.1rem;
+      font-weight: 200;
+      line-height: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.ma__sticky-toc__current-section {
+  @include ma-h6;
+  width: calc(100% - 365px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+  color: $c-black;
+  margin-bottom: 0;
+  display: none;
+
+  @media ($bp-medium-min) {
+    display: block;
+  }
+}
+
+.ma__sticky-toc__stuck-menu {
+  position: fixed;
+  right: -600px;
+  width: 100%;
+  height: 100%;
+  max-width: 550px;
+  top: 40px;
+  z-index: 99;
+  background-color: $c-white;
+  transition: right 0.3s ease-out;
+  padding-top: 35px;
+  overflow: auto;
+
+  @media ($bp-header-toggle-min) {
+    top: 0;
+    padding-top: 75px;
+  }
+
+  .ma__sticky-toc__secondary-label {
+    display: flex;
+    z-index: 99;
+    position: fixed;
+    right: -600px;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    font-size: 1.375rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: $c-theme-gray;
+    background-color: $c-white;
+    height: 65px;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 550px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: calc(100% - 40px);
+      height: 1px;
+      bottom: 0;
+      background-color: $c-theme-gray;
+    }
+  }
+
+  .ma__sticky-toc__link {
+    display: block;
+    padding-left: 40px;
+    margin: 0 20px;
+
+    a {
+      font-weight: 700;
+      font-size: 1.375rem;
+    }
+
+    &> svg {
+      display: block;
+      margin-top: 7px;
+
+      @media ($bp-x-small-min) {
+        margin: 0;
+      }
+    }
+  }
+
+  &.sticky-nav-open {
+    right: 0;
+
+    .ma__sticky-toc__secondary-label {
+      top:0;
+      right: 0;
+      transition: right 0.3s ease-out;
+    }
+  }
+}
+
+.sticky-toc-jump-target {
+
+  &::before {
+    display: block;
+    content: '';
+    margin-top: -120px;
+    height: 120px;
+    visibility: hidden;
+    pointer-events: none;
+
+    @media ($bp-header-toggle-min) {
+      margin-top: -70px;
+      height: 70px;
+    }
+  }
+}
+
+.ma__sticky-toc__overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba($c-black, 0.3);
+  pointer-events: none;
+  z-index: 99;
+}
+
+body.stuck {
+  .ma__floating-action {
+    display: none;
+  }
+}
+
+html.stickyTOC {
+ overflow-y: scroll;
+}

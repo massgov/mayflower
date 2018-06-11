@@ -1,0 +1,15 @@
+{
+  "arrowNav": {
+    "arrowButton": {
+      "href": "#",
+      "info": "",
+      "direction": "right"
+    },
+    "title": "Next Section: next page's title",
+    "link": {
+      "href": "#",
+      "text": "page description from the next page to this one",
+      "info": ""
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.ma__button-alert {
+  background-color: $c-font-dark;
+  box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
+  color: $c-font-inverse;
+  font-weight: 700;
+
+  &:after {
+    border-color: rgba($c-font-inverse,.5);
+  }
+
+  &:hover {
+    background-color: rgba($c-font-dark, 0.75);
+  }
+}

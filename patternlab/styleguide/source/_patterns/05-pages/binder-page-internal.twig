@@ -1,0 +1,25 @@
+{% extends '@templates/01-content-types/binder-page.twig' %}
+
+{% block header %}
+  {% include "@organisms/by-template/header.twig" %}
+  {% for navSection in binderNavigationSections %}
+    {% set tableOfContentsOverlay = navSection.tableOfContents %}
+    {% include "@organisms/by-template/table-of-contents-overlay.twig" %}
+  {% endfor %}
+{% endblock %}
+
+{% block pageContent %}{% endblock %}
+
+{% block sidebar %}{% endblock %}
+
+{% block postContent %}
+  {% for navSection in binderNavigationSections %}
+    {% set pageFlipper = navSection.pageFlipper %}
+    {% include "@organisms/by-author/page-flipper.twig" %}
+  {% endfor %}
+{% endblock %}
+
+
+{% block footer %}
+  {% include "@organisms/by-template/footer.twig" %}
+{% endblock %}

@@ -1,0 +1,38 @@
+.ma__toc--overlay {
+
+  .ma__toc__toc__title {
+    background: $c-gray-f2f2f2;
+    color: $c-theme-blue;
+  }
+  .ma__toc--hierarchy {
+    border-bottom: 1px solid $c-gray-dcdcdc;
+  }
+
+  .ma__toc__toc__toggle[aria-expanded="false"] {
+    color: $c-theme-blue;
+  }
+  .ma__toc__toc__toggle[aria-expanded="true"] {
+    color: $c-white;
+    background: $c-theme-blue;
+  }
+
+  .ma__toc__subtitle {
+    color: $c-theme-gray;
+  }
+  .ma__toc--hierarchy__accordion {
+    .ma__toc--hierarchy__title {
+      border-left-color: transparent;
+    }
+    .ma__toc--hierarchy__title.is-current {
+      border-left-color: rgba($c-theme-green, 0.5) !important;
+    }
+  }
+
+  .ma__toc--overlay__container {
+    background: $c-white;
+  }
+
+  li.is-current:before {
+    background: $c-theme-green;
+  }
+}

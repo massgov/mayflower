@@ -1,0 +1,11 @@
+// error message
+.ma__error-msg {
+  display: none;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-bottom: .5em;
+
+  &.has-error {
+    display: block;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "inputText": {
+    "hiddenLabel": false,
+    "labelText": "Text Input as Error",
+    "required": true,
+    "id": "text-input",
+    "name": "text-input",
+    "type": "text",
+    "width": "",
+    "maxlength": "",
+    "pattern": "",
+    "placeholder": "type something",
+    "errorMsg": "you did not type something"
+  }
+}

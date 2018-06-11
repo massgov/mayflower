@@ -1,0 +1,3 @@
+{% set buttonSortClass = buttonSort.direction ? "ma__button-sort--" ~ buttonSort.direction : "" %}
+
+<button type="button" class="ma__button-sort js-button-sort {{ buttonSortClass }}">{{ buttonSort.text }}</button>

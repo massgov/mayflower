@@ -1,0 +1,76 @@
+.ma__featured-item {
+  @include ma-aspect-ratio(4, 3);
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  // dimmer
+  // this :before is set up in the aspect ratio mixin
+  &:before {
+    @include ma-link-transition;
+    background-color: transparent;
+    z-index: 1;
+  }
+
+  &:hover:before {
+    background-color: rgba(0,0,0,0.1);
+  }
+
+  .ma__featured-item__image img,
+  .ma__featured-item__image--large img {
+    // position absolutely in the center
+    position: absolute;
+      left: 0;
+      top: 0;
+    width: 100%;
+  }
+}
+
+.ma__featured-item--tall {
+
+  .ma__featured-item__image--large {
+    display: none;
+  }
+
+  @media ($bp-small-min) {
+    .ma__featured-item__image--large {
+      display: block;
+    }
+    .ma__featured-item__image {
+      display: none;
+    }
+    @include ma-aspect-ratio(3, 5);
+    .ma__featured-item__image--large img {
+      max-width: none;
+      width: auto;
+      height: 100%;
+    }
+  }
+
+}
+
+.ma__featured-item__title-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2; // above the dimmer (:before)
+  height: 4rem;
+  padding: 5px 15px;
+  font-size: 1.125rem;
+  line-height: 1.25;
+
+  svg {
+    @include ma-link-arrow;
+  }
+}
+
+.ma__featured-item__title.truncated {
+  span::after {
+    content: ' . . . ';
+    white-space: nowrap;
+  }
+}

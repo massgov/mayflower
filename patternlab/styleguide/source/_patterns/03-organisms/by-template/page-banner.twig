@@ -1,0 +1,98 @@
+{% set sizeClass = pageBanner.size ? "ma__page-banner--" ~ pageBanner.size : '' %}
+
+{% set colorClass = pageBanner.color ? "ma__page-banner--" ~ pageBanner.color : '' %}
+
+{% set linkedClass = pageBanner.primaryLink ? "ma__page-banner--linked" : '' %}
+
+<section class="ma__page-banner {{ sizeClass }} {{ colorClass }} {{ linkedClass }}">
+  {% if pageBanner.size == "columns" or linkedClass %}
+    <style>
+      .ma__page-banner__image {
+        background-image: url('{{ pageBanner.bgNarrow }}');
+      }
+
+      @media (min-width: 801px) {
+        .ma__page-banner__image {
+          background-image: url('{{ pageBanner.bgWide }}');
+        }
+      }
+    </style>
+  {% else %}
+    <style>
+      .ma__page-banner {
+        background-image: url('{{ pageBanner.bgNarrow }}');
+      }
+
+      @media (min-width: 801px) {
+        .ma__page-banner {
+          background-image: url('{{ pageBanner.bgWide }}');
+        }
+      }
+    </style>
+  {% endif %}
+  <div class="ma__page-banner__container">
+    {% if (pageBanner.size and pageBanner.size == "columns") or linkedClass %}
+      <div class="ma__page-banner__image"></div>
+    {% endif %}
+    <div class="ma__page-banner__content" property="mainEntityOfPage">
+      <div class="ma__page-banner__content-wrapper">
+        {% if pageBanner.icon %}
+          <div class="ma__page-banner__icon">
+            {{ icon(pageBanner.icon) }}
+          </div>
+        {% endif %}
+        <h1 class="ma__page-banner__title">
+          {{ pageBanner.title }}
+          {% if pageBanner.titleSubText %}
+            <abbr title="{{ pageBanner.title }}"> {{ pageBanner.titleSubText }}</abbr>
+          {% endif %}
+        </h1>
+        {% if pageBanner.primaryLink and not (pageBanner.size == "columns") %}
+          {% set decorativeLink = pageBanner.primaryLink %}
+          {% if pageBanner.primaryLink.href %}
+            {% include "@atoms/decorative-link.twig" %}
+          {% else %}
+            <p class="ma__page-banner__unlinked-title">
+              {{pageBanner.primaryLink.text}}
+            </p>
+          {% endif %}
+          {% if pageBanner.primaryLink.description %}
+            <div class="ma__page-banner__description">
+              {{pageBanner.primaryLink.description}}
+            </div>
+          {% endif %}
+        {% endif %}
+        {% if pageBanner.secondaryLink and not (pageBanner.size == "columns") %}
+          {% set decorativeLink = pageBanner.secondaryLink %}
+          {% if pageBanner.secondaryLink.href %}
+            {% include "@atoms/decorative-link.twig" %}
+          {% else %}
+            <p class="ma__page-banner__unlinked-title">
+              {{pageBanner.secondaryLink.text}}
+            </p>
+          {% endif %}
+          {% if pageBanner.secondaryLink.description %}
+            <div class="ma__page-banner__description">
+              {{pageBanner.secondaryLink.description}}
+            </div>
+          {% endif %}
+        {% endif %}
+        {% if pageBanner.description and not (pageBanner.size == "columns") %}
+          <p class="ma__page-banner__description">
+            {{ pageBanner.description }}
+            {% if pageBanner.descriptionSubText %}
+              <span class="ma__page-banner__descriptionSubText">
+                {{ pageBanner.descriptionSubText }}
+              </span>
+            {% endif %}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+    {% if pageBanner.description and pageBanner.size == "columns" %}
+      <p class="ma__page-banner__description">
+        {{ pageBanner.description }}
+      </p>
+    {% endif %}
+  </div>
+</section>

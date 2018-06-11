@@ -1,0 +1,42 @@
+{% set tableHeaderRow = table.head.rows|last %}
+
+{% if tableHeaderRow.cells|length > 3 %}
+  {% set tableWideClass = "ma__table--wide" %}
+{% endif %}
+<table class="ma__table {{ tableWideClass }}">
+  <thead>
+    {% for row in table.head.rows %}
+      <tr>
+        {% for cell in row.cells %}
+          <th 
+            scope="col" 
+            {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %} 
+            {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</th>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </thead>
+  {% for body in table.bodies %}
+    <tbody>
+      {% for row in body.rows %}
+        <tr class="{{ row.rowSpanOffset ? 'is-offset' : '' }}">
+          {% set tableIndexOffset = row.rowSpanOffset ? 0 : 1 %}
+          {% for cell in row.cells %}
+            {% if cell.heading == "true" %}
+              <th 
+                data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}" 
+                scope="row" 
+                {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %} 
+                {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</th>
+            {% else %}
+              <td
+                data-label="{{ tableHeaderRow.cells[loop.index - tableIndexOffset].text }}" 
+              {% if cell.colspan %}colspan="{{cell.colspan}}"{% endif %} 
+              {% if cell.rowspan %}rowspan="{{cell.rowspan}}"{% endif %}>{{ cell.text }}</td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  {% endfor %}
+</table>

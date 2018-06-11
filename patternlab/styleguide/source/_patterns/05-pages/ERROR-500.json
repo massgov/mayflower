@@ -1,0 +1,13 @@
+{
+  "narrowTemplate": {
+    "side": "right",
+    "color": "yellow"
+  },
+  
+  "errorPage": {
+    "type": "500",
+    "label": "Uh Oh",
+    "title": "Something went wrong",
+    "message": "Sorry, we're having some technical issues. Please try refreshing the page in a few minutes"
+  }
+}

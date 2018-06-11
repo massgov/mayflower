@@ -1,0 +1,98 @@
+{
+  "personalMessage": {
+    "imagePromos": [{
+      "title": {
+        "text": "Office of the Governor",
+        "href": "",
+        "type": ""
+      },
+      "tags": null,
+      "image": {
+        "src":"../../assets/images/placeholder/100x100.png",
+        "alt": "placeholder image",
+        "height": "100",
+        "width": "100",
+        "href": "#"
+      },
+      "description": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Small statement about who the Office of the Governor is so when people read similar announcements that might have different perspectives, they can get a sense of why this groups says one thing and another says another. Could pull from the short description of the org page or be a manually entered field per news or announcement."
+              }
+            }
+          }]
+        }
+      },
+      "link": {
+        "text": "more information",
+        "href": "#",
+        "info": "more information about the office of the Governor"
+      },
+      "location": null,
+      "phone": null
+    },{
+      "title": {
+        "text": "Another Org",
+        "href": "",
+        "type": ""
+      },
+      "tags": null,
+      "image": {
+        "src":"../../assets/images/placeholder/190x107.png",
+        "alt": "placeholder image",
+        "height": "107",
+        "width": "190",
+        "href": "#"
+      },
+      "description": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Small statement about who the Another Org is so when people read similar announcements that might have different perspectives, they can get a sense of why this groups says one thing and another says another. Could pull from the short description of the org page or be a manually entered field per news or announcement."
+              }
+            }
+          }]
+        }
+      },
+      "link": {
+        "text": "more information",
+        "href": "#",
+        "info": "more information about Another Org"
+      },
+      "location": null,
+      "phone": null
+    },{
+      "title": {
+        "text": "A third party, non state organization",
+        "href": "",
+        "type": ""
+      },
+      "tags": null,
+      "image": null,
+      "description": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Small statement about who A third party, non state organization is so when people read similar announcements that might have different perspectives, they can get a sense of why this groups says one thing and another says another. Could pull from the short description of the org page or be a manually entered field per news or announcement."
+              }
+            }
+          }]
+        }
+      },
+      "link": {
+        "text": "more information",
+        "href": "#",
+        "info": "more information about A third party, non state organization"
+      },
+      "location": null,
+      "phone": null
+    }]
+  }
+}

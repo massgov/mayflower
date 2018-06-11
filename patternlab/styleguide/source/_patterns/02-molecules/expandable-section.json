@@ -1,0 +1,15 @@
+{
+  "expandableSection" : {
+    "text": "1. Scope of Rules",
+    "linkItems": [
+      {
+        "text": "Thing One",
+        "href": "#"
+      },
+      {
+        "text": "Thing Two",
+        "href": "#"
+      }
+    ]
+  }
+}

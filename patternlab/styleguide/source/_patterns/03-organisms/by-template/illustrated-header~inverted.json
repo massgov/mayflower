@@ -1,0 +1,28 @@
+{
+  "illustratedHeader": {
+    "bgInfo": "Forest of the Berkshires",
+    "bgImage": "../../assets/images/placeholder/600x450.png",
+    "category": "Law Library",
+    "inverted": true,
+    "pageHeader": {
+      "title": "Rules of Criminal Procedure",
+      "subTitle": "",
+      "optionalContents": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "atoms-paragraph",
+              "data": {
+                "paragraph" : {
+                  "text": "A full listing of the Rules of Criminal Procedure that govern the Massachusetts Court System"
+                }
+              }
+            }]
+          }
+        }
+      }]
+    },
+    "headerTags": null
+  }
+}

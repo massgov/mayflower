@@ -1,0 +1,24 @@
+.ma__test-feed {
+
+  &__title {
+    @include ma-border-decorative($c-theme-secondary);
+  }
+
+  &__icon {
+
+    svg {
+      fill: $c-theme-secondary;
+    }
+  }
+  
+  &__view-all {
+    
+    a {
+      
+      &:hover,
+      &:after {
+        border-color: rgba($c-font-link, .5);
+      }
+    }
+  }
+}

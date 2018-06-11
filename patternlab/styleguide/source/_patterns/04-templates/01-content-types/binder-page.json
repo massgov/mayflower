@@ -1,0 +1,356 @@
+{
+  "illustratedHeader": {
+    "bgInfo": "Forest of the Berkshires",
+    "bgImage": "../../assets/images/placeholder/600x450.png",
+    "category": "Law Library",
+    "inverted": true,
+    "pageHeader": {
+      "title": "Rules of Criminal Procedure",
+      "subTitle": "",
+      "optionalContents": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "atoms-paragraph",
+              "data": {
+                "paragraph" : {
+                  "text": "A full listing of the Rules of Criminal Procedure that govern the Massachusetts Court System"
+                }
+              }
+            }]
+          }
+        }
+      }]
+    }
+  },
+
+  "contentEyebrow": {
+    "hideBorder": false,
+    "headerTags": {
+      "label": "More about:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Related Service"
+      },{
+        "href": "#",
+        "text": "Related Organization"
+      },{
+        "href": "#",
+        "text": "Third Thing"
+      },{
+        "href": "#",
+        "text": "Fourth Thing"
+      }]
+    }
+  },
+
+  "listingTable": {
+    "rows": [{
+        "label": "Organization:",
+        "text": "<a href=''>Massachusetts Trial Court Libraries</a>"
+      },{
+        "label": "Date Published:",
+        "text": "9/1/2017"
+      },{
+        "label": "Last Updated:",
+        "text": "10/1/2017"
+      },{
+        "label": "Volume:",
+        "text": "Fall 2017"
+      },{
+        "label": "Serial Number:",
+        "text": "2018-0324S"
+      }]
+  },
+
+  "mainContent": {
+    "contents": [{
+      "compHeading": {
+        "title": "Rich text",
+        "sub": false,
+        "color": "",
+        "id": "rich-text",
+        "centered": ""
+      },
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sunt deleniti fuga consequuntur laudantium qui repellendus eveniet, culpa ipsum ullam libero quibusdam dolore, sit. Quasi alias sed atque saepe, tempora dolore dolor quod amet. Quaerat omnis illo, totam eligendi at."
+          }
+        }
+      }]
+    }],
+
+    "tableOfContentsSections": [
+      {
+        "title": {
+          "text": "Table of Contents",
+          "colored": true
+        },
+        "sections": [
+          {
+            "text": "Executive Summary",
+            "href": "#"
+          },
+          {
+            "text": "1. Scope of Rules",
+            "linkItems": [
+              {
+                "text": "Thing One",
+                "href": "#"
+              },
+              {
+                "text": "Thing Two",
+                "href": "#"
+              },
+              {
+                "text": "Thing Three",
+                "href": "#"
+              }
+            ]
+          },
+          {
+            "iconSize": "",
+            "icon": "doc-docx",
+            "decorativeLink": {
+              "text": "Link to a file for download",
+              "href": "#",
+              "info": ""
+            },
+            "size": "40kb",
+            "format": "DOCX"
+          }
+        ]
+      },
+      {
+        "title": {
+          "text": "Appendix",
+          "colored": true
+        },
+        "sections": [
+          {
+            "text": "Appendix as link",
+            "href": "#"
+          },
+          {
+            "iconSize": "",
+            "icon": "doc-docx",
+            "decorativeLink": {
+              "text": "Appendix item as a download",
+              "href": "#",
+              "info": ""
+            },
+            "size": "1MB",
+            "format": "PDF"
+          }
+        ]
+      }
+    ],
+
+
+    "formDownloads": {
+      "compHeading": {
+        "title": "Downloads",
+        "sub": false,
+        "color": "",
+        "id": "downloads",
+        "centered": "",
+        "titleContext": ""
+      },
+      "downloadLinks": [{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-pdf",
+          "decorativeLink": {
+            "text": "PDF download item",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "30kb",
+          "format": "PDF"
+        }
+      },{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-docx",
+          "decorativeLink": {
+            "text": "Word download item",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "40kb",
+          "format": "DOCX"
+        }
+      },{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "laptop",
+          "decorativeLink": {
+            "text": "Online form or information page",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "",
+          "format": "form"
+        }
+      }]
+    },
+
+    "contactList": {
+      "viewSpecific": false,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "contact",
+        "centered": "",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Person to Contact"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    }
+  },
+
+  "sideContent": {
+    "contactList": {
+      "viewSpecific": true,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "",
+        "centered": "",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Person to Contact"
+        },
+        "groups": [{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "pressListing": {
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": ""
+      },
+      "items": [{
+        "eyebrow": "Letter Ruling",
+        "title" : {
+          "href":"#",
+          "text":"Link to Ruling",
+          "info": "",
+          "property": ""
+        },
+        "date": "4/3/2017",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "Regulation",
+        "title" : {
+          "href":"#",
+          "text":"Link to Regulation",
+          "info": "",
+          "property": ""
+        },
+        "date": "4/3/2017",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "Regulation",
+        "title" : {
+          "href":"#",
+          "text":"Link to Regulation",
+          "info": "",
+          "property": ""
+        },
+        "date": "",
+        "org": "",
+        "description": null
+      }]
+    },
+
+    "eventListing": {
+      "sidebarHeading":{
+        "title": "Upcoming Events",
+        "titleContext": ""
+      },
+      "events":[{
+        "title": {
+          "href": "#",
+          "text": "Name of Event",
+          "info": "",
+          "property": ""
+        },
+        "location": "location",
+        "date": {
+          "summary": "Date"
+        },
+        "time": "Time",
+        "description":"This is a description of the event that will happen at a future date"
+      }],
+      "more": null
+    }
+  }
+}

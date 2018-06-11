@@ -1,0 +1,26 @@
+.ma__collapsible-header {
+
+  &__button {
+    background-color: $c-bg-section;
+
+    .is-open & {
+      background-color: transparent;
+    }
+
+    &:after {
+      color: $c-theme-secondary;
+    }
+  }
+
+  &__icon {
+
+    & > svg {
+      fill: $c-theme-secondary;
+    }
+  }
+
+  &__title {
+    @include ma-h4;
+    font-weight: 700;
+  }
+}

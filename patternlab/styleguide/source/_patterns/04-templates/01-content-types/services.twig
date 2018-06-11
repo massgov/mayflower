@@ -1,0 +1,102 @@
+{% set mainContentClass = introSidebar ? 'main-content--two' : 'main-content--full' %}
+
+{% block header %}
+
+{% endblock %}
+<main
+  id="main-content"
+  class="ma__services"
+  tabindex="-1"
+  {% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
+  <div class="pre-content">
+    {% block preContent %}
+      {% include "@organisms/by-template/content-eyebrow.twig" %}
+      {% include "@organisms/by-template/page-banner.twig" %}
+    {% endblock %}
+  </div>
+  <div class="stacked-row-content">
+    <section class="ma__stacked-row-section">
+      <div class="main-content {{ mainContentClass }}">
+        <div class="page-content page-content--intro">
+          {% if introSidebar.logo %}
+            {% set image = introSidebar.logo %}
+            {% include "@atoms/09-media/image.twig" %}
+          {% endif %}
+          {% block pageContentIntro %}
+            {% if introPageContent.video %}
+              {% set video = introPageContent.video %}
+              {% include "@atoms/09-media/video.twig" %}
+            {% endif %}
+
+            {% set richText = introPageContent.intro %}
+            {% include "@organisms/by-author/rich-text.twig" %}
+
+            {% if introPageContent.keyActions %}
+              {% set keyActions = introPageContent.keyActions %}
+              {% include "@organisms/by-author/key-actions.twig" %}
+            {% endif %}
+          {% endblock %}
+        </div>
+        {% if introSidebar %}
+          <aside class="sidebar sidebar--intro">
+            {% block sidebarIntro %}
+              {% if introSidebar.logo.src %}
+                {% set image = introSidebar.logo %}
+                {% include "@atoms/09-media/image.twig" %}
+              {% endif %}
+              {% if introSidebar.social %}
+                {# Backward Compatible with v5.7 - added heading to iconLinks so this heading isn't needed #}
+                {% if introSidebar.social.sidebarHeading %}
+                  {% set sidebarHeading = introSidebar.social.sidebarHeading %}
+                  {% include "@atoms/04-headings/sidebar-heading.twig" %}
+                {% endif %}
+                {% set iconLinks = introSidebar.social.iconLinks %}
+                {% include "@molecules/icon-links.twig" %}
+              {% endif %}
+              {% if introSidebar.imageLinkList %}
+                {% set imageLinkList = introSidebar.imageLinkList %}
+                {% include "@organisms/by-author/image-link-list.twig" %}
+              {% endif %}
+            {% endblock %}
+          </aside>
+        {% endif %}
+      </div>
+    </section>
+    <section class="ma__stacked-row-section">
+      <div class="main-content main-content--full">
+        <div class="page-content">
+          {% block pageContent %}
+            {% if doActionFinder %}
+              {% set actionFinder = doActionFinder.actionFinder %}
+              {% include "@organisms/by-author/action-finder.twig" %}
+            {% endif %}
+            {% if learnActionFinder %}
+              {% set actionFinder = learnActionFinder.actionFinder %}
+              {% include "@organisms/by-author/action-finder.twig" %}
+            {% endif %}
+            {% if contactList %}
+              {% include "@organisms/by-author/contact-list.twig" %}
+            {% endif %}
+            {% if mappedLocations %}
+              {% include "@organisms/by-author/mapped-locations.twig" %}
+            {% endif %}
+            {% if eventListing %}
+              {% include "@organisms/by-author/event-listing.twig" %}
+            {% endif %}
+            {% if splitColumns %}
+              {% include "@organisms/by-author/split-columns.twig" %}
+            {% endif %}
+          {% endblock %}
+        </div>
+      </div>
+    </section>
+  </div>
+  {% block schemaContent %}
+
+  {% endblock %}
+</main>
+
+{% block footer %}
+
+{% endblock %}
+

@@ -1,0 +1,13 @@
+.ma__split50 {
+
+  &__container {
+
+    > *:nth-child(2n) {
+      border-left-color: $c-bd-divider;
+    }
+  }
+
+  &--has-divider &__container {
+    border-top-color: $c-bd-divider;
+  }
+}

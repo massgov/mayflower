@@ -1,0 +1,162 @@
+{
+  "pageBanner": {
+    "bgWide": "../../assets/images/placeholder/820x460.png",
+    "bgNarrow": "../../assets/images/placeholder/800x400.png",
+    "size": "columns",
+    "icon": "lg-state-house",
+    "title": "Executive Branch",
+    "description": "Learn more about the Executive Branch, and find out which constitutional officers, state offices, and agencies provide the services your use every day."
+  },
+
+  "mainContent": {
+    "officers" : {
+      "compHeading": {
+        "title": "Constitutional Officers",
+        "sub": "",
+        "color": "",
+        "id": "",
+        "centered": ""
+      },
+      "sections": [{
+        "id": "GUIDasjdhf1",
+        "catIcon": "",
+        "title" : {
+          "href" : "#",
+          "text" : "Office of the Governor"
+        },
+        "description":"First line of this Service that helps users know it's right.",
+        "type": "",
+        "links" : null,
+        "seeAll": {
+          "href": "#",
+          "text": "more",
+          "info": "learn more about the Office of the Governor"
+        }
+      },{
+        "id": "GUIDasjdhf2",
+        "catIcon": "",
+        "title" : {
+          "href" : "#",
+          "text" : "Secretary of State"
+        },
+        "description":"First line of this Service that helps users know it's right.",
+        "type": "",
+        "links" : null,
+        "seeAll": {
+          "href": "#",
+          "text": "more",
+          "info": "learn more about the Secretary of State"
+        }
+      },{
+        "id": "GUIDasjdhf3",
+        "catIcon": "",
+        "title" : {
+          "href" : "#",
+          "text" : "Attorney General"
+        },
+        "description":"First line of this Service that helps users know it's right.",
+        "type": "",
+        "links" : null,
+        "seeAll": {
+          "href": "#",
+          "text": "more",
+          "info": "learn more about the Attorney General"
+        }
+      },{
+        "id": "GUIDasjdhf4",
+        "catIcon": "",
+        "title" : {
+          "href" : "#",
+          "text" : "Treasurer"
+        },
+        "description":"First line of this Service that helps users know it's right.",
+        "type": "",
+        "links" : null,
+        "seeAll": {
+          "href": "#",
+          "text": "more",
+          "info": "learn more about the Treasurer"
+        }
+      },{
+        "id": "GUIDasjdhf5",
+        "catIcon": "",
+        "title" : {
+          "href" : "#",
+          "text" : "State Auditor"
+        },
+        "description":"First line of this Service that helps users know it's right.",
+        "type": "",
+        "links" : null,
+        "seeAll": {
+          "href": "#",
+          "text": "more",
+          "info": "learn more about the State Auditor"
+        }
+      }]
+    },
+
+    "agencies" : {
+      "compHeading": {
+        "title": "Agencies",
+        "sub": "",
+        "color": "",
+        "id": "",
+        "centered": ""
+      },
+      "sections": [{
+        "id": "GUID2934852390562",
+        "catIcon": "",
+        "title" : {
+          "href" : "#",
+          "text" : "Executive Agencies"
+        },
+        "description":"First line of this Service that helps users know it's right.",
+        "type": "",
+        "links" : null,
+        "seeAll": {
+          "href": "#",
+          "text": "more",
+          "info": "learn more about the Executive Agencies"
+        }
+      },{
+        "id": "GUID285782497",
+        "catIcon": "",
+        "title" : {
+          "href" : "#",
+          "text" : "Independent Agencies"
+        },
+        "description":"First line of this Service that helps users know it's right.",
+        "type": "",
+        "links" : null,
+        "seeAll": {
+          "href": "#",
+          "text": "more",
+          "info": "learn more about the Independent Agencies"
+        }
+      }]
+    },
+
+    "linkList" : {
+      "compHeading": {
+        "title": "Related Agencies",
+        "sub": "",
+        "color": "",
+        "id": "",
+        "centered": ""
+      },
+      "links" : [{
+        "href":"#",
+        "text":"This is a Related Topic Name1"
+      },{
+        "href":"#",
+        "text":"This is a Related Topic Name2"
+      },{
+        "href":"#",
+        "text":"This is a Related Topic Name3"
+      },{
+        "href":"#",
+        "text":"This is a Related Topic Name4"
+      }]
+    }
+  }
+}

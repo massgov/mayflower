@@ -1,0 +1,17 @@
+{
+  "contactGroup": {
+    "icon": "marker",
+    "name": "Address",
+    "items": [{
+      "type": "address",
+      "label": "",
+      "address": "555 Park Drive\nBoston, MA 02231",
+      "link": {
+        "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+        "text": "directions",
+        "info": ""
+      },
+      "details": ""
+    }]
+  }
+}

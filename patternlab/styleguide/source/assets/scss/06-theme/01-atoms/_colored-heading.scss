@@ -1,0 +1,11 @@
+.ma__colored-heading {
+  @include ma-heading-colored($c-bg-comp-title);
+
+  &--green {
+    background-color: $c-theme-green;
+  }
+
+    &--blue {
+    background-color: $c-theme-blue;
+  }
+}

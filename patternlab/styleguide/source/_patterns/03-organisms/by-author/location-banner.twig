@@ -1,0 +1,19 @@
+{% set locationBannerId = locationBanner.id ? locationBanner.id : 'banner-id' %}
+
+<section class="ma__location-banner">
+  <style>
+    #{{ locationBannerId }} {
+      background-image: url('{{ locationBanner.bgNarrow }}');
+    }
+  </style>
+  <div class="ma__location-banner__map">
+    {% set googleMap = locationBanner.actionMap ? locationBanner.actionMap : locationBanner.googleMap %}
+    {% include "@molecules/google-map.twig" %}
+  </div>
+  <div 
+    class="ma__location-banner__image" 
+    id="{{ locationBannerId }}"
+    role="image"
+    title="{{ locationBanner.bgTitle }}">
+  </div>
+</section>

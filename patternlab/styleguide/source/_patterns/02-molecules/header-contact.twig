@@ -1,0 +1,49 @@
+{% if headerContact.phone|length or headerContact.online|length or headerContact.fax|length %}
+  {% set accordion = true %}
+  {% set accordionParent = "js-accordion" %}
+  {% set accordionContent = "js-accordion-content" %}
+{% endif %}
+<section class="ma__header-contact {{accordionParent}}">
+  <div class="ma__header-contact__address"{% if schemaPageType %} property="address" typeof="PostalAddress"{% endif %}>
+    {% if headerContact.title %}
+      <span{% if schemaPageType %} property="name"{% endif %}>{{headerContact.title | raw}}, </span>
+    {% endif %}
+    {% if headerContact.address2 %}
+      <span>{% if schemaPageType %}<span property="streetAddress">{% endif %}{{headerContact.address1}}{% if schemaPageType %}</span>{% endif %} {{headerContact.address2}}, </span>
+    {% else %}
+      <span{% if schemaPageType %} property="streetAddress"{% endif %}>{{headerContact.address1}}, </span>
+    {% endif %}
+    <span>
+      {% if schemaPageType %}<span property="addressLocality">{% endif %}{{headerContact.city}},{% if schemaPageType %}</span>{% endif %} 
+      {% if schemaPageType %}<span property="addressRegion">{% endif %}{{headerContact.state}}{% if schemaPageType %}</span>{% endif %}
+      {% if schemaPageType %}<span property="postalCode">{% endif %}{{headerContact.zip}}{% if schemaPageType %}</span>{% endif %}
+    </span>
+  </div>
+  <div class="ma__header-contact__directions"{% if headerContact.directions.property %} property="hasMap" typeof="Map"{% endif %}>
+    {% set link = headerContact.directions %}
+    {% include "@atoms/11-text/link.twig" %}
+  </div>
+  <div class="ma__header-contact__container">
+    {% if headerContact.phone|length %}
+      <div class="ma__header-contact__column">
+        {% set contactGroup = headerContact.phone %}
+        {% include "@molecules/contact-group.twig" %}
+      </div>
+    {% endif %}
+    {% if headerContact.online|length or headerContact.fax|length %}
+      <div class="ma__header-contact__column {{accordionContent}}">
+        {% if headerContact.online|length %}
+          {% set contactGroup = headerContact.online %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endif %}
+        {% if headerContact.fax|length %}
+          {% set contactGroup = headerContact.fax %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+  {% if accordion %}
+    <button class="ma__header-contact__accordion js-accordion-link">More contact information</button>
+  {% endif %}
+</section>

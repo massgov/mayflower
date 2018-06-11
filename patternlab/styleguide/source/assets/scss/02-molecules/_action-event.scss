@@ -1,0 +1,30 @@
+.ma__action-event {
+
+  & + & {
+    border-top: 1px solid;
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+
+  &__date {
+    margin-top: 5px;
+  }
+
+  &__name {
+    font-size: inherit;
+    line-height: inherit;
+    margin-bottom: 0;
+
+    a {
+      font-size: 1.625rem;
+      line-height: 1.2;
+    }
+  }
+
+  &__description {
+    
+    @media ($bp-small-min){
+      font-size: 1.25rem;
+    }
+  }
+}

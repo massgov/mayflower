@@ -1,0 +1,128 @@
+$contact-row-image-max-width: 300px;
+
+.ma__contact-row {
+  position: relative;
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+    @include ma-container();
+  }
+
+  @media ($bp-large-min) {
+    .ma__comp-heading,
+    .ma__contact-row__primary,
+    .ma__contact-row__additional {
+      width: calc(100% - #{$contact-row-image-max-width});
+    }
+  }
+
+  .ma__contact-row__primary {
+    margin-bottom: 20px;
+    @media ($bp-medium-min) {
+      margin-bottom: 40px;
+    }
+  }
+
+  .ma__contact-row__additional {
+    &.has-many {
+      @media ($bp-medium-min) {
+        @include clearfix;
+        .ma__contact-group:first-child:not(:last-child) {
+          width: 50%;
+          float: left;
+        }
+        .ma__contact-group:not(:first-child) {
+          width: 50%;
+          margin-left: calc(50% + 40px);
+          border-left: 1px solid #dcdcdc;
+          padding-left: 40px;
+        }
+      }
+    }
+
+  }
+
+  .ma__image {
+    margin-bottom: 1rem;
+    max-width: $contact-row-image-max-width;
+
+    @media ($bp-large-min) {
+      position: absolute;
+      top: 0;
+      right: 30px;
+    }
+  }
+
+  .ma__contact-row__more-info {
+    margin-top: 40px;
+  }
+
+  .ma__contact-row__expand {
+    padding-top:20px;
+    text-align: left;
+    display: none;
+
+    button {
+      @include ma-button-reset;
+      @include ma-link-underline;
+      @include ma-chevron;
+      font-size: 1.375rem;
+      font-weight: 500;
+      padding-right: 10px;
+
+      span:nth-child(2) {
+        display: none;
+      }
+
+      &:after {
+        transform: translateY(-45%) rotate(45deg);
+      }
+    }
+  }
+
+
+  // Accordion behavior for mobile
+  // note: We only need accordion behavior if we have a 'has-many' class.
+  // Otherwise we have at most 2 items.
+  @media ($bp-medium-max) {
+
+    .ma__contact-row__additional.has-many .ma__contact-group:not(:first-child) {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding: 0;
+      transition: all 350ms ease-in-out;
+    }
+
+    .ma__contact-row__additional.has-many {
+      &  ~ .ma__contact-row__expand {
+        display: block;
+      }
+
+    }
+
+    &.is-open {
+
+      .ma__contact-row__additional.has-many .ma__contact-group:not(:first-child) {
+        max-height: 100vh; //arbitrarily large max height for contact groups to avoid clipping
+        opacity: 1;
+        padding-bottom: 20px;
+      }
+
+      // button text
+      .ma__contact-row__expand button {
+        span:first-child {
+          display: none;
+        }
+        span:nth-child(2) {
+          display: inline;
+        }
+        &:after {
+          transform: translateY(-45%) rotate(-135deg);
+        }
+      }
+    }
+
+  }
+}

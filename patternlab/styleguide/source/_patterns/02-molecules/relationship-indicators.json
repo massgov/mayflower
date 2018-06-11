@@ -1,0 +1,30 @@
+{
+  "relationshipIndicators": {
+    "offered_by": [{
+      "href": "#",
+      "text": "Department of Conservation and Recreation"
+    },{
+      "href": "#",
+      "text": "Other agency or organization"
+    }],
+    "relatedTo": [{
+      "href": "#",
+      "text": "Snowmobile in the Parks"
+    },{
+      "href": "#",
+      "text": "Cross-Country Skiing"
+    },{
+      "href": "#",
+      "text": "Accessible Hiking"
+    },{
+      "href": "#",
+      "text": "Scenic Viewing Areas"
+    },{
+      "href": "#",
+      "text": "Hunting"
+    },{
+      "href": "#",
+      "text": "Biking"
+    }]
+  }
+}

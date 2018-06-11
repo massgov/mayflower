@@ -1,0 +1,18 @@
+.ma__general-teaser {
+
+  & + & {
+    border-top-color: $c-bd-divider;
+  }
+
+  &__eyebrow span {
+    background-color: $c-bg-section;
+    font-weight: 700;
+  }
+
+  &__emph-text {
+    color: $c-font-dark;
+    font-style: italic;
+    font-weight: 700;
+    border-left-color: $c-bd-divider;
+  }
+}

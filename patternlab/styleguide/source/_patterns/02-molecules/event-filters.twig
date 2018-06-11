@@ -1,0 +1,33 @@
+{# Set default google maps api place autocomplete result bounds, defaults to Mass. #}
+{% set swLat = eventFilters.zipcode.placeAutocomplete.bounds.sw.lat ? eventFilters.zipcode.placeAutocomplete.bounds.sw.lat : 40.727093 %}
+{% set swLng = eventFilters.zipcode.placeAutocomplete.bounds.sw.lng ? eventFilters.zipcode.placeAutocomplete.bounds.sw.lng : -73.9786 %}
+{% set neLat = eventFilters.zipcode.placeAutocomplete.bounds.ne.lat ? eventFilters.zipcode.placeAutocomplete.bounds.ne.lat : 43.004778 %}
+{% set neLng = eventFilters.zipcode.placeAutocomplete.bounds.ne.lng ? eventFilters.zipcode.placeAutocomplete.bounds.ne.lng : -69.845299 %}
+
+<section class="ma__event-filters js-event-filters">
+  <form action="{{ eventFilters.form.action }}">
+    {% if eventFilters.zipcode %}
+      <div class="ma__event-filters__by-location js-event-filter-by-location" data-ma-place-bounds-sw-lat="{{ swLat }}" data-ma-place-bounds-sw-lng="{{ swLng }}" data-ma-place-bounds-ne-lat="{{ neLat }}" data-ma-place-bounds-ne-lng="{{ neLng }}">
+        {% set inputText = eventFilters.zipcode.inputText %}
+        {% include "@atoms/03-forms/input-text.twig" %}
+      </div>
+    {% endif %}
+    {% if eventFilters.dateRange %}
+      <div class="ma__event-filters__date-range">
+        {% set dateRange = eventFilters.dateRange %}
+        {% include "@molecules/date-range.twig" %}
+      </div>
+    {% endif %}
+    <div class="ma__event-filters__buttons js-event-filters-buttons">
+      {% for button in eventFilters.buttons %}
+        {% include "@atoms/01-buttons/button.twig" %}
+      {% endfor %}
+      {# backward compatible with v5.6 that uses submitButton #}
+      {% if eventFilters.submitButton %}
+        <button class="ma__event-filters__submit" type="submit">
+          {{ eventFilters.submitButton }}
+        </button>
+      {% endif %}
+    </div>
+  </form>
+</section>

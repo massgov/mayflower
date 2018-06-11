@@ -1,0 +1,22 @@
+.ma__change-log {
+
+  &__title {
+    @include ma-border-decorative($c-theme-secondary);
+  }
+
+  &__date {
+    color: $c-font-dark;
+    font-weight: 900;
+  }
+  
+  &__view-all {
+    
+    a {
+      
+      &:hover,
+      &:after {
+        border-color: rgba($c-font-link,.5);
+      }
+    }
+  }
+}

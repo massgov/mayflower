@@ -1,0 +1,77 @@
+{
+  "actionCard": {
+    "title": "Common Actions",
+    "description": "Get a feel for where we're headed",
+    "actions":[
+    {
+      "icon":"lg-picnic-table",
+      "category":"State Parks & Recreation",
+      "linkText":"Get a DCR ParksPass",
+      "linkHref":"#",
+      "theme":"green"
+    },
+    {
+      "icon":"lg-fishing",
+      "category":"Recreational Licenses & Permits",
+      "linkText":"Buy a freshwater fishing license",
+      "linkHref":"#",
+      "theme":"blue"
+    },
+    {
+      "icon":"lg-license",
+      "category":"Professional Licensing & Certification",
+      "linkText":"Apply for a nursing license (new graduates)",
+      "linkHref":"#",
+      "theme":""
+    },
+    {
+      "icon":"lg-license",
+      "category":"Professional Licensing & Certification",
+      "linkText":"Convert an out-of-state nursing license (reciprocity)",
+      "linkHref":"#",
+      "theme":"dark-gray"
+    },
+    {
+      "icon":"lg-binders",
+      "category":"Business Services & Resources",
+      "linkText":"Register your business",
+      "linkHref":"#",
+      "theme":"blue"
+    },
+    {
+      "icon":"lg-apple",
+      "category":"Health & Social Services",
+      "linkText":"Apply for MassHealth (individuals & families)",
+      "linkHref":"#",
+      "theme":"green"
+    },
+    {
+      "icon":"lg-clipboard",
+      "category":"Unemployment",
+      "linkText":"File for unemployment",
+      "linkHref":"#",
+      "theme":"dark-gray"
+    },
+    {
+      "icon":"lg-apple",
+      "category":"Health & Social Services",
+      "linkText":"Apply for SNAP benefits (food stamps)",
+      "linkHref":"#",
+      "theme":""
+    },
+    {
+      "icon":"lg-family",
+      "category":"Family & Children",
+      "linkText":"Get a child support order",
+      "linkHref":"#",
+      "theme":"green"
+    },
+    {
+      "icon":"lg-scales",
+      "category":"Legal & Justice",
+      "linkText":"Respond to a jury duty summons",
+      "linkHref":"#",
+      "theme":"blue"
+    }]
+  }
+}

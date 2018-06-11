@@ -1,0 +1,35 @@
+{% block header %}
+  {% include "@organisms/by-template/emergency-alerts.twig" %}
+  {% include "@organisms/by-template/header.twig" %}
+{% endblock %}
+
+<main id="main-content" tabindex="-1">
+  <div class="pre-content">
+    {% block preContent %}
+      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Pre Content'}} %}
+    {% endblock %}
+  </div>
+  <div class="main-content main-content--two main-content--reversed">
+    <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
+      {% block sidebar %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Left Rail'}} %}
+      {% endblock %}
+    </aside>
+    <div class="page-content">
+      {% block pageContent %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page content'}} %}
+      {% endblock %}
+    </div>
+  </div>
+  <div class="post-content">
+    {% block postContent %}
+      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
+    {% endblock %}
+  </div>
+
+  {% block schemaContent %}{% endblock %}
+</main>
+
+{% block footer %}
+  {% include "@organisms/by-template/footer.twig" %}
+{% endblock %}

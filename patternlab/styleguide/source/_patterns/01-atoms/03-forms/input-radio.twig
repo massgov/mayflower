@@ -1,0 +1,9 @@
+{# backward compatible for v5.1 #}
+{% if inputRadio.checked == 'true' or inputRadio.checked == 'false' %}
+  {% set inputRadio = inputRadio|merge({'checked': inputRadio.checked == 'true' ? true : false }) %}
+{% endif %}
+
+<span class="ma__input-radio">
+  <input name="{{ inputRadio.name }}" type="radio" value="{{ inputRadio.value }}" id="{{ inputRadio.id }}" {{ inputRadio.checked ? 'checked' : '' }}>
+  <label for="{{ inputRadio.id }}"><span>{{ inputRadio.label }}</span></label>
+</span>

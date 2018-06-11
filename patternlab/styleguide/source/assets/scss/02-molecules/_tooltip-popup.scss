@@ -1,0 +1,218 @@
+// borrowed code that can eventually be applied to the Tooltips pattern
+
+$opacity: 0.95;
+$content-width: 240px;
+$popup-padding: 10px;
+$triangle-size: 16px; // should be an even number, match triangleSize in Popup.jsx
+$duration: 250ms;
+$border-color: #eee;
+$border-width: 1;
+$background-color: rgba(#fff, $opacity);
+$color: #222;
+$font: Helvetica, sans-serif;
+
+$dropdown-background-color: $background-color;
+$dropdown-border-color: $border-color;
+
+// "top", "bottom", "left", "right"
+@mixin triangle($where, $background-color, $border-color) {
+
+    $top: $where == "top";
+    $right: $where == "right";
+    $bottom: $where == "bottom";
+    $left: $where == "left";
+
+
+    // http://www.cssarrowplease.com/
+    &:after,
+    &:before {
+        position: absolute;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        border: solid transparent;
+        content: " ";
+        box-sizing: content-box;
+
+        // move the triangle to the outside of the box
+        top: if($bottom, 100%, auto);
+        bottom: if($top,    100%, auto);
+
+        right: if($left,  100%, auto);
+        left: if($right, 100%, auto);
+    }
+
+    // triangle
+    &:after {
+        border-color: transparent;
+        border-width: $triangle-size;
+
+        margin-top: if($right or $left, -$triangle-size, auto);
+        margin-left: if($top or $bottom, -$triangle-size, auto);
+
+        // depending on which side it's on, color the triangle
+        // the top triange is grey if it has a title, otherwise, white like all the others
+        border-bottom-color: if($top, $background-color, transparent);
+        border-top-color: if($bottom, $background-color, transparent);
+        border-left-color: if($right, $background-color, transparent);
+        border-right-color: if($left, $background-color, transparent);
+
+    }
+
+    // triangle border
+    &:before {
+        border-color: transparent;
+        border-width: $triangle-size + $border-width*2;
+
+        margin-top: if($right or $left, -$triangle-size - $border-width*2, auto);
+        margin-left: if($top or $bottom, -$triangle-size - $border-width*2, auto);
+
+        border-bottom-color: if($top, $border-color, transparent);
+        border-top-color: if($bottom, $border-color, transparent);
+        border-left-color: if($right, $border-color, transparent);
+        border-right-color: if($left, $border-color, transparent);
+
+    }
+}
+
+.popup {
+    position: absolute;
+
+    // having a variable size can cause bugs when the popup butts up agains the side of the
+    // parent container. The triangle might not point at the correct spot...
+    // so use width instead of min-width/max-width
+    // width: $content-width;
+    // this is set via javascript
+
+    background-color: $background-color;
+    border: #{$border-width}px solid $border-color;
+
+    border-radius: 6px;
+    box-sizing: border-box;
+    opacity: 1;
+    pointer-events: none;
+    // pointer-events: none; we want to be able to click the popup
+    transform: scale(1);
+    visibility: visible;
+    z-index: 15;
+
+    // http://www.greywyvern.com/?post=337
+    transition: top $duration, left $duration, transform $duration, opacity $duration, visibility $duration; // so we can transition, and also have the element ignore click/hover events while it's hidden
+
+
+    &.popup--dropdown {
+        background-color: $dropdown-background-color;
+        border: #{$border-width}px solid $dropdown-border-color;
+    }
+
+    // if this popup doesn't move, only animate the opacity
+    &.is-stationary {
+        transition: opacity $duration, visibility $duration, transform $duration;
+    }
+
+    &.is-auto-width {
+        // http://stackoverflow.com/questions/30086913/css-positioned-absolute-element-automatic-width-outside-of-parents-bounds
+        width: auto;
+        white-space: nowrap;
+    }
+
+    &.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        // when it's hidden, it's slightly lower, so when it appears, it trasitions up
+        transform: scale(0.9);
+        pointer-events: none;
+
+        transition: none; // if it's hidden, allow for it to jump to the next position
+    }
+
+
+    &.is-triangle-top {
+        box-shadow: 0 -2px 30px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    &.is-triangle-right {
+        box-shadow: 2px 0px 30px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    &.is-triangle-bottom {
+        box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    &.is-triangle-left {
+        box-shadow: -2px 0px 30px 0px rgba(0, 0, 0, 0.3);
+    }
+}
+
+
+
+
+
+.popup__html {
+    color: $color;
+    font-family: $font;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    text-align: left;
+    padding: 28px;
+    text-transform: none;
+
+    .no-data {
+        font-style: italic;
+    }
+}
+
+// triangle
+.popup__triangle {
+
+    position: absolute;
+    content: "";
+
+    height: $triangle-size;
+    opacity: $opacity;
+
+    transition: all $duration;
+
+    .is-triangle-top & {
+        @include triangle("top", $background-color, $border-color);
+
+        top: 0;
+        left: 50%; // left: 50% with offset from javascript
+    }
+
+    .is-triangle-top.popup--dropdown & {
+        @include triangle("top", $dropdown-background-color, $dropdown-border-color);
+    }
+
+    .is-triangle-right & {
+        @include triangle("right", $background-color, $border-color);
+        top: 50%;
+        right: 0;
+    }
+
+    .is-triangle-right.popup--dropdown & {
+        @include triangle("right", $dropdown-background-color, $dropdown-border-color);
+    }
+
+    .is-triangle-bottom & {
+        @include triangle("bottom", $background-color, $border-color);
+        bottom: 0;
+        left: 50%;
+    }
+
+    .is-triangle-bottom.popup--dropdown & {
+        @include triangle("bottom", $dropdown-background-color, $dropdown-border-color);
+    }
+
+
+    .is-triangle-left & {
+        @include triangle("left", $background-color, $border-color);
+        top: 50%;
+        left: 0;
+    }
+
+    .is-triangle-left.popup--dropdown & {
+        @include triangle("left", $dropdown-background-color, $dropdown-border-color);
+    }
+}

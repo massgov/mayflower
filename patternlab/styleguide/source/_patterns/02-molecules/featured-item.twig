@@ -1,0 +1,23 @@
+{% set itemClass = "ma__featured-item" %}
+
+{% if featuredItem.variation %}
+  {% set itemClass = itemClass ~ " ma__featured-item--" ~ featuredItem.variation %}
+{% endif %}
+
+<a class="{{itemClass}}" href="{{featuredItem.href}}" >
+  <div class="ma__featured-item__image">
+    {% set image = featuredItem.image %}
+    {% include "@atoms/09-media/image.twig" %}
+  </div>
+  {% if featuredItem.featuredImage %}
+    <div class="ma__featured-item__image--large">
+      {% set image = featuredItem.featuredImage %}
+      {% include "@atoms/09-media/image.twig" %}
+    </div>
+  {% endif %}
+  <div class="ma__featured-item__title-container">
+    <div class="ma__featured-item__title">
+      <span>{{featuredItem.text}}</span>&nbsp;{{ icon('arrow') }}
+    </div>
+  </div>
+</a>

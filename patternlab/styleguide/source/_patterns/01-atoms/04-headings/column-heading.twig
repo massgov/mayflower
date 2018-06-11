@@ -1,0 +1,11 @@
+{# use the level passed, the gloval level, or the default #}
+{% set headingLevel = columnHeading.level ? : 3 %}
+
+<h{{ headingLevel }} class="ma__column-heading">
+  {% if columnHeading.href %}
+    {% set decorativeLink = columnHeading %}
+    {% include "@atoms/decorative-link.twig" %}
+  {% else %}
+    {{columnHeading.text}}
+  {% endif %}
+</h{{ headingLevel }}>

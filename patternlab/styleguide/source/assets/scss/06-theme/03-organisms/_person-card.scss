@@ -1,0 +1,39 @@
+.ma__person-card {
+  position: relative;
+  color: $c-font-base;
+  background-color: $c-white;
+
+  @media ($bp-large-extended-min) {
+    border: 1px solid $c-theme-green;
+    box-shadow: 4px 2px 5px 0px rgba($c-black,0.3);
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 5px;
+    transform: skew(-30deg);
+    width: 100%;
+    background-color: $c-bd-input;
+
+    @media ($bp-large-extended-min) {
+      display: none;
+    }
+  }
+
+  &__image {
+
+    img {
+      border: 7px solid $c-bd-input;
+    }
+  }
+
+  .ma__divider {
+    padding: 0;
+
+    &::after {
+      background-color: $c-theme-gray;
+    }
+  }
+}

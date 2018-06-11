@@ -1,0 +1,9 @@
+{
+  "inputRadio": {
+    "name": "radio-test",
+    "value": "radio-button",
+    "id": "radio-test",
+    "label": "Radio Button",
+    "checked": true
+  }
+}

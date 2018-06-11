@@ -1,0 +1,15 @@
+{ 
+  "fieldSubmit": {
+    "inputText": {
+      "labelText": "Filter by city, town or zipcode",
+      "required": false,
+      "id": "filter-by-location",
+      "name": "filter-by-location",
+      "type": "text",
+      "placeholder": ""
+    },
+    "buttonSearch": {
+      "text": "Update"
+    }
+  }
+}

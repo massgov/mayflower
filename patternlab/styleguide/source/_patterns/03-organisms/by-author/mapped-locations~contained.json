@@ -1,0 +1,48 @@
+{
+  "mappedLocations": {
+    "compHeading": null,
+    "contained": true,
+    "link": {
+      "href": "#",
+      "text":"See a list of all locations",
+      "info": "",
+      "property": ""
+    },
+    "googleMap": {
+      "map": {
+        "center": {
+          "lat": 42.366565,
+          "lng": -71.058940
+        },
+        "zoom": 16
+      },
+      "markers": [{
+        "position": {
+          "lat": 42.366565,
+          "lng": -71.058940 
+        },
+        "label": "A",
+        "infoWindow": {
+          "name": "Department of Conservation and Recreation",
+          "phone": "16176261250",
+          "fax": "16176261351",
+          "email": "mass.parks@state.ma.us",
+          "address": "251 Causeway Street, Suite 900\nBoston, MA 02114-2104"
+        }
+      },{
+        "position": {
+          "lat": 42.358795,
+          "lng": -71.063858 
+        },
+        "label": "B",
+        "infoWindow": {
+          "name": "Department of Recreation and Fun",
+          "phone": "16176261250",
+          "fax": "",
+          "email": "mass.parks@state.ma.us",
+          "address": "24 Beacon St\nBoston, MA 02133"
+        }
+      }]
+    }
+  }
+}

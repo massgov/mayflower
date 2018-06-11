@@ -1,0 +1,31 @@
+.ma__details {
+
+  &__content {
+    position: relative;
+
+    @media ($bp-medium-min) {
+      margin-left: 160px;
+    }
+
+    @media ($bp-x-large-min) {
+      margin-left: $column-with-gutter * 2;
+    }
+
+    & > * {
+      @include ma-component-spacing;
+    }
+  }
+
+  &__sticky-nav {
+    margin-bottom: 30px;
+  }
+
+  .page-content > .ma__contact-list {
+    
+    .ma__sidebar-heading,
+    .ma__comp-heading {
+      @include ma-heading-colored;
+      border: none;
+    }
+  }
+}

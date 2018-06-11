@@ -1,0 +1,13 @@
+{
+  "downloadLink": {
+    "iconSize": "",
+    "icon": "laptop",
+    "decorativeLink": {
+      "text": "Online form: Link to an online form",
+      "href": "#",
+      "info": ""
+    },
+    "size": "",
+    "format": "form"
+  }
+}

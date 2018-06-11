@@ -1,0 +1,12 @@
+{
+  "imageLink": {
+    "block": false,
+    "text": "Link to another page",
+    "href": "#",
+    "info": "Find out more about this thing on our blah page",
+    "image": {
+      "src":"../../assets/images/placeholder/250x250.png",
+      "alt": "placeholder image"
+    }
+  }
+}

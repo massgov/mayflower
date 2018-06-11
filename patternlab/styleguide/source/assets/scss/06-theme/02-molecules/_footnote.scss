@@ -1,0 +1,11 @@
+.ma__footnote {
+
+  & > &__link {
+    border-color: rgba($c-font-link,.5);
+
+    &:hover {
+      background-color: $c-font-link;
+      color: $c-font-inverse;
+    }
+  }
+}

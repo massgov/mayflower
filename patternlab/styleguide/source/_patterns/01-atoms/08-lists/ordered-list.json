@@ -1,0 +1,40 @@
+{
+  "orderedList": [
+    {
+      "text": "This is a list item in an ordered list"
+    },
+    {
+      "text": "An ordered list is a list in which the sequence of items is important. Top level item counters are digits"
+    },
+    {
+      "text": "Lists can be nested inside of each other",
+      "sublist": [
+        {
+          "text": "This is a nested list item. After digits list items counters are lower-alpha."
+        },
+        {
+          "text": "This is another nested list item in an ordered list",
+           "sublist": [
+            {
+              "text": "This is a nested list item. After lower-alpha counters, lower-roman counters are used.",
+              "sublist": [
+                {
+                  "text": "This is a nested list item. After lower-roman counters, the counters loop back to digits."
+                },
+                {
+                  "text": "This is another nested list item in an ordered list"
+                }
+              ]
+            },
+            {
+              "text": "This is another nested list item in an ordered list"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "This is the last list item"
+    }
+  ]
+}

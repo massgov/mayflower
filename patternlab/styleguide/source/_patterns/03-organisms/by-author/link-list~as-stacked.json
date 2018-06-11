@@ -1,0 +1,43 @@
+{
+  "linkList" : {
+    "sidebarHeading": {
+      "title": "Link List"
+    },
+    "compHeading": null,
+    "description": null,
+    "stacked": true,
+    "hideBullets": false,
+    "links" : [{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet.",
+      "info": "",
+      "property": ""
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet, consectetur.",
+      "info": "",
+      "property": ""
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit.",
+      "info": "",
+      "property": ""
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor",
+      "info": "",
+      "property": ""
+    },{
+      "href":"#",
+      "text":"Lorem ipsum dolor sit amet",
+      "info": "",
+      "property": ""
+    }],
+    "more": {
+      "href": "#",
+      "text": "See all 10 related services",
+      "chevron": true,
+      "label": "See all of the resources for Executive Office of Health and Human Services"
+    }
+  }
+}

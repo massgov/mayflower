@@ -1,0 +1,27 @@
+{% set stepHeading = 2 %}
+
+<section class="ma__steps-ordered">
+  {% if stepsOrdered.compHeading %}
+    {% set compHeading = stepsOrdered.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+    {% set stepHeading = (compHeading.level ? : stepHeading) + 1 %}
+  {% endif %}
+  {% if stepsOrdered.sidebarHeading %}
+    {% set sidebarHeading = stepsOrdered.sidebarHeading %}
+    {% include "@atoms/04-headings/sidebar-heading.twig" %}
+    {% set stepHeading = (sidebarHeading.level ? : stepHeading) + 1 %}
+  {% endif %}
+  {% if stepsOrdered.steps|length > 1 %}
+    <ol class="ma__steps-ordered__items">
+      {% for actionStep in stepsOrdered.steps %}
+        <li class="ma__steps-ordered__item">
+          {% set actionStep = actionStep|merge({"level":stepHeading}) %}
+          {% include "@molecules/action-step.twig" %}
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    {% set actionStep = stepsOrdered.steps|first|merge({"level":stepHeading}) %}
+    {% include "@molecules/action-step.twig" %}
+  {% endif %}
+</section>

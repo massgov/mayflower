@@ -1,0 +1,13 @@
+.ma__arrow-nav {
+
+  &__title {
+    color: rgba($c-font-link, .7);
+  }
+
+  &__link {
+
+    &:hover {
+      border-color: rgba($c-font-link, .5);
+    }
+  }
+}

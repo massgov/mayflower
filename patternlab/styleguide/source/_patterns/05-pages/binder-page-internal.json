@@ -1,0 +1,572 @@
+{
+  "pageHeader": {
+    "category": "Rule of court sample page",
+    "subCategory": {
+      "title": "Rule of Court Optional Sub-category",
+      "level": "",
+      "color": "",
+      "id": "",
+      "centered": ""
+    },
+    "divider": false,
+    "prefix": "",
+    "title": "The Name of a Court Rule",
+    "subTitle": "",
+    "headerTags": null,
+    "socialLinks": null,
+    "publishState": null,
+    "optionalContents": [
+      {
+      "path": "@molecules/listing-table.twig",
+      "data": {
+        "listingTable": {
+          "rows": [{
+            "label": "Courts:",
+            "text": "This whole list is optional"
+          },{
+            "label": "Adopted Date:",
+            "text": "November 11, 2011"
+          },{
+            "label": "Effective Date:",
+            "text": "November 11, 2011"
+          },{
+            "label": "Referenced Sources:",
+            "text": "760 CMR 4.00 M.G.L c. 121B ..."
+          },{
+            "label": "Updates:",
+            "visibleItems": 2,
+            "moreLabel": "show more updates",
+            "lessLabel": "show less updates",
+            "items": [{
+              "text": "<a href=\"#\">Amended September 24, 2015, effective January 1, 2016</a>"
+            },{
+              "text": "Amended July 17, 2007 effective October 1, 2007"
+            },{
+              "text": "Amended June 2, 2003 effective October 18, 2003"
+            }]
+          }]
+        }
+      }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "this is a court rules page, and this is an optional description field. For shorter content, authors may choose to use only the overview field. For longer content, this may be a place to summarize findings or to provide a short introduction."
+          }
+        }
+      }]
+  },
+
+  "binderNavigationSections": [
+    {
+      "id": "first-binder-nav",
+      "tableOfContents": {
+        "title": {
+          "text": "The Rules of Criminal Procedure",
+          "href": "#",
+          "info": ""
+        },
+        "tocSections": [{
+          "title": {
+            "text": "Table of Contents"
+          },
+          "sections": [
+            {
+              "text": "Executive Summary",
+              "href": "#"
+            },
+            {
+              "text": "I. Scope of Rules--One Form of Action",
+              "linkItems": [
+          {
+            "text": "Thing One",
+            "href": "#"
+          },
+          {
+            "text": "Thing Two",
+            "href": "#"
+          }
+              ]
+            },{
+              "text": "II. Commencement of Action; Service of Process, Pleadings, otions and Orders",
+              "linkItems": [
+          {
+            "text": "Thing One",
+            "href": "#"
+          },
+          {
+            "text": "Thing Two",
+            "href": "#"
+          }
+              ]
+            },{
+              "text": "III. I am a link with no section",
+              "href": "#"
+            },{
+              "text": "V. Depositions and Discovery",
+              "linkItems": [
+          {
+            "text": "Thing One",
+            "href": "#"
+          },
+          {
+            "text": "Thing Two",
+            "href": "#"
+          }
+        ]
+      },{
+        "text": "VI. Trials",
+        "isCurrent": true,
+        "linkItems": [
+          {
+            "text": "Rule 38. Jury Trial of Right",
+            "href": "#"
+          },{
+            "text": "Rule 39. Trial by Jury or by the Court",
+            "href": "#"
+          },{
+            "text": "Rule 40. Assignment of Cases for Trial: Continuances",
+            "href": "#"
+          },{
+            "text": "Rule 41. Dismissal of Actions",
+            "href": "#",
+            "isCurrent": true
+          },{
+            "text": "Rule 42. Consolidation: Separate Trials",
+            "href": "#"
+          },{
+            "text": "Rule 43. Evidence",
+            "href": "#"
+          },{
+            "text": "Rule 44. Proof of Official Records",
+            "href": "#"
+          },{
+            "text": "Rule 44.1. Determination of Foreign Law",
+            "href": "#"
+          },{
+            "text": "Rule 38. Jury Trial of Right",
+            "href": "#"
+          },{
+            "text": "Rule 38. Jury Trial of Right",
+            "href": "#"
+          },{
+            "text": "Rule 38. Jury Trial of Right",
+            "href": "#"
+          }
+        ]
+      }
+    ]
+
+  },{
+    "title": {
+  "text": "Appendix"
+    },
+    "sections": [
+      {
+        "text": "Appendix as a link to a page",
+        "href": "#"
+      },
+      {
+        "iconSize": "",
+        "icon": "doc-docx",
+        "decorativeLink": {
+          "text": "Appendix item as a download",
+          "href": "#",
+          "info": ""
+        },
+        "size": "1mb",
+        "format": "PDF"
+      }
+    ]
+  }]
+      },
+      "pageFlipper": {
+        "context": {
+          "label": "This is part of:",
+          "link": {
+            "href": "#",
+            "info": "",
+            "text": "Rules of Criminal Procedure"
+          }
+        },
+        "prev": {
+          "arrowButton": {
+            "href": "#",
+            "info": "",
+            "direction": "left"
+          },
+          "label": "Previous",
+          "title": "",
+          "link": {
+            "href": "#",
+            "text": "Rule 99: A Rule About Something",
+            "info": ""
+          }
+        },
+        "next": {
+          "arrowButton": {
+            "href": "#",
+            "info": "",
+            "direction": "right"
+          },
+          "label": "Next",
+          "title": "",
+          "link": {
+            "href": "#",
+            "text": "Rule 101: A Rule About Something",
+            "info": ""
+          }
+        }
+      }
+    }
+  ],
+
+  "contentEyebrow": {
+    "hideBorder": false,
+    "headerTags": {
+      "label": "More about:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Related Service"
+          },{
+        "href": "#",
+        "text": "Related Organization"
+          },{
+        "href": "#",
+        "text": "Third Thing"
+          },{
+        "href": "#",
+        "text": "Fourth Thing"
+      }]
+    }
+  },
+
+  "jumpLinks": {
+    "title": "In this section",
+    "links": [{
+      "text": "(a) Civil Cases",
+      "href": "a-civil-cases"
+    },{
+      "text": "(b) Criminal Cases",
+      "href": "b-criminal-cases"
+    },{
+      "text": "(c) General",
+      "href": "c-general"
+    },{
+      "text": "Downloads",
+      "href": "downloads"
+    },{
+      "text": "Contact",
+      "href": "contact"
+    }]
+  },
+
+  "mainContent": {
+    "contents": [{
+      "anchorLinks": true,
+      "compHeading": {
+    "title": "Rich text",
+    "sub": false,
+    "color": "",
+    "id": "a-civil-cases",
+    "centered": ""
+      },
+      "rteElements": [{
+    "path": "@atoms/11-text/paragraph.twig",
+    "data": {
+      "paragraph" : {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sunt deleniti fuga consequuntur laudantium qui repellendus eveniet, culpa ipsum ullam libero quibusdam dolore, sit. Quasi alias sed atque saepe, tempora dolore dolor quod amet. Quaerat omnis illo, totam eligendi at."
+      }
+    }
+      },{
+    "path": "@atoms/08-lists/ordered-list.twig",
+    "data": {
+      "orderedList": [{
+        "text": "Purpose. The purpose of 930 CMR 6.02 is to encourage volunteer public service, and to promote education, training, and professional development, by:",
+        "sublist" : [{
+          "text": "permitting public employees, and persons with existing direct or indirect financial interests in public contracts, to serve in uncompensated positions with public agencies, without violating M.G.L. c. 268A, § 7, 14, or 20; "
+        },{
+          "text": "permitting persons with compensated non-public positions to receive their usual compensation during the time spent serving in uncompensated positions with public agencies, without violating M.G.L. c. 268A, § 4(a), 11(a), or 17(a);"
+        },{
+          "text": "permitting persons with compensated public positions to receive their usual compensation during the time spent serving in uncompensated positions as part of the State Employees Responding as Volunteers (SERV) Program, or in any other public agency program to promote volunteer services by public employees with guidelines comparable to those of the SERV Program, without violating M.G.L. c. 268A, § 4(a), 11(a), or 17(a); and"
+        },{
+          "text": "permitting persons who serve in uncompensated intern positions to accept compensation from other sources for time spent in such service."
+        }]
+            },{
+        "text": "Definitions. For purposes of the exemptions created by 930 CMR 6.02:",
+        "sublist" : [{
+          "text": "An uncompensated position is a position for which no pay, benefits, per diems, or retirement-related creditable service is provided. A position is not uncompensated because the person holding it waives compensation. A person holding an uncompensated position may receive reimbursement for actual expenses and the position will still be considered uncompensated."
+        },{
+          "text": "To have an indirect financial interest in a contract made by a public agency means to derive financial benefit from a contract between a public agency and another person or entity. "
+        },{
+          "text": "Usual compensation does not include a severance package, stipend, or other funds received in anticipation of commencing employment."
+        }]
+            },{
+        "text": "Exemptions.",
+        "sublist" : [{
+          "text": "A public employee, or a person with an existing direct or indirect financial interest in a public contract, does not violate M.G.L. c. 268A, § 7, 14, or 20 by being elected or appointed to an uncompensated position with a public agency at the same level of government, including such a position with the same agency in which the public employee is serving, provided that the employee makes a disclosure as set forth in 930 CMR 6.01(6). Persons acting within this exemption remain subject to the other prohibitions of M.G.L. c. 268A, including, but not limited to, M.G.L. c. 268A, §§ 8A, 15A, and 21A concerning election and appointment by public boards; M.G.L. c. 268A, §§ 6, 13, and 19 concerning self-dealing; and M.G.L. c. 268A, § 23, the standards of conduct."
+        },{
+          "text": "A person who has a compensated position or contractual arrangement with a non-public employer may receive his or her usual compensation from the non-public employer during the time spent serving a public agency in an uncompensated position without violating M.G.L. c. 268A, § 4(a), 11(a), or 17(a). "
+        },{
+          "text": "A public employee may receive the employee's usual compensation during the time spent serving in an uncompensated position as part of the SERV Program, or in any other public agency program to promote volunteer services by public employees with guidelines comparable to those of the SERV Program, without violating M.G.L. c. 268A, § 4(a), 11(a), or 17(a)."
+        },{
+          "text": "A person who serves in an unpaid intern or similar position in a public agency for educational, training, or professional development purposes may receive compensation, a fellowship, or loan forgiveness from an accredited educational institution or other educational or professional organization during the time spent serving the public agency without violating M.G.L. c. 268A, § 4(a), 11(a), or 17(a). An accredited educational institution or other educational or professional organization may provide such compensation, fellowship or loan forgiveness without violating M.G.L. c. 268A, § 4(b), 11(b), or 17(b). "
+        }]
+      }]
+    }
+      }]
+    },{
+    "anchorLinks": true,
+    "compHeading": {
+      "title": "6.03: Exemption to Permit Public Employees Who Are Parents to Advocate for Their Children",
+      "sub": false,
+      "color": "",
+      "id": "b-criminal-cases",
+      "centered": false
+        },
+        "rteElements": [{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et nam ut eveniet."
+          }
+        }
+      },{
+    "path": "@atoms/11-text/paragraph.twig",
+    "data": {
+      "paragraph" : {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, atque eveniet recusandae tempore possimus sapiente, blanditiis illo expedita at repellendus explicabo adipisci repellat numquam eaque iure dolores? Quae voluptate enim aperiam modi repellendus dignissimos doloribus nulla, error natus. At aperiam perspiciatis deserunt tempora quis! Quisquam!"
+      }
+    }
+      }]
+    },{
+      "anchorLinks": true,
+      "compHeading": {
+          "title": "6.04: Exemption for the National Guard and Volunteer Medical or Rescue Organizations in Exigent Circumstances",
+          "sub": false,
+          "color": "",
+          "id": "c-general",
+          "centered": false
+            },
+            "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis libero, maxime incidunt qui laborum est, perferendis cupiditate perspiciatis vero nisi nulla eveniet impedit natus voluptatibus, quo veritatis fugit ratione porro sapiente totam? Delectus, nulla, voluptatem!"
+          }
+        }
+      },{
+    "path": "@atoms/11-text/paragraph.twig",
+    "data": {
+      "paragraph" : {
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus fugiat, quis iure voluptate temporibus molestias beatae aliquam in sapiente eveniet quasi porro id eligendi omnis, exercitationem quam at? Deleniti, ullam, quaerat! A, nihil. Ipsa maiores a vero quisquam eaque, accusantium obcaecati, quos consequatur atque voluptate delectus non officiis amet provident consectetur nesciunt in optio nulla odio adipisci, et quibusdam aliquid illo. Alias eligendi deleniti nisi quos assumenda maiores dolorum modi fugit! Maxime qui doloremque culpa ex iusto itaque, vitae architecto sint? Delectus eius corporis magni minus eligendi non saepe ratione nobis a, omnis eum sit iure ut cupiditate ea et iste natus itaque, laboriosam. Asperiores est veritatis doloremque, vitae placeat quae, optio dolore vero dolorem odio porro iusto aperiam! Minima ea magni repudiandae deserunt sint nisi ducimus placeat, blanditiis, dolorem itaque repellendus tempore, tempora provident maxime cupiditate iure dicta optio assumenda! Labore, voluptas, repellendus. Qui, tempore quos repudiandae voluptates sit omnis repellat rem placeat iste."
+          }
+        }
+      }]
+    }],
+
+
+    "formDownloads": {
+      "compHeading": {
+        "title": "Downloads",
+        "sub": false,
+        "color": "",
+        "id": "downloads",
+        "centered": "",
+        "titleContext": ""
+      },
+      "downloadLinks": [{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-pdf",
+          "decorativeLink": {
+      "text": "PDF download item",
+      "href": "#",
+      "info": "",
+      "property": ""
+          },
+          "size": "30kb",
+          "format": "PDF"
+        }
+      },{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "doc-docx",
+          "decorativeLink": {
+            "text": "Word download item",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "40kb",
+          "format": "DOCX"
+        }
+      },{
+        "downloadLink": {
+          "iconSize": "",
+          "icon": "laptop",
+          "decorativeLink": {
+            "text": "Online form or information page",
+            "href": "#",
+            "info": "",
+            "property": ""
+          },
+          "size": "",
+          "format": "form"
+        }
+      }]
+    },
+
+    "contactList": {
+      "viewSpecific": false,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "contact",
+        "centered": "",
+        "titleContext": ""
+      },
+      "contacts":[{
+          "accordion": true,
+          "isExpanded": false,
+          "subTitle": {
+            "href":"",
+            "text": "Person to Contact"
+          },
+          "groups": [{
+            "icon": "phone",
+            "name": "Phone",
+            "items": [{
+        "type": "phone",
+        "property": "",
+        "label":"Main:",
+        "link": {
+          "href": "+17817401605",
+          "text": "(781) 740-1605",
+          "info": "",
+          "property": ""
+        },
+        "details":""
+      }]
+    },{
+      "icon": "laptop",
+      "name": "Online",
+      "hidden": "",
+      "items": [{
+        "type": "online",
+        "property": "",
+        "label":"Email:",
+        "link": {
+          "href":"#",
+          "text": "person@email.com",
+          "info": "",
+          "property": ""
+        },
+        "details":""
+            }]
+          }]
+      }]
+    }
+  },
+
+  "sideContent": {
+    "contactList": {
+      "viewSpecific": true,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "",
+        "centered": "",
+        "titleContext": ""
+      },
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Person to Contact"
+        },
+        "groups": [{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"#",
+              "text": "person@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+
+    "pressListing": {
+      "sidebarHeading": {
+    "title": "Related",
+    "titleContext": ""
+      },
+      "items": [{
+    "eyebrow": "Letter Ruling",
+    "title" : {
+      "href":"#",
+      "text":"Link to Ruling",
+      "info": "",
+      "property": ""
+    },
+    "date": "4/3/2017",
+    "org": "",
+    "description": null
+      },{
+    "eyebrow": "Regulation",
+    "title" : {
+      "href":"#",
+      "text":"Link to Regulation",
+      "info": "",
+      "property": ""
+    },
+    "date": "4/3/2017",
+    "org": "",
+    "description": null
+      },{
+    "eyebrow": "Regulation",
+    "title" : {
+      "href":"#",
+      "text":"Link to Regulation",
+      "info": "",
+      "property": ""
+    },
+    "date": "",
+    "org": "",
+    "description": null
+      }]
+    },
+
+    "eventListing": {
+      "sidebarHeading":{
+    "title": "Upcoming Events",
+    "titleContext": ""
+      },
+      "events":[{
+    "title": {
+      "href": "#",
+      "text": "Name of Event",
+      "info": "",
+      "property": ""
+    },
+    "location": "location",
+    "date": {
+      "summary": "Date"
+    },
+    "time": "Time",
+    "description":"This is a description of the event that will happen at a future date"
+      }],
+      "more": null
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.ma__input-number {
+
+  &__plus,
+  &__minus {
+    border-color: $c-bd-input;
+
+    &:after {
+      border-color: $c-font-dark;
+      border-left-color: transparent;
+      border-right-color: transparent;
+    }
+  }
+
+  input.has-error ~ &__plus,
+  input.has-error ~ &__minus {
+    border-color: $c-bd-error;
+  }
+}

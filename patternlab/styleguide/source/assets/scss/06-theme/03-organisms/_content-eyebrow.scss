@@ -1,0 +1,10 @@
+.ma__content-eyebrow {
+
+  &__tags {
+
+    .ma__header-tags,
+    .ma__social-links {
+      border-color: $c-bd-divider;
+    }
+  }
+}

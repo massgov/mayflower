@@ -1,0 +1,8 @@
+<div class="ma__sort-results js-sort-results">
+  {% if sortResults.label %}
+    <span class="ma__sort-results__label">{{ sortResults.label }}</span>
+  {% endif %}
+  {% for buttonSort in sortResults.sortButtons %}
+    {% include "@atoms/01-buttons/button-sort.twig" %}
+  {% endfor %}
+</div>

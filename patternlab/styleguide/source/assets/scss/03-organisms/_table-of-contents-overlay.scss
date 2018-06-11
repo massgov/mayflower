@@ -1,0 +1,161 @@
+.ma__toc--overlay {
+  @include ma-container();
+  margin-top: 20px;
+  transition: background .2s ease;
+
+  .ma__toc--overlay__container .ma__toc__toc__title,
+  .ma__toc__toc__title {
+    border: 0;
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    display: block;
+    text-align: left;
+    position: relative;
+
+    .ma__decorative-link {
+      width: auto;
+      min-width: 60vw; // fix for windows firefox which wraps early. 60 is a reasonable width to ensure
+    }
+
+  }
+  .ma__toc__subtitle {
+    text-transform: uppercase;
+    font-size: 1rem;
+    vertical-align: middle;
+    display: inline-block;
+    padding-right: 10px;
+    font-weight: bold;
+
+    @media ($bp-small-max) {
+      display: block;
+    }
+  }
+
+  .ma__sidebar-heading {
+    margin-bottom: 0;
+  }
+
+  .ma__toc--hierarchy__accordion {
+    .ma__toc--hierarchy__title {
+      padding-left: 16px;
+      border-left: 10px solid transparent;
+      &:focus {
+        border-left-color: transparent !important;
+      }
+    }
+  }
+
+  .ma__toc--hierarchy .ma__toc--hierarchy__container {
+    padding-top: 0;
+    top: 0;
+    background-color: transparent;
+    border: 0;
+    margin-bottom: 0;
+  }
+  .ma__toc--hierarchy {
+    margin-top: 4rem;
+  }
+
+  .ma__toc--overlay__container {
+    position: fixed;
+      top: -100vh;
+      left: 0;
+      right: 0;
+    height: 100vh;
+    opacity: 0;
+    transition: all .5s ease;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    > * {
+      @include ma-container();
+      display: none;
+      width: 100%;
+    }
+
+    .ma__toc--overlay__content {
+      overflow-y: scroll;
+    }
+
+    &:before {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      background-color: #fff;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+  .ma__toc__toc__toggle {
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    font-size: 2.5rem;
+    line-height: 1.15;
+    border: none;
+    background: transparent;
+    transition: all 0.2s ease;
+    @media ($bp-small-min) {
+      line-height: 0.95;
+    }
+    > * {
+      transition: transform 1s ease;
+      display: inline-block;
+    }
+
+  }
+
+  .ma__toc__toc__toggle[aria-expanded="false"] {
+    .hide {
+      display: none;
+    }
+  }
+
+  .ma__toc__toc__toggle[aria-expanded="true"] {
+    .show {
+      display: none;
+    }
+  }
+
+  .ma__toc--overlay__container.is-open {
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+
+    > * {
+      display: block;
+    }
+
+    &:before {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 1;
+    }
+
+  }
+
+  // current page indicator
+  .ma__toc--hierarchy__container li {
+    position: relative;
+
+    &.is-current:before {
+      content: "";
+      position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 10px;
+        height:100%;
+    }
+    .ma__toc--hierarchy__accordion-content .is-current:before {
+      left: -20px;
+    }
+  }
+}

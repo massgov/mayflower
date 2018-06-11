@@ -1,0 +1,46 @@
+
+.ma__content-eyebrow {
+  @include ma-container;
+  @include clearfix;
+
+  &__tags {
+    clear: both;
+    display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    overflow: hidden;
+    margin-bottom: -20px;
+    padding-top: 18px;
+
+    .ma__header-tags,
+    .ma__social-links {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      min-height: 48px;
+      position: relative;
+        top: 1px;
+    }
+
+    .ma__header-tags {
+      flex-grow: 1;
+      margin-bottom: 30px;
+    }
+
+    .ma__social-links {
+      flex-grow: 0;
+
+      @media ($bp-small-max) {
+        width: 100%;
+      }
+    }
+  }
+
+  &--borderless &__tags {
+
+    .ma__header-tags,
+    .ma__social-links {
+      border: none;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{% set stepHeading = 2 %}
+
+<section class="ma__steps-unordered">
+  {% if stepsUnordered.compHeading %}
+    {% set compHeading = stepsUnordered.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+    {% set stepHeading = (compHeading.level ? : stepHeading) + 1 %}
+  {% endif %}
+  {% if stepsUnordered.sidebarHeading %}
+    {% set sidebarHeading = stepsUnordered.sidebarHeading %}
+    {% include "@atoms/04-headings/sidebar-heading.twig" %}
+    {% set stepHeading = (sidebarHeading.level ? : stepHeading) + 1 %}
+  {% endif %}
+  {% if stepsUnordered.richText %}
+    {% set richText = stepsUnordered.richText %}
+    {% include "@organisms/by-author/rich-text.twig" %}
+  {% endif %}  
+  {% for actionStep in stepsUnordered.steps %}
+    {% set actionStep = actionStep|merge({"level":stepHeading}) %}
+    {% include "@molecules/action-step.twig" %}
+  {% endfor %}
+</section>

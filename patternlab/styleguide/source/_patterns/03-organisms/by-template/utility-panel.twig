@@ -1,0 +1,13 @@
+<section class="ma__utility-panel">
+  <div class="ma__utility-panel__description {{ utilityPanel.links ? '' : 'ma__utility-panel__description--full' }}">
+    {% set richText = utilityPanel.description.richText %}
+    {% include "@organisms/by-author/rich-text.twig" %}
+  </div>
+  <ul class="ma__utility-panel__items">
+    {% for decorativeLink in utilityPanel.links %}
+      <li class="ma__utility-panel__item js-clickable">
+        {% include "@atoms/decorative-link.twig" %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>

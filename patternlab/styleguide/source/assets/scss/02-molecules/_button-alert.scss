@@ -1,0 +1,47 @@
+.ma__button-alert {
+  @include ma-button-reset;
+  @include ma-chevron;
+  font-size: 16px;
+  letter-spacing: .1em;
+  line-height: 1;
+  padding: .4em;
+  padding-left: .7em;
+  padding-right: .8em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &:after {
+    border-width: 3px;
+    height: 8px;
+    margin-top: 3px;
+    margin-left: 3px;
+    transform: translateY(-50%) rotate(45deg);
+    transform-origin: 65% 65%;
+    transition: transform .5s;
+    width: 8px;
+
+    .is-open & {
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+
+  &:hover {
+    transition: background-color .4s, color .4s, border .4s, fill .4s;
+  }
+
+  &__hide {
+    display: none;
+
+    .is-open & {
+      display: inline;
+    }
+  }
+
+  &__show {
+    display: inline;
+
+    .is-open & {
+      display: none;
+    }
+  }
+}

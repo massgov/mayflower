@@ -1,0 +1,91 @@
+{
+  "tabularData": {
+    "compHeading": {
+      "title": "Fees",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": ""
+    },
+    "description": {
+      "property": "",
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This is an optional description. Lorem ipsum ..."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This is an optional description. Lorem ipsum ..."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This is an optional description. Lorem ipsum ..."
+          }
+        }
+      },{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This is an optional description. Lorem ipsum ..."
+          }
+        }
+      }]
+    },
+    "table": {
+      "head": {
+        "rows": [{
+          "rowSpanOffset":false,
+          "cells":[{
+            "heading": true,
+            "colspan": "",
+            "rowspan": "",
+            "text": "Name"
+          },
+          {
+            "heading": true,
+            "colspan": "",
+            "rowspan": "",
+            "text": "Fee"
+          },
+          {
+            "heading": true,
+            "colspan": "",
+            "rowspan": "",
+            "text": "Unit"
+          }]
+        }]
+      },
+      "bodies": [{
+        "rows": [{
+          "rowSpanOffset":false,
+          "cells":[{
+            "heading": false,
+            "colspan": "",
+            "rowspan": "",
+            "text": "Parking"
+          },
+          {
+            "heading": false,
+            "colspan": "",
+            "rowspan": "",
+            "text": "$2.00"
+          },
+          {
+            "heading": false,
+            "colspan": "",
+            "rowspan": "",
+            "text": "per day"
+          }]
+        }]
+      }]
+    }
+  }
+}

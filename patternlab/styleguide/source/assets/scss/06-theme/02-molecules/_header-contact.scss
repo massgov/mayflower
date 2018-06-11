@@ -1,0 +1,19 @@
+.ma__header-contact {
+
+  &__accordion {
+    border-top-color: $c-bd-divider;
+    color: $c-theme-primary;
+    font-weight: 700;
+
+    &:after {
+      color: $c-theme-primary;
+    }
+  }
+
+  &__column {
+
+    & + & {
+      border-color: $c-bd-divider;
+    }
+  }
+}

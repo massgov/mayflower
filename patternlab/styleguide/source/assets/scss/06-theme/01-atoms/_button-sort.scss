@@ -1,0 +1,25 @@
+.ma__button-sort {
+  color: $c-font-link;
+  font-weight: 700;
+
+  &--asc,
+  &--dsc {
+    color: $c-font-base;
+  }
+
+  &:before {
+    border-bottom-color: $c-font-link;
+  }
+
+  &--asc:before {
+    border-bottom-color: $c-gray-a6a6a6;
+  }
+
+  &:after {
+    border-top-color: $c-font-link;
+  }
+
+  &--dsc:after {
+    border-top-color: $c-gray-a6a6a6;
+  }
+}

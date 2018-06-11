@@ -1,0 +1,20 @@
+{# Updated to use info instead of label after version 5.5 #}
+{% if link.label %}
+  {% set link = link|merge({"info": link.label}) %}
+{% endif %}
+
+{% set classChevron = link.chevron %}
+
+{# backward compatible with Release5.0.0 #}
+{% if link.chevron and link.chevron is same as ('true') %}
+  {% set classChevron = true %}
+{% endif %}
+
+{% if link.chevron is same as ('false') %}
+  {% set classChevron = false %}
+{% endif %}
+
+<a 
+  class="ma__content-link {{ classChevron ? 'ma__content-link--chevron' : '' }}" 
+  href="{{ link.href }}"
+  title="{{ link.info }}"><span>{{ link.text }}</span></a>

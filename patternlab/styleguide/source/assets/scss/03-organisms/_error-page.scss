@@ -1,0 +1,40 @@
+.ma__error-page {
+  margin-bottom: 40px;
+  text-align: center;
+
+  &__label {
+    font-size: 7rem;
+    line-height: 0.72;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+
+    @media ($bp-small-min) {
+      font-size: 12.75rem;
+    }
+  }
+
+  &__type {
+    font-size: 1.75rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    line-height: 1.31;
+
+    @media ($bp-small-min) {
+      font-size: 2.25rem;
+    }
+  }
+
+  &__message {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 1.75em;
+
+    @media ($bp-small-min) {
+      font-size: 1.625rem;
+    }
+  }
+}

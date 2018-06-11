@@ -1,0 +1,42 @@
+{# Set default google maps api place autocomplete result bounds, defaults to Mass. #}
+{% set swLat = locationFilters.zipcode.placeAutocomplete.bounds.sw.lat ? locationFilters.zipcode.placeAutocomplete.bounds.sw.lat : 40.727093 %}
+{% set swLng = locationFilters.zipcode.placeAutocomplete.bounds.sw.lng ? locationFilters.zipcode.placeAutocomplete.bounds.sw.lng : -73.9786 %}
+{% set neLat = locationFilters.zipcode.placeAutocomplete.bounds.ne.lat ? locationFilters.zipcode.placeAutocomplete.bounds.ne.lat : 43.004778 %}
+{% set neLng = locationFilters.zipcode.placeAutocomplete.bounds.ne.lng ? locationFilters.zipcode.placeAutocomplete.bounds.ne.lng : -69.845299 %}
+
+<section class="ma__location-filters">
+  <form class="js-location-filters" action="{{ locationFilters.form.action }}">
+    <div class="ma__location-filters__row">
+      <div class="ma__location-filters__by-location js-filter-by-location" data-ma-place-bounds-sw-lat="{{ swLat }}" data-ma-place-bounds-sw-lng="{{ swLng }}" data-ma-place-bounds-ne-lat="{{ neLat }}" data-ma-place-bounds-ne-lng="{{ neLng }}">
+        {% set inputText = locationFilters.zipcode.inputText %}
+        {% include "@atoms/03-forms/input-text.twig" %}
+      </div>
+      {% if locationFilters.activity %}
+        <div class="ma__location-filters__by-activity  js-filter-by-activity">
+          {% set selectBox = locationFilters.activity %}
+          {% include "@atoms/03-forms/select-box.twig" %}
+        </div>
+      {% endif %} 
+      {% if locationFilters.keyword %}
+        <div class="ma__location-filters__by-keyword  js-filter-by-keyword">
+          {% set inputText = locationFilters.keyword.inputText %}
+          {% include "@atoms/03-forms/input-text.twig" %}
+        </div>
+      {% endif %}
+    </div>
+    {% if locationFilters.tags %}
+      <div class="ma__location-filters__by-tags  js-filter-by-tags">
+        {% for inputCheckbox in locationFilters.tags %}
+          <div class="ma__location-filters__tag">
+            {% include "@atoms/03-forms/input-checkbox.twig" %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="ma__location-filters__buttons">
+      <button class="ma__location-filters__submit" type="submit">
+        {{ locationFilters.submitButton }}
+      </button>
+    </div>
+  </form>
+</section>

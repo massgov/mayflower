@@ -1,0 +1,54 @@
+{
+  "eventFilters": {
+    "zipcode": {
+      "inputText": {
+        "labelText": "Show closest",
+        "required": false,
+        "id": "find-nearby",
+        "name": "find-nearby",
+        "type": "text",
+        "placeholder": "City, town, or ZIP code"
+      },
+      "placeAutocomplete": {
+        "bounds": {
+          "sw": {
+            "lat": 40.727093,
+            "lng": -73.97864
+          },
+          "ne": {
+            "lat": 43.004778,
+            "lng": -69.845299
+          }
+        }
+      }
+    },
+
+    "dateRange": {
+      "label": "Filter by date",
+      "startDate": {
+        "labelText": "Select a start date",
+        "required": false,
+        "id": "start-date",
+        "name": "start-date",
+        "placeholder": "today",
+        "restrict": "min"
+      },
+      "endDate": {
+        "labelText": "Select an end date",
+        "required": false,
+        "id": "end-date",
+        "name": "end-date",
+        "placeholder": "mm/dd/yy",
+        "restrict": "min"
+      }
+    },
+
+    "buttons": [{
+      "text": "Submit",
+      "type": "submit",
+      "size": "small",
+      "theme": "",
+      "outline": false
+    }]
+  }
+}

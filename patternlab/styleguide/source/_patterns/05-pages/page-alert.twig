@@ -1,0 +1,20 @@
+{% extends '@templates/01-content-types/alert.twig' %}
+
+{% block header %}
+  {% include "@organisms/by-template/header.twig" %}
+{% endblock %}
+
+{% block sidebar %}
+  {% if sidebar.contactList %}
+    {% set contactList = sidebar.contactList %}
+    {% include "@organisms/by-author/contact-list.twig" %}
+  {% endif %}
+{% endblock %}
+
+{% block postContent %}{% endblock %}
+
+{% block footer %}
+  {% include "@organisms/by-template/footer.twig" %}
+{% endblock %}
+
+

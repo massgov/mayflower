@@ -1,0 +1,19 @@
+{
+  "featuredItem": {
+    "variation": "tall",
+    "href": "#",
+    "text": "This is an action",
+    "image": {
+      "alt": "alt text",
+      "src": "../../assets/images/placeholder/500x500.png",
+      "height": "",
+      "width": ""
+    },
+    "featuredImage": {
+      "alt": "alt text",
+      "src": "../../assets/images/placeholder/800x800.png",
+      "height": "",
+      "width": ""
+    }
+  }
+}

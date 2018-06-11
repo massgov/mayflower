@@ -1,0 +1,13 @@
+<section class="ma__header-search">
+  <form action="#" class="ma__form js-header-search-form">
+    <label
+        for="{{headerSearch.id}}"
+        class="ma__header-search__label">{{headerSearch.label}}</label>
+    <input
+        id="{{headerSearch.id}}"
+        class="ma__header-search__input"
+        placeholder="{{headerSearch.placeholder}}"
+        type="text" />
+    {% include "@atoms/01-buttons/button-search.twig" %}
+  </form>
+</section>

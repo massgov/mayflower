@@ -1,0 +1,24 @@
+<img
+  class="ma__image{% if image.shape %} {{ image.shape }}{% endif %}"
+  alt="{{ image.alt }}"
+  src="{{ image.src }}"
+  {% if image.versions %}
+    srcset="
+    {% for version in image.versions %}
+      {% if version.url and version.width %}
+        {{ version.url }} {{ version.width }}{% if not loop.last %},{% endif %}
+      {% endif %}
+    {% endfor %}
+    "
+    {% if image.sizes %}
+      {# Only use sizes if certain breakpoints limit the width of the image to less than approximately full width #}
+      sizes="{{ image.sizes }}"
+    {% endif %}
+  {% endif %}
+  {% if image.height %}
+    height="{{ image.height }}"
+  {% endif %}
+  {% if image.width %}
+    width="{{ image.width }}"
+  {% endif %}
+/>

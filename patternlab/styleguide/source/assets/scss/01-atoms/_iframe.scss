@@ -1,0 +1,49 @@
+.ma__iframe {
+  @include clearfix;
+
+  &__container {
+    font-size: 0;
+    padding: 13px;
+  }
+
+  // maintain a 16:9 aspect ratio for responsive iframes
+  &--responsive {
+    .ma__iframe__container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 25px;
+        height: 0;
+
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+  }
+
+  @media ($bp-small-min) {
+
+    &--right &__container {
+      float: right;
+      margin-left: 1em;
+      margin-bottom: 1em;
+      width: 50%;
+    }
+  }
+
+  .main-content--full .page-content > & {
+    @include ma-container('restricted');
+  }
+
+  &__link {
+    margin-top: 12px;
+  }
+
+  iframe {
+    width: 100%;
+    border: none;
+  }
+}

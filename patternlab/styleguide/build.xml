@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+    This project is used to take the built artifact and commit/push to a
+    separate repository with the latest tags
+
+-->
+<project name="Mayflower" default="welcome">
+
+    <property name="deploy.dir.relative" value="${application.startdir}/deploy" />
+    <resolvepath propertyName="deploy.dir" file="${deploy.dir.relative}" />
+
+    <property name="deploy.create_branch" value="false" />
+
+    <property name="app.repo.relative" value="${application.startdir}/.." />
+    <resolvepath propertyName="app.repo" file="${app.repo.relative}" />
+
+    <property name="app.assets.relative" value="${application.startdir}/public/assets" />
+    <resolvepath propertyName="app.assets" file="${app.assets.relative}" />
+
+    <property name="app.twig.relative" value="${application.startdir}/source/_patterns" />
+    <resolvepath propertyName="app.twig" file="${app.twig.relative}" />
+
+    <property file="config/build.properties" />
+
+    <target name="welcome">
+        <echo>Welcome!</echo>
+    </target>
+
+    <target name="pre-deploy">
+        <!-- Verify we have a valid "deploy.repo.url" property -->
+        <if>
+            <equals arg2="" arg1="${deploy.repo.url}" />
+            <then>
+                <fail message="You must have a deploy.repo.url defined" />
+            </then>
+        </if>
+
+        <!-- Verify assets were generated -->
+        <if>
+            <not><available file="${app.assets}" type="dir" /></not>
+            <then>
+                <fail message="You must generate the assets first" />
+            </then>
+        </if>
+
+        <!-- Verify twig is included -->
+        <if>
+            <not><available file="${app.twig}" type="dir" /></not>
+            <then>
+                <fail message="Make sure your twig files are in place" />
+            </then>
+        </if>
+    </target>
+
+    <target name="determine-git-tag">
+        <!-- Check to see if we can use CIRCLE_TAG env var otherwise use gitdescribe -->
+        <if>
+            <isset property="env.CIRCLE_TAG" />
+            <then>
+                <property name="app.latestTag.raw" value="${env.CIRCLE_TAG}" />
+            </then>
+            <else>
+                <gitdescribe
+                    repository="${app.repo}"
+                    tags="true"
+                    abbrev="0"
+                    outputProperty="app.latestTag.raw"
+                />
+            </else>
+        </if>
+
+        <property name="app.latestTag" value="${app.latestTag.raw}">
+            <filterchain>
+                <striplinebreaks />
+            </filterchain>
+        </property>
+
+        <echo>Using tag ${app.latestTag}</echo>
+
+    </target>
+
+    <target name="deploy" depends="pre-deploy,determine-git-tag">
+
+        <!-- Clone Repository if it doesn't exist-->
+        <if>
+            <not><available file="${deploy.dir}" type="dir" /></not>
+            <then>
+                <gitclone repository="${deploy.repo.url}" targetPath="${deploy.dir}" />
+            </then>
+        </if>
+
+        <!-- Check whether we need to create a new branch -->
+        <if>
+            <equals arg1="${deploy.create_branch}" arg2="1" />
+            <then>
+                <property name="deploy.branch" value="release/${app.latestTag}" />
+                <property name="deploy.refspec" value="${deploy.branch}:${deploy.branch}" />
+
+                <!-- Checkout new branch -->
+                <gitcheckout
+                    repository="${deploy.dir}"
+                    branchname="${deploy.branch}"
+                    quiet="true"
+                    create="true"
+                />
+            </then>
+            <else>
+                <property name="deploy.branch" value="master" />
+                <property name="deploy.refspec" value="master:master" />
+            </else>
+        </if>
+
+        <!-- Copy assets to deploy.dir -->
+        <copy todir="${deploy.dir}/assets" preservemode="true" overwrite="yes">
+            <fileset dir="${app.assets}">
+                <include name="**" />
+            </fileset>
+        </copy>
+
+        <copy todir="${deploy.dir}/twig" preservemode="true" overwrite="yes">
+            <fileset dir="${app.twig}">
+                <include name="**" />
+            </fileset>
+        </copy>
+
+        <!-- The 'allFiles' flag on the GitCommitTask does not add files that aren't already tracked by git. -->
+        <echo>Staging new files</echo>
+        <exec command="git add --all" dir="${deploy.dir}" />
+
+        <!-- Commit all the assets to the artifact repo -->
+        <gitcommit
+            repository="${deploy.dir}"
+            message="Auto commit from tag ${app.latestTag}"
+            allFiles="true"
+        />
+
+        <!-- Apply the tag -->
+        <gittag repository="${deploy.dir}" name="${app.latestTag}" />
+
+        <!-- Push the current branch -->
+        <gitpush repository="${deploy.dir}" refspec="${deploy.refspec}" all="true" force="true" />
+        <!-- We have to push tags separately -->
+        <gitpush repository="${deploy.dir}" tags="true" force="true" />
+    </target>
+
+    <target name="clean">
+        <!-- deploy.dir -->
+        <delete dir="${deploy.dir}" quiet="true" />
+    </target>
+
+</project>
