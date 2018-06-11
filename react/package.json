@@ -1,0 +1,71 @@
+{
+  "name": "@massds/mayflower-react",
+  "description": "React versions of Mayflower design system UI components",
+  "author": "Massachusetts Digital Services (MDS)",
+  "version": "0.41.3",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/",
+    "watch-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/ --watch",
+    "build-nwb": "nwb build-react-component --copy-files",
+    "build": "npm-run-all build-css build-nwb",
+    "clean": "nwb clean-module",
+    "start": "npm-run-all -p watch-css storybook",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint-fix": "./node_modules/.bin/eslint --fix .; exit 0",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server",
+    "prepublishOnly": "npm run clean && npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "pre-push": [
+    "lint"
+  ],
+  "dependencies": {
+    "@massds/mayflower": "^5.25.0",
+    "autosuggest-highlight": "^3.1.1",
+    "moment": "^2.21.0",
+    "object.entries": "^1.0.4",
+    "pikaday": "^1.7.0",
+    "prop-types": "^15.6.0",
+    "react-autosuggest": "^9.3.4",
+    "react-select": "^1.2.1",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^3.3.10",
+    "@storybook/addon-info": "^3.3.10",
+    "@storybook/addon-knobs": "^3.3.10",
+    "@storybook/addon-links": "^3.3.10",
+    "@storybook/addons": "^3.3.10",
+    "@storybook/react": "^3.3.10",
+    "babel-core": "^6.26.0",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "nwb": "0.21.x",
+    "pre-push": "^0.1.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.2"
+  },
+  "homepage": "",
+  "license": "MIT",
+  "repository": "https://github.com/massgov/mayflower-react",
+  "keywords": [
+    "react-component"
+  ]
+}

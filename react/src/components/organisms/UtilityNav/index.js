@@ -1,0 +1,123 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import shortid from 'shortid';
+
+import UtilityPanel from '../UtilityPanel';
+import LatLonGlobe from '../../atoms/icons/LatLonGlobe/LatLonGlobe';
+import SvgBuilding from '../../atoms/icons/SvgBuilding';
+import SvgLogin from '../../atoms/icons/SvgLogin';
+
+class UtilityNav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      navSelected: -1,
+      isOpen: this.props.isOpen
+    };
+    this.onClick = this.onClick.bind(this);
+    this.ident = shortid.generate();
+  }
+  componentWillReceiveProps(nextProps) {
+    const { isOpen } = nextProps;
+    this.setState({ isOpen, navSelected: -1 });
+  }
+  onClick(divId, e) {
+    e.preventDefault();
+    this.setState({
+      navSelected: (this.state.navSelected === -1) ? divId : -1,
+      isOpen: true
+    });
+  }
+  render() {
+    const { navSelected } = this.state;
+    const { googleLanguages, items } = this.props;
+    return((
+      <section className="ma__utility-nav js-util-nav">
+        <ul className="ma__utility-nav__items">
+          {googleLanguages && <GoogleLanguages />}
+          {items.map((item, itemIndex) => {
+            const newItem = Object.assign({}, item);
+            newItem.navSelected = navSelected;
+            // Use utility nav ident to make unique item ids.
+            newItem.navIdent = this.ident;
+            const { isOpen } = this.state;
+            return(<NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />);
+          })}
+        </ul>
+      </section>
+    ));
+  }
+}
+
+const GoogleLanguages = () => (
+  <li key="li.googleLanguage" className="ma__utility-nav__item">
+    <div className="ma__utility-nav__translate">
+      <div id="google_translate_element" />
+      <div className="ma__utility-nav__translate-icon">
+        <LatLonGlobe />
+      </div>
+    </div>
+  </li>
+);
+
+const NavItem = (obj) => {
+  const item = obj.data;
+  const divId = `nav-content-${item.navIdent}-${obj.index}`;
+  const oneIsOpen = obj.isOpen;
+  const thisIsOpen = item.navSelected === divId;
+  const isExpanded = (oneIsOpen && thisIsOpen) ? 'is-open' : 'is-closed';
+  const divProps = {
+    className: `ma__utility-nav__content js-util-nav-content ${isExpanded}`,
+    'aria-hidden': isExpanded ? 'false' : 'true',
+    id: divId
+  };
+  return((
+    <li className="ma__utility-nav__item js-util-nav-toggle">
+      <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
+        {item.icon}
+        <span>{item.text}</span>
+      </a>
+      <div {...divProps}>
+        <div className="ma__utility-nav__container">
+          <div className="ma__utility-nav__content-title">
+            <button onClick={(e) => obj.handleClick(divId, e)} className="ma__utility-nav__close js-close-util-nav">
+              <span>{ item.closeText }</span>
+              <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
+            </button>
+            {item.icon}
+            <span>{ item.text }</span>
+          </div>
+          <div className="ma__utility-nav__content-body">
+            <UtilityPanel {...item.panel} />
+          </div>
+        </div>
+      </div>
+    </li>
+  ));
+};
+
+
+UtilityNav.propTypes = {
+  /** Boolean that controls when to show the google language dom. */
+  googleLanguages: PropTypes.bool,
+  /** An array of navigation items to display to the user. */
+  items: PropTypes.arrayOf(PropTypes.shape({
+    /** The text to display for the main navigation item. */
+    text: PropTypes.string.isRequired,
+    /** Defines the label to use with aria-label. */
+    ariaLabelText: PropTypes.string,
+    /** The icon to display to the left of text. */
+    icon: PropTypes.oneOfType([
+      PropTypes.shape(SvgBuilding.propTypes),
+      PropTypes.shape(SvgLogin.propTypes)
+    ]),
+    /** The text to use on the close link. */
+    closeText: PropTypes.string.isRequired,
+    /** Displays an utility panel when text is clicked. */
+    panel: PropTypes.shape(UtilityPanel.propTypes)
+  })),
+  /** Boolean that controls if any UtilityNav div should be should be open on mobile. */
+  isOpen: PropTypes.bool
+};
+
+export default UtilityNav;

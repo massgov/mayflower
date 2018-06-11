@@ -1,0 +1,16 @@
+# @massds/mayflower-react package should contain:
+# 1) an export of each component, compiled
+# 2) es6 bundle?
+# 3) umd bundle?
+
+/coverage
+/demo
+/node_modules
+/tests
+/src
+/umd
+npm-debug.log*
+.gitignore
+.travis.yml
+nwb.config.js
+
