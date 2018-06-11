@@ -86,15 +86,15 @@ workflows:
       - patternlab_test: {requires: [patternlab_build]}
 
   # Executed on tag pushes.
-  built_tag:
+  build_tag:
     jobs:
       - patternlab_build:
-        filters:
-          branches: { ignore: /.*/ }
-          tags: { only: /.*/ }
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
       - patternlab_deploy_tag:
-        filters:
-          branches: { ignore: /.*/ }
-          tags: { only: /.*/ }
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
 
 
