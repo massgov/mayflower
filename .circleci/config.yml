@@ -4,6 +4,8 @@ version: 2
 references:
   configure_npm: &configure_npm
     run: { name: 'Configure NPM', command: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'}
+  configure_git: &configure_git
+    run: {name: 'Prepare Git', command: 'git config --global user.email "ci.bot@mass.gov" && git config --global user.name "MassGov Bot"'}
 
 jobs:
   patternlab_build:
@@ -49,26 +51,50 @@ jobs:
       - store_test_results:
           path: backstopjs/reports/ci
 
-  patternlab_deploy:
-    working_directory: /var/www/code
+  patternlab_deploy_branch:
+    working_directory: /var/www/patternlab
     docker:
       - image: massgov/drupal-container:1.0.6-ci
     steps:
-      - add_ssh_keys
       - attach_workspace: {at: /var/www}
-      - run:
-        name: "Prepare Git"
-        command: |
-          git config --global user.email "ci.bot@mass.gov"
-          git config --global user.name "MassGov Bot"
-      - *configure_npm
+      - add_ssh_keys
+      - *configure_git
+      - run: { name: 'Deploy artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:publish" }
+      - run: { name: 'Deploy S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:publish" }
 
+  patternlab_deploy_tag:
+    working_directory: /var/www/patternlab
+    docker:
+      - image: massgov/drupal-container:1.0.6-ci
+    steps:
+      - attach_workspace: {at: /var/www}
+      - add_ssh_keys
+      - *configure_git
+      - *configure_npm
+      - run: { name: 'Release Artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:release" }
+      - run: { name: 'Release S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:release" }
+      - run: { name: 'Release NPM', command: "cd styleguide && node_modules/.bin/gulp npm:release" }
 
 workflows:
   version: 2
+
+  # Executed on branch pushes.
   build_branch:
     jobs:
       - patternlab_build
-      - patternlab_deploy: {requires: [patternlab_build]}
+      - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
+
+  # Executed on tag pushes.
+  built_tag:
+    jobs:
+      - patternlab_build:
+        filters:
+          branches: { ignore: /.*/ }
+          tags: { only: /.*/ }
+      - patternlab_deploy_tag:
+        filters:
+          branches: { ignore: /.*/ }
+          tags: { only: /.*/ }
+
 
