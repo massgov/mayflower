@@ -9,7 +9,7 @@ class InputTextTypeAhead extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: (props.clearInputTextTypeAheadSelected || !props.selected) ? '' : props.selected,
       suggestions: []
     };
     this.selectTag = '';
@@ -155,11 +155,13 @@ InputTextTypeAhead.propTypes = {
   /** The default value for the select box */
   selected: PropTypes.string,
   /** Focus on typeahead input */
-  autoFocusInput: PropTypes.bool
+  autoFocusInput: PropTypes.bool,
+  clearInputTextTypeAheadSelected: PropTypes.bool
 };
 
 InputTextTypeAhead.defaultProps = {
-  autoFocusInput: false
+  autoFocusInput: false,
+  clearInputTextTypeAheadSelected: false
 };
 
 export default InputTextTypeAhead;

@@ -16,8 +16,17 @@ class SearchBanner extends Component {
     };
     this.toggleFilterBox = this.toggleFilterBox.bind(this);
   }
+  componentWillReceiveProps(nextProps) {
+    const { filterBoxExpanded } = nextProps;
+    if (this.state.filterBoxExpanded !== filterBoxExpanded) {
+      this.setState({ filterBoxExpanded });
+    }
+  }
   toggleFilterBox() {
     this.setState((prevState) => ({ filterBoxExpanded: !prevState.filterBoxExpanded }));
+    if (typeof this.props.toggleButtonOnClick === 'function') {
+      this.props.toggleButtonOnClick(this.state.filterBoxExpanded);
+    }
   }
   render() {
     const { tabs, searchBox, filterBox } = this.props;
@@ -62,7 +71,11 @@ SearchBanner.propTypes = {
   /** @molecules/Tabs */
   tabs: PropTypes.shape(PropTypes.Tabs),
   /** @organisms/FilterBox */
-  filterBox: PropTypes.shape(PropTypes.FilterBox)
+  filterBox: PropTypes.shape(PropTypes.FilterBox),
+  /** filterbox toggle button custom function */
+  toggleButtonOnClick: PropTypes.func,
+  /** Controls if filterBox is expanded */
+  filterBoxExpanded: PropTypes.bool
 };
 
 export default SearchBanner;
