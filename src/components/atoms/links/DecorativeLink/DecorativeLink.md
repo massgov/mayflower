@@ -12,5 +12,7 @@ decorativeLink {
     type: string / required
   info: 
     type: string (adds more description to the link) / optional
+  showFileIcon:
+    type: boolean (displays icon related to file extension of url) / optional / default value is false (do not display icon)
 }
 ~~~
