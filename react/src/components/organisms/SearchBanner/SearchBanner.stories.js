@@ -36,6 +36,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         onChange: action('SearchBanner searchBox.onChange'),
         defaultText: text('HeaderSearch.defaultText', '')
       }
+
     };
     if (withTabs) {
       props.tabs = {
@@ -62,6 +63,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       };
     }
     if (withFilterBox) {
+      props.toggleButtonOnClick = action('SearchBanner toggleButtonOnClick');
+      props.filterBoxExpanded = boolean('SearchBanner.filterBoxExpanded', true);
       props.filterBox = {
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
