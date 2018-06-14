@@ -14,7 +14,7 @@ const FilterBox = (props) => {
   } = props;
   const handleClear = () => {
     if (typeof props.clearButton.onClearCallback === 'function') {
-      props.clearButton.onClearCallback('Clear all filters!');
+      props.clearButton.onClearCallback();
     }
   };
   const selectBoxProps = pressType.selectBox;

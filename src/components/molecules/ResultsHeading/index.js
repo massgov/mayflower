@@ -16,7 +16,7 @@ class Tags extends Component {
   }
   handleClearAll() {
     if (typeof this.props.onClearCallback === 'function') {
-      this.props.onClearCallback('Clear all tags!');
+      this.props.onClearCallback();
     }
     this.setState({ tags: null });
   }

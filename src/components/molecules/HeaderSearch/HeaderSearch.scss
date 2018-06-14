@@ -1,6 +1,7 @@
 .ma__header-search {
   &__wrapper{
-  	display: flex;
+    display: flex;
+    position: relative;
   }
   .ma__form {
     display: flex;
