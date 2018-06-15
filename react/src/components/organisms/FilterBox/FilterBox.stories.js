@@ -54,8 +54,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           id: text('filterBox.organization.id', 'state-organization'),
           options: object('filterBox.organization.options', inputOptions.options.orgSelector),
           selected: select(
-            'filterBox.organization.defaultSelected',
-            [''].concat(inputOptions.options.orgSelector.map((option) => option.text)),
+            'filterBox.organization.selected',
+            inputOptions.options.orgSelector.map((option) => option.text),
             ''
           ),
           placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
@@ -76,7 +76,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           id: text('filterBox.pressType.id', 'press-type'),
           options: object('filterBox.pressType.options', inputOptions.options.pressTypes),
           selected: select(
-            'filterBox.pressType.defaultSelected',
+            'filterBox.pressType.selected',
             [''].concat(inputOptions.options.pressTypes.map((option) => option.text)),
             ''
           ),

@@ -20,7 +20,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         id: text('inputTextTypeAhead.id', 'org-typeahead'),
         options: object('inputTextTypeAhead.options', inputOptions.options.orgSelector),
         selected: select(
-          'inputTextTypeAhead.defaultSelected',
+          'inputTextTypeAhead.selected',
           inputOptions.options.orgSelector.map((option) => option.text),
           ''
         ),

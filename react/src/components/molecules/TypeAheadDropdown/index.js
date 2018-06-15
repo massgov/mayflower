@@ -88,9 +88,9 @@ class TypeAheadDropdown extends React.Component {
     }
   }
   handleClickOutside(event) {
-    // Close the panel if the user clicks outside, or on a div around the panel.
+    // Close the panel if the user clicks outside the component.
     const node = this.wrapperRef.current;
-    if ((node && !node.contains(event.target)) || event.target.nodeName === 'DIV') {
+    if ((node && !node.contains(event.target))) {
       if (this.state.buttonExpand) {
         this.setState({ buttonExpand: false });
       }

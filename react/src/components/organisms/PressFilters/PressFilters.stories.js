@@ -64,7 +64,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         },
         clearButton: {
           text: text('pressFilters.clearButton.text', 'Clear all filters'),
-          info: text('pressFilters.clearButton.aria-label', buttonOptions.type, 'Clear all filters'),
+          info: text('pressFilters.clearButton.aria-label', 'Clear all filters'),
           onClearCallback: action('pressFilters on clearAll')
         }
       };

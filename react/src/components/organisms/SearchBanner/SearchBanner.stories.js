@@ -75,6 +75,18 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           options: object('filterBox.topic.options', selectBoxOptions.options.topics),
           required: boolean('filterBox.topic.required', true)
         }),
+        organization: {
+          label: text('filterBox.organization.label', 'State organization'),
+          id: text('filterBox.organization.id', 'state-organization'),
+          options: object('filterBox.organization.options', inputOptions.options.orgSelector),
+          selected: select(
+            'filterBox.organization.defaultSelected',
+            [''].concat(inputOptions.options.orgSelector.map((option) => option.text)),
+            ''
+          ),
+          placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
+          onChange: action('filterBox.organization typeahead onChange')
+        },
         pressType: {
           typeAhead: {
             label: text('filterBox.pressType.label', 'Filter by Type'),

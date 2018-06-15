@@ -102,6 +102,12 @@
     @media ($bp-large-min) {
       position: absolute;
     }
+
+    &__organizations {
+      @media ($bp-medium-min) {
+        display: none;
+      }
+    }
   }
 
   @media ($bp-large-max) {

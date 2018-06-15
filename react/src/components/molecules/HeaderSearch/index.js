@@ -26,10 +26,11 @@ class HeaderSearch extends React.Component {
 
   render() {
     const headerSearch = this.props;
+    const orgDropdown = headerSearch.orgDropdown;
+    const shouldShowTypeAhead = (orgDropdown && orgDropdown.dropdownButton && orgDropdown.inputText);
     return(
-      <div className="ma__header-search__wrapper">
-        { (headerSearch.orgDropdown && headerSearch.orgDropdown.dropdownButton && headerSearch.orgDropdown.inputText)
-          && <TypeAheadDropdown {...headerSearch.orgDropdown} /> }
+      <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
+        {shouldShowTypeAhead && <TypeAheadDropdown {...orgDropdown} /> }
         <section className="ma__header-search">
           <form action="#" className="ma__form js-header-search-form" onSubmit={headerSearch.onSubmit}>
             <label
