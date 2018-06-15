@@ -1,7 +1,16 @@
+@import 'breakpoints';
+
 .ma__header-search {
   &__wrapper{
-    display: flex;
-    position: relative;
+  	display: flex;
+
+    &--responsive {
+      @media ($bp-medium-max) {
+        > div:first-child {
+          display: none;
+        }
+      }
+    }
   }
   .ma__form {
     display: flex;
