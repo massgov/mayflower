@@ -14,8 +14,12 @@ $c-gray-a6a6a6: #a6a6a6;
 $c-gray-707070: #707070;
 $c-gray-757575: #757575;
 
+
+//for secondary button accessibility
+$c-theme-secondary: #3A8260;
+
 // 18F compliance we can't use variables with the color in the name
-$c-theme-primary: $c-theme-blue !default; 
+$c-theme-primary: $c-theme-blue !default;
 $c-theme-secondary: $c-theme-green !default;
 $c-theme-tertiary: $c-theme-yellow !default;
 $c-theme-quaternary: $c-theme-gray !default;
