@@ -77,14 +77,15 @@ class TypeAheadDropdown extends React.Component {
   handleSelect(event, input) {
     // Stop the filters form submission if enter is pressed in the selector.
     event.preventDefault();
-
     // Update this component state and pass the event out to the calling code.
-    this.setState({
-      buttonText: input.suggestion.text,
-      buttonExpand: false
-    });
-    if (typeof this.props.inputText.onChange === 'function') {
-      this.props.inputText.onChange(event, input);
+    if (input.suggestion.text !== '') {
+      this.setState({
+        buttonText: input.suggestion.text,
+        buttonExpand: false
+      });
+      if (typeof this.props.inputText.onChange === 'function') {
+        this.props.inputText.onChange(event, input);
+      }
     }
   }
   handleClickOutside(event) {
