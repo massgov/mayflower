@@ -43,7 +43,7 @@ class HeaderSearch extends React.Component {
               className="ma__header-search__input"
               placeholder={headerSearch.placeholder}
               onChange={this.handleChange}
-              type="text"
+              type="search"
               value={this.state.value}
             />
             <ButtonSearch {...headerSearch.buttonSearch} />
