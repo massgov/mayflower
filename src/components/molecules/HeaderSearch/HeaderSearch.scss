@@ -3,6 +3,7 @@
 .ma__header-search {
   &__wrapper{
   	display: flex;
+    position: relative;
 
     &--responsive {
       @media ($bp-medium-max) {
