@@ -34,7 +34,10 @@ class TypeAheadDropdown extends React.Component {
   componentWillReceiveProps(nextProps) {
     const selectedValue = nextProps.inputText.selected;
     if (selectedValue !== undefined) {
-      this.setState({ buttonText: selectedValue });
+      this.setState({
+        buttonText: selectedValue,
+        buttonExpand: false
+      });
     }
   }
   componentDidUpdate() {
@@ -67,6 +70,9 @@ class TypeAheadDropdown extends React.Component {
     }
     if (event.key === 'Escape' && this.dropDownButtonRef) {
       this.dropDownButtonRef.focus();
+    }
+    if (typeof this.props.onKeyDown === 'function') {
+      this.props.onKeyDown(event);
     }
   }
   handleInputBlur() {
@@ -134,7 +140,9 @@ TypeAheadDropdown.propTypes = {
   /** The props to set up the dropdown button */
   dropdownButton: PropTypes.shape(ButtonWithIcon.propTypes).isRequired,
   /** The props to set up the inputTextTypeAhead */
-  inputText: PropTypes.shape(InputTextTypeAhead.propTypes).isRequired
+  inputText: PropTypes.shape(InputTextTypeAhead.propTypes).isRequired,
+  /** Custom keydown callback */
+  onKeyDown: PropTypes.func
 };
 
 export default TypeAheadDropdown;
