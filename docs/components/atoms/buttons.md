@@ -40,6 +40,8 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 
 ### Secondary Button
 
+![](../../.gitbook/assets/secondary-button-outline.gif)
+
 {% tabs %}
 {% tab title="HTML" %}
 ```text
