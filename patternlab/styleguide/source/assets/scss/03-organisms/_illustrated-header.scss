@@ -110,3 +110,13 @@ $bp-illustrated-header-image-width: 360px;
       justify-content: center;
   }
 }
+
+.ma__illustrated-header--centered {
+
+  .ma__illustrated-header__image {
+
+    @media ($bp-illustrated-header-columns-min) {
+      background-position: center;
+    }
+  }
+}

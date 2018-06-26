@@ -9,6 +9,9 @@
 {% if illustratedHeader.inverted %}
   {% set illustratedHeaderClass = "ma__illustrated-header ma__illustrated-header--inverted" %}
 {% endif %}
+{% if illustratedHeader.bgCentered %}
+  {% set illustratedHeaderClass = "ma__illustrated-header ma__illustrated-header--centered" %}
+{% endif %}
 
 <section class="{{illustratedHeaderClass}}">
   <div class="ma__illustrated-header__container">
@@ -22,8 +25,20 @@
     </div>
   </div>
   {% if illustratedHeader.bgImage %}
+    <style>
+      .ma__illustrated-header__image {
+        background-image: url('{{ illustratedHeader.bgImage }}');
+      }
+
+      {% if illustratedHeader.retinaBgImage %}
+      @media (-webkit-min-device-pixel-ratio: 2) {
+        .ma__illustrated-header__image {
+          background-image: url('{{ illustratedHeader.retinaBgImage }}');
+        }
+      }
+      {% endif %}
+    </style>
     <div
-      style="background-image: url('{{ illustratedHeader.bgImage }}')"
       class="ma__illustrated-header__image"
       role="img"
       aria-label="{{ imageAlt }}">

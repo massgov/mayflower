@@ -10,15 +10,17 @@
     "titleSubText": "(FLB)"
   },
   "short_description": {
-     "richText": {
-      "rteElements": [{
-        "path": "@atoms/04-headings/heading-4.twig",
-        "data": {
-           "heading4" : {
-            "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. "
+    "richText": {
+      "rteElements": [
+        {
+          "path": "@atoms/04-headings/heading-4.twig",
+          "data": {
+            "heading4": {
+              "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. "
+            }
           }
         }
-      }]
+      ]
     }
   },
   "stackedRows": [
@@ -111,7 +113,8 @@
           }
         }
       ]
-    },{
+    },
+    {
       "title": "",
       "id": "",
       "pageContent": [
@@ -253,8 +256,10 @@
               ]
             }
           }
-        }]
-    },{
+        }
+      ]
+    },
+    {
       "title": "About Us",
       "id": "",
       "pageContent": [
@@ -284,44 +289,51 @@
           }
         }
       ],
-      "sideBar": [{
-        "path": "@molecules/icon-links.twig",
-        "data": {
-          "iconLinks": {
-            "compHeading": {
-              "title": "Social",
-              "sub": true,
-              "color": "",
-              "id": "",
-              "centered": "",
-              "titleContext": "links for Executive Office of Health and Human Services"
-            },
-            "items": [{
-              "icon": "twitter",
-              "link": {
-                "href": "https://twitter.com/MassHHS",
-                "text": "@MassHHS",
-                "chevron": ""
-              }
-            },{
-              "icon": "flickr",
-              "link": {
-                "href": "https://www.flickr.com/photos/mass_hhs/",
-                "text": "Mass_HHS",
-                "chevron": ""
-              }
-            },{
-              "icon": "blog",
-              "link": {
-                "href": "https://blog.mass.gov/hhs",
-                "text": "blog.mass.gov/hhs",
-                "chevron": ""
-              }
-            }]
+      "sideBar": [
+        {
+          "path": "@molecules/icon-links.twig",
+          "data": {
+            "iconLinks": {
+              "compHeading": {
+                "title": "Social",
+                "sub": true,
+                "color": "",
+                "id": "",
+                "centered": "",
+                "titleContext": "links for Executive Office of Health and Human Services"
+              },
+              "items": [
+                {
+                  "icon": "twitter",
+                  "link": {
+                    "href": "https://twitter.com/MassHHS",
+                    "text": "@MassHHS",
+                    "chevron": ""
+                  }
+                },
+                {
+                  "icon": "flickr",
+                  "link": {
+                    "href": "https://www.flickr.com/photos/mass_hhs/",
+                    "text": "Mass_HHS",
+                    "chevron": ""
+                  }
+                },
+                {
+                  "icon": "blog",
+                  "link": {
+                    "href": "https://blog.mass.gov/hhs",
+                    "text": "blog.mass.gov/hhs",
+                    "chevron": ""
+                  }
+                }
+              ]
+            }
           }
         }
-      }]
-    },{
+      ]
+    },
+    {
       "title": "Board Members",
       "id": "",
       "pageContent": [
@@ -1292,7 +1304,7 @@
             }
           }
         },
-                {
+        {
           "path": "@organisms/by-author/mapped-locations.twig",
           "data": {
             "mappedLocations": {

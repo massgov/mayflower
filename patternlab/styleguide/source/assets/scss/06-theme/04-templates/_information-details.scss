@@ -29,14 +29,14 @@
 
   .sidebar {
 
-    @media ($bp-m) {
+    @media ($bp-medium-min) {
       padding-top: 10px;
     }
 
     .ma__link-list {
       display: none;
 
-      @media ($bp-l) {
+      @media ($bp-large-min) {
         display: block;
       }
     }

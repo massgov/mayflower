@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Minor
+- DP-9017: Image placement on Guide pages using focal point

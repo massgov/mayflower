@@ -13,6 +13,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 5.29.0 (6/20/2018)
+
+### Added
+- DP-9146/DP-8825: Adds teaser listing group organism to apply accordion behavior to multiple teaser listings at once.
+
+### Changed
+- DP-9243: MF fix info details to show contact and related in sidebar as well as bottom on desktop.
+
+### Removed 
+- DP-1234: Removed alt value from the state seal since the text "Mass.gov" is duplicate to the content in the followed <span>.
+
 
 ## 5.28.0 (6/13/2018)
 

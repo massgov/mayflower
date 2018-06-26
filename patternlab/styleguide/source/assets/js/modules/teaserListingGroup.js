@@ -13,6 +13,11 @@ export default function (window, document, $, undefined) {
         let totalShown = $root.data('totalVisible');
         let teaserItems = $root.find('.ma__general-teaser');
 
+        // Hide the toggle if the number of items is less than or equal to the number shown.
+        if (teaserItems.length <= totalShown) {
+          $toggle.hide();
+        }
+
         // set excess items to be hidden
         teaserItems.slice(totalShown, teaserItems.length).each((i, el) => {
             // Items can be siblings or within an <li>, add class to the <li> if present
