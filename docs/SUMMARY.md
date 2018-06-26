@@ -16,4 +16,5 @@
 * [Components](components/README.md)
   * [Header](components/header.md)
   * [Footer](components/footer.md)
+* [Contribution](contribution.md)
 
