@@ -30,7 +30,8 @@ storiesOf('molecules', module).addDecorator(withKnobs)
           ''
         ),
         onChange: action('TypeAheadDropdown inputText.onChange')
-      }
+      },
+      onKeyDown: action('TypeAheadDropdown onKeyDown')
     };
     return(
       <TypeAheadDropdown {...props} />
