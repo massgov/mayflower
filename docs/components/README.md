@@ -1,10 +1,14 @@
+---
+description: The Mayflower style library is built using Atomic Design.
+---
+
 # Components
 
-
-
-## About Atomic Design
+## Mayflower Component Structure
 
 The Mayflower style library is built using Atomic Design. The way I tend to think of building a site using Atomic Design is to see it as a LEGO set where your combining a collection of small re-usable parts to make a variety of different models. Atomic Design is similar in nature, where you define a collection of small html parts called Atoms and then use those to build a variety of different components to build your site.
+
+## About Atomic Design
 
 You can find an excellent description of Atomic Design on Brad Frost's [blog](http://atomicdesign.bradfrost.com/chapter-2/).
 
