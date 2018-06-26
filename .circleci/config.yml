@@ -81,9 +81,12 @@ workflows:
   # Executed on branch pushes.
   build_branch:
     jobs:
-      - patternlab_build
+      - patternlab_build:
+          filters:
+            branches: { ignore: /(docs\-|react\/).*/ }
       - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
+
 
   # Executed on tag pushes.
   build_tag:
