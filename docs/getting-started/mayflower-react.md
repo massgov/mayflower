@@ -4,7 +4,7 @@
 
 [![](https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square)](https://www.npmjs.com/package/@massds/mayflower-react)
 
-Mayflower-react is a React component library under the enterprise design system for the Commonwealth of Massachusetts. Mayflower-react is a published npm package [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) that is dependent on static assets generate by [Mayflower PatternLab](https://github.com/massgov/mayflower). Mayflower PatternLab is published as a dependency npm package [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower). Refer to [Mayflower PatternLab Static Site](https://mayflower.digital.mass.gov) for a complete list of its UI components.
+[Mayflower-react](https://github.com/massgov/mayflower/tree/master/react) is a React component library under the enterprise design system for the Commonwealth of Massachusetts. Mayflower-react is a published npm package [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) that is dependent on static assets generate by [Mayflower PatternLab](https://github.com/massgov/mayflower). Refer to [Mayflower React Storybook](https://mayflower-react.digital.mass.gov/) for a complete list of its UI components.
 
 ## How to use Mayflower-React in your Project!
 
@@ -104,11 +104,9 @@ We are tracking versions of this project in the package.json, which means when c
 1. $ `npm run build-storybook`. This will build storybook static site into /storybook-static
 2. From project root, $ `aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete` \(Deploys build to S3 bucket\)
 3. $ `aws configure set preview.cloudfront true` \(Enables CloudFront invalidation commands\)
-4. $ \`\`aws cloudfront create-invalidation --distribution-id     
+4. $ \`\`aws cloudfront create-invalidation --distribution-id
 
    \[!!PROD\_DISTRIBUTION\_ID\_HERE!!\] --paths '/\*'\`\` \(Invalidates CloudFront for prod box\)
 
-You should see your changes live at \[mayflower-react storybook\]\[mayflower-react\] within a few minutes!
-
-\[mayflower-react\]: [https://mayflower-react.digital.mass.gov](https://mayflower-react.digital.mass.gov)
+You should see your changes live at [Mayflower React Storybook](https://mayflower-react.digital.mass.gov) within a few minutes!
 
