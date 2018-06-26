@@ -1,7 +1,3 @@
----
-description: A React Storybook component library for Mayflower design system
----
-
 # Mayflower React
 
 ## Mayflower-React

@@ -14,7 +14,8 @@
   * [Color](style/color.md)
   * [Typography](style/typography.md)
 * [Components](components/README.md)
-  * [Header](components/header.md)
-  * [Footer](components/footer.md)
+  * [Organisms](components/organisms/README.md)
+    * [Header](components/organisms/header.md)
+    * [Footer](components/organisms/footer.md)
 * [Contribution](contribution.md)
 
