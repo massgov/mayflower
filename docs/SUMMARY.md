@@ -14,6 +14,8 @@
   * [Color](style/color.md)
   * [Typography](style/typography.md)
 * [Components](components/README.md)
+  * [Atoms](components/atoms/README.md)
+    * [Buttons](components/atoms/buttons.md)
   * [Organisms](components/organisms/README.md)
     * [Header](components/organisms/header.md)
     * [Footer](components/organisms/footer.md)
