@@ -11,14 +11,9 @@ description: >-
 
 Buttons are vital for creating a smooth conversational flow on the web, and should be used sparingly. Buttons should adhere to standard web practices, and afford for a target area of 45 pixels. They should also appear slightly raised, and not be completely flat. They have a slight shadow on them so they appear clickable. The small buttons are often used on forms and to set filters on listing pages. The large buttons should be used for primary calls to action. Font sizes reduce slightly on mobile. 
 
-| Button Type | Purpose |
-| --- | --- | --- | --- | --- |
-| Primary  | For the principle call to action on the page.  |
-| Secondary | For the secondary actions on each page.  |
-| Tertiary | For the third \(tertiary\) actions on each page. |
-| Button with Icon  | When words are not enough, icons can be used in buttons to better communicate what the button does. Icons are always paired with text.  |
-
 ### Primary Button
+
+For the principle call to action on the page.
 
 ![](../../.gitbook/assets/primary-button.gif)
 
@@ -40,6 +35,8 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 
 ### Secondary Button
 
+For the secondary action on a page.
+
 ![](../../.gitbook/assets/secondary-button-outline.gif)
 
 {% tabs %}
@@ -58,7 +55,27 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 {% endtab %}
 {% endtabs %}
 
-### Tertiary Button
+### Quarternary Button
 
+For the fourth action on a page.
 
+![](../../.gitbook/assets/quarternary-button.gif)
+
+{% tabs %}
+{% tab title="HTML" %}
+
+{% endtab %}
+
+{% tab title="React" %}
+[Quaternary Button in Storybook](http://mayflower-react.digital.mass.gov/?knob-button.theme=quaternary&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-button.text=button&knob-button.href=&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+{% endtab %}
+
+{% tab title="Twig" %}
+[Quaternary Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button-as-quaternary-color)
+{% endtab %}
+{% endtabs %}
+
+### Button with Icon
+
+When words are not enough, icons can be used in buttons to better communicate what the button does. Icons are always paired with text. 
 
