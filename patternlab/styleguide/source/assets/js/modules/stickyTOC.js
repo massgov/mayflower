@@ -10,10 +10,11 @@ export default function (window,document,$,undefined) {
           $mobileToggle = $('.ma__sticky-toc__toggle-link'),
           $tocToggle = $('.stickyTOC-open'),
           $tocFooter = $('.ma__sticky-toc__footer'),
-          $stickyToc = $('.ma__sticky-toc__current-section');
+          $stickyToc = $('.ma__sticky-toc__current-section'),
+          minSectionsToShow = $toc.data('min-to-show');
 
     // // Remove wrapper if not enough links.
-    if (tocSectionCount < 3 ) {
+    if (minSectionsToShow && tocSectionCount <= minSectionsToShow || !minSectionsToShow && tocSectionCount < 3 ) {
       $toc.remove();
     }
     else {

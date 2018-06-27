@@ -1,5 +1,5 @@
 {% if stickyTOC %}
-  <section class="ma__sticky-toc">
+  <section class="ma__sticky-toc" {{ stickyTOC.min ? 'data-min-to-show="' ~ stickyTOC.min ~ '"' : ""}}>
     <a href="#ma-end-sticky-toc" class="ma__visually-hidden">skip table of contents</a>
     <div class="ma__sticky-toc__inner">
       <div class="ma__sticky-toc__container">
