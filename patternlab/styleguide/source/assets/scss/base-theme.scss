@@ -13,6 +13,9 @@
 @import "06-theme/00-base/fonts";
 @import "06-theme/00-base/pikaday";
 
+// Print styles
+@import "08-print/print";
+
 // Atoms - reusable styles
 @import "06-theme/01-atoms/global/elements";
 @import "06-theme/01-atoms/arrow-button";
@@ -167,5 +170,3 @@
 @import "06-theme/04-templates/organization-details";
 @import "06-theme/04-templates/stacked-row";
 
-// Print styles
-@import "08-print/print";
