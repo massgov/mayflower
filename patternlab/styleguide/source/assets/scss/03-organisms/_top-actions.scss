@@ -16,7 +16,7 @@
   &__items {
     @include clearfix;
 
-    @media print, ($bp-small-min) {
+    @media ($bp-small-min) {
       display: flex;
         align-items: stretch;
         flex-wrap: wrap;
@@ -34,7 +34,7 @@
       display: flex;
     }
 
-    @media print, ($bp-x-large-min) {
+    @media ($bp-x-large-min) {
       @include span-columns(3);
       @include omega(4n);
       display: flex;
