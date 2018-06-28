@@ -45,7 +45,6 @@
   .ma__location-banner,
   .ma__pagination,
   .ma__location-listing__filters,
-  .ma__location-listing__map,
   .ma__action-activities__image,
   .ma__action-activities__link,
   .ma__action-header__divider,
@@ -65,6 +64,37 @@
     font-weight: normal;
     width: 100%;
     white-space: nowrap;
+  }
+
+  .pre-content::after, 
+  .main-content::after, 
+  .post-content::after {
+    display: none;
+    clear: none;
+  }
+
+  .is-front {
+
+    .ma__page-intro__sub-title,
+    .ma__search-banner__form,
+    .ma__search-banner__links,
+    .ma__search-banner__image-credit {
+      display: none !important;
+    }
+
+    article img {
+      display: none;
+    }
+  }
+
+  .ma__location-listing__results,
+  .ma__location-listing__map {
+    width: 100%;
+    min-height: 0;
+  }
+
+  .ma__google-map {
+    display: inline !important;
   }
 
   .ma__page-banner {
@@ -104,6 +134,10 @@
       top: 0;
       max-width: none;
       color: $c-font-heading;
+
+      &::before {
+        display: none;
+      }
     }
   }
 
@@ -119,7 +153,8 @@
   .ma__google-map,
   .ma__mapped-locations,
   .ma__section-links,
-  .ma__contact-us--accordion {
+  .ma__contact-us--accordion,
+  .ma__about-section-person {
     page-break-before: auto; 
     page-break-after: auto;
     page-break-inside: avoid; 
@@ -298,8 +333,14 @@
     padding: 0 !important;
   }
 
-  .ma__featured-item--tall:before,
-  .ma__featured-item:before {
-    padding: 0;
+  .ma__featured-item-mosaic {
+    display: none;
   }
+
+  .ma__event-listing__past,
+  .ma__press-listing__more {
+    display: none;
+  }
+
+
 }
