@@ -1,18 +1,26 @@
 import throttle from "../helpers/throttle.js";
 
+// Responsive table HTML structure
+// <div class="ma__table--responsive">
+//   <div class="ma__table--responsive__wrapper">
+//    <table class="ma__table"> ... </table>
+//   </div>
+// </div>
+
+// Common `rt` object that gets passed around:
+// {
+//  $root: <root component wrapper jQuery element>,
+//  $table: <table jQuery element>,
+//  $stickyHeader: <sticky header jQuery element>
+// }
+
 export default function (window, document, $, undefined) {
 
     let responsiveTables = [];
     let $window = $(window);
 
-    // Responsive table HTML structure
-    // <div class="ma__table--responsive">
-    //   <div class="ma__table--responsive__wrapper">
-    //    <table class="ma__table"> ... </table>
-    //   </div>
-    // </div>
 
-
+    // Defines the widths of the sticky header to match table
     function setWidths(rt) {
         rt.$table
             .find("thead th")
@@ -46,18 +54,21 @@ export default function (window, document, $, undefined) {
         return a;
     }
 
-    function positionStickyHeader(rt) {
+    // Sets the dynamic positions of the header and footers.
+    // Takes into account some other fixed-position elements on
+    // the site and adjusts accordingly if they are present.
+    function positionStickyHeaderFooter(rt) {
         // Return value of calculated allowance
         let allowance = calcAllowance(rt.$table, rt.$stickyHeader);
-        let visibleParams = getVisibleParams(rt.$table[0]);
+        let visibleParams = getVisibilityVars(rt.$table[0]);
         // Position sticky header based on viewport scrollTop
         if (
             $window.scrollTop() > rt.$table.offset().top &&
             $window.scrollTop() < rt.$table.offset().top + rt.$table.outerHeight() - allowance
         ) {
 
+            // Add additional offset if global fixed components are present
             let additionalOffset = 0;
-
             if (document.documentElement.clientWidth <= 825) {
                 additionalOffset += $('.js-sticky-header').height();
             }
@@ -85,7 +96,7 @@ export default function (window, document, $, undefined) {
         let scrolledBottom = $window.scrollTop() + $window.height();
         let canScrollHorizontally = rt.$table.width() > rt.$table.parent().width();
         rt.$root.toggleClass('has-horizontal-scroll', canScrollHorizontally);
-        console.log(visibleParams);
+
         if (canScrollHorizontally && visibleParams.bottomOutOfView && scrolledBottom - rt.$table.offset().top > 100) {
             rt.$root.find(".ma__table__horizontal-nav").css({
                 bottom: (tableBottom - scrolledBottom)
@@ -96,6 +107,79 @@ export default function (window, document, $, undefined) {
     }
 
 
+    // Calculates visibility utility variables
+    function getVisibilityVars(element) {
+        let pageTop = $(window).scrollTop();
+        let pageBottom = pageTop + $(window).height();
+        let elementTop = $(element).offset().top;
+        let elementBottom = elementTop + $(element).height();
+
+        let topOutOfView = elementTop < pageTop;
+        let bottomOutOfView = elementBottom > pageBottom;
+        let entirelyOutOfView = pageTop > elementBottom || pageBottom < elementTop;
+        return {
+            topOutOfView: topOutOfView,
+            bottomOutOfView: bottomOutOfView,
+            entirelyOutOfView: entirelyOutOfView
+        };
+    }
+
+
+    // Recalculates the width and offset of horizontal scrollbar in the footer
+    function recalcScrollbar(rt) {
+        let containerWidth = rt.$table.parent().width();
+        let tableWidth = rt.$table.width();
+        let visiblePercentage = (containerWidth / tableWidth) * 100;
+        let leftVisiblePercentage = Math.abs((rt.$table.offset().left - rt.$table.parent().offset().left) / tableWidth) * 100;
+
+        rt.$root.find(".ma__scroll-indicator__button").width(`calc(${visiblePercentage}% + 2px)`);
+        rt.$root.find(".ma__scroll-indicator__button").css({
+            left: `calc(${leftVisiblePercentage}% - 2px)`
+        });
+    }
+
+
+    // apply scroll-based classes based on table visibility
+    function applyScrollClasses(rt) {
+        let visibleParams = getVisibilityVars(rt.$root[0]);
+        rt.$root.toggleClass("has-top-visible", visibleParams.topOutOfView);
+        rt.$root.toggleClass("has-bottom-visible", visibleParams.bottomOutOfView);
+        rt.$root.toggleClass("is-out-of-view", visibleParams.entirelyOutOfView);
+    }
+
+
+    // Clears out overlapping fixed global elements
+    function handleOverlappingElements(rt) {
+        let visibleParams = getVisibilityVars(rt.$root[0]);
+
+        if (!visibleParams.entirelyOutOfView) {
+            $(".ma__floating-action").hide();
+        } else {
+            $(".ma__floating-action").show();
+        }
+    }
+
+    // general window resize handler
+    function handleWindowResize() {
+        responsiveTables.forEach((rt) => {
+            setWidths(rt);
+            positionStickyHeaderFooter(rt);
+            recalcScrollbar(rt);
+        });
+    }
+
+    // general window scroll handler
+    function handleScroll() {
+        responsiveTables.forEach((rt) => {
+            positionStickyHeaderFooter(rt);
+            applyScrollClasses(rt);
+            recalcScrollbar(rt);
+            handleOverlappingElements(rt);
+        });
+    }
+
+
+    // Kick off setup of the sticky header functionality.
     function initializeTable(element) {
         let $table = $(element).find('table');
         let $stickyHeader = null;
@@ -125,91 +209,17 @@ export default function (window, document, $, undefined) {
 
     }
 
-    function getVisibleParams(element) {
-        let pageTop = $(window).scrollTop();
-        let pageBottom = pageTop + $(window).height();
-        let elementTop = $(element).offset().top;
-        let elementBottom = elementTop + $(element).height();
-
-        let topOutOfView = elementTop < pageTop;
-        let bottomOutOfView = elementBottom > pageBottom;
-        let entirelyOutOfView = pageTop > elementBottom || pageBottom < elementTop;
-        return {
-            topOutOfView: topOutOfView,
-            bottomOutOfView: bottomOutOfView,
-            entirelyOutOfView: entirelyOutOfView
-        };
-    }
-
-
-    function recalcScrollbar(rt) {
-        let containerWidth = rt.$table.parent().width();
-        let tableWidth = rt.$table.width();
-        let visiblePercentage = (containerWidth / tableWidth) * 100;
-        let leftVisiblePercentage = Math.abs((rt.$table.offset().left - rt.$table.parent().offset().left) / tableWidth) * 100;
-
-        rt.$root.find(".ma__scroll-indicator__button").width(`calc(${visiblePercentage}% + 2px)`);
-        rt.$root.find(".ma__scroll-indicator__button").css({
-            left: `calc(${leftVisiblePercentage}% - 2px)`
-        });
-    }
-
-
-    // apply scroll-based classes
-
-    function applyScrollClasses(rt) {
-        let visibleParams = getVisibleParams(rt.$root[0]);
-
-        rt.$root.toggleClass("has-top-visible", visibleParams.topOutOfView);
-        rt.$root.toggleClass("has-bottom-visible", visibleParams.bottomOutOfView);
-        rt.$root.toggleClass("is-out-of-view", visibleParams.entirelyOutOfView);
-
-    }
-
-    function handleOverlappingElements(rt) {
-        let visibleParams = getVisibleParams(rt.$root[0]);
-
-        if (!visibleParams.entirelyOutOfView) {
-            $(".ma__floating-action").hide();
-        } else {
-            $(".ma__floating-action").show();
-        }
-    }
-
-    function handleWindowResize() {
-        responsiveTables.forEach((rt) => {
-            setWidths(rt);
-            positionStickyHeader(rt);
-            recalcScrollbar(rt);
-        });
-    }
-
-    function handleScroll() {
-        responsiveTables.forEach((rt) => {
-            positionStickyHeader(rt);
-            applyScrollClasses(rt);
-            recalcScrollbar(rt);
-            handleOverlappingElements(rt);
-        });
-    }
-
-
 
     $('.js-ma-responsive-table').each((i, el) => initializeTable(el));
 
-
     $window.on("resize", handleWindowResize);
-
     $window.on("scroll", handleScroll);
-
-
-
     // fire on horizontal scroll of container as well
     $(".ma__table--responsive__wrapper").on("scroll", throttle(handleScroll, 100));
 
+    // Handle scrollbar arrows
     $(".ma__table__horizontal-nav__left").click(function () {
         let $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
-
         $scrollContainer.animate({
             scrollLeft: ($scrollContainer.scrollLeft() - 200) < 0 ? 0 : ($scrollContainer.scrollLeft() - 200)
         }, 250);
@@ -223,6 +233,7 @@ export default function (window, document, $, undefined) {
     });
 
 
+    // handles the dragging of the scrollbar to adjust the viewable area
     function handleScrollerInteraction(e) {
         let $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
 
@@ -243,7 +254,10 @@ export default function (window, document, $, undefined) {
             let newPosition = { x: e.pageX, y: e.pageY };
             let diff = newPosition.x - initialPosition.x;
 
-
+            // The drag distance and the scrolling distance isn't a 1-to-1 due to the size of the
+            // scrollbar being smaller than the full table width, so the diff calculation below
+            // limits the difference in motion to make things feel more normal.
+            // This could likely benefit from some more thought!
             $scrollContainer.scrollLeft($scrollContainer.scrollLeft() + diff - (diff * visiblePercentage));
         }
 
@@ -254,6 +268,7 @@ export default function (window, document, $, undefined) {
     }
 
 
+    // handles clicking somewhere on the 'background' or 'track' of the scrollbar which jumps the scroll forward/backwards
     function handleScrollerClick(e) {
         let $scrollContainer = $(this)
             .parents(".js-ma-responsive-table")
@@ -274,6 +289,7 @@ export default function (window, document, $, undefined) {
             }, 250);
         }
     }
+
 
     $(".ma__scroll-indicator__button").on("mousedown", handleScrollerInteraction);
     // deaden clicking on the scroll button, handle clicking in the trough
