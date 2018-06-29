@@ -59,8 +59,8 @@ jobs:
       - attach_workspace: {at: /var/www}
       - add_ssh_keys
       - *configure_git
-      - run: { name: 'Deploy artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:publish" }
-      - run: { name: 'Deploy S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:publish" }
+      - run: { name: 'Deploy artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:publish --branch=\"$CIRCLE_BRANCH\" --message=\"Automated push of $CIRCLE_SHA1\"" }
+      - run: { name: 'Deploy S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:publish --branch=\"$CIRCLE_BRANCH\" --message=\"Automated push of $CIRCLE_SHA1\"" }
 
   patternlab_deploy_tag:
     working_directory: /var/www/patternlab
@@ -71,9 +71,9 @@ jobs:
       - add_ssh_keys
       - *configure_git
       - *configure_npm
-      - run: { name: 'Release Artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:release" }
-      - run: { name: 'Release S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:release" }
-      - run: { name: 'Release NPM', command: "cd styleguide && node_modules/.bin/gulp npm:release" }
+      - run: { name: 'Release Artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:release --tag=\"$CIRCLE_TAG\" --message=\"Automated push of $CIRCLE_SHA1\"" }
+      - run: { name: 'Release S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:release --tag=\"$CIRCLE_TAG\" --message=\"Automated push of $CIRCLE_SHA1\"" }
+      - run: { name: 'Release NPM', command: "cd styleguide && node_modules/.bin/gulp npm:release --tag=\"$CIRCLE_TAG\" --message=\"Automated push of $CIRCLE_SHA1\"" }
 
 workflows:
   version: 2
@@ -81,9 +81,12 @@ workflows:
   # Executed on branch pushes.
   build_branch:
     jobs:
-      - patternlab_build
+      - patternlab_build:
+          filters:
+            branches: { ignore: /(docs\-|react\/).*/ }
       - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
+
 
   # Executed on tag pushes.
   build_tag:
