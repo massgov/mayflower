@@ -12,8 +12,12 @@
     overflow-x: auto;
     width: 100%;
     position: relative;
-    padding-bottom: 50px;
 }
+
+.ma__table.sticky-enabled {
+    margin-bottom: 50px;
+}
+
 .ma__table--responsive .sticky-thead {
     opacity: 0;
     position: absolute;
@@ -68,6 +72,7 @@
     background:white;
     z-index: 50;
     height: 50px;
+    margin-bottom: 10px;
     justify-content: space-between;
     align-items: center;
     display: none;

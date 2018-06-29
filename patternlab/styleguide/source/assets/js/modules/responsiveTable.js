@@ -85,10 +85,10 @@ export default function (window, document, $, undefined) {
         let scrolledBottom = $window.scrollTop() + $window.height();
         let canScrollHorizontally = rt.$table.width() > rt.$table.parent().width();
         rt.$root.toggleClass('has-horizontal-scroll', canScrollHorizontally);
-
-        if (canScrollHorizontally && visibleParams.bottomOutOfView && !visibleParams.entirelyOutOfView && scrolledBottom - rt.$table.offset().top > 100) {
+        console.log(visibleParams);
+        if (canScrollHorizontally && visibleParams.bottomOutOfView && scrolledBottom - rt.$table.offset().top > 100) {
             rt.$root.find(".ma__table__horizontal-nav").css({
-                bottom: (tableBottom - scrolledBottom) + 65
+                bottom: (tableBottom - scrolledBottom)
             });
         } else {
             rt.$root.find(".ma__table__horizontal-nav").css({ bottom: 0 });
