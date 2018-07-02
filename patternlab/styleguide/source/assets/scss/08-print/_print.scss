@@ -82,9 +82,29 @@
       display: none !important;
     }
 
+    .ma__search-banner {
+      min-height: 0;
+      padding: 0;
+    }
+
+    .ma__stacked-row-section {
+      padding-top: 70px;
+      border-width: 0;
+    }
+
+    .ma__stacked-row-section ~ .ma__stacked-row-section .ma__stacked-row-section__container:before {
+      padding: 0;
+    }
+
     article img {
       display: none;
     }
+  }
+
+  .sidebar--colored .ma__comp-heading {
+    padding-left: 0;
+    margin-left: 0;
+    color: $c-font-heading !important;
   }
 
   .ma__location-listing__results,
@@ -101,6 +121,7 @@
     margin-bottom: 0;
     padding: 0;
     min-height: 0;
+    height: auto;
 
     &.ma__page-banner--overlay {
       height: auto;
@@ -153,7 +174,6 @@
   .ma__google-map,
   .ma__mapped-locations,
   .ma__section-links,
-  .ma__contact-us--accordion,
   .ma__about-section-person {
     page-break-before: auto; 
     page-break-after: auto;
