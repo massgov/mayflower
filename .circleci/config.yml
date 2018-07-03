@@ -97,6 +97,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - patternlab_deploy_tag:
+          requires: [patternlab_build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
