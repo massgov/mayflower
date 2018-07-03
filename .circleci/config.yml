@@ -31,7 +31,7 @@ jobs:
           paths: ["*"]
 
   patternlab_test:
-    working_directory: /home/circleci/patternlab
+    working_directory: /home/circleci
     docker:
       - image: circleci/python:2.7.14
     steps:
