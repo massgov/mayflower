@@ -28,6 +28,7 @@ jobs:
       - run: { name: 'Build assets', command: 'cd patternlab/styleguide && node_modules/.bin/gulp prod' }
       - persist_to_workspace:
           root: /var/www/code
+          paths: [*]
 
   patternlab_test:
     working_directory: /home/circleci/patternlab
