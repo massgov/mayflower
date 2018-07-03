@@ -28,7 +28,6 @@ jobs:
       - run: { name: 'Build assets', command: 'cd patternlab/styleguide && node_modules/.bin/gulp prod' }
       - persist_to_workspace:
           root: /var/www/code
-          paths: [patternlab]
 
   patternlab_test:
     working_directory: /home/circleci/patternlab
@@ -37,13 +36,14 @@ jobs:
     steps:
       - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
-      - run: docker-compose up --no-start web backstop
       - run: |
+          cd patternlab
+          docker-compose up --no-start web backstop
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ./styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
-      - run: docker-compose run backstop test
+          docker-compose run backstop test
       - run:
-          command: docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
+          command: cd patternlab && docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
           when: always
       - store_artifacts:
           path: ./backstopjs
@@ -59,8 +59,8 @@ jobs:
       - attach_workspace: {at: /var/www}
       - add_ssh_keys
       - *configure_git
-      - run: { name: 'Deploy artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:publish --branch=\"$CIRCLE_BRANCH\" --message=\"Automated push of $CIRCLE_SHA1\"" }
-      - run: { name: 'Deploy S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:publish --branch=\"$CIRCLE_BRANCH\" --message=\"Automated push of $CIRCLE_SHA1\"" }
+      - run: { name: 'Deploy artifacts', command: "cd patternlab/styleguide && node_modules/.bin/gulp artifacts:publish" }
+      - run: { name: 'Deploy S3', command: "cd patternlab/styleguide && node_modules/.bin/gulp patternlab:publish" }
 
   patternlab_deploy_tag:
     working_directory: /var/www/patternlab
@@ -71,9 +71,9 @@ jobs:
       - add_ssh_keys
       - *configure_git
       - *configure_npm
-      - run: { name: 'Release Artifacts', command: "cd styleguide && node_modules/.bin/gulp artifacts:release --tag=\"$CIRCLE_TAG\" --message=\"Automated push of $CIRCLE_SHA1\"" }
-      - run: { name: 'Release S3', command: "cd styleguide && node_modules/.bin/gulp patternlab:release --tag=\"$CIRCLE_TAG\" --message=\"Automated push of $CIRCLE_SHA1\"" }
-      - run: { name: 'Release NPM', command: "cd styleguide && node_modules/.bin/gulp npm:release --tag=\"$CIRCLE_TAG\" --message=\"Automated push of $CIRCLE_SHA1\"" }
+      - run: { name: 'Release Artifacts', command: "cd patternlab/styleguide && node_modules/.bin/gulp artifacts:release" }
+      - run: { name: 'Release S3', command: "cd patternlab/styleguide && node_modules/.bin/gulp patternlab:release" }
+      - run: { name: 'Release NPM', command: "cd patternlab/styleguide && node_modules/.bin/gulp npm:release" }
 
 workflows:
   version: 2
