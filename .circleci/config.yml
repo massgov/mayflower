@@ -42,6 +42,8 @@ jobs:
           docker-compose up --no-start web backstop
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ./styleguide/public/. $(docker-compose ps -q web):/usr/share/nginx/html
+      - run: |
+          cd patternlab
           docker-compose run backstop test
       - run:
           command: cd patternlab && docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
