@@ -53,22 +53,22 @@ jobs:
           path: backstopjs/reports/ci
 
   patternlab_deploy_branch:
-    working_directory: /var/www/patternlab
+    working_directory: /var/www/code
     docker:
       - image: massgov/drupal-container:1.0.6-ci
     steps:
-      - attach_workspace: {at: /var/www}
+      - attach_workspace: {at: /var/www/code}
       - add_ssh_keys
       - *configure_git
       - run: { name: 'Deploy artifacts', command: "cd patternlab/styleguide && node_modules/.bin/gulp artifacts:publish" }
       - run: { name: 'Deploy S3', command: "cd patternlab/styleguide && node_modules/.bin/gulp patternlab:publish" }
 
   patternlab_deploy_tag:
-    working_directory: /var/www/patternlab
+    working_directory: /var/www/code
     docker:
       - image: massgov/drupal-container:1.0.6-ci
     steps:
-      - attach_workspace: {at: /var/www}
+      - attach_workspace: {at: /var/www/code}
       - add_ssh_keys
       - *configure_git
       - *configure_npm
