@@ -10,6 +10,11 @@ In addition to the following items below individual components, colors and page 
 
 ## Accessibility Guidelines
 
+### Standards
+
+* WCAG 2.0
+* AA
+
 ### Contrast
 
 * For font sizes under 18 point  \(or 14 points if bold\) contrast must be a minimum of 4.5:1
