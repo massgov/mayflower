@@ -74,14 +74,14 @@ class PatternLabRegistry extends MayflowerRegistry {
         taker.task("patternlab:release", taker.series(
             maybe(isStableRelease,
                 taker.series(
-                    this.buildPatternlabTask("%domain%/v/%%major%/%%minor%"),
+                    this.buildPatternlabTask("%domain%/v/%major%/%minor%"),
                     taker.parallel(doCss, doJs, doCopy),
-                    this.buildS3Task(self.resolveDest("**"), "v/%major%/%%minor%", "patternlab:s3-tag")
+                    this.buildS3Task(self.resolveDest("**"), "v/%major%/%minor%", "patternlab:s3-tag")
                 )
             ),
             maybe(isStableRelease,
                 taker.series(
-                    this.buildPatternlabTask("%domain%/v/%%major%"),
+                    this.buildPatternlabTask("%domain%/v/%major%"),
                     taker.parallel(doCss, doJs, doCopy),
                     this.buildS3Task(self.resolveDest("**"), "v/%major%", "patternlab:s3-tag")
                 )
