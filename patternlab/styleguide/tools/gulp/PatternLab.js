@@ -74,6 +74,13 @@ class PatternLabRegistry extends MayflowerRegistry {
         taker.task("patternlab:release", taker.series(
             maybe(isStableRelease,
                 taker.series(
+                    this.buildPatternlabTask("%domain%/v/%%major%/%%minor%"),
+                    taker.parallel(doCss, doJs, doCopy),
+                    this.buildS3Task(self.resolveDest("**"), "v/%major%/%%minor%", "patternlab:s3-tag")
+                )
+            ),
+            maybe(isStableRelease,
+                taker.series(
                     this.buildPatternlabTask("%domain%/v/%%major%"),
                     taker.parallel(doCss, doJs, doCopy),
                     this.buildS3Task(self.resolveDest("**"), "v/%major%", "patternlab:s3-tag")
@@ -97,7 +104,8 @@ class PatternLabRegistry extends MayflowerRegistry {
             .replace(/%domain%/, () => this.config.baseDomain)
             .replace(/%branch%/, () => this.getBranch())
             .replace(/%tag%/, () => this.getTag())
-            .replace(/%major%/, () => this.getMajorVersion());
+            .replace(/%major%/, () => this.getMajorVersion())
+            .replace(/%minor%/, () => this.getMinorVersion());
     }
     buildS3Task(src, subDirTemplate, name) {
         const config = this.config;
