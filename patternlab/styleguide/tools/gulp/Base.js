@@ -54,6 +54,9 @@ class MayflowerTaskRegistry extends DefaultRegistry {
     getMajorVersion() {
         return this.getTag().split(".").shift();
     }
+    getMinorVersion() {
+        return this.getTag().split(".").splice(1,1);
+    }
     getCommitMessage() {
         let message = this.message = this.message || this.opts.message || git.currentMessage();
         if(!message) {
