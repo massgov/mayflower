@@ -14,7 +14,7 @@ Step by step guide for contributing:
 ------------------------------------
 
 1. Clone this repository.
-2. Starting from the `develop` branch, create a new "feature" branch for your changes with the project prefix, e.g. `patternlab/`, `react/`, `doc-`:
+2. Starting from the `develop` branch, create a new "feature" branch for your changes with the project prefix, e.g. `patternlab/`, `react/`, `docs-`:
     ```bash
     # e.g. Create a feature branch for Mayflower Patternlab
     git checkout -b patternlab/my_feature
