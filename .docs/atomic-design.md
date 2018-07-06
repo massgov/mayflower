@@ -1,9 +1,9 @@
 # Atomic Design in Mayflower
 
 ## About Atomic Design
-The Mayflower style library is built using Atomic Design. The way I tend to think of building a site using Atomic Design is to see it as a LEGO set where your combining a collection of small re-usable parts  to make a variety of different models.  Atomic Design is similar in nature, where you define a collection of small html parts called Atoms and then use those to build a variety of different components to build your site. 
+The Mayflower component libraries are built using Atomic Design. The way I tend to think of building a site using Atomic Design is to see it as a LEGO set where your combining a collection of small re-usable parts  to make a variety of different models.  Atomic Design is similar in nature, where you define a collection of small html parts called Atoms and then use those to build a variety of different components to build your site. 
 
-You can find an excellent description of Atomic Design on Brad Frost's [blog](http://atomicdesign.bradfrost.com/chapter-2/). 
+You can find an excellent description of Atomic Design on Brad Frost's [blog](http://atomicdesign.bradfrost.com/chapter-2/).
 
 We are following his guide fairly closely, but I differ when it comes to Molecules and Organisms. He sees them as being defined based on their complexity, but I found in practice that it was difficult to make that distinction.  I like to think of Molecules as larger Atoms (components with custom styling or additional content) and Organisms as being smaller templates (component level)  
 
@@ -25,7 +25,7 @@ There can be cases where a simple html element is too small to be considered an 
 1. http://mayflower.digital.mass.gov/?p=atoms-button
     * This is an example of a single html element => `button` or `a` tag.
 2. http://mayflower.digital.mass.gov/?p=atoms-input-checkbox
-    * This is an example of an atom that can't be broken down any further.  The Mayflower style guide would never use the `input type=checkbox` element by itself so this atom requires the outer span tag and corresponding label. 
+    * This is an example of an atom that can't be broken down any further.  The Mayflower style guide would never use the `input type=checkbox` element by itself so this atom requires the outer span tag and corresponding label.
 
 
 ### Molecules - (stylized collection)
@@ -71,7 +71,7 @@ http://mayflower.digital.mass.gov/?p=templates-location
 * There are several patterns included
 * CSS is used to layout the basic structure of the page
 * Additional Patterns can be added to two Twig Blocks, pageContent and sidebar
-* The page header and the page footer are contained in Twig Blocks, pre-content and post-content, that can be overridden if needed. 
+* The page header and the page footer are contained in Twig Blocks, pre-content and post-content, that can be overridden if needed.
 
 ### Pages
 Pages are used to show an example of how a template can be used.  Pages should extend an existing template to determine the basic layout for the page, use real content in the JSON similar to that used on the live site, and include any additional optional patterns to complete the page.  The page constructed should closely matche what we expect a final page to look like on the live site.
