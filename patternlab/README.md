@@ -8,7 +8,7 @@ Mayflower is the enterprise design system for the Commonwealth of Massachusetts.
 In order to run Mayflower locally, you need to have some things installed and set up on your machine.  Follow the steps in [setting up your machine](docs/machine-setup.md).
 
 #### Demo Install
-- Follow the steps in [Demo Install](docs/demo-install.md) to get a copy of the project up and running on your local machine for *demo* and *testing* purposes. 
+- Follow the steps in [Demo Install](docs/demo-install.md) to get a copy of the project up and running on your local machine for *demo* and *testing* purposes.
 
 ## Contribute
 
@@ -22,7 +22,7 @@ Every time a branch passes CircleCI it will deploy the code to a the following U
 
 ### Production Deployment
 
-Mayflower release managers with the necessary repo permissions can see [Release docs](docs/release.md) for steps on deploying code to production (i.e. do a release).
+Mayflower release managers with the necessary repo permissions can see [Release docs](../release-notes.md) for steps on deploying code to production (i.e. do a release).
 
 ## Generating assets
 
@@ -41,7 +41,7 @@ Some Mass Digital Services projects (i.e. [massgov/mass](https://github.com/mass
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/massgov/mayflower/tags).
 
-Learn about how Mayflower versions work in our [Semantic Versioning](docs/versioning.md) docs.
+Learn about how Mayflower versions work in our [Semantic Versioning](../changelogs/versioning.md) docs.
 
 ## License
 
