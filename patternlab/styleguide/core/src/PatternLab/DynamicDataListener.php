@@ -68,7 +68,7 @@ class DynamicDataListener extends Listener {
 
     Data::setOption('mayflower', [
       'version' => $version,
-      'releaseDate' => '7/3/2018',
+      'releaseDate' => $date,
     ]);
   }
 
