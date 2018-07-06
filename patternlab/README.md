@@ -22,7 +22,7 @@ Every time a branch passes CircleCI it will deploy the code to a the following U
 
 ### Production Deployment
 
-Mayflower release managers with the necessary repo permissions can see [Release docs](../release-notes.md) for steps on deploying code to production (i.e. do a release).
+Mayflower release managers with the necessary repo permissions can see [Release docs](docs/release.md) for steps on deploying code to production (i.e. do a release).
 
 ## Generating assets
 

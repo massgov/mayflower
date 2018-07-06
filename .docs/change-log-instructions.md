@@ -1,6 +1,6 @@
 # Change Log Instructions
 
-This documentation outlines a simple series of steps to keep `release-notes.md` up-to-date, avoid merge conflicts, and better surface post deply steps.
+This documentation outlines a simple series of steps to keep `CHANGELOG.md` up-to-date, avoid merge conflicts, and better surface post deply steps.
 
 ## Dev: Before You Submit a PR for a Feature Branch or Hot Fix
 
@@ -13,8 +13,8 @@ This documentation outlines a simple series of steps to keep `release-notes.md` 
 
 Do this after your open your release branch:
 
-1. In `release-notes.md`, create a new section for the release with "Added", "Changed", and "Removed" sub-sections.
-1. Go through each `changelogs/*.txt` file and copy the description into the appropriate sub-section of `release-notes.md`.
-1. Keep a list of post deployment steps handy for yourself. 
+1. In `CHANGELOG.md`, create a new section for the release with "Added", "Changed", and "Removed" sub-sections.
+1. Go through each `changelogs/*.txt` file and copy the description into the appropriate sub-section of `CHANGELOG.md`.
+1. Keep a list of post deployment steps handy for yourself.
 1. After the last description is copied and you have all the post deployment steps, delete all files in `changelogs/` except for `changelogs/template.txt.`
 1. Commit changes to the release branch.

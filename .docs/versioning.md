@@ -1,6 +1,6 @@
 # Semantic Versioning
 
-The Mayflower Component Libraries is using [Semantic Versioning](http://semver.org/) to convey meaning about the underlying code and what has been modified from one version to the next to help consumers keep their sites up to date with the latest features and bug fixes.
+The Mayflower Component Libraries are using [Semantic Versioning](http://semver.org/) to convey meaning about the underlying code and what has been modified from one version to the next to help consumers keep their sites up to date with the latest features and bug fixes.
 
 ### Key Terms
 * Markup - The twig, JSX, or html code for a pattern
