@@ -6,6 +6,9 @@
   * [Mayflower React](getting-started/mayflower-react.md)
   * [Mayflower Starters](getting-started/mayflower-starters.md)
   * [Mayflower Bootstrap](getting-started/mayflower-bootstrap.md)
+* [For Developers](for-developers/README.md)
+  * [Changelog Instructions](for-developers/change-log-instructions.md)
+  * [Versioning](for-developers/versioning.md)
 * [Guidelines](guidelines/README.md)
   * [Accessibility](guidelines/accessibility.md)
   * [Search and Structured Data](guidelines/search-and-structured-data.md)
@@ -20,4 +23,3 @@
     * [Header](components/organisms/header.md)
     * [Footer](components/organisms/footer.md)
 * [Contribution](contribution.md)
-
