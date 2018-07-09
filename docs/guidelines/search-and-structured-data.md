@@ -192,16 +192,16 @@ Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov inde
 | Mass.Gov | mass.gov | [www.mass.gov/](www.mass.gov/) |
 | Mass.Gov Blog | blog.mass.gov | [http://blog.mass.gov/](http://blog.mass.gov/) |
 | Massachusetts Board of Library Commissioners | mblc.state.ma.us | [http://mblc.state.ma.us/](http://mblc.state.ma.us/) |
-| Massachusetts Cases | masscases.com | masscases.com/ |
+| Massachusetts Cases | masscases.com | [masscases.com/](http://masscases.com/) |
 | Massachusetts Comptroller | macomptroller.org | [https://www.macomptroller.org/](https://www.macomptroller.org/) |
 | Massachusetts Department of Early and Secondary Education | doe.mass.edu | [www.doe.mass.edu/](www.doe.mass.edu/) |
 | Massachusetts Department of Higher Education | mass.edu | [www.mass.edu/](www.mass.edu/) |
 | Massachusetts Department of Transportation | massdot.state.ma.us | [www.massdot.state.ma.us/](www.massdot.state.ma.us/) |
 | Massachusetts Educational Financing Authority | mefa.org | [www.mefa.org/](www.mefa.org/) |
-| Massachusetts Environmental Public Health Tracking | matracking.ehs.state.ma.us | matracking.ehs.state.ma.us/ |
-| Massachusetts Gaming Commission | massgaming.com | massgaming.com/ |
+| Massachusetts Environmental Public Health Tracking | matracking.ehs.state.ma.us | [matracking.ehs.state.ma.us/](https://matracking.ehs.state.ma.us/) |
+| Massachusetts Gaming Commission | massgaming.com | [massgaming.com/](https://massgaming.com/) |
 | Massachusetts Health Connector | mahealthconnector.org | [www.mahealthconnector.org/](www.mahealthconnector.org/) |
-| Massachusetts Health Promotion Clearinghouse | massclearinghouse.ehs.state.ma.us | massclearinghouse.ehs.state.ma.us/ |
+| Massachusetts Health Promotion Clearinghouse | massclearinghouse.ehs.state.ma.us | [massclearinghouse.ehs.state.ma.us/](http://massclearinghouse.ehs.state.ma.us/) |
 | Massachusetts Housing Partnership | mhp.net | [www.mhp.net/](www.mhp.net/) |
 | Massachusetts Legislature  | malegislature.gov | [malegislature.gov/](http://malegislature.gov/) |
 | Massachusetts National Guard | thenationsfirst.org | [www.thenationsfirst.org/](www.thenationsfirst.org/) |
