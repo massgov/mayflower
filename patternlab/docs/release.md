@@ -12,7 +12,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
     1. Pull the latest from upstream `git pull <remote> dev`.
     1. `cd styleguide`
 1. Create a release branch
-    1. `git checkout -b release-#.#.#` where `#.#.#` is the next version (i.e. `5.0.0`).  Read more about [Mayflower and semantic versioning](docs/versioning.md) to ensure that your are creating the right type of version.
+    1. `git checkout -b release-#.#.#` where `#.#.#` is the next version (i.e. `5.0.0`).  Read more about [Mayflower and semantic versioning](/docs/for-developers/versioning.md) to ensure that your are creating the right type of version.
     1. Add [change logs](https://github.com/massgov/mayflower/blob/dev/changelogs) to the top of [CHANGELOG.md](../CHANGELOG.md) based on the "changelog.txt" files, remove all the "changelog.txt" files and then commit these changes.
     1. Run `npm install` in case the release includes new packages.
     1. Update the version of the npm package by editing the `version` field in the `package.json` with `#.#.#` for the release.
@@ -25,7 +25,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
 1. Smoke test Mayflower (a quick way to do this is to browse around to some of the different pages in the "pages" menu and do a quick gut check)
 1. Open a Github Pull Request to merge (no squash!) the release branch into the `master` branch.
     1. Add the relevant release notes to the PR notes.
-    1. This is a great time to verify one more time that your release [is following semantic versioning](versioning.md) properly (i.e. not pushing out breaking changes in a minor release).
+    1. This is a great time to verify one more time that your release [is following semantic versioning](/docs/for-developers/versioning.md) properly (i.e. not pushing out breaking changes in a minor release).
 
 ## Create a tag
 1. [Create a production release](https://help.github.com/articles/creating-releases/) off the `master` branch in GitHub:

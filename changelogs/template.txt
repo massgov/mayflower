@@ -22,7 +22,7 @@ ___CHANGE IMPACT___
 - Major
 - Patch
 
-Note: Refer to `./versioning.md` for more info about change impact according to semantic versioning.
+Note: Refer to `/docs/for-developers/versioning.md` for more info about change impact according to semantic versioning.
 
 ___PROJECTS PREFIX___
 - Patternlab
