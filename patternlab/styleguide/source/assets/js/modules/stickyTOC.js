@@ -14,7 +14,7 @@ export default function (window,document,$,undefined) {
           minSectionsToShow = $toc.data('min-to-show');
 
     // // Remove wrapper if not enough links.
-    if (minSectionsToShow && tocSectionCount <= minSectionsToShow || !minSectionsToShow && tocSectionCount < 3 ) {
+    if (minSectionsToShow && (tocSectionCount < minSectionsToShow) || !minSectionsToShow && tocSectionCount < 3 ) {
       $toc.remove();
     }
     else {
