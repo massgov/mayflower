@@ -8,7 +8,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
 
 ## Creating the release
 1. Check out the [massgov/mayflower `develop` branch](https://github.com/massgov/mayflower/commits/develop):
-    1. cd `patternlab/styleguide`
+    1. `cd patternlab/styleguide`
     1. `git checkout develop`
     1. Pull the latest from upstream `git pull <remote> develop`.
     1. Run `npm install`
