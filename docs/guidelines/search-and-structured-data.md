@@ -164,11 +164,80 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
 
 ### Adding your Domain to the Search.Mass.Gov CSE
 
-Currently, the google custom search engine \(CSE\) powering search.mass.gov indexes over 70 commonwealth website properties. A complete list of the web properties is included below. If you believe your website should be included in the results set returned on mass.gov, please contact the search team for further details.
+Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov indexes over 60 Commonwealth web properties. A [complete list of the web properties](search-and-structured-data.md#websites-included-in-search-mass-gov) is included below. If you believe your website should be included in the results set returned on search.mass.gov, please contact the search team by submitting a [Github issue to Mayflower](https://github.com/massgov/mayflower/issues) labelled `add domain to search` .
+
+#### Websites Included in Search.Mass.Gov
+
+| **Website & Description** | **Domain** | **URL Patterns included in Search** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Barnstable County Sheriff's Department | bsheriff.net | [www.bsheriff.net/](www.bsheriff.net/) |
+| Berkshire County Sheriff's Department | bcsoma.org | [https://bcsoma.org/](https://bcsoma.org/) |
+| Bershire Regional Planning Commission | berkshireplanning.org | [www.berkshireplanning.org/](www.berkshireplanning.org/) |
+| Board and Commission Appointment by the Governor of Massachusetts \(_Boards and Commissions Office_\) | appointments.state.ma.us | [appointments.state.ma.us/](https://appointments.state.ma.us/) |
+| Boston Region Metropolitan Planning Organization | ctps.org | [www.ctps.org/](www.ctps.org/) |
+| Bristol County District Attorney | bristolda.com | [http://bristolda.com/](http://bristolda.com/) |
+| Center for Health Information and Analysis | chiamass.gov | [www.chiamass.gov/](www.chiamass.gov/) |
+| Civil Service Eligible Lists | csexam.hrd.state.ma.us | [https://www.csexam.hrd.state.ma.us/ eligiblelist/eligiblelist.aspx\*](https://www.csexam.hrd.state.ma.us/eligiblelist/eligiblelist.aspx*) |
+| Committee for Public Counsel Services \(Public Defender Agency of Massachusetts\) | publiccounsel.net | [www.publiccounsel.net/](www.publiccounsel.net/) |
+|  Commonwealth Corporation | commcorp.org | [www.commcorp.org/](www.commcorp.org/) |
+| Commonwealth of Massachusetts Supreme Judicial Court Mental Health Legal Advisors Committee | mhlac.org | [www.mhlac.org/](www.mhlac.org/) |
+| CommonWiki | wiki.state.ma.us | [https://wiki.state.ma.us/confluence/display/data/](https://wiki.state.ma.us/confluence/display/data/) |
+| Community Economic Development Assistance Corporation | cedac.org | [www.cedac.org/](www.cedac.org/) |
+| Dukes County | dukescounty.org | [www.dukescounty.org/](www.dukescounty.org/) |
+| Franklin County Sheriff's Department | fcso-ma.us | [www.fcso-ma.us/](www.fcso-ma.us/) |
+| Hampden County Sheriff's Department | hcsdmass.org | [www.hcsdmass.org/](www.hcsdmass.org/) |
+| Hampden District Attorney | hampdenda.com | [www.hampdenda.com/](www.hampdenda.com/) |
+| Hampshire County Sheriff's Department | hampshiresheriffs.com | [www.hampshiresheriffs.com/](www.hampshiresheriffs.com/) |
+| Massachusetts Registry of Motor Vehicles | massrmv.com & secure.rmv.state.ma.us | [http://www.massrmv.com/](http://www.massrmv.com/) & [https://secure.rmv.state.ma.us/](https://secure.rmv.state.ma.us/) |
+| Mass.Gov | mass.gov | [www.mass.gov/](www.mass.gov/) |
+| Mass.Gov Blog | blog.mass.gov | [http://blog.mass.gov/](http://blog.mass.gov/) |
+| Massachusetts Board of Library Commissioners | mblc.state.ma.us | [http://mblc.state.ma.us/](http://mblc.state.ma.us/) |
+| Massachusetts Cases | masscases.com | masscases.com/ |
+| Massachusetts Comptroller | macomptroller.org | [https://www.macomptroller.org/](https://www.macomptroller.org/) |
+| Massachusetts Department of Early and Secondary Education | doe.mass.edu | [www.doe.mass.edu/](www.doe.mass.edu/) |
+| Massachusetts Department of Higher Education | mass.edu | [www.mass.edu/](www.mass.edu/) |
+| Massachusetts Department of Transportation | massdot.state.ma.us | [www.massdot.state.ma.us/](www.massdot.state.ma.us/) |
+| Massachusetts Educational Financing Authority | mefa.org | [www.mefa.org/](www.mefa.org/) |
+| Massachusetts Environmental Public Health Tracking | matracking.ehs.state.ma.us | matracking.ehs.state.ma.us/ |
+| Massachusetts Gaming Commission | massgaming.com | massgaming.com/ |
+| Massachusetts Health Connector | mahealthconnector.org | [www.mahealthconnector.org/](www.mahealthconnector.org/) |
+| Massachusetts Health Promotion Clearinghouse | massclearinghouse.ehs.state.ma.us | massclearinghouse.ehs.state.ma.us/ |
+| Massachusetts Housing Partnership | mhp.net | [www.mhp.net/](www.mhp.net/) |
+| Massachusetts Legislature  | malegislature.gov | [malegislature.gov/](http://malegislature.gov/) |
+| Massachusetts National Guard | thenationsfirst.org | [www.thenationsfirst.org/](www.thenationsfirst.org/) |
+| Massachusetts School Building Authority | massschoolbuildings.org | [www.massschoolbuildings.org/](www.massschoolbuildings.org/) |
+| Massachusetts Small Business Development Center Network | msbdc.org | [www.msbdc.org/](www.msbdc.org/) |
+| Massachusetts State College Building Authority  | mscba.org | [www.mscba.org/](www.mscba.org/) |
+| Massachusetts State Lottery | masslottery.com | [www.masslottery.com/](www.masslottery.com/) |
+| Massachusetts Technology Collaborative | masstech.org | [www.masstech.org/](www.masstech.org/) |
+| Massachusetts Vacation and Tourism | massvacation.com | [www.massvacation.com/](www.massvacation.com/) |
+| Massachusetts Vehicle Check | massvehiclecheck.state.ma.us | [www.massvehiclecheck.state.ma.us/](www.massvehiclecheck.state.ma.us/) |
+| Massachusetts Water Resources Authority | mwra.state.ma.us | [www.mwra.state.ma.us/](www.mwra.state.ma.us/) |
+| MassDevelopment | massdevelopment.com | [www.massdevelopment.com/](www.massdevelopment.com/) |
+| MassHousing | masshousing.com | [www.masshousing.com/](www.masshousing.com/) |
+| Massport | massport.com | [http://www.massport.com/](http://www.massport.com/) |
+| Massachusetts Bay Transportation Authority | mbta.com | [www.mbta.com/](www.mbta.com/) |
+| MassVentures | mass-ventures.com | [http://mass-ventures.com/](http://mass-ventures.com/) |
+| Middlesex County District Attorney | middlesexda.com | [http://middlesexda.com/](http://middlesexda.com/) |
+| Middlesex County Sheriff's Department | middlesexsheriff.org | [www.middlesexsheriff.org/](www.middlesexsheriff.org/) |
+| Montachusetts Regional Planning Commission | mrpc.org | [www.mrpc.org/](www.mrpc.org/) |
+| Norfolk County Sheriff's Department | norfolksheriff.com | [www.norfolksheriff.com/](www.norfolksheriff.com/) |
+| Northwestern District Attorney | northwesternda.org | [http://www.northwesternda.org/](http://www.northwesternda.org/) |
+| Online mapping portal for the Executive Office of Energy an Environmental Affairs | mass-eoeea.maps.arcgis.com | [mass-eoeea.maps.arcgis.com](http://mass-eoeea.maps.arcgis.com) |
+| Pension Reserves Investment Management Board | mapension.com | [www.mapension.com/](www.mapension.com/) |
+| Plymouth County Sheriff's Department | pcsdma.org | [www.pcsdma.org/](www.pcsdma.org/) |
+| Secretary of the Commonwealth of Massachusetts | sec.state.ma.us | [http://www.sec.state.ma.us/](http://www.sec.state.ma.us/) |
+| Suffolk County District Attorney | suffolkdistrictattorney.com | [http://www.suffolkdistrictattorney.com/](http://www.suffolkdistrictattorney.com/) |
+| Suffolk County Sheriff's Department | scsdma.org | [www.scsdma.org/](www.scsdma.org/) |
+| University of Massachusetts | massachusetts.edu | [http://www.massachusetts.edu/](http://www.massachusetts.edu/) |
+| Worcester County District Attorney | worcesterda.com | [worcesterda.com/](http://worcesterda.com/) |
+| Worcester County Sheriff's Department | worcestercountysheriff.com | [worcestercountysheriff.com/](https://worcestercountysheriff.com/) |
 
 ### Adding your Organization Display Details to Search
 
 When a user filters content by organization in search.mass.gov, that organization's name, description, and logo \(if available\) is displayed in a right-rail beside the search results \([refer to examples below](search-and-structured-data.md#example-of-organization-display-details-in-search-mass-gov)\). By default, the information populating this is pulled from a mass.gov endpoint and follows the [schema standard specified below](search-and-structured-data.md#organization-teaser-json-schema-standard). If your organization is not using the Mass.Gov Drupal CMS but you would like your organization's branding included in search.mass.gov, you need to provide the search team with a JSON object following these [schema standards](search-and-structured-data.md#organization-teaser-json-schema-standard). Please note, if you decide to include a logo, the image must be located at a publicly accessible url, should have a white or transparent background, and for the best performance should be reduced to a width of 100 pixels. This area is only for organization-specific logos \(not the state seal\).
+
+
 
 #### Organization Display Details JSON Schema Standard
 
