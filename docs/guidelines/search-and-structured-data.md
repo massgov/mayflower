@@ -164,7 +164,7 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
 
 ### Adding your Domain to the Search.Mass.Gov CSE
 
-Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov indexes over 60 Commonwealth web properties. A [complete list of the web properties](search-and-structured-data.md#websites-included-in-search-mass-gov) is included below. If you believe your website should be included in the results set returned on search.mass.gov, please contact the search team by submitting a [Github issue to Mayflower](https://github.com/massgov/mayflower/issues) labelled `add domain to search` .
+Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov indexes over 60 Commonwealth web properties. A [complete list of these web properties](search-and-structured-data.md#websites-included-in-search-mass-gov) is included in a table below. If you believe your website should be included in the results set returned on search.mass.gov, please contact the search team by submitting a [Github issue to Mayflower](https://github.com/massgov/mayflower/issues) labelled `add domain to search` .
 
 #### Websites Included in Search.Mass.Gov
 
