@@ -27,7 +27,8 @@ Step by step guide for contributing:
     git commit -m "Add foos to bars"
     git push origin patternlab/my_feature
     ```
-5. Open a [Pull Request](/compare) to have your code reviewed.
+5. Follow the [Changelog Instructions](docs/for-developer/change-log-instructions.md) to add a changelog.
+6. Open a [Pull Request](/compare) to have your code reviewed.
 
 #### Using the Gitbook editor
 1. Create a new "version" from the primary version for your changes and name it `docs/[my_version]`
