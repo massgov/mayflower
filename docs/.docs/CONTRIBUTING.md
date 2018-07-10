@@ -22,7 +22,7 @@ From Github:
 ------------------------------------
 
 1. Clone this repository and cd into the `/docs`
-2. Starting from the `docs/integration` branch, create a new "feature" branch for your changes with the prefix `docs-`:
+2. Starting from the `docs-integration` branch, create a new "feature" branch for your changes with the prefix `docs-`:
     ```bash
     # e.g. Create a feature branch for Mayflower Patternlab
     git checkout docs/integration
