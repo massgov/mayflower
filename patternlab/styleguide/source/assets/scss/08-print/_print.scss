@@ -16,8 +16,13 @@
   }
 
   .ma__stacked-row-section .main-content .page-content>*,
-  .main-content--two .page-content>* {
+  .main-content--two .page-content>*,
+  .main-content--full .page-content>* {
     margin-top: 0;
+  }
+
+  .ma__stacked-row__section ~ .ma__stacked-row__section {
+    border-width: 0;
   }
 
   .ma__page-header__content {
@@ -169,9 +174,13 @@
       max-width: none;
       color: $c-font-heading;
 
-      &::before {
+      &::before, {
         display: none;
       }
+    }
+
+    &::after {
+      display: none !important;
     }
   }
 
@@ -371,7 +380,8 @@
   }
 
   .ma__event-listing__past,
-  .ma__press-listing__more {
+  .ma__press-listing__more,
+  .ma__link-list__toggle {
     display: none;
   }
 }
