@@ -1,9 +1,9 @@
 # Semantic Versioning
 
-The Mayflower Style Library is using [Semantic Versioning](http://semver.org/) to convey meaning about the underlying code and what has been modified from one version to the next to help consumers keep their sites up to date with the latest features and bug fixes.
+The Mayflower Component Libraries are using [Semantic Versioning](http://semver.org/) to convey meaning about the underlying code and what has been modified from one version to the next to help consumers keep their sites up to date with the latest features and bug fixes.
 
 ### Key Terms
-* Markup - The twig or html code for a pattern
+* Markup - The twig, JSX, or html code for a pattern
 * Assets - The SVG icons, fonts, CSS, and JavaScript files
 * Data Object - The JSON data variables used for a pattern
 
@@ -17,7 +17,7 @@ The Mayflower Style Library is using [Semantic Versioning](http://semver.org/) t
 ## The Basics
 Versions of Mayflower are denoted by three values 1.0.0 that represent Major, Minor, and Patch changes respectively.  Major changes can contain Minor changes which can contain Patch changes.  When Major and Minor versions are made the numbers to the right will always be reset to zero.
 
-### Patch versions (0.0.1) 
+### Patch versions (0.0.1)
 A Patch version is created to resolve issues found within a pattern in Mayflower.  The changes made will only be done to Mayflower's Assets in a manner that doesn't require changes to the Markup or Data Object.
 
 #### How to upgrade
