@@ -13,11 +13,11 @@ Mayflower release managers with the necessary repo permissions can follow these 
     1. `cd styleguide`
 1. Create a release branch
     1. `git checkout -b release-#.#.#` where `#.#.#` is the next version (i.e. `5.0.0`).  Read more about [Mayflower and semantic versioning](docs/versioning.md) to ensure that your are creating the right type of version.
-    1. Add [release notes](https://github.com/massgov/mayflower/blob/dev/docs/change-log-instructions.md) to the top of [release notes](/release-notes.md) based on the "changelog.txt" files, remove all the "changelog.txt" files and then commit these changes.
+    1. Add [change logs](https://github.com/massgov/mayflower/blob/dev/changelogs) to the top of [CHANGELOG.md](../CHANGELOG.md) based on the "changelog.txt" files, remove all the "changelog.txt" files and then commit these changes.
     1. Run `npm install` in case the release includes new packages.
     1. Update the version of the npm package by editing the `version` field in the `package.json` with `#.#.#` for the release.
     1. Commit your version change from `package.json`.
-    1. Push release branch to `massgov/mayflower` (i.e. `git push <remote> release-#.#.#`). 
+    1. Push release branch to `massgov/mayflower` (i.e. `git push <remote> release-#.#.#`).
 
 ## Deployment  
 1. Wait for [the circle build](https://circleci.com/gh/massgov/mayflower) to pass, which will deploy your release branch to staging automagically :).
