@@ -3,8 +3,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
 
 *Note: the following steps assume that your local machine and repository is already set up and functioning according to our [Getting Started docs](../.github/CONTRIBUTING.md#getting-started).*
 
-## Communicate to the team
-1. If there is new code to be delivered, notify the team at least two hours ahead of time that a release is coming. Follow the [Communicate Releases](https://github.com/massgov/mass/wiki/Communicate-Releases) instructions for Upcoming Deployments.
+
 
 ## Creating the release
 1. Check out the [massgov/mayflower `develop` branch](https://github.com/massgov/mayflower/commits/develop):
@@ -45,5 +44,4 @@ Mayflower release managers with the necessary repo permissions can follow these 
     1. Add a new release version with today's date.
     1. Go to each shipped JIRA issue and update the Fix Version/s field.
     1. Go to the list of issues contained within the release version and copy the URL (link to this issue from release notes).
-1. Follow the [Communicate Releases](https://github.com/massgov/mass/wiki/Communicate-Releases) instructions for Deployment Completed to email Release Notes to the team.
 1. Celebrate!!
