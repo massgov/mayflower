@@ -12,7 +12,7 @@ From Gitbook Editor:
 3. Click on the `Edit` button to start making changes.
 3. Create a new "version" from the primary version for your changes and name it `docs/[my_version]`
 This creates a `docs-[my_version]` branch in the Github repo.
-4. Click on the "save" button save as a draft. This equals to creating a commit on your branch. Add a description to your draft to provide a commit message.
+4. Click on the "save" button save as a draft. This is similar to stashing your changes in git, you can rechieve a draft from `Archived Drafts`.
 5. Click on the "publish" button to push the changes to the github branch.
 6. Open a [Pull Request](/compare) to have your code reviewed.
 
