@@ -25,7 +25,7 @@ From Github:
 2. Starting from the `docs-integration` branch, create a new "feature" branch for your changes with the prefix `docs-`:
     ```bash
     # e.g. Create a feature branch for Mayflower Patternlab
-    git checkout docs/integration
+    git checkout docs-integration
     git checkout -b docs-my_feature
     ```
 3. Inside the directory for the implementation you want to work on, make your changes.  Check the contribution guidelines for the specific project you are working on for more details on how to get started.
