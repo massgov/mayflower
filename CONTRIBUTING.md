@@ -35,7 +35,7 @@ Step by step guide for contributing:
     git push origin patternlab/my_feature
     ```
 5. Follow the [Changelog Instructions](docs/for-developers/change-log-instructions.md) to add a changelog.
-6. Open a [Pull Request](/compare) to have your code reviewed.
+6. Open a [Pull Request](https://github.com/massgov/mayflower/compare) to have your code reviewed.
 
 #### Using the Gitbook editor
 For starting from Gitbook editor, check out the [docs contributing guide](docs/.docs/CONTRIBUTING.md) for more details.
