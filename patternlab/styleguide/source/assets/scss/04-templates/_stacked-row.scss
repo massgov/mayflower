@@ -4,7 +4,6 @@
   &__section {
 
     @media ($bp-large-max) {
-      padding-bottom: 45px;
 
       & ~ & {
         border-top-width: 1px;
@@ -33,12 +32,10 @@
   &__section ~ &__section &__container:before {
     content: "";
     display: block;
-    padding-top: 45px;
 
     @media print, ($bp-large-min) {
       border-top-width: 1px;
       border-top-style: solid;
-      padding-top: 90px;
     }
   }
 
