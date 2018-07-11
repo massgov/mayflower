@@ -1,6 +1,6 @@
 # Changelog Instructions
 
-This documentation outlines a simple series of steps to keep `CHANGELOG.md` up-to-date, avoid merge conflicts, and better surface post deploy steps.
+This documentation outlines a simple series of steps to keep `CHANGELOG.md` up-to-date, avoid merge conflicts, and better surface post deply steps.
 
 ## Dev: Before You Submit a PR for a Feature Branch or Hot Fix
 
