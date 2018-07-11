@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Changed
-Patch
-- (Patternlab) DP-8177: Adds a selector to the sticky TOC JavaScript to target curated lists #6
-
