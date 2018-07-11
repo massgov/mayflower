@@ -8,7 +8,7 @@
   * [Mayflower Bootstrap](getting-started/mayflower-bootstrap.md)
 * [For Developers](for-developers/README.md)
   * [Atomic Design](for-developers/atomic-design.md)
-  * [Changelog Instructions](for-developers/change-log-instructions.md)
+  * [Changelog Instructions](for-developers/changelog-instructions.md)
   * [Versioning](for-developers/versioning.md)
 * [Guidelines](guidelines/README.md)
   * [Accessibility](guidelines/accessibility.md)
@@ -20,7 +20,9 @@
 * [Components](components/README.md)
   * [Atoms](components/atoms/README.md)
     * [Buttons](components/atoms/buttons.md)
+    * [Forms](components/atoms/forms.md)
   * [Organisms](components/organisms/README.md)
     * [Header](components/organisms/header.md)
     * [Footer](components/organisms/footer.md)
 * [Contribution](contribution.md)
+
