@@ -75,19 +75,19 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 
 | **Metatag** | **Sort Functionality** | **Example** |
 | --- | --- |
-| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/screen-shot-2018-05-30-at-10.10.32-am-1.png) |
+| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/screen-shot-2018-05-30-at-10.10.32-am-1%20%281%29.png) |
 
 #### Search Result Teasers
 
 | **Metatag** | **Teaser Functionality** | **Example** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
-| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
-| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
-| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4.png) |
-| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4.png) |
-| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4.png) |
-| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4.png) |
+| mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm%20%281%29.png) |
+| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm%20%281%29.png) |
+| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm%20%281%29.png) |
+| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%281%29.png) |
+| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%281%29.png) |
+| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%281%29.png) |
+| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%281%29.png) |
 | mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am%20%282%29.png) |
 
 ## Adding Structured Metatags to your Website
@@ -164,7 +164,75 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
 
 ### Adding your Domain to the Search.Mass.Gov CSE
 
-Currently, the google custom search engine \(CSE\) powering search.mass.gov indexes over 70 commonwealth website properties. A complete list of the web properties is included below. If you believe your website should be included in the results set returned on mass.gov, please contact the search team for further details.
+Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov indexes over 60 Commonwealth web properties. A [complete list of these web properties](search-and-structured-data.md#websites-included-in-search-mass-gov) is included in a table below. If you believe your website should be included in the results set returned on search.mass.gov, please contact the search team by submitting a [Github issue to Mayflower](https://github.com/massgov/mayflower/issues) labelled `add domain to search` .
+
+#### Websites Included in Search.Mass.Gov
+
+| **Website & Description** | **Domain** | **URL Patterns included in Search** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Barnstable County Sheriff's Department | bsheriff.net | [www.bsheriff.net/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.bsheriff.net) |
+| Berkshire County Sheriff's Department | bcsoma.org | [https://bcsoma.org/](https://bcsoma.org/) |
+| Bershire Regional Planning Commission | berkshireplanning.org | [www.berkshireplanning.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.berkshireplanning.org) |
+| Board and Commission Appointment by the Governor of Massachusetts \(_Boards and Commissions Office_\) | appointments.state.ma.us | [appointments.state.ma.us/](https://appointments.state.ma.us/) |
+| Boston Region Metropolitan Planning Organization | ctps.org | [www.ctps.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.ctps.org) |
+| Bristol County District Attorney | bristolda.com | [http://bristolda.com/](http://bristolda.com/) |
+| Center for Health Information and Analysis | chiamass.gov | [www.chiamass.gov/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.chiamass.gov) |
+| Civil Service Eligible Lists | csexam.hrd.state.ma.us | [https://www.csexam.hrd.state.ma.us/ eligiblelist/eligiblelist.aspx\*](https://www.csexam.hrd.state.ma.us/eligiblelist/eligiblelist.aspx*) |
+| Committee for Public Counsel Services \(Public Defender Agency of Massachusetts\) | publiccounsel.net | [www.publiccounsel.net/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.publiccounsel.net) |
+| Commonwealth Corporation | commcorp.org | [www.commcorp.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.commcorp.org) |
+| Commonwealth of Massachusetts Supreme Judicial Court Mental Health Legal Advisors Committee | mhlac.org | [www.mhlac.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mhlac.org) |
+| CommonWiki | wiki.state.ma.us | [https://wiki.state.ma.us/confluence/display/data/](https://wiki.state.ma.us/confluence/display/data/) |
+| Community Economic Development Assistance Corporation | cedac.org | [www.cedac.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.cedac.org) |
+| Compare Care \(healthcare options\) | masscomparecare.gov | [https://www.masscomparecare.gov/](https://www.masscomparecare.gov/) |
+| Dukes County | dukescounty.org | [www.dukescounty.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.dukescounty.org) |
+| Franklin County Sheriff's Department | fcso-ma.us | [www.fcso-ma.us/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.fcso-ma.us) |
+| Hampden County Sheriff's Department | hcsdmass.org | [www.hcsdmass.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.hcsdmass.org) |
+| Hampden District Attorney | hampdenda.com | [www.hampdenda.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.hampdenda.com) |
+| Hampshire County Sheriff's Department | hampshiresheriffs.com | [www.hampshiresheriffs.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.hampshiresheriffs.com) |
+| Massachusetts Registry of Motor Vehicles | massrmv.com & secure.rmv.state.ma.us | [http://www.massrmv.com/](http://www.massrmv.com/) & [https://secure.rmv.state.ma.us/](https://secure.rmv.state.ma.us/) |
+| Mass.Gov | mass.gov | [www.mass.gov/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mass.gov) |
+| Mass.Gov Blog | blog.mass.gov | [http://blog.mass.gov/](http://blog.mass.gov/) |
+| Massachusetts Board of Library Commissioners | mblc.state.ma.us | [http://mblc.state.ma.us/](http://mblc.state.ma.us/) |
+| Massachusetts Cases | masscases.com | masscases.com/ |
+| Massachusetts Comptroller | macomptroller.org | [https://www.macomptroller.org/](https://www.macomptroller.org/) |
+| Massachusetts Department of Early and Secondary Education | doe.mass.edu | [www.doe.mass.edu/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.doe.mass.edu) |
+| Massachusetts Department of Higher Education | mass.edu | [www.mass.edu/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mass.edu) |
+| Massachusetts Department of Transportation | massdot.state.ma.us | [www.massdot.state.ma.us/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.massdot.state.ma.us) |
+| Massachusetts Educational Financing Authority | mefa.org | [www.mefa.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mefa.org) |
+| Massachusetts Environmental Public Health Tracking | matracking.ehs.state.ma.us | matracking.ehs.state.ma.us/ |
+| Massachusetts Gaming Commission | massgaming.com | massgaming.com/ |
+| Massachusetts Health Connector | mahealthconnector.org | [www.mahealthconnector.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mahealthconnector.org) |
+| Massachusetts Health Promotion Clearinghouse | massclearinghouse.ehs.state.ma.us | massclearinghouse.ehs.state.ma.us/ |
+| Massachusetts Housing Partnership | mhp.net | [www.mhp.net/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mhp.net) |
+| Massachusetts Legislature | malegislature.gov | [malegislature.gov/](http://malegislature.gov/) |
+| Massachusetts National Guard | thenationsfirst.org | [www.thenationsfirst.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.thenationsfirst.org) |
+| Massachusetts School Building Authority | massschoolbuildings.org | [www.massschoolbuildings.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.massschoolbuildings.org) |
+| Massachusetts Small Business Development Center Network | msbdc.org | [www.msbdc.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.msbdc.org) |
+| Massachusetts State College Building Authority | mscba.org | [www.mscba.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mscba.org) |
+| Massachusetts State Lottery | masslottery.com | [www.masslottery.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.masslottery.com) |
+| Massachusetts Technology Collaborative | masstech.org | [www.masstech.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.masstech.org) |
+| Massachusetts Vacation and Tourism | massvacation.com | [www.massvacation.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.massvacation.com) |
+| Massachusetts Vehicle Check | massvehiclecheck.state.ma.us | [www.massvehiclecheck.state.ma.us/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.massvehiclecheck.state.ma.us) |
+| Massachusetts Water Resources Authority | mwra.state.ma.us | [www.mwra.state.ma.us/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mwra.state.ma.us) |
+| MassDevelopment | massdevelopment.com | [www.massdevelopment.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.massdevelopment.com) |
+| MassHousing | masshousing.com | [www.masshousing.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.masshousing.com) |
+| Massport | massport.com | [http://www.massport.com/](http://www.massport.com/) |
+| Massachusetts Bay Transportation Authority | mbta.com | [www.mbta.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mbta.com) |
+| MassVentures | mass-ventures.com | [http://mass-ventures.com/](http://mass-ventures.com/) |
+| Middlesex County District Attorney | middlesexda.com | [http://middlesexda.com/](http://middlesexda.com/) |
+| Middlesex County Sheriff's Department | middlesexsheriff.org | [www.middlesexsheriff.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.middlesexsheriff.org) |
+| Montachusetts Regional Planning Commission | mrpc.org | [www.mrpc.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mrpc.org) |
+| Norfolk County Sheriff's Department | norfolksheriff.com | [www.norfolksheriff.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.norfolksheriff.com) |
+| Northwestern District Attorney | northwesternda.org | [http://www.northwesternda.org/](http://www.northwesternda.org/) |
+| Online mapping portal for the Executive Office of Energy an Environmental Affairs | mass-eoeea.maps.arcgis.com | [mass-eoeea.maps.arcgis.com](http://mass-eoeea.maps.arcgis.com) |
+| Pension Reserves Investment Management Board | mapension.com | [www.mapension.com/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mapension.com) |
+| Plymouth County Sheriff's Department | pcsdma.org | [www.pcsdma.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.pcsdma.org) |
+| Secretary of the Commonwealth of Massachusetts | sec.state.ma.us | [http://www.sec.state.ma.us/](http://www.sec.state.ma.us/) |
+| Suffolk County District Attorney | suffolkdistrictattorney.com | [http://www.suffolkdistrictattorney.com/](http://www.suffolkdistrictattorney.com/) |
+| Suffolk County Sheriff's Department | scsdma.org | [www.scsdma.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.scsdma.org) |
+| University of Massachusetts | massachusetts.edu | [http://www.massachusetts.edu/](http://www.massachusetts.edu/) |
+| Worcester County District Attorney | worcesterda.com | [worcesterda.com/](http://worcesterda.com/) |
+| Worcester County Sheriff's Department | worcestercountysheriff.com | [worcestercountysheriff.com/](https://worcestercountysheriff.com/) |
 
 ### Adding your Organization Display Details to Search
 
