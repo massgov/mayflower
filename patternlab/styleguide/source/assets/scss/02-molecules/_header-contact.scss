@@ -5,7 +5,7 @@
     content: "true";
     display: none;
 
-    @media print, ($bp-small-min) {
+    @media ($bp-small-min) {
       content: "false";
     }
   }
@@ -55,14 +55,14 @@
 
     }
 
-    @media print, ($bp-small-min) {
+    @media ($bp-small-min) {
       display: none;
     }
   }
 
   &__container {
 
-    @media print, ($bp-small-min) {
+    @media ($bp-small-min) {
       display: flex;
       align-items: stretch;
     }
@@ -83,7 +83,7 @@
       }
     }
 
-    @media print, ($bp-small-min) {
+    @media ($bp-small-min) {
       width: 50%;
 
       & + & {

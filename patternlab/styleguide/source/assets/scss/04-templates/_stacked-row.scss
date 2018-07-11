@@ -35,7 +35,7 @@
     display: block;
     padding-top: 45px;
 
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       border-top-width: 1px;
       border-top-style: solid;
       padding-top: 90px;
@@ -43,7 +43,7 @@
   }
 
   &__section ~ &__section--borderless &__container:before {
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       border-top-width: 0;
     }
   }
