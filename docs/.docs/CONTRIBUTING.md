@@ -16,7 +16,7 @@ This creates a `docs-[my_version]` branch in the Github repo.
 6. Click on the "save" button save as a draft. This is similar to stashing your changes in git, you can rechieve a draft from `Archived Drafts`.
 7. Click on the "publish" button to push the changes to the github branch. Please make sure you are on your feature version and ***never*** "publish" from the `master` version.
 8. Open a [Pull Request](/compare) and set the base to `docs/integration` and have your code reviewed.
-9. Follow the [Changelog Instructions](../for-developer/change-log-instructions.md) to add a changelog.
+9. Follow the [Changelog Instructions](../for-developers/change-log-instructions.md) to add a changelog.
 
 From Github:
 ------------------------------------
@@ -36,7 +36,7 @@ From Github:
     git commit -m "Add foos to bars"
     git push origin docs-my_feature
     ```
-5. Follow the [Changelog Instructions](../for-developer/change-log-instructions.md) to add a changelog.
+5. Follow the [Changelog Instructions](../for-developers/change-log-instructions.md) to add a changelog.
 6. Open a [Pull Request](/compare) and set the base to `docs/integration` and have your code reviewed.
 
 
