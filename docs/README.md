@@ -18,6 +18,7 @@ The goals of Mayflower are:
 | [**RMV ATLAS**](https://atlas-myrmv.massdot.state.ma.us/myrmv/_/) |  | MassDOT | Mayflower inspired |
 | [**MassDOT Open Data Portal**](https://geo-massdot.opendata.arcgis.com) | ArcGIS | MassDOT | Mayflower inspired |
 | [**DTC  Form Release Search**](https://services.oca.state.ma.us/dtc/frmReleasedCalendar.aspx) | ASP.NET | DTC | Mayflower inspired |
+| MassDHE RPMS |  | AI.gov | Mayflower Bootstrap |
 
 If you have a new implementation to add to this list, please [open an issue](https://github.com/massgov/mayflower-doc/issues/new) with the following information:
 
