@@ -16,7 +16,7 @@
   }
 
   &__optional-content {
-    @media print, ($bp-small-min) {
+    @media ($bp-small-min) {
       .ma__contact-us > .ma__contact-group:nth-child(2):nth-last-child(3),
       .ma__contact-us > .ma__contact-us__extra {
         border-color: $c-bd-divider;
