@@ -18,7 +18,7 @@ All implementations of Mayflower contained in this repository follow a unified [
     git checkout -b feature/my_feature
    ```
 
-3. Inside the directory for the implementation you want to work on, make your changes.  Check the contribution guidelines for the specific project you are working on for more details on how to get started.
+3. Inside the directory for the implementation you want to work on, make your changes. Check the contribution guidelines for the specific project you are working on for more details on how to get started.
 4. When you are ready to have your changes reviewed, commit them, and push them back to this repository:
 
    ```bash
