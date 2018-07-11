@@ -47,7 +47,6 @@
   .ma__page-flipper,
   .ma__callout-stats,
   .ma__illustrated-header__image,
-  .ma__location-banner,
   .ma__pagination,
   .ma__location-listing__filters,
   .ma__action-activities__image,
@@ -131,6 +130,11 @@
     min-height: 0;
   }
 
+  .ma__location-banner__map {
+    float: none;
+    width: 100%;
+  }
+
   .ma__google-map {
     display: inline !important;
   }
@@ -194,6 +198,7 @@
 
   img,
   .ma__google-map,
+  .ma__google-map__map,
   .ma__mapped-locations,
   .ma__section-links,
   .ma__about-section-person {
