@@ -34,7 +34,7 @@ Step by step guide for contributing:
     git commit -m "Add foos to bars"
     git push origin patternlab/my_feature
     ```
-5. Follow the [Changelog Instructions](docs/for-developer/change-log-instructions.md) to add a changelog.
+5. Follow the [Changelog Instructions](docs/for-developers/change-log-instructions.md) to add a changelog.
 6. Open a [Pull Request](/compare) to have your code reviewed.
 
 #### Using the Gitbook editor
