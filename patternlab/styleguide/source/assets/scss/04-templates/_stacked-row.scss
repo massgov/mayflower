@@ -3,24 +3,27 @@
 
   &__section {
 
-    @media ($bp-large-max) {
-
-      & ~ & {
-        border-top-width: 1px;
-        border-top-style: solid;
-      }
-
-      & ~ &--borderless {
-        border-top-width: 0;
-      }
-    }
-
     @media print {
       padding-bottom: 0;
     }
 
-    .ma__comp-heading {
-      padding-top: 15px;
+    & ~ & {
+
+      @media ($bp-large-max) {
+        border-top-width: 1px;
+        border-top-style: solid;
+      }
+
+      .ma__stacked-row__title .ma__comp-heading {
+        margin-top: 15px;
+      }
+    }
+
+    & ~ &--borderless {
+
+      @media ($bp-large-max) {
+        border-top-width: 0;
+      }
     }
   }
 
