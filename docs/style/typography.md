@@ -20,7 +20,7 @@ For more details about Texta's terms of use, please refer to our [**web font lic
 
 ### Montserrat
 
-We also hand picked a free web front [**Montserrat from Google fonts**](https://fonts.google.com/specimen/Montserrat) for applications using our open source design system Mayflower at no additional cost. 
+We also hand picked a free web front — [**Montserrat — from Google fonts**](https://fonts.google.com/specimen/Montserrat) for applications using our open source design system Mayflower at no additional cost. 
 
 ![&quot;Mass.gov&quot; displaying in Montserrat](../.gitbook/assets/montserrat-massgov.png)
 
