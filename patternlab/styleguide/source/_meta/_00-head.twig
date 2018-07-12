@@ -16,12 +16,12 @@
     <script src="../../assets/js/vendor/modernizr.js"></script>
 
     <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
-    {{ patternLabHead | raw }}
+    {{ patternLabHead }}
     <!-- this file is just for pattern lab style guide styling -->
     <link rel="stylesheet" href="../../assets/css/pattern-scaffolding-generated.css?{{ cacheBuster }}" media="all" />
     <!-- End Pattern Lab -->
 {#
-  SITE LEVEL DATA: 
+  SITE LEVEL DATA:
   WEBSITE
   - add to home (front) page only.
   - about can be added when its content is ready.
@@ -35,9 +35,9 @@
           "url": "{{ urlDomain }}",
           "name": "Mass.gov",
           "alternateName": "The Official Website of the Commonwealth of Massachusetts", {#
-          "about": "~NEED CONTENT~",#} 
+          "about": "~NEED CONTENT~",#}
           "copyrightHolder": "Commonwealth of Massachusetts", {#
-          "keywords": "state government, ~OTHERS TO ADD: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.~",#} 
+          "keywords": "state government, ~OTHERS TO ADD: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.~",#}
           "potentialAction": {
              "@type": "SearchAction",
              "target": "{{ urlDomain }}/?s={search_term_string}&post_type=post",
@@ -46,12 +46,12 @@
     </script>
 {% endif %}
 {#
-  SITE LEVEL COMMON DATA: 
+  SITE LEVEL COMMON DATA:
   ORGANIZATION
   - alternateName can be added later if helpful.
 #}
     <script type="application/ld+json">
-      { 
+      {
           "@context": "http://schema.org",
           "@type": "Organization",
           "@id": "{{ urlDomain }}/#organization",
@@ -68,7 +68,7 @@
       }
     </script>
 {#
-  SITE LEVEL COMMON DATA: 
+  SITE LEVEL COMMON DATA:
   PAGE STRUCTURE - they match with the ids assigned to the area elements in the <body>.
   - header area
   - footer area
@@ -87,13 +87,13 @@
           "@type": "WPFooter",
           "@id": "{{ urlDomain ~ urlPath ~ '#footer' }}"
       }
-    </script>  
+    </script>
     <script type="application/ld+json">
         {
           "@context": "http://schema.org",
           "@type": "SiteNavigationElement",
           "@id": "{{ urlDomain ~ urlPath ~ '#main-navigation'}}"
         }
-    </script>  
+    </script>
   </head>
   <body class="{{ bodyClass }}" vocab="http://schema.org/" typeof="WebPage">
