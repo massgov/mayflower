@@ -14,7 +14,7 @@
 
 #### License 
 
-Fontspring grants Licensee a perpetual, worldwide, non-exclusive and non-transferrable license install the Texta as webfont **on Websites that are owned by the Commonwealth of Massachusetts** using the @font-face selector in CSS files. For other usage, you may have to acquire an additional license through Fontsprint.
+Fontspring grants Licensee a perpetual, worldwide, non-exclusive and non-transferrable license to install the Texta as webfont **on Websites that are owned by the Commonwealth of Massachusetts** using the @font-face selector in CSS files. For other usage, you may have to acquire an additional license through Fontsprint.
 
 For more details about Texta's terms of use, please refer to our [**web font license**](https://www.fontspring.com/lic/htswufoczd).
 
