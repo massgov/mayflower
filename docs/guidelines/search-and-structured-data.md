@@ -66,29 +66,29 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 
 | **Metatag** | **Filter Functionality** | **Example** |
 | --- | --- |
-| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3%20%285%29.png) |
+| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3%20%2811%29.png) |
 | category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3%20%285%29.png) |
-| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1.png) |
-| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1.png) |
+| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%281%29.png) |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%288%29.png) |
 
 #### Sort
 
 | **Metatag** | **Sort Functionality** | **Example** |
 | --- | --- |
-| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/screen-shot-2018-05-30-at-10.10.32-am-1-1.png) |
+| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/screen-shot-2018-05-30-at-10.10.32-am-1%20%281%29.png) |
 
 #### Search Result Teasers
 
 | **Metatag** | **Teaser Functionality** | **Example** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm-1.png) |
-| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm-1.png) |
-| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm-1.png) |
-| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4-1.png) |
-| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4-1.png) |
-| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4-1.png) |
-| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4-1.png) |
-| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am-2%20%283%29.png) |
+| mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm%20%2810%29.png) |
+| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm%20%287%29.png) |
+| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](../.gitbook/assets/screen-shot-2018-05-29-at-4.36.48-pm%20%289%29.png) |
+| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4.png) |
+| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%2810%29.png) |
+| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%2812%29.png) |
+| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%286%29.png) |
+| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am-2%20%284%29.png) |
 
 ## Adding Structured Metatags to your Website
 
@@ -183,6 +183,7 @@ Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov inde
 | Commonwealth of Massachusetts Supreme Judicial Court Mental Health Legal Advisors Committee | mhlac.org | [www.mhlac.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.mhlac.org) |
 | CommonWiki | wiki.state.ma.us | [https://wiki.state.ma.us/confluence/display/data/](https://wiki.state.ma.us/confluence/display/data/) |
 | Community Economic Development Assistance Corporation | cedac.org | [www.cedac.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.cedac.org) |
+| Compare Care \(Mass Health Care Options\) | masscomparecare.gov | [https://www.masscomparecare.gov/](https://www.masscomparecare.gov/) |
 | Dukes County | dukescounty.org | [www.dukescounty.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.dukescounty.org) |
 | Franklin County Sheriff's Department | fcso-ma.us | [www.fcso-ma.us/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.fcso-ma.us) |
 | Hampden County Sheriff's Department | hcsdmass.org | [www.hcsdmass.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.hcsdmass.org) |
@@ -245,8 +246,8 @@ When a user filters content by organization in search.mass.gov, that organizatio
 
 | Organization | Example Display |
 | --- | --- | --- | --- | --- |
-| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display-1%20%282%29.png) |
+| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display-1%20%283%29.png) |
 | Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display-2%20%283%29.png) |
 | Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display-1%20%284%29.png) |
-| Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display-1%20%283%29.png) |
+| Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display-1%20%284%29.png) |
 
