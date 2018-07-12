@@ -1,7 +1,5 @@
 # Versioning
 
-## Versioning
-
 The Mayflower Component Libraries are using [Semantic Versioning](http://semver.org/) to convey meaning about the underlying code and what has been modified from one version to the next to help consumers keep their sites up to date with the latest features and bug fixes.
 
 #### Key Terms
@@ -75,8 +73,6 @@ A Major version will require carefully updating your site's Assets, Markup, or D
 **Example Version**
 
 [5.0.0](https://github.com/massgov/mayflower/releases/tag/5.0.0) - We had to change the Data Object to introduce a new Announcement Page and fix some issues with our patterns. This page required a new pattern with a socialLinks Data Object, but that Data Object was already being used in the Footer pattern so we had to rename the existing one to footerSocialLinks. We also found inconsistency with patterns using `url` instead of `href` variables so those were all updated to use `href`.
-
-=======
 
 ## Semantic Versioning
 
