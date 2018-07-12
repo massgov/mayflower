@@ -66,10 +66,10 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 
 | **Metatag** | **Filter Functionality** | **Example** |
 | --- | --- |
-| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3.png) |
-| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3.png) |
-| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%281%29.png) |
-| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%281%29.png) |
+| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm%20%283%29.png) |
+| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm%20%283%29.png) |
+| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1.png) |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1.png) |
 
 #### Sort
 
@@ -88,7 +88,7 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 | mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4.png) |
 | mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4.png) |
 | mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4.png) |
-| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am-2.png) |
+| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am%20%282%29.png) |
 
 ## Adding Structured Metatags to your Website
 
@@ -245,8 +245,8 @@ When a user filters content by organization in search.mass.gov, that organizatio
 
 | Organization | Example Display |
 | --- | --- | --- | --- | --- |
-| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display-1.png) |
-| Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display-2.png) |
-| Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display-1.png) |
-| Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display-1%20%281%29.png) |
+| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display%20%281%29.png) |
+| Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display%20%282%29.png) |
+| Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display%20%281%29.png) |
+| Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display-1.png) |
 
