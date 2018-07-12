@@ -59,7 +59,6 @@ export default function (window,document,$,undefined) {
     // Handle pagination click events
     function handlePagination (e, target) {
       "use strict";
-      console.log({target})
       let nextPage = parseInt(target, 10);
 
       masterData.pagination = listings.transformPaginationData({ data: masterData, targetPage: nextPage });
