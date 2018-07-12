@@ -2,20 +2,22 @@
 {% set stackRowBorderless = stackedRow.borderless ? ' ma__stacked-row__section--borderless' : ''  %}
 
 <section class="ma__stacked-row__section{{ stackRowBorderless }}{{ stackRowRestriction }}">
-  {% if stackedRowSection.title %}
-    <div class="ma__stacked-row-section__container">
-      <div class="ma__stacked-row-section__title">
-        {% set compHeading = {
-            "title": stackedRowSection.title,
-            "sub": "",
-            "color": "",
-            "id": stackedRowSection.id
-          }
-        %}
-        {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% block stackRowTitle %}
+    {% if stackedRowSection.title %}
+      <div class="ma__stacked-row-section__container">
+        <div class="ma__stacked-row-section__title">
+          {% set compHeading = {
+              "title": stackedRowSection.title,
+              "sub": "",
+              "color": "",
+              "id": stackedRowSection.id
+            }
+          %}
+          {% include "@atoms/04-headings/comp-heading.twig" %}
+        </div>
       </div>
-    </div>
-  {% endif %}
+    {% endif %}
+  {% endblock %}
   <div class="main-content {{ stackedRowSection.sideBar|length ? 'main-content--two' : 'main-content--full' }}">
     <div class="page-content">
       {% block stackedRowContentOverride %}

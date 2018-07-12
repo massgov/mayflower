@@ -13,6 +13,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 5.31.0 (7/11/2018)
+
+### Added
+- (Patternlab) DP-9475: Added Twig block around stack row title for overrides. #18
+
+### Changed
+- (Patternlab) DP-8177: Adds a selector to the sticky TOC JavaScript to target curated lists #6
+- (Patternlab) DP-9145: design updates to relationship indicators #7
+
+### Fixed
+- (Patternlab) DP-9435: Adds text-wrapping on header alert messages to fix bug on mobile devices #24
+
+## 5.30.0 (7/3/2018)
+
+### Changed
+- DP-8804: Updates Google Maps API version used in Mayflower.
+
 ## 5.29.0 (6/20/2018)
 
 ### Added
@@ -21,7 +38,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Changed
 - DP-9243: MF fix info details to show contact and related in sidebar as well as bottom on desktop.
 
-### Removed 
+### Removed
 - DP-1234: Removed alt value from the state seal since the text "Mass.gov" is duplicate to the content in the followed <span>.
 
 
