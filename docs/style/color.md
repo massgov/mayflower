@@ -2,9 +2,9 @@
 
 | Color | Hex | Name | Details |
 | --- | --- | --- | --- |
-| ![](../.gitbook/assets/color_bay-blue%20%284%29.png) | `#14558f` | **BAY BLUE** | This color is found in the utility nav and content tags, and signifies clickable hyperlinks among text. It is also occasionally used as an accent color.  Exmaples:  Links/Buttons/Glorified buttons/Service page header overlay/Relationship indicator borders/Pagination/Jump links |
+| ![](../.gitbook/assets/color_bay-blue%20%285%29.png) | `#14558f` | **BAY BLUE** | This color is found in the utility nav and content tags, and signifies clickable hyperlinks among text. It is also occasionally used as an accent color.  Exmaples:  Links/Buttons/Glorified buttons/Service page header overlay/Relationship indicator borders/Pagination/Jump links |
 | ![](../.gitbook/assets/color_bay-blue-50%20%282%29.png) | `#8AAAC7` | **50% BAY BLUE** | Examples: Illustrated card border color/Button border color/File type icons/Link arrows |
-| ![](../.gitbook/assets/color_bay-blue-10%20%285%29.png) | `#E7EEF4` | **10% BAY BLUE** | Examples: Glorified button fill |
+| ![](../.gitbook/assets/color_bay-blue-10%20%286%29.png) | `#E7EEF4` | **10% BAY BLUE** | Examples: Glorified button fill |
 | ![](../.gitbook/assets/color_berkshires-green.png) | `#43956F` | **BERKSHIRES GREEN** | This complementary color is used for major headings, underlines on rich text headings, callouts, icons, and as a background accent color. \_\*\*\_Examples:  ‘In this section’ table of contents heading background color/‘The details’ sticky left navigation heading background color/Icon background colors \(topic pages, footer icons, decorative bullet points\)/Icon color fill \(search bar, location icons, etc.\)/Page dividers |
 | ![](../.gitbook/assets/color_berkshires-green-50%20%283%29.png) | `#A1CAB7` | **BERKSHIRES GREEN** | Examples:  Heading underline/Heading underlines \(primary nav active state\) |
 | ![](../.gitbook/assets/color_berkshires-green-10%20%284%29.png) | `#D9EAE2` | **50% BERKSHIRES GREEN** | Examples:  Stat callout background color/Event date background color/Transition page background color |

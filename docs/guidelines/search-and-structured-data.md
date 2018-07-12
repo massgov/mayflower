@@ -66,10 +66,10 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 
 | **Metatag** | **Filter Functionality** | **Example** |
 | --- | --- |
-| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3%20%2811%29.png) |
-| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3%20%285%29.png) |
-| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%281%29.png) |
-| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%288%29.png) |
+| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3%20%2812%29.png) |
+| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.57-pm-3%20%286%29.png) |
+| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%282%29.png) |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%2810%29.png) |
 
 #### Sort
 
@@ -88,7 +88,7 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 | mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%2810%29.png) |
 | mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%2812%29.png) |
 | mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.39.21-am-4%20%286%29.png) |
-| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am-2%20%284%29.png) |
+| mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/screen-shot-2018-05-30-at-10.38.50-am-2%20%285%29.png) |
 
 ## Adding Structured Metatags to your Website
 
@@ -164,7 +164,7 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
 
 ### Adding your Domain to the Search.Mass.Gov CSE
 
-Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov indexes over 60 Commonwealth web properties. A [complete list of these web properties](search-and-structured-data.md#websites-included-in-search-mass-gov) is included in a table below. If you believe your website should be included in the results set returned on search.mass.gov, please contact the search team by submitting a [Github issue to Mayflower](https://github.com/massgov/mayflower/issues) labelled `add domain to search` .
+Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov indexes over 60 Commonwealth web properties. A [complete list of these web properties](search-and-structured-data.md#websites-included-in-search-mass-gov) is included in a table below. If you believe your website should be included in the results returned on search.mass.gov, please contact the search team by submitting a [Github issue to Mayflower](https://github.com/massgov/mayflower/issues) labelled `add domain to search` .
 
 #### Websites Included in Search.Mass.Gov
 
@@ -246,8 +246,8 @@ When a user filters content by organization in search.mass.gov, that organizatio
 
 | Organization | Example Display |
 | --- | --- | --- | --- | --- |
-| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display-1%20%283%29.png) |
-| Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display-2%20%283%29.png) |
-| Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display-1%20%284%29.png) |
+| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display-1%20%284%29.png) |
+| Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display-2%20%284%29.png) |
+| Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display-1%20%285%29.png) |
 | Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display-1%20%284%29.png) |
 
