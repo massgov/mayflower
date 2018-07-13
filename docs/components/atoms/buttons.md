@@ -29,7 +29,7 @@ For the principle call to action on the page.
 
 For the secondary action on a page.
 
-![](../../.gitbook/assets/secondary-button-outline-1%20%282%29.gif)
+![](../../.gitbook/assets/secondary-button-outline%20%281%29.gif)
 
 ```text
 <button type="button" class="ma__button ma__button--small ma__button--secondary ma__button--minor" aria-label="">Button</button>
@@ -43,7 +43,7 @@ For the secondary action on a page.
 
 For the fourth action on a page.
 
-![](../../.gitbook/assets/quarternary-button-2%20%285%29.gif)
+![](../../.gitbook/assets/quarternary-button%20%282%29.gif)
 
 [Quaternary Button in Storybook](http://mayflower-react.digital.mass.gov/?knob-button.theme=quaternary&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-button.text=button&knob-button.href=&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 
