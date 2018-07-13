@@ -66,10 +66,10 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 
 | **Metatag** | **Filter Functionality** | **Example** |
 | --- | --- |
-| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](https://github.com/massgov/mayflower/tree/3212bbc7260c15d2e202b05ae1572ef014787e8f/docs/assets/screen-shot-2018-05-29-at-12.23.57-pm%20%283%29.png) |
-| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](https://github.com/massgov/mayflower/tree/3212bbc7260c15d2e202b05ae1572ef014787e8f/docs/assets/screen-shot-2018-05-29-at-12.23.57-pm%20%283%29.png) |
+| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](https://github.com/massgov/mayflower/tree/3212bbc7260c15d2e202b05ae1572ef014787e8f/docs/assets/screen-shot-2018-05-29-at-12.23.57-pm.png) |
+| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](https://github.com/massgov/mayflower/tree/3212bbc7260c15d2e202b05ae1572ef014787e8f/docs/assets/screen-shot-2018-05-29-at-12.23.57-pm.png) |
 | mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%2812%29.png) |
-| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../assets/screen-shot-2018-05-29-at-12.23.49-pm-1%20%285%29.png) |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../assets/screen-shot-2018-05-29-at-12.23.49-pm-1.png) |
 
 #### Sort
 
