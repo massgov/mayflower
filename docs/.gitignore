@@ -19,5 +19,5 @@ doc
 **/**/media/*.*
 
 # gitbook asset duplicates
-.gitbook/assets/*).png
-.gitbook/assets/*).gif
+assets/*).png
+assets/*).gif
