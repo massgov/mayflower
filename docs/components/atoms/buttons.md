@@ -15,7 +15,7 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 
 For the principle call to action on the page.
 
-![](../../.gitbook/assets/primary-button-2%20%284%29.gif)
+![](../../assets/primary-button-2.gif)
 
 ```text
 <button type="button" class="ma__button" aria-label="">Button</button>
@@ -29,7 +29,7 @@ For the principle call to action on the page.
 
 For the secondary action on a page.
 
-![](../../.gitbook/assets/secondary-button-outline%20%281%29.gif)
+![](../../assets/secondary-button-outline.gif)
 
 ```text
 <button type="button" class="ma__button ma__button--small ma__button--secondary ma__button--minor" aria-label="">Button</button>
