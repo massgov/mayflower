@@ -66,28 +66,28 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 
 | **Metatag** | **Filter Functionality** | **Example** |
 | --- | --- |
-| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](/docs/assets/screen-shot-2018-05-29-at-12.23.57-pm.png) |
-| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](/docs/assets/screen-shot-2018-05-29-at-12.23.57-pm.png) |
-| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](/docs/assets/screen-shot-2018-05-29-at-12.23.49-pm.png) |
-| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](/docs/assets/screen-shot-2018-05-29-at-12.23.49-pm.png) |
+| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](/docs/assets/advanced-search-collapsed.png) |
+| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](/docs/assets/advanced-search-collapsed.png) |
+| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](/docs/assets/advanced-search-expanded.png) |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](/docs/assets/advanced-search-expanded.png) |
 
 #### Sort
 
 | **Metatag** | **Sort Functionality** | **Example** |
 | --- | --- |
-| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](/docs/assets/screen-shot-2018-05-30-at-10.10.32-am.png) |
+| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](/docs/assets/mg_date.png.png) |
 
 #### Search Result Teasers
 
 | **Metatag** | **Teaser Functionality** | **Example** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](/docs/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
-| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](/docs/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
-| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](/docs/assets/screen-shot-2018-05-29-at-4.36.48-pm.png) |
-| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](/docs/assets/screen-shot-2018-05-30-at-10.39.21-am.png) |
-| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](/docs/assets/screen-shot-2018-05-30-at-10.39.21-am.png) |
-| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](/docs/assets/screen-shot-2018-05-30-at-10.39.21-am.png) |
-| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](/docs/assets/screen-shot-2018-05-30-at-10.39.21-am.png) |
+| mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](/docs/assets/mg_organization.png) |
+| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](/docs/assets/mg_organization.png) |
+| mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](/docs/assets/mg_organization.png) |
+| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](/docs/assets/mg_phone_number.png) |
+| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](/docs/assets/mg_phone_number.png) |
+| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](/docs/assets/mg_phone_number.png) |
+| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](/docs/assets/mg_phone_number.png) |
 | mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](/docs/assets/mg_key_actions.png) |
 
 ## Adding Structured Metatags to your Website
