@@ -43,5 +43,5 @@ Mayflower release managers with the necessary repo permissions can follow these 
     1. Click on the Releases icon on the left side (it looks like a boat/ship).
     1. Add a new release version with today's date.
     1. Go to each shipped JIRA issue and update the Fix Version/s field.
-1. Next steps in pulling the Mayflower tag into the Mass repository is documented here. (TBD)
+1. Next steps in pulling the Mayflower tag into the Mass repository is documented within the [Updating the Mayflower Version](https://github.com/massgov/mass/wiki/Updating-the-Mayflower-Version).
 1. Celebrate!!
