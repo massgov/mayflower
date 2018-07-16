@@ -1,0 +1,2 @@
+
+URLSearchParams = (module.exports = global.URLSearchParams || URLSearchParams);
