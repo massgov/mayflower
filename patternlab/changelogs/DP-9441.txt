@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Change
-Patch
-- DP-9441: Decreases spacing between Stacked Rows when stacked.
