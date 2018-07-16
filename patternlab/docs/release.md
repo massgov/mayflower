@@ -11,7 +11,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
     1. `git checkout develop`
     1. Pull the latest from upstream `git pull <remote> develop`.
     1. Run `npm install`
-1. Create a release branch
+1. Create a release branch (at Noontime every Wednesday)
     1. `git checkout -b release-#.#.#` where `#.#.#` is the next version (i.e. `5.0.0`).  Read more about [Mayflower and semantic versioning](/docs/for-developers/versioning.md) to ensure that your are creating the right type of version.
     1. Add [change logs](https://github.com/massgov/mayflower/tree/develop/changelogs) to the top of [CHANGELOG.md](../CHANGELOG.md) based on the "changelog.txt" files, remove all the "changelog.txt" files and then commit these changes.
     1. Run `npm install` in case the release includes new packages.
@@ -24,7 +24,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
 1. Verify release notes against the site rendered at: `https://mayflower.digital.mass.gov/b/<your-release-branch>/index.html`.
 1. Smoke test Mayflower (a quick way to do this is to browse around to some of the different pages in the "pages" menu and do a quick gut check)
 1. Open a Github Pull Request to merge (no squash!) the release branch into the `master` branch. To merge the release branch into `master` branch you will need a peer to review and approve the Pull Request. 
-    1. Add the [CHANGELOG.md](../CHANGELOG.md) to the pull request.
+    1. Add the [CHANGELOG.md](../CHANGELOG.md) to the Pull Request.
     1. This is a great time to verify one more time that your release [is following semantic versioning](/docs/for-developers/versioning.md) properly (i.e. not pushing out breaking changes in a minor release).
 
 ## Create a tag
