@@ -176,6 +176,7 @@ Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov inde
 | Board and Commission Appointment by the Governor of Massachusetts \(_Boards and Commissions Office_\) | appointments.state.ma.us | [appointments.state.ma.us/](https://appointments.state.ma.us/) |
 | Boston Region Metropolitan Planning Organization | ctps.org | [www.ctps.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.ctps.org) |
 | Bristol County District Attorney | bristolda.com | [http://bristolda.com/](http://bristolda.com/) |
+| Compare Care \(Mass Health Care Options\) | masscomparecare.gov | [https://www.masscomparecare.gov/](https://www.masscomparecare.gov/) |
 | Center for Health Information and Analysis | chiamass.gov | [www.chiamass.gov/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.chiamass.gov) |
 | Civil Service Eligible Lists | csexam.hrd.state.ma.us | [https://www.csexam.hrd.state.ma.us/ eligiblelist/eligiblelist.aspx\*](https://www.csexam.hrd.state.ma.us/eligiblelist/eligiblelist.aspx*) |
 | Committee for Public Counsel Services \(Public Defender Agency of Massachusetts\) | publiccounsel.net | [www.publiccounsel.net/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.publiccounsel.net) |
