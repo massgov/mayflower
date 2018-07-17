@@ -39,6 +39,8 @@ export default function (window,document,$,undefined) {
       // Update master data with the various filter values.
       let formData = getFormData({$form: $(this)});
 
+      pushFilterState(formData);
+
       // Trigger location listing filter event with current filter values.
       $el.trigger('ma:LocationFilter:FormSubmitted', [{formData: formData}]);
     });
@@ -111,6 +113,25 @@ export default function (window,document,$,undefined) {
     }
     // Uncheck all checked tags inputs.
     $tags.find('input:checked').prop('checked', false);
+  }
+
+  function pushFilterState(filters) {
+    let params = new URLSearchParams(window.location.search);
+    let pageNum = params.get('page');
+
+    params.delete('location');
+    params.delete('tags');
+
+    if (filters.length) {
+      filters.forEach((filter) => {
+        params.set(filter.type, filter.value);
+      });
+    }
+
+    history.pushState(
+      { page: pageNum },
+      `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
+    );
   }
 
 }(window,document,jQuery);
