@@ -34,6 +34,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Added
 - DP-9146/DP-8825: Adds teaser listing group organism to apply accordion behavior to multiple teaser listings at once.
+- DP-9017: Image placement on Guide pages using focal point.
 
 ### Changed
 - DP-9243: MF fix info details to show contact and related in sidebar as well as bottom on desktop.
