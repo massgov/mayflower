@@ -17,10 +17,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Added
 - (Patternlab) DP-5329: Adds browser history enabled pagination for listing pages. #8
-- (Patternlab) DP-9475: Added Twig block around stack row title for overrides. #18
-
-### Changed
-- (Patternlab) DP-9145: design updates to relationship indicators #7
 
 ## 5.31.0 (7/11/2018)
 
