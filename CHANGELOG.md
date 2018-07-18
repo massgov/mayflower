@@ -13,6 +13,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 5.32.0 (7/18/2018)
+
+### Added
+- (Patternlab) DP-5329: Adds browser history enabled pagination for listing pages. #8
+- (Patternlab) DP-9475: Added Twig block around stack row title for overrides. #18
+
+### Changed
+- (Patternlab) DP-9145: design updates to relationship indicators #7
+
 ## 5.31.0 (7/11/2018)
 
 ### Added
