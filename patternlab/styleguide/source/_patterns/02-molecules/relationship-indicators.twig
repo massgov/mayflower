@@ -1,10 +1,10 @@
 <div class="ma__relationship-indicators">
   <div class="ma__relationship-indicators--section primary">
     <span class="ma__relationship-indicators--label">
-      Offered By:
+      {{ relationshipIndicators.primary.label }}
     </span>
     <div class="ma__relationship-indicators--terms">
-      {% for item in relationshipIndicators.primary %}
+      {% for item in relationshipIndicators.primary.tags %}
       <div class="ma__relationship-indicators--term">
         <a href="{{ item.href }}">{{ item.text }}</a>
       </div>
@@ -18,10 +18,11 @@
   {% if relationshipIndicators.secondary is not empty %}
   <div class="ma__relationship-indicators--section secondary">
     <span class="ma__relationship-indicators--label">
-      Related To:
+      {{ relationshipIndicators.secondary.label }}
+    </span>
     </span>
     <div class="ma__relationship-indicators--terms">
-    {% for item in relationshipIndicators.secondary %}
+    {% for item in relationshipIndicators.secondary.tags %}
       <div class="ma__relationship-indicators--term">
         <a href="{{ item.href }}">{{ item.text }}</a>
       </div>
