@@ -2,6 +2,9 @@ export default function (window,document,$,undefined) {
   $('.js-location-filters').each(function(){
     let $el = $(this);
 
+    // NJ - remove comment: within this scope that should be called on page load, call the new function to set form
+    // data and then call the new function that used to be part of the submit.
+
     // When google map libraries are loaded, initialize places.autocomplete on the location input, if it exists.
     $(document).on('ma:LibrariesLoaded:GoogleMaps', function() {
       let $locationFilterParent = $('.js-filter-by-location', $el);
@@ -37,11 +40,15 @@ export default function (window,document,$,undefined) {
     $el.submit(function(e){
       e.preventDefault();
       // Update master data with the various filter values.
+      // NJ - remove comment: move the next 6 lines of this function to a new named one so that it can be called
+      // directly. We need to trigger this on page load after we have populated the form values.
       let formData = getFormData({$form: $(this)});
 
       pushFilterState(formData);
 
       // Trigger location listing filter event with current filter values.
+      // NJ - Remove comment: Add another parameter to this event that controls whether or not the pager is reset,
+      // because on submit, the pager should reset, but on page load, it should use the page parameter in the url.
       $el.trigger('ma:LocationFilter:FormSubmitted', [{formData: formData}]);
     });
 
@@ -58,6 +65,9 @@ export default function (window,document,$,undefined) {
       clearDeactivatedFilter(args);
     }
   }
+
+  // NJ - remove comment: Add a new function that is just the opposite of this one. Instead of getting the form data, it
+  // needs to set it from the get parameter (see lines 134-140 of locationListing.js to pull params from the url).
 
   function getFormData(args) {
     let $form = $(args.$form),

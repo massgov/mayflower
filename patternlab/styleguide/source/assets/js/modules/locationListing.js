@@ -76,6 +76,7 @@ export default function (window, document, $, undefined) {
       });
 
       // Handle location listings form interaction (triggered by locationFilters.js).
+      // NJ - remove comment: allow another variable to be passed in to control page reset.
       $locationFilter.on('ma:LocationFilter:FormSubmitted', function (e, formValues) {
         // transformData() returns a jQuery deferred object which allows us to wait for any asynchronous js execution to return before executing the .done(callback).
         // @see: https://api.jquery.com/deferred.done/
@@ -84,6 +85,8 @@ export default function (window, document, $, undefined) {
           // Update the results heading based on the current items state.
           transformation.data.resultsHeading = listings.transformResultsHeading({ data: transformation.data });
           // Update pagination data structure, reset to first page
+          // NJ - remove comment: only run this if the passed in variable says to (the form was submitted instead of
+          // simply loading values from url on page load.
           transformation.data.pagination = listings.transformPaginationData({ data: transformation.data });
           // Render the listing page.
           listings.renderListingPage({ data: transformation.data });
