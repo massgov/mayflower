@@ -4,11 +4,13 @@
       {{ relationshipIndicators.primary.label }}
     </span>
     <div class="ma__relationship-indicators--terms">
+    {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
       <div class="ma__relationship-indicators--term">
         <a href="{{ item.href }}">{{ item.text }}</a>
       </div>
     {% endfor %}
+    {% endblock %}
     <button type="button" class="js-relationship-indicator-button">
       show <span class="tag-count"></span> <span class="tag-state">more</span
     </button>
@@ -22,11 +24,13 @@
     </span>
     </span>
     <div class="ma__relationship-indicators--terms">
+    {% block secondaryRelationship %}
     {% for item in relationshipIndicators.secondary.tags %}
       <div class="ma__relationship-indicators--term">
         <a href="{{ item.href }}">{{ item.text }}</a>
       </div>
     {% endfor %}
+    {% endblock %}
     <button type="button" class="js-relationship-indicator-button">
       show <span class="tag-count"></span> <span class="tag-state">more</span>
     </button>
