@@ -6,11 +6,11 @@
       "tags": [{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Department of Conservation and Recreation"
+        "title": "Department of Conservation and Recreation"
       },{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Other agency or organization"
+        "title": "Other agency or organization"
       }]
     },
     "secondary": {
@@ -19,27 +19,27 @@
       "tags": [{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Snowmobile in the Parks"
+        "title": "Snowmobile in the Parks"
       },{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Cross-Country Skiing"
+        "title": "Cross-Country Skiing"
       },{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Accessible Hiking"
+        "title": "Accessible Hiking"
       },{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Scenic Viewing Areas"
+        "title": "Scenic Viewing Areas"
       },{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Hunting"
+        "title": "Hunting"
       },{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Biking"
+        "title": "Biking"
       }]
     }
   }

@@ -6,9 +6,11 @@
     <div class="ma__relationship-indicators--terms">
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
+     
       {% set wrappedLink = item %}
-      {% include "@atoms/11-text/wrapped-link.twig" %}
-    {% endfor %}
+      {% include "@atoms/11-text/wrapped-link.twig" %} 
+      
+      {% endfor %}
     {% endblock %}
     <button type="button" class="js-relationship-indicator-button">
       show <span class="tag-count"></span> <span class="tag-state">more</span
@@ -23,13 +25,12 @@
     </span>
     </span>
     <div class="ma__relationship-indicators--terms">
-    {% block secondaryRelationship %}
-    {% for item in relationshipIndicators.secondary.tags %}
-      <div class="{{ item.class }}">
-        <a href="{{ item.href }}">{{ item.text }}</a>
-      </div>
-    {% endfor %}
-    {% endblock %}
+    {% for item in relationshipIndicators.primary.tags %}
+     
+      {% set wrappedLink = item %}
+      {% include "@atoms/11-text/wrapped-link.twig" %} 
+      
+      {% endfor %}
     <button type="button" class="js-relationship-indicator-button">
       show <span class="tag-count"></span> <span class="tag-state">more</span>
     </button>
