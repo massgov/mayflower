@@ -2,8 +2,6 @@ export default function (window,document,$,undefined) {
   $('.js-location-filters').each(function(){
     let $el = $(this);
 
-    populateFormData($el, false);
-
     // When google map libraries are loaded, initialize places.autocomplete on the location input, if it exists.
     $(document).on('ma:LibrariesLoaded:GoogleMaps', function() {
       let $locationFilterParent = $('.js-filter-by-location', $el);
@@ -28,6 +26,8 @@ export default function (window,document,$,undefined) {
         };
         ma.autocomplete = new google.maps.places.Autocomplete(locationInput, options);
       }
+
+      populateFormData($el, false);
     });
 
     // Listen for new data from another component interaction (i.e. results heading), update form.
@@ -66,7 +66,7 @@ export default function (window,document,$,undefined) {
     pushFilterState(formData, isFormSubmit);
 
     // Trigger location listing filter event with current filter values.
-    $el.trigger('ma:LocationFilter:FormSubmitted', [{formData: formData}, isFormSubmit]);
+    $el.trigger('ma:LocationFilter:FiltersUpdated', [{formData: formData}, isFormSubmit]);
   }
 
   function renderForm(args) {

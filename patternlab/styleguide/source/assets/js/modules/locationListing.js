@@ -64,7 +64,7 @@ export default function (window, document, $, undefined) {
 
         // Focus moved into listing for first time, so flag with class, recenter + bounce marker.
         $(e.currentTarget).addClass(markerActiveClass);
-        let index = $(e.currentTarget).index();
+        let index = $(emcurrentTarget).index();
 
         // Trigger map to recenter on this item and make the marker bounce
         $map.trigger('ma:GoogleMap:MarkerBounce', index);
@@ -76,24 +76,25 @@ export default function (window, document, $, undefined) {
       });
 
       // Handle location listings form interaction (triggered by locationFilters.js).
-      $locationFilter.on('ma:LocationFilter:FormSubmitted', function (e, formValues, resetValues) {
-        console.log(formValues);
+      $locationFilter.on('ma:LocationFilter:FiltersUpdated', function (e, formValues, resetValues) {
         // transformData() returns a jQuery deferred object which allows us to wait for any asynchronous js execution to return before executing the .done(callback).
         // @see: https://api.jquery.com/deferred.done/
         transformData(masterData, formValues).done(function (transformation) {
+          let page = 1;
+          if (!resetValues) {
+            page = parseInt(getPage(), 10);
+          }
           masterData = transformation.data; // preserve state
           // Update the results heading based on the current items state.
-          transformation.data.resultsHeading = listings.transformResultsHeading({ data: transformation.data });
+          transformation.data.resultsHeading = listings.transformResultsHeading({ data: transformation.data, page: page });
           // Update pagination data structure, reset to first page
-          if (resetValues) {
-            transformation.data.pagination = listings.transformPaginationData({data: transformation.data});
-            // Render the listing page.
-            listings.renderListingPage({data: transformation.data});
-            // Get the associated markers based on the listing items.
-            transformation.markers = getActiveMarkers({data: transformation.data});
-            // Trigger child components render with updated data
-            updateChildComponents(transformation);
-          }
+          transformation.data.pagination = listings.transformPaginationData({data: transformation.data, targetPage: page});
+          // Render the listing page.
+          listings.renderListingPage({data: transformation.data, page: page});
+          // Get the associated markers based on the listing items.
+          transformation.markers = getActiveMarkers({data: transformation.data, page: page});
+          // Trigger child components render with updated data
+          updateChildComponents(transformation);
         });
       });
 
@@ -131,16 +132,22 @@ export default function (window, document, $, undefined) {
         updateChildComponents({ data: masterData, markers: markers });
       }
 
+      function getPage() {
+        let defaultPage = 1;
+        let params = new URLSearchParams(window.location.search);
+        if (history.state) {
+          defaultPage = history.state.page;
+        }
+        if (params) {
+          defaultPage = params.get("page");
+        }
+        return defaultPage;
+      }
+
       // Handle pagination event (triggered by pagination.js), render targetPage.
       $pagination.on('ma:Pagination:Pagination', handlePagination);
-      let defaultPage = 1;
-      let params = new URLSearchParams(window.location.search);
-      if (history.state) {
-        defaultPage = history.state.page;
-      }
-      if (params) {
-        defaultPage = params.get("page");
-      }
+      let defaultPage = getPage();
+
       if (parseInt(defaultPage, 10) !== 1) {
         handlePagination(null, defaultPage);
       }
