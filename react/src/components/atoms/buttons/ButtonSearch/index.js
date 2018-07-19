@@ -11,7 +11,7 @@ const ButtonSearch = (buttonSearch) => {
       className={buttonSearch.classes.join(' ')}
       onClick={(e) => { if (onButtonClick) buttonSearch.onClick(e); }}
     >
-      <span>{buttonSearch.text}</span>
+      <span>{buttonSearch.text} </span>
       <SvgSearch />
     </button>
   ));

@@ -11,7 +11,7 @@ import ButtonSearchReadme from './ButtonSearch.md';
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs)
   .add(
-    'ButtonSearch',
+    'ButtonSearchold',
     withInfo(`<div>${ButtonSearchReadme}</div>`)(() => {
       const props = {
         text: text('ButtonSearch.text', 'Search'),
