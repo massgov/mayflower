@@ -1,0 +1,46 @@
+{
+  "id": "mayflower-react",
+  "viewports": [
+    {
+      "label": "small_atom",
+      "width": 320,
+      "height": 200
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "atoms/Divider",
+      "url": "http://localhost:6006/?selectedKind=atoms&selectedStory=Divider&full=1&addons=0&stories=0"
+    },
+    {
+      "label": "atoms/buttons/Button",
+      "url": "http://localhost:6006/?selectedKind=atoms%2Fbuttons&selectedStory=Button&full=1&addons=0&stories=0"
+    },
+    {
+      "label": "atoms/buttons/ButtonSearch",
+      "url": "http://localhost:6006/?selectedKind=atoms%2Fbuttons&selectedStory=ButtonSearch&full=1&addons=0&stories=0"
+    },
+    {
+      "label": "atoms/buttons/ButtonSort",
+      "url": "http://localhost:6006/?selectedKind=atoms%2Fbuttons&selectedStory=ButtonSort&full=1&addons=0&stories=0"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}
