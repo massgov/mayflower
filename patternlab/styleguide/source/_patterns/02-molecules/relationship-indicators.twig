@@ -25,12 +25,14 @@
     </span>
     </span>
     <div class="ma__relationship-indicators--terms">
-    {% for item in relationshipIndicators.primary.tags %}
+    {% block secondaryRelationship %}
+    {% for item in relationshipIndicators.secondary.tags %}
      
       {% set wrappedLink = item %}
       {% include "@atoms/11-text/wrapped-link.twig" %} 
       
       {% endfor %}
+      {% endblock %}
     <button type="button" class="js-relationship-indicator-button">
       show <span class="tag-count"></span> <span class="tag-state">more</span>
     </button>
