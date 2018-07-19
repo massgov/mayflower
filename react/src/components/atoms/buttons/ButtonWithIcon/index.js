@@ -29,13 +29,13 @@ class ButtonWithIcon extends React.Component {
     if (this.props.capitalized) {
       classNames += ' ma__button-capitalized';
     }
-    if (this.props.iconSize === 'small') {
+    if (this.props.iconSize === 'small' || this.props.icon.type.name === 'SvgChevron') {
       classNames += ' ma__icon-small';
     }
     if (this.props.iconColor === 'green') {
       classNames += ' ma__icon-green';
     }
-    if (this.props.text.toLowerCase() === 'search') {
+    if (this.props.icon === 'search') {
       classNames += ' ma__button-search';
     }
     const buttonProps = {

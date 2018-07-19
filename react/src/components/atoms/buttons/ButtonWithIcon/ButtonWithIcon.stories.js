@@ -28,7 +28,7 @@ storiesOf('atoms/buttons', module)
         type: select('ButtonWithIcon.type', buttonWithIconOptions.type, 'submit'),
         classes: array('ButtonWithIcon.classes', []),
         icon: select('ButtonWithIcon.icon', Object.keys(icons), 'chevron'),
-        iconSize: select('ButtonWithIcon.iconSize', buttonWithIconOptions.size, 'small'),
+        iconSize: select('ButtonWithIcon.iconSize', buttonWithIconOptions.size, ''),
         iconColor: select('ButtonWithIcon.iconColor', buttonWithIconOptions.color),
         canExpand: boolean('ButtonWithIcon.canExpand', true),
         expanded: boolean('ButtonWithIcon.expanded', true),
