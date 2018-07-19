@@ -35,6 +35,9 @@ class ButtonWithIcon extends React.Component {
     if (this.props.iconColor === 'green') {
       classNames += ' ma__icon-green';
     }
+    if (this.props.text.toLowerCase() === 'search') {
+      classNames += ' ma__button-search';
+    }
     const buttonProps = {
       type: this.props.type,
       className: `ma__button-icon ${classNames}`,
