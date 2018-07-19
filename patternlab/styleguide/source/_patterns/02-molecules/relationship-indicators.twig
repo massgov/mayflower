@@ -7,8 +7,8 @@
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
      
-      {% set wrappedLink = item %}
-      {% include "@atoms/11-text/wrapped-link.twig" %} 
+        {% set wrappedLink = item %}
+        {% include "@atoms/11-text/wrapped-link.twig" %} 
       
       {% endfor %}
     {% endblock %}
@@ -19,24 +19,24 @@
   </div>
 
   {% if relationshipIndicators.secondary is not empty %}
-  <div class="ma__relationship-indicators--section secondary">
-    <span class="ma__relationship-indicators--label">
-      {{ relationshipIndicators.secondary.label }}
-    </span>
-    </span>
-    <div class="ma__relationship-indicators--terms">
-    {% block secondaryRelationship %}
-    {% for item in relationshipIndicators.secondary.tags %}
-     
-      {% set wrappedLink = item %}
-      {% include "@atoms/11-text/wrapped-link.twig" %} 
+    <div class="ma__relationship-indicators--section secondary">
+      <span class="ma__relationship-indicators--label">
+        {{ relationshipIndicators.secondary.label }}
+      </span>
+      </span>
+      <div class="ma__relationship-indicators--terms">
+      {% block secondaryRelationship %}
+      {% for item in relationshipIndicators.secondary.tags %}
       
+        {% set wrappedLink = item %}
+        {% include "@atoms/11-text/wrapped-link.twig" %} 
+        
       {% endfor %}
       {% endblock %}
-    <button type="button" class="js-relationship-indicator-button">
-      show <span class="tag-count"></span> <span class="tag-state">more</span>
-    </button>
+      <button type="button" class="js-relationship-indicator-button">
+        show <span class="tag-count"></span> <span class="tag-state">more</span>
+      </button>
+      </div>
     </div>
-  </div>
   {% endif %}
 </div>
