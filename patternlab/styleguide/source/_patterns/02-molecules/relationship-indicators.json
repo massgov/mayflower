@@ -4,9 +4,11 @@
       "position": "primary",
       "label": "offered by",
       "tags": [{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
         "text": "Department of Conservation and Recreation"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
         "text": "Other agency or organization"
       }]
@@ -15,21 +17,27 @@
       "position": "",
       "label": "related to",
       "tags": [{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
         "text": "Snowmobile in the Parks"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
         "text": "Cross-Country Skiing"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
         "text": "Accessible Hiking"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
         "text": "Scenic Viewing Areas"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
         "text": "Hunting"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
         "text": "Biking"
       }]

@@ -6,9 +6,8 @@
     <div class="ma__relationship-indicators--terms">
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
-      <div class="ma__relationship-indicators--term">
-        <a href="{{ item.href }}">{{ item.text }}</a>
-      </div>
+      {% set wrappedLink = item %}
+      {% include "@atoms/11-text/wrapped-link.twig" %}
     {% endfor %}
     {% endblock %}
     <button type="button" class="js-relationship-indicator-button">
@@ -26,7 +25,7 @@
     <div class="ma__relationship-indicators--terms">
     {% block secondaryRelationship %}
     {% for item in relationshipIndicators.secondary.tags %}
-      <div class="ma__relationship-indicators--term">
+      <div class="{{ item.class }}">
         <a href="{{ item.href }}">{{ item.text }}</a>
       </div>
     {% endfor %}
