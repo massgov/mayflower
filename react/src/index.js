@@ -10,7 +10,6 @@ export Placeholder from './components/base/Placeholder'
 export Divider from './components/atoms/Divider';
 // @atoms/@buttons
 export Button from './components/atoms/buttons/Button';
-export ButtonSearch from './components/atoms/buttons/ButtonSearch';
 export ButtonSort from './components/atoms/buttons/ButtonSort';
 export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
