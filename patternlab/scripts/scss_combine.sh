@@ -5,9 +5,12 @@ dir2="06-theme/01-atoms"
 
 for f in $topdir/$dir1/*.scss
 do
-    outf=$topdir/`basename $f .scss`-concat.scss
+    outf=$topdir/test/`basename $f .scss`.scss
     cp $f $outf
-    sed -e '1 d' $topdir/$dir2/`basename $f` >> $outf
-done
+    
+    [ -f $topdir/$dir2/`basename $f` ] && {
+      echo "\n//theme" >> $outf
+      cat $topdir/$dir2/`basename $f` >> $outf
+    } || echo "Not found" 
 
-tar czf foo.tar.gz $topdir/*-concat.scss
+done
