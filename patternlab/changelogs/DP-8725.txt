@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Change
-Minor
-- DP-8725: MF for responsive and accessible tables
