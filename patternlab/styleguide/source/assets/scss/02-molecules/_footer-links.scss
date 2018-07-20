@@ -37,3 +37,23 @@
     padding-bottom: 3px;
   }
 }
+
+//theme
+.ma__footer-links {
+
+  &__items {
+
+    @media ($bp-small-max) {
+      border-bottom-color: $c-bd-divider;
+    }
+  }
+
+  &__link {
+    color: $c-font-dark;
+    font-weight: 500;
+
+    &:hover {
+      border-bottom-color: rgba($c-font-dark,.5);
+    }
+  }
+}

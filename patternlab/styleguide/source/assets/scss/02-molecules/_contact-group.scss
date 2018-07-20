@@ -83,3 +83,32 @@
     }
   }
 }
+
+//theme
+.ma__contact-group {
+
+  &__name {
+
+    svg {
+      fill: $c-theme-secondary;
+    }
+
+    span {
+      color: $c-font-dark;
+      font-weight: 700;
+    }
+  }
+
+  &__label {
+    font-weight: 500;
+  }
+
+  &__value {
+    font-weight: 300;
+  }
+
+  .ma__content-link--phone {
+    font-weight: 300;
+  }
+
+}
