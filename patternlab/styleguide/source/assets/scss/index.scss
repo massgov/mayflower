@@ -16,6 +16,11 @@
 @import "00-base/mixins";
 @import "00-base/z-index";
 
+// base theme variables
+@import "00-base/colors";
+@import "00-base/fonts";
+@import "00-base/pikaday";
+
 // Atoms - reusable styles
 @import "01-atoms/global/elements";
 @import "01-atoms/arrow-button";
@@ -202,3 +207,6 @@
 @import "04-templates/policy-advisory";
 @import "04-templates/services";
 @import "04-templates/stacked-row";
+
+// Print styles
+@import "08-print/print";
