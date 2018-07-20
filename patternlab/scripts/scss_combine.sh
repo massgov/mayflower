@@ -11,6 +11,6 @@ do
     [ -f $topdir/$dir2/`basename $f` ] && {
       echo "\n//theme" >> $outf
       cat $topdir/$dir2/`basename $f` >> $outf
-    } || echo "Not found" 
+    } || echo "No theme for `basename $f`" 
 
 done
