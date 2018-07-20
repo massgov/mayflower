@@ -379,3 +379,95 @@ body {
     }
   }
 }
+
+//theme
+.ma__header {
+  background-color: $c-bg-section;
+
+  &__nav-container {
+    @media ($bp-header-toggle-max) {
+      background-color: $c-bg-section;
+    }
+  }
+
+  &__button-container {
+    @media ($bp-header-toggle-max) {
+      background-color: $c-theme-primary;
+    }
+  }
+
+  &__back-button {
+    font-weight: 700;
+    color: $c-font-inverse;
+
+    &:before {
+      border-left-color: $c-font-inverse;
+      border-top-color: $c-font-inverse;
+    }
+
+    span {
+      opacity: 0.7;
+    }
+  }
+
+  &__menu-button {
+    font-weight: 700;
+    color: $c-font-inverse;
+
+    span:first-child {
+      opacity: 0.7;
+    }
+  }
+
+  &__menu-icon {
+    background-color: $c-font-inverse;
+
+    &:before,
+    &:after {
+      background-color: $c-font-inverse;
+    }
+
+    .show-menu & {
+      background-color: transparent;
+    }
+
+    &:before {
+      .show-menu & {
+        background-color: $c-font-inverse;
+      }
+    }
+    &:after {
+      .show-menu & {
+        background-color: $c-font-inverse;
+      }
+    }
+  }
+
+  &__nav-search,
+  &__main-nav {
+    @media ($bp-header-toggle-max) {
+      border-bottom-color: $c-bd-divider;
+    }
+  }
+
+  &__backto {
+
+    a {
+      font-weight: 500;
+      background-color: tint($c-font-link, 90%);
+      border-color: tint($c-font-link, 50%);
+      box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+      color: $c-font-link;
+      font-size: 1.25rem;
+
+      @media ($bp-large-min) {
+        font-size: 1.375rem;
+      }
+
+      &:focus {
+        background-color: $c-white;
+        border-color: $c-theme-tertiary !important;
+      }
+    }
+  }
+}

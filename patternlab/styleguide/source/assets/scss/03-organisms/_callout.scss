@@ -53,3 +53,18 @@
     line-height: 1.37;
   }
 }
+
+//theme
+
+.ma__callout {
+  border-left-color: $c-theme-tertiary;
+  color: $c-font-heading;
+  font-weight: 800;
+
+  &__header {
+
+    svg {
+      fill: $c-theme-tertiary; 
+    }
+  }
+}

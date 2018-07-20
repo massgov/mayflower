@@ -33,3 +33,20 @@
     }
   }
 }
+
+//theme
+.ma__transition-page {
+
+  &:before {
+    background-color: rgba($c-theme-secondary, .15);
+  }
+
+  &__icon {
+    fill: $c-theme-secondary;
+  }
+
+  &__message {
+    color: $c-font-dark;
+    font-weight: 700;
+  }
+}

@@ -1,7 +1,7 @@
 # cd into patternlab folder
 root=$(pwd)
 topdir=$root/"styleguide/source/assets/scss"
-dir1="02-molecules"
+dir1="03-organisms"
 dir2="06-theme/"$dir1
 
 for f in $topdir/$dir1/*.scss
