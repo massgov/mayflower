@@ -1,5 +1,6 @@
-# loop through your one_ files
-topdir="/Users/minghuasun/Documents/Github/mayflower/patternlab/styleguide/source/assets/scss"
+# cd into patternlab folder
+root=$(pwd)
+topdir=$root/"styleguide/source/assets/scss"
 dir1="01-atoms"
 dir2="06-theme/01-atoms"
 
