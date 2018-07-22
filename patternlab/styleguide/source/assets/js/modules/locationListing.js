@@ -64,7 +64,7 @@ export default function (window, document, $, undefined) {
 
         // Focus moved into listing for first time, so flag with class, recenter + bounce marker.
         $(e.currentTarget).addClass(markerActiveClass);
-        let index = $(emcurrentTarget).index();
+        let index = $(e.currentTarget).index();
 
         // Trigger map to recenter on this item and make the marker bounce
         $map.trigger('ma:GoogleMap:MarkerBounce', index);
