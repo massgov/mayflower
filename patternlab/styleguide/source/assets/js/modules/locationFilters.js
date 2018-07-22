@@ -50,15 +50,36 @@ export default function (window,document,$,undefined) {
     if (!isFormSubmit) {
       let location = getParameterFromUrl('location');
       let $location = $el.find('.js-filter-by-location');
+
+      // Set the location from the URL.
       $location.find('input').val(location);
 
+      // Build the form data from the URL params.
       formData = [];
-      // Get location
+
+      // Get location data from URL.
       if (location) {
         formData.push({
           type: 'location',
           text: location,
           value: location
+        });
+      }
+
+      let $tags = $el.find('.js-filter-by-tags');
+      let tags = getParameterFromUrl('tags');
+      if (tags) {
+        let splitTags = tags.split(',');
+        splitTags.forEach((tag) => {
+          if (tag) {
+            tag = tag.split(':');
+            formData.push({
+              type: 'tag',
+              text: tag[1],
+              value: tag[0]
+            });
+            $tags.find('input[type=checkbox][value=' + tag[0] + ']').prop('checked', true);
+          }
         });
       }
     }
@@ -152,12 +173,20 @@ export default function (window,document,$,undefined) {
     }
 
     params.delete('location');
-    params.delete('tag');
+    params.delete('tags');
 
     if (filters.length) {
+      let tagFilters = [];
       filters.forEach((filter) => {
-        params.set(filter.type, filter.value);
+        if (filter.type === 'location') {
+            params.set('location', filter.value);
+        }
+        if (filter.type === 'tag') {
+            tagFilters.push(filter.value + ':' + filter.text);
+        }
       });
+
+      params.set('tags', tagFilters.join(','));
     }
 
     history.pushState(
