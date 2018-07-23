@@ -3,7 +3,8 @@ export default function (window,document,$,undefined) {
     let $el = $(this);
 
     let $resultHeading = $('.js-results-heading'),
-      $filterButton = '.js-results-heading-tag';
+      $clearAllButton = '.js-results-heading-clear', // events triggered on parent
+      $filterButton = '.js-results-heading-tag'; // events triggered on parent
 
     // When google map libraries are loaded, initialize places.autocomplete on the location input, if it exists.
     $(document).on('ma:LibrariesLoaded:GoogleMaps', function() {
@@ -33,6 +34,13 @@ export default function (window,document,$,undefined) {
       populateFormData($el, false);
     });
 
+    // Listen for clear all button click + trigger interaction event on parent.
+    $resultHeading.on('click', $clearAllButton, function () {
+      $resultHeading.trigger('ma:ResultsHeading:ActiveTagClicked', [{clearedFilter: 'all'}]);
+      $el.trigger('ma:FormFilter:DataUpdated', {$form: $el, clearedFilter: 'all'});
+      populateFormData($el, true);
+    });
+
     // Listen for single filter button click and trigger interaction event on parent.
     $resultHeading.on('click', $filterButton, function (e) {
       let clearedFilter = {
@@ -42,7 +50,7 @@ export default function (window,document,$,undefined) {
       };
 
       $resultHeading.trigger('ma:ResultsHeading:ActiveTagClicked', [{clearedFilter: clearedFilter}]);
-
+      $el.trigger('ma:FormFilter:DataUpdated', {$form: $el, clearedFilter: clearedFilter});
       populateFormData($el, true);
     });
 
@@ -94,9 +102,7 @@ export default function (window,document,$,undefined) {
               text: tag[1],
               value: tag[0]
             });
-            if (tag[0]) {
-              $tags.find('input[type=checkbox][value=' + tag[0] + ']').prop('checked', true);
-            }
+            $tags.find('input[type=checkbox][value=' + tag[0] + ']').prop('checked', true);
           }
         });
       }
