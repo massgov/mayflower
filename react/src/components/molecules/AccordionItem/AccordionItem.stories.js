@@ -27,11 +27,11 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       title: text('accordion.title', 'Collapsible Header'),
       info: text('accordion.info', 'Collapsible Header'),
       icon: select('accordion.icon', Object.keys(icons), 'circlechevron'),
-      border: boolean('accordion.border', false)
+      border: boolean('accordion.border', true)
     };
 
     // Example of child element, paragraph, passable to accordion
-    const children = {
+    const child = {
       paragraph: text('children.paragraph.text (example)', 'Most parks and beaches that charge daily parking fees sell MassParks Passes at their contact stations during their paid parking seasons. Just ask to purchase a MassParks Pass and show your driver’s license or proof of residency. Please note: most parks cannot accept credit cards, so you’ll have to pay with cash or a check')
     };
 
@@ -40,7 +40,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
 
     return(
       <AccordionItem {...props}>
-        <Paragraph text={children.paragraph}/>
+        <Paragraph text={child.paragraph}/>
       </AccordionItem>
     );
   }));

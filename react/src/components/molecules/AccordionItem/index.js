@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SvgCircleChevron from '../../atoms/icons/SvgCircleChevron';
-import Paragraph from '../../atoms/text/Paragraph';
-import UnorderedList from '../../atoms/lists/UnorderedList';
-import OrderedList from '../../atoms/lists/OrderedList'
-import Heading from '../../atoms/headings/Heading'
-import Collapse from './Collapse';
+import Collapse from '../../animations/Collapse';
 import './style.css';
 
 class AccordionItem extends React.Component {
@@ -24,6 +20,7 @@ class AccordionItem extends React.Component {
 	render() {
 		const buttonClasses = this.state.open ? 'ma__accordion-header__button is-open' : 'ma__accordion-header__button';
 		const accordionClasses = this.props.border? 'ma__accordion-item' : 'ma__accordion-item__borderless';
+		const allowedChildren = ['Paragraph', 'OrderedList', 'UnorderedList', 'Heading', 'Table' ];
 		return(
 			<div className={accordionClasses}>
 				<header className="ma__accordion-header">
@@ -43,7 +40,13 @@ class AccordionItem extends React.Component {
 				</header> 
 				<Collapse in={this.state.open} dimension="height">
 					<div className="ma__accordion-content__body">
-					  	{this.props.children}
+					    { React.Children.map(this.props.children, child => {
+					        if (allowedChildren.includes(child.type.name)){ 
+					          	return child;
+					        } else {
+					        	return(console.log(`Warning! You cannot pass a ${child.type.name} child to AccordionItem`))
+					        }
+      					})}
 					</div>
 				</Collapse>
 			</div>

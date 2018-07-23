@@ -41,11 +41,6 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       border: boolean('accordion2.border', true)
     };
 
-    // Example of child element, paragraph, passable to accordion
-    const children = {
-      paragraph: text('children.paragraph.text (example)', 'Most parks and beaches that charge daily parking fees sell MassParks Passes at their contact stations during their paid parking seasons. Just ask to purchase a MassParks Pass and show your driver’s license or proof of residency. Please note: most parks cannot accept credit cards, so you’ll have to pay with cash or a check'),
-    };
-
     // Set the icon prop to the actual element based on knob selection.
     AccordionItem1Props.icon = icons[AccordionItem1Props.icon];
     AccordionItem2Props.icon = icons[AccordionItem2Props.icon];
@@ -53,7 +48,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     return(
       <AccordionWrapper>
         <AccordionItem {...AccordionItem1Props}>
-          <Paragraph {...children.paragraph}/>
+          <Paragraph />
         </AccordionItem>
         <AccordionItem {...AccordionItem2Props}>
           <OrderedList />
