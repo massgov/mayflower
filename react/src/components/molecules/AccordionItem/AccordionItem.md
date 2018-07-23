@@ -1,1 +1,1 @@
-This pattern shows an accordion.
+This pattern shows a single accordion item.

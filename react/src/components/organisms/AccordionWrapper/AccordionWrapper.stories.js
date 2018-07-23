@@ -7,9 +7,9 @@ import Paragraph from '../../atoms/text/Paragraph';
 import OrderedList from '../../atoms/lists/OrderedList'
 
 import AccordionWrapper from './index';
-import AccordionItem from '../../molecules/AccordionItem';
-//import AccordionDocs from './AccordionItem.md';
+import AccordionWrapperDocs from './AccordionWrapper.md';
 
+import AccordionItem from '../../molecules/AccordionItem';
 import SvgCircleChevron from '../../atoms/icons/SvgCircleChevron';
 import SvgLaptop from '../../atoms/icons/SvgLaptop';
 import SvgPhone from '../../atoms/icons/SvgPhone';
@@ -25,7 +25,7 @@ const icons = {
 
 
 storiesOf('organisms', module).addDecorator(withKnobs)
-  .add('AccordionWrapper', withInfo(/*`<div>${AccordionDocs}</div>`*/)(() => {
+  .add('AccordionWrapper', withInfo(`<div>${AccordionWrapperDocs}</div>`)(() => {
     
     const AccordionItem1Props = {
       title: text('accordion1.title', 'Collapsible Header One'),
