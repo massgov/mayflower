@@ -119,3 +119,22 @@
     margin-top: .5em;
   }
 }
+
+//theme
+.ma__listing-table {
+
+  tr + tr {
+    border-top-color: $c-bd-divider;
+  }
+
+  &__expand {
+    > button {
+      color: $c-theme-primary;
+      font-weight: 500;
+    }
+  }
+
+  .main-content .ma__header-tags + & {
+    border-color: $c-bd-divider;
+  }
+}

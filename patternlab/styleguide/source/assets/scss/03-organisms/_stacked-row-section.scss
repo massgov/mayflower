@@ -60,3 +60,15 @@
     }
   }
 }
+
+//theme
+.ma__stacked-row-section {
+
+  & ~ & {
+    border-color: $c-bd-divider;
+    
+    &__container:before {
+      border-color: $c-bd-divider;
+    }
+  }
+}

@@ -111,3 +111,33 @@
     }
   }
 }
+
+//theme
+.ma__banner-carousel {
+
+  .slick-arrow {
+    
+    &:after {
+      border-color: $c-white;
+    }
+
+    &:before {
+      background-color: rgba($c-theme-primary,.5);
+    }
+
+    &:hover:before {
+      background-color: $c-theme-primary;      
+    }
+  }
+
+  .slick-dots {
+    
+    button {
+      background-color: $c-theme-primary;
+    }
+
+    .slick-active button {
+      background-color: $c-white;
+    }
+  }
+}
