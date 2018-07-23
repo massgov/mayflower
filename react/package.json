@@ -12,8 +12,8 @@
     "umd"
   ],
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../patternlab/styleguide/source/assets/scss/00-base/mixins/ src/ -o src/",
-    "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../patternlab/styleguide/source/assets/scss/00-base/mixins/ src/ -o src/ --watch",
+    "build-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/",
+    "watch-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/ --watch",
     "build-nwb": "nwb build-react-component --copy-files",
     "build": "npm-run-all build-css build-nwb",
     "clean": "nwb clean-module",
