@@ -69,8 +69,8 @@
 @import "02-molecules/back-button";
 @import "02-molecules/banner-credit";
 @import "02-molecules/button-alert";
-@import "02-molecules/callout-stats";
 @import "02-molecules/callout-link";
+@import "02-molecules/callout-stats";
 @import "02-molecules/collapsible-header";
 @import "02-molecules/contact-group";
 @import "02-molecules/contact-us";
@@ -93,14 +93,14 @@
 @import "02-molecules/header-search";
 @import "02-molecules/header-tags";
 @import "02-molecules/illustrated-link";
-@import "02-molecules/image-promo";
 @import "02-molecules/image-link";
+@import "02-molecules/image-promo";
 @import "02-molecules/info-window";
 @import "02-molecules/keyword-search";
 @import "02-molecules/labelled-list";
 @import "02-molecules/listing-table";
-@import "02-molecules/location-icons";
 @import "02-molecules/location-filters";
+@import "02-molecules/location-icons";
 @import "02-molecules/main-nav";
 @import "02-molecules/org-info";
 @import "02-molecules/org-selector";
@@ -115,6 +115,7 @@
 @import "02-molecules/sort-results";
 @import "02-molecules/social-links";
 @import "02-molecules/sticky-nav";
+@import "02-molecules/tooltip-popup";
 @import "02-molecules/tooltip";
 @import "02-molecules/wait-time";
 
@@ -197,15 +198,16 @@
 @import "03-organisms/utility-panel";
 
 // Templates - page content types
-@import "04-templates/bio";
 @import "04-templates/binder-page";
+@import "04-templates/bio";
 @import "04-templates/court-rules";
 @import "04-templates/details";
 @import "04-templates/form-page";
 @import "04-templates/general";
+@import "04-templates/information-details";
+@import "04-templates/policy-advisory";
 @import "04-templates/narrow-template";
 @import "04-templates/press";
-@import "04-templates/policy-advisory";
 @import "04-templates/services";
 @import "04-templates/stacked-row";
 
