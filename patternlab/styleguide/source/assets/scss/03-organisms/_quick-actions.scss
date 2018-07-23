@@ -16,7 +16,7 @@
   .page-content & {
     margin-bottom: 40px;
 
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       display: none;
 
       & + * {

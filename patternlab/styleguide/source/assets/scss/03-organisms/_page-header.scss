@@ -258,7 +258,7 @@ $page-header-widget-width: 350px;
           content: "true";
         }
 
-        @media print, ($bp-small-min) {
+        @media ($bp-small-min) {
           &:before {
             content: "false";
           }
@@ -266,7 +266,7 @@ $page-header-widget-width: 350px;
       }
 
       & > .ma__contact-group:first-child {
-        @media print, ($bp-small-min) {
+        @media ($bp-small-min) {
           clear: both;
           padding-bottom: 20px;
         }
@@ -274,7 +274,7 @@ $page-header-widget-width: 350px;
 
       // more than two contacts
       .ma__contact-group:nth-child(2):nth-last-child(3) {
-        @media print, ($bp-small-min) {
+        @media ($bp-small-min) {
           border-right-width: 1px;
           border-right-style: solid;
           float: left;
@@ -286,7 +286,7 @@ $page-header-widget-width: 350px;
       }
 
       &__extra {
-        @media print, ($bp-small-min) {
+        @media ($bp-small-min) {
           border-left-width: 1px;
           border-left-style: solid;
           display: block;
@@ -302,7 +302,7 @@ $page-header-widget-width: 350px;
       &__expand {
         clear: both;
 
-        @media print, ($bp-small-min) {
+        @media ($bp-small-min) {
           display: none;
         }
       }
