@@ -68,7 +68,7 @@
             }
         }
 
-        &.offered-by {
+        &.primary {
             display: flex;
         
             @media ($bp-medium-min) {
@@ -120,7 +120,7 @@
             }
         }
         
-        &.related-to {
+        &.secondary {
             padding-top: 15px;
         
             @media ($bp-large-min) {
