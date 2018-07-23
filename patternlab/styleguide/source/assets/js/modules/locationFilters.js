@@ -2,6 +2,9 @@ export default function (window,document,$,undefined) {
   $('.js-location-filters').each(function(){
     let $el = $(this);
 
+    let $resultHeading = $('.js-results-heading'),
+      $filterButton = '.js-results-heading-tag';
+
     // When google map libraries are loaded, initialize places.autocomplete on the location input, if it exists.
     $(document).on('ma:LibrariesLoaded:GoogleMaps', function() {
       let $locationFilterParent = $('.js-filter-by-location', $el);
@@ -28,6 +31,19 @@ export default function (window,document,$,undefined) {
       }
 
       populateFormData($el, false);
+    });
+
+    // Listen for single filter button click and trigger interaction event on parent.
+    $resultHeading.on('click', $filterButton, function (e) {
+      let clearedFilter = {
+        'type': $(e.target).data('ma-filter-type'),
+        'value': $(e.target).data('ma-filter-value'),
+        'text': $(e.target).text()
+      };
+
+      $resultHeading.trigger('ma:ResultsHeading:ActiveTagClicked', [{clearedFilter: clearedFilter}]);
+
+      populateFormData($el, true);
     });
 
     // Listen for new data from another component interaction (i.e. results heading), update form.
@@ -78,7 +94,9 @@ export default function (window,document,$,undefined) {
               text: tag[1],
               value: tag[0]
             });
-            $tags.find('input[type=checkbox][value=' + tag[0] + ']').prop('checked', true);
+            if (tag[0]) {
+              $tags.find('input[type=checkbox][value=' + tag[0] + ']').prop('checked', true);
+            }
           }
         });
       }
@@ -179,10 +197,10 @@ export default function (window,document,$,undefined) {
       let tagFilters = [];
       filters.forEach((filter) => {
         if (filter.type === 'location') {
-            params.set('location', filter.value);
+          params.set('location', filter.value);
         }
         if (filter.type === 'tag') {
-            tagFilters.push(filter.value + ':' + filter.text);
+          tagFilters.push(filter.value + ':' + filter.text);
         }
       });
 
