@@ -82,22 +82,18 @@ jobs:
     working_directory: /var/www/code
     docker:
       - image: circleci/node:8.9.4-browsers
-    working_directory: /home/mfr
     steps:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-      - run: npm install
+            - mf-react-dependencies-{{ checksum "package.json" }}
+      - run: { name: 'NPM Install', command: 'cd react && npm install' }
       - save_cache:
+          name: Save NPM cache
+          key: mf-react-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm run storybook
-      - save_cache:
-          paths:
-            - /home/mfr
-          key: v1-mfr-{{ .Environment.CIRCLE_SHA1 }}-0
 
 workflows:
   version: 2
