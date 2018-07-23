@@ -12,8 +12,8 @@
     "umd"
   ],
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/",
-    "watch-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/ --watch",
+    "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../patternlab/styleguide/source/assets/scss/00-base/mixins/ src/ -o src/",
+    "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../patternlab/styleguide/source/assets/scss/00-base/mixins/ src/ -o src/ --watch",
     "build-nwb": "nwb build-react-component --copy-files",
     "build": "npm-run-all build-css build-nwb",
     "clean": "nwb clean-module",
@@ -39,6 +39,7 @@
     "prop-types": "^15.6.0",
     "react-autosuggest": "^9.3.4",
     "react-select": "^1.2.1",
+    "react-transition-group": "^2.4.0",
     "shortid": "^2.2.8"
   },
   "devDependencies": {

@@ -1,0 +1,132 @@
+@import 'colors';
+@import 'ma-typography';
+@import 'ma-container';
+
+.ma__accordion {
+
+  &-item{
+    border-style: solid;
+    border-width: 2px;
+    border-color: #dcdcdc;
+    &__borderless{
+      border: none;
+    }
+  }
+ 
+  &-header {
+    
+    &__button {
+      border: none;
+      display: block;
+      padding: 20px 40px;
+      position: relative;
+      text-align: left;
+      width: 100%;
+      background-color: $c-bg-section;
+
+      /* focus specific transitions */
+      -webkit-transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+      transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+      -o-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+
+      &:focus{
+        -webkit-box-shadow: 0 0 0 2px #9bdaf1;
+        box-shadow: 0 0 0 2px #9bdaf1;
+      }
+
+      &.is-open {
+        background-color: transparent;
+        &:focus{
+          -webkit-box-shadow: 0 0 0 1px #9bdaf1;
+          box-shadow: 0 0 0 1px #9bdaf1;
+        }
+        &:after{
+          transform: rotate(135deg);
+        }
+      }
+
+      &:after {
+        font-size: 2.5rem;
+        content: "+";
+        line-height: .65em;
+        overflow: hidden;
+        position: absolute;
+          right: 15px;
+          top: 25px;
+        transform-origin: center center;
+        transition: transform .2s ease;
+        color: $c-theme-secondary;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+        top: 25px;
+        left: 20px;
+      text-align: center;
+
+      & > svg {
+        height: 25px;
+        width: 25px;
+        fill: $c-theme-secondary;
+      }
+    }
+
+    &__title {
+      @include ma-h5;
+      @include ma-h4;
+      font-weight: 700;
+      margin-bottom: 0;
+      min-height: 32px;
+    }
+
+    &__icon + &__title {
+      padding-left: 20px;
+    }
+  }
+
+  &-content {
+
+    &__body{
+      
+      padding-left: 60px;
+      padding-right: 40px;
+      
+      &.collapsed {
+        visibility: hidden;
+        height: 0px;
+      }
+
+      &.collapsing, &.expanding {
+        position: relative;
+        overflow: hidden;
+        visibility: visible;
+        -webkit-transition-property: height, visibility;
+        transition-property: height, visibility;
+        transition-duration: 0.35s;
+        -webkit-transition-duration: 0.35s;
+        transition-timing-function: ease;
+        -webkit-transition-timing-function: ease;
+      }
+
+      &.expanded {
+       height: auto;
+       visibility: visible;
+       display: block;
+      }
+
+      &--without-icon {
+        padding-left: 40px;
+      }
+
+      & > * {
+        margin-top: 1em;
+      }
+
+      & > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
