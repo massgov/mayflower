@@ -1,5 +1,5 @@
 export default function (window,document,$,undefined) {
-  $('.js-location-filters').each(function(){
+  $('.js-location-filters').each(function() {
     let $el = $(this);
 
     let $resultHeading = $('.js-results-heading'),
@@ -55,12 +55,12 @@ export default function (window,document,$,undefined) {
     });
 
     // Listen for new data from another component interaction (i.e. results heading), update form.
-    $el.on('ma:FormFilter:DataUpdated', function(e, data){
+    $el.on('ma:FormFilter:DataUpdated', function(e, data) {
       renderForm({clearedFilter: data.clearedFilter, $form: $el});
     });
 
     // Handle global form submission.
-    $el.submit(function(e){
+    $el.submit(function(e) {
       e.preventDefault();
       // Update master data with the various filter values.
       populateFormData($el, true);
