@@ -24,25 +24,25 @@ class ButtonWithIcon extends React.Component {
     const {
       classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type
     } = this.props;
+    let classNames = classes.join(' ');
     if (canExpand) {
-      classes.push('ma__button-icon--expandable');
+      classNames += ' ma__button-icon--expandable';
       if (expanded) {
-        classes.push('ma__button-icon--expanded');
+        classNames += ' ma__button-icon--expanded';
       }
     }
     if (capitalized) {
-      classes.push('ma__button-capitalized');
+      classNames += ' ma__button-capitalized';
     }
     if (iconSize === 'small' || icon.type.name === 'SvgChevron') {
-      classes.push('ma__icon-small');
+      classNames += ' ma__icon-small';
     }
     if (iconColor === 'green') {
-      classes.push('ma__icon-green');
+      classNames += ' ma__icon-green';
     }
     if (icon.type.name === 'SvgSearch') {
-      classes.push('ma__button-search');
+      classNames += ' ma__button-search';
     }
-    const classNames = classes.join(' ');
     const buttonProps = {
       type,
       className: `ma__button-icon ${classNames}`,
