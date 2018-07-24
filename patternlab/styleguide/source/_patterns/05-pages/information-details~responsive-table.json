@@ -1,0 +1,852 @@
+{
+  "details": {
+    "contentTitle": "",
+    "titleContext": ""
+  },
+  "preContent": {
+    "pageHeader": {
+      "divider": false,
+      "title": "Why is habitat management needed?",
+      "subTitle": "MassWildlife's Habitat Programs are designed to help wildlife that rely on open habitats (grassland, shrubland, and young forests).",
+      "headerTags": {
+        "label": "More about:",
+        "taxonomyTerms": [
+          {
+            "href": "#",
+            "text": "MassWildlife"
+          },
+          {
+            "href": "#",
+            "text": "MassWildlife's Habitat Programs"
+          }
+        ]
+      },
+      "widgets": null
+    }
+  },
+  "pageContent": {
+    "section1": {
+      "compHeading": {
+        "title": "Human infrastructure and wildlife",
+        "titleContext": "",
+        "level": 2,
+        "color": "",
+        "id": "section1",
+        "centered": ""
+      },
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+            }
+          }
+        },
+        {
+          "path": "@atoms/10-table/table-responsive.twig",
+          "data": {
+            "table": {
+              "description": "A description of what the table contains",
+              "head": {
+                "rows": [
+                  {
+                    "rowSpanOffset": false,
+                    "cells": [
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Adjustment Period"
+                      },
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Liquid Asphalt (Ton)"
+                      },
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Liquid Asphalt (Megagram)"
+                      },
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Diesel (Gallon)"
+                      },
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Diesel (Liter)"
+                      },
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Gasoline (Gallon)"
+                      },
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Gasoline (Liter)"
+                      },
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Portland Cement (Ton)"
+                      },
+                      {
+                        "heading": true,
+                        "colspan": "",
+                        "rowspan": "",
+                        "text": "Portland Cement (Megagram)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "bodies": [
+                {
+                  "rows": [
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "July"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$540.00"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$595.35"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": ""
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": ""
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": ""
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": ""
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$123.62"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$136.27"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "June"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$525.00"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$578.81"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.552"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.674"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.412"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.637"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$123.62"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$136.27"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "May"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$485.00"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$534.71"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.662"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.703"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.509"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.662"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$123.62"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$136.27"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "April"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$477.50"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$526.44"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.534"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.669"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.336"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.617"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$123.62"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$136.27"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "March"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$457.50"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$504.39"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.380"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.628"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.156"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.569"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$122.89"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$135.46"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "February"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$437.50"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$482.34"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.404"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.635"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.142"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.565"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$122.89"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$135.46"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "January"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$427.50"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$471.32"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.537"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.670"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.217"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.585"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$122.89"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$135.46"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "postContent": {
+    "contactList": {
+      "compHeading": {
+        "title": "Contact",
+        "titleContext": "",
+        "level": 2,
+        "color": "",
+        "id": "contact",
+        "centered": ""
+      },
+      "contacts": [
+        {
+          "accordion": true,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Person to Contact",
+            "info": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "email@state.ma.us",
+                    "text": "email@state.ma.us",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "fax-icon",
+              "name": "Fax",
+              "items": [
+                {
+                  "type": "fax",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "Please allow 24 hours for a response"
+                }
+              ]
+            },
+            {
+              "icon": "marker",
+              "name": "Address",
+              "items": [
+                {
+                  "type": "address",
+                  "property": "",
+                  "label": "",
+                  "address": "555 Park Drive\nBoston, MA 02231",
+                  "link": {
+                    "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                    "text": "directions",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ],
+          "decorativeLink": {
+            "href": "#",
+            "text": "Learn more about this organization",
+            "info": "Learn more about this generic"
+          }
+        }
+      ]
+    },
+    "footnoteList": {
+      "items": [
+        {
+          "number": 1,
+          "target": "#footnoteref1",
+          "id": "footnotemsg1",
+          "richText": {
+            "property": "",
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "number": 2,
+          "target": "#footnoteref2",
+          "id": "footnotemsg2",
+          "richText": {
+            "property": "",
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "postDateslistingTable": {
+      "rows": [
+        {
+          "label": "Date Published:",
+          "text": "January 2, 2018"
+        },
+        {
+          "label": "Last Updated:",
+          "text": "January 16, 2018"
+        }
+      ]
+    },
+    "relatedLinkList": {
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": ""
+      },
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "MassWildlife's Habitat Programs",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Habitat management tools",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Featured habitat projects",
+          "info": "",
+          "property": ""
+        }
+      ]
+    },
+    "imageCredit": {
+      "items": [
+        {
+          "caption": "Guide: Getting OutDoors",
+          "link": {
+            "href": "#",
+            "target": "",
+            "text": "Source Name",
+            "chevron": ""
+          },
+          "source": "Source Name"
+        },
+        {
+          "caption": "Guide: Fall Activities",
+          "link": "",
+          "source": "Source Name"
+        }
+      ]
+    }
+  },
+  "sidebar": {
+    "coloredHeadings": false,
+    "contactList": {
+      "viewSpecific": true,
+      "sidebarHeading": {
+        "title": "Contact",
+        "titleContext": ""
+      },
+      "contacts": [
+        {
+          "accordion": false,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "MassWildlife",
+            "chevron": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+16174438765",
+                    "text": "(617) 443-8765",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "",
+                  "link": {
+                    "href": "email@email.com",
+                    "text": "Mass.Wildlife@state.ma.us",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                },
+                {
+                  "type": "online",
+                  "property": "",
+                  "label": "Websites",
+                  "link": {
+                    "href": "#",
+                    "text": "MassWildlife Facebook",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                },
+                {
+                  "type": "online",
+                  "property": "",
+                  "label": "",
+                  "link": {
+                    "href": "#",
+                    "text": "MassWildlife Instagram",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "linkList": {
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": ""
+      },
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "MassWildlife's Habitat Programs",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Habitat management tools",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Featured habitat projects",
+          "info": "",
+          "property": ""
+        }
+      ]
+    }
+  }
+}
