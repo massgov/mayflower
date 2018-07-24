@@ -26,3 +26,15 @@
     padding-left: 30px;
   }
 }
+
+//theme
+.ma__icon-links {
+
+  &__icon {
+
+    & > svg,
+    & > svg path {
+      fill: $c-theme-secondary;
+    }
+  }
+}

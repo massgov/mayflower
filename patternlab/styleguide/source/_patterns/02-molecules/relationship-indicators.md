@@ -5,20 +5,20 @@ This is a set of related links for Organization pages to inculded the Organizati
 * Stable as of 5.0.0
 
 ### Notes
-Offered By: at least one tag required
-Related To: optional
+Primary: at least one tag required
+Secondary: optional
 
 ### Variables
 ~~~
 headerTags: {
 
-  offeredBy: [{
+  primary: [{
     href:
       type: string / required
     text:
       type: string / required
   }],
-   relatedTo: [{
+   secondary: [{
     href:
       type: string / optional
     text:

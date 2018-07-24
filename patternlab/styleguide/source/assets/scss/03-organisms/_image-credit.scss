@@ -19,3 +19,18 @@
     }
   }
 }
+
+//theme
+.ma__image-credit {
+
+  &__container {
+    
+    &:before {
+      border-color: $c-bd-divider;
+    }
+
+    &__label {
+      font-weight: 700;
+    }
+  }
+}

@@ -41,3 +41,16 @@
     }
   }
 }
+//theme
+.ma__category-icon {
+  background-color: $c-theme-secondary;
+
+  svg,
+  svg > g {
+    fill: $c-white;
+  }
+
+  &:after {
+    background-color: $c-theme-secondary;
+  }
+}

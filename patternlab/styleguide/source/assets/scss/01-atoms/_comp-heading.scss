@@ -31,3 +31,20 @@
     }
   }
 }
+//theme
+.ma__comp-heading {
+  @include ma-comp-heading($c-theme-secondary);
+
+  .sidebar &,
+  &--sidebar {
+    @include ma-sidebar-heading($c-bd-divider,$c-font-base);
+  }
+
+  .sidebar--colored & {
+    @include ma-heading-colored($c-bg-comp-title);
+  }
+
+  &--yellow {
+    @include ma-border-decorative($c-theme-yellow, 1);
+  }
+}

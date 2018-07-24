@@ -1,7 +1,9 @@
 @import "gov-theme/00-base/colors";
-
-@import "base-theme";
-
+
+// base theme variables
+@import "00-base/colors";
+
+@import "./index";
 // Atoms - reusable styles
 @import "gov-theme/01-atoms/colored-heading";
 @import "gov-theme/01-atoms/icon-list";

@@ -41,3 +41,26 @@
     }
   }
 }
+
+//theme
+.ma__top-actions {
+
+  &__title {
+    @include ma-border-decorative($c-theme-secondary);
+  }
+
+  &__item {
+    border-color: $c-bd-divider;
+  }
+
+  &__link {
+
+    a:hover {
+      border-bottom-color: rgba($c-theme-primary, .5);
+    }
+
+    svg {
+      fill: rgba($c-theme-primary, .5);
+    }
+  }
+}
