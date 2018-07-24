@@ -46,7 +46,7 @@ class HeaderSearch extends React.Component {
               type="search"
               value={this.state.value}
             />
-            <ButtonWithIcon />
+            <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
         </section>
       </div>
