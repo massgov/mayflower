@@ -12,6 +12,9 @@
     "umd"
   ],
   "scripts": {
+    "backstop-atoms": "docker-compose run backstop test --config=backstop/backstop.atoms.js || backstop openReport --config=backstop/backstop.atoms.js",
+    "backstop-other": "docker-compose run backstop test --config=backstop/backstop.js || backstop openReport --config=backstop/backstop.js",
+    "backstop": "npm-run-all backstop-atoms backstop-other",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/ --watch",
     "build-nwb": "nwb build-react-component --copy-files",
