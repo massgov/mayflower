@@ -10,7 +10,9 @@ import Transition, {
 } from 'react-transition-group/Transition';
 
 function capitalize(string) {
-  return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
+  return(
+    `${string.charAt(0).toUpperCase()}${string.slice(1)}`
+  );
 }
 
 function getDimensionValue(dimension, elem) {
@@ -18,11 +20,10 @@ function getDimensionValue(dimension, elem) {
     height: ['marginTop', 'marginBottom'],
     width: ['marginLeft', 'marginRight']
   };
+  const value = elem[`offset${capitalize(dimension)}`];
+  const margins = MARGINS[dimension];
 
-  let value = elem[`offset${capitalize(dimension)}`];
-  let margins = MARGINS[dimension];
-
-  return (
+  return(
     value +
     parseInt(css(elem, margins[0]), 10) +
     parseInt(css(elem, margins[1]), 10)
@@ -46,40 +47,30 @@ class Collapse extends React.Component {
     );
   }
 
-  // Get initial dimension
-  _getScrollDimensionValue(elem, dimension) {
-    return `${elem[`scroll${capitalize(dimension)}`]}px`;
-  }
-
-  // Reading a dimension prop will cause the browser to recalculate, letting our animations work
-  triggerBrowserReflow(node) {
-    node.offsetHeight;
-  }
-
   // Expanding
   handleEnter(elem) {
     elem.style[this.getDimension()] = '0';
-  };
+  }
 
   handleEntering(elem) {
     const dimension = this.getDimension();
-    elem.style[dimension] = this._getScrollDimensionValue(elem, dimension);
-  };
+    elem.style[dimension] = `${elem[`scroll${capitalize(dimension)}`]}px`;
+  }
 
   handleEntered(elem) {
     elem.style[this.getDimension()] = null;
-  };
+  }
 
   // Collapsing
   handleExit(elem) {
     const dimension = this.getDimension();
-    elem.style[dimension] = `${this.props.getDimensionValue(dimension,elem)}px`;
-    this.triggerBrowserReflow(elem);
-  };
+    elem.style[dimension] = `${this.props.getDimensionValue(dimension, elem)}px`;
+    elem.offsetHeight;
+  }
 
   handleExiting(elem) {
     elem.style[this.getDimension()] = '0';
-  };
+  }
 
   render() {
     const {
@@ -103,7 +94,7 @@ class Collapse extends React.Component {
     delete props.dimension;
     delete props.getDimensionValue;
 
-    return (
+    return(
       <Transition
         {...props}
         aria-expanded={props.role ? props.in : null}
