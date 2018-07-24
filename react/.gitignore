@@ -9,5 +9,5 @@ npm-debug.log*
 src/**/*.css
 storybook-static
 
-backstop/backstop_data/bitmaps_test/
-backstop/backstop_data/html_report/
+backstop/data/bitmaps_test/
+backstop/data/*report/
