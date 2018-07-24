@@ -13,7 +13,8 @@ const components = listDirs(scanPath)
   .filter((filePath) => ((filePath.indexOf('table') === -1) && (path.basename(filePath) !== 'Image')));
 
 // const baseUrl = 'http://host.docker.internal:6006';
-const baseUrl = 'http://localhost:6006';
+// const baseUrl = 'http://localhost:6006';
+const baseUrl = 'http://web';
 const makeStoryUrl = (kind, storyName) => `${baseUrl}/?selectedKind=${kind}&selectedStory=${storyName}&full=1&addons=0&stories=0`;
 
 // Map discovered Component dirs to Backstop scenarios.
@@ -46,8 +47,8 @@ module.exports = {
       height: 250
     }
   ],
-  onBeforeScript: 'puppet/onBefore.js',
-  onReadyScript: 'puppet/onReady.js',
+  // onBeforeScript: 'puppet/onBefore.js',
+  // onReadyScript: 'puppet/onReady.js',
   scenarios,
   paths: {
     bitmaps_reference: `${__dirname}/data/bitmaps_reference`,
