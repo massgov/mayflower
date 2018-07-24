@@ -21,27 +21,30 @@ class ButtonWithIcon extends React.Component {
     }
   }
   render() {
-    const { classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type } = this.props
-    let classNames = classes.join(' ');
+    const {
+      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type
+    } = this.props;
     if (canExpand) {
-      classNames += ' ma__button-icon--expandable';
-      classNames += expanded ? ' ma__button-icon--expanded' : '';
+      classes.push('ma__button-icon--expandable');
+      if (expanded) {
+        classes.push('ma__button-icon--expanded');
+      }
     }
     if (capitalized) {
-      classNames += ' ma__button-capitalized';
+      classes.push('ma__button-capitalized');
     }
     if (iconSize === 'small' || icon.type.name === 'SvgChevron') {
-      classNames += ' ma__icon-small';
+      classes.push('ma__icon-small');
     }
     if (iconColor === 'green') {
-      classNames += ' ma__icon-green';
+      classes.push('ma__icon-green');
     }
     if (icon.type.name === 'SvgSearch') {
-      classNames += ' ma__button-search';
+      classes.push('ma__button-search');
     }
-    console.log(type.name)
+    const classNames = classes.join(' ');
     const buttonProps = {
-      type: type,
+      type,
       className: `ma__button-icon ${classNames}`,
       onClick: this.handleClick,
       tabIndex: 0
@@ -81,7 +84,7 @@ ButtonWithIcon.propTypes = {
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
    * button's functionality. */
-  ariaLabel: PropTypes.string,
+  ariaLabel: PropTypes.string
 };
 
 ButtonWithIcon.defaultProps = {

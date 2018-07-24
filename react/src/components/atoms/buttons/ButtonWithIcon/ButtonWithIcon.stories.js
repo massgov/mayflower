@@ -66,4 +66,4 @@ storiesOf('atoms/buttons', module)
         <ButtonWithIcon {...props} />
       );
     })
-  )
+  );
