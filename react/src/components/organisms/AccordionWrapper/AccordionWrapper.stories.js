@@ -1,10 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, boolean, date } from '@storybook/addon-knobs/react';
-import { action } from '@storybook/addon-actions';
-import Paragraph from '../../atoms/text/Paragraph';
-import OrderedList from '../../atoms/lists/OrderedList'
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import AccordionWrapper from './index';
 import AccordionWrapperDocs from './AccordionWrapper.md';
@@ -14,6 +11,8 @@ import SvgCircleChevron from '../../atoms/icons/SvgCircleChevron';
 import SvgLaptop from '../../atoms/icons/SvgLaptop';
 import SvgPhone from '../../atoms/icons/SvgPhone';
 import SvgFax from '../../atoms/icons/SvgFax';
+import Paragraph from '../../atoms/text/Paragraph';
+import OrderedList from '../../atoms/lists/OrderedList';
 
 const icons = {
   circlechevron: <SvgCircleChevron />,
@@ -23,17 +22,14 @@ const icons = {
   none: null
 };
 
-
 storiesOf('organisms', module).addDecorator(withKnobs)
   .add('AccordionWrapper', withInfo(`<div>${AccordionWrapperDocs}</div>`)(() => {
-    
     const AccordionItem1Props = {
       title: text('accordion1.title', 'Collapsible Header One'),
       info: text('accordion1.info', 'Collapsible Header One'),
       icon: select('accordion1.icon', Object.keys(icons), 'circlechevron'),
       border: boolean('accordion1.border', true)
     };
-    
     const AccordionItem2Props = {
       title: text('accordion2.title', 'Collapsible Header Two'),
       info: text('accordion2.info', 'Collapsible Header Two'),
