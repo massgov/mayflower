@@ -48,7 +48,9 @@ class AccordionItem extends React.Component {
                 return child;
               }
               return(
+                /* eslint-disable no-console */
                 console.log(`Warning! You cannot pass a ${child.type.name} child to AccordionItem`)
+                /* eslint-disable no-console */
               );
             })}
           </div>

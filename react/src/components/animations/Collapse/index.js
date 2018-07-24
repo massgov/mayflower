@@ -2,12 +2,7 @@ import classNames from 'classnames';
 import css from 'dom-helpers/style';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Transition, {
-  EXITED,
-  ENTERED,
-  ENTERING,
-  EXITING
-} from 'react-transition-group/Transition';
+import Transition, { EXITED, ENTERED, ENTERING, EXITING } from 'react-transition-group/Transition';
 
 function capitalize(string) {
   return(
@@ -30,6 +25,10 @@ function getDimensionValue(dimension, elem) {
   );
 }
 
+function triggerBrowserReflow(node) {
+  node.offsetHeight; // eslint-disable-line no-unused-expressions
+}
+
 
 class Collapse extends React.Component {
   constructor(props) {
@@ -49,27 +48,27 @@ class Collapse extends React.Component {
 
   // Expanding
   handleEnter(elem) {
-    elem.style[this.getDimension()] = '0';
+    elem.style[this.getDimension()] = '0'; // eslint-disable-line no-param-reassign
   }
 
   handleEntering(elem) {
     const dimension = this.getDimension();
-    elem.style[dimension] = `${elem[`scroll${capitalize(dimension)}`]}px`;
+    elem.style[dimension] = `${elem[`scroll${capitalize(dimension)}`]}px`; // eslint-disable-line no-param-reassign
   }
 
   handleEntered(elem) {
-    elem.style[this.getDimension()] = null;
+    elem.style[this.getDimension()] = null; // eslint-disable-line no-param-reassign
   }
 
   // Collapsing
   handleExit(elem) {
     const dimension = this.getDimension();
-    elem.style[dimension] = `${this.props.getDimensionValue(dimension, elem)}px`;
-    elem.offsetHeight;
+    elem.style[dimension] = `${this.props.getDimensionValue(dimension, elem)}px`; // eslint-disable-line no-param-reassign
+    triggerBrowserReflow(elem);
   }
 
   handleExiting(elem) {
-    elem.style[this.getDimension()] = '0';
+    elem.style[this.getDimension()] = '0'; // eslint-disable-line no-param-reassign
   }
 
   render() {
@@ -153,8 +152,11 @@ Collapse.propTypes = {
    * the current dimension prop value and the DOM node. */
   getDimensionValue: PropTypes.func,
   /** ARIA role of collapsible element */
-  role: PropTypes.string
+  role: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node
 };
+
 Collapse.defaultProps = {
   in: false,
   timeout: 300,
