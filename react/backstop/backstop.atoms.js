@@ -7,7 +7,7 @@ const scanPath = `${__dirname}/../src/components/`;
 const components = listDirs(scanPath)
   // Component directory names are capitalized.
   .filter((filePath) => (/^[A-Z]/.test(path.basename(filePath))))
-  // Only test atoms with this configuration.
+  // Only test atoms with this backstop configuration.
   .filter((filePath) => (filePath.indexOf('/atoms/') > -1))
   // Skip table and media/Image, they need to be tested with larger viewports.
   .filter((filePath) => ((filePath.indexOf('table') === -1) && (path.basename(filePath) !== 'Image')));
