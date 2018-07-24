@@ -29,6 +29,10 @@ function triggerBrowserReflow(node) {
   node.offsetHeight; // eslint-disable-line no-unused-expressions
 }
 
+/** The following animation component was implemented following the same logic/strucure
+ *  as React-Bootstrap's Collapse component.
+ *  (https://react-bootstrap.github.io/utilities/transitions/#transitions-collapse)
+*/
 
 class Collapse extends React.Component {
   constructor(props) {
