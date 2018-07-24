@@ -69,7 +69,8 @@ AccordionItem.propTypes = {
   icon: PropTypes.element,
   /** Whether the accordion should have a border or not, default is true (border) */
   border: PropTypes.bool,
-  /** Content rendered in the collapsed section */
+  /** Content rendered in the collapsed section. Only Paragraph, Table, Heading, OrderedList
+      and UnorderList are valid children components to pass to AccordionItem */
   children: PropTypes.node.isRequired
 };
 

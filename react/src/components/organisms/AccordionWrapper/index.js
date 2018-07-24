@@ -21,7 +21,7 @@ const AccordionWrapper = (props) => {
 };
 
 AccordionWrapper.propTypes = {
-  /** Accordion items passed to the wrapper */
+  /** Only AccordionItem can be passed as a Child to the AccordionWrapper */
   children: PropTypes.node.isRequired
 };
 
