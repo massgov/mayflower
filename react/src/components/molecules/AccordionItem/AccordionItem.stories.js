@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean, date } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
-import Paragraph from '../../atoms/text/Paragraph';
+import Paragraph from '../../atoms/text/Paragraph'
 
 import AccordionItem from './index';
 import AccordionDocs from './AccordionItem.md';
@@ -40,7 +40,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
 
     return(
       <AccordionItem {...props}>
-        <Paragraph text={child.paragraph} />
+        <Paragraph text={child.paragraph}/>
       </AccordionItem>
     );
   }));

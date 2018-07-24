@@ -9,14 +9,12 @@ import Transition, {
   EXITING
 } from 'react-transition-group/Transition';
 
-// import capitalize from './utils/capitalize';
-// import createChainedFunction from './utils/createChainedFunction';
+//import capitalize from './utils/capitalize';
+//import createChainedFunction from './utils/createChainedFunction';
 
 
 function capitalize(string) {
-  return(
-    `${string.charAt(0).toUpperCase()}${string.slice(1)}`
-  );
+  return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
 }
 
 /**
@@ -31,19 +29,19 @@ function capitalize(string) {
 function createChainedFunction(...funcs) {
   return funcs.filter(f => f != null).reduce((acc, f) => {
     if (typeof f !== 'function') {
-      throw new Error('Invalid Argument Type, must only provide functions, undefined, or null.');
+      throw new Error(
+        'Invalid Argument Type, must only provide functions, undefined, or null.'
+      );
     }
 
     if (acc === null) {
-      return(f);
+      return f;
     }
 
-    return(
-      function chainedFunction(...args) {
-        acc.apply(this, args);
-        f.apply(this, args);
-      }
-    );
+    return function chainedFunction(...args) {
+      acc.apply(this, args);
+      f.apply(this, args);
+    };
   }, null);
 }
 
@@ -59,10 +57,10 @@ function triggerBrowserReflow(node) {
 }
 
 function getDimensionValue(dimension, elem) {
-  const value = elem[`offset${capitalize(dimension)}`];
-  const margins = MARGINS[dimension];
+  let value = elem[`offset${capitalize(dimension)}`];
+  let margins = MARGINS[dimension];
 
-  return(
+  return (
     value +
     parseInt(css(elem, margins[0]), 10) +
     parseInt(css(elem, margins[1]), 10)
@@ -177,38 +175,36 @@ class Collapse extends React.Component {
 
   // for testing
   _getScrollDimensionValue(elem, dimension) {
-    return(
-      `${elem[`scroll${capitalize(dimension)}`]}px`
-    );
+    return `${elem[`scroll${capitalize(dimension)}`]}px`;
   }
 
   /* -- Expanding -- */
-  handleEnter(elem) {
+  handleEnter = elem => {
     elem.style[this.getDimension()] = '0';
-  }
+  };
 
-  handleEntering(elem) {
+  handleEntering = elem => {
     const dimension = this.getDimension();
     elem.style[dimension] = this._getScrollDimensionValue(elem, dimension);
-  }
+  };
 
-  handleEntered(elem) {
+  handleEntered = elem => {
     elem.style[this.getDimension()] = null;
-  }
+  };
 
   /* -- Collapsing -- */
-  handleExit(elem) {
+  handleExit = elem => {
     const dimension = this.getDimension();
     elem.style[dimension] = `${this.props.getDimensionValue(
       dimension,
       elem
     )}px`;
     triggerBrowserReflow(elem);
-  }
+  };
 
-  handleExiting(elem) {
+  handleExiting = elem => {
     elem.style[this.getDimension()] = '0';
-  }
+  };
 
   render() {
     const {
@@ -234,7 +230,7 @@ class Collapse extends React.Component {
     const handleExit = createChainedFunction(this.handleExit, onExit);
     const handleExiting = createChainedFunction(this.handleExiting, onExiting);
 
-    return(
+    return (
       <Transition
         {...props}
         aria-expanded={props.role ? props.in : null}
