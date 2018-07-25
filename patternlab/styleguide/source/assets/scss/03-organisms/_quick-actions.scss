@@ -8,15 +8,11 @@
         margin-top: 0;
       }
     }
-
-    @media print {
-      display: block;
-    }
   }
   .page-content & {
     margin-bottom: 40px;
 
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       display: none;
 
       & + * {
