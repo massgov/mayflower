@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Patch
-- DP-9575: Remove raw filter from 02-molecules/header-contact.twig.
