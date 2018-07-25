@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Removed
+Patch
+- DP-9570: Remove raw filter from _patterns/01-atoms/08-lists/unordered-list.twig.
