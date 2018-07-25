@@ -2,8 +2,9 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
 
 .ma__image-promo {
   @include clearfix();
+  border-color: $c-bd-divider;
   display: flex;
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 
   & + & {
     border-top-style: solid;
@@ -22,22 +23,19 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   }
 
   &__image {
-    flex-shrink: 0;
-    flex-grow: 0;
-    flex-basis: 190px;
+    flex: 0 0 190px;
     font-size: 0;
     margin-right: 30px;
     margin-bottom: 10px;
 
     img {
+      border-radius: 5px;
       width: 100%;
     }
   }
 
   &__details {
-    flex-shrink: 1;
-    flex-grow: 1;
-    flex-basis: 250px;
+    flex: 1 1 250px;
     min-width: 250px;
   }
 
@@ -56,6 +54,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
     }
 
     svg {
+      fill: $c-theme-secondary;
       height: 30px;
       width: 30px;
     }
@@ -82,16 +81,28 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   &__phone {
     font-size: 18px;
 
-    & > a,
-    & > svg {
-      display: inline-block;
-      vertical-align: middle;
+    & > a {
+      align-items: center;
+      color: $c-font-base;
+      display: flex;
+      font-weight: 400;
     }
 
-    & > svg {
+    svg {
+      display: inline-block;
+      fill: $c-theme-secondary;
       height: 20px;
+      margin-right: 0.5rem;
       width: 20px;
     }
+  }
+
+  &__label {
+    font-weight: 700;
+  }
+
+  &__contact-info {
+    font-weight: 500;
   }
 }
 

@@ -312,8 +312,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(508) 222-5900"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Barnstable District Court",
@@ -350,8 +355,19 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(508) 747-8512"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "9:00 am - 5:00 pm"
+              },{
+                "label": "Saturday",
+                "text": "9:00 am - 1:00 pm"
+              },{
+                "label": "Sunday",
+                "text": "12:00 pm - 4:00 pm"
+              }]
             },{
               "title": {
                 "text": "Berkshire County Superior Court",
@@ -388,8 +404,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(413) 499-7487"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Brookline District Court",
@@ -426,8 +447,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Cambridge District Court",
@@ -468,8 +494,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Concord District Court",
@@ -506,8 +537,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Edgartown District Court",
@@ -544,8 +580,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Lowell District Court",
@@ -582,8 +623,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Marlborough District Court",
@@ -620,8 +666,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Salem District Court",
@@ -658,8 +709,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Suffolk County Superior Court",
@@ -696,8 +752,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             },{
               "title": {
                 "text": "Taunton District Court",
@@ -734,8 +795,13 @@
                 "map": true
               },
               "phone": {
+                "label": "Phone",
                 "text": "(781) 322-7500"
-              }
+              },
+              "hours": [{
+                "label": "Monday - Friday",
+                "text": "8:00 am - 4:30 pm"
+              }]
             }]
           },
           "pagination": {

@@ -26,8 +26,8 @@
         </div>
       {% endif %}
       {% if imagePromo.title.href %}
-        {% set decorativeLink = imagePromo.title %}
-        {% include "@atoms/decorative-link.twig" %}
+        {% set link = imagePromo.title %}
+        {% include "@atoms/11-text/link.twig" %}
       {% else %}
         {{ imagePromo.title.text }}
       {% endif %}
@@ -37,19 +37,11 @@
       <div class="ma__image-promo__location">
         {{ imagePromo.location.text }}
         {% if imagePromo.link.text %}
-          <div>
-            {% set decorativeLink = imagePromo.link %}
-            {% include "@atoms/decorative-link.twig" %}
-          </div>
+          <span class="ma__image-promo__directions">
+            {% set link = imagePromo.link %}
+            {% include "@atoms/11-text/link.twig" %}
+          </span>
         {% endif %}
-      </div>
-    {% endif %}
-    {% if imagePromo.phone %}
-      <div class="ma__image-promo__phone">
-        {{ icon('phone') }}
-        <a href="tel:{{ imagePromo.phone.href }}">
-          {{ imagePromo.phone.text }}
-        </a>
       </div>
     {% endif %}
     {# backward compatible with v5.7 - description is now type richText vs 'imagePromo.description.richText' #}
@@ -65,9 +57,40 @@
     {% endif %}
     {% if imagePromo.link.text and not imagePromo.location.text %}
       <div class="ma__image-promo__link">
-        {% set decorativeLink = imagePromo.link %}
-        {% include "@atoms/decorative-link.twig" %}
+        {% set link = imagePromo.link %}
+        {% include "@atoms/11-text/link.twig" %}
       </div>
+    {% endif %}
+  </div>
+  <div class="ma__image-promo__contact">
+    {% if imagePromo.phone %}
+      <div class="ma__image-promo__phone">
+        {% if imagePromo.phone.label %}
+          <div class="ma__image-promo__label ma__image-promo__label--phone">
+            {{ imagePromo.phone.label }}
+          </div>
+        {% endif %}
+        <a class="ma__image-promo__contact-info ma__image-promo__phone-link" href="tel:{{ imagePromo.phone.href }}">
+          {{ icon('phone') }}
+          {{ imagePromo.phone.text }}
+        </a>
+      </div>
+    {% endif %}
+    {% if imagePromo.hours %}
+      {% for hour in imagePromo.hours %}
+        <div class="ma__image-promo__hours">
+          {% if hour.label %}
+            <div class="ma__image-promo__label ma__image-promo__label--hours">
+              {{ hour.label }}
+            </div>
+          {% endif %}
+          {% if hour.text %}
+            <div class="ma__image-promo__contact-info">
+              {{ hour.text }}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
     {% endif %}
   </div>
 </section>

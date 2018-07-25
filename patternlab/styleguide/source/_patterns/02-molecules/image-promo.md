@@ -20,21 +20,21 @@ An illustrated pattern that displays an image, title, description and a link to 
 ~~~
 imagePromo: {
   title: {
-    text: 
+    text:
       type: string / required,
-    href: 
+    href:
       type: string(url) / optional
     info:
       type: string / optional
   }
   level:
-    type: number / optional 
-  image: (optional) {  
+    type: number / optional
+  image: (optional) {
     src:
       type: string (image path) / required
-    alt: 
+    alt:
       type: string / required - describes the image
-    href: 
+    href:
       type: string (url) / optional
   },
   description: {
@@ -44,19 +44,27 @@ imagePromo: {
     type: decorativeLink / optional
   },
   location (optional) : {
-    text: 
+    text:
       type: string / optional
     map:
       type: boolean
   }
   phone (optional) {
-    text: 
+    label:
+      type: string / optional
+    text:
       type: string / required
   },
-  tags (optional) : [{ 
-    label: 
+  hours (optional) {
+    label:
       type: string / required
-    icon: 
+    text:
+      type: string / required
+  },
+  tags (optional) : [{
+    label:
+      type: string / required
+    icon:
       type: string (path to tag icon) / (required)
     id:
       type: string / required
