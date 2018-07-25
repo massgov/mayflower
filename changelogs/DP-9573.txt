@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Patch
-- DP-9573: Remove faw filter from _patterns/02-molecules/event-teaser.twig.
