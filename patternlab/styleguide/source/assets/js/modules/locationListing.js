@@ -1,7 +1,7 @@
 import sticky from "../helpers/sticky.js";
 import listings from "../helpers/listing.js";
 
-export default function (window, document, $, undefined) {
+export default function (window, document, $) {
   // Active state classes for location listing rows.
   let activeClass = 'is-active',
     markerActiveClass = 'is-marker-bounce',
@@ -208,10 +208,12 @@ export default function (window, document, $, undefined) {
     listing.pagination.pages = pages;
 
 
-    // Get the listing imagePromos, generate markup for each
-    let masterListing = listing.imagePromos.items,
-      masterListingMarkup = listings.transformListing(masterListing, 'locationListingRow');
+    let masterListing = listing.imagePromos.items.map(item => {
+      item.description.text = item.description.rteElements[0].data.paragraph.text;
+      return item;
+    });
 
+    let masterListingMarkup = listings.transformListing(masterListing, 'locationListingRow');
     // The max number of items per page, if designated in locationListing data structure, else all
     masterData.maxItems = listing.maxItems ? listing.maxItems : listing.imagePromos.items.length;
     // The initial results heading data structure
