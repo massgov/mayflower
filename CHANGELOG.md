@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-See [Change Log Instructions](docs/changelog-log-instructions.md) for directions on updating this file.
+See [Change Log Instructions](docs/for-developers/changelog-instructions.md) for directions on updating this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
@@ -12,6 +12,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
+
+## 5.33.0 (7/25/2018)
+
+### Changed
+- (Patternlab) DP-9441: Decreases spacing between Stacked Rows when stacked.
+- (Patternlab) DP-9699--relationship-indicator-integration 
+
+### Removed
+- DP-9568: Remove raw filter from /styleguide/source/_patterns/01-atoms/08-lists/checklist.twig.
+- DP-9570: Remove raw filter from _patterns/01-atoms/08-lists/unordered-list.twig.
+- DP-9572: Remove raw filter from _patterns/02-molecules/contact-item.twig.
+- DP-9573: Remove faw filter from _patterns/02-molecules/event-teaser.twig.
+- DP-9575: Remove raw filter from 02-molecules/header-contact.twig.
 
 ## 5.32.2 (7/19/2018)
 

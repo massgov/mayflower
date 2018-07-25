@@ -74,3 +74,15 @@
     }
   }
 }
+
+//theme
+.ma__link-list {
+
+  &__item {
+    font-weight: 700;
+  }
+
+  .sidebar &__item + &__item {
+    border-color: $c-bd-divider;
+  }
+}

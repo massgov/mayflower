@@ -16,3 +16,11 @@
     width: 100%;
   }
 }
+
+//theme
+.ma__divider {
+
+  &:after {
+    background-color: $c-theme-secondary;
+  }
+}

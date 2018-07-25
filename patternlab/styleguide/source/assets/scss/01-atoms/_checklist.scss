@@ -20,3 +20,11 @@
     }
   }
 }
+
+//theme
+.ma__checklist {
+  
+  li:before {
+    border-color: $c-bd-input;
+  }
+}

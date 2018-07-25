@@ -1,5 +1,0 @@
-___DESCRIPTION___
-change
-minor
-- (Patternlab) DP-9699--relationship-indicator-integration 
-
