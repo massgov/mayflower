@@ -38,3 +38,30 @@
     }
   }
 }
+
+//theme
+.ma__error-page {
+
+  &:before {
+    background-color: rgba($c-theme-tertiary, .15);
+  }
+
+  &__label {
+    color: $c-theme-tertiary;
+    font-weight: 900;
+  }
+
+  &__type {
+    font-weight: 700;
+  }
+
+  &__title {
+    color: $c-font-dark;
+    font-weight: 700;
+  }
+
+  &__message {
+    color: $c-font-base;
+    font-weight: 300;
+  }
+}

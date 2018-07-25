@@ -24,3 +24,12 @@
     }
   }
 }
+
+//theme
+.ma__rich-text .ma__icon-list,
+.ma__icon-list {
+
+  & > li {
+    background: url('../images/svg-icons/circle-chevron-green.svg') no-repeat left top;
+  }
+}
