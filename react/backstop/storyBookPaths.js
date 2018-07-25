@@ -17,7 +17,8 @@ const mapComponents = (components) => components.map((filePath) => {
 
   return{
     label: `${kind}/${storyName}`,
-    url: makeStoryUrl(kind, storyName)
+    url: makeStoryUrl(kind, storyName),
+    misMatchThreshold: 0.05
   };
 });
 
