@@ -61,8 +61,17 @@ module.exports = {
     "ci_report": `${__dirname}/reports/ci`,
   },
   "report": ["browser", "CI"],
-  "engine": "chrome",
+  "engine": "puppeteer",
   "engineFlags": [],
+  "engineOptions": {
+      "ignoreHTTPSErrors": true,
+      "args": [
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--enable-features=NetworkService",
+          "--ignore-certificate-errors"
+      ]
+  },
   "asyncCaptureLimit": 3,
   "asyncCompareLimit": 10,
   "debug": false,
