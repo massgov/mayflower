@@ -36,3 +36,19 @@
     text-transform: uppercase;
   }
 }
+
+//theme
+.ma__location-icons {
+
+  &__icon {
+
+    svg {
+      fill: $c-theme-secondary;
+    }
+  }
+
+  &__name {
+    color: $c-font-medium;
+    font-weight: 700;
+  }
+}
