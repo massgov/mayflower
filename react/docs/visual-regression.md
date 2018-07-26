@@ -17,17 +17,23 @@ npm run build-storybook
 Then, to check how your current work compares with the reference screenshots that are committed to the repository, run the following:
 
 ```bash
-docker-compose run backstop test
+docker-compose run backstop test --config=backstop/backstop.atoms.js
+open backstop/data/html_report/index.html
+docker-compose run backstop test --config=backstop/backstop.js
 open backstop/data/html_report/index.html
 ```
 
 When you are ready to commit your work, you will want to update the reference screenshots with the new ones that reflect your changes.  To do that, run:
 
 ```bash
-docker-compose run backstop test # Capture screenshots of the current state
-docker-compose run backstop approve # Accept these screenshots as the new references.
+# Capture screenshots of the current state.
+docker-compose run backstop test --config=backstop/backstop.atoms.js
+docker-compose run backstop test --config=backstop/backstop.js
+# Accept these screenshots as the new references.
+docker-compose run backstop approve --config=backstop/backstop.atoms.js
+docker-compose run backstop approve --config=backstop/backstop.js
 git add backstop/data/bitmaps_reference
 git commit
 ```
 
-Backstop also runs in CircleCI, so your build may fail if you do not update the reference screenshots when you make changes.
+Backstop also runs in CircleCI, so your build may fail if you do not update the reference screenshots when you push changes to github.
