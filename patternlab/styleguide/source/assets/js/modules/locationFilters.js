@@ -62,6 +62,7 @@ export default function (window,document,$,undefined) {
     // Handle global form submission.
     $el.submit(function(e) {
       e.preventDefault();
+
       // Update master data with the various filter values.
       populateFormData($el, true);
     });
