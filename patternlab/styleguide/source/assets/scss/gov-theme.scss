@@ -1,10 +1,14 @@
 @import "gov-theme/00-base/colors";
+@import "gov-theme/00-base/mixins";
+
 
 // base theme variables
 @import "00-base/colors";
 
 // Atoms - reusable styles
 @import "gov-theme/01-atoms/colored-heading";
+@import "gov-theme/01-atoms/comp-heading";
+
 
 // Molecules - chunks of code that are used in Organisms/Components
 

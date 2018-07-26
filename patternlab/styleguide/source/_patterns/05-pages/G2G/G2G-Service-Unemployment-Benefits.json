@@ -47,7 +47,8 @@
     "keyActions": {
       "compHeading": {
         "title": "First time?",
-        "sub": true
+        "sub": true,
+        "color": "cranberry"
       },
       "links":[{
         "image": "../../assets/images/placeholder/130x160.png",
@@ -77,7 +78,7 @@
         "compHeading": {
           "title": "Social",
           "sub": true,
-          "color": "",
+          "color": "cranberry",
           "id": "",
           "centered": ""
         },
@@ -197,7 +198,7 @@
     "compHeading": {
       "title": "Locations",
       "sub": "",
-      "color": "",
+      "color": "cranberry",
       "id": "",
       "centered": ""
     },
@@ -250,7 +251,7 @@
     "compHeading":{
       "title": "Upcoming Events",
       "sub": "",
-      "color": "",
+      "color": "cranberry",
       "id": "",
       "centered": ""
     },
