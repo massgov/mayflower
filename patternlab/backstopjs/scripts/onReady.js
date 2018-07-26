@@ -44,13 +44,22 @@ module.exports = async function(page, scenario, vp) {
     });
 
     await page.evaluate(async function () {
-        // Disable jQuery animation entirely.
+        // Disable jQuery animation.
         // It will complete immediately.
         jQuery.fx.off = true;
     });
 
-    // Finally, wait for ajax to complete - this is to give alerts
-    // time to finish rendering. This can take a while, especially
-    // in local environments.
+    // // Finally, wait for ajax to complete - this is to give alerts
+    // // time to finish rendering. This can take a while, especially
+    // // in local environments.
     await page.waitForFunction('jQuery.active == 0');
+
+
+    // Add a slight delay.  This covers up some of the jitter caused
+    // by weird network conditions, slow javascript, etc. Ultimately,
+    // we should work to reduce this number, as it represents layout
+    // thrashing that is perceptible to users.
+    //
+    // This delay can be adjusted
+    await page.waitFor(300);
 }

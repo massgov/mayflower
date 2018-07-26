@@ -46,10 +46,6 @@ module.exports = {
       "height": 768
     }
   ],
-  "engineOptions": {
-    "waitTimeout": "10000",
-    "chromeFlags": ['--force-device-scale-factor=1']
-  },
   "onBeforeScript": "onBefore.js",
   "onReadyScript": "onReady.js",
   "scenarios": scenarios,
@@ -67,9 +63,7 @@ module.exports = {
       "ignoreHTTPSErrors": true,
       "args": [
           "--no-sandbox",
-          "--disable-setuid-sandbox",
-          "--enable-features=NetworkService",
-          "--ignore-certificate-errors"
+          "--disable-setuid-sandbox"
       ]
   },
   "asyncCaptureLimit": 3,
