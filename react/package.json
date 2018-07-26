@@ -12,8 +12,8 @@
     "umd"
   ],
   "scripts": {
-    "backstop-atoms": "docker-compose run backstop test --config=backstop/backstop.atoms.js || backstop openReport --config=backstop/backstop.atoms.js",
-    "backstop-other": "docker-compose run backstop test --config=backstop/backstop.js || backstop openReport --config=backstop/backstop.js",
+    "backstop-atoms": "docker-compose run backstop test --config=backstop/backstop.atoms.js",
+    "backstop-other": "docker-compose run backstop test --config=backstop/backstop.js",
     "backstop": "npm-run-all backstop-atoms backstop-other",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/ --watch",
@@ -52,7 +52,6 @@
     "@storybook/addons": "^3.3.10",
     "@storybook/react": "^3.3.10",
     "babel-core": "^6.26.0",
-    "backstopjs": "^3.5.2",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",

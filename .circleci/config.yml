@@ -86,14 +86,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mf-react-dependencies-{{ checksum "package.json" }}
+            - mf-react-dependencies-{{ checksum "react/package.json" }}
       - run: { name: 'NPM Install', command: 'cd react && npm install' }
       - save_cache:
           name: Save NPM cache
-          key: mf-react-dependencies-{{ checksum "package.json" }}
+          key: mf-react-dependencies-{{ checksum "react/package.json" }}
           paths:
             - node_modules
-      - run: npm run storybook
+      - run: cd react && npm run storybook
 
 workflows:
   version: 2
