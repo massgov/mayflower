@@ -63,7 +63,7 @@ module.exports = {
   "report": ["browser", "CI"],
   "engine": "chrome",
   "engineFlags": [],
-  "asyncCaptureLimit": 3,
+  "asyncCaptureLimit": 2,
   "asyncCompareLimit": 10,
   "debug": false,
   "debugWindow": false
