@@ -1,5 +1,5 @@
 {% set noBgClass = "" %}
-{% set colorClass = "" %}
+{% set colorClass = pageBanner.color ? "ma__action-finder--" ~ pageBanner.color : '' %}
 
 {% if not actionFinder.bgWide %}
   {% set noBgClass = "ma__action-finder--no-background" %}
