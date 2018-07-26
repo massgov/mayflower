@@ -49,8 +49,8 @@ module.exports = {
       height: 768
     }
   ],
-  // onBeforeScript: 'onBefore.js',
-  // onReadyScript: 'onReady.js',
+  onBeforeScript: 'onBefore.js',
+  onReadyScript: 'onReady.js',
   scenarios,
   paths: {
     bitmaps_reference: `${__dirname}/data/bitmaps_reference`,
@@ -62,8 +62,7 @@ module.exports = {
   report: ['browser', 'CI'],
   engine: 'puppeteer',
   engineOptions: {
-    args: ['--no-sandbox'],
-    chromeFlags: ['--force-device-scale-factor=1']
+    args: ['--no-sandbox']
   },
   asyncCaptureLimit: 5,
   asyncCompareLimit: 50,

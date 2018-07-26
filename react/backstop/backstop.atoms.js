@@ -28,13 +28,13 @@ module.exports = {
       height: 250
     }
   ],
-  // onBeforeScript: 'puppet/onBefore.js',
-  // onReadyScript: 'puppet/onReady.js',
+  onBeforeScript: 'onBefore.js',
+  onReadyScript: 'onReady.js',
   scenarios,
   paths: {
     bitmaps_reference: `${__dirname}/data/bitmaps_reference`,
     bitmaps_test: `${__dirname}/data/bitmaps_test`,
-    engine_scripts: `${__dirname}/data/engine_scripts`,
+    engine_scripts: `${__dirname}/scripts`,
     html_report: `${__dirname}/data/html_report`,
     ci_report: `${__dirname}/data/ci_report`
   },
