@@ -93,7 +93,7 @@ jobs:
           key: mf-react-dependencies-{{ checksum "react/package.json" }}
           paths:
             - node_modules
-      - run: cd react && npm run storybook
+      - run: cd react && npm run build-storybook
 
 workflows:
   version: 2
