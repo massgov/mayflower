@@ -46,6 +46,8 @@ imagePromo: {
   location (optional) : {
     text:
       type: string / optional
+    subtitle:
+      type: string / optional
     map:
       type: boolean
   }

@@ -33,9 +33,14 @@
       {% endif %}
     </h{{ headingLevel }}>
     {% endif %}
+    {% if imagePromo.location.subtitle %}
+      <div class="ma__image-promo__location-subtitle">
+        {{ imagePromo.location.subtitle }}
+      </div>
+    {% endif %}
     {% if imagePromo.location.text %}
       <div class="ma__image-promo__location">
-        {{ imagePromo.location.text }}
+        {{ imagePromo.location.text|raw }}
         {% if imagePromo.link.text %}
           <span class="ma__image-promo__directions">
             {% set link = imagePromo.link %}

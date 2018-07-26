@@ -14,9 +14,11 @@ $location-listin--map-min-width: 315px;
   }
 
   &__columns &__container {
+    flex-wrap: wrap;
 
-    @media ($bp-large-min) {
+    @media ($bp-x-large-min) {
       align-items: stretch;
+      flex-wrap: nowrap;
       display: flex;
       margin-bottom: -60px;
     }
@@ -24,10 +26,13 @@ $location-listin--map-min-width: 315px;
 
   &__map {
 
-    @media ($bp-large-min){
-      min-height: 100vh;
+    @media ($bp-x-large-min) {
       order: 2;
       width: $location-listin--map-min-width;
+    }
+
+    @media ($bp-page-width-min) {
+      min-height: 100vh;
     }
   }
 
@@ -36,7 +41,7 @@ $location-listin--map-min-width: 315px;
     max-height: 500px;
     width: 100%;
 
-    @media ($bp-large-min) {
+    @media ($bp-x-large-min) {
       height: 100vh;
       max-height: none;
       position: absolute;
@@ -54,8 +59,16 @@ $location-listin--map-min-width: 315px;
       }
     }
 
+    @media ($bp-x-large-max) {
+      width: 100% !important;
+    }
+
     @media ($bp-page-width-min) {
-      width: calc((100vw - #{$max-width}) / 2 + (#{$location-listin--map-min-width} + $location-listing--gutter-width)) !important;
+      // `100% of viewport` - `max-width of site`, then divided by 2,
+      // gives what is on the L/R of the page, outside of the site container.
+      // Then we add the min-width of the map container, and the padding
+      // from the site container, to align with the content.
+      width: calc((100vw - #{$max-width}) / 2 + (#{$location-listin--map-min-width} + #{$location-listing--gutter-width})) !important;
     }
 
     &::before {
@@ -89,7 +102,7 @@ $location-listin--map-min-width: 315px;
 
   &__results {
 
-    @media ($bp-large-min){
+    @media ($bp-x-large-min) {
       order: 1;
       padding-right: 30px;
       width: calc(100% - #{$location-listin--map-min-width});
@@ -99,18 +112,40 @@ $location-listin--map-min-width: 315px;
   .ma__results-heading {
     margin-bottom: 0;
     padding-top: 40px;
+
+    .ma__results-heading__title {
+      display: block;
+      float: none;
+      text-align: center;
+
+      @media ($bp-x-large-min) {
+        text-align: left;
+      }
+    }
   }
 
   .ma__image-promo {
     margin-top: 0;
     padding-bottom: 30px;
-    padding-right: $location-listing--tags-size + $location-listing--gutter-width;
+    padding-left: 1rem;
+    padding-right: 1rem;
     position: relative;
 
+    @media ($bp-medium-min) and ($bp-x-large-max) {
+      // Gutter + Icon width + gutter.
+      padding-right: $location-listing--gutter-width + $location-listing--tags-size + $location-listing--gutter-width;
+    }
+
+    @media ($bp-x-large-min) {
+      // The 30px gutter is located on the `__results` container.
+      padding-right: $location-listing--tags-size + $location-listing--gutter-width;
+    }
+
     &:first-child {
-      border-top-style: solid;
-      border-top-width: 1px;
-      margin-top: -2px;
+      padding-top: 30px;
+    }
+
+    &:first-child {
       padding-top: 30px;
     }
 
@@ -118,10 +153,41 @@ $location-listin--map-min-width: 315px;
       flex-basis: (100px + $location-listing--gutter-width);
       margin-right: 0;
       padding-right: $location-listing--gutter-width;
+
+      @media ($bp-medium-max) {
+        align-self: flex-start;
+        // Padding is applied with inline CSS from the template.
+        // Ensure the padding does not take from the height.
+        box-sizing: content-box;
+        flex-basis: 100px;
+        // Min-height is the image height of 100px + a gutter of 15px
+        // before the tag icons start.
+        min-height: 115px;
+        width: 100px;
+      }
     }
 
     &__details {
       padding-right: $location-listing--gutter-width;
+
+      > * {
+        margin-bottom: 10px;
+        margin-top: 0;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__location-subtitle {
+      font-size: 1.25rem;
+    }
+
+    &__location {
+      font-size: 1.25rem;
+      font-weight: 500;
+      padding-bottom: 0;
     }
 
     &__tags {
@@ -129,16 +195,37 @@ $location-listin--map-min-width: 315px;
       position: absolute;
       right: 0;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translate(-50%, 0);
+
+      @media ($bp-medium-min) {
+        right: $location-listing--gutter-width;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+
+      @media ($bp-x-large-min) {
+        right: 0;
+      }
 
       > span {
         display: block;
         margin-left: 0;
+
+        + span {
+          margin-top: 0.5rem;
+        }
       }
 
       svg {
         height: $location-listing--tags-size;
         width: $location-listing--tags-size;
+      }
+    }
+
+    .ma__image-promo__description {
+
+      @media ($bp-medium-max) {
+        display: none;
       }
     }
 
