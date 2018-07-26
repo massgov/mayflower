@@ -17,13 +17,13 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - pl-npm-v2-{{ checksum "patternlab/styleguide/yarn.lock" }}
-            - pl-npm-v2-
+            - pl-npm-v3-{{ checksum "patternlab/styleguide/yarn.lock" }}
+            - pl-npm-v3-
       - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && yarn' }
       - save_cache:
           name: Save NPM cache
-          key: pl-npm-v2-{{ checksum "patternlab/styleguide/yarn.lock" }}
-          paths: [ styleguide/node_modules ]
+          key: pl-npm-v3-{{ checksum "patternlab/styleguide/yarn.lock" }}
+          paths: [ patternlab/styleguide/node_modules ]
       - run: { name: 'Generate style guide', command: 'php patternlab/styleguide/core/console --generate' }
       - run: { name: 'Build assets', command: 'cd patternlab/styleguide && node_modules/.bin/gulp prod' }
       - persist_to_workspace:
