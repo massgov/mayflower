@@ -1,0 +1,7 @@
+.ma__page-banner{
+  &--cranberry{
+    .ma__page-banner__container:before{
+      background-color: rgba($c-theme-secondary, 0.8);
+    }
+  }
+}
