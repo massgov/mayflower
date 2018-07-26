@@ -22,8 +22,10 @@ export default function (window, document, $, undefined) {
           .width($(this).width());
       });
 
-    // Set width of sticky table head.
-    rt.$stickyHeader.width(rt.$table.width());
+    if (rt.$stickyHeader) {
+      // Set width of sticky table head.
+      rt.$stickyHeader.width(rt.$table.width());
+    }
 
   }
 
@@ -46,40 +48,45 @@ export default function (window, document, $, undefined) {
     return a;
   }
 
-  function positionStickyHeader(rt) {
+  function updatePositions(rt) {
     // Return value of calculated allowance.
-    let allowance = calcAllowance(rt.$table, rt.$stickyHeader);
     let visibleParams = getVisibleParams(rt.$root[0]);
     // Position sticky header based on viewport scrollTop.
-    if (
-      $window.scrollTop() > rt.$table.offset().top &&
-      $window.scrollTop() < rt.$table.offset().top + rt.$table.outerHeight() - allowance
-    ) {
+    if (rt.$stickyHeader) {
+      let allowance = calcAllowance(rt.$table, rt.$stickyHeader);
+      if (
+        $window.scrollTop() > rt.$table.offset().top &&
+        $window.scrollTop() < rt.$table.offset().top + rt.$table.outerHeight() - allowance
+      ) {
 
-      let additionalOffset = 0;
+        let additionalOffset = 0;
 
-      if (document.documentElement.clientWidth <= 825) {
-        additionalOffset += $('.js-sticky-header').height();
-      }
-      if ($(".js-scroll-anchors")[0] &&
+        if (document.documentElement.clientWidth <= 825) {
+          const $jsStickyHeader = $('.js-sticky-header');
+          if ($jsStickyHeader) {
+            additionalOffset += $jsStickyHeader.height();
+          }
+        }
+        if ($(".js-scroll-anchors")[0] &&
           $(".js-scroll-anchors").css("position") === "fixed" &&
           document.documentElement.clientWidth <= 765) {
-        additionalOffset += $(".js-scroll-anchors").height();
+          additionalOffset += $(".js-scroll-anchors").height();
+        }
+
+        // When top of viewport is in the table itself.
+        rt.$stickyHeader.css({
+          opacity: 1,
+          top: $window.scrollTop() - rt.$table.offset().top + additionalOffset
+        });
+
       }
-
-      // When top of viewport is in the table itself.
-      rt.$stickyHeader.css({
-        opacity: 1,
-        top: $window.scrollTop() - rt.$table.offset().top + additionalOffset
-      });
-
-    }
-    else {
-      // When top of viewport is above or below table.
-      rt.$stickyHeader.css({
-        opacity: 0,
-        top: 0
-      });
+      else {
+        // When top of viewport is above or below table.
+        rt.$stickyHeader.css({
+          opacity: 0,
+          top: 0
+        });
+      }
     }
 
     let tableBottom = rt.$table.offset().top + rt.$table.height();
@@ -110,18 +117,18 @@ export default function (window, document, $, undefined) {
       let $thead = $table.find("thead").clone();
       $table.after('<table class="ma__table sticky-thead" />');
 
-      // Add class, remove margins, reset width and wrap table.
-      $table
+      $stickyHeader = $(element).find(".sticky-thead");
+      $stickyHeader.append($thead);
+
+    }
+
+    // Add class, remove margins, reset width and wrap table.
+    $table
       .addClass("sticky-enabled")
       .css({
         margin: 0,
         width: "100%"
       });
-
-      $stickyHeader = $(element).find(".sticky-thead");
-      $stickyHeader.append($thead);
-
-    }
 
     responsiveTables.push({
       $root: $(element),
@@ -192,14 +199,14 @@ export default function (window, document, $, undefined) {
   function handleWindowResize () {
     responsiveTables.forEach((rt) => {
       setWidths(rt);
-      positionStickyHeader(rt);
+      updatePositions(rt);
       recalcScrollbar(rt);
     });
   }
 
   function handleScroll() {
     responsiveTables.forEach((rt) => {
-      positionStickyHeader(rt);
+      updatePositions(rt);
       applyScrollClasses(rt);
       recalcScrollbar(rt);
       handleOverlappingElements(rt);

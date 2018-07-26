@@ -6,20 +6,10 @@
   "preContent": {
     "pageHeader": {
       "divider": false,
-      "title": "Why is habitat management needed?",
-      "subTitle": "MassWildlife's Habitat Programs are designed to help wildlife that rely on open habitats (grassland, shrubland, and young forests).",
+      "title": "An example of responsive tables in rich text",
       "headerTags": {
         "label": "More about:",
-        "taxonomyTerms": [
-          {
-            "href": "#",
-            "text": "MassWildlife"
-          },
-          {
-            "href": "#",
-            "text": "MassWildlife's Habitat Programs"
-          }
-        ]
+        "taxonomyTerms": []
       },
       "widgets": null
     }
@@ -27,7 +17,7 @@
   "pageContent": {
     "section1": {
       "compHeading": {
-        "title": "Human infrastructure and wildlife",
+        "title": "A table with a header rows",
         "titleContext": "",
         "level": 2,
         "color": "",
@@ -39,12 +29,12 @@
           "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
-              "text": "Human infrastructure and development have substantially restricted certain natural disturbance processes that historically provided diverse open habitats for wildlife. In particular, flooding and fire are greatly constrained across the landscape today. While control of flooding and fire is essential to protect human life and property, it also creates an obligation on our part to provide the dynamic habitats for wildlife that these natural processes formerly did."
+              "text": "This uses a table atom within a rich text atom to simulate a table added within a rich text field. The richText.js file adds the wrappers needed for responsiveTable.js to act on this table."
             }
           }
         },
         {
-          "path": "@atoms/10-table/table-responsive.twig",
+          "path": "@atoms/10-table/table.twig",
           "data": {
             "table": {
               "description": "A description of what the table contains",
@@ -111,6 +101,453 @@
                   }
                 ]
               },
+              "bodies": [
+                {
+                  "rows": [
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "July"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$540.00"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$595.35"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": ""
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": ""
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": ""
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": ""
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$123.62"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$136.27"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "June"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$525.00"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$578.81"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.552"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.674"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.412"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.637"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$123.62"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$136.27"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "May"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$485.00"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$534.71"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.662"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.703"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.509"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.662"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$123.62"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$136.27"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "April"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$477.50"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$526.44"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.534"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.669"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.336"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.617"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$123.62"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$136.27"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "March"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$457.50"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$504.39"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.380"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.628"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.156"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.569"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$122.89"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$135.46"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "February"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$437.50"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$482.34"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.404"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.635"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.142"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.565"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$122.89"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$135.46"
+                        }
+                      ]
+                    },
+                    {
+                      "rowSpanOffset": false,
+                      "cells": [
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "January"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$427.50"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$471.32"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.537"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.670"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$2.217"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$0.585"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$122.89"
+                        },
+                        {
+                          "heading": false,
+                          "colspan": "",
+                          "rowspan": "",
+                          "text": "$135.46"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "section2": {
+      "compHeading": {
+        "title": "A table without a header row",
+        "titleContext": "",
+        "level": 2,
+        "color": "",
+        "id": "section2",
+        "centered": ""
+      },
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "This uses a table atom within a rich text atom to simulate a table added within a rich text field. The richText.js file adds the wrappers needed for responsiveTable.js to act on this table."
+            }
+          }
+        },
+        {
+          "path": "@atoms/10-table/table.twig",
+          "data": {
+            "table": {
+              "description": "A description of what the table contains",
               "bodies": [
                 {
                   "rows": [
