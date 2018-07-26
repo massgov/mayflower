@@ -1,7 +1,5 @@
 const path = require('path');
 
-// const baseUrl = 'http://host.docker.internal:6006';
-// const baseUrl = 'http://localhost:6006';
 const baseUrl = 'http://web';
 const makeStoryUrl = (kind, storyName) => `${baseUrl}/?selectedKind=${kind}&selectedStory=${storyName}&full=1&addons=0&stories=0`;
 
