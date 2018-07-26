@@ -1,11 +1,9 @@
 .ma__action-finder {
   &--cranberry {
-    .ma__action-finder {
-      &--no-background &__header {
+    .ma__action-finder__header {
+      background-color: $c-theme-secondary;
+      &:before {
         background-color: $c-theme-secondary;
-        &:before {
-          background-color: $c-theme-secondary;
-        }
       }
     }
   }
