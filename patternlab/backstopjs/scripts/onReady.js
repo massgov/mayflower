@@ -27,6 +27,9 @@ module.exports = async function(page, scenario, vp) {
         '  z-index: 100;' +
         '}' +
         // Kill google Maps (show a green box instead)
+        '.js-google-map {' +
+        '  position: relative;' +
+        '}' +
         '.js-google-map:before {' +
         '  background: #B2DEA2;\n' +
         '  content: \' \';\n' +
