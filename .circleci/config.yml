@@ -23,7 +23,7 @@ jobs:
       - save_cache:
           name: Save NPM cache
           key: pl-npm-v1-{{ checksum "patternlab/styleguide/yarn.lock" }}
-          paths: [ styleguide/node_modules ]
+          paths: [ patternlab/styleguide/node_modules ]
       - run: { name: 'Generate style guide', command: 'php patternlab/styleguide/core/console --generate' }
       - run: { name: 'Build assets', command: 'cd patternlab/styleguide && node_modules/.bin/gulp prod' }
       - persist_to_workspace:
