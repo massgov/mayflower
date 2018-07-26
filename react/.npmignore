@@ -3,8 +3,10 @@
 # 2) es6 bundle?
 # 3) umd bundle?
 
+/backstop
 /coverage
 /demo
+/docs
 /node_modules
 /tests
 /src
