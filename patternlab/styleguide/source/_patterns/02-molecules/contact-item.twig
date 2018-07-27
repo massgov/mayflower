@@ -40,6 +40,11 @@
       href="mailto:{{ link.href }}"
       class="ma__content-link">{% if item.contactName %}<span class="visually-hidden">Email {{ item.contactName }} at </span>{% endif %}{{ link.text }}</a>
 
+   {% elseif item.type == "login" %}
+    <a
+      href="{{ link.href }}"
+      class="ma__content-link">{{ link.text }}</a>
+      
     {# Address - RTE version of value and look for directions link #}
   {% elseif item.type == "address" %}
     <div class="ma__contact-group__address">

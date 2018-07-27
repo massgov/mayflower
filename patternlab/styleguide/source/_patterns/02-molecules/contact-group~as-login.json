@@ -1,0 +1,17 @@
+{
+  "contactGroup": {
+    "icon": "login",
+    "name": "Login to...",
+    "level": "",
+    "contactName": "",
+    "items": [{
+      "type": "login",
+      "link": {
+        "href":"#",
+        "text": "MassFishHunt",
+        "info": ""
+      },
+      "details":""
+    }]
+  }
+}

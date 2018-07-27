@@ -3,7 +3,7 @@
   {% set linkList = linkList|merge({"compHeading": { "title": linkList.sidebarHeading.title, "sidebar" : true }}) %}
 {% endif %}
 
-<section class="ma__link-list">
+<section class="ma__link-list{% if linkList.sectionClass %} {{linkList.sectionClass}}{% endif %}">
   {% if linkList.compHeading %}
     {% set compHeading = linkList.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}

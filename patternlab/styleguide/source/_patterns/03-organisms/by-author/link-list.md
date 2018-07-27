@@ -25,6 +25,9 @@ List of links that can be rendered stack or as two columns
 ### Variables
 ~~~
 linkList : {
+  sectionClass: {
+    type string / optional
+  },
   compHeading: {
     type: compHeading / optional
   },
