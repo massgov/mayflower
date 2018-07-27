@@ -7,6 +7,7 @@
     "bgWide":"../../assets/images/placeholder/1600x400.png",
     "bgNarrow":"../../assets/images/placeholder/800x400.png",
     "size": "large",
+    "color": "cranberry",
     "icon": null,
     "title": "Executive Office of Health and Human Services",
     "titleSubText": "(EOHHS)"
@@ -111,7 +112,7 @@
           "compHeading": {
             "title": "Social",
             "sub": true,
-            "color": "",
+            "color": "cranberry",
             "id": "",
             "centered": ""
           },
@@ -203,7 +204,7 @@
           "compHeading": {
             "title": "Recent news & announcements",
             "sub": "",
-            "color": "",
+            "color": "cranberry",
             "id": "",
             "centered": ""
           },
@@ -440,7 +441,7 @@
           "compHeading": {
             "title": "Featured Topics",
             "sub": "",
-            "color": "",
+            "color": "cranberry",
             "id": "",
             "centered": ""
           },
@@ -535,7 +536,7 @@
           "compHeading":{
             "title": "Upcoming Events",
             "sub": "",
-            "color": "",
+            "color": "cranberry",
             "id": "",
             "centered": ""
           },
@@ -589,7 +590,7 @@
           "compHeading": {
             "title": "Locations",
             "sub": "",
-            "color": "",
+            "color": "cranberry",
             "id": "",
             "centered": ""
           },
@@ -643,7 +644,7 @@
           "compHeading": {
             "title": "Related Organizations on pilot.mass.gov",
             "sub": "",
-            "color": "",
+            "color": "cranberry",
             "id": "",
             "centered": ""
           },
