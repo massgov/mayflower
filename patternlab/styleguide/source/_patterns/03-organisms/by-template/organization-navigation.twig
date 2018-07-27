@@ -1,0 +1,73 @@
+<section class="ma__organization-navigation">
+ <div class="ma__organization-navigation__mobile-toggle">
+      <span class="mobile-toggle-label">{{ organizationNavigation.orgNavTitle }}</span>
+      <span class="mobile-toggle-icon"></span>
+    </div>
+  <div class="ma__organization-navigation--inner-wrapper">
+    {% if organizationNavigation.orgSearch %}
+    <div class="ma__organization-navigation__search">
+      <button class="ma__organization-navigation__search--toggle search--toggle-open js-toggle-open">{{ icon('search') }} Search this organization</button>
+      <div class="ma__organization-navigation__search--wrapper">
+        <form action="https://search.mass.gov/?org={{ organizationNavigation.orgId }}" class="ma__form js-organization-navigation__search">
+          <input
+              id="organization-navigation-search"
+              class="ma__form js-organization-navigation__search-input"
+              placeholder="Search {{ organizationNavigation.orgNavTitle }} {% if organizationNavigation.orgNavAbbrev %} ({{ organizationNavigation.orgNavAbbrev }}) {% endif %}"
+              type="text" />
+          {% include "@atoms/01-buttons/button-search.twig" %}
+        </form>
+        <button class="ma__organization-navigation__search--toggle search--toggle-close js-toggle-close">Close</button>
+      </div>
+    </div>
+    {% endif %}
+    <ul class="ma__organization-navigation__items">
+      {% for nav in organizationNavigation.orgNav %}
+        {% set buttonId =  'button' ~ loop.index %}
+        {% set menuId =  'menu' ~ loop.index %}
+        <li class="ma__organization-navigation__item {{ nav.section }}{% if nav.subNav %} has-subnav{% endif %}">
+        <button 
+          id="{{ buttonId }}" 
+          {% if nav.subNav %}class="js-subnav-toggle"{% endif %}
+          {{ nav.subNav ? 'aria-haspopup="true" aria-expanded="false"' : '' }}>
+            {{ nav.title }}
+        </button>
+        {% if nav.subNav %}
+          <div id="{{menuId}}" class="ma__organization-navigation__subitems {{ nav.section }}">
+            {% if nav.section == "i-want-to" %}
+            {% block iWantToTab %}
+              <div class="ma__organization-navigation__subitem">
+                {% set findService = nav.subNav.findService  %}
+                {% set learnAbout = nav.subNav.learnAbout %}
+                {% include "@organisms/by-template/org-nav-i-want-to-menu.twig" %}
+              </div>
+            {% endblock %}
+            {% endif %}
+            
+
+            {% if nav.section == "about" %}
+            {% block aboutTab %}
+              <div class="ma__organization-navigation__subitem">
+                {% set  linkList = nav.subNav.linkList %}
+                {% include "@organisms/by-author/link-list.twig" %}
+              </div>
+            {% endblock %}
+            {% endif %}
+
+            {% if nav.section == "contact-us" %}
+              {% block contactTab %}
+              <div class="ma__organization-navigation__subitem">
+                {# {% set customItems = nav.subNav.customItems %}
+                {% include "@organisms/by-template/org-nav-contact-menu.twig" %}   #}
+              </div>
+              {% endblock %}
+            {% endif %}
+          </div>         
+        {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="ma__organization-navigation__mobile-login ma__organization-navigation__item">
+      <button> Log in to</button>
+    </div>
+  </div>
+</section>
