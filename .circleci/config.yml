@@ -78,6 +78,31 @@ jobs:
       - run: { name: 'Release S3', command: "cd patternlab/styleguide && node_modules/.bin/gulp patternlab:release" }
       - run: { name: 'Release NPM', command: "cd patternlab/styleguide && node_modules/.bin/gulp npm:release" }
 
+  react_build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:8.9.4
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - mf-react-dependencies-{{ checksum "react/package.json" }}
+      - run: cd react && npm install
+      - save_cache:
+          name: Save NPM cache
+          key: mf-react-dependencies-{{ checksum "react/package.json" }}
+          paths:
+            - react/node_modules
+      - run:
+          name: CSS build
+          command: cd react && npm run build-css
+      - run:
+          name: Storybook build
+          command: cd react && npm run build-storybook
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
 workflows:
   version: 2
 
@@ -89,7 +114,9 @@ workflows:
             branches: { ignore: /(docs\-|react\/).*/ }
       - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
-
+      - react_build:
+          filters:
+            branches: { ignore: /(docs\-|patternlab\/).*/ }
 
   # Executed on tag pushes.
   build_tag:
@@ -103,5 +130,3 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
-
-
