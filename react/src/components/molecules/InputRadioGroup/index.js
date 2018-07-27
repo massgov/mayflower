@@ -25,7 +25,7 @@ class InputRadioWrapper extends React.Component {
           outline: this.props.outline
         });
         return (
-          <div className="ma__input-group__item">
+          <div className={`ma__input-group__item item-${this.props.children.length}`}>
             {clone}
           </div>
         );
