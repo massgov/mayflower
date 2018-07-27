@@ -42,8 +42,9 @@ class SearchBanner extends Component {
         }
       };
     }
-
-    const toggleButtonClass = `ma__search-banner__filter-box-toggle ${this.state.filterBoxExpanded && 'ma__search-banner__filter-box-toggle--expanded'}`;
+    const filterExpanded = this.state.filterBoxExpanded && ' ma__search-banner__filter-box-toggle--expanded';
+    const filterDesktopHidden = this.props.filterDesktopHidden && ' ma__search-banner__filter-box-toggle--desktop-hidden';
+    const toggleButtonClass = `ma__search-banner__filter-box-toggle${filterExpanded}${filterDesktopHidden}`;
     return(
       <div className={`ma__search-banner__top ${!tabs && 'ma__search-banner__top--noTabs'}`}>
         <div className="main-content--two">

@@ -67,6 +67,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     if (withFilterBox) {
       props.toggleButtonOnClick = action('SearchBanner toggleButtonOnClick');
       props.filterBoxExpanded = boolean('SearchBanner.filterBoxExpanded', true);
+      props.filterDesktopHidden = boolean('SearchBanner.filterDesktopHidden', true);
       props.filterBox = {
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
@@ -89,7 +90,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
           onChange: action('filterBox.organization typeahead onChange')
         },
-        pressType: (hideType ? undefined :{
+        pressType: (hideType ? undefined : {
           typeAhead: {
             label: text('filterBox.pressType.label', 'Filter by Type'),
             id: text('filterBox.pressType.id', 'press-type'),
@@ -103,7 +104,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
             onChange: action('SearchBanner filterBox.pressType.typeAhead.onChange')
           }
         }),
-        dateRange: (hideDateRange ? undefined :{
+        dateRange: (hideDateRange ? undefined : {
           label: text('filterBox.dateRange.label', 'Date range'),
           startDate: object('filterBox.dateRange.startDate', filterBoxSharedProps.startDate),
           endDate: object('filterBox.dateRange.endDate', filterBoxSharedProps.endDate)

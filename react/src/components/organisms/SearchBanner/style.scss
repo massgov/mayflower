@@ -70,6 +70,12 @@
       }
     }
 
+    &--desktop-hidden {
+      @media ($bp-large-min) {
+        display: none;
+      }
+    }
+
     &:focus {
       outline: none;
     }
