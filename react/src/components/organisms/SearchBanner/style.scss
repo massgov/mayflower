@@ -109,6 +109,12 @@
       position: absolute;
     }
 
+    &--desktop-hidden {
+      @media ($bp-large-min) {
+        display: none;
+      }
+    }
+
     &__organizations {
       @media ($bp-medium-min) {
         display: none;

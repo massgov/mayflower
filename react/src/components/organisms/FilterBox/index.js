@@ -17,9 +17,10 @@ const FilterBox = (props) => {
       props.clearButton.onClearCallback();
     }
   };
+  const filterDesktopHidden = props.filterDesktopHidden && ' ma__filter-box--desktop-hidden';
   const isActive = active ? 'ma__filter-box__form--active' : '';
   return(
-    <section className="ma__filter-box">
+    <section className={`ma__filter-box${filterDesktopHidden}`}>
       <div className="ma__filter-box__container">
         <form className={`ma__filter-box__form js-filter-box ${isActive}`} action={action}>
           <div className="main-content--two">
@@ -88,7 +89,9 @@ FilterBox.propTypes = {
     text: PropTypes.string,
     info: PropTypes.string,
     onClearCallback: PropTypes.func
-  })
+  }),
+  /** Controls if we allow filterbox to render only on mobile */
+  filterDesktopHidden: PropTypes.bool
 };
 
 FilterBox.defaultProps = {

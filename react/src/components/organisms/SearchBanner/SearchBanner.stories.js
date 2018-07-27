@@ -22,6 +22,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     const hideTopic = boolean('filterBox.hideTopic', true);
     const hideType = boolean('filterBox.hideType', false);
     const hideDateRange = boolean('filterBox.hideDateRange', false);
+    const DesktopHidden = boolean('SearchBanner.filterDesktopHidden', true);
     const withTabs = boolean('HeaderSearch.withTabs', true);
     const props = {
       searchBox: {
@@ -67,8 +68,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     if (withFilterBox) {
       props.toggleButtonOnClick = action('SearchBanner toggleButtonOnClick');
       props.filterBoxExpanded = boolean('SearchBanner.filterBoxExpanded', true);
-      props.filterDesktopHidden = boolean('SearchBanner.filterDesktopHidden', true);
+      props.filterDesktopHidden = DesktopHidden;
       props.filterBox = {
+        filterDesktopHidden: DesktopHidden,
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
         topic: (hideTopic ? undefined : {

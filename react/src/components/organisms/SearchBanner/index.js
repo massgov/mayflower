@@ -76,7 +76,9 @@ SearchBanner.propTypes = {
   /** filterbox toggle button custom function */
   toggleButtonOnClick: PropTypes.func,
   /** Controls if filterBox is expanded */
-  filterBoxExpanded: PropTypes.bool
+  filterBoxExpanded: PropTypes.bool,
+  /** Controls if we allow filterbox toggle to render only on mobile */
+  filterDesktopHidden: PropTypes.bool
 };
 
 export default SearchBanner;
