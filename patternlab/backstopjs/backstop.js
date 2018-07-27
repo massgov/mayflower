@@ -26,7 +26,7 @@ var scenarios = files.map(function(file) {
     return {
         label: path.basename(file, '.html').replace('05-pages-', 'page-').replace('04-templates-', 'template-').replace('-', ' '),
         url: `http://web/patterns/${path.relative(patternPath, file)}`,
-        misMatchThreshold: 0.05
+        misMatchThreshold: 0.1
     }
 });
 
@@ -46,10 +46,6 @@ module.exports = {
       "height": 768
     }
   ],
-  "engineOptions": {
-    "waitTimeout": "10000",
-    "chromeFlags": ['--force-device-scale-factor=1']
-  },
   "onBeforeScript": "onBefore.js",
   "onReadyScript": "onReady.js",
   "scenarios": scenarios,
@@ -61,8 +57,15 @@ module.exports = {
     "ci_report": `${__dirname}/reports/ci`,
   },
   "report": ["browser", "CI"],
-  "engine": "chrome",
+  "engine": "puppeteer",
   "engineFlags": [],
+  "engineOptions": {
+      "ignoreHTTPSErrors": true,
+      "args": [
+          "--no-sandbox",
+          "--disable-setuid-sandbox"
+      ]
+  },
   "asyncCaptureLimit": 3,
   "asyncCompareLimit": 10,
   "debug": false,

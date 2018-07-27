@@ -1,35 +1,42 @@
 <div class="ma__relationship-indicators">
-  <div class="ma__relationship-indicators--section offered-by">
+  <div class="ma__relationship-indicators--section primary">
     <span class="ma__relationship-indicators--label">
-      Offered By:
+      {{ relationshipIndicators.primary.label }}
     </span>
     <div class="ma__relationship-indicators--terms">
-      {% for item in relationshipIndicators.offered_by %}
-      <div class="ma__relationship-indicators--term">
-        <a href="{{ item.href }}">{{ item.text }}</a>
-      </div>
-    {% endfor %}
+    {% block primaryRelationship %}
+      {% for item in relationshipIndicators.primary.tags %}
+     
+        {% set wrappedLink = item %}
+        {% include "@atoms/11-text/wrapped-link.twig" %} 
+      
+      {% endfor %}
+    {% endblock %}
     <button type="button" class="js-relationship-indicator-button">
       show <span class="tag-count"></span> <span class="tag-state">more</span
     </button>
     </div>
   </div>
 
-  {% if relationshipIndicators.relatedTo is not empty %}
-  <div class="ma__relationship-indicators--section related-to">
-    <span class="ma__relationship-indicators--label">
-      Related To:
-    </span>
-    <div class="ma__relationship-indicators--terms">
-    {% for item in relationshipIndicators.relatedTo %}
-      <div class="ma__relationship-indicators--term">
-        <a href="{{ item.href }}">{{ item.text }}</a>
+  {% if relationshipIndicators.secondary is not empty %}
+    <div class="ma__relationship-indicators--section secondary">
+      <span class="ma__relationship-indicators--label">
+        {{ relationshipIndicators.secondary.label }}
+      </span>
+      </span>
+      <div class="ma__relationship-indicators--terms">
+      {% block secondaryRelationship %}
+      {% for item in relationshipIndicators.secondary.tags %}
+      
+        {% set wrappedLink = item %}
+        {% include "@atoms/11-text/wrapped-link.twig" %} 
+        
+      {% endfor %}
+      {% endblock %}
+      <button type="button" class="js-relationship-indicator-button">
+        show <span class="tag-count"></span> <span class="tag-state">more</span>
+      </button>
       </div>
-    {% endfor %}
-    <button type="button" class="js-relationship-indicator-button">
-      show <span class="tag-count"></span> <span class="tag-state">more</span>
-    </button>
     </div>
-  </div>
   {% endif %}
 </div>

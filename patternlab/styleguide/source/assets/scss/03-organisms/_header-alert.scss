@@ -48,3 +48,32 @@
     }
   }
 }
+
+//theme
+.ma__header-alert {
+  background-color: $c-theme-tertiary;
+
+  &__hide {
+    font-weight: 700;
+  }
+
+  &__label {
+    color: rgba($c-font-dark, .7);
+    font-weight: 700;
+  }
+
+  &__message {
+
+    &:hover {
+      border-bottom-color: rgba($c-font-dark, .5);
+    }
+    
+    a {
+      color: $c-font-dark;
+
+      svg {
+        fill: rgba($c-font-dark, .5);  
+      }
+    }
+  }
+}

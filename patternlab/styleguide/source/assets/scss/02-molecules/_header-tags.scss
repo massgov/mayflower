@@ -101,3 +101,25 @@
     }
   }
 }
+
+//theme
+.ma__header-tags {
+  font-weight: 600;
+
+  &__terms {
+
+    a {
+      border-color: rgba($c-font-link,.2);
+      font-weight: 500;
+
+      &:hover {
+        border-color: $c-font-link;
+      }
+    }
+
+    > button {
+      color: $c-theme-primary;
+      font-weight: 500;
+    }
+  }
+}
