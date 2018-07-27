@@ -20,6 +20,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);
     const hideTopic = boolean('filterBox.hideTopic', true);
+    const hideType = boolean('filterBox.hideType', false);
+    const hideDateRange = boolean('filterBox.hideDateRange', false);
     const withTabs = boolean('HeaderSearch.withTabs', true);
     const props = {
       searchBox: {
@@ -87,7 +89,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
           onChange: action('filterBox.organization typeahead onChange')
         },
-        pressType: {
+        pressType: (hideType ? undefined :{
           typeAhead: {
             label: text('filterBox.pressType.label', 'Filter by Type'),
             id: text('filterBox.pressType.id', 'press-type'),
@@ -100,12 +102,12 @@ storiesOf('organisms', module).addDecorator(withKnobs)
             placeholder: text('filterBox.pressType.placeholder', 'All Types'),
             onChange: action('SearchBanner filterBox.pressType.typeAhead.onChange')
           }
-        },
-        dateRange: {
+        }),
+        dateRange: (hideDateRange ? undefined :{
           label: text('filterBox.dateRange.label', 'Date range'),
           startDate: object('filterBox.dateRange.startDate', filterBoxSharedProps.startDate),
           endDate: object('filterBox.dateRange.endDate', filterBoxSharedProps.endDate)
-        },
+        }),
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
