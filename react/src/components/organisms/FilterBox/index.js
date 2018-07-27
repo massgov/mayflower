@@ -17,8 +17,6 @@ const FilterBox = (props) => {
       props.clearButton.onClearCallback();
     }
   };
-  const selectBoxProps = pressType.selectBox;
-  const typeAheadProps = pressType.typeAhead;
   const isActive = active ? 'ma__filter-box__form--active' : '';
   return(
     <section className="ma__filter-box">
@@ -38,8 +36,8 @@ const FilterBox = (props) => {
               )}
               {pressType && (
               <div className="ma__filter-box__type">
-                {selectBoxProps && <SelectBox {...selectBoxProps} />}
-                {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} />}
+                {pressType.selectBox && <SelectBox {...pressType.selectBox} />}
+                {pressType.typeAhead && <InputTextTypeAhead {...pressType.typeAhead} />}
               </div>
               )}
               {dateRange && (
