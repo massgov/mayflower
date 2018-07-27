@@ -120,8 +120,10 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           onClearCallback: action('SearchBanner filterBox.clearButton.onClearCallback')
         }
       };
-      props.filterBox.dateRange.startDate.defaultDate = new Date(props.filterBox.dateRange.startDate.defaultDate);
-      props.filterBox.dateRange.endDate.defaultDate = new Date(props.filterBox.dateRange.endDate.defaultDate);
+      if (props.filterBox.dateRange) {
+        props.filterBox.dateRange.startDate.defaultDate = new Date(props.filterBox.dateRange.startDate.defaultDate);
+        props.filterBox.dateRange.endDate.defaultDate = new Date(props.filterBox.dateRange.endDate.defaultDate);
+      }
     }
     return(<SearchBanner {...props} />);
   }));
