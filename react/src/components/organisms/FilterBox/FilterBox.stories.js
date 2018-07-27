@@ -19,8 +19,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     withInfo()(() => {
       const hideTopic = boolean('filterBox.hideTopic', true);
       const hideOrganization = boolean('filterBox.hideOrganization', true);
-      const hideType = boolean('filterBox.hideType', true);
-      const hideDateRange = boolean('filterBox.hideDateRange', true);
+      const hideType = boolean('filterBox.hideType', false);
+      const hideDateRange = boolean('filterBox.hideDateRange', false);
       const pressTypeInput = select('filterBox.pressType.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
         active: boolean('filterBox.active', true),
@@ -74,7 +74,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           options: object('filterBox.pressType.options', selectBoxOptions.options.pressTypes),
           required: boolean('filterBox.pressType.required', true)
         };
-      } else if (pressTypeInput === 'typeAhead') {
+      } else if (pressTypeInput === 'typeahead') {
         props.pressType.typeAhead = {
           label: text('filterBox.pressType.label', 'Filter by Type'),
           id: text('filterBox.pressType.id', 'press-type'),
