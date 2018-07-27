@@ -71,7 +71,7 @@
     }
 
     &--desktop-hidden {
-      @media ($bp-large-min) {
+      @media ($bp-medium-min) {
         display: none;
       }
     }
@@ -110,7 +110,7 @@
     }
 
     &--desktop-hidden {
-      @media ($bp-large-min) {
+      @media ($bp-medium-min) {
         display: none;
       }
     }
