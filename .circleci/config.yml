@@ -79,20 +79,26 @@ jobs:
       - run: { name: 'Release NPM', command: "cd patternlab/styleguide && node_modules/.bin/gulp npm:release" }
 
   react_build:
-    working_directory: /var/www/code
+    working_directory: ~/repo
     docker:
-      - image: circleci/node:8.9.4-browsers
+      - image: circleci/node:8.9.4
     steps:
       - checkout
       - restore_cache:
           keys:
             - mf-react-dependencies-{{ checksum "react/package.json" }}
-      - run: { name: 'NPM Install', command: 'cd react && npm install' }
+      - run: cd react && npm install
       - save_cache:
           name: Save NPM cache
           key: mf-react-dependencies-{{ checksum "react/package.json" }}
-          paths: [ react/node_modules ]
-      - run: cd react && npm run build-storybook
+          paths:
+            - react/node_modules
+      - run:
+          name: Storybook build
+          command: cd react && npm run build-storybook
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
 
 workflows:
   version: 2
