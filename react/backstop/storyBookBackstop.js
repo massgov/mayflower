@@ -1,7 +1,6 @@
 const path = require('path');
 
-const baseUrl = 'http://web';
-const makeStoryUrl = (kind, storyName) => `${baseUrl}/?selectedKind=${kind}&selectedStory=${storyName}&full=1&addons=0&stories=0`;
+const makeStoryUrl = (kind, storyName) => `http://web/?selectedKind=${kind}&selectedStory=${storyName}&full=1&addons=0&stories=0`;
 
 /**
  * Maps passed Storybook Component dirs to Backstop scenarios.
@@ -20,6 +19,4 @@ const mapComponents = (components) => components.map((filePath) => {
   };
 });
 
-const scanPath = `${__dirname}/../src/components/`;
-
-module.exports = { makeStoryUrl, mapComponents, scanPath };
+module.exports = { makeStoryUrl, mapComponents };
