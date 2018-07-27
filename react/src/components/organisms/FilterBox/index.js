@@ -35,14 +35,18 @@ const FilterBox = (props) => {
               <div className="ma__filter-box__topic">
                 <SelectBox {...topic} />
               </div>
-            )}
+              )}
+              {pressType && (
               <div className="ma__filter-box__type">
                 {selectBoxProps && <SelectBox {...selectBoxProps} />}
                 {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} />}
               </div>
+              )}
+              {dateRange && (
               <div className="ma__filter-box__date">
                 <DateRange {...dateRange} />
               </div>
+              )}
             </div>
             <div className="ma__filter-box__controls">
               <div className="ma__filter-box__button">
@@ -78,7 +82,7 @@ FilterBox.propTypes = {
   /** @atoms/forms/InputTextTypeAhead */
   organization: PropTypes.shape(InputTextTypeAhead.propTypes),
   /** @molecules/DateRange */
-  dateRange: PropTypes.shape(DateRange.PropTypes).isRequired,
+  dateRange: PropTypes.shape(DateRange.PropTypes),
   /** @atoms/forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes).isRequired,
   /** Clear all button at the bottom of the filter */

@@ -19,6 +19,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     withInfo()(() => {
       const hideTopic = boolean('filterBox.hideTopic', true);
       const hideOrganization = boolean('filterBox.hideOrganization', true);
+      const hideType = boolean('filterBox.hideType', true);
+      const hideDateRange = boolean('filterBox.hideDateRange', true);
       const pressTypeInput = select('filterBox.pressType.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
         active: boolean('filterBox.active', true),
@@ -31,11 +33,11 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           required: boolean('filterBox.topic.required', true)
         }),
         pressType: {},
-        dateRange: {
+        dateRange: (hideDateRange ? undefined : {
           label: text('filterBox.dateRange.label', 'Date range'),
           startDate: object('filterBox.dateRange.startDate', sharedProps.startDate),
           endDate: object('filterBox.dateRange.endDate', sharedProps.endDate)
-        },
+        }),
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
@@ -62,7 +64,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           onChange: action('filterBox.organization typeahead onChange')
         })
       };
-      if (pressTypeInput === 'selectbox') {
+      if (hideType) {
+        props.pressType.typeAhead = null;
+      } else if (pressTypeInput === 'selectbox') {
         props.pressType.selectBox = {
           label: text('filterBox.pressType.label', 'Filter by Type'),
           stackLabel: boolean('filterBox.pressType.stackLabel', true),
@@ -70,7 +74,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           options: object('filterBox.pressType.options', selectBoxOptions.options.pressTypes),
           required: boolean('filterBox.pressType.required', true)
         };
-      } else {
+      } else if (pressTypeInput === 'typeAhead') {
         props.pressType.typeAhead = {
           label: text('filterBox.pressType.label', 'Filter by Type'),
           id: text('filterBox.pressType.id', 'press-type'),
