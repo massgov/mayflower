@@ -29,7 +29,9 @@ class SearchBanner extends Component {
     }
   }
   render() {
-    const { tabs, searchBox, filterBox } = this.props;
+    const {
+      tabs, searchBox, filterBox, filterToggleText
+    } = this.props;
     let submitButton;
 
     if (filterBox) {
@@ -55,7 +57,7 @@ class SearchBanner extends Component {
         {filterBox && (
           <div className="main-content--two ma__search-banner__filter-box-toggle-container">
             <button onClick={this.toggleFilterBox} type="button" className={toggleButtonClass}>
-              More Filters
+              {filterToggleText}
               <SvgChevron />
             </button>
           </div>
@@ -78,7 +80,14 @@ SearchBanner.propTypes = {
   /** Controls if filterBox is expanded */
   filterBoxExpanded: PropTypes.bool,
   /** Controls if we allow filterbox toggle to render only on mobile */
-  filterDesktopHidden: PropTypes.bool
+  filterDesktopHidden: PropTypes.bool,
+  /** Filter box toggle button text */
+  filterToggleText: PropTypes.string
+};
+
+SearchBanner.defaultProps = {
+  filterDesktopHidden: false,
+  filterToggleText: 'More Filters'
 };
 
 export default SearchBanner;
