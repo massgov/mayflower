@@ -1,49 +1,43 @@
 {
   "urlPath": "/?p=pages-ORG-Health-Services",
   "COMMENT": "****PAGE CONTENT COMPONENTS****",
-  "relationshipIndicators": {
-    "primary": {
-      "position": "primary",
-      "label": "offered by",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
+   "relationshipIndicators": {
+    "offered_by": [
+      {
         "href": "#",
-        "title": "Department of Conservation and Recreation"
-      },{
-        "class": "ma__relationship-indicators--term",
+        "text": "Department of Conservation and Recreation"
+      },
+      {
         "href": "#",
-        "title": "Other agency or organization"
-      }]
-    },
-    "secondary": {
-      "position": "",
-      "label": "related to",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
+        "text": "Other agency or organization that has a super long name that wraps even at full widths"
+      }
+    ],
+    "relatedTo": [
+      {
         "href": "#",
-        "title": "Snowmobile in the Parks"
-      },{
-        "class": "ma__relationship-indicators--term",
+        "text": "Snowmobile in the Parks"
+      },
+      {
         "href": "#",
-        "title": "Cross-Country Skiing"
-      },{
-        "class": "ma__relationship-indicators--term",
+        "text": "Cross-Country Skiing"
+      },
+      {
         "href": "#",
-        "title": "Accessible Hiking"
-      },{
-        "class": "ma__relationship-indicators--term",
+        "text": "Accessible Hiking"
+      },
+      {
         "href": "#",
-        "title": "Scenic Viewing Areas"
-      },{
-        "class": "ma__relationship-indicators--term",
+        "text": "Scenic Viewing Areas"
+      },
+      {
         "href": "#",
-        "title": "Hunting"
-      },{
-        "class": "ma__relationship-indicators--term",
+        "text": "Hunting"
+      },
+      {
         "href": "#",
-        "title": "Biking"
-      }]
-    }
+        "text": "Biking"
+      }
+    ]
   },
   "pageBanner": {
     "bgWide": "../../assets/images/placeholder/1600x400.png",
@@ -52,6 +46,132 @@
     "icon": null,
     "title": "Executive Office of Health and Human Services",
     "titleSubText": "(EOHHS)"
+  },
+  "organizationNavigation": {
+    "orgNavTitle": "Executive Office of Energy and Environmental Affairs",
+    "orgNavAbbrev": "EOEEA",
+    "orgId": "6676",
+    "orgSearch": true,
+    "orgNav": [{
+      "section": "i-want-to",
+      "title": "I want to...",
+      "subNav": {
+        "findService": {
+          "linkList" : {
+            "compHeading": {
+              "title": "Find a service or task",
+              "sub": "true"
+            },
+            "description": null,
+            "stacked": false,
+            "hideBullets": true,
+            "links" : [{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit amet.",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit amet, consectetur.",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit.",
+              "info": ""
+            }],
+            "more": {
+              "href": "#",
+              "text": "See all 10 related services",
+              "info": "See all of the resources for Executive Office of Health and Human Services"
+            }
+          }
+        },
+        "learnAbout": {
+          "linkList" : {
+            "compHeading": {
+              "title": "Learn more about...",
+              "sub": "true"
+            },
+            "description": null,
+            "stacked": false,
+            "hideBullets": true,
+            "links" : [{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit amet.",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit amet, consectetur.",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit.",
+              "info": ""
+            }]
+          }
+        },
+        "login": {
+         
+        }
+      }
+    },{
+      "section": "about",
+      "title": "About",
+      "subNav": {
+        "linkList" : {
+          "description": null,
+          "stacked": false,
+          "hideBullets": true,
+          "links" : [{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit amet.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit amet, consectetur.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor",
+            "info": ""
+          }]
+        }
+      }
+    },{
+      "section": "contact-us",
+      "title": "Contact Us",
+      "subNav": {
+        "customItems": {
+          "findContact": {
+            "title": "Find a contact",
+            "icon": "search",
+            "link": {
+                "href": "#",
+                "text": "Staff directory"
+            }
+          },
+          "newsletter": {
+            "title": "Get Updates",
+            "icon": "alert",
+            "link": {
+                "href": "#",
+                "text": "Sign up to receive monthly e-newsletters"
+            }
+          },
+          "publicRecords": {
+            "title": "Public records request",
+            "icon": "lg-scroll",
+            "link": {
+                "href": "#",
+                "text": "Learn more about submitting public records requests"
+            }
+          }
+        }
+      }
+    }]
   },
   "short_description": {
     "richText": {
@@ -914,6 +1034,7 @@
           "path": "@organisms/by-author/link-list.twig",
           "data": {
             "linkList": {
+              "sectionClass": "ma__related-organizations",
               "compHeading": {
                 "title": "Related Organizations on pilot.mass.gov",
                 "sub": "",
