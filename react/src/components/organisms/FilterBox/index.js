@@ -17,7 +17,7 @@ const FilterBox = (props) => {
       props.clearButton.onClearCallback();
     }
   };
-  const filterDesktopHidden = props.filterDesktopHidden && ' ma__filter-box--desktop-hidden';
+  const filterDesktopHidden = props.filterDesktopHidden ? ' ma__filter-box--desktop-hidden' : '';
   const isActive = active ? 'ma__filter-box__form--active' : '';
   return(
     <section className={`ma__filter-box${filterDesktopHidden}`}>
