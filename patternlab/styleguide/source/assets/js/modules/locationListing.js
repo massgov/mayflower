@@ -133,6 +133,7 @@ export default function (window, document, $) {
       }
 
       function getPage() {
+        // Set the default page.
         let defaultPage = 1;
         let params = new URLSearchParams(window.location.search);
         if (history.state) {
