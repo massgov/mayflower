@@ -204,7 +204,7 @@ $action-finder-border-color: tint($c-theme-primary,50%);
     }
   }
 
-  &--color-green &__header {
+  &--green &__header {
     background-color: $c-theme-secondary;
 
     &:before {
