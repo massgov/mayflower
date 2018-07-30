@@ -84,28 +84,30 @@ export default function (window,document,$,undefined) {
     // Mobile view open the "I want to sections".
     $sectionButton.each(function() {
       let $button = $(this);
+      let $seeAll = $button.parent().find('.ma__link-list__see-all');
+
         $button.on( 'click', function() {
           $button.toggleClass('item-open');
-          $button.next('.ma__link-list__container').add('.ma__link-list__see-all').toggleClass('item-open');
+          $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
         });
     });
 
-    if($relatedOrgs){
+    if($relatedOrgs.length){
       $relatedOrgs.attr('id', 'organizations');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#organizations">Our Organizations</a></li>');
     }
 
-    if($newsLink){
+    if($newsLink.length){
       $newsLink.attr('id', 'news');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#news">News</a></li>');
     }
 
-    if($eventsLink){
+    if($eventsLink.length){
       $eventsLink.attr('id', 'events');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#events">Events</a></li>');
     }
 
-    if($locationsLink){
+    if($locationsLink.length){
       $locationsLink.attr('id', 'locations');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#locations">Locations</a></li>');
     }
@@ -119,7 +121,7 @@ export default function (window,document,$,undefined) {
 
     e.preventDefault();
     let location = $(this).attr("href");
-    $('html,body').animate({scrollTop: $(location).offset().top - 100}, 1000 );
+    $('html,body').animate({scrollTop: $(location).offset().top - 120}, 1000 );
 });
 
 } (window,document,jQuery);

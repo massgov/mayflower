@@ -1,0 +1,779 @@
+{
+  "urlPath": "/?p=pages-ORG-Health-Services",
+  "COMMENT": "****PAGE CONTENT COMPONENTS****",
+   "relationshipIndicators": {
+    "offered_by": [
+      {
+        "href": "#",
+        "text": "Department of Conservation and Recreation"
+      },
+      {
+        "href": "#",
+        "text": "Other agency or organization that has a super long name that wraps even at full widths"
+      }
+    ],
+    "relatedTo": [
+      {
+        "href": "#",
+        "text": "Snowmobile in the Parks"
+      },
+      {
+        "href": "#",
+        "text": "Cross-Country Skiing"
+      },
+      {
+        "href": "#",
+        "text": "Accessible Hiking"
+      },
+      {
+        "href": "#",
+        "text": "Scenic Viewing Areas"
+      },
+      {
+        "href": "#",
+        "text": "Hunting"
+      },
+      {
+        "href": "#",
+        "text": "Biking"
+      }
+    ]
+  },
+  "pageBanner": {
+    "bgWide": "../../assets/images/placeholder/1600x400.png",
+    "bgNarrow": "../../assets/images/placeholder/800x400.png",
+    "size": "large",
+    "icon": null,
+    "title": "Division of Fisheries and Wildlife",
+    "titleSubText": "(MASSWILDLIFE)"
+  },
+  "organizationNavigation": {
+    "orgNavTitle": "Division of Fisheries and Wildlife",
+    "orgNavAbbrev": "MASSWILDLIFE",
+    "orgId": "6676",
+    "orgSearch": true,
+    "orgNav": [{
+      "section": "i-want-to",
+      "title": "I want to...",
+      "subNav": {
+        "findService": {
+          "linkList" : {
+            "compHeading": {
+              "title": "Find a service or task",
+              "sub": "true"
+            },
+            "description": null,
+            "stacked": true,
+            "hideBullets": true,
+            "links" : [{
+              "href":"#",
+              "text":"What to do if you find young wildlife",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Freshwater Fishing Information",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"MassWildlife Publication",
+              "info": ""
+            }],
+            "more": {
+              "href": "#",
+              "text": "See all services and tasks",
+              "info": ""
+            }
+          }
+        },
+        "learnAbout": {
+          "linkList" : {
+            "compHeading": {
+              "title": "Learn more about...",
+              "sub": "true"
+            },
+            "description": null,
+            "stacked": false,
+            "hideBullets": true,
+            "links" : [{
+              "href":"#",
+              "text":"Habitat & Wildlife Conservation",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Hunting",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Freshwater  Fishing",
+              "info": ""
+            }]
+          }
+        },
+        "login": {
+         
+        }
+      }
+    },{
+      "section": "about",
+      "title": "About",
+      "subNav": {
+        "linkList" : {
+          "description": null,
+          "stacked": false,
+          "hideBullets": true,
+          "links" : [{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit amet.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit amet, consectetur.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor",
+            "info": ""
+          }]
+        }
+      }
+    },{
+      "section": "contact-us",
+      "title": "Contact Us",
+      "subNav": {
+        "customItems": {
+          "findContact": {
+            "title": "Find a contact",
+            "icon": "search",
+            "link": {
+                "href": "#",
+                "text": "Staff directory"
+            }
+          },
+          "newsletter": {
+            "title": "Get Updates",
+            "icon": "alert",
+            "link": {
+                "href": "#",
+                "text": "Sign up to receive monthly e-newsletters"
+            }
+          },
+          "publicRecords": {
+            "title": "Public records request",
+            "icon": "lg-scroll",
+            "link": {
+                "href": "#",
+                "text": "Learn more about submitting public records requests"
+            }
+          }
+        }
+      }
+    }]
+  },
+  "short_description": {
+    "richText": {
+      "rteElements": [
+        {
+          "path": "@atoms/04-headings/heading-4.twig",
+          "data": {
+            "heading4": {
+              "text": "MassWildlife is responsible for the conservation of freshwater fish and wildlife in the Commonwealth, including endangered plants and animals. MassWildlife restores, protects, and manages land for wildlife to thrive and for people to enjoy. "
+            }
+          }
+        }
+      ]
+    }
+  },
+  "stackedRows": [
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/featured-item-mosaic.twig",
+          "data": {
+            "featuredItemMosaic": {
+              "compHeading": {
+                "title": "Quick Links",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": ""
+              },
+              "columns": [
+                [
+                  {
+                    "href": "#",
+                    "text": "Get the latest from MassWildlife",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    },
+                    "featuredImage": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/300x500.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  }
+                ],
+                [
+                  {
+                    "href": "#",
+                    "text": "Events calendar, news, and more",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  },
+                  {
+                    "href": "#",
+                    "text": "Learn about freshwater fishing",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  }
+                ],
+                [
+                  {
+                    "href": "#",
+                    "text": "Your license to adventure",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  },
+                  {
+                    "href": "#",
+                    "text": "All you need to know about hunting",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  }
+                ]
+              ],
+              "more": {
+                "href": "#",
+                "text": "view all events at this location",
+                "info": "",
+                "chevron": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/contact-row.twig",
+          "data": {
+            "contactRow": {
+              "compHeading": {
+                "title": "Contact Us",
+                "sub": "",
+                "color": "",
+                "id": "contact us",
+                "centered": ""
+              },
+              "image": {
+                "alt": "eohhs logo",
+                "src": "https://www.mass.gov/files/2017-05/MassWildlife_web_logo_230.png",
+                "height": "130",
+                "width": "230"
+              },
+              "primaryContact": {
+                "icon": "marker",
+                "name": "Address",
+                "items": [
+                  {
+                    "type": "address",
+                    "label": "MassWildlife Field Headquarters",
+                    "value": "1 Rabbit Hill Road, Westborough, MA 01581",
+                    "link": "https://www.google.com/maps?q=1+Rabbit+Hill+Road,+Westborough,+MA+01581",
+                    "details": ""
+                  }
+                ]
+              },
+              "hasManyAdditional": true,
+              "additionalContacts": [
+                {
+                  "icon": "phone",
+                  "name": "Phone",
+                  "items": [
+                    {
+                      "type": "phone",
+                      "property": "",
+                      "label": "Main:",
+                      "link": {
+                        "href": "#",
+                        "text": "(508) 389-6300",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": "8 a.m.– 4:30 p.m., M-F"
+                    },
+                    {
+                      "type": "phone",
+                      "property": "",
+                      "label": "Fax",
+                      "link": {
+                        "href": "#",
+                        "text": "508-389-7890",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                },
+                {
+                  "icon": "laptop",
+                  "name": "Online",
+                  "hidden": "",
+                  "items": [
+                    {
+                      "type": "email",
+                      "property": "",
+                      "label": "Email:",
+                      "link": {
+                        "href": "#",
+                        "text": "Mass.Wildlife@state.ma.us",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "property": "",
+                      "label": "",
+                      "link": {
+                        "href": "#",
+                        "text": "Natural Heritage & Endangered Species Program",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "property": "",
+                      "label": "",
+                      "link": {
+                        "href": "#",
+                        "text": "Log into MassFishHunt ",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [
+                {
+                  "path": "@atoms/04-headings/heading-2.twig",
+                  "data": {
+                    "heading2": {
+                      "text": "Who We Serve"
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "Through the effective management of wildlife and habitat, MassWildlife ensures quality outdoor recreational opportunities for hunters, anglers, and outdoor enthusiasts who enjoy the impressive variety of plants, fish, and wildlife found in Massachusetts. Outdoor skills clinics, wildlife education workshops, presentations, and online resources provide all residents with a greater understanding and appreciation for wildlife conservation. Keep in touch with us  – sign up to receive monthly e-newsletters."
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "<a href=\"http://www.google.com\">See news and updates</a>"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "sideBar": [
+        {
+          "path": "@molecules/icon-links.twig",
+          "data": {
+            "iconLinks": {
+              "compHeading": {
+                "title": "Social",
+                "sub": true,
+                "color": "",
+                "id": "",
+                "centered": "",
+                "titleContext": "links for Executive Office of Health and Human Services"
+              },
+              "items": [
+                {
+                  "icon": "twitter",
+                  "link": {
+                    "href": "https://twitter.com/MassHHS",
+                    "text": "@MassHHS",
+                    "chevron": ""
+                  }
+                },
+                {
+                  "icon": "flickr",
+                  "link": {
+                    "href": "https://www.flickr.com/photos/mass_hhs/",
+                    "text": "Mass_HHS",
+                    "chevron": ""
+                  }
+                },
+                {
+                  "icon": "blog",
+                  "link": {
+                    "href": "https://blog.mass.gov/hhs",
+                    "text": "blog.mass.gov/hhs",
+                    "chevron": ""
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/action-finder.twig",
+          "data": {
+            "actionFinder": {
+              "id": "UUID54f2fb6f-33b3-415e-bbc9-6bb1a668473f",
+              "bgWide": "../../assets/images/placeholder/1600x600-lighthouse-blur.jpg",
+              "bgNarrow": "../../assets/images/placeholder/800x800.png",
+              "title": "What do you need help with?",
+              "featuredHeading": "Featured Services",
+              "generalHeading": "More Services",
+              "titleContext": "",
+              "seeAll": {
+                "type": "external",
+                "href": "http://www.google.com",
+                "text": "See all services",
+                "info": ""
+              },
+              "featuredLinks": [
+                {
+                  "image": "",
+                  "text": "What to do if you find young wildlife",
+                  "type": "external",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Problems with Wildlife",
+                  "type": "external",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "MassWildlife Publications",
+                  "type": "external",
+                  "href": "#"
+                }
+              ],
+              "links": [
+                {
+                  "image": "",
+                  "text": "Black Bears in Massachusetts",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Learn about Wildlife",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Massachusetts Hunter Education Program",
+                  "href": "#",
+                  "label": ""
+                },
+                {
+                  "image": "",
+                  "text": "Get involved in Conservation",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Conservation Resources for Private Landowners",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Outdoor Recreation Saftey tips",
+                  "href": "#"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/press-listing.twig",
+          "data": {
+            "pressListing": {
+              "compHeading": {
+                "title": "Recent news & announcements",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": ""
+              },
+              "items": [
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/statehouse.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "News",
+                  "title": {
+                    "href": "#",
+                    "text": "Deer hunting information and reminders",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "7/26/2018",
+                  "org": "Division of Fisheries and Wildlife",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Archery season extension; Antlerless Deer Permits; Wachusett hunting extended; and more!"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "secondaryItems": [
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "News",
+                  "title": {
+                    "href": "#",
+                    "text": "Massachusetts Interagency Wildfire Crew assists with Canadian wildfires",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "7/26/2018",
+                  "org": "Division of Fisheries and Wildlife",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Members of the MassWildlife prescribed fire crew recently assisted in securing wildfires in the Province of Québec."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "News",
+                  "title": {
+                    "href": "#",
+                    "text": "Passing of the “Eagle Man”, Jack Swedberg",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "7/26/2018 ",
+                  "org": "Division of Fisheries and Wildlife",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Former MassWildlife photographer is remembered for his images and contributions to conservation in Massachusetts."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "News",
+                  "title": {
+                    "href": "#",
+                    "text": "Rare plant found on Cape Cod",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "7/25/2018",
+                  "org": "Division of Fisheries and Wildlife",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Earlier this month, botanists found American chaffseed on Cape Cod, a federally endangered plant that hasn't been seen in Massachusetts since 1965."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/mapped-locations.twig",
+          "data": {
+            "mappedLocations": {
+              "compHeading": {
+                "title": "Locations",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": "",
+                "titleContext": "of Executive Office of Health and Human Services"
+              },
+              "link": {
+                "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
+                "text": "Location Details",
+                "chevron": "true"
+              },
+              "googleMap": {
+                "map": {
+                  "center": {
+                    "lat": 42.366565,
+                    "lng": -71.058940
+                  },
+                  "zoom": 16
+                },
+                "markers": [
+                  {
+                    "position": {
+                      "lat": 42.366565,
+                      "lng": -71.058940
+                    },
+                    "label": "A",
+                    "infoWindow": {
+                      "name": "Department of Conservation and Recreation",
+                      "phone": "16176261250",
+                      "fax": "16176261351",
+                      "email": "mass.parks@state.ma.us",
+                      "address": "251 Causeway Street, Suite 900\nBoston, MA 02114-2104"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.358795,
+                      "lng": -71.063858
+                    },
+                    "label": "B",
+                    "infoWindow": {
+                      "name": "Department of Recreation and Fun",
+                      "phone": "16176261250",
+                      "fax": "",
+                      "email": "mass.parks@state.ma.us",
+                      "address": "24 Beacon St\nBoston, MA 02133"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "schema": {
+    "governmentOrganization": {
+      "name": "Executive Office of Health and Human Services",
+      "alternateName": "EOHHS",
+      "memberOf": {
+        "id": "http://mayflower.digital.mass.gov/#organization"
+      },
+      "disambiguatingDescription": "EOHHS oversees health and general support services to help people in Massacheusetts - from young children to seniors - meet basic needs.",
+      "description": "The Executive Office of Health and Human Services is responsible through its member agencies for the delivery of a wide range of services to people with financial, health, social, protective, rehabilitation, and correctional needs. Online information is available for consumers, providers, researchers, and social workers to find out what types of assistance are offered.",
+      "logo": "https://mayflower.digital.mass.gov/assets/images/images/placeholder/230x130.png",
+      "url": "https://mayflower.digital.mass.gov/?p=templates-org-landing-page",
+      "contactInfo": {
+        "address": "One Ashburton Place, 11th Floor, Boston, MA 02108",
+        "telephone": "+14134994262",
+        "faxNumber": "+14134994266",
+        "email": "email@email.com"
+      },
+      "sameAs": [
+        "https://twitter.com/MassHHS",
+        "https://www.flickr.com/photos/mass_hhs/",
+        "https://blog.mass.gov/hhs"
+      ]
+    }
+  }
+}
