@@ -17,11 +17,10 @@ const FilterBox = (props) => {
       props.clearButton.onClearCallback();
     }
   };
-  const selectBoxProps = pressType.selectBox;
-  const typeAheadProps = pressType.typeAhead;
+  const filterDesktopHidden = props.filterDesktopHidden ? ' ma__filter-box--desktop-hidden' : '';
   const isActive = active ? 'ma__filter-box__form--active' : '';
   return(
-    <section className="ma__filter-box">
+    <section className={`ma__filter-box${filterDesktopHidden}`}>
       <div className="ma__filter-box__container">
         <form className={`ma__filter-box__form js-filter-box ${isActive}`} action={action}>
           <div className="main-content--two">
@@ -35,14 +34,18 @@ const FilterBox = (props) => {
               <div className="ma__filter-box__topic">
                 <SelectBox {...topic} />
               </div>
-            )}
+              )}
+              {pressType && (
               <div className="ma__filter-box__type">
-                {selectBoxProps && <SelectBox {...selectBoxProps} />}
-                {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} />}
+                {pressType.selectBox && <SelectBox {...pressType.selectBox} />}
+                {pressType.typeAhead && <InputTextTypeAhead {...pressType.typeAhead} />}
               </div>
+              )}
+              {dateRange && (
               <div className="ma__filter-box__date">
                 <DateRange {...dateRange} />
               </div>
+              )}
             </div>
             <div className="ma__filter-box__controls">
               <div className="ma__filter-box__button">
@@ -78,7 +81,7 @@ FilterBox.propTypes = {
   /** @atoms/forms/InputTextTypeAhead */
   organization: PropTypes.shape(InputTextTypeAhead.propTypes),
   /** @molecules/DateRange */
-  dateRange: PropTypes.shape(DateRange.PropTypes).isRequired,
+  dateRange: PropTypes.shape(DateRange.PropTypes),
   /** @atoms/forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes).isRequired,
   /** Clear all button at the bottom of the filter */
@@ -86,7 +89,9 @@ FilterBox.propTypes = {
     text: PropTypes.string,
     info: PropTypes.string,
     onClearCallback: PropTypes.func
-  })
+  }),
+  /** Controls if we allow filterbox to render only on mobile */
+  filterDesktopHidden: PropTypes.bool
 };
 
 FilterBox.defaultProps = {
