@@ -38,6 +38,7 @@
               <div class="ma__organization-navigation__subitem">
                 {% set findService = nav.subNav.findService  %}
                 {% set learnAbout = nav.subNav.learnAbout %}
+                {% set login = nav.subNav.login %}
                 {% include "@organisms/by-template/org-nav-i-want-to-menu.twig" %}
               </div>
             {% endblock %}
@@ -56,9 +57,10 @@
             {% if nav.section == "contact-us" %}
               {% block contactTab %}
               <div class="ma__organization-navigation__subitem">
-                {# {% set customItems = nav.subNav.customItems %}
-                {% include "@organisms/by-template/org-nav-contact-menu.twig" %}   #}
-                <pre>{{ dump(_context.nav.subNav.customItems) }}</pre>
+                {% set contactRow = nav.subNav.orgMenuContactRow %}
+                {% set customItems = nav.subNav.customItems %}
+                {# {% include "@organisms/by-template/org-nav-contact-menu.twig" %}    #}
+                
               </div>
               {% endblock %}
             {% endif %}

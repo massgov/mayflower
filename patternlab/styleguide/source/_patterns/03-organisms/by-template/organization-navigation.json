@@ -57,7 +57,9 @@
           }
         },
         "login": {
-         
+          "href":"#",
+          "text":"MassFishHunt",
+          "info": ""
         }
       }
     },{
