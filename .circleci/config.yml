@@ -7,6 +7,11 @@ references:
   configure_git: &configure_git
     run: {name: 'Prepare Git', command: 'git config --global user.email "ci.bot@mass.gov" && git config --global user.name "MassGov Bot"'}
 
+react_defaults: &react_defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:8.9.4
+
 jobs:
   patternlab_build:
     working_directory: /var/www/code
@@ -78,6 +83,40 @@ jobs:
       - run: { name: 'Release S3', command: "cd patternlab/styleguide && node_modules/.bin/gulp patternlab:release" }
       - run: { name: 'Release NPM', command: "cd patternlab/styleguide && node_modules/.bin/gulp npm:release" }
 
+  react_build:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - mfr-dependencies-{{ checksum "react/package.json" }}
+      - run: cd react && npm install
+      - run:
+          - name: Run tests
+          - command: cd react && npm test
+      - save_cache:
+          paths:
+            - react/node_modules
+          key: mfr-dependencies-{{ checksum "react/package.json" }}
+      - run:
+          name: Mayflower React Build
+          command: cd react && npm run build
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  react_deploy_tag:
+    <<: *react_defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/react/.npmrc
+      - run:
+          name: Publish package
+          command: cd react && npm publish
+
 workflows:
   version: 2
 
@@ -90,6 +129,9 @@ workflows:
       - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
 
+      - react_build:
+          filters:
+            branches: { ignore: /(docs\-|patternlab\/).*/ }
 
   # Executed on tag pushes.
   build_tag:
@@ -103,5 +145,3 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
-
-
