@@ -58,6 +58,7 @@
               <div class="ma__organization-navigation__subitem">
                 {# {% set customItems = nav.subNav.customItems %}
                 {% include "@organisms/by-template/org-nav-contact-menu.twig" %}   #}
+                <pre>{{ dump(_context.nav.subNav.customItems) }}</pre>
               </div>
               {% endblock %}
             {% endif %}
