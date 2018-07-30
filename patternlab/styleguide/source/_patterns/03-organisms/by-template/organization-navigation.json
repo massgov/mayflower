@@ -29,7 +29,12 @@
               "href":"#",
               "text":"Lorem ipsum dolor sit.",
               "info": ""
-            }]
+            }],
+            "more": {
+              "href": "#",
+              "text": "See all services & tasks",
+              "info": "See all of services & tasks"
+            }
           }
         },
         "learnAbout": {

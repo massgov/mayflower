@@ -51,13 +51,13 @@
 
       @media ($bp-large-max) {
 
-        button::before {
+        .subnav-toggle::before {
           content: "back";
           float: right;
           padding-left: 10px;
         }
   
-        button::after {
+        .subnav-toggle::after {
           transform: translateY(-30%) rotate(135deg);
           transition: 0.5s ease-out;
         }
@@ -69,7 +69,7 @@
       } 
     }
 
-    button,
+    .subnav-toggle,
     .internal-link {
       width: 100%;
       height: 100%;
@@ -260,6 +260,49 @@
           }
         }
       }
+    }
+  }
+}
+
+.ma__org-nav-contact-us__contact-row {
+
+  @media ($bp-large-min) {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .ma__contact-row__additional {
+
+    @media ($bp-large-min) {
+      width: 100%;
+      display: flex;
+    }
+  }
+
+  .wrappedGroup {
+
+    @media ($bp-large-min) {
+      flex-grow: 1;
+      flex-basis: 0;
+      display: flex;
+      flex-direction: column;
+
+      &:not(:first-child) {
+        border-left: 1px solid $c-bd-divider;
+        padding-left: 40px;
+      }
+    }
+  }
+
+  .ma__contact-group:not(:first-child),
+  .ma__contact-group:first-child:not(:last-child) {
+    // these styles are defined multiple places for page level contact groups
+    @media ($bp-medium-min) {
+      width: auto !important;
+      margin-left:0 !important;
+      border-left: 0 !important;
+      padding-left: 0 !important;
+      float: none !important;
     }
   }
 }

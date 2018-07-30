@@ -29,6 +29,7 @@
 
     &.menu-open {
       display: flex;
+      padding-top: 70px;
     }
 
     @media ($bp-large-min) {
@@ -55,6 +56,17 @@
     line-height: 1.2;
     color: $c-font-dark;
     border-bottom: 1px solid $c-bd-divider;
+    background-color: $c-bg-section;
+    z-index: $z-dropdown;
+
+    .stuck & {
+
+      &.menu-open {
+        position: fixed;
+        top: 40px;
+      }
+    }
+
 
     .mobile-toggle-label {
       padding-right: 15px;
