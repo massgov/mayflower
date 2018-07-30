@@ -6,7 +6,7 @@ export default function (window,document,$,undefined) {
     let $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
 
     // Page wrapper and fillers. 
-    const $pageWrapper = $orgNav.parent().next('.ma__stacked-row');
+    const $pageWrapper = $orgNav.parent().next();
     let $newsLink = $pageWrapper.find('.ma__press-listing');
     let $eventsLink = $pageWrapper.find('.ma__event-listing');
     let $locationsLink = $pageWrapper.find('.ma__mapped-locations');
