@@ -30,21 +30,21 @@ export default function (window,document,$,undefined) {
     // I want to section.
     let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section h3');
 
-    // Window vars. 
-    const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
-
     // Sticky on scroll.
-    $(window).scroll(function () {
-      const orgWindowTop = $(window).scrollTop();
-      const orgNavSticky  = $orgNav.offset().top;
-  
-      // Active Sticky TOC when on page TOC scrolls past.
-      if (bannerBottom > orgWindowTop) {
-        $orgNav.removeClass('stuck');
-      } else {
-        $orgNav.addClass('stuck');
-      }
-    });
+    if($('.pre-content').length) {
+      const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
+
+      $(window).scroll(function () {
+        const orgWindowTop = $(window).scrollTop();
+
+        // Active Sticky TOC when on page TOC scrolls past.
+        if (bannerBottom > orgWindowTop) {
+          $orgNav.removeClass('stuck');
+        } else {
+          $orgNav.addClass('stuck');
+        }
+      });
+    }  
 
     // Mobile toggle. 
     $mobileToggle.on( 'click', function() {
