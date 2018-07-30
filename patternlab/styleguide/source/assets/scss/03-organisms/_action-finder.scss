@@ -130,7 +130,7 @@ $action-finder-bp: 900px;
       display: flex;
     }
 
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       @include span-columns(4 of 12);
       @include omega(3n);
       display: flex;

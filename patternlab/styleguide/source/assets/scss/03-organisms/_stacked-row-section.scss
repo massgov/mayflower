@@ -13,10 +13,6 @@
     }
   }
 
-  @media print {
-    padding-bottom: 0;
-  }
-
   &__container {
     @include ma-container();
   }
@@ -32,7 +28,7 @@
     content: "";
     padding-top: 45px;
 
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       border-top-width: 1px;
       border-top-style: solid;
       padding-top: 90px;
@@ -40,7 +36,7 @@
   }
 
   & ~ &--borderless &__container:before {
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       border-top-width: 0;
     }
   }
