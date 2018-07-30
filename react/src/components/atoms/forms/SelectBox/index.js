@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ResultsHeadingContext from '../../../molecules/ResultsHeading/context';
 import './style.css';
+
 
 class SelectBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: props.options[0].text
+      selected: this.props.resultsHeading ? this.props.resultsHeading.selectBoxProps.options[0].text : props.options[0].text
     };
     this.selectTag = '';
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -49,28 +51,28 @@ class SelectBox extends React.Component {
     const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
     return(
       <section className={classNames}>
-        <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
+            <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
 
-        <div className={`ma__select-box__field ${selectBoxInline}`}>
-          <select
-            name={this.props.id}
-            id={this.props.id}
-            className={selectClassNames}
-            onChange={this.handleOnChange}
-            ref={(select) => { this.selectTag = select; }}
-          >
-            {this.props.options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.text}
-              </option>
-            ))}
-          </select>
-          <div className="ma__select-box__link">
-            <span className="js-dropdown-link">{selected}</span>
-            <span className="ma__select-box__icon" />
-          </div>
-        </div>
-      </section>
+            <div className={`ma__select-box__field ${selectBoxInline}`}>
+              <select
+                name={this.props.id}
+                id={this.props.id}
+                className={selectClassNames}
+                onChange={this.handleOnChange}
+                ref={(select) => { this.selectTag = select; }}
+              >
+                {this.props.options.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.text}
+                  </option>
+                ))}
+              </select>
+              <div className="ma__select-box__link">
+                <span className="js-dropdown-link">{selected}</span>
+                <span className="ma__select-box__icon" />
+              </div>
+            </div>
+          </section>
     );
   }
 }

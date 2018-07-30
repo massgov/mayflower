@@ -1,15 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import SelectBox from '../../atoms/forms/SelectBox/index';
 import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
 import ImagePromo from '../ImagePromo';
 import './style.css';
 
-export const OrgSelectorContext = React.createContext({
-  selectedOrg: {}
-});
-
-class OrgSelector extends React.Component {
+class OrgSelectorRedux extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,13 +77,11 @@ class OrgSelector extends React.Component {
     const selectBoxProps = this.props.selectBox;
     const typeAheadProps = this.props.typeAhead;
     return(
-      <OrgSelectorContext.Provider value={this.state.selectedOrg}>
-        <section className="ma__org-selector js-org-selector">
-          {selectBoxProps && <SelectBox {...selectBoxProps} onChangeCallback={this.handleOrgSelectChange} />}
-          {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} onChange={this.handleOrgTypeAheadChange} />}
-          <OrgInfo />
-        </section>
-      </OrgSelectorContext.Provider>
+      <section className="ma__org-selector js-org-selector">
+        {selectBoxProps && <SelectBox {...selectBoxProps} onChangeCallback={this.handleOrgSelectChange} />}
+        {typeAheadProps && <InputTextTypeAhead {...typeAheadProps} onChange={this.handleOrgTypeAheadChange} />}
+        <OrgInfo org={this.state.selectedOrg} />
+      </section>
     );
   }
 }
@@ -95,23 +90,45 @@ class OrgSelector extends React.Component {
  * Porting over handlebars template for orgInfo
  * @see https://github.com/massgov/mayflower/blob/dev/styleguide/source/assets/js/templates/orgInfo.html
  */
-const OrgInfo = (props) => (
-  <OrgSelectorContext.Consumer>
-    {(selectedOrg) => (
-      (selectedOrg && Object.prototype.hasOwnProperty.call(selectedOrg, 'value') && Object.keys(selectedOrg).length > 0) &&
-        <div className="ma__org-selector__org-info js-org-info">
-          <section className="ma__org-info">
-            <ImagePromo />
-          </section>
-        </div>
-      )}
-  </OrgSelectorContext.Consumer>
-);
+const OrgInfo = (props) => {
+  const org = props.org;
+  if (Object.keys(org).length > 0 && Object.prototype.hasOwnProperty.call(org, 'value')) {
+    return(
+      <div className="ma__org-selector__org-info js-org-info">
+        <section className="ma__org-info">
+          <ImagePromo
+            title={{
+              href: org.name.href,
+              text: org.name.text
+            }}
+            tags={null}
+            image={{
+              alt: org.image.alt,
+              src: org.image.src,
+              height: org.image.height,
+              width: org.image.width
+            }}
+            stacked
+            small
+            subTitle={org.jobTitle}
+            description={org.message}
+            link={{
+              text: org.moreLink.text,
+              href: org.moreLink.href,
+              info: org.moreLink.info
+            }}
+          />
+        </section>
+      </div>
+    );
+  }
+  return false;
+};
 
 /** An object which has the image, name, title, description, and link to an org.  */
-//OrgInfo.propTypes = PropTypes.shape(ImagePromo.propTypes);
+OrgInfo.propTypes = PropTypes.shape(ImagePromo.propTypes);
 
-OrgSelector.propTypes = {
+OrgSelectorRedux.propTypes = {
   /** @atoms/forms/SelectBox  */
   selectBox: PropTypes.shape(SelectBox.propTypes),
   /** @atoms/forms/InputTextTypeAhead  */
@@ -122,4 +139,11 @@ OrgSelector.propTypes = {
   onChangeOrgCallback: PropTypes.func
 };
 
-export default OrgSelector;
+function mapStateToProps(state) {
+  // Maybe state.mayflower.<unique_component_identifier> format?
+  return{
+    selectedOrg: state.mayflower.orgselector1.selectedOrg
+  };
+}
+
+export default OrgSelectorRedux;

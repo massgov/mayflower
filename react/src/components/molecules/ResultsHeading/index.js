@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import withContext from 'react-context-consumer-hoc';
 import ButtonToggle from '../../atoms/buttons/ButtonToggle';
 import SelectBox from '../../atoms/forms/SelectBox';
+import ResultsHeadingContext, { withResultsHeading } from './context';
+
 import './style.css';
 
 class Tags extends Component {
   constructor(props) {
     super(props);
+    const tags = props.resultsHeading ? props.resultsHeading.tagsProps.tags || props.tags : this.props.tags || null;
     this.state = {
-      tags: this.props.tags ? this.props.tags : null
+      tags
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -56,29 +60,35 @@ const ResultsHeading = (resultsHeading) => {
   const { tags } = resultsHeading;
   const selectBoxProps = resultsHeading.selectBox;
   const buttonToggleProps = resultsHeading.buttonToggle;
+  const contextProps = {
+    tagsProps: tags,
+    selectBoxProps
+  };
+  const ResultsHeadingTag = withResultsHeading(Tags, tags);
+  const ResultsHeadingSelectBox = withResultsHeading(SelectBox, selectBoxProps);
   return(
-    <div className="ma__results-heading js-results-heading">
-      <div className="ma__results-heading__container">
-        <div className="ma__results-heading__title">
-          {resultsHeadingTitle}
+    <ResultsHeadingContext.Provider value={contextProps}>
+      <div className="ma__results-heading js-results-heading">
+        <div className="ma__results-heading__container">
+          <div className="ma__results-heading__title">
+            {resultsHeadingTitle}
+          </div>
+          {tags && (<ResultsHeadingTag />) }
+          { selectBoxProps && (
+            <div className="ma__results-heading__sort ma__results-heading__sort-selecBox">
+              <ResultsHeadingSelectBox />
+            </div>
+            )
+          }
+          { buttonToggleProps && (
+            <div className="ma__results-heading__sort">
+              <ButtonToggle {...buttonToggleProps} />
+            </div>
+           )
+          }
         </div>
-        {tags && (
-          <Tags {...tags} />
-        )}
-        { selectBoxProps && (
-          <div className="ma__results-heading__sort ma__results-heading__sort-selecBox">
-            <SelectBox {...selectBoxProps} />
-          </div>
-          )
-        }
-        { buttonToggleProps && (
-          <div className="ma__results-heading__sort">
-            <ButtonToggle {...buttonToggleProps} />
-          </div>
-         )
-        }
       </div>
-    </div>
+    </ResultsHeadingContext.Provider>
   );
 };
 
@@ -88,9 +98,9 @@ ResultsHeading.propTypes = {
   /** The total count of results */
   totalResults: PropTypes.string,
   /** The sort input type as ButtonToggle */
-  buttonToggle: PropTypes.shape(ButtonToggle.props),
+  buttonToggle: PropTypes.shape(ButtonToggle.propTypes),
   /** The sort input type as SelectBox */
-  selecBox: PropTypes.shape(SelectBox.props),
+  selectBox: PropTypes.shape(SelectBox.propTypes),
   /** The array of tags and the tags callback functions */
   tags: PropTypes.shape(Tags.propTypes)
 };
