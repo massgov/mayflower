@@ -36,3 +36,18 @@
     padding-left: 42px; // width of icon and margin
   }
 }
+
+//theme
+.ma__callout-time {
+
+  &__icon {
+
+    & > svg {
+      fill: $c-theme-tertiary;
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+  }
+}

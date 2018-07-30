@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Added
-- DP-9475: Added Twig block around stack row title for overrides.
