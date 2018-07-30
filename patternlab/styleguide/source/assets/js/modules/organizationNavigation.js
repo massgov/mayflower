@@ -25,10 +25,22 @@ export default function (window,document,$,undefined) {
     let $searchClose = $orgNavSearch.find('.js-toggle-close');
 
     // Subnav buttons. 
-    let $menuButton = $orgNav.find('.js-subnav-toggle');
+    let $menuButton = $orgNav.find('.subnav-toggle');
 
     // I want to section.
     let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section h3');
+
+    // Contact Sections.
+    $(window).on("resize", function () {
+
+      if ($(window).width() > 910) {
+        $('.ma__contact-group:first-child').addClass('wrappedGroup');
+        let $contactGroups = $orgNav.find('.ma__contact-group:not(:first-child)');
+        for(let i = 0; i < $contactGroups.length; i+=2) {
+          $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
+        }
+      }
+    }).resize();
 
     // Sticky on scroll.
     if($('.pre-content').length) {

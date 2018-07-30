@@ -1,0 +1,1159 @@
+{
+  "urlPath": "/?p=pages-ORG-Health-Services",
+  "COMMENT": "****PAGE CONTENT COMPONENTS****",
+   "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Department of Conservation and Recreation"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Other agency or organization"
+      }]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
+      }]
+    }
+  },
+  "pageBanner": {
+    "bgWide": "../../assets/images/placeholder/1600x400.png",
+    "bgNarrow": "../../assets/images/placeholder/800x400.png",
+    "size": "large",
+    "icon": null,
+    "title": "Executive Office of Health and Human Services",
+    "titleSubText": "(EOHHS)"
+  },
+  "organizationNavigation": {
+    "orgNavTitle": "Executive Office of Energy and Environmental Affairs",
+    "orgNavAbbrev": "EOEEA",
+    "orgId": "6676",
+    "orgSearch": false,
+    "orgNav": [{
+      "section": "i-want-to",
+      "title": "I want to...",
+      "subNav": {
+        "findService": {
+          "linkList" : {
+            "compHeading": {
+              "title": "Find a service or task",
+              "sub": "true"
+            },
+            "description": null,
+            "stacked": false,
+            "hideBullets": true,
+            "links" : [{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit amet.",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit amet, consectetur.",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit.",
+              "info": ""
+            }],
+            "more": {
+              "href": "#",
+              "text": "See all of services & tasks",
+              "info": "See all of services & tasks"
+            }
+          }
+        },
+        "learnAbout": {
+          "linkList" : {
+            "compHeading": {
+              "title": "Learn more about...",
+              "sub": "true"
+            },
+            "description": null,
+            "stacked": false,
+            "hideBullets": true,
+            "links" : [{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit amet.",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit amet, consectetur.",
+              "info": ""
+            },{
+              "href":"#",
+              "text":"Lorem ipsum dolor sit.",
+              "info": ""
+            }]
+          }
+        },
+        "login": {
+         
+        }
+      }
+    },{
+      "section": "about",
+      "title": "About",
+      "subNav": {
+        "linkList" : {
+          "description": null,
+          "stacked": false,
+          "hideBullets": true,
+          "links" : [{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit amet.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit amet, consectetur.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor sit.",
+            "info": ""
+          },{
+            "href":"#",
+            "text":"Lorem ipsum dolor",
+            "info": ""
+          }]
+        }
+      }
+    },{
+      "section": "contact-us",
+      "title": "Contact Us",
+      "subNav": {
+        "orgMenuContactRow": {
+          "compHeading": {
+            "title": "Division of Fisheries and Wildlife",
+            "sub": "",
+            "color": "",
+            "id": "contact us",
+            "centered": ""
+          },
+          "hasManyAdditional": true,
+          "additionalContacts": [
+            {
+              "icon": "marker",
+              "name": "Address",
+              "items": [{
+                "type": "address",
+                "label": "",
+                "address": "1 Rabbit Hill Rd, Westborough, MA 01581",
+                "link": {
+                  "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                  "text": "directions",
+                  "info": ""
+                },
+                "details": ""
+              }]
+            },
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "8 a.m. - 4:30 p.m., M - F"
+                }
+              ]
+            },
+            {
+              "icon": "fax-icon",
+              "name": "Fax",
+              "items": [
+                {
+                  "type": "fax",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "",
+                  "link": {
+                    "href": "email@email.com",
+                    "text": "Mass.Wildlife@state.ma.us",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }]
+  },
+  "short_description": {
+    "richText": {
+      "rteElements": [
+        {
+          "path": "@atoms/04-headings/heading-4.twig",
+          "data": {
+            "heading4": {
+              "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. "
+            }
+          }
+        }
+      ]
+    }
+  },
+  "stackedRows": [
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/featured-item-mosaic.twig",
+          "data": {
+            "featuredItemMosaic": {
+              "compHeading": {
+                "title": "Featured Items",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": ""
+              },
+              "columns": [
+                [
+                  {
+                    "href": "#",
+                    "text": "First action",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    },
+                    "featuredImage": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/300x500.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  }
+                ],
+                [
+                  {
+                    "href": "#",
+                    "text": "Second action which has a very long title",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  },
+                  {
+                    "href": "#",
+                    "text": "Third action",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  }
+                ],
+                [
+                  {
+                    "href": "#",
+                    "text": "Fourth action",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  },
+                  {
+                    "href": "#",
+                    "text": "Fifth action is truncated because it's over 60 characters...",
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../assets/images/placeholder/400x300.png",
+                      "height": "",
+                      "width": ""
+                    }
+                  }
+                ]
+              ],
+              "more": {
+                "href": "#",
+                "text": "view all events at this location",
+                "info": "",
+                "chevron": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/contact-row.twig",
+          "data": {
+            "contactRow": {
+              "compHeading": {
+                "title": "Contact Us",
+                "sub": "",
+                "color": "",
+                "id": "contact us",
+                "centered": ""
+              },
+              "image": {
+                "alt": "eohhs logo",
+                "src": "../../assets/images/placeholder/230x130.png",
+                "height": "130",
+                "width": "230"
+              },
+              "primaryContact": {
+                "icon": "marker",
+                "name": "Address",
+                "items": [
+                  {
+                    "type": "address",
+                    "label": "",
+                    "value": "One Ashburton Place, 11th Floor, Boston, MA 02108",
+                    "link": "https://www.google.com/maps/place/1+Ashburton+Pl,+Boston,+MA+02108",
+                    "details": ""
+                  }
+                ]
+              },
+              "hasManyAdditional": true,
+              "additionalContacts": [
+                {
+                  "icon": "phone",
+                  "name": "Phone",
+                  "items": [
+                    {
+                      "type": "phone",
+                      "property": "",
+                      "label": "Main:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                    },
+                    {
+                      "type": "phone",
+                      "property": "",
+                      "label": "Toll Free:",
+                      "link": {
+                        "href": "+18004324321",
+                        "text": "(800) 432-4321",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                    },
+                    {
+                      "type": "phone",
+                      "property": "",
+                      "label": "TTY:",
+                      "link": {
+                        "href": "+16175557777",
+                        "text": "(617) 555-7777",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": "For those who need accessible services"
+                    },
+                    {
+                      "type": "phone",
+                      "property": "",
+                      "label": "Voice Relay:",
+                      "link": {
+                        "href": "16175555255",
+                        "text": "(617) 555-5255",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                },
+                {
+                  "icon": "laptop",
+                  "name": "Online",
+                  "hidden": "",
+                  "items": [
+                    {
+                      "type": "email",
+                      "property": "",
+                      "label": "Email:",
+                      "link": {
+                        "href": "email@email.com",
+                        "text": "email@email.com",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "property": "",
+                      "label": "Web:",
+                      "link": {
+                        "href": "#",
+                        "text": "Contact Form",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                },
+                {
+                  "icon": "fax-icon",
+                  "name": "Fax",
+                  "items": [
+                    {
+                      "type": "fax",
+                      "property": "",
+                      "label": "Main:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": "",
+                        "property": ""
+                      },
+                      "details": "Please allow 24 hours for a response"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [
+                {
+                  "path": "@atoms/04-headings/heading-2.twig",
+                  "data": {
+                    "heading2": {
+                      "text": "Who We Serve"
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "The Executive Office of Health and Human Services is responsible through its member agencies for the delivery of a wide range of services to people with financial, health, social, protective, rehabilitation, and correctional needs. Online information is available for consumers, providers, researchers, and social workers to find out what types of assistance are offered."
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "<a href=\"http://www.google.com\">See news and updates</a>"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "sideBar": [
+        {
+          "path": "@molecules/icon-links.twig",
+          "data": {
+            "iconLinks": {
+              "compHeading": {
+                "title": "Social",
+                "sub": true,
+                "color": "",
+                "id": "",
+                "centered": "",
+                "titleContext": "links for Executive Office of Health and Human Services"
+              },
+              "items": [
+                {
+                  "icon": "twitter",
+                  "link": {
+                    "href": "https://twitter.com/MassHHS",
+                    "text": "@MassHHS",
+                    "chevron": ""
+                  }
+                },
+                {
+                  "icon": "flickr",
+                  "link": {
+                    "href": "https://www.flickr.com/photos/mass_hhs/",
+                    "text": "Mass_HHS",
+                    "chevron": ""
+                  }
+                },
+                {
+                  "icon": "blog",
+                  "link": {
+                    "href": "https://blog.mass.gov/hhs",
+                    "text": "blog.mass.gov/hhs",
+                    "chevron": ""
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/action-finder.twig",
+          "data": {
+            "actionFinder": {
+              "id": "GUID831741781374893",
+              "bgWide": "../../assets/images/placeholder/1600x600-lighthouse-blur.jpg",
+              "bgNarrow": "../../assets/images/placeholder/800x800.png",
+              "title": "What do you need help with?",
+              "featuredHeading": "Featured Services",
+              "generalHeading": "More Services",
+              "titleContext": "from Executive Office of Health and Human Services",
+              "seeAll": {
+                "type": "external",
+                "href": "http://www.google.com",
+                "text": "See all EOHHS’s programs and services on classic Mass.gov",
+                "info": ""
+              },
+              "featuredLinks": [
+                {
+                  "image": "",
+                  "text": "MassHealth (Medicaid)",
+                  "type": "external",
+                  "href": "#"
+                }
+              ],
+              "links": [
+                {
+                  "image": "",
+                  "text": "Affordable Health & Dental Care",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Cash Assistance",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Veteran Education",
+                  "href": "#",
+                  "label": ""
+                },
+                {
+                  "image": "",
+                  "text": "Food Stamp Program: SNAP",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Women, Infants, & Children Nutrition Program: WIC",
+                  "href": "#"
+                },
+                {
+                  "image": "",
+                  "text": "Early Intervention",
+                  "href": "#"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/sections-three-up.twig",
+          "data": {
+            "sectionThreeUp": {
+              "compHeading": {
+                "title": "Featured Topics",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": "",
+                "titleContext": "for Executive Office of Health and Human Services"
+              },
+              "sections": [
+                {
+                  "id": "GUIDasjdhf1",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "Health & Social Services"
+                  },
+                  "description": "Massachusetts offers services and resources to keep you and your loved ones healthy, safe, and happy. Find out how we can support you.",
+                  "links": [
+                    {
+                      "href": "#",
+                      "text": "Housing Assistance"
+                    },
+                    {
+                      "href": "#",
+                      "text": "MassHealth & Other Health Care"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Food & Cash Assistance"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Special Needs & Accessible Living"
+                    }
+                  ],
+                  "seeAll": {
+                    "href": "#",
+                    "text": "more",
+                    "info": "learn more about Health & Social Services"
+                  }
+                },
+                {
+                  "id": "GUIDasjdhf2",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "Families & Children"
+                  },
+                  "description": "The Commonwealth is committed to supporting safe, healthy, happy families. Find information ranging from how to get a marriage certificate to tips on raising active children.",
+                  "links": [
+                    {
+                      "href": "#",
+                      "text": "Caring for Children"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Health, Nutrition & Safety"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Marriage & Divorce"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Housing Assistance"
+                    }
+                  ],
+                  "seeAll": {
+                    "href": "#",
+                    "text": "more",
+                    "info": "learn more about Families & Children"
+                  }
+                },
+                {
+                  "id": "GUIDasjdhf3",
+                  "catIcon": null,
+                  "title": {
+                    "href": "#",
+                    "text": "Housing & Property"
+                  },
+                  "description": "Do you own or rent property in Massachusetts? Find resources for tenants and landlords, homeowners, developers, and more.",
+                  "links": [
+                    {
+                      "href": "#",
+                      "text": "Renters/Tenants"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Landlords"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Homeowners"
+                    },
+                    {
+                      "href": "#",
+                      "text": "Safety & Inspections"
+                    }
+                  ],
+                  "seeAll": {
+                    "href": "#",
+                    "text": "more",
+                    "info": "learn more about Housing & Property"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/press-listing.twig",
+          "data": {
+            "pressListing": {
+              "compHeading": {
+                "title": "Recent news & announcements",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": ""
+              },
+              "items": [
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/statehouse.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "Press Release",
+                  "title": {
+                    "href": "#",
+                    "text": "Massachusetts Health Officials Release Quarterly Report on Opioid OD Deaths",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "4/4/2017",
+                  "org": "Health & Human Services, Public Safety",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "News Article",
+                  "title": {
+                    "href": "#",
+                    "text": "Tree House Brweing Co. Expands Its Horizons",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "4/3/2017",
+                  "org": "Mass Development",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "secondaryItems": [
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "Press Release",
+                  "title": {
+                    "href": "#",
+                    "text": "Massachusetts Health Officials Release Quarterly Report on Opioid OD Deaths",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "4/4/2017",
+                  "org": "Health & Human Services, Public Safety",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "News Article",
+                  "title": {
+                    "href": "#",
+                    "text": "Tree House Brewing Co. Expands Its Horizons",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "4/3/2017",
+                  "org": "Mass Development",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "Press Statement",
+                  "title": {
+                    "href": "#",
+                    "text": "Governor Baker Statement on Supreme Court Marriage Equality Decision",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "4/3/2017",
+                  "org": "Office of the Governor",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "Press Release",
+                  "title": {
+                    "href": "#",
+                    "text": "Massachusetts Health Officials Release Quarterly Report on Opioid OD Deaths",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "4/4/2017",
+                  "org": "Health & Human Services, Public Safety",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "News Article",
+                  "title": {
+                    "href": "#",
+                    "text": "Tree House Brweing Co. Expands Its Horizons",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "4/3/2017",
+                  "org": "Mass Development",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "image": {
+                    "src": "/assets/images/placeholder/400x225.png",
+                    "alt": "placeholder image",
+                    "width": "400",
+                    "height": "225",
+                    "href": "#"
+                  },
+                  "eyebrow": "Press Statement",
+                  "title": {
+                    "href": "#",
+                    "text": "Governor Baker Statement on Supreme Court Marriage Equality Decision",
+                    "info": "",
+                    "property": ""
+                  },
+                  "date": "4/3/2017",
+                  "org": "Office of the Governor",
+                  "description": {
+                    "rteElements": [
+                      {
+                        "path": "@atoms/11-text/paragraph.twig",
+                        "data": {
+                          "paragraph": {
+                            "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "more": {
+                "href": "#",
+                "text": "See all news and announcements",
+                "chevron": true,
+                "label": "See all news and announcements for the Executive Office of Health and Human Services"
+              }
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/event-listing.twig",
+          "data": {
+            "eventListing": {
+              "grid": true,
+              "emptyText": "No upcoming events scheduled",
+              "compHeading": {
+                "title": "Upcoming Events",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": "",
+                "titleContext": "from Executive Office of Health and Human Services"
+              },
+              "events": null,
+              "pastMore": {
+                "href": "#",
+                "text": "See past events",
+                "info": "view all past events for Executive Office of Health and Human Services",
+                "chevron": true
+              }
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/mapped-locations.twig",
+          "data": {
+            "mappedLocations": {
+              "compHeading": {
+                "title": "Locations",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": "",
+                "titleContext": "of Executive Office of Health and Human Services"
+              },
+              "link": {
+                "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
+                "text": "Location Details",
+                "chevron": "true"
+              },
+              "googleMap": {
+                "map": {
+                  "center": {
+                    "lat": 42.366565,
+                    "lng": -71.058940
+                  },
+                  "zoom": 16
+                },
+                "markers": [
+                  {
+                    "position": {
+                      "lat": 42.366565,
+                      "lng": -71.058940
+                    },
+                    "label": "A",
+                    "infoWindow": {
+                      "name": "Department of Conservation and Recreation",
+                      "phone": "16176261250",
+                      "fax": "16176261351",
+                      "email": "mass.parks@state.ma.us",
+                      "address": "251 Causeway Street, Suite 900\nBoston, MA 02114-2104"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.358795,
+                      "lng": -71.063858
+                    },
+                    "label": "B",
+                    "infoWindow": {
+                      "name": "Department of Recreation and Fun",
+                      "phone": "16176261250",
+                      "fax": "",
+                      "email": "mass.parks@state.ma.us",
+                      "address": "24 Beacon St\nBoston, MA 02133"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/link-list.twig",
+          "data": {
+            "linkList": {
+              "sectionClass": "ma__related-organizations",
+              "compHeading": {
+                "title": "Related Organizations on pilot.mass.gov",
+                "sub": "",
+                "color": "",
+                "id": "",
+                "centered": ""
+              },
+              "links": [
+                {
+                  "href": "#",
+                  "text": "Executive Office of Elder Affairs"
+                },
+                {
+                  "href": "#",
+                  "text": "Department of Public Health"
+                },
+                {
+                  "href": "#",
+                  "text": "Department of Transitional Assistance"
+                },
+                {
+                  "href": "#",
+                  "text": "Massachusetts Health Connector"
+                },
+                {
+                  "href": "#",
+                  "text": "Executive Office of Health & Human Services"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "schema": {
+    "governmentOrganization": {
+      "name": "Executive Office of Health and Human Services",
+      "alternateName": "EOHHS",
+      "memberOf": {
+        "id": "http://mayflower.digital.mass.gov/#organization"
+      },
+      "disambiguatingDescription": "EOHHS oversees health and general support services to help people in Massacheusetts - from young children to seniors - meet basic needs.",
+      "description": "The Executive Office of Health and Human Services is responsible through its member agencies for the delivery of a wide range of services to people with financial, health, social, protective, rehabilitation, and correctional needs. Online information is available for consumers, providers, researchers, and social workers to find out what types of assistance are offered.",
+      "logo": "https://mayflower.digital.mass.gov/assets/images/images/placeholder/230x130.png",
+      "url": "https://mayflower.digital.mass.gov/?p=templates-org-landing-page",
+      "contactInfo": {
+        "address": "One Ashburton Place, 11th Floor, Boston, MA 02108",
+        "telephone": "+14134994262",
+        "faxNumber": "+14134994266",
+        "email": "email@email.com"
+      },
+      "sameAs": [
+        "https://twitter.com/MassHHS",
+        "https://www.flickr.com/photos/mass_hhs/",
+        "https://blog.mass.gov/hhs"
+      ]
+    }
+  }
+}

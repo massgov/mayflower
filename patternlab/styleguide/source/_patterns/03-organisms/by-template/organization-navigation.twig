@@ -31,7 +31,7 @@
         <li class="ma__organization-navigation__item {{ nav.section }}{% if nav.subNav %} has-subnav{% endif %}">
         <button 
           id="{{ buttonId }}" 
-          {% if nav.subNav %}class="js-subnav-toggle"{% endif %}
+          {% if nav.subNav %}class="subnav-toggle"{% endif %}
           {{ nav.subNav ? 'aria-haspopup="true" aria-expanded="false"' : '' }}>
             {{ nav.title }}
         </button>
