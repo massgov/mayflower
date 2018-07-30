@@ -57,9 +57,9 @@
             {% if nav.section == "contact-us" %}
               {% block contactTab %}
               <div class="ma__organization-navigation__subitem">
-                {% set contactRow = nav.subNav.orgMenuContactRow %}
+                {% set orgMenuContactRow = nav.subNav.orgMenuContactRow %}
                 {% set customItems = nav.subNav.customItems %}
-                {# {% include "@organisms/by-template/org-nav-contact-menu.twig" %}    #}
+                {% include "@organisms/by-template/org-nav-contact-menu.twig" %}   
                 
               </div>
               {% endblock %}
