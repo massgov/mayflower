@@ -593,10 +593,9 @@
             "id": "",
             "centered": ""
           },
-          "link": {
+          "button": {
             "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
-            "text":"Location Details",
-            "chevron": "true"
+            "text": "Location Details"
           },
           "googleMap":{
             "map": {

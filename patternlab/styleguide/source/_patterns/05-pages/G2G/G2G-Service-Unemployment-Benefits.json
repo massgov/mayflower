@@ -201,11 +201,12 @@
       "id": "",
       "centered": ""
     },
-    "link": {
+    "paragraph": {
+      "text": "See more locations for this Generic Service"
+    },
+    "button": {
       "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
-      "text":"Location Details",
-      "info": "See more locations for this Generic Service",
-      "property": ""
+      "text":"Location Details"
     },
     "googleMap":{
       "map": {
