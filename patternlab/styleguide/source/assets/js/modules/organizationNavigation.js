@@ -31,14 +31,23 @@ export default function (window,document,$,undefined) {
     let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section h3');
 
     // Contact Sections.
-    $(window).on("resize", function () {
+    $(window).one("resize", function () {
 
       if ($(window).width() > 910) {
-        $('.ma__contact-group:first-child').addClass('wrappedGroup');
-        let $contactGroups = $orgNav.find('.ma__contact-group:not(:first-child)');
-        for(let i = 0; i < $contactGroups.length; i+=2) {
-          $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
+        if($('.ma__contact-group__seeAll').length > 0) {
+          let $contactGroups = $orgNav.find('.ma__contact-group');
+          for(let i = 0; i < $contactGroups.length; i+=2) {
+            $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
+          }
+        } else {
+          $('.ma__contact-group:first-child').addClass('wrappedGroup');
+          let $contactGroups = $orgNav.find('.ma__contact-group:not(:first-child)');
+          for(let i = 0; i < $contactGroups.length; i+=2) {
+            $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
+          }
         }
+      } else {
+        $('.wrappedGroup').removeClass('wrappedGroup');
       }
     }).resize();
 
