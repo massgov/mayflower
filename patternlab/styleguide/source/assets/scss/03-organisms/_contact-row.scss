@@ -126,3 +126,23 @@ $contact-row-image-max-width: 300px;
 
   }
 }
+
+//theme
+.ma__contact-row {
+
+  .ma__contact-row__expand {
+    button {
+      color: $c-font-link;
+      font-weight: 700;
+
+      &:after {
+          border-color: $c-font-link;
+          opacity: .5;
+      }
+
+      &:hover {
+          border-color: rgba($c-font-link,.5);
+      }
+    }
+  }
+}

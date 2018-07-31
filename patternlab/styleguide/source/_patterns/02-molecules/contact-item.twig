@@ -43,7 +43,7 @@
     {# Address - RTE version of value and look for directions link #}
   {% elseif item.type == "address" %}
     <div class="ma__contact-group__address">
-      {{ address|nl2br|raw }}
+      {{ address|nl2br }}
     </div>
     {% if link.href %}
       <div class="ma__contact-group__directions">

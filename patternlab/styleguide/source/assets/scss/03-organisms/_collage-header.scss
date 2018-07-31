@@ -149,3 +149,35 @@ $collage-header-bp-min: "min-width: 701px";
       @include ma-h3;
     }
 }
+
+//theme
+$collage-header-bp-max: "max-width: 700px";
+
+.ma__collage-header {
+  background-color: $c-bg-subtle;
+
+  &__title {
+
+    @media ($collage-header-bp-max) {
+      background-color: $c-theme-secondary;
+    }
+
+    &:before {
+      background-color: $c-theme-secondary;
+    }
+
+    h1 {
+      color: $c-font-inverse;
+      font-weight: 400;
+    }
+  }
+
+  &__description {
+    font-weight: 300;
+  }
+
+  &__lead {
+    color: $c-font-dark;
+    font-weight: 400;
+  }
+}

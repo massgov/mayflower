@@ -80,3 +80,30 @@
     }
   }
 }
+
+//theme
+.ma__results-heading {
+  
+  &__container {
+    border-bottom-color: $c-bd-divider;
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__tag {
+    background-color: tint($c-font-link,90%);
+    color: $c-font-link;
+    font-weight: 700;
+
+    &:after {
+      color: $c-font-link;
+    }
+  }
+
+  &__clear {
+    color: $c-font-link;
+    font-weight: 700;
+  }
+}
