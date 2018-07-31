@@ -9,7 +9,7 @@ This is a pattern for the site header.
 * Site Logo
 * Header Search
 * Main Nav
-* Optional "Back To" link button in upper-left header, used for letting user go back to classic Mass.gov
+* Optional "Back To" link button in upper-left header, used to allow a user to go back to classic Mass.gov (Currently hidden)
 
 ### JavaScript Used
 * Header Search (js/modules/mobileNav.js)
