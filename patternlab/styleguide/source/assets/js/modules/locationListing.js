@@ -77,25 +77,34 @@ export default function (window, document, $) {
 
       // Handle location listings form interaction (triggered by locationFilters.js).
       $locationFilter.on('ma:LocationFilter:FiltersUpdated', function (e, formValues, resetValues) {
-        // transformData() returns a jQuery deferred object which allows us to wait for any asynchronous js execution to return before executing the .done(callback).
-        // @see: https://api.jquery.com/deferred.done/
-        transformData(masterData, formValues).done(function (transformation) {
-          let page = 1;
-          if (!resetValues) {
-            page = parseInt(getPage(), 10);
-          }
-          masterData = transformation.data; // preserve state
-          // Update the results heading based on the current items state.
-          transformation.data.resultsHeading = listings.transformResultsHeading({ data: transformation.data, page: page });
-          // Update pagination data structure, reset to first page
-          transformation.data.pagination = listings.transformPaginationData({data: transformation.data, targetPage: page});
-          // Render the listing page.
-          listings.renderListingPage({data: transformation.data, page: page});
-          // Get the associated markers based on the listing items.
-          transformation.markers = getActiveMarkers({data: transformation.data, page: page});
-          // Trigger child components render with updated data
-          updateChildComponents(transformation);
-        });
+        // Only update things if masterData contains data.
+        if (masterData.items && masterData.items.length > 0) {
+          // transformData() returns a jQuery deferred object which allows us to wait for any asynchronous js execution to return before executing the .done(callback).
+          // @see: https://api.jquery.com/deferred.done/
+          transformData(masterData, formValues).done(function (transformation) {
+            let page = 1;
+            if (!resetValues) {
+              page = parseInt(getPage(), 10);
+            }
+            masterData = transformation.data; // preserve state
+            // Update the results heading based on the current items state.
+            transformation.data.resultsHeading = listings.transformResultsHeading({
+              data: transformation.data,
+              page: page
+            });
+            // Update pagination data structure, reset to first page
+            transformation.data.pagination = listings.transformPaginationData({
+              data: transformation.data,
+              targetPage: page
+            });
+            // Render the listing page.
+            listings.renderListingPage({data: transformation.data, page: page});
+            // Get the associated markers based on the listing items.
+            transformation.markers = getActiveMarkers({data: transformation.data, page: page});
+            // Trigger child components render with updated data
+            updateChildComponents(transformation);
+          });
+        }
       });
 
       // Handle active filter/tag button interactions (triggered by resultsHeading.js).
@@ -208,10 +217,7 @@ export default function (window, document, $) {
     listing.pagination.pages = pages;
 
 
-    let masterListing = listing.imagePromos.items.map(item => {
-      item.description.text = item.description.rteElements[0].data.paragraph.text;
-      return item;
-    });
+    let masterListing = listing.imagePromos.items;
 
     let masterListingMarkup = listings.transformListing(masterListing, 'locationListingRow');
     // The max number of items per page, if designated in locationListing data structure, else all

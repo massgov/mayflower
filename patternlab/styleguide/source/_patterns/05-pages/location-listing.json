@@ -293,14 +293,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Attleboro District Court is accessible by the Providence/Stoughton line of the MBTA. The courthouse is also accessible by via the Greater Attleboro Taunton Regional Transit Authority (GATRA)."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Attleboro District Court is accessible by the Providence/Stoughton line of the MBTA. The courthouse is also accessible by via the Greater Attleboro Taunton Regional Transit Authority (GATRA)."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -331,14 +335,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Barnstable District Court is accessible by the Barnstable Villager line of the Cape Cod Regional Transit Authority."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Barnstable District Court is accessible by the Barnstable Villager line of the Cape Cod Regional Transit Authority."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -369,14 +377,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "For public transportation information to the courthouse, visit the <a href=\"#\">Berkshire Regional Transit Authority</a> website or call 800-292-2782."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "For public transportation information to the courthouse, visit the <a href=\"#\">Berkshire Regional Transit Authority</a> website or call 800-292-2782."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -407,14 +419,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Brookline District Court is accessible by the Riverside D- Green Line of the MBTA. The closest stop to the courthouse is the Brookline Village Stop. The courthouse is also accessible by the following bus lines: Bus 60 (Chestnut Hill-Kenmore Station), Bus 65 (Brighton Center-Kenmore via Washington Street) and Bus 66 (Harvard Square-Dudley Station via Allston)."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Brookline District Court is accessible by the Riverside D- Green Line of the MBTA. The closest stop to the courthouse is the Brookline Village Stop. The courthouse is also accessible by the following bus lines: Bus 60 (Chestnut Hill-Kenmore Station), Bus 65 (Brighton Center-Kenmore via Washington Street) and Bus 66 (Harvard Square-Dudley Station via Allston)."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -449,14 +465,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Cambridge District Court is accessible by the Orange Line of the MBTA. The closest stop to the courthouse is the Wellington Station Stop. The courthouse is also accessible by the following bus lines: Bus 90, Bus 97, Bus 99, Bus 100, Bus 106, Bus 108, Bus 110, Bus 112 and Bus 134."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Cambridge District Court is accessible by the Orange Line of the MBTA. The closest stop to the courthouse is the Wellington Station Stop. The courthouse is also accessible by the following bus lines: Bus 90, Bus 97, Bus 99, Bus 100, Bus 106, Bus 108, Bus 110, Bus 112 and Bus 134."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -487,14 +507,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Concord District Court is accessible by the Fitchburg/South Acton line of the MBTA. The closes stop to the courthouse is the Concord Stop which is about 1.2 miles from the courthouse."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Concord District Court is accessible by the Fitchburg/South Acton line of the MBTA. The closes stop to the courthouse is the Concord Stop which is about 1.2 miles from the courthouse."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -525,14 +549,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Edgartown District Court is accessible by the following routes on the Vineyard Transit Authority: Route 1, Route 6, Route 8 and Route 13."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Edgartown District Court is accessible by the following routes on the Vineyard Transit Authority: Route 1, Route 6, Route 8 and Route 13."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -563,14 +591,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Lowell District Court is also accessible by the Lowell line of the MBTA. The closest stop to the courthouse is Lowell Station which is approximately 1/2 of a mile from the courthouse."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Lowell District Court is also accessible by the Lowell line of the MBTA. The closest stop to the courthouse is Lowell Station which is approximately 1/2 of a mile from the courthouse."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -601,14 +633,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "There is no public transportation available to the Marlborough District Court."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "There is no public transportation available to the Marlborough District Court."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -639,14 +675,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Salem District Court is accessible by the Newburyport/Rockport line of the MBTA. The closest stop to the courthouse is Salem Station. The courthouse is also accessible by the following MBTA busses: Express Bus 450, Bus 451, Express Bus 455, Bus 456, Express Bus 459 and Bus 465."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Salem District Court is accessible by the Newburyport/Rockport line of the MBTA. The closest stop to the courthouse is Salem Station. The courthouse is also accessible by the following MBTA busses: Express Bus 450, Bus 451, Express Bus 455, Bus 456, Express Bus 459 and Bus 465."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -677,14 +717,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "For public transportation information to the courthouse, visit the <a href=\"#\">MBTA</a> website or call 800-392-6100."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "For public transportation information to the courthouse, visit the <a href=\"#\">MBTA</a> website or call 800-392-6100."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
@@ -715,14 +759,18 @@
                 "href": "#"
               },
               "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "The Taunton District Court is accessible by the Bloom Bus Line."
+                "richText": {
+                  "rteElements": [
+                    {
+                      "path": "@atoms/11-text/paragraph.twig",
+                      "data": {
+                        "paragraph": {
+                          "text": "The Taunton District Court is accessible by the Bloom Bus Line."
+                        }
+                      }
                     }
-                  }
-                }]
+                  ]
+                }
               },
               "link": {
                 "text": "Directions",
