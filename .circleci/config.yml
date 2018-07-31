@@ -83,21 +83,22 @@ jobs:
       - run: { name: 'Release S3', command: "cd patternlab/styleguide && node_modules/.bin/gulp patternlab:release" }
       - run: { name: 'Release NPM', command: "cd patternlab/styleguide && node_modules/.bin/gulp npm:release" }
 
-  react_build:
+  react_build_storybook:
     <<: *react_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
             - mfr-dependencies-{{ checksum "react/package.json" }}
+
       - run: cd react && npm install
       - save_cache:
           paths:
             - react/node_modules
           key: mfr-dependencies-{{ checksum "react/package.json" }}
       - run:
-          name: Mayflower React Build
-          command: cd react && npm run build
+          name: Mayflower React Build Storybook
+          command: cd react && npm run build-storybook
       - persist_to_workspace:
           root: ~/repo
           paths: .
@@ -105,14 +106,10 @@ jobs:
   react_deploy_tag:
     <<: *react_defaults
     steps:
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/react/.npmrc
-      - run:
-          name: Publish package
-          command: cd react && npm publish
+      - attach_workspace: {at: ~/repo}
+      - run: {name: Authenticate with registry, command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/react/.npmrc}
+      - run: {name: Publish package, command: cd react && npm publish}
+      - run: {name: Release S3, command: cd react && aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete}
 
 workflows:
   version: 2
@@ -126,7 +123,7 @@ workflows:
       - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
 
-      - react_build:
+      - react_build_storybook:
           filters:
             branches: { ignore: /(docs\-|patternlab\/).*/ }
 
@@ -139,6 +136,11 @@ workflows:
             tags: { only: /.*/ }
       - patternlab_deploy_tag:
           requires: [patternlab_build]
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - react_deploy_tag:
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
