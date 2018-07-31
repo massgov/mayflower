@@ -128,13 +128,8 @@ $location-listin--map-min-width: 315px;
     margin-top: 0;
     padding-bottom: 30px;
     padding-left: 1rem;
-    padding-right: 1rem;
+    padding-right: $location-listing--gutter-width;
     position: relative;
-
-    @media ($bp-medium-min) and ($bp-x-large-max) {
-      // Gutter + Icon width + gutter.
-      padding-right: $location-listing--gutter-width + $location-listing--tags-size + $location-listing--gutter-width;
-    }
 
     @media ($bp-x-large-min) {
       // The 30px gutter is located on the `__results` container.
@@ -153,22 +148,14 @@ $location-listin--map-min-width: 315px;
       flex-basis: (100px + $location-listing--gutter-width);
       margin-right: 0;
       padding-right: $location-listing--gutter-width;
-
-      @media ($bp-medium-max) {
-        align-self: flex-start;
-        // Padding is applied with inline CSS from the template.
-        // Ensure the padding does not take from the height.
-        box-sizing: content-box;
-        flex-basis: 100px;
-        // Min-height is the image height of 100px + a gutter of 15px
-        // before the tag icons start.
-        min-height: 115px;
-        width: 100px;
-      }
+      width: (100px + $location-listing--gutter-width);
     }
 
     &__details {
-      padding-right: $location-listing--gutter-width;
+
+      @media ($bp-medium-min) {
+        padding-right: $location-listing--gutter-width;
+      }
 
       > * {
         margin-bottom: 10px;
@@ -195,10 +182,8 @@ $location-listin--map-min-width: 315px;
       position: absolute;
       right: 0;
       top: 50%;
-      transform: translate(-50%, 0);
 
       @media ($bp-medium-min) {
-        right: $location-listing--gutter-width;
         top: 50%;
         transform: translate(0, -50%);
       }
@@ -234,7 +219,11 @@ $location-listin--map-min-width: 315px;
     }
 
     &__contact {
-      flex: 0 0 180px;
+      flex: 0 0 200px;
+
+      @media ($bp-medium-max) {
+        flex: 1 1 100%;
+      }
 
       > div:not(:last-child) {
         margin-bottom: 0.5rem;
@@ -249,6 +238,16 @@ $location-listin--map-min-width: 315px;
         height: 25px;
         width: 25px;
       }
+    }
+
+    &__hours {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__hours-item {
+      flex: 1 1 auto;
+      padding-right: 1rem;
     }
   }
 }

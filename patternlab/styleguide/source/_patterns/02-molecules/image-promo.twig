@@ -18,20 +18,20 @@
     {% if imagePromo.title.text %}
       {% set headingLevel = imagePromo.level ? : 2 %}
       <h{{ headingLevel }} class="ma__image-promo__title">
-      {% if imagePromo.tags %}
-        <div class="ma__image-promo__tags">
-          {% for tag in imagePromo.tags %}
-            <span title="{{ tag.label }}" data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
-          {% endfor %}
-        </div>
-      {% endif %}
-      {% if imagePromo.title.href %}
-        {% set link = imagePromo.title %}
-        {% include "@atoms/11-text/link.twig" %}
-      {% else %}
-        {{ imagePromo.title.text }}
-      {% endif %}
-    </h{{ headingLevel }}>
+        {% if imagePromo.tags %}
+          <div class="ma__image-promo__tags">
+            {% for tag in imagePromo.tags %}
+              <span title="{{ tag.label }}" data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if imagePromo.title.href %}
+          {% set link = imagePromo.title %}
+          {% include "@atoms/11-text/link.twig" %}
+        {% else %}
+          {{ imagePromo.title.text }}
+        {% endif %}
+      </h{{ headingLevel }}>
     {% endif %}
     {% if imagePromo.location.subtitle %}
       <div class="ma__image-promo__location-subtitle">
@@ -82,20 +82,22 @@
       </div>
     {% endif %}
     {% if imagePromo.hours %}
-      {% for hour in imagePromo.hours %}
-        <div class="ma__image-promo__hours">
-          {% if hour.label %}
-            <div class="ma__image-promo__label ma__image-promo__label--hours">
-              {{ hour.label }}
-            </div>
-          {% endif %}
-          {% if hour.text %}
-            <div class="ma__image-promo__contact-info">
-              {{ hour.text }}
-            </div>
-          {% endif %}
-        </div>
-      {% endfor %}
+      <div class="ma__image-promo__hours">
+        {% for hour in imagePromo.hours %}
+          <div class="ma__image-promo__hours-item">
+            {% if hour.label %}
+              <div class="ma__image-promo__label ma__image-promo__label--hours">
+                {{ hour.label }}
+              </div>
+            {% endif %}
+            {% if hour.text %}
+              <div class="ma__image-promo__contact-info">
+                {{ hour.text }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
     {% endif %}
   </div>
 </section>

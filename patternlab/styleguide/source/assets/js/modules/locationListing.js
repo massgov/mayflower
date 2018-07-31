@@ -1,7 +1,7 @@
 import sticky from "../helpers/sticky.js";
 import listings from "../helpers/listing.js";
 
-export default function (window, document, $, undefined) {
+export default function (window, document, $) {
   // Active state classes for location listing rows.
   let activeClass = 'is-active',
     markerActiveClass = 'is-marker-bounce',
@@ -38,25 +38,23 @@ export default function (window, document, $, undefined) {
       // Set up click handler for location listing rows.
       $el.on('click', row, function (e) {
         let index = $(e.currentTarget).index();
-        // trigger map to recenter on this item based on it's index.
+
+        // Trigger map to recenter on this item based on it's index.
         $map.trigger('ma:GoogleMap:MapRecenter', index);
-        // mark this link as active
+
+        // Mark this link as active.
         $el.find(activeLocationListingRow).removeClass(activeClass);
-        $(e.currentTarget).addClass(activeClass); // in case the event is triggered on a child element.
-        // focus on the map - mainly for mobile when it is stacked
+        // In case the event is triggered on a child element.
+        $(e.currentTarget).addClass(activeClass);
+        // Focus on the map - mainly for mobile when it is stacked.
         let position = $map.offset().top;
         $("html,body").stop(true, true).animate({ scrollTop: position }, '750');
       });
 
       // Set up hover / focus event for listing rows.
       $el.on('mouseenter focusin', row, function (e) {
-        // remove active state from previously selected list item
+        // Remove active state from previously selected list item.
         $el.find(activeLocationListingRow).removeClass(activeClass);
-
-        // Don't bounce the marker again if focus moves within the same listing.
-        if ($(e.currentTarget).hasClass(markerActiveClass)) {
-          return false;
-        }
 
         // Remove "focus" class from any "focused" location listing row.
         // ("focus" vs focus because hover doesn't bring focus to element.)
