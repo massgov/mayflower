@@ -3,10 +3,6 @@
 
   &__section {
 
-    @media print {
-      padding-bottom: 0;
-    }
-
     & ~ & {
 
       @media ($bp-large-max) {
@@ -40,14 +36,14 @@
     content: "";
     display: block;
 
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       border-top-width: 1px;
       border-top-style: solid;
     }
   }
 
   &__section ~ &__section--borderless &__container:before {
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       border-top-width: 0;
     }
   }

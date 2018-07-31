@@ -68,6 +68,13 @@
       & > svg {
         padding-left: 5px;
       }
+
+    }
+
+    &--desktop-hidden {
+      @media ($bp-medium-min) {
+        display: none;
+      }
     }
 
     &:focus {
@@ -98,9 +105,16 @@
   }
 
   .ma__filter-box {
+    text-align: left;
     width: 100%;
     @media ($bp-large-min) {
       position: absolute;
+    }
+
+    &--desktop-hidden {
+      @media ($bp-medium-min) {
+        display: none;
+      }
     }
 
     &__organizations {
