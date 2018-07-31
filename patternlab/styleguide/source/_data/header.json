@@ -1,5 +1,8 @@
 {
   "header" : {
-    "hideBackTo": true
+    "hideBackTo": true,
+    "backTO": {
+      "text": "Go to classic Mass.gov"
+    }
   }
 }
