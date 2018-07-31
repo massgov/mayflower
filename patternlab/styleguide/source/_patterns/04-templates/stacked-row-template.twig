@@ -69,6 +69,16 @@
   </div>
   {% block schemaContent %}
   {% endblock %}
+
+  {% block sidebar %}
+    {% if sideBarContent|length %}
+      <aside class="sidebar">
+        {% for sidebar in sideBarContent %}
+          {% include sidebar.path with sidebar.data %}
+        {% endfor %}
+      </aside>
+    {% endif %}
+  {% endblock %}
 </main>
 
 {% block footer %}
