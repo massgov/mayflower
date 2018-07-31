@@ -97,6 +97,9 @@ jobs:
             - react/node_modules
           key: mfr-dependencies-{{ checksum "react/package.json" }}
       - run:
+          name: Mayflower React Build
+          command: cd react && npm run build
+      - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
       - persist_to_workspace:
