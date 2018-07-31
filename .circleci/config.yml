@@ -106,10 +106,11 @@ jobs:
   react_deploy_tag:
     <<: *react_defaults
     steps:
-      - attach_workspace: {at: ~/repo}
-      - run: {name: Authenticate with registry, command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/react/.npmrc}
-      - run: {name: Publish package, command: cd react && npm publish}
-      - run: {name: Release S3, command: cd react && aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete}
+      - attach_workspace:
+          - at: ~/repo
+      - run: {name: 'Authenticate with registry', command: 'echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/react/.npmrc'}
+      - run: {name: 'Publish package', command: 'cd react && npm publish'}
+      - run: {name: 'Release S3', command: 'cd react && aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete'}
 
 workflows:
   version: 2
