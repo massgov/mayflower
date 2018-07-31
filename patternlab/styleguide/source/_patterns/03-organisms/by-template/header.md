@@ -9,9 +9,10 @@ This is a pattern for the site header.
 * Site Logo
 * Header Search
 * Main Nav
+* Optional "Back To" link button in upper-left header, used to allow a user to go back to classic Mass.gov (Currently hidden)
 
 ### JavaScript Used
-* Header Search (js/modules/mobileNav.js) 
+* Header Search (js/modules/mobileNav.js)
 * Scrolling Nav (js/modules/scrollAnchors.js)
 * Utility Nav (js/modules/utilNav.js)
 * Main Nav (js/modules/mainNav.js)
@@ -22,10 +23,17 @@ This is a pattern for the site header.
 utilityNav: {
   type: utilityNav / required
 }
-headerSearch : {
+headerSearch: {
   type: headerSearch / required
 }
 mainNav: [{
   type: mainNav / required
 }]
+
+header: {
+  hideBackTo: boolean / optional
+  backTo: {
+    text: string / optional
+  }
+}
 ~~~

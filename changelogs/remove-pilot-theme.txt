@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Minor
+### Removed
+- (Patternlab) Remove unused pilot theme #104
