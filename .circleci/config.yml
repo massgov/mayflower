@@ -7,11 +7,6 @@ references:
   configure_git: &configure_git
     run: {name: 'Prepare Git', command: 'git config --global user.email "ci.bot@mass.gov" && git config --global user.name "MassGov Bot"'}
 
-react_defaults: &react_defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:8.9.4
-
 jobs:
   patternlab_build:
     working_directory: /var/www/code
@@ -84,7 +79,9 @@ jobs:
       - run: { name: 'Release NPM', command: "cd patternlab/styleguide && node_modules/.bin/gulp npm:release" }
 
   react_build:
-    <<: *react_defaults
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:8.9.4
     steps:
       - checkout
       - restore_cache:
@@ -106,7 +103,9 @@ jobs:
           paths: .
 
   react_deploy_tag:
-    <<: *react_defaults
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:8.9.4
     steps:
       - attach_workspace:
           at: ~/repo
