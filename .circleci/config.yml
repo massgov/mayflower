@@ -91,9 +91,6 @@ jobs:
           keys:
             - mfr-dependencies-{{ checksum "react/package.json" }}
       - run: cd react && npm install
-      - run:
-          name: Run tests
-          command: cd react && npm test
       - save_cache:
           paths:
             - react/node_modules
