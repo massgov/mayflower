@@ -62,3 +62,25 @@
     padding-bottom: 25px;
   }
 }
+
+//theme
+.ma__download-link {
+
+  &__icon {
+    fill: rgba($c-font-link,.7);
+  }
+
+  &__file-link {
+    &:hover {
+      border-bottom-color: rgba($c-font-link,.5);
+    }
+  }
+
+  &__file-spec {
+    font-weight: 500;
+  }
+
+  .ma__form-downloads--listing & {
+    border-color: $c-bd-divider;
+  }
+}

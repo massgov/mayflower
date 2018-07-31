@@ -30,7 +30,7 @@
     {% if eventTeaser.date.summary %}
       {# summary should always be included if start or end dates are provided to help screen readers #}
       <div class="ma__event-teaser__date">
-        {{ eventTeaser.date.summary|raw|nl2br }}
+        {{ eventTeaser.date.summary|nl2br }}
       </div>
     {% endif %}
     {% if eventTeaser.time %}

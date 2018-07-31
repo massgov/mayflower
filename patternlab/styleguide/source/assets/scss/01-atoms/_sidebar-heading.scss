@@ -6,3 +6,12 @@
     border: none;
   }
 }
+
+//theme
+.ma__sidebar-heading {
+  @include ma-sidebar-heading($c-bd-divider, $c-font-base);
+
+  .sidebar--colored & {
+    @include ma-heading-colored($c-bg-comp-title);
+  }
+}

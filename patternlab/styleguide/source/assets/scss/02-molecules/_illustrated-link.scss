@@ -71,3 +71,39 @@ $illustrated-link-image-width: 130px;
     flex-shrink: 0;
   }
 }
+
+//theme
+.ma__illustrated-link {
+  border-color: tint($c-theme-primary,50%);
+  box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+
+  &__content {
+    background-color: tint($c-theme-primary,89%);
+
+    &:after {
+      background-color: tint($c-theme-primary,89%);
+    }
+  }
+
+  &__label {
+    color: rgba($c-font-link,.8);
+  }
+
+  &__title {
+
+    a {
+
+      &:hover {
+        border-bottom-color: rgba($c-font-link, .5);
+      }
+    }
+
+    svg {
+      fill: rgba($c-font-link, .5);
+    }
+  }
+
+  &__image {
+    background-color: tint($c-theme-primary,50%);
+  }
+}
