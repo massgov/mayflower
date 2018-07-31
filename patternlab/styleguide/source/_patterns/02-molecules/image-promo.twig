@@ -26,8 +26,8 @@
           </div>
         {% endif %}
         {% if imagePromo.title.href %}
-          {% set link = imagePromo.title %}
-          {% include "@atoms/11-text/link.twig" %}
+          {% set decorativeLink = imagePromo.title %}
+          {% include "@atoms/decorative-link.twig" %}
         {% else %}
           {{ imagePromo.title.text }}
         {% endif %}
@@ -43,8 +43,8 @@
         {{ imagePromo.location.text|raw }}
         {% if imagePromo.link.text %}
           <span class="ma__image-promo__directions">
-            {% set link = imagePromo.link %}
-            {% include "@atoms/11-text/link.twig" %}
+            {% set decorativeLink = imagePromo.link %}
+            {% include "@atoms/decorative-link.twig" %}
           </span>
         {% endif %}
       </div>
@@ -62,8 +62,8 @@
     {% endif %}
     {% if imagePromo.link.text and not imagePromo.location.text %}
       <div class="ma__image-promo__link">
-        {% set link = imagePromo.link %}
-        {% include "@atoms/11-text/link.twig" %}
+        {% set decorativeLink = imagePromo.link %}
+        {% include "@atoms/decorative-link.twig" %}
       </div>
     {% endif %}
   </div>

@@ -149,6 +149,10 @@ $location-listin--map-min-width: 315px;
       margin-right: 0;
       padding-right: $location-listing--gutter-width;
       width: (100px + $location-listing--gutter-width);
+
+      img {
+        border-radius: 5px;
+      }
     }
 
     &__details {
@@ -175,6 +179,16 @@ $location-listin--map-min-width: 315px;
       font-size: 1.25rem;
       font-weight: 500;
       padding-bottom: 0;
+
+      .ma__decorative-link {
+        width: auto;
+
+        a {
+          display: inline-block;
+          padding-bottom: 0;
+          padding-top: 0;
+        }
+      }
     }
 
     &__tags {
@@ -228,6 +242,14 @@ $location-listin--map-min-width: 315px;
       > div:not(:last-child) {
         margin-bottom: 0.5rem;
       }
+    }
+
+    &__label {
+      font-weight: 700;
+    }
+
+    &__contact-info {
+      font-weight: 500;
     }
 
     &__phone {

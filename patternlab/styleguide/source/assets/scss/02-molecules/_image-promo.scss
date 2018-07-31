@@ -29,7 +29,6 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
     margin-bottom: 10px;
 
     img {
-      border-radius: 5px;
       width: 100%;
     }
   }
@@ -94,38 +93,6 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
       height: 20px;
       margin-right: 0.5rem;
       width: 20px;
-    }
-  }
-
-  &__label {
-    font-weight: 700;
-  }
-
-  &__contact-info {
-    font-weight: 500;
-  }
-}
-
-//theme
-.ma__image-promo {
-  border-color: $c-bd-divider;
-
-  &__tags {
-
-    svg {
-      fill: $c-theme-secondary;
-    }
-  }
-
-  &__phone {
-
-    & > a {
-      color: $c-font-base;
-      font-weight: 400;
-    }
-
-    & > svg {
-      fill: $c-theme-secondary;
     }
   }
 }
