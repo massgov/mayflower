@@ -74,7 +74,10 @@ FilterBox.propTypes = {
   /** @atoms/forms/SelectBox */
   topic: PropTypes.shape(SelectBox.PropTypes),
   /** @atoms/forms/SelectBox or /** @atoms/forms/InputTextTypeAhead  */
-  pressType: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.shape(SelectBox.propTypes), PropTypes.shape(InputTextTypeAhead.propTypes)])),
+  pressType: PropTypes.oneOf([
+    PropTypes.shape({ selectBox: SelectBox.propTypes }),
+    PropTypes.shape({ typeAhead: InputTextTypeAhead.propTypes })
+  ]),
   /** @atoms/forms/InputTextTypeAhead */
   organization: PropTypes.shape(InputTextTypeAhead.propTypes),
   /** @molecules/DateRange */
