@@ -16,11 +16,11 @@
   &__items {
     @include clearfix;
 
-    @media print, ($bp-small-min) {
+    @media ($bp-small-min) {
       display: flex;
-        align-items: stretch;
-        flex-wrap: wrap;
-        justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 
@@ -34,10 +34,33 @@
       display: flex;
     }
 
-    @media print, ($bp-x-large-min) {
+    @media ($bp-x-large-min) {
       @include span-columns(3);
       @include omega(4n);
       display: flex;
+    }
+  }
+}
+
+//theme
+.ma__top-actions {
+
+  &__title {
+    @include ma-border-decorative($c-theme-secondary);
+  }
+
+  &__item {
+    border-color: $c-bd-divider;
+  }
+
+  &__link {
+
+    a:hover {
+      border-bottom-color: rgba($c-theme-primary, .5);
+    }
+
+    svg {
+      fill: rgba($c-theme-primary, .5);
     }
   }
 }

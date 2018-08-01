@@ -130,7 +130,7 @@ $action-finder-bp: 900px;
       display: flex;
     }
 
-    @media print, ($bp-large-min) {
+    @media ($bp-large-min) {
       @include span-columns(4 of 12);
       @include omega(3n);
       display: flex;
@@ -179,5 +179,122 @@ $action-finder-bp: 900px;
     padding-top: 0;
     padding-bottom: 48px;
     text-align: left;
+  }
+}
+
+//theme
+$action-finder-bg-color: tint($c-theme-primary,89%);
+$action-finder-border-color: tint($c-theme-primary,50%);
+
+.ma__action-finder {
+
+  &:after {
+    background-image: linear-gradient(180deg, rgba(#000,.6), transparent 90%, transparent);
+  }
+
+  &--no-background {
+    background-image: linear-gradient(180deg, $c-white 50px, $c-bg-section 51px);
+  }
+
+  &--no-background &__header {
+    background-color: $c-theme-primary;
+
+    &:before {
+      background-color: $c-theme-primary;
+    }
+  }
+
+  &--green &__header {
+    background-color: $c-theme-secondary;
+
+    &:before {
+      background-color: $c-theme-secondary;
+    }
+  }
+
+  &__title {
+    color: $c-font-inverse;
+  }
+
+  &:not(&--no-background) &__title {
+    @include ma-border-decorative($c-theme-tertiary,1);
+  }
+
+  &__category {
+    color: $c-font-inverse;
+    font-wieght: 500;
+  }
+
+  &--no-background &__category {
+    color: $c-font-base;
+  }
+
+  &__search {
+
+    button {
+      color: $c-font-inverse;
+
+      svg {
+        fill: $c-font-inverse;
+      }
+    }
+  }
+
+  &__items--all {
+
+    .ma__callout-link {
+      background-color: $c-white;
+      box-shadow: none;
+    }
+
+    .ma__illustrated-link {
+      box-shadow: none;
+
+      &__content {
+        background-color: $c-white;
+
+        &:after {
+          background-color: $c-white;
+        }
+      }
+    }
+  }
+
+  &__see-all {
+    background-color: $c-theme-primary;
+
+    .ma__decorative-link {
+
+      a {
+        color: $c-font-inverse;
+
+        &:hover {
+          border-color: rgba($c-font-inverse, .5);
+        }
+      }
+
+      svg {
+        fill: rgba($c-font-inverse, .5);
+      }
+    }
+  }
+
+  &--no-background &__see-all {
+    background-color: $c-bg-section;;
+
+    .ma__decorative-link {
+
+      a {
+        color: $c-font-link;
+
+        &:hover {
+          border-color: rgba($c-font-link, .5);
+        }
+      }
+
+      svg {
+        fill: rgba($c-font-link, .5);
+      }
+    }
   }
 }
