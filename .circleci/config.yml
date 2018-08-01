@@ -90,7 +90,6 @@ jobs:
       - restore_cache:
           keys:
             - mfr-dependencies-{{ checksum "react/package.json" }}
-
       - run: cd react && npm install
       - save_cache:
           paths:
@@ -126,7 +125,6 @@ workflows:
             branches: { ignore: /(docs\-|react\/).*/ }
       - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
-
       - react_build_storybook:
           filters:
             branches: { ignore: /(docs\-|patternlab\/).*/ }
@@ -143,8 +141,12 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
+      - react_build_storybook:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
       - react_deploy_tag:
           requires: [react_build_storybook]
           filters:
             branches: { ignore: /.*/ }
-            tags: { only: /.*/ }
+            tags: { only: /.*/, ignore: /.*-.*/ }
