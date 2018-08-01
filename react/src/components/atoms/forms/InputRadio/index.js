@@ -19,7 +19,7 @@ class InputRadio extends React.Component {
   render() {
     const spanClass = this.props.outline ? 'ma__input-radio ma__input-radio--outline' : 'ma__input-radio';
     return(
-      <span className={spanClass}>
+      <div className={spanClass}>
         <input
           checked={this.props.checked}
           name={this.props.name}
@@ -33,7 +33,7 @@ class InputRadio extends React.Component {
         <label for={this.props.id}>
           <span>{this.props.label}</span>
         </label>
-      </span>
+      </div>
     );
   }
 };
