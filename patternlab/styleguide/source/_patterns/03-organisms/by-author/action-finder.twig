@@ -6,7 +6,7 @@
 {% endif %}
 
 {% if actionFinder.color %}
-  {% set colorClass = "ma__action-finder--color-" ~ actionFinder.color %}
+  {% set colorClass = "ma__action-finder--" ~ actionFinder.color %}
 {% endif %}
 <section class="ma__action-finder {{ noBgClass }} {{ colorClass }}" id="{{ actionFinder.id }}">
   {% if actionFinder.bgWide %}

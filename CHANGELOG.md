@@ -13,11 +13,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 5.34.0 (8/1/2018)
+
+### Removed
+- (Patternlab) Remove gov theme and all references #93
+- (Patternlab) Remove unused pilot theme #104
+- (Patternlab) Hide back to button on all pages #106
+
+
 ## 5.33.0 (7/25/2018)
 
 ### Changed
 - (Patternlab) DP-9441: Decreases spacing between Stacked Rows when stacked.
-- (Patternlab) DP-9699--relationship-indicator-integration 
+- (Patternlab) DP-9699--relationship-indicator-integration
 
 ### Removed
 - DP-9568: Remove raw filter from /styleguide/source/_patterns/01-atoms/08-lists/checklist.twig.
@@ -32,7 +41,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) Bumped the version up to 5.32.2 in the package.json.
 
 ### Fixed
-- (React) Fixed the NPM token to be able to deploy a new tag version in NPM. 
+- (React) Fixed the NPM token to be able to deploy a new tag version in NPM.
 
 ## 5.32.0 (7/18/2018)
 

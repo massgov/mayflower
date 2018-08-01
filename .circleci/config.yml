@@ -17,13 +17,13 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - pl-npm-v1-{{ checksum "patternlab/styleguide/yarn.lock" }}
-            - pl-npm-v1-
+            - pl-npm-v3-{{ checksum "patternlab/styleguide/yarn.lock" }}
+            - pl-npm-v3-
       - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && yarn' }
       - save_cache:
           name: Save NPM cache
-          key: pl-npm-v1-{{ checksum "patternlab/styleguide/yarn.lock" }}
-          paths: [ styleguide/node_modules ]
+          key: pl-npm-v3-{{ checksum "patternlab/styleguide/yarn.lock" }}
+          paths: [ patternlab/styleguide/node_modules ]
       - run: { name: 'Generate style guide', command: 'php patternlab/styleguide/core/console --generate' }
       - run: { name: 'Build assets', command: 'cd patternlab/styleguide && node_modules/.bin/gulp prod' }
       - persist_to_workspace:
@@ -49,10 +49,10 @@ jobs:
           command: cd patternlab && docker cp $(docker-compose ps -q backstop):/src/backstopjs/. ./backstopjs/
           when: always
       - store_artifacts:
-          path: ./backstopjs
+          path: patternlab/backstopjs
           destination: backstop
       - store_test_results:
-          path: backstopjs/reports/ci
+          path: patternlab/backstopjs/reports/ci
 
   patternlab_deploy_branch:
     working_directory: /var/www/code
