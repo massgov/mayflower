@@ -19,6 +19,7 @@
       transform: translateY(25%);
       position: relative !important;
       top: 0;
+      line-height: calc(.5em - 11px);
     }
   }
   &--outline {
