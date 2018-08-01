@@ -14,6 +14,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
 
+## 5.34.0 (8/1/2018)
+
+### Removed
+- (Patternlab) Remove gov theme and all references #93
+- (Patternlab) Remove unused pilot theme #104
+- (Patternlab) Hide back to button on all pages #106
+
+
 ## 5.33.0 (7/25/2018)
 
 ### Changed
