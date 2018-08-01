@@ -151,4 +151,4 @@ workflows:
           requires: [react_build_storybook]
           filters:
             branches: { ignore: /.*/ }
-            tags: { only: /.*/, ignore: /.*\-.*/ }
+            tags: { ignore: /.*\-.*/ }
