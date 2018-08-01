@@ -112,9 +112,14 @@ jobs:
           at: ~/repo
       - *configure_npm
       - run: {name: 'Publish NPM package', command: 'cd react && npm publish'}
-      - run: {name: 'Sync storybook-static to S3', command: 'cd react && aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete'}
-      - run: cd react && aws configure set preview.cloudfront true
-      - run: cd react && aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/*'
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            cd react
+            aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete
+            aws configure set preview.cloudfront true
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/*'
+          fi
 
 workflows:
   version: 2
@@ -151,4 +156,4 @@ workflows:
           requires: [react_build_storybook]
           filters:
             branches: { ignore: /.*/ }
-            tags: { only: /.*/, ignore: /.*\-.*/ }
+            tags: { only: /.*/ }
