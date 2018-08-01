@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-See [Change Log Instructions](docs/changelog-log-instructions.md) for directions on updating this file.
+See [Change Log Instructions](docs/for-developers/changelog-instructions.md) for directions on updating this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
@@ -12,6 +12,33 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
+
+
+## 5.33.0 (7/25/2018)
+
+### Changed
+- (Patternlab) DP-9441: Decreases spacing between Stacked Rows when stacked.
+- (Patternlab) DP-9699--relationship-indicator-integration
+
+### Removed
+- DP-9568: Remove raw filter from /styleguide/source/_patterns/01-atoms/08-lists/checklist.twig.
+- DP-9570: Remove raw filter from _patterns/01-atoms/08-lists/unordered-list.twig.
+- DP-9572: Remove raw filter from _patterns/02-molecules/contact-item.twig.
+- DP-9573: Remove faw filter from _patterns/02-molecules/event-teaser.twig.
+- DP-9575: Remove raw filter from 02-molecules/header-contact.twig.
+
+## 5.32.2 (7/19/2018)
+
+### Changed
+- (Patternlab) Bumped the version up to 5.32.2 in the package.json.
+
+### Fixed
+- (React) Fixed the NPM token to be able to deploy a new tag version in NPM.
+
+## 5.32.0 (7/18/2018)
+
+### Added
+- (Patternlab) DP-5329: Adds browser history enabled pagination for listing pages. #8
 
 ## 5.31.0 (7/11/2018)
 
@@ -34,6 +61,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Added
 - DP-9146/DP-8825: Adds teaser listing group organism to apply accordion behavior to multiple teaser listings at once.
+- DP-9017: Image placement on Guide pages using focal point.
 
 ### Changed
 - DP-9243: MF fix info details to show contact and related in sidebar as well as bottom on desktop.

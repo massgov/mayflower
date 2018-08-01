@@ -29,7 +29,9 @@ class SearchBanner extends Component {
     }
   }
   render() {
-    const { tabs, searchBox, filterBox } = this.props;
+    const {
+      tabs, searchBox, filterBox, filterToggleText
+    } = this.props;
     let submitButton;
 
     if (filterBox) {
@@ -42,8 +44,9 @@ class SearchBanner extends Component {
         }
       };
     }
-
-    const toggleButtonClass = `ma__search-banner__filter-box-toggle ${this.state.filterBoxExpanded && 'ma__search-banner__filter-box-toggle--expanded'}`;
+    const filterExpanded = this.state.filterBoxExpanded ? ' ma__search-banner__filter-box-toggle--expanded' : '';
+    const filterDesktopHidden = this.props.filterDesktopHidden ? ' ma__search-banner__filter-box-toggle--desktop-hidden' : '';
+    const toggleButtonClass = `ma__search-banner__filter-box-toggle${filterExpanded}${filterDesktopHidden}`;
     return(
       <div className={`ma__search-banner__top ${!tabs && 'ma__search-banner__top--noTabs'}`}>
         <div className="main-content--two">
@@ -54,7 +57,7 @@ class SearchBanner extends Component {
         {filterBox && (
           <div className="main-content--two ma__search-banner__filter-box-toggle-container">
             <button onClick={this.toggleFilterBox} type="button" className={toggleButtonClass}>
-              More Filters
+              {filterToggleText}
               <SvgChevron />
             </button>
           </div>
@@ -75,7 +78,16 @@ SearchBanner.propTypes = {
   /** filterbox toggle button custom function */
   toggleButtonOnClick: PropTypes.func,
   /** Controls if filterBox is expanded */
-  filterBoxExpanded: PropTypes.bool
+  filterBoxExpanded: PropTypes.bool,
+  /** Controls if we allow filterbox toggle to render only on mobile */
+  filterDesktopHidden: PropTypes.bool,
+  /** Filter box toggle button text */
+  filterToggleText: PropTypes.string
+};
+
+SearchBanner.defaultProps = {
+  filterDesktopHidden: false,
+  filterToggleText: 'More Filters'
 };
 
 export default SearchBanner;
