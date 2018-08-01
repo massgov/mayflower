@@ -110,9 +110,11 @@ jobs:
     steps:
       - attach_workspace:
           - at: ~/repo
-      - run: {name: 'Authenticate with registry', command: 'echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/react/.npmrc'}
-      - run: {name: 'Publish package', command: 'cd react && npm publish'}
-      - run: {name: 'Release S3', command: 'cd react && aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete'}
+      - *configure_npm
+      - run: {name: 'Publish NPM package', command: 'cd react && npm publish'}
+      - run: {name: 'Sync storybook-static to S3', command: 'cd react && aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete'}
+      - run: cd react && aws configure set preview.cloudfront true
+      - run: cd react && aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/*'
 
 workflows:
   version: 2
