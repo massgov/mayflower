@@ -109,7 +109,7 @@ jobs:
     <<: *react_defaults
     steps:
       - attach_workspace:
-          - at: ~/repo
+          at: ~/repo
       - *configure_npm
       - run: {name: 'Publish NPM package', command: 'cd react && npm publish'}
       - run: {name: 'Sync storybook-static to S3', command: 'cd react && aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete'}
@@ -151,4 +151,4 @@ workflows:
           requires: [react_build_storybook]
           filters:
             branches: { ignore: /.*/ }
-            tags: { ignore: /.*\-.*/ }
+            tags: { only: /.*/, ignore: /.*\-.*/ }
