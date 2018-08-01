@@ -50,9 +50,11 @@
       </div>
     {{/if}}
     {{#if link.text}}
-      <div class="ma__image-promo__link">
-        <a href="{{link.href}}" class="ma__content-link">{{link.text}}</a>
-      </div>
+      {{#unless location.text}}
+        <div class="ma__image-promo__link">
+          <a href="{{link.href}}" class="ma__content-link">{{link.text}}</a>
+        </div>
+      {{/unless}}
     {{/if}}
   </div>
   <div class="ma__image-promo__contact">

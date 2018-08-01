@@ -40,7 +40,7 @@
     {% endif %}
     {% if imagePromo.location.text %}
       <div class="ma__image-promo__location">
-        {{ imagePromo.location.text|raw }}
+        {{ imagePromo.location.text }}
         {% if imagePromo.link.text %}
           <span class="ma__image-promo__directions">
             {% set decorativeLink = imagePromo.link %}
