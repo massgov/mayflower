@@ -15,12 +15,12 @@ export function withHeader(MyComponent, compProps = {}) {
               ...JSON.parse(JSON.stringify(compProps)),
               headerContext: { ...contextProps }
             };
-            const keys = Object.prototype.entries.call(contextProps);
-            keys.each((contextProp) => {
-              if (Object.prototype.hasOwnProperty.call(newProps, contextProp)) {
-                newProps.contextProp = contextProps.contextProp;
-              }
-            });
+            // const keys = Object.prototype.entries.call(contextProps);
+            // keys.each((contextProp) => {
+            //   if (Object.prototype.hasOwnProperty.call(newProps, contextProp)) {
+            //     newProps.contextProp = contextProps.contextProp;
+            //   }
+            // });
             console.log('newProps is: ', newProps);
             return(<MyComponent {...newProps} />);
           }}
