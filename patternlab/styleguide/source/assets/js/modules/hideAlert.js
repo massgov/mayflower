@@ -1,6 +1,6 @@
 import cookies from "../helpers/cookies.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.js-header-alert').each(function(){
     init.apply(this);
@@ -34,5 +34,5 @@ export default function (window,document,$,undefined) {
       $el.stop(true,true).fadeOut();
     })
   }
-}(window,document,jQuery);
+})(window,document,jQuery);
 

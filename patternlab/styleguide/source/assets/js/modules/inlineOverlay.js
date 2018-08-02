@@ -1,4 +1,3 @@
-import throttle from "../helpers/throttle.js";
 
 export default function (window,document,$,undefined) {
   let tocContainerClass = '.js-toc-container';

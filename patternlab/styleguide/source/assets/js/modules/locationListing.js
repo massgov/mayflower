@@ -374,4 +374,4 @@ export default function (window, document, $) {
     // Return the newly sorted instance of location listing masterData.
     return data;
   }
-} (window, document, jQuery);
+})(window, document, jQuery);

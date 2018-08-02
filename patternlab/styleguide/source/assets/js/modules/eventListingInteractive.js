@@ -1,6 +1,6 @@
 import listings from "../helpers/listing.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   let container = '.js-event-listing-interactive',
       parent = '.js-event-listing-items',
       row = '.js-event-listing-item';
@@ -292,4 +292,4 @@ export default function (window,document,$,undefined) {
     return data;
   }
 
-}(window,document,jQuery);
+})(window,document,jQuery);

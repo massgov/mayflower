@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Minor
-### Removed
-- (Patternlab) Hide back to button on all pages #106

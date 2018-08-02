@@ -19,12 +19,12 @@
           "href": "{{ orgInfo.name.href|e('js') }}"
         },
         "jobTitle": "{{ orgInfo.jobTitle|e('js') }}",
-        "message": "{{ orgInfo.message|raw|e('js') }}",
+        "message": "{{ orgInfo.message|e('js') }}",
         "moreLink": {
           "text": "{{ orgInfo.moreLink.text|e('js') }}",
           "href": "{{ orgInfo.moreLink.href|e('js') }}",
           "info": "{{ orgInfo.moreLink.info|e('js') }}"
-        }      
+        }
       };
     {% endfor %}
     orgSelector.push({ "organizations": organizations });
