@@ -32,25 +32,14 @@
     }],
     "widgets": null
   },
-
-  "jumpLinks": {
-    "title": "In this List",
-    "links": [{
-      "text": "List One",
-      "href": "list-one"
-    },{
-      "text": "Curated Person 1",
-      "href": "contact-1"
-    },{
-      "text": "List Two",
-      "href": "list-two"
-    },{
-      "text": "Curated Person 2",
-      "href": "contact-2"
-    },{
-      "text": "List Three",
-      "href": "list-three"
-    }]
+  "stickyTOC": {
+    "title": "Table of Contents",
+    "min": 3,
+    "seeAll": {
+      "href": "#",
+      "text": "See More",
+      "info": ""
+    }
   },
 
   "stackedRows": [{
