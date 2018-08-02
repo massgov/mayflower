@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   $.extend($.expr[':'], {
     // jQuery find all focusable elements
     // see: https://coderwall.com/p/jqsanw/jquery-find-every-focusable-elements
@@ -6,4 +6,4 @@ export default function (window,document,$,undefined) {
       return $(el).is('a, button, :input, [tabindex]');
     }
   });
-}(window,document,jQuery);
+})(window,document,jQuery);

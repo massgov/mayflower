@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('form').each(function(){
     let $form = $(this),
@@ -87,4 +87,4 @@ export default function (window,document,$,undefined) {
     return valid;
   }
 
-}(window,document,jQuery);
+})(window,document,jQuery);

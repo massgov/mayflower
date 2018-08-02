@@ -1,4 +1,4 @@
-export default function (window, document, $, undefined) {
+export default (function (window, document, $, undefined) {
 
     let $toggle, $root, $sections;
     let hiddenClass = 'is-initially-hidden';
@@ -55,4 +55,4 @@ export default function (window, document, $, undefined) {
         handleToggle();
     });
 
-} (window, document, jQuery);
+})(window, document, jQuery);

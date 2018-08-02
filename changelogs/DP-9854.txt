@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Changed
+Patch
+- (Patternlab) DP-9854: Updates babelify to 8.0.0
+- (Patternlab) DP-9854: Update javascript IIFEs to work under newer versions of Babel.

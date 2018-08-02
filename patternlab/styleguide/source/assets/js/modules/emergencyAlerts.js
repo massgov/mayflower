@@ -1,6 +1,6 @@
 import cookie   from "../helpers/cookies.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   // Emergency Alerts start close on page load
   // the default behavior is to expand the alerts
   // Emergency Alerts should stay closed if the cookie is set to false
@@ -55,4 +55,4 @@ export default function (window,document,$,undefined) {
       $button.first().trigger('click');
     }
   }
-}(window,document,jQuery);
+})(window,document,jQuery);
