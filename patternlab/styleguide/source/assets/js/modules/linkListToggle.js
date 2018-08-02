@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.ma__link-list--image-blocks, .ma__link-list--image-links').each(function() {
 
@@ -58,4 +58,4 @@ export default function (window,document,$,undefined) {
     });
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);

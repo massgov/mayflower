@@ -1,7 +1,6 @@
 import twiggy from '../helpers/twiggy';
 
-export default function (window, document, $, undefined) {
-
+export default (function (window, document, $, undefined) {
   if ($('.js-pagination').length === 0) {
     return;
   }
@@ -92,4 +91,4 @@ export default function (window, document, $, undefined) {
     );
   }
 
-} (window, document, jQuery);
+}) (window, document, jQuery);

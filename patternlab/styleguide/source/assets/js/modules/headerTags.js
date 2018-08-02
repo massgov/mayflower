@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   "use strict";
   $('.js-header-tag-link').each(function(index) {
 
@@ -75,4 +75,4 @@ export default function (window,document,$,undefined) {
 
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);

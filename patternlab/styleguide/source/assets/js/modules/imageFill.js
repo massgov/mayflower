@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   const sidebarHeight = $('.sidebar').outerHeight( true ) + 100;
   // Set height of sidebar plus 100 pixels so full width images
@@ -37,5 +37,4 @@ export default function (window,document,$,undefined) {
     },250);
   });
 
-}
-(window,document,jQuery);
+})(window,document,jQuery);

@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.js-util-nav').each(function() {
     let openClass = "is-open",
@@ -66,4 +66,4 @@ export default function (window,document,$,undefined) {
 
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);
