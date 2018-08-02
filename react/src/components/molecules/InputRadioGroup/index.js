@@ -39,7 +39,7 @@ class InputRadioWrapper extends React.Component {
     return radioChildren;
   }
 
-  handleChange({ selected, value, event }) {
+  handleChange(selected, value, event) {
     if (selected !== this.state.selected) {
       this.setState({ selected: selected });
       if (typeof this.props.onChange === 'function') {
