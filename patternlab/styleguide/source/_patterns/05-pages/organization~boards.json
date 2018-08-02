@@ -851,8 +851,9 @@
           "data": {
             "actionFinder": {
               "id": "GUID831741781374893",
-              "bgWide": "../../assets/images/placeholder/1600x600-lighthouse-blur.jpg",
-              "bgNarrow": "../../assets/images/placeholder/800x800.png",
+              "bgWide": null,
+              "bgNarrow": null,
+              "color": "green",
               "title": "What would you like to do?",
               "featuredHeading": "Top actions and services",
               "generalHeading": "Other actions and services",
