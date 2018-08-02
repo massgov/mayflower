@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 5.35.1 (8/2/2018)
+### Fixed
+- (React) Install pip, awscli in react_deploy_tag for circleCI #127
+
 ## 5.35.0 (8/2/2018)
 ### Added
 - (React) DP-9527: Adds automatic build, npm publish, S3 sync to mayflower-react
@@ -24,6 +28,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 - (React) Fix proptype warning in organism/filterBox #117
+
+### Changed
+- (Patternlab) DP-9854: Updates babelify to 8.0.0
+- (Patternlab) DP-9854: Update javascript IIFEs to work under newer versions of Babel. #113
 
 ### Security
 - (Patternlab, React): Update npm dependencies to fix multiple security vulnerabilities.  Updated packages include:
