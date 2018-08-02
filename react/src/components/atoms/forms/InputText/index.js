@@ -9,8 +9,21 @@ class InputText extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.defaultText });
+  static getDerivedStateFromProps(nextProps, prevState){
+     if(nextProps.defaultText !== prevState.value) {
+       return {
+        value: nextProps.defaultText
+      };
+    }
+    else return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.defaultText !== this.props.defaultText){
+      this.setState({
+        value: this.props.defaultText
+      });
+    }
   }
 
   handleChange(event) {
