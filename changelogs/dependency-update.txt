@@ -1,0 +1,16 @@
+___DESCRIPTION___
+Security
+Patch
+- (Patternlab, React): Update npm dependencies to fix multiple security vulnerabilities.  Updated packages include:
+    - nwb
+    - node-sass-chokidar
+    - npm-run-all
+    - react-dom
+    - eslint
+    - eslint-plugin-react
+    - browser-sync
+    - gulp-debug
+    - gulp-sass
+    - gulp-svgstore
+    - node-sass
+    - node-normalize-scss

@@ -2,7 +2,7 @@ import getTemplate from "../helpers/getHandlebarTemplate.js";
 import sticky from "../helpers/sticky.js";
 import getOuterHtml from "../helpers/getElementOuterHtml.js";
 
-export default  function(window, document, undefined, $, moment){
+export default (function(window, document, undefined, $, moment){
   "use strict";
 
   /**
@@ -732,4 +732,4 @@ export default  function(window, document, undefined, $, moment){
     makeMoment
   };
 
-}(window, document, undefined, jQuery, moment);
+})(window, document, undefined, jQuery, moment);
