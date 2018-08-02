@@ -160,6 +160,7 @@ workflows:
       - react_build_storybook:
           filters:
             branches: { ignore: /(docs\-|patternlab\/).*/ }
+      - react_test: {requires: [react_build_storybook]}
 
   # Executed on tag pushes.
   build_tag:
