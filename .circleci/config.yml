@@ -7,6 +7,11 @@ references:
   configure_git: &configure_git
     run: {name: 'Prepare Git', command: 'git config --global user.email "ci.bot@mass.gov" && git config --global user.name "MassGov Bot"'}
 
+react_defaults: &react_defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:8.9.4
+
 jobs:
   patternlab_build:
     working_directory: /var/www/code
@@ -78,6 +83,44 @@ jobs:
       - run: { name: 'Release S3', command: "cd patternlab/styleguide && node_modules/.bin/gulp patternlab:release" }
       - run: { name: 'Release NPM', command: "cd patternlab/styleguide && node_modules/.bin/gulp npm:release" }
 
+  react_build_storybook:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - mfr-dependencies-{{ checksum "react/package.json" }}
+      - run: cd react && npm install
+      - save_cache:
+          paths:
+            - react/node_modules
+          key: mfr-dependencies-{{ checksum "react/package.json" }}
+      - run:
+          name: Mayflower React Build
+          command: cd react && npm run build
+      - run:
+          name: Mayflower React Build Storybook
+          command: cd react && npm run build-storybook
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  react_deploy_tag:
+    <<: *react_defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - *configure_npm
+      - run: {name: 'Publish NPM package', command: 'cd react && npm publish'}
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            cd react
+            aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete
+            aws configure set preview.cloudfront true
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/*'
+          fi
+
 workflows:
   version: 2
 
@@ -89,7 +132,9 @@ workflows:
             branches: { ignore: /(docs\-|react\/).*/ }
       - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
-
+      - react_build_storybook:
+          filters:
+            branches: { ignore: /(docs\-|patternlab\/).*/ }
 
   # Executed on tag pushes.
   build_tag:
@@ -103,5 +148,12 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
-
-
+      - react_build_storybook:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - react_deploy_tag:
+          requires: [react_build_storybook]
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
