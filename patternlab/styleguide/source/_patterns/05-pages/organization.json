@@ -397,13 +397,13 @@
               "bgWide": "../../assets/images/placeholder/1600x600-lighthouse-blur.jpg",
               "bgNarrow": "../../assets/images/placeholder/800x800.png",
               "title": "What do you need help with?",
-              "featuredHeading": "Featured Services",
-              "generalHeading": "More Services",
+              "featuredHeading": "Top actions and services",
+              "generalHeading": "Other actions and services",
               "titleContext": "from Executive Office of Health and Human Services",
               "seeAll": {
                 "type": "external",
                 "href": "http://www.google.com",
-                "text": "See all EOHHS’s programs and services on classic Mass.gov",
+                "text": "See all actions and services",
                 "info": ""
               },
               "featuredLinks": [
