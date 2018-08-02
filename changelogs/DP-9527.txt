@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Major
-- React DP-9527: Adds automatic build, npm publish, S3 sync to mayflower-react
