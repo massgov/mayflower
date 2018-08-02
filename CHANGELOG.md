@@ -13,6 +13,33 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 5.35.0 (8/2/2018)
+### Added
+- (React) DP-9527: Adds automatic build, npm publish, S3 sync to mayflower-react
+- (React) DP-9750: Added HelperText form atom component to Mayflower React library, including a new Story for the new component to be used with Storybook.
+
+### Removed
+- (Patternlab) DP-9567: Remove raw filter from `_patterns/01-atoms/06-rich-text/icon-list.twig`
+- (Patternlab) DP-9577: Remove raw filter from `_patterns/02-molecules/org-selector.twig`
+
+### Fixed
+- (React) Fix proptype warning in organism/filterBox #117
+
+### Security
+- (Patternlab, React): Update npm dependencies to fix multiple security vulnerabilities.  Updated packages include:
+    - nwb
+    - node-sass-chokidar
+    - npm-run-all
+    - react-dom
+    - eslint
+    - eslint-plugin-react
+    - browser-sync
+    - gulp-debug
+    - gulp-sass
+    - gulp-svgstore
+    - node-sass
+    - node-normalize-scss
+
 
 ## 5.34.0 (8/1/2018)
 
