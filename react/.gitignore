@@ -8,3 +8,6 @@ npm-debug.log*
 
 src/**/*.css
 storybook-static
+
+backstop/data/bitmaps_test/
+backstop/data/*report/
