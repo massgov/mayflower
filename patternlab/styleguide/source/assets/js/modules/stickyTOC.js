@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.pre-content .ma__sticky-toc').each(function() {
     const $toc = $('.ma__sticky-toc'),
@@ -157,5 +157,4 @@ export default function (window,document,$,undefined) {
       menuToggle();
     });
   });
-}
-(window,document,jQuery);
+})(window,document,jQuery);

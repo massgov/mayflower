@@ -1,28 +1,24 @@
-export default function (window,document,undefined) {
+// @todo: This doesn't seem to be used anymore.
 
-  function throttle (fn, threshhold, scope) {
+export default function throttle (fn, threshhold, scope) {
     threshhold || (threshhold = 250); // default threshold is 250 ms
     let last,
-	deferTimer;
+        deferTimer;
     return function () {
-      let context = scope || this;
+        let context = scope || this;
 
-      let now = +new Date,
-	  args = arguments;
-      if (last && now < last + threshhold) {
-	// hold on to it
-	clearTimeout(deferTimer);
-	deferTimer = setTimeout(function () {
-	  last = now;
-	  fn.apply(context, args);
-	}, threshhold);
-      } else {
-	last = now;
-	fn.apply(context, args);
-      }
+        let now = +new Date,
+            args = arguments;
+        if (last && now < last + threshhold) {
+            // hold on to it
+            clearTimeout(deferTimer);
+            deferTimer = setTimeout(function () {
+                last = now;
+                fn.apply(context, args);
+            }, threshhold);
+        } else {
+            last = now;
+            fn.apply(context, args);
+        }
     };
-  }
-
-  return throttle;
-
-}(window,document);
+}
