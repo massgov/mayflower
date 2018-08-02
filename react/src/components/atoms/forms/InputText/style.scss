@@ -1,0 +1,5 @@
+.ma__input-number {
+    input.has-error:not(:focus) {
+      background-position: center right 40px;
+    }
+}

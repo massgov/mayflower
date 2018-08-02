@@ -1,77 +1,31 @@
 @import 'colors';
 
-.ma__input-checkbox {
-  input[type="checkbox"]:focus + label {
-      outline: 0;
-      -webkit-box-shadow: 0 0 3px 3px #9bdaf1;
-      box-shadow: 0 0 3px 3px #9bdaf1;
-      width: 100%;
-      border-radius: 2px;
-      &::before {
-        outline: 0;
-        border: 2px solid #9bdaf1 !important;
-      }
-  }
-  label {
-    transition: background-color .4s, color .4s, border .4s, fill .4s;
-    padding: 0.25rem 0.5rem 0.25rem 0.5rem !important;
-    &:before {
-      transform: translateY(25%);
-      position: relative !important;
-      top: 0 !important;
-      line-height: calc(.5em - 11px);
-      margin-right: .5em;
-    }
-  }
+.ma__input-checkbox{
+
   &--outline {
     width: 100%;
-    label {
-      padding: 0.5rem 1.5rem 0.5rem 1.5rem !important;
-    }
-    input[type="checkbox"]:checked + label {
-      color: $c-white;
-      &:after{
-        background-color: $c-bd-input-dark;
-        border: 2px solid $c-theme-gray;
-      }
-    }
-    &:hover{
-      label:after {
-          background-color: $c-bg-subtle;
-      }
-      input[type="checkbox"]:checked + label:after {
-        background-color: rgba($c-bd-input-dark,0.8);
-      }
-    }
-    input[type="checkbox"]:focus + label {
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      &::after {
-        outline: 0;
-        -webkit-box-shadow: 0 0 3px 3px #9bdaf1;
-        box-shadow: 0 0 3px 3px #9bdaf1;
-      }
-      &::before {
-        outline: 0;
-        border: 2px solid #9bdaf1 !important;
-      }
-    }
-    label:after {
-        transition: background-color .4s, color .4s, border .4s, fill .4s;
-        border-radius: 20px;
-        border: 1px solid;
-        top: 0;
-        left: 0;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        content: '';
-        z-index: -1;
-    }
-    label:before {
-      transform: translateY(25%);
-      position: relative !important;
-      top: 0;
+    height: 100%;
+      label {
+        padding: 0.5rem 1.5rem 0.5rem 1.5rem !important;
+        &:after {
+          transition: background-color .4s, color .4s, border .4s, fill .4s;
+          border-radius: 20px;
+          border: 1px solid;
+          top: 0;
+          left: 0;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          content: '';
+          z-index: -1;
+        }
+        &:before {
+          transform: translateY(-5%);
+          position: relative !important;
+          top: 0.25em !important;
+          margin-right: 0.5rem;
+        }
     }
   }
+
 }

@@ -23,60 +23,29 @@ class InputText extends React.Component {
   }
 
   render() {
-    const inputText = this.props;
-    const inputLabelClasses = ['ma__label'];
-    if (inputText.labelText) {
-      inputLabelClasses.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
-      if(inputText.hiddenLabel) {
-        inputLabelClasses.push('ma__label--hidden');
-      }
-    }
-    const inputClasses = ['ma__input'];
-    if (inputText.required) {
-      inputClasses.push('js-is-required');
-    }
-    if(inputText.errorDisplay) {
-      inputClasses.push('has-error');
-    }
-    const errorClasses = ['ma__error-msg'];
-    if(inputText.errorDisplay) {
-      errorClasses.push('has-error');
-    }
-    const input =
-      <input
-          className={inputClasses.join(' ')}
-          name={inputText.name}
-          id={inputText.id}
-          type={inputText.type}
-          placeholder={inputText.placeholder}
-          data-type={inputText.type}
-          maxLength={inputText.maxlength || null}
-          pattern={inputText.pattern || null}
-          style={inputText.width ? { width: `${inputText.width}px` } : null}
-          onChange={this.handleChange}
-          required={inputText.required}
-          value={this.state.value}
-        />;
+    const { textArea } = this.props;
+    const labelClasses = ['ma__label'];
+    textArea.required ? labelClass.push('ma__label--required') : labelClass.push('ma__label--optional');
+    textArea.hiddenLabel && labelClass.push('ma__label--hidden');
     return(
-      <React.Fragment>
-        {inputText.labelText &&
+      { textarea.labelText && (
         <label
-          htmlFor={inputText.id}
-          className={inputLabelClasses.join(' ')}
+          for="input-type-textarea"
+          className={labelClasses.join(' ')}
         >
-          {inputText.labelText}
-        </label>}
-        {inputText.errorMsg &&
-        <div className={errorClasses.join(' ')}>{inputText.errorMsg}</div>}
-        { inputText.type === 'number' ?
-            <div className='ma__input-number'>
-             {input}
-             <button type="button" aria-label="increase value" className="ma__input-number__plus"></button>
-             <button type="button" aria-label="decrease value" className="ma__input-number__minus"></button>
-            </div> : <React.Fragment>{input}</React.Fragment>
-          }
-      </React.Fragment>
-    );
+          {textArea.labelText}
+        </label>
+        )
+      }
+<textarea
+  class="{{ textarea.required ? 'js-is-required' : ''}}"
+  name="{{ textarea.name }}"
+  id="{{ textarea.id }}"
+  data-type="{{ textarea.type }}"
+  {% if textarea.maxlength %}
+    maxlength="{{ textarea.maxlength }}"
+  {% endif %}
+  {{ textarea.required ? 'required' : '' }} /></textarea>
   }
 }
 
