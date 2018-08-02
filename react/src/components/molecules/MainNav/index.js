@@ -28,7 +28,7 @@ class MainNav extends Component {
   }
   render() {
     return(
-      <section className="ma__main-navBREAK">
+      <section className="ma__main-nav">
         <ul className="ma__main-nav__items js-main-nav">
           {this.props.mainNav.map((item, index) => {
             const buttonId = `button${index}`;
