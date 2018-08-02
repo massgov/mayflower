@@ -18,7 +18,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
       label: text('inputRadio.label', 'Fern'),
       required: boolean('inputRadio.required', true),
       outline: boolean('inputRadio.outline', true),
-      checked: boolean('inputRadio.checked', false),
+      checked: boolean('inputRadio.checked', null),
       disabled: boolean('inputRadio.disabled', false)
     };
     return(

@@ -12,7 +12,7 @@ class InputRadio extends React.Component {
     const selected = event.target.value;
     const value = this.props.value;
     if (typeof this.props.onChange === 'function') {
-      this.props.onChange({ selected, value, event });
+      this.props.onChange(selected, value, event);
     }
   }
 
@@ -30,7 +30,7 @@ class InputRadio extends React.Component {
           onChange={this.handleChange}
           disabled={this.props.disabled}
          />
-        <label for={this.props.id}>
+        <label htmlFor={this.props.id}>
           <span>{this.props.label}</span>
         </label>
       </div>
@@ -60,7 +60,6 @@ InputRadio.propTypes = {
 
 InputRadio.defaultProps = {
   outline: false,
-  checked: false,
   required: false,
   onChange: () => {},
   disabled: false
