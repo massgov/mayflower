@@ -59,7 +59,7 @@
     "eslint-plugin-react": "^7.5.1",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
-    "nwb": "^0.22.0",
+    "nwb": "0.21.x",
     "pre-push": "^0.1.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
