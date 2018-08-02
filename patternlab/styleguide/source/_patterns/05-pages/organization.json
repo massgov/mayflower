@@ -176,6 +176,17 @@
               }]
             },
             {
+              "items": [{
+                "type": "seeAllLink",
+                "link": {
+                  "href":"#",
+                  "text": "See All Locations",
+                  "info": ""
+                },
+                "details":""
+              }]
+            },
+            {
               "icon": "phone",
               "name": "Phone",
               "items": [
