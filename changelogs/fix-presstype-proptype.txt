@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Patch
+(React) Fix proptype warning in organism/filterBox #112
