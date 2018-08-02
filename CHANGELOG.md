@@ -15,7 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## 5.35.1 (8/2/2018)
 ### Fixed
-Install pip, awscli in react_deploy_tag for circleCI #127
+- (React) Install pip, awscli in react_deploy_tag for circleCI #127
 
 ## 5.35.0 (8/2/2018)
 ### Added
