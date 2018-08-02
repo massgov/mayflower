@@ -128,7 +128,7 @@ jobs:
           path: react/backstop
           destination: backstop
       - store_test_results:
-          path: react/backstop/reports/data/ci_report
+          path: react/backstop/data/ci_report
 
   react_deploy_tag:
     <<: *react_defaults
