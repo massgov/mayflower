@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Major
-- Patternlab DP-9577: Remove raw filter from patternlab/styleguide/source/02-molecules/org-selector.twig.

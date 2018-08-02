@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Removed
-Minor
-- Patternlab DP-9567: Remove raw filter from _patterns/01-atoms/06-rich-text/icon-list.twig.
-
