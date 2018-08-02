@@ -48,6 +48,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
     - node-sass
     - node-normalize-scss
 
+## 5.34.1 (8/2/2018)
+
+##  Fixed
+- (Patternlab) Fix JS pager query string colliding with application pager parameters.
 
 ## 5.34.0 (8/1/2018)
 
