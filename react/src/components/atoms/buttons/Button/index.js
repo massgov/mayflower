@@ -17,7 +17,7 @@ const Button = (button) => {
 
   return(
     <Element
-      className={classNames}
+
       type={button.type}
       href={button.href}
       title={button.info}
