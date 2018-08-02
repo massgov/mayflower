@@ -56,15 +56,15 @@
         {% include "@atoms/decorative-link.twig" %}
       </div>
     {% endif %}
-  {% else %}
-    <span class="ma__contact-group__value">{{ link.text }}</span>
-  {% endif %}
 
-  {% if item.type == "seeAllLink" %}
+  {% elseif item.type == "seeAllLink" %}
     <div class="ma__contact-group__seeAll">
       {% set decorativeLink = link %}
       {% include "@atoms/decorative-link.twig" %}
     </div>
+
+  {% else %}
+    <span class="ma__contact-group__value">{{ link.text }}</span>
   {% endif %}
 </div>
 
