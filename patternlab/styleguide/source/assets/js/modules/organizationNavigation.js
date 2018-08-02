@@ -102,6 +102,13 @@ export default function (window,document,$,undefined) {
       });
     });
 
+    // Close menus on click off.
+    $('body').on('click', function(event) {
+      if($('.item-open').length && !$(event.target).closest('.ma__organization-navigation__subitems').length ) {
+        $('.item-open').removeClass('item-open');
+      }
+    });
+
     // Mobile view open the "I want to sections".
     $sectionButton.each(function() {
       let $button = $(this);
