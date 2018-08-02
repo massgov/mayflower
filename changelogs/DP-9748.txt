@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Minor
+### Updated
+- Update h1 font weight to 600 and fallback to "Source Sans Pro" font. #109
