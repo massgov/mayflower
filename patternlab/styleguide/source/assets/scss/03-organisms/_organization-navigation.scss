@@ -29,7 +29,6 @@
 
     &.menu-open {
       display: flex;
-      padding-top: 70px;
     }
 
     @media ($bp-large-min) {
@@ -58,15 +57,6 @@
     border-bottom: 1px solid $c-bd-divider;
     background-color: $c-bg-section;
     z-index: $z-dropdown;
-
-    .stuck & {
-
-      &.menu-open {
-        position: fixed;
-        top: 40px;
-      }
-    }
-
 
     .mobile-toggle-label {
       padding-right: 15px;
@@ -116,6 +106,7 @@
   &__search {
     border-bottom: 1px solid $c-bd-divider;
     padding: 1rem 0;
+    order: 1;
 
     @media ($bp-large-min) {
       order: 2;
@@ -263,6 +254,7 @@
   &__mobile-login {
     position: relative;
     @include ma-chevron;
+    order: 3;
       
     &::after {
       position: absolute;

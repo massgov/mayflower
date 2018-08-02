@@ -104,10 +104,11 @@ export default function (window,document,$,undefined) {
 
     // Close menus on click off.
     $('body').on('click', function(event) {
-      if($('.item-open').length && !$(event.target).closest('.ma__organization-navigation__subitems').length ) {
-        $('.item-open').removeClass('item-open');
-      }
+        if($('.item-open').length && !$(event.target).closest('.ma__organization-navigation__item').length ) {
+          $('.item-open').removeClass('item-open');
+        }
     });
+    
 
     // Mobile view open the "I want to sections".
     $sectionButton.each(function() {
@@ -150,6 +151,5 @@ export default function (window,document,$,undefined) {
     e.preventDefault();
     let location = $(this).attr("href");
     $('html,body').animate({scrollTop: $(location).offset().top - 120}, 1000 );
-});
-
+  });
 } (window,document,jQuery);

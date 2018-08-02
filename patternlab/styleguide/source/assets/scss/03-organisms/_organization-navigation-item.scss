@@ -4,11 +4,13 @@
     padding-left: 0;
     margin-bottom: 0;
     border-bottom: 1px solid $c-bd-divider;
+    order: 2;
 
     @media ($bp-large-min) {
       order: 1;
       display: flex;
       border-bottom: 0;
+      order: 1;
     }
   }
 
@@ -70,7 +72,8 @@
     }
 
     .subnav-toggle,
-    .internal-link {
+    .internal-link,
+    .mobile-login {
       width: 100%;
       height: 100%;
       display: block;
