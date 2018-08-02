@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SvgSearch from '../../icons/SvgSearch';
 
 const ButtonSearch = (buttonSearch) => {
+  console.log('ButtonSearch props: ', buttonSearch);
   const onButtonClick = Object.prototype.hasOwnProperty.call(buttonSearch, 'onClick');
   return((
     <button

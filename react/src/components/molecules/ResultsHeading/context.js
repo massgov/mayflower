@@ -5,12 +5,15 @@ const ResultsHeadingContext = React.createContext({
   tagsProps: {}
 });
 
-export function withResultsHeading(Component, props) {
-  return() => (
-    <ResultsHeadingContext.Consumer>
-      {(contextVars) => <Component {...props} resultsHeading={contextVars} />}
-    </ResultsHeadingContext.Consumer>
-  );
+export function withResultsHeading(MyComponent, compProps = {}) {
+  return class extends React.Component {
+    render() {
+      return(
+        <ResultsHeadingContext.Consumer>
+          {(contextVars) => <MyComponent {...compProps} {...contextVars} />}
+        </ResultsHeadingContext.Consumer>);
+    }
+  };
 }
 
 export default ResultsHeadingContext;

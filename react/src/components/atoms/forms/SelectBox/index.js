@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ResultsHeadingContext from '../../../molecules/ResultsHeading/context';
 import './style.css';
 
 
 class SelectBox extends React.Component {
   constructor(props) {
     super(props);
+    this.copyContextToProps(props);
     this.state = {
-      selected: this.props.resultsHeading ? this.props.resultsHeading.selectBoxProps.options[0].text : props.options[0].text
+      selected: this.props.options[0].text
     };
     this.selectTag = '';
     this.handleOnChange = this.handleOnChange.bind(this);
@@ -16,6 +16,17 @@ class SelectBox extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState({ selected: nextProps.selected });
     this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.text === nextProps.selected);
+  }
+  copyContextToProps(newProps) {
+    // Keeps track of contexts added for conditionals that could be used later.
+    if (!this.contexts) {
+      this.contexts = [];
+    }
+    // While this is copying the context to props, you don't have to do this.
+    if (newProps.resultsHeading) {
+      this.props = Object.assign({}, newProps.resultsHeading.selectBox);
+      this.contexts.push('resultsHeading');
+    }
   }
   /**
    * Default event handler which renders selected item in the patter div.
@@ -49,31 +60,40 @@ class SelectBox extends React.Component {
     const { stackLabel } = this.props;
     const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
     const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
-    return(
+    const resultsHeadingContext = (this.contexts.indexOf('resultsHeading') > -1);
+    const renderedComponent = (
       <section className={classNames}>
-            <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
-
-            <div className={`ma__select-box__field ${selectBoxInline}`}>
-              <select
-                name={this.props.id}
-                id={this.props.id}
-                className={selectClassNames}
-                onChange={this.handleOnChange}
-                ref={(select) => { this.selectTag = select; }}
-              >
-                {this.props.options.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.text}
-                  </option>
-                ))}
-              </select>
-              <div className="ma__select-box__link">
-                <span className="js-dropdown-link">{selected}</span>
-                <span className="ma__select-box__icon" />
-              </div>
-            </div>
-          </section>
+        <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
+        <div className={`ma__select-box__field ${selectBoxInline}`}>
+          <select
+            name={this.props.id}
+            id={this.props.id}
+            className={selectClassNames}
+            onChange={this.handleOnChange}
+            ref={(select) => { this.selectTag = select; }}
+          >
+            {this.props.options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            ))}
+          </select>
+          <div className="ma__select-box__link">
+            <span className="js-dropdown-link">{selected}</span>
+            <span className="ma__select-box__icon" />
+          </div>
+        </div>
+      </section>
     );
+    // This lets the actual component control the contextual output.
+    if (resultsHeadingContext) {
+      return(
+        <div className="ma__results-heading__sort ma__results-heading__sort-selecBox">
+          {renderedComponent}
+        </div>
+      );
+    }
+    return renderedComponent;
   }
 }
 

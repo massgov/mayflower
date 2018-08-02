@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withContext from 'react-context-consumer-hoc';
 import ButtonToggle from '../../atoms/buttons/ButtonToggle';
 import SelectBox from '../../atoms/forms/SelectBox';
 import ResultsHeadingContext, { withResultsHeading } from './context';
@@ -10,13 +9,19 @@ import './style.css';
 class Tags extends Component {
   constructor(props) {
     super(props);
-    const tags = props.resultsHeading ? props.resultsHeading.tagsProps.tags || props.tags : this.props.tags || null;
+    this.copyContextToProps(this.props);
+    const tags = this.props.tags || null;
     this.state = {
       tags
     };
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ tags: nextProps.tags });
+  }
+  copyContextToProps(newProps) {
+    if (newProps.resultsHeading) {
+      this.props = Object.assign({}, newProps.resultsHeading.tags);
+    }
   }
   handleClearAll() {
     if (typeof this.props.onClearCallback === 'function') {
@@ -60,11 +65,14 @@ const ResultsHeading = (resultsHeading) => {
   const { tags } = resultsHeading;
   const selectBoxProps = resultsHeading.selectBox;
   const buttonToggleProps = resultsHeading.buttonToggle;
+  // Any component that is a ResultsHeading context provider will be able to use
+  // withResultsHeading HOC components.
+  // Currently, this is making the context props passed resultsHeading.
+  // This means anything that uses withResultsHeading has access to all of ResultsHeading's props.
   const contextProps = {
-    tagsProps: tags,
-    selectBoxProps
+    resultsHeading
   };
-  const ResultsHeadingTag = withResultsHeading(Tags, tags);
+  const ResultsHeadingTag = withResultsHeading(Tags);
   const ResultsHeadingSelectBox = withResultsHeading(SelectBox, selectBoxProps);
   return(
     <ResultsHeadingContext.Provider value={contextProps}>
@@ -73,13 +81,8 @@ const ResultsHeading = (resultsHeading) => {
           <div className="ma__results-heading__title">
             {resultsHeadingTitle}
           </div>
-          {tags && (<ResultsHeadingTag />) }
-          { selectBoxProps && (
-            <div className="ma__results-heading__sort ma__results-heading__sort-selecBox">
-              <ResultsHeadingSelectBox />
-            </div>
-            )
-          }
+          { tags && <ResultsHeadingTag /> }
+          { selectBoxProps && <ResultsHeadingSelectBox /> }
           { buttonToggleProps && (
             <div className="ma__results-heading__sort">
               <ButtonToggle {...buttonToggleProps} />

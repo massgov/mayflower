@@ -1,16 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import memoize from 'memoize-one';
 import ButtonSearch from '../../atoms/buttons/ButtonSearch';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
+import { withHeader } from '../../organisms/Header/context';
+
 import './HeaderSearch.css';
+
+const memoCheck = memoize((propsToCheck) => propsToCheck);
+let ButtonSearchWrapper;
 
 class HeaderSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: this.props.defaultText };
     this.handleChange = this.handleChange.bind(this);
+    const buttonSearchProps = memoCheck(this.props.buttonSearch);
+    ButtonSearchWrapper = withHeader(ButtonSearch, buttonSearchProps);
   }
-
+  static getDerivedStateFromProps(props, state) {
+    const buttonSearchProps = memoCheck(props.buttonSearch);
+    ButtonSearchWrapper = withHeader(ButtonSearch, buttonSearchProps);
+    return state;
+  }
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.defaultText });
   }
@@ -46,7 +58,7 @@ class HeaderSearch extends React.Component {
               type="search"
               value={this.state.value}
             />
-            <ButtonSearch {...headerSearch.buttonSearch} />
+            {this.props.headerContext ? <ButtonSearchWrapper /> : <ButtonSearch {...headerSearch.buttonSearch} />}
           </form>
         </section>
       </div>
