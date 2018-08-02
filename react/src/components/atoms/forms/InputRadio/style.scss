@@ -46,6 +46,7 @@
       }
     }
     &:hover{
+      background-color: transparent;
       label:after {
           background-color: $c-bg-subtle;
       }
@@ -69,7 +70,7 @@
     label:after {
         transition: background-color .4s, color .4s, border .4s, fill .4s;
         border-radius: 20px;
-        border: 1px solid;
+        border: 1px solid $c-theme-gray;
         top: 0;
         left: 0;
         position: absolute;
