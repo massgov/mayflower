@@ -1,7 +1,7 @@
 import sticky from "../helpers/sticky.js";
 import listings from "../helpers/listing.js";
 
-export default function (window, document, $) {
+export default (function (window, document, $) {
   // Active state classes for location listing rows.
   let activeClass = 'is-active',
     markerActiveClass = 'is-marker-bounce',
@@ -392,4 +392,4 @@ export default function (window, document, $) {
     // Return the newly sorted instance of location listing masterData.
     return data;
   }
-} (window, document, jQuery);
+}) (window, document, jQuery);
