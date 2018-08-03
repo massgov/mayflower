@@ -8,7 +8,7 @@ class InputCheckbox extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event){
+  handleChange(event) {
     const selected = event.target.value;
     const value = this.props.value;
     if (typeof this.props.onChange === 'function') {
@@ -23,20 +23,20 @@ class InputCheckbox extends React.Component {
         <input
           checked={this.props.checked}
           name={this.props.name}
-          type='checkbox'
+          type="checkbox"
           value={this.props.value}
           id={this.props.id}
           required={this.props.required}
           onChange={this.handleChange}
           disabled={this.props.disabled}
-         />
-        <label for={this.props.id}>
+        />
+        <label htmlFor={this.props.id}>
           <span>{this.props.label}</span>
         </label>
       </div>
     );
   }
-};
+}
 
 InputCheckbox.propTypes = {
   /** The name of the input checkbox. */

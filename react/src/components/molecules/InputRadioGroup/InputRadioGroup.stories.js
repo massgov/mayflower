@@ -1,21 +1,21 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs/react';
 
 import InputRadioGroup from './index';
-//import AccordionWrapperDocs from './AccordionWrapper.md';
+// import InputRadioGroupDocs from './AccordionWrapper.md';
 
 import InputRadio from '../../atoms/forms/InputRadio';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('InputRadioGroup', withInfo(/*`<div>${AccordionWrapperDocs}</div>`*/)(() => {
+  .add('InputRadioGroup', withInfo(/* `<div>${InputRadioGroup}Docs}</div>` */)(() => {
     const InputRadioGroupProps = {
       title: text('inputRadioGroup.title', 'Pick your favorite plant'),
       name: text('inputRadioGroup.group', 'favorite-plant'),
       outline: boolean('inputRadioGroup.outline', 'true'),
       defaultSelected: text('inputRadioGroup.defaultSelected', 'fern')
-    }
+    };
     const InputRadioOneProps = {
       id: text('inputRadio.id', 'fern'),
       value: text('inputRadio.value', 'fern'),

@@ -2,16 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-class InputText extends React.Component {
+class TextArea extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '' };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.defaultText });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.defaultText !== prevState.value) {
+      return{
+        value: nextProps.defaultText
+      };
+    }
+    return null;
   }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.defaultText !== this.props.defaultText) {
+  //     this.setState({
+  //       value: this.props.defaultText
+  //     });
+  //   }
+  // }
 
   handleChange(event) {
     const input = event.target.value;
@@ -23,33 +36,56 @@ class InputText extends React.Component {
   }
 
   render() {
-    const { textArea } = this.props;
-    const labelClasses = ['ma__label'];
-    textArea.required ? labelClass.push('ma__label--required') : labelClass.push('ma__label--optional');
-    textArea.hiddenLabel && labelClass.push('ma__label--hidden');
+    const labelClass = ['ma__label'];
+    if (this.props.required) {
+      labelClass.push('ma__label--required');
+    } else {
+      labelClass.push('ma__label--optional');
+    }
+    if (this.props.hiddenLabel) {
+      labelClass.push('ma__label--hidden');
+    }
+    const maxlength = this.props.maxlength ? this.props.maxlength : false;
+    const minlength = this.props.minlength ? this.props.minlength : false;
+    const errorClasses = ['ma__error-msg'];
+    const textClasses = [];
+    if (this.props.errorDisplay) {
+      errorClasses.push('has-error');
+    }
+    if (this.props.errorDisplay) {
+      textClasses.push('has-error');
+    }
+    if (this.props.required) {
+      textClasses.push('js-is-required');
+    }
     return(
-      { textarea.labelText && (
-        <label
-          for="input-type-textarea"
-          className={labelClasses.join(' ')}
-        >
-          {textArea.labelText}
-        </label>
-        )
-      }
-<textarea
-  class="{{ textarea.required ? 'js-is-required' : ''}}"
-  name="{{ textarea.name }}"
-  id="{{ textarea.id }}"
-  data-type="{{ textarea.type }}"
-  {% if textarea.maxlength %}
-    maxlength="{{ textarea.maxlength }}"
-  {% endif %}
-  {{ textarea.required ? 'required' : '' }} /></textarea>
+      <React.Fragment>
+        { this.props.labelText &&
+          <label htmlFor="input-type-textarea"className={labelClass.join(' ')}>
+            {this.props.labelText}
+          </label>
+        }
+        {this.props.errorMsg &&
+        <div className={errorClasses.join(' ')}>{this.props.errorMsg}</div>}
+        <textarea
+          className={textClasses.join(' ')}
+          name={this.props.name}
+          id={this.props.id}
+          data-type={this.props.type}
+          maxLength={maxlength}
+          minLength={minlength}
+          value={this.state.value}
+          onChange={this.handleChange}
+          placeholder={this.props.placeholder}
+          disabled={this.props.disabled}
+          required={this.props.required}
+        />
+      </React.Fragment>
+    );
   }
 }
 
-InputText.propTypes = {
+TextArea.propTypes = {
   /** Whether the label should be hidden or not */
   hiddenLabel: PropTypes.bool,
   /** The label text for the input field */
@@ -64,25 +100,25 @@ InputText.propTypes = {
   type: PropTypes.string.isRequired,
   /** The max acceptable input length */
   maxlength: PropTypes.number,
-  /** The pattern to filter input against, e.g. "[0-9]" for numbers only */
-  pattern: PropTypes.string,
   /** The number of characters wide to make the input field */
-  width: PropTypes.number,
-  /** The placeholder text for the input field */
-  placeholder: PropTypes.string,
-  /** The message to be displayed in the event of an error */
-  errorMsg: PropTypes.string,
-  /** Whether an error msg should be display or not. */
-  errorDisplay: PropTypes.boolean,
-  /** Custom change function */
   onChange: PropTypes.func,
   /** Default input text value */
-  defaultText: PropTypes.string
+  defaultText: PropTypes.string,
+  /** The min acceptable input length */
+  minlength: PropTypes.number,
+  /** Placeholder text */
+  placeholder: PropTypes.string,
+  /** Display the Error Mesage or not. */
+  errorDisplay: PropTypes.bool,
+  /** Error Message content. */
+  errorMsg: PropTypes.string,
+  /** Disabled */
+  disabled: PropTypes.bool
 };
 
-InputText.defaultProps = {
+TextArea.defaultProps = {
   hiddenLabel: false,
   required: false
 };
 
-export default InputText;
+export default TextArea;

@@ -9,22 +9,23 @@ class InputText extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  static getDerivedStateFromProps(nextProps, prevState){
-     if(nextProps.defaultText !== prevState.value) {
-       return {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.defaultText !== prevState.value) {
+      return{
         value: nextProps.defaultText
       };
     }
-    else return null;
+
+    return null;
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if(prevProps.defaultText !== this.props.defaultText){
-      this.setState({
-        value: this.props.defaultText
-      });
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.defaultText !== this.props.defaultText) {
+  //     this.setState({
+  //       value: this.props.defaultText
+  //     });
+  //   }
+  // }
 
   handleChange(event) {
     const input = event.target.value;
@@ -40,7 +41,7 @@ class InputText extends React.Component {
     const inputLabelClasses = ['ma__label'];
     if (inputText.labelText) {
       inputLabelClasses.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
-      if(inputText.hiddenLabel) {
+      if (inputText.hiddenLabel) {
         inputLabelClasses.push('ma__label--hidden');
       }
     }
@@ -48,46 +49,51 @@ class InputText extends React.Component {
     if (inputText.required) {
       inputClasses.push('js-is-required');
     }
-    if(inputText.errorDisplay) {
+    if (inputText.errorDisplay) {
       inputClasses.push('has-error');
     }
     const errorClasses = ['ma__error-msg'];
-    if(inputText.errorDisplay) {
+    if (inputText.errorDisplay) {
       errorClasses.push('has-error');
     }
     const input =
-      <input
-          className={inputClasses.join(' ')}
-          name={inputText.name}
-          id={inputText.id}
-          type={inputText.type}
-          placeholder={inputText.placeholder}
-          data-type={inputText.type}
-          maxLength={inputText.maxlength || null}
-          pattern={inputText.pattern || null}
-          style={inputText.width ? { width: `${inputText.width}px` } : null}
-          onChange={this.handleChange}
-          required={inputText.required}
-          value={this.state.value}
-        />;
+      (<input
+        className={inputClasses.join(' ')}
+        name={inputText.name}
+        id={inputText.id}
+        type={inputText.type}
+        placeholder={inputText.placeholder}
+        data-type={inputText.type}
+        maxLength={inputText.maxlength || null}
+        pattern={inputText.pattern || null}
+        style={inputText.width ? { width: `${inputText.width}px` } : null}
+        onChange={this.handleChange}
+        required={inputText.required}
+        disabled={this.props.disabled}
+        value={this.state.value}
+      />);
+
     return(
       <React.Fragment>
-        {inputText.labelText &&
+        { inputText.labelText &&
         <label
           htmlFor={inputText.id}
           className={inputLabelClasses.join(' ')}
         >
           {inputText.labelText}
-        </label>}
-        {inputText.errorMsg &&
+        </label> }
+        { inputText.errorMsg &&
         <div className={errorClasses.join(' ')}>{inputText.errorMsg}</div>}
         { inputText.type === 'number' ?
-            <div className='ma__input-number'>
-             {input}
-             <button type="button" aria-label="increase value" className="ma__input-number__plus"></button>
-             <button type="button" aria-label="decrease value" className="ma__input-number__minus"></button>
-            </div> : <React.Fragment>{input}</React.Fragment>
-          }
+          <div className="ma__input-number">
+            {input}
+            <button type="button" aria-label="increase value" className="ma__input-number__plus" />
+            <button type="button" aria-label="decrease value" className="ma__input-number__minus" />
+          </div> :
+          <React.Fragment>
+            {input}
+          </React.Fragment>
+        }
       </React.Fragment>
     );
   }
@@ -117,11 +123,12 @@ InputText.propTypes = {
   /** The message to be displayed in the event of an error */
   errorMsg: PropTypes.string,
   /** Whether an error msg should be display or not. */
-  errorDisplay: PropTypes.boolean,
+  errorDisplay: PropTypes.bool,
   /** Custom change function */
   onChange: PropTypes.func,
   /** Default input text value */
-  defaultText: PropTypes.string
+  defaultText: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 InputText.defaultProps = {

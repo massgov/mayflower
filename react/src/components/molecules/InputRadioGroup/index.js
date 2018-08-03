@@ -7,24 +7,24 @@ class InputRadioWrapper extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: this.props.defaultSelected,
+      selected: this.props.defaultSelected
     };
     this.handleChange = this.handleChange.bind(this);
     this.getRadioInputs = this.getRadioInputs.bind(this);
   }
 
-  getRadioInputs(){
+  getRadioInputs() {
     const radioChildren = React.Children.map(this.props.children, (child) => {
-      if ( child.type.name === 'InputRadio' ) {
-        const checked = child.props.value === this.state.selected;
+      if (child.type.name === 'InputRadio') {
+        const isChecked = child.props.value === this.state.selected;
         const clone = React.cloneElement(child, {
           name: this.props.name,
           onChange: this.handleChange,
-          checked: checked,
+          checked: isChecked,
           required: this.props.required,
           outline: this.props.outline
         });
-        return (
+        return(
           <div className={`ma__input-group__item item-${this.props.children.length}`}>
             {clone}
           </div>
@@ -35,37 +35,37 @@ class InputRadioWrapper extends React.Component {
         console.log(`Warning! You cannot pass a ${child.type.name} child to InputRadio`)
         /* eslint-disable no-console */
       );
-    })
+    });
     return radioChildren;
   }
 
   handleChange(selected, value, event) {
     if (selected !== this.state.selected) {
-      this.setState({ selected: selected });
+      this.setState({ selected });
       if (typeof this.props.onChange === 'function') {
-        const name = this.props.name
+        const name = this.props.name;
         this.props.onChange({ selected, name, event });
-      };
+      }
     }
-  };
+  }
 
   render() {
     return(
       <fieldset>
-        <div className='ma__input-group'>
+        <div className="ma__input-group">
           <legend>
-            <div className='ma__input-group__title'>
+            <div className="ma__input-group__title">
               {this.props.title}
             </div>
           </legend>
-          <div className='ma__input-group__items ma__input-group__items--inline'>
+          <div className="ma__input-group__items ma__input-group__items--inline">
             {this.getRadioInputs()}
           </div>
         </div>
       </fieldset>
-      );
-  };
-};
+    );
+  }
+}
 
 InputRadioWrapper.propTypes = {
   title: PropTypes.string.isRequired,

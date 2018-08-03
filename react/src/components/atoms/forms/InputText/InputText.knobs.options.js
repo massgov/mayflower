@@ -13,5 +13,6 @@ export default {
   placeholder: () => text('inputText.placeholder', 'type something'),
   errorMsg: () => text('inputText.errorMsg', 'you did not type something'),
   errorDisplay: () => boolean('inputText.errorDisplay', true),
-  defaultText: () => text('inputText.defaultText', 'default text value')
+  defaultText: () => text('inputText.defaultText', 'default text value'),
+  disabled: () => boolean('inputText.disabled', false)
 };

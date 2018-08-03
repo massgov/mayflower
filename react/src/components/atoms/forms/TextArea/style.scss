@@ -1,10 +1,6 @@
-.ma__input-number {
-    input.has-error:not(:focus) {
-      background-position: center right 40px;
-    }
-}
-input {
+textarea {
   transition: background-color .4s, color .4s, border .4s, fill .4s, box-shadow .4s;
+  color: #535353;
   &:focus{
     -webkit-box-shadow: 0 0 3px 3px #9bdaf1 !important;
     box-shadow: 0 0 3px 3px #9bdaf1 !important;
