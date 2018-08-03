@@ -8,7 +8,7 @@ const NPMRegistry = require("./NPM");
 
 const root = path.resolve(__dirname, "../../");
 const source = path.resolve(root, "source");
-
+const absRoot = root.replace(/patternlab\/styleguide/g, "");
 const defaults = {
     root: root,
     source: source,
@@ -33,8 +33,8 @@ const defaults = {
         patterns: path.resolve(source, "_patterns/**"),
         // The following assets will be copied to asset directories.
         assets: [
-            path.resolve(source, "assets/fonts/**"),
-            path.resolve(source, "assets/images/**"),
+            path.resolve(source, absRoot + "assets/fonts/**"),
+            path.resolve(source, absRoot + "assets/images/**"),
             path.resolve(source, "assets/js/templates/**"),
             path.resolve(source, "assets/data/**"),
             path.resolve(source, "assets/js/vendor/modernizr.js")
