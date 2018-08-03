@@ -93,15 +93,13 @@ class MayflowerTaskRegistry extends DefaultRegistry {
                 .pipe(gulp.dest(`${dest}/images`));
             var fonts = gulp.src(config.sources.fonts)
                 .pipe(gulp.dest(`${dest}/fonts`));
-            var assets = gulp.src(config.sources.assets, {base: self.resolveSource('assets')})
-                .pipe(gulp.dest(dest))
             var data = gulp.src(config.sources.data)
                 .pipe(gulp.dest(`${dest}/data`));
             var templates = gulp.src(config.sources.templates)
                 .pipe(gulp.dest(`${dest}/templates`))
             var modernizr = gulp.src(config.sources.modernizr)
                 .pipe(gulp.dest(`${dest}/js/vendor`))
-            return merge(images, fonts, assets, data, templates, modernizr)
+            return merge(images, fonts, data, templates, modernizr)
                 .pipe(self.debug(name))
         }
         task.displayName = name;
