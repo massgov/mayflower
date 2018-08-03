@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   $('.js-clickable').each(function(){
     // if the this is clicked
     $(this).click(function(event){
@@ -17,4 +17,4 @@ export default function (window,document,$,undefined) {
       }
     });
   });
-}(window,document,jQuery);
+})(window,document,jQuery);

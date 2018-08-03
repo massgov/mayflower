@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   $('.js-location-filters').each(function(){
     let $el = $(this);
 
@@ -113,4 +113,4 @@ export default function (window,document,$,undefined) {
     $tags.find('input:checked').prop('checked', false);
   }
 
-}(window,document,jQuery);
+})(window,document,jQuery);

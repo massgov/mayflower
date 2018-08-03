@@ -3,7 +3,7 @@
  * Ajax Alert js has to execute prior to its dependent accordion and emergency alert js modules.
  */
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.js-ajax-pattern').each(function(){
     // Get the endpoint which is passed in as ajaxAlerts.endpoint to organism data attribute.
@@ -26,4 +26,4 @@ export default function (window,document,$,undefined) {
     }
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);

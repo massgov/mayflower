@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('textarea[maxlength]').each(function(){
     const $el = $(this);
@@ -96,4 +96,4 @@ export default function (window,document,$,undefined) {
   });
 
 
-}(window,document,jQuery);
+})(window,document,jQuery);

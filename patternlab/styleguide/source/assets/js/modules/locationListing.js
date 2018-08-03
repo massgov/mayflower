@@ -134,7 +134,7 @@ export default function (window, document, $) {
         defaultPage = history.state.page;
       }
       if (params) {
-        defaultPage = params.get("page");
+        defaultPage = params.get("_page");
       }
       if (parseInt(defaultPage, 10) !== 1) {
         handlePagination(null, defaultPage);
@@ -374,4 +374,4 @@ export default function (window, document, $) {
     // Return the newly sorted instance of location listing masterData.
     return data;
   }
-} (window, document, jQuery);
+}(window, document, jQuery);

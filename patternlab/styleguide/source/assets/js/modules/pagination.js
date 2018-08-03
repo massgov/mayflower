@@ -1,7 +1,6 @@
 import twiggy from '../helpers/twiggy';
 
-export default function (window, document, $, undefined) {
-
+export default (function (window, document, $, undefined) {
   if ($('.js-pagination').length === 0) {
     return;
   }
@@ -52,8 +51,8 @@ export default function (window, document, $, undefined) {
     let params = new URLSearchParams(window.location.search);
     if (history.state && history.state.page) {
       targetPageNumber = history.state.page;
-    } else if (params.has('page')) {
-      targetPageNumber = params.get('page');
+    } else if (params.has('_page')) {
+      targetPageNumber = params.get('_page');
     }
     pushPaginationState(targetPageNumber);
 
@@ -86,7 +85,7 @@ export default function (window, document, $, undefined) {
 
   function pushPaginationState(pageNum) {
     let params = new URLSearchParams(window.location.search);
-    params.set('page', pageNum);
+    params.set('_page', pageNum);
 
     history.pushState(
       { page: pageNum },
@@ -94,4 +93,4 @@ export default function (window, document, $, undefined) {
     );
   }
 
-} (window, document, jQuery);
+}) (window, document, jQuery);
