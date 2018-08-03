@@ -128,36 +128,72 @@ $location-listin--map-min-width: 315px;
     margin-top: 0;
     padding-bottom: 30px;
     padding-left: 1rem;
-    padding-right: $location-listing--gutter-width;
+    padding-right: 1rem;
     position: relative;
-
-    @media ($bp-x-large-min) {
-      // The 30px gutter is located on the `__results` container.
-      padding-right: $location-listing--tags-size + $location-listing--gutter-width;
-    }
-
-    &:first-child {
-      padding-top: 30px;
-    }
 
     &:first-child {
       padding-top: 30px;
     }
 
     &__image {
-      flex-basis: (100px + $location-listing--gutter-width);
-      margin-right: 0;
-      padding-right: $location-listing--gutter-width;
-      width: (100px + $location-listing--gutter-width);
+      display: flex;
+      flex-basis: 100%;
+      margin: 0 0 1rem;
+      width: 100%;
+
+      @media ($bp-medium-min) {
+        display: block;
+        flex-basis: (100px + $location-listing--gutter-width);
+        padding-right: $location-listing--gutter-width;
+        width: (100px + $location-listing--gutter-width);
+      }
+
+      > a {
+        display: block;
+        margin-bottom: 1rem;
+
+        @media ($bp-medium-max) {
+          flex: 0 0 100px;
+          margin-right: $location-listing--gutter-width;
+          width: 100px;
+        }
+      }
 
       img {
         border-radius: 5px;
       }
     }
 
-    &__details {
+    &__tags {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      float: none;
 
       @media ($bp-medium-min) {
+        justify-content: center;
+      }
+
+      > span {
+        display: block;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      svg {
+        height: $location-listing--tags-size;
+        width: $location-listing--tags-size;
+      }
+    }
+
+    &__details {
+      flex-basis: 100%;
+      min-width: 0;
+
+      @media ($bp-small-min) {
+        flex-basis: 250px;
         padding-right: $location-listing--gutter-width;
       }
 
@@ -191,36 +227,6 @@ $location-listin--map-min-width: 315px;
       }
     }
 
-    &__tags {
-      float: none;
-      position: absolute;
-      right: 0;
-      top: 50%;
-
-      @media ($bp-medium-min) {
-        top: 50%;
-        transform: translate(0, -50%);
-      }
-
-      @media ($bp-x-large-min) {
-        right: 0;
-      }
-
-      > span {
-        display: block;
-        margin-left: 0;
-
-        + span {
-          margin-top: 0.5rem;
-        }
-      }
-
-      svg {
-        height: $location-listing--tags-size;
-        width: $location-listing--tags-size;
-      }
-    }
-
     .ma__image-promo__description {
 
       @media ($bp-medium-max) {
@@ -233,10 +239,10 @@ $location-listin--map-min-width: 315px;
     }
 
     &__contact {
-      flex: 0 0 200px;
+      flex: 0 0 180px;
 
-      @media ($bp-medium-max) {
-        flex: 1 1 100%;
+      @media ($bp-small-min) {
+        flex-basis: 200px;
       }
 
       > div:not(:last-child) {
@@ -268,8 +274,7 @@ $location-listin--map-min-width: 315px;
     }
 
     &__hours-item {
-      flex: 1 1 auto;
-      padding-right: 1rem;
+      flex: 1 1 100%;
     }
   }
 }

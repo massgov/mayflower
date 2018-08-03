@@ -4,10 +4,6 @@
       {{#if image.href}}<a href="{{image.href}}">{{/if}}
         <img alt="placeholder image" src="{{image.src}}">
       {{#if image.href}}</a>{{/if}}
-    </div>
-  {{/if}}
-  <div class="ma__image-promo__details">
-    <h3 class="ma__image-promo__title">
       {{#if tagsFormatted}}
         <div class="ma__image-promo__tags">
           {{#each tagsFormatted}}
@@ -15,6 +11,10 @@
           {{/each}}
         </div>
       {{/if}}
+    </div>
+  {{/if}}
+  <div class="ma__image-promo__details">
+    <h3 class="ma__image-promo__title">
       {{#if title.href}}
         <span class="ma__decorative-link">
           <a href="{{title.href}}" class="js-clickable-link">

@@ -12,19 +12,19 @@
       {% if imagePromo.image.href %}
         </a>
       {% endif %}
+      {% if imagePromo.tags %}
+        <div class="ma__image-promo__tags">
+          {% for tag in imagePromo.tags %}
+            <span title="{{ tag.label }}" data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   {% endif %}
   <div class="ma__image-promo__details">
     {% if imagePromo.title.text %}
       {% set headingLevel = imagePromo.level ? : 2 %}
       <h{{ headingLevel }} class="ma__image-promo__title">
-        {% if imagePromo.tags %}
-          <div class="ma__image-promo__tags">
-            {% for tag in imagePromo.tags %}
-              <span title="{{ tag.label }}" data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
-            {% endfor %}
-          </div>
-        {% endif %}
         {% if imagePromo.title.href %}
           {% set decorativeLink = imagePromo.title %}
           {% include "@atoms/decorative-link.twig" %}
