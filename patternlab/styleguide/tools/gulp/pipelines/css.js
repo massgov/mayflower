@@ -19,7 +19,7 @@ var sass          = require("gulp-sass"),
  * reuse the pipeline as many times as we want.
  */
 module.exports = function(minify, root) {
-    var absRoot = root.replace(/patternlab\/styleguide/g, "");
+    const absRoot = root.replace(/patternlab\/styleguide/g, "");
     var sassOptions = {
         outputStyle: minify ? "compressed" : "nested",
         includePaths: [].concat(
