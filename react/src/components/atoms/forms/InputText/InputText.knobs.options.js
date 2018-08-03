@@ -12,7 +12,7 @@ export default {
   pattern: () => text('inputText.pattern', ''),
   placeholder: () => text('inputText.placeholder', 'type something'),
   errorMsg: () => text('inputText.errorMsg', 'you did not type something'),
-  errorDisplay: () => boolean('inputText.errorDisplay', true),
+  errorDisplay: () => boolean('inputText.errorDisplay', false),
   defaultText: () => text('inputText.defaultText', 'default text value'),
   disabled: () => boolean('inputText.disabled', false)
 };

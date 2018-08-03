@@ -45,6 +45,9 @@ class TextArea extends React.Component {
     if (this.props.hiddenLabel) {
       labelClass.push('ma__label--hidden');
     }
+    if (this.props.disabled) {
+      labelClass.push('ma__label--disabled')
+    }
     const maxlength = this.props.maxlength ? this.props.maxlength : false;
     const minlength = this.props.minlength ? this.props.minlength : false;
     const errorClasses = ['ma__error-msg'];

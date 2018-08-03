@@ -15,4 +15,11 @@ input {
       border-color: #cd0d0d !important;
     }
   }
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+.ma__label--disabled {
+  opacity: 0.7;
 }

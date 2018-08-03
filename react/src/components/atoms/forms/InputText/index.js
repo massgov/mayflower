@@ -38,11 +38,14 @@ class InputText extends React.Component {
 
   render() {
     const inputText = this.props;
-    const inputLabelClasses = ['ma__label'];
+    const inputLabelClass = ['ma__label'];
     if (inputText.labelText) {
-      inputLabelClasses.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
+      inputLabelClass.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
       if (inputText.hiddenLabel) {
-        inputLabelClasses.push('ma__label--hidden');
+        inputLabelClass.push('ma__label--hidden');
+      }
+      if (inputText.disabled) {
+        inputLabelClass.push('ma__label--disabled')
       }
     }
     const inputClasses = ['ma__input'];
@@ -78,7 +81,7 @@ class InputText extends React.Component {
         { inputText.labelText &&
         <label
           htmlFor={inputText.id}
-          className={inputLabelClasses.join(' ')}
+          className={inputLabelClass.join(' ')}
         >
           {inputText.labelText}
         </label> }
