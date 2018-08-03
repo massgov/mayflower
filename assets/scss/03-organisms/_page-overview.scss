@@ -1,0 +1,30 @@
+.ma__page-overview {
+  @include clearfix;
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+    @include ma-container();
+  }
+
+
+  &__event-image {
+    
+    @media ($bp-small-min) {
+      // @include span-columns(4 of 8);
+      float: right;
+      font-size: 0;
+      margin-left: 2.43902%;
+      margin-bottom: 1rem;
+      max-width: 48.78049%;    
+    }
+  }
+
+  &__labelled-list {
+    margin-bottom: 1.5rem;
+
+    @media ($bp-small-min) {
+      margin-bottom: 1.75rem;
+    }
+  }
+}

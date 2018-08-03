@@ -1,0 +1,20 @@
+.ma__binder-page {
+
+    &__content {
+        position: relative;
+    }
+
+    .ma__header-tags {
+        max-width: 100%;
+    }
+
+    .ma__content-eyebrow + .ma__illustrated-header {
+        margin-top: 0;
+    }
+
+    .ma__page-header__content {
+        @media ($bp-medium-min) {
+            padding-top: 40px;
+        }
+    }
+}

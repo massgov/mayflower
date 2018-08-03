@@ -1,0 +1,43 @@
+.ma__organization-detail {
+
+  .ma__page-banner {
+    .ma__page-banner__description {
+
+      span {
+        display: block;
+      }
+    }
+  }
+
+  .ma__divider {
+    padding-bottom: 30px;
+
+    @media ($bp-large-min) {
+      padding-bottom: 50px;
+    }
+  }
+
+  .page-content {
+
+    h3 {
+      position: relative;
+      padding-bottom: 15px;
+      margin-top: 25px;
+
+      &::after {
+        content: '';
+        height: 3px;
+        position: absolute;
+        bottom: 0;
+        left: 0.075rem;
+        transform: skew(-30deg);
+        width: 1.85em;
+        background-color: rgba($c-theme-green, 0.5);
+      }
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
+}

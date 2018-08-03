@@ -1,0 +1,13 @@
+
+.ma__event-listing-interactive {
+  position: relative;
+
+  &__results {
+    @include ma-container;
+
+    .ma__results-heading {
+      margin-bottom: 20px;
+      padding-top: 40px;
+    }
+  }
+}
