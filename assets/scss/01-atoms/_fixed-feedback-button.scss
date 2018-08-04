@@ -1,0 +1,7 @@
+.ma__fixed-feedback-button {
+  position: fixed;
+  right: 0;
+  bottom: 5rem;
+  transform: rotate(270deg);
+  z-index: $z-sticky-content;
+}
