@@ -1,7 +1,13 @@
 .ma__fixed-feedback-button {
   position: fixed;
-  right: 0;
+  right: -25px;
   bottom: 5rem;
   transform: rotate(270deg);
   z-index: $z-sticky-content;
+  border-style: solid;
+  border-width: 4px 4px 0 4px;
+  border-radius: 10px 10px 0 0;
+  
+  //theme
+  border-color: rgba($c-theme-green, 0.5)
 }
