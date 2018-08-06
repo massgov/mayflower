@@ -1,19 +1,20 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.pre-content .ma__sticky-toc').each(function() {
     const $toc = $('.ma__sticky-toc'),
           $tocContent = $('.ma__sticky-toc__links'),
-          $tocSections = $('.ma__information-details .page-content').find('h2'),
+          $tocSections = $('.ma__information-details .page-content, .ma__stacked-row-section__container .ma__stacked-row-section__title').find('h2'),
           lastHeading = $tocSections.last().text(),
           tocSectionCount = $tocSections.length,
           $tocColumn = $('.ma__sticky-toc__column'),
           $mobileToggle = $('.ma__sticky-toc__toggle-link'),
           $tocToggle = $('.stickyTOC-open'),
           $tocFooter = $('.ma__sticky-toc__footer'),
-          $stickyToc = $('.ma__sticky-toc__current-section');
+          $stickyToc = $('.ma__sticky-toc__current-section'),
+          minSectionsToShow = $toc.data('min-to-show');
 
     // // Remove wrapper if not enough links.
-    if (tocSectionCount < 3 ) {
+    if (minSectionsToShow && (tocSectionCount < minSectionsToShow) || !minSectionsToShow && tocSectionCount < 3 ) {
       $toc.remove();
     }
     else {
@@ -156,5 +157,4 @@ export default function (window,document,$,undefined) {
       menuToggle();
     });
   });
-}
-(window,document,jQuery);
+})(window,document,jQuery);

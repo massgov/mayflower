@@ -1,6 +1,6 @@
 import listings from "../helpers/listing.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   let container = '.js-event-listing-interactive',
       parent = '.js-event-listing-items',
       row = '.js-event-listing-item';
@@ -56,27 +56,29 @@ export default function (window,document,$,undefined) {
       });
     });
 
-    // Handle pagination click events -- winning!
-    $pagination.on('ma:Pagination:Pagination', function (e, target) {
+    // Handle pagination click events
+    function handlePagination (e, target) {
       "use strict";
-      let nextPage = target;
+      let nextPage = parseInt(target, 10);
 
-      // Get the current page, default to first page if not in global data object.
-      let currentPage = masterData.pagination.currentPage ? masterData.pagination.currentPage : 1;
-      if (target === "next") {
-        nextPage = currentPage + 1;
-      }
-      if (target === "previous") {
-        nextPage = currentPage - 1;
-      }
-
-      masterData.pagination = listings.transformPaginationData({data: masterData, targetPage: nextPage});
-      masterData.resultsHeading = listings.transformResultsHeading({data: masterData, page: nextPage});
-      listings.renderListingPage({data: masterData, page: nextPage});
+      masterData.pagination = listings.transformPaginationData({ data: masterData, targetPage: nextPage });
+      masterData.resultsHeading = listings.transformResultsHeading({ data: masterData, page: nextPage });
+      listings.renderListingPage({ data: masterData, page: nextPage });
 
       // Trigger child components render with updated data
-      updateChildComponents({data: masterData});
-    });
+      updateChildComponents({ data: masterData });
+    }
+    $pagination.on('ma:Pagination:Pagination', handlePagination);
+    let defaultPage = 1;
+    let params = new URLSearchParams(window.location.search);
+    if (history.state) {
+      defaultPage = history.state.page;
+    }
+    if (params) {
+      defaultPage = params.get("page");
+    }
+    handlePagination(null, defaultPage);
+
 
     // Trigger events to update child components with new data.
     function updateChildComponents(args) {
@@ -127,14 +129,6 @@ export default function (window,document,$,undefined) {
       $.map(listing.pagination.pages, function(val, index) { pages[index] = val; });
       listing.pagination.pages = pages;
 
-      // Get the current page from the initial data structure, default to 1 if none passed.
-      let currentPage = 1;
-      pages.forEach(function(page) {
-        if (page.active) {
-          currentPage = Number(page.text);
-        }
-      });
-
       // Get the listing events, generate markup for each
       let masterListing = listing.eventListing.events,
 
@@ -150,9 +144,8 @@ export default function (window,document,$,undefined) {
       // Create items with listing and markup.
       masterData.items = getMasterListingWithMarkup(masterListing, masterListingMarkup, masterData.maxItems);
 
-      // The initial pagination data structure + currentPage;
+      // The initial pagination data structure;
       masterData.pagination = listing.pagination;
-      masterData.pagination.currentPage = currentPage;
 
       // The total number of pages, given the number of items and the maxItems variable
       masterData.totalPages = Math.ceil(masterData.items.length / masterData.maxItems);
@@ -299,4 +292,4 @@ export default function (window,document,$,undefined) {
     return data;
   }
 
-}(window,document,jQuery);
+})(window,document,jQuery);

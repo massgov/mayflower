@@ -1,6 +1,6 @@
 import checkMobile from "../helpers/cssControlCode.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $(".js-scroll-anchors").each(function() {
     let $el = $(this),
@@ -208,4 +208,4 @@ export default function (window,document,$,undefined) {
       }
     }
   });
-}(window,document,jQuery);
+})(window,document,jQuery);
