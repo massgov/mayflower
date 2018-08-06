@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.js-keyword-search').each(function(){
     let $el = $(this),
@@ -14,4 +14,4 @@ export default function (window,document,$,undefined) {
     });
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);

@@ -6,7 +6,7 @@
 <section class="ma__header-contact {{accordionParent}}">
   <div class="ma__header-contact__address"{% if schemaPageType %} property="address" typeof="PostalAddress"{% endif %}>
     {% if headerContact.title %}
-      <span{% if schemaPageType %} property="name"{% endif %}>{{headerContact.title | raw}}, </span>
+      <span{% if schemaPageType %} property="name"{% endif %}>{{ headerContact.title }}, </span>
     {% endif %}
     {% if headerContact.address2 %}
       <span>{% if schemaPageType %}<span property="streetAddress">{% endif %}{{headerContact.address1}}{% if schemaPageType %}</span>{% endif %} {{headerContact.address2}}, </span>
@@ -14,7 +14,7 @@
       <span{% if schemaPageType %} property="streetAddress"{% endif %}>{{headerContact.address1}}, </span>
     {% endif %}
     <span>
-      {% if schemaPageType %}<span property="addressLocality">{% endif %}{{headerContact.city}},{% if schemaPageType %}</span>{% endif %} 
+      {% if schemaPageType %}<span property="addressLocality">{% endif %}{{headerContact.city}},{% if schemaPageType %}</span>{% endif %}
       {% if schemaPageType %}<span property="addressRegion">{% endif %}{{headerContact.state}}{% if schemaPageType %}</span>{% endif %}
       {% if schemaPageType %}<span property="postalCode">{% endif %}{{headerContact.zip}}{% if schemaPageType %}</span>{% endif %}
     </span>

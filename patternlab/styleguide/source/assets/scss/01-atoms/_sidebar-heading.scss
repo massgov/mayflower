@@ -1,8 +1,0 @@
-.ma__sidebar-heading {
-  @include ma-sidebar-heading;
-
-  .sidebar--colored & {
-    @include ma-heading-colored($direction: left);
-    border: none;
-  }
-}
