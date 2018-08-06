@@ -131,6 +131,7 @@ InputText.propTypes = {
   onChange: PropTypes.func,
   /** Default input text value */
   defaultText: PropTypes.string,
+  /** Whether the input is disabled or not */
   disabled: PropTypes.bool
 };
 
