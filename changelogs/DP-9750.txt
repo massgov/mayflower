@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Added
-- DP-9750: Added HelperText form atom component to Mayflower React library, including a new Story for the new component to be used with Storybook.
