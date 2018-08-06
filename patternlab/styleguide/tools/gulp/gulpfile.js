@@ -44,7 +44,8 @@ const defaults = {
         // The following paths will be run through browserify/babelify.
         js: path.resolve(source, "assets/js/*.js"),
         // The following paths will be run through SASS.
-        scss: path.resolve(source, "assets/scss/**/*.scss")
+        scss: path.resolve(source, "assets/scss/**/*.scss"),
+        scssParts: path.resolve(shared, "scss/**/*.scss")
     },
     // Show verbose output in tasks.
     verbose: false,
