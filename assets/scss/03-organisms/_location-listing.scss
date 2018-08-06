@@ -171,11 +171,13 @@ $location-listin--map-min-width: 315px;
       float: none;
 
       @media ($bp-medium-min) {
+        flex-wrap: wrap;
         justify-content: center;
       }
 
       > span {
         display: block;
+        margin-bottom: 10px;
 
         &:first-child {
           margin-left: 0;
