@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Removed
+Major
+- DP-9574: Remove raw filter from 02-molecules/google-map.twig.
