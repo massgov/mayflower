@@ -12,7 +12,7 @@
       {% include "@base/placeholder.twig" with {'placeholder':{'text':'Pre Content'}} %}
     {% endblock %}
   </div>
-  <div class="ma__stacked-row">
+  <div class="ma__stacked-row {{ sideBarContent|length ? 'main-content--two' : '' }}">
     {% block stackedRowContent %}
       {% if jumpLinks %}
         <div class="ma__stacked-row__jump-links">
@@ -23,6 +23,10 @@
       {# backward compatible with v 5.6 - stackedRowSections becomes stackedRows #}
       {% if stackedRowSections %}
         {% set stackedRows = stackedRowSections %}
+      {% endif %}
+
+      {% if sideBarContent|length %}
+        <div class="page-content">
       {% endif %}
 
       {% for stackedRow in stackedRows %}
@@ -60,6 +64,19 @@
         </section>
 
       {% endfor %}
+
+      {% if sideBarContent|length %}
+      </div>
+        {% block sidebar %}
+          {% if sideBarContent|length %}
+            <aside class="sidebar">
+              {% for sidebar in sideBarContent %}
+                {% include sidebar.path with sidebar.data %}
+              {% endfor %}
+            </aside>
+          {% endif %}
+        {% endblock %}
+      {% endif %}
     {% endblock %}
   </div>
   <div class="post-content">
@@ -70,15 +87,6 @@
   {% block schemaContent %}
   {% endblock %}
 
-  {% block sidebar %}
-    {% if sideBarContent|length %}
-      <aside class="sidebar">
-        {% for sidebar in sideBarContent %}
-          {% include sidebar.path with sidebar.data %}
-        {% endfor %}
-      </aside>
-    {% endif %}
-  {% endblock %}
 </main>
 
 {% block footer %}
