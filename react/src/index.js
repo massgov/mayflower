@@ -15,6 +15,7 @@ export ButtonSort from './components/atoms/buttons/ButtonSort';
 export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 // @atoms/@forms
+export HelperText from './components/atoms/forms/HelperText';
 export InputDate from './components/atoms/forms/InputDate';
 export InputText from './components/atoms/forms/InputText';
 export SelectBox from './components/atoms/forms/SelectBox';
