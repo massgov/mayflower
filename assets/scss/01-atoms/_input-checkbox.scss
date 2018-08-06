@@ -1,3 +1,5 @@
+@import '../00-base/mixins/_ma-visually-hidden.scss';
+
 // Custom Checkboxes
 .ma__input-checkbox {
   display: inline-block;
@@ -12,7 +14,7 @@
     position: absolute;
       top: 0;
       right: 0;
-    vertical-align: top;
+    vertical-align: center;
     width: 24px;
   }
 
@@ -44,7 +46,8 @@
   input:checked ~ label {
 
     &:before {
-      content: url("../images/checkmark.svg"); //"✔";
+      content: url("./assets/images/checkmark.svg"); //"✔";
+      height: 2em;
     }
   }
 

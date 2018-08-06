@@ -1,8 +1,18 @@
-.ma__select-box__field.ma__select-box__field--inline {
-  display: inline-flex;
-  align-items: center;
+.ma__select-box__field {
+  .ma__select-box__field--inline {
+    display: inline-flex;
+    align-items: center;
+  }
+  .ma__label--inline {
+    margin-right: .5rem;
+  }
+  .ma__select-box__field{
+    &--disabled{
+     opacity: 0.7;
+    }
+    select:disabled{
+      cursor: not-allowed;
+    }
+  }
 }
 
-.ma__label--inline {
-  margin-right: .5rem;
-}

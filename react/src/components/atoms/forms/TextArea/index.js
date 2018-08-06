@@ -46,7 +46,7 @@ class TextArea extends React.Component {
       labelClass.push('ma__label--hidden');
     }
     if (this.props.disabled) {
-      labelClass.push('ma__label--disabled')
+      labelClass.push('ma__label--disabled');
     }
     const maxlength = this.props.maxlength ? this.props.maxlength : false;
     const minlength = this.props.minlength ? this.props.minlength : false;
@@ -62,7 +62,7 @@ class TextArea extends React.Component {
       textClasses.push('js-is-required');
     }
     return(
-      <React.Fragment>
+      <div className="ma__textarea">
         { this.props.labelText &&
           <label htmlFor="input-type-textarea"className={labelClass.join(' ')}>
             {this.props.labelText}
@@ -83,7 +83,7 @@ class TextArea extends React.Component {
           disabled={this.props.disabled}
           required={this.props.required}
         />
-      </React.Fragment>
+      </div>
     );
   }
 }

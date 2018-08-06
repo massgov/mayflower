@@ -47,16 +47,19 @@ class SelectBox extends React.Component {
     const { stackLabel } = this.props;
     const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
     const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
+    const disabled = this.props.disabled ? 'ma__select-box__field--disabled' : '';
+    const labelDisabled = this.props.disabled ? 'ma__label--disabled' : '';
     return(
       <section className={classNames}>
-        <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
+        <label htmlFor={this.props.id} className={`${labelClassNames} ${labelDisabled}`}>{this.props.label}</label>
 
-        <div className={`ma__select-box__field ${selectBoxInline}`}>
+        <div className={`ma__select-box__field ${selectBoxInline} ${disabled}`}>
           <select
             name={this.props.id}
             id={this.props.id}
             className={selectClassNames}
             onChange={this.handleOnChange}
+            disabled={this.props.disabled}
             ref={(select) => { this.selectTag = select; }}
           >
             {this.props.options.map((option) => (
@@ -98,7 +101,9 @@ SelectBox.propTypes = {
   /** Wrapper class for section tag */
   className: PropTypes.string,
   /** The default value for the select box */
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  /** Whether the input is disabled or not */
+  disabled: PropTypes.bool
 };
 
 SelectBox.defaultProps = {

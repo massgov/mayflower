@@ -1,7 +1,15 @@
 @import 'colors';
+// @import '../../../../assets/scss/01-atoms/_input-checkbox.scss';
 
 .ma__input-checkbox{
-
+  input:disabled {
+    cursor: default;
+    opacity: 0.7;
+    + label {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
   &--outline {
     width: 100%;
     height: 100%;

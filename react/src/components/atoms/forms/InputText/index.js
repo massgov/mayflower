@@ -45,7 +45,7 @@ class InputText extends React.Component {
         inputLabelClass.push('ma__label--hidden');
       }
       if (inputText.disabled) {
-        inputLabelClass.push('ma__label--disabled')
+        inputLabelClass.push('ma__label--disabled');
       }
     }
     const inputClasses = ['ma__input'];

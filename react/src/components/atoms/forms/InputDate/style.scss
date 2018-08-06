@@ -1,3 +1,5 @@
+@import '../../../../assets/scss/01-atoms/_input-date.scss';
+
 input {
   transition: background-color .4s, color .4s, border .4s, fill .4s, box-shadow .4s;
   &:focus{
