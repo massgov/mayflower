@@ -308,7 +308,7 @@
                 "info": ""
               },
               "location": {
-                "text": "88 North Main Street\nAttleboro, MA 02703",
+                "text": "<span class=\"street\">88 North Main Street</span><span class=\"city-state-zip\">Attleboro, MA 02703</span>",
                 "map": true
               },
               "phone": {
@@ -353,7 +353,7 @@
               },
               "location": {
                 "subtitle": "Limited RMV services",
-                "text": "3195 Main Street, Barnstable, MA 02630",
+                "text": "<span class=\"street\">3195 Main Street</span><span class=\"city-state-zip\">Barnstable, MA 02630</span>",
                 "map": true
               },
               "phone": {
@@ -403,7 +403,7 @@
                 "info": ""
               },
               "location": {
-                "text": "76 East Street, Pittsfield, MA 01201",
+                "text": "<span class=\"street\">76 East Street</span><span class=\"city-state-zip\">Pittsfield, MA 01201</span>",
                 "map": true
               },
               "phone": {
@@ -448,7 +448,7 @@
               },
               "location": {
                 "subtitle": "Limited RMV services",
-                "text": "360 Washington Street, Brookline, MA 02445",
+                "text": "<span class=\"street\">360 Washington Street</span><span class=\"city-state-zip\">Brookline, MA 02445</span>",
                 "map": true
               },
               "phone": {
@@ -496,7 +496,7 @@
                 "info": ""
               },
               "location": {
-                "text": "4040 Mystic Valley Parkway, Medford, MA 02155",
+                "text": "<span class=\"street\">4040 Mystic Valley Parkway</span><span class=\"city-state-zip\">Medford, MA 02155</span>",
                 "map": true
               },
               "phone": {
@@ -540,7 +540,7 @@
                 "info": ""
               },
               "location": {
-                "text": "305 Walden Street, Concord, MA 01742",
+                "text": "<span class=\"street\">305 Walden Street</span><span class=\"city-state-zip\">Concord, MA 01742</span>",
                 "map": true
               },
               "phone": {
@@ -584,7 +584,7 @@
                 "info": ""
               },
               "location": {
-                "text": "81 Main Street, Edgartown, MA  02539",
+                "text": "<span class=\"street\">81 Main Street</span><span class=\"city-state-zip\">Edgartown, MA  02539</span>",
                 "map": true
               },
               "phone": {
@@ -628,7 +628,7 @@
                 "info": ""
               },
               "location": {
-                "text": "41 Hurd Street, Lowell, MA 01852",
+                "text": "<span class=\"street\">41 Hurd Street</span><span class=\"city-state-zip\">Lowell, MA 01852</span>",
                 "map": true
               },
               "phone": {
@@ -672,7 +672,7 @@
                 "info": ""
               },
               "location": {
-                "text": "45 Williams Street, Marlborough, MA 01752",
+                "text": "<span class=\"street\">45 Williams Street</span><span class=\"city-state-zip\">Marlborough, MA 01752</span>",
                 "map": true
               },
               "phone": {
@@ -716,7 +716,7 @@
                 "info": ""
               },
               "location": {
-                "text": "56 Federal Street, Salem, MA 01970",
+                "text": "<span class=\"street\">56 Federal Street</span><span class=\"city-state-zip\">Salem, MA 01970</span>",
                 "map": true
               },
               "phone": {
@@ -760,7 +760,7 @@
                 "info": ""
               },
               "location": {
-                "text": "Three Pemberton Square Boston, MA 02108",
+                "text": "<span class=\"street\">Three Pemberton Square</span><span class=\"city-state-zip\">Boston, MA 02108</span>",
                 "map": true
               },
               "phone": {
@@ -804,7 +804,7 @@
                 "info": ""
               },
               "location": {
-                "text": "40 Broadway, Taunton, MA  02780",
+                "text": "<span class=\"street\">40 Broadway</span><span class=\"city-state-zip\">Taunton, MA 02780</span>",
                 "map": true
               },
               "phone": {

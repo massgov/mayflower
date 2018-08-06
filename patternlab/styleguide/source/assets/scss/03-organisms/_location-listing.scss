@@ -214,7 +214,15 @@ $location-listin--map-min-width: 315px;
     &__location {
       font-size: 1.25rem;
       font-weight: 500;
+      line-height: 1.15;
       padding-bottom: 0;
+
+      // Location street address, and city-state-zip, should be wrapped
+      // in separate <span> elements. This allows the transition between
+      // block and inline styling for the address better than a <br>.
+      > .street {
+        display: block;
+      }
 
       .ma__decorative-link {
         width: auto;
