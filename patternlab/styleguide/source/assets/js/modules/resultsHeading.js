@@ -1,6 +1,6 @@
 import twiggy from '../helpers/twiggy';
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   // Set up global component config
   let  clearAllButton = '.js-results-heading-clear', // events triggered on parent
     filterButton = '.js-results-heading-tag'; // events triggered on parent
@@ -50,4 +50,4 @@ export default function (window,document,$,undefined) {
 
   }
 
-}(window,document,jQuery);
+})(window,document,jQuery);

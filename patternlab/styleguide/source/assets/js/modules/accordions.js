@@ -1,6 +1,6 @@
 import checkActive from "../helpers/cssControlCode.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.js-accordion').each(function(index){
     init.apply(this, [index]);
@@ -64,4 +64,4 @@ export default function (window,document,$,undefined) {
     }).resize();
   }
 
-}(window,document,jQuery);
+})(window,document,jQuery);

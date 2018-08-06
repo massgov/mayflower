@@ -1,6 +1,6 @@
 import twiggy from './twiggy';
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   'use strict';
 
   // Plain old javascript object to hold cached alert data.
@@ -137,4 +137,4 @@ export default function (window,document,$,undefined) {
     pattern: '',
     transform: undefined
   };
-}(window,document,jQuery);
+})(window,document,jQuery);

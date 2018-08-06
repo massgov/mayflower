@@ -3,7 +3,7 @@
  * This demonstrates how to pass a transform function to MassAjaxPattern.
  */
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   // Note that this selector is passed into the template so that this is run instead of the
   // default 'js-ajax-pattern'.  See the ajaxPattern.customSelector in guide.json page object.
@@ -29,7 +29,7 @@ export default function (window,document,$,undefined) {
         "transform": function(ajaxData) {
           // Example of some custom data transformation being done to the data according to implementation needs.  This will often include restructuring of data.
           // If business logic indicates that the pattern should not render (for example, if the endpoint returns no emergency alert data) then this function should return an empty js object {}.
-          data = ajaxData;
+          var data = ajaxData;
           data.emergencyAlerts.alerts = data.emergencyAlerts.these.are.alerts;
           return data;
         }
@@ -40,4 +40,4 @@ export default function (window,document,$,undefined) {
     }
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);
