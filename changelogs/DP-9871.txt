@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (Patternlab) DP-9871: On pagination, replace state instead of push state to avoid requiring additional back button clicks to get to the previous page.
-
