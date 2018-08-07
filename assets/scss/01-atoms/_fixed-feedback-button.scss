@@ -1,7 +1,7 @@
 .ma__fixed-feedback-button {
   position: fixed;
   right: -50px;
-  bottom: 5rem;
+  bottom: 40%;
   transform: rotate(270deg);
   z-index: $z-sticky-content;
   background-color: $c-white;
@@ -10,10 +10,6 @@
   border-radius: 5px 5px 0 0;
   border-color: rgba($c-theme-green, 0.5);
   padding: 0 10px;
-
-  @media ($bp-large-min){
-    bottom: 50%;
-  }
 
   a {
     color: $c-accessible-feedback;
