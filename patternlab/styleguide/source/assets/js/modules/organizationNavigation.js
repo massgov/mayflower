@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.ma__organization-navigation').each(function() {
     // Org Nav Wrapper.
@@ -152,4 +152,4 @@ export default function (window,document,$,undefined) {
     let location = $(this).attr("href");
     $('html,body').animate({scrollTop: $(location).offset().top - 120}, 1000 );
   });
-} (window,document,jQuery);
+}) (window,document,jQuery);
