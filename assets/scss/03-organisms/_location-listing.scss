@@ -138,7 +138,7 @@ $location-listin--map-min-width: 315px;
     &__image {
       display: flex;
       flex-basis: 100%;
-      margin: 0 0 1rem;
+      margin: 0 0 0.5rem;
       width: 100%;
 
       @media ($bp-medium-min) {
@@ -150,12 +150,16 @@ $location-listin--map-min-width: 315px;
 
       > a {
         display: block;
-        margin-bottom: 1rem;
 
         @media ($bp-medium-max) {
           flex: 0 0 100px;
+          margin-bottom: 0;
           margin-right: $location-listing--gutter-width;
           width: 100px;
+        }
+
+        @media ($bp-medium-min) {
+          margin-bottom: 1rem;
         }
       }
 
@@ -177,7 +181,10 @@ $location-listin--map-min-width: 315px;
 
       > span {
         display: block;
-        margin-bottom: 10px;
+
+        @media ($bp-medium-min) {
+          margin-bottom: 10px;
+        }
 
         &:first-child {
           margin-left: 0;
