@@ -1,0 +1,68 @@
+{% block header %}
+  {% if ajaxEmergencyAlerts %}
+    {% set ajaxPattern = ajaxEmergencyAlerts %}
+    {% include "@organisms/by-template/ajax-pattern.twig" %}
+  {% endif %}
+  {% include "@organisms/by-template/header.twig" %}
+{% endblock %}
+
+<main id="main-content" tabindex="-1">
+  <div class="pre-content">
+    {% block preContent %}
+      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Pre Content'}} %}
+    {% endblock %}
+  </div>
+  <div class="ma_stacked-row-external-sidebar">
+    <div class="ma__stacked-row stacked-row-column">
+      {% block stackedRowContent %}
+        {% for stackedRow in stackedRows %}
+          <section class="ma__stacked-row__section">
+            {% if stackedRow.title %}
+              <div class="ma__stacked-row__container">
+                <div class="ma__stacked-row__title">
+                  {% set compHeading = {
+                      "title": stackedRow.title,
+                      "sub": "",
+                      "color": "",
+                      "id": stackedRow.id
+                    }
+                  %}
+                  {% include "@atoms/04-headings/comp-heading.twig" %}
+                </div>
+              </div>
+            {% endif %}
+            <div class="main-content">
+              <div class="page-content">
+                {% for content in stackedRow.pageContent %}
+                  {% include content.path with content.data %}
+                {% endfor %}
+              </div>
+            </div>
+          </section>
+        {% endfor %}
+      {% endblock %}
+    </div>
+    <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
+      {% block sidebar %}
+        {% if sidebar.contactList %}
+          {% set contactList = sidebar.contactList %}
+          {% include "@organisms/by-author/contact-list.twig" %}
+        {% endif %}
+        {% if sidebar %}
+            {% include "@base/placeholder.twig" with {'placeholder':{'text':'Right Rail'}} %}
+        {% endif %}
+      {% endblock %}
+    </aside>
+  </div>
+  <div class="post-content post-content__stacked-row-external-sidebar">
+    {% block postContent %}
+      {% include "@base/placeholder.twig" with {'placeholder':{'text':'Post Content'}} %}
+    {% endblock %}
+  </div>
+  {% block schemaContent %}
+  {% endblock %}
+</main>
+
+{% block footer %}
+  {% include "@organisms/by-template/footer.twig" %}
+{% endblock %}
