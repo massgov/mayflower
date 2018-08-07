@@ -6,6 +6,8 @@ Mayflower release managers with the necessary repo permissions can follow these 
 
 
 ## Creating the release
+### Patternlab
+
 1. Check out the [massgov/mayflower `develop` branch](https://github.com/massgov/mayflower/commits/develop):
     1. `cd patternlab/styleguide`
     1. `git checkout develop`
@@ -17,7 +19,20 @@ Mayflower release managers with the necessary repo permissions can follow these 
     1. Run `npm install` in case the release includes new packages.
     1. Update the version of the npm package by editing the `"version":` field in the following path `patternlab/styleguide/package.json` with `#.#.#` for the release.
     1. Commit your version change from `package.json`.
-    1. Push release branch to `massgov/mayflower` (i.e. `git push <remote> release-#.#.#`).
+
+### React
+
+1. We are tracking versions of this project in the package.json, which means when cutting a release we expect the main ``"version": "0.30.0"`` to be updated using proper [semantic versioning](https://semver.org/). So if we were releasing a bugfix or other minor improvement we would bump to ``0.30.1``, if we were releasing a new feature we would bump to ``0.31.0``, etc.
+
+
+   #### Publish to NPM
+   1. Update the version of the npm package by editing the `"version":` field in the following path `react/package.json` with `#.#.#` for the release.
+   2. Update the version of the `package-lock.json` by running the following command: `npm install`
+   3. Commit your version change from `package.json` and `package-lock.json`.
+
+### Once you have completed changes to React and Patternlab
+
+1. Push release branch to `massgov/mayflower` (i.e. `git push <remote> release-#.#.#`).
 
 ## Deployment  
 1. Wait for [the circle build](https://circleci.com/gh/massgov/mayflower) to pass, which will deploy your release branch to staging automagically :).
