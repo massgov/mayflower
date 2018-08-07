@@ -1,4 +1,3 @@
-
 const DefaultRegistry = require("undertaker-registry");
 const path = require("path");
 const gulp = require("gulp");
@@ -8,7 +7,7 @@ const css = require("./pipelines/css");
 const js = require("./pipelines/js");
 const git = require("./helpers/git");
 const mainBowerFiles = require("main-bower-files");
-const merge = require('merge-stream');
+const merge = require("merge-stream");
 
 /**
  * This is a Gulp Task Registry.
