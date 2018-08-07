@@ -155,7 +155,8 @@ workflows:
       - patternlab_build:
           filters:
             branches: { ignore: /docs\-.*/ }
-      - patternlab_deploy_branch: {requires: [patternlab_build]}
+      - patternlab_deploy_branch:
+          requires: [patternlab_build]
           filters:
             branches: { ignore: /(docs\-|react\/).*/ }
       - patternlab_test: {requires: [patternlab_build]}
