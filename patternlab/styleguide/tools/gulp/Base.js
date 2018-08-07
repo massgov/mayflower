@@ -75,15 +75,18 @@ class MayflowerTaskRegistry extends DefaultRegistry {
     }
     buildCssTask(dest, name) {
         const config = this.config;
+        const globs = [config.sources.scss, config.sources.scssParts];
         const { minify, root } = config;
         const self = this;
-        let compile = () => gulp.src(config.sources.scss)
-            .pipe(css(minify, root))
-            .pipe(gulp.dest(dest))
-            .pipe(self.debug(name));
-        let task = () => gulp.watch(config.sources.scssPars, compile)
-            .pipe(self.debug(name));
-        compile.displayName = name;
+        const task = (done) => gulp.watch(globs, () => {
+            let compile = gulp.src(globs)
+                .pipe(css(minify, root))
+                .pipe(gulp.dest(dest))
+                .pipe(self.debug(name))
+                .on("end", done);
+            compile.displayName = name;
+            return compile;
+        });
         return task;
     }
     buildCopyAssetsTask(dest, name) {
@@ -97,12 +100,12 @@ class MayflowerTaskRegistry extends DefaultRegistry {
             var data = gulp.src(config.sources.data)
                 .pipe(gulp.dest(`${dest}/data`));
             var templates = gulp.src(config.sources.templates)
-                .pipe(gulp.dest(`${dest}/templates`))
+                .pipe(gulp.dest(`${dest}/templates`));
             var modernizr = gulp.src(config.sources.modernizr)
-                .pipe(gulp.dest(`${dest}/js/vendor`))
+                .pipe(gulp.dest(`${dest}/js/vendor`));
             return merge(images, fonts, data, templates, modernizr)
-                .pipe(self.debug(name))
-        }
+                .pipe(self.debug(name));
+        };
         task.displayName = name;
         return task;
     }
