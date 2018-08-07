@@ -3,7 +3,7 @@
 {% else %}
   {% set linkListClass = "ma__link-list ma__link-list--image-links" %}
 {% endif %}
-<section class="{{linkListClass}}">
+<section class="{{linkListClass}}{% if imageLinkList.sectionClass %} {{imageLinkList.sectionClass}}{% endif %}">
   {% if imageLinkList.compHeading %}
     {% set compHeading = imageLinkList.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
