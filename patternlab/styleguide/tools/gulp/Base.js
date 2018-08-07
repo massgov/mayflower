@@ -74,18 +74,15 @@ class MayflowerTaskRegistry extends DefaultRegistry {
     }
     buildCssTask(dest, name) {
         const config = this.config;
-        const globs = [config.sources.scss, config.sources.scssParts];
-        const { minify, root } = config;
-        const self = this;
-        const task = (done) => gulp.watch(globs, () => {
-            let compile = gulp.src(globs)
+        const { minify, root, sources } = config;
+        const globs = [sources.scss, sources.scssParts];
+        const task = (done) => gulp.watch(globs, () =>
+            gulp.src(globs)
                 .pipe(css(minify, root))
                 .pipe(gulp.dest(dest))
-                .pipe(self.debug(name))
-                .on("end", done);
-            compile.displayName = name;
-            return compile;
-        });
+                .pipe(this.debug(name))
+                .on("end", done));
+        task.displayName = name;
         return task;
     }
     buildCopyAssetsTask(dest, name) {
