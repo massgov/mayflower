@@ -14,7 +14,8 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       title: text('inputRadioGroup.title', 'Pick your favorite plant'),
       name: text('inputRadioGroup.group', 'favorite-plant'),
       outline: boolean('inputRadioGroup.outline', 'true'),
-      defaultSelected: text('inputRadioGroup.defaultSelected', 'fern')
+      defaultSelected: text('inputRadioGroup.defaultSelected', 'fern'),
+
     };
     const InputRadioOneProps = {
       id: text('inputRadio.id', 'fern'),

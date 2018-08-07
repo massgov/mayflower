@@ -57,10 +57,8 @@ class InputRadioWrapper extends React.Component {
     return(
       <fieldset>
         <div className="ma__input-group">
-          <legend>
-            <div className="ma__input-group__title">
-              {this.props.title}
-            </div>
+          <legend className="ma__input-group__title">
+            {this.props.title}
           </legend>
           <div className="ma__input-group__items ma__input-group__items--inline">
             {this.props.errorMsg &&
