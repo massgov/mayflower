@@ -47,16 +47,7 @@ storiesOf('atoms/buttons', module)
     'ButtonSearch',
     withInfo(`<div>${buttonWithIconReadme}</div>`)(() => {
       const props = {
-        onClick: action('ButtonWithIcon clicked'),
-        text: text('ButtonWithIcon.text', 'Search'),
-        type: select('ButtonWithIcon.type', buttonWithIconOptions.type, 'submit'),
-        classes: array('ButtonWithIcon.classes', []),
-        icon: select('ButtonWithIcon.icon', Object.keys(icons), 'search'),
-        iconSize: select('ButtonWithIcon.iconSize', buttonWithIconOptions.size, ''),
-        iconColor: select('ButtonWithIcon.iconColor', buttonWithIconOptions.color, 'green'),
-        canExpand: boolean('ButtonWithIcon.canExpand', false),
-        expanded: boolean('ButtonWithIcon.expanded', true),
-        capitalized: boolean('ButtonWithIcon.capitalized', false)
+        onClick: action('ButtonWithIcon clicked')
       };
 
       // Set the icon prop to the actual element based on knob selection.
