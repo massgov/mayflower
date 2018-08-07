@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonSearch from '../../atoms/buttons/ButtonSearch';
+import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
 import './HeaderSearch.css';
 
@@ -46,7 +46,7 @@ class HeaderSearch extends React.Component {
               type="search"
               value={this.state.value}
             />
-            <ButtonSearch {...headerSearch.buttonSearch} />
+            <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
         </section>
       </div>
@@ -62,7 +62,7 @@ HeaderSearch.propTypes = {
   /** The placeholder text for the input */
   placeholder: PropTypes.string,
   /** The Search button */
-  buttonSearch: PropTypes.shape(ButtonSearch.propTypes),
+  buttonSearch: PropTypes.shape(ButtonWithIcon.propTypes),
   /** Custom submit function */
   onSubmit: PropTypes.func,
   /** Custom change function for the text input */
@@ -78,7 +78,7 @@ HeaderSearch.defaultProps = {
   label: 'Search terms',
   placeholder: 'Search Mass.gov',
   buttonSearch: {
-    ariaLabel: 'Search'
+    ariaLabel: 'search'
   }
 };
 

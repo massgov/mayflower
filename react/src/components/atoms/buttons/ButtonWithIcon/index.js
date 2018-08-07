@@ -21,28 +21,36 @@ class ButtonWithIcon extends React.Component {
     }
   }
   render() {
-    let classNames = this.props.classes.join(' ');
-    if (this.props.canExpand) {
+    const {
+      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type
+    } = this.props;
+    let classNames = classes.join(' ');
+    if (canExpand) {
       classNames += ' ma__button-icon--expandable';
-      classNames += this.props.expanded ? ' ma__button-icon--expanded' : '';
+      if (expanded) {
+        classNames += ' ma__button-icon--expanded';
+      }
     }
-    if (this.props.capitalized) {
+    if (capitalized) {
       classNames += ' ma__button-capitalized';
     }
-    if (this.props.iconSize === 'small') {
+    if (iconSize === 'small' || icon.type.name === 'SvgChevron') {
       classNames += ' ma__icon-small';
     }
-    if (this.props.iconColor === 'green') {
+    if (iconColor === 'green') {
       classNames += ' ma__icon-green';
     }
+    if (icon.type.name === 'SvgSearch') {
+      classNames += ' ma__button-search';
+    }
     const buttonProps = {
-      type: 'submit',
+      type,
       className: `ma__button-icon ${classNames}`,
       onClick: this.handleClick,
       tabIndex: 0
     };
     return(
-      <button {...buttonProps} ref={this.setButtonRef}>
+      <button {...buttonProps} aria-label={this.props.ariaLabel} ref={this.setButtonRef}>
         <span>{this.props.text}</span>
         {this.props.icon}
       </button>
@@ -57,6 +65,8 @@ ButtonWithIcon.propTypes = {
   setButtonRef: PropTypes.func,
   // Button text.
   text: PropTypes.string,
+  /** HTML <button> 'type' attribute  */
+  type: PropTypes.oneOf(['submit', 'reset', 'button', '']),
   // Button classes.
   classes: PropTypes.arrayOf(PropTypes.string),
   // Icon to display within the button.
@@ -67,18 +77,26 @@ ButtonWithIcon.propTypes = {
   expanded: PropTypes.bool,
   // Adds capitalized class to button if true.
   capitalized: PropTypes.bool,
+  // Defines the size, default size fits the most square icons and "small" setting is specific for the chevron icon.
   iconSize: PropTypes.oneOf(['', 'small']),
-  iconColor: PropTypes.oneOf(['', 'green'])
+  // Defines the fill color of the svg, default color is $c-gray-dcdcdc.
+  iconColor: PropTypes.oneOf(['', 'green']),
+  /** The aria-label property is used to provide the label to any assistive
+   * technologies. This is useful if the text value is not descriptive of the
+   * button's functionality. */
+  ariaLabel: PropTypes.string
 };
 
 ButtonWithIcon.defaultProps = {
   text: 'Search',
+  type: 'submit',
   classes: [],
   icon: <SvgSearch />,
   canExpand: false,
   capitalized: false,
-  iconSize: 'small',
-  iconColor: ''
+  iconSize: '',
+  iconColor: '',
+  ariaLabel: 'search'
 };
 
 export default ButtonWithIcon;
