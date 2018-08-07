@@ -154,12 +154,12 @@ workflows:
     jobs:
       - patternlab_build:
           filters:
-            branches: { ignore: /(docs\-|react\/).*/ }
+            branches: { ignore: /docs\-.*/ }
       - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
       - react_build_storybook:
           filters:
-            branches: { ignore: /(docs\-|patternlab\/).*/ }
+            branches: { ignore: /docs\-.*/ }
       - react_test: {requires: [react_build_storybook]}
 
   # Executed on tag pushes.

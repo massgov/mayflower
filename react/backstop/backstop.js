@@ -74,7 +74,6 @@ if (!processAtoms) {
 module.exports = {
   id: testId,
   viewports,
-  onBeforeScript: 'onBefore.js',
   onReadyScript: 'onReady.js',
   scenarios,
   paths: {
