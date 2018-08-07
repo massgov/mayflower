@@ -1,7 +1,7 @@
 import sticky from "../helpers/sticky.js";
 import listings from "../helpers/listing.js";
 
-export default function (window, document, $) {
+export default (function (window, document, $) {
   // Active state classes for location listing rows.
   let activeClass = 'is-active',
     markerActiveClass = 'is-marker-bounce',
@@ -37,6 +37,13 @@ export default function (window, document, $) {
     $(document).on('ma:LibrariesLoaded:GoogleMaps', function () {
       // Set up click handler for location listing rows.
       $el.on('click', row, function (e) {
+        // If the link has an href, allow the normal link functionality
+        // and exit event handler.
+        if (e.target.href) {
+          e.stopImmediatePropagation();
+          return;
+        }
+
         let index = $(e.currentTarget).index();
 
         // Trigger map to recenter on this item based on it's index.
@@ -63,7 +70,6 @@ export default function (window, document, $) {
         // Focus moved into listing for first time, so flag with class, recenter + bounce marker.
         $(e.currentTarget).addClass(markerActiveClass);
         let index = $(e.currentTarget).index();
-
         // Trigger map to recenter on this item and make the marker bounce
         $map.trigger('ma:GoogleMap:MarkerBounce', index);
       });
@@ -374,4 +380,4 @@ export default function (window, document, $) {
     // Return the newly sorted instance of location listing masterData.
     return data;
   }
-}(window, document, jQuery);
+})(window, document, jQuery);

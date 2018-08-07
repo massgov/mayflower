@@ -279,8 +279,7 @@
             "items": [{
               "title": {
                 "text": "Attleboro District Court",
-                "href": "https://www.mass.gov/locations/attleboro-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -324,8 +323,7 @@
             },{
               "title": {
                 "text": "Barnstable District Court",
-                "href": "https://www.mass.gov/locations/barnstable-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -376,8 +374,7 @@
             },{
               "title": {
                 "text": "Berkshire County Superior Court",
-                "href": "https://www.mass.gov/locations/berkshire-county-superior-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -421,8 +418,7 @@
             },{
               "title": {
                 "text": "Brookline District Court",
-                "href": "https://www.mass.gov/locations/brookline-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -467,8 +463,7 @@
             },{
               "title": {
                 "text": "Cambridge District Court",
-                "href": "https://www.mass.gov/locations/cambridge-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -516,8 +511,7 @@
             },{
               "title": {
                 "text": "Concord District Court",
-                "href": "https://www.mass.gov/locations/concord-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -561,8 +555,7 @@
             },{
               "title": {
                 "text": "Edgartown District Court",
-                "href": "https://www.mass.gov/locations/edgartown-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -606,8 +599,7 @@
             },{
               "title": {
                 "text": "Lowell District Court",
-                "href": "https://www.mass.gov/locations/lowell-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -651,8 +643,7 @@
             },{
               "title": {
                 "text": "Marlborough District Court",
-                "href": "https://www.mass.gov/locations/marlborough-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -696,8 +687,7 @@
             },{
               "title": {
                 "text": "Salem District Court",
-                "href": "https://www.mass.gov/locations/salem-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -741,8 +731,7 @@
             },{
               "title": {
                 "text": "Suffolk County Superior Court",
-                "href": "https://www.mass.gov/locations/suffolk-county-superior-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
@@ -786,8 +775,7 @@
             },{
               "title": {
                 "text": "Taunton District Court",
-                "href": "https://www.mass.gov/locations/taunton-district-court",
-                "target": "_blank",
+                "href": "#",
                 "info": ""
               },
               "tags": [{
