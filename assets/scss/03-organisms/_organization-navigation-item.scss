@@ -39,7 +39,7 @@
           transition: 0.5s ease-out;
           
           @media ($bp-large-min) {
-            transform: translateY(0%) rotate(45deg);
+            transform: translateY(20%) rotate(45deg);
           }
         }
       }
@@ -90,6 +90,10 @@
         text-transform: capitalize;
         font-size: 1.125rem;
       }
+    }
+
+    .mobile-login {
+      text-transform: capitalize;
     }
   }
 
@@ -292,7 +296,11 @@
 
       &:not(:first-child) {
         border-left: 1px solid $c-bd-divider;
-        padding-left: 40px;
+        padding-left: 2.125rem;
+      }
+
+      &:not(:last-child) {
+        padding-right: 2.125rem;
       }
     }
   }

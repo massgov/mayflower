@@ -40,7 +40,8 @@
     }
   
     @media ($bp-x-large-min) {
-      padding: 0 40px;
+      padding: 0;
+      max-width: 1250px;
     }
   }
 
@@ -116,6 +117,7 @@
     .ma__form {
       display: flex;
       width: 100%;
+      font-size: 1.25rem;
     }
 
     &--wrapper {
@@ -149,6 +151,7 @@
 
       @media ($bp-large-min) {
         background-color: $c-white;
+        margin-left: -3px;
       }
 
       @media ($bp-large-extended-min) {

@@ -5,6 +5,7 @@
     {% include "@organisms/by-author/contact-row.twig" %}
   {% endblock %}
   </div>
+  {% if customItems.findContact.link.href or customItems.newsletter.link.href or customItems.publicRecords.link.href %}
   <div class="ma__org-nav-contact-us__custom-options">
     {% block findContact %}
       {% if customItems.findContact.link.href %}
@@ -34,4 +35,5 @@
       {% endif %}
     {% endblock %}
   </div>
+  {% endif %}
 </div> 
