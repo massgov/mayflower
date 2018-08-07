@@ -42,22 +42,35 @@ class SelectBox extends React.Component {
     } else {
       classNames = !this.props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown';
     }
-    const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
+    const selectClassNames = ['ma__select-box__select js-dropdown-select'];
+    if(this.props.required) {
+      selectClassNames.push(' js-required');
+    }
     const { selected } = this.state;
     const { stackLabel } = this.props;
     const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
     const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
     const disabled = this.props.disabled ? 'ma__select-box__field--disabled' : '';
     const labelDisabled = this.props.disabled ? 'ma__label--disabled' : '';
+    const errorClasses = ['ma__error-msg'];
+    if (this.props.errorDisplay) {
+      errorClasses.push('has-error');
+    }
+    if (this.props.errorDisplay) {
+      selectClassNames.push('has-error')
+    }
     return(
       <section className={classNames}>
         <label htmlFor={this.props.id} className={`${labelClassNames} ${labelDisabled}`}>{this.props.label}</label>
-
+        { this.props.errorMsg &&
+        <div className={errorClasses.join(' ')}>
+          {this.props.errorMsg}
+        </div>}
         <div className={`ma__select-box__field ${selectBoxInline} ${disabled}`}>
           <select
             name={this.props.id}
             id={this.props.id}
-            className={selectClassNames}
+            className={selectClassNames.join(' ')}
             onChange={this.handleOnChange}
             disabled={this.props.disabled}
             ref={(select) => { this.selectTag = select; }}
@@ -103,7 +116,11 @@ SelectBox.propTypes = {
   /** The default value for the select box */
   selected: PropTypes.string,
   /** Whether the input is disabled or not */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** The message to be displayed in the event of an error */
+  errorMsg: PropTypes.string,
+  /** Whether an error msg should be display or not. */
+  errorDisplay: PropTypes.bool
 };
 
 SelectBox.defaultProps = {

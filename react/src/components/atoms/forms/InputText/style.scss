@@ -1,3 +1,5 @@
+@import 'colors';
+
 .ma__input-number {
     input.has-error:not(:focus) {
       background-position: center right 40px;
@@ -11,6 +13,8 @@ input {
     border-color: #dcdcdc !important;
   }
   &.has-error {
+    background-image: none !important;
+    padding-right: 0px !important;
     &:focus {
       border-color: #cd0d0d !important;
     }
@@ -22,4 +26,21 @@ input {
 }
 .ma__label--disabled {
   opacity: 0.7;
+}
+
+.ma__error-msg {
+  position: relative;
+  padding-left: 1.85rem;
+  &::before {
+    background-image: url('./input-error.svg');
+    border-color: $c-bd-error;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 0rem;
+    position: absolute;
+    content: "";
+    height: 1.45rem;
+    width: 1.85rem;
+    margin-right: 0.25rem;
+  }
 }

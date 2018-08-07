@@ -50,6 +50,10 @@ class InputRadioWrapper extends React.Component {
   }
 
   render() {
+    const errorClasses = ['ma__error-msg'];
+    if (this.props.errorDisplay) {
+      errorClasses.push('has-error');
+    }
     return(
       <fieldset>
         <div className="ma__input-group">
@@ -59,6 +63,8 @@ class InputRadioWrapper extends React.Component {
             </div>
           </legend>
           <div className="ma__input-group__items ma__input-group__items--inline">
+            {this.props.errorMsg &&
+            <div className={errorClasses.join(' ')}>{this.props.errorMsg}</div>}
             {this.getRadioInputs()}
           </div>
         </div>
@@ -76,7 +82,12 @@ InputRadioWrapper.propTypes = {
   outline: PropTypes.bool,
   /** Only AccordionItem can be passed as a Child to the AccordionWrapper */
   children: PropTypes.node.isRequired,
-  defaultSelected: PropTypes.string
+  /** The default select radio button option on initial render */
+  defaultSelected: PropTypes.string,
+  /** Display the Error Mesage or not. */
+  errorDisplay: PropTypes.bool,
+  /** Error Message content. */
+  errorMsg: PropTypes.string,
 };
 
 InputRadioWrapper.defaultProps = {

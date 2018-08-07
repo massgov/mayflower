@@ -21,7 +21,9 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         options: object('selectBox.options', selectOptions.options.colors),
         selected: select('selectBox.defaultSelected', selectOptions.options.colors.map((option) => option.text), selectOptions.options.colors[0].text),
         onChangeCallback: action('SelectBox onChangeCallback'),
-        disabled: boolean('selectBox.disabled', false)
+        disabled: boolean('selectBox.disabled', false),
+        errorMsg: text('selectBox.errorMsg', 'Please select a colour (required).'),
+        errorDisplay: boolean('selectBox.errorDisplay', false),
       };
       props.className = text('selectBox.className', !props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown');
       return(<SelectBox {...props} />);

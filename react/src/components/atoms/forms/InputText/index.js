@@ -19,14 +19,6 @@ class InputText extends React.Component {
     return null;
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevProps.defaultText !== this.props.defaultText) {
-  //     this.setState({
-  //       value: this.props.defaultText
-  //     });
-  //   }
-  // }
-
   handleChange(event) {
     const input = event.target.value;
     this.setState({ value: input });
@@ -86,7 +78,9 @@ class InputText extends React.Component {
           {inputText.labelText}
         </label> }
         { inputText.errorMsg &&
-        <div className={errorClasses.join(' ')}>{inputText.errorMsg}</div>}
+        <div className={errorClasses.join(' ')}>
+          {inputText.errorMsg}
+        </div>}
         { inputText.type === 'number' ?
           <div className="ma__input-number">
             {input}
