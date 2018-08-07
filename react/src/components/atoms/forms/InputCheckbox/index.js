@@ -55,6 +55,7 @@ InputCheckbox.propTypes = {
   outline: PropTypes.bool,
   /** OnChange function */
   onChange: PropTypes.func,
+  /** Whether the input is disabled or not */
   disabled: PropTypes.bool
 };
 

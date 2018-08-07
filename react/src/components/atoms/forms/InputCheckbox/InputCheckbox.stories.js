@@ -6,11 +6,10 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 import InputCheckbox from './index';
-// import ButtonDocs from './Button.md';
-// import buttonOptions from './Button.knobs.options';
+import InputCheckboxDocs from './InputCheckbox.md';
 
 storiesOf('atoms/forms', module).addDecorator(withKnobs)
-  .add('InputCheckbox', withInfo(/* `<div>${ButtonDocs}</div>` */)(() => {
+  .add('InputCheckbox', withInfo( `<div>${InputCheckboxDocs}</div>` )(() => {
     const props = {
       name: text('inputRadio.name', 'plant'),
       id: text('inputRadio.id', 'fern'),
