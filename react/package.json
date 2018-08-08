@@ -2,7 +2,7 @@
   "name": "@massds/mayflower-react",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "0.45.2",
+  "version": "6.0.0",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -12,6 +12,9 @@
     "umd"
   ],
   "scripts": {
+    "backstop-atoms": "docker-compose run backstop test --atoms",
+    "backstop-other": "docker-compose run backstop test",
+    "backstop": "npm-run-all backstop-atoms backstop-other",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/ --watch",
     "build-nwb": "nwb build-react-component --copy-files",
