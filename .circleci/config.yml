@@ -12,6 +12,11 @@ react_defaults: &react_defaults
   docker:
     - image: circleci/node:8.9.4
 
+backstop_defaults: &backstop_defaults
+  working_directory: /home/circleci
+  docker:
+    - image: circleci/python:2.7.14
+
 jobs:
   patternlab_build:
     working_directory: /var/www/code
@@ -36,9 +41,7 @@ jobs:
           paths: ["*"]
 
   patternlab_test:
-    working_directory: /home/circleci
-    docker:
-      - image: circleci/python:2.7.14
+    <<: *backstop_defaults
     steps:
       - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
@@ -105,6 +108,28 @@ jobs:
           root: ~/repo
           paths: .
 
+  react_test:
+    <<: *backstop_defaults
+    steps:
+      - attach_workspace: {at: /home/circleci}
+      - setup_remote_docker
+      - run: |
+          cd react
+          docker-compose up --no-start web backstop
+          docker cp ./ $(docker-compose ps -q backstop):/src/
+          docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
+      - run: |
+          cd react
+          docker-compose run backstop test --atoms && docker-compose run backstop test
+      - run:
+          command: cd react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
+          when: always
+      - store_artifacts:
+          path: react/backstop
+          destination: backstop
+      - store_test_results:
+          path: react/backstop/data/ci_report
+
   react_deploy_tag:
     <<: *react_defaults
     steps:
@@ -135,12 +160,16 @@ workflows:
     jobs:
       - patternlab_build:
           filters:
+            branches: { ignore: /docs\-.*/ }
+      - patternlab_deploy_branch:
+          requires: [patternlab_build]
+          filters:
             branches: { ignore: /(docs\-|react\/).*/ }
-      - patternlab_deploy_branch: {requires: [patternlab_build]}
       - patternlab_test: {requires: [patternlab_build]}
       - react_build_storybook:
           filters:
-            branches: { ignore: /(docs\-|patternlab\/).*/ }
+            branches: { ignore: /docs\-.*/ }
+      - react_test: {requires: [react_build_storybook]}
 
   # Executed on tag pushes.
   build_tag:

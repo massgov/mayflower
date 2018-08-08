@@ -13,6 +13,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 6.1.0 (8/8/2018)
+### Added
+- (React) DP-9399: Adds BackstopJS visual regression testing to the react build. #129
+
+### Changed
+- (Patternlab) DP-9839: Updated styling and language of service finder section for general and boards organizations to match that of elected officials. #122
+- (React) Refactored ButtonWithIcon to replace ButtonSearch component. #81
+
+### Fixed
+- (Patternlab) DP-9900: Fix gulp sass watch and live reload on scss partials change. #142
+- (Patternlab) Update location that JavaScript templates are copied. #144
+
 ## 6.0.1 (8/7/2018)
 
 Hotfix for JavaScript pagination
