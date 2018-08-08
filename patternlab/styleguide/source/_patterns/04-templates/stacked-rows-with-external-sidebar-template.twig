@@ -48,8 +48,15 @@
           {% set contactList = sidebar.contactList %}
           {% include "@organisms/by-author/contact-list.twig" %}
         {% endif %}
-        {% if sidebar %}
-            {% include "@base/placeholder.twig" with {'placeholder':{'text':'Right Rail'}} %}
+
+        {% if sidebar.pressListing %}
+          {% set pressListing = sidebar.pressListing %}
+          {% include "@organisms/by-author/press-listing.twig" %}
+        {% endif %}
+
+        {% if sidebar.eventListing %}
+          {% set eventListing = sidebar.eventListing %}
+          {% include "@organisms/by-author/event-listing.twig" %}
         {% endif %}
       {% endblock %}
     </aside>

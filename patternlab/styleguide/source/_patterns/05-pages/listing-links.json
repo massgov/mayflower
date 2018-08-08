@@ -784,5 +784,97 @@
     }],
 
     "sideBar": []
-  }]
+  }],
+
+  "sidebar": {
+    "contactList": {
+      "viewSpecific": true,
+      "compHeading":{
+        "title": "Contact",
+        "sub": false,
+        "color": "",
+        "id": "",
+        "centered": "",
+        "titleContext": "for PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Rules & Regulations Bureau"
+        },
+        "groups": [{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "email",
+            "property": "",
+            "label":"Email:",
+            "link": {
+              "href":"Rulesandregulations@DOR.State.MA.US",
+              "text": "Rulesandregulations@DOR.State.MA.US",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        },
+        {
+          "icon": "laptop",
+          "name": "Online",
+          "items": [{
+            "type": "email",
+            "label":"Email:",
+            "link": {
+              "href": "email@email.com",
+              "text": "email@email.com",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
+    },
+    "pressListing": {
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": "to PH-07-539 Department of Public Health v. Deli Market"
+      },
+      "items": [{
+        "eyebrow": "Letter Ruling",
+        "title" : {
+          "url":"#",
+          "text":"LR 12-3: Internet-Based Marketing and Customer-Communications Solutions",
+          "info": "",
+          "property": ""
+        },
+        "date": "3/12/2016",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "Regulation",
+        "title" : {
+          "url":"#",
+          "text":"830 CMR 64H.1.3",
+          "info": "",
+          "property": ""
+        },
+        "date": "4/17/2016",
+        "org": "",
+        "description": null
+      },{
+        "eyebrow": "",
+        "title" : {
+          "url":"#",
+          "text":"Related Non News, Announcements, Reg, or Law Here",
+          "info": "",
+          "property": ""
+        },
+        "date": "",
+        "org": "",
+        "description": null
+      }]
+    }
+  }
 }
