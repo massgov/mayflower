@@ -1,4 +1,3 @@
-
 const DefaultRegistry = require("undertaker-registry");
 const path = require("path");
 const gulp = require("gulp");
@@ -8,7 +7,7 @@ const css = require("./pipelines/css");
 const js = require("./pipelines/js");
 const git = require("./helpers/git");
 const mainBowerFiles = require("main-bower-files");
-const merge = require('merge-stream');
+const merge = require("merge-stream");
 
 /**
  * This is a Gulp Task Registry.
@@ -75,13 +74,11 @@ class MayflowerTaskRegistry extends DefaultRegistry {
     }
     buildCssTask(dest, name) {
         const config = this.config;
-        const { minify, root } = config;
-        const self = this;
-        let task = () => gulp.src(config.sources.scss)
+        const { minify, root, sources } = config;
+        const task = () => gulp.src(sources.scss)
             .pipe(css(minify, root))
             .pipe(gulp.dest(dest))
-            .pipe(self.debug(name));
-
+            .pipe(this.debug(name));
         task.displayName = name;
         return task;
     }
@@ -96,12 +93,12 @@ class MayflowerTaskRegistry extends DefaultRegistry {
             var data = gulp.src(config.sources.data)
                 .pipe(gulp.dest(`${dest}/data`));
             var templates = gulp.src(config.sources.templates)
-                .pipe(gulp.dest(`${dest}/templates`))
+                .pipe(gulp.dest(`${dest}/js/templates`));
             var modernizr = gulp.src(config.sources.modernizr)
-                .pipe(gulp.dest(`${dest}/js/vendor`))
+                .pipe(gulp.dest(`${dest}/js/vendor`));
             return merge(images, fonts, data, templates, modernizr)
-                .pipe(self.debug(name))
-        }
+                .pipe(self.debug(name));
+        };
         task.displayName = name;
         return task;
     }
