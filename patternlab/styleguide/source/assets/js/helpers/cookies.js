@@ -1,4 +1,4 @@
-module.exports = function(window, document, undefined){
+export default (function(window, document, undefined){
   "use strict";
 
   function setCookie(name, value, expires) {
@@ -24,5 +24,5 @@ module.exports = function(window, document, undefined){
     getCookie
   };
 
-}(window, document);
+})(window, document);
 

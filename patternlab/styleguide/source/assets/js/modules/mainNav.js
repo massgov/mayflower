@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   let windowWidth = window.innerWidth;
 
@@ -208,4 +208,4 @@ export default function (window,document,$,undefined) {
 
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);
