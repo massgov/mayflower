@@ -1,4 +1,0 @@
-___DESCRIPTION___
-change
-minor
-- (React) Refactored ButtonWithIcon to replace ButtonSearch component #81
