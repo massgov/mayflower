@@ -50,6 +50,7 @@ class PatternLabRegistry extends MayflowerRegistry {
         const isStableRelease = () => isTagged() && self.getTag().match(/^\d+.\d+.\d+$/);
 
         const watch = function() {
+            taker.watch(self.resolveSource("../../../assets/scss/**"), taker.series(doCss, reloadBrowserSync));
             taker.watch(self.resolveSource("**"), taker.series("patternlab:build", reloadBrowserSync));
         };
 

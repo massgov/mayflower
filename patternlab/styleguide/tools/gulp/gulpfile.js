@@ -8,7 +8,7 @@ const NPMRegistry = require("./NPM");
 
 const root = path.resolve(__dirname, "../../");
 const source = path.resolve(root, "source");
-const shared = path.resolve(__dirname, '../../../../assets');
+const shared = path.resolve(__dirname, "../../../../assets");
 
 const defaults = {
     root: root,

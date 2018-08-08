@@ -16,10 +16,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
     const props = {
       placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
       buttonSearch: {
-        onClick: (e) => {
-          action('Button clicked')(e);
-          e.preventDefault();
-        },
+        onClick: action('Button clicked'),
         ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', 'Search'),
         text: text('HeaderSearch.buttonSearch.text', 'Search')
       },
