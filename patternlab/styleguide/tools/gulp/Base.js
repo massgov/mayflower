@@ -93,7 +93,7 @@ class MayflowerTaskRegistry extends DefaultRegistry {
             var data = gulp.src(config.sources.data)
                 .pipe(gulp.dest(`${dest}/data`));
             var templates = gulp.src(config.sources.templates)
-                .pipe(gulp.dest(`${dest}/templates`));
+                .pipe(gulp.dest(`${dest}/js/templates`));
             var modernizr = gulp.src(config.sources.modernizr)
                 .pipe(gulp.dest(`${dest}/js/vendor`));
             return merge(images, fonts, data, templates, modernizr)
