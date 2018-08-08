@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Minor
-### Updated
-- (Patternlab) Updated styling and language of service finder section for general and boards organizations to match that of elected officials. #122
