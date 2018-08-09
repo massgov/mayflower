@@ -55,16 +55,16 @@
     .ma__content-link {
 
       span {
-        border-bottom-color: rgba($c-font-dark, .5);
-        color: $c-font-dark;
+        border-bottom-color: rgba($c-font-base, .5);
+        color: $c-font-base;
 
         &:hover {
-          border-bottom-color: rgba($c-font-dark, .5);
+          border-bottom-color: rgba($c-font-base, .5);
         }
       }
 
       &:after {
-        border-color: rgba($c-font-dark, .5);
+        border-color: rgba($c-font-base, .5);
       }
     }
 
