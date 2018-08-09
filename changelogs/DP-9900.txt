@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fix
-Patch
-- (Patternlab) DP-9900: Fix gulp sass watch and live reload on scss partials change #142
