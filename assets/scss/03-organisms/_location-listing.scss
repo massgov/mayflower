@@ -109,6 +109,11 @@
   &__filters {
     background-color: $c-bg-subtle;
 
+    legend, 
+    label {
+      color: $c-font-detail;
+    }
+
     .ma__button-search {
       color: $c-font-base;
 
