@@ -5,7 +5,7 @@
 
 <div class="ma__header-tags">
   {% if headerTags.label %}
-    <span>{{ headerTags.label }}</span>
+    <span class="ma__header-tags__label">{{ headerTags.label }}</span>
   {% endif %}
   <div id="{{ id }}" class="ma__header-tags__terms js-header-tag-link">
     {% for item in headerTags.taxonomyTerms %}

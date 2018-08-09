@@ -83,7 +83,7 @@
   }
 
   &__link {
-    color: $c-font-dark;
+    color: $c-font-base;
     font-weight: bold;
 
     svg {
@@ -92,6 +92,6 @@
   }
 
   &:hover &__link span {
-    border-color: rgba($c-font-dark,.5);
+    border-color: rgba($c-font-base,.5);
   }
 }
