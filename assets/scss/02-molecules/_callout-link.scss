@@ -114,17 +114,17 @@
   }
 
   &__header {
-    color: $c-theme-gray;
+    color: $c-font-detail;
   }
 
   &__emphasized{
-    color: $c-font-dark;
+    color: $c-font-base;
     font-weight: 700;
   }
 }
 
 .ma__callout-link--white{
   background-color: $c-white;
-  border-color: tint($c-theme-gray,70%);
+  border-color: tint($c-font-detail,70%);
   box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
 }

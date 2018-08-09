@@ -285,7 +285,6 @@
 
     input {
       background-color: rgba(255, 255, 255, 0.75);
-      color: $c-font-dark;
       font-weight: 300;
     }
 
@@ -316,7 +315,7 @@
 
   &__button {
     background-color: rgba(255, 255, 255, 0.75);
-    color: $c-font-dark;
+    color: $c-font-base;
     font-weight: 700;
 
     & > svg {
