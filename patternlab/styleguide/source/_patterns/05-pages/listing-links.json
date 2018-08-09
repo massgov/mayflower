@@ -828,7 +828,7 @@
       "path": "@organisms/by-author/contact-list.twig",
       "data": {
         "contactList": {
-          "viewSpecific": true,
+          "viewSpecific": false,
           "compHeading":{
             "title": "Contact",
             "sub": false,
