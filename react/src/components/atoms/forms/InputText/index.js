@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 class InputText extends React.Component {
   constructor(props) {
@@ -8,8 +9,14 @@ class InputText extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.defaultText });
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.defaultText !== prevState.value) {
+      return{
+        value: nextProps.defaultText
+      };
+    }
+
+    return null;
   }
 
   handleChange(event) {
@@ -23,42 +30,67 @@ class InputText extends React.Component {
 
   render() {
     const inputText = this.props;
-    const inputLabelClasses = ['ma__label'];
+    const inputLabelClass = ['ma__label'];
     if (inputText.labelText) {
-      inputLabelClasses.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
+      inputLabelClass.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
       if (inputText.hiddenLabel) {
-        inputLabelClasses.push('ma__label--hidden');
+        inputLabelClass.push('ma__label--hidden');
+      }
+      if (inputText.disabled) {
+        inputLabelClass.push('ma__label--disabled');
       }
     }
     const inputClasses = ['ma__input'];
     if (inputText.required) {
       inputClasses.push('js-is-required');
     }
+    if (inputText.errorDisplay) {
+      inputClasses.push('has-error');
+    }
+    const errorClasses = ['ma__error-msg'];
+    if (inputText.errorDisplay) {
+      errorClasses.push('has-error');
+    }
+    const input =
+      (<input
+        className={inputClasses.join(' ')}
+        name={inputText.name}
+        id={inputText.id}
+        type={inputText.type}
+        placeholder={inputText.placeholder}
+        data-type={inputText.type}
+        maxLength={inputText.maxlength || null}
+        pattern={inputText.pattern || null}
+        style={inputText.width ? { width: `${inputText.width}px` } : null}
+        onChange={this.handleChange}
+        required={inputText.required}
+        disabled={this.props.disabled}
+        value={this.state.value}
+      />);
+
     return(
       <React.Fragment>
-        {inputText.labelText &&
+        { inputText.labelText &&
         <label
           htmlFor={inputText.id}
-          className={inputLabelClasses.join(' ')}
+          className={inputLabelClass.join(' ')}
         >
           {inputText.labelText}
-        </label>}
-        {inputText.errorMsg &&
-        <div className="ma__error-msg">{inputText.errorMsg}</div>}
-        <input
-          className={inputClasses.join(' ')}
-          name={inputText.name}
-          id={inputText.id}
-          type={inputText.type}
-          placeholder={inputText.placeholder}
-          data-type={inputText.type}
-          maxLength={inputText.maxlength || null}
-          pattern={inputText.pattern || null}
-          style={inputText.width ? { width: `${inputText.width}px` } : null}
-          onChange={this.handleChange}
-          required={inputText.required}
-          value={this.state.value}
-        />
+        </label> }
+        { inputText.errorMsg &&
+        <div className={errorClasses.join(' ')} htmlFor={inputText.id}>
+          {inputText.errorMsg}
+        </div>}
+        { inputText.type === 'number' ?
+          <div className="ma__input-number">
+            {input}
+            <button type="button" aria-label="increase value" className="ma__input-number__plus" />
+            <button type="button" aria-label="decrease value" className="ma__input-number__minus" />
+          </div> :
+          <React.Fragment>
+            {input}
+          </React.Fragment>
+        }
       </React.Fragment>
     );
   }
@@ -87,10 +119,14 @@ InputText.propTypes = {
   placeholder: PropTypes.string,
   /** The message to be displayed in the event of an error */
   errorMsg: PropTypes.string,
+  /** Whether an error msg should be display or not. */
+  errorDisplay: PropTypes.bool,
   /** Custom change function */
   onChange: PropTypes.func,
   /** Default input text value */
-  defaultText: PropTypes.string
+  defaultText: PropTypes.string,
+  /** Whether the input is disabled or not */
+  disabled: PropTypes.bool
 };
 
 InputText.defaultProps = {
