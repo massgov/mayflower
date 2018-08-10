@@ -78,7 +78,7 @@ class InputText extends React.Component {
           {inputText.labelText}
         </label> }
         { inputText.errorMsg &&
-        <div className={errorClasses.join(' ')}>
+        <div className={errorClasses.join(' ')} htmlFor={inputText.id}>
           {inputText.errorMsg}
         </div>}
         { inputText.type === 'number' ?
