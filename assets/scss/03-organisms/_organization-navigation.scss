@@ -29,6 +29,7 @@
 
   &--inner-wrapper {
     @include ma-container;
+    padding: 0;
     display: none;
     position: relative;
     flex-direction: column;
@@ -43,14 +44,12 @@
 
     @media ($bp-large-min) {
       display: flex;
-      padding: 0;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
   
     @media ($bp-x-large-min) {
-      padding: 0;
       max-width: 1250px;
     }
   }
@@ -158,6 +157,7 @@
 
     .ma__button-search {
       background-color: $c-theme-green;
+      border-width: 0;
 
       @media ($bp-large-min) {
         background-color: $c-white;
@@ -266,12 +266,13 @@
 
   &__mobile-login {
     position: relative;
+    padding: 0 20px;
     @include ma-chevron;
     order: 3;
       
     &::after {
       position: absolute;
-      right: 0;
+      right: 20px;
       top: 35%;
       transform: translateY(-50%)  rotate(-45deg);
       border-color: $c-theme-green;

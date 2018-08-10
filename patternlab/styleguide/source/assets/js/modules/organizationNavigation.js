@@ -71,6 +71,10 @@ export default (function (window,document,$,undefined) {
     // Mobile toggle. 
     $mobileToggle.on( 'click', function() {
       $mobileToggle.add($mobileMenu).toggleClass('menu-open');
+      // Close items when closing menu.
+      $('.item-open').removeClass('item-open');
+      // Remove cloned button if present. 
+      $('.section-toggle').remove();
     });
 
     // Search form swing open/closed.
@@ -94,12 +98,20 @@ export default (function (window,document,$,undefined) {
     // Open the dropdowns.
     $menuButton.each(function() {
       let $button = $(this);
-      let $buttonItem = $button.parent('li');
+      let $buttonParent = $button.parent('li');
   
       $button.on( 'click', function() {
-        $buttonItem.toggleClass('item-open');
-        $('.form-open').removeClass('form-open');
+        $buttonParent.toggleClass('item-open');
+        let $buttonClone = $button.clone(true);
+
+        if (!$('.section-toggle').length) {
+          $buttonClone.addClass('section-toggle').prependTo($buttonParent.find('.ma__organization-navigation__subitems'));
+        }
       });
+    });
+
+    $('body').on('click', '.section-toggle', function() {
+      $('.section-toggle').remove();
     });
 
     // Mobile view open the "I want to sections".
@@ -136,10 +148,11 @@ export default (function (window,document,$,undefined) {
   });
 
   $(".internal-link").on('click', function(e) {
-    // Close open menus
+    // Close open menus and reset markup.
     $('.menu-open').removeClass('menu-open');
     $('.item-open').removeClass('item-open');
     $('.form-open').removeClass('form-open');
+    $('.section-toggle').remove();
 
     e.preventDefault();
     let location = $(this).attr("href");
