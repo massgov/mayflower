@@ -1,6 +1,6 @@
 // Theme colors
 $c-theme-blue: #14558f;
-$c-theme-green: #43956f;
+$c-theme-green: #388557;
 $c-theme-gray: #535353;
 $c-theme-yellow: #f6c51b;
 
@@ -15,7 +15,7 @@ $c-gray-707070: #707070;
 $c-gray-757575: #757575;
 
 // 18F compliance we can't use variables with the color in the name
-$c-theme-primary: $c-theme-blue !default; 
+$c-theme-primary: $c-theme-blue !default;
 $c-theme-secondary: $c-theme-green !default;
 $c-theme-tertiary: $c-theme-yellow !default;
 $c-theme-quaternary: $c-theme-gray !default;
@@ -39,5 +39,3 @@ $c-bd-divider-dark: $c-theme-gray;
 $c-bd-error: $c-red;
 $c-bd-input: $c-gray-dcdcdc;
 $c-bd-input-dark: $c-gray-757575;
-
-
