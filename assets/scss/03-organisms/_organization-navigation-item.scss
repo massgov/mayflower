@@ -82,7 +82,6 @@
       background-color: transparent;
       padding: 1rem 0;
       font-weight: 700;
-      text-transform: uppercase;
       font-size: 1rem;
       color: $c-black;
 
@@ -114,7 +113,7 @@
         position: absolute;
         left: 0;
         right: auto;
-        width: 95%;
+        width: auto;
         margin: 0;
         padding: 1.125rem 1rem;
         box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.25);
@@ -147,6 +146,10 @@
 
   &__subitem {
     padding: 20px;
+
+    .ma__comp-heading {
+      @include ma-h4;
+    }
 
     @media ($bp-large-min) {
       padding: 0;
@@ -291,6 +294,7 @@
     @media ($bp-large-min) {
       flex-grow: 1;
       flex-basis: 0;
+      max-width: 33%;
       display: flex;
       flex-direction: column;
 
@@ -332,8 +336,9 @@
     padding-top: 1rem;
 
     @media ($bp-large-min) {
-      flex-grow:1;
+      flex-grow: 1;
       flex-basis: 0;
+      max-width: 33%;
 
       &:not(:first-child) {
         border-left: 1px solid $c-bd-divider;

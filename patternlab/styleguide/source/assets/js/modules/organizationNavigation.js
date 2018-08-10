@@ -15,6 +15,7 @@ export default (function (window,document,$,undefined) {
     // Mobile Menu vars.
     let $mobileToggle = $orgNav.find('.ma__organization-navigation__mobile-toggle');
     let $mobileMenu = $orgNav.find('.ma__organization-navigation--inner-wrapper');
+    const $mobileBreak = 910;
 
     // Search Wrapper vars.
     let $orgNavSearch = $orgNav.find('.ma__organization-navigation__search');
@@ -114,11 +115,12 @@ export default (function (window,document,$,undefined) {
     $sectionButton.each(function() {
       let $button = $(this);
       let $seeAll = $button.parent().find('.ma__link-list__see-all');
-
+      if ($(window).width() < $mobileBreak) {
         $button.on( 'click', function() {
           $button.toggleClass('item-open');
           $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
         });
+      }
     });
 
     if($relatedOrgs.length){
