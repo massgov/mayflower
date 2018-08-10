@@ -98,18 +98,9 @@ export default (function (window,document,$,undefined) {
   
       $button.on( 'click', function() {
         $buttonItem.toggleClass('item-open');
-        $buttonItem.siblings().removeClass('item-open');
         $('.form-open').removeClass('form-open');
       });
     });
-
-    // Close menus on click off.
-    $('body').on('click', function(event) {
-        if($('.item-open').length && !$(event.target).closest('.ma__organization-navigation__item').length ) {
-          $('.item-open').removeClass('item-open');
-        }
-    });
-    
 
     // Mobile view open the "I want to sections".
     $sectionButton.each(function() {

@@ -35,6 +35,10 @@
 
     &.menu-open {
       display: flex;
+
+      @media ($bp-large-max) {
+        height: 100vh;
+      }
     }
 
     @media ($bp-large-min) {
