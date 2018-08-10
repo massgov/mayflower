@@ -10,8 +10,9 @@
     @media ($bp-large-min) {
       order: 1;
       display: flex;
+      padding: 0;
       border-bottom: 0;
-      order: 1;
+      position: static;
     }
   }
 
@@ -29,7 +30,7 @@
     &.has-subnav {
       background-color: transparent;
       boxshadow: 0;
-      transition: 0.2s ease-out;
+      transition: 0.8s ease-out;
 
       button {
         @include ma-chevron;
@@ -64,6 +65,7 @@
      
       @media ($bp-large-min) {
         background-color: $c-white;
+        transition: 0.5s ease-out;
         box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
       } 
     }
@@ -99,23 +101,46 @@
   }
 
   &__subitems {
-    height: 100vh;
-    width: 100%;
-    overflow-y: auto;
-    position: absolute;
-    top: 0;
-    right: -100vw;
-    transition: right 0.5s ease;
-    z-index: 90;
-    background-color: $c-white;
 
-    .item-open & {
-      right: 0;
+    @media ($bp-large-max) {
+      height: 100vh;
+      width: 100%;
+      overflow-y: auto;
+      position: absolute;
+      top: 0;
+      right: -100vw;
+      transition: right 0.5s ease;
+      z-index: $z-dropdown;
+      background-color: $c-white;
+
+      .item-open & {
+        right: 0;
+      }
+    }
+
+    @media ($bp-large-min) {
+      position: absolute;
+      left: 0;
+      max-height: 0;
+      overflow-y: hidden;
+      transition: max-height 0.8s ease-in-out;
+      background-color: $c-white;
+      box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
+      z-index: $z-dropdown;
+
+      .item-open & {
+        max-height: 100vh;
+        transition: max-height .8s ease-in-out;
+      }
     }
   }
 
   &__subitem {
     padding: 0 20px;
+
+    @media ($bp-large-min) {
+      padding: 20px;
+    }
 
     .ma__comp-heading {
       @include ma-h4;

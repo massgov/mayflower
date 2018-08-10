@@ -4,6 +4,7 @@ export default (function (window,document,$,undefined) {
     // Org Nav Wrapper.
     let $orgNav = $(this);
     let $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
+    let $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
 
     // Page wrapper and fillers. 
     const $pageWrapper = $orgNav.parent().next();
@@ -14,8 +15,7 @@ export default (function (window,document,$,undefined) {
 
     // Mobile Menu vars.
     let $mobileToggle = $orgNav.find('.ma__organization-navigation__mobile-toggle');
-    let $mobileMenu = $orgNav.find('.ma__organization-navigation--inner-wrapper');
-    const $mobileBreak = 910;
+    const mobileBreak = 910;
 
     // Search Wrapper vars.
     let $orgNavSearch = $orgNav.find('.ma__organization-navigation__search');
@@ -70,7 +70,7 @@ export default (function (window,document,$,undefined) {
 
     // Mobile toggle. 
     $mobileToggle.on( 'click', function() {
-      $mobileToggle.add($mobileMenu).toggleClass('menu-open');
+      $mobileToggle.add($menuWrapper).toggleClass('menu-open');
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
       // Remove cloned button if present. 
@@ -81,12 +81,16 @@ export default (function (window,document,$,undefined) {
     $searchOpen.on( 'click', function() {
       $searchOpen.add($searchClose).addClass('form-open');
       $orgNavSearchFormWrapper.toggleClass('form-open');
-      $('.item-open').removeClass('item-open');
+      $menuWrapper.addClass('form-open');
     });
 
     $searchClose.on( 'click', function() {
       $searchOpen.add($searchClose).removeClass('form-open');
       $orgNavSearchFormWrapper.toggleClass('form-open');
+      setTimeout(function(){
+        $menuWrapper.removeClass('form-open');
+      }, 1000);
+      
     });
 
     $orgNavSearchForm.on( 'submit', function() {
@@ -99,15 +103,27 @@ export default (function (window,document,$,undefined) {
     $menuButton.each(function() {
       let $button = $(this);
       let $buttonParent = $button.parent('li');
+      let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
   
-      $button.on( 'click', function() {
-        $buttonParent.toggleClass('item-open');
-        let $buttonClone = $button.clone(true);
+      if ($(window).width() < mobileBreak) {
+        $button.on( 'click', function() {
+          $buttonParent.toggleClass('item-open');
+          let $buttonClone = $button.clone(true);
 
-        if (!$('.section-toggle').length) {
-          $buttonClone.addClass('section-toggle').prependTo($buttonParent.find('.ma__organization-navigation__subitems'));
-        }
-      });
+          if (!$('.section-toggle').length) {
+            $buttonClone.addClass('section-toggle').prependTo($thisMenu);
+          }
+        });
+      } 
+      else {
+        $buttonParent.add($thisMenu).on('mouseover', function() {
+          $buttonParent.addClass('item-open');
+        });
+
+        $buttonParent.add($thisMenu).on('mouseleave', function() {
+          $buttonParent.removeClass('item-open');
+        });
+      }
     });
 
     $('body').on('click', '.section-toggle', function() {
@@ -118,7 +134,7 @@ export default (function (window,document,$,undefined) {
     $sectionButton.each(function() {
       let $button = $(this);
       let $seeAll = $button.parent().find('.ma__link-list__see-all');
-      if ($(window).width() < $mobileBreak) {
+      if ($(window).width() < mobileBreak) {
         $button.on( 'click', function() {
           $button.toggleClass('item-open');
           $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
