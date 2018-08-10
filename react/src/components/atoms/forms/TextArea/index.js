@@ -69,7 +69,7 @@ class TextArea extends React.Component {
           </label>
         }
         {this.props.errorMsg &&
-        <div className={errorClasses.join(' ')}>{this.props.errorMsg}</div>}
+        <div className={errorClasses.join(' ')} htmlFor={this.props.id}>{this.props.errorMsg}</div>}
         <textarea
           className={textClasses.join(' ')}
           name={this.props.name}
