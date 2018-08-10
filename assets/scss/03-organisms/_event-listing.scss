@@ -259,3 +259,10 @@ $event-listing-bp-show-grid: $bp-medium-min;
     border-left-color: $c-bd-divider;
   }
 }
+
+.ma__event-filters {
+  
+  legend, label {
+    color: $c-font-detail;
+  }
+}

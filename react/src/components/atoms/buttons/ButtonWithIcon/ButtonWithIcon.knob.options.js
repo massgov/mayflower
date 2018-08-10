@@ -6,5 +6,10 @@ export default {
   color: {
     '': 'grey (default)',
     green: 'green'
+  },
+  type: {
+    button: 'button',
+    submit: 'submit',
+    reset: 'reset'
   }
 };
