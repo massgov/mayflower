@@ -1,17 +1,21 @@
 <div class="ma__org-nav-i-want-to">
 
   {% block findService %}
+  {% if findService  %}
   <div class="ma__org-nav-i-want-to-section">
     {% set linkList = findService.linkList %}
     {% include "@organisms/by-author/link-list.twig" %}
   </div>
+  {% endif %}
   {% endblock %}
 
   {% block learnAbout %}
+  {% if learnAbout  %}
   <div class="ma__org-nav-i-want-to-section">
     {% set linkList = learnAbout.linkList %}
     {% include "@organisms/by-author/link-list.twig" %}
   </div>
+  {% endif %}
   {% endblock %}
 
   {% block login %}
