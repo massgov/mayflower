@@ -1,4 +1,4 @@
 ___DESCRIPTION___
 Changed
 Minor
-- Changed the green theme color globally to #388557 for accessibility.
+- (Patternlab, React, Docs) Changed the green theme color globally to #388557 for accessibility. #155
