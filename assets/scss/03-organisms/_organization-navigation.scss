@@ -2,6 +2,8 @@
   background-color: $c-bg-section;
   margin-top: -20px;
   margin-bottom: 20px;
+  opacity: 1;
+  transition: opacity 0.3s;
 
   @media ($bp-x-small-min) {
     margin-top: -40px;
@@ -21,7 +23,7 @@
     }
 
     .show-menu & {
-      display: none;
+      opacity: 0;
     }
   }
 
