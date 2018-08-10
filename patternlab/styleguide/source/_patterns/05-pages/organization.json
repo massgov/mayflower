@@ -127,7 +127,7 @@
       "subNav": {
         "linkList" : {
           "description": null,
-          "stacked": false,
+          "stacked": true,
           "hideBullets": true,
           "links" : [{
             "href":"#",
