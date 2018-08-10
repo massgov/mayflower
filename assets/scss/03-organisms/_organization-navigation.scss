@@ -16,8 +16,12 @@
     margin-top: 0;
     z-index: $z-dropdown;
 
-    @media ($bp-large-min) {
+    @media ($bp-header-toggle-min) {
       top: 0;
+    }
+
+    .show-menu & {
+      display: none;
     }
   }
 
