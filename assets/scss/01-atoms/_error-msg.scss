@@ -9,11 +9,11 @@
   font-weight: 500;
 
   &--success {
-    color: $c-theme-green;
+    color: $c-theme-green !important;
   }
 
   &.has-error {
-    display: flex;
+    display: flex !important;
     align-items: center;
   }
 }
