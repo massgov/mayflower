@@ -193,7 +193,8 @@ $page-header-widget-width: 350px;
   }
 
   &__category {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
+    line-height: 1.1;
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
@@ -212,9 +213,6 @@ $page-header-widget-width: 350px;
   }
 
   &__sub-title {
-    font-size: 1.813rem;
-    line-height: 1.2;
-    margin-bottom: 1em;
 
     &:last-child {
       margin-bottom: 0;
@@ -227,6 +225,15 @@ $page-header-widget-width: 350px;
     @media ($bp-x-large-min) {
       padding-right: $column + ($gutter * 2);
     }
+  }
+
+  // Control font size and line height
+  // regardless of it's added to page 
+  &__sub-title,
+  &__sub-title * {
+    font-size: 1.625rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1em;
   }
 
   &--has-widgets &__sub-title {
