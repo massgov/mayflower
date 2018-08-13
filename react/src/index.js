@@ -32,6 +32,7 @@ export SvgSearch from './components/atoms/icons/SvgSearch';
 export SvgBuilding from './components/atoms/icons/SvgBuilding';
 export SvgLogin from './components/atoms/icons/SvgLogin';
 export SvgPhone from './components/atoms/icons/SvgPhone';
+export SvgInputError from './components/atoms/icons/SvgInputError'
 export SvgLaptop from './components/atoms/icons/SvgLaptop';
 export SvgMarker from './components/atoms/icons/SvgMarker';
 export SvgFax from './components/atoms/icons/SvgFax';
