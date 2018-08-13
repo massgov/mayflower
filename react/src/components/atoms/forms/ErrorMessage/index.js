@@ -4,14 +4,14 @@ import SvgInputError from '../../icons/SvgInputError';
 import SvgInputSuccess from '../../icons/SvgInputSuccess';
 
 const ErrorMessage = ({inputId, message, status}) => {
+  const isSuccessful = status === 'success';
   return(
     <div
       htmlFor={inputId}
       aria-labelledby={inputId}
-      className="ma__error-msg has-error"
+      className={`ma__error-msg has-error ${isSuccessful ? 'ma__error-msg--success' : ''}`}
     >
-      {status === 'success' ? <SvgInputSuccess /> : <SvgInputError />
-      }&nbsp;
+      {isSuccessful ? <SvgInputSuccess /> : <SvgInputError />}&nbsp;
       {message}
     </div>
   )
