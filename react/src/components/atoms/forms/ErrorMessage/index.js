@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HelperText = (props) => (
-    <label
+const ErrorMessage = (props) => (
+    <div
       htmlFor={props.inputId}
       aria-labelledby={props.inputId}
-      className="ma__helper-text"
+      className="ma__error-msg has-error"
     >
       {props.message}
-    </label>
+    </div>
 );
 
-HelperText.propTypes = {
+ErrorMessage.propTypes = {
   /** The ID of the corresponding input field */
   inputId: PropTypes.string.isRequired,
   /** The help text for the corresponding input field */
   message: PropTypes.string.isRequired
 };
 
-export default HelperText;
+export default ErrorMessage;

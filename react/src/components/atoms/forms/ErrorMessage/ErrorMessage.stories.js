@@ -1,0 +1,18 @@
+import React from 'react';
+
+import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
+
+import ErrorMessage from './index';
+import ErrorMessageReadme from './ErrorMessage.md';
+import ErrorMessageOptions from './ErrorMessage.knobs.options';
+
+storiesOf('atoms/forms', module).addDecorator(withKnobs)
+  .add('ErrorMessage', withInfo(`<div>${ErrorMessageReadme}</div>`)(() => {
+    const props = {
+      inputId: text('errorMessage.inputID', ErrorMessageOptions.inputId),
+      message: text('errorMessage.message', ErrorMessageOptions.message)
+    };
+    return(<ErrorMessage {...props} />);
+  }));
