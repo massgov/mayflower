@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import SvgInputError from '../../icons/SvgInputError';
 import SvgInputSuccess from '../../icons/SvgInputSuccess';
 
-const ErrorMessage = (props) => {
+const ErrorMessage = ({inputId, message, status}) => {
   return(
     <div
-      htmlFor={props.inputId}
-      aria-labelledby={props.inputId}
+      htmlFor={inputId}
+      aria-labelledby={inputId}
       className="ma__error-msg has-error"
     >
-      <SvgInputError /> &nbsp;
-      {props.message}
+      {status === 'success' ? <SvgInputSuccess /> : <SvgInputError />
+      }&nbsp;
+      {message}
     </div>
   )
 };
@@ -20,7 +21,13 @@ ErrorMessage.propTypes = {
   /** The ID of the corresponding input field */
   inputId: PropTypes.string.isRequired,
   /** The help text for the corresponding input field */
-  message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired,
+  /** Validation status */
+  status: PropTypes.oneOf(['error, success'])
+};
+
+ErrorMessage.defaultProps = {
+  status: 'error'
 };
 
 export default ErrorMessage;
