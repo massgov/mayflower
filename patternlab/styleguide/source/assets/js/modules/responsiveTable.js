@@ -1,6 +1,6 @@
 import throttle from "../helpers/throttle.js";
 
-export default function (window, document, $, undefined) {
+export default (function (window, document, $, undefined) {
 
   // Responsive table HTML structure
   // <div class="ma__table--responsive">
@@ -356,4 +356,4 @@ export default function (window, document, $, undefined) {
   // Setup scrollbar handlers.
   scrollbarEventHandlers();
 
-}(window, document, jQuery);
+})(window, document, jQuery);
