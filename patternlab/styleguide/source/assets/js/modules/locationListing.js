@@ -53,9 +53,6 @@ export default (function (window, document, $) {
         $el.find(activeLocationListingRow).removeClass(activeClass);
         // In case the event is triggered on a child element.
         $(e.currentTarget).addClass(activeClass);
-        // Focus on the map - mainly for mobile when it is stacked.
-        let position = $map.offset().top;
-        $("html,body").stop(true, true).animate({ scrollTop: position }, "750");
       });
 
       // Set up hover / focus event for listing rows.
