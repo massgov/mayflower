@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SvgInputError from '../../icons/SvgInputError';
 import SvgInputSuccess from '../../icons/SvgInputSuccess';
+import './style.css';
 
 const ErrorMessage = ({inputId, message, status}) => {
   const isSuccessful = status === 'success';
