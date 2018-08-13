@@ -164,6 +164,10 @@
 
 .ma__table {
 
+  th {
+    color: $c-font-detail;
+  }
+
   @media ($bp-small-max) {
     thead + tbody,
     tbody:first-child {
