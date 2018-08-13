@@ -11,14 +11,19 @@ $page-banner-height: 330px;
   position: relative;
 
   @media ($bp-x-small-min) {
-    height: 366px;
+    height: 350px;
     margin-bottom: 40px;
   }
 
   &--small,
   &--large {
+
     @media ($bp-small-min) {
-      height: 300px;
+      height: 250px;
+    }
+
+    .ma__page-banner__content {
+      max-height: 100px;
     }
   }
 
@@ -34,7 +39,7 @@ $page-banner-height: 330px;
 
   &--columns {
     height: auto;
-    min-height: 450px;
+    min-height: 350px;
 
     @media ($bp-medium-min) {
       padding-top: 45px;
@@ -134,7 +139,8 @@ $page-banner-height: 330px;
     align-items: center;
     flex-wrap: wrap;
     font-size: 1rem;
-    max-width: 1050px;
+    max-width: 850px;
+    max-height: 174px;
     padding: 30px 25px 45px 0;
     z-index: 1;
     top: -50%;
@@ -212,8 +218,9 @@ $page-banner-height: 330px;
 
   &--columns &__content {
     height: $page-banner-height;
+    max-height: 174px;
     max-width: 640px;
-position: relative;
+    position: relative;
     top: 0;
 
     @media ($bp-x-small-min) {
@@ -223,7 +230,7 @@ position: relative;
 
     @media ($bp-medium-min) {
       height: 100%;
-        top: 50px;
+      top: 50px;
       transform: skew(-30deg);
     }
   }
