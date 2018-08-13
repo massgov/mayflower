@@ -49,10 +49,11 @@
       padding-right: 3rem;
       width: 40%;
     }
+  }
 
-    // When text is exposed, pull element up to account for line-height in equidistant spacing in component.
-    &__info {
-      margin-top: -0.5rem;
-    }
+  // When text is exposed, pull element up to account for line-height
+  // in equidistant spacing in component.
+  &__info {
+    margin-top: -0.5rem;
   }
 }
