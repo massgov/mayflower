@@ -13,10 +13,10 @@
 // because it makes them harder to override
 
 html {
-  font-size: 16px;
+  font-size: 14.5px;
   
-  @media ($bp-small-max){
-    font-size: 14.5px;
+  @media ($bp-small-min){
+    font-size: 16px;
   }
   
 
