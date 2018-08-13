@@ -54,7 +54,7 @@ export default (function (window, document, $, undefined) {
     } else if (params.has('_page')) {
       targetPageNumber = params.get('_page');
     }
-    pushPaginationState(targetPageNumber);
+    pushPaginationState(targetPageNumber, true);
 
   });
 
@@ -83,14 +83,22 @@ export default (function (window, document, $, undefined) {
   }
 
 
-  function pushPaginationState(pageNum) {
+  function pushPaginationState(pageNum, replace = false) {
     let params = new URLSearchParams(window.location.search);
     params.set('_page', pageNum);
 
-    history.pushState(
-      { page: pageNum },
-      `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
-    );
+    if (replace) {
+      history.replaceState(
+        { page: pageNum },
+        `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
+      );
+    }
+    else {
+      history.pushState(
+        { page: pageNum },
+        `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
+      );
+    }
   }
 
 }) (window, document, jQuery);

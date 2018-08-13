@@ -94,6 +94,11 @@
     border-bottom-color: $c-bd-divider;
   }
 
+  label, 
+  legend {
+    color: $c-font-detail;
+  }
+
   &__clear {
     color: $c-font-base;
     font-weight: 700;
