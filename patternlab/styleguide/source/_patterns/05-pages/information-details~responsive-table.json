@@ -241,7 +241,7 @@
                           "heading": false,
                           "colspan": "",
                           "rowspan": "",
-                          "text": "$534.71"
+                          "text": "<table><thead><th>Special Pricing</th><th>Special Code</th><th>Special Number</th></thead><tbody><tr><td>$300.00</td><td>ABC123</td><td>150</td></tr><tr><td>$600.00</td><td>A123BC</td><td>300</td></tr><tr><td>$800.00</td><td>AB23C1</td><td>500</td></tr><tr><td>$1000.00</td><td>A12BC3</td><td>750</td></tr><tr><td>$1250.00</td><td>A23BC1</td><td>000</td></tr></tbody></table>"
                         },
                         {
                           "heading": false,
@@ -688,7 +688,7 @@
                           "heading": false,
                           "colspan": "",
                           "rowspan": "",
-                          "text": "$534.71"
+                          "text": "<table><thead><th>Special Pricing</th><th>Special Code</th><th>Special Number</th></thead><tbody><tr><td>$300.00</td><td>ABC123</td><td>150</td></tr><tr><td>$600.00</td><td>A123BC</td><td>300</td></tr><tr><td>$800.00</td><td>AB23C1</td><td>500</td></tr><tr><td>$1000.00</td><td>A12BC3</td><td>750</td></tr><tr><td>$1250.00</td><td>A23BC1</td><td>000</td></tr></tbody></table>"
                         },
                         {
                           "heading": false,
