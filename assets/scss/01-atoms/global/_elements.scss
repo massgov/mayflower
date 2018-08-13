@@ -13,9 +13,12 @@
 // because it makes them harder to override
 
 html {
+  font-size: 16px;
+  
   @media ($bp-small-max){
     font-size: 14.5px;
   }
+  
 
   // .translated-rtl & {
   //   direction: rtl;
