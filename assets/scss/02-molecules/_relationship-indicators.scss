@@ -6,6 +6,8 @@
     padding: 18px 20px 10px;
     font-weight: 600;
     font-size: 16px;
+    border-bottom: 1px solid $c-bd-divider;
+    margin-bottom: -1px;
 
     @media ($bp-large-min) {
         flex-direction: row;
