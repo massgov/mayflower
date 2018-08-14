@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Patch
-- DP-9580: Remove raw filter from 03-organisms/by-author/location-listing.twig.
