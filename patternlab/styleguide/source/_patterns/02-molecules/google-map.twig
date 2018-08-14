@@ -28,7 +28,7 @@
           },
           label: "{{ marker.label }}", // single character only
           infoWindow: {
-            name: "{{ marker.infoWindow.name|e('js') }}", // raw was needed to prevent rendering ascii characters
+            name: "{{ marker.infoWindow.name|e('js') }}",
             phone: "{{ marker.infoWindow.phone|e('js') }}",
             fax: "{{ marker.infoWindow.fax|e('js') }}",
             email: "{{ marker.infoWindow.email|e('js') }}",
