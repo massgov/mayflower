@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import InputText from '../../atoms/forms/InputText';
-import ButtonSearch from '../../atoms/buttons/ButtonSearch';
+import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 
 const SearchBannerForm = (searchBannerForm) => {
   let { classes = [] } = searchBannerForm.buttonSearch;
@@ -13,7 +13,7 @@ const SearchBannerForm = (searchBannerForm) => {
       <div className="ma__search-banner__input">
         <InputText {...searchBannerForm.inputText} />
       </div>
-      <ButtonSearch {...searchBannerForm.buttonSearch} classes={classes} />
+      <ButtonWithIcon {...searchBannerForm.buttonSearch} classes={classes} />
     </form>
   );
 };
@@ -26,7 +26,7 @@ SearchBannerForm.propTypes = {
   /** The properties for the text input field */
   inputText: PropTypes.shape(InputText.propTypes).isRequired,
   /** The Search button */
-  buttonSearch: PropTypes.shape(ButtonSearch.propTypes).isRequired
+  buttonSearch: PropTypes.shape(ButtonWithIcon.propTypes).isRequired
 };
 
 export default SearchBannerForm;

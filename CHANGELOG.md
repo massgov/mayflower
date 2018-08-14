@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-See [Change Log Instructions](docs/changelog-log-instructions.md) for directions on updating this file.
+See [Change Log Instructions](docs/for-developers/changelog-instructions.md) for directions on updating this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
@@ -13,13 +13,102 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 6.1.0 (8/8/2018)
+### Added
+- (React) DP-9399: Adds BackstopJS visual regression testing to the react build. #129
+
+### Changed
+- (Patternlab) DP-9839: Updated styling and language of service finder section for general and boards organizations to match that of elected officials. #122
+- (React) Refactored ButtonWithIcon to replace ButtonSearch component. #81
+
+### Fixed
+- (Patternlab) DP-9900: Fix gulp sass watch and live reload on scss partials change. #142
+- (Patternlab) Update location that JavaScript templates are copied. #144
+
+## 6.0.1 (8/7/2018)
+
+Hotfix for JavaScript pagination
+
+### Fixed
+- (Patternlab) DP-9871: On pagination, replace state instead of push state to avoid requiring additional back button clicks to get to the previous page.
+
+## 6.0.0 (8/3/2018)
+
+Monorepo with shared assets and synced releases going forward ;)
+
+### Changed
+- Duplicate images and move fonts and scss partials from patternlab assets in the root assets for sharing #131
+
+
+## 5.35.1 (8/2/2018)
+### Fixed
+- (React) Install pip, awscli in react_deploy_tag for circleCI #127
+
+## 5.35.0 (8/2/2018)
+### Added
+- (React) DP-9527: Adds automatic build, npm publish, S3 sync to mayflower-react
+- (React) DP-9750: Added HelperText form atom component to Mayflower React library, including a new Story for the new component to be used with Storybook.
+
+### Removed
+- (Patternlab) DP-9567: Remove raw filter from `_patterns/01-atoms/06-rich-text/icon-list.twig`
+- (Patternlab) DP-9577: Remove raw filter from `_patterns/02-molecules/org-selector.twig`
+
+### Fixed
+- (React) Fix proptype warning in organism/filterBox #117
+
+### Changed
+- (Patternlab) DP-9854: Updates babelify to 8.0.0
+- (Patternlab) DP-9854: Update javascript IIFEs to work under newer versions of Babel. #113
+
+### Security
+- (Patternlab, React): Update npm dependencies to fix multiple security vulnerabilities.  Updated packages include:
+    - nwb
+    - node-sass-chokidar
+    - npm-run-all
+    - react-dom
+    - eslint
+    - eslint-plugin-react
+    - browser-sync
+    - gulp-debug
+    - gulp-sass
+    - gulp-svgstore
+    - node-sass
+    - node-normalize-scss
+
+## 5.34.1 (8/2/2018)
+
+##  Fixed
+- (Patternlab) Fix JS pager query string colliding with application pager parameters.
+
+## 5.34.0 (8/1/2018)
+
+### Removed
+- (Patternlab) Remove gov theme and all references #93
+- (Patternlab) Remove unused pilot theme #104
+- (Patternlab) Hide back to button on all pages #106
+
+
+## 5.33.0 (7/25/2018)
+
+### Changed
+- (Patternlab) DP-9441: Decreases spacing between Stacked Rows when stacked.
+- (Patternlab) DP-9699--relationship-indicator-integration
+
+### Removed
+- DP-9568: Remove raw filter from /styleguide/source/_patterns/01-atoms/08-lists/checklist.twig.
+- DP-9570: Remove raw filter from _patterns/01-atoms/08-lists/unordered-list.twig.
+- DP-9572: Remove raw filter from _patterns/02-molecules/contact-item.twig.
+- DP-9573: Remove faw filter from _patterns/02-molecules/event-teaser.twig.
+- DP-9575: Remove raw filter from 02-molecules/header-contact.twig.
+
 ## 5.32.2 (7/19/2018)
 
 ### Changed
 - (Patternlab) Bumped the version up to 5.32.2 in the package.json.
 
 ### Fixed
-- (React) Fixed the NPM token to be able to deploy a new tag version in NPM. 
+- (React) Fixed the NPM token to be able to deploy a new tag version in NPM.
 
 ## 5.32.0 (7/18/2018)
 

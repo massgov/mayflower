@@ -1,7 +1,7 @@
 import sticky from "../helpers/sticky.js";
 import listings from "../helpers/listing.js";
 
-export default function (window, document, $, undefined) {
+export default (function (window, document, $, undefined) {
   // Active state classes for location listing rows.
   let activeClass = 'is-active',
     markerActiveClass = 'is-marker-bounce',
@@ -136,7 +136,7 @@ export default function (window, document, $, undefined) {
         defaultPage = history.state.page;
       }
       if (params) {
-        defaultPage = params.get("page");
+        defaultPage = params.get("_page");
       }
       if (parseInt(defaultPage, 10) !== 1) {
         handlePagination(null, defaultPage);
@@ -376,4 +376,4 @@ export default function (window, document, $, undefined) {
     // Return the newly sorted instance of location listing masterData.
     return data;
   }
-} (window, document, jQuery);
+})(window, document, jQuery);
