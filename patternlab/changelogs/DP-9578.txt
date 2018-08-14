@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Patch
-- DP-9578: Remove raw filter from _patterns/02-molecules/tooltip.twig.
