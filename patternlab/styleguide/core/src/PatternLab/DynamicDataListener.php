@@ -18,35 +18,7 @@ class DynamicDataListener extends Listener {
   }
 
   public function gatherData() {
-    $this->setDomain();
     $this->setMayflowerRelease();
-  }
-
-  /**
-   * Read domain from an environment variable and set into data.
-   */
-  public function setDomain() {
-    $baseUrl = getenv('BASE_URL');
-    if($baseUrl) {
-      $parts = parse_url($baseUrl) + [
-        'scheme' => 'https',
-        'host' => 'mayflower.digital.mass.gov',
-        'path' => '/'
-      ];
-      $domain = sprintf('%s://%s', $parts['scheme'], $parts['host']);
-    }
-    else {
-      $domain = '';
-    }
-
-
-    Data::setOption('url', [
-      'domain' => $domain,
-      // Many places expect this path with no leading or trailing slashes.
-      'assetsPath' => trim(trim($parts['path'], '/') . '/assets', '/'),
-    ]);
-    Data::setOption('urlDomain', $domain);
-    Data::setOption('urlPath', $parts['path']);
   }
 
   /**

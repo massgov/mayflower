@@ -39,7 +39,7 @@ CompHeading.propTypes = {
   level: PropTypes.number,
   /** Being deprecated, use level instead. */
   sub: PropTypes.bool,
-  /** The color of the heading underling. */
+  /** The color of the heading underline. */
   color: PropTypes.string,
   /** The heading id. */
   id: PropTypes.string,

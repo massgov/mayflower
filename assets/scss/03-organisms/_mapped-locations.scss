@@ -1,59 +1,59 @@
 .ma__mapped-locations {
-  
-  .main-content--full .page-content > & {
-    @include ma-container;
-  }
-
-  .main-content--full .page-content > &:not(&--contained) {
-    @media ($bp-page-width-min) {
-      max-width: 100%;
-      padding-right: 0;
-      padding-left: 0;
-    }
-  }
+  @include ma-container;
+  display: flex;
+  flex-wrap: wrap;
 
   &__header {
+    flex: 1 1 auto;
+    width: 100%;
+  }
 
-    @media ($bp-page-width-min) {
-      @include ma-container;
+  &__map {
+    flex: 0 1 auto;
+    width: 100%;
+
+    @media ($bp-large-extended) {
+      text-align: center;
+    }
+
+    @media ($bp-large-extended-min) {
+      order: 2;
+      width: 60%;
+    }
+
+    .ma__google-map {
+      height: 360px;
+
+      @media ($bp-x-small-min) {
+        height: 500px;
+      }
     }
   }
 
-  &--contained &__header {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  &__aside {
+    background-color: $c-gray-f2f2f2;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1rem;
+    width: 100%;
 
-  &__link {
-    margin-bottom: 20px;
-  }
+    @media ($bp-large-extended) {
+      text-align: center;
+    }
 
-  &--contained &__link {
-    margin-bottom: 12px;
-  }
-
-
-  &__map .ma__google-map{
-    height: 360px;
-
-    @media ($bp-x-small-min) {
-      height: 500px;
+    @media ($bp-large-extended-min) {
+      order: 1;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      width: 40%;
     }
   }
 
-  &--contained &__map {
-    padding: 13px;
-  }
-}
-
-//theme
-.ma__mapped-locations {
-  
-  &--contained &__map {
-    background-color: rgba($c-theme-primary,.1);
-  }
-
-  &--contained &__link {
-    font-size: 1.25rem;
+  // When text is exposed, pull element up to account for line-height
+  // in equidistant spacing in component.
+  &__info {
+    margin-top: -0.5rem;
   }
 }
