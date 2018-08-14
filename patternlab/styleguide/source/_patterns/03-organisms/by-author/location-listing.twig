@@ -32,5 +32,5 @@
   // Make locationListing data object available in locationListing module js.
   var ma = ma || {};
   ma.locationListing = ma.locationListing || [];
-  ma.locationListing.push({{ locationListing|json_encode }});
+  ma.locationListing.push({{ locationListing|json_encode|raw }});{# raw is necessary to prevent rendering ascii characters. #}
 </script>
