@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Minor
-- DP-9579: Remove raw filter from 03-organisms/by-author/event-listing-interactive.twig.
