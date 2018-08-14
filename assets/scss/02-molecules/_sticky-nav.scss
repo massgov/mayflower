@@ -165,12 +165,12 @@
     }
 
     &.is-active a {
-      color: $c-font-dark;
+      color: $c-font-base;
       font-weight: 700;
     }
 
     &.is-active:hover a {
-      color: $c-font-dark;
+      color: $c-font-base;
       border-bottom-color: transparent;
     }
   }

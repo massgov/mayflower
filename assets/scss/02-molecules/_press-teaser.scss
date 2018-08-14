@@ -109,12 +109,12 @@
 
   &__eyebrow span {
     background-color: $c-bg-section;
+    color: $c-font-detail;
     font-weight: 700;
   }
 
   &__date,
   &__org {
-    color: $c-font-dark;
     font-style: italic;
     font-weight: 700;
   }

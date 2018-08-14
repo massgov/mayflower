@@ -268,7 +268,6 @@
   }
 
   &__top-link {
-    color: $c-font-dark;
     font-weight: 700;
     
     .has-subnav & {
@@ -320,12 +319,11 @@
     &:hover, 
     &:focus {
       background-color: $c-bg-subtle;
-      color: $c-font-dark;
     }
   }
 
   &__subitem:first-child &__link {
-    color: $c-font-dark;
+    color: $c-font-base;
     font-weight: 700;
   }
 

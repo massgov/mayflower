@@ -5,6 +5,10 @@
   	display: flex;
     position: relative;
 
+    .ma__button-icon {
+      border-right: none;
+    }
+
     &--responsive {
       @media ($bp-medium-max) {
         > div:first-child {
@@ -15,8 +19,5 @@
   }
   .ma__form {
     display: flex;
-    .ma__button-icon {
-      border-right: none;
-    }
   }
 }
