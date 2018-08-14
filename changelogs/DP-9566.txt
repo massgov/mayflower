@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Minor
+Removed
+- Patternlab DP-9566: Remove raw filter from patternlab/styleguide/source/_meta/_00-head.twig and _01-foot.twig. #57
