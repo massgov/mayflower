@@ -18,12 +18,14 @@ var sass          = require("gulp-sass"),
  * destination specification from the specification of the pipeline, and
  * reuse the pipeline as many times as we want.
  */
-module.exports = function(minify) {
+module.exports = function(minify, root) {
+    const absRoot = root.replace(/patternlab\/styleguide/g, "");
     var sassOptions = {
         outputStyle: minify ? "compressed" : "nested",
         includePaths: [].concat(
             normalizePaths,
-            neatPaths
+            neatPaths,
+            absRoot + "assets/scss"
         )
     };
     return lazypipe()
@@ -37,4 +39,3 @@ module.exports = function(minify) {
         })
         .pipe(sourcemaps.write, "./")();
 };
-

@@ -8,6 +8,7 @@ const NPMRegistry = require("./NPM");
 
 const root = path.resolve(__dirname, "../../");
 const source = path.resolve(root, "source");
+const shared = path.resolve(__dirname, "../../../../assets");
 
 const defaults = {
     root: root,
@@ -31,14 +32,12 @@ const defaults = {
         // The following files are considered pattern templates and will
         // be copied to the artifact, etc.
         patterns: path.resolve(source, "_patterns/**"),
-        // The following assets will be copied to asset directories.
-        assets: [
-            path.resolve(source, "assets/fonts/**"),
-            path.resolve(source, "assets/images/**"),
-            path.resolve(source, "assets/js/templates/**"),
-            path.resolve(source, "assets/data/**"),
-            path.resolve(source, "assets/js/vendor/modernizr.js")
-        ],
+        // Assets (see Base.js):
+        fonts: path.resolve(shared, "fonts/**"),
+        images: path.resolve(shared, "images/**"),
+        data: path.resolve(source, "assets/data/**"),
+        templates: path.resolve(source, "assets/js/templates/**"),
+        modernizr: path.resolve(source, "assets/js/vendor/modernizr.js"),
         // The following directory will be scanned for Bower packages, and
         // compiled into vendor-generated.js.
         bower: path.resolve(source, "assets/js/vendor"),

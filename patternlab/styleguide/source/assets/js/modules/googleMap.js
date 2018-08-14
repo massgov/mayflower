@@ -1,6 +1,6 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   // Only run this code if there is a google map component on the page.
   if(!$('.js-google-map').length || typeof ma.googleMapData === 'undefined'){
     return;
@@ -336,4 +336,4 @@ export default function (window,document,$,undefined) {
     }
   }
 
-}(window,document,jQuery);
+})(window,document,jQuery);

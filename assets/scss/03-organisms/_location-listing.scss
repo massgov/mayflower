@@ -1,0 +1,139 @@
+.ma__location-listing {
+  position: relative;
+
+  &__container {
+    @include ma-container;
+  }
+
+  &__columns {
+    position: relative;
+  }
+
+  &__columns &__container {
+
+    @media ($bp-large-min) {
+      display: flex;
+        align-items: stretch;
+      margin-bottom: -60px;
+    }
+  }
+
+  &__map {
+
+    @media ($bp-large-min){
+      min-height: 100vh;
+      order: 2;
+      width: 40%;    
+    }
+  }
+
+  &__sticky {
+    height: 80vh;
+    max-height: 500px;
+    width: 100%;
+
+    @media ($bp-large-min) {
+      height: 100vh;
+      max-height: none;
+      position: absolute;
+        right: 0;
+      //width: calc((100vw - (#{$max-width}))/2 + #{$max-width * .4836066}) !important;
+      width: calc((100vw - (#{$max-width}))/2 + #{$max-width * .4}) !important;
+
+      &[data-sticky='middle'] {
+        position: fixed;
+        top: 0;
+      }
+
+      &[data-sticky='bottom'] {
+        bottom: 0;
+      }
+    }
+
+    &:before {
+      content: "false";
+      display: none;
+
+      @media ($bp-large-min) {
+        content: "true"
+      }
+    }
+
+    .ma__google-map,
+    .ma__google-map__map {
+      height: 100%;
+    }
+  }
+
+  &__results {
+
+    @media ($bp-large-min){
+      margin-right: 3.25%;
+      order: 1;
+      width: 60% - 3.25%; // subtract the margin right
+    }
+
+    .ma__results-heading {
+      margin-bottom: 0;
+      padding-top: 40px;
+    }
+
+    .ma__image-promo {
+      margin-top: 0;
+      padding-right: 40px;
+      padding-bottom: 30px;
+
+      &:first-child {
+        border-top-style: solid;
+        border-top-width: 1px;
+        margin-top: -2px;
+        padding-top: 30px;
+      }
+
+      &.is-active,
+      &:hover {
+        border-top-width: 3px;
+        padding-top: 28px;
+      }
+
+      &__link {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+//theme
+.ma__location-listing {
+
+  &__filters {
+    background-color: $c-bg-subtle;
+
+    legend, 
+    label {
+      color: $c-font-detail;
+    }
+
+    .ma__button-search {
+      color: $c-font-base;
+
+      &:hover {
+        background-color: $c-font-base;
+        border-color: $c-font-base;
+        color: $c-font-inverse;
+      }
+    }
+  }
+
+  .ma__image-promo {
+
+    &.is-active,
+    &:hover {
+      border-top-color: $c-theme-tertiary;
+
+      @media ($bp-large-min) {
+        box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+      }
+    }
+  }
+}

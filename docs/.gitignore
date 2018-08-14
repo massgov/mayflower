@@ -17,3 +17,7 @@ doc
 .vscode
 ~*
 **/**/media/*.*
+
+# gitbook asset duplicates
+assets/*).png
+assets/*).gif

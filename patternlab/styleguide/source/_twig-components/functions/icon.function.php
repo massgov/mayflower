@@ -8,7 +8,7 @@ $function = new Twig_SimpleFunction('icon', function($name) {
     $iconname = pathinfo($name, PATHINFO_FILENAME);
     $name = preg_replace('/^svg-/', '', $iconname);
   }
-  $path = sprintf('%s/../../assets/images/svg-icons/%s.svg', __DIR__, $name);
+  $path = sprintf('%s/../../../../../assets/images/svg-icons/%s.svg', __DIR__, $name);
 
   // Return two SVGs:
   // <svg><use id="abc" /></svg>
