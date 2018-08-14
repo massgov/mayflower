@@ -4,7 +4,7 @@ import SvgInputError from '../../icons/SvgInputError';
 import SvgInputSuccess from '../../icons/SvgInputSuccess';
 import './style.css';
 
-const ErrorMessage = ({inputId, message, status}) => {
+const ErrorMessage = ({ inputId, message, status }) => {
   const isSuccessful = status === 'success';
   return(
     <div
@@ -15,7 +15,7 @@ const ErrorMessage = ({inputId, message, status}) => {
       {isSuccessful ? <SvgInputSuccess /> : <SvgInputError />}&nbsp;
       {message}
     </div>
-  )
+  );
 };
 
 ErrorMessage.propTypes = {
@@ -24,7 +24,7 @@ ErrorMessage.propTypes = {
   /** The help text for the corresponding input field */
   message: PropTypes.string.isRequired,
   /** Validation status */
-  status: PropTypes.oneOf(['error, success'])
+  status: PropTypes.oneOf(['error', 'success'])
 };
 
 ErrorMessage.defaultProps = {

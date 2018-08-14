@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const HelperText = (props) => (
-    <label
-      htmlFor={props.inputId}
-      aria-labelledby={props.inputId}
-      className="ma__helper-text"
-    >
-      {props.message}
-    </label>
+  <label
+    htmlFor={props.inputId}
+    aria-labelledby={props.inputId}
+    className="ma__helper-text"
+  >
+    {props.message}
+  </label>
 );
 
 HelperText.propTypes = {
