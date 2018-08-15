@@ -3,7 +3,7 @@ export default (function (window,document,$,undefined) {
   let watcher;
   let $fixedFeedbackButton = $('.ma__fixed-feedback-button');
 
-  $(document).on('touchmove', function() {
+  $(document).on('touchmove scroll', function() {
     
     if ($(window).width() < 910) {
       $fixedFeedbackButton.addClass('scrolling');
