@@ -175,11 +175,7 @@
 
     &--terms {
         display: flex;
-        flex-wrap: nowrap;
-
-        .tags-open & {
-            flex-wrap: wrap;
-        }
+        flex-wrap: wrap;
 
         @media ($bp-large-min) {
             flex-wrap: nowrap;
@@ -188,11 +184,7 @@
 
     &--term {
         margin: 0 5px 5px 0;
-        width: 100%;
-
-        @media ($bp-x-small-min) {
-            width: auto;
-        }
+        width: auto;
 
         @media ($bp-medium-min) {
             margin-top: 5px;
