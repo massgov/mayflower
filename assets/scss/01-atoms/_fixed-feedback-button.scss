@@ -3,6 +3,8 @@
   right: -50px;
   bottom: 25%;
   transform: rotate(270deg);
+  opacity: 1;
+  transition: opacity 0.3s;
   z-index: $z-sticky-content;
   background-color: $c-white;
   border-style: solid;
@@ -10,6 +12,11 @@
   border-radius: 5px 5px 0 0;
   border-color: rgba($c-theme-green, 0.5);
   padding: 0 10px;
+
+  &.scrolling {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
   
   a {
     color: $c-accessible-feedback;
