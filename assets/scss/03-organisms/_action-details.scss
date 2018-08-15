@@ -172,12 +172,12 @@
       font-weight: 500;
 
       &.is-active {
-        color: $c-font-dark;
+        color: $c-font-base;
         font-weight: 700;
       }
 
       &:hover {
-        color: $c-font-dark;
+        color: $c-font-base;
       }
     }
 

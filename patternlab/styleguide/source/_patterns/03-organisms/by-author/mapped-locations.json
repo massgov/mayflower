@@ -1,18 +1,18 @@
 {
   "mappedLocations": {
     "compHeading": {
-      "title": "All Locations",
+      "title": "Locations",
       "sub": "",
       "color": "",
       "id": "",
       "centered": ""
     },
-    "contained": false,
-    "link": {
+    "paragraph": {
+      "text": "See details for all our locations"
+    },
+    "button": {
       "href": "#",
-      "text":"See a list of all locations",
-      "info": "",
-      "property": ""
+      "text":"All Locations"
     },
     "googleMap": {
       "map": {

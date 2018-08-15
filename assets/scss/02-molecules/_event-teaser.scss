@@ -1,7 +1,7 @@
 .ma__event-teaser {
   display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  align-items: flex-start;
+  flex-wrap: wrap;
   margin-bottom: -20px;
 
   & + & {
@@ -137,7 +137,6 @@
   }
 
   &__month {
-    color: $c-font-dark;
     font-weight: 800;
   }
 
@@ -149,7 +148,6 @@
   &__location,
   &__time,
   &__date {
-    color: $c-font-dark;
     font-weight: 700;
   }
 

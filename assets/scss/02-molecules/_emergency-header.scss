@@ -73,13 +73,12 @@
   }
 
   &__label {
-    color: rgba($c-font-dark,.8);
+    color: rgba($c-font-base,.8);
     font-weight: 700;
   }
 
   &__title {
-    border-left-color: rgba($c-font-dark,.3);
-    color: $c-font-dark;
+    border-left-color: rgba($c-font-base,.3);
     font-weight: 700;
   }
 }
