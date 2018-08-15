@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import stateSeal from '@massds/mayflower/images/stateseal.png';
 import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
@@ -19,7 +20,7 @@ const Footer = (footer) => (
           <SocialLinks {...footer.socialLinks} />
         </div>
         <div className="ma__footer__copyright">
-          <p><b>&copy; 2016 Commonwealth of Massachusetts.</b></p>
+          <p><b>&copy; {moment().year()} Commonwealth of Massachusetts.</b></p>
           <p>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts.</p>
           <a href={footer.privacyPolicy}>Mass.gov Privacy Policy</a>
         </div>
