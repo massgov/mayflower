@@ -25,6 +25,7 @@ export CompHeading from './components/atoms/headings/CompHeading';
 export Heading from './components/atoms/headings/Heading';
 export SidebarHeading from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
+export Icon from './components/atoms/icons/Icon';
 export LatLonGlobe from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
 export SvgArrow from './components/atoms/icons/SvgArrow';
 export SvgArrowBent from './components/atoms/icons/SvgArrowBent';
