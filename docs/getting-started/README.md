@@ -21,18 +21,27 @@ Currently Mayflower has 2 component libraries:
 
 If you have full access to front end code but are not able to implement either of the component libraries, the second best option is to implement Mayflower HTML markup and its generated static assets.
 
-Use [**Mayflower Starters**](mayflower-starters.md) to kick-start a custom HTML page using Mayflower artifacts. Follow the instructions on how to host the page using Github Pages and embed it as an iframe on Mass.gov.
-
-CDN resources for Mayflower generated static assets:
+The current version of Mayflower generated static assets can be :
 
 * Compiled CSS:
-  * [ ](https://mayflower.digital.mass.gov/assets/css/base-theme-generated.css)[https://mayflower.digital.mass.gov/assets/css/base-theme-generated.css](https://mayflower.digital.mass.gov/assets/css/base-theme-generated.css)
   * [https://mayflower.digital.mass.gov/assets/css/index-generated.css](https://mayflower.digital.mass.gov/assets/css/index-generated.css)
 * Compiled JS:
   * [https://mayflower.digital.mass.gov/assets/js/vendor-generated.js](https://mayflower.digital.mass.gov/assets/js/vendor-generated.js)
-  * [https://mayflower.digital.mass.gov/assets/js/index-generated.js](https://mayflower.digital.mass.gov/assets/js/index-generated.js) 
+  * [https://mayflower.digital.mass.gov/assets/js/index-generated.js](https://mayflower.digital.mass.gov/assets/js/index-generated.js)
 
-Add the CSS files in the &lt;head&gt; and JS files right before the closing &lt;/body&gt; you should be able to use the html markup \(switch from Twig tab to HTML tab in the code view\) from our [Mayflower PatternLab component library](https://mayflower.digital.mass.gov/?view=c) to render Mayflower UI.
+All Mayflower assets are versioned controlled and are published following this convention:[`https://mayflower.digital.mass.gov`](https://mayflower.digital.mass.gov/)`/v/[version]`
+
+We recommend you using stable version of the CSS and JS to avoid unexpected changes and update it whenever you are ready. Please refer to the Mayflower Changelog to determine whether you want to upgrade Mayflower: 
+
+* Compiled CSS for v6.0.0:
+  * [https://mayflower.digital.mass.gov/v/6.0.0/assets/css/index-generated.css](https://mayflower.digital.mass.gov/v/5.31.0/assets/css/index-generated.css)
+* Compiled JS for v6.0.0
+  * [https://mayflower.digital.mass.gov/v/6.0.0/assets/js/vendor-generated.js](https://mayflower.digital.mass.gov/assets/js/vendor-generated.js)
+  * [https://mayflower.digital.mass.gov/v/6.0.0/assets/js/index-generated.js](https://mayflower.digital.mass.gov/assets/js/index-generated.js)
+
+Add the CSS file\(s\) in the `<head>` and JS files right before the closing `</body>` you should be able to use the html markup \(switch from Twig tab to HTML tab in the code view\) from our [Mayflower PatternLab component library](https://mayflower.digital.mass.gov/?view=c) to render Mayflower UI.
+
+Use [**Mayflower Starters**](mayflower-starters.md) to kick-start a custom HTML page using Mayflower artifacts. Follow the instructions on how to host the page using Github Pages and embed it as an iframe on Mass.gov.
 
 ## Mayflower as styleguide
 
