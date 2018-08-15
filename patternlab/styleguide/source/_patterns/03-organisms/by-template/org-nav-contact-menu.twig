@@ -11,8 +11,8 @@
       {% if customItems.findContact.link.href %}
         <div class="custom-options__find-contact custom-option-item">
         <span class="custom-option-item__label">{{ icon(customItems.findContact.icon) }} {{ customItems.findContact.title }}</span>
-        <a href="{{ customItems.findContact.link.href }}">{{ customItems.findContact.link.text }}</a>
-        </div>
+        {% set decorativeLink = customItems.findContact.link %}
+        {% include "@atoms/decorative-link.twig" %}        </div>
       {% endif %}
     {% endblock %}
 
@@ -20,8 +20,8 @@
       {% if  customItems.newsletter.link.href %}
         <div class="custom-options__get-updates custom-option-item">
         <span class="custom-option-item__label">{{ icon(customItems.newsletter.icon) }} {{ customItems.newsletter.title }}</span>
-        
-        <a href="{{ customItems.newsletter.link.href }}">{{ customItems.newsletter.link.text }}</a>
+        {% set decorativeLink = customItems.newsletter.link %}
+        {% include "@atoms/decorative-link.twig" %}
         </div>  
       {% endif %}
     {% endblock %}
@@ -30,7 +30,8 @@
       {% if customItems.publicRecords.link.href %}
         <div class="custom-options__prr custom-option-item">
         <span class="custom-option-item__label">{{ icon(customItems.publicRecords.icon) }} {{ customItems.publicRecords.title }}</span>
-        <a href="{{ customItems.publicRecords.link.href }}">{{ customItems.publicRecords.link.text }}</a>
+        {% set decorativeLink = customItems.publicRecords.link %}
+        {% include "@atoms/decorative-link.twig" %}
         </div>
       {% endif %}
     {% endblock %}

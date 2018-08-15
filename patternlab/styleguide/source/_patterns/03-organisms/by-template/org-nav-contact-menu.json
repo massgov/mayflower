@@ -139,7 +139,7 @@
       "icon": "search",
       "link": {
           "href": "#",
-          "text": "Staff directory"
+          "title": "Staff directory"
       }
     },
     "newsletter": {
@@ -147,7 +147,7 @@
       "icon": "alert",
       "link": {
           "href": "#",
-          "text": "Sign up to receive monthly e-newsletters"
+          "title": "Sign up to receive monthly e-newsletters"
       }
     },
     "publicRecords": {
@@ -155,7 +155,7 @@
       "icon": "lg-scroll",
       "link": {
           "href": "#",
-          "text": "Learn more about submitting public records requests"
+          "title": "Learn more about submitting public records requests"
       }
     }
   }
