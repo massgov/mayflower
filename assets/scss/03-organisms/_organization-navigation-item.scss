@@ -123,14 +123,14 @@
       left: 0;
       max-height: 0;
       overflow-y: hidden;
-      transition: max-height 0.8s ease-in-out;
+      transition: max-height 0.2s ease-in-out;
       background-color: $c-white;
       box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
       z-index: $z-dropdown;
 
       .item-open & {
         max-height: 100vh;
-        transition: max-height .8s ease-in-out;
+        transition: max-height .6s ease-in-out;
       }
     }
   }
