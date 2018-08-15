@@ -14,6 +14,29 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
 
+## 6.2.0 (8/15/2018)
+
+### Added
+- (Patternlab) / DP-9431: Update Curated Lists to use Sticky TOC
+- (Patternlab) / DP-9579: Add a comment to keep raw filter from 03-organisms/by-author/event-listing-interactive.twig to prevent rendering ascii characters.
+- (Patternlab) / DP-9580: Adds a comment to keep the raw filter to rendering ascii characters.
+- (Patternlab) / DP-9831: Add contact and related links in sidebar to curated lists.
+
+### Changed
+- (Patternlab) / DP-9521: Updates theme of location row to new theme design.
+- (Patternlab) / DP-9693: Modify body text color to use a darker grey.
+- (Patternlab) / DP-9862: Remove all absolute URL references from Patternlab data and templates.
+
+### Removed 
+- (Patternlab) / DP-9569: Remove raw filter from `_patterns/01-atoms/08-lists/ordered-list.twig`
+- (Patternlab) / DP-9571: Remove raw filter from `_patterns/01-atoms/11-text/raw-html.twig`
+- (Patternlab) / DP-9574: Remove raw filter from `02-molecules/google-map.twig`
+
+### Fixed
+- (Patternlab) / DP-10032: Fix for binder overlay button click not triggering overlay.
+
+
+
 ## 6.1.0 (8/8/2018)
 ### Added
 - (React) DP-9399: Adds BackstopJS visual regression testing to the react build. #129

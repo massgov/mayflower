@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Minor
-- Patternlab DP-9571: Remove raw filter from _patterns/01-atoms/11-text/raw-html.twig.
