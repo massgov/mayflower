@@ -1,0 +1,3 @@
+___DESCRIPTION___
+Added
+- (Patternlab) DP-9831: Add contact and related links in sidebar to curated lists. #146
