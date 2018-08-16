@@ -1,103 +1,123 @@
 <section class="ma__image-promo{{ imagePromo.location.map ? ' js-location-listing-link' : '' }}">
-  {% if imagePromo.image %}
-    <div class="ma__image-promo__image"
-      {% if imagePromo.image.width %}
-        style="flex-basis: {{ imagePromo.image.width }}px"
-      {% endif %}>
-      {% if imagePromo.image.href %}
-        <a href="{{ imagePromo.image.href }}">
+  {% block imagePromoImage %}
+    {% if imagePromo.image %}
+      <div class="ma__image-promo__image"
+        {% if imagePromo.image.width %}
+          style="flex-basis: {{ imagePromo.image.width }}px"
+        {% endif %}>
+        {% if imagePromo.image.href %}
+          <a href="{{ imagePromo.image.href }}">
+        {% endif %}
+          {% set image = imagePromo.image %}
+          {% include "@atoms/09-media/image.twig" %}
+        {% if imagePromo.image.href %}
+          </a>
+        {% endif %}
+        {% if imagePromo.tags %}
+          <div class="ma__image-promo__tags">
+            {% for tag in imagePromo.tags %}
+              <span title="{{ tag.label }}" data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endblock %}
+  <div class="ma__image-promo__details">
+    {% block imagePromoTitle %}
+      {% if imagePromo.title.text %}
+        {% set headingLevel = imagePromo.level ? : 2 %}
+        <h{{ headingLevel }} class="ma__image-promo__title">
+          {% if imagePromo.title.href %}
+            {% set decorativeLink = imagePromo.title %}
+            {% include "@atoms/decorative-link.twig" %}
+          {% else %}
+            {{ imagePromo.title.text }}
+          {% endif %}
+        </h{{ headingLevel }}>
       {% endif %}
-        {% set image = imagePromo.image %}
-        {% include "@atoms/09-media/image.twig" %}
-      {% if imagePromo.image.href %}
-        </a>
+    {% endblock %}
+
+    {% block imagePromoSubtitle %}
+      {% if imagePromo.location.subtitle %}
+        <div class="ma__image-promo__location-subtitle">
+          {{ imagePromo.location.subtitle }}
+        </div>
       {% endif %}
-      {% if imagePromo.tags %}
-        <div class="ma__image-promo__tags">
-          {% for tag in imagePromo.tags %}
-            <span title="{{ tag.label }}" data-ma-tag-id="{{ tag.id }}">{{ icon(tag.icon) }}</span>
+    {% endblock %}
+
+    {% block imagePromoLocation %}
+      {% if imagePromo.location.text %}
+        <div class="ma__image-promo__location">
+          {{ imagePromo.location.text }}
+          {% if imagePromo.link.text %}
+            <span class="ma__image-promo__directions">
+              {% set decorativeLink = imagePromo.link %}
+              {% include "@atoms/decorative-link.twig" %}
+            </span>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endblock %}
+    {# backward compatible with v5.7 - description is now type richText vs 'imagePromo.description.richText' #}
+    {% block imagePromoDescription %}
+      {% if imagePromo.description.rteElements or imagePromo.description.richText %}
+        {% set richText = imagePromo.description %}
+
+        {% if imagePromo.description.richText %}
+          {% set richText = imagePromo.description.richText %}
+        {% endif %}
+        <div class="ma__image-promo__description">
+          {% include "@organisms/by-author/rich-text.twig" %}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block imagePromoLink %}
+      {% if imagePromo.link.text and not imagePromo.location.text %}
+        <div class="ma__image-promo__link">
+          {% set decorativeLink = imagePromo.link %}
+          {% include "@atoms/decorative-link.twig" %}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+  <div class="ma__image-promo__contact">
+    {% block imagePromoPhone %}
+      {% if imagePromo.phone %}
+        <div class="ma__image-promo__phone">
+          {% if imagePromo.phone.label %}
+            <div class="ma__image-promo__label ma__image-promo__label--phone">
+              {{ imagePromo.phone.label }}
+            </div>
+          {% endif %}
+          <a class="ma__image-promo__contact-info ma__image-promo__phone-link" href="tel:{{ imagePromo.phone.href }}">
+            {{ icon('phone') }}
+            {{ imagePromo.phone.text }}
+          </a>
+        </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block imagePromoHours %}
+      {% if imagePromo.hours %}
+        <div class="ma__image-promo__hours">
+          {% for hour in imagePromo.hours %}
+            <div class="ma__image-promo__hours-item">
+              {% if hour.label %}
+                <div class="ma__image-promo__label ma__image-promo__label--hours">
+                  {{ hour.label }}
+                </div>
+              {% endif %}
+              {% if hour.text %}
+                <div class="ma__image-promo__contact-info">
+                  {{ hour.text }}
+                </div>
+              {% endif %}
+            </div>
           {% endfor %}
         </div>
       {% endif %}
-    </div>
-  {% endif %}
-  <div class="ma__image-promo__details">
-    {% if imagePromo.title.text %}
-      {% set headingLevel = imagePromo.level ? : 2 %}
-      <h{{ headingLevel }} class="ma__image-promo__title">
-        {% if imagePromo.title.href %}
-          {% set decorativeLink = imagePromo.title %}
-          {% include "@atoms/decorative-link.twig" %}
-        {% else %}
-          {{ imagePromo.title.text }}
-        {% endif %}
-      </h{{ headingLevel }}>
-    {% endif %}
-    {% if imagePromo.location.subtitle %}
-      <div class="ma__image-promo__location-subtitle">
-        {{ imagePromo.location.subtitle }}
-      </div>
-    {% endif %}
-    {% if imagePromo.location.text %}
-      <div class="ma__image-promo__location">
-        {{ imagePromo.location.text }}
-        {% if imagePromo.link.text %}
-          <span class="ma__image-promo__directions">
-            {% set decorativeLink = imagePromo.link %}
-            {% include "@atoms/decorative-link.twig" %}
-          </span>
-        {% endif %}
-      </div>
-    {% endif %}
-    {# backward compatible with v5.7 - description is now type richText vs 'imagePromo.description.richText' #}
-    {% if imagePromo.description.rteElements or imagePromo.description.richText %}
-      {% set richText = imagePromo.description %}
-
-      {% if imagePromo.description.richText %}
-        {% set richText = imagePromo.description.richText %}
-      {% endif %}
-      <div class="ma__image-promo__description">
-        {% include "@organisms/by-author/rich-text.twig" %}
-      </div>
-    {% endif %}
-    {% if imagePromo.link.text and not imagePromo.location.text %}
-      <div class="ma__image-promo__link">
-        {% set decorativeLink = imagePromo.link %}
-        {% include "@atoms/decorative-link.twig" %}
-      </div>
-    {% endif %}
-  </div>
-  <div class="ma__image-promo__contact">
-    {% if imagePromo.phone %}
-      <div class="ma__image-promo__phone">
-        {% if imagePromo.phone.label %}
-          <div class="ma__image-promo__label ma__image-promo__label--phone">
-            {{ imagePromo.phone.label }}
-          </div>
-        {% endif %}
-        <a class="ma__image-promo__contact-info ma__image-promo__phone-link" href="tel:{{ imagePromo.phone.href }}">
-          {{ icon('phone') }}
-          {{ imagePromo.phone.text }}
-        </a>
-      </div>
-    {% endif %}
-    {% if imagePromo.hours %}
-      <div class="ma__image-promo__hours">
-        {% for hour in imagePromo.hours %}
-          <div class="ma__image-promo__hours-item">
-            {% if hour.label %}
-              <div class="ma__image-promo__label ma__image-promo__label--hours">
-                {{ hour.label }}
-              </div>
-            {% endif %}
-            {% if hour.text %}
-              <div class="ma__image-promo__contact-info">
-                {{ hour.text }}
-              </div>
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
+    {% endblock %}
   </div>
 </section>
