@@ -22,8 +22,7 @@ export default (function (window,document,$,undefined) {
     let $orgNavSearchForm = $orgNav.find('.js-organization-navigation__search');
     let $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
     let $orgNavSearchFormWrapper = $orgNav.find('.ma__organization-navigation__search--wrapper');
-    let $searchOpen = $orgNavSearch.find('.js-toggle-open');
-    let $searchClose = $orgNavSearch.find('.js-toggle-close');
+    let $searchToggle = $orgNavSearch.find('.js-search-toggle');
 
     // Subnav buttons. 
     let $menuButton = $orgNav.find('.subnav-toggle');
@@ -78,19 +77,8 @@ export default (function (window,document,$,undefined) {
     });
 
     // Search form swing open/closed.
-    $searchOpen.on( 'click', function() {
-      $searchOpen.add($searchClose).addClass('form-open');
-      $orgNavSearchFormWrapper.toggleClass('form-open');
-      $menuWrapper.addClass('form-open');
-    });
-
-    $searchClose.on( 'click', function() {
-      $searchOpen.add($searchClose).removeClass('form-open');
-      $orgNavSearchFormWrapper.toggleClass('form-open');
-      setTimeout(function(){
-        $menuWrapper.removeClass('form-open');
-      }, 1000);
-      
+    $searchToggle.on( 'click', function() {
+      $menuWrapper.toggleClass('form-open');
     });
 
     $orgNavSearchForm.on( 'submit', function() {
