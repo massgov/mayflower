@@ -4,7 +4,7 @@
   &--image {
     display: flex;
     flex-wrap: wrap;
-    &.stacked {
+    &.stacked, &.inline-image {
       flex-direction: column;
     }
     &.side-by-side, &.contents-stacked {
