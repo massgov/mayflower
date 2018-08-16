@@ -10,7 +10,6 @@ import dropdown                   from "./modules/dropdown.js";
 import emergencyAlerts            from "./modules/emergencyAlerts.js";
 import eventFilters               from "./modules/eventFilters";
 import eventListingInteractive    from "./modules/eventListingInteractive";
-import fixedFeedbackButton        from "./modules/fixedFeedbackButton.js";
 import footnote                   from "./modules/footnote.js";
 import formValidation             from "./modules/formValidation.js";
 import headerTags                 from "./modules/headerTags.js";
