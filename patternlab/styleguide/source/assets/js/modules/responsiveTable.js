@@ -110,14 +110,19 @@ export default (function (window, document, $, undefined) {
   }
 
   function initializeTable(element) {
-    let $table = $(element).find('table');
+    const $element = $(element);
+    let $table = $element.find("table").not("table table");
+    let $thead = $table.find("thead").not("table table thead");
+    const hasThead = $thead.length;
+    const isNestedThead = $thead.closest("table table").length;
+    const hasTh = $table.find("th").length;
     let $stickyHeader = null;
 
-    if ($table.find("thead").length > 0 && $table.find("th").length > 0) {
-      let $thead = $table.find("thead").clone();
+    if (hasThead && hasTh && !isNestedThead) {
+      $thead = $thead.clone();
       $table.after('<table class="ma__table sticky-thead" />');
 
-      $stickyHeader = $(element).find(".sticky-thead");
+      $stickyHeader = $element.find(".sticky-thead");
       $stickyHeader.append($thead);
 
     }
