@@ -18,11 +18,9 @@ export default (function (window,document,$,undefined) {
     const mobileBreak = 910;
 
     // Search Wrapper vars.
-    let $orgNavSearch = $orgNav.find('.ma__organization-navigation__search');
     let $orgNavSearchForm = $orgNav.find('.js-organization-navigation__search');
     let $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
-    let $orgNavSearchFormWrapper = $orgNav.find('.ma__organization-navigation__search--wrapper');
-    let $searchToggle = $orgNavSearch.find('.js-search-toggle');
+    let $searchToggle = $orgNav.find('.ma__organization-navigation__search .js-search-toggle');
 
     // Subnav buttons. 
     let $menuButton = $orgNav.find('.subnav-toggle');
@@ -54,14 +52,16 @@ export default (function (window,document,$,undefined) {
     // Sticky on scroll.
     if($('.pre-content').length) {
       const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
-
+      let menuHeight = $orgNav.height();
       $(window).scroll(function () {
         const orgWindowTop = $(window).scrollTop();
 
         // Active Sticky TOC when on page TOC scrolls past.
         if (bannerBottom > orgWindowTop) {
+          $('.pre-content').removeAttr('style');
           $orgNav.removeClass('stuck');
         } else {
+          $('.pre-content').css("padding-top", menuHeight);
           $orgNav.addClass('stuck');
         }
       });
@@ -74,6 +74,8 @@ export default (function (window,document,$,undefined) {
       $('.item-open').removeClass('item-open');
       // Remove cloned button if present. 
       $('.section-toggle').remove();
+
+      $('body').toggleClass('scroll-disabled');
     });
 
     // Search form swing open/closed.
@@ -81,11 +83,10 @@ export default (function (window,document,$,undefined) {
       $menuWrapper.toggleClass('form-open');
 
       let $buttonLabel = $searchToggle.find('.search-label');
-      console.log($buttonLabel.text());
       $buttonLabel.text($buttonLabel.text() == "Close" ? "Search this organization" : "Close");
     });
 
-    $orgNavSearchForm.on( 'submit', function() {
+    $orgNavSearchForm.on('submit', function() {
       let searchAction = $(this).attr('action') + "&q=";
       let searchParams = $orgNavSearchInput.val();
       $(this).attr('action', searchAction + searchParams);
@@ -102,12 +103,13 @@ export default (function (window,document,$,undefined) {
           $buttonParent.toggleClass('item-open');
           let $buttonClone = $button.clone(true);
 
+          // Copy the link as a close button inside the menu section.
           if (!$('.section-toggle').length) {
             $buttonClone.addClass('section-toggle').prependTo($thisMenu);
           }
         });
       } 
-      else {
+      else if ($(window).width() > mobileBreak){
         $buttonParent.add($thisMenu).on('mouseover', function() {
           $buttonParent.addClass('item-open');
         });
@@ -166,4 +168,5 @@ export default (function (window,document,$,undefined) {
     let location = $(this).attr("href");
     $('html,body').animate({scrollTop: $(location).offset().top - 120}, 1000 );
   });
+
 }) (window,document,jQuery);

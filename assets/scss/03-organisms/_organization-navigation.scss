@@ -117,17 +117,19 @@
   &__search {
     border-bottom: 1px solid $c-bd-divider;
     order: 1;
+    padding: 20px;
 
     @media ($bp-large-min) {
       display: flex;
       flex-direction: row-reverse;
       order: 2;
       border-bottom: 0;
-    }
-
-    .form-open & {
-      position: absolute;
-      width: 100%;
+      padding: 0;
+      
+      .form-open & {
+        position: absolute;
+        width: 100%;
+      }
     }
 
     .ma__form {
@@ -137,18 +139,21 @@
     }
 
     &--wrapper {
-      max-width: 0px;
-      pointer-events: none;
-      opacity: 0;
-      transition: 0s;
-      
-      .form-open & {
-        max-width: $max-width;
-        width: 100%;
-        pointer-events: auto;
-        opacity: 1;
-        transition: .4s;
-        margin-right: 15px;
+     
+      @media ($bp-large-min) {
+        max-width: 0px;
+        pointer-events: none;
+        opacity: 0;
+        transition: 0s;
+        
+        .form-open & {
+          max-width: $max-width;
+          width: 100%;
+          pointer-events: auto;
+          opacity: 1;
+          transition: .4s;
+          margin-right: 15px;
+        }
       }
     }
 
@@ -193,6 +198,7 @@
     }
 
     &--toggle {
+      display: none;
       position: relative;
       border: 0;
       background-color: transparent;
