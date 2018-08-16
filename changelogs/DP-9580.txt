@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Patch
+- Patternlab DP-9580: Adds a comment to keep the raw filter to rendering ascii characters. #87

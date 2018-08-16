@@ -1,8 +1,9 @@
-{% extends '@templates/stacked-row-template.twig' %}
+{% extends '@templates/stacked-rows-with-external-sidebar-template.twig' %}
 
 {% block preContent %}
   {% include "@organisms/by-template/content-eyebrow.twig" %}
   {% include "@organisms/by-template/page-header.twig" %}
+  {% include "@organisms/by-template/sticky-toc.twig" %}
 {% endblock %}
 
 {% block postContent %}{% endblock %}
