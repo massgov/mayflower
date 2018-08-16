@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SvgArrowBent from '../../atoms/icons/SvgArrowBent';
+import Icon from '../../atoms/icons/Icon';
 
 class MainNav extends Component {
   constructor(props) {
@@ -79,7 +79,7 @@ class MainNav extends Component {
                     }
                     <li role="menuitem" className="ma__main-nav__subitem">
                       <a href={item.href} className="ma__main-nav__link" tabIndex="-1">
-                        <SvgArrowBent />
+                        <Icon name="arrowbent" />
                         <span>{item.text}</span>
                       </a>
                     </li>

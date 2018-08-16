@@ -27,9 +27,7 @@ export SidebarHeading from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
 export Icon from './components/atoms/icons/Icon';
 export LatLonGlobe from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
-export SvgArrowBent from './components/atoms/icons/SvgArrowBent';
 export SvgSearch from './components/atoms/icons/SvgSearch';
-export SvgBuilding from './components/atoms/icons/SvgBuilding';
 export SvgLogin from './components/atoms/icons/SvgLogin';
 export SvgPhone from './components/atoms/icons/SvgPhone';
 export SvgLaptop from './components/atoms/icons/SvgLaptop';

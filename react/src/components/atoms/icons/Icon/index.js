@@ -9,7 +9,7 @@ function loadAssets() {
 
 loadAssets();
 
-const Icon = (props) => (<svg ><use href={`#${props.name}`} /></svg>);
+const Icon = (props) => (<svg><use href={`#${props.name}`} /></svg>);
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired
