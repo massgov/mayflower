@@ -211,6 +211,30 @@
         padding-left: 40px;
       }
 
+      .form-open & {
+        font-size: 1.125rem;
+        padding-right: 1.5rem;
+        padding-left: 1rem;
+        font-weight: 500;
+        
+        &::after {
+          content: '\00d7';
+          font-size: 30px;
+          font-size: 2.1rem;
+          font-weight: 600;
+          line-height: 0;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          color: $c-theme-green;
+        }
+
+        svg {
+          display: none;
+        }
+      }
+
       svg {
         width: 20px;
         height: 20px;

@@ -79,6 +79,10 @@ export default (function (window,document,$,undefined) {
     // Search form swing open/closed.
     $searchToggle.on( 'click', function() {
       $menuWrapper.toggleClass('form-open');
+
+      let $buttonLabel = $searchToggle.find('.search-label');
+      console.log($buttonLabel.text());
+      $buttonLabel.text($buttonLabel.text() == "Close" ? "Search this organization" : "Close");
     });
 
     $orgNavSearchForm.on( 'submit', function() {
