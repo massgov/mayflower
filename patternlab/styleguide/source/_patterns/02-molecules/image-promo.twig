@@ -121,37 +121,4 @@
       {% endif %}
     {% endblock %}
   </div>
-  <div class="ma__image-promo__contact">
-    {% if imagePromo.phone %}
-      <div class="ma__image-promo__phone">
-        {% if imagePromo.phone.label %}
-          <div class="ma__image-promo__label ma__image-promo__label--phone">
-            {{ imagePromo.phone.label }}
-          </div>
-        {% endif %}
-        <a class="ma__image-promo__contact-info ma__image-promo__phone-link" href="tel:{{ imagePromo.phone.href }}">
-          {{ icon('phone') }}
-          {{ imagePromo.phone.text }}
-        </a>
-      </div>
-    {% endif %}
-    {% if imagePromo.hours %}
-      <div class="ma__image-promo__hours">
-        {% for hour in imagePromo.hours %}
-          <div class="ma__image-promo__hours-item">
-            {% if hour.label %}
-              <div class="ma__image-promo__label ma__image-promo__label--hours">
-                {{ hour.label }}
-              </div>
-            {% endif %}
-            {% if hour.text %}
-              <div class="ma__image-promo__contact-info">
-                {{ hour.text }}
-              </div>
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    {% endif %}
-  </div>
 </section>
