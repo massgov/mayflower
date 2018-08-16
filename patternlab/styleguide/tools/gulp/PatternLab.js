@@ -41,7 +41,7 @@ class PatternLabRegistry extends MayflowerRegistry {
         );
         const doCopy = taker.parallel(
             this.buildCopyAssetsTask(self.resolveDest("assets"), "patternlab:assets"),
-            this.buildCopyPatternsTask(self.resolveDest("assets/patterns"), "patternlab:patterns")
+            this.buildCopyPatternsTask(self.resolveDest("twig"), "patternlab:patterns")
         );
 
         const noop = (done) => done();
