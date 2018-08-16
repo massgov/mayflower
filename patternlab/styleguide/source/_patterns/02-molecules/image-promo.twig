@@ -12,12 +12,6 @@
       {% if imagePromo.image.href %}
         </a>
       {% endif %}
-    </div>
-  {% endif %}
-  <div class="ma__image-promo__details">
-    {% if imagePromo.title.text %}
-      {% set headingLevel = imagePromo.level ? : 2 %}
-      <h{{ headingLevel }} class="ma__image-promo__title">
       {% if imagePromo.tags %}
         <div class="ma__image-promo__tags">
           {% for tag in imagePromo.tags %}
@@ -25,31 +19,34 @@
           {% endfor %}
         </div>
       {% endif %}
-      {% if imagePromo.title.href %}
-        {% set decorativeLink = imagePromo.title %}
-        {% include "@atoms/decorative-link.twig" %}
-      {% else %}
-        {{ imagePromo.title.text }}
-      {% endif %}
-    </h{{ headingLevel }}>
+    </div>
+  {% endif %}
+  <div class="ma__image-promo__details">
+    {% if imagePromo.title.text %}
+      {% set headingLevel = imagePromo.level ? : 2 %}
+      <h{{ headingLevel }} class="ma__image-promo__title">
+        {% if imagePromo.title.href %}
+          {% set decorativeLink = imagePromo.title %}
+          {% include "@atoms/decorative-link.twig" %}
+        {% else %}
+          {{ imagePromo.title.text }}
+        {% endif %}
+      </h{{ headingLevel }}>
+    {% endif %}
+    {% if imagePromo.location.subtitle %}
+      <div class="ma__image-promo__location-subtitle">
+        {{ imagePromo.location.subtitle }}
+      </div>
     {% endif %}
     {% if imagePromo.location.text %}
       <div class="ma__image-promo__location">
         {{ imagePromo.location.text }}
         {% if imagePromo.link.text %}
-          <div>
+          <span class="ma__image-promo__directions">
             {% set decorativeLink = imagePromo.link %}
             {% include "@atoms/decorative-link.twig" %}
-          </div>
+          </span>
         {% endif %}
-      </div>
-    {% endif %}
-    {% if imagePromo.phone %}
-      <div class="ma__image-promo__phone">
-        {{ icon('phone') }}
-        <a href="tel:{{ imagePromo.phone.href }}">
-          {{ imagePromo.phone.text }}
-        </a>
       </div>
     {% endif %}
     {# backward compatible with v5.7 - description is now type richText vs 'imagePromo.description.richText' #}
@@ -67,6 +64,39 @@
       <div class="ma__image-promo__link">
         {% set decorativeLink = imagePromo.link %}
         {% include "@atoms/decorative-link.twig" %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="ma__image-promo__contact">
+    {% if imagePromo.phone %}
+      <div class="ma__image-promo__phone">
+        {% if imagePromo.phone.label %}
+          <div class="ma__image-promo__label ma__image-promo__label--phone">
+            {{ imagePromo.phone.label }}
+          </div>
+        {% endif %}
+        <a class="ma__image-promo__contact-info ma__image-promo__phone-link" href="tel:{{ imagePromo.phone.href }}">
+          {{ icon('phone') }}
+          {{ imagePromo.phone.text }}
+        </a>
+      </div>
+    {% endif %}
+    {% if imagePromo.hours %}
+      <div class="ma__image-promo__hours">
+        {% for hour in imagePromo.hours %}
+          <div class="ma__image-promo__hours-item">
+            {% if hour.label %}
+              <div class="ma__image-promo__label ma__image-promo__label--hours">
+                {{ hour.label }}
+              </div>
+            {% endif %}
+            {% if hour.text %}
+              <div class="ma__image-promo__contact-info">
+                {{ hour.text }}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
       </div>
     {% endif %}
   </div>
