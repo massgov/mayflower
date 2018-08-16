@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object, boolean } from '@storybook/addon-knobs/react';
 
 import Footer from '.';
 import FooterReadme from './Footer.md';
@@ -16,7 +16,8 @@ storiesOf('organisms/Footer', module).addDecorator(withKnobs)
     const props = {
       footerLinks: object('footer.footerLinksData', FooterLinksData),
       socialLinks: object('footer.socialLinksData', SocialLinksData),
-      privacyPolicy: text('footer.privacyPolicy', '')
+      privacyPolicy: text('footer.privacyPolicy', ''),
+      backToTopButton: boolean('footer.backToTopButton', false)
     };
     return(<Footer {...props} />);
   }))
@@ -24,7 +25,8 @@ storiesOf('organisms/Footer', module).addDecorator(withKnobs)
     const props = {
       footerLinks: object('footer.footerLinksLiveData', FooterLinksLiveData),
       socialLinks: object('footer.socialLinksLiveData', SocialLinksLiveData),
-      privacyPolicy: text('footer.privacyPolicy', 'https://www.mass.gov/privacypolicy')
+      privacyPolicy: text('footer.privacyPolicy', 'https://www.mass.gov/privacypolicy'),
+      backToTopButton: boolean('footer.backToTopButton', false)
     };
     return(<Footer {...props} />);
   }));

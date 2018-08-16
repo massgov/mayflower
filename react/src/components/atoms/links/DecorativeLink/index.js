@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SvgArrow from '../../icons/SvgArrow';
+import Icon from '../../icons/Icon';
 import SvgDocPdf from '../../icons/SvgDocPdf';
 import SvgDocDocx from '../../icons/SvgDocDocx';
 import SvgDocXlxs from '../../icons/SvgDocXlxs';
@@ -10,7 +10,7 @@ import './DecorativeLink.css';
 
 const DecorativeLink = (props) => {
   const classes = ['ma__decorative-link'];
-  let Icon = null;
+  let DecIcon = null;
   let title;
   if (props.showFileIcon) {
     classes.push('ma__download-link');
@@ -22,29 +22,29 @@ const DecorativeLink = (props) => {
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
     switch (ext) {
       case 'pdf':
-        Icon = SvgDocPdf;
+        DecIcon = SvgDocPdf;
         break;
       case 'docx':
-        Icon = SvgDocDocx;
+        DecIcon = SvgDocDocx;
         break;
       case 'xlxs':
-        Icon = SvgDocXlxs;
+        DecIcon = SvgDocXlxs;
         break;
       case 'generic':
-        Icon = SvgDocGeneric;
+        DecIcon = SvgDocGeneric;
         break;
       default:
-        Icon = null;
+        DecIcon = null;
     }
   }
   return(
     <span className={classes.join(' ')}>
-      {Icon && <span><Icon title={title} />&nbsp;</span>}
+      {DecIcon && <span><DecIcon title={title} />&nbsp;</span>}
       <a
         href={props.href}
         className="js-clickable-link"
         title={props.info}
-      >{props.text}&nbsp;<SvgArrow />
+      >{props.text}&nbsp;<Icon name="arrow" />
       </a>
     </span>
   );

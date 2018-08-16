@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import stateSeal from '@massds/mayflower/images/stateseal.png';
 import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
-import SvgArrow from '../../atoms/icons/SvgArrow';
+import Icon from '../../atoms/icons/Icon';
 
 const Footer = (footer) => (
   <footer className="ma__footer js-footer" id="footer">
@@ -27,7 +27,7 @@ const Footer = (footer) => (
     </div>
     {footer.backToTopButton &&
     <button className="ma__footer__back2top js-back2top is-hidden">
-      <SvgArrow />
+      <Icon name="arrow" />
       <span aria-hidden="true">Top</span>
       <span className="visually-hidden">Go to the top of the page</span>
     </button>}
