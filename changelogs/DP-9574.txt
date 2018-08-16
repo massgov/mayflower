@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Minor
-- Patternlab DP-9574: Remove raw filter from 02-molecules/google-map.twig.
