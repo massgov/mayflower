@@ -52,7 +52,7 @@ class DistRegistry extends DefaultRegistry {
                 gulp.src(sources.images).pipe(gulp.dest(this.resolveDist('assets/images'))),
                 gulp.src(sources.fonts).pipe(gulp.dest(this.resolveDist('assets/fonts'))),
                 gulp.src(sources.data).pipe(gulp.dest(this.resolveDist('assets/data'))),
-                gulp.src(sources.templates).pipe(gulp.dest(this.resolveDist('assets/templates'))),
+                gulp.src(sources.templates).pipe(gulp.dest(this.resolveDist('assets/js/templates'))),
                 gulp.src(sources.modernizr).pipe(gulp.dest(this.resolveDist('assets/js/vendor'))),
                 gulp.src(sources.patterns).pipe(gulp.dest(this.resolveDist('twig')))
             ];
