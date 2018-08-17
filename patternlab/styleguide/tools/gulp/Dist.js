@@ -10,6 +10,12 @@ const gulp = require('gulp');
 const exec = require("child-process-promise").exec;
 const e = require("./helpers/escape");
 const browserSync    = require("browser-sync");
+const del = require('del');
+const cssPipe = require('./pipelines/css');
+const jsPipe = require('./pipelines/js');
+const merge = require('merge-stream');
+const mainBowerFiles = require('main-bower-files');
+const debug = require('gulp-debug');
 
 const task = function(name, cb, watch) {
     cb.displayName = name;
@@ -20,47 +26,61 @@ const task = function(name, cb, watch) {
 class DistRegistry extends MayflowerRegistry {
     init(taker) {
         const self = this;
+        const {config} = this;
+        const {sources} = config;
 
         const clean = task('clean', () => del(self.resolveDist()));
-        const css = task(
-            'css',
-            () => gulp.src(config.sources.scss)
-                .pipe(css(config.minify, config.root))
-                .pipe(gulp.dest(self.resolveDist('assets/css')))
-            config.sources.scss
+        const css = task('css', () => gulp.src(sources.scss)
+                .pipe(cssPipe(config.minify, config.root))
+                .pipe(gulp.dest(self.resolveDist('assets/css'))),
         )
+        css.watchFiles = config.sources.scss;
+        const assets = task('assets', () => {
+            var pipes = [
+                gulp.src(sources.images).pipe(gulp.dest(this.resolveDist('assets/images'))),
+                gulp.src(sources.fonts).pipe(gulp.dest(this.resolveDist('assets/fonts'))),
+                gulp.src(sources.data).pipe(gulp.dest(this.resolveDist('assets/data'))),
+                gulp.src(sources.templates).pipe(gulp.dest(this.resolveDist('assets/templates'))),
+                gulp.src(sources.modernizr).pipe(gulp.dest(this.resolveDist('assets/js/vendor'))),
+            ];
+            return merge(pipes);
+        });
+        assets.watchFiles = [sources.images, sources.fonts, sources.data, sources.templates, sources.modernizr]
 
-        // const clean = this.buildCleanTask(self.resolveDist(), 'dist:clean');
-        // const doCss = this.buildCssTask(self.resolveDist("assets/css"), "dist:css");
-        const doVendorJS = this.buildJSVendorTask(self.resolveDist("assets/js"), "dist:js-vendor");
-        const doCustomJS = this.buildJSCustomTask(self.resolveDist("assets/js"), "build:js-custom");
-
-        const doJs = taker.parallel(
-            doVendorJS,
-            doCustomJS
-        );
-        const doAssets = this.buildCopyAssetsTask(self.resolveDist('assets'), 'dist:assets');
+        const js = task('js', () => {
+            var pipes = [
+                gulp.src(mainBowerFiles({paths: sources.bower}))
+                    .pipe(jsPipe.vendor(config.minify))
+                    .pipe(gulp.dest(self.resolveDist('assets/js'))),
+                gulp.src(sources.js)
+                    .pipe(jsPipe.custom(config.minify))
+                    .pipe(gulp.dest(self.resolveDist('assets/js')))
+            ];
+            return merge(pipes);
+        });
+        js.watchFiles = sources.js;
 
         taker.task('dist:build', taker.parallel(
             clean,
             css,
-            doJs,
-            doAssets
+            js,
+            assets
         ));
         taker.task('dist:watch', taker.series('dist:build', task('watcher', () => {
             taker.watch(css.watchFiles, css);
-            taker.watch(doCustomJS.watchFiles, doCustomJS);
-            taker.watch(doAssets.watchFiles, doAssets);
+            taker.watch(js.watchFiles, js);
+            taker.watch(assets.watchFiles, assets);
         })));
 
         const doPL = this.buildPatternlabTask();
         const doPLCopy = function() {
-            return gulp.src([self.resolveDist('assets'), self.resolveDist('twig')])
-                .pipe(gulp.dest(self.config.dest.patternlab));
+            return gulp.src(self.resolveDist('**'))
+                .pipe(gulp.dest(self.resolvePatternlab()))
+                .pipe(debug({name: 'patternlab:copy-dist'}));
         }
-        doPLCopy.watchFiles = [self.resolveDist('assets'), self.resolveDist('twig')];
+        doPLCopy.watchFiles = self.resolveDist('**');
 
-        taker.task('patternlab:build', taker.series('dist:build', doPLCopy, doPL));
+        taker.task('patternlab:build', taker.series(taker.parallel('dist:build', doPL), doPLCopy));
         taker.task('patternlab:serve', taker.series('patternlab:build', task('server', () => {
             const sync = browserSync.create();
             sync.init({
@@ -72,9 +92,8 @@ class DistRegistry extends MayflowerRegistry {
                 server: self.resolvePatternlab()
             });
             taker.watch(css.watchFiles, css);
-            taker.watch(doVendorJS.watchFiles, doVendorJS);
-            taker.watch(doCustomJS.watchFiles, doCustomJS);
-            taker.watch(doAssets.watchFiles, doAssets);
+            taker.watch(js.watchFiles, js);
+            taker.watch(assets.watchFiles, assets);
             // There are only two things that can cause an update the Patternlab output:
             // The Patternlab Copy job (includes anything in dist).
             taker.watch(doPLCopy.watchFiles, doPLCopy).on('change', sync.reload);
