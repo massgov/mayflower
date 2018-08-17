@@ -5,6 +5,7 @@ const gulp = require("gulp");
 const PatternLabRegistry = require("./PatternLab");
 const ArtifactsRegistry = require("./Artifacts");
 const NPMRegistry = require("./NPM");
+const DistRegistry = require("./Dist");
 
 const root = path.resolve(__dirname, "../../");
 const source = path.resolve(root, "source");
@@ -26,7 +27,8 @@ const defaults = {
         // The path the NPM package is built to.
         npm: path.resolve(root, "npm"),
         // The path of the Pattern Lab public directory.
-        patternlab: path.resolve(root, "public")
+        patternlab: path.resolve(root, "public"),
+        dist: path.resolve(root, 'dist')
     },
     sources: {
         // The following files are considered pattern templates and will
@@ -52,13 +54,14 @@ const defaults = {
     minify: true
 };
 
-gulp.registry(new PatternLabRegistry(defaults, argv));
-gulp.registry(new NPMRegistry(defaults, argv));
-gulp.registry(new ArtifactsRegistry(defaults, argv));
+// gulp.registry(new PatternLabRegistry(defaults, argv));
+// gulp.registry(new NPMRegistry(defaults, argv));
+// gulp.registry(new ArtifactsRegistry(defaults, argv));
+gulp.registry(new DistRegistry(defaults, argv));
 
 // @todo: Do we need svg2twig?
 // @todo: Do we need the svg-sprite task?
 
 
-gulp.task("default", gulp.series("patternlab:watch"));
+gulp.task("default", gulp.series("patternlab:serve"));
 gulp.task("prod", gulp.series("patternlab:build"));

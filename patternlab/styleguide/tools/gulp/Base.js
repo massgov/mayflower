@@ -80,6 +80,7 @@ class MayflowerTaskRegistry extends DefaultRegistry {
             .pipe(gulp.dest(dest))
             .pipe(this.debug(name));
         task.displayName = name;
+        task.watchFiles = sources.scss;
         return task;
     }
     buildCopyAssetsTask(dest, name) {
@@ -100,6 +101,13 @@ class MayflowerTaskRegistry extends DefaultRegistry {
                 .pipe(self.debug(name));
         };
         task.displayName = name;
+        task.watchFiles = [
+            config.sources.images,
+            config.sources.fonts,
+            config.sources.data,
+            config.sources.templates,
+            config.sources.modernizr
+        ]
         return task;
     }
     buildCopyPatternsTask(dest, name) {
@@ -108,6 +116,7 @@ class MayflowerTaskRegistry extends DefaultRegistry {
             .pipe(gulp.dest(dest))
             .pipe(this.debug(name));
         task.displayName = name;
+        task.watchFiles = config.sources.patterns;
         return task;
     }
     buildJSVendorTask(dest, name) {
@@ -126,6 +135,7 @@ class MayflowerTaskRegistry extends DefaultRegistry {
             .pipe(gulp.dest(dest))
             .pipe(this.debug(name));
         task.displayName = name;
+        task.watchFiles = config.sources.js;
         return task;
     }
 
