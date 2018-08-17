@@ -75,9 +75,9 @@ jobs:
       - image: circleci/python:2.7.14
     steps:
       - attach_workspace: {at: /home/circleci}
+      - *no_host_check
       - add_ssh_keys
       - *configure_git
-      - *no_host_check
       - *install_aws
       - run:
           name: 'Deploy Artifact Branch'
@@ -110,9 +110,9 @@ jobs:
       - image: circleci/python:2.7.14
     steps:
       - attach_workspace: {at: /home/circleci}
+      - *no_host_check
       - add_ssh_keys
       - *configure_git
-      - *no_host_check
       - *configure_npm
       - *install_aws
       - run:
