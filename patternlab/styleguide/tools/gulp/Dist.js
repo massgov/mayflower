@@ -1,7 +1,13 @@
 /**
  * This is a Gulp Task Registry.
  *
- * It contains the tasks and logic for building compiled assets.
+ * This file defines a multistage build with the following stages:
+ *
+ * Stage 1: Compile CSS/JS and copy assets to an intermediate directory (dist).
+ * Stage 2: Copy all dist assets into the patternlab directory and build patternlab.
+ *
+ * The dist directory is what we base our composer package on, and it is in the same
+ * general structure as what gets copied into the patternlab public directory.
  */
 
 const MayflowerRegistry = require('./Base');
