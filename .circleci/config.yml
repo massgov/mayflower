@@ -71,7 +71,7 @@ jobs:
   patternlab_deploy_branch:
     <<: *patternlab_defaults
     steps:
-      - attach_workspace: {at: ~/repo}
+      - attach_workspace: {at: /var/www/code}
       - *no_host_check
       - add_ssh_keys
       - *configure_git
@@ -101,7 +101,7 @@ jobs:
   patternlab_deploy_tag:
     <<: *patternlab_defaults
     steps:
-      - attach_workspace: {at: ~/repo}
+      - attach_workspace: {at: /var/www/code}
       - *no_host_check
       - add_ssh_keys
       - *configure_git
