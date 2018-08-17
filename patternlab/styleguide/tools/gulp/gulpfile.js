@@ -40,7 +40,9 @@ const defaults = {
         scss: path.resolve(source, "assets/scss/**/*.scss"),
         // Extra files to add to the artifact.
         distFiles: [
-            path.resolve(source, '_dist/artifact/**'),
+            path.resolve(source, '_dist/*'),
+            // Hidden files too.
+            path.resolve(source, '_dist/.*'),
             path.resolve(root, 'package.json')
         ]
     },
