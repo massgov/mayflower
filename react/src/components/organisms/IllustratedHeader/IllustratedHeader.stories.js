@@ -52,14 +52,14 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     };
     return(
       <IllustratedHeader {...props}>
-        <hr />
         <div className="ma__page-header">
+         <div>
           <Button
-            theme="secondary"
-            outline
+            theme="primary"
             info="Learn more about SNAP path to work."
             text="learn more"
           />
+          </div>
         </div>
       </IllustratedHeader>);
   }));

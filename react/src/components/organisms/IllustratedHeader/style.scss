@@ -1,6 +1,21 @@
 .ma__illustrated-header--inverted {
-    background: rgb(67,149,111) !important;
+    .ma__page-header__title {
+     color: black;
+    }
+    .ma__illustrated-header__image{
+     width: 70%;
+     height: 460px;
+     top: -10px;
+    }
+    background: hsla(0,0%,100%,.9) !important;
     .ma__illustrated-header__content{
-      background: rgb(67,149,111) !important;
+      background: hsla(0,0%,100%,1.0) !important;
+      padding-left: 30px;
+      padding-right:10px;
+      position: absolute;
+      left: 0px;
+    }
+    .ma__page-header__title {
+      margin-bottom: 40px;
     }
 }
