@@ -85,10 +85,10 @@ jobs:
             git config core.bare false
             git branch --force "$CIRCLE_BRANCH" $(git show-ref -s "$CIRCLE_BRANCH" || git show-ref -s master)
             git symbolic-ref HEAD "refs/heads/$CIRCLE_BRANCH"
+            git add .
             if git diff-index --quiet HEAD; then
               echo "Nothing to commit"
             else
-              git add .
               git commit -m "Automated commit based on $CIRCLE_SHA1"
               git push origin "$CIRCLE_BRANCH"
             fi
@@ -115,10 +115,10 @@ jobs:
             git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
             git config core.bare false
             git symbolic-ref HEAD "refs/heads/master"
+            git add .
             if git diff-index --quiet HEAD; then
               echo "Nothing to commit"
             else
-              git add .
               git commit -m "Automated commit based on $CIRCLE_SHA1"
             fi
             git tag "$CIRCLE_TAG"
