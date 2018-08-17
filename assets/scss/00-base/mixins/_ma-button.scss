@@ -10,7 +10,12 @@
   @if($color == "transparent") {
     @include ma-button-base;
 
-    @if($size == "normal") {
+    @if($size == "small") {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+    // large
+    @if($size == "large") {
       font-size: 1.375rem;
       line-height: 1.61;
     }
