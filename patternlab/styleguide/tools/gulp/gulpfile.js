@@ -17,7 +17,8 @@ const defaults = {
         // The path of the Pattern Lab public directory.
         patternlab: path.resolve(root, "public"),
         // The path to the intermediate directory where artifacts
-        // are compiled.
+        // are compiled.  This can be any directory in the system,
+        // including the `mayflower-dev` folder of the Drupal site.
         dist: path.resolve(root, 'dist')
     },
     sources: {
