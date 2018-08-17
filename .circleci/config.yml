@@ -6,6 +6,8 @@ references:
     run: { name: 'Configure NPM', command: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'}
   configure_git: &configure_git
     run: {name: 'Prepare Git', command: 'git config --global user.email "ci.bot@mass.gov" && git config --global user.name "MassGov Bot"'}
+  no_host_check: &no_host_check
+    run: {name: 'Disable StrictHostKeyChecking', command: 'mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" > ~/.ssh/config'}
   install_aws: &install_aws
     run:
       name: 'Install AWS CLI'
@@ -75,6 +77,7 @@ jobs:
       - attach_workspace: {at: /home/circleci}
       - add_ssh_keys
       - *configure_git
+      - *no_host_check
       - *install_aws
       - run:
           name: 'Deploy Artifact Branch'
@@ -108,6 +111,7 @@ jobs:
       - attach_workspace: {at: /home/circleci}
       - add_ssh_keys
       - *configure_git
+      - *no_host_check
       - *configure_npm
       - *install_aws
       - run:
