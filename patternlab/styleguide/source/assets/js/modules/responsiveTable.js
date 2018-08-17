@@ -13,6 +13,7 @@ export default (function (window, document, $, undefined) {
   let responsiveTables = [];
 
   function setWidths(rt) {
+
     rt.$table
       .find("thead th")
       .each(function (i) {
@@ -23,8 +24,9 @@ export default (function (window, document, $, undefined) {
       });
 
     if (rt.$stickyHeader) {
-      // Set width of sticky table head.
-      rt.$stickyHeader.width(rt.$table.width());
+      // Set width of sticky table head to the width
+      // of the root container, and allow the table to widen..
+      rt.$stickyHeader.width(rt.$root.width());
     }
 
   }
@@ -32,7 +34,7 @@ export default (function (window, document, $, undefined) {
   function calcAllowance($table, $stickyHeader) {
     var a = 0;
     // Calculate allowance.
-    $table.find("tbody tr:lt(3)").each(function () {
+    $table.find("tbody tr:lt(3)").each(function() {
       a += $(this).height();
     });
 
@@ -62,37 +64,40 @@ export default (function (window, document, $, undefined) {
         let additionalOffset = 0;
 
         if (document.documentElement.clientWidth <= 825) {
-          const $jsStickyHeader = $('.js-sticky-header');
-          if ($jsStickyHeader) {
+          const $jsStickyHeader = $(".js-sticky-header");
+          if ($jsStickyHeader.length) {
             additionalOffset += $jsStickyHeader.height();
           }
         }
-        if ($(".js-scroll-anchors")[0] &&
+
+        if ($(".js-scroll-anchors").length &&
           $(".js-scroll-anchors").css("position") === "fixed" &&
           document.documentElement.clientWidth <= 765) {
           additionalOffset += $(".js-scroll-anchors").height();
         }
-
-        // When top of viewport is in the table itself.
-        rt.$stickyHeader.css({
-          opacity: 1,
-          top: $window.scrollTop() - rt.$table.offset().top + additionalOffset
-        });
-
-      }
-      else {
-        // When top of viewport is above or below table.
-        rt.$stickyHeader.css({
-          opacity: 0,
-          top: 0
-        });
       }
     }
 
-    let tableBottom = rt.$table.offset().top + rt.$table.height();
+    // Bottom of the responsive table container.
+    // Offset of the top of the responsive container
+    // +
+    // the height of the responsive table container
+    let tableBottom = rt.$root.offset().top + rt.$root.height();
+
+    // Position of the bottom of the viewport.
+    // Top scroll position of the window using .scrollTop()
+    // +
+    // the height of the window
     let scrolledBottom = $window.scrollTop() + $window.height();
+
+    // Check if the table width is greater than the width of the parent.
     let canScrollHorizontally = rt.$table.width() > rt.$table.parent().width();
-    rt.$root.toggleClass('has-horizontal-scroll', canScrollHorizontally);
+    if (canScrollHorizontally) {
+      // If so, update class and set the width navbar,
+      // to the width of the parent.
+      rt.$root.toggleClass("has-horizontal-scroll", canScrollHorizontally);
+      rt.$root.find(".ma__table__horizontal-nav").width(rt.$table.parent().width());
+    }
 
     if (
         canScrollHorizontally &&
@@ -100,12 +105,10 @@ export default (function (window, document, $, undefined) {
         !visibleParams.entirelyOutOfView &&
         scrolledBottom - rt.$table.offset().top > 100
       ) {
-      rt.$root.find(".ma__table__horizontal-nav").css({
-        bottom: (tableBottom - scrolledBottom) + 65
-      });
+      rt.$root.addClass("has-postitioned-navbar");
     }
     else {
-      rt.$root.find(".ma__table__horizontal-nav").css({ bottom: 0 });
+      rt.$root.removeClass("has-postitioned-navbar");
     }
   }
 
@@ -120,7 +123,7 @@ export default (function (window, document, $, undefined) {
 
     if (hasThead && hasTh && !isNestedThead) {
       $thead = $thead.clone();
-      $table.after('<table class="ma__table sticky-thead" />');
+      $table.after("<table class='ma__table sticky-thead' />");
 
       $stickyHeader = $element.find(".sticky-thead");
       $stickyHeader.append($thead);
@@ -168,10 +171,10 @@ export default (function (window, document, $, undefined) {
     let calcOperator;
 
     if (leftVisiblePercentage == 0) {
-      calcOperator = '-';
+      calcOperator = "-";
     }
     else {
-      calcOperator = '+';
+      calcOperator = "+";
     }
 
     rt.$root.find(".ma__scroll-indicator__button").css({
@@ -220,7 +223,7 @@ export default (function (window, document, $, undefined) {
 
   function handleBeginScrolling() {
     responsiveTables.forEach((rt) => {
-      rt.$root.addClass('is-scrolling');
+      rt.$root.addClass("is-scrolling");
     });
   }
 
@@ -231,8 +234,6 @@ export default (function (window, document, $, undefined) {
   }
 
   function scrollStartStop() {
-    var $this = $(this);
-
     if (Date.now() - lastScrollAt > 100) {
       handleBeginScrolling();
     }
@@ -279,9 +280,9 @@ export default (function (window, document, $, undefined) {
 
     function handleMouseUp() {
       // Remove listeners.
-      $('body')
-        .off('mousemove', handleMouseMove)
-        .off('mouseup', handleMouseUp);
+      $("body")
+        .off("mousemove", handleMouseMove)
+        .off("mouseup", handleMouseUp);
     }
 
     function handleMouseMove(e) {
@@ -292,12 +293,11 @@ export default (function (window, document, $, undefined) {
 
       $scrollContainer.scrollLeft($scrollContainer.scrollLeft() + newPosition.x - initialPosition.x);
     }
-
     // Attach to body so you don't get a
     // disconnected handler if you drag off the bar.
-    $('body')
+    $("body")
       .on("mouseup", handleMouseUp)
-      .on('mousemove', handleMouseMove);
+      .on("mousemove", handleMouseMove);
 
   }
 
@@ -329,7 +329,7 @@ export default (function (window, document, $, undefined) {
     });
 
     // Scroll indicator element.
-    $(".ma__scroll-indicator").on('click', handleScrollerClick);
+    $(".ma__scroll-indicator").on("click", handleScrollerClick);
 
     $(".ma__scroll-indicator__button")
       .on("mousedown", handleScrollerInteraction)
@@ -345,7 +345,7 @@ export default (function (window, document, $, undefined) {
   // fire on horizontal scroll of container as well.
   $(".ma__table--responsive__wrapper").on("scroll", throttle(handleScroll, 100));
 
-  $('.js-ma-responsive-table').each((i, el) => initializeTable(el));
+  $(".js-ma-responsive-table").each((i, el) => initializeTable(el));
 
   // Setup resize events.
   $window.on("resize", handleWindowResize);
@@ -356,7 +356,7 @@ export default (function (window, document, $, undefined) {
   $window.on("scroll", handleScroll);
 
   // @todo - Clean this up to be cleaner.
-  $(document).on('scroll', scrollStartStop);
+  $(document).on("scroll", scrollStartStop);
 
   // Setup scrollbar handlers.
   scrollbarEventHandlers();

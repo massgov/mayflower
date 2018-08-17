@@ -14,33 +14,39 @@
     position: relative;
     padding-bottom: 50px;
 }
+
 .ma__table--responsive .sticky-thead {
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 50;
-    width: auto; /* Prevent table from stretching to full size */
     background: #fff;
     border-collapse: collapse;
     box-shadow: 0 0 0 2px #dcdcdc;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    // Prevent table from stretching to full size.
+    width: auto;
+    z-index: 50;
 
     &:before {
+        background: white;
         content: '';
-        position: absolute;
+        height: 100vh;
         left: 0;
+        position: absolute;
         right: 0;
         top: -100vh;
-        height: 100vh;
-        background: white;
         z-index: -1;
     }
 }
 
-.ma__table--responsive .sticky-thead {
-    z-index: 50;
-    width: 100%; /* Force stretch */
+.ma__table--responsive.has-top-visible .sticky-thead {
+    left: auto;
+    opacity: 1;
+    position: fixed;
+    right: auto;
+    top: 0;
 }
+
 .ma__table--responsive td,
 .ma__table--responsive th {
     box-sizing: border-box;
@@ -61,32 +67,52 @@
 }
 
 .ma__table__horizontal-nav {
-    position: absolute;
-    left: 0;
-    right: 0;
-    background:white;
-    z-index: 50;
+    align-items: center;
+    background-color:white;
+    background-color: lime;
+    border-top: 2px solid #dcdcdc;
+    bottom: 0;
+    display: none;
     height: 50px;
     justify-content: space-between;
-    align-items: center;
-    display: none;
-    border-top: 2px solid #dcdcdc;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 50;
 
     &:after {
-        content: '';
-        position: absolute;
+        background: red;
+        //content: '';
+        height: 100vh;
         left: 0;
+        position: absolute;
         right: 0;
         top: 0;
-        height: 100vh;
         z-index: -1;
-        background: white;
     }
 
+    // Native position is at the bottom of the responsive container;
+    // so show the bar.
     .has-horizontal-scroll & {
         display: flex;
     }
 
+    // Bottom is visble, anchor it.
+    .has-horizontal-scroll.has-bottom-visible & {
+        bottom: 0;
+        left: auto;
+        position: fixed;
+        right: auto;
+    }
+
+    // If all 3 pass, show the navbar fixed to the viewport.
+    .has-horizontal-scroll.has-bottom-visible.has-postitioned-navbar & {
+    }
+
+    .is-out-of-view.has-bottom-visible &,
+    .is-out-of-view.has-top-visible & {
+        display: none;
+    }
 
     button {
         background:none;
