@@ -43,11 +43,13 @@ class DistRegistry extends MayflowerRegistry {
         css.watchFiles = config.sources.scss;
         const assets = task('assets', () => {
             var pipes = [
+                gulp.src(sources.distFiles).pipe(gulp.dest(this.resolveDist())),
                 gulp.src(sources.images).pipe(gulp.dest(this.resolveDist('assets/images'))),
                 gulp.src(sources.fonts).pipe(gulp.dest(this.resolveDist('assets/fonts'))),
                 gulp.src(sources.data).pipe(gulp.dest(this.resolveDist('assets/data'))),
                 gulp.src(sources.templates).pipe(gulp.dest(this.resolveDist('assets/templates'))),
                 gulp.src(sources.modernizr).pipe(gulp.dest(this.resolveDist('assets/js/vendor'))),
+                gulp.src(sources.patterns).pipe(gulp.dest(this.resolveDist('twig')))
             ];
             return merge(pipes);
         });
@@ -66,12 +68,11 @@ class DistRegistry extends MayflowerRegistry {
         });
         js.watchFiles = sources.js;
 
-        taker.task('dist:build', taker.parallel(
-            clean,
+        taker.task('dist:build', taker.series(clean, taker.parallel(
             css,
             js,
             assets
-        ));
+        )))
         taker.task('dist:watch', taker.series('dist:build', task('watcher', () => {
             taker.watch(css.watchFiles, css);
             taker.watch(js.watchFiles, js);
@@ -121,7 +122,7 @@ class DistRegistry extends MayflowerRegistry {
         if(!this.config.dest.dist) {
             throw new Error("Please set config.dest.dist");
         }
-        return subPath ? path.resolve(this.config.dest.dist, subPath) : this.config.dest.artifact;
+        return subPath ? path.resolve(this.config.dest.dist, subPath) : this.config.dest.dist;
     }
     resolvePatternlab(subPath) {
         if(!this.config.dest.patternlab) {
