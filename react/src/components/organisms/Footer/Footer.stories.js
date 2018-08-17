@@ -10,12 +10,18 @@ import FooterLinksData from '../../molecules/FooterLinks/FooterLinks.json';
 import SocialLinksData from '../../molecules/SocialLinks/SocialLinks.json';
 import FooterLinksLiveData from '../../molecules/FooterLinks/FooterLinksLive.json';
 import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.json';
+import stateSeal from '../../../../../assets/images/stateseal.png';
+
 
 storiesOf('organisms/Footer', module).addDecorator(withKnobs)
   .add('Footer', withInfo({ FooterReadme })(() => {
     const props = {
       footerLinks: object('footer.footerLinksData', FooterLinksData),
       socialLinks: object('footer.socialLinksData', SocialLinksData),
+      footerLogo: object('footer.footerLogo', {
+        src: stateSeal,
+        altText: 'Massachusetts State Seal'
+      }),
       footerText: object('footer.footerText', {
         copyright: '2018 Commonwealth of Massachusetts.',
         description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',

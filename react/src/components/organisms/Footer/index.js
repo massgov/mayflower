@@ -7,7 +7,7 @@ import SocialLinks from '../../molecules/SocialLinks';
 import SvgArrow from '../../atoms/icons/SvgArrow';
 
 const Footer = ({
-  footerLinks, socialLinks, backToTopButton, footerText
+  footerLinks, socialLinks, backToTopButton, footerText, footerLogo
 }) => (
   <footer className="ma__footer js-footer" id="footer">
     <div className="ma__footer__container">
@@ -16,7 +16,7 @@ const Footer = ({
       </div>
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
-          <img src={stateSeal} alt="Massachusetts State Seal" width="120" height="120" />
+          <img src={footerLogo.src} alt={footerLogo.altText} width="120" height="120" />
         </div>
         <div className="ma__footer__social">
           <SocialLinks {...socialLinks} />
@@ -44,7 +44,14 @@ Footer.propTypes = {
   socialLinks: PropTypes.shape(SocialLinks.propTypes).isRequired,
   /** A floating button on the lower right corner which onClick takes user to the top of the page. */
   backToTopButton: PropTypes.bool,
-  /** Adds a link to the privacy policy page of the site */
+  /** Adds footer logo */
+  footeLogo: PropTypes.shape({
+    /** logo image source url */
+    src: PropTypes.string,
+    /** logo image alt text */
+    altText: PropTypes.string
+  }),
+  /** Adds footer info section */
   footerText: PropTypes.shape({
     /** Bolded copyright info starting with © */
     copyright: PropTypes.string,
@@ -60,6 +67,10 @@ Footer.propTypes = {
 
 Footer.defaultProps = {
   backToTopButton: false,
+  footerLogo: {
+    src: stateSeal,
+    altText: 'Massachusetts State Seal'
+  },
   footerText: {
     copyright: `${moment().year()} Commonwealth of Massachusetts.`,
     description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
