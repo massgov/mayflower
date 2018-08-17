@@ -20,8 +20,12 @@
         {% include "@molecules/results-heading.twig" %}
         {% set promoHeading = locationListing.imagePromos.promoHeading %}
         {% set items = locationListing.imagePromos.items[:maxItems] %}
-        {% set imagePromos = { promoHeading: promoHeading, items: items } %}
-        {% include "@organisms/by-author/image-promos.twig" %}
+
+        {% block imagePromos %}
+          {% set imagePromos = { promoHeading: promoHeading, items: items } %}
+          {% include "@organisms/by-author/image-promos.twig" %}
+        {% endblock %}
+
         {% set pagination = locationListing.pagination %}
         {% include "@molecules/pagination.twig" %}
       </div>
