@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/massgov/mayflower#readme",
   "devDependencies": {
-    "babelify": "^8.0.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
     "browser-sync": "^2.24.6",
     "browserify": "^16.1.1",
     "child-process-promise": "^2.2.1",
@@ -50,11 +50,12 @@
     "merge-stream": "^1.0.1",
     "node-bourbon": "^4.2.8",
     "node-neat": "^1.7.2",
-    "node-sass": "^4.9.2",
     "node-normalize-scss": "^8.0.0",
+    "node-sass": "^4.9.2",
     "optimist": "^0.6.1",
     "through2": "^2.0.3",
-    "undertaker-registry": "^1.0.1"
+    "undertaker-registry": "^1.0.1",
+    "untildify": "^3.0.3"
   },
   "dependencies": {},
   "scripts": {

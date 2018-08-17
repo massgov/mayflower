@@ -34,7 +34,7 @@ class DistRegistry extends MayflowerRegistry {
         const {config} = this;
         const {sources} = config;
 
-        const clean = task('clean', () => del(self.resolveDist()));
+        const clean = task('clean', () => del(self.resolveDist(), {force: true}));
         const css = task('css', () => gulp.src(sources.scss)
                 .pipe(cssPipe(config.minify, config.root))
                 .pipe(gulp.dest(self.resolveDist('assets/css'))),

@@ -1,6 +1,7 @@
 const argv = require("optimist").argv;
 const path = require("path");
 const gulp = require("gulp");
+const untildify = require('untildify');
 
 const DistRegistry = require("./Dist");
 
@@ -12,19 +13,11 @@ const defaults = {
     root: root,
     source: source,
     production: process.env.NODE_ENV === "production",
-
-    // Determines the base domain used when building Pattern Lab.
-    baseDomain: "https://mayflower.digital.mass.gov/",
-    // Determines where we git push and pull the artifact from
-    artifactUrl: "git@github.com:massgov/mayflower-artifacts.git",
-    s3Bucket: process.env.AWS_BUCKET,
     dest: {
-        // The path the artifact is built to.
-        artifact: path.resolve(root, "artifact"),
-        // The path the NPM package is built to.
-        npm: path.resolve(root, "npm"),
         // The path of the Pattern Lab public directory.
         patternlab: path.resolve(root, "public"),
+        // The path to the intermediate directory where artifacts
+        // are compiled.
         dist: path.resolve(root, 'dist')
     },
     sources: {
@@ -55,6 +48,10 @@ const defaults = {
     // Toggle minification of CSS and JS.
     minify: true
 };
+
+if(argv.dist) {
+    defaults.dest.dist = untildify(argv.dist);
+}
 
 gulp.registry(new DistRegistry(defaults, argv));
 
