@@ -18,6 +18,7 @@ const merge = require('merge-stream');
 const mainBowerFiles = require('main-bower-files');
 const browserSync    = require("browser-sync");
 const del = require('del');
+const filter = require('gulp-filter');
 
 const e = require("./helpers/escape");
 const cssPipe = require('./pipelines/css');
@@ -54,7 +55,7 @@ class DistRegistry extends DefaultRegistry {
                 gulp.src(sources.data).pipe(gulp.dest(this.resolveDist('assets/data'))),
                 gulp.src(sources.templates).pipe(gulp.dest(this.resolveDist('assets/js/templates'))),
                 gulp.src(sources.modernizr).pipe(gulp.dest(this.resolveDist('assets/js/vendor'))),
-                gulp.src(sources.patterns).pipe(gulp.dest(this.resolveDist('twig')))
+                gulp.src(sources.patterns).pipe(filter('**/*.twig')).pipe(gulp.dest(this.resolveDist('twig')))
             ];
             return merge(pipes);
         });
