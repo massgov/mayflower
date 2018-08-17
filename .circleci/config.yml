@@ -16,6 +16,11 @@ react_defaults: &react_defaults
   docker:
     - image: circleci/node:8.9.4
 
+patternlab_defaults: &patternlab_defaults
+  working_directory: /var/www/code
+  docker:
+    - image: massgov/drupal-container:1.0.8-ci
+
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
@@ -23,9 +28,7 @@ backstop_defaults: &backstop_defaults
 
 jobs:
   patternlab_build:
-    working_directory: /var/www/code
-    docker:
-      - image: massgov/drupal-container:1.0.8-ci
+    <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
@@ -66,13 +69,12 @@ jobs:
           path: patternlab/backstopjs/reports/ci
 
   patternlab_deploy_branch:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace: {at: ~/repo}
       - *no_host_check
       - add_ssh_keys
       - *configure_git
-      - *install_aws
       - run:
           name: 'Deploy Artifact Branch'
           command: |
@@ -97,14 +99,13 @@ jobs:
           command: aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/b/$CIRCLE_BRANCH"
 
   patternlab_deploy_tag:
-    <<: *react_defaults
+    <<: *patternlab_defaults
     steps:
       - attach_workspace: {at: ~/repo}
       - *no_host_check
       - add_ssh_keys
       - *configure_git
       - *configure_npm
-      - *install_aws
       - run:
           name: 'Deploy Artifact Tag'
           command: |
