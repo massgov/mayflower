@@ -24,7 +24,11 @@ storiesOf('organisms/Footer', module).addDecorator(withKnobs)
     const props = {
       footerLinks: object('footer.footerLinksLiveData', FooterLinksLiveData),
       socialLinks: object('footer.socialLinksLiveData', SocialLinksLiveData),
-      privacyPolicy: text('footer.privacyPolicy', 'https://www.mass.gov/privacypolicy')
+      footerText: {
+        copyright: text('footer.copyright'),
+        description: text('footer.description'),
+        privacyPolicy: text('footer.privacyPolicy')
+      }
     };
     return(<Footer {...props} />);
   }));

@@ -20,7 +20,7 @@ const Footer = (footer) => (
           <SocialLinks {...footer.socialLinks} />
         </div>
         <div className="ma__footer__copyright">
-          <p><b>&copy; {moment().year()} Commonwealth of Massachusetts.</b></p>
+          <p><b>&copy; </b></p>
           <p>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts.</p>
           <a href={footer.privacyPolicy}>Mass.gov Privacy Policy</a>
         </div>
@@ -43,12 +43,23 @@ Footer.propTypes = {
   /** A floating button on the lower right corner which onClick takes user to the top of the page. */
   backToTopButton: PropTypes.bool,
   /** Adds a link to the privacy policy page of the site */
-  privacyPolicy: PropTypes.string
+  footerText: PropTypes.shape({
+    /** Bolded copyright info starting with © */
+    copyright: PropTypes.string
+    /** Descriptive info below copyright */
+    description: PropTypes.string
+    /** A link to the privacy policy page of the site */
+    privacyPolicy: PropTypes.string
+  })
 };
 
 Footer.defaultProps = {
   backToTopButton: false,
-  privacyPolicy: 'https://www.mass.gov/privacypolicy'
+  footerText: {
+    copyright: `${moment().year()} Commonwealth of Massachusetts.`,
+    description: 'Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts.',
+    privacyPolicy: 'https://www.mass.gov/privacypolicy'
+  } 
 };
 
 export default Footer;
