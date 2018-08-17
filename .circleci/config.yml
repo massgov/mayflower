@@ -27,7 +27,7 @@ jobs:
   patternlab_build:
     working_directory: /var/www/code
     docker:
-      - image: massgov/drupal-container:1.0.6-ci
+      - image: massgov/drupal-container:1.0.8-ci
     steps:
       - checkout
       - restore_cache:
