@@ -2,9 +2,6 @@ const argv = require("optimist").argv;
 const path = require("path");
 const gulp = require("gulp");
 
-const PatternLabRegistry = require("./PatternLab");
-const ArtifactsRegistry = require("./Artifacts");
-const NPMRegistry = require("./NPM");
 const DistRegistry = require("./Dist");
 
 const root = path.resolve(__dirname, "../../");
@@ -48,7 +45,10 @@ const defaults = {
         // The following paths will be run through SASS.
         scss: path.resolve(source, "assets/scss/**/*.scss"),
         // Extra files to add to the artifact.
-        distFiles: path.resolve(source, '_dist/artifact/**'),
+        distFiles: [
+            path.resolve(source, '_dist/artifact/**'),
+            path.resolve(root, 'package.json')
+        ]
     },
     // Show verbose output in tasks.
     verbose: false,
@@ -56,14 +56,7 @@ const defaults = {
     minify: true
 };
 
-// gulp.registry(new PatternLabRegistry(defaults, argv));
-// gulp.registry(new NPMRegistry(defaults, argv));
-// gulp.registry(new ArtifactsRegistry(defaults, argv));
 gulp.registry(new DistRegistry(defaults, argv));
-
-// @todo: Do we need svg2twig?
-// @todo: Do we need the svg-sprite task?
-
 
 gulp.task("default", gulp.series("patternlab:serve"));
 gulp.task("prod", gulp.series("patternlab:build"));
