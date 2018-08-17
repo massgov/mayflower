@@ -16,7 +16,14 @@ storiesOf('organisms/Footer', module).addDecorator(withKnobs)
     const props = {
       footerLinks: object('footer.footerLinksData', FooterLinksData),
       socialLinks: object('footer.socialLinksData', SocialLinksData),
-      privacyPolicy: text('footer.privacyPolicy', '')
+      footerText: object('footer.footerText', {
+        copyright: '2018 Commonwealth of Massachusetts.',
+        description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
+        privacyPolicy: {
+          text: 'Mass.gov Privacy Policy',
+          url: 'https://www.mass.gov/privacypolicy'
+        }
+      })
     };
     return(<Footer {...props} />);
   }))
