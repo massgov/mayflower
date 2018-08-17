@@ -21,7 +21,6 @@ const cssPipe = require('./pipelines/css');
 const jsPipe = require('./pipelines/js');
 const merge = require('merge-stream');
 const mainBowerFiles = require('main-bower-files');
-const debug = require('gulp-debug');
 
 const task = function(name, cb, watch) {
     cb.displayName = name;
@@ -82,8 +81,7 @@ class DistRegistry extends MayflowerRegistry {
         const doPL = this.buildPatternlabTask();
         const doPLCopy = function() {
             return gulp.src(self.resolveDist('**'))
-                .pipe(gulp.dest(self.resolvePatternlab()))
-                .pipe(debug({name: 'patternlab:copy-dist'}));
+                .pipe(gulp.dest(self.resolvePatternlab()));
         }
         doPLCopy.watchFiles = self.resolveDist('**');
 
@@ -98,14 +96,15 @@ class DistRegistry extends MayflowerRegistry {
                 reloadDelay: 200,
                 server: self.resolvePatternlab()
             });
-            taker.watch(css.watchFiles, css);
-            taker.watch(js.watchFiles, js);
-            taker.watch(assets.watchFiles, assets);
-            // There are only two things that can cause an update the Patternlab output:
-            // The Patternlab Copy job (includes anything in dist).
-            taker.watch(doPLCopy.watchFiles, doPLCopy).on('change', sync.reload);
-            // Patternlab template changes.
-            taker.watch(doPL.watchFiles, doPL).on('change', sync.reload);
+            const reload = (done) => {
+                console.log(sync.reload());
+                done();
+            }
+            const copyAndReload = () => gulp.series(doPLCopy, reload)
+            taker.watch(css.watchFiles, gulp.series(css, copyAndReload));
+            taker.watch(js.watchFiles, gulp.series(js, copyAndReload));
+            taker.watch(assets.watchFiles, gulp.series(assets, copyAndReload));
+            taker.watch(doPL.watchFiles, gulp.series(doPL, reload));
         })));
     }
     buildPatternlabTask() {
