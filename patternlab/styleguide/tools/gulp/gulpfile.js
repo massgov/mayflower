@@ -1,4 +1,4 @@
-const argv = require("optimist").argv;
+const {argv} = require("optimist");
 const path = require("path");
 const gulp = require("gulp");
 const untildify = require('untildify');

@@ -10,17 +10,19 @@
  * general structure as what gets copied into the patternlab public directory.
  */
 
-const MayflowerRegistry = require('./Base');
+const DefaultRegistry = require("undertaker-registry");
 const path = require('path');
 const gulp = require('gulp');
-const exec = require("child-process-promise").exec;
-const e = require("./helpers/escape");
-const browserSync    = require("browser-sync");
-const del = require('del');
-const cssPipe = require('./pipelines/css');
-const jsPipe = require('./pipelines/js');
+const {exec} = require("child-process-promise");
 const merge = require('merge-stream');
 const mainBowerFiles = require('main-bower-files');
+const browserSync    = require("browser-sync");
+const del = require('del');
+
+const e = require("./helpers/escape");
+const cssPipe = require('./pipelines/css');
+const jsPipe = require('./pipelines/js');
+
 
 const task = function(name, cb, watch) {
     cb.displayName = name;
@@ -28,7 +30,11 @@ const task = function(name, cb, watch) {
     return cb;
 }
 
-class DistRegistry extends MayflowerRegistry {
+class DistRegistry extends DefaultRegistry {
+    constructor(config) {
+        super();
+        this.config = config
+    }
     init(taker) {
         const self = this;
         const {config} = this;
@@ -111,11 +117,17 @@ class DistRegistry extends MayflowerRegistry {
         const self = this;
         let task = () => {
             let opts = {verbose: 3};
-            return exec(`php ${e(self.resolve("core/console"))} --generate --patternsonly`, opts);
+            return exec(`php ${e(self.resolveRoot("core/console"))} --generate --patternsonly`, opts);
         };
         task.watchFiles = [this.config.sources.patterns];
         task.displayName = "patternlab:patterns";
         return task;
+    }
+    resolveRoot(subPath) {
+        if(!this.config.root) {
+            throw new Error("Unable to determine root directory!");
+        }
+        return subPath ? path.resolve(this.config.root, subPath) : this.config.root;
     }
     resolveDist(subPath) {
         if(!this.config.dest.dist) {
