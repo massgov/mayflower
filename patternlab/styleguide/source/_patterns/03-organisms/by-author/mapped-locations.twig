@@ -1,27 +1,32 @@
-{% set modClass = mappedLocations.contained ? 'ma__mapped-locations--contained' : '' %}
-<section class="ma__mapped-locations {{ modClass }}">
-  {% if mappedLocations.compHeading or mappedLocations.link %}
+<section class="ma__mapped-locations">
+  {% if mappedLocations.compHeading %}
     <div class="ma__mapped-locations__header">
       {% if mappedLocations.compHeading %}
        {% set compHeading = mappedLocations.compHeading %}
        {% include "@atoms/04-headings/comp-heading.twig" %}
       {% endif %}
-      {% if mappedLocations.link and not mappedLocations.contained %}
-        <div class="ma__mapped-locations__link">
-          {% set decorativeLink = mappedLocations.link %}
-          {% include "@atoms/decorative-link.twig" %}
+    </div>
+  {% endif %}
+  {% if mappedLocations.googleMap %}
+    <div class="ma__mapped-locations__map">
+      {% set googleMap = mappedLocations.googleMap %}
+      {% include "@molecules/google-map.twig" %}
+    </div>
+  {% endif %}
+  {% if mappedLocations.paragraph or mappedLocations.button %}
+    <div class="ma__mapped-locations__aside">
+      {% if mappedLocations.paragraph %}
+        <div class="ma__mapped-locations__info">
+          {% set paragraph = mappedLocations.paragraph %}
+          {% include "@atoms/11-text/paragraph.twig" %}
+        </div>
+      {% endif %}
+      {% if mappedLocations.button %}
+        <div class="ma__mapped-locations__button">
+          {% set button = mappedLocations.button %}
+          {% include "@atoms/01-buttons/button.twig" %}
         </div>
       {% endif %}
     </div>
   {% endif %}
-  <div class="ma__mapped-locations__map">
-    {% if mappedLocations.link and mappedLocations.contained %}
-      <div class="ma__mapped-locations__link">
-        {% set decorativeLink = mappedLocations.link %}
-        {% include "@atoms/decorative-link.twig" %}
-      </div>
-    {% endif %}
-    {% set googleMap = mappedLocations.googleMap %}
-    {% include "@molecules/google-map.twig" %}
-  </div>
 </section>

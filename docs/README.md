@@ -10,7 +10,7 @@ The goals of Mayflower are:
 ## Implementations
 
 | Name | Distribution | Author/Maintainer | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- |
 | [**Mass.gov**](https://mass.gov) | Drupal | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower Patternlab |
 | [**Search.mass.gov**](https://search.mass.gov) | React + S3 | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower React |
 | [**RideShare Report**](https://mass.gov/rideshare) | React + S3 | EOTSS Digital Services Team | Mayflower React |
