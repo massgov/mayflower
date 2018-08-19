@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Image from '../../atoms/media/Image';
 import Paragraph from '../../atoms/text/Paragraph';
-import SvgPhone from '../../atoms/icons/SvgPhone';
+import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
 const ImagePromo = (props) => {
@@ -65,7 +65,7 @@ const ImagePromo = (props) => {
 
         {props.phone && (
           <div className="ma__image-promo__phone">
-            <SvgPhone />&nbsp;
+            <Icon name="phone" />&nbsp;
             {props.phone.href ? (
               <a href={`tel:${props.phone.href}`}>{props.phone.text}</a>
             ) : (

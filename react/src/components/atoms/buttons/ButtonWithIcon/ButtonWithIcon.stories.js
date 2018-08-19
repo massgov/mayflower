@@ -9,12 +9,11 @@ import ButtonWithIcon from '.';
 import buttonWithIconReadme from './ButtonWithIcon.md';
 import buttonWithIconOptions from './ButtonWithIcon.knob.options';
 
-import SvgSearch from '../../icons/SvgSearch';
-import SvgChevron from '../../icons/SvgChevron';
+import Icon from '../../icons/Icon';
 
 const icons = {
-  chevron: <SvgChevron />,
-  search: <SvgSearch />
+  chevron: <Icon name="chevron" />,
+  search: <Icon name="search" />
 };
 
 storiesOf('atoms/buttons', module)
