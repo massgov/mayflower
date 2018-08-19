@@ -37,7 +37,7 @@ module.exports = {
             use: [
               {
                 loader: 'svg-sprite-loader',
-                options: { extract: true }
+                options: { extract: true, spriteFilename: 'static/media/sprite.svg' }
               }
             ]
           }

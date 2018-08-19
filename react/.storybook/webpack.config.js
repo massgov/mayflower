@@ -22,7 +22,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
             use: [
               {
                 loader: 'svg-sprite-loader',
-                options: { extract: true }
+                options: { extract: true, spriteFilename: 'static/media/sprite.svg' }
               }
             ]
           }
@@ -34,6 +34,6 @@ module.exports = (baseConfig, env, defaultConfig) => {
     defaultConfig.plugins = [];
   }
   // This is required for svg-sprite-loader ONLY when you extract the sprite.
-  defaultConfig.plugins.push(new SpriteLoaderPlugin());
+  defaultConfig.plugins.push(new SpriteLoaderPlugin({plainSprite: true,}));
   return defaultConfig;
 };
