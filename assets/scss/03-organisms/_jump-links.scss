@@ -12,13 +12,13 @@
   }
 
   &__skip-link {
-    width: calc(100% - 420px);
+    width: 820px; // calc(100% - 500px);
     display: block;
     padding: 3px 14px;
 
     &:not(:focus) {
       @include ma-visually-hidden;
-      width: calc(100% - 420px);
+      width: 820px; // calc(100% - 500px);
     }
   }
 
