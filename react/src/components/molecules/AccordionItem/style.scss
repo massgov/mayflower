@@ -18,6 +18,24 @@
 
   &-header {
 
+    &__icon--secondary {
+      font-size: 2.5rem;
+      line-height: .65em;
+      position: absolute;
+        left: 5px;
+        top: 5px;
+      text-align: center;
+      overflow: hidden;
+      transform-origin: center center;
+      transition: transform .2s ease;
+      fill: $c-theme-secondary;
+      transform: rotate(-90deg);
+    }
+
+    &__icon--secondary + &__title--secondary {
+      padding-left: 0px;
+    }
+
     &__button {
       border: none;
       display: block;
@@ -28,22 +46,12 @@
       background-color: $c-bg-section;
 
       &--secondary {
+        display: block;
+        position: relative;
         width: 100%;
         text-align: left;
         border: none;
         padding-left: 35px;
-        .ma__accordion-header__icon--secondary {
-          font-size: 2.5rem;
-          line-height: .65em;
-          overflow: hidden;
-          position: absolute;
-            left: 5px;
-            top: 5px;
-          transform-origin: center center;
-          transition: transform .2s ease;
-          fill: $c-theme-secondary;
-          transform: rotate(-90deg);
-        }
         &.is-open {
           .ma__accordion-header__icon--secondary {
             transform: rotate(0deg);

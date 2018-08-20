@@ -45,7 +45,7 @@ class AccordionItem extends React.Component {
               </div>
             )}
             { this.props.secondary && (
-              <div className="ma__accordion-header__icon--secondary">
+              <div className={`ma__accordion-header__icon${secondaryClass}`}>
                 <SvgChevron />
               </div>
             )}

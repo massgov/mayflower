@@ -27,22 +27,26 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     const AccordionItem1Props = {
       title: text('accordion1.title', 'Collapsible Header One'),
       info: text('accordion1.info', 'Collapsible Header One'),
-      icon: select('accordion1.icon', Object.keys(icons), 'circlechevron'),
-      border: boolean('accordion1.border', true)
+      icon: select('accordion1.icon', Object.keys(icons), 'circlechevron')
     };
     const AccordionItem2Props = {
       title: text('accordion2.title', 'Collapsible Header Two'),
       info: text('accordion2.info', 'Collapsible Header Two'),
-      icon: select('accordion2.icon', Object.keys(icons), 'laptop'),
-      border: boolean('accordion2.border', true)
+      icon: select('accordion2.icon', Object.keys(icons), 'laptop')
     };
+    const AccordionWrapperProps = {
+      border: boolean('accordionWrapper.border', true),
+      secondary: boolean('accordionWrapper.secondary', true),
+      emphasize: boolean('accordionWrapper.emphasize', true),
+      headerLevel: select('accordionWrapper.headerLevel', [1,2,3,4,5,6], 2)
+    }
 
     // Set the icon prop to the actual element based on knob selection.
     AccordionItem1Props.icon = icons[AccordionItem1Props.icon];
     AccordionItem2Props.icon = icons[AccordionItem2Props.icon];
 
     return(
-      <AccordionWrapper>
+      <AccordionWrapper {...AccordionWrapperProps}>
         <AccordionItem {...AccordionItem1Props}>
           <Paragraph />
         </AccordionItem>

@@ -4,11 +4,18 @@ import './style.css';
 
 const AccordionWrapper = (props) => {
   const children = props.children;
+  console.log(props)
   return(
     <div className="ma__accordion-wrapper">
       { React.Children.map(children, (child) => {
         if (child.type.name === 'AccordionItem') {
-          return child;
+          const clone = React.cloneElement(child, {
+            secondary: props.secondary,
+            emphasize: props.emphasize,
+            border: props.border,
+            headerLevel: props.headerLevel
+          })
+          return clone;
         }
         return(
           /* eslint-disable no-console */
@@ -22,7 +29,22 @@ const AccordionWrapper = (props) => {
 
 AccordionWrapper.propTypes = {
   /** Only AccordionItem can be passed as a Child to the AccordionWrapper */
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  /** Whether accordion children are emphasized or not. */
+  emphasize: PropTypes.bool,
+  /** Whether accordion children are with border or not. */
+  border: PropTypes.bool,
+  /** Whether accordion is a primary or secondary accordion. */
+  secondary: PropTypes.bool,
+  /** The heading levels of children accordion */
+  headerLevel: PropTypes.number
+};
+
+AccordionWrapper.defaultProps = {
+  border: true,
+  emphasize: true,
+  secondary: false,
+  headerLevel: 2
 };
 
 export default AccordionWrapper;
