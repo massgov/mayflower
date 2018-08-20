@@ -21,8 +21,8 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0; /* Removes leftover margin */
 }
@@ -49,7 +49,7 @@ fieldset {
 // override if an input label combo is added directly to the page-content area
 // This is mainly for Pattern Lab
 .main-content .page-content > label:not(.ma__label--hidden) {
-  
+
   & + textarea,
   & + .ma__textarea__wrapper,
   & + .ma__input-number,
@@ -107,6 +107,7 @@ select,
 textarea {
   font-family: "Texta", "Helvetica", "Arial", "sans-serif";
   font-weight: 400;
+  font-size: 1.25rem;
 }
 
 input {
@@ -153,4 +154,3 @@ legend,
 label {
   font-weight: 500;
 }
-
