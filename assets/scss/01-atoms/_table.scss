@@ -6,6 +6,30 @@
 
 .ma__table {
     border-collapse: collapse;
+
+  th {
+    color: $c-font-detail;
+  }
+
+  @media ($bp-small-max) {
+    thead + tbody,
+    tbody:first-child {
+      border-top: 0;
+    }
+
+    td {
+
+      &:before {
+        color: $c-font-heading;
+        font-weight: 500;
+      }
+    }
+
+    th {
+      color: $c-font-heading;
+      background-color: $c-bg-subtle;
+    }
+  }
 }
 
 .ma__table--responsive__wrapper {
@@ -28,7 +52,7 @@
     z-index: 50;
 
     &:before {
-        background: white;
+        background: #fff;
         content: '';
         height: 100vh;
         left: 0;
@@ -40,11 +64,9 @@
 }
 
 .ma__table--responsive.has-top-visible .sticky-thead {
-    left: auto;
-    opacity: 1;
-    position: fixed;
-    right: auto;
-    top: 0;
+    // Force stretch.
+    width: 100%;
+    z-index: 50;
 }
 
 .ma__table--responsive td,
@@ -68,8 +90,7 @@
 
 .ma__table__horizontal-nav {
     align-items: center;
-    background-color:white;
-    background-color: lime;
+    background-color:#fff;
     border-top: 2px solid #dcdcdc;
     bottom: 0;
     display: none;
@@ -80,9 +101,9 @@
     right: 0;
     z-index: 50;
 
-    &:after {
-        background: red;
-        //content: '';
+    &::after {
+        background-color:#fff;
+        content: '';
         height: 100vh;
         left: 0;
         position: absolute;
@@ -103,10 +124,6 @@
         left: auto;
         position: fixed;
         right: auto;
-    }
-
-    // If all 3 pass, show the navbar fixed to the viewport.
-    .has-horizontal-scroll.has-bottom-visible.has-postitioned-navbar & {
     }
 
     .is-out-of-view.has-bottom-visible &,
@@ -147,7 +164,6 @@
             transform: translateY(-4px) translateX(-6px) rotate(-45deg);
         }
     }
-
 }
 
 .ma__scroll-indicator {
@@ -167,7 +183,6 @@
     }
 }
 
-//theme
 .ma__rich-text table,
 .ma__table {
   thead {
@@ -184,33 +199,6 @@
 
   tr + tr {
     border-color: $c-bd-divider;
-  }
-}
-
-.ma__table {
-
-  th {
-    color: $c-font-detail;
-  }
-
-  @media ($bp-small-max) {
-    thead + tbody,
-    tbody:first-child {
-      border-top: 0;
-    }
-
-    td {
-
-      &:before {
-        color: $c-font-heading;
-        font-weight: 500;
-      }
-    }
-
-    th {
-      color: $c-font-heading;
-      background-color: $c-bg-subtle;
-    }
   }
 }
 

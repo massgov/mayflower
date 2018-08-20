@@ -24,9 +24,8 @@ export default (function (window, document, $, undefined) {
       });
 
     if (rt.$stickyHeader) {
-      // Set width of sticky table head to the width
-      // of the root container, and allow the table to widen..
-      rt.$stickyHeader.width(rt.$root.width());
+      // Set width of sticky table head.
+      rt.$stickyHeader.width(rt.$table.width());
     }
 
   }
@@ -34,7 +33,7 @@ export default (function (window, document, $, undefined) {
   function calcAllowance($table, $stickyHeader) {
     var a = 0;
     // Calculate allowance.
-    $table.find("tbody tr:lt(3)").each(function() {
+    $table.find("tbody tr:lt(2)").each(function() {
       a += $(this).height();
     });
 
@@ -65,16 +64,29 @@ export default (function (window, document, $, undefined) {
 
         if (document.documentElement.clientWidth <= 825) {
           const $jsStickyHeader = $(".js-sticky-header");
-          if ($jsStickyHeader.length) {
+          if ($jsStickyHeader) {
             additionalOffset += $jsStickyHeader.height();
           }
         }
-
-        if ($(".js-scroll-anchors").length &&
+        if ($(".js-scroll-anchors")[0] &&
           $(".js-scroll-anchors").css("position") === "fixed" &&
           document.documentElement.clientWidth <= 765) {
           additionalOffset += $(".js-scroll-anchors").height();
         }
+
+        // When top of viewport is in the table itself.
+        rt.$stickyHeader.css({
+          opacity: 1,
+          top: $window.scrollTop() - rt.$table.offset().top + additionalOffset
+        });
+
+      }
+      else {
+        // When top of viewport is above or below table.
+        rt.$stickyHeader.css({
+          opacity: 0,
+          top: 0
+        });
       }
     }
 
