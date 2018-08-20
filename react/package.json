@@ -34,7 +34,6 @@
     "lint"
   ],
   "dependencies": {
-    "@massds/mayflower": "^6.2.2",
     "autosuggest-highlight": "^3.1.1",
     "moment": "^2.21.0",
     "object.entries": "^1.0.4",
