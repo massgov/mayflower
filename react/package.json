@@ -2,7 +2,7 @@
   "name": "@massds/mayflower-react",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "0.43.2",
+  "version": "6.2.2",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -12,8 +12,11 @@
     "umd"
   ],
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/",
-    "watch-css": "node-sass-chokidar --include-path ./src/components/styles src/ -o src/ --watch",
+    "backstop-atoms": "docker-compose run backstop test --atoms",
+    "backstop-other": "docker-compose run backstop test",
+    "backstop": "npm-run-all backstop-atoms backstop-other",
+    "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ -o src/",
+    "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ -o src/ --watch",
     "build-nwb": "nwb build-react-component --copy-files",
     "build": "npm-run-all build-css build-nwb",
     "clean": "nwb clean-module",
@@ -31,7 +34,7 @@
     "lint"
   ],
   "dependencies": {
-    "@massds/mayflower": "^5.25.0",
+    "@massds/mayflower": "^6.2.2",
     "autosuggest-highlight": "^3.1.1",
     "moment": "^2.21.0",
     "object.entries": "^1.0.4",
@@ -55,13 +58,13 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
+    "node-sass-chokidar": "^1.2.2",
+    "npm-run-all": "^4.1.2",
     "nwb": "0.21.x",
     "pre-push": "^0.1.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "node-sass-chokidar": "^1.2.2",
-    "npm-run-all": "^4.1.2"
+    "react-dom": "^16.2.0"
   },
   "homepage": "",
   "license": "MIT",

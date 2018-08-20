@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   let $footer = $('.js-footer'),
       visibleThreshold = 250,
       staticThreshold = 50;
@@ -32,4 +32,4 @@ export default function (window,document,$,undefined) {
     });
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);

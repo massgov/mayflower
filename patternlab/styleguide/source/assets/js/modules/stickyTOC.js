@@ -1,9 +1,9 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.pre-content .ma__sticky-toc').each(function() {
     const $toc = $('.ma__sticky-toc'),
           $tocContent = $('.ma__sticky-toc__links'),
-          $tocSections = $('.ma__information-details .page-content, .ma__stacked-row-section__container .ma__stacked-row-section__title').find('h2'),
+          $tocSections = $('.pre-content').next().find('.ma__comp-heading'),
           lastHeading = $tocSections.last().text(),
           tocSectionCount = $tocSections.length,
           $tocColumn = $('.ma__sticky-toc__column'),
@@ -13,7 +13,7 @@ export default function (window,document,$,undefined) {
           $stickyToc = $('.ma__sticky-toc__current-section'),
           minSectionsToShow = $toc.data('min-to-show');
 
-    // // Remove wrapper if not enough links.
+    // Remove wrapper if not enough links.
     if (minSectionsToShow && (tocSectionCount < minSectionsToShow) || !minSectionsToShow && tocSectionCount < 3 ) {
       $toc.remove();
     }
@@ -157,5 +157,4 @@ export default function (window,document,$,undefined) {
       menuToggle();
     });
   });
-}
-(window,document,jQuery);
+})(window,document,jQuery);

@@ -1,5 +1,5 @@
 import slugify from "../helpers/slugify.js";
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.js-ma-rich-text').each(function(index){
     let $el = $(this),
@@ -34,5 +34,4 @@ export default function (window,document,$,undefined) {
       });
     }
   });
-}
-(window,document,jQuery);
+})(window,document,jQuery);
