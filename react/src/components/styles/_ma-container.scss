@@ -1,7 +1,7 @@
-// Mixin also accpets a reduced width version 
+// Mixin also accpets a reduced width version
 // to limit the number of characters per line
 // @include ma-container('restricted')
-@import "breakpoints";
+@import "global";
 
 @mixin ma-container($narrow:'') {
   margin-right: auto;
