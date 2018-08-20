@@ -45,7 +45,7 @@ Footer.propTypes = {
   /** A floating button on the lower right corner which onClick takes user to the top of the page. */
   backToTopButton: PropTypes.bool,
   /** Adds footer logo */
-  footeLogo: PropTypes.shape({
+  footerLogo: PropTypes.shape({
     /** logo image source url */
     src: PropTypes.string,
     /** logo image alt text */
