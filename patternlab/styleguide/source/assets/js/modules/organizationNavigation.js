@@ -79,12 +79,12 @@ export default (function (window,document,$,undefined) {
       let $buttonParent = $button.parent('li');
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
 
-      $button.add($thisMenu).on('mouseover', function() {
+      $button.add($thisMenu).on('mouseenter mouseleave', function() {
         let windowWidth = $(window).width();
 
         if(windowWidth > mobileBreak) {
           $('.section-toggle').remove();
-          $buttonParent.toggleClass('item-open');
+          $buttonParent.add($thisMenu).toggleClass('item-open');
         }
         else {
           return false;
@@ -122,7 +122,6 @@ export default (function (window,document,$,undefined) {
       let $seeAll = $button.parent().find('.ma__link-list__see-all');
       if (windowWidth < mobileBreak) {
         $button.on( 'click', function() {
-          console.log('hi');
           $button.toggleClass('item-open');
           $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
         });
