@@ -1,3 +1,8 @@
-.ma__accordion-wrapper .ma__accordion-item {
-	margin-top: 20px;
+.ma__accordion-wrapper {
+  .ma__accordion-item {
+	  margin-top: 20px;
+  }
+  .ma__accordion-item:nth-child(1) {
+    margin-top: 0px;
+  }
 }

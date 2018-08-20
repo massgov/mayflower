@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SvgCircleChevron from '../../atoms/icons/SvgCircleChevron';
+import SvgChevron from '../../atoms/icons/SvgChevron';
+import Heading from '../../atoms/headings/Heading';
 import Collapse from '../../animations/Collapse';
 import './style.css';
 
@@ -20,12 +22,16 @@ class AccordionItem extends React.Component {
   }
 
   render() {
-    const buttonClasses = this.state.open ? 'ma__accordion-header__button is-open' : 'ma__accordion-header__button';
-    const accordionClasses = this.props.border ? 'ma__accordion-item' : 'ma__accordion-item__borderless';
+    const secondaryClass = this.props.secondary ? '--secondary' : '';
+    const buttonState = this.state.open ? `ma__accordion-header__button${secondaryClass} is-open` : `ma__accordion-header__button${secondaryClass}`;
+    const accordionClasses = this.props.border ? '' : 'ma__accordion-item--borderless';
     const allowedChildren = ['Paragraph', 'OrderedList', 'UnorderedList', 'Heading', 'Table'];
+    const empClass = this.props.emphasize ? 'ma__accordion-header__button--solid' : 'ma__accordion-header__button--trans';
+    const buttonClasses = this.props.secondary ? `${buttonState}` : `${buttonState} ${empClass}`;
+    const headingClasses = `ma__accordion-header__title${secondaryClass}`;
 
     return(
-      <div className={accordionClasses}>
+      <div className={`ma__accordion-item${secondaryClass} ${accordionClasses}`}>
         <header className="ma__accordion-header">
           <button
             className={buttonClasses}
@@ -33,12 +39,17 @@ class AccordionItem extends React.Component {
             onClick={this.handleClick}
             aria-expanded={this.state.open}
           >
-            { this.props.icon && (
+            { this.props.icon && !this.props.secondary && (
               <div className="ma__accordion-header__icon">
                 {this.props.icon}
               </div>
             )}
-            <h2 className="ma__accordion-header__title">{this.props.title}</h2>
+            { this.props.secondary && (
+              <div className="ma__accordion-header__icon--secondary">
+                <SvgChevron />
+              </div>
+            )}
+            <Heading class={headingClasses} text={this.props.title} level={this.props.headerLevel} />
           </button>
         </header>
         <Collapse in={this.state.open} dimension="height">
@@ -69,14 +80,23 @@ AccordionItem.propTypes = {
   icon: PropTypes.element,
   /** Whether the accordion should have a border or not, default is true (border) */
   border: PropTypes.bool,
+  /** Where the accordion header's background should remain colored when expanded */
+  emphasize: PropTypes.bool,
   /** Content rendered in the collapsed section. Only Paragraph, Table, Heading, OrderedList
       and UnorderList are valid children components to pass to AccordionItem */
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  /** Whether to style the accordion as secondary or not. */
+  secondary: PropTypes.bool,
+  /** Heading level for accordion title */
+  headerLevel: PropTypes.number
 };
 
 AccordionItem.defaultProps = {
   icon: <SvgCircleChevron />,
-  border: true
+  border: true,
+  emphasize: true,
+  secondary: false,
+  headerLevel: 2
 };
 
 export default AccordionItem;

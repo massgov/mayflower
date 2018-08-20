@@ -26,7 +26,10 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       title: text('accordion.title', 'Collapsible Header'),
       info: text('accordion.info', 'Collapsible Header'),
       icon: select('accordion.icon', Object.keys(icons), 'circlechevron'),
-      border: boolean('accordion.border', true)
+      border: boolean('accordion.border', true),
+      emphasize: boolean('accordion.emphasize', true),
+      secondary: boolean('accordion.secondary', false),
+      headerLevel: text('accordion.level', 2)
     };
 
     // Example of child element, paragraph, passable to accordion
