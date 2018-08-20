@@ -152,7 +152,7 @@
     },
     "publicRecords": {
       "title": "Public records request",
-      "icon": "lg-scroll",
+      "icon": "icon-prr",
       "link": {
           "href": "#",
           "title": "Learn more about submitting public records requests"

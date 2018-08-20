@@ -73,7 +73,7 @@
       "subNav": {
         "linkList" : {
           "description": null,
-          "stacked": false,
+          "stacked": true,
           "hideBullets": true,
           "links" : [{
             "href":"#",
@@ -233,22 +233,6 @@
           }
         }
       }
-    },{
-      "section": "our-organizations",
-      "title": "Our Organizations",
-      "subNav": ""
-    },{
-      "section": "news",
-      "title": "News",
-      "subNav": ""
-    },{
-      "section": "events",
-      "title": "Events",
-      "subNav": ""
-    },{
-      "section": "locations",
-      "title": "Locations",
-      "subNav": ""
     }]
   }
 }
