@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Patch
-- Patternlab DP-9579: Add a comment to keep raw filter from 03-organisms/by-author/event-listing-interactive.twig to prevent rendering ascii characters. #66
