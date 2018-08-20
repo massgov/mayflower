@@ -7,7 +7,7 @@ const AccordionWrapper = (props) => {
   return(
     <div className="ma__accordion-wrapper">
       { React.Children.map(children, (child) => {
-        if (child.type.name === 'AccordionItem') {
+        if (React.isValidElement(child) && child.type.name === 'AccordionItem') {
           const clone = React.cloneElement(child, {
             secondary: props.secondary,
             emphasize: props.emphasize,
