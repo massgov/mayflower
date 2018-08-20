@@ -76,7 +76,6 @@
       width: 100%;
       display: block;
       text-align: left;
-      text-transform: uppercase;
       border: 0;
       background-color: transparent;
       padding: 1rem 0;
@@ -89,9 +88,12 @@
         padding: 1rem 20px;
       }
 
+      @media (($bp-large-max) ) {
+        text-transform: uppercase;
+      }
+
       @media ($bp-large-min) {
         height: 100%;
-        text-transform: capitalize;
         font-size: 1.125rem;
       }
     }

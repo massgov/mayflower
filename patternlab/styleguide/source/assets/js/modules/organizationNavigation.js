@@ -42,8 +42,8 @@ export default (function (window,document,$,undefined) {
           $('.pre-content').removeAttr('style');
           $orgNav.removeClass('stuck');
         } else {
-          $('.pre-content').css("padding-top", menuHeight);
           $orgNav.addClass('stuck');
+          $('.pre-content').css("padding-top", menuHeight);
         }
       });
     }  
