@@ -11,6 +11,9 @@
 // Bower vendors
 @import "../../patternlab/styleguide/source/assets/js/vendor/bower_components/pikaday/scss/pikaday";
 
+// Assets path variable
+$asset-path: '../../assets';
+
 // Base variables
 @import "00-base/breakpoints";
 @import "00-base/mixins";
@@ -18,7 +21,7 @@
 
 // base theme variables
 @import "00-base/colors";
-@import "fonts-rel";
+@import "00-base/fonts";
 @import "00-base/pikaday";
 
 // Print styles
