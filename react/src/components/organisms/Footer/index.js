@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import stateSeal from '@massds/mayflower/images/stateseal.png';
+import logo from '../../../../../assets/images/stateseal.png';
 import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
 import SvgArrow from '../../atoms/icons/SvgArrow';
@@ -13,7 +13,7 @@ const Footer = (footer) => (
       </div>
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
-          <img src={stateSeal} alt="Massachusetts State Seal" width="120" height="120" />
+          <img src={logo} alt="Massachusetts State Seal" width="120" height="120" />
         </div>
         <div className="ma__footer__social">
           <SocialLinks {...footer.socialLinks} />
