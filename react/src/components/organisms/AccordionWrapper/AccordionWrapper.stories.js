@@ -38,8 +38,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       border: boolean('accordionWrapper.border', true),
       secondary: boolean('accordionWrapper.secondary', true),
       emphasize: boolean('accordionWrapper.emphasize', true),
-      headerLevel: select('accordionWrapper.headerLevel', [1,2,3,4,5,6], 2)
-    }
+      headerLevel: select('accordionWrapper.headerLevel', [1, 2, 3, 4, 5, 6], 2)
+    };
 
     // Set the icon prop to the actual element based on knob selection.
     AccordionItem1Props.icon = icons[AccordionItem1Props.icon];

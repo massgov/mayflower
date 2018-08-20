@@ -4,7 +4,6 @@ import './style.css';
 
 const AccordionWrapper = (props) => {
   const children = props.children;
-  console.log(props)
   return(
     <div className="ma__accordion-wrapper">
       { React.Children.map(children, (child) => {
@@ -14,7 +13,7 @@ const AccordionWrapper = (props) => {
             emphasize: props.emphasize,
             border: props.border,
             headerLevel: props.headerLevel
-          })
+          });
           return clone;
         }
         return(
