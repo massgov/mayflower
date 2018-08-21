@@ -44,17 +44,15 @@
         width: 100%;
         min-width: 50%;
         display: flex;
-        flex-wrap: nowrap;
+        flex-direction: column;
 
-        &.tags-open {
-            flex-direction: column;
+        @media ($bp-x-small-min) {
+            flex-flow: row wrap;
         }
 
         &.primary {
-            display: flex;
         
             @media ($bp-medium-min) {
-                flex-wrap: nowrap;
                 padding-right: 2rem;
             }
         
@@ -187,19 +185,11 @@
 
     &--terms {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
 
-        .tags-open & {
-            flex-direction: column;
-
-            @media ($bp-small-min) {
-                flex-flow: row wrap;
-            }
+        @media ($bp-x-small-min) {
+            flex-flow: row wrap;
         }
-
-        // @media ($bp-large-min) {
-        //     flex-wrap: nowrap;
-        // }
     }
 
     &--term {
