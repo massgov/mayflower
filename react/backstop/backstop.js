@@ -30,8 +30,8 @@ if (processAtoms) {
   components = listDirs(componentsPath)
     // Component directory names are capitalized.
     .filter((filePath) => (/^[A-Z]/.test(path.basename(filePath))))
-    // Only test stories other than atoms with this backstop configuration.
-    .filter((filePath) => (filePath.indexOf('/atoms/') === -1));
+    // Only test stories other than atoms with this backstop configuration.  Do not test animations.
+    .filter((filePath) => (filePath.indexOf('/atoms/') === -1) && (filePath.indexOf('/animations/') === -1));
 
   viewports = [{
     label: 'phone',
