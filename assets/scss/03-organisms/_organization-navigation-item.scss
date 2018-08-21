@@ -244,40 +244,46 @@
       display: none;
 
       &.item-open {
-        display: block;
+        display: inline-block;
       }
 
       @media ($bp-large-min) {
-        padding:0;
+        display: inline-block;
+        @include ma-button("normal","outline",$c-theme-primary);
+        @include ma-button("small");
+        text-transform: none;
+        letter-spacing: normal;
+        padding: 0.2rem 0.5rem;
         margin-top: 1rem;
-        display: block;
+
+        &:hover {
+          cursor: pointer;
+
+          a {
+            color: $c-white;
+
+            svg {
+              fill: $c-white;
+            }
+          }
+        }
       }
 
       .ma__decorative-link {
       
         @media ($bp-large-min) {
           width: auto;
-          border: 1px solid $c-bd-divider;
-          padding: 0.2rem 1.5rem 0.2rem 0.8rem;
-          box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
-          transition: 0.5s;
-
-          &:hover {
-            border-color: $c-theme-blue;
-            box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.5);
-          }
-
-          a:hover {
-            border-bottom-width: 0;
-            border-color: transparent; 
-          }
         }
 
         a {
-
+          display: block;
           @media ($bp-large-max) {
             font-size: 1.275rem;
             font-weight: 500;
+          }
+
+          &:hover {
+            border-bottom-color: transparent;
           }
         }
       }
