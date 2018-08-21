@@ -164,9 +164,21 @@ export default (function (window, document, $, undefined) {
     let elementTop = $(element).offset().top;
     let elementBottom = elementTop + $(element).height();
 
-    let topOutOfView = elementTop < pageTop;
-    let bottomOutOfView = elementBottom > pageBottom;
+    let topOutOfView = elementTop > pageTop && elementTop < pageBottom;
+    let bottomOutOfView = pageTop > elementBottom;
     let entirelyOutOfView = pageTop > elementBottom || pageBottom < elementTop;
+
+    console.log('-----');
+    console.log(pageTop > elementBottom);
+    console.log(pageTop > elementBottom);
+
+    console.log('pageTop: ' + pageTop);
+    console.log('pageBottom: ' + pageBottom);
+    console.log('elementTop: ' + elementTop);
+    console.log('elementBottom: ' + elementBottom);
+    console.log('topOutOfView = elementTop < pageTop: ' + topOutOfView);
+    console.log('pagbottomOutOfViewTop = elementBottom > pageBottom: ' + bottomOutOfView);
+    console.log('entirelyOutOfView = pageTop > elementBottom || pageBottom < elementTop: ' + entirelyOutOfView);
 
     return {
       topOutOfView: topOutOfView,
@@ -209,9 +221,11 @@ export default (function (window, document, $, undefined) {
     let visibleParams = getVisibleParams(rt.$root[0]);
 
     if (!visibleParams.entirelyOutOfView) {
+      console.log('Hiding the action');
       $(".ma__floating-action").hide();
     }
     else {
+      console.log('Hiding the action');
       $(".ma__floating-action").show();
     }
   }

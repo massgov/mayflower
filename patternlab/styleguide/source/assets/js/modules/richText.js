@@ -5,7 +5,7 @@ export default (function (window, document, $) {
     let $el = $(this),
       richTextIndex = index;
 
-    const $table = $el.find('table');
+    const $table = $el.find("table").not("table table");
     $table.each(function() {
       const $this = $(this);
       // If this table does not have the `ma__table` class.
