@@ -25,7 +25,6 @@ class AccordionItem extends React.Component {
     const secondaryClass = this.props.secondary ? '--secondary' : '';
     const buttonState = this.state.open ? `ma__accordion-header__button${secondaryClass} is-open` : `ma__accordion-header__button${secondaryClass}`;
     const accordionClasses = this.props.border ? '' : 'ma__accordion-item--borderless';
-    const allowedChildren = ['Paragraph', 'OrderedList', 'UnorderedList', 'Heading', 'Table'];
     const empClass = this.props.emphasize ? 'ma__accordion-header__button--solid' : 'ma__accordion-header__button--trans';
     const buttonClasses = this.props.secondary ? `${buttonState}` : `${buttonState} ${empClass}`;
     const headingClasses = `ma__accordion-header__title${secondaryClass}`;
@@ -54,16 +53,7 @@ class AccordionItem extends React.Component {
         </header>
         <Collapse in={this.state.open} dimension="height">
           <div className="ma__accordion-content__body">
-            { React.Children.map(this.props.children, (child) => {
-              if (allowedChildren.includes(child.type.name)) {
-                return child;
-              }
-              return(
-                /* eslint-disable no-console */
-                console.log(`Warning! You cannot pass a ${child.type.name} child to AccordionItem`)
-                /* eslint-disable no-console */
-              );
-            })}
+            {this.props.children}
           </div>
         </Collapse>
       </div>
