@@ -119,16 +119,18 @@ export default (function (window,document,$,undefined) {
 
     // Mobile view open the "I want to sections".
     $sectionButton.each(function() {
-      let windowWidth = $(window).width();
+      
 
       let $button = $(this);
       let $seeAll = $button.parent().find('.ma__link-list__see-all');
-      if (windowWidth < mobileBreak) {
         $button.on( 'click', function() {
-          $button.toggleClass('item-open');
-          $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
+          let windowWidth = $(window).width();
+          if (windowWidth < mobileBreak) {
+            $button.toggleClass('item-open');
+            $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
+          }
         });
-      }
+      
     });
 
     if($relatedOrgs.length){
