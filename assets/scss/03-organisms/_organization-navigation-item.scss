@@ -286,8 +286,10 @@
 }
 
 .ma__org-nav-contact-us__contact-row {
+  padding-top: 20px;
 
   @media ($bp-large-min) {
+    padding-top: 0;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
   }
@@ -297,6 +299,14 @@
     @media ($bp-large-min) {
       width: 100%;
       display: flex;
+    }
+  }
+
+  .ma__comp-heading {
+    display: none;
+
+    @media ($bp-large-min) {
+      display: block;
     }
   }
 
