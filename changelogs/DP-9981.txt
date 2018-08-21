@@ -1,6 +1,6 @@
 ___DESCRIPTION___
 Minor
-(React) DP-9981: Adds standard accordion components and functionality to Mayflower-React.
+(React) DP-9981: Adds standard accordion components and functionality to Mayflower-React. Also fixes VR bug related to react components.
 
 Added
 1. Adds AccordionItem molecule with secondary, borderless, emphasized, and subtle variants.
@@ -11,6 +11,9 @@ Added
 
 Changed
 1. Changes heading atom in Mayflower React, adding the option to pass a classname to a heading component.
+
+Fixed
+1. Fixes issues related to visual regression of react components without a story and with nested variants.
 
 ___POST DEPLOY STEPS___
 1. New Mayflower-React - npm install required
