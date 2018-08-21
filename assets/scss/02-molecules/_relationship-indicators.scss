@@ -15,6 +15,7 @@
 
     @media ($bp-large-min) {
         flex-direction: row;
+        align-items: flex-start;
         margin-left: 40px;
         margin-right: 40px;
     }
@@ -54,6 +55,7 @@
         
             @media ($bp-medium-min) {
                 flex-wrap: nowrap;
+                padding-right: 2rem;
             }
         
             .ma__relationship-indicators--term {
@@ -128,10 +130,6 @@
             }
         }
 
-        @media ($bp-medium-min) {
-            padding-right: 2rem;
-        }
-
         a {
             display: block;
             border: 2px solid;
@@ -191,9 +189,9 @@
         display: flex;
         flex-wrap: wrap;
 
-        @media ($bp-large-min) {
-            flex-wrap: nowrap;
-        }
+        // @media ($bp-large-min) {
+        //     flex-wrap: nowrap;
+        // }
     }
 
     &--term {
