@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- Patternlab DP-9193: Make TOC skip link visible at focus #180#
