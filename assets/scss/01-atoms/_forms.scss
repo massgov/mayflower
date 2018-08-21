@@ -37,6 +37,8 @@ legend,
 label {
   display: block;
   margin-bottom: .25em;
+  padding: 0;
+  font-weight: 500;
 }
 
 
@@ -148,9 +150,4 @@ textarea {
       border-color: $c-bd-error;
     }
   }
-}
-
-legend,
-label {
-  font-weight: 500;
 }
