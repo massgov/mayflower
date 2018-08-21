@@ -12,15 +12,11 @@
 
   &.stuck {
     position: fixed;
-    top: 40px;
+    top: 0;
     left: 0;
     width: 100%;
     margin-top: 0;
     z-index: $z-dropdown;
-
-    @media ($bp-header-toggle-min) {
-      top: 0;
-    }
 
     .show-menu & {
       opacity: 0;

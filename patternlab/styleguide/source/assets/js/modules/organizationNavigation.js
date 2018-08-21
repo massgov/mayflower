@@ -50,6 +50,9 @@ export default (function (window,document,$,undefined) {
 
     // Mobile toggle. 
     $mobileToggle.on( 'click', function() {
+      if($mobileToggle.hasClass('menu-open')) {
+        $orgNav.removeClass('stuck');
+      }
       $mobileToggle.add($menuWrapper).toggleClass('menu-open');
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
