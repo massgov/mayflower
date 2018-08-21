@@ -1,16 +1,30 @@
 .ma__relationship-indicators {
-    @include ma-container;
     @include clearfix;
     display: flex;
     flex-direction: column;
-    padding: 18px 20px 25px;
+    padding: 18px 0 25px;
     font-weight: 600;
     font-size: 16px;
     border-bottom: 1px solid $c-bd-divider;
-    margin-bottom: -1px;
+    margin: 0 20px -1px;
+
+    @media ($bp-medium-min) {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
 
     @media ($bp-large-min) {
         flex-direction: row;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    @media ($bp-max-content-width) {
+        max-width: $l-max-content-wrapper;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     &--label {
