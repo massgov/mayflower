@@ -47,7 +47,11 @@
         flex-direction: column;
 
         @media ($bp-x-small-min) {
-            flex-flow: row wrap;
+            flex-flow: row nowrap;
+
+            // &.tags-open {
+            //     flex-wrap: wrap;
+            // }
         }
 
         &.primary {
@@ -188,7 +192,11 @@
         flex-direction: column;
 
         @media ($bp-x-small-min) {
-            flex-flow: row wrap;
+            flex-flow: row nowrap;
+
+            .tags-open & {
+                flex-wrap: wrap;
+            }
         }
     }
 
