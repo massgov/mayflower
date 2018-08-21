@@ -4,8 +4,7 @@
 
   &__skip-link__container {
     margin: 0 auto;
-    @include ma-container;
-    max-width: 1320px;
+    @include ma-container
     position: relative;
     top: -50px;
 
