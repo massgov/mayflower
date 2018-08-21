@@ -57,6 +57,7 @@
     padding-bottom: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.2;
@@ -66,8 +67,32 @@
     z-index: $z-dropdown;
 
     .mobile-toggle-label {
-      padding-right: 15px;
+      overflow: hidden;
+      position: relative; 
+      line-height: 1.2em;
+      /* max-height = line-height (1.2) * lines max number (2) */
+      max-height: 2.4em; 
+      text-align: justify;  
+      padding-right: 3em;
+    
+      &::before {
+        content: '...';
+        position: absolute;
+        right: 2em;
+        bottom: 0;
+      }
+    
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: $c-bg-section;
+      }
     }
+    
 
     .mobile-toggle-icon {
       position: relative;
