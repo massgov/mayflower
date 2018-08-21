@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Removed
-Minor
-- Patternlab DP-9569: Remove raw filter from _patterns/01-atoms/08-lists/ordered-list.twig.
