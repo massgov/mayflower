@@ -36,7 +36,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     };
     const AccordionWrapperProps = {
       border: boolean('accordionWrapper.border', true),
-      secondary: boolean('accordionWrapper.secondary', true),
+      secondary: boolean('accordionWrapper.secondary', false),
       emphasize: boolean('accordionWrapper.emphasize', true),
       headerLevel: select('accordionWrapper.headerLevel', [1, 2, 3, 4, 5, 6], 2)
     };
