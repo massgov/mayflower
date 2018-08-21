@@ -88,7 +88,7 @@
         padding: 1rem 20px;
       }
 
-      @media (($bp-large-max) ) {
+      @media ($bp-large-max) {
         text-transform: uppercase;
       }
 
@@ -382,6 +382,10 @@
     a {
       font-size: 1.2rem;
     }
+  }
+
+  .ma__decorative-link {
+    line-height: 1.1;
   }
 
   .custom-option-item__label {

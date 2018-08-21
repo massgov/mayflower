@@ -24,8 +24,6 @@
   }
 
   &--inner-wrapper {
-    @include ma-container;
-    padding: 0;
     display: none;
     position: relative;
     flex-direction: column;
@@ -43,11 +41,13 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      padding: 0 1rem;
     }
   
     @media ($bp-x-large-min) {
       max-width: 1250px;
       padding: 0;
+      margin: 0 auto;
     }
   }
 
