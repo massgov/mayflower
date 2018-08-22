@@ -1,7 +1,7 @@
-const {argv} = require("optimist");
 const path = require("path");
 const gulp = require("gulp");
 const untildify = require("untildify");
+require('dotenv').config();
 
 const DistRegistry = require("./Dist");
 
@@ -10,9 +10,6 @@ const source = path.resolve(root, "source");
 const shared = path.resolve(__dirname, "../../../../assets");
 
 const defaults = {
-    root: root,
-    source: source,
-    production: process.env.NODE_ENV === "production",
     dest: {
         // The path of the Pattern Lab public directory.
         patternlab: path.resolve(root, "public"),
@@ -22,6 +19,7 @@ const defaults = {
         dist: path.resolve(root, "dist")
     },
     sources: {
+        root: root,
         // The following files are considered pattern templates and will
         // be copied to the artifact, etc.
         patterns: path.resolve(source, "_patterns/**"),
@@ -52,11 +50,11 @@ const defaults = {
     minify: true
 };
 
-if(argv.dist) {
-    defaults.dest.dist = untildify(argv.dist);
+if(process.env.MAYFLOWER_DIST) {
+    defaults.dest.dist = untildify(process.env.MAYFLOWER_DIST);
 }
 
-gulp.registry(new DistRegistry(defaults, argv));
+gulp.registry(new DistRegistry(defaults));
 
 gulp.task("default", gulp.series("patternlab:serve"));
 gulp.task("prod", gulp.series("patternlab:build"));

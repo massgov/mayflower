@@ -23,7 +23,6 @@ const filter = require("gulp-filter");
 const e = require("./helpers/escape");
 const cssPipe = require("./pipelines/css");
 const jsPipe = require("./pipelines/js");
-const debug = require("gulp-debug");
 
 
 const task = function(name, cb, watch) {
@@ -47,7 +46,7 @@ class DistRegistry extends DefaultRegistry {
         });
         const css = task("css", function() {
             return gulp.src(sources.scss)
-                .pipe(cssPipe(config.minify, config.root))
+                .pipe(cssPipe(config.minify, self.resolveRoot()))
                 .pipe(gulp.dest(self.resolveDist("assets/css")));
         });
         css.watchFiles = config.sources.scss;
@@ -96,8 +95,7 @@ class DistRegistry extends DefaultRegistry {
 
         const copyDist = task("dist:copy", function() {
             return gulp.src(self.resolveDist("**"), {read: false})
-                .pipe(gulp.dest(self.resolvePatternlab()))
-                .pipe(debug());
+                .pipe(gulp.dest(self.resolvePatternlab()));
         });
 
         taker.task("patternlab:build", taker.series(taker.parallel("dist:build", patterns), copyDist));
@@ -123,10 +121,10 @@ class DistRegistry extends DefaultRegistry {
         })));
     }
     resolveRoot(subPath) {
-        if(!this.config.root) {
+        if(!this.config.sources.root) {
             throw new Error("Unable to determine root directory!");
         }
-        return subPath ? path.resolve(this.config.root, subPath) : this.config.root;
+        return subPath ? path.resolve(this.config.sources.root, subPath) : this.config.sources.root;
     }
     resolveDist(subPath) {
         if(!this.config.dest.dist) {

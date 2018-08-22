@@ -26,6 +26,7 @@
     "browser-sync": "^2.24.6",
     "browserify": "^16.1.1",
     "child-process-promise": "^2.2.1",
+    "dotenv": "^6.0.0",
     "eslint": "^5.2.0",
     "eslint-plugin-react": "^7.2.0",
     "gulp": "^4.0.0",
@@ -49,12 +50,12 @@
     "node-neat": "^1.7.2",
     "node-normalize-scss": "^8.0.0",
     "node-sass": "^4.9.2",
-    "optimist": "^0.6.1",
     "through2": "^2.0.3",
     "undertaker-registry": "^1.0.1",
     "untildify": "^3.0.3"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "scripts": {
     "gulp": "gulp"
   }

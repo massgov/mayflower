@@ -12,3 +12,4 @@ source/_data/url.json
 /npm
 /artifact
 /dist
+.env
