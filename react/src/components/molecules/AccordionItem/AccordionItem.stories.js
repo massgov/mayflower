@@ -29,7 +29,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       border: boolean('accordion.border', true),
       emphasize: boolean('accordion.emphasize', true),
       secondary: boolean('accordion.secondary', false),
-      headerLevel: text('accordion.level', 2)
+      headerLevel: select('accordion.headerLevel', [1, 2, 3, 4, 5, 6], 2)
     };
 
     // Example of child element, paragraph, passable to accordion
