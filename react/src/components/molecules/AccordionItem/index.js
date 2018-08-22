@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import SvgCircleChevron from '../../atoms/icons/SvgCircleChevron';
 import SvgChevron from '../../atoms/icons/SvgChevron';
 import Heading from '../../atoms/headings/Heading';
@@ -22,15 +23,25 @@ class AccordionItem extends React.Component {
   }
 
   render() {
-    const secondaryClass = this.props.secondary ? '--secondary' : '';
-    const buttonState = this.state.open ? `ma__accordion-header__button${secondaryClass} is-open` : `ma__accordion-header__button${secondaryClass}`;
-    const accordionClasses = this.props.border ? '' : 'ma__accordion-item--borderless';
-    const empClass = this.props.emphasize ? 'ma__accordion-header__button--solid' : 'ma__accordion-header__button--trans';
-    const buttonClasses = this.props.secondary ? `${buttonState}` : `${buttonState} ${empClass}`;
-    const headingClasses = `ma__accordion-header__title${secondaryClass}`;
+    const accordionClasses = classNames({
+      'ma__accordion-item': !this.props.secondary,
+      'ma__accordion-item--secondary': this.props.secondary,
+      'ma__accordion-item--borderless': !this.props.border && !this.props.secondary
+    });
+    const buttonClasses = classNames({
+      'ma__accordion-header__button': !this.props.secondary,
+      'ma__accordion-header__button--secondary': this.props.secondary,
+      'is-open': this.state.open,
+      'ma__accordion-header__button--solid': this.props.emphasize && !this.props.secondary,
+      'ma__accordion-header__button--trans': !this.props.emphasize && !this.props.secondary
+    });
+    const headingClasses = classNames({
+      'ma__accordion-header__title': !this.props.secondary,
+      'ma__accordion-header__title--secondary': this.props.secondary
+    });
 
     return(
-      <div className={`ma__accordion-item${secondaryClass} ${accordionClasses}`}>
+      <div className={accordionClasses}>
         <header className="ma__accordion-header">
           <button
             className={buttonClasses}
@@ -44,7 +55,7 @@ class AccordionItem extends React.Component {
               </div>
             )}
             { this.props.secondary && (
-              <div className={`ma__accordion-header__icon${secondaryClass}`}>
+              <div className="ma__accordion-header__icon--secondary">
                 <SvgChevron />
               </div>
             )}
