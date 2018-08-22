@@ -51,12 +51,12 @@
 
     "mappedLocations": {
       "compHeading": null,
-      "contained": true,
-      "link": {
+      "paragraph": {
+        "text":"See a list of all locations"
+      },
+      "button": {
         "href": "#",
-        "text":"See a list of all locations",
-        "info": "",
-        "property": ""
+        "text": "All locations"
       },
       "googleMap": {
         "map": {
