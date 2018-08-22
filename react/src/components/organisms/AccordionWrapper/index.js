@@ -19,7 +19,6 @@ const AccordionWrapper = (props) => {
         return(
           /* eslint-disable no-console */
           console.log(`Warning! You cannot pass a ${child.type.name} child to AccordionWrapper`)
-          /* eslint-disable no-console */
         );
       })}
     </div>
