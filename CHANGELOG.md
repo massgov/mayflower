@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 - (Patternlab) DP-9486: Make location filter persist on location listing page.
+- (Patternlab) DP-9486: Fixed the location listing autocomplete search filter.
 - (React) DP-10069: Render current year in footer component and make footer fully configurable.
 
 ## 6.2.3 (8/17/2018)
