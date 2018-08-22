@@ -36,6 +36,7 @@ export default (function (window,document,$,undefined) {
       let menuHeight = $orgNav.height();
       $(window).scroll(function () {
         const orgWindowTop = $(window).scrollTop();
+        let windowWidth = $(window).width();
 
         // Active Sticky TOC when on page TOC scrolls past.
         if (bannerBottom > orgWindowTop) {
@@ -44,23 +45,23 @@ export default (function (window,document,$,undefined) {
         } else {
           $('.pre-content').css("padding-top", menuHeight);
           $orgNav.addClass('stuck');
-          
         }
       });
     }  
 
     // Mobile toggle. 
     $mobileToggle.on( 'click', function() {
-      if($mobileToggle.hasClass('menu-open')) {
-        $orgNav.removeClass('stuck');
-      }
+      
       $mobileToggle.add($menuWrapper).toggleClass('menu-open');
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
       // Remove cloned button if present. 
       $('.section-toggle').remove();
 
-      $('body').toggleClass('scroll-disabled');
+      // Lock body scroll on mobile open/close.
+      if($orgNav.hasClass('stuck')) {
+        $('body').toggleClass('scroll-disabled');
+      }
     });
 
     // Search form swing open/closed.
