@@ -160,7 +160,7 @@
             "id": "contact us",
             "centered": ""
           },
-          "hasManyAdditional": true,
+          "hasManyAdditional": false,
           "additionalContacts": [
             {
               "icon": "marker",
@@ -182,7 +182,7 @@
                 "type": "seeAllLink",
                 "link": {
                   "href":"#",
-                  "text": "See All Locations",
+                  "text": "See all locations",
                   "info": ""
                 },
                 "details":""

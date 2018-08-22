@@ -291,6 +291,18 @@
   }
 }
 
+.ma__org-nav-contact-us {
+  position: absolute;
+  height: 115%;
+  overflow-y: auto;
+
+  @media ($bp-large-min) {
+    position: static;
+    height: auto;
+    overflow: auto;
+  }
+}
+
 .ma__org-nav-contact-us__contact-row {
   padding-top: 20px;
 
