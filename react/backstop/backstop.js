@@ -1,4 +1,4 @@
-const listDirs = require('./listDirs');
+const listComponents = require('./listComponents');
 const storyBookBackstop = require('./storyBookBackstop');
 const path = require('path');
 const fs = require('fs');
@@ -11,27 +11,17 @@ let viewports;
 
 // Scan for component names and set up viewports.
 const componentsPath = `${__dirname}/../src/components/`;
-components = listDirs(componentsPath)
-let testList = [];
-Object.values(components).forEach((component) => {
-  const testComponent = fs.readdirSync(component);
-  testComponent.forEach((fileName) => {
-    if (/stories/.test(fileName)) {
-      testList.push(component);
-    }
-  });
-})
+testComponents = listComponents(componentsPath);
 
 if (processAtoms) {
   testId = 'mayflower-react-atoms';
-  components = testList
+  components = testComponents
     // Component directory names are capitalized.
     .filter((filePath) => (/^[A-Z]/.test(path.basename(filePath))))
     // Only test atoms with this backstop configuration.
     .filter((filePath) => (filePath.indexOf('/atoms/') > -1))
     // Skip table and media/Image, they need to be tested with larger viewports.
-    .filter((filePath) => ((filePath.indexOf('table') === -1) && (path.basename(filePath) !== 'Image')))
-    // Do not test components without stories;
+    .filter((filePath) => ((filePath.indexOf('table') === -1) && (path.basename(filePath) !== 'Image')));
 
   viewports = [{
     label: 'small_atom',
@@ -40,7 +30,7 @@ if (processAtoms) {
   }];
 } else {
   testId = 'mayflower-react';
-  components = testList
+  components = testComponents
     // Component directory names are capitalized.
     .filter((filePath) => (/^[A-Z]/.test(path.basename(filePath))))
     // Only test stories other than atoms with this backstop configuration.  Do not test animations.
