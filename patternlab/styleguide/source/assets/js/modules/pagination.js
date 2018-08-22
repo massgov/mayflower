@@ -33,8 +33,10 @@ export default (function (window, document, $, undefined) {
     });
 
     window.onpopstate = function(e) {
-      if (e.state.page) {
-        $el.trigger("ma:Pagination:Pagination", [e.state.page]);
+      if (e.state) {
+        if (e.state.page) {
+          $el.trigger("ma:Pagination:Pagination", [e.state.page]);
+        }
       }
     };
 
