@@ -1,0 +1,30 @@
+@import "global";
+@import '01-atoms/textarea';
+
+.ma__textarea {
+  width: 100%;
+
+  textarea {
+    width: 100%;
+    transition: background-color .4s, color .4s, border .4s, fill .4s, box-shadow .4s;
+    color: #535353;
+    &:focus{
+      -webkit-box-shadow: 0 0 3px 3px #9bdaf1 !important;
+      box-shadow: 0 0 3px 3px #9bdaf1 !important;
+      border-color: #dcdcdc !important;
+    }
+    &.has-error {
+      &:focus {
+        border-color: $c-bd-error !important;
+      }
+    }
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      background: $c-gray-f2f2f2;
+    }
+  }
+  .ma__label--disabled {
+    opacity: 0.5;
+  }
+}
