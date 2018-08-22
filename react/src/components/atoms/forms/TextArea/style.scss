@@ -1,4 +1,5 @@
-@import '../../../../assets/scss/01-atoms/_textarea.scss';
+@import "global";
+@import '01-atoms/textarea';
 
 .ma__textarea {
   width: 100%;
