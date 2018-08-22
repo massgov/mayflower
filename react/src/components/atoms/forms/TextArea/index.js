@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './style.css';
 
 class TextArea extends React.Component {
@@ -28,42 +29,35 @@ class TextArea extends React.Component {
   }
 
   render() {
-    const labelClass = ['ma__label'];
-    if (this.props.required) {
-      labelClass.push('ma__label--required');
-    } else {
-      labelClass.push('ma__label--optional');
-    }
-    if (this.props.hiddenLabel) {
-      labelClass.push('ma__label--hidden');
-    }
-    if (this.props.disabled) {
-      labelClass.push('ma__label--disabled');
-    }
+    const labelClasses = classNames({
+      'ma__label': true,
+      'ma__label--required': this.props.required,
+      'ma__label--optional': !this.props.required,
+      'ma__label--hidden': this.props.hiddenLabel,
+      'ma__label--disabled': this.props.disabled
+    });
+    const errorClasses = classNames({
+      'ma__error-msg': true,
+      'has-error': this.props.errorDisplay
+    });
+    const textClasses = classNames({
+      'has-error': this.props.errorDisplay,
+      'js-is-required': this.props.required
+    });
     const maxlength = this.props.maxlength ? this.props.maxlength : false;
     const minlength = this.props.minlength ? this.props.minlength : false;
-    const errorClasses = ['ma__error-msg'];
-    const textClasses = [];
-    if (this.props.errorDisplay) {
-      errorClasses.push('has-error');
-    }
-    if (this.props.errorDisplay) {
-      textClasses.push('has-error');
-    }
-    if (this.props.required) {
-      textClasses.push('js-is-required');
-    }
+
     return(
       <div className="ma__textarea">
         { this.props.labelText &&
-          <label htmlFor="input-type-textarea"className={labelClass.join(' ')}>
+          <label htmlFor="input-type-textarea"className={labelClasses}>
             {this.props.labelText}
           </label>
         }
         {this.props.errorMsg &&
-        <div className={errorClasses.join(' ')} htmlFor={this.props.id}>{this.props.errorMsg}</div>}
+        <div className={errorClasses} htmlFor={this.props.id}>{this.props.errorMsg}</div>}
         <textarea
-          className={textClasses.join(' ')}
+          className={textClasses}
           name={this.props.name}
           id={this.props.id}
           data-type={this.props.type}
