@@ -13,6 +13,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 6.3.0 (8/22/2018)
+
+### Changed
+- (Patternlab) DP-9522: Updates the Location Listing component to updated designs.
+- (React) DP-9919: Directly consume global level SCSS variables from shared assets
+
+### Fixed
+- (Patternlab) DP-9486: Make location filter persist on location listing page.
+- (React) DP-10069: Render current year in footer component and make footer fully configurable.
+
 ## 6.2.3 (8/17/2018)
 
 ### Fixed
