@@ -1,7 +1,6 @@
 const listComponents = require('./listComponents');
 const storyBookBackstop = require('./storyBookBackstop');
 const path = require('path');
-const fs = require('fs');
 
 const processAtoms = (process.argv.indexOf('--atoms') > -1);
 
