@@ -8,20 +8,51 @@
       "divider": false,
       "title": "Why is habitat management needed?",
       "subTitle": "MassWildlife's Habitat Programs are designed to help wildlife that rely on open habitats (grassland, shrubland, and young forests).",
-      "headerTags": {
-        "label": "More about:",
-        "taxonomyTerms": [
-          {
-            "href": "#",
-            "text": "MassWildlife"
-          },
-          {
-            "href": "#",
-            "text": "MassWildlife's Habitat Programs"
-          }
-        ]
-      },
       "widgets": null
+    }
+  },
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Department of Conservation and Recreation"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Other agency or organization"
+      }]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
+      }]
     }
   },
   "preContentMedia": {

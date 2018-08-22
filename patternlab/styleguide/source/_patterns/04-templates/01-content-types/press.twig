@@ -4,6 +4,7 @@
 <main id="main-content" class="ma__press" tabindex="-1"{% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
   <div class="pre-content">
     {% block preContent %}
+      {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
     {% endblock %}
   </div>
