@@ -202,4 +202,18 @@
             }
         }
     }
+
+    & + .ma__page-header {
+        .ma__page-header__content {
+            padding-top: 0;
+        }
+    }
+
+    & + .ma__illustrated-header {
+        margin-top: 0;
+    }
+
+    & + .ma__page-banner {
+        padding-top: 0;
+    }
 }
