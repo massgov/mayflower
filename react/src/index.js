@@ -4,7 +4,7 @@
 */
 
 //@base
-export Placeholder from './components/base/Placeholder'
+export Placeholder from './components/base/Placeholder';
 
 // @atoms
 export Divider from './components/atoms/Divider';
@@ -35,13 +35,14 @@ export SvgPhone from './components/atoms/icons/SvgPhone';
 export SvgLaptop from './components/atoms/icons/SvgLaptop';
 export SvgMarker from './components/atoms/icons/SvgMarker';
 export SvgFax from './components/atoms/icons/SvgFax';
-export SvgDocGeneric from './components/atoms/icons/SvgDocGeneric'
-export SvgDocDocx from './components/atoms/icons/SvgDocDocx'
-export SvgDocPdf from './components/atoms/icons/SvgDocPdf'
-export SvgDocXlxs from './components/atoms/icons/SvgDocXlxs'
-export SvgChevron from './components/atoms/icons/SvgChevron'
-export SvgWheelchair from './components/atoms/icons/SvgWheelchair'
-export SvgOpenNow from './components/atoms/icons/SvgOpenNow'
+export SvgDocGeneric from './components/atoms/icons/SvgDocGeneric';
+export SvgDocDocx from './components/atoms/icons/SvgDocDocx';
+export SvgDocPdf from './components/atoms/icons/SvgDocPdf';
+export SvgDocXlxs from './components/atoms/icons/SvgDocXlxs';
+export SvgChevron from './components/atoms/icons/SvgChevron';
+export SvgWheelchair from './components/atoms/icons/SvgWheelchair';
+export SvgOpenNow from './components/atoms/icons/SvgOpenNow';
+export SvgCircleChevron from './components/atoms/icons/SvgCircleChevron';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
@@ -72,6 +73,7 @@ export ContactGroup from './components/molecules/ContactGroup';
 export ImagePromo from './components/molecules/ImagePromo';
 export Tabs from './components/molecules/Tabs';
 export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
+export AccordionItem from './components/molecules/AccordionItem';
 
 // @organisms
 export Footer from './components/organisms/Footer';
@@ -86,6 +88,7 @@ export PageHeader from './components/organisms/PageHeader';
 export IllustratedHeader from './components/organisms/IllustratedHeader';
 export FilterBox from './components/organisms/FilterBox';
 export SearchBanner from './components/organisms/SearchBanner';
+export AccordionWrapper from './components/organisms/AccordionWrapper';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';
@@ -94,3 +97,6 @@ export NarrowTemplate from './components/templates/NarrowTemplate';
 export Error403 from './components/pages/Error403';
 export Error404 from './components/pages/Error404';
 export Error500 from './components/pages/Error500';
+
+//@animations
+export Collapse from './components/animations/Collapse';
