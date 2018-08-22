@@ -43,7 +43,7 @@ module.exports = {
           }
         ]
       });
-      config.plugins.push(new SpriteLoaderPlugin());
+      config.plugins.push(new SpriteLoaderPlugin({ plainSprite: true }));
       return config;
     }
   }
