@@ -23,6 +23,7 @@ const filter = require("gulp-filter");
 const e = require("./helpers/escape");
 const cssPipe = require("./pipelines/css");
 const jsPipe = require("./pipelines/js");
+const debug = require("gulp-debug");
 
 
 const task = function(name, cb, watch) {
@@ -52,13 +53,13 @@ class DistRegistry extends DefaultRegistry {
         css.watchFiles = config.sources.scss;
         const assets = task("assets", function() {
             var pipes = [
-                gulp.src(sources.distFiles).pipe(gulp.dest(this.resolveDist())),
-                gulp.src(sources.images).pipe(gulp.dest(this.resolveDist("assets/images"))),
-                gulp.src(sources.fonts).pipe(gulp.dest(this.resolveDist("assets/fonts"))),
-                gulp.src(sources.data).pipe(gulp.dest(this.resolveDist("assets/data"))),
-                gulp.src(sources.templates).pipe(gulp.dest(this.resolveDist("assets/js/templates"))),
-                gulp.src(sources.modernizr).pipe(gulp.dest(this.resolveDist("assets/js/vendor"))),
-                gulp.src(sources.patterns).pipe(filter("**/*.twig")).pipe(gulp.dest(this.resolveDist("twig")))
+                gulp.src(sources.distFiles).pipe(gulp.dest(self.resolveDist())),
+                gulp.src(sources.images).pipe(gulp.dest(self.resolveDist("assets/images"))),
+                gulp.src(sources.fonts).pipe(gulp.dest(self.resolveDist("assets/fonts"))),
+                gulp.src(sources.data).pipe(gulp.dest(self.resolveDist("assets/data"))),
+                gulp.src(sources.templates).pipe(gulp.dest(self.resolveDist("assets/js/templates"))),
+                gulp.src(sources.modernizr).pipe(gulp.dest(self.resolveDist("assets/js/vendor"))),
+                gulp.src(sources.patterns).pipe(filter("**/*.twig")).pipe(gulp.dest(self.resolveDist("twig")))
             ];
             return merge(pipes);
         });
@@ -88,14 +89,18 @@ class DistRegistry extends DefaultRegistry {
             taker.watch(assets.watchFiles, assets);
         })));
 
-        const doPL = this.buildPatternlabTask();
-        const doPLCopy = function() {
-            return gulp.src(self.resolveDist("**"))
-                .pipe(gulp.dest(self.resolvePatternlab()));
-        };
-        doPLCopy.watchFiles = self.resolveDist("**");
+        const patterns = task("patternlab:patterns", function() {
+            return exec(`php ${e(self.resolveRoot("core/console"))} --generate --patternsonly`, {verbose: 3});
+        });
+        patterns.watchFiles = sources.patterns;
 
-        taker.task("patternlab:build", taker.series(taker.parallel("dist:build", doPL), doPLCopy));
+        const copyDist = task("dist:copy", function() {
+            return gulp.src(self.resolveDist("**"), {read: false})
+                .pipe(gulp.dest(self.resolvePatternlab()))
+                .pipe(debug());
+        });
+
+        taker.task("patternlab:build", taker.series(taker.parallel("dist:build", patterns), copyDist));
         taker.task("patternlab:serve", taker.series("patternlab:build", task("server", () => {
             const sync = browserSync.create();
             sync.init({
@@ -106,26 +111,16 @@ class DistRegistry extends DefaultRegistry {
                 reloadDelay: 200,
                 server: self.resolvePatternlab()
             });
-            const reload = (done) => {
-                console.log(sync.reload());
+            const reload = function(done) {
+                sync.reload();
                 done();
             };
-            const copyAndReload = () => gulp.series(doPLCopy, reload);
+            const copyAndReload = gulp.series(copyDist, reload);
             taker.watch(css.watchFiles, gulp.series(css, copyAndReload));
             taker.watch(js.watchFiles, gulp.series(js, copyAndReload));
             taker.watch(assets.watchFiles, gulp.series(assets, copyAndReload));
-            taker.watch(doPL.watchFiles, gulp.series(doPL, reload));
+            taker.watch(patterns.watchFiles, gulp.series(patterns, reload));
         })));
-    }
-    buildPatternlabTask() {
-        const self = this;
-        let task = () => {
-            let opts = {verbose: 3};
-            return exec(`php ${e(self.resolveRoot("core/console"))} --generate --patternsonly`, opts);
-        };
-        task.watchFiles = [this.config.sources.patterns];
-        task.displayName = "patternlab:patterns";
-        return task;
     }
     resolveRoot(subPath) {
         if(!this.config.root) {
