@@ -11,75 +11,78 @@
  */
 
 const DefaultRegistry = require("undertaker-registry");
-const path = require('path');
-const gulp = require('gulp');
+const path = require("path");
+const gulp = require("gulp");
 const {exec} = require("child-process-promise");
-const merge = require('merge-stream');
-const mainBowerFiles = require('main-bower-files');
+const merge = require("merge-stream");
+const mainBowerFiles = require("main-bower-files");
 const browserSync    = require("browser-sync");
-const del = require('del');
-const filter = require('gulp-filter');
+const del = require("del");
+const filter = require("gulp-filter");
 
 const e = require("./helpers/escape");
-const cssPipe = require('./pipelines/css');
-const jsPipe = require('./pipelines/js');
+const cssPipe = require("./pipelines/css");
+const jsPipe = require("./pipelines/js");
 
 
 const task = function(name, cb, watch) {
     cb.displayName = name;
-    cb.watchFiles = watch
+    cb.watchFiles = watch;
     return cb;
-}
+};
 
 class DistRegistry extends DefaultRegistry {
     constructor(config) {
         super();
-        this.config = config
+        this.config = config;
     }
     init(taker) {
         const self = this;
         const {config} = this;
         const {sources} = config;
 
-        const clean = task('clean', () => del(self.resolveDist(), {force: true}));
-        const css = task('css', () => gulp.src(sources.scss)
+        const clean = task("clean", function() {
+            return del(self.resolveDist(), {force: true});
+        });
+        const css = task("css", function() {
+            return gulp.src(sources.scss)
                 .pipe(cssPipe(config.minify, config.root))
-                .pipe(gulp.dest(self.resolveDist('assets/css'))),
-        )
+                .pipe(gulp.dest(self.resolveDist("assets/css")));
+        });
         css.watchFiles = config.sources.scss;
-        const assets = task('assets', () => {
+        const assets = task("assets", function() {
             var pipes = [
                 gulp.src(sources.distFiles).pipe(gulp.dest(this.resolveDist())),
-                gulp.src(sources.images).pipe(gulp.dest(this.resolveDist('assets/images'))),
-                gulp.src(sources.fonts).pipe(gulp.dest(this.resolveDist('assets/fonts'))),
-                gulp.src(sources.data).pipe(gulp.dest(this.resolveDist('assets/data'))),
-                gulp.src(sources.templates).pipe(gulp.dest(this.resolveDist('assets/js/templates'))),
-                gulp.src(sources.modernizr).pipe(gulp.dest(this.resolveDist('assets/js/vendor'))),
-                gulp.src(sources.patterns).pipe(filter('**/*.twig')).pipe(gulp.dest(this.resolveDist('twig')))
+                gulp.src(sources.images).pipe(gulp.dest(this.resolveDist("assets/images"))),
+                gulp.src(sources.fonts).pipe(gulp.dest(this.resolveDist("assets/fonts"))),
+                gulp.src(sources.data).pipe(gulp.dest(this.resolveDist("assets/data"))),
+                gulp.src(sources.templates).pipe(gulp.dest(this.resolveDist("assets/js/templates"))),
+                gulp.src(sources.modernizr).pipe(gulp.dest(this.resolveDist("assets/js/vendor"))),
+                gulp.src(sources.patterns).pipe(filter("**/*.twig")).pipe(gulp.dest(this.resolveDist("twig")))
             ];
             return merge(pipes);
         });
-        assets.watchFiles = [sources.images, sources.fonts, sources.data, sources.templates, sources.modernizr]
+        assets.watchFiles = [sources.images, sources.fonts, sources.data, sources.templates, sources.modernizr];
 
-        const js = task('js', () => {
+        const js = task("js", function() {
             var pipes = [
                 gulp.src(mainBowerFiles({paths: sources.bower}))
                     .pipe(jsPipe.vendor(config.minify))
-                    .pipe(gulp.dest(self.resolveDist('assets/js'))),
+                    .pipe(gulp.dest(self.resolveDist("assets/js"))),
                 gulp.src(sources.js)
                     .pipe(jsPipe.custom(config.minify))
-                    .pipe(gulp.dest(self.resolveDist('assets/js')))
+                    .pipe(gulp.dest(self.resolveDist("assets/js")))
             ];
             return merge(pipes);
         });
         js.watchFiles = sources.js;
 
-        taker.task('dist:build', taker.series(clean, taker.parallel(
+        taker.task("dist:build", taker.series(clean, taker.parallel(
             css,
             js,
             assets
-        )))
-        taker.task('dist:watch', taker.series('dist:build', task('watcher', () => {
+        )));
+        taker.task("dist:watch", taker.series("dist:build", task("watcher", function() {
             taker.watch(css.watchFiles, css);
             taker.watch(js.watchFiles, js);
             taker.watch(assets.watchFiles, assets);
@@ -87,13 +90,13 @@ class DistRegistry extends DefaultRegistry {
 
         const doPL = this.buildPatternlabTask();
         const doPLCopy = function() {
-            return gulp.src(self.resolveDist('**'))
+            return gulp.src(self.resolveDist("**"))
                 .pipe(gulp.dest(self.resolvePatternlab()));
-        }
-        doPLCopy.watchFiles = self.resolveDist('**');
+        };
+        doPLCopy.watchFiles = self.resolveDist("**");
 
-        taker.task('patternlab:build', taker.series(taker.parallel('dist:build', doPL), doPLCopy));
-        taker.task('patternlab:serve', taker.series('patternlab:build', task('server', () => {
+        taker.task("patternlab:build", taker.series(taker.parallel("dist:build", doPL), doPLCopy));
+        taker.task("patternlab:serve", taker.series("patternlab:build", task("server", () => {
             const sync = browserSync.create();
             sync.init({
                 port: 3000,
@@ -106,8 +109,8 @@ class DistRegistry extends DefaultRegistry {
             const reload = (done) => {
                 console.log(sync.reload());
                 done();
-            }
-            const copyAndReload = () => gulp.series(doPLCopy, reload)
+            };
+            const copyAndReload = () => gulp.series(doPLCopy, reload);
             taker.watch(css.watchFiles, gulp.series(css, copyAndReload));
             taker.watch(js.watchFiles, gulp.series(js, copyAndReload));
             taker.watch(assets.watchFiles, gulp.series(assets, copyAndReload));

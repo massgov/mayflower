@@ -1,7 +1,7 @@
 const {argv} = require("optimist");
 const path = require("path");
 const gulp = require("gulp");
-const untildify = require('untildify');
+const untildify = require("untildify");
 
 const DistRegistry = require("./Dist");
 
@@ -19,7 +19,7 @@ const defaults = {
         // The path to the intermediate directory where artifacts
         // are compiled.  This can be any directory in the system,
         // including the `mayflower-dev` folder of the Drupal site.
-        dist: path.resolve(root, 'dist')
+        dist: path.resolve(root, "dist")
     },
     sources: {
         // The following files are considered pattern templates and will
@@ -40,10 +40,10 @@ const defaults = {
         scss: path.resolve(source, "assets/scss/**/*.scss"),
         // Extra files to add to the artifact.
         distFiles: [
-            path.resolve(source, '_dist/*'),
+            path.resolve(source, "_dist/*"),
             // Hidden files too.
-            path.resolve(source, '_dist/.*'),
-            path.resolve(root, 'package.json')
+            path.resolve(source, "_dist/.*"),
+            path.resolve(root, "package.json")
         ]
     },
     // Show verbose output in tasks.

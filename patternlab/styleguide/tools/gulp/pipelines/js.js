@@ -52,7 +52,7 @@ function browserifyNoExternals(options) {
         // https://github.com/substack/node-browserify/issues/1044#issuecomment-72384131
         const b = browserify(options || {}) // pass options
             .add(file.path) // this file
-            .transform("babelify", {presets: ['babel-preset-env']});
+            .transform("babelify", {presets: ["babel-preset-env"]});
 
         b.on("file", function(file) {
             // Exclude vendor files from node_modules and bower_components.
