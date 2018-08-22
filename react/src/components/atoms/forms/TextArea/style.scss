@@ -15,7 +15,7 @@
     }
     &.has-error {
       &:focus {
-        border-color: #cd0d0d !important;
+        border-color: $c-bd-error !important;
       }
     }
     &:disabled {
