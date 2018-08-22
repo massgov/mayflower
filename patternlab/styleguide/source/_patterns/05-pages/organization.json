@@ -394,16 +394,17 @@
           "data": {
             "actionFinder": {
               "id": "GUID831741781374893",
-              "bgWide": "../../assets/images/placeholder/1600x600-lighthouse-blur.jpg",
-              "bgNarrow": "../../assets/images/placeholder/800x800.png",
-              "title": "What do you need help with?",
-              "featuredHeading": "Featured Services",
-              "generalHeading": "More Services",
+              "bgWide": null,
+              "bgNarrow": null,
+              "color": "green",
+              "title": "What would you like to do?",
+              "featuredHeading": "Top actions and services",
+              "generalHeading": "Other actions and services",
               "titleContext": "from Executive Office of Health and Human Services",
               "seeAll": {
                 "type": "external",
                 "href": "http://www.google.com",
-                "text": "See all EOHHS’s programs and services on classic Mass.gov",
+                "text": "See all actions and services",
                 "info": ""
               },
               "featuredLinks": [
@@ -863,10 +864,12 @@
                 "centered": "",
                 "titleContext": "of Executive Office of Health and Human Services"
               },
-              "link": {
+              "paragraph": {
+                "text": "See more locations for this Generic Service"
+              },
+              "button": {
                 "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
-                "text": "Location Details",
-                "chevron": "true"
+                "text": "Location Details"
               },
               "googleMap": {
                 "map": {

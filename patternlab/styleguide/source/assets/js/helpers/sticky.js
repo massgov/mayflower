@@ -1,6 +1,6 @@
 import checkActive from "../helpers/cssControlCode.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   let $el,
     $elParent,
     elHeight,
@@ -82,4 +82,4 @@ export default function (window,document,$,undefined) {
 
   return {init};
 
-}(window,document,jQuery);
+})(window,document,jQuery);

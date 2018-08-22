@@ -1,6 +1,5 @@
-import throttle from "../helpers/throttle.js";
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   let tocContainerClass = '.js-toc-container';
   let containerClass = '.js-inline-overlay';
   let contentClass = '.js-inline-overlay-content';
@@ -37,4 +36,4 @@ export default function (window,document,$,undefined) {
   });
 
 
-}(window,document,jQuery);
+})(window,document,jQuery);

@@ -1,8 +1,8 @@
 <!-- Begin .header -->
 <header class="ma__header" id="header">
-  {% if not hideBackTo %}
+  {% if not header.hideBackTo %}
     <div class="ma__header__backto">
-      <a href="http://www.mass.gov">Go to classic Mass.gov</a>
+      <a href="{{ header.backTo ? header.backTo.url : 'https://www.mass.gov' }}">{{ header.backTo ? header.backTo.text : 'Go to classic Mass.gov' }}</a>
     </div>
   {% endif %}
   <a class="ma__header__skip-nav" href="#main-content">skip to main content</a>

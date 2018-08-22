@@ -1,7 +1,6 @@
 import twiggy from '../helpers/twiggy';
 
-export default function (window, document, $, undefined) {
-
+export default (function (window, document, $, undefined) {
   if ($('.js-pagination').length === 0) {
     return;
   }
@@ -34,8 +33,10 @@ export default function (window, document, $, undefined) {
     });
 
     window.onpopstate = function(e) {
-      if (e.state.page) {
-        $el.trigger("ma:Pagination:Pagination", [e.state.page]);
+      if (e.state) {
+        if (e.state.page) {
+          $el.trigger("ma:Pagination:Pagination", [e.state.page]);
+        }
       }
     };
 
@@ -50,10 +51,10 @@ export default function (window, document, $, undefined) {
     let params = new URLSearchParams(window.location.search);
     if (history.state && history.state.page) {
       targetPageNumber = history.state.page;
-    } else if (params.has('page')) {
-      targetPageNumber = params.get('page');
+    } else if (params.has('_page')) {
+      targetPageNumber = params.get('_page');
     }
-    pushPaginationState(targetPageNumber);
+    pushPaginationState(targetPageNumber, true);
 
   });
 
@@ -82,14 +83,22 @@ export default function (window, document, $, undefined) {
   }
 
 
-  function pushPaginationState(pageNum) {
+  function pushPaginationState(pageNum, replace = false) {
     let params = new URLSearchParams(window.location.search);
-    params.set('page', pageNum);
+    params.set('_page', pageNum);
 
-    history.pushState(
-      { page: pageNum },
-      `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
-    );
+    if (replace) {
+      history.replaceState(
+        { page: pageNum },
+        `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
+      );
+    }
+    else {
+      history.pushState(
+        { page: pageNum },
+        `${document.title} | page ${pageNum}`, `${window.location.origin}${window.location.pathname}?${params.toString()}`
+      );
+    }
   }
 
-} (window, document, jQuery);
+}) (window, document, jQuery);

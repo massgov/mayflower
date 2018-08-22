@@ -3,7 +3,7 @@
  * This demonstrates how to pass a transform function to MassAjaxPattern.
  */
 
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   // Note that this selector is passed into the template so that this is run instead of the
   // default 'js-ajax-pattern'.  See the ajaxPattern.customSelector in guide.json page object.
@@ -40,4 +40,4 @@ export default function (window,document,$,undefined) {
     }
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);

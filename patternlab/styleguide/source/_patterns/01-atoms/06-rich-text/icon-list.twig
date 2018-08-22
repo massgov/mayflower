@@ -1,10 +1,10 @@
 <ul class="ma__icon-list">
   {% for list in iconList %}
-    <li>{{ list.text|raw }}</li>
+    <li>{{ list.text }}</li>
     {% if list.sublist %}
       <ul>
         {% for sublist in list.sublist %}
-          <li>{{ sublist.text|raw }}</li>
+          <li>{{ sublist.text }}</li>
         {% endfor %}
       </ul>
     {% endif %}
