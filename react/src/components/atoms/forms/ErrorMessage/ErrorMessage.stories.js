@@ -12,7 +12,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
   .add('ErrorMessage', withInfo(`<div>${ErrorMessageReadme}</div>`)(() => {
     const props = {
       inputId: text('errorMessage.inputID', ErrorMessageOptions.inputId),
-      message: text('errorMessage.message', ErrorMessageOptions.message),
+      error: text('errorMessage.error', ErrorMessageOptions.error),
       status: select('errorMessage.status', ErrorMessageOptions.status, 'error')
     };
     return(<ErrorMessage {...props} />);
