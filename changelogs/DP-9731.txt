@@ -1,0 +1,3 @@
+___DESCRIPTION___
+Fixed
+- (Patternlab) DP-9731: Fix for mobile relationship indicator says "show more" when there are no more items. #183
