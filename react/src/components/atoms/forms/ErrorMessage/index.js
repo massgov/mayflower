@@ -4,7 +4,9 @@ import SvgInputError from '../../icons/SvgInputError';
 import SvgInputSuccess from '../../icons/SvgInputSuccess';
 import './style.css';
 
-const ErrorMessage = ({ inputId, error, success, status }) => {
+const ErrorMessage = ({
+  inputId, error, success, status
+}) => {
   const isSuccessful = status === 'success';
   return(
     <div
