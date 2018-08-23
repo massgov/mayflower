@@ -1,0 +1,1 @@
+This pattern shows a single accordion item.
