@@ -94,10 +94,6 @@
       span:nth-child(2) {
         display: none;
       }
-
-      @media ($bp-x-small-max) {
-        display: block;
-      }
     }
   }
 }
