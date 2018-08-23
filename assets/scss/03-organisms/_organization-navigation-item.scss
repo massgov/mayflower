@@ -249,15 +249,17 @@
 
       @media ($bp-large-min) {
         display: inline-block;
-        @include ma-button("normal","outline",$c-theme-primary);
-        @include ma-button("small");
-        text-transform: none;
-        letter-spacing: normal;
+        font-weight: 700;
+        background-color: #fff;
+        outline:3px solid rgba($c-theme-primary, 0.5);
         padding: 0.2rem 0.5rem;
         margin-top: 1rem;
+        transition: all 0.4s ease;
 
         &:hover {
           cursor: pointer;
+          background-color: $c-theme-primary;
+          outline: 3px solid $c-theme-primary;
 
           a {
             color: $c-white;

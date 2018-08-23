@@ -54,7 +54,7 @@
     "titleSubText": "(EOHHS)"
   },
   "organizationNavigation": {
-    "orgNavTitle": "Executive Office of Energy and Environmental Affairs Lorem ipsum dolor sit amet consectetur Executive Office of Energy and Environmental Affairs Lorem ipsum dolor sit amet consectetur Executive Office of Energy and Environmental Affairs Lorem ipsum dolor sit amet consectetur",
+    "orgNavTitle": "Executive Office of Energy and Environmental Affairs",
     "orgNavAbbrev": "EOEEA",
     "orgId": "6676",
     "orgSearch": true,
@@ -245,7 +245,7 @@
             },
             {
               "icon": "icon-login-v2",
-              "name": "Login to...",
+              "name": "Log in to...",
               "level": "",
               "contactName": "",
               "items": [{
