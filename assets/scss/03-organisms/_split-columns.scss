@@ -16,6 +16,7 @@
     // two items (50/50)
     &:first-child:nth-last-child(2),
     &:first-child:nth-last-child(2) ~ & {
+      margin: 0;
       
       @media($bp-medium-min) {
         @include span-columns(2 of 4);
