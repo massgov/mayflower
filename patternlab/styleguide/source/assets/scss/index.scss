@@ -11,6 +11,9 @@
 // Bower vendors
 @import "../js/vendor/bower_components/pikaday/scss/pikaday";
 
+// Assets path variable
+@import "00-base/paths";
+
 // Base variables
 @import "00-base/breakpoints";
 @import "00-base/mixins";
