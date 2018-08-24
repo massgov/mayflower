@@ -9,7 +9,7 @@ import SearchBannerForm from '.';
 import SearchBannerDocs from './SearchBannerForm.md';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('Search Banner Form', withInfo(`<div>${SearchBannerDocs}</div>`)(() => {
+  .add('SearchBannerForm', withInfo(`<div>${SearchBannerDocs}</div>`)(() => {
     const props = {
       action: '#',
       onSubmit: action('Form submitted'),

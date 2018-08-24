@@ -10,7 +10,7 @@ const levelOptions = {
 };
 
 export default {
-  title: (value) => text('compHeading.title', 'Title text'),
+  title: () => text('compHeading.title', 'Title text'),
   titleContext: (value) => text('compHeading.titleContext', value),
   id: (value) => text('compHeading.id', value),
   sub: (value) => boolean('compHeading.sub', value),
