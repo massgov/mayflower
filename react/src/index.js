@@ -15,6 +15,7 @@ export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 // @atoms/@forms
 export HelperText from './components/atoms/forms/HelperText';
+export ErrorMessage from './components/atoms/forms/ErrorMessage';
 export InputDate from './components/atoms/forms/InputDate';
 export InputText from './components/atoms/forms/InputText';
 export SelectBox from './components/atoms/forms/SelectBox';
@@ -32,6 +33,8 @@ export SvgSearch from './components/atoms/icons/SvgSearch';
 export SvgBuilding from './components/atoms/icons/SvgBuilding';
 export SvgLogin from './components/atoms/icons/SvgLogin';
 export SvgPhone from './components/atoms/icons/SvgPhone';
+export SvgInputError from './components/atoms/icons/SvgInputError';
+export SvgInputSuccess from './components/atoms/icons/SvgInputSuccess';
 export SvgLaptop from './components/atoms/icons/SvgLaptop';
 export SvgMarker from './components/atoms/icons/SvgMarker';
 export SvgFax from './components/atoms/icons/SvgFax';
