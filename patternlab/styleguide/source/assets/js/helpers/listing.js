@@ -38,7 +38,6 @@ export default (function(window, document, undefined, $, moment){
         // :focusable is possible with helpers/jQueryExtend.js
         let $firstFocus = $firstListing.find(':focusable').eq(0);
         $firstFocus.focus();
-        // $firstFocus[0].scrollIntoView();
       }
 
       if (args.data.selectors.hasOwnProperty('map') && args.data.selectors.map) {
