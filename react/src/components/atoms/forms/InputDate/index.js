@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Pikaday from 'pikaday';
+import './style.css';
 
 class InputDate extends React.Component {
   constructor(props) {
