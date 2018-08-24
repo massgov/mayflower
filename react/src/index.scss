@@ -1,18 +1,18 @@
 // normalize the css across browsers added in npm
-@import "normalize";
+@import "normalize-scss/sass/normalize";
 
 // Sass frameworks added in npm
-@import "bourbon";
+@import "bourbon/core/bourbon";
 
 // some variables adjust the settings in Neat
 @import "00-base/variables";
-@import "neat";
+@import "bourbon-neat/app/assets/stylesheets/neat";
 
 // Bower vendors
-@import "../js/vendor/bower_components/pikaday/scss/pikaday";
+@import "../../patternlab/styleguide/source/assets/js/vendor/bower_components/pikaday/scss/pikaday";
 
 // Assets path variable
-@import "00-base/paths";
+$assets-path: '../../assets';
 
 // Base variables
 @import "00-base/breakpoints";
