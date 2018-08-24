@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) DP-9851: blurs search text input when Enter key is pressed
