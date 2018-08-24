@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './style.css';
 
 const Button = (button) => {
-  const buttonSize = button.size ? ` ma__button--${button.size}` : '';
-  const buttonStyle = button.outline ? ' ma__button--minor' : '';
-  const buttonTheme = button.theme ? ` ma__button--${button.theme}` : '';
-  const classNames = `ma__button${buttonSize}${buttonStyle}${buttonTheme}`;
+  const buttonClasses = classNames({
+    ma__button: true,
+    'ma__button--minor': button.outline,
+    [`ma__button--${button.size}`]: button.size,
+    [`ma__button--${button.theme}`]: button.theme
+  });
   const Element = button.href ? 'a' : 'button';
   const onClickCallback = (e) => {
     if (typeof button.onClick === 'function') {
@@ -17,7 +20,7 @@ const Button = (button) => {
 
   return(
     <Element
-      className={classNames}
+      className={buttonClasses}
       type={button.type}
       href={button.href}
       title={button.info}
