@@ -6,8 +6,6 @@ class InputText extends React.Component {
     super(props);
     this.state = { value: '' };
     this.handleChange = this.handleChange.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.inputRef = React.createRef();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -20,12 +18,6 @@ class InputText extends React.Component {
     // invokes custom function if passed in the component
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(input);
-    }
-  }
-
-  handleKeyDown(event) {
-    if (event.key === 'Enter') {
-      this.inputRef.current.blur();
     }
   }
 
@@ -64,10 +56,8 @@ class InputText extends React.Component {
           pattern={inputText.pattern || null}
           style={inputText.width ? { width: `${inputText.width}px` } : null}
           onChange={this.handleChange}
-          onKeyDown={this.handleKeyDown}
           required={inputText.required}
           value={this.state.value}
-          ref={this.inputRef}
         />
       </React.Fragment>
     );
