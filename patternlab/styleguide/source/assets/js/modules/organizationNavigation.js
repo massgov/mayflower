@@ -7,7 +7,7 @@ export default (function (window,document,$,undefined) {
     let $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
     let $contactGroups;
 
-    // Pa ge wrapper and fillers. 
+    // Page wrapper and fillers. 
     const $pageWrapper = $orgNav.parent().next();
     let $newsLink = $pageWrapper.find('.ma__press-listing');
     let $eventsLink = $pageWrapper.find('.ma__event-listing');
@@ -81,7 +81,7 @@ export default (function (window,document,$,undefined) {
     // Open the dropdowns.
     $menuButton.each(function() {
       let $button = $(this);
-      let $buttonParent = $button.parent('li');
+      let $buttonParent = $button.parent('.has-subnav');
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
 
       $button.add($thisMenu).on('mouseenter mouseleave', function() {
@@ -154,6 +154,8 @@ export default (function (window,document,$,undefined) {
       $locationsLink.attr('id', 'locations');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#locations">Locations</a></li>');
     }
+
+    $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
   
 
     $(".internal-link").on('click', function(e) {

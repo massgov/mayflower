@@ -4,7 +4,6 @@
     position: relative;
     padding: 0 20px;
     margin-bottom: 0;
-    border-bottom: 1px solid $c-bd-divider;
     order: 2;
 
     @media ($bp-large-min) {
@@ -71,8 +70,7 @@
     }
 
     .subnav-toggle,
-    .internal-link,
-    .mobile-login {
+    .internal-link {
       width: 100%;
       display: block;
       text-align: left;
@@ -95,6 +93,27 @@
       @media ($bp-large-min) {
         height: 100%;
         font-size: 1.125rem;
+      }
+    }
+  }
+
+  &__item.mobileLogin {
+    border-top: 1px solid $c-bd-divider;
+
+    @media ($bp-large-min) {
+      display: none;
+    }
+
+    .ma__contact-group {
+      display: flex;
+      margin-top: 20px;
+
+      &__name {
+        display: inline-block;
+
+        span {
+          display: none;
+        }
       }
     }
   }
