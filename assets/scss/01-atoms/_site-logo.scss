@@ -28,7 +28,7 @@
       width: 112px;// 119px - margin-left(7)
       margin-left: 0.4rem;
       line-height: 1;
-      letter-spacing: 0.03rem;
+      letter-spacing: $letter-spacing-medium;
 
       @media ($bp-small-max) {
         font-size: 1.7rem;
