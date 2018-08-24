@@ -41,7 +41,7 @@ Button.propTypes = {
   /** HTML <button> 'type' attribute  */
   type: PropTypes.oneOf(['submit', 'reset', 'button', '']),
   /** Create a smaller button */
-  size: PropTypes.oneOf(['', 'small']),
+  size: PropTypes.oneOf(['', 'small', 'large']),
   /** Themes correspond to site color scheme i.e. sass variables */
   theme: PropTypes.oneOf(['', 'secondary', 'quaternary']),
   /** Whether or not to make a ghost button */
