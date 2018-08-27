@@ -1,0 +1,6 @@
+___DESCRIPTION___
+Changed
+Minor
+- (Patternlab, React) DP-10107: 
+  Make current button "small" the default button size and add "large" and "small" variations.
+  Update the button size for location listing CTA to align with default size.

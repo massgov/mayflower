@@ -4,7 +4,8 @@
     "info": "",
     "text": "Button",
     "type": "button",
-    "theme": "secondary",
-    "outline": true
+    "size": "large",
+    "theme": "",
+    "outline": false
   }
 }
