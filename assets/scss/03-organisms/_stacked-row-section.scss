@@ -54,6 +54,10 @@
     .page-content > * {
       @include ma-component-spacing;
     }
+
+    .page-content .contact-list {
+        --ms-overflow-style: --ms-autohiding-scrollbar;
+    }
   }
 }
 
@@ -62,7 +66,7 @@
 
   & ~ & {
     border-color: $c-bd-divider;
-    
+
     &__container:before {
       border-color: $c-bd-divider;
     }
