@@ -34,7 +34,7 @@ class ButtonWithIcon extends React.Component {
     if (capitalized) {
       classNames += ' ma__button-capitalized';
     }
-    if (iconSize === 'small' || icon.props.name === 'SvgChevron') {
+    if (iconSize === 'small' || icon.props.name === 'chevron') {
       classNames += ' ma__icon-small';
     }
     if (iconColor === 'green') {
@@ -91,7 +91,7 @@ ButtonWithIcon.defaultProps = {
   text: 'Search',
   type: 'submit',
   classes: [],
-  icon: <Icon name="search" />,
+  icon: <Icon name="search" svgHeight={20} svgWidth={20} />,
   canExpand: false,
   capitalized: false,
   iconSize: '',
