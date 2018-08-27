@@ -7,18 +7,17 @@ import AccordionWrapper from './index';
 import AccordionWrapperDocs from './AccordionWrapper.md';
 
 import AccordionItem from '../../molecules/AccordionItem';
-import SvgCircleChevron from '../../atoms/icons/SvgCircleChevron';
-import SvgLaptop from '../../atoms/icons/SvgLaptop';
-import SvgPhone from '../../atoms/icons/SvgPhone';
-import SvgFax from '../../atoms/icons/SvgFax';
+import Icon from '../../atoms/icons/Icon';
 import Paragraph from '../../atoms/text/Paragraph';
 import OrderedList from '../../atoms/lists/OrderedList';
 
+const getIcon = (iconProps) => <Icon {...iconProps} />;
+
 const icons = {
-  circlechevron: <SvgCircleChevron />,
-  laptop: <SvgLaptop />,
-  phone: <SvgPhone />,
-  fax: <SvgFax />,
+  circlechevron: getIcon({ name: 'circlechevron' }),
+  laptop: getIcon({ name: 'laptop' }),
+  phone: getIcon({ name: 'phone' }),
+  fax: getIcon({ name: 'fax' }),
   none: null
 };
 
