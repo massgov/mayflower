@@ -455,7 +455,6 @@
             "button": {
               "text": "Done",
               "type": "submit",
-              "size": "small",
               "theme": "",
               "outline": false
             }
