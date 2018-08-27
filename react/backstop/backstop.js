@@ -1,4 +1,4 @@
-const listDirs = require('./listDirs');
+const listComponents = require('./listComponents');
 const storyBookBackstop = require('./storyBookBackstop');
 const path = require('path');
 
@@ -10,9 +10,11 @@ let viewports;
 
 // Scan for component names and set up viewports.
 const componentsPath = `${__dirname}/../src/components/`;
+testComponents = listComponents(componentsPath);
+
 if (processAtoms) {
   testId = 'mayflower-react-atoms';
-  components = listDirs(componentsPath)
+  components = testComponents
     // Component directory names are capitalized.
     .filter((filePath) => (/^[A-Z]/.test(path.basename(filePath))))
     // Only test atoms with this backstop configuration.
@@ -27,11 +29,11 @@ if (processAtoms) {
   }];
 } else {
   testId = 'mayflower-react';
-  components = listDirs(componentsPath)
+  components = testComponents
     // Component directory names are capitalized.
     .filter((filePath) => (/^[A-Z]/.test(path.basename(filePath))))
-    // Only test stories other than atoms with this backstop configuration.
-    .filter((filePath) => (filePath.indexOf('/atoms/') === -1));
+    // Only test stories other than atoms with this backstop configuration.  Do not test animations.
+    .filter((filePath) => (filePath.indexOf('/atoms/') === -1) && (filePath.indexOf('/animations/') === -1));
 
   viewports = [{
     label: 'phone',

@@ -61,7 +61,12 @@
         "value": "open",
         "checked": "false"
       }],
-      "submitButton": "Submit"
+      "buttons": [{
+        "text": "Submit",
+        "type": "submit",
+        "theme": "",
+        "outline": false
+      }] 
     },
     "googleMap": {
       "map": {
@@ -268,7 +273,7 @@
           "info": ""
         },
         "location": {
-          "text": "88 North Main Street\nAttleboro, MA 02703",
+          "text": "88 North Main Street<br>Attleboro, MA 02703",
           "map": true
         },
         "phone": {
@@ -306,7 +311,7 @@
           "info": ""
         },
         "location": {
-          "text": "3195 Main Street, Barnstable, MA 02630",
+          "text": "3195 Main Street<br>Barnstable, MA 02630",
           "map": true
         },
         "phone": {
@@ -344,7 +349,7 @@
           "info": ""
         },
         "location": {
-          "text": "76 East Street, Pittsfield, MA 01201",
+          "text": "76 East Street<br>Pittsfield, MA 01201",
           "map": true
         },
         "phone": {
@@ -382,7 +387,7 @@
           "info": ""
         },
         "location": {
-          "text": "360 Washington Street, Brookline, MA 02445",
+          "text": "360 Washington Street<br>Brookline, MA 02445",
           "map": true
         },
         "phone": {
@@ -424,7 +429,7 @@
           "info": ""
         },
         "location": {
-          "text": "4040 Mystic Valley Parkway, Medford, MA 02155",
+          "text": "4040 Mystic Valley Parkway<br>Medford, MA 02155",
           "map": true
         },
         "phone": {
@@ -462,7 +467,7 @@
           "info": ""
         },
         "location": {
-          "text": "305 Walden Street, Concord, MA 01742",
+          "text": "305 Walden Street<br>Concord, MA 01742",
           "map": true
         },
         "phone": {
@@ -500,7 +505,7 @@
           "info": ""
         },
         "location": {
-          "text": "81 Main Street, Edgartown, MA  02539",
+          "text": "81 Main Street<br>Edgartown, MA  02539",
           "map": true
         },
         "phone": {
@@ -538,7 +543,7 @@
           "info": ""
         },
         "location": {
-          "text": "41 Hurd Street, Lowell, MA 01852",
+          "text": "41 Hurd Street<br>Lowell, MA 01852",
           "map": true
         },
         "phone": {
@@ -576,7 +581,7 @@
           "info": ""
         },
         "location": {
-          "text": "45 Williams Street, Marlborough, MA 01752",
+          "text": "45 Williams Street<br>Marlborough, MA 01752",
           "map": true
         },
         "phone": {
@@ -614,7 +619,7 @@
           "info": ""
         },
         "location": {
-          "text": "56 Federal Street, Salem, MA 01970",
+          "text": "56 Federal Street<br>Salem, MA 01970",
           "map": true
         },
         "phone": {
@@ -652,7 +657,7 @@
           "info": ""
         },
         "location": {
-          "text": "Three Pemberton Square Boston, MA 02108",
+          "text": "Three Pemberton Square<br>Boston, MA 02108",
           "map": true
         },
         "phone": {
@@ -690,7 +695,7 @@
           "info": ""
         },
         "location": {
-          "text": "40 Broadway, Taunton, MA  02780",
+          "text": "40 Broadway<br>Taunton, MA  02780",
           "map": true
         },
         "phone": {

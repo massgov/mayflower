@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Changes
-Minor
-- patternlab DP-9693: Modify body text color to use a darker grey
-

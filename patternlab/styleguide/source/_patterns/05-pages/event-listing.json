@@ -62,8 +62,12 @@
             "restrict": "min"
           }
         },
-
-        "submitButton": "Submit"
+        "buttons": [{
+          "text": "Submit",
+          "type": "submit",
+          "theme": "",
+          "outline": false
+        }]
       },
 
       "resultsHeading": {

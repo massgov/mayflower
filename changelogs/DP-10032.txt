@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Minor
-- (Patternlab) DP-10032: Fix for binder overlay button click not triggering overlay
