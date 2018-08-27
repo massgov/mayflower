@@ -53,10 +53,7 @@
 
     .page-content > * {
       @include ma-component-spacing;
-    }
-
-    .page-content .contact-list {
-        --ms-overflow-style: --ms-autohiding-scrollbar;
+      --ms-overflow-style: none;
     }
   }
 }
