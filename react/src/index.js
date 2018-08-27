@@ -26,10 +26,6 @@ export Heading from './components/atoms/headings/Heading';
 export SidebarHeading from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
 export Icon from './components/atoms/icons/Icon';
-export SvgDocGeneric from './components/atoms/icons/SvgDocGeneric'
-export SvgDocDocx from './components/atoms/icons/SvgDocDocx'
-export SvgDocPdf from './components/atoms/icons/SvgDocPdf'
-export SvgDocXlxs from './components/atoms/icons/SvgDocXlxs'
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists

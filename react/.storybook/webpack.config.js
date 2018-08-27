@@ -1,6 +1,4 @@
 const path = require("path");
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-
 
 module.exports = (baseConfig, env, defaultConfig) => {
   // Replace storybook's default rule for media that contained svg.
@@ -22,7 +20,10 @@ module.exports = (baseConfig, env, defaultConfig) => {
             use: [
               {
                 loader: 'svg-sprite-loader',
-                options: { extract: true, spriteFilename: 'static/media/sprite.svg' }
+                options: {
+                  extract: false,
+                  spriteFilename: 'static/media/sprite.svg',
+                }
               }
             ]
           }
@@ -30,10 +31,5 @@ module.exports = (baseConfig, env, defaultConfig) => {
       });
     }
   });
-  if (!defaultConfig.plugins) {
-    defaultConfig.plugins = [];
-  }
-  // This is required for svg-sprite-loader ONLY when you extract the sprite.
-  defaultConfig.plugins.push(new SpriteLoaderPlugin({plainSprite: true,}));
   return defaultConfig;
 };

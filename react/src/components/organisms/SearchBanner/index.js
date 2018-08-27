@@ -58,7 +58,7 @@ class SearchBanner extends Component {
           <div className="main-content--two ma__search-banner__filter-box-toggle-container">
             <button onClick={this.toggleFilterBox} type="button" className={toggleButtonClass}>
               {filterToggleText}
-              <Icon name="chevron" />
+              <Icon name="chevron" svgWidth={20} svgHeight={20} />
             </button>
           </div>
         )}

@@ -1,5 +1,4 @@
 const path = require('path');
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
   type: 'react-component',
@@ -27,23 +26,20 @@ module.exports = {
         oneOf: [
           {
             exclude: path.resolve(__dirname, './src'),
-            loader: require.resolve('file-loader'),
-            query: {
-              name: 'static/media/[name].[hash:8].[ext]'
-            }
+            loader: require.resolve('url-loader'),
+            options: { limit: 1, name: '[name].[hash:8].[ext]' }
           },
           {
             include: path.resolve(__dirname, './src'),
             use: [
               {
-                loader: 'svg-sprite-loader',
-                options: { extract: true, spriteFilename: 'static/media/sprite.svg' }
+                loader: require.resolve('svg-sprite-loader'),
+                options: { extract: false, spriteFilename: 'static/media/sprite.svg' }
               }
             ]
           }
         ]
       });
-      config.plugins.push(new SpriteLoaderPlugin({ plainSprite: true }));
       return config;
     }
   }
