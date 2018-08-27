@@ -33,6 +33,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-9919: Directly consume global level SCSS variables from shared assets.
 - (React) DP-9981: Changes heading atom in Mayflower React, adding the option to pass a classname to a heading component.
 - (React) DP-10098: Consume scss and images directly from shared assets.
+- (Patternlab, React) DP-10107: 
+  - Make current button "small" the default button size and add "large" and "small" variations.
+  - Update the button size for location listing CTA to align with default size.
+
 
 ### Fixed
 - (Patternlab) DP-9486: Make location filter persist on location listing page.
