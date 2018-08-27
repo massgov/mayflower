@@ -2,3 +2,4 @@ ___DESCRIPTION___
 Fixed
 Patch
 - (Patternlab) DP-9486: Make location filter persist on location listing page.
+- (Patternlab) DP-9486: Fixed the location listing autocomplete search filter.
