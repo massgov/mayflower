@@ -13,6 +13,36 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 6.3.0 (8/27/2018)
+
+### Added
+- (React) DP-9981: Adds standard accordion components and functionality to Mayflower-React. Also fixes VR bug related to react components.
+  - Adds AccordionItem molecule with secondary, borderless, emphasized, and subtle variants.
+  - Adds AccordionWrapper organism to Mayflower React, which is a dumb wrapper for styling grouped AccordionItems.
+  - Adds Collapse animation atom to Mayflower React based off of the Bootstrap React animation.
+  - Adds dependency to react-transition-group for Collapse animation atom.
+  - Add the SvgCircleChevron icon atom to Mayflower-React.
+  - Adds dependency to classnames for simplifying conditional classname set up. Other component should be refactored to leverage this new package dependency as a follow up.
+- (React) DP-10028:
+  - Add error message as an atom with error and success states
+  - Add InputError and InputSuccess icons
+- (React) DP-10098: Added `bourbon`, `normalize-scss` and `bourbon-neat` as react dev dependencies.
+
+### Changed
+- (Patternlab) DP-9522: Updates the Locaton Listing component to updated designs.
+- (React) DP-9919: Directly consume global level SCSS variables from shared assets.
+- (React) DP-9981: Changes heading atom in Mayflower React, adding the option to pass a classname to a heading component.
+- (React) DP-10098: Consume scss and images directly from shared assets.
+
+### Fixed
+- (Patternlab) DP-9486: Make location filter persist on location listing page.
+- (Patternlab) DP-9486: Fixed the location listing autocomplete search filter. #189
+- (React) DP-9981: Fixes issues related to visual regression of react components without a story and with nested variants.
+- (React) DP-10069: Render current year in footer component and make footer fully configurable.
+
+### Removed
+- (React) DP-10098: Removed Mayflower npm dependency in mayflower react.
+
 ## 6.2.3 (8/17/2018)
 
 ### Fixed
