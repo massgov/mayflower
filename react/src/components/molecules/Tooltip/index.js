@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const Tooltip = (tooltip) => {
-  const headingTag = `h${tooltip.level ? tooltip.level : 2}`;
+  const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;
   const location = (tooltip.location === 'above') ? 'ma__tooltip__modal--above' : 'ma__tooltip__modal--below';
-  const openIcon = tooltip.openIcon ? 'icon' : '';
+  const openIcon = tooltip.openIcon ? tooltip.openIcon : '';
 
   return (
-    <div class="ma__tooltip">
-      <div class="ma__tooltip__inner">
+    <div className="ma__tooltip">
+      <div className="ma__tooltip__inner">
         <input
           id={tooltip.controlId}
           type="checkbox"
@@ -23,7 +23,7 @@ const Tooltip = (tooltip) => {
           aria-labelledby={tooltip.controlId}
           aria-hidden="true">
           {tooltip.openText}
-          { openIcon }
+          {openIcon}
         </label>
         <section className={`ma__tooltip__modal ${location}`}>
           <div className="ma__tooltip__container">
@@ -33,7 +33,7 @@ const Tooltip = (tooltip) => {
               tabindex="-1"
               aria-labelledby="{{ tooltip.controlId }}"
               aria-hidden="true">{tooltip.closeText}</label>
-              <headingTag className="ma__tooltip__title">{tooltip.title}</headingTag>
+              <HeadingTag className="ma__tooltip__title">{tooltip.title}</HeadingTag>
             <div className="ma__tooltip__message">
               {tooltip.message}
             </div>
@@ -45,9 +45,9 @@ const Tooltip = (tooltip) => {
 }
 
 Tooltip.propTypes = {
-  /** Text to display when open */
+  /** Text to display to prompt user */
   openText: PropTypes.string.isRequired,
-  /** Text to display when closed. */
+  /** Text to display as close message. */
   closeText: PropTypes.string.isRequired,
   /** Tooltip Message */
   message: PropTypes.string.isRequired,
@@ -57,14 +57,12 @@ Tooltip.propTypes = {
   location: PropTypes.string,
   /** description on link for screen readers */
   info: PropTypes.string.isRequired,
-  /** Path to icon */
+  /** SVG icon */
   openIcon: PropTypes.string,
-  /** Title */
+  /** Title of opened window*/
   title: PropTypes.string,
   /** Heading level of title. Default h2 */
-  level: PropTypes.number,
-  /** Message of tooltip. */
-  message: PropTypes.string.isRequired
+  level: PropTypes.number
 };
 
 export default Tooltip
