@@ -1,4 +1,4 @@
 ___DESCRIPTION___
 Added
 Patch
-- patternlab / DP-10099: [MF] Add a tableau atom
+- patternlab / DP-10099: [MF] Add a tableau atom PR#195
