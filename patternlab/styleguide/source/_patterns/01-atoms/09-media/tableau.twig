@@ -1,11 +1,18 @@
-<div id="{{id}}"></div>
-<script type="text/javascript" 
-	    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-<script type="text/javascript">
-    function initViz() {
-        var containerDiv = document.getElementById("{{id}}"),
-          url = "{{url}}";
-        var viz_{{id}} = new tableau.Viz(containerDiv, url, {}); 
-    };
-    initViz();
-</script>
+<div class="ma__tableau">
+  <div id="{{tableau.id}}"></div>
+  {% if tableau.caption %}
+  <figcaption class="ma__figure__caption ma__tableau__caption">
+    {{ tableau.caption }}
+  </figcaption>
+  {% endif %}
+  <script type="text/javascript" 
+        src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  <script type="text/javascript">
+      function initViz() {
+          var containerDiv = document.getElementById("{{tableau.id}}"),
+            url = "{{tableau.url}}";
+          var viz_{{id}} = new tableau.Viz(containerDiv, url, {}); 
+      };
+      initViz();
+  </script>
+</div>
