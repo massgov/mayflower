@@ -47,6 +47,12 @@
 
   .main-content {
 
+
+    .page-content .ma__contact-list {
+      -ms-overflow-style: none;
+      background-color: orange;
+    }
+
     @media ($bp-large-max) {
       margin-bottom: 0;
     }
@@ -59,11 +65,6 @@
     .page-content .ma__contact-list {
       -ms-overflow-style: none;
     }
-  }
-
-  .page-content .ma__contact-list {
-    -ms-overflow-style: none;
-    background-color: orange;
   }
 }
 
