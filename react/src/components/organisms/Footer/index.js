@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import stateSeal from '@massds/mayflower/images/stateseal.png';
+import logo from '../../../../../assets/images/stateseal.png';
 import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
 import SvgArrow from '../../atoms/icons/SvgArrow';
@@ -68,7 +68,7 @@ Footer.propTypes = {
 Footer.defaultProps = {
   backToTopButton: false,
   footerLogo: {
-    src: stateSeal,
+    src: logo,
     altText: 'Massachusetts State Seal'
   },
   footerText: {

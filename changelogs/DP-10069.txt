@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) DP-10069: Render current year in footer component and make footer fully configurable.

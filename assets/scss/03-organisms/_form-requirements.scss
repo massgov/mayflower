@@ -7,7 +7,7 @@
     position: absolute;
       right: 100%;
       top: 0;
-    width: 50vw;  
+    width: 50vw;
   }
 
   &__title {
@@ -55,6 +55,6 @@
   }
 
   &__container {
-    background: transparent url('../images/svg-icons/bg-checklist.svg') right 50px bottom -50px no-repeat;
+    background: transparent url('#{$assets-path}/images/svg-icons/bg-checklist.svg') right 50px bottom -50px no-repeat;
   }
 }

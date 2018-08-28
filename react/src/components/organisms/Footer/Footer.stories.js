@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object } from '@storybook/addon-knobs/react';
 
-import Footer from '.';
+import Footer from './index';
 import FooterReadme from './Footer.md';
 
 import FooterLinksData from '../../molecules/FooterLinks/FooterLinks.json';

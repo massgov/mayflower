@@ -9,10 +9,10 @@
       {% include "@atoms/03-forms/input-checkbox.twig" %}
     </div>
     <div class="ma__transition-page__buttons">
-      <button class="ma__button ma__button--minor ma__button--small" onClick="window.history.back();" type="button">{{ transitionPage.back }}</button>
+      <button class="ma__button ma__button--minor" onClick="window.history.back();" type="button">{{ transitionPage.back }}</button>
       {# backward compatible with v5.6 - check for old 'submit' variable #}
       {% if transitionPage.submit %}
-        {% set button = { "text": transitionPage.submit, "type": "submit", "size": "small" } %}
+        {% set button = { "text": transitionPage.submit, "type": "submit" } %}
       {% else %}
         {% set button = transitionPage.submitButton %}
       {% endif %}
