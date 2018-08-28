@@ -73,11 +73,11 @@ export default (function (window, document, $, undefined) {
     // Render async with Twig.
     return twiggy('@molecules/pagination.twig')
       .then(template => {
-          // Truncate the pagination with ellipsis to prevent it from showing
-          // all page numbers if there are a lot.
-          let pagination = truncatePaginationDisplay(args.data);
-          // Render the pagination Twig async.
-          return template.renderAsync({ pagination: pagination })
+        // Truncate the pagination with ellipsis to prevent it from showing
+        // all page numbers if there are a lot.
+        let pagination = truncatePaginationDisplay(args.data);
+        // Render the pagination Twig async.
+        return template.renderAsync({ pagination: pagination });
       })
       .then(markup => args.$el.html(markup));
 
@@ -100,7 +100,8 @@ export default (function (window, document, $, undefined) {
     let truncatedPagination = data,
         current = data.currentPage,
         last = data.pages.length,
-        delta = 1,
+        // For the first page, show the next 2 numbers. Otherwise, set to 1.
+        delta = current === 1 ? 2 : 1,
         left = current - delta,
         right = current + delta + 1,
         range = [],
@@ -121,7 +122,8 @@ export default (function (window, document, $, undefined) {
       if (l) {
         if (i - l === 2) {
           rangeWithEllipsis.push({ text: l + 1, active: false });
-        } else if (i - l !== 1) {
+        }
+        else if (i - l !== 1) {
           rangeWithEllipsis.push({ text: 'spacer', active: false });
         }
       }
