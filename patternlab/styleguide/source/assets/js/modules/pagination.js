@@ -99,10 +99,16 @@ export default (function (window, document, $, undefined) {
 
     let truncatedPagination = data,
         current = data.currentPage,
-        last = data.pages.length,
-        // For the first page, show the next 2 numbers. Otherwise, set to 1.
-        delta = current === 1 ? 2 : 1,
-        left = current - delta,
+        last = data.totalPages,
+        delta = 1;
+
+    // For the first and last pages, set the delta to 2 so 2 page numbers
+    // within the current page can be shown.
+    if (current === 1 || current === last) {
+      delta = 2;
+    }
+
+    let left = current - delta,
         right = current + delta + 1,
         range = [],
         rangeWithEllipsis = [],
@@ -110,10 +116,6 @@ export default (function (window, document, $, undefined) {
 
     for (let i = 1; i <= last; i++) {
       if (i == 1 || i == last || i >= left && i < right) {
-        let active = false;
-        if (i === current) {
-          active = true;
-        }
         range.push(i);
       }
     }
