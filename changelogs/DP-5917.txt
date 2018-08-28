@@ -1,0 +1,3 @@
+___DESCRIPTION___
+Updated
+- (Patternlab) DP-5917: Updates to truncate long pagination displays with ellipsis. #196.
