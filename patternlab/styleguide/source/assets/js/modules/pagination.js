@@ -54,7 +54,6 @@ export default (function (window, document, $, undefined) {
 
     // if we already have a state or a query parameter, initialize things
     pushPaginationState(targetPageNumber, true);
-
   });
 
   /**
@@ -71,62 +70,73 @@ export default (function (window, document, $, undefined) {
       return;
     }
 
-    console.log(args.data);
-
-
     // Render async with Twig.
     return twiggy('@molecules/pagination.twig')
       .then(template => {
-          let data = args.data;
-          let current = data.currentPage,
-              last = data.pages.length,
-              delta = 1,
-              left = current - delta,
-              right = current + delta + 1,
-              range = [],
-              rangeWithDots = [],
-              l;
-
-          for (let i = 1; i <= last; i++) {
-            if (i == 1 || i == last || i >= left && i < right) {
-              let active = false;
-              if (i === current) {
-                active = true;
-              }
-              range.push(i);
-            }
-          }
-
-          for (let i of range) {
-            if (l) {
-              if (i - l === 2) {
-                rangeWithDots.push({ text: l + 1, active: false });
-              } else if (i - l !== 1) {
-                rangeWithDots.push({ text: 'spacer', active: false });
-              }
-            }
-
-            let active = false;
-            if (i === current) {
-              active = true;
-            }
-            rangeWithDots.push({ text: i, active: active });
-            l = i;
-          }
-
-          let finalOutput = args.data;
-          finalOutput.pages = rangeWithDots;
-          return template.renderAsync({ pagination: finalOutput })
+          // Truncate the pagination with ellipsis to prevent it from showing
+          // all page numbers if there are a lot.
+          let pagination = truncatePaginationDisplay(args.data);
+          // Render the pagination Twig async.
+          return template.renderAsync({ pagination: pagination })
       })
-      .then(markup => args.$el.html(markup))
+      .then(markup => args.$el.html(markup));
 
     // Create new markup using handlebars template, helper.
     let markup = compiledTemplate(args.data);
     args.$el.html(markup);
   }
 
+  /**
+   * Returns a truncated version of the pagination structure.
+   *
+   * @param data
+   *   The the pagination data to transform.
+   */
   function truncatePaginationDisplay(data) {
+    if (!data) {
+      return;
+    }
 
+    let truncatedPagination = data,
+        current = data.currentPage,
+        last = data.pages.length,
+        delta = 1,
+        left = current - delta,
+        right = current + delta + 1,
+        range = [],
+        rangeWithEllipsis = [],
+        l;
+
+    for (let i = 1; i <= last; i++) {
+      if (i == 1 || i == last || i >= left && i < right) {
+        let active = false;
+        if (i === current) {
+          active = true;
+        }
+        range.push(i);
+      }
+    }
+
+    for (let i of range) {
+      if (l) {
+        if (i - l === 2) {
+          rangeWithEllipsis.push({ text: l + 1, active: false });
+        } else if (i - l !== 1) {
+          rangeWithEllipsis.push({ text: 'spacer', active: false });
+        }
+      }
+
+      let active = false;
+      if (i === current) {
+        active = true;
+      }
+      rangeWithEllipsis.push({ text: i, active: active });
+      l = i;
+    }
+
+    truncatedPagination.pages = rangeWithEllipsis;
+
+    return truncatedPagination;
   }
 
   function pushPaginationState(pageNum, replace = false) {
