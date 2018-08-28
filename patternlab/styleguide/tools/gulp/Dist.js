@@ -94,7 +94,7 @@ class DistRegistry extends DefaultRegistry {
         patterns.watchFiles = sources.patterns;
 
         const copyDist = task("dist:copy", function() {
-            return gulp.src(self.resolveDist("**"), {read: false})
+            return gulp.src(self.resolveDist("**"))
                 .pipe(gulp.dest(self.resolvePatternlab()));
         });
 
