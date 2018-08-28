@@ -1,10 +1,12 @@
 .ma__contact-list {
   &:not(.ma__contact-list--view-specific) {
     overflow: auto;
+    -ms-overflow-style: none;
   }
 
   .sidebar & {
     overflow: initial;
+    -ms-overflow-style: none;
   }
 
   .pre-content > &,
@@ -57,10 +59,4 @@
     }
   }
 
-}
-
-
-.ma__stacked-row__sectoion .page-content .ma__contact-list {
-  -ms-overflow-style: none;
-  background-color: green;
 }
