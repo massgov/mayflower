@@ -3,11 +3,16 @@
     overflow: auto;
   }
 
+  .ma__stacked-row-section & {
+    -ms-overflow-style: none;
+    background-color: green; // TEST STYLE
+  }
+
   .sidebar & {
     overflow: initial;
     -ms-overflow-style: none;
-    -moz-border-radius-topright: 1em;
-    background-color: orange;
+    -moz-border-radius-topright: 1em; // TEST STYLE
+    background-color: blue; // TEST STYLE
   }
 
   .pre-content > &,
@@ -18,7 +23,7 @@
 
   .ma__stacked-row-section & {
     -ms-overflow-style: none;
-    background-color: yellow;
+    background-color: yellow; // TEST STYLE
   }
 
   &--view-specific {
