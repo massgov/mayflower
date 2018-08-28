@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (Patternlab) DP-9486: Make location filter persist on location listing page.
