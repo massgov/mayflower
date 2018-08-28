@@ -1,11 +1,7 @@
 .ma__contact-list {
-  -ms-overflow-style: none;
-  background-color: yellow;
 
   &:not(.ma__contact-list--view-specific) {
     overflow: auto;
-    -ms-overflow-style: none;
-    background-color: green;
   }
 
   .sidebar & {
@@ -32,6 +28,11 @@
           margin-top: 0;
         }
       }
+    }
+
+    .ma__stacked-row-section & {
+      -ms-overflow-style: none;
+      background-color: yellow;
     }
 
     .sidebar & {

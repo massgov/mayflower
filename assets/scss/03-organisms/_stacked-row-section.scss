@@ -53,7 +53,6 @@
 
     .page-content > * {
       @include ma-component-spacing;
-      -ms-overflow-style: none;
     }
   }
 }
