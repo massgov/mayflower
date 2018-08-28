@@ -46,6 +46,7 @@ export SvgChevron from './components/atoms/icons/SvgChevron';
 export SvgWheelchair from './components/atoms/icons/SvgWheelchair';
 export SvgOpenNow from './components/atoms/icons/SvgOpenNow';
 export SvgCircleChevron from './components/atoms/icons/SvgCircleChevron';
+export SvgQuestionMark from './components/atoms/icons/SvgQuestionMark';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
