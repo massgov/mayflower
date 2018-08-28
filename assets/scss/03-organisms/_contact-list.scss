@@ -16,6 +16,11 @@
     @include ma-container();
   }
 
+  .ma__stacked-row-section & {
+    -ms-overflow-style: none;
+    background-color: yellow;
+  }
+
   &--view-specific {
 
     .main-content--two .page-content & {
@@ -27,11 +32,6 @@
           margin-top: 0;
         }
       }
-    }
-
-    .ma__stacked-row-section & {
-      -ms-overflow-style: none;
-      background-color: yellow;
     }
 
     .sidebar & {
