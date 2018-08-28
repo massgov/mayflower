@@ -41,7 +41,8 @@ const defaults = {
             path.resolve(source, "_dist/*"),
             // Hidden files too.
             path.resolve(source, "_dist/.*"),
-            path.resolve(root, "package.json")
+            path.resolve(root, "package.json"),
+            path.resolve(root, "LICENSE"),
         ]
     },
     // Show verbose output in tasks.
