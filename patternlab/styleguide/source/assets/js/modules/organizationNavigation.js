@@ -12,7 +12,7 @@ export default (function (window,document,$,undefined) {
     let $newsLink = $pageWrapper.find('.ma__press-listing');
     let $eventsLink = $pageWrapper.find('.ma__event-listing');
     let $locationsLink = $pageWrapper.find('.ma__mapped-locations');
-    let $relatedOrgs = $pageWrapper.find('.ma__related-organizations');
+    let $relatedOrgs = $pageWrapper.find('.ma__our-organizations');
 
     // Mobile Menu vars.
     let $mobileToggle = $orgNav.find('.ma__organization-navigation__mobile-toggle');

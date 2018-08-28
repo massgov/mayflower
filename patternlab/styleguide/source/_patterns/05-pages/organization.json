@@ -860,7 +860,7 @@
                     "path": "@organisms/by-author/image-link-list.twig",
                     "data": {
                         "imageLinkList": {
-                            "sectionClass": "ma__related-organizations",
+                            "sectionClass": "ma__our-organizations",
                             "blocks": true,
                             "compHeading": {
                                 "title": "Our Organizations",
