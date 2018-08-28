@@ -204,13 +204,12 @@
           }
         },
         {
-        "path": "@atoms/09-media/iframe.twig",
+        "path": "@atoms/09-media/tableau.twig",
           "data": {
-           "iframe": {
-              "src": "https://massgov.github.io",
-              "title": "Embed page title for accessibility",
-              "position": "full",
-              "caption": "This is an optional caption for an iframe. This iframe also has the 'full' class to fill the container."
+            "tableau": {
+              "id": "viz1535472076770",
+              "url": "https://public.tableau.com/views/RegionalSampleWorkbook/Storms?:embed=y&:tabs=no&:display_count=no",
+              "caption": "This is a caption for the tableau"
             }
           }
         },
