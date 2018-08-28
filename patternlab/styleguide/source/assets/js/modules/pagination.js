@@ -71,9 +71,53 @@ export default (function (window, document, $, undefined) {
       return;
     }
 
+    console.log(args.data);
+
+
     // Render async with Twig.
     return twiggy('@molecules/pagination.twig')
-      .then(template => template.renderAsync({ pagination: args.data }))
+      .then(template => {
+          let data = args.data;
+          let current = data.currentPage,
+              last = data.pages.length,
+              delta = 1,
+              left = current - delta,
+              right = current + delta + 1,
+              range = [],
+              rangeWithDots = [],
+              l;
+
+          for (let i = 1; i <= last; i++) {
+            if (i == 1 || i == last || i >= left && i < right) {
+              let active = false;
+              if (i === current) {
+                active = true;
+              }
+              range.push(i);
+            }
+          }
+
+          for (let i of range) {
+            if (l) {
+              if (i - l === 2) {
+                rangeWithDots.push({ text: l + 1, active: false });
+              } else if (i - l !== 1) {
+                rangeWithDots.push({ text: 'spacer', active: false });
+              }
+            }
+
+            let active = false;
+            if (i === current) {
+              active = true;
+            }
+            rangeWithDots.push({ text: i, active: active });
+            l = i;
+          }
+
+          let finalOutput = args.data;
+          finalOutput.pages = rangeWithDots;
+          return template.renderAsync({ pagination: finalOutput })
+      })
       .then(markup => args.$el.html(markup))
 
     // Create new markup using handlebars template, helper.
@@ -81,6 +125,9 @@ export default (function (window, document, $, undefined) {
     args.$el.html(markup);
   }
 
+  function truncatePaginationDisplay(data) {
+
+  }
 
   function pushPaginationState(pageNum, replace = false) {
     let params = new URLSearchParams(window.location.search);
