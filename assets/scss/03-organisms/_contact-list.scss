@@ -1,12 +1,18 @@
 .ma__contact-list {
+  -ms-overflow-style: none;
+  background-color: yellow;
+
   &:not(.ma__contact-list--view-specific) {
     overflow: auto;
     -ms-overflow-style: none;
+    background-color: green;
   }
 
   .sidebar & {
     overflow: initial;
     -ms-overflow-style: none;
+    -moz-border-radius-topright: 1em;
+    background-color: orange;
   }
 
   .pre-content > &,
