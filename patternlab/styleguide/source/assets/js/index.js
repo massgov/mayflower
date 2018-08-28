@@ -25,9 +25,11 @@ import mobileNav                  from "./modules/mobileNav.js";
 import orgSelector                from "./modules/orgSelector.js";
 import pagination                 from "./modules/pagination.js";
 import pikaday                    from "./modules/pikaday.js";
+// `richText` is needed above `responsiveTable` to setup tables.
+import richText                   from "./modules/richText.js";
+import responsiveTable            from "./modules/responsiveTable.js";
 import responsiveVideo            from "./modules/responsiveVideo.js";
 import resultsHeading             from "./modules/resultsHeading.js";
-import richText                   from "./modules/richText.js";
 import scrollAnchors              from "./modules/scrollAnchors.js";
 import teaserListingGroup         from "./modules/teaserListingGroup";
 import truncateTitle              from "./modules/truncateTitle.js";

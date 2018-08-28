@@ -1,49 +1,12 @@
 {
-  "tabularData": {
-    "compHeading": {
-      "title": "Fees",
-      "sub": "",
-      "color": "",
-      "id": "",
-      "centered": ""
-    },
-    "description": {
-      "property": "",
-      "rteElements": [{
-        "path": "@atoms/11-text/paragraph.twig",
-        "data": {
-          "paragraph" : {
-            "text": "This is an optional description. Lorem ipsum ..."
-          }
-        }
-      },{
-        "path": "@atoms/11-text/paragraph.twig",
-        "data": {
-          "paragraph" : {
-            "text": "This is an optional description. Lorem ipsum ..."
-          }
-        }
-      },{
-        "path": "@atoms/11-text/paragraph.twig",
-        "data": {
-          "paragraph" : {
-            "text": "This is an optional description. Lorem ipsum ..."
-          }
-        }
-      },{
-        "path": "@atoms/11-text/paragraph.twig",
-        "data": {
-          "paragraph" : {
-            "text": "This is an optional description. Lorem ipsum ..."
-          }
-        }
-      }]
-    },
-      "table": {
-        "head": {
-          "rows": [{
-            "rowSpanOffset":false,
-            "cells":[{
+  "table": {
+    "description": "A description of what the table contains",
+    "head": {
+      "rows": [
+        {
+          "rowSpanOffset": false,
+          "cells": [
+            {
               "heading": true,
               "colspan": "",
               "rowspan": "",
@@ -66,14 +29,18 @@
               "colspan": "",
               "rowspan": "",
               "text": "Email"
-            }]
-          }]
-        },
-        "bodies": [{
-          "rows": [
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+            }
+          ]
+        }
+      ]
+    },
+    "bodies": [
+      {
+        "rows": [
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -96,11 +63,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": ""
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -123,11 +92,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": ""
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -150,11 +121,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": ""
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -177,11 +150,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": ""
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -204,11 +179,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": ""
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -231,11 +208,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "richard.goulet@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -258,11 +237,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "richard.goulet@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -285,11 +266,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "richard.goulet@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -312,11 +295,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "richard.goulet@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -339,11 +324,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "richard.goulet@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -366,11 +353,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "richard.goulet@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -393,11 +382,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "richard.goulet@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -420,11 +411,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "richard.goulet@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -447,11 +440,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "christine.escott@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -474,11 +469,13 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "ed.kennedy@state.ma.us"
-              }]
-            },
-            {
-              "rowSpanOffset":false,
-              "cells":[{
+              }
+            ]
+          },
+          {
+            "rowSpanOffset": false,
+            "cells": [
+              {
                 "heading": false,
                 "colspan": "",
                 "rowspan": "",
@@ -501,10 +498,11 @@
                 "colspan": "",
                 "rowspan": "",
                 "text": "cmacedo@isa.us.com"
-              }]
-            }
-          ]
-        }]
+              }
+            ]
+          }
+        ]
       }
+    ]
   }
 }
