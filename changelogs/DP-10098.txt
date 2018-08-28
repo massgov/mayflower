@@ -1,9 +1,0 @@
-___DESCRIPTION___
-Changed:
-Minor:
-- (React) DP-10098: Consume scss and images directly from shared assets.
-          Removed: Removed Mayflower npm dependency in mayflower react.
-          Added: Added `bourbon`, `normalize-scss` and `bourbon-neat` as react dev dependencies.
-
-___POST DEPLOY STEPS___
-`$npm install` in `react/`

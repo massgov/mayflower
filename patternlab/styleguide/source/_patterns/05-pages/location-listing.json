@@ -101,7 +101,12 @@
               "value": "open",
               "checked": "false"
             }],
-            "submitButton": "Submit"
+            "buttons": [{
+              "text": "Submit",
+              "type": "submit",
+              "theme": "",
+              "outline": false
+            }]
           },
           "googleMap": {
             "map": {
@@ -270,7 +275,7 @@
           },
           "resultsHeading": {
             "level": "2",
-            "numResults": "1-8",
+            "numResults": "1 - 8",
             "totalResults": "12",
             "subject": "Executive Office of Health and Human Services Locations"
           },
