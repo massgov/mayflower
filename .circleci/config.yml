@@ -139,7 +139,8 @@ jobs:
           command: |
             aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-              aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov"
+              # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
+              aws s3 cp patternlab/styleguide/public "s3://mayflower.digital.mass.gov"
             fi
 
   react_build_storybook:
