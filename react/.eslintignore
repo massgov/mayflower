@@ -1,4 +1,5 @@
-backstop/
+backstop/data/
+backstop/scripts/
 es/
 lib/
 node_modules/

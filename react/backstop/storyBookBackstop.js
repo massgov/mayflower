@@ -18,8 +18,8 @@ const acornOptions = {
 [
   'JSXElement',
   'ImportDeclaration',
-  'ImportDefaultSpecifier',
-].map((type) => { walk.base[type] = () => {}; });
+  'ImportDefaultSpecifier'
+].forEach((type) => { walk.base[type] = () => {}; });
 
 /**
  * Lists all Storybook components in the passed dir list.
@@ -37,9 +37,10 @@ const listComponents = (dirList) => {
 
       // Parse the story module for the kind and story names.
       const ast = acorn.parse(fileContents, acornOptions);
-      kindNext = false;
-      storyNext = false;
-      walk.full(ast, node => {
+      let kindNext = false;
+      let storyNext = false;
+      walk.full(ast, (node) => {
+        /* eslint-disable-next-line default-case */
         switch (node.type) {
           case 'Identifier':
             if (node.name === 'storiesOf') {
@@ -78,7 +79,8 @@ const listComponents = (dirList) => {
  * Maps passed Storybook Component dirs to Backstop scenarios.
  * @param {string[]} components
  */
-const mapComponents = (components, debug) => components.map(({kind, name}) => {
+const mapComponents = (components, debug) => components.map((component) => {
+  const { kind, name } = component;
   let urlBase = 'http://web/';
   if (debug) {
     // Only use --debug when running backstop outside of docker for local
