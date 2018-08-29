@@ -7,34 +7,49 @@ This repository uses [BackstopJS](https://garris.github.io/BackstopJS/) for visu
 
 * [Docker and Docker Compose](https://www.docker.com/community-edition#/download) must be installed.
 
-### Workflow:
-First, ensure you've run a mayflower-react build.
+## Backstop Test:
+
+To check how your current work compares with the reference screenshots that are currently committed to the repository, run:
 
 ```bash
-npm run build-storybook
+npm run backstop
 ```
 
-Then, to check how your current work compares with the reference screenshots that are committed to the repository, run the following:
+This will run build-storybook followed by the two backstop suites. This can have one of these outcomes:
+
+1. All test pass -- nothing changed between your current branch and the reference images. Unlikely.
+1. One or more tests in "atoms" fail -- expected if you changed how an atom renders. Because the backstop command uses npm-run-all, the test run stop here with an error. Though the HTML report will not automatically open, you can review the report for atoms here to decide if you're ready to approve the test images with:
+
+   `open backstop/data/html_report/index.html`
+1. One or more tests in "other" fail -- expected if you changed how a non-atom component renders.
+
+**NOTE: if any test fails in "atoms" see "Running tests in isolation" below.** You may wish to run tests in isolation in order to view the report for "other" or just to skip re-building storybook-static on every run.
+
+## Screenshot Update Workflow:
+When you are ready to commit your work, and all test screenshots look correct, you must update the reference screenshots with the new ones that reflect your changes.  To do that, run:
 
 ```bash
-docker-compose run backstop test --atoms
-open backstop/data/html_report/index.html
-# Note: The following will overwrite the HTML report. If you are working on changes to atoms, stop here to view the report.
-docker-compose run backstop test
-open backstop/data/html_report/index.html
-```
-
-When you are ready to commit your work, you will want to update the reference screenshots with the new ones that reflect your changes.  To do that, run:
-
-```bash
-# Capture screenshots of the current state.
-docker-compose run backstop test --atoms
-docker-compose run backstop test
-# Accept these screenshots as the new references.
-docker-compose run backstop approve --atoms
-docker-compose run backstop approve
+# Capture test screenshots of the current state.
+npm run backstop
+# Accept these screenshots as the new reference images.
+npm run backstop:approve
+# Add and commit them to the repo.
 git add backstop/data/bitmaps_reference
 git commit
 ```
 
 Backstop also runs in CircleCI, so your build may fail if you do not update the reference screenshots when you push changes to github.
+
+### Running tests in isolation
+To isolate one of the suites for verification or troubleshooting, you can run them individually:
+
+Note: any time you change mayflower/react, you must re-run build-storybook or backstop could be making screenshots from an outdated build.
+
+```bash
+npm run backstop:atoms
+open backstop/data/html_report/index.html
+# Note: The following will overwrite the HTML report.
+# If you are working on changes to atoms, stop here to view the report.
+npm run backstop:other
+open backstop/data/html_report/index.html
+```
