@@ -85,7 +85,7 @@ jobs:
             cd patternlab/styleguide/dist
             git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
             git config core.bare false
-            git branch --force "$CIRCLE_BRANCH" $(git show-ref -s "$CIRCLE_BRANCH" || git show-ref -s master)
+            git rev-parse --verify "$CIRCLE_BRANCH" || git branch "$CIRCLE_BRANCH" $(git show-ref -s master)
             git symbolic-ref HEAD "refs/heads/$CIRCLE_BRANCH"
             git add .
             if git diff-index --quiet HEAD; then
