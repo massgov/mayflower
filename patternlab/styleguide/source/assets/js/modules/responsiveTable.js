@@ -31,21 +31,6 @@ export default (function (window, document, $, undefined) {
   }
 
   function updatePositions(rt) {
-    // Return value of calculated allowance.
-    let visibleParams = getVisibleParams(rt.$root[0]);
-
-
-    // Bottom of the responsive table container.
-    // Offset of the top of the responsive container
-    // +
-    // the height of the responsive table container
-    let tableBottom = rt.$root.offset().top + rt.$root.height();
-
-    // Position of the bottom of the viewport.
-    // Top scroll position of the window using .scrollTop()
-    // +
-    // the height of the window
-    let scrolledBottom = $window.scrollTop() + $window.height();
 
     // Check if the table width is greater than the width of the parent.
     let canScrollHorizontally = rt.$table.width() > rt.$table.parent().width();
@@ -54,18 +39,6 @@ export default (function (window, document, $, undefined) {
       // to the width of the parent.
       rt.$root.toggleClass("has-horizontal-scroll", canScrollHorizontally);
       rt.$root.find(".ma__table__horizontal-nav").width(rt.$table.parent().width());
-    }
-
-    if (
-        canScrollHorizontally &&
-        visibleParams.bottomOutOfView &&
-        !visibleParams.entirelyOutOfView &&
-        scrolledBottom - rt.$table.offset().top > 100
-      ) {
-      rt.$root.addClass("has-postitioned-navbar");
-    }
-    else {
-      rt.$root.removeClass("has-postitioned-navbar");
     }
   }
 
@@ -106,18 +79,6 @@ export default (function (window, document, $, undefined) {
     let bottomOutOfView = pageTop > elementBottom;
     let entirelyOutOfView = pageTop > elementBottom || pageBottom < elementTop;
 
-    // console.log('-----');
-    // console.log(pageTop > elementBottom);
-    // console.log(pageTop > elementBottom);
-
-    // console.log('pageTop: ' + pageTop);
-    // console.log('pageBottom: ' + pageBottom);
-    // console.log('elementTop: ' + elementTop);
-    // console.log('elementBottom: ' + elementBottom);
-    // console.log('topOutOfView = elementTop < pageTop: ' + topOutOfView);
-    // console.log('pagbottomOutOfViewTop = elementBottom > pageBottom: ' + bottomOutOfView);
-    // console.log('entirelyOutOfView = pageTop > elementBottom || pageBottom < elementTop: ' + entirelyOutOfView);
-
     return {
       topOutOfView: topOutOfView,
       bottomOutOfView: bottomOutOfView,
@@ -155,19 +116,6 @@ export default (function (window, document, $, undefined) {
 
   }
 
-  function handleOverlappingElements(rt) {
-    let visibleParams = getVisibleParams(rt.$root[0]);
-
-    if (!visibleParams.entirelyOutOfView) {
-      console.log('Hiding the action');
-      $(".ma__floating-action").hide();
-    }
-    else {
-      console.log('Hiding the action');
-      $(".ma__floating-action").show();
-    }
-  }
-
   function handleWindowResize () {
     responsiveTables.forEach((rt) => {
       setWidths(rt);
@@ -180,8 +128,6 @@ export default (function (window, document, $, undefined) {
     responsiveTables.forEach((rt) => {
       updatePositions(rt);
       applyScrollClasses(rt);
-      recalcScrollbar(rt);
-      handleOverlappingElements(rt);
     });
   }
 
@@ -289,5 +235,25 @@ export default (function (window, document, $, undefined) {
 
   // Setup scrollbar handlers.
   scrollbarEventHandlers();
+
+  $('.ma__table--responsive.has-horizontal-scroll').each(function() {
+    let $thisTable = $(this);
+    let headersHeight = $thisTable.find('.ma__table.sticky-thead thead').height();
+    let navBarHeight = $thisTable.find('.ma__table__horizontal-nav').height();
+    let tableLeft = $thisTable[0].getBoundingClientRect().left   + $(window)['scrollLeft']();
+
+    $window.on('scroll', function() {
+      let pageTop = $window.scrollTop();
+      let pageBottom = pageTop + $window.height();
+      let tableTop = $thisTable.offset().top + headersHeight + navBarHeight;
+      
+      if(tableTop < pageBottom) {
+        $thisTable.addClass('stickNav');
+        $('.ma__table__horizontal-nav').css('left', tableLeft);
+        $('body').addClass('stickyTable');
+      }
+    });
+  });
+  
 
 })(window, document, jQuery);
