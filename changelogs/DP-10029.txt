@@ -1,0 +1,3 @@
+___DESCRIPTION___
+Fixed
+- (Patternlab) DP-10029: Updated styles to fix spacing on non-hyperlinked images on location listing row.
