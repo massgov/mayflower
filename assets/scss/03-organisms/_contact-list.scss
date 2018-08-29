@@ -1,9 +1,6 @@
 .ma__contact-list {
   &:not(.ma__contact-list--view-specific) {
     overflow: auto;
-  }
-
-  .ma__stacked-row-section & {
     -ms-overflow-style: none;
     background-color: green; // TEST STYLE
   }
@@ -12,7 +9,7 @@
     overflow: initial;
     -ms-overflow-style: none;
     -moz-border-radius-topright: 1em; // TEST STYLE
-    background-color: blue; // TEST STYLE
+    background-color: pink; // TEST STYLE
   }
 
   .pre-content > &,
