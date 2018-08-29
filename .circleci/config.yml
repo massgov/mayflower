@@ -125,18 +125,18 @@ jobs:
             git tag "$CIRCLE_TAG"
             git push origin "$CIRCLE_TAG"
       - run:
+          name: 'Deploy NPM Tag'
+          command: |
+            cd patternlab/styleguide/dist
+            npm version --no-git-tag-version "$CIRCLE_TAG"
+            npm publish
+      - run:
           name: 'Deploy S3 Tag'
           command: |
             aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov"
             fi
-      - run:
-          name: 'Deploy NPM Tag'
-          command: |
-            cd patternlab/styleguide/dist
-            npm version --no-git-tag-version "$CIRCLE_TAG"
-            npm publish
 
   react_build_storybook:
     <<: *react_defaults
