@@ -238,35 +238,39 @@ export default (function (window, document, $, undefined) {
 
   $('.ma__table--responsive.has-horizontal-scroll').each(function() {
     let $thisTable = $(this);
-    let navBarHeight = $thisTable.find('.ma__table__horizontal-nav').height();
-    let tableLeft = $thisTable[0].getBoundingClientRect().left   + $(window)['scrollLeft']();
+    let $navBar = $thisTable.find('.ma__table__horizontal-nav');
+    let navBarHeight = $navBar.height();
+    let tableLeft;
+
+    $window.on('resize', function() {
+      tableLeft = $thisTable[0].getBoundingClientRect().left   + $(window)['scrollLeft']();
+      return tableLeft;
+    }).resize();
 
     $window.on('scroll', function() {
       let pageTop = $window.scrollTop();
       let pageBottom = pageTop + $window.height();
       let tableTop = $thisTable.offset().top + navBarHeight;
-      let stickyTrigger = tableTop + 150;
+      let stickyTrigger = tableTop + 75;
       let tableBottom = tableTop + $thisTable.innerHeight() - navBarHeight;
 
       if(stickyTrigger < pageBottom) {
         $thisTable.addClass('stickNav');
-        $('.ma__table__horizontal-nav').css('left', tableLeft);
+        $navBar.css('left', tableLeft);
         $('body').addClass('stickyTable');
       }
       if(tableBottom < pageBottom) {
         $thisTable.removeClass('stickNav');
         $('body').removeClass('stickyTable');
-        $('.ma__table__horizontal-nav').css('left', '');
+        $navBar.css('left', '');
       }
       if(($thisTable.hasClass('stickNav')) && (stickyTrigger > pageBottom)) {
         $thisTable.removeClass('stickNav');
         $('body').removeClass('stickyTable');
-        $('.ma__table__horizontal-nav').css('left', '');
+        $navBar.css('left', '');
       }
     });
   });
-
-
 
   // Setup scrollbar handlers.
   scrollbarEventHandlers();
