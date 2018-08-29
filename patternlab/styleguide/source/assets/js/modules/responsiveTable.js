@@ -22,12 +22,6 @@ export default (function (window, document, $, undefined) {
           .eq(i)
           .width($(this).width());
       });
-
-    if (rt.$stickyHeader) {
-      // Set width of sticky table head.
-      rt.$stickyHeader.width(rt.$table.width());
-    }
-
   }
 
   function updatePositions(rt) {
@@ -60,6 +54,13 @@ export default (function (window, document, $, undefined) {
 
     }
 
+    // Add class, remove margins, reset width and wrap table.
+    $table
+      .addClass("sticky-enabled")
+      .css({
+        margin: 0,
+        width: "100%"
+      });
 
     responsiveTables.push({
       $root: $(element),
@@ -128,6 +129,7 @@ export default (function (window, document, $, undefined) {
     responsiveTables.forEach((rt) => {
       updatePositions(rt);
       applyScrollClasses(rt);
+      recalcScrollbar(rt);
     });
   }
 
@@ -222,6 +224,7 @@ export default (function (window, document, $, undefined) {
   }
 
 
+
   // fire on horizontal scroll of container as well.
   $(".ma__table--responsive__wrapper").on("scroll", throttle(handleScroll, 100));
 
@@ -233,27 +236,39 @@ export default (function (window, document, $, undefined) {
   // @todo - Is this needed to run on :attach?
   handleWindowResize();
 
-  // Setup scrollbar handlers.
-  scrollbarEventHandlers();
-
   $('.ma__table--responsive.has-horizontal-scroll').each(function() {
     let $thisTable = $(this);
-    let headersHeight = $thisTable.find('.ma__table.sticky-thead thead').height();
     let navBarHeight = $thisTable.find('.ma__table__horizontal-nav').height();
     let tableLeft = $thisTable[0].getBoundingClientRect().left   + $(window)['scrollLeft']();
 
     $window.on('scroll', function() {
       let pageTop = $window.scrollTop();
       let pageBottom = pageTop + $window.height();
-      let tableTop = $thisTable.offset().top + headersHeight + navBarHeight;
-      
-      if(tableTop < pageBottom) {
+      let tableTop = $thisTable.offset().top + navBarHeight;
+      let stickyTrigger = tableTop + 150;
+      let tableBottom = tableTop + $thisTable.innerHeight() - navBarHeight;
+
+      if(stickyTrigger < pageBottom) {
         $thisTable.addClass('stickNav');
         $('.ma__table__horizontal-nav').css('left', tableLeft);
         $('body').addClass('stickyTable');
       }
+      if(tableBottom < pageBottom) {
+        $thisTable.removeClass('stickNav');
+        $('body').removeClass('stickyTable');
+        $('.ma__table__horizontal-nav').css('left', '');
+      }
+      if(($thisTable.hasClass('stickNav')) && (stickyTrigger > pageBottom)) {
+        $thisTable.removeClass('stickNav');
+        $('body').removeClass('stickyTable');
+        $('.ma__table__horizontal-nav').css('left', '');
+      }
     });
   });
-  
+
+
+
+  // Setup scrollbar handlers.
+  scrollbarEventHandlers();
 
 })(window, document, jQuery);
