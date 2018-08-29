@@ -1,7 +1,8 @@
 {
   "tableau": {
     "id": "uniqueId",
-    "url": "https://public.tableau.com/views/RegionalSampleWorkbook/Storms?:embed=y&:tabs=no&:display_count=no",
+    "url": "https://public.tableau.com/",
+    "name": "Rumboresponsive/Searches",
     "caption": "This is a tableau caption"
   }
 }
