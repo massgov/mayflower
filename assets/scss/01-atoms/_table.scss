@@ -33,7 +33,7 @@
 }
 
 .ma__table--responsive__wrapper {
-    overflow-x: auto;
+    overflow-x: hidden;
     width: 100%;
     position: relative;
     padding-bottom: 50px;
@@ -100,17 +100,6 @@
     position: absolute;
     right: 0;
     z-index: 50;
-
-    &::after {
-        background-color:#fff;
-        content: '';
-        height: 100vh;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: -1;
-    }
 
     // Native position is at the bottom of the responsive container;
     // so show the bar.
