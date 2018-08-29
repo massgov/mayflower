@@ -1,7 +1,7 @@
-const storyBookBackstop = require('./storyBookBackstop');
 const path = require('path');
 
 const listDirs = require('./listDirs.js');
+const storyBookBackstop = require('./storyBookBackstop');
 
 const processAtoms = (process.argv.indexOf('--atoms') > -1);
 const debug = (process.argv.indexOf('--debug') > -1);
