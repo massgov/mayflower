@@ -5,6 +5,8 @@ This is the standard button pattern (with variants)
 **Prop variant recipes**
 1. [Button as "small"](https://mayflower.digital.mass.gov/?p=atoms-button-as-small&view=c)
     - Set the `size` prop to "small"
+1. [Button as "large"](https://mayflower.digital.mass.gov/?p=atoms-button-as-large&view=c)
+    - Set the `size` prop to "large"
 1.  [Button as "secondary color"](https://mayflower.digital.mass.gov/?p=atoms-button-as-secondary-color&view=c)
     - Set the `theme` variable to "secondary"
     - Set the `outline` variable to true
