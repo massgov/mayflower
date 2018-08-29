@@ -129,7 +129,7 @@ jobs:
           command: |
             aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-              aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov
+              aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov"
             fi
       - run:
           name: 'Deploy NPM Tag'
