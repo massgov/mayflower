@@ -10,7 +10,7 @@ const debug = (process.argv.indexOf('--debug') > -1);
 let viewports;
 
 // Scan for component names and set up viewports.
-const componentsPath = `${__dirname}/../src/components/`;
+const componentsPath = path.resolve(__dirname, '../src/components/');
 const dirList = listDirs(componentsPath)
   // Do not test animations.
   .filter((filePath) => (filePath.indexOf('/animations') === -1))

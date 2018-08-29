@@ -91,7 +91,7 @@ const mapComponents = (components, debug) => components.map((component) => {
 
   return makeScenario(
     `${kind}/${name}`,
-    `${urlBase}iframe.html?selectedKind=${kind}&selectedStory=${name}&full=1&addons=0&stories=0`
+    `${urlBase}iframe.html?selectedKind=${kind}&selectedStory=${name}`
   );
 });
 
