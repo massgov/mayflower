@@ -8,7 +8,7 @@ const Tooltip = (tooltip) => {
   const location = (tooltip.location === 'above') ? 'ma__tooltip__modal--above' : 'ma__tooltip__modal--below';
   const openIcon = tooltip.openIcon ? tooltip.openIcon : '';
 
-  return (
+  return(
     <div className="ma__tooltip">
       <div className="ma__tooltip__inner">
         <input
@@ -16,12 +16,14 @@ const Tooltip = (tooltip) => {
           type="checkbox"
           className="ma__tooltip__control"
           aria-label={tooltip.info}
-          aria-hidden="true" />
+          aria-hidden="true"
+        />
         <label
           htmlFor={tooltip.controlId}
           className="ma__tooltip__open"
           aria-labelledby={tooltip.controlId}
-          aria-hidden="true">
+          aria-hidden="true"
+        >
           {tooltip.openText}
           {openIcon}
         </label>
@@ -30,10 +32,13 @@ const Tooltip = (tooltip) => {
             <label
               htmlFor="{{ tooltip.controlId }}"
               className="ma__tooltip__close"
-              tabindex="-1"
+              tabIndex="-1"
               aria-labelledby="{{ tooltip.controlId }}"
-              aria-hidden="true">{tooltip.closeText}</label>
-              <HeadingTag className="ma__tooltip__title">{tooltip.title}</HeadingTag>
+              aria-hidden="true"
+            >
+              {tooltip.closeText}
+            </label>
+            <HeadingTag className="ma__tooltip__title">{tooltip.title}</HeadingTag>
             <div className="ma__tooltip__message">
               {tooltip.message}
             </div>
@@ -41,8 +46,8 @@ const Tooltip = (tooltip) => {
         </section>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Tooltip.propTypes = {
   /** Text to display to prompt user */
@@ -59,10 +64,10 @@ Tooltip.propTypes = {
   info: PropTypes.string.isRequired,
   /** SVG icon */
   openIcon: PropTypes.string,
-  /** Title of opened window*/
+  /** Title of opened window */
   title: PropTypes.string,
   /** Heading level of title. Default h2 */
   level: PropTypes.number
 };
 
-export default Tooltip
+export default Tooltip;
