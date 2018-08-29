@@ -7,6 +7,12 @@ Mayflower is the enterprise design system for the Commonwealth of Massachusetts.
   - *[Mayflower Patternlab](/patternlab)* [![GitHub version][patternlab-github-badge]](/patternlab)
   - *[Mayflower React](/react)* [![npm package][react-npm-badge]](npm)
 
+## Deployment
+
+### Production Deployment
+
+Mayflower release managers with the necessary repo permissions can see [Release docs](docs/release.md) for steps on deploying code to production (i.e. do a release).
+
 ## License
 
 This project is licensed under the is licensed under the GNU General Public License v2.0 - see the [LICENSE.txt](LICENSE.txt) file for details.
