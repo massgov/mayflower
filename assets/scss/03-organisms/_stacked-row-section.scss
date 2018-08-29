@@ -53,6 +53,7 @@
 
     .page-content > * {
       @include ma-component-spacing;
+      -ms-overflow-style: none;
     }
   }
 }
@@ -62,7 +63,7 @@
 
   & ~ & {
     border-color: $c-bd-divider;
-    
+
     &__container:before {
       border-color: $c-bd-divider;
     }
