@@ -2,25 +2,17 @@
   &:not(.ma__contact-list--view-specific) {
     overflow: auto;
     -ms-overflow-style: none;
-    background-color: green; // TEST STYLE
   }
 
   .sidebar & {
     overflow: initial;
     -ms-overflow-style: none;
-    -moz-border-radius-topright: 1em; // TEST STYLE
-    background-color: pink; // TEST STYLE
   }
 
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
     @include ma-container();
-  }
-
-  .ma__stacked-row-section & {
-    -ms-overflow-style: none;
-    background-color: yellow; // TEST STYLE
   }
 
   &--view-specific {
