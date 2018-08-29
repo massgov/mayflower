@@ -241,15 +241,18 @@ export default (function (window, document, $, undefined) {
     let $navBar = $thisTable.find('.ma__table__horizontal-nav');
     let navBarHeight = $navBar.height();
     let tableLeft;
-    let rows = 0;
-    $thisTable.find(".ma__table--wide tbody tr:gt(-3)").each(function() {
-      rows += $(this).height();
-    });
-    
+    let bottomRows;
 
     $window.on('resize', function() {
       tableLeft = $thisTable[0].getBoundingClientRect().left   + $(window)['scrollLeft']();
-      return tableLeft;
+      
+      bottomRows = 0;
+      $thisTable.find(".ma__table--wide tbody tr:gt(-3)").each(function() {
+        bottomRows += $(this).height();
+      });
+
+      return tableLeft, bottomRows;
+      
     }).resize();
 
     $window.on('scroll', function() {
@@ -259,7 +262,7 @@ export default (function (window, document, $, undefined) {
       let tableTop = wrapperTop + navBarHeight;
       let stickyNavTrigger = tableTop + 75;
       let tableBottom = tableTop + $thisTable.innerHeight() - navBarHeight;
-      let unstickyHeaderTrigger = tableBottom - navBarHeight - rows;
+      let unstickyHeaderTrigger = tableBottom - navBarHeight - bottomRows;
 
       if(wrapperTop < pageTop) {
         $thisTable.addClass('stickHeaders');
@@ -281,7 +284,7 @@ export default (function (window, document, $, undefined) {
         $('body').removeClass('stickyTable');
         $navBar.css('left', '');
       }
-      if(($thisTable.hasClass('stickNav')) && (stickyTrigger > pageBottom)) {
+      if(($thisTable.hasClass('stickNav')) && (stickyNavTrigger > pageBottom)) {
         $thisTable.removeClass('stickNav');
         $('body').removeClass('stickyTable');
         $navBar.css('left', '');
