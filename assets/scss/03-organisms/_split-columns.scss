@@ -19,6 +19,7 @@
       
       @media($bp-medium-min) {
         @include span-columns(2 of 4);
+        margin-top: 0;
       }
     }
     @media($bp-x-large-min) {
