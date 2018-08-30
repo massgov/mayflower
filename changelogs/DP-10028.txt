@@ -1,6 +1,0 @@
-___DESCRIPTION___
-Minor
-Added
-- (React) DP-10028:
-  Add error message as an atom with error and success states
-  Add InputError and InputSuccess icons 
