@@ -1,13 +1,47 @@
 {
-  "headerTags": {
-    "label": "More about:",
-    "taxonomyTerms": [{
-      "href": "#",
-      "text": "Example Office"
-    },{
-      "href": "#",
-      "text": "Example Office 2"
-    }]
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Department of Conservation and Recreation"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Other agency or organization"
+      }]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
+      }]
+    }
   },
   "pageIntro": {
     "pageTitle": {

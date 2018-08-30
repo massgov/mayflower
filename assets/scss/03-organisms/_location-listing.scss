@@ -150,6 +150,10 @@ $location-listin--map-min-width: 315px;
 
       > a {
         display: block;
+      }
+
+      img {
+        border-radius: 5px;
 
         @media ($bp-medium-max) {
           flex: 0 0 100px;
@@ -161,10 +165,6 @@ $location-listin--map-min-width: 315px;
         @media ($bp-medium-min) {
           margin-bottom: 1rem;
         }
-      }
-
-      img {
-        border-radius: 5px;
       }
     }
 

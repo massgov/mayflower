@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed:
-Patch:
-- (React) DP-9919: Directly consume global level SCSS variables from shared assets

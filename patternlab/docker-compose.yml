@@ -13,6 +13,6 @@ services:
 
   # Static file server.
   web:
-    image: nginx:alpine
+    image: nginx:stable-alpine
     volumes:
       - ./styleguide/public:/usr/share/nginx/html

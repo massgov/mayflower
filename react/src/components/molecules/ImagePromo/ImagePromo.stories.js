@@ -34,12 +34,14 @@ const getCommonPropsWithKnobs = () => ({
   phone: null
 });
 
-storiesOf('molecules/ImagePromo', module).addDecorator(withKnobs)
+storiesOf('molecules', module).addDecorator(withKnobs)
   .add('ImagePromo', withInfo(`<div>${ImagePromoDocs}</div>`)(() => {
     const props = getCommonPropsWithKnobs();
 
     return(<ImagePromo {...props} />);
-  }))
+  }));
+
+storiesOf('molecules/ImagePromo', module).addDecorator(withKnobs)
   .add('ImagePromo as orgInfo', withInfo(`<div>${ImagePromoDocs}</div>`)(() => {
     // Override some props/knobs for "with map link" variation example.
     const commonProps = getCommonPropsWithKnobs();
