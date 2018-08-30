@@ -12,8 +12,8 @@ import buttonWithIconOptions from './ButtonWithIcon.knob.options';
 import Icon from '../../icons/Icon';
 
 const icons = {
-  chevron: <Icon name="chevron" />,
-  search: <Icon name="search" />
+  chevron: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
+  search: <Icon name="search" svgHeight={20} svgWidth={20} />
 };
 
 storiesOf('atoms/buttons', module)
