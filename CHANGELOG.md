@@ -14,6 +14,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
 
+## 7.0.1 (8/30/2018)
+
+### Fixed
+- (PatternLab) z-index fix for feedback button to always ensure it appears on top. #209
+- (PatternLab) Allow deploy tag jobs to be rerun #206
+
 ## 7.0.0 (8/29/2018)
 
 ### Changed
@@ -52,7 +58,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-9919: Directly consume global level SCSS variables from shared assets.
 - (React) DP-9981: Changes heading atom in Mayflower React, adding the option to pass a classname to a heading component.
 - (React) DP-10098: Consume scss and images directly from shared assets.
-- (Patternlab, React) DP-10107: 
+- (Patternlab, React) DP-10107:
   - Make current button "small" the default button size and add "large" and "small" variations.
   - Update the button size for location listing CTA to align with default size.
 
