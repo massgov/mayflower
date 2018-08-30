@@ -16,6 +16,7 @@ export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 // @atoms/@forms
 export HelperText from './components/atoms/forms/HelperText';
 export ErrorMessage from './components/atoms/forms/ErrorMessage';
+export InputCheckBox from './components/atoms/forms/InputCheckBox';
 export InputDate from './components/atoms/forms/InputDate';
 export InputText from './components/atoms/forms/InputText';
 export SelectBox from './components/atoms/forms/SelectBox';
