@@ -182,7 +182,6 @@ export default (function (window, document, $, undefined) {
     $("body")
       .on("mouseup", handleMouseUp)
       .on("mousemove", handleMouseMove);
-
   }
 
   // Scrollbar event handlers.
@@ -224,7 +223,6 @@ export default (function (window, document, $, undefined) {
   }
 
 
-
   // fire on horizontal scroll of container as well.
   $(".ma__table--responsive__wrapper").on("scroll", throttle(handleScroll, 100));
 
@@ -242,10 +240,24 @@ export default (function (window, document, $, undefined) {
     let navBarHeight = $navBar.height();
     let tableLeft;
     let bottomRows;
+    let $tableWrapper = $thisTable.find('.ma__table--responsive__wrapper'); 
+
+    $tableWrapper.on('scroll', function() {
+      if($(this).scrollLeft() + $(this).innerWidth() >= $(this)[0].scrollWidth) {
+        $navBar.addClass('full-right');
+        $navBar.removeClass('full-left');
+      } else if($(this).scrollLeft() === 0) {
+        $navBar.addClass('full-left');
+        $navBar.removeClass('full-right');
+      } 
+      else {
+        $navBar.removeClass('full-right');
+        $navBar.removeClass('full-left');
+      }
+    });
 
     $window.on('resize', function() {
       tableLeft = $thisTable[0].getBoundingClientRect().left   + $(window)['scrollLeft']();
-      
       bottomRows = 0;
       $thisTable.find(".ma__table--wide tbody tr:gt(-3)").each(function() {
         bottomRows += $(this).height();
@@ -263,6 +275,7 @@ export default (function (window, document, $, undefined) {
       let stickyNavTrigger = tableTop + 75;
       let tableBottom = tableTop + $thisTable.innerHeight() - navBarHeight;
       let unstickyHeaderTrigger = tableBottom - navBarHeight - bottomRows;
+
 
       if(wrapperTop < pageTop) {
         $thisTable.addClass('stickHeaders');

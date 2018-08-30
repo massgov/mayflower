@@ -140,8 +140,20 @@
             opacity: 0.5;
         }
     }
+
     &__left {
         margin-right: 15px;
+        visibility: visible;
+        opacity: 1;
+
+        .full-left & {
+          visibility: hidden;
+          opacity: 0;
+          width: 0;
+          margin: 0;
+          transition: 0.3s linear;
+        }
+
         &:after {
             transform: translateY(-4px)  translateX(0px) rotate(135deg);
         }
@@ -149,6 +161,17 @@
 
     &__right {
         margin-left: 15px;
+        visibility: visible;
+        opacity: 1;
+
+        .full-right & {
+          visibility: hidden;
+          opacity: 0;
+          width: 0;
+          margin: 0;
+          transition: 0.3s linear;
+        }
+
         &:after {
             transform: translateY(-4px) translateX(-6px) rotate(-45deg);
         }
