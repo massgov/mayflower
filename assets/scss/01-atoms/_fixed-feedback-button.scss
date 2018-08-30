@@ -5,6 +5,8 @@
   right: 0;
   height: 300px;
   pointer-events: none;
+  // set without variable to ensure coverage
+  z-index: 9999;
   
   a {
     display: block;
