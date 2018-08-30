@@ -63,7 +63,7 @@ Tooltip.propTypes = {
   /** description on link for screen readers */
   info: PropTypes.string.isRequired,
   /** SVG icon */
-  openIcon: PropTypes.string,
+  openIcon: PropTypes.object,
   /** Title of opened window */
   title: PropTypes.string,
   /** Heading level of title. Default h2 */
