@@ -26,7 +26,7 @@ var scenarios = files.map(function(file) {
     return {
         label: path.basename(file, '.html').replace('05-pages-', 'page-').replace('04-templates-', 'template-').replace('-', ' '),
         url: `http://web/patterns/${path.relative(patternPath, file)}`,
-        misMatchThreshold: 0.1
+        misMatchThreshold: 0.15
     }
 });
 
