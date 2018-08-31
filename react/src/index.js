@@ -77,6 +77,7 @@ export ImagePromo from './components/molecules/ImagePromo';
 export Tabs from './components/molecules/Tabs';
 export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
+export GeneralTeaser from './components/molecules/GeneralTeaser';
 
 // @organisms
 export Footer from './components/organisms/Footer';
