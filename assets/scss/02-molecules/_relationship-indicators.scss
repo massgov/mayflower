@@ -31,7 +31,7 @@
     &--label {
         color: $c-font-detail;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: $letter-spacing-large;
         margin-right: 10px;
         white-space: nowrap;
 
@@ -67,43 +67,43 @@
         
             .ma__relationship-indicators--term {
                 display: none;
-        
+
                 @media ($bp-large-min) {
                     display: block;
-        
+
                     &:nth-child(n+2) {
                         display: none;
                     }
                 }
             }
-        
+
             a {
                 color: $c-theme-green;
                 border-color: rgba($c-theme-green, 0.2);
-        
+
                 &:hover {
                     border-color: $c-theme-green;
                 }
             }
-        
+
             button {
                 color: $c-theme-green;
-        
+
                 .tag-state {
                     display: none;
-        
+
                     @media ($bp-large-min) {
                         display: inline-block;
                     }
                 }
-        
+
                 &.is-open {
-                    
+
                     .tag-state {
                         display: inline-block;
                     }
                 }
-        
+
                 .tags-open & {
                     align-self: basline;
                 }
@@ -112,26 +112,26 @@
 
         &.secondary {
             padding-top: 15px;
-        
+
             @media ($bp-large-min) {
                 padding-top: 0;
             }
-        
+
             .ma__relationship-indicators--term {
-        
+
                 &:nth-child(n+2) {
                     display: none;
                 }
             }
-        
+
             a {
                 border-color: rgba($c-theme-blue, 0.2);
-        
+
                 &:hover {
                     border-color: $c-theme-blue;
                 }
             }
-        
+
             button {
                 color: $c-theme-blue;
             }
