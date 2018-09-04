@@ -4,10 +4,7 @@
     {% set decorativeLink = tableOfContentsOverlay.title %}
     {% include "@atoms/decorative-link.twig" %}
     <button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="false" aria-controls="toc-overlay">
-      <span class="show">
-        +
-        <span class="ma__visually-hidden">Show table of contents</span>
-      </span>
+      <span class="show" aria-label="click to show table of contents">+</span>
     </button>
   </div>
   <div class="ma__toc--overlay__container js-inline-overlay" id="toc-overlay">
@@ -16,9 +13,8 @@
       {% set decorativeLink = tableOfContentsOverlay.title %}
       {% include "@atoms/decorative-link.twig" %}
       <button type="button" class="ma__toc__toc__toggle js-inline-overlay-toggle" aria-expanded="true" aria-controls="toc-overlay">
-        <span class="hide">
+        <span class="hide" aria-label="Hide table of contents">
           &times;
-          <span class="ma__visually-hidden">Hide table of contents</span>
         </span>
       </button>
     </div>
