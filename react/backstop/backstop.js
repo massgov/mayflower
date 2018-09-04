@@ -5,7 +5,7 @@ const storyBookBackstop = require('./storyBookBackstop');
 
 const debug = (process.argv.indexOf('--debug') > -1);
 
-// The value of viewports will depend on whether the --atoms switch was set.
+// Default viewport values.
 const viewports = [
   { label: 'small_atom', width: 400, height: 250 },
   { label: 'phone', width: 320, height: 480 },
