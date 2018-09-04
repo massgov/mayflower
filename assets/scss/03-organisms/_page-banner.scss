@@ -348,7 +348,7 @@ position: relative;
   .ma__decorative-link {
     display: block;
     font-size: 1.813rem;
-    letter-spacing: .02em;
+    letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
     margin-bottom: 0;
     margin-top: .8em;
@@ -388,7 +388,7 @@ position: relative;
     @media ($bp-medium-min){
       @include span-columns(4 of 12);
       font-size: 1.813rem;
-      letter-spacing: .02em;
+      letter-spacing: $letter-spacing-small;
       line-height: 2.188rem;
       padding-top: 100px;
       padding-right: 20px;
