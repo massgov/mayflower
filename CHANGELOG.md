@@ -13,6 +13,31 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 7.0.1 (8/30/2018)
+
+### Fixed
+- (PatternLab) z-index fix for feedback button to always ensure it appears on top. #209
+- (PatternLab) Allow deploy tag jobs to be rerun #206
+
+## 7.0.0 (8/29/2018)
+
+### Changed
+- patternlab / DP-10012: offered by relationship indicator row changes
+- (Patternlab) DP-10056: Mayflower Patternlab has an updated build process that includes the following changes:
+    * Gulp Patternlab tasks now run `dist:build` automatically.  The `dist` folder contains the fully compiled Mayflower Artifacts, and can be placed anywhere on your system, not just inside the mayflower repository.
+    * Patternlab deployment tasks have been moved out of gulp and into the CircleCI configuration to simplify our Gulp tasks.
+    * The `massgov/mayflower-artifacts` Composer package has been given a `type` of `drupal-library` so it is installable to a specific location on the filesystem.
+- (Patternlab, React) DP-10056: Mayflower React and Mayflower Patternlab now manage the version number in their respective `package.json` files independently.  We no longer need to bump package version numbers manually on release - simply cut the tag.
+- (NPM Artifact): The @massds/mayflower NPM repo has been restructured to match the `massgov/mayflower-artifacts` composer package.
+
+### Fixed
+- (Patternlab) DP-10029: Updated styles to fix spacing on non-hyperlinked images on location listing row.
+
+### Updated
+- Patternlab DP-9912: Add new relationship indicator row to multiple content types. #149
+
+
 ## 6.3.0 (8/27/2018)
 
 ### Added
@@ -33,7 +58,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-9919: Directly consume global level SCSS variables from shared assets.
 - (React) DP-9981: Changes heading atom in Mayflower React, adding the option to pass a classname to a heading component.
 - (React) DP-10098: Consume scss and images directly from shared assets.
-- (Patternlab, React) DP-10107: 
+- (Patternlab, React) DP-10107:
   - Make current button "small" the default button size and add "large" and "small" variations.
   - Update the button size for location listing CTA to align with default size.
 
