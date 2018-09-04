@@ -22,9 +22,72 @@ export default (function (window, document, $, undefined) {
           .eq(i)
           .width($(this).width());
       });
+
+    if (rt.$stickyHeader) {
+      // Set width of sticky table head.
+      rt.$stickyHeader.width(rt.$table.width());
+    }
+
+  }
+
+  function calcAllowance($table, $stickyHeader) {
+    var a = 0;
+    // Calculate allowance.
+    $table.find("tbody tr:lt(2)").each(function() {
+      a += $(this).height();
+    });
+
+    // Set fail safe limit (last three row might be too tall).
+    // Set arbitrary limit at 0.25 of viewport height,
+    // or you can use an arbitrary pixel value.
+    if (a > $window.height() * 0.25) {
+      a = $window.height() * 0.25;
+    }
+
+    // Add the height of sticky header.
+    a += $stickyHeader.height();
+    return a;
   }
 
   function updatePositions(rt) {
+    // Return value of calculated allowance.
+    let visibleParams = getVisibleParams(rt.$root[0]);
+    // Position sticky header based on viewport scrollTop.
+    if (rt.$stickyHeader) {
+      let allowance = calcAllowance(rt.$table, rt.$stickyHeader);
+      if (
+        $window.scrollTop() > rt.$table.offset().top &&
+        $window.scrollTop() < rt.$table.offset().top + rt.$table.outerHeight() - allowance
+      ) {
+
+        let additionalOffset = 0;
+
+        if (document.documentElement.clientWidth <= 825) {
+          const $jsStickyHeader = $(".js-sticky-header");
+          if ($jsStickyHeader) {
+            additionalOffset += $jsStickyHeader.height();
+          }
+        }
+        if ($(".js-scroll-anchors")[0] &&
+          $(".js-scroll-anchors").css("position") === "fixed" &&
+          document.documentElement.clientWidth <= 765) {
+          additionalOffset += $(".js-scroll-anchors").height();
+        }
+
+        // When top of viewport is in the table itself.
+        rt.$stickyHeader.css({
+          "opacity": 1,
+          "top": $window.scrollTop() - rt.$table.offset().top + additionalOffset
+        });
+      }
+      else {
+        // When top of viewport is above or below table.
+        rt.$stickyHeader.css({
+          opacity: 0,
+          top: 0
+        });
+      }
+    }
 
     // Check if the table width is greater than the width of the parent.
     let canScrollHorizontally = rt.$table.width() > rt.$table.parent().width();
@@ -117,6 +180,17 @@ export default (function (window, document, $, undefined) {
 
   }
 
+  function handleOverlappingElements(rt) {
+    let visibleParams = getVisibleParams(rt.$root[0]);
+
+    if (!visibleParams.entirelyOutOfView) {
+      $(".ma__floating-action").hide();
+    }
+    else {
+      $(".ma__floating-action").show();
+    }
+  }
+
   function handleWindowResize () {
     responsiveTables.forEach((rt) => {
       setWidths(rt);
@@ -130,7 +204,36 @@ export default (function (window, document, $, undefined) {
       updatePositions(rt);
       applyScrollClasses(rt);
       recalcScrollbar(rt);
+      handleOverlappingElements(rt);
     });
+  }
+
+  function handleBeginScrolling() {
+    responsiveTables.forEach((rt) => {
+      rt.$root.addClass("is-scrolling");
+    });
+  }
+
+  function handleEndScrolling() {
+    responsiveTables.forEach(rt => {
+      rt.$root.removeClass("is-scrolling");
+    });
+  }
+
+  function scrollStartStop() {
+    if (Date.now() - lastScrollAt > 100) {
+      handleBeginScrolling();
+    }
+
+    lastScrollAt = Date.now();
+
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(function () {
+      if (Date.now() - lastScrollAt > 20) {
+        handleEndScrolling();
+      }
+    }, 100);
   }
 
   // Scroller click handler.
@@ -182,6 +285,7 @@ export default (function (window, document, $, undefined) {
     $("body")
       .on("mouseup", handleMouseUp)
       .on("mousemove", handleMouseMove);
+
   }
 
   // Scrollbar event handlers.
@@ -222,6 +326,8 @@ export default (function (window, document, $, undefined) {
 
   }
 
+  let lastScrollAt = Date.now();
+  let scrollTimeout;
 
   // fire on horizontal scroll of container as well.
   $(".ma__table--responsive__wrapper").on("scroll", throttle(handleScroll, 100));
@@ -234,6 +340,11 @@ export default (function (window, document, $, undefined) {
   // @todo - Is this needed to run on :attach?
   handleWindowResize();
 
+  $window.on("scroll", handleScroll);
+
+  // @todo - Clean this up to be cleaner.
+  $(document).on("scroll", scrollStartStop);
+
   $('.ma__table--responsive.has-horizontal-scroll').each(function() {
     let $thisTable = $(this);
     let $navBar = $thisTable.find('.ma__table__horizontal-nav');
@@ -241,6 +352,8 @@ export default (function (window, document, $, undefined) {
     let tableLeft;
     let bottomRows;
     let $tableWrapper = $thisTable.find('.ma__table--responsive__wrapper'); 
+
+    $navBar.addClass('full-left');
 
     $tableWrapper.on('scroll', function() {
       if($(this).scrollLeft() + $(this).innerWidth() >= $(this)[0].scrollWidth) {
@@ -274,32 +387,17 @@ export default (function (window, document, $, undefined) {
       let tableTop = wrapperTop + navBarHeight;
       let stickyNavTrigger = tableTop + 75;
       let tableBottom = tableTop + $thisTable.innerHeight() - navBarHeight;
-      let unstickyHeaderTrigger = tableBottom - navBarHeight - bottomRows;
-
-
-      if(wrapperTop < pageTop) {
-        $thisTable.addClass('stickHeaders');
-      } 
-      else {
-        $thisTable.removeClass('stickHeaders');
-      }
-      if(unstickyHeaderTrigger < pageTop) {
-        $thisTable.removeClass('stickHeaders');
-      }
 
       if(stickyNavTrigger < pageBottom) {
         $thisTable.addClass('stickNav');
         $navBar.css('left', tableLeft);
-        $('body').addClass('stickyTable');
       }
       if(tableBottom < pageBottom) {
         $thisTable.removeClass('stickNav');
-        $('body').removeClass('stickyTable');
         $navBar.css('left', '');
       }
       if(($thisTable.hasClass('stickNav')) && (stickyNavTrigger > pageBottom)) {
         $thisTable.removeClass('stickNav');
-        $('body').removeClass('stickyTable');
         $navBar.css('left', '');
       }
     });
