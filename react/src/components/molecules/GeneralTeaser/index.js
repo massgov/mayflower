@@ -155,7 +155,7 @@ GeneralTeaser.propTypes = {
   org: PropTypes.string,
   /** A short description of the teaser content, rendered as a paragraph */
   description: PropTypes.shape(Paragraph.propTypes),
-  /** A list of descorative sublinks * */
+  /** A list of decorative sublinks * */
   subLinks: PropTypes.arrayOf(PropTypes.shape(DecorativeLink.propTypes)),
   /** A list of contact information * */
   primaryInfo: PropTypes.shape(ContactGroup.propTypes),

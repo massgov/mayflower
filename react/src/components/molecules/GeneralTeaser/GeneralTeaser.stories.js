@@ -4,10 +4,11 @@ import { withKnobs, text, select, boolean, date, number, array, object } from '@
 import { withInfo } from '@storybook/addon-info';
 import GeneralTeaser from './index';
 import Paragraph from '../../atoms/text/Paragraph';
-import ContactGroup from '../ContactGroup';
+import GeneralTeaserDocs from './GeneralTeaser.md';
+
 
 storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('GeneralTeaser', withInfo()(() => {
+  .add('GeneralTeaser', withInfo(`<div>${GeneralTeaserDocs}</div>`)(() => {
     const props = {
       image: {
         src: text('GeneralTeaser.image.src', ''),
@@ -38,12 +39,40 @@ storiesOf('molecules', module).addDecorator(withKnobs)
           Online: 'Online',
           Fax: 'Fax',
           Address: 'Address'
-        }, 'Phone')
-      }
+        }, 'Phone'),
+        text: text('GeneralTeaser.primaryInfo.text', ''),
+        level: number('GeneralTeaser.primaryInfo.level', 0),
+        items: []
+      },
+      subLinks: [],
+      secondaryInfo: []
     };
-    props.subLinks = [];
     for (let i = 1; i < 4; i++) {
-      let subLink = {...props.title, text: `Sublink ${i}` };
+      const primaryItem = {
+        type: select(`GeneralTeaser.primaryInfo.items.${i}.type`, {
+          phone: 'phone',
+          online: 'online',
+          email: 'email',
+          address: 'address'
+        }, 'phone'),
+        label: text(`GeneralTeaser.primaryInfo.items.${i}.label`, ''),
+        address: text(`GeneralTeaser.primaryInfo.items.${i}.address`, ''),
+        link: object(`GeneralTeaser.primaryInfo.items.${i}.link`, { ...props.title, text: `PrimaryInfo Item Link ${i}` }),
+        details: text(`GeneralTeaser.primaryInfo.items.${i}.details`, '')
+      };
+      const subLink = { ...props.title, text: `Sublink ${i}` };
+      const secondary = {
+        icon: select(`GeneralTeaser.secondaryInfo.${i}.icon`, {
+          SvgMarker: 'SvgMarker (Address Icon)',
+          SvgPhone: 'SvgPhone (Phone Icon)',
+          SvgLaptop: 'SvgLaptop (Laptop Icon)',
+          SvgFax: 'SvgFax (FaxIcon)'
+        }, 'SvgMarker')
+      };
+      const secondaryLink = { ...props.title, text: `SecondaryInfo Link ${i}` };
+      secondary.linkedTitle = object(`GeneralTeaser.secondaryInfo.${i}.linkedTitle`, secondaryLink);
+      props.primaryInfo.items.push(primaryItem);
+      props.secondaryInfo.push(secondary);
       props.subLinks.push(object(`GeneralTeaser.subLinks.${i}`, subLink));
     }
     return(
