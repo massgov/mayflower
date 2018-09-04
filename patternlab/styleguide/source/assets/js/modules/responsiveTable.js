@@ -345,6 +345,8 @@ export default (function (window, document, $, undefined) {
   // @todo - Clean this up to be cleaner.
   $(document).on("scroll", scrollStartStop);
 
+
+
   $('.ma__table--responsive.has-horizontal-scroll').each(function() {
     let $thisTable = $(this);
     let $navBar = $thisTable.find('.ma__table__horizontal-nav');
@@ -354,6 +356,7 @@ export default (function (window, document, $, undefined) {
     let $tableWrapper = $thisTable.find('.ma__table--responsive__wrapper'); 
 
     $navBar.addClass('full-left');
+    
 
     $tableWrapper.on('scroll', function() {
       if($(this).scrollLeft() + $(this).innerWidth() >= $(this)[0].scrollWidth) {
@@ -388,17 +391,26 @@ export default (function (window, document, $, undefined) {
       let stickyNavTrigger = tableTop + 75;
       let tableBottom = tableTop + $thisTable.innerHeight() - navBarHeight;
 
+      
+
       if(stickyNavTrigger < pageBottom) {
         $thisTable.addClass('stickNav');
         $navBar.css('left', tableLeft);
       }
+      if(stickyNavTrigger < pageBottom && $window.width() < 910) {
+        $('body').find('.ma__fixed-feedback-button').hide();
+      }
       if(tableBottom < pageBottom) {
         $thisTable.removeClass('stickNav');
         $navBar.css('left', '');
+
       }
       if(($thisTable.hasClass('stickNav')) && (stickyNavTrigger > pageBottom)) {
         $thisTable.removeClass('stickNav');
         $navBar.css('left', '');
+      }
+      if(tableBottom < (pageBottom - 500)) {
+        $('body').find('.ma__fixed-feedback-button').show();
       }
     });
   });
