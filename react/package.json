@@ -14,8 +14,8 @@
   "scripts": {
     "backstop:atoms": "docker-compose run backstop test --atoms",
     "backstop:other": "docker-compose run backstop test",
-    "backstop": "npm-run-all build-storybook backstop:atoms backstop:other",
-    "backstop:approve": "docker-compose run backstop approve --atoms ; docker-compose run backstop approve",
+    "backstop": "npm-run-all build-storybook backstop:other",
+    "backstop:approve": "docker-compose run backstop approve",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/ --watch",
     "build-nwb": "nwb build-react-component --copy-files",

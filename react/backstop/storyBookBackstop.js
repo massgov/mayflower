@@ -1,5 +1,6 @@
 const fs = require('fs');
 const acorn = require('acorn');
+const path = require('path');
 require('acorn-jsx/inject')(acorn);
 require('acorn-object-rest-spread/inject')(acorn);
 require('acorn-static-class-property-initializer/inject')(acorn);
@@ -81,6 +82,13 @@ const listComponents = (dirList) => {
  */
 const mapComponents = (components, debug) => components.map((component) => {
   const { kind, name } = component;
+  const viewports = [];
+  if (isAtom(component)) {
+    viewports.push({ label: 'small_atom', width: 400, height: 250 });
+  } else {
+    viewports.push({ label: 'phone', width: 320, height: 480 });
+    viewports.push({ label: 'tablet', width: 1024, height: 768 });
+  }
   let urlBase = 'http://web/';
   if (debug) {
     // Only use --debug when running backstop outside of docker for local
@@ -91,20 +99,32 @@ const mapComponents = (components, debug) => components.map((component) => {
 
   return makeScenario(
     `${kind}/${name}`,
-    `${urlBase}iframe.html?selectedKind=${kind}&selectedStory=${name}`
+    `${urlBase}iframe.html?selectedKind=${kind}&selectedStory=${name}`,
+    viewports
   );
 });
+
+const isAtom = (component) => {
+  const { filePath } = component;
+  return(filePath.indexOf('/atoms/') > -1)
+    && (filePath.indexOf('table') === -1)
+    && (path.basename(filePath) !== 'Image')
+    && (filePath.indexOf('icons') === -1);
+};
+
 
 /**
  * Creates a Backstop scenario object from the passed label and url.
  *
  * @param {string} label
  * @param {string} url
+ * @param {array} viewports
  */
-const makeScenario = (label, url) => ({
+const makeScenario = (label, url, viewports = null) => ({
   label,
   url,
-  misMatchThreshold: 0.05
+  misMatchThreshold: 0.05,
+  viewports
 });
 
 module.exports = { listComponents, mapComponents, makeScenario };
