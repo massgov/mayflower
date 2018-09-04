@@ -13,7 +13,7 @@ import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.jso
 import stateSeal from '../../../../../assets/images/stateseal.png';
 
 
-storiesOf('organisms', module).addDecorator(withKnobs)
+storiesOf('organisms/Footer', module).addDecorator(withKnobs)
   .add('Footer', withInfo({ FooterReadme })(() => {
     const props = {
       footerLinks: object('footer.footerLinksData', FooterLinksData),
@@ -32,9 +32,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       })
     };
     return(<Footer {...props} />);
-  }));
-
-storiesOf('organisms/Footer', module).addDecorator(withKnobs)
+  }))
   .add('Footer with live JSON', withInfo({ FooterReadme })(() => {
     const props = {
       footerLinks: object('footer.footerLinksLiveData', FooterLinksLiveData),
