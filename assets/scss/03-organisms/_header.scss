@@ -178,7 +178,7 @@ body {
     @include ma-button-reset;
     font-size: 1.125rem;
     height: 33px;
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     margin-left: 20px;
     padding-left: 20px;
     position: fixed;
@@ -227,7 +227,7 @@ body {
     border: none;
     font-size: 1.125rem;
     height: 35px;
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     line-height: 35px;
     margin-top: 2px;
     padding-right: 30px;
