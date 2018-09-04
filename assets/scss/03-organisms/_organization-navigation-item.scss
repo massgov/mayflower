@@ -316,6 +316,14 @@
   position: absolute;
   height: 115%;
   overflow-y: auto;
+  width: 100%;
+
+  .ma__comp-heading {
+
+    @media ($bp-large-min) {
+      white-space: nowrap;
+    }
+  }
 
   @media ($bp-large-min) {
     position: static;

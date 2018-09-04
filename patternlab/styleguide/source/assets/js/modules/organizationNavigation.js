@@ -52,6 +52,10 @@ export default (function (window,document,$,undefined) {
     // Mobile toggle. 
     $mobileToggle.on( 'click', function() {
       
+      if(!$orgNav.hasClass('stuck')) {
+        $orgNav.addClass('stuck')
+      }
+
       $mobileToggle.add($menuWrapper).toggleClass('menu-open');
       // Close items when closing menu.
       $('.item-open').removeClass('item-open');
@@ -59,9 +63,8 @@ export default (function (window,document,$,undefined) {
       $('.section-toggle').remove();
 
       // Lock body scroll on mobile open/close.
-      if($orgNav.hasClass('stuck')) {
-        $('body').toggleClass('scroll-disabled');
-      }
+      $('body').toggleClass('scroll-disabled');
+
     });
 
     // Search form swing open/closed.
