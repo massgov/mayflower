@@ -43,5 +43,17 @@ storiesOf('atoms/icons', module).addDecorator(withKnobs)
       svgHeight,
       title
     };
+    if (window.location.search.indexOf('backstop') > -1) {
+      return Object.entries(assets).map(([key]) => {
+        const backstopProps = {
+          key,
+          name: key,
+          svgWidth,
+          svgHeight,
+          title
+        };
+        return<Icon {...backstopProps} />;
+      });
+    }
     return(<Icon {...props} />);
   });
