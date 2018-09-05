@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Major
+- (React) DP-10242: Added checkbox input to react.
