@@ -255,6 +255,7 @@
         "type": "internal",
         "href": "http://www.google.com",
         "text": "See all 10 pages",
+        "button": true,
         "info": ""
       },
 
