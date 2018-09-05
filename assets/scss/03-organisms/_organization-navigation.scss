@@ -159,6 +159,11 @@
       .form-open & {
         position: absolute;
         width: 100%;
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          top: 7px;
+          background-color: $c-bg-section;
+        }
       }
     }
 
