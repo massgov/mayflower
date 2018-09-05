@@ -9,7 +9,6 @@
   {% set link = {
     "href": item.link,
     "text": item.type == "address" ? "directions" : item.value,
-    "context": linkContext,
     "info": item.info
   } %}
 {% else %}
@@ -54,6 +53,12 @@
     {% if link.href %}
       <div class="ma__contact-group__directions">
         {% set decorativeLink = link %}
+        {% if item.label %}
+          {% set linkContext = "to " ~ item.label %}
+        {% else %}
+          {% set linkContext = "" %}
+        {% endif %}
+        {% set decorativeLink = decorativeLink|merge({'context': linkContext}) %}
         {% include "@atoms/decorative-link.twig" %}
       </div>
     {% endif %}
