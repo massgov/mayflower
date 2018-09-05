@@ -34,7 +34,7 @@ export default (function (window, document, $, undefined) {
     });
     // Listen for page number button click and trigger pagination event;
     $el.on('click', pageButton, function (e) {
-      let targetPageNumber = $(e.target).data('page');
+      targetPageNumber = $(e.target).data('page');
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
