@@ -65,6 +65,8 @@ export default (function (window,document,$,undefined) {
       // Lock body scroll on mobile open/close.
       $('body').toggleClass('scroll-disabled');
 
+      $('body').find('.ma__fixed-feedback-button').toggle();
+
     });
 
     // Search form swing open/closed.
@@ -171,6 +173,10 @@ export default (function (window,document,$,undefined) {
       e.preventDefault();
       let location = $(this).attr("href");
       $('html,body').animate({scrollTop: $(location).offset().top - 120}, 1000 );
+
+      if($('body').find('.ma__fixed-feedback-button').is(":hidden")) {
+        $('body').find('.ma__fixed-feedback-button').show();
+      }
     });
 
     $(window).on("resize", function () {

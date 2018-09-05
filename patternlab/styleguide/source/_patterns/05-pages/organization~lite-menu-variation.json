@@ -149,6 +149,42 @@
               }]
             },
             {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                  {
+                      "type": "phone",
+                      "property": "",
+                      "label": "Main:",
+                      "link": {
+                          "href": "+14134994262",
+                          "text": "(413) 499-4262",
+                          "info": "",
+                          "property": ""
+                      },
+                      "details": "8 a.m. - 4:30 p.m., M - F"
+                  }
+              ]
+          },
+          {
+              "icon": "fax-icon",
+              "name": "Fax",
+              "items": [
+                  {
+                      "type": "fax",
+                      "property": "",
+                      "label": "Main:",
+                      "link": {
+                          "href": "+14134994262",
+                          "text": "(413) 499-4262",
+                          "info": "",
+                          "property": ""
+                      },
+                      "details": ""
+                  }
+              ]
+          },
+            {
               "icon": "laptop",
               "name": "Online",
               "hidden": "",
