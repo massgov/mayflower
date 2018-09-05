@@ -453,3 +453,7 @@
     fill: $c-theme-green;
   }
 }
+
+body {
+  -ms-overflow-style: none;
+}
