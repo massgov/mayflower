@@ -7,32 +7,30 @@ This repository uses [BackstopJS](https://garris.github.io/BackstopJS/) for visu
 
 * [Docker and Docker Compose](https://www.docker.com/community-edition#/download) must be installed.
 
-### Workflow:
-First, ensure you've run a mayflower-react build.
+## Backstop Test:
+
+To check how your current work compares with the reference screenshots that are currently committed to the repository, run:
 
 ```bash
-npm run build-storybook
+npm run backstop
 ```
 
-Then, to check how your current work compares with the reference screenshots that are committed to the repository, run the following:
+This will run build-storybook followed by the backstop suites. This can have one of these outcomes:
+
+1. All test pass -- nothing changed between your current branch and the reference images. Unlikely.
+1. One or more tests fail -- expected if you changed how a component renders. Because the backstop command uses npm-run-all, the test run stop here with an error. Though the HTML report will not automatically open, you can review the report to decide if you're ready to approve the test images with:
+
+   `open backstop/data/html_report/index.html`
+
+## Screenshot Update Workflow:
+When you are ready to commit your work, and all test screenshots look correct, you must update the reference screenshots with the new ones that reflect your changes.  To do that, run:
 
 ```bash
-docker-compose run backstop test --atoms
-open backstop/data/html_report/index.html
-# Note: The following will overwrite the HTML report. If you are working on changes to atoms, stop here to view the report.
-docker-compose run backstop test
-open backstop/data/html_report/index.html
-```
-
-When you are ready to commit your work, you will want to update the reference screenshots with the new ones that reflect your changes.  To do that, run:
-
-```bash
-# Capture screenshots of the current state.
-docker-compose run backstop test --atoms
-docker-compose run backstop test
-# Accept these screenshots as the new references.
-docker-compose run backstop approve --atoms
-docker-compose run backstop approve
+# Capture test screenshots of the current state.
+npm run backstop
+# Accept these screenshots as the new reference images.
+npm run backstop:approve
+# Add and commit them to the repo.
 git add backstop/data/bitmaps_reference
 git commit
 ```
