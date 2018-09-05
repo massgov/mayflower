@@ -90,33 +90,6 @@
               "info": ""
             }
           }
-        },
-        "learnAbout": {
-          "linkList" : {
-            "compHeading": {
-              "title": "Learn more about...",
-              "sub": "true"
-            },
-            "description": null,
-            "stacked": true,
-            "hideBullets": true,
-            "links" : [{
-              "href":"#",
-              "text":"Habitat & Wildlife Conservation",
-              "info": ""
-            },{
-              "href":"#",
-              "text":"Hunting",
-              "info": ""
-            },{
-              "href":"#",
-              "text":"Freshwater  Fishing",
-              "info": ""
-            }]
-          }
-        },
-        "login": {
-         
         }
       }
     },{
