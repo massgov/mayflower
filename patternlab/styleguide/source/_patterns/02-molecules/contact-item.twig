@@ -1,11 +1,6 @@
 {# if using the older 3.4.1 data model #}
 {% if item.link and item.link is not iterable %}
   {# update the older code's data to match the new version #}
-  {% if item.label %}
-    {% set linkContext = "to " ~ item.label %}
-  {% else %}
-    {% set linkContext = "" %}
-  {% endif %}
   {% set link = {
     "href": item.link,
     "text": item.type == "address" ? "directions" : item.value,
