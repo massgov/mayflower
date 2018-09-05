@@ -2,37 +2,40 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import './style.css';
 
-class InputDate extends React.Component {
+class InputCheckBox extends React.Component {
 
   constructor(props) {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.state = {
+      selected: props.checked
+    };
   }
 
-  const handleInputChange = (event) => {
+  handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const id = target.id;
     this.setState({
-      [id]: value
+      [target.id]: target.value
     });
   }
 
-  return(
-
-    <span className="ma__input-checkbox">
-      <input
-        type="checkbox"
-        value={this.props.value}
-        id={data.id}
-        checked={!!data.checked}
-      />
-      {icon}
-      <label htmlFor={data.id}>
-        <span>{data.label}</span>
-      </label>
-    </span>
-  );
+  render() {
+    const icon = this.props.icon ? this.props.icon : '';
+    return (
+      <span className="ma__input-checkbox">
+        <input
+          type="checkbox"
+          value={this.props.value}
+          id={this.props.id}
+          checked={this.state.checked}
+        />
+        {icon}
+        <label htmlFor={this.props.id}>
+          <span>{this.props.label}</span>
+        </label>
+      </span>
+    );
+  }
 }
 
 InputCheckBox.propTypes = {
