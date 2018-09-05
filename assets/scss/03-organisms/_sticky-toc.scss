@@ -343,7 +343,7 @@
         font-size: 0.75rem;
         font-weight: 700;
         color: $c-theme-primary;
-        letter-spacing: 1px;
+        letter-spacing: $letter-spacing-large;
         margin-top: -4px;
       }
     }
@@ -442,7 +442,7 @@
     border: 0;
     font-size: 1.375rem;
     font-weight: 500;
-    letter-spacing: 0.1rem;
+    letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
     color: $c-theme-gray;
     background-color: $c-white;

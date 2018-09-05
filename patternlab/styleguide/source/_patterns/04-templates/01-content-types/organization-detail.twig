@@ -9,6 +9,7 @@
 <main id="main-content" class="ma__organization-detail" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
+      {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-banner.twig" %}
     {% endblock %}
   </div>
