@@ -200,6 +200,7 @@ export default (function (window,document,$,undefined) {
       } 
       else {
         $('.wrappedGroup').find($contactGroups).unwrap();
+        $('body').removeClass('scroll-disabled');
       }
 
     }).resize();
