@@ -201,6 +201,7 @@
         "type": "internal",
         "href": "http://www.google.com",
         "text": "See all 15 How-To's",
+        "button": true,
         "info": ""
       },
 
