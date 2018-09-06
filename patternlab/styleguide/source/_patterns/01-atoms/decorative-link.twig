@@ -2,5 +2,5 @@
   <a
     href="{{decorativeLink.href}}"
     class="js-clickable-link"
-    title="{{ decorativeLink.info }}">{{decorativeLink.text}}&nbsp;{{ icon('arrow') }}</a>
+    title="{% if decorativeLink.info %}{{ decorativeLink.info }}{% else %}{{decorativeLink.text}}{% endif %}">{{decorativeLink.text}}&nbsp;{{ icon('arrow') }}</a>
 </span>
