@@ -11,9 +11,9 @@ const Grid = (grid) => {
         <div className="ma__grid-col-6">col-6</div>
       </div>
       <div className="ma__grid-row">
-        <div className="ma__grid-col-4 ma__grid-col-md-2">col-4</div>
-        <div className="ma__grid-col-4 ma__grid-col-md-2">col-4</div>
-        <div className="ma__grid-col-4 ma__grid-col-md-2">col-4</div>
+        <div className="ma__grid-col-4 ma__grid-col-md-6"><code>col-4 col-md-6</code></div>
+        <div className="ma__grid-col-4 ma__grid-col-md-6"><code>col-4 col-md-6</code></div>
+        <div className="ma__grid-col-4 ma__grid-col-md-6"><code>col-4 col-md-6</code></div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 // Change the Neat grid settings
-$gutter: 20px;
-$column: 12;
+$gutter: 20px !default;
+$column: 12 !default;
 $column-width: 85px;
 $column-with-gutter: $column-width + $gutter;
 $max-width: 1320px; // use @include outer-container() which sets this and centers;
