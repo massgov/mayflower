@@ -192,14 +192,9 @@ export default (function (window,document,$,undefined) {
             $('.ma__contact-group:first-child').addClass('wrappedGroup');
             $contactGroups = $contactGroups.not(':first');
           }
-          if($contactGroups.length > 3) {
           // Wrap contact groups in sets of 2 for layout.
-            for(let i = 0; i < $contactGroups.length; i+=2) {
-              $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
-            }
-          }
-          else {
-            $contactGroups.wrap("<div class='wrappedGroup'></div>");
+          for (let i = 0; i < $contactGroups.length; i+=2) {
+            $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
           }
         }
       } 
