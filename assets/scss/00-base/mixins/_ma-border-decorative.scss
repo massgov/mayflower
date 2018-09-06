@@ -13,7 +13,7 @@
         bottom: 0;
         left: 0.075em;
       transform: skew(-30deg);
-      width: $column;  //85px
+      width: $column-width;  //85px
 
       @media print {
         display: none;

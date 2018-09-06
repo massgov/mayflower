@@ -133,7 +133,7 @@ $page-header-widget-width: 350px;
 
     @media ($bp-large-min){
       float: left;
-      padding-right: $column;
+      padding-right: $column-width;
       max-width: 820px;
       width: calc(100% - #{$page-header-widget-width});
     }
@@ -221,11 +221,11 @@ $page-header-widget-width: 350px;
     }
 
     @media ($bp-large-min){
-      padding-right: $column;
+      padding-right: $column-width;
       width: calc(100% - #{$layout-sidebar-width});
     }
     @media ($bp-x-large-min) {
-      padding-right: $column + ($gutter * 2);
+      padding-right: $column-width + ($gutter * 2);
     }
   }
 

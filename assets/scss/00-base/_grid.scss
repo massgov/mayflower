@@ -1,7 +1,6 @@
 $ma-grid: (
-  columns: 12,
-  gutter: 20px,
-  media: 1200px,
+  columns: $column,
+  gutter: $gutter,
   color: rgba(#00d4ff, 0.25),
   direction: ltr,
 );
@@ -11,7 +10,7 @@ $ma-grid: (
   @include clearfix;
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through $column {
   .ma__grid-col-#{$i} {
       @include grid-column($i);
       background-color: rgba($c-theme-primary, 0.2);

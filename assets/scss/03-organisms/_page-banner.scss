@@ -1,4 +1,4 @@
-$page-banner-icon-width: $column + $gutter;
+$page-banner-icon-width: $column-with-gutter;
 $page-banner-height: 330px;
 
 .ma__page-banner {
@@ -264,7 +264,7 @@ position: relative;
   &--small &__icon {
 
     @media ($bp-medium-min) {
-      width: $column;
+      width: $column-width;
     }
   }
 
@@ -339,7 +339,7 @@ position: relative;
   &--small &__icon + &__title {
 
     @media ($bp-medium-min) {
-      width: calc(100% - $column);
+      width: calc(100% - $column-width);
     }
   }
 
