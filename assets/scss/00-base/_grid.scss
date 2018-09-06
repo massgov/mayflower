@@ -8,11 +8,40 @@ $ma-grid: (
 
 .ma__grid-row {
   @include grid-collapse;
+  @include clearfix;
 }
 
 @for $i from 1 through 12 {
   .ma__grid-col-#{$i} {
       @include grid-column($i);
       background-color: rgba($c-theme-primary, 0.2);
+  }
+
+  @media($bp-x-small-max){
+    .ma__grid-col-#{$i} {
+      @include grid-column(12);
+      background-color: rgba($c-theme-primary, 0.2);
+    }
+  }
+
+  @media($bp-small-max){
+    .ma__grid-col-sm-#{$i} {
+      @include grid-column($i);
+      background-color: rgba($c-theme-secondary, 0.2);
+    }
+  }
+
+  @media($bp-medium-max){
+    .ma__grid-col-md-#{$i} {
+      @include grid-column($i);
+      background-color: rgba($c-theme-secondary, 0.2);
+    }
+  }
+
+  @media($bp-large-max){
+    .ma__grid-col-lg-#{$i} {
+      @include grid-column($i);
+      background-color: rgba($c-theme-tertiary, 0.2);
+    }
   }
 }
