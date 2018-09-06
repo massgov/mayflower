@@ -12,7 +12,7 @@ $feedback-form-bp-min: "min-width: 751px";
 
   &__container {
     @include ma-container;
-    max-width: ($column + $gutter) * 8 - $gutter;
+    max-width: ($column-with-gutter) * 8 - $gutter;
     padding-top: 60px;
     padding-bottom: 60px;
   }
@@ -61,7 +61,7 @@ $feedback-form-bp-min: "min-width: 751px";
     }
 
     @media ($feedback-form-bp-min) {
-      @include span-columns(4 of 8);
+      @include grid-column(4 of 8);
     }
 
     input {
@@ -102,7 +102,7 @@ $feedback-form-bp-min: "min-width: 751px";
     }
 
     @media ($feedback-form-bp-min) {
-      @include span-columns(4 of 8);
+      @include grid-column(4 of 8);
     }
 
     .ma__select-box {

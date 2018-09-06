@@ -48,20 +48,20 @@
     }
 
     @media ($bp-medium-min) and ($bp-x-large-max) {
-      //@include span-columns(4 of 8);
+      //@include grid-column(4 of 8);
       margin-left: 2.43902%;
       width: 50% - 2.43902%;
     }
 
     @media ($bp-x-large-min) {
-      //@include span-columns(4 of 12);
+      //@include grid-column(4 of 12);
       margin-left: 1.6129%;
       width: 33.3333% - 1.6129%;    
     }
 
     .main-content--two & {
       @media ($bp-medium-min) {
-        //@include span-columns(4 of 8);
+        //@include grid-column(4 of 8);
         margin-left: 2.43902%;
         width: 50% - 2.43902%;
       }

@@ -6,6 +6,7 @@ var sass          = require("gulp-sass"),
     header        = require("gulp-header"),
     sourcemaps    = require("gulp-sourcemaps"),
     normalizePaths= require("node-normalize-scss").includePaths,
+    bourbonPaths  = require("node-bourbon").includePaths,
     neatPaths     = require("node-neat").includePaths,
     gulpIf        = require("gulp-if"),
     lazypipe      = require("lazypipe");
@@ -24,6 +25,7 @@ module.exports = function(minify, root) {
         outputStyle: minify ? "compressed" : "nested",
         includePaths: [].concat(
             normalizePaths,
+            bourbonPaths,
             neatPaths,
             absRoot + "assets/scss"
         )

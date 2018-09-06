@@ -1,4 +1,4 @@
-$page-banner-icon-width: $column + $gutter;
+$page-banner-icon-width: $column-with-gutter;
 $page-banner-height: 330px;
 
 .ma__page-banner {
@@ -264,7 +264,7 @@ position: relative;
   &--small &__icon {
 
     @media ($bp-medium-min) {
-      width: $column;
+      width: $column-width;
     }
   }
 
@@ -339,7 +339,7 @@ position: relative;
   &--small &__icon + &__title {
 
     @media ($bp-medium-min) {
-      width: calc(100% - $column);
+      width: calc(100% - $column-width);
     }
   }
 
@@ -386,7 +386,7 @@ position: relative;
     z-index: 1;
 
     @media ($bp-medium-min){
-      @include span-columns(4 of 12);
+      @include grid-column(4 of 12);
       font-size: 1.813rem;
       letter-spacing: $letter-spacing-small;
       line-height: 2.188rem;

@@ -13,13 +13,16 @@
     @media ($bp-large-min){
       margin-top: 90px
     }
-  } 
-  @else {
+  }
+  @elseif($size == small) {
     margin-top: 30px;
 
     @media ($bp-small-min){
       margin-top: 45px;
     }
+  }
+  @else {
+    margin-top: 10px;
   }
 
   &:first-child {

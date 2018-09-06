@@ -28,14 +28,24 @@ $bp-section-3up-large-max: "max-width:950px";
       }
 
       @media ($bp-small-min) and ($bp-section-3up-large-max) {
-        @include span-columns(4 of 8);
-        @include omega(2n);
+        @include grid-column(4 of 8);
+        &:nth-child(2n) {
+  margin-right: 0;
+}
+&:nth-child(2n+1) {
+  clear: left;
+};
       }
       
       @media ($bp-section-3up-large-min) {
           margin-bottom: 20px;
-          @include span-columns(4 of 12);
-          @include omega(3n);
+          @include grid-column(4 of 12);
+          &:nth-child(3n) {
+  margin-right: 0;
+}
+&:nth-child(3n+1) {
+  clear: left;
+}
       }
     }
   }

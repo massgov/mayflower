@@ -49,7 +49,7 @@ $collage-header-bp-min: "min-width: 701px";
 
 
       @media ($bp-large-min) {
-        @include span-columns(5 of 8);
+        @include grid-column(5 of 8);
         height: 30%;
         margin-bottom: 0;
       }
@@ -60,7 +60,7 @@ $collage-header-bp-min: "min-width: 701px";
         margin-right: 0;
 
         @media ($bp-large-min) {
-          @include span-columns(8 of 8);
+          @include grid-column(8 of 8);
           height: 68%;
         }
       }
@@ -69,7 +69,7 @@ $collage-header-bp-min: "min-width: 701px";
         margin-bottom: 0;
 
         @media ($bp-large-min) {
-          @include span-columns(3 of 8);
+          @include grid-column(3 of 8);
         }
       }
     }

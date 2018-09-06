@@ -24,12 +24,12 @@
 
     @media ($bp-large-min){
       float:left;
-      padding-right: $column;
+      padding-right: $column-width;
       width: calc(100% - #{$layout-sidebar-width});
     }
 
     @media ($bp-x-large-min) {
-      padding-right: $column + ($gutter * 2);
+      padding-right: $column-width + ($gutter * 2);
     }
   }
 

@@ -10,8 +10,13 @@
 
       > *:nth-last-child(n+2),
       > *:nth-last-child(n+2) ~ * {
-        @include span-columns(6);
-        @include omega(2n);
+        @include grid-column(6);
+        &:nth-child(2n) {
+  margin-right: 0;
+}
+&:nth-child(2n+1) {
+  clear: left;
+};
         margin-top: 0;
         margin-bottom: 0;
         padding-top: 0;

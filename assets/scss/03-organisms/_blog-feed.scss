@@ -27,8 +27,13 @@
     margin-bottom: 30px;
 
     @media ($bp-large-min) {
-      @include span-columns(3 of 6);
-      @include omega(2n);
+      @include grid-column(3 of 6);
+      &:nth-child(2n) {
+  margin-right: 0;
+}
+&:nth-child(2n+1) {
+  clear: left;
+};
       margin-bottom: 0;
     }
 

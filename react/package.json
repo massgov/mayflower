@@ -59,7 +59,7 @@
     "acorn-static-class-property-initializer": "^1.0.0",
     "babel-core": "^6.26.0",
     "bourbon": "^5.1.0",
-    "bourbon-neat": "^1.7.2",
+    "bourbon-neat": "^3.0.0",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",

@@ -47,7 +47,7 @@
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.1",
     "node-bourbon": "^4.2.8",
-    "node-neat": "^1.7.2",
+    "node-neat": "^2.0.0-beta.0",
     "node-normalize-scss": "^8.0.0",
     "node-sass": "^4.9.2",
     "through2": "^2.0.3",

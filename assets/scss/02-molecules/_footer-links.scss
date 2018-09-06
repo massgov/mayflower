@@ -15,12 +15,12 @@
     }
 
     @media ($bp-small-min) {
-      @include span-columns(3 of 9);
+      @include grid-column(3 of 9);
     }
 
     @media ($bp-x-large-min) {
-      @include span-columns(2 of 9);
-      @include shift(1 of 9);
+      @include grid-column(2 of 9);
+      @include grid-shift(1 of 9);
     }
   }
 
