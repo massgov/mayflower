@@ -367,10 +367,6 @@
     }
   }
 
-  .ma__contact-group__item * {
-    white-space: nowrap;
-  }
-
   .wrappedGroup {
 
     @media ($bp-large-min) {
@@ -394,6 +390,8 @@
       @supports not (-ms-high-contrast: none) {
         flex-grow: 1;
         flex-basis: 0;
+        max-width: 33%;
+        min-width: 33%;
       }
     }
   }
