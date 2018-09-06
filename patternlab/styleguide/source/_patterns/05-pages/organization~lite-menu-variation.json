@@ -167,23 +167,24 @@
               ]
           },
           {
-              "icon": "fax-icon",
-              "name": "Fax",
-              "items": [
-                  {
-                      "type": "fax",
-                      "property": "",
-                      "label": "Main:",
-                      "link": {
-                          "href": "+14134994262",
-                          "text": "(413) 499-4262",
-                          "info": "",
-                          "property": ""
-                      },
-                      "details": ""
-                  }
-              ]
-          }
+            "icon": "laptop",
+            "name": "Online",
+            "hidden": "",
+            "items": [
+                {
+                    "type": "email",
+                    "property": "",
+                    "label": "Victor Ortiz, Director of Problem Gambling Services",
+                    "link": {
+                        "href": "email@email.com",
+                        "text": "Victor.Ortiz@State.MA.US",
+                        "info": "",
+                        "property": ""
+                    },
+                    "details": ""
+                }
+            ]
+        }
           ]
         }
       }
