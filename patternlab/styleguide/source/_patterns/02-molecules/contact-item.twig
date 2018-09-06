@@ -18,9 +18,10 @@
   {% set address = item.address %}
 {% endif %}
 
+{% set linkContext = "linkContext-" ~ random() %}
 <div class="ma__contact-group__item">
   {% if item.label %}
-    <span class="ma__contact-group__label">{{item.label}}</span>
+    <span class="ma__contact-group__label" id="{{ linkContext }}">{{item.label}}</span>
   {% endif %}
 
   {# Online wrap value in a link #}
@@ -48,11 +49,6 @@
     {% if link.href %}
       <div class="ma__contact-group__directions">
         {% set decorativeLink = link %}
-        {% if item.label %}
-          {% set linkContext = "to " ~ item.label %}
-        {% else %}
-          {% set linkContext = "" %}
-        {% endif %}
         {% set decorativeLink = decorativeLink|merge({'context': linkContext}) %}
         {% include "@atoms/decorative-link.twig" %}
       </div>
