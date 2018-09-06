@@ -6,7 +6,7 @@
 
 // some variables adjust the settings in Neat
 @import "00-base/variables";
-@import "bourbon-neat/app/assets/stylesheets/neat";
+@import "bourbon-neat/core/neat";
 
 // Bower vendors
 @import "../../patternlab/styleguide/source/assets/js/vendor/bower_components/pikaday/scss/pikaday";
@@ -23,6 +23,7 @@ $assets-path: '../../assets';
 @import "00-base/colors";
 @import "00-base/fonts";
 @import "00-base/pikaday";
+@import "00-base/grid";
 
 // Print styles
 @import "08-print/print";
