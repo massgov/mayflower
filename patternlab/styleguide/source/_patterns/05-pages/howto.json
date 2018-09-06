@@ -686,6 +686,10 @@
         "title": "Related",
         "titleContext": "to Apply for unemployment benefits"
       },
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": ""
+      },
       "stacked": true,
       "links" : [{
         "href":"#",
