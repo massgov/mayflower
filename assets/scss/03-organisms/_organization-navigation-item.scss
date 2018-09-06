@@ -388,6 +388,8 @@
         flex: 1 1 auto;
       }
 
+      _:-ms-lang(x), 
+
       @supports not (-ms-high-contrast: none) {
         flex-grow: 1;
         flex-basis: 0;
@@ -460,4 +462,14 @@
     height: 20px;
     fill: $c-theme-green;
   }
+}
+
+// IE hacks
+
+_:-ms-lang(x), .ma__org-nav-contact-us__contact-row .wrappedGroup {
+  flex: 1 1 auto;
+}
+
+_:-ms-lang(x), .ma__org-nav-i-want-to .ma__org-nav-i-want-to-section {
+  flex: 1 1 auto;
 }
