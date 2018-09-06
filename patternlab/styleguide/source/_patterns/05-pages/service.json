@@ -200,9 +200,9 @@
       "seeAll": {
         "type": "internal",
         "href": "http://www.google.com",
-        "text": "See all 15 How-To's",
-        "button": true,
-        "info": ""
+        "text": "See all 15",
+        "info": "See all 15 How-To's",
+        "button": true
       },
 
       "featuredLinks": [{
@@ -254,9 +254,9 @@
       "seeAll": {
         "type": "internal",
         "href": "http://www.google.com",
-        "text": "See all 10 pages",
-        "button": true,
-        "info": ""
+        "text": "See all 10",
+        "info": "See all 10 pages",
+        "button": true
       },
 
       "featuredLinks": "",
