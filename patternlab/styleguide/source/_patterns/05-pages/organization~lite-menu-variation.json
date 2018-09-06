@@ -125,13 +125,13 @@
       "subNav": {
         "orgMenuContactRow": {
           "compHeading": {
-            "title": "Division of Fisheries and Wildlife",
+            "title": "Division of Marine Fisheries - Boston Office",
             "sub": "",
             "color": "",
             "id": "contact us",
             "centered": ""
           },
-          "hasManyAdditional": true,
+          "hasManyAdditional": false,
           "additionalContacts": [
             {
               "icon": "marker",
@@ -139,7 +139,7 @@
               "items": [{
                 "type": "address",
                 "label": "",
-                "address": "1 Rabbit Hill Rd, Westborough, MA 01581",
+                "address": "251 Causeway Street\nSuite 400\nBoston, MA 02114",
                 "link": {
                   "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
                   "text": "directions",
@@ -183,41 +183,7 @@
                       "details": ""
                   }
               ]
-          },
-            {
-              "icon": "laptop",
-              "name": "Online",
-              "hidden": "",
-              "items": [
-                {
-                  "type": "email",
-                  "property": "",
-                  "label": "",
-                  "link": {
-                    "href": "email@email.com",
-                    "text": "Mass.Wildlife@state.ma.us",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                }
-              ]
-            },
-            {
-              "icon": "login",
-              "name": "Login to...",
-              "level": "",
-              "contactName": "",
-              "items": [{
-                "type": "login",
-                "link": {
-                  "href":"#",
-                  "text": "MassFishHunt",
-                  "info": ""
-                },
-                "details":""
-              }]
-            }
+          }
           ]
         }
       }
