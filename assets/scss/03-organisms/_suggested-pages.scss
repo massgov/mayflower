@@ -36,13 +36,23 @@
   &__item--guide {
 
     @media (min-width: 750px) and ($bp-x-large-max) {
-      @include span-columns(4 of 8);
-      @include omega(2n);
+      @include grid-column(4 of 8);
+      &:nth-child(2n) {
+  margin-right: 0;
+}
+&:nth-child(2n+1) {
+  clear: left;
+};
     }
 
     @media ($bp-x-large-min) {
-      @include span-columns(4);
-      @include omega(3n);
+      @include grid-column(4);
+      &:nth-child(3n) {
+  margin-right: 0;
+}
+&:nth-child(3n+1) {
+  clear: left;
+}
     }
   }
 

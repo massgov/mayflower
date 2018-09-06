@@ -1,0 +1,18 @@
+$ma-grid: (
+  columns: 12,
+  gutter: 20px,
+  media: 1200px,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr,
+);
+
+.ma__grid-row {
+  @include grid-collapse;
+}
+
+@for $i from 1 through 12 {
+  .ma__grid-col-#{$i} {
+      @include grid-column($i);
+      background-color: rgba($c-theme-primary, 0.2);
+  }
+}

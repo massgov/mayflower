@@ -16,8 +16,13 @@
     padding-bottom: 30px;
 
     @media ($bp-medium-min) {
-      @include span-columns(6);
-      @include omega(2n);
+      @include grid-column(6);
+      &:nth-child(2n) {
+  margin-right: 0;
+}
+&:nth-child(2n+1) {
+  clear: left;
+};
     }
   }
 
@@ -98,7 +103,7 @@
       }
 
       .ma__test-feed__item {
-        @include span-columns(12);
+        @include grid-column(12);
       }
     }
   }

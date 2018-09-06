@@ -386,7 +386,7 @@ position: relative;
     z-index: 1;
 
     @media ($bp-medium-min){
-      @include span-columns(4 of 12);
+      @include grid-column(4 of 12);
       font-size: 1.813rem;
       letter-spacing: $letter-spacing-small;
       line-height: 2.188rem;

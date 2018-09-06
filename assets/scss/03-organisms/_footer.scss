@@ -59,7 +59,7 @@
     margin-bottom: 20px;
 
     @media ($bp-large-min) {
-      @include span-columns(9);
+      @include grid-column(9);
       float: right;
       margin-right: 0;
       margin-bottom: 20px;
@@ -68,7 +68,7 @@
 
   &__info {
     @media ($bp-large-min) {
-      @include span-columns(3);
+      @include grid-column(3);
     }
   }
 

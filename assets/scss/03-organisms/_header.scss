@@ -61,13 +61,13 @@ body {
     }
 
     @media ($bp-small-min) {
-      @include span-columns(4);
+      @include grid-column(4);
       display: inline-block;
       float: none;
     }
 
     @media ($bp-header-logo-min) {
-      @include span-columns(3);
+      @include grid-column(3);
       display: inline-block;
       float: none;
     }
@@ -85,11 +85,11 @@ body {
     width: calc(100% - #{$header-logo-width});
 
     @media ($bp-small-min) {
-      width: 66.12903%; //@include span-columns(8);
+      width: 66.12903%; //@include grid-column(8);
     }
 
     @media ($bp-header-logo-min) {
-      width: 74.59677%; //@include span-columns(9);
+      width: 74.59677%; //@include grid-column(9);
     }
 
     @media ($bp-small-max) {
