@@ -388,8 +388,6 @@
         flex: 1 1 auto;
       }
 
-      _:-ms-lang(x), 
-
       @supports not (-ms-high-contrast: none) {
         flex-grow: 1;
         flex-basis: 0;
