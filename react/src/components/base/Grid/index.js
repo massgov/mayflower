@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Grid = (grid) => {
   return(
-    <React.Fragment>
+    <div className="ma__grid ma__grid--show">
       <div className="ma__grid-row">
         <div className="ma__grid-col-1">col-1</div>
         <div className="ma__grid-col-2">col-2</div>
@@ -15,7 +15,7 @@ const Grid = (grid) => {
         <div className="ma__grid-col-4 ma__grid-col-md-2">col-4</div>
         <div className="ma__grid-col-4 ma__grid-col-md-2">col-4</div>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 
