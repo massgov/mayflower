@@ -367,6 +367,10 @@
     }
   }
 
+  .ma__contact-group__item * {
+    white-space: nowrap;
+  }
+
   .wrappedGroup {
 
     @media ($bp-large-min) {
