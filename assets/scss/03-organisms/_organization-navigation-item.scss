@@ -147,11 +147,11 @@
       max-width: 100%;
       background-color: $c-white;
       box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
-      z-index: $z-dropdown;
-
+      
       .item-open & {
         max-height: 100vh;
         transition: max-height .6s ease-in-out;
+        z-index: $z-dropdown;
       }
     }
   }
@@ -274,6 +274,7 @@
 
       &.item-open {
         display: inline-block;
+        padding-bottom: 0.5rem;
       }
 
       @media ($bp-large-min) {
@@ -309,13 +310,16 @@
         a {
           display: block;
           white-space: nowrap;
+
           @media ($bp-large-max) {
-            font-size: 1.275rem;
+            font-size: 1.375rem;
             font-weight: 500;
           }
 
-          &:hover {
-            border-bottom-color: transparent;
+          @media ($bp-large-min) {
+            &:hover {
+              border-bottom-color: transparent;
+            }
           }
         }
       }
@@ -347,7 +351,7 @@
   width: 100%;
 
   @media ($bp-large-min) {
-    padding-top: 0;
+    padding-top: 1px;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
   }

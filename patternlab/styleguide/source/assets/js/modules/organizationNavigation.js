@@ -85,15 +85,15 @@ export default (function (window,document,$,undefined) {
     // Open the dropdowns.
     $menuButton.each(function() {
       let $button = $(this);
-      let $buttonParent = $button.parent('.has-subnav');
+      let $buttonParent = $button.parent('.has-subnav'); 
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
 
-      $button.add($thisMenu).on('mouseenter mouseleave', function() {
+      $buttonParent.on('mouseenter mouseleave', function() {
         let windowWidth = $(window).width();
 
         if(windowWidth > mobileBreak) {
           $('.section-toggle').remove();
-          $buttonParent.add($thisMenu).toggleClass('item-open');
+          $buttonParent.toggleClass('item-open');
         }
         else {
           return false;
@@ -125,7 +125,6 @@ export default (function (window,document,$,undefined) {
 
     // Mobile view open the "I want to sections".
     $sectionButton.each(function() {
-      
 
       let $button = $(this);
       let $seeAll = $button.parent().find('.ma__link-list__see-all');
@@ -192,14 +191,12 @@ export default (function (window,document,$,undefined) {
             $contactGroups = $contactGroups.not(':first');
           }
           if($contactGroups.length < 3) {
-            console.log('less than', $contactGroups.length);
-            $contactGroups.wrap("<div class='wrappedGroup'></div>");
+            $contactGroups.wrap("<div class='wrappedGroup' />");
           }
           else {
-            console.log('else', $contactGroups.length);
             // Wrap contact groups in sets of 2 for layout.
             for (let i = 0; i < $contactGroups.length; i+=2) {
-              $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
+              $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup' />");
             }
           }
         }
