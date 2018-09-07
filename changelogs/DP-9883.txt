@@ -1,0 +1,3 @@
+___DESCRIPTION___
+Changed
+- (Patternlab) DP-9883: Updated the styles of the contact groups in the contact row to display the same number of groups in each column under the "Contact Us" section of the org page.
