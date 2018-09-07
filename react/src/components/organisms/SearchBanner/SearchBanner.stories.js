@@ -20,6 +20,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);
     const hideTopic = boolean('filterBox.hideTopic', true);
+    const hideType = boolean('filterBox.hideType', false);
+    const hideDateRange = boolean('filterBox.hideDateRange', false);
+    const DesktopHidden = boolean('SearchBanner.filterDesktopHidden', false);
     const withTabs = boolean('HeaderSearch.withTabs', true);
     const props = {
       searchBox: {
@@ -65,7 +68,10 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     if (withFilterBox) {
       props.toggleButtonOnClick = action('SearchBanner toggleButtonOnClick');
       props.filterBoxExpanded = boolean('SearchBanner.filterBoxExpanded', true);
+      props.filterDesktopHidden = DesktopHidden;
+      props.filterToggleText = text('SearchBanner.filterBoxText', 'More Filters');
       props.filterBox = {
+        filterDesktopHidden: DesktopHidden,
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
         topic: (hideTopic ? undefined : {
@@ -87,7 +93,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
           onChange: action('filterBox.organization typeahead onChange')
         },
-        pressType: {
+        pressType: (hideType ? undefined : {
           typeAhead: {
             label: text('filterBox.pressType.label', 'Filter by Type'),
             id: text('filterBox.pressType.id', 'press-type'),
@@ -100,16 +106,16 @@ storiesOf('organisms', module).addDecorator(withKnobs)
             placeholder: text('filterBox.pressType.placeholder', 'All Types'),
             onChange: action('SearchBanner filterBox.pressType.typeAhead.onChange')
           }
-        },
-        dateRange: {
+        }),
+        dateRange: (hideDateRange ? undefined : {
           label: text('filterBox.dateRange.label', 'Date range'),
           startDate: object('filterBox.dateRange.startDate', filterBoxSharedProps.startDate),
           endDate: object('filterBox.dateRange.endDate', filterBoxSharedProps.endDate)
-        },
+        }),
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
-          size: select('filterBox.submitButton.size', buttonOptions.size, 'small'),
+          size: select('filterBox.submitButton.size', buttonOptions.size),
           theme: select('filterBox.submitButton.theme', buttonOptions.theme, ''),
           outline: boolean('filterBox.submitButton.outline', false),
           onClick: action('SearchBanner filterBox.submitButton.onClick')
@@ -120,8 +126,10 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           onClearCallback: action('SearchBanner filterBox.clearButton.onClearCallback')
         }
       };
-      props.filterBox.dateRange.startDate.defaultDate = new Date(props.filterBox.dateRange.startDate.defaultDate);
-      props.filterBox.dateRange.endDate.defaultDate = new Date(props.filterBox.dateRange.endDate.defaultDate);
+      if (props.filterBox.dateRange) {
+        props.filterBox.dateRange.startDate.defaultDate = new Date(props.filterBox.dateRange.startDate.defaultDate);
+        props.filterBox.dateRange.endDate.defaultDate = new Date(props.filterBox.dateRange.endDate.defaultDate);
+      }
     }
     return(<SearchBanner {...props} />);
   }));

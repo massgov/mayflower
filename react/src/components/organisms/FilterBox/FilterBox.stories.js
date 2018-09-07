@@ -19,6 +19,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     withInfo()(() => {
       const hideTopic = boolean('filterBox.hideTopic', true);
       const hideOrganization = boolean('filterBox.hideOrganization', true);
+      const hideType = boolean('filterBox.hideType', false);
+      const hideDateRange = boolean('filterBox.hideDateRange', false);
       const pressTypeInput = select('filterBox.pressType.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
         active: boolean('filterBox.active', true),
@@ -31,15 +33,15 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           required: boolean('filterBox.topic.required', true)
         }),
         pressType: {},
-        dateRange: {
+        dateRange: (hideDateRange ? undefined : {
           label: text('filterBox.dateRange.label', 'Date range'),
           startDate: object('filterBox.dateRange.startDate', sharedProps.startDate),
           endDate: object('filterBox.dateRange.endDate', sharedProps.endDate)
-        },
+        }),
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
-          size: select('filterBox.submitButton.size', buttonOptions.size, 'small'),
+          size: select('filterBox.submitButton.size', buttonOptions.size),
           theme: select('filterBox.submitButton.theme', buttonOptions.theme, ''),
           outline: boolean('filterBox.submitButton.outline', false),
           onClick: action('FilterBox submitButton.onClick')
@@ -62,7 +64,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           onChange: action('filterBox.organization typeahead onChange')
         })
       };
-      if (pressTypeInput === 'selectbox') {
+      if (hideType) {
+        props.pressType.typeAhead = null;
+      } else if (pressTypeInput === 'selectbox') {
         props.pressType.selectBox = {
           label: text('filterBox.pressType.label', 'Filter by Type'),
           stackLabel: boolean('filterBox.pressType.stackLabel', true),
@@ -70,7 +74,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           options: object('filterBox.pressType.options', selectBoxOptions.options.pressTypes),
           required: boolean('filterBox.pressType.required', true)
         };
-      } else {
+      } else if (pressTypeInput === 'typeahead') {
         props.pressType.typeAhead = {
           label: text('filterBox.pressType.label', 'Filter by Type'),
           id: text('filterBox.pressType.id', 'press-type'),

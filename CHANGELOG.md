@@ -13,11 +13,185 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 7.0.1 (8/30/2018)
+
+### Fixed
+- (PatternLab) z-index fix for feedback button to always ensure it appears on top. #209
+- (PatternLab) Allow deploy tag jobs to be rerun #206
+
+## 7.0.0 (8/29/2018)
+
+### Changed
+- patternlab / DP-10012: offered by relationship indicator row changes
+- (Patternlab) DP-10056: Mayflower Patternlab has an updated build process that includes the following changes:
+    * Gulp Patternlab tasks now run `dist:build` automatically.  The `dist` folder contains the fully compiled Mayflower Artifacts, and can be placed anywhere on your system, not just inside the mayflower repository.
+    * Patternlab deployment tasks have been moved out of gulp and into the CircleCI configuration to simplify our Gulp tasks.
+    * The `massgov/mayflower-artifacts` Composer package has been given a `type` of `drupal-library` so it is installable to a specific location on the filesystem.
+- (Patternlab, React) DP-10056: Mayflower React and Mayflower Patternlab now manage the version number in their respective `package.json` files independently.  We no longer need to bump package version numbers manually on release - simply cut the tag.
+- (NPM Artifact): The @massds/mayflower NPM repo has been restructured to match the `massgov/mayflower-artifacts` composer package.
+
+### Fixed
+- (Patternlab) DP-10029: Updated styles to fix spacing on non-hyperlinked images on location listing row.
+
+### Updated
+- Patternlab DP-9912: Add new relationship indicator row to multiple content types. #149
+
+
+## 6.3.0 (8/27/2018)
+
+### Added
+- (React) DP-9981: Adds standard accordion components and functionality to Mayflower-React. Also fixes VR bug related to react components.
+  - Adds AccordionItem molecule with secondary, borderless, emphasized, and subtle variants.
+  - Adds AccordionWrapper organism to Mayflower React, which is a dumb wrapper for styling grouped AccordionItems.
+  - Adds Collapse animation atom to Mayflower React based off of the Bootstrap React animation.
+  - Adds dependency to react-transition-group for Collapse animation atom.
+  - Add the SvgCircleChevron icon atom to Mayflower-React.
+  - Adds dependency to classnames for simplifying conditional classname set up. Other component should be refactored to leverage this new package dependency as a follow up.
+- (React) DP-10028:
+  - Add error message as an atom with error and success states
+  - Add InputError and InputSuccess icons
+- (React) DP-10098: Added `bourbon`, `normalize-scss` and `bourbon-neat` as react dev dependencies.
+
+### Changed
+- (Patternlab) DP-9522: Updates the Locaton Listing component to updated designs.
+- (React) DP-9919: Directly consume global level SCSS variables from shared assets.
+- (React) DP-9981: Changes heading atom in Mayflower React, adding the option to pass a classname to a heading component.
+- (React) DP-10098: Consume scss and images directly from shared assets.
+- (Patternlab, React) DP-10107:
+  - Make current button "small" the default button size and add "large" and "small" variations.
+  - Update the button size for location listing CTA to align with default size.
+
+
+### Fixed
+- (Patternlab) DP-9486: Make location filter persist on location listing page.
+- (Patternlab) DP-9486: Fixed the location listing autocomplete search filter. #189
+- (React) DP-9981: Fixes issues related to visual regression of react components without a story and with nested variants.
+- (React) DP-10069: Render current year in footer component and make footer fully configurable.
+
+### Removed
+- (React) DP-10098: Removed Mayflower npm dependency in mayflower react.
+
+## 6.2.3 (8/17/2018)
+
+### Fixed
+- DP-10102: Revert recent change to the sticky table of contents because it was causing additional items and no sticky heading updates.
+
+## 6.2.2 (8/16/2018)
+
+### Fixed
+- Bypassing issue where tag 6.2.1 exists after missing react json file update in v6.2.1.
+
+## 6.2.1 (8/16/2018)
+
+### Fixed
+- (Patternlab) DP-9571: Restore raw filter on raw-html.twig to fix visual breakage on mass.gov.
+
+## 6.2.0 (8/15/2018)
+
+### Added
+- (Patternlab) DP-9431: Update Curated Lists to use Sticky TOC
+- (Patternlab) DP-9579: Add a comment to keep raw filter from 03-organisms/by-author/event-listing-interactive.twig to prevent rendering ascii characters.
+- (Patternlab) DP-9580: Adds a comment to keep the raw filter to rendering ascii characters.
+- (Patternlab) DP-9831: Add contact and related links in sidebar to curated lists.
+
+### Changed
+- (Patternlab, React, Docs) Changed the green theme color globally to #388557 for accessibility. #155
+- (Patternlab) DP-9521: Updates theme of location row to new theme design.
+- (Patternlab) DP-9693: Modify body text color to use a darker grey.
+- (Patternlab) DP-9862: Remove all absolute URL references from Patternlab data and templates.
+
+### Removed
+- (Patternlab) DP-9569: Remove raw filter from `_patterns/01-atoms/08-lists/ordered-list.twig`
+- (Patternlab) DP-9571: Remove raw filter from `_patterns/01-atoms/11-text/raw-html.twig`
+- (Patternlab) DP-9574: Remove raw filter from `02-molecules/google-map.twig`
+
+### Fixed
+- (Patternlab) DP-10032: Fix for binder overlay button click not triggering overlay.
+- (Patternlab) Update location that JavaScript templates are copied
+
+
+
+## 6.1.0 (8/8/2018)
+### Added
+- (React) DP-9399: Adds BackstopJS visual regression testing to the react build. #129
+
+### Changed
+- (Patternlab) DP-9839: Updated styling and language of service finder section for general and boards organizations to match that of elected officials. #122
+- (React) Refactored ButtonWithIcon to replace ButtonSearch component. #81
+
+### Fixed
+- (Patternlab) DP-9900: Fix gulp sass watch and live reload on scss partials change. #142
+- (Patternlab) Update location that JavaScript templates are copied. #144
+
+## 6.0.1 (8/7/2018)
+
+Hotfix for JavaScript pagination
+
+### Fixed
+- (Patternlab) DP-9871: On pagination, replace state instead of push state to avoid requiring additional back button clicks to get to the previous page.
+
+## 6.0.0 (8/3/2018)
+
+Monorepo with shared assets and synced releases going forward ;)
+
+### Changed
+- Duplicate images and move fonts and scss partials from patternlab assets in the root assets for sharing #131
+
+
+## 5.35.1 (8/2/2018)
+### Fixed
+- (React) Install pip, awscli in react_deploy_tag for circleCI #127
+
+## 5.35.0 (8/2/2018)
+### Added
+- (React) DP-9527: Adds automatic build, npm publish, S3 sync to mayflower-react
+- (React) DP-9750: Added HelperText form atom component to Mayflower React library, including a new Story for the new component to be used with Storybook.
+
+### Removed
+- (Patternlab) DP-9567: Remove raw filter from `_patterns/01-atoms/06-rich-text/icon-list.twig`
+- (Patternlab) DP-9577: Remove raw filter from `_patterns/02-molecules/org-selector.twig`
+
+### Fixed
+- (React) Fix proptype warning in organism/filterBox #117
+
+### Changed
+- (Patternlab) DP-9854: Updates babelify to 8.0.0
+- (Patternlab) DP-9854: Update javascript IIFEs to work under newer versions of Babel. #113
+
+### Security
+- (Patternlab, React): Update npm dependencies to fix multiple security vulnerabilities.  Updated packages include:
+    - nwb
+    - node-sass-chokidar
+    - npm-run-all
+    - react-dom
+    - eslint
+    - eslint-plugin-react
+    - browser-sync
+    - gulp-debug
+    - gulp-sass
+    - gulp-svgstore
+    - node-sass
+    - node-normalize-scss
+
+## 5.34.1 (8/2/2018)
+
+##  Fixed
+- (Patternlab) Fix JS pager query string colliding with application pager parameters.
+
+## 5.34.0 (8/1/2018)
+
+### Removed
+- (Patternlab) Remove gov theme and all references #93
+- (Patternlab) Remove unused pilot theme #104
+- (Patternlab) Hide back to button on all pages #106
+
+
 ## 5.33.0 (7/25/2018)
 
 ### Changed
 - (Patternlab) DP-9441: Decreases spacing between Stacked Rows when stacked.
-- (Patternlab) DP-9699--relationship-indicator-integration 
+- (Patternlab) DP-9699--relationship-indicator-integration
 
 ### Removed
 - DP-9568: Remove raw filter from /styleguide/source/_patterns/01-atoms/08-lists/checklist.twig.
@@ -32,7 +206,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) Bumped the version up to 5.32.2 in the package.json.
 
 ### Fixed
-- (React) Fixed the NPM token to be able to deploy a new tag version in NPM. 
+- (React) Fixed the NPM token to be able to deploy a new tag version in NPM.
 
 ## 5.32.0 (7/18/2018)
 

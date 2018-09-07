@@ -1,5 +1,9 @@
-tests/
+backstop/data/
+backstop/scripts/
 es/
 lib/
+node_modules/
+storybook-static/
+tests/
 umd/
 src/index.js

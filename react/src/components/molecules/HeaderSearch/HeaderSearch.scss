@@ -1,9 +1,13 @@
-@import 'breakpoints';
+@import 'global';
 
 .ma__header-search {
   &__wrapper{
   	display: flex;
     position: relative;
+
+    .ma__button-icon {
+      border-right: none;
+    }
 
     &--responsive {
       @media ($bp-medium-max) {
@@ -15,8 +19,5 @@
   }
   .ma__form {
     display: flex;
-    .ma__button-icon {
-      border-right: none;
-    }
   }
 }

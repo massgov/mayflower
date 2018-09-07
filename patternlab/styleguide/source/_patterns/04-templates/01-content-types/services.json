@@ -1,24 +1,48 @@
 {
-  "contentEyebrow": {
-    "hideBorder": true,
-    "headerTags": {
-      "label": "More about:",
-      "taxonomyTerms": [{
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 1"
+        "title": "Department of Conservation and Recreation"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 2"
+        "title": "Other agency or organization"
+      }]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 3"
+        "title": "Cross-Country Skiing"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 4"
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
       }]
     }
   },
-
   "pageBanner": {
     "bgWide": "../../assets/images/placeholder/1600x400.png",
     "bgNarrow": "../../assets/images/placeholder/800x400.png",
@@ -475,11 +499,12 @@
       "centered": "",
       "titleContext": ""
     },
-    "link": {
+    "paragraph": {
+      "text": "See more locations for this Generic Service"
+    },
+    "button": {
       "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
-      "text":"Location Details",
-      "info": "See more locations for this Generic Service",
-      "property": ""
+      "text": "All Locations"
     },
     "googleMap":{
       "map": {

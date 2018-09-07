@@ -1,0 +1,53 @@
+button {
+  cursor: pointer;
+}
+
+.ma__button {
+  @include ma-button("normal");
+}
+
+.ma__button--small { 
+  @include ma-button("small");
+}
+
+.ma__button--large { 
+  @include ma-button("large");
+}
+
+//theme
+button {
+  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+  font-weight: 400;
+}
+
+.ma__button {
+  @include ma-button("normal","solid",$c-theme-primary);
+}
+
+.ma__button--minor {
+  @include ma-button("normal","outline",$c-theme-primary);
+}
+
+.ma__button--secondary {
+  @include ma-button("normal","solid",$c-theme-secondary);
+}
+
+.ma__button--minor.ma__button--secondary {
+  @include ma-button("normal","outline",$c-theme-secondary);
+}
+
+.ma__button--tertiary {
+  @include ma-button("normal","solid",$c-theme-tertiary);
+}
+
+.ma__button--minor.ma__button--tertiary {
+  @include ma-button("normal","outline",$c-theme-tertiary);
+}
+
+.ma__button--quaternary {
+  @include ma-button("normal","solid",$c-theme-quaternary);
+}
+
+.ma__button--minor.ma__button--quaternary {
+  @include ma-button("normal","outline",$c-theme-quaternary);
+}

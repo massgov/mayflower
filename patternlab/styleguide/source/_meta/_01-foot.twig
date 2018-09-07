@@ -20,7 +20,7 @@
       // path to where the handlebar templates are being stored.
       ma.themePath = "../../assets";
       // path to where twig templates are being stored (for twigJS).
-      ma.twigPath = ma.themePath + "/patterns";
+      ma.twigPath = "../../twig";
       ma.iconPath = ma.themePath + "/images/svg-icons/"
       ma.patternPaths = {
         '@base': ma.twigPath + "/00-base/",
@@ -64,51 +64,6 @@
           }
         }
       } catch(e) {}
-    </script>
-
-    <!-- JS to switch theme colors -->
-    <script>
-      (function(window, document, undefined) {
-        "use strict";
-
-        var forms = document.querySelectorAll('.js-header-search-form');
-        var themeCssEl = document.querySelector('.js-base-theme');
-        var cranberry = false;
-
-        for (var i = 0; i < forms.length; ++i) {
-          forms[i].addEventListener("submit", function(e){
-            e.preventDefault();
-            var color = this.querySelector('.ma__header-search__input').value;
-            if (color === 'cranberry') {
-              if (cranberry) { // revert back to base
-                themeCssEl.setAttribute('href',baseThemeCss);
-                switchClass('ma__colored-heading--cranberry', 'ma__colored-heading--green');
-                switchClass('ma__narrow-template--cranberry', 'ma__narrow-template--green');
-                switchClass('ma__action-card__item--cranberry', 'ma__action-card__item--green');
-                switchClass('ma__page-banner--cranberry', 'ma__page-banner--blue');
-              } else {  // convert to cranberry
-                themeCssEl.setAttribute('href',govThemeCss);
-                switchClass('ma__colored-heading--green', 'ma__colored-heading--cranberry');
-                switchClass('ma__narrow-template--green', 'ma__narrow-template--cranberry');
-                switchClass('ma__action-card__item--green', 'ma__action-card__item--cranberry');
-                switchClass('ma__page-banner--blue', 'ma__page-banner--cranberry');
-              }
-              cranberry = !cranberry;
-            }
-          });
-        }
-
-        function switchClass(source, update) {
-          var el = document.querySelectorAll('.' + source);
-
-          for (var i = 0; i < el.length; ++i) {
-            el[i].classList.remove(source);
-            el[i].classList.add(update);
-          }
-        }
-
-      })(window, document);
-
     </script>
 
   </body>

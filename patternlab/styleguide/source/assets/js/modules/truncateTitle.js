@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
 
   $('.ma__featured-item .ma__featured-item__title span').each(function() {
     const $this = $(this);
@@ -22,4 +22,4 @@ export default function (window,document,$,undefined) {
     $this.text(thisTitle);
   });
 
-}(window,document,jQuery);
+})(window,document,jQuery);

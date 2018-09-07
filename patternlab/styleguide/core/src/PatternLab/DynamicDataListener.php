@@ -18,57 +18,9 @@ class DynamicDataListener extends Listener {
   }
 
   public function gatherData() {
-    $this->setDomain();
-    $this->setMayflowerRelease();
-  }
-
-  /**
-   * Read domain from an environment variable and set into data.
-   */
-  public function setDomain() {
-    $baseUrl = getenv('BASE_URL');
-    if($baseUrl) {
-      $parts = parse_url($baseUrl) + [
-        'scheme' => 'https',
-        'host' => 'mayflower.digital.mass.gov',
-        'path' => '/'
-      ];
-      $domain = sprintf('%s://%s', $parts['scheme'], $parts['host']);
-    }
-    else {
-      $domain = '';
-    }
-
-
-    Data::setOption('url', [
-      'domain' => $domain,
-      // Many places expect this path with no leading or trailing slashes.
-      'assetsPath' => trim(trim($parts['path'], '/') . '/assets', '/'),
-    ]);
-    Data::setOption('urlDomain', $domain);
-    Data::setOption('urlPath', $parts['path']);
-  }
-
-  /**
-   * Read version from package.json and set into data.
-   */
-  public function setMayflowerRelease() {
-    $package = json_decode(file_get_contents(__DIR__.'/../../../package.json'));
-    $version = $package->version;
-    $date = $this->getGitDate('HEAD');
-
-    // If we're not on the exact commit that represents the version tag, denote
-    // that this is a dev version.
-    if($version === $this->getGitTag()) {
-      $version = sprintf('v%s', $version);
-    }
-    else {
-      $version = sprintf('v%s-dev', $version);
-    }
-
     Data::setOption('mayflower', [
-      'version' => $version,
-      'releaseDate' => $date,
+      'version' => sprintf('v%s', $this->getGitVersion()),
+      'releaseDate' => $this->getGitDate('HEAD'),
     ]);
   }
 
@@ -77,22 +29,22 @@ class DynamicDataListener extends Listener {
    *
    * @return bool|string
    */
-  private function getGitTag() {
-    $proc = new Process('git describe --tags --exact-match');
+  private function getGitVersion() {
+    $proc = new Process('git describe --tags');
     $proc->run();
     return $proc->isSuccessful() ? trim($proc->getOutput()) : FALSE;
   }
 
   /**
-   * Return the last commit date for a tag or branch.
+   * Return the commit date for the current commit.
    *
    * @param $ref
    *   The branch or tag name.
    *
    * @return bool|string
    */
-  private function getGitDate($ref) {
-    $proc = new Process('git show -s --format=%ci ' . escapeshellarg($ref));
+  private function getGitDate() {
+    $proc = new Process('git show -s --format=%ci HEAD');
     $proc->run();
     if($proc->isSuccessful()) {
       $date = new \DateTime($proc->getOutput());

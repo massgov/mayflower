@@ -2,7 +2,7 @@ import getTemplate from "../helpers/getHandlebarTemplate.js";
 import sticky from "../helpers/sticky.js";
 import getOuterHtml from "../helpers/getElementOuterHtml.js";
 
-export default  function(window, document, undefined, $, moment){
+export default (function(window, document, undefined, $, moment){
   "use strict";
 
   /**
@@ -32,10 +32,13 @@ export default  function(window, document, undefined, $, moment){
         }
       });
 
-      // Focus on the first focusable element in the first listing
-      let $firstListing = $el.find(args.data.selectors.row).first();
-      // :focusable is possible with helpers/jQueryExtend.js
-      $firstListing.find(':focusable').eq(0).focus();
+      if (args.focus) {
+        // Focus on the first focusable element in the first listing
+        let $firstListing = $el.find(args.data.selectors.row).first();
+        // :focusable is possible with helpers/jQueryExtend.js
+        let $firstFocus = $firstListing.find(':focusable').eq(0);
+        $firstFocus.focus();
+      }
 
       if (args.data.selectors.hasOwnProperty('map') && args.data.selectors.map) {
         sticky.init($(args.data.selectors.map));
@@ -732,4 +735,4 @@ export default  function(window, document, undefined, $, moment){
     makeMoment
   };
 
-}(window, document, undefined, jQuery, moment);
+})(window, document, undefined, jQuery, moment);
