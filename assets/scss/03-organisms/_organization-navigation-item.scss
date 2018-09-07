@@ -147,11 +147,11 @@
       max-width: 100%;
       background-color: $c-white;
       box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
+      z-index: $z-dropdown;
       
       .item-open & {
         max-height: 100vh;
         transition: max-height .6s ease-in-out;
-        z-index: $z-dropdown;
       }
     }
   }
