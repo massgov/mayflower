@@ -34,6 +34,10 @@
       class="ma__content-link ma__content-link--phone">
       {% if item.contactName %}<span class="visually-hidden">Call {{ item.contactName }}{% if item.label %}, {{item.label}} {% endif %}at </span>{% endif %}{{ link.text }}</a>
 
+ {# Phone - add tel: to href #}
+  {% elseif item.type == "fax" %}
+     <span x-ms-format-detection="none" class="ma__contact-group__value">{{ link.text }}</span>
+
     {# Email - add mailto: to href #}
   {% elseif item.type == "email" %}
     <a
