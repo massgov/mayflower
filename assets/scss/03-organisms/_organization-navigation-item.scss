@@ -17,6 +17,7 @@
 
   &__item {
     list-style: none;
+    line-height: 1;
 
     @media ($bp-large-min) {
       padding: 0 10px;
