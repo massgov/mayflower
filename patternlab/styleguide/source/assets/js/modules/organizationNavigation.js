@@ -5,7 +5,6 @@ export default (function (window,document,$,undefined) {
     let $orgNav = $(this);
     let $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
     let $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
-    let $contactGroups;
 
     // Page wrapper and fillers. 
     const $pageWrapper = $orgNav.parent().next();
@@ -181,7 +180,7 @@ export default (function (window,document,$,undefined) {
 
     $(window).on("resize", function () {
       let windowWidth = $(window).width();
-      let $contactGroups = $orgNav.find('.ma__contact-group');
+      let $contactGroups = $orgNav.find('.ma__org-nav-contact-us .ma__contact-group');
 
       if (windowWidth > 910) {
         // Check if already wrapped.
@@ -192,9 +191,16 @@ export default (function (window,document,$,undefined) {
             $('.ma__contact-group:first-child').addClass('wrappedGroup');
             $contactGroups = $contactGroups.not(':first');
           }
-          // Wrap contact groups in sets of 2 for layout.
-          for (let i = 0; i < $contactGroups.length; i+=2) {
-            $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
+          if($contactGroups.length < 3) {
+            console.log('less than', $contactGroups.length);
+            $contactGroups.wrap("<div class='wrappedGroup'></div>");
+          }
+          else {
+            console.log('else', $contactGroups.length);
+            // Wrap contact groups in sets of 2 for layout.
+            for (let i = 0; i < $contactGroups.length; i+=2) {
+              $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup'></div>");
+            }
           }
         }
       } 
