@@ -15,6 +15,11 @@ $contact-row-image-max-width: 300px;
     .ma__contact-row__additional {
       width: calc(100% - #{$contact-row-image-max-width});
     }
+
+    .ma__contact-row__additional {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   .ma__contact-row__primary {
@@ -39,8 +44,22 @@ $contact-row-image-max-width: 300px;
           padding-left: 40px;
         }
       }
-    }
 
+      @media ($bp-large-min) {
+        .ma__contact-group:first-child:not(:last-child) {
+          flex: 1 0 50%;
+        }
+        .ma__contact-group:not(:first-child) {
+          border-left: none;
+          margin-left: 0;
+          padding-left: 0;
+        }
+        .ma__contact-group:nth-child(2n) {
+          border-left: 1px solid #dcdcdc;
+          padding-left: 40px;
+        }
+      }
+    }
   }
 
   .ma__image {
