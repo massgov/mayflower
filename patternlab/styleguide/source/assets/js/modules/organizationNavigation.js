@@ -90,10 +90,12 @@ export default (function (window,document,$,undefined) {
 
       $buttonParent.on('mouseenter mouseleave', function() {
         let windowWidth = $(window).width();
+        let menuHeight = $menuWrapper.outerHeight();
 
         if(windowWidth > mobileBreak) {
           $('.section-toggle').remove();
           $buttonParent.toggleClass('item-open');
+          $thisMenu.css('top', menuHeight);
         }
         else {
           return false;
