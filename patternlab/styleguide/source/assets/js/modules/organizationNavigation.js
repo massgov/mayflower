@@ -193,7 +193,7 @@ export default (function (window,document,$,undefined) {
             $contactGroups = $contactGroups.not(':first');
           } else {
             $contactGroups.slice(0, 2).wrapAll("<div class='wrappedGroup' />");
-            $contactGroups = $contactGroups.gt(1);
+            $contactGroups = $contactGroups.slice(2);
           }
 
           if($contactGroups.length < 3) {
