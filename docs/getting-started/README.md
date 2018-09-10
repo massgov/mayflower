@@ -13,11 +13,11 @@ Other branding resources:
 
 ## Mayflower as styleguide
 
-On top of the Mayflower branding, all Commonwealth web properties should conform to the WCAG 2.0 and 2.1 accessibility standards and be responsible, cross-browser compatible and optimized for performance. 
+On top of the Mayflower branding, all Commonwealth web properties should conform to the WCAG 2.0 and 2.1 accessibility standards and be responsible, cross-browser compatible and optimized for performance.
 
-Using Mayflower as a styleguide entails applying the visuals and interactions of components documented in the design principles and usage, and complying with all the [guidelines](../guidelines/), in your own way. This is a Mayflower implementation option if you are using a third-party SAAS product or you are not able to alter the front end markup. 
+Using Mayflower as a styleguide entails applying the visuals and interactions of components documented in the design principles and usage, and complying with all the [guidelines](../guidelines/), in your own way. This is a Mayflower implementation option if you are using a third-party SAAS product or you are not able to alter the front end markup.
 
-For state web properties that rely on Bootstrap as the front end framework, we started a [**Mayflower Bootstrap**](mayflower-bootstrap.md) is a Mayflower inspired bootstrap theme as a community resource. Refer to [Bootstrap V4 documentation](http://getbootstrap.com/docs/4.1/components/alerts/) for component implementation. Keep in mind that its accessibility, performance, responsiveness and browser-compatibility are not guaranteed this way. Please [contribute back to the project](https://github.com/massgov/mayflower-bootstrap) whenever possible. 
+For state web properties that rely on Bootstrap as the front end framework, we started a [**Mayflower Bootstrap**](mayflower-bootstrap.md) is a Mayflower inspired bootstrap theme as a community resource. Refer to [Bootstrap V4 documentation](http://getbootstrap.com/docs/4.1/components/alerts/) for component implementation. Keep in mind that its accessibility, performance, responsiveness and browser-compatibility are not guaranteed this way. Please [contribute back to the project](https://github.com/massgov/mayflower-bootstrap) whenever possible.
 
 ## Mayflower as markup
 
@@ -33,7 +33,7 @@ The current version of Mayflower generated static assets:
 
 All Mayflower assets are version-controlled and are published following this convention:[`https://mayflower.digital.mass.gov`](https://mayflower.digital.mass.gov/)`/v/[version]`
 
-We recommend that you point to a stable version of the CSS and JS to avoid unexpected changes and update it whenever you are ready. Please refer to the [Mayflower Changelog](https://github.com/massgov/mayflower/blob/develop/CHANGELOG.md) to determine whether you want to upgrade Mayflower:  E.g. Mayflower v6.0.0
+We recommend that you point to a stable version of the CSS and JS to avoid unexpected changes and update it whenever you are ready. Please refer to the [Mayflower Changelog](https://github.com/massgov/mayflower/blob/develop/CHANGELOG.md) to determine whether you want to upgrade Mayflower: E.g. Mayflower v6.0.0
 
 * Compiled CSS for v6.0.0:
   * [https://mayflower.digital.mass.gov/v/6.0.0/assets/css/index-generated.css](https://mayflower.digital.mass.gov/v/5.31.0/assets/css/index-generated.css)
@@ -61,6 +61,4 @@ Currently Mayflower has 2 component libraries:
   2. JSX templating language
   3. Exports reusable React code by components
   4. **NPM package for React component library:** [**Mayflower-react** ](https://www.npmjs.com/package/@massds/mayflower-react)\*\*\*\*
-
-
 
