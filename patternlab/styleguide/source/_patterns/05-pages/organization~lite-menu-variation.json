@@ -171,7 +171,19 @@
                                         "details": ""
                                     }
                                 ]
-                            },
+                            },{
+                              "items": [
+                                  {
+                                      "type": "seeAllLink",
+                                      "link": {
+                                          "href": "#",
+                                          "text": "See all locations",
+                                          "info": ""
+                                      },
+                                      "details": ""
+                                  }
+                              ]
+                          },
                             {
                                 "icon": "phone",
                                 "name": "Phone",

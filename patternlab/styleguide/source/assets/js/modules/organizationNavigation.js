@@ -191,7 +191,11 @@ export default (function (window,document,$,undefined) {
             // If no 'see all link', wrap address separately.
             $('.ma__contact-group:first-child').addClass('wrappedGroup');
             $contactGroups = $contactGroups.not(':first');
+          } else {
+            $contactGroups.slice(0, 2).wrapAll("<div class='wrappedGroup' />");
+            $contactGroups = $contactGroups.gt(1);
           }
+
           if($contactGroups.length < 3) {
             $contactGroups.wrap("<div class='wrappedGroup' />");
           }
