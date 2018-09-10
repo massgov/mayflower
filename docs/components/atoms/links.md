@@ -8,10 +8,10 @@ Links are used to embed actions or pathways to more information in a sentence or
 
 | **Visual** | **Name** | **Description & Usage** |
 | :--- | :--- | :--- |
-| ![](../../.gitbook/assets/link-1-1.png) | [Link](links.md#link) | Use when you are linking just a few words of text or when you are doing inline links. |
-| ![](../../.gitbook/assets/decorativelink-1.png) | [Decorative Link](links.md#decorative-link) | Used for standalone links that require more emphasis. |
-| ![](../../.gitbook/assets/linkchevron-2.png) | [Chevron Link](links.md#chevron-link) |  |
-| ![](../../.gitbook/assets/primarybutton-4.png) | Link Button | Refer to [Link Button](buttons.md#link-button) in the [Buttons](buttons.md) section. |
+| ![](../../.gitbook/assets/link.png) | [Link](links.md#link) | Use when you are linking just a few words of text or when you are doing inline links. |
+| ![](../../.gitbook/assets/decorativelink.png) | [Decorative Link](links.md#decorative-link) | Used for standalone links that require more emphasis. |
+| ![](../../.gitbook/assets/linkchevron.png) | [Chevron Link](links.md#chevron-link) |  |
+| ![](../../.gitbook/assets/primarybutton.png) | Link Button | Refer to [Link Button](buttons.md#link-button) in the [Buttons](buttons.md) section. |
 
 ### Accessibility & Best Practices
 

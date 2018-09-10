@@ -14,12 +14,12 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 
 | **Visual** | **Name** | **Description & Usage** |
 | :--- | :--- | :--- |
-| ![](../../.gitbook/assets/h1-1.png) | H1 | font-size: 3rem; line-height: 1.07; |
-| ![](../../.gitbook/assets/h1-2.png) | H2 | font-size: 2.25rem; line-height: 1.222222; |
-| ![](../../.gitbook/assets/h1-2-2-1.png) | H3 | font-size: 2rem; line-height: 1.2; margin-bottom: .75em; |
-| ![](../../.gitbook/assets/h1-2-2-2-1.png) | H4 | font-size: 1.813rem; line-height: 1.2; |
-| ![](../../.gitbook/assets/h1-2-2-2-2.png) | H5 | font-size: 1.625rem; line-height: 1.3; margin-bottom: .5em; |
-| ![](../../.gitbook/assets/h1-2-2-2-2-2-1.png) | H6 | font-size: 1.4rem; margin-bottom: .25em; |
+| ![](../../.gitbook/assets/h1.png) | H1 | font-size: 3rem; line-height: 1.07; |
+| ![](../../.gitbook/assets/h2.png) | H2 | font-size: 2.25rem; line-height: 1.222222; |
+| ![](../../.gitbook/assets/h3.png) | H3 | font-size: 2rem; line-height: 1.2; margin-bottom: .75em; |
+| ![](../../.gitbook/assets/h4.png) | H4 | font-size: 1.813rem; line-height: 1.2; |
+| ![](../../.gitbook/assets/h5.png) | H5 | font-size: 1.625rem; line-height: 1.3; margin-bottom: .5em; |
+| ![](../../.gitbook/assets/h6.png) | H6 | font-size: 1.4rem; margin-bottom: .25em; |
 
 #### Colored Heading Variations
 
@@ -33,14 +33,14 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 
 | **Visual** | **Name** | **Description & Usage** |
 | :--- | :--- | :--- |
-| ![](../../.gitbook/assets/screen-shot-2018-08-09-at-4.34.45-pm-1-1.png) | Blue [Component Heading](headings.md#component-heading) | Should be used to to separate content within a big section. If used under Colored Heading, should use a lower heading level than the colored heading. |
-| ![](../../.gitbook/assets/screen-shot-2018-08-09-at-4.29.08-pm-1.png) | Yellow Component Heading |  |
+| ![](../../.gitbook/assets/screen-shot-2018-08-09-at-4.34.45-pm.png) | Blue [Component Heading](headings.md#component-heading) | Should be used to to separate content within a big section. If used under Colored Heading, should use a lower heading level than the colored heading. |
+| ![](../../.gitbook/assets/screen-shot-2018-08-09-at-4.29.08-pm.png) | Yellow Component Heading |  |
 
 #### Sidebar Heading Variations
 
 | **Visual** | **Name** | **Description & Usage** |
 | :--- | :--- | :--- |
-| ![](../../.gitbook/assets/sidebarheading-1.png) | [Sidebar Heading](headings.md#sidebar-heading) | Should be used as a heading of a list either full width or in a 50/50 split the main content well. |
+| ![](../../.gitbook/assets/sidebarheading.png) | [Sidebar Heading](headings.md#sidebar-heading) | Should be used as a heading of a list either full width or in a 50/50 split the main content well. |
 
 ### Accessibility & Best Practices
 

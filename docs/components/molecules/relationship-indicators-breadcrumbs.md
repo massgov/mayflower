@@ -4,7 +4,7 @@
 
 This is a replacement for a traditional breadcrumb because many pages can be navigated to from multiple locations. Relationship indicators can either display the related organization\(s\) of a piece of content, or a service that a how-to belongs under.
 
-![](../../.gitbook/assets/headertags-1.png)
+![](../../.gitbook/assets/headertags.png)
 
 ### Accessibility & Best Practices
 

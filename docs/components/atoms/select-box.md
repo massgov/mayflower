@@ -12,11 +12,11 @@ Select boxes should not be used if possible. The behavior of select boxes varies
 
 | Visual | Name | Description |
 | :--- | :--- | :--- |
-| ![](../../.gitbook/assets/selectbox-1.png) | Standard |  |
-| ![](../../.gitbook/assets/selectbox-as-error-1.png) | Error |  |
-| ![](../../.gitbook/assets/textbox-as-disabled-1.png) | Disabled |  |
-| ![](../../.gitbook/assets/textbox-as-focus-1.png) | Focus |  |
-| ![](../../.gitbook/assets/textbox-as-active-1.png) | Active |  |
+| ![](../../.gitbook/assets/selectbox.png) | Standard |  |
+| ![](../../.gitbook/assets/selectbox-as-error.png) | Error |  |
+| ![](../../.gitbook/assets/textbox-as-disabled.png) | Disabled |  |
+| ![](../../.gitbook/assets/textbox-as-focus.png) | Focus |  |
+| ![](../../.gitbook/assets/textbox-as-active.png) | Active |  |
 
 ### Accessibility & Best Practices
 
