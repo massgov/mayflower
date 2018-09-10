@@ -118,7 +118,7 @@
   }
 
   &__copyright {
-    color: $c-theme-quaternary;
+    color: $c-gray-dark;
     font-weight: 300;
 
     b {
@@ -131,7 +131,7 @@
     .ma__social-links {
 
       &__link {
-        background-color: $c-theme-secondary;
+        background-color: $c-theme-primary-alt;
 
         & > svg,
         & > svg path {

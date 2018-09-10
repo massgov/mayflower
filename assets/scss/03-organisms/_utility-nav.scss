@@ -337,8 +337,8 @@ $utility-nav-height: 43px;
     }
 
     &:after {
-      border-right-color: $c-theme-secondary;
-      border-bottom-color: $c-theme-secondary;
+      border-right-color: $c-theme-primary-alt;
+      border-bottom-color: $c-theme-primary-alt;
     }
 
     svg {
@@ -377,8 +377,8 @@ $utility-nav-height: 43px;
 
       @media ($bp-header-toggle-max) {
         &:after {
-          border-right-color: $c-theme-secondary;
-          border-bottom-color: $c-theme-secondary;
+          border-right-color: $c-theme-primary-alt;
+          border-bottom-color: $c-theme-primary-alt;
         }
       }
 

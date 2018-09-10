@@ -46,7 +46,7 @@
 .ma__top-actions {
 
   &__title {
-    @include ma-border-decorative($c-theme-secondary);
+    @include ma-border-decorative($c-theme-primary-alt);
   }
 
   &__item {

@@ -296,7 +296,7 @@ body {
   &__main-nav {
 
     @media ($bp-header-toggle-max){
-      border-bottom: 2px solid; // $c-gray-dcdcdc;
+      border-bottom: 2px solid; // $c-gray-light;
       margin-bottom: 15px;
       padding-bottom: 15px;
     }
@@ -457,7 +457,7 @@ body {
 
       &:focus {
         background-color: $c-white;
-        border-color: $c-theme-tertiary !important;
+        border-color: $c-theme-highlight !important;
       }
     }
   }

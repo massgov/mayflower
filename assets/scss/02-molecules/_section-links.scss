@@ -212,11 +212,11 @@
   &__title {
 
     @media ($bp-x-small-min) {
-      @include ma-border-decorative($c-theme-tertiary,1);
+      @include ma-border-decorative($c-theme-highlight,1);
     }
 
     &:after {
-      color: $c-theme-secondary;
+      color: $c-theme-primary-alt;
     }
 
     a {
