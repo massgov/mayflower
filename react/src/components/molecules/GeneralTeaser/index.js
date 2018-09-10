@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DecorativeLink, Paragraph, ContactGroup, SvgMarker, SvgPhone, SvgLaptop, SvgFax, SvgChevron } from '../../../index';
+import { SvgChevron } from '../../../index';
 import './style.css';
 
 class TeaserOrg extends Component {
@@ -62,9 +62,6 @@ TeaserOrg.propTypes = {
 const GeneralTeaser = (generalTeaser) => {
   const imageClass = generalTeaser.image ? 'ma__general-teaser ma__general-teaser--image' : 'ma__general-teaser';
   const Element = `h${generalTeaser.level || 2}`;
-  const icons = {
-    SvgMarker: <SvgMarker />, SvgPhone: <SvgPhone />, SvgLaptop: <SvgLaptop />, SvgFax: <SvgFax />
-  };
   const secondaryInfoClass = (!generalTeaser.primaryInfo && generalTeaser.secondaryInfo) ? 'ma__general-teaser__secondary--border' : 'ma__general-teaser__secondary';
   return(
     <section className={imageClass}>
@@ -88,7 +85,7 @@ const GeneralTeaser = (generalTeaser) => {
           </div>
         )}
         <Element className="ma__general-teaser__title">
-          <DecorativeLink {...generalTeaser.title} showFileIcon />
+          {generalTeaser.title}
         </Element>
         { (generalTeaser.date || generalTeaser.org) && (
           <div className="ma__general-teaser__details">
@@ -100,13 +97,13 @@ const GeneralTeaser = (generalTeaser) => {
         )}
         { generalTeaser.description && (
           <div className="ma__general-teaser__description">
-            <Paragraph {...generalTeaser.description} />
+            {generalTeaser.description}
           </div>
         )}
         <span className="ma__general-teaser__date">
           { generalTeaser.subLinks && (
             <div className="ma__general-teaser__sublink">
-              { generalTeaser.subLinks.map((sublink) => (<DecorativeLink {...sublink} />))}
+              { generalTeaser.subLinks.map((sublink) => sublink)}
             </div>
           )}
         </span>
@@ -114,7 +111,7 @@ const GeneralTeaser = (generalTeaser) => {
           <div className="ma__general-teaser__moreinfo">
             { generalTeaser.primaryInfo && (
               <div className="ma__general-teaser__pimaryinfo">
-                <ContactGroup {...generalTeaser.primaryInfo} />
+                {generalTeaser.primaryInfo}
               </div>
             )}
             { generalTeaser.secondaryInfo && (
@@ -122,8 +119,7 @@ const GeneralTeaser = (generalTeaser) => {
                 { generalTeaser.secondaryInfo.map((info, infoKey) => (
                   // eslint-disable-next-line react/no-array-index-key
                   <div key={infoKey} className="ma__general-teaser__secondaryinfo">
-                    <span className="ma__general-teaser__secondaryicon">{icons[info.icon]}</span>
-                    <DecorativeLink {...info.linkedTitle} />
+                    {info}
                   </div>
                 ))}
               </div>
@@ -146,7 +142,18 @@ GeneralTeaser.propTypes = {
   /** The short for tag that will appear in the eyebrow, e.g. press release */
   eyebrow: PropTypes.string,
   /** A linked title for the teaser content, @atoms/links/DecorativeLink */
-  title: PropTypes.shape(DecorativeLink.propTypes).isRequired,
+  title: (props, propName, componentName) => {
+    const component = props[propName];
+    const isValid = (comp) => {
+      if (typeof comp.type === 'string') {
+        return comp.type === 'DecorativeLink';
+      }
+      return comp.type.name && comp.type.name === 'DecorativeLink';
+    };
+    if (!isValid(component)) {
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
+    }
+  },
   /** The heading level */
   level: PropTypes.number,
   /** The date the teaser content represents */
@@ -154,16 +161,73 @@ GeneralTeaser.propTypes = {
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
   /** A short description of the teaser content, rendered as a paragraph */
-  description: PropTypes.shape(Paragraph.propTypes),
+  description: (props, propName, componentName) => {
+    const component = props[propName];
+    const isValid = (comp) => {
+      if (typeof comp.type === 'string') {
+        return comp.type === 'Paragraph';
+      }
+      return comp.type.name && comp.type.name === 'Paragraph';
+    };
+    if (!isValid(component)) {
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
+    }
+  },
   /** A list of decorative sublinks * */
-  subLinks: PropTypes.arrayOf(PropTypes.shape(DecorativeLink.propTypes)),
+  subLinks: (props, propName, componentName) => {
+    const component = props[propName];
+    const isValid = (comp) => {
+      if (!Array.isArray(comp)) {
+        return false;
+      }
+      let valid = false;
+      comp.every((child) => {
+        if (typeof child.type === 'string') {
+          valid = child.type === 'DecorativeLink';
+        }
+        valid = child.type.name && child.type.name === 'DecorativeLink';
+        return valid;
+      });
+      return valid;
+    };
+    if (!isValid(component)) {
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
+    }
+  },
   /** A list of contact information * */
-  primaryInfo: PropTypes.shape(ContactGroup.propTypes),
+  primaryInfo: (props, propName, componentName) => {
+    const component = props[propName];
+    const isValid = (comp) => {
+      if (typeof comp.type === 'string') {
+        return comp.type === 'ContactGroup';
+      }
+      return comp.type.name && comp.type.name === 'ContactGroup';
+    };
+    if (!isValid(component)) {
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
+    }
+  },
   /** Secondary Info */
-  secondaryInfo: PropTypes.arrayOf(PropTypes.shape({
-    icon: PropTypes.oneOf(['SvgMarker', 'SvgPhone', 'SvgLaptop', 'SvgFax']),
-    linkedTitle: PropTypes.shape(DecorativeLink.propTypes)
-  }))
+  secondaryInfo: (props, propName, componentName) => {
+    const component = props[propName];
+    const isValid = (comp) => {
+      if (!Array.isArray(comp)) {
+        return false;
+      }
+      let valid = false;
+      comp.every((child) => {
+        if (typeof child.type === 'string') {
+          valid = child.type === 'IconLink';
+        }
+        valid = child.type.name && child.type.name === 'IconLink';
+        return valid;
+      });
+      return valid;
+    };
+    if (!isValid(component)) {
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
+    }
+  }
 };
 
 export default GeneralTeaser;

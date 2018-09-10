@@ -1,9 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, boolean, number, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, boolean, number, object, array } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import GeneralTeaser from './index';
-import Paragraph from '../../atoms/text/Paragraph';
+import { SecondaryInfo, Paragraph, DecorativeLink, ContactGroup, IconLink, Link } from '../../../index';
+
 import GeneralTeaserDocs from './GeneralTeaser.md';
 
 
@@ -61,23 +62,31 @@ storiesOf('molecules', module).addDecorator(withKnobs)
         link: object(`GeneralTeaser.primaryInfo.items.${i}.link`, { ...props.title, text: `PrimaryInfo Item Link ${i}` }),
         details: text(`GeneralTeaser.primaryInfo.items.${i}.details`, `Primary Info details ${i}`)
       };
+      props.primaryInfo.items.push(primaryItem);
+
       // DecorativeLink props for subLinks.
-      const subLink = { ...props.title, text: `Sublink ${i}`, key: `GeneralTeaser.subLinks.${i}` };
+      const subLink = object(`GeneralTeaser.subLinks.${i}`, { ...props.title, text: `Sublink ${i}`, key: `GeneralTeaser.subLinks.${i}` });
+      props.subLinks.push(<DecorativeLink {...subLink} />);
+
       const secondary = {
         icon: select(`GeneralTeaser.secondaryInfo.${i}.icon`, {
-          SvgMarker: 'SvgMarker (Address Icon)',
-          SvgPhone: 'SvgPhone (Phone Icon)',
-          SvgLaptop: 'SvgLaptop (Laptop Icon)',
-          SvgFax: 'SvgFax (FaxIcon)'
-        }, 'SvgMarker')
+          marker: 'SvgMarker (Address Icon)',
+          phone: 'SvgPhone (Phone Icon)',
+          laptop: 'SvgLaptop (Laptop Icon)',
+          fax: 'SvgFax (FaxIcon)'
+        }, 'marker'),
+        iconClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__general-teaser__secondaryicon']),
+        wrapperClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__decorative-link'])
       };
-      // DecorativeLink props for secondaryInfo's linkedTitle.
-      const secondaryLink = { ...props.title, text: `SecondaryInfo Link ${i}` };
-      secondary.linkedTitle = object(`GeneralTeaser.secondaryInfo.${i}.linkedTitle`, secondaryLink);
-      props.primaryInfo.items.push(primaryItem);
-      props.secondaryInfo.push(secondary);
-      props.subLinks.push(object(`GeneralTeaser.subLinks.${i}`, subLink));
+      // Link props for secondaryInfo.
+      const secondaryLink = { info: props.title.info, href: props.title.href, text: `SecondaryInfo Link ${i}` };
+      const secondDecore = object(`GeneralTeaser.secondaryInfo.${i}.link`, secondaryLink);
+      secondary.link = <Link {...secondDecore} />;
+      props.secondaryInfo.push(<IconLink {...secondary} />);
     }
+    props.title = <DecorativeLink {...props.title} />;
+    props.description = <Paragraph {...props.description} />;
+    props.primaryInfo = <ContactGroup {...props.primaryInfo} />;
     // If you want to make scenarios for each function, use the value of the backstop query param.
     if (window.location.search.indexOf('backstop') > -1) {
       const teasers = [];

@@ -4,6 +4,8 @@
 */
 
 //@base
+import SecondaryInfo from "./components/molecules/SecondaryInfo";
+
 export Placeholder from './components/base/Placeholder';
 
 // @atoms
@@ -52,6 +54,7 @@ export DecorativeLink from './components/atoms/links/DecorativeLink';
 export OrderedList from './components/atoms/lists/OrderedList';
 export UnorderedList from './components/atoms/lists/UnorderedList';
 // @atoms/@media
+export Image from './components/atoms/media/Image';
 export SiteLogo from './components/atoms/media/SiteLogo';
 // @atoms/@table
 export Table from './components/atoms/table/Table';
@@ -60,6 +63,8 @@ export Paragraph from './components/atoms/text/Paragraph';
 export PublishState from './components/atoms/text/PublishState';
 
 // @molecules
+export Link from './components/molecules/Link';
+export IconLink from './components/molecules/IconLink';
 export CalloutLink from './components/molecules/CalloutLink';
 export DateRange from './components/molecules/DateRange';
 export FooterLinks from './components/molecules/FooterLinks';
@@ -78,6 +83,7 @@ export Tabs from './components/molecules/Tabs';
 export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
 export GeneralTeaser from './components/molecules/GeneralTeaser';
+export SecondaryInfo from './components/molecules/SecondaryInfo';
 
 // @organisms
 export Footer from './components/organisms/Footer';

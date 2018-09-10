@@ -24,8 +24,9 @@ storiesOf('atoms/media', module).addDecorator(withKnobs)
       src: text('Image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/250x250.png'),
       width: number('Image.width', 250),
       height: number('Image.height', 250),
-      shape: text('Image.shape', 'circular')
+      classes: text('Image.classes', 'ma__image circular')
     };
+    props.classes = [props.classes];
 
     return(<Image {...props} />);
   }));
