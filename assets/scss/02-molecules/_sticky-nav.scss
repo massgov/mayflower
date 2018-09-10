@@ -20,6 +20,7 @@
 
   @media ($bp-medium-max) {
     background-color: $c-bg-section;
+    border: 1px solid $c-bd-divider;
     left: 0;
   }
 
@@ -87,7 +88,7 @@
     font-size: 20px;
     line-height: 1.2;
     padding: 10px 15px;
-    min-height: 45px;
+    min-height: 47px;
 
     @media ($bp-small-min) {
       line-height: 1.5;
@@ -154,7 +155,7 @@
   &__toggle-link {
     @include ma-button-reset;
     color: $c-theme-secondary;
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: .65em;
     overflow: hidden;
     position: absolute;
