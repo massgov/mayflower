@@ -66,28 +66,28 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 
 | **Metatag** | **Filter Functionality** | **Example** |
 | :--- | :--- | :--- |
-| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/advanced-search-collapsed%20%283%29.png) |
-| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/advanced-search-collapsed%20%283%29.png) |
-| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/advanced-search-expanded%20%282%29.png) |
-| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/advanced-search-expanded%20%282%29.png) |
+| mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/advanced-search-collapsed.png) |
+| category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/advanced-search-collapsed.png) |
+| mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/advanced-search-expanded.png) |
+| mg\_type | Powers the advanced search filter that allows users to restrict their search results to a specific type of content. | ![Example Screenshot of the Advanced Filters including the Type Filter](../.gitbook/assets/advanced-search-expanded.png) |
 
 #### Sort
 
 | **Metatag** | **Sort Functionality** | **Example** |
 | :--- | :--- | :--- |
-| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/mg_date%20%281%29.png) |
+| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](https://github.com/massgov/edit-mayflower-docs/tree/2ebf90829554ce8935dcf605d3b3d2c5ae3d1bc7/docs/assets/mg_date.png.png) |
 
 #### Search Result Teasers
 
 | **Metatag** | **Teaser Functionality** | **Example** |
 | :--- | :--- | :--- |
 | mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/mg_organization.png) |
-| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/mg_organization.png) |
+| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/mg_organization-10.png) |
 | mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](../.gitbook/assets/mg_organization.png) |
-| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/mg_phone_number%20%281%29.png) |
-| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/mg_phone_number%20%281%29.png) |
-| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/mg_phone_number%20%281%29.png) |
-| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/mg_phone_number%20%281%29.png) |
+| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/mg_phone_number-13.png) |
+| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/mg_phone_number.png) |
+| mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/mg_phone_number.png) |
+| mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/mg_phone_number.png) |
 | mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/mg_key_actions.png) |
 
 ## Adding Structured Metatags to your Website
@@ -145,18 +145,18 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
       </PageMap>
    </url>
    <url>
-      <loc>https://mass.gov/page/example-two.pdf</loc> 
-      <lastmod>2018-06-16T01:38Z</lastmod> 
-      <changefreq>daily</changefreq> 
-      <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0"> 
-         <DataObject type="metatags"> 
+      <loc>https://mass.gov/page/example-two.pdf</loc>
+      <lastmod>2018-06-16T01:38Z</lastmod>
+      <changefreq>daily</changefreq>
+      <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+         <DataObject type="metatags">
             <Attribute name="mg_organization">department-of-public-health,department-of-mental-health</Attribute>
             <Attribute name="mg_date">20180430</Attribute>
             <Attribute name="category">news</Attribute>
             <Attribute name="mg_type">press-release</Attribute>
-         </DataObject> 
+         </DataObject>
       </PageMap>
-   </url> 
+   </url>
 </urlset>
 ```
 
@@ -176,7 +176,6 @@ Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov inde
 | Board and Commission Appointment by the Governor of Massachusetts \(_Boards and Commissions Office_\) | appointments.state.ma.us | [appointments.state.ma.us/](https://appointments.state.ma.us/) |
 | Boston Region Metropolitan Planning Organization | ctps.org | [www.ctps.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.ctps.org) |
 | Bristol County District Attorney | bristolda.com | [http://bristolda.com/](http://bristolda.com/) |
-| Compare Care \(Mass Health Care Options\) | masscomparecare.gov | [https://www.masscomparecare.gov/](https://www.masscomparecare.gov/) |
 | Center for Health Information and Analysis | chiamass.gov | [www.chiamass.gov/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.chiamass.gov) |
 | Civil Service Eligible Lists | csexam.hrd.state.ma.us | [https://www.csexam.hrd.state.ma.us/ eligiblelist/eligiblelist.aspx\*](https://www.csexam.hrd.state.ma.us/eligiblelist/eligiblelist.aspx*) |
 | Committee for Public Counsel Services \(Public Defender Agency of Massachusetts\) | publiccounsel.net | [www.publiccounsel.net/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.publiccounsel.net) |
@@ -246,8 +245,8 @@ When a user filters content by organization in search.mass.gov, that organizatio
 
 | Organization | Example Display |
 | :--- | :--- |
-| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display%20%284%29.png) |
-| Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display%20%283%29.png) |
-| Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display%20%282%29.png) |
-| Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display%20%283%29.png) |
+| Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display.png) |
+| Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display.png) |
+| Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display.png) |
+| Office of the Attorney General Maura Healey \(AGO\) | ![](../.gitbook/assets/ago-organization-display.png) |
 
