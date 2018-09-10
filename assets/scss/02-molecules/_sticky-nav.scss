@@ -107,7 +107,7 @@
       }
 
       &:hover a {
-        border-bottom-width: 0;
+        border-bottom-color: transparent;
       }
 
       @media ($bp-medium-min) {
