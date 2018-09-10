@@ -22,7 +22,7 @@ The goals of Mayflower are:
 If you have a new implementation to add to this list, please [open an issue](https://github.com/massgov/mayflower-doc/issues/new) with the following information:
 
 * The implementation’s target language and/or framework
-* The code repository if it's in Github or it's public 
+* The code repository if it is in Github or it is public 
 * The author’s name \(or alias\) and contact URL or email address
 * The most recent version of the Mayflower Design System that the project targets
 * Any useful caveats or other notes

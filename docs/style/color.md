@@ -19,3 +19,4 @@
 | ![](../.gitbook/assets/color_independence-cranberry-50.png) | `#AD7E88` | **50% INDEPENDENCE CRANBERRY** | Examples:  Heading underline/Navigation active state underline |
 | ![](../.gitbook/assets/color_error-red.png) | `#CD0D0D` | **ERROR RED** | This color is used for error language, borders, and icons. Examples:  Form error states |
 | ![](../.gitbook/assets/color_error-red-5.png) | `#FCF3F3` | **5% ERROR RED** | Examples:  Overall form error state background |
+
