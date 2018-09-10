@@ -45,7 +45,7 @@
   }
 
   &--asc:before {
-    border-bottom-color: $c-gray-707070;
+    border-bottom-color: $c-gray;
   }
 
   &:after {
@@ -53,6 +53,6 @@
   }
 
   &--dsc:after {
-    border-top-color: $c-gray-707070;
+    border-top-color: $c-gray;
   }
 }
