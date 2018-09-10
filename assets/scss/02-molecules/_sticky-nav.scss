@@ -100,6 +100,25 @@
       padding-bottom: 12px;
     }
 
+    &.is-title {
+
+      a {
+        color: $c-theme-gray !important;
+      }
+
+      &:hover a {
+        border-bottom-width: 0;
+      }
+
+      @media ($bp-medium-min) {
+        display: none;
+        
+        &.is-active {
+          display: none;
+        }
+      }
+    }
+
     &.is-active {
       display: block;
 
