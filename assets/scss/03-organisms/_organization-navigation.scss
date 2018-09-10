@@ -173,6 +173,12 @@
       font-size: 1.25rem;
     }
 
+    .visuallyhidden {
+      visibility: hidden;
+      width: 0;
+      height: 0;
+    }
+
     &--wrapper {
      
       @media ($bp-large-min) {
