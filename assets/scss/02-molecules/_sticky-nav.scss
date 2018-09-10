@@ -104,6 +104,10 @@
 
       a {
         color: $c-theme-gray !important;
+
+        &:focus {
+          border-bottom-width: 0;
+        }
       }
 
       &:hover a {

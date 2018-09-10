@@ -5,6 +5,7 @@ export default (function (window,document,$,undefined) {
   $(".js-scroll-anchors").each(function() {
     let $el = $(this),
         $elParent = $el.parent().css('position') === 'relative' ? $el.parent() : $el.parent().offsetParent(),
+        $titleLink = $el.find('.is-title'),
         $links = $el.find('.js-scroll-anchors-link'),
         elHeight,
         headerBuffer = 0,
@@ -157,6 +158,10 @@ export default (function (window,document,$,undefined) {
 
         if(isMobile){
           $elParent.removeAttr('style');
+
+          // Reset title when scrolled back down.
+          $titleLink.addClass(activeClass);
+          $links.first().removeClass(activeClass);
         }
       }
       else if (middle) {
@@ -164,6 +169,10 @@ export default (function (window,document,$,undefined) {
 
         if(isMobile){
           $elParent.css({'paddingTop':elHeight});
+          
+          // Activate first link on scroll into first section.
+          $titleLink.removeClass(activeClass);
+          $links.first().addClass(activeClass);
         }
       }
       else if (bottom) {
