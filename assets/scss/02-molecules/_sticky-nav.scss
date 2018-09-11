@@ -159,6 +159,12 @@
       border-top-color: $c-bd-divider;
     }
 
+    &.is-top {
+      @media ($bp-medium-min) {
+        border-top-width: 0;
+      }
+    }
+
     @media ($bp-medium-min) {
       border-top-width: 1px;
       border-top-style: solid;

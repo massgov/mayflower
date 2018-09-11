@@ -25,8 +25,10 @@ export default (function (window,document,$,undefined) {
     $el.attr('data-sticky','top');
 
     // update variables one more time to catch any post page load changes
+    // then set mobile title if isMobile = true
     window.setTimeout(function(){
       setVariables();
+      mobileTitle();
     },1000);
 
     $links.on('click',function(e) {
@@ -90,6 +92,7 @@ export default (function (window,document,$,undefined) {
         setVariables();
         setPosition();
         activateLink();
+        mobileTitle();
       },300);
     });
 
@@ -214,6 +217,26 @@ export default (function (window,document,$,undefined) {
         // move the active flag
         $el.find('.' + activeClass).removeClass(activeClass);
         $links.eq(activeAnchorIndex).addClass(activeClass);
+      }
+    }
+
+    function mobileTitle() {
+      setPosition();
+      setVariables();
+
+      if(isMobile){
+        if(top) {
+          $titleLink.addClass(activeClass);
+          $links.removeClass(activeClass);
+        }
+        if (middle) {
+          // Activate first link on scroll into first section.
+          $titleLink.removeClass(activeClass);
+          $links.first().addClass(activeClass);
+        }
+      }
+      else {
+        return false;
       }
     }
   });
