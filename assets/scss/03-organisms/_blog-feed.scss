@@ -96,7 +96,7 @@
 .ma__blog-feed {
 
   &__title {
-    @include ma-border-decorative($c-theme-secondary);
+    @include ma-border-decorative($c-primary-alt);
   }
 
   &__date {

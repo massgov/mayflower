@@ -263,7 +263,7 @@
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
     }
     &.is-active {
-      @include ma-border-decorative($c-theme-secondary);
+      @include ma-border-decorative($c-primary-alt);
     }
   }
 
@@ -273,8 +273,8 @@
     .has-subnav & {
   // chevron
       &:after {
-        border-right-color: $c-theme-secondary;
-        border-bottom-color: $c-theme-secondary;
+        border-right-color: $c-primary-alt;
+        border-bottom-color: $c-primary-alt;
       }
     }
   }
@@ -333,7 +333,7 @@
     font-weight: 700;
   
     &:hover {
-      background-color: $c-gray-dcdcdc;
+      background-color: $c-gray-light;
     }
 
     & > svg {

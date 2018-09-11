@@ -46,7 +46,7 @@
 .ma__top-actions {
 
   &__title {
-    @include ma-border-decorative($c-theme-secondary);
+    @include ma-border-decorative($c-primary-alt);
   }
 
   &__item {
@@ -56,11 +56,11 @@
   &__link {
 
     a:hover {
-      border-bottom-color: rgba($c-theme-primary, .5);
+      border-bottom-color: rgba($c-primary, .5);
     }
 
     svg {
-      fill: rgba($c-theme-primary, .5);
+      fill: rgba($c-primary, .5);
     }
   }
 }

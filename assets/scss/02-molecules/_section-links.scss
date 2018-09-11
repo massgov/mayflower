@@ -212,11 +212,11 @@
   &__title {
 
     @media ($bp-x-small-min) {
-      @include ma-border-decorative($c-theme-tertiary,1);
+      @include ma-border-decorative($c-highlight,1);
     }
 
     &:after {
-      color: $c-theme-secondary;
+      color: $c-primary-alt;
     }
 
     a {
@@ -246,7 +246,7 @@
   &__link {
 
     &:hover {
-      border-bottom-color: rgba($c-theme-primary,.5);
+      border-bottom-color: rgba($c-primary,.5);
     }
   }
 }

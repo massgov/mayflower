@@ -241,7 +241,7 @@ $heading-indent: $gutter;
   }
 
   h2, h3, h4 {
-    @include ma-comp-heading($c-theme-secondary);
+    @include ma-comp-heading($c-primary-alt);
   }
 
   h5 {

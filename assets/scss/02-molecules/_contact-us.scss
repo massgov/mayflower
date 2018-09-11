@@ -96,7 +96,7 @@
     padding-left: 30px;
     padding-right: 30px;
     margin-top: 20px;
-    border-left: 1px solid #dcdcdc;
+    border-left: 1px solid $c-bd-divider;
 
     // Reset if we aren't in an accordion
     .ma__contact-list--view-specific &,
@@ -164,7 +164,7 @@
       @media ($bp-medium-min) {
         padding-left: 30px;
         margin-left: 30px;
-        border-left: 1px solid #dcdcdc;
+        border-left: 1px solid $c-bd-divider;
       }
       .ma__contact-group {
         margin-bottom: 20px;
@@ -236,7 +236,7 @@
 
   &--accordion &__header:after,
   &--accordion &__header &--accordion__status {
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
   }
 
   &__expand {

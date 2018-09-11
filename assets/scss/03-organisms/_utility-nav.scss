@@ -314,7 +314,7 @@ $utility-nav-height: 43px;
 .ma__utility-nav {
 
   @media ($bp-header-toggle-min) {
-    background-color: $c-theme-primary;
+    background-color: $c-primary;
     color: $c-font-inverse;
   }
 
@@ -332,17 +332,17 @@ $utility-nav-height: 43px;
     color: $c-font-base;
 
     @media ($bp-header-toggle-min) {
-      //background-color: $c-theme-primary;
+      //background-color: $c-primary;
       color: $c-font-inverse;
     }
 
     &:after {
-      border-right-color: $c-theme-secondary;
-      border-bottom-color: $c-theme-secondary;
+      border-right-color: $c-primary-alt;
+      border-bottom-color: $c-primary-alt;
     }
 
     svg {
-      fill: $c-theme-primary;
+      fill: $c-primary;
 
       @media ($bp-header-toggle-min) {
         fill: $c-font-inverse;
@@ -377,8 +377,8 @@ $utility-nav-height: 43px;
 
       @media ($bp-header-toggle-max) {
         &:after {
-          border-right-color: $c-theme-secondary;
-          border-bottom-color: $c-theme-secondary;
+          border-right-color: $c-primary-alt;
+          border-bottom-color: $c-primary-alt;
         }
       }
 
@@ -397,7 +397,7 @@ $utility-nav-height: 43px;
     color: $c-font-inverse;
 
     @media ($bp-header-toggle-min) {
-      background-color: $c-theme-primary;
+      background-color: $c-primary;
     }
 
     a {
@@ -415,7 +415,7 @@ $utility-nav-height: 43px;
 
   &__container {
     @media ($bp-header-toggle-max) {
-      background-color: $c-theme-primary;
+      background-color: $c-primary;
     }
 
   }

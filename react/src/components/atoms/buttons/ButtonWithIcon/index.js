@@ -79,7 +79,7 @@ ButtonWithIcon.propTypes = {
   capitalized: PropTypes.bool,
   // Defines the size, default size fits the most square icons and "small" setting is specific for the chevron icon.
   iconSize: PropTypes.oneOf(['', 'small']),
-  // Defines the fill color of the svg, default color is $c-gray-dcdcdc.
+  // Defines the fill color of the svg, default color is $c-gray-light.
   iconColor: PropTypes.oneOf(['', 'green']),
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
