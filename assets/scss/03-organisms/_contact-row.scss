@@ -35,7 +35,7 @@ $contact-row-image-max-width: 300px;
         .ma__contact-group:not(:first-child) {
           width: 50%;
           margin-left: calc(50% + 40px);
-          border-left: 1px solid #dcdcdc;
+          border-left: 1px solid $c-bd-divider;
           padding-left: 40px;
         }
       }

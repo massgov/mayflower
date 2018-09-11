@@ -73,13 +73,13 @@
 .ma__callout-alert {
   
   &__content {
-    background-color: tint($c-theme-tertiary, 90%);
-    border-color: tint($c-theme-tertiary, 50%);
+    background-color: tint($c-warning, 90%);
+    border-color: tint($c-warning, 50%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 
   &__icon svg {
-    fill: $c-theme-tertiary;
+    fill: $c-warning;
   }
 
   &__link {

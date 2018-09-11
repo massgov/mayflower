@@ -82,8 +82,8 @@ $header-search-height: 46px;
     border-left-color: $c-bd-input;
 
     &:hover {
-      background: $c-theme-secondary;
-      border-left-color: $c-theme-secondary;
+      background: $c-primary-alt;
+      border-left-color: $c-primary-alt;
     }
   }
 
@@ -91,13 +91,13 @@ $header-search-height: 46px;
     border-left-color: rgba($c-bd-input,.5);
 
     &:hover {
-      border-left-color: $c-theme-secondary;
+      border-left-color: $c-primary-alt;
     }
   }
 
 
   &__reset {
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
     font-weight: 700;
   }
 }

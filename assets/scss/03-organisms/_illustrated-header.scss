@@ -126,7 +126,7 @@ $bp-illustrated-header-image-width: 360px;
 .ma__illustrated-header {
 
   &__image--empty {
-    background-color: $c-theme-secondary;
+    background-color: $c-primary-alt;
   }
 
   &__content {
@@ -157,6 +157,6 @@ $bp-illustrated-header-image-width: 360px;
   &,
   .ma__illustrated-header__content,
   .ma__illustrated-header__image--empty {
-    background: $c-theme-blue;
+    background: $c-primary;
   }
 }

@@ -19,8 +19,8 @@
   }
 
   @media ($bp-medium-max) {
-    background-color: $c-bg-section;
-    border: 1px solid $c-bd-divider;
+    background-color: $c-gray-lightest;
+    border: 1px solid $c-gray-light;
     left: 0;
   }
 
@@ -103,7 +103,7 @@
     &.is-title {
 
       a {
-        color: $c-theme-gray !important;
+        color: $c-gray-dark !important;
 
         &:focus {
           border-bottom-width: 0;
@@ -153,10 +153,10 @@
 
   
     &__link + &__link {
-    border-top-color: $c-bd-divider;
+    border-top-color: $c-gray-light;
 
     &.is-open {
-      border-top-color: $c-bd-divider;
+      border-top-color: $c-gray-light;
     }
 
     &.is-top {
@@ -183,7 +183,7 @@
 
   &__toggle-link {
     @include ma-button-reset;
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
     font-size: 3rem;
     line-height: .65em;
     overflow: hidden;
