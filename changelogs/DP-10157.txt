@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Changed
+Patch
+- patternlab / DP-10157: [MF] How-to BM1: Add slight visual emphasis to mobile sticky nav
+
