@@ -2,17 +2,11 @@
 
 ## Overview
 
-Use checkboxes when looking for yes or no answers.
+Checkboxes allow users to select one or more values from a set list, including all or none. It is best to use checkboxes when the user needs to be able to see all available options at a single time. Use checkboxes when looking for yes or no answers. They can be used as a single option without alternatives. If only one option is to be selected in a set of options at a time, radio buttons should be used instead.
 
-Checkboxes enable to turn on and off one or more options from a set of alternatives. They can be used as a single option without alternatives. If only one option is to be selected in a set of options at a time, radio buttons should be used instead.
+Checkboxes can be presented as either checked \(pre-selected\) or unchecked when the page loads.
 
-They can be presented either checked \(pre-selected\) or unchecked when the page loads.
-
-This is a unit to present a checkbox. Each checkbox needs its label to describe what the checkbox is for for the user.
-
-All options need to be grouped with `name` attribute for their association.
-
-The icon for the label is optional.
+Each checkbox needs a label and, optionally, can include an icon. All options need to be grouped with `name` attribute for their association.
 
 ### Checkbox States
 
@@ -20,35 +14,23 @@ The icon for the label is optional.
 | :--- | :--- | :--- |
 | ![](../../.gitbook/assets/form_input_checkbox.png) | Standard |  |
 | ![](../../.gitbook/assets/form_input_checkbox_checked.png) | Checked |  |
-|  | Disabled |  |
+| ![](../../.gitbook/assets/checkbox-disabled-state-small.png)  | Disabled |  |
 |  | Error |  |
 |  | Focus |  |
 
 ### Accessibility & Best Practices
 
-Pairing the checkbox with the label is crucial for usability and accessibility.
-
-#### Label
-
-The label describes the checkbox.
-
-`for` attribute with its matching value to the `id` value of the checkbox assigns the label to the checkbox as a pair.
-
-A benefit of using labels is that the user can click on the label itself to set focus to the form element. This is useful to some with motor disabilities, particularly when selecting small checkboxes and radio buttons. You can try this by clicking on the word "Name:" above to see focus set to the text box. Clicking adjacent labels provides an easy way to check for proper form labeling.
-
-#### Checkbox
-
-Its `id` attribute identifies the checkbox as a unique element in the page. Ensure the `id` value is unique in the page.
-
-A grouped options share a common value for their `name` attribute.
-
-#### Icon \(Optional Component\)
-
-This component is optional.
-
-When the icon conveys the same text content as the `<label>`'s, the icon is used for decorative purpose with `aria-hidden="true"`. No text alternative is necessary, and assistive technologies would ignore the icon.
-
-If it presents additional information to the label text content, the icon should not have `aria-hidden="true"` and provides text alternative through `alt`, visually hidden text, or other methods assistive technologies can access.
+* **Label**
+  * Pairing each checkbox with a label is crucial to both usability and accessibility.  The label describes the checkbox. The label for each checkbox should indicate, via the `for` attribute the `id` of the input the label is associated with. 
+  * A further benefit of using labels is that the user can click on the label itself to set the page's focus to the form element. This is particularly useful for users with motor disabilities, as it expands the focusable area beyond the small checkbox. Clicking adjacent labels also provides an easy way to check for proper form labeling.
+* **Checkbox**
+  * A checkbox's `id` attribute identifies the checkbox as a unique element in the page. Ensure the `id` value is unique on the page. 
+  * A group of checkboxes should share a common value for their `name` attribute. 
+  * Related checkboxes should be grouped in a `<fieldset>` with a `<legend>` to provide context about the checkbox grouping. If you are using a single checkbox, you do not need to wrap it in a `<fieldset>`.
+* **Icon**
+  * When words are not enough, icons can be used with checkboxes to better communicate what the checkbox is. Icons are always paired with text. 
+  * When the icon conveys the same text content as the `<label>`'s, the icon is being used for decorative purposes and should have its `aria-hidden` attribute set to `true`. In this scenario, no text alternative is necessary and assistive technologies can ignore the icon. 
+  * If the icon presents additional information to the label text content, the icon should not have `aria-hidden="true"` and provides text alternative through `alt`, visually hidden text, or other methods assistive technologies can access.
 
 ## Code
 
@@ -64,17 +46,23 @@ If it presents additional information to the label text content, the icon should
 {% endtab %}
 
 {% tab title="React" %}
-
+Currently Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-```php
-{% if inputCheckbox.checked == 'true' or inputCheckbox.checked == 'false' %}
-  {% set inputCheckbox = inputCheckbox|merge({'checked': inputCheckbox.checked == 'true' ? true : false }) %}
-{% endif %}
-```
+[Input Checkbox in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-input-checkbox)
 {% endtab %}
 {% endtabs %}
 
 ## Style
+
+### Classnames
+
+| Name | Class Modifier |
+| :--- | :--- |
+| Base Checkbox | `.ma__input-checkbox` |
+| Checkbox with Error | `.ma__input-checkbox--error` \(_work in progress_\) |
+| Checkbox Disabled | `.ma__input-checkbox--disabled` \(_work in progress_\) |
+
+
 
