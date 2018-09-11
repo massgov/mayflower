@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) DP-10244: Replaces imported scss calls to component scss files (188)
