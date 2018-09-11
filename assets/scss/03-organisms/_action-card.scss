@@ -147,7 +147,7 @@
 .ma__action-card {
 
   &__title {
-    @include ma-border-decorative($c-theme-primary-alt);
+    @include ma-border-decorative($c-primary-alt);
   }
 
   &__item {
@@ -164,10 +164,10 @@
     }
 
     &--blue {
-      background-color: $c-theme-primary;
+      background-color: $c-primary;
 
       &:hover {
-        background-color: rgba($c-theme-primary,.8);
+        background-color: rgba($c-primary,.8);
       
         a {
           border-bottom-color: $c-font-inverse;
@@ -176,10 +176,10 @@
     }
 
     &--green {
-      background-color: $c-theme-primary-alt;
+      background-color: $c-primary-alt;
 
       &:hover {
-        background-color: rgba($c-theme-primary-alt,.8);
+        background-color: rgba($c-primary-alt,.8);
         
         a {
           border-bottom-color: $c-font-inverse;

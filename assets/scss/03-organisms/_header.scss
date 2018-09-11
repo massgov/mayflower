@@ -383,7 +383,7 @@ body {
 
   &__button-container {
     @media ($bp-header-toggle-max) {
-      background-color: $c-theme-primary;
+      background-color: $c-primary;
     }
   }
 
@@ -457,7 +457,7 @@ body {
 
       &:focus {
         background-color: $c-white;
-        border-color: $c-theme-highlight !important;
+        border-color: $c-highlight !important;
       }
     }
   }

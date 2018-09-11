@@ -78,16 +78,16 @@
             }
 
             a {
-                color: $c-theme-primary-alt;
-                border-color: rgba($c-theme-primary-alt, 0.2);
+                color: $c-primary-alt;
+                border-color: rgba($c-primary-alt, 0.2);
 
                 &:hover {
-                    border-color: $c-theme-primary-alt;
+                    border-color: $c-primary-alt;
                 }
             }
 
             button {
-                color: $c-theme-primary-alt;
+                color: $c-primary-alt;
 
                 .tag-state {
                     display: none;
@@ -125,15 +125,15 @@
             }
 
             a {
-                border-color: rgba($c-theme-primary, 0.2);
+                border-color: rgba($c-primary, 0.2);
 
                 &:hover {
-                    border-color: $c-theme-primary;
+                    border-color: $c-primary;
                 }
             }
 
             button {
-                color: $c-theme-primary;
+                color: $c-primary;
             }
         }
 

@@ -19,7 +19,7 @@
     },{
     "items": [
       {
-        "name": "$c-theme-primary-alt", 
+        "name": "$c-primary-alt", 
         "color": "Berkshires Green",
         "value": "#388557"
       },
@@ -36,17 +36,17 @@
     },{
     "items": [
       {
-        "name": "$c-theme-highlight",
+        "name": "$c-highlight",
         "color": "Duckling Yellow",
         "value": "#f6c51b"
       },
       {
-        "name": "$c-theme-highlight",
+        "name": "$c-duckling-yellow-lighter",
         "color": "50% Duckling Yellow",
         "value": "#fbe28d"
       },
       {
-        "name": "$c-theme-highlight",
+        "name": "$$c-duckling-yellow-lightest",
         "color": "10% Duckling Yellow",
         "value": "#fef9e8"
       }]

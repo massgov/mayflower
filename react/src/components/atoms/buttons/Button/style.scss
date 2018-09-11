@@ -2,10 +2,10 @@
 
 .ma__button.ma__button--secondary {
   &.ma__button--minor{
-    color: $c-theme-primary-alt;
+    color: $c-primary-alt;
     &:hover {
       color: $c-white;
-      background-color: $c-theme-primary-alt;
+      background-color: $c-primary-alt;
     }
   }
 }

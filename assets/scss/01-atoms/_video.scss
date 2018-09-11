@@ -77,7 +77,7 @@
 .ma__video {
 
   &__container {
-    background-color: rgba($c-theme-primary,.1);
+    background-color: rgba($c-primary,.1);
   }
 
   &__link {
@@ -87,5 +87,5 @@
 
 // Backward Compatible - had to add the --new as a variant for the new styling
 .ma__video:not(.ma__video--new) {
-  background-color: rgba($c-theme-primary,.1);
+  background-color: rgba($c-primary,.1);
 }

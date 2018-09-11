@@ -57,14 +57,14 @@
 //theme
 
 .ma__callout {
-  border-left-color: $c-theme-highlight;
+  border-left-color: $c-highlight;
   color: $c-font-heading;
   font-weight: 800;
 
   &__header {
 
     svg {
-      fill: $c-theme-highlight; 
+      fill: $c-highlight; 
     }
   }
 }

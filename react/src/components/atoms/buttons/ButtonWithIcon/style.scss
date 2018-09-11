@@ -13,7 +13,7 @@
   text-transform: uppercase;
   transition: background-color .4s, color .4s, border .4s, fill .4s;
   white-space: nowrap;
-  color: $c-theme-primary-alt;
+  color: $c-primary-alt;
 
   &.ma__button-capitalized {
     text-transform: capitalize;
@@ -48,7 +48,7 @@
   }
 
   &.ma__icon-green > svg {
-    fill: $c-theme-primary-alt;
+    fill: $c-primary-alt;
   }
 
   &.ma__icon-small > svg {
@@ -56,8 +56,8 @@
   }
 
   &--expanded, &:hover {
-    background-color: $c-theme-primary-alt;
-    border-color: $c-theme-primary-alt;
+    background-color: $c-primary-alt;
+    border-color: $c-primary-alt;
     color: $c-white;
     svg {
       fill: $c-white;
