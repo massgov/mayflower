@@ -23,7 +23,6 @@ export default (function (window,document,$,undefined) {
 
     // default assumption as to where the screen will load
     $el.attr('data-sticky','top');
-    $titleLink.removeClass(activeClass);
 
     // update variables one more time to catch any post page load changes
     // then set mobile title if isMobile = true
@@ -119,8 +118,10 @@ export default (function (window,document,$,undefined) {
         upperLimit -= headerBuffer;
         topOffset = elHeight;
 
-        $titleLink.addClass(activeClass);
-        $links.removeClass(activeClass);
+        mobileTitleOn();
+      }
+      else {
+        mobileTitleOff();
       }
       
       lowerLimit = upperLimit + $elParent.outerHeight(true) - $el.height();
@@ -163,8 +164,7 @@ export default (function (window,document,$,undefined) {
         if(isMobile){
           $elParent.removeAttr('style');
 
-          $titleLink.addClass(activeClass);
-          $links.removeClass(activeClass);
+          mobileTitleOn();
         }
       }
       else if (middle) {
@@ -172,9 +172,8 @@ export default (function (window,document,$,undefined) {
 
         if(isMobile){
           $elParent.css({'paddingTop':elHeight});
-          
-          $titleLink.removeClass(activeClass);
-          $links.first().addClass(activeClass);
+
+         mobileTitleOff();
         }
       }
       else if (bottom) {
@@ -216,6 +215,20 @@ export default (function (window,document,$,undefined) {
         // move the active flag
         $el.find('.' + activeClass).removeClass(activeClass);
         $links.eq(activeAnchorIndex).addClass(activeClass);
+      }
+    }
+
+    function mobileTitleOn() {
+      if($titleLink.length) {
+        $titleLink.addClass(activeClass);
+        $links.removeClass(activeClass);
+      }
+    }
+    
+    function mobileTitleOff() {
+      if($titleLink.length) {
+        $titleLink.removeClass(activeClass);
+        $links.first().addClass(activeClass);
       }
     }
   });
