@@ -25,7 +25,6 @@ export default (function (window,document,$,undefined) {
     $el.attr('data-sticky','top');
 
     // update variables one more time to catch any post page load changes
-    // then set mobile title if isMobile = true
     window.setTimeout(function(){
       setVariables();
     },1000);
