@@ -27,6 +27,7 @@ const Button = (button) => {
       title={button.info}
       aria-label={button.info}
       onClick={(e) => onClickCallback(e)}
+      disabled={button.disabled}
     >
       {button.text}
     </Element>
