@@ -23,12 +23,12 @@ export default (function (window,document,$,undefined) {
 
     // default assumption as to where the screen will load
     $el.attr('data-sticky','top');
+    $titleLink.removeClass(activeClass);
 
     // update variables one more time to catch any post page load changes
     // then set mobile title if isMobile = true
     window.setTimeout(function(){
       setVariables();
-      mobileTitle();
     },1000);
 
     $links.on('click',function(e) {
@@ -92,13 +92,11 @@ export default (function (window,document,$,undefined) {
         setVariables();
         setPosition();
         activateLink();
-        mobileTitle();
       },300);
     });
 
     $(window).scroll(function () {
       setPosition();
-
       if(!linkScrolling){
         activateLink();
       }
@@ -120,8 +118,11 @@ export default (function (window,document,$,undefined) {
         headerBuffer = $('.js-sticky-header').height() || 0;
         upperLimit -= headerBuffer;
         topOffset = elHeight;
-      }
 
+        $titleLink.addClass(activeClass);
+        $links.removeClass(activeClass);
+      }
+      
       lowerLimit = upperLimit + $elParent.outerHeight(true) - $el.height();
 
       // locate the position of all of the anchor targets
@@ -162,9 +163,8 @@ export default (function (window,document,$,undefined) {
         if(isMobile){
           $elParent.removeAttr('style');
 
-          // Reset title when scrolled back down.
           $titleLink.addClass(activeClass);
-          $links.first().removeClass(activeClass);
+          $links.removeClass(activeClass);
         }
       }
       else if (middle) {
@@ -173,7 +173,6 @@ export default (function (window,document,$,undefined) {
         if(isMobile){
           $elParent.css({'paddingTop':elHeight});
           
-          // Activate first link on scroll into first section.
           $titleLink.removeClass(activeClass);
           $links.first().addClass(activeClass);
         }
