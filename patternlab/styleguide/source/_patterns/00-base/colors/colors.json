@@ -2,7 +2,7 @@
   "rows": [{
     "items": [
       {
-        "name": "$c-theme-primary",
+        "name": "$c-primary",
         "color": "Bay Blue",
         "value": "#14558f"
       },
