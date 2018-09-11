@@ -33,12 +33,12 @@
 
 //theme
 .ma__image-link--block {
-    background: $c-gray-f2f2f2;
+    background: $c-gray-lightest;
 
     .ma__image-link__text {
-        color: $c-theme-gray;
+        color: $c-gray-dark;
     }
     svg {
-        fill: $c-theme-gray;
+        fill: $c-gray-dark;
     }
 }

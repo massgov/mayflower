@@ -33,7 +33,7 @@
 }
 //theme
 .ma__comp-heading {
-  @include ma-comp-heading($c-theme-secondary);
+  @include ma-comp-heading($c-primary-alt);
 
   .sidebar &,
   &--sidebar {
@@ -45,6 +45,6 @@
   }
 
   &--yellow {
-    @include ma-border-decorative($c-theme-yellow, 1);
+    @include ma-border-decorative($c-highlight, 1);
   }
 }

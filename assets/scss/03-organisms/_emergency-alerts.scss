@@ -79,23 +79,23 @@ be included at the top of the page */
   position: relative;
 
   &__header {
-    background-color: $c-theme-tertiary;
+    background-color: $c-warning;
   }
 
   &__content {
-    background-color: lighten($c-theme-tertiary, 34%);
+    background-color: lighten($c-warning, 34%);
   }
 
   &__interface {
     
     @media ($bp-small-max) {
-      background-color: $c-theme-tertiary;
+      background-color: $c-warning;
       padding: 20px;
       padding-top: 0;
       transition: background-color .5s;
       
       .is-open & {
-        background-color: lighten($c-theme-tertiary, 34%);
+        background-color: lighten($c-warning, 34%);
       }
 
       .ma__button-alert {

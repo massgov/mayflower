@@ -103,11 +103,11 @@
   background-color: $c-bg-section;
 
   &__back2top{
-    @include ma-button("","outline",$c-theme-primary);
+    @include ma-button("","outline",$c-primary);
     background-color: rgba($c-white, .9);
 
     svg {
-      fill: rgba($c-theme-primary, .5);
+      fill: rgba($c-primary, .5);
     }
 
     &:hover {
@@ -118,7 +118,7 @@
   }
 
   &__copyright {
-    color: $c-theme-quaternary;
+    color: $c-gray-dark;
     font-weight: 300;
 
     b {
@@ -131,7 +131,7 @@
     .ma__social-links {
 
       &__link {
-        background-color: $c-theme-secondary;
+        background-color: $c-primary-alt;
 
         & > svg,
         & > svg path {

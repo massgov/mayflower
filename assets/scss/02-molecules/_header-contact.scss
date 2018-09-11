@@ -98,11 +98,11 @@
 
   &__accordion {
     border-top-color: $c-bd-divider;
-    color: $c-theme-primary;
+    color: $c-primary;
     font-weight: 700;
 
     &:after {
-      color: $c-theme-primary;
+      color: $c-primary;
     }
   }
 
