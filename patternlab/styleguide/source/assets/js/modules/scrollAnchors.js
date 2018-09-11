@@ -219,25 +219,5 @@ export default (function (window,document,$,undefined) {
         $links.eq(activeAnchorIndex).addClass(activeClass);
       }
     }
-
-    function mobileTitle() {
-      setPosition();
-      setVariables();
-
-      if(isMobile){
-        if(top) {
-          $titleLink.addClass(activeClass);
-          $links.removeClass(activeClass);
-        }
-        if (middle) {
-          // Activate first link on scroll into first section.
-          $titleLink.removeClass(activeClass);
-          $links.first().addClass(activeClass);
-        }
-      }
-      else {
-        return false;
-      }
-    }
   });
 })(window,document,jQuery);
