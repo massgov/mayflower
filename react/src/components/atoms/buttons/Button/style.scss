@@ -1,7 +1,9 @@
 @import 'global';
+@import '00-base/mixins';
+@import '01-atoms/buttons';
 
 .ma__button.ma__button--secondary {
-  &.ma__button--minor{
+  &.ma__button--c-primary-alt{
     color: $c-primary-alt;
     &:hover {
       color: $c-white;

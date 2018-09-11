@@ -4,8 +4,9 @@
 export default {
   theme: {
     '': 'no theme i.e. primary (default)',
-    secondary: 'secondary',
-    quaternary: 'quaternary'
+    'c-primary-alt': 'c-primary-alt',
+    'c-highlight': 'c-highlight',
+    'c-gray-dark': 'c-gray-dark'
   },
   type: {
     '': 'no type (default)',
@@ -17,5 +18,11 @@ export default {
     '': 'no size (default)',
     small: 'small',
     large: 'large'
+  },
+  usage: {
+    '': 'primary (default)',
+    secondary: 'secondary',
+    tertiary: 'tertiary',
+    quaternary: 'quaternary'
   }
 };

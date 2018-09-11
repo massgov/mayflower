@@ -6,7 +6,7 @@ import './style.css';
 const Button = (button) => {
   const buttonClasses = classNames({
     ma__button: true,
-    'ma__button--minor': button.outline,
+    [`ma__button--${button.usage}`]: button.usage,
     [`ma__button--${button.size}`]: button.size,
     [`ma__button--${button.theme}`]: button.theme
   });
@@ -46,9 +46,9 @@ Button.propTypes = {
   /** Create a smaller button */
   size: PropTypes.oneOf(['', 'small', 'large']),
   /** Themes correspond to site color scheme i.e. sass variables */
-  theme: PropTypes.oneOf(['', 'secondary', 'quaternary']),
-  /** Whether or not to make a ghost button */
-  outline: PropTypes.bool
+  theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark']),
+  /** Button usage */
+  usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary'])
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.
@@ -56,8 +56,8 @@ Button.defaultProps = {
   href: '',
   type: '',
   size: '',
-  theme: '',
-  outline: false
+  theme: 'c-primary',
+  usage: ''
 };
 
 export default Button;

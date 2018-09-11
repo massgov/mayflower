@@ -6,6 +6,6 @@
     "type": "button",
     "size": "",
     "theme": "",
-    "outline": true
+    "usage": "quaternary"
   }
 }

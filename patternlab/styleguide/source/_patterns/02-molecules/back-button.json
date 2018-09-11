@@ -6,7 +6,7 @@
       "text": "Back to previous page",
       "type": "link",
       "theme": "",
-      "outline": true
+      "usage": "secondary"
     }
   }
 }
