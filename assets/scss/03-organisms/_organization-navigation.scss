@@ -1,7 +1,7 @@
 $menu-transition-time: 0.3s;
 
 .ma__organization-navigation {
-  background-color: $c-bg-section;
+  background-color: $c-gray-lightest;
   margin-top: -20px;
   margin-bottom: 20px;
   opacity: 1;
@@ -64,8 +64,8 @@ $menu-transition-time: 0.3s;
     font-weight: 700;
     line-height: 1.2;
     color: $c-font-dark;
-    border-bottom: 1px solid $c-bd-divider;
-    background-color: $c-bg-section;
+    border-bottom: 1px solid $c-gray-light;
+    background-color: $c-gray-lightest;
     z-index: $z-dropdown;
 
     .mobile-toggle-label {
@@ -92,7 +92,7 @@ $menu-transition-time: 0.3s;
         width: 1em;
         height: 1em;
         margin-top: 0.2em;
-        background: $c-bg-section;
+        background: $c-gray-lightest;
       }
     }
     
@@ -103,7 +103,7 @@ $menu-transition-time: 0.3s;
       min-width: 35px;
       height: 35px;
       background-color: transparent;
-      color: $c-theme-green;
+      color: $c-primary-alt;
       transition: $menu-transition-time;
   
       &::after {
@@ -146,7 +146,7 @@ $menu-transition-time: 0.3s;
   }
 
   &__search {
-    border-bottom: 1px solid $c-bd-divider;
+    border-bottom: 1px solid $c-gray-light;
     order: 1;
     padding: 20px;
 
@@ -163,7 +163,7 @@ $menu-transition-time: 0.3s;
 
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           top: 7px;
-          background-color: $c-bg-section;
+          background-color: $c-gray-lightest;
         }
       }
     }
@@ -200,7 +200,7 @@ $menu-transition-time: 0.3s;
     }
 
     .ma__button-search {
-      background-color: $c-theme-green;
+      background-color: $c-primary-alt;
       border-width: 0;
 
       @media ($bp-large-min) {
@@ -217,7 +217,7 @@ $menu-transition-time: 0.3s;
         fill: $c-white;
 
         @media ($bp-large-min) {
-          fill: $c-theme-green;
+          fill: $c-primary-alt;
         }
       }
 
@@ -226,7 +226,7 @@ $menu-transition-time: 0.3s;
 
         @media ($bp-large-min) {
           display: inline;
-          color: $c-theme-green;
+          color: $c-primary-alt;
         }
       }
 
@@ -234,7 +234,7 @@ $menu-transition-time: 0.3s;
         background-color: $c-white;
 
         svg {
-          fill: $c-theme-green;
+          fill: $c-primary-alt;
         }
       }
     }
@@ -244,7 +244,7 @@ $menu-transition-time: 0.3s;
       position: relative;
       border: 0;
       background-color: transparent;
-      border-left: 1px solid $c-bd-divider;
+      border-left: 1px solid $c-gray-light;
       font-size: 1rem;
       font-weight: 700;
       padding-left: 35px;
@@ -274,7 +274,7 @@ $menu-transition-time: 0.3s;
           top: 50%;
           transform: translateY(-50%);
           right: 0;
-          color: $c-theme-green;
+          color: $c-primary-alt;
         }
 
         svg {
@@ -285,7 +285,7 @@ $menu-transition-time: 0.3s;
       svg {
         width: 20px;
         height: 20px;
-        fill: $c-theme-green;
+        fill: $c-primary-alt;
         position: absolute;
         left: 15px;
         top: 50%;
