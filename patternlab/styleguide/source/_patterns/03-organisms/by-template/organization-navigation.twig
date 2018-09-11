@@ -29,7 +29,6 @@
             {% endblock %}
             {% endif %}
             
-
             {% if nav.section == "about" %}
             {% block aboutTab %}
               <div class="ma__organization-navigation__subitem">
@@ -63,14 +62,17 @@
     </ul>
     {% if organizationNavigation.orgSearch %}
     <div class="ma__organization-navigation__search">
-      <button class="ma__organization-navigation__search--toggle js-search-toggle">{{ icon('search') }} <span class="search-label">Search this organization</span></button>
+      <button class="ma__organization-navigation__search--toggle js-search-toggle">
+        {{ icon('search') }} 
+        <span class="search-label">Search this organization</span>
+      </button>
       <div class="ma__organization-navigation__search--wrapper">
         <form action="https://search.mass.gov/?" class="ma__form js-organization-navigation__search">
           <label for="organization-navigation-search" class="visuallyhidden">Search this organization</label>
           <input
               id="organization-navigation-search"
               class="ma__form js-organization-navigation__search-input"
-              placeholder="Search {{ organizationNavigation.orgNavTitle }} {% if organizationNavigation.orgNavAbbrev %} ({{ organizationNavigation.orgNavAbbrev }}) {% endif %}"
+              placeholder="Search {{ organizationNavigation.orgNavTitle }}{% if organizationNavigation.orgNavAbbrev %}({{ organizationNavigation.orgNavAbbrev }}){% endif %}"
               type="text"
               name="q" />
           {% if organizationNavigation.orgId %}

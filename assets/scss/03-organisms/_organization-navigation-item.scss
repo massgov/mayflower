@@ -29,7 +29,7 @@
 
     &.has-subnav {
       background-color: transparent;
-      boxshadow: 0;
+      box-shadow: 0;
       transition: 0.8s ease-out;
 
       button {
@@ -66,7 +66,7 @@
       @media ($bp-large-min) {
         background-color: $c-white;
         transition: 0.5s ease-out;
-        box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
+        box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
       } 
     }
 
@@ -148,12 +148,12 @@
       width: auto;
       max-width: 100%;
       background-color: $c-white;
-      box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
+      box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
       z-index: 0;
       
       .item-open & {
         max-height: 100vh;
-        transition: max-height .6s ease-in-out;
+        transition: max-height 0.6s ease-in-out;
         z-index: $z-dropdown;
       }
     }
@@ -233,7 +233,7 @@
       }
 
       @supports not (-ms-high-contrast: none) {
-        flex-grow:1;
+        flex-grow: 1;
         flex-basis: 0;
       }
 
@@ -284,7 +284,7 @@
         display: inline-block;
         font-weight: 700;
         background-color: #fff;
-        outline:3px solid rgba($c-theme-primary, 0.5);
+        outline: 3px solid rgba($c-theme-primary, 0.5);
         padding: 0.2rem 0.5rem;
         margin-top: 1rem;
         transition: all 0.4s ease;
@@ -409,7 +409,7 @@
     // these styles are defined multiple places for page level contact groups
     @media ($bp-medium-min) {
       width: auto !important;
-      margin-left:0 !important;
+      margin-left: 0 !important;
       border-left: 0 !important;
       padding-left: 0 !important;
       float: none !important;

@@ -1,9 +1,11 @@
+$menu-transition-time: 0.3s;
+
 .ma__organization-navigation {
   background-color: $c-bg-section;
   margin-top: -20px;
   margin-bottom: 20px;
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity $menu-transition-time;
 
   @media ($bp-x-small-min) {
     margin-top: -40px;
@@ -70,7 +72,7 @@
       overflow: hidden;
       position: relative; 
       line-height: 1.2em;
-      /* max-height = line-height (1.2) * lines max number (2) */
+      // max-height = line-height (1.2) * lines max number (2) 
       max-height: 2.4em; 
       max-width: 90%;
       margin-right: -1em;
@@ -102,11 +104,10 @@
       height: 35px;
       background-color: transparent;
       color: $c-theme-green;
-      transition: 0.3s;
+      transition: $menu-transition-time;
   
       &::after {
         content: '\00d7';
-        font-size: 33.6px;
         font-size: 2.1rem;
         font-weight: 500;
         line-height: 0;
@@ -135,7 +136,7 @@
       .mobile-toggle-icon {
         background-color: $c-theme-blue;
         color: $c-white;
-        transition: 0.3s;
+        transition: $menu-transition-time;
 
         &::after {
           transform: translate(-50%, -50%) rotate(0deg);
@@ -182,7 +183,7 @@
     &--wrapper {
      
       @media ($bp-large-min) {
-        max-width: 0px;
+        max-width: 0;
         pointer-events: none;
         opacity: 0;
         transition: 0s;
@@ -192,7 +193,7 @@
           width: 100%;
           pointer-events: auto;
           opacity: 1;
-          transition: .4s;
+          transition: $menu-transition-time;
           margin-right: 15px;
         }
       }
@@ -266,7 +267,6 @@
         
         &::after {
           content: '\00d7';
-          font-size: 30px;
           font-size: 2.1rem;
           font-weight: 600;
           line-height: 0;
@@ -287,7 +287,7 @@
         height: 20px;
         fill: $c-theme-green;
         position: absolute;
-        left: 15px;;
+        left: 15px;
         top: 50%;
         transform: translateY(-50%);
 

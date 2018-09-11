@@ -2,9 +2,9 @@ export default (function (window,document,$,undefined) {
 
   $('.ma__organization-navigation').each(function() {
     // Org Nav Wrapper.
-    let $orgNav = $(this);
-    let $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
-    let $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
+    const $orgNav = $(this);
+    const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
+    const $menuWrapper = $orgNav.find('.ma__organization-navigation--inner-wrapper');
 
     // Page wrapper and fillers. 
     const $pageWrapper = $orgNav.parent().next();
@@ -13,14 +13,16 @@ export default (function (window,document,$,undefined) {
     let $locationsLink = $pageWrapper.find('.ma__mapped-locations');
     let $relatedOrgs = $pageWrapper.find('.ma__our-organizations');
 
+    const feedbackButton = $('body').find('.ma__fixed-feedback-button');
+
     // Mobile Menu vars.
-    let $mobileToggle = $orgNav.find('.ma__organization-navigation__mobile-toggle');
+    const $mobileToggle = $orgNav.find('.ma__organization-navigation__mobile-toggle');
     const mobileBreak = 910;
 
     // Search Wrapper vars.
-    let $orgNavSearchForm = $orgNav.find('.js-organization-navigation__search');
-    let $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
-    let $searchToggle = $orgNav.find('.ma__organization-navigation__search .js-search-toggle');
+    const $orgNavSearchForm = $orgNav.find('.js-organization-navigation__search');
+    const $orgNavSearchInput = $orgNav.find('#organization-navigation-search');
+    const $searchToggle = $orgNav.find('.ma__organization-navigation__search .js-search-toggle');
 
     // Subnav buttons. 
     let $menuButton = $orgNav.find('.subnav-toggle');
@@ -28,12 +30,11 @@ export default (function (window,document,$,undefined) {
     // I want to section.
     let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
 
-
     // Sticky on scroll.
     if($('.pre-content').length) {
       const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
       let menuHeight = $orgNav.height();
-      $(window).scroll(function () {
+      $(window).scroll(function() {
         const orgWindowTop = $(window).scrollTop();
         let windowWidth = $(window).width();
 
@@ -41,15 +42,16 @@ export default (function (window,document,$,undefined) {
         if (bannerBottom > orgWindowTop) {
           $('.pre-content').removeAttr('style');
           $orgNav.removeClass('stuck');
-        } else {
-          $('.pre-content').css("padding-top", menuHeight);
+        } 
+        else {
+          $('.pre-content').css('padding-top', menuHeight);
           $orgNav.addClass('stuck');
         }
       });
     }  
 
     // Mobile toggle. 
-    $mobileToggle.on( 'click', function() {
+    $mobileToggle.on('click', function() {
       
       if(!$orgNav.hasClass('stuck')) {
         $orgNav.addClass('stuck')
@@ -64,12 +66,12 @@ export default (function (window,document,$,undefined) {
       // Lock body scroll on mobile open/close.
       $('body').toggleClass('scroll-disabled');
 
-      $('body').find('.ma__fixed-feedback-button').toggle();
+      feedbackButton.toggle();
 
     });
 
     // Search form swing open/closed.
-    $searchToggle.on( 'click', function() {
+    $searchToggle.on('click', function() {
       $menuWrapper.toggleClass('form-open');
 
       let $buttonLabel = $searchToggle.find('.search-label');
@@ -102,7 +104,7 @@ export default (function (window,document,$,undefined) {
         };
       });
 
-      $button.on( 'click', function() {
+      $button.on('click', function() {
         let windowWidth = $(window).width();
 
         if(windowWidth < mobileBreak) {
@@ -162,7 +164,6 @@ export default (function (window,document,$,undefined) {
 
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
   
-
     $(".internal-link").on('click', function(e) {
       // Close open menus and reset markup.
       $('.menu-open').removeClass('menu-open');
@@ -171,19 +172,19 @@ export default (function (window,document,$,undefined) {
       $('.section-toggle').remove();
 
       e.preventDefault();
-      let location = $(this).attr("href");
-      $('html,body').animate({scrollTop: $(location).offset().top - 120}, 1000 );
+      let location = $(this).attr('href');
+      $('html, body').animate({scrollTop: $(location).offset().top - 120}, 1000);
 
-      if($('body').find('.ma__fixed-feedback-button').is(":hidden")) {
-        $('body').find('.ma__fixed-feedback-button').show();
+      if(feedbackButton.is(":hidden")) {
+        feedbackButton.show();
       }
     });
 
-    $(window).on("resize", function () {
+    $(window).on("resize", function() {
       let windowWidth = $(window).width();
       let $contactGroups = $orgNav.find('.ma__org-nav-contact-us .ma__contact-group');
 
-      if (windowWidth > 910) {
+      if (windowWidth > mobileBreak) {
         // Check if already wrapped.
         if($('.wrappedGroup').length === 0){
 
@@ -191,7 +192,8 @@ export default (function (window,document,$,undefined) {
             // If no 'see all link', wrap address separately.
             $('.ma__contact-group:first-child').addClass('wrappedGroup');
             $contactGroups = $contactGroups.not(':first');
-          } else {
+          } 
+          else {
             $contactGroups.slice(0, 2).wrapAll("<div class='wrappedGroup' />");
             $contactGroups = $contactGroups.slice(2);
           }

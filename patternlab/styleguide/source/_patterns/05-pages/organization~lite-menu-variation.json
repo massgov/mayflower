@@ -171,19 +171,20 @@
                                         "details": ""
                                     }
                                 ]
-                            },{
-                              "items": [
-                                  {
-                                      "type": "seeAllLink",
-                                      "link": {
-                                          "href": "#",
-                                          "text": "See all locations",
-                                          "info": ""
-                                      },
-                                      "details": ""
-                                  }
-                              ]
-                          },
+                            },
+                            {
+                                "items": [
+                                    {
+                                        "type": "seeAllLink",
+                                        "link": {
+                                            "href": "#",
+                                            "text": "See all locations",
+                                            "info": ""
+                                        },
+                                        "details": ""
+                                    }
+                                ]
+                            },
                             {
                                 "icon": "phone",
                                 "name": "Phone",
@@ -251,48 +252,48 @@
                                 ]
                             },
                             {
-                              "icon": "laptop",
-                              "name": "Online",
-                              "hidden": "",
-                              "items": [
-                                  {
-                                      "type": "online",
-                                      "property": "",
-                                      "label": "Contact Us",
-                                      "link": {
-                                          "href": "#",
-                                          "text": "Email question, contacts, suggestions",
-                                          "info": "",
-                                          "property": ""
-                                      },
-                                      "details": ""
-                                  },
-                                  {
-                                    "type": "online",
-                                    "property": "",
-                                    "label": "MassTaxConnect",
-                                    "link": {
-                                        "href": "#",
-                                        "text": "Log in to file and pay taxes.  ",
-                                        "info": "",
-                                        "property": ""
+                                "icon": "laptop",
+                                "name": "Online",
+                                "hidden": "",
+                                "items": [
+                                    {
+                                        "type": "online",
+                                        "property": "",
+                                        "label": "Contact Us",
+                                        "link": {
+                                            "href": "#",
+                                            "text": "Email question, contacts, suggestions",
+                                            "info": "",
+                                            "property": ""
+                                        },
+                                        "details": ""
                                     },
-                                    "details": ""
-                                },
-                                {
-                                  "type": "online",
-                                  "property": "",
-                                  "label": "Receive email updates",
-                                  "link": {
-                                      "href": "#",
-                                      "text": "Subscribe to receive updates from DOR. ",
-                                      "info": "",
-                                      "property": ""
-                                  },
-                                  "details": ""
-                              }
-                              ]
-                          }
+                                    {
+                                        "type": "online",
+                                        "property": "",
+                                        "label": "MassTaxConnect",
+                                        "link": {
+                                            "href": "#",
+                                            "text": "Log in to file and pay taxes.  ",
+                                            "info": "",
+                                            "property": ""
+                                        },
+                                        "details": ""
+                                    },
+                                    {
+                                        "type": "online",
+                                        "property": "",
+                                        "label": "Receive email updates",
+                                        "link": {
+                                            "href": "#",
+                                            "text": "Subscribe to receive updates from DOR. ",
+                                            "info": "",
+                                            "property": ""
+                                        },
+                                        "details": ""
+                                    }
+                                ]
+                            }
                         ]
                     }
                 }
