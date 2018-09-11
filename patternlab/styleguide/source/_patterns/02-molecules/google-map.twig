@@ -29,6 +29,7 @@
           label: "{{ marker.label }}", // single character only
           infoWindow: {
             name: "{{ marker.infoWindow.name|e('js') }}",
+            link: "{{ marker.infoWindow.link|e('js') }}",
             phone: "{{ marker.infoWindow.phone|e('js') }}",
             fax: "{{ marker.infoWindow.fax|e('js') }}",
             email: "{{ marker.infoWindow.email|e('js') }}",
