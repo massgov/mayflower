@@ -27,4 +27,8 @@
     z-index: $z-sticky-content;
     pointer-events: auto;
   }
+
+  &.hide-button {
+    display: none;
+  }
 } 
