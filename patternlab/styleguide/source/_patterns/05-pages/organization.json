@@ -446,7 +446,7 @@
                   "data": {
                       "contactRow": {
                           "compHeading": {
-                              "title": "Contact Us",
+                              "title": "Contact us",
                               "sub": "",
                               "color": "",
                               "id": "contact us",
@@ -850,7 +850,7 @@
                           "sectionClass": "ma__our-organizations",
                           "blocks": true,
                           "compHeading": {
-                              "title": "Our Organizations",
+                              "title": "Our organizations",
                               "sub": "",
                               "color": "",
                               "id": "",
