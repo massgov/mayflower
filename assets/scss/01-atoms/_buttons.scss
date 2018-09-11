@@ -6,7 +6,6 @@ button {
 
 .ma__button {
   @include ma-button("normal");
-  @include ma-button("normal","solid",$c-primary);
 }
 
 .ma__button--small { 
@@ -15,6 +14,10 @@ button {
 
 .ma__button--large { 
   @include ma-button("large");
+}
+
+.ma__button {
+  @include ma-button("normal","solid",$c-primary);
 }
 
 .ma__button--c-primary-alt {
