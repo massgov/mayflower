@@ -144,7 +144,7 @@ export default (function (window,document,$,undefined) {
 
     if($relatedOrgs.length){
       $relatedOrgs.attr('id', 'organizations');
-      $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#organizations">Our Organizations</a></li>');
+      $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#organizations">Our organizations</a></li>');
     }
 
     if($newsLink.length){
