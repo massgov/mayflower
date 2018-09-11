@@ -7,6 +7,9 @@
 
     .ma__button-icon {
       border-right: none;
+      svg {
+        fill: $c-theme-secondary;
+      }
     }
 
     &--responsive {
