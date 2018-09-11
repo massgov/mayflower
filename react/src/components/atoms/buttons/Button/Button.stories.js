@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 import Button from './index';
@@ -17,6 +17,7 @@ storiesOf('atoms/buttons', module).addDecorator(withKnobs)
       type: select('button.type', buttonOptions.type),
       size: select('button.size', buttonOptions.size),
       info: text('button.info', 'this will be the tooltip text on hover'),
+      disabled: boolean('button.disabled', false),
       text: text('button.text', 'Button'),
       href: text('button.href', ''),
       onClick: action('button clicked')

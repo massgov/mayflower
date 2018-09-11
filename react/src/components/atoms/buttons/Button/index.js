@@ -8,7 +8,8 @@ const Button = (button) => {
     ma__button: true,
     [`ma__button--${button.usage}`]: button.usage,
     [`ma__button--${button.size}`]: button.size,
-    [`ma__button--${button.theme}`]: button.theme
+    [`ma__button--${button.theme}`]: button.theme,
+    'ma__button--disabled': button.disabled
   });
   const Element = button.href ? 'a' : 'button';
   const onClickCallback = (e) => {
@@ -48,7 +49,9 @@ Button.propTypes = {
   /** Themes correspond to site color scheme i.e. sass variables */
   theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark']),
   /** Button usage */
-  usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary'])
+  usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary']),
+  /** Set button to disabled */
+  disabled: PropTypes.bool
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.
@@ -57,7 +60,8 @@ Button.defaultProps = {
   type: '',
   size: '',
   theme: 'c-primary',
-  usage: ''
+  usage: '',
+  disabled: false
 };
 
 export default Button;
