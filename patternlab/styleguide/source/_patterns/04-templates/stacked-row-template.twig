@@ -14,6 +14,11 @@
   </div>
   <div class="ma__stacked-row">
     {% block stackedRowContent %}
+      {% if jumpLinks %}
+        <div class="ma__stacked-row__jump-links">
+          {% include "@organisms/by-template/jump-links.twig" %}
+        </div>
+      {% endif %}
 
       {# backward compatible with v 5.6 - stackedRowSections becomes stackedRows #}
       {% if stackedRowSections %}
