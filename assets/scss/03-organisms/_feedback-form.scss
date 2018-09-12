@@ -168,7 +168,7 @@ $feedback-form-bp-min: "min-width: 751px";
   }
 
   &__title {
-    @include ma-border-decorative($c-theme-tertiary,1);
+    @include ma-border-decorative($c-highlight,1);
     color: $c-font-inverse;
   }
 
@@ -177,7 +177,7 @@ $feedback-form-bp-min: "min-width: 751px";
     button,
     input[type="button"],
     input[type="submit"] {
-      @include ma-button("normal","solid",$c-theme-primary);
+      @include ma-button("normal","solid",$c-primary);
     }
   }
 

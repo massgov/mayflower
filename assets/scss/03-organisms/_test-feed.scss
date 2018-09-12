@@ -109,13 +109,13 @@
 .ma__test-feed {
 
   &__title {
-    @include ma-border-decorative($c-theme-secondary);
+    @include ma-border-decorative($c-primary-alt);
   }
 
   &__icon {
 
     svg {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
     }
   }
   
