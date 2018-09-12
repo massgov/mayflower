@@ -98,7 +98,7 @@
 
   @if($c-bg != transparent) {
     background-color: $c-bg;
-    color: white;
+    color: $c-white;
 
     &:after {
       background-color: $c-page;

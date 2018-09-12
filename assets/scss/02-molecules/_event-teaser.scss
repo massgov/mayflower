@@ -129,7 +129,7 @@
   }
 
   &__graphic {
-    background-color: tint($c-theme-secondary, 80%);
+    background-color: tint($c-primary-alt, 80%);
   }
 
   &__spacer {
@@ -141,7 +141,7 @@
   }
 
   &__day {
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
     font-weight: 800;
   }
 
