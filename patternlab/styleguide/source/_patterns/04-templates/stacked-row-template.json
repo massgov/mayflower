@@ -1,18 +1,4 @@
 {
-  "jumpLinks": {
-    "title": "In this guide",
-    "links": [{
-      "text": "Row with sidebar",
-      "href": "row-with-sidebar"
-    },{
-      "text": "Full with row",
-      "href": "full-width-row"
-    },{
-      "text": "Mix and match as desired",
-      "href": "mix-and-match-as-desired"
-    }]
-  },
-
   "stackedRows": [{
     "title": "Row with sidebar",
     "id": "row-with-sidebar",
