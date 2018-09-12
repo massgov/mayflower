@@ -112,7 +112,7 @@
             },
             {
                 "section": "contact-us",
-                "title": "Contact Us",
+                "title": "Contact us",
                 "subNav": {
                     "orgMenuContactRow": {
                         "compHeading": {
@@ -258,7 +258,7 @@
             },
             {
                 "section": "mobileLogin",
-                "title": "Log in to",
+                "title": "Log in to...",
                 "subNav": {
                     "mobileLogin": {
                         "icon": "icon-login-v2",
