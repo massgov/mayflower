@@ -1,0 +1,85 @@
+// Designer to Developer translations
+// Extra Light => 200
+// Light => 300
+// Regular => 400
+// Medium => 500
+// Semibold => 600
+// Bold => 700
+// Black => 800
+
+// Extra Light | 200
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url("#{$assets-path}/fonts/texta-light-webfont.eot");
+  src: url("#{$assets-path}/fonts/texta-light-webfont.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/texta-light-webfont.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/texta-light-webfont.woff") format("woff"),
+  url("#{$assets-path}/fonts/texta-light-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-light-webfont.svg#open_sansregular") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+//
+
+// Light | 300
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url("#{$assets-path}/fonts/texta-light-webfont.eot");
+  src: url("#{$assets-path}/fonts/texta-light-webfont.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/texta-light-webfont.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/texta-light-webfont.woff") format("woff"),
+  url("#{$assets-path}/fonts/texta-light-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-light-webfont.svg#open_sansregular") format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+//
+
+// Book | 400
+@font-face {
+  font-family: 'Texta';
+  src: url("#{$assets-path}/fonts/texta-book-webfont.eot");
+  src: url("#{$assets-path}/fonts/texta-book-webfont.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/texta-book-webfont.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/texta-book-webfont.woff") format("woff"),
+  url("#{$assets-path}/fonts/texta-book-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-book-webfont.svg#open_sansregular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+// Medium | 500
+@font-face {
+  font-family: 'Texta';
+  src: url("#{$assets-path}/fonts/texta-medium-webfont.eot");
+  src: url("#{$assets-path}/fonts/texta-medium-webfont.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/texta-medium-webfont.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/texta-medium-webfont.woff") format("woff"),
+  url("#{$assets-path}/fonts/texta-medium-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-medium-webfont.svg#open_sansregular") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+// Bold | 700
+@font-face {
+  font-family: 'Texta';
+  src: url("#{$assets-path}/fonts/texta-bold-webfont.eot");
+  src: url("#{$assets-path}/fonts/texta-bold-webfont.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/texta-bold-webfont.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/texta-bold-webfont.woff") format("woff"),
+  url("#{$assets-path}/fonts/texta-bold-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bold-webfont.svg#open_sansregular") format("svg");
+  font-weight: 700;
+  font-style: normal;
+
+}
+
+
+// Black | 800
+@font-face {
+  font-family: 'Texta';
+  src: url("#{$assets-path}/fonts/texta-black-webfont.eot");
+  src: url("#{$assets-path}/fonts/texta-black-webfont.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/texta-black-webfont.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/texta-black-webfont.woff") format("woff"),
+  url("#{$assets-path}/fonts/texta-black-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-black-webfont.svg#open_sansregular") format("svg");
+  font-weight: 800;
+  font-style: normal;
+
+}
