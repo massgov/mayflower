@@ -95,6 +95,7 @@ export default (function (window,document,$,undefined) {
 
     $(window).scroll(function () {
       setPosition();
+
       if(!linkScrolling){
         activateLink();
       }
@@ -191,8 +192,10 @@ export default (function (window,document,$,undefined) {
       }
 
       // get the current scroll position and offset by half the view port
-      let windowTop = $(window).scrollTop() + (window.innerHeight/2),
+      let windowTop = $(window).scrollTop() + (window.innerHeight/9),
           currentAnchor = activeAnchorIndex;
+          console.log(windowTop);
+          console.log(window.innerHeight/9);
 
       // is there a prev target
       // and
