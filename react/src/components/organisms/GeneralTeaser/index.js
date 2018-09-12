@@ -62,7 +62,7 @@ TeaserOrg.propTypes = {
 const GeneralTeaser = (generalTeaser) => {
   const imageClass = generalTeaser.image ? 'ma__general-teaser ma__general-teaser--image' : 'ma__general-teaser';
   const Element = `h${generalTeaser.level || 2}`;
-  const secondaryInfoClass = (!generalTeaser.primaryInfo && generalTeaser.secondaryInfo) ? 'ma__general-teaser__secondary--border' : 'ma__general-teaser__secondary';
+  const secondaryInfoClass = (!generalTeaser.primaryInfo && generalTeaser.secondaryInfo) ? 'ma__general-teaser__secondary' : 'ma__general-teaser__secondary--border';
   return(
     <section className={imageClass}>
       { generalTeaser.image && generalTeaser.image.src && (
@@ -100,13 +100,11 @@ const GeneralTeaser = (generalTeaser) => {
             {generalTeaser.description}
           </div>
         )}
-        <span className="ma__general-teaser__date">
-          { generalTeaser.subLinks && (
-            <div className="ma__general-teaser__sublink">
-              { generalTeaser.subLinks.map((sublink) => sublink)}
-            </div>
-          )}
-        </span>
+        { generalTeaser.subLinks && (
+          <div className="ma__general-teaser__sublink">
+            { generalTeaser.subLinks.map((sublink) => sublink)}
+          </div>
+        )}
         { (generalTeaser.secondaryInfo || generalTeaser.primaryInfo) && (
           <div className="ma__general-teaser__moreinfo">
             { generalTeaser.primaryInfo && (
@@ -141,10 +139,14 @@ GeneralTeaser.propTypes = {
   }),
   /** The short for tag that will appear in the eyebrow, e.g. press release */
   eyebrow: PropTypes.string,
-  /** A linked title for the teaser content, @atoms/links/DecorativeLink */
+  /** A linked title for the teaser content. Required. DecorativeLink component. */
+  // eslint-disable-next-line consistent-return
   title: (props, propName, componentName) => {
     const component = props[propName];
     const isValid = (comp) => {
+      if (!comp) {
+        return false;
+      }
       if (typeof comp.type === 'string') {
         return comp.type === 'DecorativeLink';
       }
@@ -160,28 +162,39 @@ GeneralTeaser.propTypes = {
   date: PropTypes.string,
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
-  /** A short description of the teaser content, rendered as a paragraph */
+  /** A short description of the teaser content. This should be set to a Paragraph component. */
+  // eslint-disable-next-line consistent-return
   description: (props, propName, componentName) => {
     const component = props[propName];
     const isValid = (comp) => {
+      if (!comp) {
+        return false;
+      }
       if (typeof comp.type === 'string') {
         return comp.type === 'Paragraph';
       }
       return comp.type.name && comp.type.name === 'Paragraph';
     };
-    if (!isValid(component)) {
+    if (component && !isValid(component)) {
       return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
     }
   },
-  /** A list of decorative sublinks * */
+  /** An array of DecorativeLink components. */
+  // eslint-disable-next-line consistent-return
   subLinks: (props, propName, componentName) => {
     const component = props[propName];
     const isValid = (comp) => {
+      if (!comp) {
+        return false;
+      }
       if (!Array.isArray(comp)) {
         return false;
       }
       let valid = false;
       comp.every((child) => {
+        if (!child) {
+          return valid;
+        }
         if (typeof child.type === 'string') {
           valid = child.type === 'DecorativeLink';
         }
@@ -190,32 +203,43 @@ GeneralTeaser.propTypes = {
       });
       return valid;
     };
-    if (!isValid(component)) {
+    if (component && !isValid(component)) {
       return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
     }
   },
-  /** A list of contact information * */
+  /** A ContactGroup component used to display primary information. */
+  // eslint-disable-next-line consistent-return
   primaryInfo: (props, propName, componentName) => {
     const component = props[propName];
     const isValid = (comp) => {
+      if (!comp) {
+        return false;
+      }
       if (typeof comp.type === 'string') {
         return comp.type === 'ContactGroup';
       }
       return comp.type.name && comp.type.name === 'ContactGroup';
     };
-    if (!isValid(component)) {
+    if (component && !isValid(component)) {
       return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
     }
   },
-  /** Secondary Info */
+  /** An array of IconLink components. */
+  // eslint-disable-next-line consistent-return
   secondaryInfo: (props, propName, componentName) => {
     const component = props[propName];
     const isValid = (comp) => {
+      if (!comp) {
+        return false;
+      }
       if (!Array.isArray(comp)) {
         return false;
       }
       let valid = false;
       comp.every((child) => {
+        if (!child) {
+          return valid;
+        }
         if (typeof child.type === 'string') {
           valid = child.type === 'IconLink';
         }
@@ -224,10 +248,17 @@ GeneralTeaser.propTypes = {
       });
       return valid;
     };
-    if (!isValid(component)) {
+    if (component && !isValid(component)) {
       return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
     }
   }
+};
+
+GeneralTeaser.defaultProps = {
+  subLinks: null,
+  secondaryInfo: null,
+  primaryInfo: null,
+  description: null
 };
 
 export default GeneralTeaser;

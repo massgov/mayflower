@@ -11,12 +11,9 @@ If a teaser image is provided, it will link to the title's href, if set.
 
 ### Pattern Contains
 * Decorative Link
+* Icon Link
 * Paragraph
 * ContactGroup
-* SvgMarker
-* SvgPhone
-* SvgLaptop
-* SvgFax
 * SvgChevron
 
 ### Variables
@@ -32,7 +29,7 @@ GeneralTeaser.propTypes = {
   /** The short for tag that will appear in the eyebrow, e.g. press release */
   eyebrow: PropTypes.string,
   /** A linked title for the teaser content, @atoms/links/DecorativeLink */
-  title: PropTypes.shape(DecorativeLink.propTypes).isRequired,
+  title: DecorativeLink.isRequired,
   /** The heading level */
   level: PropTypes.number,
   /** The date the teaser content represents */
@@ -40,15 +37,12 @@ GeneralTeaser.propTypes = {
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
   /** A short description of the teaser content, rendered as a paragraph */
-  description: PropTypes.shape(Paragraph.propTypes),
+  description: Paragraph,
   /** A list of descorative sublinks * */
-  subLinks: PropTypes.arrayOf(PropTypes.shape(DecorativeLink.propTypes)),
+  subLinks: PropTypes.arrayOf(DecorativeLink),
   /** A list of contact information * */
-  primaryInfo: PropTypes.shape(ContactGroup.propTypes),
+  primaryInfo: ContactGroup,
   /** Secondary Info */
-  secondaryInfo: PropTypes.arrayOf(PropTypes.shape({
-    icon: PropTypes.oneOf(['SvgMarker', 'SvgPhone', 'SvgLaptop', 'SvgFax']),
-    linkedTitle: PropTypes.shape(DecorativeLink.propTypes)
-  }))
+  secondaryInfo: PropTypes.arrayOf(IconLink)
 };
 ~~~

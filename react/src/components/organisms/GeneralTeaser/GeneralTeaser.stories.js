@@ -3,12 +3,12 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean, number, object, array } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import GeneralTeaser from './index';
-import { SecondaryInfo, Paragraph, DecorativeLink, ContactGroup, IconLink, Link } from '../../../index';
+import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link } from '../../../index';
 
 import GeneralTeaserDocs from './GeneralTeaser.md';
 
 
-storiesOf('molecules', module).addDecorator(withKnobs)
+storiesOf('organisms', module).addDecorator(withKnobs)
   .add('GeneralTeaser', withInfo(`<div>${GeneralTeaserDocs}</div>`)(() => {
     const props = {
       image: {
@@ -90,39 +90,127 @@ storiesOf('molecules', module).addDecorator(withKnobs)
     // If you want to make scenarios for each function, use the value of the backstop query param.
     if (window.location.search.indexOf('backstop') > -1) {
       const teasers = [];
-      // Add default view from story.
+      // Add teaser using defaults from story.
       teasers.push(props);
       // Tests file icon next to url title.
       const addUrlFileIconTests = () => {
-        const typeProps = { ...props.title };
-        typeProps.showFileIcon = true;
+        const typeProps = {
+          info: 'Title info here',
+          text: 'Lorem ipsum dolor sit amet',
+          href: '#',
+          showFileIcon: true
+        };
         const knownTypes = ['pdf', 'docx', 'xlxs', 'generic'];
         // Make a teaser for each icon to ensure it displays.
-        knownTypes.forEach((type) => {
-          typeProps.href = `index.${type}`;
-          teasers.push({ title: { ...typeProps } });
+        knownTypes.forEach((value) => {
+          typeProps.href = `index.${value}`;
+          typeProps.showFileIcon = true;
+          teasers.push({ title: <DecorativeLink {...typeProps} /> });
         });
       };
       // Tests file icon next to sublink url title.
       const addSubLinkUrlFileIconTests = () => {
-        const typeProps = { ...props.title };
-        typeProps.showFileIcon = true;
+        const typeProps = {
+          info: 'Title info here',
+          text: 'Lorem ipsum dolor sit amet',
+          href: '#',
+          showFileIcon: true
+        };
         const knownTypes = ['pdf', 'docx', 'xlxs', 'generic'];
         // Make a teaser for each icon to ensure it displays.
         knownTypes.forEach((type, index) => {
           typeProps.href = `index.${type}`;
-          const key = `${props.subLinks[0].key}.${index}`;
-          teasers.push({ title: props.title, subLinks: [{ key, ...typeProps }] });
+          typeProps.key = `${props.subLinks[0].key}.${index}`;
+          teasers.push({ title: props.title, subLinks: [<DecorativeLink {...typeProps} />] });
         });
       };
-      // Generate teasers for backstop.
+      // Tests all primaryinfo combinations.
+      const addPrimaryInfoTests = () => {
+        const titleProps = {
+          info: 'Title info here',
+          text: 'Lorem ipsum dolor sit amet',
+          href: '#',
+          showFileIcon: false
+        };
+        const primaryProps = {
+          icon: 'SvgMarker',
+          name: 'Online',
+          text: 'Text for the primaryInfo prop',
+          level: 1,
+          items: []
+        };
+        const knownTypes = ['phone', 'online', 'email', 'address'];
+        knownTypes.forEach((value, index) => {
+          const primaryItem = {
+            type: value,
+            label: `Primary Info Label ${index}`,
+            address: '123 Imaginary Lane',
+            link: { ...props.title, text: `PrimaryInfo Item Link ${index}` },
+            details: Paragraph.defaultProps.text
+          };
+          switch (value) {
+            case 'phone':
+              primaryItem.label = 'Phone Label';
+              primaryItem.link.href = '1234567890';
+              primaryItem.link.text = '1234567890';
+              break;
+            case 'email':
+              primaryItem.label = 'Email Label';
+              primaryItem.link.href = 'test@test.com';
+              primaryItem.link.text = 'test@test.com';
+              break;
+            default:
+              primaryItem.link.href = '#';
+          }
+          primaryProps.items.push(primaryItem);
+        });
+        teasers.push({ title: <DecorativeLink {...titleProps} />, primaryInfo: <ContactGroup {...primaryProps} /> });
+        // Add primary info teasers without items but with each icon type.
+        primaryProps.items = [];
+        const iconTypes = ['SvgMarker', 'SvgPhone', 'SvgLaptop', 'SvgFax'];
+        // Since there is also four names to check, cheat and use the index.
+        const nameTypes = ['Phone', 'Online', 'Fax', 'Address'];
+        iconTypes.forEach((value, index) => {
+          primaryProps.icon = value;
+          primaryProps.name = nameTypes[index];
+          teasers.push({ title: <DecorativeLink {...titleProps} />, primaryInfo: <ContactGroup {...primaryProps} /> });
+        });
+      };
+      // Tests all secondaryInfo combinations.
+      const addSecondaryInfoTests = () => {
+        const titleProps = {
+          info: 'Title info here',
+          text: 'Lorem ipsum dolor sit amet',
+          href: '#',
+          showFileIcon: false
+        };
+        const secondaryInfo = [];
+        const iconTypes = ['marker', 'phone', 'laptop', 'fax'];
+        const secondary = {
+          iconClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__general-teaser__secondaryicon']),
+          wrapperClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__decorative-link'])
+        };
+        // Link props for secondaryInfo.
+        const secondaryLink = { ...titleProps };
+        secondaryLink.text = 'Secondary Link';
+        secondary.link = <Link {...secondaryLink} />;
+        iconTypes.forEach((value) => {
+          secondary.icon = value;
+          secondaryInfo.push(<IconLink {...secondary} />);
+        });
+        teasers.push({ title: <DecorativeLink {...titleProps} />, secondaryInfo });
+      };
+      // Generate each GeneralTeaser for backstop.
       const makeTeasers = () => teasers.map((value, index) => {
         const key = `GeneralTeaser.${index}`;
         const backstopProps = { key, ...value };
         return<GeneralTeaser {...backstopProps} />;
       });
+
       addUrlFileIconTests();
       addSubLinkUrlFileIconTests();
+      addPrimaryInfoTests();
+      addSecondaryInfoTests();
       return makeTeasers();
     }
     return(
