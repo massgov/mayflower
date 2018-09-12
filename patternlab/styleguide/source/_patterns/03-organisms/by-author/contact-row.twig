@@ -2,8 +2,10 @@
   {% set contactHeading = 2 %}
   {% set contactHeading = (contactRow.compHeading.level ? : contactHeading) + 1 %}
 
-  {% set compHeading = contactRow.compHeading %}
-  {% include "@atoms/04-headings/comp-heading.twig" %}
+   {% if contactRow.compHeading %}
+    {% set compHeading = contactRow.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% endif %}
 
   {% block contactImage %}
     {% if contactRow.image %}
