@@ -191,11 +191,10 @@ export default (function (window,document,$,undefined) {
         return;
       }
 
-      // get the current scroll position and offset by half the view port
+      // get the current scroll position and trigger change when new link is 10% down the page
       let windowTop = $(window).scrollTop() + (window.innerHeight/9),
           currentAnchor = activeAnchorIndex;
-          console.log(windowTop);
-          console.log(window.innerHeight/9);
+         
 
       // is there a prev target
       // and
