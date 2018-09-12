@@ -86,6 +86,10 @@
     }
   },
 
+  "stickyTOC": {
+    "title": "Table of Contents"
+  },
+
   "COMMENT":"****PAGE CONTENT COMPONENTS****",
 
   "jumpLinks": {
