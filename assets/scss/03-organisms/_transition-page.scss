@@ -38,11 +38,11 @@
 .ma__transition-page {
 
   &:before {
-    background-color: rgba($c-theme-secondary, .15);
+    background-color: rgba($c-primary-alt, .15);
   }
 
   &__icon {
-    fill: $c-theme-secondary;
+    fill: $c-primary-alt;
   }
 
   &__message {

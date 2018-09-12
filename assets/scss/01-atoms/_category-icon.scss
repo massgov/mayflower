@@ -43,7 +43,7 @@
 }
 //theme
 .ma__category-icon {
-  background-color: $c-theme-secondary;
+  background-color: $c-primary-alt;
 
   svg,
   svg > g {
@@ -51,6 +51,6 @@
   }
 
   &:after {
-    background-color: $c-theme-secondary;
+    background-color: $c-primary-alt;
   }
 }

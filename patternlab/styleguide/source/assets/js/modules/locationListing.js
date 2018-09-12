@@ -161,10 +161,7 @@ export default (function (window, document, $) {
       $pagination.on("ma:Pagination:Pagination", handlePagination);
       let defaultPage = getPage();
 
-      if (parseInt(defaultPage, 10) !== 1) {
-        handlePagination(null, defaultPage);
-      }
-
+      handlePagination(null, defaultPage);
     });
 
     // Trigger events to update child components with new data.
