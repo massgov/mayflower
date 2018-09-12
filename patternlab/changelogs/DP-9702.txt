@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Change
-Minor
-- patternlab / DP-9702: replace floating "Tell us what you think" button with fixed feedback button
