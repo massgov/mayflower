@@ -6,8 +6,10 @@
     {% endif %}
     {% if pageOverview.image %}
       <div class="ma__page-overview__event-image">
+      {% block overviewImage %}
         {% set image = pageOverview.image %}
         {% include "@atoms/09-media/image.twig" %}
+      {% endblock %}
       </div>
     {% endif %}
     {% if pageOverview.labelledList %}
