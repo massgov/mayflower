@@ -25,13 +25,13 @@
 .ma__button-search {
   background-color: $c-white;
   border-color: $c-bd-input;
-  color: $c-theme-secondary;
+  color: $c-primary-alt;
   font-size: 14px;
   font-weight: 700;
 
   &:hover {
-    background-color: $c-theme-secondary;
-    border-color: $c-theme-secondary;
+    background-color: $c-primary-alt;
+    border-color: $c-primary-alt;
     color: $c-font-inverse;
 
     svg {
@@ -39,6 +39,6 @@
     }
   }
   svg {
-    fill: $c-theme-secondary;
+    fill: $c-primary-alt;
   }
 }

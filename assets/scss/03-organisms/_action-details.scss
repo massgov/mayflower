@@ -150,7 +150,7 @@
 .ma__action-details {
 
   &__title {
-    @include ma-heading-colored($c-theme-secondary);
+    @include ma-heading-colored($c-primary-alt);
     color: $c-font-inverse;
     font-weight: 700;
   }
@@ -187,6 +187,6 @@
   }
 
   &__toggle-link {
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
   }
 }
