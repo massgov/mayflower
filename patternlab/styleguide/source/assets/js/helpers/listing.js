@@ -89,6 +89,7 @@ export default (function(window, document, undefined, $, moment){
 
     data.pagination.pages = pages;
     data.pagination.currentPage = targetPage;
+    data.pagination.totalPages = totalPages;
 
     return data.pagination;
   }
