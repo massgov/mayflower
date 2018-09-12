@@ -29,7 +29,7 @@
 
     &.has-subnav {
       background-color: transparent;
-      boxshadow: 0;
+      box-shadow: 0;
       transition: 0.8s ease-out;
 
       button {
@@ -37,7 +37,7 @@
         
         &::after {
           float: right;
-          border-color: $c-theme-green;
+          border-color: $c-primary-alt;
           transition: 0.5s ease-out;
           
           @media ($bp-large-min) {
@@ -66,7 +66,7 @@
       @media ($bp-large-min) {
         background-color: $c-white;
         transition: 0.5s ease-out;
-        box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
+        box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
       } 
     }
 
@@ -83,7 +83,7 @@
       color: $c-black;
 
       &.section-toggle {
-        background-color: $c-bg-section;
+        background-color: $c-gray-lightest;
         padding: 1rem 20px;
       }
 
@@ -99,7 +99,7 @@
   }
 
   &__item.mobileLogin {
-    border-top: 1px solid $c-bd-divider;
+    border-top: 1px solid $c-gray-light;
 
     @media ($bp-large-min) {
       display: none;
@@ -148,12 +148,12 @@
       width: auto;
       max-width: 100%;
       background-color: $c-white;
-      box-shadow: 0 0.25rem 0.5rem rgba($c-black,0.25);
+      box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
       z-index: 0;
       
       .item-open & {
         max-height: 100vh;
-        transition: max-height .6s ease-in-out;
+        transition: max-height 0.6s ease-in-out;
         z-index: $z-dropdown;
       }
     }
@@ -185,7 +185,7 @@
     @media ($bp-large-max) {
       font-size: 1.375rem;
       font-weight: 500;
-      color: $c-theme-blue;
+      color: $c-primary;
       margin-bottom: 0;
       padding-bottom: 1rem;
       
@@ -221,7 +221,7 @@
       padding-top: 20px;
 
       &:not(:last-child) {
-        border-bottom: 1px solid $c-bd-divider;
+        border-bottom: 1px solid $c-gray-light;
       }
     }
 
@@ -233,12 +233,12 @@
       }
 
       @supports not (-ms-high-contrast: none) {
-        flex-grow:1;
+        flex-grow: 1;
         flex-basis: 0;
       }
 
       &:not(:first-child) {
-        border-left: 1px solid $c-bd-divider;
+        border-left: 1px solid $c-gray-light;
         border-top: 0;
         padding-left: 2.125rem;
       }
@@ -254,7 +254,7 @@
       &.item-open {
         display: block;
         padding-left: 1.35rem;
-        border-top: 1px solid $c-bd-divider;
+        border-top: 1px solid $c-gray-light;
       }
 
       @media ($bp-large-min) {
@@ -283,16 +283,16 @@
       @media ($bp-large-min) {
         display: inline-block;
         font-weight: 700;
-        background-color: #fff;
-        outline:3px solid rgba($c-theme-primary, 0.5);
+        background-color: $c-white;
+        outline: 3px solid rgba($c-primary, 0.5);
         padding: 0.2rem 0.5rem;
         margin-top: 1rem;
         transition: all 0.4s ease;
 
         &:hover {
           cursor: pointer;
-          background-color: $c-theme-primary;
-          outline: 3px solid $c-theme-primary;
+          background-color: $c-primary;
+          outline: 3px solid $c-primary;
 
           a {
             color: $c-white;
@@ -383,7 +383,7 @@
       @include ma-auto-size(1, 3);
       
       &:not(:first-child) {
-        border-left: 1px solid $c-bd-divider;
+        border-left: 1px solid $c-gray-light;
         padding-left: 2.125rem;
       }
 
@@ -409,7 +409,7 @@
     // these styles are defined multiple places for page level contact groups
     @media ($bp-medium-min) {
       width: auto !important;
-      margin-left:0 !important;
+      margin-left: 0 !important;
       border-left: 0 !important;
       padding-left: 0 !important;
       float: none !important;
@@ -418,7 +418,7 @@
 }
 
 .ma__org-nav-contact-us__custom-options {
-  border-top: 1px solid $c-bd-divider;
+  border-top: 1px solid $c-gray-light;
   display: flex;
   flex-direction: column;
 
@@ -437,7 +437,7 @@
       @include ma-auto-size(1, 3);
 
       &:not(:first-child) {
-        border-left: 1px solid $c-bd-divider;
+        border-left: 1px solid $c-gray-light;
         padding-left: 2.125rem;
       }
 
@@ -466,7 +466,7 @@
   .custom-option-item__label svg {
     width: 20px;
     height: 20px;
-    fill: $c-theme-green;
+    fill: $c-primary-alt;
   }
 }
 

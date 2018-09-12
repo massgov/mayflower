@@ -176,7 +176,7 @@
           },
           {
               "section": "contact-us",
-              "title": "Contact us",
+              "title": "Contact Us",
               "subNav": {
                   "orgMenuContactRow": {
                       "compHeading": {
@@ -199,6 +199,19 @@
                                       "link": {
                                           "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
                                           "text": "directions",
+                                          "info": ""
+                                      },
+                                      "details": ""
+                                  }
+                              ]
+                          },
+                          {
+                              "items": [
+                                  {
+                                      "type": "seeAllLink",
+                                      "link": {
+                                          "href": "#",
+                                          "text": "See all locations",
                                           "info": ""
                                       },
                                       "details": ""
@@ -850,7 +863,7 @@
                           "sectionClass": "ma__our-organizations",
                           "blocks": true,
                           "compHeading": {
-                              "title": "Our organizations",
+                              "title": "Our Organizations",
                               "sub": "",
                               "color": "",
                               "id": "",

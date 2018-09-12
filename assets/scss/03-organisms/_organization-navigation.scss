@@ -1,9 +1,11 @@
+$menu-transition-time: 0.3s;
+
 .ma__organization-navigation {
-  background-color: $c-bg-section;
+  background-color: $c-gray-lightest;
   margin-top: -20px;
   margin-bottom: 20px;
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity $menu-transition-time;
 
   @media ($bp-x-small-min) {
     margin-top: -40px;
@@ -62,15 +64,15 @@
     font-weight: 700;
     line-height: 1.2;
     color: $c-font-dark;
-    border-bottom: 1px solid $c-bd-divider;
-    background-color: $c-bg-section;
+    border-bottom: 1px solid $c-gray-light;
+    background-color: $c-gray-lightest;
     z-index: $z-dropdown;
 
     .mobile-toggle-label {
       overflow: hidden;
       position: relative; 
       line-height: 1.2em;
-      /* max-height = line-height (1.2) * lines max number (2) */
+      // max-height = line-height (1.2) * lines max number (2) 
       max-height: 2.4em; 
       max-width: 90%;
       margin-right: -1em;
@@ -90,7 +92,7 @@
         width: 1em;
         height: 1em;
         margin-top: 0.2em;
-        background: $c-bg-section;
+        background: $c-gray-lightest;
       }
     }
     
@@ -101,12 +103,11 @@
       min-width: 35px;
       height: 35px;
       background-color: transparent;
-      color: $c-theme-green;
-      transition: 0.3s;
+      color: $c-primary-alt;
+      transition: $menu-transition-time;
   
       &::after {
         content: '\00d7';
-        font-size: 33.6px;
         font-size: 2.1rem;
         font-weight: 500;
         line-height: 0;
@@ -133,9 +134,9 @@
       }
 
       .mobile-toggle-icon {
-        background-color: $c-theme-blue;
+        background-color: $c-primary;
         color: $c-white;
-        transition: 0.3s;
+        transition: $menu-transition-time;
 
         &::after {
           transform: translate(-50%, -50%) rotate(0deg);
@@ -145,7 +146,7 @@
   }
 
   &__search {
-    border-bottom: 1px solid $c-bd-divider;
+    border-bottom: 1px solid $c-gray-light;
     order: 1;
     padding: 20px;
 
@@ -162,7 +163,7 @@
 
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           top: 7px;
-          background-color: $c-bg-section;
+          background-color: $c-gray-lightest;
         }
       }
     }
@@ -182,7 +183,7 @@
     &--wrapper {
      
       @media ($bp-large-min) {
-        max-width: 0px;
+        max-width: 0;
         pointer-events: none;
         opacity: 0;
         transition: 0s;
@@ -192,14 +193,14 @@
           width: 100%;
           pointer-events: auto;
           opacity: 1;
-          transition: .4s;
+          transition: $menu-transition-time;
           margin-right: 15px;
         }
       }
     }
 
     .ma__button-search {
-      background-color: $c-theme-green;
+      background-color: $c-primary-alt;
       border-width: 0;
 
       @media ($bp-large-min) {
@@ -216,7 +217,7 @@
         fill: $c-white;
 
         @media ($bp-large-min) {
-          fill: $c-theme-green;
+          fill: $c-primary-alt;
         }
       }
 
@@ -225,7 +226,7 @@
 
         @media ($bp-large-min) {
           display: inline;
-          color: $c-theme-green;
+          color: $c-primary-alt;
         }
       }
 
@@ -233,7 +234,7 @@
         background-color: $c-white;
 
         svg {
-          fill: $c-theme-green;
+          fill: $c-primary-alt;
         }
       }
     }
@@ -243,7 +244,7 @@
       position: relative;
       border: 0;
       background-color: transparent;
-      border-left: 1px solid $c-bd-divider;
+      border-left: 1px solid $c-gray-light;
       font-size: 1rem;
       font-weight: 700;
       padding-left: 35px;
@@ -266,7 +267,6 @@
         
         &::after {
           content: '\00d7';
-          font-size: 30px;
           font-size: 2.1rem;
           font-weight: 600;
           line-height: 0;
@@ -274,7 +274,7 @@
           top: 50%;
           transform: translateY(-50%);
           right: 0;
-          color: $c-theme-green;
+          color: $c-primary-alt;
         }
 
         svg {
@@ -285,9 +285,9 @@
       svg {
         width: 20px;
         height: 20px;
-        fill: $c-theme-green;
+        fill: $c-primary-alt;
         position: absolute;
-        left: 15px;;
+        left: 15px;
         top: 50%;
         transform: translateY(-50%);
 
