@@ -194,7 +194,7 @@
   }
 
   &__title {
-    background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-theme-secondary 35px);
+    background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
     color: $c-white;
     font-weight: 700;
   }
@@ -213,7 +213,7 @@
   &__link {
 
     & > svg {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
 
       @media ($bp-small-max) {
         display: none;
@@ -247,6 +247,6 @@
   }
   
   &__toggle-link {
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
   }
 }
