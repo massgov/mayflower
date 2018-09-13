@@ -21,7 +21,7 @@ export default (function (window, document, $) {
           .wrap('<div class="ma__table--responsive js-ma-responsive-table"><div class="ma__table--responsive__wrapper"></div></div>');
       }
 
-      const $tableNav = $('<nav class="ma__table__horizontal-nav"><button class="ma__table__horizontal-nav__left" aria-controls="{{tableID}}"><span class="visually-hidden">Scroll left</span></button><div class="ma__scroll-indicator" aria-controls="{{tableID}}" role="scrollbar" aria-orientation="horizontal"><div class="ma__scroll-indicator__button"></div></div><button class="ma__table__horizontal-nav__right" aria-controls="{{tableID}}"><span class="visually-hidden">Scroll right</span></button></nav>');
+      const $tableNav = $('<nav class="ma__table__horizontal-nav"><button class="ma__table__horizontal-nav__left" aria-controls="{{tableID}}"><span class="visually-hidden">Scroll left</span></button><div class="clip-scrollbar"><div class="ma__scroll-indicator"><div class="ma__scroll-indicator--bar" aria-controls="{{tableID}}" role="scrollbar" aria-orientation="horizontal"><div class="ma__scroll-indicator__button"></div></div></div></div><button class="ma__table__horizontal-nav__right" aria-controls="{{tableID}}"><span class="visually-hidden">Scroll right</span></button></nav>');
       $this.closest('.ma__table--responsive').prepend($tableNav);
     });
 
