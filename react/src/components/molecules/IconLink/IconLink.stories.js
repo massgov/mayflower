@@ -7,7 +7,7 @@ import { withKnobs, text, select, array } from '@storybook/addon-knobs/react';
 import IconLink from '.';
 import { Link } from '../../../index';
 
-storiesOf('molecules/IconLink', module).addDecorator(withKnobs)
+storiesOf('molecules', module).addDecorator(withKnobs)
   .add('IconLink', withInfo('<div></div>')(() => {
     const linkProps = {
       info: text('IconLink.link.info', 'Title info here'),
