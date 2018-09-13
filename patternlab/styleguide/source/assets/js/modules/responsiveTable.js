@@ -175,6 +175,95 @@ export default (function (window, document, $) {
     });
   }
 
+  // Scroller click handler.
+  function handleScrollerClick(e) {
+    const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
+    let posX = $(this).position().left;
+    let midpoint = $(e.target).offset().left + $(e.target).width() / 2;
+    let clickpoint = e.pageX - posX;
+
+    if (clickpoint < midpoint ) {
+      // Scroll left.
+      $scrollContainer.animate({
+        scrollLeft: $scrollContainer.scrollLeft() - Math.abs(midpoint - clickpoint)
+      }, 250);
+    }
+    else {
+      // Scroll right.
+      $scrollContainer.animate({
+        scrollLeft: $scrollContainer.scrollLeft() + Math.abs(midpoint - clickpoint)
+      }, 250);
+    }
+  }
+
+  function handleScrollerInteraction(e) {
+    const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
+
+    let initialPosition = {
+      x: e.pageX,
+      y: e.pageY
+    };
+
+    function handleMouseUp() {
+      // Remove listeners.
+      $("body")
+        .off("mousemove", handleMouseMove)
+        .off("mouseup", handleMouseUp);
+    }
+
+    function handleMouseMove(e) {
+      let newPosition = {
+        x: e.pageX,
+        y: e.pageY
+      };
+
+      $scrollContainer.scrollLeft($scrollContainer.scrollLeft() + newPosition.x - initialPosition.x);
+    }
+    // Attach to body so you don't get a
+    // disconnected handler if you drag off the bar.
+    $("body")
+      .on("mouseup", handleMouseUp)
+      .on("mousemove", handleMouseMove);
+
+  }
+
+  function scrollbarEventHandlers() {
+    const amountToScroll = 200;
+    // @todo Cache `$scrollContainer` to avoid multiple lookups.
+
+    // Scrollbar left arrow.
+    $(".ma__table__horizontal-nav__left").click(function() {
+      // On click of left arrow element, animate the movement of the scrollbar
+      // to the left by the integer amount defined in `amountToScroll`.
+      const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
+      const currentScrollLeft = $scrollContainer.scrollLeft();
+
+      $scrollContainer.animate({
+        scrollLeft: (currentScrollLeft - amountToScroll) < 0 ? 0 : (currentScrollLeft - amountToScroll)
+      }, 250);
+    });
+
+    // Scrollbar right arrow.
+    $(".ma__table__horizontal-nav__right").click(function() {
+      // On click of left arrow element, animate the movement of the scrollbar
+      // to the left by the integer amount defined in `amountToScroll`.
+      const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
+      $scrollContainer.animate({
+        scrollLeft: $scrollContainer.scrollLeft() + amountToScroll
+      }, 250);
+    });
+
+    // Scroll indicator element.
+    $(".ma__scroll-indicator").on("click", handleScrollerClick);
+
+    $(".ma__scroll-indicator__button")
+      .on("mousedown", handleScrollerInteraction)
+      // Deaden clicking on the scroll button
+      // in order to handle click on parent.
+      .on("click", e => e.stopPropagation());
+
+  }
+
   function recalcScrollbar(rt) {
     const containerWidth = rt.$table.parent().width();
     const tableWidth = rt.$table.width();
@@ -207,6 +296,8 @@ export default (function (window, document, $) {
   }
 
   $(".js-ma-responsive-table").each((i, el) => initializeTable(el));
+
+  scrollbarEventHandlers();
 
   $window.on("scroll", handleScroll);
   $window.on("resize", handleWindowResize);
