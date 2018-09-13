@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Minor
-- (Patternlab) DP-10287: Adds block to page-overview twig file for responsive images.

@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Added
-- (Docs) Release docs 0.2.0 break down and clean up global accessibility guidelines.
