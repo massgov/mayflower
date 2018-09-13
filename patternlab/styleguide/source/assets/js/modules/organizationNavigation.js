@@ -89,10 +89,10 @@ export default (function (window,document,$,undefined) {
       let $button = $(this);
       let $buttonParent = $button.parent('.has-subnav'); 
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
+      let menuHeight = $menuWrapper.outerHeight();
 
       $buttonParent.on('mouseenter mouseleave', function() {
         let windowWidth = $(window).width();
-        let menuHeight = $menuWrapper.outerHeight();
 
         if(windowWidth > mobileBreak) {
           $('.section-toggle').remove();
@@ -102,6 +102,26 @@ export default (function (window,document,$,undefined) {
         else {
           return false;
         };
+      });
+
+      $button.on('focus', function() {
+        $button.keyup(function (e){
+          
+          if (e.keyCode == 13 || e.keyCode == 32) {
+            $('.section-toggle').remove();
+            $buttonParent.toggleClass('item-open');
+            $thisMenu.css('top', menuHeight);
+
+            $buttonParent.add($thisMenu).on('mouseenter mouseleave', function() {
+              return false;
+            });
+            
+           }
+        })
+      });
+
+      $button.not(this).on('focus', function() {
+        $(this).parent().removeClass('item-open');
       });
 
       $button.on('click', function() {
