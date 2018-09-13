@@ -27,10 +27,20 @@ let scenarios = storyBookBackstop.mapComponents(testComponents, debug);
 // The Error and example Template pages need a delay to allow the background
 // animation to complete.
 scenarios = scenarios.map((item) => {
-  const result = item;
-  if ((result.label.indexOf('Error') > -1) || (result.label.indexOf('NarrowTemplate') > -1)) {
-    result.delay = 5000;
-  }
+  const delays = [
+    'Error',
+    'NarrowTemplate',
+    'GeneralTeaser'
+  ];
+// eslint-disable-next-line prefer-const
+  let result = { ...item };
+  delays.some((value) => {
+    if (item.label.indexOf(value) > -1) {
+      result.delay = 5000;
+      return true;
+    }
+    return false;
+  });
   return result;
 });
 

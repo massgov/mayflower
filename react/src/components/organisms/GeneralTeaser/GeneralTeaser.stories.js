@@ -7,9 +7,8 @@ import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link } from '../../.
 
 import GeneralTeaserDocs from './GeneralTeaser.md';
 
-
 storiesOf('organisms', module).addDecorator(withKnobs)
-  .add('GeneralTeaser', withInfo(`<div>${GeneralTeaserDocs}</div>`)(() => {
+  .add('GeneralTeaser', withInfo({ text: `<div>${GeneralTeaserDocs}</div>`})(() => {
     const props = {
       image: {
         src: text('GeneralTeaser.image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),

@@ -130,16 +130,11 @@ const GeneralTeaser = (generalTeaser) => {
 };
 
 GeneralTeaser.propTypes = {
-  /** The image to be displayed in the teaser
-    src: The src url for the image
-    alt: The alternate text explaining the image, required for accessibility */
   image: PropTypes.shape({
     src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired
   }),
-  /** The short for tag that will appear in the eyebrow, e.g. press release */
   eyebrow: PropTypes.string,
-  /** A linked title for the teaser content. Required. DecorativeLink component. */
   // eslint-disable-next-line consistent-return
   title: (props, propName, componentName) => {
     const component = props[propName];
@@ -156,13 +151,9 @@ GeneralTeaser.propTypes = {
       return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
     }
   },
-  /** The heading level */
   level: PropTypes.number,
-  /** The date the teaser content represents */
   date: PropTypes.string,
-  /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
-  /** A short description of the teaser content. This should be set to a Paragraph component. */
   // eslint-disable-next-line consistent-return
   description: (props, propName, componentName) => {
     const component = props[propName];
@@ -179,7 +170,6 @@ GeneralTeaser.propTypes = {
       return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
     }
   },
-  /** An array of DecorativeLink components. */
   // eslint-disable-next-line consistent-return
   subLinks: (props, propName, componentName) => {
     const component = props[propName];
@@ -207,7 +197,6 @@ GeneralTeaser.propTypes = {
       return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
     }
   },
-  /** A ContactGroup component used to display primary information. */
   // eslint-disable-next-line consistent-return
   primaryInfo: (props, propName, componentName) => {
     const component = props[propName];
@@ -224,7 +213,6 @@ GeneralTeaser.propTypes = {
       return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
     }
   },
-  /** An array of IconLink components. */
   // eslint-disable-next-line consistent-return
   secondaryInfo: (props, propName, componentName) => {
     const component = props[propName];

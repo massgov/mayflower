@@ -4,8 +4,6 @@
 */
 
 //@base
-import SecondaryInfo from "./components/molecules/SecondaryInfo";
-
 export Placeholder from './components/base/Placeholder';
 
 // @atoms
@@ -82,10 +80,9 @@ export ImagePromo from './components/molecules/ImagePromo';
 export Tabs from './components/molecules/Tabs';
 export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
-export GeneralTeaser from './components/molecules/GeneralTeaser';
-export SecondaryInfo from './components/molecules/SecondaryInfo';
 
 // @organisms
+export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Footer from './components/organisms/Footer';
 export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';

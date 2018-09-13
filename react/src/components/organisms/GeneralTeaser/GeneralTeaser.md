@@ -17,7 +17,7 @@ If a teaser image is provided, it will link to the title's href, if set.
 * SvgChevron
 
 ### Variables
-~~~
+```
 GeneralTeaser.propTypes = {
   The image to be displayed in the teaser.
   image: PropTypes.shape({
@@ -26,23 +26,23 @@ GeneralTeaser.propTypes = {
     The alternate text explaining the image, required for accessibility.
     alt: PropTypes.string.isRequired
   }),
-  /** The short for tag that will appear in the eyebrow, e.g. press release */
+  The short for tag that will appear in the eyebrow, e.g. press release.
   eyebrow: PropTypes.string,
-  /** A linked title for the teaser content, @atoms/links/DecorativeLink */
+  A linked title for the teaser content, @atoms/links/DecorativeLink
   title: DecorativeLink.isRequired,
-  /** The heading level */
+  The heading level.
   level: PropTypes.number,
-  /** The date the teaser content represents */
+  The date the teaser content represents
   date: PropTypes.string,
-  /** The author/publishing entity of the teaser content */
+  The author/publishing entity of the teaser content
   org: PropTypes.string,
-  /** A short description of the teaser content, rendered as a paragraph */
+  A short description of the teaser content, @atoms/text/Paragraph 
   description: Paragraph,
-  /** A list of descorative sublinks * */
+  An array of @atoms/links/DecorativeLink components.
   subLinks: PropTypes.arrayOf(DecorativeLink),
-  /** A list of contact information * */
+  A @molecules/ContactGroup component used to display primary information.
   primaryInfo: ContactGroup,
-  /** Secondary Info */
+  An array of @molecule/IconLink components.
   secondaryInfo: PropTypes.arrayOf(IconLink)
 };
-~~~
+```

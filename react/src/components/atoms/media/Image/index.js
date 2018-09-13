@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Image = (props) => {
-  const { classes, ...imgProps } = props;
+  const { classes, shape, ...imgProps } = props;
+  if (shape && shape.length > 0) {
+    classes.push(shape);
+  }
   // eslint-disable-next-line jsx-a11y/alt-text
   return(<img className={classes.join(' ')} {...imgProps} />);
 };
@@ -12,12 +15,16 @@ Image.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number
+  height: PropTypes.number,
+  shape: PropTypes.string
 };
 
 Image.defaultProps = {
-  classes: [],
-  alt: ''
+  classes: [
+    'ma__image'
+  ],
+  alt: '',
+  shape: ''
 };
 
 export default Image;
