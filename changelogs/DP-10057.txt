@@ -1,4 +1,4 @@
 ___DESCRIPTION___
 Added
 - React DP-10057 Created Tooltip component with stories.
-- React DP-10057 Added Question Mark icon SVG.
+- React DP-10057 Added Question Mark SVG to Icon component.
