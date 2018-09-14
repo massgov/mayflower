@@ -3,9 +3,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, array } from '@storybook/addon-knobs/react';
-
+import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 import IconLink from '.';
-import { Link } from '../../../index';
+import { Icon, Link } from '../../../index';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('IconLink', withInfo('<div></div>')(() => {
@@ -14,14 +14,15 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       text: text('IconLink.link.text', 'Lorem ipsum dolor sit amet'),
       href: text('IconLink.link.href', '#')
     };
+    const iconProps = {
+      name: select('Icon.name', svgOptions, ''),
+      svgWidth: text('Icon.svgWidth', 40),
+      svgHeight: text('Icon.svgHeight', 40),
+      title: text('Icon.title', 'Icon Title Here'),
+      classes: array('IconLink.iconClasses', ['ma__general-teaser__secondaryicon'])
+    };
     const props = {
-      icon: select('IconLink.icon', {
-        marker: 'SvgMarker (Address Icon)',
-        phone: 'SvgPhone (Phone Icon)',
-        laptop: 'SvgLaptop (Laptop Icon)',
-        fax: 'SvgFax (FaxIcon)'
-      }, 'marker'),
-      iconClasses: array('IconLink.iconClasses', ['ma__general-teaser__secondaryicon']),
+      icon: <Icon {...iconProps} />,
       wrapperClasses: array('IconLink.wrapperClasses', ['']),
       link: <Link {...linkProps} />
     };

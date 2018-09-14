@@ -60,7 +60,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  title: null,
+  title: null
 };
 
 export default Icon;
