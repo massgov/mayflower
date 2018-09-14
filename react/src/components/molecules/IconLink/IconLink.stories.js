@@ -16,8 +16,8 @@ storiesOf('molecules', module).addDecorator(withKnobs)
     };
     const iconProps = {
       name: select('Icon.name', svgOptions, ''),
-      svgWidth: text('Icon.svgWidth', 40),
-      svgHeight: text('Icon.svgHeight', 40),
+      svgWidth: text('Icon.svgWidth', 13),
+      svgHeight: text('Icon.svgHeight', 13),
       title: text('Icon.title', 'Icon Title Here'),
       classes: array('IconLink.iconClasses', ['ma__general-teaser__secondaryicon'])
     };

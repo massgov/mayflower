@@ -4,6 +4,7 @@ import { withKnobs, text, select, boolean, number, object, array } from '@storyb
 import { withInfo } from '@storybook/addon-info';
 import GeneralTeaser from './index';
 import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '../../../index';
+import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 
 import GeneralTeaserDocs from './GeneralTeaser.md';
 
@@ -66,15 +67,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       // DecorativeLink props for subLinks.
       const subLink = object(`GeneralTeaser.subLinks.${i}`, { ...props.title, text: `Sublink ${i}`, key: `GeneralTeaser.subLinks.${i}` });
       props.subLinks.push(<DecorativeLink {...subLink} />);
-
       const secondary = {
-        icon: select(`GeneralTeaser.secondaryInfo.${i}.icon`, {
-          marker: 'SvgMarker (Address Icon)',
-          phone: 'SvgPhone (Phone Icon)',
-          laptop: 'SvgLaptop (Laptop Icon)',
-          fax: 'SvgFax (FaxIcon)'
-        }, 'marker'),
-        iconClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__general-teaser__secondaryicon']),
         wrapperClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__decorative-link'])
       };
       // Link props for secondaryInfo.
@@ -82,6 +75,14 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       const secondDecore = object(`GeneralTeaser.secondaryInfo.${i}.link`, secondaryLink);
       secondary.icon = <Icon name={secondary.icon} svgWidth={18} svgHeight={18} />;
       secondary.link = <Link {...secondDecore} />;
+      const secondaryIcon = {
+        name: select('GeneralTeaser.secondaryInfo.Icon.name', svgOptions, 'marker'),
+        svgWidth: text('GeneralTeaser.secondaryInfo.Icon.svgWidth', 16),
+        svgHeight: text('GeneralTeaser.secondaryInfo.Icon.svgHeight', 16),
+        title: text('GeneralTeaser.secondaryInfo.Icon.title', 'Icon Title Here'),
+        classes: array('GeneralTeaser.secondaryInfo.IconLink.iconClasses', ['ma__general-teaser__secondaryicon'])
+      };
+      secondary.icon = <Icon {...secondaryIcon} />;
       props.secondaryInfo.push(<IconLink {...secondary} />);
     }
     props.title = <DecorativeLink {...props.title} />;
