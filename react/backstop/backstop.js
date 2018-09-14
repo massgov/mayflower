@@ -32,15 +32,11 @@ scenarios = scenarios.map((item) => {
     'NarrowTemplate',
     'GeneralTeaser'
   ];
-// eslint-disable-next-line prefer-const
+  // eslint-disable-next-line prefer-const
   let result = { ...item };
-  delays.some((value) => {
-    if (item.label.indexOf(value) > -1) {
-      result.delay = 5000;
-      return true;
-    }
-    return false;
-  });
+  if (delays.some((value) => item.label.indexOf(value) > -1)) {
+    result.delay = 5000;
+  }
   return result;
 });
 

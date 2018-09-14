@@ -13,6 +13,7 @@ const IconLink = (props) => {
 };
 
 IconLink.propTypes = {
+  // eslint-disable-next-line consistent-return
   icon: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'Icon'),
   link: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'Link'),
   wrapperClasses: PropTypes.arrayOf(PropTypes.string)
