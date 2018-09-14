@@ -141,7 +141,7 @@
       &:before {
         border-left-color: transparent;
         border-right-color: transparent;
-       border-bottom-color: $c-theme-primary;
+       border-bottom-color: $c-primary;
       }
     }
   }
@@ -151,7 +151,7 @@
   }
 
   &__close {
-    background-color: $c-theme-primary;
+    background-color: $c-primary;
     border-color: transparent;
     color: $c-font-inverse;
     font-weight: bold;
