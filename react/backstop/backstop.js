@@ -5,13 +5,6 @@ const storyBookBackstop = require('./storyBookBackstop');
 
 const debug = (process.argv.indexOf('--debug') > -1);
 
-// Default viewport values.
-const viewports = [
-  { label: 'small_atom', width: 400, height: 250 },
-  { label: 'phone', width: 320, height: 480 },
-  { label: 'tablet', width: 1024, height: 768 }
-];
-
 // Scan for component names and set up viewports.
 const componentsPath = path.resolve(__dirname, '../src/components/');
 const dirList = listDirs(componentsPath)
@@ -36,7 +29,7 @@ scenarios = scenarios.map((item) => {
 
 module.exports = {
   id: 'vrt',
-  viewports,
+  viewports: [],
   onReadyScript: 'onReady.js',
   scenarios,
   paths: {

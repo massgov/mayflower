@@ -80,14 +80,21 @@ const listComponents = (dirList) => {
  * Maps passed Storybook Component dirs to Backstop scenarios.
  * @param {string[]} components
  */
-const mapComponents = (components, debug) => components.map((component) => {
+const mapComponents = (components, debug) => components.filter((component) => (
+  // Skip handling of icons for now - this will need to be updated with the new
+  //  Icon component.
+  !isIcon(component)
+)).map((component) => {
   const { kind, name } = component;
-  const viewports = [];
+  let viewports;
+
   if (isAtom(component)) {
-    viewports.push({ label: 'small_atom', width: 400, height: 250 });
+    viewports = [{ label: 'small_atom', width: 400, height: 250 }];
   } else {
-    viewports.push({ label: 'phone', width: 320, height: 480 });
-    viewports.push({ label: 'tablet', width: 1024, height: 768 });
+    viewports = [
+      { label: 'phone', width: 320, height: 480 },
+      { label: 'tablet', width: 1024, height: 768 }
+    ];
   }
   let urlBase = 'http://web/';
   if (debug) {
@@ -105,6 +112,16 @@ const mapComponents = (components, debug) => components.map((component) => {
 });
 
 /**
+ * Determines if a component is an icon atom.
+ *
+ * @param {object} component
+ * @returns {boolean}
+ */
+const isIcon = ({ filePath }) => (
+  filePath.indexOf('/atoms/') > -1 && filePath.indexOf('icons') !== -1
+);
+
+/**
  * Determines if a component should use viewports for atoms.
  *
  * @param {object} component
@@ -113,11 +130,9 @@ const mapComponents = (components, debug) => components.map((component) => {
 const isAtom = (component) => {
   const { filePath } = component;
   // Skip table and media/Image; they need to be tested with larger viewports.
-  // Also skip handling of icons for now - this will be handled with the Icon component.
   return(filePath.indexOf('/atoms/') > -1)
     && (filePath.indexOf('table') === -1)
-    && (path.basename(filePath) !== 'Image')
-    && (filePath.indexOf('icons') === -1);
+    && (path.basename(filePath) !== 'Image');
 };
 
 /**
