@@ -14,9 +14,6 @@ Mayflower release managers with the necessary repo permissions can follow these 
 1. Create a release branch (at Noontime every Wednesday)
     1. `git checkout -b release-#.#.#` where `#.#.#` is the next version (i.e. `5.0.0`).  Read more about [Mayflower and semantic versioning](/docs/for-developers/versioning.md) to ensure that your are creating the right type of version.
     1. Add [change logs](https://github.com/massgov/mayflower/tree/develop/changelogs) to the top of [CHANGELOG.md](../CHANGELOG.md) based on the "changelog.txt" files, remove all the "changelog.txt" files and then commit these changes.
-    1. Run `npm install` in case the release includes new packages.
-    1. Update the version of the npm package by editing the `"version":` field in the following path `patternlab/styleguide/package.json` with `#.#.#` for the release.
-    1. Commit your version change from `package.json`.
     1. Push release branch to `massgov/mayflower` (i.e. `git push <remote> release-#.#.#`).
 
 ## Deployment  
@@ -38,7 +35,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
     - Make sure the home page reflects the date and version
 
 ## Post Deployment
-1. Open a GitHub Pull Request to merge `master` into `develop` (this should only bring an updated `CHANGLOG.md`, `package.json`). You will need to have a peer review the Pull Request before merge (no squash!) into the `develop` branch.
+1. Open a GitHub Pull Request to merge `master` into `develop` (this should only bring an updated `CHANGLOG.md`). You will need to have a peer review the Pull Request before merge (no squash!) into the `develop` branch.
 1. In JIRA Go to the [DP project](https://jira.mass.gov/projects/DP/).
     1. Click on the Releases icon on the left side (it looks like a boat/ship).
     1. Add a new release version with today's date.

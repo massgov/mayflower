@@ -48,7 +48,7 @@
   }
 
   th {
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     padding-right: 15px;
     padding-bottom: 0;
     text-align: left;
@@ -129,7 +129,7 @@
 
   &__expand {
     > button {
-      color: $c-theme-primary;
+      color: $c-primary;
       font-weight: 500;
     }
   }

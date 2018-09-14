@@ -159,11 +159,11 @@ $collage-header-bp-max: "max-width: 700px";
   &__title {
 
     @media ($collage-header-bp-max) {
-      background-color: $c-theme-secondary;
+      background-color: $c-primary-alt;
     }
 
     &:before {
-      background-color: $c-theme-secondary;
+      background-color: $c-primary-alt;
     }
 
     h1 {

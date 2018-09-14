@@ -3,6 +3,7 @@
 <main class="ma__form-page" id="main-content" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
+      {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
     {% endblock %}
   </div>

@@ -1,5 +1,6 @@
 export default (function (window,document,$,undefined) {
   "use strict";
+
   $('.js-header-tag-link').each(function(index) {
 
     let $el = $(this),
@@ -40,35 +41,50 @@ export default (function (window,document,$,undefined) {
     let tagCount = $hiddenTag.length;
     let $tagState = $button.find('.tag-state');
 
-    // if hidden  tags exist, show button
+    // If hidden  tags exist, show button.
     if (tagCount) {
       $button.toggle();
     }
 
-    // use hidden tags to populate button label
+    // Use hidden tags to populate button label.
     $buttonCounter.text(tagCount);
 
     $button.on('click', function() {
       let $tagStateText = $tagState.text();
 
+      // Open hidden tags.
       $tagWrapper.parent().toggleClass('tags-open');
       $button.toggleClass('is-open');
-      $tagState.text($tagStateText === 'fewer' ? 'more' : 'fewer');
       $hiddenTag.toggle();
+
+      // Change button text.
+      $tagState.text($tagStateText === 'fewer' ? 'more' : 'fewer');
     });
 
     $(window).resize(function () {
-      // remove all the screen width specific styles
+      // Remove all the screen width specific styles.
       $buttonCounter.removeAttr('style');
       $hiddenTag.removeAttr('style');
 
-      // recount the hidden tags and update the button text
       setTimeout(function(){
-        $hiddenTag = $tagWrapper.find('.ma__relationship-indicators--term:hidden');
+        let windowWidth = $(window).width();
         
+        // recount the hidden tags.
+        $hiddenTag = $tagWrapper.find('.ma__relationship-indicators--term:hidden');
         tagCount = $hiddenTag.length;
+
+        // Update button text.
         $buttonCounter.text(tagCount);
         $tagState.text('more');
+        
+        // Reset the button visibility.
+        if(tagCount >= 1 && windowWidth < 910) {
+          $button.show();
+        } 
+        else if (tagCount == 0) {
+          $button.hide();
+        }
+        
       }, 500);
 
     });

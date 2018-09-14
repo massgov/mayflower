@@ -4,6 +4,10 @@
   {% include "@organisms/by-template/header.twig" %}
 {% endblock %}
 
+{% block preContent %}
+  {% include "@molecules/relationship-indicators.twig" %}
+{% endblock %}
+
 {% block pageContent %}{% endblock %}
 
 {% block sidebar %}{% endblock %}
