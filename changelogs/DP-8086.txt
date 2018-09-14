@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Added
+Minor
+- (React) DP-8086: Adds the following new components: GeneralTeaser, IconLink, Link.
+- (React) DP-8086: Modifies Image component to add a new prop for classnames: classes.

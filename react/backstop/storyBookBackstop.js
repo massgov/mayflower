@@ -96,9 +96,14 @@ const mapComponents = (components, debug) => components.map((component) => {
     // and will not match the images generated when running in CircleCI.
     urlBase = 'http://localhost:6006/';
   }
-  // Backstop override for Icon story.
-  const backstop = (name === 'Icon') ? '&backstop=true' : '';
+  // Backstop overrides.
+  const overrides = [
+    'GeneralTeaser',
+    'Icon'
+  ];
+  const backstop = (overrides.indexOf(name) > -1) ? '&backstop=true' : '';
   const url = `${urlBase}iframe.html?selectedKind=${kind}&selectedStory=${name}${backstop}`;
+
   return makeScenario(
     `${kind}/${name}`,
     url,
