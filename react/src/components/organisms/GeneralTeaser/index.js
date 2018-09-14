@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { SvgChevron } from '../../../index';
+import { Icon } from '../../../index';
 import './style.css';
 
 class TeaserOrg extends Component {
@@ -47,7 +47,7 @@ class TeaserOrg extends Component {
     if (!this.state.truncateOrgs) {
       toggleProps.className += ' show-fewer';
     }
-    const toggle = <span {...toggleProps}>{toggleText} <SvgChevron /></span>;
+    const toggle = <span {...toggleProps}>{toggleText} <Icon name="chevron" svgWidth="16" svgHeight="16" /></span>;
     const displayedOrgs = (this.state.showAll) ? teaserOrgs.join(', ') : shownOrgs.join(', ');
     return(
       <span className="ma__general-teaser__org">
