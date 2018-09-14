@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const IconLink = (props) => (
   <span className={props.wrapperClasses.join(' ')}>
-    {props.icon}
+    {props.icon} &nbsp;
     {props.link}
   </span>
 );
