@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { assets, svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
-import { Icon, Link } from '../../../index';
 
 const IconLink = (props) => {
   return(
