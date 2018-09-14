@@ -1,0 +1,13 @@
+.ma__simple_header {
+  .ma__simple_header__banner {
+    height: 15px;
+    background-color: #14558f;
+    color: white;
+  }
+  .ma__header {
+    padding-top: unset;
+    .ma__header__container {
+      padding-top: unset;
+    }
+  }
+}
