@@ -6,8 +6,7 @@ import { withKnobs, text, number, boolean } from '@storybook/addon-knobs/react';
 
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
-import SvgWheelchair from '../../atoms/icons/SvgWheelchair';
-import SvgOpenNow from '../../atoms/icons/SvgOpenNow';
+import Icon from '../../atoms/icons/Icon';
 
 const getCommonPropsWithKnobs = () => ({
   title: {
@@ -73,11 +72,11 @@ storiesOf('molecules/ImagePromo', module).addDecorator(withKnobs)
       tags: [{
         id: 123,
         label: 'handicapped accessible',
-        icon: <SvgWheelchair />
+        icon: <Icon name="wheelchair" />
       }, {
         id: 456,
         label: 'open now',
-        icon: <SvgOpenNow />
+        icon: <Icon name="opennow" />
       }],
       image: {
         ...commonProps.image,

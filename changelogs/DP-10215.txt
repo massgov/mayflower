@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Updated
-- Patternlab DP-9912: Replicated related links to the bottom of the page along with changes style to the heading. #214

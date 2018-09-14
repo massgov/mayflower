@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import FilterBox from '../../organisms/FilterBox';
 import HeaderSearch from '../../molecules/HeaderSearch';
-import SvgChevron from '../../atoms/icons/SvgChevron';
+import Icon from '../../atoms/icons/Icon';
 import Tabs from '../../molecules/Tabs';
 // eslint-disable-next-line import/no-unresolved
 import './style.css';
@@ -58,7 +58,7 @@ class SearchBanner extends Component {
           <div className="main-content--two ma__search-banner__filter-box-toggle-container">
             <button onClick={this.toggleFilterBox} type="button" className={toggleButtonClass}>
               {filterToggleText}
-              <SvgChevron />
+              <Icon name="chevron" svgWidth={20} svgHeight={20} />
             </button>
           </div>
         )}
