@@ -24,6 +24,7 @@ const IconLink = (props) => {
 
 IconLink.propTypes = {
   icon: PropTypes.oneOf(['marker', 'phone', 'laptop', 'fax']),
+  // eslint-disable-next-line consistent-return
   link: (props, propName, componentName) => {
     const component = props[propName];
     const isValid = (comp) => {
