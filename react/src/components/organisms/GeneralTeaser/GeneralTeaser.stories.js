@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean, number, object, array } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
 import GeneralTeaser from './index';
-import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link } from '../../../index';
+import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '../../../index';
 
 import GeneralTeaserDocs from './GeneralTeaser.md';
 
@@ -80,6 +80,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       // Link props for secondaryInfo.
       const secondaryLink = { info: props.title.info, href: props.title.href, text: `SecondaryInfo Link ${i}` };
       const secondDecore = object(`GeneralTeaser.secondaryInfo.${i}.link`, secondaryLink);
+      secondary.icon = <Icon name={secondary.icon} svgWidth={18} svgHeight={18} />;
       secondary.link = <Link {...secondDecore} />;
       props.secondaryInfo.push(<IconLink {...secondary} />);
     }
@@ -194,7 +195,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         secondaryLink.text = 'Secondary Link';
         secondary.link = <Link {...secondaryLink} />;
         iconTypes.forEach((value) => {
-          secondary.icon = value;
+          secondary.icon = <Icon name={value} svgWidth={18} svgHeight={18} />;
           secondaryInfo.push(<IconLink {...secondary} />);
         });
         teasers.push({ title: <DecorativeLink {...titleProps} />, secondaryInfo });
