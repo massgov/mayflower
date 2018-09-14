@@ -98,7 +98,8 @@ const mapComponents = (components, debug) => components.map((component) => {
   }
   // Backstop overrides.
   const overrides = [
-    'GeneralTeaser'
+    'GeneralTeaser',
+    'Icon'
   ];
   const backstop = (overrides.indexOf(name) > -1) ? '&backstop=true' : '';
   const url = `${urlBase}iframe.html?selectedKind=${kind}&selectedStory=${name}${backstop}`;
