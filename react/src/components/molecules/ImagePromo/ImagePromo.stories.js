@@ -34,7 +34,7 @@ const getCommonPropsWithKnobs = () => ({
   phone: null
 });
 
-storiesOf('molecules', module).addDecorator(withKnobs)
+storiesOf('molecules/ImagePromo', module).addDecorator(withKnobs)
   .add('ImagePromo', withInfo(`<div>${ImagePromoDocs}</div>`)(() => {
     const props = getCommonPropsWithKnobs();
 
