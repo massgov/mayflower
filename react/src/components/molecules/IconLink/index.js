@@ -1,22 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import { SvgMarker, SvgPhone, SvgLaptop, SvgFax } from '../../../index';
+import { assets, svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
+import { Icon, Link } from '../../../index';
 
 const IconLink = (props) => {
-  const getIcon = (type) => {
-    const icons = {
-      marker: SvgMarker,
-      phone: SvgPhone,
-      laptop: SvgLaptop,
-      fax: SvgFax
-    };
-    return icons[type];
-  };
-  const PropsIcon = getIcon(props.icon);
   return(
     <span className={props.wrapperClasses.join(' ')}>
-      <span className={props.iconClasses.join(' ')}><PropsIcon /></span>
+      <span className={props.iconClasses.join(' ')}><Icon name={icon.name} /></span>
       {props.link}
     </span>
   );

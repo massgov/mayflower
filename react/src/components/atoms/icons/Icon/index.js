@@ -31,12 +31,14 @@ class Icon extends React.Component {
       svgWidth,
       svgHeight,
       title,
-      name
+      name,
+      classes
     } = this.props;
     if (svgFile) {
       const attr = {
         width: svgWidth || null,
-        height: svgHeight || null
+        height: svgHeight || null,
+        className: classes ? classes.join(' ') : null
       };
       return(
         <svg {...attr}>
@@ -53,11 +55,12 @@ Icon.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string,
   svgWidth: PropTypes.number,
-  svgHeight: PropTypes.number
+  svgHeight: PropTypes.number,
+  classes: PropTypes.arrayOf(PropTypes.string)
 };
 
 Icon.defaultProps = {
-  title: null
+  title: null,
 };
 
 export default Icon;
