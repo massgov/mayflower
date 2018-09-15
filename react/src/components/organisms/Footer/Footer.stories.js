@@ -10,7 +10,7 @@ import FooterLinksData from '../../molecules/FooterLinks/FooterLinks.json';
 import SocialLinksData from '../../molecules/SocialLinks/SocialLinks.json';
 import FooterLinksLiveData from '../../molecules/FooterLinks/FooterLinksLive.json';
 import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.json';
-import stateSeal from '../../../../../assets/images/stateseal.png';
+import stateSeal from '../../../assets/images/stateseal.png';
 
 
 storiesOf('organisms/Footer', module).addDecorator(withKnobs)

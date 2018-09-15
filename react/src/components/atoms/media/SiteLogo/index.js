@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '../../../../../../assets/images/stateseal.png';
+import logo from '../../../../assets/images/stateseal.png';
 
 const SiteLogo = (siteLogo) => (
   <div className="ma__site-logo">
