@@ -18,7 +18,7 @@
     "backstop:approve": "docker-compose run backstop approve",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/ --watch",
-    "build-nwb": "nwb build-react-component --copy-files",
+    "build-nwb": "nwb build-react-component --copy-files src/assets --copy-files",
     "build": "npm-run-all build-css build-nwb",
     "clean": "nwb clean-module",
     "start": "npm-run-all -p watch-css storybook",
