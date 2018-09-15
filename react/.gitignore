@@ -7,7 +7,6 @@
 npm-debug.log*
 
 src/**/*.css
-src/assets
 storybook-static
 
 backstop/data/bitmaps_test/

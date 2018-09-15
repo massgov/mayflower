@@ -1,0 +1,189 @@
+.ma__rich-text table,
+.ma__table {
+  border-collapse: collapse;
+  width: 100%;
+
+  thead {
+
+    th {
+      border: none;
+      font-size: 1.625rem;
+      line-height: 1.3;
+    }
+  }
+
+  tbody {
+    border-top: 2px solid;
+  }
+
+  tr + tr {
+    border-top: 1px solid;
+  }
+
+  th, td {
+    font-size: 1.25rem;
+    padding: 10px 20px 10px 0;
+    text-align: left;
+    vertical-align: top;
+
+    &:first-child {
+      padding-left: 15px;
+    }
+  }
+
+  .is-offset th:first-child,
+  .is-offset td:first-child {
+    padding-left: 0;
+  }
+}
+
+.ma__table {
+  
+  @media ($bp-small-max) {
+    display: block;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+    }
+
+    tr {
+      display: block;
+    }
+
+    td,
+    th {
+      display: block;
+      font-size: 1.375rem;
+      padding-left: 40% !important;
+      padding-bottom: 0;
+      position: relative;
+
+      &:before {
+        content: attr(data-label);
+        height: 100%;
+        position: absolute;
+          top: 10px;
+          left: 0;
+        width: 35%;
+      }
+    }
+
+    th {
+      font-size: 1.375rem;
+    }
+  }
+}
+
+.ma__table--wide {
+  
+  @media ($bp-medium-max) {
+    display: block;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+    }
+
+    tr {
+      display: block;
+    }
+
+    td,
+    th {
+      display: block;
+      padding-left: 40% !important;
+      position: relative;
+
+      &:before {
+        content: attr(data-label);
+        height: 100%;
+        position: absolute;
+          top: 10px;
+          left: 0;
+        text-align: right;
+        width: 35%;
+      }
+    }
+
+    th {
+      font-size: 1.375rem;
+    }
+  }
+}
+
+//theme
+.ma__rich-text table,
+.ma__table {
+  thead {
+    background-color: $c-bg-subtle;
+
+      th {
+        color: $c-font-heading;
+      }
+  }
+
+  tbody {
+    border-color: $c-bd-divider;
+  }
+
+  tr + tr {
+    border-color: $c-bd-divider;
+  }
+}
+
+.ma__table {
+
+  th {
+    color: $c-font-detail;
+  }
+
+  @media ($bp-small-max) {
+    thead + tbody,
+    tbody:first-child {
+      border-top: 0;
+    }
+
+    td {
+
+      &:before {
+        color: $c-font-heading;
+        font-weight: 500;
+      }
+    }
+
+    th {
+      color: $c-font-heading;
+      background-color: $c-bg-subtle;
+    }
+  }
+}
+
+.ma__table--wide {
+
+  @media ($bp-medium-max) {
+    thead + tbody,
+    tbody:first-child {
+      border-top: 0;
+    }
+
+    td {
+
+      &:before {
+        color: $c-font-heading;
+        font-weight: 500;
+      }
+    }
+
+    th {
+      color: $c-font-heading;
+      background-color: $c-bg-subtle;
+    }
+  }
+}
