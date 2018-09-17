@@ -26,6 +26,7 @@ export default (function (window,document,$,undefined) {
 
     // Subnav buttons. 
     let $menuButton = $orgNav.find('.subnav-toggle');
+    let $jumpLink = $orgNav.find('.internal-link');
 
     // I want to section.
     let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
@@ -106,6 +107,8 @@ export default (function (window,document,$,undefined) {
 
       $button.on('focus', function() {
         $button.keyup(function (e){
+
+          $('.item-open').removeClass('item-open');
           
           if (e.keyCode == 13 || e.keyCode == 32) {
             $('.section-toggle').remove();
@@ -119,11 +122,7 @@ export default (function (window,document,$,undefined) {
            }
         })
       });
-
-      $button.not(this).on('focus', function() {
-        $(this).parent().removeClass('item-open');
-      });
-
+  
       $button.on('click', function() {
         let windowWidth = $(window).width();
 
@@ -183,6 +182,10 @@ export default (function (window,document,$,undefined) {
     }
 
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
+
+    $(".internal-link").on('focus', function(e) {
+      $('.item-open').removeClass('item-open');
+    });
   
     $(".internal-link").on('click', function(e) {
       // Close open menus and reset markup.
