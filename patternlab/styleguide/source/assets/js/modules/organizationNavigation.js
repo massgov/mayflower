@@ -114,11 +114,15 @@ export default (function (window,document,$,undefined) {
             $('.section-toggle').remove();
             $buttonParent.toggleClass('item-open');
             $thisMenu.css('top', menuHeight);
+            $thisMenu.find("a[href]").attr("tabindex", 0);
 
             $buttonParent.add($thisMenu).on('mouseenter mouseleave', function() {
               return false;
             });
-            
+           }
+
+           if (e.keyCode == 9) {
+            $thisMenu.find("a[href]").attr("tabindex", 500);
            }
         })
       });
