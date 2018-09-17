@@ -12,15 +12,15 @@
     "umd"
   ],
   "scripts": {
-    "backstop:atoms": "docker-compose run backstop test --atoms",
-    "backstop:other": "docker-compose run backstop test",
-    "backstop": "npm-run-all build-storybook backstop:other",
+    "backstop:test": "docker-compose run backstop test",
+    "backstop": "npm-run-all build-storybook backstop:test",
     "backstop:approve": "docker-compose run backstop approve",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/ --watch",
     "build-nwb": "nwb build-react-component --copy-files src/assets --copy-files",
-    "build": "npm-run-all build-css build-nwb",
+    "build": "npm-run-all copy-assets build-css build-nwb",
     "clean": "nwb clean-module",
+    "copy-assets": "node scripts/copy-assets.js",
     "start": "npm-run-all -p watch-css storybook",
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint --fix .; exit 0",
@@ -29,8 +29,7 @@
     "test:watch": "nwb test-react --server",
     "prepublishOnly": "npm run clean && npm run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "copy-assets": "node scripts/copy-assets.js"
+    "build-storybook": "npm run copy-assets && build-storybook"
   },
   "pre-push": [
     "lint"
