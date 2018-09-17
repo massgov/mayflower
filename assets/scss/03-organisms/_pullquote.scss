@@ -14,14 +14,14 @@
     font-size: 1.875rem;
     font-weight: 700;
     line-height: 1.285;
-    color: $c-theme-gray;
+    color: $c-gray-dark;
 
     &::after {
       content: '';
       width: 75px;
       height: 20px;
-      background-color: $c-theme-green;
-      background: linear-gradient(120deg, $c-theme-green 65px, $c-white 0);
+      background-color: $c-primary-alt;
+      background: linear-gradient(120deg, $c-primary-alt 65px, $c-white 0);
       position: absolute;
       top: 0;
       left: 0;

@@ -5,6 +5,8 @@
   right: 0;
   height: 300px;
   pointer-events: none;
+  // set without variable to ensure coverage
+  z-index: 9999;
   
   a {
     display: block;
@@ -14,12 +16,12 @@
     font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: 0.15rem;
-    color: $c-accessible-feedback;
+    color: $c-primary-alt;
     background-color: $c-white;
     border-style: solid;
     border-width: 4px 4px 0 4px;
     border-radius: 5px 5px 0 0;
-    border-color: rgba($c-theme-green, 0.5);
+    border-color: rgba($c-primary-alt, 0.5);
     padding: 0 10px;
     transform: rotate(270deg);
     z-index: $z-sticky-content;

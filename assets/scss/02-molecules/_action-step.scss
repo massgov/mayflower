@@ -102,13 +102,13 @@
   }
 
   &--accordion &__header:after {
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
   }
 
   &__icon {
 
     svg {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
     }
   }
 

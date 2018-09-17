@@ -21,7 +21,7 @@
   }
 
   .page-content > .ma__contact-list {
-    
+
     .ma__sidebar-heading,
     .ma__comp-heading {
       @include ma-heading-colored;
@@ -34,10 +34,25 @@
 .ma__details {
 
   .page-content > .ma__contact-list {
-    
+
     .ma__sidebar-heading,
     .ma__comp-heading {
-      @include ma-heading-colored($c-theme-secondary);
+      @include ma-heading-colored($c-primary-alt);
+    }
+  }
+
+  .sidebar {
+
+    @media ($bp-medium-min) {
+      padding-top: 10px;
+    }
+
+    .ma__link-list {
+      display: none;
+
+      @media ($bp-large-min) {
+        display: block;
+      }
     }
   }
 }

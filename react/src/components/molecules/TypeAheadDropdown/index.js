@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
-import SvgChevron from '../../atoms/icons/SvgChevron';
+import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
 class TypeAheadDropdown extends React.Component {
@@ -110,7 +110,7 @@ class TypeAheadDropdown extends React.Component {
       setButtonRef: this.setDropDownButtonRef,
       canExpand: true,
       expanded: this.state.buttonExpand,
-      icon: <SvgChevron />,
+      icon: <Icon name="chevron" />,
       size: 'small',
       iconColor: '',
       ...this.props.dropdownButton

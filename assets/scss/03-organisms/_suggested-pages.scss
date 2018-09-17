@@ -89,7 +89,7 @@
   }
 
   &__title {
-    @include ma-border-decorative($c-theme-secondary);
+    @include ma-border-decorative($c-primary-alt);
   }
 
   @media ($bp-large-min) {

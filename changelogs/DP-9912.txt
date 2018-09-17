@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Updated
-- Patternlab DP-9912: Add new relationship indicator row to multiple content types. #149

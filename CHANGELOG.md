@@ -13,6 +13,61 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 7.1.0 (9/12/2018)
+
+### Added
+- (Docs) Release docs 0.1.0 added first-round documentation for buttons, headings links, lists, table, text area, select box, checkbox, radio button, pagination, relationship indicator, tooltip, accordion and global accessibility.
+- (Docs) Release docs 0.2.0 break down and clean up global accessibility guidelines.
+- patternlab DP-9337:  Implement Organization Page navigation menu
+
+### Changed
+- (Patternlab) DP-5917: Updates to truncate long pagination displays with ellipsis. #196.
+- (Patternlab) DP-9875: Adjust the package-lock.json and CircleCI for this change to yarn.lock file. #217
+- (React) DP-10134: Augments react Backstop scenario detection so stories with multiple add() calls will all be tested.
+- (Patternlab, React) DP-10156: Consolidate and replace letter-spacing to variables `$letter-spacing-large`, `$letter-spacing-medium`, `$letter-spacing-small` and `$letter-spacing-default`.
+- Patternlab DP-9912: Replicated related links to the bottom of the page along with changes style to the heading. #214
+- (Patternlab) DP-10287: Adds block to page-overview twig file for responsive images. #230
+- (Patternlab & React): 
+	- Updates the naming of our global color variables.
+	- Pulls originally naming from documentations.
+	- Updates grayscale color variables.
+	- Updates color variables to be named based on usage and not color.
+
+### Fixed
+- (Patternlab) DP-5955: Fixes top alignment of the "Related Services" and "Additional Resources" split columns block on tablet view mode. #184
+- (Patternlab) Fixes patternlab SCSS watching.
+
+### Removed
+- (Patternlab) DP-9875: Remove the yarn.lock #217
+- (Patternlab & React):
+	- Removes #757575, replacing with #707070 color variable.
+	- Removes feedback accessibility fix for green issue variable.
+
+## 7.0.1 (8/30/2018)
+
+### Fixed
+- (PatternLab) z-index fix for feedback button to always ensure it appears on top. #209
+- (PatternLab) Allow deploy tag jobs to be rerun #206
+
+## 7.0.0 (8/29/2018)
+
+### Changed
+- (Patternlab) DP-9702: replace floating "Tell us what you think" button with fixed feedback button
+- patternlab / DP-10012: offered by relationship indicator row changes
+- (Patternlab) DP-10056: Mayflower Patternlab has an updated build process that includes the following changes:
+    * Gulp Patternlab tasks now run `dist:build` automatically.  The `dist` folder contains the fully compiled Mayflower Artifacts, and can be placed anywhere on your system, not just inside the mayflower repository.
+    * Patternlab deployment tasks have been moved out of gulp and into the CircleCI configuration to simplify our Gulp tasks.
+    * The `massgov/mayflower-artifacts` Composer package has been given a `type` of `drupal-library` so it is installable to a specific location on the filesystem.
+- (Patternlab, React) DP-10056: Mayflower React and Mayflower Patternlab now manage the version number in their respective `package.json` files independently.  We no longer need to bump package version numbers manually on release - simply cut the tag.
+- (NPM Artifact): The @massds/mayflower NPM repo has been restructured to match the `massgov/mayflower-artifacts` composer package.
+
+### Fixed
+- (Patternlab) DP-10029: Updated styles to fix spacing on non-hyperlinked images on location listing row.
+
+### Updated
+- Patternlab DP-9912: Add new relationship indicator row to multiple content types. #149
+
+
 ## 6.3.0 (8/27/2018)
 
 ### Added
@@ -33,7 +88,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-9919: Directly consume global level SCSS variables from shared assets.
 - (React) DP-9981: Changes heading atom in Mayflower React, adding the option to pass a classname to a heading component.
 - (React) DP-10098: Consume scss and images directly from shared assets.
-- (Patternlab, React) DP-10107: 
+- (Patternlab, React) DP-10107:
   - Make current button "small" the default button size and add "large" and "small" variations.
   - Update the button size for location listing CTA to align with default size.
 

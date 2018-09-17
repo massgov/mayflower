@@ -34,12 +34,12 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - pl-npm-v3-{{ checksum "patternlab/styleguide/yarn.lock" }}
+            - pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
             - pl-npm-v3-
-      - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && yarn' }
+      - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && npm install' }
       - save_cache:
           name: Save NPM cache
-          key: pl-npm-v3-{{ checksum "patternlab/styleguide/yarn.lock" }}
+          key: pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
           paths: [ patternlab/styleguide/node_modules ]
       - run: { name: 'Build', command: 'cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build'}
       - persist_to_workspace:
@@ -85,7 +85,7 @@ jobs:
             cd patternlab/styleguide/dist
             git clone --bare git@github.com:massgov/mayflower-artifacts.git .git
             git config core.bare false
-            git branch --force "$CIRCLE_BRANCH" $(git show-ref -s "$CIRCLE_BRANCH" || git show-ref -s master)
+            git rev-parse --verify -q "$CIRCLE_BRANCH" || git branch "$CIRCLE_BRANCH" $(git show-ref -s master)
             git symbolic-ref HEAD "refs/heads/$CIRCLE_BRANCH"
             git add .
             if git diff-index --quiet HEAD; then
@@ -122,20 +122,25 @@ jobs:
             else
               git commit -m "Automated commit based on $CIRCLE_SHA1"
             fi
-            git tag "$CIRCLE_TAG"
+            git rev-parse --verify -q "$CIRCLE_TAG" || git tag "$CIRCLE_TAG"
             git push origin "$CIRCLE_TAG"
       - run:
           name: 'Deploy NPM Tag'
           command: |
             cd patternlab/styleguide/dist
             npm version --no-git-tag-version "$CIRCLE_TAG"
-            npm publish
+            if [ test -z "$(npm show @massds/mayflower@$CIRCLE_TAG)" ]; then
+              npm publish
+            else
+              echo "Skipping NPM publish - $CIRCLE_TAG already exists"
+            fi
       - run:
           name: 'Deploy S3 Tag'
           command: |
             aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-              aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov"
+              # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
+              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/"
             fi
 
   react_build_storybook:
@@ -193,7 +198,11 @@ jobs:
           command: |
             cd react
             npm version --no-git-tag-version "$CIRCLE_TAG"
-            npm publish
+            if [ test -z "$(npm show @massds/mayflower-react@$CIRCLE_TAG)" ]; then
+              npm publish
+            else
+              echo "Skipping NPM publish - $CIRCLE_TAG already exists"
+            fi
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
