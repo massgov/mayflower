@@ -38,13 +38,14 @@ export default (function (window, document, $) {
     let $table = $element.find("table").not("table table");
     let $thead = $table.find("thead").not("table table thead");
     const hasThead = $thead.length;
+    const theadHeight = $thead[0].offsetHeight;
     const isNestedThead = $thead.closest("table table").length;
     const hasTh = $table.find("th").length;
     let $stickyHeader = null;
     const canScroll = $table.width() > $table.parent().width();
 
     if (hasThead && hasTh && !isNestedThead) {
-      const theadHeight = $thead[0].offsetHeight;
+      
       if (!reset) {
         $thead = $thead.clone();
         $table.after("<div class='sticky-thead'><div class='sticky-thead-wrapper'><table class='ma__table'></table></div></div>");
@@ -84,6 +85,7 @@ export default (function (window, document, $) {
         $root: $element,
         $table: $table,
         $stickyHeader: $stickyHeader,
+        theadHeight: theadHeight,
         headerStuck: false,
         scrollStuck: false,
         canScroll
@@ -130,7 +132,7 @@ export default (function (window, document, $) {
     const elementTop = rt.$root.offset().top;
     const windowTop = $window.scrollTop();
     const windowBottom = windowTop + $window.height();
-    const elementBottom = elementTop + rt.$root.height();
+    const elementBottom = (elementTop + rt.$root.height()) - rt.theadHeight;
 
     if (rt.$stickyHeader) {
       const stuckTop = rt.$stickyHeader.offset().top;
@@ -285,10 +287,6 @@ export default (function (window, document, $) {
     $scrollbar.find(".ma__scroll-indicator--bar").css("width", `${tableWidth}px`);
     $scrollbarIndicator.css("width", `${containerWidth}px`);
     $scrollbarIndicator.find(".ma__scroll-indicator__button").css("width", `${buttonWidth}px`);
-
-    console.log('buttonWidth', buttonWidth);
-    console.log('tableWidth', tableWidth);
-    console.log('containerWidth', containerWidth);
   }
 
   function handleTableScroll(e) {

@@ -66,6 +66,12 @@
 
     .sticky-thead-wrapper {
       overflow-x: auto;
+      -ms-overflow-style: none;  // IE 10+
+      overflow: -moz-scrollbars-none;  // Firefox
+
+      &::-webkit-scrollbar { 
+        display: none;  // Safari and Chrome
+      }
     }
 
     table {
@@ -110,7 +116,7 @@
     position: absolute;
     right: 0;
     z-index: 50;
-
+   
     // Native position is at the bottom of the responsive container;
     // so show the bar.
     .has-horizontal-scroll & {
