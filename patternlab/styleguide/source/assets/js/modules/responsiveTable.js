@@ -229,13 +229,12 @@ export default (function (window, document, $) {
 
   function scrollbarEventHandlers() {
     const amountToScroll = 200;
-    // @todo Cache `$scrollContainer` to avoid multiple lookups.
+    const $scrollContainer = $(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
 
     // Scrollbar left arrow.
     $(".ma__table__horizontal-nav__left").click(function() {
       // On click of left arrow element, animate the movement of the scrollbar
       // to the left by the integer amount defined in `amountToScroll`.
-      const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
       const currentScrollLeft = $scrollContainer.scrollLeft();
 
       $scrollContainer.animate({
@@ -247,7 +246,6 @@ export default (function (window, document, $) {
     $(".ma__table__horizontal-nav__right").click(function() {
       // On click of left arrow element, animate the movement of the scrollbar
       // to the left by the integer amount defined in `amountToScroll`.
-      const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
       $scrollContainer.animate({
         scrollLeft: $scrollContainer.scrollLeft() + amountToScroll
       }, 250);
