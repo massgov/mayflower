@@ -19,6 +19,8 @@
   }
 
   @media ($bp-medium-max) {
+    background-color: $c-gray-lightest;
+    border: 1px solid $c-gray-light;
     left: 0;
   }
 
@@ -86,6 +88,7 @@
     font-size: 20px;
     line-height: 1.2;
     padding: 10px 15px;
+    min-height: 47px;
 
     @media ($bp-small-min) {
       line-height: 1.5;
@@ -97,21 +100,72 @@
       padding-bottom: 12px;
     }
 
-    &.is-active, {
+    &.is-title {
+
+      a {
+        color: $c-gray-dark !important;
+
+        &:focus {
+          border-bottom-width: 0;
+        }
+      }
+
+      &:hover a {
+        border-bottom-color: transparent;
+      }
+
+      @media ($bp-medium-min) {
+        display: none;
+        
+        &.is-active {
+          display: none;
+        }
+      }
+    }
+
+    &.is-active {
       display: block;
+
+      a {
+        color: $c-font-base;
+        font-weight: 700;
+      }
+
+      &:hover a {
+        color: $c-font-base;
+        border-bottom-color: transparent;
+      }
 
       @media ($bp-medium-min) {
         cursor: default;
       }
     }
 
+    &:hover a {
+      border-bottom-color: rgba($c-font-link,.5);
+    }
+
     a {
       @include ma-link-underline;
+      font-weight: 500;
     }
   }
 
-  @media ($bp-medium-min) {
+  
     &__link + &__link {
+    border-top-color: $c-gray-light;
+
+    &.is-open {
+      border-top-color: $c-gray-light;
+    }
+
+    &.is-top {
+      @media ($bp-medium-min) {
+        border-top-width: 0;
+      }
+    }
+
+    @media ($bp-medium-min) {
       border-top-width: 1px;
       border-top-style: solid;
       padding-top: 12px;
@@ -129,12 +183,13 @@
 
   &__toggle-link {
     @include ma-button-reset;
-    font-size: 2.5rem;
+    color: $c-primary-alt;
+    font-size: 3rem;
     line-height: .65em;
     overflow: hidden;
     position: absolute;
-      right: 10px;
-      top: 9px;
+    right: 10px;
+    top: 9px;
     transition: all .2s ease;
     transform-origin: center center;
 
@@ -145,45 +200,5 @@
     @media ($bp-medium-min) {
       display: none;
     }
-  }
-}
-
-//theme
-.ma__sticky-nav {
-  @media ($bp-medium-max) {
-    background-color: $c-bg-section;
-  }
-
-
-  &__link {
-    a {
-      font-weight: 500;
-    }
-
-    &:hover a {
-      border-bottom-color: rgba($c-font-link,.5);
-    }
-
-    &.is-active a {
-      color: $c-font-base;
-      font-weight: 700;
-    }
-
-    &.is-active:hover a {
-      color: $c-font-base;
-      border-bottom-color: transparent;
-    }
-  }
-
-  &__link + &__link {
-    border-top-color: $c-bd-divider;
-    
-    &.is-open {
-      border-top-color: $c-bd-divider;
-    }
-  }
-
-  &__toggle-link {
-    color: $c-primary-alt;
   }
 }
