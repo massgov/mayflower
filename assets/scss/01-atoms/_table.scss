@@ -8,7 +8,7 @@
     border-collapse: collapse;
 
   th {
-    color: $c-font-detail;
+    color: $c-gray-dark;
   }
 
   @media ($bp-small-max) {
@@ -20,14 +20,14 @@
     td {
 
       &:before {
-        color: $c-font-heading;
+        color: $c-black;
         font-weight: 500;
       }
     }
 
     th {
-      color: $c-font-heading;
-      background-color: $c-bg-subtle;
+      color: $c-black;
+      background-color: $c-gray-lightest;
     }
   }
 }
@@ -40,9 +40,9 @@
 }
 
 .ma__table--responsive .sticky-thead {
-    background: #fff;
+    background: $c-white;
     border-collapse: collapse;
-    box-shadow: 0 0 0 2px #dcdcdc;
+    box-shadow: 0 0 0 2px $c-gray-light;
     left: 0;
     opacity: 0;
     overflow: hidden;
@@ -54,7 +54,7 @@
     z-index: 50;
 
     &:before {
-        background: #fff;
+        background: $c-white;
         content: '';
         height: 100vh;
         left: 0;
@@ -66,12 +66,6 @@
 
     .sticky-thead-wrapper {
       overflow-x: auto;
-      -ms-overflow-style: none;  // IE 10+
-      overflow: -moz-scrollbars-none;  // Firefox
-
-      &::-webkit-scrollbar { 
-        display: none;  // Safari and Chrome
-      }
     }
 
     table {
@@ -96,18 +90,18 @@
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
-    box-shadow: 0 0 0 2px #dcdcdc;
+    box-shadow: 0 0 0 2px $c-gray-light;
 }
 
 .ma__table--responsive tbody tr td {
-    border-bottom: 1px solid #f9f9f9;
+    border-bottom: 1px solid $c-gray-lightest;
     vertical-align: top;
 }
 
 .ma__table__horizontal-nav {
     align-items: center;
-    background-color:#fff;
-    border-top: 2px solid #dcdcdc;
+    background-color:$c-white;
+    border-top: 2px solid $c-gray-light;
     bottom: 0;
     display: none;
     height: 50px;
@@ -152,7 +146,7 @@
             transition: all .2s;
             vertical-align: middle;
             width: 10px;
-            border-color: #14558f;
+            border-color: $c-primary;
             opacity: 0.5;
         }
     }
@@ -196,7 +190,7 @@
 
 .clip-scrollbar {
   overflow: hidden;
-  border: 2px solid rgba(#14558f, 0.5);
+  border: 2px solid rgba($c-primary, 0.5);
 }
 
 .ma__scroll-indicator {
@@ -211,7 +205,7 @@
       margin: auto;
       height: calc(100% + 8px);
       top: -4px;
-      background: rgba(#14558f, 0.5);
+      background: rgba($c-primary, 0.5);
       cursor: grab;
     }
 }
@@ -219,19 +213,19 @@
 .ma__rich-text table,
 .ma__table {
   thead {
-    background-color: $c-bg-subtle;
+    background-color: $c-gray-lightest;
 
       th {
-        color: $c-font-heading;
+        color: $c-black;
       }
   }
 
   tbody {
-    border-color: $c-bd-divider;
+    border-color: $c-gray-light;
   }
 
   tr + tr {
-    border-color: $c-bd-divider;
+    border-color: $c-gray-light;
   }
 }
 
@@ -246,14 +240,14 @@
     td {
 
       &:before {
-        color: $c-font-heading;
+        color: $c-black;
         font-weight: 500;
       }
     }
 
     th {
       color: $c-font-heading;
-      background-color: $c-bg-subtle;
+      background-color: $c-gray-light;
     }
   }
 }
