@@ -1,6 +1,8 @@
 .ma__contact-list {
   &:not(.ma__contact-list--view-specific) {
     overflow: auto;
+    -ms-overflow-style: none;
+    -ms-scroll-limit: 0 0 0 0;
   }
 
   .sidebar & {
