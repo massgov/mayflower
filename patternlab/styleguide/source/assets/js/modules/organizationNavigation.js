@@ -26,7 +26,6 @@ export default (function (window,document,$,undefined) {
 
     // Subnav buttons. 
     let $menuButton = $orgNav.find('.subnav-toggle');
-    let $jumpLink = $orgNav.find('.internal-link');
 
     // I want to section.
     let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
