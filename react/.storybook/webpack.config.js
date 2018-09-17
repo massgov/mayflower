@@ -4,7 +4,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
   // Replace storybook's default rule for media that contained svg.
   defaultConfig.module.rules.forEach((rule, index) => {
     if (rule.test.toString().indexOf('svg') > -1) {
-      defaultConfig.module.rules[index].test = /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/;
+      defaultConfig.module.rules[index].test = /\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/;
       defaultConfig.module.rules.push({
         test: /\.svg$/,
         oneOf: [
@@ -30,6 +30,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
         ]
       });
     }
+
   });
   return defaultConfig;
 };
