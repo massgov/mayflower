@@ -1,14 +1,17 @@
+{% for row in rows %}
 <ul class="sg-colors">
-  {% for item in items %}
-    <li>
-      <div class="sg-swatch" style="background: {{item.value}};"></div>
+  {% for item in row.items %}
+    <li style="width: 300px; margin: 20px 0px 0px 10px; padding: 10px;">
+      <h2 class="ma__sidebar-heading">{{item.color}}</h2>
+      <div class="sg-swatch" style="background: {{item.value}}; border-radius: 0px;"></div>
       <div class="sg-info">
         <span>{{item.value}}</span> <br/>
-        <code>{{item.name}}</code>
+        <code style="font-size: 1rem;">{{item.name}}</code>
       </div>
     </li>
   {% endfor %}
 </ul>
+{% endfor %}
 {% if meta %}
   <p> <small>{{ meta.description }}</small> </p>
 {% endif %}

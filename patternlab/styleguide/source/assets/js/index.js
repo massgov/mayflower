@@ -23,6 +23,7 @@ import locationFilters            from "./modules/locationFilters.js";
 import mainNav                    from "./modules/mainNav.js";
 import mobileNav                  from "./modules/mobileNav.js";
 import orgSelector                from "./modules/orgSelector.js";
+import organizationNavigation     from "./modules/organizationNavigation.js";
 import pagination                 from "./modules/pagination.js";
 import pikaday                    from "./modules/pikaday.js";
 // `richText` is needed above `responsiveTable` to setup tables.

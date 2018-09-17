@@ -74,11 +74,11 @@
   &__link {
 
     &[data-social-share = blog] > svg path {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
     }
 
     &[data-social-share = email] > svg path {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
     }
   }
 }

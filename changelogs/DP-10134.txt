@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Minor
-- (React) DP-10134: Augments react Backstop scenario detection so stories with multiple add() calls will all be tested.

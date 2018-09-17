@@ -1,9 +1,9 @@
 @import "global";
 
 .ma__search-banner__top {
-  background: $c-gray-f2f2f2;
-  border-top: 1px solid $c-gray-dcdcdc;
-  border-bottom: 1px solid $c-gray-dcdcdc;
+  background: $c-gray-lightest;
+  border-top: 1px solid $c-gray-light;
+  border-bottom: 1px solid $c-gray-light;
   padding-top: 30px;
   margin-bottom: 50px;
   position: relative;
@@ -28,7 +28,7 @@
 
   .ma__input-typeahead {
     &--boxed {
-      background-color: $c-gray-f2f2f2;
+      background-color: $c-gray-lightest;
     }
   }
 
@@ -89,7 +89,7 @@
 
       @media ($bp-large-min) {
         border: 1px solid #8AAAC7;
-        border-top: 5px solid $c-theme-primary;
+        border-top: 5px solid $c-primary;
         border-bottom-color: #E8EEF4;
 
         & > svg {

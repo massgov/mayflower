@@ -122,18 +122,18 @@
     }
 
     &:before {
-      background-color: rgba($c-theme-primary,.5);
+      background-color: rgba($c-primary,.5);
     }
 
     &:hover:before {
-      background-color: $c-theme-primary;      
+      background-color: $c-primary;      
     }
   }
 
   .slick-dots {
     
     button {
-      background-color: $c-theme-primary;
+      background-color: $c-primary;
     }
 
     .slick-active button {

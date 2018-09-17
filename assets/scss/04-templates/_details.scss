@@ -37,7 +37,7 @@
 
     .ma__sidebar-heading,
     .ma__comp-heading {
-      @include ma-heading-colored($c-theme-secondary);
+      @include ma-heading-colored($c-primary-alt);
     }
   }
 

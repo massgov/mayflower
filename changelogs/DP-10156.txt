@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Patch
-- (Patternlab, React) DP-10156: Consolidate and replace letter-spacing to variables `$letter-spacing-large`, `$letter-spacing-medium`, `$letter-spacing-small` and `$letter-spacing-default`.

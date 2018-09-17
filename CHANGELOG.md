@@ -13,6 +13,35 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 7.1.0 (9/12/2018)
+
+### Added
+- (Docs) Release docs 0.1.0 added first-round documentation for buttons, headings links, lists, table, text area, select box, checkbox, radio button, pagination, relationship indicator, tooltip, accordion and global accessibility.
+- (Docs) Release docs 0.2.0 break down and clean up global accessibility guidelines.
+- patternlab DP-9337:  Implement Organization Page navigation menu
+
+### Changed
+- (Patternlab) DP-5917: Updates to truncate long pagination displays with ellipsis. #196.
+- (Patternlab) DP-9875: Adjust the package-lock.json and CircleCI for this change to yarn.lock file. #217
+- (React) DP-10134: Augments react Backstop scenario detection so stories with multiple add() calls will all be tested.
+- (Patternlab, React) DP-10156: Consolidate and replace letter-spacing to variables `$letter-spacing-large`, `$letter-spacing-medium`, `$letter-spacing-small` and `$letter-spacing-default`.
+- Patternlab DP-9912: Replicated related links to the bottom of the page along with changes style to the heading. #214
+- (Patternlab) DP-10287: Adds block to page-overview twig file for responsive images. #230
+- (Patternlab & React): 
+	- Updates the naming of our global color variables.
+	- Pulls originally naming from documentations.
+	- Updates grayscale color variables.
+	- Updates color variables to be named based on usage and not color.
+
+### Fixed
+- (Patternlab) DP-5955: Fixes top alignment of the "Related Services" and "Additional Resources" split columns block on tablet view mode. #184
+- (Patternlab) Fixes patternlab SCSS watching.
+
+### Removed
+- (Patternlab) DP-9875: Remove the yarn.lock #217
+- (Patternlab & React):
+	- Removes #757575, replacing with #707070 color variable.
+	- Removes feedback accessibility fix for green issue variable.
 
 ## 7.0.1 (8/30/2018)
 
@@ -23,6 +52,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ## 7.0.0 (8/29/2018)
 
 ### Changed
+- (Patternlab) DP-9702: replace floating "Tell us what you think" button with fixed feedback button
 - patternlab / DP-10012: offered by relationship indicator row changes
 - (Patternlab) DP-10056: Mayflower Patternlab has an updated build process that includes the following changes:
     * Gulp Patternlab tasks now run `dist:build` automatically.  The `dist` folder contains the fully compiled Mayflower Artifacts, and can be placed anywhere on your system, not just inside the mayflower repository.

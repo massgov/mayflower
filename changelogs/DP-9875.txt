@@ -1,4 +1,0 @@
-Changed
-- (Patternlab) DP-9875: Adjust the package-lock.json and CircleCI for this change to yarn.lock file.
-Removed
-- (Patternlab) DP-9875: Remove the yarn.lock
