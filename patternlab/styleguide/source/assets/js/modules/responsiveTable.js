@@ -11,9 +11,10 @@ export default (function (window, document, $) {
 
   const $window = $(window);
   let responsiveTables = [];
+  
 
   function setWidths(rt) {
-
+    
     rt.$table
       .find("thead th")
       .each(function (i) {
@@ -28,7 +29,6 @@ export default (function (window, document, $) {
       rt.$stickyHeader.find("table").width(rt.$table.width());
       rt.$stickyHeader.width(rt.$stickyHeader.parent().width());
     }
-
   }
 
   // Initialize or reset the responsive tables. This includes creating a copy
@@ -265,8 +265,18 @@ export default (function (window, document, $) {
   function recalcScrollbar(rt) {
     const containerWidth = rt.$table.parent().width();
     const tableWidth = rt.$table.width();
-    // @todo Update this to remove the width of arrows and arrow margins.
-    const buttonWidth = (tableWidth - containerWidth) * 2;
+
+    let mobileLoad = $window.width() < 910;
+    let buttonWidth;
+    
+    if (mobileLoad) {
+      // Short button for mobile.
+      buttonWidth = (tableWidth - containerWidth) / 1.25;
+    } else {
+      // Regular button for desktop.
+      buttonWidth = (tableWidth - containerWidth) * 2;
+    }
+    
     const $scrollbar = rt.$root.find(".clip-scrollbar");
     const $scrollbarIndicator = $scrollbar.find(".ma__scroll-indicator");
     const scrollbarHeight = $scrollbarIndicator[0].clientHeight;
@@ -275,6 +285,10 @@ export default (function (window, document, $) {
     $scrollbar.find(".ma__scroll-indicator--bar").css("width", `${tableWidth}px`);
     $scrollbarIndicator.css("width", `${containerWidth}px`);
     $scrollbarIndicator.find(".ma__scroll-indicator__button").css("width", `${buttonWidth}px`);
+
+    console.log('buttonWidth', buttonWidth);
+    console.log('tableWidth', tableWidth);
+    console.log('containerWidth', containerWidth);
   }
 
   function handleTableScroll(e) {
