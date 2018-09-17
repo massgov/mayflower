@@ -112,16 +112,19 @@ export default (function (window,document,$,undefined) {
           
           if (e.keyCode == 13 || e.keyCode == 32) {
             $('.section-toggle').remove();
+
+            $thisMenu.attr("tabindex", -1);
+            $thisMenu.find("a[href]").attr("tabindex", 0);
             $buttonParent.toggleClass('item-open');
             $thisMenu.css('top', menuHeight);
-            $thisMenu.find("a[href]").attr("tabindex", 0);
-
+            
             $buttonParent.add($thisMenu).on('mouseenter mouseleave', function() {
               return false;
             });
            }
 
            if (e.keyCode == 9) {
+            $thisMenu.attr("tabindex", 500);
             $thisMenu.find("a[href]").attr("tabindex", 500);
            }
         })
