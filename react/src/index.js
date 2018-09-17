@@ -33,6 +33,7 @@ export DecorativeLink from './components/atoms/links/DecorativeLink';
 export OrderedList from './components/atoms/lists/OrderedList';
 export UnorderedList from './components/atoms/lists/UnorderedList';
 // @atoms/@media
+export Image from './components/atoms/media/Image';
 export SiteLogo from './components/atoms/media/SiteLogo';
 // @atoms/@table
 export Table from './components/atoms/table/Table';
@@ -41,6 +42,8 @@ export Paragraph from './components/atoms/text/Paragraph';
 export PublishState from './components/atoms/text/PublishState';
 
 // @molecules
+export Link from './components/molecules/Link';
+export IconLink from './components/molecules/IconLink';
 export CalloutLink from './components/molecules/CalloutLink';
 export DateRange from './components/molecules/DateRange';
 export FooterLinks from './components/molecules/FooterLinks';
@@ -61,6 +64,7 @@ export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
 
 // @organisms
+export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Footer from './components/organisms/Footer';
 export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';
