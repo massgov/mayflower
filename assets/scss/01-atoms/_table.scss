@@ -190,6 +190,7 @@
 
 .clip-scrollbar {
   overflow: hidden;
+  border: 2px solid rgba(#14558f, 0.5);
 }
 
 .ma__scroll-indicator {
@@ -198,16 +199,13 @@
 
     .ma__scroll-indicator--bar {
       height: 8px;
-      border: 2px solid #14558f;
-      opacity: 0.5;
     }
 
     .ma__scroll-indicator__button {
       margin: auto;
       height: calc(100% + 8px);
       top: -4px;
-      background: #14558f;
-      opacity: 1;
+      background: rgba(#14558f, 0.5);
       cursor: grab;
     }
 }
