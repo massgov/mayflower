@@ -13,6 +13,7 @@ export const assets = {
   marker: 'marker.svg',
   opennow: 'opennow.svg',
   phone: 'phone.svg',
+  questionmark: 'questionmark.svg',
   search: 'search.svg',
   wheelchair: 'wheelchair.svg',
   xlxs: 'xlxs.svg',
