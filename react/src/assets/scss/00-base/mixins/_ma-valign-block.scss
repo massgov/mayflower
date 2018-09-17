@@ -1,0 +1,11 @@
+@mixin ma-valign-block {
+
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    margin-right: -1px;
+    vertical-align: middle;    
+    width: 1px;
+  }
+}

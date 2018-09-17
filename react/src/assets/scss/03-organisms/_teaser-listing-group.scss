@@ -1,0 +1,68 @@
+.ma__teaser-listing-group {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+    @include ma-container;
+  }
+
+  .ma__teaser-listing + .ma__teaser-listing {
+    margin-top: 40px;
+  }
+
+  .is-initially-hidden {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: 350ms ease-in-out;
+  }
+  &:not(.is-open) .is-initially-hidden {
+    margin: 0 !important;
+  }
+  // treat sections being hidden slightly differently
+  .ma__teaser-listing.is-initially-hidden {
+    height: 0;
+  }
+
+  .ma__teaser-listing-group__toggle {
+    margin-top: 30px;
+    font-weight: 700;
+    border: 0;
+    padding-left: 0;
+    background: transparent;
+    &:after {
+      top: 20%;
+      right: 0;
+      transform: rotate(45deg);
+    }
+    .less {
+      display: none;
+    }
+  }
+
+  &.is-open {
+    .is-initially-hidden {
+      max-height: 100vh; // arbitrarily large for simplicity and consistent transition time
+      opacity: 1;
+      overflow: visible;
+    }
+    // treat sections being hidden slightly differently
+    .ma__teaser-listing.is-initially-hidden {
+      max-height: none;
+      height: auto;
+    }
+
+    .ma__teaser-listing-group__toggle {
+      &:after {
+        transform: rotate(-135deg);
+      }
+      .more {
+        display: none;
+      }
+      .less {
+        display: initial;
+      }
+    }
+  }
+
+}

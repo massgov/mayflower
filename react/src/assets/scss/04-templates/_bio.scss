@@ -1,0 +1,22 @@
+.ma__bio {
+
+  .ma__header-tags {
+    @include ma-container;
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
+
+  @media ($bp-large-min) {
+    .ma__bio__inlined-aside {
+      display: none;
+    }
+  }
+  @media ($bp-large-max) {
+    .ma__bio__content .sidebar {
+      display: none;
+    }
+    .ma__bio__inlined-aside.sidebar {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+//  This mixin is used to maintain a set aspect ratio of an element as its width changes.
+//  Usage:
+//
+//  <div class="16-by-9-rectangle">
+//    <div> stuff inside rectangle</div>
+//  </div>
+//  ---
+//  .16-by-9-rectangle {
+//      @include aspect-ratio(16, 9);
+//  }
+//
+
+@mixin ma-aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+}
