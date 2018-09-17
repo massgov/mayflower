@@ -8,6 +8,7 @@
   .sidebar & {
     overflow: initial;
     -ms-overflow-style: none;
+    -ms-scroll-limit: 0 0 0 0;
   }
 
   .pre-content > &,
