@@ -1,8 +1,11 @@
 import React from 'react';
+import Parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 
 const Paragraph = (paragraph) => (
-  <p dangerouslySetInnerHTML={{ __html: paragraph.text }} />
+  <p>
+    {Parser(paragraph.text)}
+  </p>
 );
 
 Paragraph.propTypes = {

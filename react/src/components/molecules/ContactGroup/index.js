@@ -1,4 +1,5 @@
 import React from 'react';
+import Parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Icon from '../../atoms/icons/Icon';
@@ -19,7 +20,8 @@ const ContactGroup = (contactGroup) => {
       case 'address':
         return(
           <React.Fragment>
-            <div className="ma__contact-group__address" dangerouslySetInnerHTML={{ __html: item.address }} />
+            <div className="ma__contact-group__address" />
+            {Parser(item.address)}
             { item.link.href && (
             <div className="ma__contact-group__directions">
               <DecorativeLink {...item.link} />
