@@ -18,7 +18,7 @@
     "backstop:approve": "docker-compose run backstop approve",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/ --watch",
-    "build-nwb": "nwb build-react-component --copy-files",
+    "build-nwb": "nwb build-react-component --copy-files src/assets --copy-files",
     "build": "npm-run-all build-css build-nwb",
     "clean": "nwb clean-module",
     "start": "npm-run-all -p watch-css storybook",
@@ -29,7 +29,8 @@
     "test:watch": "nwb test-react --server",
     "prepublishOnly": "npm run clean && npm run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "copy-assets": "node scripts/copy-assets.js"
   },
   "pre-push": [
     "lint"
@@ -37,6 +38,7 @@
   "dependencies": {
     "autosuggest-highlight": "^3.1.1",
     "classnames": "^2.2.6",
+    "fs-extra": "^7.0.0",
     "moment": "^2.21.0",
     "object.entries": "^1.0.4",
     "pikaday": "^1.7.0",
@@ -45,7 +47,10 @@
     "react-select": "^1.2.1",
     "react-transition-group": "^2.4.0",
     "shortid": "^2.2.8",
-    "svg-sprite-loader": "^3.8.0"
+    "svg-sprite-loader": "^3.8.0",
+    "bourbon": "^5.1.0",
+    "bourbon-neat": "^1.7.2",
+    "normalize-scss": "^7.0.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.10",
@@ -54,26 +59,23 @@
     "@storybook/addon-links": "^3.3.10",
     "@storybook/addons": "^3.3.10",
     "@storybook/react": "^3.3.10",
-    "acorn": "^5.7.2",
-    "acorn-jsx": "^4.1.1",
-    "acorn-object-rest-spread": "^1.1.0",
-    "acorn-static-class-property-initializer": "^1.0.0",
-    "babel-core": "^6.26.0",
-    "bourbon": "^5.1.0",
-    "bourbon-neat": "^1.7.2",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "node-sass-chokidar": "^1.2.2",
-    "normalize-scss": "^7.0.1",
     "npm-run-all": "^4.1.2",
     "nwb": "0.21.x",
     "pre-push": "^0.1.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "acorn": "^5.7.2",
+    "acorn-jsx": "^4.1.1",
+    "acorn-object-rest-spread": "^1.1.0",
+    "acorn-static-class-property-initializer": "^1.0.0",
+    "babel-core": "^6.26.0"
   },
   "homepage": "",
   "license": "MIT",

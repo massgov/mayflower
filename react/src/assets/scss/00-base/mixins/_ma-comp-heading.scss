@@ -1,0 +1,20 @@
+@mixin ma-comp-heading($c-underline:transparent) {
+  
+  @if($c-underline == transparent) {
+    @include ma-border-decorative;
+    position: relative;
+    padding-bottom: 15px;
+
+    &:after {
+      width: 1.85em; // ma-underline-decorative override
+    }
+  }
+  @else {
+    @include ma-border-decorative($c-underline);
+
+    a {
+      border: none;
+      color: $c-font-heading;
+    }
+  }
+}
