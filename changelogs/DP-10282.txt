@@ -1,0 +1,7 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) DP-10282: Replacing DangerouslySetInnerHTML with the React Parser in the Paragraph Component.
+- (React) DP-10282: Replacing DangerouslySetInnerHTML with the React Parser in the Unordered List Component.
+- (React) DP-10282: Replacing DangerouslySetInnerHTML with the React Parser in the Ordered List Component.
+- (React) DP-10282: Replacing DangerouslySetInnerHTML with the React Parser in the Contact Group Components.
