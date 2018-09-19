@@ -268,11 +268,11 @@ export default (function (window, document, $) {
     const containerWidth = rt.$table.parent().width();
     const tableWidth = rt.$table.width();
 
-    let mobileLoad = $window.width() < 910;
+    let smallLoad = $window.width() < 1050;
     let buttonWidth;
     
-    if (mobileLoad) {
-      // Short button for mobile.
+    if (smallLoad) {
+      // Short button for thinner tables.
       buttonWidth = (tableWidth - containerWidth) / 1.25;
     } else {
       // Regular button for desktop.
