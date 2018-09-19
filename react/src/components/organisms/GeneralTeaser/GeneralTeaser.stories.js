@@ -8,7 +8,7 @@ import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 
 import GeneralTeaserDocs from './GeneralTeaser.md';
 
-// The default rendered date needs to be constant for visual tests.
+// The default rendered date needs to be constant for visual regression tests.
 const defaultDate = new Date('2018-02-02');
 
 storiesOf('organisms', module).addDecorator(withKnobs)
