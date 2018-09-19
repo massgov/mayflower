@@ -22,7 +22,7 @@
     "build-nwb": "nwb build-react-component --copy-files",
     "build": "npm-run-all assets:copy build-css build-nwb assets:clean",
     "clean": "nwb clean-module && npm run assets:clean",
-    "start": "npm-run-all -p assets:link watch-css storybook",
+    "start": "npm run assets:link && npm-run-all -p watch-css storybook",
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint --fix .; exit 0",
     "test": "npm run assets:copy && nwb test-react && npm run assets:clean",

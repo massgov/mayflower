@@ -1,13 +1,17 @@
-const { symlink } = require('fs');
+const fs = require('fs');
 const fse = require('fs-extra');
+const path = require('path');
 
-fse.remove('src/assets', (err1) => {
+const sharedAssetsPath = path.resolve(__dirname, '..', '..', 'assets');
+const buildAssetsPath = path.resolve(__dirname, '..', 'src', 'assets');
+
+fse.remove(buildAssetsPath, (err1) => {
   /* eslint-disable no-console */
   if (err1) return console.error(err1);
   console.log('build assets cleaned.');
 
-  return symlink('../assets', './src/assets', (err2) => {
-    if (err2) return console.log(err2);
+  return fs.symlink(sharedAssetsPath, buildAssetsPath, 'file', (err) => {
+    if (err) return console.log(err);
     console.log('assets linked for npm start!');
     return 0;
   });
