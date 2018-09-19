@@ -131,9 +131,9 @@ export default (function (window,document,$,undefined) {
         $thisMenu.find('a').last().keyup(function (e){
           
           if (e.keyCode == 9 || e.keyCode == 40) {
-            console.log('out');  
+             
             setTimeout(function(){
-              console.log('done');
+              
               $thisMenu.attr("tabindex", 500);
               $thisMenu.find("a[href]").attr("tabindex", 500);
             }, 500);
