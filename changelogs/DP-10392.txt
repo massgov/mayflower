@@ -1,0 +1,7 @@
+___DESCRIPTION___
+Fixed
+Major
+- (React) DP-10392: Adds shared assets into build
+Added
+Minor
+- (React) DP-10392: Adds SharedAsset path alias handling
