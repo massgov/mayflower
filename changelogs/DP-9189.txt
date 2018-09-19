@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- Patternlab DP-9189: Adds aria-lable to override the top button label in sticky toc. #216#
