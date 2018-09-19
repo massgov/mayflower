@@ -268,7 +268,7 @@ export default (function (window, document, $) {
     const containerWidth = rt.$table.parent().width();
     const tableWidth = rt.$table.width();
 
-    let smallLoad = $window.width() < 1050;
+    let smallLoad = $window.width() < 1200;
     let buttonWidth;
     
     if (smallLoad) {

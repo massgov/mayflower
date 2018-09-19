@@ -215,6 +215,12 @@
 .ma__scroll-indicator {
     position: relative;
     overflow-x: auto;
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+
+    &::-webkit-scrollbar { 
+      display: none;  // Safari and Chrome
+    }
 
     .ma__scroll-indicator--bar {
       height: 8px;
@@ -249,7 +255,7 @@
 }
 
 .ma__table--wide {
-
+  
   @media ($bp-medium-max) {
     thead + tbody,
     tbody:first-child {
@@ -272,6 +278,7 @@
 }
 
 .stickNav {
+  
   .ma__table__horizontal-nav {
     position: fixed;
     bottom: 0;
