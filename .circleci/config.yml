@@ -161,16 +161,14 @@ jobs:
       - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
-      - save_cache:
-          key: v1-react_build_storybook-cache
-          paths:
-            - ~/repo
+      - persist_to_workspace:
+          root: ~/repo
+          paths: ["*"]
 
   react_test:
     <<: *backstop_defaults
     steps:
-      - restore_cache:
-          key: v1-react_build_storybook-cache
+      - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
       - run: |
           cd react
