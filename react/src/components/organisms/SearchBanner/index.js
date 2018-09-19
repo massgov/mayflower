@@ -54,7 +54,7 @@ class SearchBanner extends Component {
           <HeaderSearch {...searchBox} />
         </div>
         {tabs && <Tabs {...tabs} />}
-        <div className="ma_serach-banner__filter-box-container">
+        <div className="ma_search-banner__filter-box-container">
           {filterBox && (
             <div className="main-content--two ma__search-banner__filter-box-toggle-container">
               <button onClick={this.toggleFilterBox} type="button" className={toggleButtonClass}>
