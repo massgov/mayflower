@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) Fix react visual regressions by setting a default date for general teaser in storybook
