@@ -105,6 +105,11 @@ export default (function (window,document,$,undefined) {
       });
 
       $button.on('focus', function() {
+        $thisMenu.attr("tabindex", 500);
+        $thisMenu.find("a[href]").attr("tabindex", 500);
+
+        $('.ma__organization-navigation__item')
+        
         $button.keyup(function (e){
 
           $('.item-open').removeClass('item-open');
@@ -121,13 +126,23 @@ export default (function (window,document,$,undefined) {
               return false;
             });
            }
+        });
 
-           if (e.keyCode == 9) {
-            $thisMenu.attr("tabindex", 500);
-            $thisMenu.find("a[href]").attr("tabindex", 500);
+        $thisMenu.find('a').last().keyup(function (e){
+          
+          if (e.keyCode == 9 || e.keyCode == 40) {
+            console.log('out');  
+            setTimeout(function(){
+              console.log('done');
+              $thisMenu.attr("tabindex", 500);
+              $thisMenu.find("a[href]").attr("tabindex", 500);
+            }, 500);
+            
            }
-        })
+        });
       });
+
+      
   
       $button.on('click', function() {
         let windowWidth = $(window).width();
