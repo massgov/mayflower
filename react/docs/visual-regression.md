@@ -26,7 +26,7 @@ This will run build-storybook followed by the backstop suites. This can have one
 When you are ready to commit your work, and all test screenshots look correct, you must update the reference screenshots with the new ones that reflect your changes.  To do that, run:
 
 ```bash
-# Capture test screenshots of the current state.
+# Compare test screenshots of the current references.
 npm run backstop
 # Accept these screenshots as the new reference images.
 npm run backstop:approve
@@ -34,5 +34,15 @@ npm run backstop:approve
 git add backstop/data/bitmaps_reference
 git commit
 ```
+
+If you wish to create new reference images (such as when creating new components) for tests, you can run the following, replacing ComponentName with the name of your component:
+```bash
+docker-compose run backstop reference --filter=<ComponentName>
+```
+This command may also be used to update any references that currently exist for any component. `--filter` will also work for the `backstop test` command like this: 
+```bash
+docker-compose run backstop test --filter=<ComponentName>
+```
+`<ComponentName>` can be replaced with things other than the name of the component, and filters through labels or url strings from scenarios.
 
 Backstop also runs in CircleCI, so your build may fail if you do not update the reference screenshots when you push changes to github.

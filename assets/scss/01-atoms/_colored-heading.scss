@@ -19,10 +19,10 @@
   @include ma-heading-colored($c-bg-comp-title);
 
   &--green {
-    background-color: $c-theme-green;
+    background-color: $c-primary-alt;
   }
 
     &--blue {
-    background-color: $c-theme-blue;
+    background-color: $c-primary;
   }
 }
