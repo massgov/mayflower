@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 
 ## 8.0.0 (9/19/2018)
+:loudspeaker: We are going to undertake major refactoring work on component naming, markup and classnames in version 8, please refer to this changelog👆 or [Mayflower components documentation](https://massds.gitbook.io/mayflower/components) or join [Mayflower Public Slack](https://join.slack.com/t/mayflowerdesignsystem/shared_invite/enQtNDIzNDc2MjQwMzM2LTAzYTcyZTI3ZDZiMjZmNGIxZWE2OTBiY2FlMmQyNjAwODVmNTQ4ZDhlMzVjMmMxMjA2YTc2MTgzZmNiZjUyY2E) and watch out for API changes if you decide to move to V8.
 
 ### Added
 - (React) DP-8086: Adds the following new components: GeneralTeaser, IconLink, Link.
