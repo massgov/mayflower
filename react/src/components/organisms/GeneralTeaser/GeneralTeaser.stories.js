@@ -8,8 +8,11 @@ import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 
 import GeneralTeaserDocs from './GeneralTeaser.md';
 
+// The default rendered date needs to be constant for visual regression test.
+const defaultDate = new Date('2018-02-02');
+
 storiesOf('organisms', module).addDecorator(withKnobs)
-  .add('GeneralTeaser', withInfo({ text: `<div>${GeneralTeaserDocs}</div>`})(() => {
+  .add('GeneralTeaser', withInfo({ text: `<div>${GeneralTeaserDocs}</div>` })(() => {
     const props = {
       image: {
         src: text('GeneralTeaser.image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),
@@ -23,7 +26,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         showFileIcon: boolean('GeneralTeaser.title.showFileIcon', false)
       },
       level: number('GeneralTeaser.level', 0),
-      date: text('GeneralTeaser.date', new Date().toDateString()),
+      date: text('GeneralTeaser.date', defaultDate.toDateString()),
       org: text('GeneralTeaser.org', 'Massachusetts Department Of Environmental Protection'),
       description: {
         text: text('GeneralTeaser.description.text', Paragraph.defaultProps.text)
