@@ -54,15 +54,17 @@ class SearchBanner extends Component {
           <HeaderSearch {...searchBox} />
         </div>
         {tabs && <Tabs {...tabs} />}
-        {filterBox && (
-          <div className="main-content--two ma__search-banner__filter-box-toggle-container">
-            <button onClick={this.toggleFilterBox} type="button" className={toggleButtonClass}>
-              {filterToggleText}
-              <Icon name="chevron" svgWidth={20} svgHeight={20} />
-            </button>
-          </div>
-        )}
-        { filterBox && this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
+        <div className="ma_search-banner__filter-box-container">
+          {filterBox && (
+            <div className="main-content--two ma__search-banner__filter-box-toggle-container">
+              <button onClick={this.toggleFilterBox} type="button" className={toggleButtonClass}>
+                {filterToggleText}
+                <Icon name="chevron" svgWidth={20} svgHeight={20} />
+              </button>
+            </div>
+          )}
+          { filterBox && this.state.filterBoxExpanded && <FilterBox {...filterBox} submitButton={submitButton} /> }
+        </div>
       </div>
     );
   }
