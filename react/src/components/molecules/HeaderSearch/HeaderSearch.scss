@@ -1,4 +1,5 @@
 @import 'global';
+@import "01-atoms/button-search";
 @import '02-molecules/header-search';
 
 .ma__header-search {
@@ -20,5 +21,15 @@
   }
   .ma__form {
     display: flex;
+  }
+
+  &__input {
+    padding-right: 0;
+  }
+  //overwrite
+  .ma__button-search {
+    border: 2px solid $c-overcast-gray !important;
+    position: relative !important;
+    margin-left: -2px;
   }
 }

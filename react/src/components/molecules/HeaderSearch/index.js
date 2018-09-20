@@ -32,7 +32,7 @@ class HeaderSearch extends React.Component {
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
         {shouldShowTypeAhead && <TypeAheadDropdown {...orgDropdown} /> }
         <section className="ma__header-search">
-          <form action="#" className="ma__form js-header-search-form" onSubmit={headerSearch.onSubmit}>
+          <form action="#" className="ma__form" onSubmit={headerSearch.onSubmit}>
             <label
               htmlFor={headerSearch.id}
               className="ma__header-search__label"
@@ -46,6 +46,7 @@ class HeaderSearch extends React.Component {
               type="search"
               value={this.state.value}
             />
+            {shouldShowTypeAhead && <TypeAheadDropdown {...orgDropdown} /> }
             <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
         </section>
