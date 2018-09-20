@@ -129,7 +129,7 @@ jobs:
           command: |
             cd patternlab/styleguide/dist
             npm version --no-git-tag-version "$CIRCLE_TAG"
-            if [[ test -z "$(npm show @massds/mayflower@$CIRCLE_TAG)" ]]; then
+            if test -z "$(npm show @massds/mayflower@$CIRCLE_TAG)"; then
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
@@ -199,7 +199,7 @@ jobs:
           command: |
             cd react
             npm version --no-git-tag-version "$CIRCLE_TAG"
-            if [[ test -z "$(npm show @massds/mayflower-react@$CIRCLE_TAG)" ]]; then
+            if test -z "$(npm show @massds/mayflower-react@$CIRCLE_TAG)"; then
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
