@@ -13,6 +13,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.0.1 (9/19/2018)
+
+### Fixed
+- (Patternlab, React) Fix npm publish circle scripts #258
 
 ## 8.0.0 (9/19/2018)
 :loudspeaker: We are going to undertake major refactoring work on component naming, markup and classnames in version 8, please refer to this changelog👆 or [Mayflower components documentation](https://massds.gitbook.io/mayflower/components) or join [Mayflower Public Slack](https://join.slack.com/t/mayflowerdesignsystem/shared_invite/enQtNDIzNDc2MjQwMzM2LTAzYTcyZTI3ZDZiMjZmNGIxZWE2OTBiY2FlMmQyNjAwODVmNTQ4ZDhlMzVjMmMxMjA2YTc2MTgzZmNiZjUyY2E) and watch out for API changes if you decide to move to V8.
@@ -44,7 +48,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) DP-10131: fix IE 11 specific overflow style on contact list #197
 - (React) DP-10368: Fixed SearchBanner molecule filters position when no tabs are rendered.
 - (React) Fix react visual regressions by setting a default date for general teaser in storybook
-- (Patternlab, React) fix npm publish circle scripts #258
 
 
 
