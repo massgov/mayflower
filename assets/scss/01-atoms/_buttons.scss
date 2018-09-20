@@ -1,5 +1,7 @@
 button {
   cursor: pointer;
+  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+  font-weight: 400;
 }
 
 .ma__button {
@@ -14,40 +16,58 @@ button {
   @include ma-button("large");
 }
 
-//theme
-button {
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
-  font-weight: 400;
-}
-
 .ma__button {
-  @include ma-button("normal","solid",$c-theme-primary);
+  @include ma-button("normal","solid",$c-primary);
 }
 
-.ma__button--minor {
-  @include ma-button("normal","outline",$c-theme-primary);
+.ma__button--c-primary-alt {
+  @include ma-button("normal","solid",$c-primary-alt);
+}
+
+.ma__button--c-highlight {
+  @include ma-button("normal","solid",$c-highlight);
+}
+
+.ma__button--c-gray-dark {
+  @include ma-button("normal","solid",$c-gray-dark);
 }
 
 .ma__button--secondary {
-  @include ma-button("normal","solid",$c-theme-secondary);
+  @include ma-button("normal","outline",$c-primary);
 }
 
-.ma__button--minor.ma__button--secondary {
-  @include ma-button("normal","outline",$c-theme-secondary);
+.ma__button--secondary.ma__button--c-primary-alt {
+  @include ma-button("normal","outline",$c-primary-alt);
+}
+
+.ma__button--secondary.ma__button--c-highlight {
+  @include ma-button("normal","outline",$c-highlight);
+}
+
+.ma__button--secondary.ma__button--c-gray-dark {
+  @include ma-button("normal","outline",$c-gray-dark);
 }
 
 .ma__button--tertiary {
-  @include ma-button("normal","solid",$c-theme-tertiary);
-}
-
-.ma__button--minor.ma__button--tertiary {
-  @include ma-button("normal","outline",$c-theme-tertiary);
+  @include ma-button("normal","solid",$c-gray-light);
+  color: $c-black;
 }
 
 .ma__button--quaternary {
-  @include ma-button("normal","solid",$c-theme-quaternary);
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  border-bottom: 2px solid $c-primary-lighter;
+  color: $c-primary;
+  padding: 0;
+  text-transform: none;
+  &:hover {
+   border-bottom: 3px solid $c-primary;
+   background-color: transparent;
+  }
 }
 
-.ma__button--minor.ma__button--quaternary {
-  @include ma-button("normal","outline",$c-theme-quaternary);
+.ma__button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Patch
-Fixed
-- (Patternlab) Fixes patternlab SCSS watching.

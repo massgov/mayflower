@@ -64,7 +64,7 @@
 .ma__error-list {
 
   &__container {
-    background-color: tint($c-red, 95%);
+    background-color: tint($c-error, 95%);
     border-color: $c-bd-error;
     color: $c-font-error;
   }

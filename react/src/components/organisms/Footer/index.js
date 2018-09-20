@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import logo from '../../../../../assets/images/stateseal.png';
+
+import logo from 'SharedAssets/images/stateseal.png';
 import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
-import SvgArrow from '../../atoms/icons/SvgArrow';
+import Icon from '../../atoms/icons/Icon';
 
 const Footer = ({
   footerLinks, socialLinks, backToTopButton, footerText, footerLogo
@@ -30,7 +31,7 @@ const Footer = ({
     </div>
     { backToTopButton &&
     <button className="ma__footer__back2top js-back2top is-hidden">
-      <SvgArrow />
+      <Icon name="arrow" />
       <span aria-hidden="true">Top</span>
       <span className="visually-hidden">Go to the top of the page</span>
     </button> }
