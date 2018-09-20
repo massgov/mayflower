@@ -44,6 +44,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) DP-10131: fix IE 11 specific overflow style on contact list #197
 - (React) DP-10368: Fixed SearchBanner molecule filters position when no tabs are rendered.
 - (React) Fix react visual regressions by setting a default date for general teaser in storybook
+- (Patternlab, React) fix npm publish circle scripts #258
 
 
 
