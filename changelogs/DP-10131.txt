@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- Patternlab DP-10131: Adds IE specific style to remove scroll bar on contact list #197#

@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) DP-10368: Fixed SearchBanner molecule filters position when no tabs are rendered.
