@@ -31,5 +31,15 @@
         "no-underscore-dangle": ["off"],
         "no-use-before-define": ["off"],
         "jsx-a11y/anchor-is-valid": ["warn"]
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ["SharedAssets", "../assets"]
+                ],
+                "extensions": [".js", ".jsx"]
+            }
+        }
     }
 }

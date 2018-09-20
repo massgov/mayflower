@@ -13,6 +13,44 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 8.0.0 (9/19/2018)
+:loudspeaker: We are going to undertake major refactoring work on component naming, markup and classnames in version 8, please refer to this changelog👆 or [Mayflower components documentation](https://massds.gitbook.io/mayflower/components) or join [Mayflower Public Slack](https://join.slack.com/t/mayflowerdesignsystem/shared_invite/enQtNDIzNDc2MjQwMzM2LTAzYTcyZTI3ZDZiMjZmNGIxZWE2OTBiY2FlMmQyNjAwODVmNTQ4ZDhlMzVjMmMxMjA2YTc2MTgzZmNiZjUyY2E) and watch out for API changes if you decide to move to V8.
+
+### Added
+- (React) DP-8086: Adds the following new components: GeneralTeaser, IconLink, Link.
+- (React) DP-8086: Modifies Image component to add a new prop for classnames: classes.
+- (React) DP-10392: Adds shared assets into build
+- (React) DP-10392: Adds SharedAsset path alias handling
+- (Patternlab & React) #236:
+	- Creates style for tertiary & quaternary button variants & associated story in PL/storybook.
+	- Adds color variable for 50% bay blue called c-primary-lighter
+
+
+### Changed
+- (Patternlab) DP-9189: Adds aria-lable to override the top button label in sticky toc. #216
+- (Patternlab) DP-9193: Make TOC skip link visible at focus #180
+- (Patternlab) DP-9255: Add conditions to place 'title' and 'aria-labelledby' only when their values are available. #218
+- (Patternlab)  DP-10084: MF Change to styling of More links on service page
+- (Patternlab) DP-10157: [MF] How-to BM1: Add slight visual emphasis to mobile sticky nav
+- (Patternlab & React) #236:  
+	- Updates base button classnames based on theme prop to reflect new naming variable (c-primary, c-primary-alt, c-highlight, c-dark-gray)
+	- Removes outline prop from button.
+	- Adds usage prop to button to reflect primary, secondary, tertiary, and quaternary designs.
+	- Updates color variables to be named based on usage and not color.
+	- Update back-button molecule to include button classname changes.
+
+### Fixed
+- (Patternlab) DP-10131: fix IE 11 specific overflow style on contact list #197
+- (React) DP-10368: Fixed SearchBanner molecule filters position when no tabs are rendered.
+- (React) Fix react visual regressions by setting a default date for general teaser in storybook
+
+
+
+
+
+
+
 ## 7.1.0 (9/12/2018)
 
 ### Added
@@ -27,7 +65,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab, React) DP-10156: Consolidate and replace letter-spacing to variables `$letter-spacing-large`, `$letter-spacing-medium`, `$letter-spacing-small` and `$letter-spacing-default`.
 - Patternlab DP-9912: Replicated related links to the bottom of the page along with changes style to the heading. #214
 - (Patternlab) DP-10287: Adds block to page-overview twig file for responsive images. #230
-- (Patternlab & React): 
+- (Patternlab & React):
 	- Updates the naming of our global color variables.
 	- Pulls originally naming from documentations.
 	- Updates grayscale color variables.

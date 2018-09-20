@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SvgSearch from '../../icons/SvgSearch';
+import Icon from '../../icons/Icon';
 import './style.css';
 
 class ButtonWithIcon extends React.Component {
@@ -34,13 +34,13 @@ class ButtonWithIcon extends React.Component {
     if (capitalized) {
       classNames += ' ma__button-capitalized';
     }
-    if (iconSize === 'small' || icon.type.name === 'SvgChevron') {
+    if (iconSize === 'small' || icon.props.name === 'chevron') {
       classNames += ' ma__icon-small';
     }
     if (iconColor === 'green') {
       classNames += ' ma__icon-green';
     }
-    if (icon.type.name === 'SvgSearch') {
+    if (icon.props.name === 'search') {
       classNames += ' ma__button-search';
     }
     const buttonProps = {
@@ -91,7 +91,7 @@ ButtonWithIcon.defaultProps = {
   text: 'Search',
   type: 'submit',
   classes: [],
-  icon: <SvgSearch />,
+  icon: <Icon name="search" svgHeight={20} svgWidth={20} />,
   canExpand: false,
   capitalized: false,
   iconSize: '',
