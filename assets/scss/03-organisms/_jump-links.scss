@@ -2,6 +2,37 @@
   margin-bottom: 30px;
   //position: relative // can't have position relative here or the links won't stick for the height of page-content
 
+  &__skip-link__container {
+    margin: 0 auto;
+    @include ma-container
+    position: relative;
+    top: -50px;
+
+    @media ($bp-small-max) {
+      display: none;
+    }
+  }
+
+  &__skip-link {
+    width: 100%;
+    display: block;
+    padding: 3px 14px;
+    width: 100%;
+
+    @media ($bp-small-min) {
+      width: 100%;
+    }
+
+    @media ($bp-large-min) {
+      width: calc(100% - 380px);
+    }
+
+    &:not(:focus) {
+      @include ma-visually-hidden;
+      width: calc(100% - 380px);
+    }
+  }
+
   @media ($bp-small-min) {
     margin-bottom: 60px;
     padding-top: 30px;
@@ -187,7 +218,7 @@
 .ma__jump-links {
 
   &__inner {
-    
+
     @media ($bp-small-min) {
       background-color: $c-bg-section;
     }
@@ -245,7 +276,7 @@
 
     }
   }
-  
+
   &__toggle-link {
     color: $c-primary-alt;
   }
