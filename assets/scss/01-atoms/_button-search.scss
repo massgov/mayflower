@@ -1,3 +1,24 @@
+@mixin ma-button-search ($background-color:$c-white, $color:$c-primary-alt) {
+  background-color: $background-color;
+  border-color: $c-bd-input;
+  color: $color;
+  font-size: 14px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: $color;
+    border-color: $color;
+    color: $background-color;
+
+    svg {
+      fill: $background-color;
+    }
+  }
+  svg {
+    fill: $color;
+  }
+}
+
 .ma__button-search {
   border: 2px solid;
   display: inline-block;
@@ -19,26 +40,12 @@
     transition: fill .4s;
     width: 20px;
   }
-}
 
-//theme
-.ma__button-search {
-  background-color: $c-white;
-  border-color: $c-bd-input;
-  color: $c-primary-alt;
-  font-size: 14px;
-  font-weight: 700;
-
-  &:hover {
-    background-color: $c-primary-alt;
-    border-color: $c-primary-alt;
-    color: $c-font-inverse;
-
-    svg {
-      fill: $c-font-inverse;
-    }
+  &--primary {
+    @include ma-button-search($c-primary-alt, $c-white);
   }
-  svg {
-    fill: $c-primary-alt;
+
+  &--secondary {
+    @include ma-button-search;
   }
 }
