@@ -211,36 +211,19 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           options: object('filterBox.topic.options', selectBoxOptions.options.topics),
           required: boolean('filterBox.topic.required', true)
         }),
-        organization: {
-          label: text('filterBox.organization.label', 'State organization'),
-          id: text('filterBox.organization.id', 'state-organization'),
-          options: object('filterBox.organization.options', inputOptions.options.orgSelector),
-          selected: select(
-            'filterBox.organization.defaultSelected',
-            [''].concat(inputOptions.options.orgSelector.map((option) => option.text)),
-            ''
-          ),
-          placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
-          onChange: action('filterBox.organization typeahead onChange')
-        },
         pressType: (hideType ? undefined : {
           typeAhead: {
-            label: text('filterBox.pressType.label', 'Filter by Type'),
+            label: text('filterBox.pressType.label', 'Type of Care'),
             id: text('filterBox.pressType.id', 'press-type'),
-            options: object('filterBox.pressType.options', inputOptions.options.pressTypes),
+            options: object('filterBox.pressType.options', inputOptions.options.typeOfCare),
             selected: select(
               'filterBox.pressType.defaultSelected',
-              [''].concat(inputOptions.options.pressTypes.map((option) => option.text)),
+              [''].concat(inputOptions.options.typeOfCare.map((option) => option.text)),
               ''
             ),
             placeholder: text('filterBox.pressType.placeholder', 'All Types'),
             onChange: action('SearchBanner filterBox.pressType.typeAhead.onChange')
           }
-        }),
-        dateRange: (hideDateRange ? undefined : {
-          label: text('filterBox.dateRange.label', 'Date range'),
-          startDate: object('filterBox.dateRange.startDate', filterBoxSharedProps.startDate),
-          endDate: object('filterBox.dateRange.endDate', filterBoxSharedProps.endDate)
         }),
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
