@@ -2,7 +2,8 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { withKnobs, text, number } from '@storybook/addon-knobs/react';
+import logo from 'SharedAssets/images/stateseal.png';
 
 import SiteLogo from '.';
 import SiteLogoReadme from './SiteLogo.md';
@@ -12,7 +13,15 @@ storiesOf('atoms/media', module).addDecorator(withKnobs)
     const siteLogoProps = {
       url: {
         domain: text('siteLogo.url.domain', 'https://www.mass.gov/')
-      }
+      },
+      image: {
+        src: text('siteLogo.image.src', logo),
+        alt: text('siteLogo.image.alt', 'Massachusetts state seal'),
+        width: number('siteLogo.image.width', 45),
+        height: number('siteLogo.image.height', 45)
+      },
+      siteName: text('siteLogo.siteName', 'Mass.gov'),
+      title: text('siteLogo.title', 'Mass.gov homepage')
     };
     return(<SiteLogo {...siteLogoProps} />);
   }));
