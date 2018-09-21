@@ -24,12 +24,30 @@
   }
 
   &__input {
-    padding-right: 0;
+    padding-right: 0 !important;
   }
   //overwrite
   .ma__button-search {
     border: 2px solid $c-overcast-gray !important;
     position: relative !important;
     margin-left: -2px;
+  }
+
+  .ma__select-box {
+    margin-left: -2px;
+
+    &__field {
+      height:46px;
+    }
+
+    &__link {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    label {
+      position: absolute !important;
+    }
   }
 }

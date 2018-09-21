@@ -5,6 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
+import { SelectBox } from '../../../index';
 import SearchBanner from './index';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 import tabsOptions from '../../molecules/Tabs/Tabs.knobs.options';
@@ -24,6 +25,15 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     const hideDateRange = boolean('filterBox.hideDateRange', false);
     const DesktopHidden = boolean('SearchBanner.filterDesktopHidden', false);
     const withTabs = boolean('HeaderSearch.withTabs', true);
+    const selectBoxProps = {
+      label: text('selectBox.label', ''),
+      stackLabel: boolean('selectBox.stackLabel', true),
+      required: boolean('selectBox.required', true),
+      id: text('selectBox.id', 'distance-select'),
+      options: object('selectBox.options', selectBoxOptions.options.distance),
+      selected: select('selectBox.defaultSelected', selectBoxOptions.options.distance.map((option) => option.text), selectBoxOptions.options.distance[0].text),
+      onChangeCallback: action('SelectBox onChangeCallback')
+    };
     const props = {
       searchBox: {
         placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
@@ -37,7 +47,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         },
         onSubmit: action('SearchBanner searchBox.onSubmit'),
         onChange: action('SearchBanner searchBox.onChange'),
-        defaultText: text('HeaderSearch.defaultText', '')
+        defaultText: text('HeaderSearch.defaultText', ''),
+        postInputFilter: <SelectBox {...selectBoxProps} />
       }
 
     };

@@ -15,12 +15,12 @@ import HeaderSearchDocs from './HeaderSearch.md';
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('HeaderSearch', withInfo(`<div>${HeaderSearchDocs}</div>`)(() => {
     const options = inputOptions.options.orgSelector;
-    const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
+    const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
     const selectBoxProps = {
       label: text('selectBox.label', ''),
       stackLabel: boolean('selectBox.stackLabel', true),
       required: boolean('selectBox.required', true),
-      id: text('selectBox.id', 'color-select'),
+      id: text('selectBox.id', 'distance-select'),
       options: object('selectBox.options', selectOptions.options.distance),
       selected: select('selectBox.defaultSelected', selectOptions.options.distance.map((option) => option.text), selectOptions.options.distance[0].text),
       onChangeCallback: action('SelectBox onChangeCallback')
