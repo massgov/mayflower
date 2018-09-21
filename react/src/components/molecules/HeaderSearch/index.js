@@ -46,7 +46,7 @@ class HeaderSearch extends React.Component {
               type="search"
               value={this.state.value}
             />
-            {shouldShowTypeAhead && <TypeAheadDropdown {...orgDropdown} /> }
+            {this.props.postInputFilter}
             <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
         </section>
