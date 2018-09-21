@@ -12,8 +12,43 @@ import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhea
 import HeaderSearch from '.';
 import HeaderSearchDocs from './HeaderSearch.md';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
+storiesOf('molecules/HeaderSearch', module).addDecorator(withKnobs)
   .add('HeaderSearch', withInfo(`<div>${HeaderSearchDocs}</div>`)(() => {
+    const options = inputOptions.options.orgSelector;
+    const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
+    const props = {
+      placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
+      buttonSearch: {
+        onClick: action('Button clicked'),
+        ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', 'Search'),
+        text: text('HeaderSearch.buttonSearch.text', 'Search')
+      },
+      onSubmit: action('Form submitted'),
+      onChange: action('Text input modified'),
+      defaultText: text('HeaderSearch.defaultText', '')
+    };
+    if (withOrgDropdown) {
+      props.orgDropdown = {
+        dropdownButton: object('HeaderSearch.orgDropdown.dropdownButton', {
+          text: ('All Organizations'),
+          capitalized: true
+        }),
+        inputText: object('HeaderSearch.orgDropdown.inputText', {
+          boxed: true,
+          label: null,
+          placeholder: 'Search an organization...',
+          id: 'org-typeahead',
+          options,
+          selected: '',
+          onChange: action('orgDropdown onChange')
+        })
+      };
+    }
+    return(
+      <HeaderSearch {...props} />
+    );
+  }))
+  .add('HeaderSearch with postInputFilter', withInfo(`<div>${HeaderSearchDocs}</div>`)(() => {
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
     const selectBoxProps = {
