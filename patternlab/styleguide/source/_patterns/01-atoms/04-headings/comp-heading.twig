@@ -9,23 +9,22 @@
 
 
 {# string value is backward compatible for v5.0.0 #}
+{% set isCentered = false %}
 {% if compHeading.centered == 'true' or compHeading.centered == 1 %}
-  {% set compHeading = compHeading|merge({'centered': true}) %}
-{% else %}
-  {% set compHeading = compHeading|merge({'centered': false}) %}
+  {% set isCentered = true %}
 {% endif %}
 
-{% if compHeading.centered %}
+{% if isCentered %}
   {% set centered = "ma__comp-heading--centered" %}
 {% endif %}
 
 {% set sidebar = compHeading.sidebar ? 'ma__comp-heading--sidebar' : '' %}
 
 <h{{ headingLevel }}
-  class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }}" 
+  class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }}"
   {% if compHeading.id %}
     id="{{compHeading.id}}"
-  {% endif %} 
+  {% endif %}
   tabindex="-1">{{ compHeading.title }}
-  {% if compHeading.titleContext %}<span class="visually-hidden"> {{ compHeading.titleContext }}{% endif %}
+  {% if compHeading.titleContext %}<span class="visually-hidden"> {{ compHeading.titleContext }}</span>{% endif %}
 </h{{ headingLevel }}>

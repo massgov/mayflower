@@ -26,32 +26,14 @@ export CompHeading from './components/atoms/headings/CompHeading';
 export Heading from './components/atoms/headings/Heading';
 export SidebarHeading from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
-export LatLonGlobe from './components/atoms/icons/LatLonGlobe/LatLonGlobe';
-export SvgArrow from './components/atoms/icons/SvgArrow';
-export SvgArrowBent from './components/atoms/icons/SvgArrowBent';
-export SvgSearch from './components/atoms/icons/SvgSearch';
-export SvgBuilding from './components/atoms/icons/SvgBuilding';
-export SvgLogin from './components/atoms/icons/SvgLogin';
-export SvgPhone from './components/atoms/icons/SvgPhone';
-export SvgInputError from './components/atoms/icons/SvgInputError';
-export SvgInputSuccess from './components/atoms/icons/SvgInputSuccess';
-export SvgLaptop from './components/atoms/icons/SvgLaptop';
-export SvgMarker from './components/atoms/icons/SvgMarker';
-export SvgFax from './components/atoms/icons/SvgFax';
-export SvgDocGeneric from './components/atoms/icons/SvgDocGeneric';
-export SvgDocDocx from './components/atoms/icons/SvgDocDocx';
-export SvgDocPdf from './components/atoms/icons/SvgDocPdf';
-export SvgDocXlxs from './components/atoms/icons/SvgDocXlxs';
-export SvgChevron from './components/atoms/icons/SvgChevron';
-export SvgWheelchair from './components/atoms/icons/SvgWheelchair';
-export SvgOpenNow from './components/atoms/icons/SvgOpenNow';
-export SvgCircleChevron from './components/atoms/icons/SvgCircleChevron';
+export Icon from './components/atoms/icons/Icon';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 // @atoms/@lists
 export OrderedList from './components/atoms/lists/OrderedList';
 export UnorderedList from './components/atoms/lists/UnorderedList';
 // @atoms/@media
+export Image from './components/atoms/media/Image';
 export SiteLogo from './components/atoms/media/SiteLogo';
 // @atoms/@table
 export Table from './components/atoms/table/Table';
@@ -60,6 +42,8 @@ export Paragraph from './components/atoms/text/Paragraph';
 export PublishState from './components/atoms/text/PublishState';
 
 // @molecules
+export Link from './components/molecules/Link';
+export IconLink from './components/molecules/IconLink';
 export CalloutLink from './components/molecules/CalloutLink';
 export DateRange from './components/molecules/DateRange';
 export FooterLinks from './components/molecules/FooterLinks';
@@ -79,6 +63,7 @@ export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
 
 // @organisms
+export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Footer from './components/organisms/Footer';
 export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';
