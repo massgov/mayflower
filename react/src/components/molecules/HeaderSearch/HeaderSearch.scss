@@ -26,11 +26,12 @@
   &__input {
     padding-right: 0 !important;
   }
-  //overwrite
+  //overwrite needs to port back to shared scss
   .ma__button-search {
     border: 2px solid $c-overcast-gray !important;
     position: relative !important;
     margin-left: -2px;
+    background-color: $c-white !important;
   }
 
   .ma__select-box {
