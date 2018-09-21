@@ -25,13 +25,10 @@
     .ma__button-search {
       border: 2px solid $c-overcast-gray !important;
       position: relative !important;
+      margin-left: -2px;
       background-color: $c-white !important;
       &:hover {
         background-color: $c-primary-alt !important;
-      }
-
-      @media ($bp-small-min) {
-        margin-left: -2px;
       }
     }
   }
