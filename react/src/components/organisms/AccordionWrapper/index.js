@@ -27,7 +27,7 @@ const AccordionWrapper = (props) => {
 
 AccordionWrapper.propTypes = {
   /** Only AccordionItem can be passed as a Child to the AccordionWrapper */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
   /** Whether accordion children are emphasized or not. */
   emphasize: PropTypes.bool,
   /** Whether accordion children are with border or not. */
