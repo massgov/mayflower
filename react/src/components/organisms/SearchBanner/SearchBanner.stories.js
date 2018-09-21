@@ -15,7 +15,7 @@ import filterBoxSharedProps from '../FilterBox/FilterBox.props';
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 
-storiesOf('organisms', module).addDecorator(withKnobs)
+storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
   .add('SearchBanner', withInfo('<div></div>')(() => {
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
@@ -139,9 +139,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);
-    const hideTopic = boolean('filterBox.hideTopic', true);
+    const hideTopic = boolean('filterBox.hideTopic', false);
     const hideType = boolean('filterBox.hideType', false);
-    const hideDateRange = boolean('filterBox.hideDateRange', false);
     const DesktopHidden = boolean('SearchBanner.filterDesktopHidden', false);
     const withTabs = boolean('HeaderSearch.withTabs', false);
     const selectBoxProps = {
@@ -205,10 +204,10 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
         topic: (hideTopic ? undefined : {
-          label: text('filterBox.topic.label', 'Filter by Topic'),
+          label: text('filterBox.topic.label', 'Type of Care'),
           stackLabel: boolean('filterBox.topic.stackLabel', true),
           id: 'topic',
-          options: object('filterBox.topic.options', selectBoxOptions.options.topics),
+          options: object('filterBox.topic.options', selectBoxOptions.options.typeOfCare),
           required: boolean('filterBox.topic.required', true)
         }),
         pressType: (hideType ? undefined : {
