@@ -7,7 +7,7 @@ const AccordionWrapper = (props) => {
   return(
     <div className="ma__accordion-wrapper">
       { React.Children.map(children, (child) => {
-        if (React.isValidElement(child) && child.type.name === 'AccordionItem') {
+        if (React.isValidElement(child)) {
           const clone = React.cloneElement(child, {
             secondary: props.secondary,
             emphasize: props.emphasize,
@@ -17,8 +17,8 @@ const AccordionWrapper = (props) => {
           return clone;
         }
         return(
-          /* eslint-disable no-console */
-          console.log(`Warning! You cannot pass a ${child.type.name} child to AccordionWrapper`)
+          /* eslint-disable-next-line no-console */
+          console.warn('Warning! You can only pass an AccordionItem child to AccordionWrapper.')
         );
       })}
     </div>

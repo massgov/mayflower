@@ -84,7 +84,7 @@ AccordionItem.propTypes = {
   emphasize: PropTypes.bool,
   /** Content rendered in the collapsed section. Only Paragraph, Table, Heading, OrderedList
       and UnorderList are valid children components to pass to AccordionItem */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
   /** Whether to style the accordion as secondary or not. */
   secondary: PropTypes.bool,
   /** Heading level for accordion title */
