@@ -15,7 +15,7 @@ import HeaderSearchDocs from './HeaderSearch.md';
 storiesOf('molecules/HeaderSearch', module).addDecorator(withKnobs)
   .add('HeaderSearch', withInfo(`<div>${HeaderSearchDocs}</div>`)(() => {
     const options = inputOptions.options.orgSelector;
-    const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
+    const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
     const props = {
       placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
       buttonSearch: {
