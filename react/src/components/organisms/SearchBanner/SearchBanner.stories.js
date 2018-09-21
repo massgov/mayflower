@@ -140,7 +140,7 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);
     const hideTopic = boolean('filterBox.hideTopic', false);
-    const hideType = boolean('filterBox.hideType', false);
+    const hideType = boolean('filterBox.hideType', true);
     const DesktopHidden = boolean('SearchBanner.filterDesktopHidden', false);
     const withTabs = boolean('HeaderSearch.withTabs', false);
     const selectBoxProps = {
