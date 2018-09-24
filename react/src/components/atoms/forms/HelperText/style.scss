@@ -1,13 +1,2 @@
 @import 'global';
-
-.ma__helper-text {
-  font-size: 1rem;
-  line-height: 1.438rem;
-  margin-top: 10px;
-}
-
-//theme
-.ma__helper-text {
-  font-style: italic;
-  font-weight: normal;
-}
+@import '01-atoms/helper-text';
