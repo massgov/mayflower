@@ -1,5 +1,0 @@
-___DESCRIPTION___
-change
-patch
-- patternlab / DP-10012: offered by relationship indicator row changes
-

@@ -1,7 +1,7 @@
 .ma__publish-state {
   font-size: 2rem;
   text-transform: uppercase;
-  letter-spacing: .09em;
+  letter-spacing: $letter-spacing-large;
 
   @media ($bp-small-min) {
     font-size: 3rem;

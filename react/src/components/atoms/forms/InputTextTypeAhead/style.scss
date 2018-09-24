@@ -4,7 +4,7 @@
   font-size: 1.25rem;
 
   .highlight {
-    color: $c-theme-green;
+    color: $c-primary-alt;
     font-weight: bold;
   }
 
@@ -21,14 +21,14 @@
     margin: 0px;
     padding: 0px;
     li {
-      border: 1px solid $c-gray-dcdcdc;
+      border: 1px solid $c-gray-light;
       width: 100%;
       padding: 0px 18px;
     }
   }
 
   &--boxed {
-    border: 1px solid $c-gray-dcdcdc;
+    border: 1px solid $c-gray-light;
     input{
       margin: .75rem;
       width: calc(100% - 1.5rem);
@@ -59,7 +59,7 @@ input[type=search]{
       list-style-type: none;
     }
     &--highlighted{
-      background-color: $c-gray-f2f2f2;
+      background-color: $c-gray-lightest;
     }
   }
 

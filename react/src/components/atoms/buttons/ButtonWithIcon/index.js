@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SvgSearch from '../../icons/SvgSearch';
+import Icon from '../../icons/Icon';
 import './style.css';
 
 class ButtonWithIcon extends React.Component {
@@ -34,13 +34,13 @@ class ButtonWithIcon extends React.Component {
     if (capitalized) {
       classNames += ' ma__button-capitalized';
     }
-    if (iconSize === 'small' || icon.type.name === 'SvgChevron') {
+    if (iconSize === 'small' || icon.props.name === 'chevron') {
       classNames += ' ma__icon-small';
     }
     if (iconColor === 'green') {
       classNames += ' ma__icon-green';
     }
-    if (icon.type.name === 'SvgSearch') {
+    if (icon.props.name === 'search') {
       classNames += ' ma__button-search';
     }
     const buttonProps = {
@@ -79,7 +79,7 @@ ButtonWithIcon.propTypes = {
   capitalized: PropTypes.bool,
   // Defines the size, default size fits the most square icons and "small" setting is specific for the chevron icon.
   iconSize: PropTypes.oneOf(['', 'small']),
-  // Defines the fill color of the svg, default color is $c-gray-dcdcdc.
+  // Defines the fill color of the svg, default color is $c-gray-light.
   iconColor: PropTypes.oneOf(['', 'green']),
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
@@ -91,7 +91,7 @@ ButtonWithIcon.defaultProps = {
   text: 'Search',
   type: 'submit',
   classes: [],
-  icon: <SvgSearch />,
+  icon: <Icon name="search" svgHeight={20} svgWidth={20} />,
   canExpand: false,
   capitalized: false,
   iconSize: '',

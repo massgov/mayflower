@@ -1,0 +1,42 @@
+<div class="ma__org-nav-contact-us">
+  <div class="ma__org-nav-contact-us__contact-row">
+  {% block contactTopRow %}
+    {% set contactRow = orgMenuContactRow %}
+    {% include "@organisms/by-author/contact-row.twig" %}
+  {% endblock %}
+  </div>
+
+  {% if customItems.findContact.link.href or customItems.newsletter.link.href or customItems.publicRecords.link.href %}
+  <div class="ma__org-nav-contact-us__custom-options">
+    {% block findContact %}
+      {% if customItems.findContact.link.href %}
+      <div class="custom-options__find-contact custom-option-item">
+        <span class="custom-option-item__label">{{ icon(customItems.findContact.icon) }} {{ customItems.findContact.title }}</span>
+        {% set decorativeLink = customItems.findContact.link %}
+        {% include "@atoms/decorative-link.twig" %}        
+      </div>
+      {% endif %}
+    {% endblock %}
+
+    {% block getUpdates %}
+      {% if  customItems.newsletter.link.href %}
+      <div class="custom-options__get-updates custom-option-item">
+        <span class="custom-option-item__label">{{ icon(customItems.newsletter.icon) }} {{ customItems.newsletter.title }}</span>
+        {% set decorativeLink = customItems.newsletter.link %}
+        {% include "@atoms/decorative-link.twig" %}
+      </div>  
+      {% endif %}
+    {% endblock %}
+
+    {% block recordsRequest %}
+      {% if customItems.publicRecords.link.href %}
+      <div class="custom-options__prr custom-option-item">
+        <span class="custom-option-item__label">{{ icon(customItems.publicRecords.icon) }} {{ customItems.publicRecords.title }}</span>
+        {% set decorativeLink = customItems.publicRecords.link %}
+        {% include "@atoms/decorative-link.twig" %}
+      </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+  {% endif %}
+</div> 

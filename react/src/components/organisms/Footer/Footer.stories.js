@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object } from '@storybook/addon-knobs/react';
 
+import stateSeal from 'SharedAssets/images/stateseal.png';
+
 import Footer from './index';
 import FooterReadme from './Footer.md';
 
@@ -10,10 +12,8 @@ import FooterLinksData from '../../molecules/FooterLinks/FooterLinks.json';
 import SocialLinksData from '../../molecules/SocialLinks/SocialLinks.json';
 import FooterLinksLiveData from '../../molecules/FooterLinks/FooterLinksLive.json';
 import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.json';
-import stateSeal from '../../../../../assets/images/stateseal.png';
 
-
-storiesOf('organisms', module).addDecorator(withKnobs)
+storiesOf('organisms/Footer', module).addDecorator(withKnobs)
   .add('Footer', withInfo({ FooterReadme })(() => {
     const props = {
       footerLinks: object('footer.footerLinksData', FooterLinksData),
@@ -32,9 +32,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       })
     };
     return(<Footer {...props} />);
-  }));
-
-storiesOf('organisms/Footer', module).addDecorator(withKnobs)
+  }))
   .add('Footer with live JSON', withInfo({ FooterReadme })(() => {
     const props = {
       footerLinks: object('footer.footerLinksLiveData', FooterLinksLiveData),
