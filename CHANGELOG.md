@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Added
 - (Patternlab) DP-9272: Set up an id for `item.label` to associate with "aria-describedby" in decorative link for its directions link to add link context in Contact. #220
 - (React) Replace hard coded image with Image component and add configurable fields to SiteLogo. #264
-- (React) Add an option to allow pass in component as a post input filter to HeaderBox and SearchBanner #259
+- (React) Add an option to allow pass in component as a post input filter to HeaderSearch and SearchBanner #259
 
 ### Removed
 - (React) EEC support: removes the component name check in AccordionWrapper child validation
