@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Minor
+- (React) Replace hard coded image with Image component and add configurable fields to SiteLogo. #264
