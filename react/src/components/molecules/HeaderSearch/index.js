@@ -9,6 +9,8 @@ class HeaderSearch extends React.Component {
     super(props);
     this.state = { value: this.props.defaultText };
     this.handleChange = this.handleChange.bind(this);
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.inputRef = React.createRef();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -22,6 +24,11 @@ class HeaderSearch extends React.Component {
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(query);
     }
+  }
+
+  handleButtonClick(event) {
+    this.props.buttonSearch.onClick(event);
+    this.inputRef.current.blur();
   }
 
   render() {
@@ -45,8 +52,9 @@ class HeaderSearch extends React.Component {
               onChange={this.handleChange}
               type="search"
               value={this.state.value}
+              ref={this.inputRef}
             />
-            <ButtonWithIcon {...headerSearch.buttonSearch} />
+            <ButtonWithIcon {...headerSearch.buttonSearch} onClick={this.handleButtonClick} />
           </form>
         </section>
       </div>
