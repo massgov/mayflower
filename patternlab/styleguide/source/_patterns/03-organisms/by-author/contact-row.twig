@@ -25,20 +25,35 @@
 
   <div class="ma__contact-row__additional {{ contactRow.hasManyAdditional ? 'has-many': ''}}">
     {% block additionalContacts %}
+    <div class="ma__contact-row__additional--column">
       {% for contact in contactRow.additionalContacts %}
         {% set contactGroup = contact|merge({"level": contactHeading}) %}
-        {% include "@molecules/contact-group.twig" %}
+        {# Only add address and online to first column #}
+        {% if contactGroup.name == "Address" or contactGroup.name == "Online" %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endif %}
       {% endfor %}
-    {% endblock %}
-    {% if contactRow.moreLink %}
-      <div class="ma__contact-group">
-        {% block moreLink %}
-          {% set decorativeLink = contactRow.moreLink %}
-          {% include "@atoms/decorative-link.twig" %}
-        {% endblock %}
-      </div>
-    {% endif %}
+
+    </div>
+    <div class="ma__contact-row__additional--column">
+      {% for contact in contactRow.additionalContacts %}
+        {% set contactGroup = contact|merge({"level": contactHeading}) %}
+        {# Add phone and fax to top of second column #}
+        {% if contactGroup.name == "Phone" or contactGroup.name == "Fax"%}
+          {% include "@molecules/contact-group.twig" %}
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endblock %}  
   </div>
+  {% if contactRow.moreLink %}
+    <div class="ma__contact-group ma__contact-more">
+      {% block moreLink %}
+        {% set decorativeLink = contactRow.moreLink %}
+        {% include "@atoms/decorative-link.twig" %}
+      {% endblock %}
+    </div>
+  {% endif %}
 
   {% if contactRow.hasManyAdditional %}
     <div class="ma__contact-row__expand">
