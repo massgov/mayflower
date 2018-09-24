@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) EEC support: removes the component name check in AccordionWrapper child validation
