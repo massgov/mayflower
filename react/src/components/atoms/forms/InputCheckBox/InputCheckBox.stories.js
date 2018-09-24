@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import SvgWheelchair from '../../icons/SvgWheelchair';
+import Icon from '../../icons/Icon';
 import InputCheckBox from './index';
 
 storiesOf('atoms/forms', module)
@@ -10,7 +10,7 @@ storiesOf('atoms/forms', module)
     const props = {
       value: 'test',
       id: 'checkbox1',
-      icon: <SvgWheelchair />,
+      icon: <Icon name="wheelchair" svgHeight={20} svgWidth={20} />,
       label: 'Check Me',
       checked: true
     };
