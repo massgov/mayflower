@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
+import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
 import './HeaderSearch.css';
 
 class HeaderSearch extends React.Component {
@@ -71,7 +72,9 @@ HeaderSearch.propTypes = {
   /** Default input text value */
   defaultText: PropTypes.string,
   /** @molecules/TypeAheadDropdown */
-  orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown)
+  orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
+  /** postInputFilter passable component */
+  postInputFilter: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'SelectBox')
 };
 
 HeaderSearch.defaultProps = {
