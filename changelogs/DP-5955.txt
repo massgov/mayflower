@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Fixed
-- (Patternlab) DP-5955: Fixes top alignment of the "Related Services" and "Additional Resources" split columns block on tablet view mode. #184

@@ -5,6 +5,7 @@ export default (function (window,document,$,undefined) {
   $(".js-scroll-anchors").each(function() {
     let $el = $(this),
         $elParent = $el.parent().css('position') === 'relative' ? $el.parent() : $el.parent().offsetParent(),
+        $titleLink = $el.find('.is-title'),
         $links = $el.find('.js-scroll-anchors-link'),
         elHeight,
         headerBuffer = 0,
@@ -116,8 +117,13 @@ export default (function (window,document,$,undefined) {
         headerBuffer = $('.js-sticky-header').height() || 0;
         upperLimit -= headerBuffer;
         topOffset = elHeight;
-      }
 
+        mobileTitleOn();
+      }
+      else {
+        mobileTitleOff();
+      }
+      
       lowerLimit = upperLimit + $elParent.outerHeight(true) - $el.height();
 
       // locate the position of all of the anchor targets
@@ -157,6 +163,8 @@ export default (function (window,document,$,undefined) {
 
         if(isMobile){
           $elParent.removeAttr('style');
+
+          mobileTitleOn();
         }
       }
       else if (middle) {
@@ -164,6 +172,8 @@ export default (function (window,document,$,undefined) {
 
         if(isMobile){
           $elParent.css({'paddingTop':elHeight});
+
+         mobileTitleOff();
         }
       }
       else if (bottom) {
@@ -181,9 +191,10 @@ export default (function (window,document,$,undefined) {
         return;
       }
 
-      // get the current scroll position and offset by half the view port
-      let windowTop = $(window).scrollTop() + (window.innerHeight/2),
+      // get the current scroll position and trigger change when new link is 10% down the page
+      let windowTop = $(window).scrollTop() + (window.innerHeight/9),
           currentAnchor = activeAnchorIndex;
+         
 
       // is there a prev target
       // and
@@ -205,6 +216,20 @@ export default (function (window,document,$,undefined) {
         // move the active flag
         $el.find('.' + activeClass).removeClass(activeClass);
         $links.eq(activeAnchorIndex).addClass(activeClass);
+      }
+    }
+
+    function mobileTitleOn() {
+      if($titleLink.length) {
+        $titleLink.addClass(activeClass);
+        $links.removeClass(activeClass);
+      }
+    }
+    
+    function mobileTitleOff() {
+      if($titleLink.length) {
+        $titleLink.removeClass(activeClass);
+        $links.first().addClass(activeClass);
       }
     }
   });

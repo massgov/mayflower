@@ -11,8 +11,8 @@
 // Bower vendors
 @import "../../patternlab/styleguide/source/assets/js/vendor/bower_components/pikaday/scss/pikaday";
 
-// Assets path variable
-$assets-path: '../../assets';
+// Path to Mayflower shared assets.
+$assets-path: './assets';
 
 // Base variables
 @import "00-base/breakpoints";
