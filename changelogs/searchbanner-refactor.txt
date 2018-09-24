@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Minor
+- React: Add an option to allow pass in component as a post input filter to HeaderBox and SearchBanner #259
