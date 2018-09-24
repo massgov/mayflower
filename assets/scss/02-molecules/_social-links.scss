@@ -17,7 +17,7 @@
     color: $c-font-detail;
     display: inline-block;
     font-size: 16px;
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     line-height: 1.875rem;
     text-transform: uppercase;
     vertical-align: middle;
@@ -74,11 +74,11 @@
   &__link {
 
     &[data-social-share = blog] > svg path {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
     }
 
     &[data-social-share = email] > svg path {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
     }
   }
 }

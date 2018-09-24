@@ -28,7 +28,7 @@
       width: 112px;// 119px - margin-left(7)
       margin-left: 0.4rem;
       line-height: 1;
-      letter-spacing: 0.03rem;
+      letter-spacing: $letter-spacing-small;
 
       @media ($bp-small-max) {
         font-size: 1.7rem;
@@ -46,10 +46,10 @@
 
     span {
       font-weight: 400;
-      color: $c-theme-green;
+      color: $c-primary-alt;
 
       -webkit-text-stroke-width: 1px;
-      -webkit-text-stroke-color: $c-theme-green;
+      -webkit-text-stroke-color: $c-primary-alt;
 
       @media ($bp-small-max) {
         -webkit-text-stroke-width: 0.03rem;

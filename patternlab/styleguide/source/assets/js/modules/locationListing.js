@@ -133,10 +133,12 @@ export default (function (window, document, $) {
 
       function handlePagination(e, target) {
         let nextPage = parseInt(target, 10);
+        // If this is happening during page load, e will be null, and focus should not be updated.
+        let focus = !!e;
 
         masterData.pagination = listings.transformPaginationData({ data: masterData, targetPage: nextPage });
         masterData.resultsHeading = listings.transformResultsHeading({ data: masterData, page: nextPage });
-        listings.renderListingPage({ data: masterData, page: nextPage });
+        listings.renderListingPage({ data: masterData, page: nextPage, focus });
 
         let markers = getActiveMarkers({ data: masterData, page: nextPage });
         // Trigger child components render with updated data
@@ -159,10 +161,7 @@ export default (function (window, document, $) {
       $pagination.on("ma:Pagination:Pagination", handlePagination);
       let defaultPage = getPage();
 
-      if (parseInt(defaultPage, 10) !== 1) {
-        handlePagination(null, defaultPage);
-      }
-
+      handlePagination(null, defaultPage);
     });
 
     // Trigger events to update child components with new data.

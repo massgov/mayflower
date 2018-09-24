@@ -6,6 +6,7 @@
         "jsx": true
       }
   },
+  "root": true,
   "env": {
     "node": true,
     "browser": true,
@@ -33,7 +34,6 @@
     "react/no-unknown-property": 1,
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 1,
-    "react/require-extension": 1,
     "react/self-closing-comp": 1,
     "react/sort-comp": [1, {
       "order": [
@@ -65,7 +65,6 @@
         ]
       }
     }],
-    "react/wrap-multilines": 1,
     "no-alert": 0,
     "no-array-constructor": 0,
     "no-bitwise": 1,

@@ -122,11 +122,11 @@
   &__tag {
 
     & > svg {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
     }
   }
 
   &__submit {
-    @include ma-button('','solid',$c-theme-primary);
+    @include ma-button('','solid',$c-primary);
   }
 }

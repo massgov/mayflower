@@ -1,6 +1,7 @@
 {% extends '@templates/two-column.twig' %}
 
 {% block preContent %}
+  {% include "@molecules/relationship-indicators.twig" %}
   {% include "@organisms/by-template/page-header.twig" %}
 {% endblock %}
 {% block pageContent %}

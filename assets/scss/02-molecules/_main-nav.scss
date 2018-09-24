@@ -61,7 +61,7 @@
     @include ma-button-reset;
     display: block;
     font-size: 1.125rem;
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     line-height: 1.45;
     padding: 10px 0;
     padding-right: 15px;
@@ -212,7 +212,7 @@
     border-bottom: 1px solid;
 
     &:first-child {
-      letter-spacing: .05em;
+      letter-spacing: letter-spacing-medium;
       text-transform: uppercase;
 
       @media ($bp-header-toggle-min) {
@@ -247,7 +247,7 @@
 
   &__subitem:last-child &__link {
     font-size: 1.125rem;
-    letter-spacing: .05em;
+    letter-spacing: letter-spacing-medium;
     text-transform: uppercase;
   }
 }
@@ -263,7 +263,7 @@
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
     }
     &.is-active {
-      @include ma-border-decorative($c-theme-secondary);
+      @include ma-border-decorative($c-primary-alt);
     }
   }
 
@@ -273,8 +273,8 @@
     .has-subnav & {
   // chevron
       &:after {
-        border-right-color: $c-theme-secondary;
-        border-bottom-color: $c-theme-secondary;
+        border-right-color: $c-primary-alt;
+        border-bottom-color: $c-primary-alt;
       }
     }
   }
@@ -333,7 +333,7 @@
     font-weight: 700;
   
     &:hover {
-      background-color: $c-gray-dcdcdc;
+      background-color: $c-gray-light;
     }
 
     & > svg {

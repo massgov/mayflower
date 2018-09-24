@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block preContent %}
+  {% include "@molecules/relationship-indicators.twig" %}
+
   {% set pageHeader = preContent.pageHeader %}
   {% include "@organisms/by-template/page-header.twig" %}
 

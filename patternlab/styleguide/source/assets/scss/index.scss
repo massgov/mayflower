@@ -44,6 +44,7 @@
 @import "01-atoms/divider";
 @import "01-atoms/error-msg";
 @import "01-atoms/figure";
+@import "01-atoms/fixed-feedback-button";
 @import "01-atoms/forms";
 @import "01-atoms/helper-text";
 @import "01-atoms/icon-list";
@@ -169,6 +170,8 @@
 @import "03-organisms/page-overview";
 @import "03-organisms/location-banner";
 @import "03-organisms/mapped-locations";
+@import "03-organisms/organization-navigation-item";
+@import "03-organisms/organization-navigation";
 @import "03-organisms/page-banner";
 @import "03-organisms/page-discourse";
 @import "03-organisms/page-flipper";

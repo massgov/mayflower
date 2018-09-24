@@ -115,7 +115,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
-          size: select('filterBox.submitButton.size', buttonOptions.size, 'small'),
+          size: select('filterBox.submitButton.size', buttonOptions.size),
           theme: select('filterBox.submitButton.theme', buttonOptions.theme, ''),
           outline: boolean('filterBox.submitButton.outline', false),
           onClick: action('SearchBanner filterBox.submitButton.onClick')

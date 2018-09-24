@@ -24,6 +24,7 @@ $bp-x-large-max: "max-width:" + $bp-xl;
 
 $bp-page-width-min: "min-width:" + ($max-width + 1);
 $bp-page-width-max: "max-width:" + $max-width;
+$bp-centered-content-width: "min-width: 1315px";
 
 // Semi Global breakpoint media variables
 // switch the header from full width to hamburger

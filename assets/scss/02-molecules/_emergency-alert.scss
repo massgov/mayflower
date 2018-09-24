@@ -28,10 +28,10 @@
 
 //theme
 .ma__emergency-alert {
-  background-color: lighten($c-theme-tertiary,34%);
+  background-color: lighten($c-warning,34%);
 
   & + & {
-    border-top-color: $c-theme-tertiary;
+    border-top-color: $c-warning;
   }
 
   &__message {
