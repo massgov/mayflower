@@ -13,6 +13,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.1.0 (9/24/2018)
+
+### Added
+- (Patternlab) DP-9272: Set up an id for `item.label` to associate with "aria-describedby" in decorative link for its directions link to add link context in Contact. #220
+- (React) Replace hard coded image with Image component and add configurable fields to SiteLogo. #264
+- (React) Add an option to allow pass in component as a post input filter to HeaderBox and SearchBanner #259
+
+### Removed
+- (React) EEC support: removes the component name check in AccordionWrapper child validation
+
+
+
 ## 8.0.1 (9/19/2018)
 
 ### Fixed
