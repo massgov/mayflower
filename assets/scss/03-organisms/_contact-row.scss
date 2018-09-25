@@ -29,6 +29,7 @@
 
       &:last-child:not(:first-child) {
         padding-left: 1rem;
+        border-left: 1px solid $c-gray-light;
       }
     }
   }
