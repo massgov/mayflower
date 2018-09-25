@@ -18,8 +18,8 @@
   {% block rteElements %}
     {% for element in richText.rteElements %}
 {# {{ dump(element) }} #}
-<h5>DUMP: element.data.rawHTML</h5>
-{{ dump(element.data.rawHtml) }}
+{# <h5>DUMP: element.data.rawHTML</h5>
+{{ dump(element.data.rawHtml) }} #}
 <h5>PRINT: element.data.rawHTML.content["#text"]</h5>
 {{ element.data.rawHtml.content["#text"] }}
 
