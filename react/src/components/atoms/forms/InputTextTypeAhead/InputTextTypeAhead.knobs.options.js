@@ -27,6 +27,11 @@ export default {
       { text: 'News Article', value: 'news-article' },
       { text: 'Blog Post', value: 'blog-poast' },
       { text: 'Speech', value: 'speech' }
+    ],
+    typeOfCare: [
+      { text: 'Group Child Care', value: 'group-child-care' },
+      { text: 'Family Child Care', value: 'family-child-care' },
+      { text: 'Center Based Programs', value: 'center-based-programs' }
     ]
   }
 };
