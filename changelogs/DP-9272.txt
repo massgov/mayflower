@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- Patternlab DP-9272: Set up an id for `item.label` to associate with "aria-describedby" in decorative link for its directions link to add link context in Contact. #220#
