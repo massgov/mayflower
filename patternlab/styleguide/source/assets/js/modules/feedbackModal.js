@@ -10,11 +10,8 @@ export default (function (window, document, $) {
   const $feedbackModal = $(".ma__feedback-modal");
 
   // Toggles use a common class.
-  const $feedbackModalToggle = $(".js-ma__feedback-modal-toggle", $feedbackModal);
-
-  // Click handler for modal toggle.
-  $feedbackModalToggle.on("click", function() {
-      toggleModal();
+  $(".js-ma__feedback-modal-toggle", $feedbackModal).on("click", function() {
+    toggleModal();
   });
 
   // Click handler for esc key.

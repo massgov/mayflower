@@ -11,20 +11,47 @@
     display: flex;
     justify-content: center;
 
+    @media ($bp-small-max) {
+      flex-wrap: wrap;
+    }
+
     // The `content:` is provdided via data source.
     &::before,
     &::after {
-      flex: 0;
+      flex: 1 1 50%;
       line-height: 1;
+      margin-bottom: $standard-spacing--xxxsmall;
       text-align: center;
+
+      @media ($bp-small-min) {
+        flex: 0;
+        margin-bottom: 0;
+      }
+
+      @media ($bp-small-max) {
+        font-size: 16px;
+        order: -1;
+      }
     }
 
     &::before {
       margin-right: 1rem;
+
+      @media ($bp-small-max) {
+        margin-right: 0;
+        padding-right: 1rem;
+        text-align: left;
+      }
     }
 
     &::after {
       margin-left: 1rem;
+
+      @media ($bp-small-max) {
+        margin-left: 0;
+        padding-left: 1rem;
+        text-align: right;
+      }
     }
   }
 

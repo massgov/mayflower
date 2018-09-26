@@ -8,11 +8,17 @@
       <span class="ma__feedback-modal__close-text">Close</span>
       <span class="ma__feedback-modal__close-icon"></span>
     </div>
-    <div class="ma__feedback-modal__form--find-what-looking-for">
+    <div class="ma__feedback-modal__form--find-what-looking-for hidden">
       {% include "@organisms/by-template/feedback-modal~find-what-looking-for.twig" %}
     </div>
-    <div class="ma__feedback-modal__form--tell-us-about-experience hidden">
+    <div class="ma__feedback-modal__form--find-what-looking-for--thankyou hidden">
+      {% include "@organisms/by-template/feedback-modal~find-what-looking-for.thank-you.twig" %}
+    </div>
+    <div class="ma__feedback-modal__form--tell-us-about-experience">
       {% include "@organisms/by-template/feedback-modal~tell-us-about-experience.twig" %}
+    </div>
+    <div class="ma__feedback-modal__form--tell-us-about-experience--thankyou hidden">
+      {% include "@organisms/by-template/feedback-modal~tell-us-about-experience.thank-you.twig" %}
     </div>
   </div>
 </div>
