@@ -58,14 +58,16 @@ export default (function (window, document, $) {
       }
 
       // Check return from this so that it works in IE and Edge.
-      const tableCoordinates = element.getBoundingClientRect();
-      let tableLeft;
-      if ("x" in tableCoordinates.x) {
-        tableLeft = element.getBoundingClientRect().left;
-      }
-      else {
-        tableLeft = element.getBoundingClientRect().x;
-      }
+      // const tableCoordinates = element.getBoundingClientRect();
+      // let tableLeft;
+      // if ("x" in tableCoordinates.x) {
+      //   tableLeft = element.getBoundingClientRect().left;
+      // }
+      // else {
+      //   tableLeft = element.getBoundingClientRect().x;
+      // }
+
+      let tableLeft = $element.offset().left;
 
       $stickyHeader
         .css({
