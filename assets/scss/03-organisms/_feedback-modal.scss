@@ -1,0 +1,283 @@
+// Feedback Modal.
+//
+// Theme support for the Feedback modal.
+
+.ma__feedback-modal {
+
+  .hidden {
+    display: none;
+  }
+
+  &__overlay {
+    background-color: rgba($c-black, 0.6);
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    width: 100vw;
+    will-change: transform;
+    z-index: $z-overlay;
+  }
+
+  &__modal {
+    background-color: $c-white;
+    height: 100vh;
+    overflow-x: auto;
+    padding: $standard-spacing--small $standard-spacing--small $standard-spacing--small $standard-spacing--large;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateX(100%);
+    transition: transform $transition-normal;
+    width: 40vw;
+    will-change: transform;
+    z-index: $z-modal;
+  }
+
+  &--modal-active &__modal,
+  &--modal-active &__overlay {
+    transform: translateX(0%);
+  }
+
+  &__close {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $standard-spacing--small;
+  }
+
+  &__close-icon {
+    align-items: center;
+    background-color: $c-bay-blue;
+    display: inline-flex;
+    font-weight: 500;
+    height: $standard-spacing--small;
+    justify-content: center;
+    margin-left: $standard-spacing--xxsmall;
+    width: $standard-spacing--small;
+
+    &::after {
+      color: $c-white;
+      content: $close-icon;
+      font-size: 2.1rem;
+      font-weight: 200;
+      line-height: 0;
+    }
+  }
+}
+
+// Form: Find what you are looking for.
+//
+// These styles are for MF only. In Drupal, these should be
+// addressed in the Drupal module CSS file.
+
+// Override css for the Formstack multi page feedback form.
+#fsForm2521317 .hide {
+  display: none;
+}
+
+#fsForm2521317 > * {
+  margin-top: 30px;
+}
+
+#fsForm2521317 > fieldset:first-of-type {
+  margin-top: 0;
+}
+
+
+#fsForm2521317 fieldset > fieldset,
+#fsForm2521317 fieldset > label {
+  margin-top: 30px;
+}
+#fsForm2521317 fieldset > fieldset:first-child,
+#fsForm2521317 fieldset > label:first-child {
+  margin-top: 0;
+}
+
+// Thank you message after submission.
+#fsForm2521317 p {
+  margin: 0;
+  text-align: center;
+}
+
+#fsForm2521317 p.ma__info-container {
+  margin-top: 30px;
+  text-align: left;
+}
+
+#fsForm2521317 p.ma__info-container a:hover {
+  text-decoration: underline;
+}
+
+#fsForm2521317 fieldset > .ma__select-box,
+#fsForm2521317 fieldset > input[type=text] {
+  max-width: 500px;
+  width: 100%;
+}
+
+#fsForm2521317 fieldset .ma__button {
+  margin-top: .25em;
+}
+
+
+#fsForm2521317 textarea {
+  width: 100%;
+  border: 2px solid #dcdcdc !important;
+}
+
+// Hide the character count which is not accessible.
+#fsForm2521317 .ma__textarea__wrapper::after {
+  display: none;
+}
+
+.accessibleCharCount-wrapperElem {
+  display: block;
+  font-size: 17px;
+  line-height: 1.625rem;
+  text-align: right;
+}
+
+.accessibleCharCount-numberElem::after {
+  content: '/10000';
+}
+
+// In mass_decision_tree, this is set to 19px, but here make it
+// relatively adjustable based on the root font size set to viewports.
+// In full screen display, it's equivalent to 19px.
+.ma__disclaimer {
+  font-size: 1.19rem;
+}
+
+.ma__disclaimer strong {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+// Error messages.
+#fsForm2521317 .messages {
+  margin: 0 0 2rem 0;
+}
+
+#fsForm2521317 .messages .error {
+  display: block;
+  margin: 0;
+  padding: 0.7rem;
+  background-color: #f34343;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+#fsForm2521317 fieldset.error {
+  padding: 2px;
+  box-shadow: 0 0 0 calc(5px - 1px) #fae9e9, 0 0 0 5px #ce5f6d;
+}
+
+#fsForm2521317 .error legend {
+  padding-top: 2px;
+}
+
+#fsForm2521317 fieldset.c_radio {
+  margin-top: -30px;
+}
+
+#fsForm2521317 .error legend::before {
+  content: ' ';
+  display: block;
+  position: relative;
+  height: 30px;
+}
+
+#fsForm2521317 fieldset.error textarea {
+  width: 100%;
+  border-color: #dcdcdc !important;
+}
+
+#fsForm2521317 fieldset.error legend,
+#fsForm2521317 fieldset.error label {
+  color: #f34343;
+}
+
+// $bp-small-min.
+@media (min-width: 621px) {
+  #fsForm2521317 > *,
+  #fsForm2521317 p.ma__info-container {
+    margin-top: 60px;
+  }
+
+  #fsForm2521317 fieldset > fieldset,
+  #fsForm2521317 fieldset > label {
+    margin-top: 45px;
+  }
+}
+
+// $bp-medium-min.
+@media (min-width: 781px) {
+  #fsForm2521317 > *,
+  #fsForm2521317 p.ma__info-container {
+    margin-top: 70px;
+  }
+}
+
+// $bp-large-min.
+@media (min-width: 911px) {
+  #fsForm2521317 > *,
+  #fsForm2521317 p.ma__info-container {
+    margin-top: 90px;
+  }
+}
+
+// $bp-small-min.
+@media (min-width: 621px) {
+  #fsForm2521317 > *,
+  #fsForm2521317 p.ma__info-container {
+    margin-top: 45px;
+  }
+}
+
+// Form: Tell us about your experience.
+//
+// Note that the `.fsPage` is located on the <form> element.
+.fsPage {
+
+  .fsRow {
+    margin-bottom: $standard-spacing--small;
+  }
+
+  .fsCell p {
+    line-height: 1.25;
+    margin-bottom: $standard-spacing--xsmall;
+  }
+
+  .fsLabel {
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: $standard-spacing--xxsmall;
+  }
+
+  .fsOptionLabel {
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  .fsOptionLabel:not(.ma__radio-scale__label) {
+    align-items: center;
+    display: flex;
+  }
+
+  input[type=radio]:not(.ma__radio-scale__radio) {
+    margin-right: $standard-spacing--xxsmall;
+  }
+
+  // Since this for is hard-coded, and not fed from a data source,
+  // define the pseudo element's content.
+  .ma__radio-scale__radios::before {
+    content: "Strongly Disagree";
+  }
+
+  .ma__radio-scale__radios::after {
+    content: "Strongly Agree";
+  }
+}
