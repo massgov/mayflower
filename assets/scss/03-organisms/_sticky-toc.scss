@@ -386,13 +386,13 @@
     }
 
     &::after {
-      content: '\00d7';
+      content: $close-icon;
       font-size: 2.1rem;
       font-weight: 200;
+      left: 50%;
       line-height: 0;
       position: absolute;
       top: 50%;
-      left: 50%;
       transform: translate(-50%, -50%);
     }
   }
