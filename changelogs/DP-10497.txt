@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed/Changed
+Impact: Minor
+- React DP-10497: Updates the selectbox atom in Mayflower-React, passing the default selected prop to state in the contructor. Also updates the setting of select in the selectbox, changing for ref to value.
