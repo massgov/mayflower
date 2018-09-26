@@ -8,7 +8,7 @@ const Link = (props) => (
     href={props.href}
     className="js-clickable-link"
     title={props.info}
-  >{props.text}&nbsp;<Icon name="arrow" svgWidth="13.2" svgHeight="13.2" />
+  >{props.text}&nbsp;<Icon name="arrow" svgWidth={13.2} svgHeight={13.2} />
   </a>
 );
 
