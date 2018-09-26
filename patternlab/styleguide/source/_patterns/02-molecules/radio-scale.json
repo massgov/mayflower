@@ -1,0 +1,52 @@
+{
+  "radioScale": {
+    "legend": {
+      "text": "This page is helpful."
+    },
+    "beforeText": {
+      "disabled": false,
+      "text": "Strongly Disagree"
+    },
+    "afterText": {
+      "disabled": false,
+      "text": "Strongly Agree"
+    },
+    "radioOptions": [
+      {
+        "checked": false,
+        "for_id": "radio-identifier-1",
+        "name": "radio-name",
+        "value": "1",
+        "text": "1"
+      },
+      {
+        "checked": false,
+        "for_id": "radio-identifier-2",
+        "name": "radio-name",
+        "value": "2",
+        "text": "2"
+      },
+      {
+        "checked": false,
+        "for_id": "radio-identifier-3",
+        "name": "radio-name",
+        "value": "3",
+        "text": "3"
+      },
+      {
+        "checked": true,
+        "for_id": "radio-identifier-4",
+        "name": "radio-name",
+        "value": "4",
+        "text": "4"
+      },
+      {
+        "checked": false,
+        "for_id": "radio-identifier-5",
+        "name": "radio-name",
+        "value": "5",
+        "text": "5"
+      }
+    ]
+  }
+}
