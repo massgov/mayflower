@@ -56,7 +56,17 @@ export default (function (window, document, $) {
       else {
         $stickyHeader = $element.find(".sticky-thead");
       }
-      const tableLeft = element.getBoundingClientRect().x;
+
+      // Check return from this so that it works in IE and Edge.
+      const tableCoordinates = element.getBoundingClientRect();
+      let tableLeft;
+      if ("x" in tableCoordinates.x) {
+        tableLeft = element.getBoundingClientRect().left;
+      }
+      else {
+        tableLeft = element.getBoundingClientRect().x;
+      }
+
       $stickyHeader
         .css({
           "position": "fixed",
