@@ -1,5 +1,3 @@
-<p style="color: red; font-weight: bold;">TEMPLATE: rich-text.twig</p>
-
 {% set headerIndent =  richText.headerIndent ? ' js-ma-outline-indent' : '' %}
 {% set anchorLinks = richText.anchorLinks ? ' js-ma-insert-heading-anchors' : '' %}
 
@@ -17,12 +15,7 @@
   {# use this block to render your own content (see pattern docs) #}
   {% block rteElements %}
     {% for element in richText.rteElements %}
-{# {{ dump(element) }} #}
-{# <h5>DUMP: element.data.rawHTML</h5>
-{{ dump(element.data.rawHtml) }} #}
-<h5>PRINT: element.data.rawHTML.content["#text"]</h5>
-{{ element.data.rawHtml.content["#text"] }}
-
+<h5>[TEMPLATE: rich-text.twig] element.path:  {{ element.path }}</h5>
       {% include "@atoms/html.twig" with element.data %}
 
       {# {% include element.path with element.data %} #}
@@ -36,5 +29,3 @@
     </div>
   {% endif %}
 </section>
-
-<p style="color: red; font-weight: bold;">TEMPLATE-END: rich-text.twig</p>
