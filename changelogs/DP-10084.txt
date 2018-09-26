@@ -1,5 +1,0 @@
-___DESCRIPTION___
-minor
-patch
-- patternlab / DP-10084: MF Change to styling of More links on service page
-

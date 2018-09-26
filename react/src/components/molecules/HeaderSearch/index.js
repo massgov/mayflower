@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
+import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
 import './HeaderSearch.css';
 
 class HeaderSearch extends React.Component {
@@ -32,7 +33,7 @@ class HeaderSearch extends React.Component {
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
         {shouldShowTypeAhead && <TypeAheadDropdown {...orgDropdown} /> }
         <section className="ma__header-search">
-          <form action="#" className="ma__form js-header-search-form" onSubmit={headerSearch.onSubmit}>
+          <form action="#" className="ma__form" onSubmit={headerSearch.onSubmit}>
             <label
               htmlFor={headerSearch.id}
               className="ma__header-search__label"
@@ -46,6 +47,7 @@ class HeaderSearch extends React.Component {
               type="search"
               value={this.state.value}
             />
+            {this.props.postInputFilter}
             <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
         </section>
@@ -70,7 +72,9 @@ HeaderSearch.propTypes = {
   /** Default input text value */
   defaultText: PropTypes.string,
   /** @molecules/TypeAheadDropdown */
-  orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown)
+  orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
+  /** postInputFilter passable component */
+  postInputFilter: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'SelectBox')
 };
 
 HeaderSearch.defaultProps = {

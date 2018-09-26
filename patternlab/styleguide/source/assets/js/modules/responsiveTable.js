@@ -38,14 +38,14 @@ export default (function (window, document, $) {
     let $table = $element.find("table").not("table table");
     let $thead = $table.find("thead").not("table table thead");
     const hasThead = $thead.length;
-    const theadHeight = $thead[0].offsetHeight;
+    let theadHeight = 0;
     const isNestedThead = $thead.closest("table table").length;
     const hasTh = $table.find("th").length;
     let $stickyHeader = null;
     const canScroll = $table.width() > $table.parent().width();
 
     if (hasThead && hasTh && !isNestedThead) {
-      
+      theadHeight = $thead[0].offsetHeight;
       if (!reset) {
         $thead = $thead.clone();
         $table.after("<div class='sticky-thead'><div class='sticky-thead-wrapper'><table class='ma__table'></table></div></div>");
@@ -56,7 +56,17 @@ export default (function (window, document, $) {
       else {
         $stickyHeader = $element.find(".sticky-thead");
       }
-      const tableLeft = $table[0].getBoundingClientRect().x;
+
+      // Check return from this so that it works in IE and Edge.
+      const tableCoordinates = element.getBoundingClientRect();
+      let tableLeft;
+      if ("x" in tableCoordinates.x) {
+        tableLeft = element.getBoundingClientRect().left;
+      }
+      else {
+        tableLeft = element.getBoundingClientRect().x;
+      }
+
       $stickyHeader
         .css({
           "position": "fixed",
@@ -77,11 +87,14 @@ export default (function (window, document, $) {
       });
     
     $element.toggleClass("has-horizontal-scroll", canScroll);
-    // @todo Update this width to remove the remove the arrows and margin.
-    $element.find('.ma__table__horizontal-nav').width($table.parent().width());
+    $element.find(".ma__table__horizontal-nav").width($table.parent().width());
+
+    if (index === false) {
+      index = responsiveTables.length;
+    }
 
     let rt = {
-        index: index || responsiveTables.length,
+        index: index,
         $root: $element,
         $table: $table,
         $stickyHeader: $stickyHeader,
@@ -91,6 +104,7 @@ export default (function (window, document, $) {
         canScroll
     };
     setWidths(rt);
+    recalcScrollbar(rt);
 
     if (reset) {
       responsiveTables[index] = rt;
@@ -132,7 +146,7 @@ export default (function (window, document, $) {
     const elementTop = rt.$root.offset().top;
     const windowTop = $window.scrollTop();
     const windowBottom = windowTop + $window.height();
-    const elementBottom = (elementTop + rt.$root.height()) - rt.theadHeight;
+    const elementBottom = (elementTop + rt.$root.height());
 
     if (rt.$stickyHeader) {
       const stuckTop = rt.$stickyHeader.offset().top;
@@ -161,7 +175,6 @@ export default (function (window, document, $) {
         rt.$root.removeClass("stickNav");
         rt.$root.find(".ma__table__horizontal-nav").css("left", "");
       }
-      recalcScrollbar(rt);
     }
   }
 
@@ -231,10 +244,10 @@ export default (function (window, document, $) {
 
   function scrollbarEventHandlers() {
     const amountToScroll = 200;
-    const $scrollContainer = $(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
 
     // Scrollbar left arrow.
     $(".ma__table__horizontal-nav__left").click(function() {
+      const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
       // On click of left arrow element, animate the movement of the scrollbar
       // to the left by the integer amount defined in `amountToScroll`.
       const currentScrollLeft = $scrollContainer.scrollLeft();
@@ -246,6 +259,7 @@ export default (function (window, document, $) {
 
     // Scrollbar right arrow.
     $(".ma__table__horizontal-nav__right").click(function() {
+      const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
       // On click of left arrow element, animate the movement of the scrollbar
       // to the left by the integer amount defined in `amountToScroll`.
       $scrollContainer.animate({
@@ -265,44 +279,63 @@ export default (function (window, document, $) {
   }
 
   function recalcScrollbar(rt) {
-    const containerWidth = rt.$table.parent().width();
+    // Table width.
     const tableWidth = rt.$table.width();
+    // Table container width.
+    const tableContainerWidth = rt.$table.parent().width();
+    // Width of the arrows: < and >.
+    const scrollArrowWidth = 16;
+    // Margin to the left or right of the arrows: < and >.
+    const scrollArrowMargin = 15;
+    // Scrollbar container width = table container width minus arrows and arrow margin.
+    const scrollbarContainerWidth = tableContainerWidth - (scrollArrowWidth + scrollArrowMargin) * 2;
+    // Scrollbar width.
+    const scrollbarWidth = tableWidth * scrollbarContainerWidth / tableContainerWidth;
+    // Button width.
+    const buttonWidth = scrollbarContainerWidth * scrollbarContainerWidth / scrollbarWidth;
 
-    let smallLoad = $window.width() < 1200;
-    let buttonWidth;
-    
-    if (smallLoad) {
-      // Short button for thinner tables.
-      buttonWidth = (tableWidth - containerWidth) / 1.25;
-    } else {
-      // Regular button for desktop.
-      buttonWidth = (tableWidth - containerWidth) * 2;
-    }
-    
     const $scrollbar = rt.$root.find(".clip-scrollbar");
     const $scrollbarIndicator = $scrollbar.find(".ma__scroll-indicator");
-    const scrollbarHeight = $scrollbarIndicator[0].clientHeight;
     
-    $scrollbar.css("height", `${scrollbarHeight}px`);
-    $scrollbar.find(".ma__scroll-indicator--bar").css("width", `${tableWidth}px`);
-    $scrollbarIndicator.css("width", `${containerWidth}px`);
+    $scrollbar.find(".ma__scroll-indicator--bar").css("width", `${scrollbarWidth}px`);
+    $scrollbarIndicator.css("width", `${scrollbarContainerWidth}px`);
     $scrollbarIndicator.find(".ma__scroll-indicator__button").css("width", `${buttonWidth}px`);
   }
 
+  let skip = 0;
   function handleTableScroll(e) {
-    const scrollAmount = e.target.scrollLeft;
-    // @todo Update this to be a percentage of this number since we have to take out the arrows.
-    const scrollInverse = e.target.scrollWidth - e.target.offsetWidth - scrollAmount;
-    ["ma__table--responsive__wrapper", "ma__scroll-indicator", "sticky-thead-wrapper"].map(scrollable => {
-      if (e.target.className !== scrollable) {
-        if (scrollable === "ma__scroll-indicator" || e.target.className === "ma__scroll-indicator") {
-          this.getElementsByClassName(scrollable)[0].scrollLeft = scrollInverse;
-        }
-        else {
-          this.getElementsByClassName(scrollable)[0].scrollLeft = scrollAmount;
-        }
+    if (skip === 0) {
+      let scrollAmount;
+      let scrollInverse;
+      const scrollIndicatorWidth = this.getElementsByClassName("ma__scroll-indicator")[0].offsetWidth;
+      const ratio = scrollIndicatorWidth / this.offsetWidth;
+      if (e.target.className === "ma__scroll-indicator") {
+        scrollAmount = e.target.scrollLeft * ratio;
+        scrollInverse = e.target.scrollWidth - e.target.offsetWidth - scrollAmount;
       }
-    });
+      else {
+        scrollAmount = e.target.scrollLeft;
+        scrollInverse = (e.target.scrollWidth - e.target.offsetWidth - scrollAmount) / ratio;
+      }
+      ["ma__table--responsive__wrapper", "ma__scroll-indicator", "sticky-thead-wrapper"].map(scrollable => {
+        if (e.target.className !== scrollable) {
+          const elements = this.getElementsByClassName(scrollable);
+          if (elements.length > 0) {
+            if (scrollable === "ma__scroll-indicator" || e.target.className === "ma__scroll-indicator") {
+              skip++;
+              elements[0].scrollLeft = scrollInverse;
+            }
+            else {
+              skip++;
+              elements[0].scrollLeft = scrollAmount;
+            }
+          }
+        }
+      });
+    }
+    else {
+      skip--;
+    }
   }
 
   $(".js-ma-responsive-table").each((i, el) => initializeTable(el));
