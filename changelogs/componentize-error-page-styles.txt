@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added (see below)
-Change_impact (see below)
-- (React) Componentize scss into error page organism and pages  #271
