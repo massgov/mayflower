@@ -51,30 +51,3 @@ $bp-header-search-reduce-button: "max-width: 700px";
     max-width: 400px;
   }
 }
-
-//theme
-.ma__header-search {
-
-  .ma__button-search {
-
-    background-color: transparent;
-    border-color: $c-bd-input;
-
-    &:hover {
-      background: $c-primary-alt;
-      border-color: $c-primary-alt;
-    }
-
-    // not the button in navigation
-    .ma__header__search & {
-
-      @media ($bp-small-max) {
-        background-color: $c-white;
-
-        &:hover {
-          background: $c-primary-alt;
-        }
-      }
-    }
-  }
-}

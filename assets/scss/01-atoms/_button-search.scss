@@ -1,4 +1,4 @@
-@mixin ma-button-search ($background-color:$c-white, $color:$c-primary-alt) {
+@mixin ma-button-search ($background-color, $color) {
   background-color: $background-color;
   border-color: $c-bd-input;
   color: $color;
@@ -7,14 +7,18 @@
 
   &:hover {
     background-color: $color;
-    border-color: $color;
+    @if $color==$c-white {
+      border-color: $c-bd-input;
+    } @else {
+      border-color: $color;
+    }
     color: $background-color;
 
-    svg {
+    & > svg {
       fill: $background-color;
     }
   }
-  svg {
+  & > svg {
     fill: $color;
   }
 }
@@ -41,11 +45,11 @@
     width: 20px;
   }
 
-  &--primary {
-    @include ma-button-search($c-primary-alt, $c-white);
-  }
+  //primary button search
+  @include ma-button-search($c-primary-alt, $c-white);
 
+  //secondary button search
   &--secondary {
-    @include ma-button-search;
+    @include ma-button-search($c-white, $c-primary-alt);
   }
 }
