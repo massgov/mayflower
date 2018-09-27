@@ -1,0 +1,6 @@
+___DESCRIPTION___
+Minor
+Added
+- (React, Patternlab) DP-1234: Add primary `.ma__button-search` and secondary `.ma__button-search--secondar` usage themes to button search  #261
+Fixed
+- (Patternlab) DP-1234: Fix and unify button search hover styles in organization-navigation search #261

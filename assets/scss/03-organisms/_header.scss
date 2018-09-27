@@ -105,20 +105,22 @@ body {
 
         // not the button in navigation
         .ma__button-search {
+          &, &--secondary {
+            @media ($bp-small-max) {
+              @include ma-valign-block;
+              border-width: 2px;
+              border-style: solid;
+              display: inline-block;
+              position: static;
+              transition: opacity .4s;
+              vertical-align: middle;
 
-          @media ($bp-small-max) {
-            @include ma-valign-block;
-            border-width: 2px;
-            border-style: solid;
-            display: inline-block;
-            position: static;
-            transition: opacity .4s;
-            vertical-align: middle;
-
-            .show-menu & {
-              opacity: 0;
+              .show-menu & {
+                opacity: 0;
+              }
             }
           }
+
         }
       }
 
