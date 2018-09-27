@@ -20,9 +20,6 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);
-    const hideTopic = boolean('filterBox.hideTopic', true);
-    const hideType = boolean('filterBox.hideType', false);
-    const hideDateRange = boolean('filterBox.hideDateRange', false);
     const DesktopHidden = boolean('SearchBanner.filterDesktopHidden', false);
     const withTabs = boolean('HeaderSearch.withTabs', true);
     const props = {
@@ -71,13 +68,6 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
       props.filterBoxExpanded = boolean('SearchBanner.filterBoxExpanded', true);
       props.filterDesktopHidden = DesktopHidden;
       props.filterToggleText = text('SearchBanner.filterBoxText', 'More Filters');
-      const topic = {
-        label: text('filterBox.topic.label', 'Filter by Topic'),
-        stackLabel: boolean('filterBox.topic.stackLabel', true),
-        id: 'topic',
-        options: object('filterBox.topic.options', selectBoxOptions.options.topics),
-        required: boolean('filterBox.topic.required', true)
-      };
       const organization = {
         label: text('filterBox.organization.label', 'State organization'),
         id: text('filterBox.organization.id', 'state-organization'),
