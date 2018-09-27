@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Icon from '../../icons/Icon';
 import './style.css';
 
@@ -24,28 +25,19 @@ class ButtonWithIcon extends React.Component {
     const {
       classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type
     } = this.props;
-    let classNames = classes.join(' ');
-    if (canExpand) {
-      classNames += ' ma__button-icon--expandable';
-      if (expanded) {
-        classNames += ' ma__button-icon--expanded';
-      }
-    }
-    if (capitalized) {
-      classNames += ' ma__button-capitalized';
-    }
-    if (iconSize === 'small' || icon.props.name === 'chevron') {
-      classNames += ' ma__icon-small';
-    }
-    if (iconColor === 'green') {
-      classNames += ' ma__icon-green';
-    }
-    if (icon.props.name === 'search') {
-      classNames += ' ma__button-search';
-    }
+    const buttonClasses = classNames({
+      'ma__button-icon': true,
+      'ma__button-icon--expandable': canExpand,
+      'ma__button-icon--expanded': canExpand && expanded,
+      'ma__button-capitalized': capitalized,
+      'ma__icon-small': iconSize === 'small' || icon.props.name === 'chevron',
+      'ma__icon-green': iconColor,
+      'ma__button-search--secondary': icon.props.name === 'search'
+    });
+    //let classNames = classes.join(' ');
     const buttonProps = {
       type,
-      className: `ma__button-icon ${classNames}`,
+      className: buttonClasses,
       onClick: this.handleClick,
       tabIndex: 0
     };
