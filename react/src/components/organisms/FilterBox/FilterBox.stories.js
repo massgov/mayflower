@@ -18,10 +18,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
   .add(
     'FilterBox',
     withInfo()(() => {
-      const hideTopic = boolean('filterBox.hideTopic', true);
-      const hideOrganization = boolean('filterBox.hideOrganization', true);
       const hideType = boolean('filterBox.hideType', false);
-      const hideDateRange = boolean('filterBox.hideDateRange', false);
       const pressTypeInput = select('filterBox.pressType.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const organization = {
         label: text('filterBox.organization.label', 'State organization'),
