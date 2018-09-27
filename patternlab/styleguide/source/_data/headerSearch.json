@@ -2,6 +2,9 @@
   "headerSearch" : {
     "placeholder":"Search Mass.gov",
     "id":"header-search",
-    "label": "Search terms"
+    "label": "Search terms",
+    "buttonSearch" : {
+      "usage": ""
+    }
   }
 }
