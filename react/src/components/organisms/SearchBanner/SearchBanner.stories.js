@@ -203,6 +203,13 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
         filterDesktopHidden: DesktopHidden,
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
+        postInputFilter: {
+          label: text('filterBox.topic.label', 'Type of Care'),
+          stackLabel: boolean('filterBox.topic.stackLabel', true),
+          id: 'topic',
+          options: object('filterBox.topic.options', selectBoxOptions.options.typeOfCare),
+          required: boolean('filterBox.topic.required', true)
+        },
         topic: (hideTopic ? undefined : {
           label: text('filterBox.topic.label', 'Type of Care'),
           stackLabel: boolean('filterBox.topic.stackLabel', true),

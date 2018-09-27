@@ -10,7 +10,7 @@ import './style.css';
 
 const FilterBox = (props) => {
   const {
-    action, topic, organization, pressType, dateRange, submitButton, clearButton, active
+    action, pressType, submitButton, clearButton, active, fields
   } = props;
   const handleClear = () => {
     if (typeof props.clearButton.onClearCallback === 'function') {
@@ -25,25 +25,15 @@ const FilterBox = (props) => {
         <form className={`ma__filter-box__form js-filter-box ${isActive}`} action={action}>
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
-              {organization && (
-                <div className="ma__filter-box__organizations">
-                  <InputTextTypeAhead {...organization} />
+              { fields.map((field) => (
+                <div className={field.class}>
+                  { field.component }
                 </div>
-              )}
-              {topic && (
-              <div className="ma__filter-box__topic">
-                <SelectBox {...topic} />
-              </div>
-              )}
+              ))}
               {pressType && (
               <div className="ma__filter-box__type">
                 {pressType.selectBox && <SelectBox {...pressType.selectBox} />}
                 {pressType.typeAhead && <InputTextTypeAhead {...pressType.typeAhead} />}
-              </div>
-              )}
-              {dateRange && (
-              <div className="ma__filter-box__date">
-                <DateRange {...dateRange} />
               </div>
               )}
             </div>

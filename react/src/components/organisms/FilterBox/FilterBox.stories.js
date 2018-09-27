@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
+import { InputTextTypeAhead, SelectBox, DateRange } from '../../../index';
 
 import FilterBox from '.';
 import sharedProps from './FilterBox.props';
@@ -22,22 +23,34 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       const hideType = boolean('filterBox.hideType', false);
       const hideDateRange = boolean('filterBox.hideDateRange', false);
       const pressTypeInput = select('filterBox.pressType.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
+      const organization = {
+        label: text('filterBox.organization.label', 'State organization'),
+        id: text('filterBox.organization.id', 'state-organization'),
+        options: object('filterBox.organization.options', inputOptions.options.orgSelector),
+        selected: select(
+          'filterBox.organization.selected',
+          inputOptions.options.orgSelector.map((option) => option.text),
+          ''
+        ),
+        placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
+        onChange: action('filterBox.organization typeahead onChange')
+      };
+      const topic = {
+        label: text('filterBox.topic.label', 'Filter by Topic'),
+        stackLabel: boolean('filterBox.topic.stackLabel', true),
+        id: 'topic',
+        options: object('filterBox.topic.options', selectBoxOptions.options.topics),
+        required: boolean('filterBox.topic.required', true)
+      };
+      const dateRange = {
+        label: text('filterBox.dateRange.label', 'Date range'),
+        startDate: object('filterBox.dateRange.startDate', sharedProps.startDate),
+        endDate: object('filterBox.dateRange.endDate', sharedProps.endDate)
+      };
       const props = {
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
-        topic: (hideTopic ? undefined : {
-          label: text('filterBox.topic.label', 'Filter by Topic'),
-          stackLabel: boolean('filterBox.topic.stackLabel', true),
-          id: 'topic',
-          options: object('filterBox.topic.options', selectBoxOptions.options.topics),
-          required: boolean('filterBox.topic.required', true)
-        }),
         pressType: {},
-        dateRange: (hideDateRange ? undefined : {
-          label: text('filterBox.dateRange.label', 'Date range'),
-          startDate: object('filterBox.dateRange.startDate', sharedProps.startDate),
-          endDate: object('filterBox.dateRange.endDate', sharedProps.endDate)
-        }),
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
@@ -51,18 +64,20 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           info: text('filterBox.clearButton.aria-label', 'Clear all filters'),
           onClearCallback: action('FilterBox clearButton.onClearCallback')
         },
-        organization: (hideOrganization ? undefined : {
-          label: text('filterBox.organization.label', 'State organization'),
-          id: text('filterBox.organization.id', 'state-organization'),
-          options: object('filterBox.organization.options', inputOptions.options.orgSelector),
-          selected: select(
-            'filterBox.organization.selected',
-            inputOptions.options.orgSelector.map((option) => option.text),
-            ''
-          ),
-          placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
-          onChange: action('filterBox.organization typeahead onChange')
-        })
+        fields: [
+          {
+            class: 'ma__filter-box__organizations',
+            component: <InputTextTypeAhead {...organization} />
+          },
+          {
+            class: 'ma__filter-box__topic',
+            component: <SelectBox {...topic} />
+          },
+          {
+            class: 'ma__filter-box__date',
+            component: <DateRange {...dateRange} />
+          }
+        ]
       };
       if (hideType) {
         props.pressType.typeAhead = null;
