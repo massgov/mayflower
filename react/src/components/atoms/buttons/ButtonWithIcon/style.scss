@@ -1,4 +1,5 @@
 @import 'global';
+@import "01-atoms/button-search";
 
 .ma__button-icon {
   background-color: $c-white;
@@ -65,4 +66,3 @@
   }
 
 }
-@import "01-atoms/button-search";

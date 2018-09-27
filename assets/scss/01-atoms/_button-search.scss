@@ -1,29 +1,4 @@
 @mixin ma-button-search ($background-color, $color) {
-  background-color: $background-color;
-  border-color: $c-bd-input;
-  color: $color;
-  font-size: 14px;
-  font-weight: 700;
-
-  &:hover {
-    background-color: $color;
-    @if $color==$c-white {
-      border-color: $c-bd-input;
-    } @else {
-      border-color: $color;
-    }
-    color: $background-color;
-
-    & > svg {
-      fill: $background-color;
-    }
-  }
-  & > svg {
-    fill: $color;
-  }
-}
-
-.ma__button-search {
   border: 2px solid;
   display: inline-block;
   letter-spacing: $letter-spacing-large;
@@ -44,6 +19,37 @@
     transition: fill .4s;
     width: 20px;
   }
+
+
+  background-color: $background-color;
+  @if $background-color==$c-white {
+    border-color: $c-bd-input !important;
+  } @else {
+    border-color: $background-color !important;
+  }
+  color: $color;
+  font-size: 14px;
+  font-weight: 700;
+
+  &:hover {
+    background-color: $color;
+    @if $color==$c-white {
+      border-color: $c-bd-input !important;
+    } @else {
+      border-color: $color !important;
+    }
+    color: $background-color;
+
+    & > svg {
+      fill: $background-color;
+    }
+  }
+  & > svg {
+    fill: $color;
+  }
+}
+
+.ma__button-search {
 
   //primary button search
   @include ma-button-search($c-primary-alt, $c-white);

@@ -24,7 +24,7 @@
     //overwrite needs to port back to shared scss
     .ma__button-search {
       &, &--secondary {
-        border: 2px solid $c-overcast-gray !important;
+        border-right: 2px !important;
         position: relative !important;
         margin-left: -2px !important;
       }
