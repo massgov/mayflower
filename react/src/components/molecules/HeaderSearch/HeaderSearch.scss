@@ -22,14 +22,10 @@
   .ma__form {
     display: flex;
     //overwrite needs to port back to shared scss
-    .ma__button-search {
+    .ma__button-search, .ma__button-search--secondary {
       border: 2px solid $c-overcast-gray !important;
       position: relative !important;
-      margin-left: -2px;
-      background-color: $c-white !important;
-      &:hover {
-        background-color: $c-primary-alt !important;
-      }
+      margin-left: -2px !important;
     }
   }
 
