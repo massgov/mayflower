@@ -41,6 +41,10 @@
 
 .ma__table {
   
+  th {
+    color: $c-font-detail;
+  }
+
   @media ($bp-small-max) {
     display: block;
 
@@ -92,10 +96,6 @@
       color: $c-font-heading;
       background-color: $c-bg-subtle;
     }
-  }
-
-  th {
-    color: $c-font-detail;
   }
 }
 
