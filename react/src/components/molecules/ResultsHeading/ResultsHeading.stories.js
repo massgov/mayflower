@@ -14,8 +14,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
   .add('ResultsHeading', withInfo(`<div>${ResultsHeadingDocs}</div>`)(() => {
     const inputType = select('sortResults.inputType', { '': 'None', buttonToggle: 'buttonToggle', selectBox: 'selectBox' }, 'selectBox');
     const props = {
-      numResults: text('resultsHeading.numResults', '1-12'),
-      totalResults: text('resultsHeading.totalResults', '108'),
+      resultsMessage: text('resultsHeading.resultsMessage', 'Showing 1-10 of 100 for:'),
       tags: {
         tags: object('resultsHeading.tags', TagsData.tags),
         onClearCallback: action('resultsHeading tags on clearAll'),

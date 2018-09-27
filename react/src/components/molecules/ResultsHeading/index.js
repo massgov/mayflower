@@ -51,16 +51,14 @@ class Tags extends Component {
 }
 
 const ResultsHeading = (resultsHeading) => {
-  const resultsHeadingTotal = resultsHeading.totalResults ? ` of ${resultsHeading.totalResults} for: ` : '';
-  const resultsHeadingTitle = `Showing results ${resultsHeading.numResults}${resultsHeadingTotal}`;
-  const { tags } = resultsHeading;
+  const { tags, resultsMessage } = resultsHeading;
   const selectBoxProps = resultsHeading.selectBox;
   const buttonToggleProps = resultsHeading.buttonToggle;
   return(
     <div className="ma__results-heading js-results-heading">
       <div className="ma__results-heading__container">
         <div className="ma__results-heading__title">
-          {resultsHeadingTitle}
+          {resultsMessage}
         </div>
         {tags && (
           <Tags {...tags} />
@@ -83,10 +81,8 @@ const ResultsHeading = (resultsHeading) => {
 };
 
 ResultsHeading.propTypes = {
-  /** The range of results being displayed, e.g. 1-10 */
-  numResults: PropTypes.string,
-  /** The total count of results */
-  totalResults: PropTypes.string,
+  /** The message to be displayed for the results listing */
+  resultsMessage: PropTypes.string,
   /** The sort input type as ButtonToggle */
   buttonToggle: PropTypes.shape(ButtonToggle.props),
   /** The sort input type as SelectBox */
