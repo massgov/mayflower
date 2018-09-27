@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
+import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const FilterBox = (props) => {
@@ -61,7 +62,9 @@ FilterBox.propTypes = {
     onClearCallback: PropTypes.func
   }),
   /** Controls if we allow filterbox to render only on mobile */
-  filterDesktopHidden: PropTypes.bool
+  filterDesktopHidden: PropTypes.bool,
+  /** An array of filter fields */
+  fields: PropTypes.arrayOf((props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'SelectBox'))
 };
 
 FilterBox.defaultProps = {

@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import { SelectBox } from '../../../index';
+import { SelectBox, InputTextTypeAhead, DateRange } from '../../../index';
 import SearchBanner from './index';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 import tabsOptions from '../../molecules/Tabs/Tabs.knobs.options';
@@ -139,8 +139,6 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);
-    const hideTopic = boolean('filterBox.hideTopic', false);
-    const hideType = boolean('filterBox.hideType', true);
     const DesktopHidden = boolean('SearchBanner.filterDesktopHidden', false);
     const withTabs = boolean('HeaderSearch.withTabs', false);
     const selectBoxProps = {
@@ -199,38 +197,34 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
       props.filterBoxExpanded = boolean('SearchBanner.filterBoxExpanded', true);
       props.filterDesktopHidden = DesktopHidden;
       props.filterToggleText = text('SearchBanner.filterBoxText', 'More Filters');
+      const postInputFilter = {
+        label: text('filterBox.topic.label', 'Distance Radius'),
+        stackLabel: boolean('filterBox.topic.stackLabel', true),
+        id: 'distance-select',
+        options: object('filterBox.topic.options', selectBoxOptions.options.distance),
+        required: boolean('filterBox.topic.required', true)
+      };
+      const typeOfCare = {
+        label: text('filterBox.topic.label', 'Type of Care'),
+        stackLabel: boolean('filterBox.topic.stackLabel', true),
+        id: 'topic',
+        options: object('filterBox.topic.options', selectBoxOptions.options.typeOfCare),
+        required: boolean('filterBox.topic.required', true)
+      };
       props.filterBox = {
         filterDesktopHidden: DesktopHidden,
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
-        postInputFilter: {
-          label: text('filterBox.topic.label', 'Type of Care'),
-          stackLabel: boolean('filterBox.topic.stackLabel', true),
-          id: 'topic',
-          options: object('filterBox.topic.options', selectBoxOptions.options.typeOfCare),
-          required: boolean('filterBox.topic.required', true)
-        },
-        topic: (hideTopic ? undefined : {
-          label: text('filterBox.topic.label', 'Type of Care'),
-          stackLabel: boolean('filterBox.topic.stackLabel', true),
-          id: 'topic',
-          options: object('filterBox.topic.options', selectBoxOptions.options.typeOfCare),
-          required: boolean('filterBox.topic.required', true)
-        }),
-        pressType: (hideType ? undefined : {
-          typeAhead: {
-            label: text('filterBox.pressType.label', 'Type of Care'),
-            id: text('filterBox.pressType.id', 'press-type'),
-            options: object('filterBox.pressType.options', inputOptions.options.typeOfCare),
-            selected: select(
-              'filterBox.pressType.defaultSelected',
-              [''].concat(inputOptions.options.typeOfCare.map((option) => option.text)),
-              ''
-            ),
-            placeholder: text('filterBox.pressType.placeholder', 'All Types'),
-            onChange: action('SearchBanner filterBox.pressType.typeAhead.onChange')
+        fields: [
+          {
+            class: 'ma__filter-box__postInputFilter',
+            component: <SelectBox {...postInputFilter} />
+          },
+          {
+            class: 'ma__filter-box__type',
+            component: <SelectBox {...typeOfCare} />
           }
-        }),
+        ],
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
