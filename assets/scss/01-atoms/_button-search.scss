@@ -1,4 +1,4 @@
-.ma__button-search {
+@mixin ma-button-search ($background-color, $color) {
   border: 2px solid;
   display: inline-block;
   letter-spacing: $letter-spacing-large;
@@ -19,26 +19,43 @@
     transition: fill .4s;
     width: 20px;
   }
-}
 
-//theme
-.ma__button-search {
-  background-color: $c-white;
-  border-color: $c-bd-input;
-  color: $c-primary-alt;
+
+  background-color: $background-color;
+  @if $background-color==$c-white {
+    border-color: $c-bd-input !important;
+  } @else {
+    border-color: $background-color !important;
+  }
+  color: $color;
   font-size: 14px;
   font-weight: 700;
 
   &:hover {
-    background-color: $c-primary-alt;
-    border-color: $c-primary-alt;
-    color: $c-font-inverse;
+    background-color: $color;
+    @if $color==$c-white {
+      border-color: $c-bd-input !important;
+    } @else {
+      border-color: $color !important;
+    }
+    color: $background-color;
 
-    svg {
-      fill: $c-font-inverse;
+    & > svg {
+      fill: $background-color;
     }
   }
-  svg {
-    fill: $c-primary-alt;
+  & > svg {
+    fill: $color;
+  }
+}
+
+.ma__button-search {
+
+  //primary button search
+  @include ma-button-search($c-primary-alt, $c-white);
+
+  //secondary button search
+  &--secondary {
+    @include ma-button-search($c-white, $c-primary-alt);
   }
 }
