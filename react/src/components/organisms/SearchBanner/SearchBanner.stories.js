@@ -117,10 +117,6 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
             component: <InputTextTypeAhead {...organization} />
           },
           {
-            class: 'ma__filter-box__topic',
-            component: <SelectBox {...topic} />
-          },
-          {
             class: 'ma__filter-box__type',
             component: <InputTextTypeAhead {...pressType} />
           },
