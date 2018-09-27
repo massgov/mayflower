@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Major
+Changed
+- (React) DP-1234: Refactor FilterBox to allow any form components  #277
+Note: This will need to be followed up in search and other apps consuming FilterBox / SearchBanner
