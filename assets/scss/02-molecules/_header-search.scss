@@ -25,25 +25,28 @@ $bp-header-search-reduce-button: "max-width: 700px";
   }
 
   .ma__button-search {
-    border: none;
-    border-left: 2px solid;
-    display: block;
-    height: $header-search-height;
-    padding-top: 0;
-    padding-bottom: 0;
-    position: absolute;
-      right: 0;
-      top: 0;
+    &, &--secondary {
+      border: none;
+      border-left: 2px solid;
+      display: block;
+      height: $header-search-height;
+      padding-top: 0;
+      padding-bottom: 0;
+      position: absolute;
+        right: 0;
+        top: 0;
 
-    @media ($bp-x-small-max) {
-      padding-left: 10px;
-    }
+      @media ($bp-x-small-max) {
+        padding-left: 10px;
+      }
 
-    @media ($bp-header-search-reduce-button) {
-      span {
-        display: none;
+      @media ($bp-header-search-reduce-button) {
+        span {
+          display: none;
+        }
       }
     }
+
   }
 
   .ma__narrow-template & {

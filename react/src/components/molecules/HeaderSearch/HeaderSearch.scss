@@ -19,23 +19,26 @@
       }
     }
   }
+
   .ma__form {
     display: flex;
-    //overwrite needs to port back to shared scss
-    .ma__button-search {
-      &, &--secondary {
-        border: 2px solid !important; //override header-search button search border styles
-        position: relative !important;
-        margin-left: -2px !important;
-      }
-      & {
-        @include ma-button-search($c-primary-alt, $c-white);
-      }
-      &--secondary {
-        @include ma-button-search($c-white, $c-primary-alt);
-      }
+  }
+
+  //overwrite needs to port back to shared scss
+  .ma__button-search {
+    &, &--secondary {
+      border: 2px solid !important; //override header-search button search border styles
+      position: relative !important;
+      margin-left: -2px !important;
+    }
+    & {
+      @include ma-button-search($c-primary-alt, $c-white);
+    }
+    &--secondary {
+      @include ma-button-search($c-white, $c-primary-alt);
     }
   }
+
 
   &__input {
     padding-right: 0 !important;
