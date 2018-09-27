@@ -34,18 +34,20 @@
        align-items: baseline;
 			 justify-content: start;
 			 margin: 1rem 0;
+
+			 > div {
+				 @media($bp-medium-max){
+					 width: 100%;
+				 }
+					 margin: 0.5rem 1rem 0.5rem 0;
+			 }
     }
 		&__controls {
 			@media($bp-x-large-min){
 				padding-top: 1.5rem;
 			}
 		}
-    &__topic, &__organizations, &__type, &__date {
-		@media($bp-medium-max){
-			width: 100%;
-		}
-     margin: 0.5rem 1rem 0.5rem 0;
-	  }
+
 	  &__button {
 	  	 margin: 0;
 	  }
