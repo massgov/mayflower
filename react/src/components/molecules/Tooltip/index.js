@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Icon from '../../atoms/icons/Icon';
 // eslint-disable-next-line import/no-unresolved
 import './style.css';
 
 const Tooltip = (tooltip) => {
   const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;
   const location = (tooltip.location === 'above') ? 'ma__tooltip__modal--above' : 'ma__tooltip__modal--below';
-  const openIcon = tooltip.openIcon ? tooltip.openIcon : '';
+  const openIcon = tooltip.openIcon ? <Icon name="questionmark" svgHeight={20} svgWidth={20} /> : '';
 
   return(
     <div className="ma__tooltip">
@@ -63,7 +64,7 @@ Tooltip.propTypes = {
   /** description on link for screen readers */
   info: PropTypes.string.isRequired,
   /** SVG icon */
-  openIcon: PropTypes.object,
+  openIcon: PropTypes.bool,
   /** Title of opened window */
   title: PropTypes.string,
   /** Heading level of title. Default h2 */
