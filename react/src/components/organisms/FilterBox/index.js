@@ -3,14 +3,11 @@ import PropTypes from 'prop-types';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
-import DateRange from '../../molecules/DateRange';
-import SelectBox from '../../atoms/forms/SelectBox';
-import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
 import './style.css';
 
 const FilterBox = (props) => {
   const {
-    action, pressType, submitButton, clearButton, active, fields
+    action, submitButton, clearButton, active, fields
   } = props;
   const handleClear = () => {
     if (typeof props.clearButton.onClearCallback === 'function') {
@@ -30,12 +27,6 @@ const FilterBox = (props) => {
                   { field.component }
                 </div>
               ))}
-              {pressType && (
-              <div className="ma__filter-box__type">
-                {pressType.selectBox && <SelectBox {...pressType.selectBox} />}
-                {pressType.typeAhead && <InputTextTypeAhead {...pressType.typeAhead} />}
-              </div>
-              )}
             </div>
             <div className="ma__filter-box__controls">
               <div className="ma__filter-box__button">
@@ -61,14 +52,6 @@ FilterBox.propTypes = {
   active: PropTypes.bool,
   /** The form action  */
   action: PropTypes.string,
-  /** @atoms/forms/SelectBox */
-  topic: PropTypes.shape(SelectBox.PropTypes),
-  /** @atoms/forms/SelectBox or /** @atoms/forms/InputTextTypeAhead  */
-  pressType: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.shape(SelectBox.propTypes), PropTypes.shape(InputTextTypeAhead.propTypes)])),
-  /** @atoms/forms/InputTextTypeAhead */
-  organization: PropTypes.shape(InputTextTypeAhead.propTypes),
-  /** @molecules/DateRange */
-  dateRange: PropTypes.shape(DateRange.PropTypes),
   /** @atoms/forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes).isRequired,
   /** Clear all button at the bottom of the filter */
