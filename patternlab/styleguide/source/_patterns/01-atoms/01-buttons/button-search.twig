@@ -1,5 +1,5 @@
 {% if not buttonSearch %}
-  {% set buttonSearch = {"text":"Search"} %}
+  {% set buttonSearch = {"text":"Search", "usage": "secondary"} %}
 {% endif %}
 {% set buttonClasses = buttonSearch.usage ? "ma__button-search--" ~ buttonSearch.usage : "ma__button-search" %}
 <button type="submit" class="{{ buttonClasses }}">

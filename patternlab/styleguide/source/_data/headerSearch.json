@@ -4,7 +4,8 @@
     "id":"header-search",
     "label": "Search terms",
     "buttonSearch" : {
-      "usage": ""
+      "text": "Search",
+      "usage": "secondary"
     }
   }
 }

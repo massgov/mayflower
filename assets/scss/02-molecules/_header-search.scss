@@ -26,8 +26,8 @@ $bp-header-search-reduce-button: "max-width: 700px";
 
   .ma__button-search {
     &, &--secondary {
-      border: none;
-      border-left: 2px solid;
+      border: 2px solid;
+      //border-left: 2px solid;
       display: block;
       height: $header-search-height;
       padding-top: 0;
