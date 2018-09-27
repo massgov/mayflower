@@ -13,6 +13,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.2.0 (9/26/2018)
+
+### Added
+- (React) Componentize scss into results heading  #268
+- (React) Componentize scss into error page organism and pages  #271
+
+### Fixed
+- (React) DP-10497: Updates the selectbox atom in Mayflower-React, passing the default selected prop to state in the contructor. Also updates the setting of select in the selectbox, changing for ref to value.
+
 ## 8.1.0 (9/24/2018)
 
 ### Added
