@@ -1,6 +1,7 @@
 import React from 'react';
 import NarrowTemplate from '../../templates/NarrowTemplate';
 import ErrorPage from '../../organisms/ErrorPage';
+import '../styles.css';
 
 const Error403 = () => (
   <NarrowTemplate side="right" color="yellow">
