@@ -71,48 +71,64 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
       props.filterBoxExpanded = boolean('SearchBanner.filterBoxExpanded', true);
       props.filterDesktopHidden = DesktopHidden;
       props.filterToggleText = text('SearchBanner.filterBoxText', 'More Filters');
+      const topic = {
+        label: text('filterBox.topic.label', 'Filter by Topic'),
+        stackLabel: boolean('filterBox.topic.stackLabel', true),
+        id: 'topic',
+        options: object('filterBox.topic.options', selectBoxOptions.options.topics),
+        required: boolean('filterBox.topic.required', true)
+      };
+      const organization = {
+        label: text('filterBox.organization.label', 'State organization'),
+        id: text('filterBox.organization.id', 'state-organization'),
+        options: object('filterBox.organization.options', inputOptions.options.orgSelector),
+        selected: select(
+          'filterBox.organization.defaultSelected',
+          [''].concat(inputOptions.options.orgSelector.map((option) => option.text)),
+          ''
+        ),
+        placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
+        onChange: action('filterBox.organization typeahead onChange')
+      };
+      const pressType = {
+        label: text('filterBox.pressType.label', 'Filter by Type'),
+        id: text('filterBox.pressType.id', 'press-type'),
+        options: object('filterBox.pressType.options', inputOptions.options.pressTypes),
+        selected: select(
+          'filterBox.pressType.defaultSelected',
+          [''].concat(inputOptions.options.pressTypes.map((option) => option.text)),
+          ''
+        ),
+        placeholder: text('filterBox.pressType.placeholder', 'All Types'),
+        onChange: action('SearchBanner filterBox.pressType.typeAhead.onChange')
+      };
+      const dateRange = {
+        label: text('filterBox.dateRange.label', 'Date range'),
+        startDate: object('filterBox.dateRange.startDate', filterBoxSharedProps.startDate),
+        endDate: object('filterBox.dateRange.endDate', filterBoxSharedProps.endDate)
+      };
       props.filterBox = {
         filterDesktopHidden: DesktopHidden,
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
-        topic: (hideTopic ? undefined : {
-          label: text('filterBox.topic.label', 'Filter by Topic'),
-          stackLabel: boolean('filterBox.topic.stackLabel', true),
-          id: 'topic',
-          options: object('filterBox.topic.options', selectBoxOptions.options.topics),
-          required: boolean('filterBox.topic.required', true)
-        }),
-        organization: {
-          label: text('filterBox.organization.label', 'State organization'),
-          id: text('filterBox.organization.id', 'state-organization'),
-          options: object('filterBox.organization.options', inputOptions.options.orgSelector),
-          selected: select(
-            'filterBox.organization.defaultSelected',
-            [''].concat(inputOptions.options.orgSelector.map((option) => option.text)),
-            ''
-          ),
-          placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
-          onChange: action('filterBox.organization typeahead onChange')
-        },
-        pressType: (hideType ? undefined : {
-          typeAhead: {
-            label: text('filterBox.pressType.label', 'Filter by Type'),
-            id: text('filterBox.pressType.id', 'press-type'),
-            options: object('filterBox.pressType.options', inputOptions.options.pressTypes),
-            selected: select(
-              'filterBox.pressType.defaultSelected',
-              [''].concat(inputOptions.options.pressTypes.map((option) => option.text)),
-              ''
-            ),
-            placeholder: text('filterBox.pressType.placeholder', 'All Types'),
-            onChange: action('SearchBanner filterBox.pressType.typeAhead.onChange')
+        fields: [
+          {
+            class: 'ma__filter-box__organizations',
+            component: <InputTextTypeAhead {...organization} />
+          },
+          {
+            class: 'ma__filter-box__topic',
+            component: <SelectBox {...topic} />
+          },
+          {
+            class: 'ma__filter-box__type',
+            component: <InputTextTypeAhead {...pressType} />
+          },
+          {
+            class: 'ma__filter-box__date',
+            component: <DateRange {...dateRange} />
           }
-        }),
-        dateRange: (hideDateRange ? undefined : {
-          label: text('filterBox.dateRange.label', 'Date range'),
-          startDate: object('filterBox.dateRange.startDate', filterBoxSharedProps.startDate),
-          endDate: object('filterBox.dateRange.endDate', filterBoxSharedProps.endDate)
-        }),
+        ],
         submitButton: {
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
@@ -127,9 +143,9 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
           onClearCallback: action('SearchBanner filterBox.clearButton.onClearCallback')
         }
       };
-      if (props.filterBox.dateRange) {
-        props.filterBox.dateRange.startDate.defaultDate = new Date(props.filterBox.dateRange.startDate.defaultDate);
-        props.filterBox.dateRange.endDate.defaultDate = new Date(props.filterBox.dateRange.endDate.defaultDate);
+      if (dateRange) {
+        dateRange.startDate.defaultDate = new Date(dateRange.startDate.defaultDate);
+        dateRange.endDate.defaultDate = new Date(dateRange.endDate.defaultDate);
       }
     }
     return(<SearchBanner {...props} />);
