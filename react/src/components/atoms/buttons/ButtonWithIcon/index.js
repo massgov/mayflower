@@ -25,7 +25,8 @@ class ButtonWithIcon extends React.Component {
     const {
       classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage
     } = this.props;
-    let buttonClasses = classes.join(' ');
+    // concat a space at the end of custom classes
+    let buttonClasses = classes ? `${classes.join(' ')} ` : '';
     buttonClasses += classNames({
       'ma__button-icon': true,
       'ma__button-icon--expandable': canExpand,
