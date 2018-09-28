@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
-import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
+import { validateFilters } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const FilterBox = (props) => {
@@ -24,7 +24,7 @@ const FilterBox = (props) => {
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
               { fields.map((field, i) => (
-                <div className={field.class} key={`filterbox-field${i}`}>
+                <div className={field.class} key={`filterbox-field-${i}`}>
                   { field.component }
                 </div>
               ))}
@@ -64,7 +64,13 @@ FilterBox.propTypes = {
   /** Controls if we allow filterbox to render only on mobile */
   filterDesktopHidden: PropTypes.bool,
   /** An array of filter fields */
-  //fields: PropTypes.arrayOf((props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'SelectBox'))
+  fields: (props, propName, componentName) => {
+    return validateFilters(props, propName, componentName, [
+      'SelectBox',
+      'InputTextTypeAhead',
+      'DateRange'
+    ]);
+  }
 };
 
 FilterBox.defaultProps = {
