@@ -1,18 +1,17 @@
-import throttle from "../helpers/throttle.js";
-
 export default (function (window, document, $) {
 
   // Responsive table HTML structure
   // <div class="ma__table--responsive">
   //   <div class="ma__table--responsive__wrapper">
-  //    <table class="ma__table"> ... </table>
+  //    <table> ... </table>
   //   </div>
   // </div>
 
   const $window = $(window);
   let responsiveTables = [];
   
-
+  // Set the width of each sticky header cell and the width of the sticky
+  // header table.
   function setWidths(rt) {
     
     rt.$table
@@ -44,11 +43,14 @@ export default (function (window, document, $) {
     let $stickyHeader = null;
     const canScroll = $table.width() > $table.parent().width();
 
+    // If the table has a thead with th elements, setup the sticky version.
     if (hasThead && hasTh && !isNestedThead) {
       theadHeight = $thead[0].offsetHeight;
+
+      // Only wrap the table if this is the first time we have encountered it.
       if (!reset) {
         $thead = $thead.clone();
-        $table.after("<div class='sticky-thead'><div class='sticky-thead-wrapper'><table class='ma__table'></table></div></div>");
+        $table.after("<div class='sticky-thead'><div class='sticky-thead-wrapper'><table></table></div></div>");
 
         $stickyHeader = $element.find(".sticky-thead");
         $stickyHeader.find("table").append($thead);
@@ -57,18 +59,8 @@ export default (function (window, document, $) {
         $stickyHeader = $element.find(".sticky-thead");
       }
 
-      // Check return from this so that it works in IE and Edge.
-      // const tableCoordinates = element.getBoundingClientRect();
-      // let tableLeft;
-      // if ("x" in tableCoordinates.x) {
-      //   tableLeft = element.getBoundingClientRect().left;
-      // }
-      // else {
-      //   tableLeft = element.getBoundingClientRect().x;
-      // }
-
+      // Setting it in a fixed position, but initially invisible.
       let tableLeft = $element.offset().left;
-
       $stickyHeader
         .css({
           "position": "fixed",
@@ -89,8 +81,10 @@ export default (function (window, document, $) {
       });
     
     $element.toggleClass("has-horizontal-scroll", canScroll);
+    // Make sure the scrollbar is the width of the table.
     $element.find(".ma__table__horizontal-nav").width($table.parent().width());
 
+    // If we are not resetting, use the length as the index.
     if (index === false) {
       index = responsiveTables.length;
     }
@@ -105,9 +99,12 @@ export default (function (window, document, $) {
         scrollStuck: false,
         canScroll
     };
+    // Set the widths of the header.
     setWidths(rt);
+    // Setup the scrollbar deminsions.
     recalcScrollbar(rt);
 
+    // If we are reseting, replace the element. Otherwise, add it.
     if (reset) {
       responsiveTables[index] = rt;
     }
@@ -115,13 +112,15 @@ export default (function (window, document, $) {
       responsiveTables.push(rt);
       rt.$root[0].addEventListener("scroll", handleTableScroll, true);
     }
+    // Decide what should be showing or stuck.
     checkVisibility(rt);
 
-    // Reset scroll.
+    // Reset scroll since this may have changed the max scroll amount.
     if (rt.canScroll) {
       const tableWrapper = element.getElementsByClassName("ma__table--responsive__wrapper")[0];
+      const scrollbar = element.getElementsByClassName("ma__scroll-indicator")[0];
       tableWrapper.scrollLeft = 0;
-      element.getElementsByClassName("ma__scroll-indicator")[0].scrollLeft = tableWrapper.scrollWidth - tableWrapper.offsetWidth;
+      scrollbar.scrollLeft = scrollbar.scrollWidth - scrollbar.offsetWidth;
     }
     
   }
@@ -144,12 +143,15 @@ export default (function (window, document, $) {
     return additionalOffset > 0 ? additionalOffset + "px" : 0;
   }
 
+  // Based on the scroll position, decide whether or not to show or hide or scroll
+  // or stick the header and scrollbar.
   function checkVisibility(rt) {
     const elementTop = rt.$root.offset().top;
     const windowTop = $window.scrollTop();
     const windowBottom = windowTop + $window.height();
     const elementBottom = (elementTop + rt.$root.height());
 
+    // Handle header visibility.
     if (rt.$stickyHeader) {
       const stuckTop = rt.$stickyHeader.offset().top;
       if (!rt.headerStuck && elementTop < stuckTop && elementBottom > stuckTop) {
@@ -162,6 +164,7 @@ export default (function (window, document, $) {
       }
     }
 
+    // Handle scrollbar stuck / unstuck.
     if (rt.canScroll) {
       if (!rt.scrollStuck && windowBottom < elementBottom && elementTop < windowBottom) {
         responsiveTables[rt.index].scrollStuck = true;
@@ -180,12 +183,14 @@ export default (function (window, document, $) {
     }
   }
 
+  // When scrolling the window, handle header / scrollbar visibility and position.
   function handleScroll() {
     responsiveTables.forEach((rt) => {
       checkVisibility(rt);
     });
   }
 
+  // When the window is resized, reset the tables.
   function handleWindowResize () {
     responsiveTables.forEach((rt) => {
       initializeTable(rt.$root[0], true, rt.index);
@@ -213,6 +218,7 @@ export default (function (window, document, $) {
     }
   }
 
+  // Handle dragging the scrollbar.
   function handleScrollerInteraction(e) {
     const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
 
@@ -244,7 +250,9 @@ export default (function (window, document, $) {
 
   }
 
+  // Handle additional interactions with scrollbars.
   function scrollbarEventHandlers() {
+    // @todo make this amount calculated based on a percentage of the scroll amount.
     const amountToScroll = 200;
 
     // Scrollbar left arrow.
@@ -280,6 +288,7 @@ export default (function (window, document, $) {
 
   }
 
+  // Calculate and set the widths of scrollbar elements.
   function recalcScrollbar(rt) {
     // Table width.
     const tableWidth = rt.$table.width();
@@ -292,9 +301,9 @@ export default (function (window, document, $) {
     // Scrollbar container width = table container width minus arrows and arrow margin.
     const scrollbarContainerWidth = tableContainerWidth - (scrollArrowWidth + scrollArrowMargin) * 2;
     // Scrollbar width.
-    const scrollbarWidth = tableWidth * scrollbarContainerWidth / tableContainerWidth;
+    const scrollbarWidth = scrollbarContainerWidth + scrollbarContainerWidth * (tableWidth - tableContainerWidth) / tableWidth;
     // Button width.
-    const buttonWidth = scrollbarContainerWidth * scrollbarContainerWidth / scrollbarWidth;
+    const buttonWidth = scrollbarContainerWidth * tableContainerWidth / tableWidth;
 
     const $scrollbar = rt.$root.find(".clip-scrollbar");
     const $scrollbarIndicator = $scrollbar.find(".ma__scroll-indicator");
@@ -304,32 +313,30 @@ export default (function (window, document, $) {
     $scrollbarIndicator.find(".ma__scroll-indicator__button").css("width", `${buttonWidth}px`);
   }
 
+  // Allow a parameter to prevent triggering scrolling in an infinite loop.
   let skip = 0;
+
+  // Calculate and set the scroll position of the other components when one component is scrolled.
   function handleTableScroll(e) {
     if (skip === 0) {
-      let scrollAmount;
-      let scrollInverse;
-      const scrollIndicatorWidth = this.getElementsByClassName("ma__scroll-indicator")[0].offsetWidth;
-      const ratio = scrollIndicatorWidth / this.offsetWidth;
-      if (e.target.className === "ma__scroll-indicator") {
-        scrollAmount = e.target.scrollLeft * ratio;
-        scrollInverse = e.target.scrollWidth - e.target.offsetWidth - scrollAmount;
-      }
-      else {
-        scrollAmount = e.target.scrollLeft;
-        scrollInverse = (e.target.scrollWidth - e.target.offsetWidth - scrollAmount) / ratio;
-      }
+      const t = e.target;
+      // No matter the element, the percentage as a decimal should be the amount of pixels scrolled
+      // divided by the max amount that can be scrolled which is the scroll width minus the width.
+      const scrollPercent = t.scrollLeft / (t.scrollWidth - t.offsetWidth);
       ["ma__table--responsive__wrapper", "ma__scroll-indicator", "sticky-thead-wrapper"].map(scrollable => {
-        if (e.target.className !== scrollable) {
+        if (t.className !== scrollable) {
           const elements = this.getElementsByClassName(scrollable);
           if (elements.length > 0) {
-            if (scrollable === "ma__scroll-indicator" || e.target.className === "ma__scroll-indicator") {
+            let el = elements[0];
+            // If we are scrolling the scrollbar or the target is the scrollbar, inverse the scroll.
+            if (scrollable === "ma__scroll-indicator" || t.className === "ma__scroll-indicator") {
               skip++;
-              elements[0].scrollLeft = scrollInverse;
+              el.scrollLeft = (el.scrollWidth - el.offsetWidth) * (1 - scrollPercent);
             }
+            // Set the scroll to the same as the target.
             else {
               skip++;
-              elements[0].scrollLeft = scrollAmount;
+              el.scrollLeft = t.scrollLeft;
             }
           }
         }
@@ -340,11 +347,15 @@ export default (function (window, document, $) {
     }
   }
 
+  // Initialize the tables.
   $(".js-ma-responsive-table").each((i, el) => initializeTable(el));
 
+  // Set the scrollbar event handlers.
   scrollbarEventHandlers();
 
+  // Set window scroll handler.
   $window.on("scroll", handleScroll);
+  // Set window resize.
   $window.on("resize", handleWindowResize);
 
 })(window, document, jQuery);

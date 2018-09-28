@@ -8,13 +8,12 @@ export default (function (window, document, $) {
     const $table = $el.find("table").not("table table");
     $table.each(function() {
       const $this = $(this);
-      // If this table does not have the `ma__table` class.
-      if (!$this.hasClass('ma__table') && !$this.closest('.ma__table--responsive').length) {
+      // If this table does not have the `ma__table--responsive` class.
+      if (!$this.closest('.ma__table--responsive').length) {
         $this
-          .addClass('ma__table')
           .wrap('<div class="ma__table--responsive js-ma-responsive-table"><div class="ma__table--responsive__wrapper"></div></div>');
       }
-      // At this point there is a `.ma__table` class,
+      // At this point there is a `.ma__table--responsive` class,
       // but does this table already posses a responsive table structure.
       else if(!$this.closest('.ma__table--responsive').length) {
         $this
