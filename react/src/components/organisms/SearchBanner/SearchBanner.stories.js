@@ -219,7 +219,7 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
         action: text('filterBox.action', '#'),
         fields: [
           {
-            class: 'ma__filter-box__postInputFilter',
+            class: 'ma__filter-box__postInputFilter ma__filter-box--desktop-hidden',
             component: <SelectBox {...postInputFilter} />
           },
           {
