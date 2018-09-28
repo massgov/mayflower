@@ -23,8 +23,8 @@ const FilterBox = (props) => {
         <form className={`ma__filter-box__form js-filter-box ${isActive}`} action={action}>
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
-              { fields.map((field) => (
-                <div className={field.class}>
+              { fields.map((field, i) => (
+                <div className={field.class} key={`filterbox-field${i}`}>
                   { field.component }
                 </div>
               ))}
@@ -64,7 +64,7 @@ FilterBox.propTypes = {
   /** Controls if we allow filterbox to render only on mobile */
   filterDesktopHidden: PropTypes.bool,
   /** An array of filter fields */
-  fields: PropTypes.arrayOf((props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'SelectBox'))
+  //fields: PropTypes.arrayOf((props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'SelectBox'))
 };
 
 FilterBox.defaultProps = {
