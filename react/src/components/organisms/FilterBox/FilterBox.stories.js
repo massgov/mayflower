@@ -25,7 +25,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         selected: select(
           'filterBox.organization.selected',
           inputOptions.options.orgSelector.map((option) => option.text),
-          ''
+          inputOptions.options.orgSelector[0].text
         ),
         placeholder: text('filterBox.organization.placeholder', 'All Organizations'),
         onChange: action('filterBox.organization typeahead onChange')
@@ -35,6 +35,11 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         stackLabel: boolean('filterBox.topic.stackLabel', true),
         id: 'topic',
         options: object('filterBox.topic.options', selectBoxOptions.options.topics),
+        selected: select(
+          'filterBox.topic.selected',
+          selectBoxOptions.options.topics.map((option) => option.text),
+          selectBoxOptions.options.topics[0].text
+        ),
         required: boolean('filterBox.topic.required', true)
       };
       const dateRange = {
