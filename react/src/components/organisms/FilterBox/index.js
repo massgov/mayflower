@@ -64,13 +64,13 @@ FilterBox.propTypes = {
   /** Controls if we allow filterbox to render only on mobile */
   filterDesktopHidden: PropTypes.bool,
   /** An array of filter fields */
-  fields: (props, propName, componentName) => {
-    return validateFilters(props, propName, componentName, [
+  fields: (props, propName, componentName) => (
+    validateFilters(props, propName, componentName, [
       'SelectBox',
       'InputTextTypeAhead',
       'DateRange'
-    ]);
-  }
+    ])
+  )
 };
 
 FilterBox.defaultProps = {
