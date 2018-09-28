@@ -54,12 +54,15 @@ export const validateFilters = (
   const component = props[propName];
   const isValid = (comp) => {
     if (!comp) {
+      // validate if there are any props passed
       return false;
     }
     if (!Array.isArray(comp)) {
+      // validate prop is an array
       return false;
     }
     return comp.every((child) => {
+      // validate each nested object contains a class string and a component
       if (typeof child.class !== 'string') {
         return false;
       }
@@ -67,6 +70,7 @@ export const validateFilters = (
         return false;
       }
       if (typeof child.component.type === 'string') {
+        // validate each component matches one of the passed componentTypes
         return componentTypes.indexOf(child.component.type) > -1;
       }
       return child.component.type.name &&
