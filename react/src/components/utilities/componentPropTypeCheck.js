@@ -69,10 +69,7 @@ export const validateFilters = (
       if (!child.component) {
         return false;
       }
-      if (typeof child.component.type === 'string') {
-        // validate each component matches one of the passed componentTypes
-        return componentTypes.indexOf(child.component.type) > -1;
-      }
+      // validate each component matches one of the passed componentTypes
       return child.component.type.name &&
           componentTypes.indexOf(child.component.type.name) > -1;
     });
