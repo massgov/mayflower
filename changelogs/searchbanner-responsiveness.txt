@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Minor
+Changed
+- (React) DP-10521: Make SearchBanner with postInputFilter responsive, remove classname specific styles for preInputFilter for mobile responsiveness  #280
+Note: This will need to be followed up in search and other apps consuming FilterBox / SearchBanner
