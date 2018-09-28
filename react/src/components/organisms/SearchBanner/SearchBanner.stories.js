@@ -221,6 +221,10 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
           {
             class: 'ma__filter-box__postInputFilter ma__filter-box--desktop-hidden',
             component: <SelectBox {...postInputFilter} />
+          },
+          {
+            class: 'ma__filter-box__type',
+            component: <SelectBox {...typeOfCare} />
           }
         ],
         submitButton: {
