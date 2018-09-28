@@ -50,7 +50,8 @@ class SelectBox extends React.Component {
       const matchedValue = matchedItem && matchedItem.value;
       return matchedValue;
     };
-    const selectedValue = getValueByText(this.props.options, selected) ? getValueByText(this.props.options, selected) : this.props.options[0].value;
+    const valueInOptions = getValueByText(this.props.options, selected);
+    const selectedValue = valueInOptions || this.props.options[0].value;
     return(
       <section className={classNames}>
         <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
@@ -70,7 +71,7 @@ class SelectBox extends React.Component {
             ))}
           </select>
           <div className="ma__select-box__link">
-            <span className="js-dropdown-link">{selected}</span>
+            <span className="js-dropdown-link">{valueInOptions ? selected : this.props.options[0].text}</span>
             <span className="ma__select-box__icon" />
           </div>
         </div>
