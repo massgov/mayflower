@@ -1,3 +1,6 @@
+// Any component PropType validation that uses these check functions must RETURN the result of the call.
+// Ex: return componentPropTypeCheck(props, propName, 'MyComponentName');
+
 const componentPropTypeCheck = (props, propName, componentName, componentString) => {
   const component = props[propName];
   const isValid = (comp) => {
@@ -6,7 +9,7 @@ const componentPropTypeCheck = (props, propName, componentName, componentString)
     }
     return comp.type.name && comp.type.name === componentString;
   };
-  if (!isValid(component)) {
+  if (!component || (component && !isValid(component))) {
     return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
   }
 };
@@ -25,22 +28,18 @@ export const componentArrayPropTypeCheck = (
     if (!Array.isArray(comp)) {
       return false;
     }
-    let valid = false;
-    comp.every((child) => {
+    return comp.every((child) => {
       if (!child) {
-        return valid;
+        return false;
       }
       if (typeof child.type === 'string') {
-        valid = componentTypes.indexOf(child.type) > -1;
+        return componentTypes.indexOf(child.type) > -1;
       }
-      valid =
-        child.type.name &&
+      return child.type.name &&
         componentTypes.indexOf(child.type.name) > -1;
-      return valid;
     });
-    return valid;
   };
-  if (component && !isValid(component)) {
+  if (!component || (component && !isValid(component))) {
     return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component || 'undefined'}. Validation failed.`);
   }
 };
