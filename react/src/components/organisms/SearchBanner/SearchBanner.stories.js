@@ -103,7 +103,7 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
         action: text('filterBox.action', '#'),
         fields: [
           {
-            class: 'ma__filter-box__organizations',
+            class: 'ma__filter-box__organizations ma__filter-box--desktop-hidden',
             component: <InputTextTypeAhead {...organization} />
           },
           {
