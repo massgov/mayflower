@@ -13,7 +13,7 @@
 
     &--responsive {
       @media ($bp-medium-max) {
-        > div:first-child {
+        > div:first-child, input + section {
           display: none;
         }
       }
