@@ -45,11 +45,12 @@ class SelectBox extends React.Component {
     const { stackLabel } = this.props;
     const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
     const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
-    const selectedValue = this.props.options.map((option) => {
-      if (option.text === selected) {
-        return option.value;
-      } return this.props.options[0].value;
-    });
+    const getValueByText = (array = [], text) => {
+      const matchedItem = array.find((item) => item.text === text);
+      const matchedValue = matchedItem && matchedItem.value;
+      return matchedValue;
+    };
+    const selectedValue = getValueByText(this.props.options, selected) ? getValueByText(this.props.options, selected) : this.props.options[0].value;
     return(
       <section className={classNames}>
         <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
