@@ -21,7 +21,11 @@ storiesOf('molecules/HeaderSearch', module).addDecorator(withKnobs)
       buttonSearch: {
         onClick: action('Button clicked'),
         ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', 'Search'),
-        text: text('HeaderSearch.buttonSearch.text', 'Search')
+        text: text('HeaderSearch.buttonSearch.text', 'Search'),
+        usage: select('HeaderSearch.buttonSearch.usage', {
+          '': 'primary (default)',
+          secondary: 'secondary'
+        }, '')
       },
       onSubmit: action('Form submitted'),
       onChange: action('Text input modified'),
@@ -65,7 +69,11 @@ storiesOf('molecules/HeaderSearch', module).addDecorator(withKnobs)
       buttonSearch: {
         onClick: action('Button clicked'),
         ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', 'Search'),
-        text: text('HeaderSearch.buttonSearch.text', 'Search')
+        text: text('HeaderSearch.buttonSearch.text', 'Search'),
+        usage: select('HeaderSearch.buttonSearch.usage', {
+          '': 'primary (default)',
+          secondary: 'secondary'
+        }, '')
       },
       onSubmit: action('Form submitted'),
       onChange: action('Text input modified'),

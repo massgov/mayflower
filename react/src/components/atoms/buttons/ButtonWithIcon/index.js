@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Icon from '../../icons/Icon';
 import './style.css';
 
@@ -22,30 +23,23 @@ class ButtonWithIcon extends React.Component {
   }
   render() {
     const {
-      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type
+      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage
     } = this.props;
-    let classNames = classes.join(' ');
-    if (canExpand) {
-      classNames += ' ma__button-icon--expandable';
-      if (expanded) {
-        classNames += ' ma__button-icon--expanded';
-      }
-    }
-    if (capitalized) {
-      classNames += ' ma__button-capitalized';
-    }
-    if (iconSize === 'small' || icon.props.name === 'chevron') {
-      classNames += ' ma__icon-small';
-    }
-    if (iconColor === 'green') {
-      classNames += ' ma__icon-green';
-    }
-    if (icon.props.name === 'search') {
-      classNames += ' ma__button-search';
-    }
+    // concat a space at the end of custom classes
+    let buttonClasses = classes ? `${classes.join(' ')} ` : '';
+    buttonClasses += classNames({
+      'ma__button-icon': true,
+      'ma__button-icon--expandable': canExpand,
+      'ma__button-icon--expanded': canExpand && expanded,
+      'ma__button-capitalized': capitalized,
+      'ma__icon-small': iconSize === 'small' || icon.props.name === 'chevron',
+      'ma__icon-green': iconColor,
+      'ma__button-search': icon.props.name === 'search',
+      'ma__button-search--secondary': icon.props.name === 'search' && usage === 'secondary'
+    });
     const buttonProps = {
       type,
-      className: `ma__button-icon ${classNames}`,
+      className: buttonClasses,
       onClick: this.handleClick,
       tabIndex: 0
     };
@@ -84,7 +78,9 @@ ButtonWithIcon.propTypes = {
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
    * button's functionality. */
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  /** Button usage */
+  usage: PropTypes.oneOf(['', 'secondary'])
 };
 
 ButtonWithIcon.defaultProps = {
@@ -96,7 +92,8 @@ ButtonWithIcon.defaultProps = {
   capitalized: false,
   iconSize: '',
   iconColor: '',
-  ariaLabel: 'search'
+  ariaLabel: 'search',
+  usage: ''
 };
 
 export default ButtonWithIcon;

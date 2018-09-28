@@ -56,7 +56,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         onClick: (e) => {
           action('Search button clicked')(e);
           e.preventDefault();
-        }
+        },
+        usage: 'secondary'
       },
       onSubmit: action('Form submitted'),
       onChange: action('Text input modified')
