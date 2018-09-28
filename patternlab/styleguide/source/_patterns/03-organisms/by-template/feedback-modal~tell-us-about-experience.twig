@@ -1,4 +1,56 @@
-<form method="post" novalidate="" action="https://massgov.formstack.com/forms/index.php" class="fsForm fsSingleColumn fsMaxCol1" id="fsForm3184363">
+
+<form method="post" novalidate="" action="#" class="fsForm fsSingleColumn fsMaxCol1" id="fsForm3184363">
+  {#
+    // Form: Tell us about your experience.
+    //
+    // Note that the `.fsPage` is located on the <form> element.
+  #}
+  <style>
+    {# 45px = $standard-spacing--small #}
+    .fsPage .fsRow {
+      margin-bottom: 45px;
+    }
+
+    {# 24px = $standard-spacing--xsmall #}
+    .fsPage .fsCell p {
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    {# 12px = $standard-spacing--xxsmall #}
+    .fsPage .fsLabel {
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .fsPage .fsOptionLabel {
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    .fsPage .fsOptionLabel:not(.ma__radio-scale__label) {
+      align-items: center;
+      display: flex;
+    }
+
+    {# 12px = $standard-spacing--xxsmall #}
+    .fsPage input[type=radio]:not(.ma__radio-scale__radio) {
+      margin-right: 12px;
+    }
+
+    {#
+      Since this for is hard-coded, and not fed from a data source,
+      define the pseudo element's content.
+    #}
+    .fsPage .ma__radio-scale__radios::before {
+      content: "Strongly Disagree";
+    }
+
+    .fsPage .ma__radio-scale__radios::after {
+      content: "Strongly Agree";
+    }
+  </style>
 
   <input type="hidden" name="form" value="3184363">
   <input type="hidden" name="viewkey" value="mLaeYhDMyl">

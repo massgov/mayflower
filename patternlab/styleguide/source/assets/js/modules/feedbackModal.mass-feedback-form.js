@@ -11,11 +11,11 @@
 export default (function (window, document, $) {
   'use strict';
 
-  var FORM_ID = 2521317;
-  var RADIO_ID = 47054416;
-  var YES_FEEDBACK_ID = 52940022;
-  var NO_FEEDBACK_ID = 47054414;
-  var REFERER_ID = 47056299;
+  const FORM_ID = 2521317;
+  const RADIO_ID = 47054416;
+  const YES_FEEDBACK_ID = 52940022;
+  const NO_FEEDBACK_ID = 47054414;
+  const REFERER_ID = 47056299;
 
   $(document).ready(function () {
     $('#fsForm' + FORM_ID).each(function () {
@@ -27,6 +27,22 @@ export default (function (window, document, $) {
 
       // Set referer value.
       $('#field' + REFERER_ID, this).val(location.href);
+
+      // Make the form AJAXy.
+      $form.ajaxForm({
+        // Add jsonp parameter when using ajax submission.
+        data: {
+          jsonp: 1,
+          FORM_ID: FORM_ID
+        },
+        // Interpret received data as a script (JSONP).
+        dataType: 'script',
+        clearForm: true,
+        resetForm: true,
+        success: sucessfulSubmission,
+        // Validate prior to submission.
+        beforeSubmit: validateForm
+      });
 
       // Add field swapping logic to the textareas.
       $radio.change(handleRadioChange);
