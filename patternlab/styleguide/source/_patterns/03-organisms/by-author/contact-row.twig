@@ -16,28 +16,26 @@
 
   <div class="ma__contact-row__additional {{ contactRow.hasManyAdditional ? 'has-many': ''}}">
   {% if contactRow.primaryContact %}
-    <ul class="ma__contact-row__additional--columns">
-    <li>
+    
     <div class="ma__contact-row__primary">
       {% block primaryContactGroup %}
         {% set contactGroup = contactRow.primaryContact|merge({"level": contactHeading}) %}
         {% include "@molecules/contact-group.twig" %}
       {% endblock %}
     </div>
-    </li>
+   
   {% endif %}
 
     {% block additionalContacts %}
-      {% if contactRow.primaryContact is empty %} <ul class="ma__contact-row__additional--columns"> {% endif %}
       
       {% for contact in contactRow.additionalContacts %}
-      <li>
+      
         {% set contactGroup = contact|merge({"level": contactHeading}) %}
         {% include "@molecules/contact-group.twig" %}
-      </li>  
+     
       {% endfor %}
 
-      </ul>
+  
     {% endblock %}
     {% if contactRow.moreLink %}
       <div class="ma__contact-group">
