@@ -14,31 +14,78 @@
     {% endif %}
   {% endblock %}
 
+  
+
   <div class="ma__contact-row__additional {{ contactRow.hasManyAdditional ? 'has-many': ''}}">
-  {% if contactRow.primaryContact %}
-    
-    <div class="ma__contact-row__primary">
+
+    {# If a primary contact is set, open the first column #}
+    {% if contactRow.primaryContact %}
+
+      <div class="ma__contact-row__additional--column">
       {% block primaryContactGroup %}
         {% set contactGroup = contactRow.primaryContact|merge({"level": contactHeading}) %}
         {% include "@molecules/contact-group.twig" %}
       {% endblock %}
-    </div>
-   
-  {% endif %}
 
+    {% endif %}
+    
     {% block additionalContacts %}
+    {# If a primary contact is not set, open the first column #}
+    
+    {% if contactRow.primaryContact is empty %} 
+      <div class="ma__contact-row__additional--column">
+      
+      {# If no primary contact, start counting at 1 #}
+      {% set counter = 'odd' %}
+      
+      {% else %}
+      {# If no primary contact, start counting at 2 #}
+      {% set counter = 'even' %}
+    
+    {% endif %}
+
+      {% for contact in contactRow.additionalContacts %}
+      {% set oddOrEven = cycle(['odd', 'even'], loop.index0) %}
+
+      {% if oddOrEven == counter %}
+        {% set contactGroup = contact|merge({"level": contactHeading}) %}
+        {% include "@molecules/contact-group.twig" %}
+      {% endif %}
+        
+      {% endfor %}
+    
+    </div>{# close column #}
+
+    {% spaceless %}
+    <div class="ma__contact-row__additional--column">
+      
+      {% if contactRow.primaryContact is empty %} 
+      {# If no primary contact, start counting at 2 #}
+      {% set counter = 'even' %}
+
+      {% else %}
+      {# If no primary contact, start counting at 3 #}
+      {% set counter = 'odd' %}
+
+      {% endif %}
       
       {% for contact in contactRow.additionalContacts %}
       
+      {% set oddOrEven = cycle(['odd', 'even'], loop.index0) %}
+      {% if oddOrEven == counter %}
         {% set contactGroup = contact|merge({"level": contactHeading}) %}
         {% include "@molecules/contact-group.twig" %}
-     
+      {% endif %}
+        
       {% endfor %}
+    </div>{# close column #}
+    {% endspaceless %}
 
-  
+    {# end additionalContacts block #}
     {% endblock %}
+    
     {% if contactRow.moreLink %}
-      <div class="ma__contact-group">
+      <div class="ma__contact-group ma__contact-group--more-link">
         {% block moreLink %}
           {% set decorativeLink = contactRow.moreLink %}
           {% include "@atoms/decorative-link.twig" %}
@@ -54,7 +101,5 @@
       </button>
     </div>
   {% endif %}
-
-
 
 </section>
