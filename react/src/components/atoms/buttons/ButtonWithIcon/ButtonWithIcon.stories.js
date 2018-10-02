@@ -46,7 +46,8 @@ storiesOf('atoms/buttons', module)
     'ButtonSearch',
     withInfo(`<div>${buttonWithIconReadme}</div>`)(() => {
       const props = {
-        onClick: action('ButtonWithIcon clicked')
+        onClick: action('ButtonWithIcon clicked'),
+        usage: select('ButtonWithIcon.usage', buttonWithIconOptions.usage, '')
       };
 
       // Set the icon prop to the actual element based on knob selection.

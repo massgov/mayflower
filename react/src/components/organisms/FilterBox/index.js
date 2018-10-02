@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
-import DateRange from '../../molecules/DateRange';
-import SelectBox from '../../atoms/forms/SelectBox';
-import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
+import { validateFilters } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const FilterBox = (props) => {
   const {
-    action, topic, organization, pressType, dateRange, submitButton, clearButton, active
+    action, submitButton, clearButton, active, fields
   } = props;
   const handleClear = () => {
     if (typeof props.clearButton.onClearCallback === 'function') {
@@ -25,27 +23,11 @@ const FilterBox = (props) => {
         <form className={`ma__filter-box__form js-filter-box ${isActive}`} action={action}>
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
-              {organization && (
-                <div className="ma__filter-box__organizations">
-                  <InputTextTypeAhead {...organization} />
+              { fields.map((field, i) => (
+                <div className={field.class} key={`filterbox-field-${i}`}>
+                  { field.component }
                 </div>
-              )}
-              {topic && (
-              <div className="ma__filter-box__topic">
-                <SelectBox {...topic} />
-              </div>
-              )}
-              {pressType && (
-              <div className="ma__filter-box__type">
-                {pressType.selectBox && <SelectBox {...pressType.selectBox} />}
-                {pressType.typeAhead && <InputTextTypeAhead {...pressType.typeAhead} />}
-              </div>
-              )}
-              {dateRange && (
-              <div className="ma__filter-box__date">
-                <DateRange {...dateRange} />
-              </div>
-              )}
+              ))}
             </div>
             <div className="ma__filter-box__controls">
               <div className="ma__filter-box__button">
@@ -71,14 +53,6 @@ FilterBox.propTypes = {
   active: PropTypes.bool,
   /** The form action  */
   action: PropTypes.string,
-  /** @atoms/forms/SelectBox */
-  topic: PropTypes.shape(SelectBox.PropTypes),
-  /** @atoms/forms/SelectBox or /** @atoms/forms/InputTextTypeAhead  */
-  pressType: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.shape(SelectBox.propTypes), PropTypes.shape(InputTextTypeAhead.propTypes)])),
-  /** @atoms/forms/InputTextTypeAhead */
-  organization: PropTypes.shape(InputTextTypeAhead.propTypes),
-  /** @molecules/DateRange */
-  dateRange: PropTypes.shape(DateRange.PropTypes),
   /** @atoms/forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes).isRequired,
   /** Clear all button at the bottom of the filter */
@@ -88,7 +62,15 @@ FilterBox.propTypes = {
     onClearCallback: PropTypes.func
   }),
   /** Controls if we allow filterbox to render only on mobile */
-  filterDesktopHidden: PropTypes.bool
+  filterDesktopHidden: PropTypes.bool,
+  /** An array of filter fields */
+  fields: (props, propName, componentName) => (
+    validateFilters(props, propName, componentName, [
+      'SelectBox',
+      'InputTextTypeAhead',
+      'DateRange'
+    ])
+  )
 };
 
 FilterBox.defaultProps = {

@@ -60,6 +60,7 @@ export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
 export ImagePromo from './components/molecules/ImagePromo';
 export Tabs from './components/molecules/Tabs';
+export Tooltip from './components/molecules/Tooltip';
 export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
 

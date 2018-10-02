@@ -82,7 +82,8 @@ HeaderSearch.defaultProps = {
   label: 'Search terms',
   placeholder: 'Search Mass.gov',
   buttonSearch: {
-    ariaLabel: 'search'
+    ariaLabel: 'search',
+    usage: 'secondary'
   }
 };
 
