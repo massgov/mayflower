@@ -145,7 +145,6 @@ export default (function (window,document,$,undefined) {
     // Close sticky menu on click off, include tools buttons
     $('body').on('click', function(event) {
       if(!$(event.target).closest('.ma__sticky-toc__stuck-menu').length && !$(event.target).closest('.ma__sticky-toc__tools').length) {
-        console.log("click");
         if($('.ma__sticky-toc__stuck-menu').hasClass('sticky-nav-open')) {
           menuToggle();
         }

@@ -150,15 +150,17 @@ export default (function (window, document, $) {
     const windowTop = $window.scrollTop();
     const windowBottom = windowTop + $window.height();
     const elementBottom = (elementTop + rt.$root.height());
+    const tableBottom = elementTop + rt.$table.height();
 
     // Handle header visibility.
     if (rt.$stickyHeader) {
       const stuckTop = rt.$stickyHeader.offset().top;
-      if (!rt.headerStuck && elementTop < stuckTop && elementBottom > stuckTop) {
+      const stuckBottom = stuckTop + rt.$stickyHeader.height();
+      if (!rt.headerStuck && elementTop < stuckTop && tableBottom > stuckBottom) {
         responsiveTables[rt.index].headerStuck = true;
         rt.$stickyHeader.css("opacity", 1);
       }
-      else if (rt.headerStuck && (elementTop > stuckTop || elementBottom < stuckTop)) {
+      else if (rt.headerStuck && (elementTop > stuckTop || tableBottom < stuckBottom)) {
         responsiveTables[rt.index].headerStuck = false;
         rt.$stickyHeader.css("opacity", 0);
       }
@@ -166,7 +168,11 @@ export default (function (window, document, $) {
 
     // Handle scrollbar stuck / unstuck.
     if (rt.canScroll) {
-      if (!rt.scrollStuck && windowBottom < elementBottom && elementTop < windowBottom) {
+      let headerBottom = elementTop;
+      if (rt.$stickyHeader) {
+        headerBottom += rt.$stickyHeader.height();
+      }
+      if (!rt.scrollStuck && windowBottom < elementBottom && headerBottom < windowBottom) {
         responsiveTables[rt.index].scrollStuck = true;
         rt.$root.addClass("stickNav");
         const tableLeft = rt.$root[0].getBoundingClientRect().left + $window["scrollLeft"]();
@@ -174,7 +180,7 @@ export default (function (window, document, $) {
       }
       else if (rt.scrollStuck &&
         (windowBottom > elementBottom && windowTop < elementBottom ||
-        elementTop > windowBottom || elementBottom < windowTop)) {
+        headerBottom > windowBottom || elementBottom < windowTop)) {
 
         responsiveTables[rt.index].scrollStuck = false;
         rt.$root.removeClass("stickNav");
