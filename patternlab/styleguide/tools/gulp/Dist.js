@@ -75,7 +75,7 @@ class DistRegistry extends DefaultRegistry {
             ];
             return merge(pipes);
         });
-        js.watchFiles = sources.js;
+        js.watchFiles = sources.jsWatch;
 
         taker.task("dist:build", taker.series(clean, taker.parallel(
             css,

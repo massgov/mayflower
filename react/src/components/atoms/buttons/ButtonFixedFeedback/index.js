@@ -14,11 +14,11 @@ const ButtonFixedFeedback = (props) => (
 ButtonFixedFeedback.propTypes = {
   href: PropTypes.string,
   text: PropTypes.string
-}
+};
 
 ButtonFixedFeedback.defaultProps = {
   href: '#',
-  text: 'Feedback',
-}
+  text: 'Feedback'
+};
 
 export default ButtonFixedFeedback;
