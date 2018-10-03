@@ -4,9 +4,9 @@ import './style.css';
 const HeaderSlim = (props) => (
   <div className="ma__header_slim">
     <div className="ma__header_slim__banner" />
-    <header className="ma__header" id="header">
-      <div className="ma__header__container ma__container">
-        <div className="ma__header__logo">{props.siteLogo}</div>
+    <header className="ma__header_slim__header" id="header">
+      <div className="ma__header_slim__container ma__container">
+        <div className="ma__header_slim__logo">{props.siteLogo}</div>
       </div>
     </header>
   </div>
