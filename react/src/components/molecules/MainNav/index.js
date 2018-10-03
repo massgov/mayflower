@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../atoms/icons/Icon';
-
+import './style.css';
 class MainNav extends Component {
   constructor(props) {
     super(props);
