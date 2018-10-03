@@ -7,8 +7,6 @@ import { action } from '@storybook/addon-actions';
 
 import Header from './index';
 import HeaderDocs from './Header.md';
-import SvgBuilding from '../../atoms/icons/SvgBuilding';
-import SvgLogin from '../../atoms/icons/SvgLogin';
 import MainNavData from '../../molecules/MainNav/MainNav.knob.options';
 import UtilityNavData from '../UtilityNav/UtilityNav.knob.options';
 
@@ -38,22 +36,17 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       items: []
     };
     utilityProps.items = UtilityNavData.items.map((item, itemIndex) => {
-      const icons = {};
-      const iconComponents = {
-        SvgBuilding: <SvgBuilding />,
-        SvgLogin: <SvgLogin />
+      const icons = {
+        building: 'building',
+        login: 'login'
       };
-      Object.keys(iconComponents).forEach((key) => {
-        icons[key] = key;
-      });
       const storyProps = {
         text: text(`utilityNav.text.${itemIndex}`, item.text),
         ariaLabelText: text(`utilityNav.ariaLabelText.${itemIndex}`, item.ariaLabelText),
         closeText: text(`utilityNav.closeText.${itemIndex}`, item.closeText),
         panel: object(`utilityNav.panel.${itemIndex}`, item.panel)
       };
-      const comp = select(`utilityNav.icons.${itemIndex}`, icons, item.icon.type.name);
-      storyProps.icon = iconComponents[comp];
+      storyProps.icon = select(`utilityNav.icons.${itemIndex}`, icons, item.icon);
       return(storyProps);
     });
     const headerSearchProps = {
@@ -63,7 +56,8 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         onClick: (e) => {
           action('Search button clicked')(e);
           e.preventDefault();
-        }
+        },
+        usage: 'secondary'
       },
       onSubmit: action('Form submitted'),
       onChange: action('Text input modified')

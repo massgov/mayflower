@@ -34,6 +34,13 @@ const defaults = {
         bower: path.resolve(source, "assets/js/vendor"),
         // The following paths will be run through browserify/babelify.
         js: path.resolve(source, "assets/js/*.js"),
+        // The following paths will be watched to trigger js-based rebuilds.
+        jsWatch: [
+            path.resolve(source, "assets/js/helpers/*.js"),
+            path.resolve(source, "assets/js/modules/*.js"),
+            path.resolve(source, "assets/js/templates/*.html"),
+            path.resolve(source, "assets/js/*.js")
+        ],
         // The following paths will be run through SASS.
         scss: [
             path.resolve(source, "assets/scss/**/*.scss"),

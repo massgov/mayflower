@@ -14,8 +14,14 @@
   }
 
   &--noTabs {
-    padding-bottom: 30px;
     text-align: center;
+
+    .ma_search-banner__filter-box-container {
+      margin-top: 20px;
+      @media ($bp-medium-min) {
+        margin-top: 60px;
+      }
+    }
   }
 
   .main-content--two {
@@ -115,12 +121,6 @@
         display: none;
       }
     }
-
-    &__organizations {
-      @media ($bp-medium-min) {
-        display: none;
-      }
-    }
   }
 
   @media ($bp-large-max) {
@@ -134,5 +134,4 @@
       }
     }
   }
-
 }

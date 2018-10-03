@@ -1,10 +1,10 @@
 .ma__contact-list {
   &:not(.ma__contact-list--view-specific) {
-    overflow: auto;
+    overflow: visible;
   }
 
   .sidebar & {
-    overflow: initial;
+    overflow: visible;
   }
 
   .pre-content > &,
