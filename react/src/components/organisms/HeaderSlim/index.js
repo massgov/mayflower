@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-const Header = (props) => (
+const HeaderSlim = (props) => (
   <div className="ma__header_slim">
     <div className="ma__header_slim__banner" />
     <header className="ma__header" id="header">
@@ -12,7 +12,7 @@ const Header = (props) => (
   </div>
 );
 
-Header.propTypes = {
+HeaderSlim.propTypes = {
   /** The domain you want to send users to from the site logo icon */
   // eslint-disable-next-line consistent-return
   siteLogo: (props, propName, componentName) => {
@@ -31,4 +31,4 @@ Header.propTypes = {
   }
 };
 
-export default Header;
+export default HeaderSlim;
