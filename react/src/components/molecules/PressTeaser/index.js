@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import RichText from '../../organisms/RichText';
+import './style.css';
 
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';
