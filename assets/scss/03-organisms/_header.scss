@@ -105,20 +105,22 @@ body {
 
         // not the button in navigation
         .ma__button-search {
+          &, &--secondary {
+            @media ($bp-small-max) {
+              @include ma-valign-block;
+              border-width: 2px;
+              border-style: solid;
+              display: inline-block;
+              position: static;
+              transition: opacity .4s;
+              vertical-align: middle;
 
-          @media ($bp-small-max) {
-            @include ma-valign-block;
-            border-width: 2px;
-            border-style: solid;
-            display: inline-block;
-            position: static;
-            transition: opacity .4s;
-            vertical-align: middle;
-
-            .show-menu & {
-              opacity: 0;
+              .show-menu & {
+                opacity: 0;
+              }
             }
           }
+
         }
       }
 
@@ -296,7 +298,7 @@ body {
   &__main-nav {
 
     @media ($bp-header-toggle-max){
-      border-bottom: 2px solid; // $c-gray-dcdcdc;
+      border-bottom: 2px solid; // $c-gray-light;
       margin-bottom: 15px;
       padding-bottom: 15px;
     }
@@ -383,7 +385,7 @@ body {
 
   &__button-container {
     @media ($bp-header-toggle-max) {
-      background-color: $c-theme-primary;
+      background-color: $c-primary;
     }
   }
 
@@ -457,7 +459,7 @@ body {
 
       &:focus {
         background-color: $c-white;
-        border-color: $c-theme-tertiary !important;
+        border-color: $c-highlight !important;
       }
     }
   }

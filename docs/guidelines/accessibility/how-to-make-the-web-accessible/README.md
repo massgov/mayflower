@@ -2,8 +2,6 @@
 
 Before we go into approaches for making an accessible website, it is important to understand the basic pieces needed for anyone to access a website.
 
-There is the information that needs to be put on a website or, more simply, **web content**. There are tools needed to create a website. These are our **authoring tools**. Finally, there needs to be a way to get to the website, which, in technical speak is called a **user agent**. Let's take a look at each component closely.
-
 | Component | Description | Examples |
 | :--- | :--- | :--- |
 | **Web Content** | The informational content put on a website. | text, images, forms, multimedia \(audio, video, animation\), any markup code, scripts, applications |
@@ -15,6 +13,50 @@ To be able to access a website, these components need to play well together. If 
 Web accessibility principles and techniques support these components, permitting websites to be available to broad range of users.
 
 {% hint style="info" %}
-Learn more about [obstacles certain individuals have when interacting with the web](global-obstacles/).
+Learn more about [how people with disabilities use the web](../global-why-accessibility-matters/global-obstacles.md).
 {% endhint %}
+
+## Think POUR
+
+WCAG lays out four guiding principles that are important for creating an accessible web experience called POUR \(Perceivable, Operable, Understandable and Robust\). By following these guidelines from the design through to the implementation stages, Mayflower strives to provide an intuitive and fully accessible user experience.
+
+|  |  |
+| :--- | :--- |
+| **Perceivable** | Starting at the most basic level, users must be able to process information. The information could be text, audio, static image, video, and so on, things presented in your website, which are referred as **web content**. |
+| **Operable** | Overall, users can easily navigate, find content, and determine where they are. In particular users using alternatives like keyboard-based operations should be able to navigate and understand the content of your website. |
+| **Understandable** | Understandable websites use clear, concise language and offer functionality that is easy to comprehend. Writing should be clear and concise. |
+| **Robust** | Robust content is compatible with different browsers, assistive technologies, and other user agents. One of the best ways to meet the principle of robustness is to follow development standards and conventions. Clean code is generally more robust and consumable across platforms. |
+
+## Checklist
+
+This checklist is not intended to be a replacement or supplement for Section 508 Standards, but to help designers and developers check their work at every step of the process to conform to the Section 508 Standards and accessibility best practices.
+
+### Ask these questions
+
+* [ ] Is there anything on our website that a blind, deaf, low vision, or color blind user would not be able to perceive?
+* [ ] Can all functions of our website be performed with a keyboard? Can users control interactive elements of our website? Does our website make completing tasks easy?
+* [ ] Is all of the text on our website clearly written? Are all of the interactions easy to understand?
+* [ ] Does our website only support the newest browsers or operating systems? Is our website developed with best practices?
+
+### Check these components
+
+{% page-ref page="semantic-markup.md" %}
+
+{% page-ref page="language.md" %}
+
+{% page-ref page="animation-and-timeouts.md" %}
+
+{% page-ref page="color-and-contrast.md" %}
+
+{% page-ref page="keyboard-access.md" %}
+
+{% page-ref page="multimedia.md" %}
+
+{% page-ref page="alternative-text.md" %}
+
+{% page-ref page="graphics.md" %}
+
+{% page-ref page="predictable-flow.md" %}
+
+{% page-ref page="forms.md" %}
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import SvgCircleChevron from '../../atoms/icons/SvgCircleChevron';
-import SvgChevron from '../../atoms/icons/SvgChevron';
+import Icon from '../../atoms/icons/Icon';
 import Heading from '../../atoms/headings/Heading';
 import Collapse from '../../animations/Collapse';
 import './style.css';
@@ -56,7 +55,7 @@ class AccordionItem extends React.Component {
             )}
             { this.props.secondary && (
               <div className="ma__accordion-header__icon--secondary">
-                <SvgChevron />
+                <Icon name="chevron" svgHeight={20} svgWidth={20} />
               </div>
             )}
             <Heading class={headingClasses} text={this.props.title} level={this.props.headerLevel} />
@@ -85,7 +84,7 @@ AccordionItem.propTypes = {
   emphasize: PropTypes.bool,
   /** Content rendered in the collapsed section. Only Paragraph, Table, Heading, OrderedList
       and UnorderList are valid children components to pass to AccordionItem */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
   /** Whether to style the accordion as secondary or not. */
   secondary: PropTypes.bool,
   /** Heading level for accordion title */
@@ -93,7 +92,7 @@ AccordionItem.propTypes = {
 };
 
 AccordionItem.defaultProps = {
-  icon: <SvgCircleChevron />,
+  icon: <Icon name="circlechevron" svgWidth={35} svgHeight={35} />,
   border: true,
   emphasize: true,
   secondary: false,

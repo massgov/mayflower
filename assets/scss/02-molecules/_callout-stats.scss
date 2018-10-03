@@ -67,11 +67,11 @@
   font-weight: 900;
 
   &:before {
-    background-color: rgba($c-theme-secondary,.2);
+    background-color: rgba($c-primary-alt,.2);
   }
 
   &__stat {
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
   }
 
   &__content {
