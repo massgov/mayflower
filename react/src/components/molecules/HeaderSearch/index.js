@@ -47,6 +47,7 @@ class HeaderSearch extends React.Component {
               type="search"
               value={this.state.value}
             />
+            {this.props.suggestions && this.props.suggestions}
             {this.props.postInputFilter}
             <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
@@ -71,6 +72,8 @@ HeaderSearch.propTypes = {
   onChange: PropTypes.func,
   /** Default input text value */
   defaultText: PropTypes.string,
+  /** Render suggestions as passable element */
+  suggestions: PropTypes.element,
   /** @molecules/TypeAheadDropdown */
   orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
   /** postInputFilter passable component */
