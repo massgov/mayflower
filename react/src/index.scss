@@ -30,17 +30,10 @@ $assets-path: './assets';
 // Atoms - reusable styles
 @import "01-atoms/global/elements";
 @import "01-atoms/arrow-button";
-@import "01-atoms/button-sort";
-@import "01-atoms/button-toggle";
-@import "01-atoms/buttons";
 @import "01-atoms/category-icon";
 @import "01-atoms/checklist";
-@import "01-atoms/colored-heading";
 @import "01-atoms/column-heading";
 @import "01-atoms/content-link";
-@import "01-atoms/comp-heading";
-@import "01-atoms/decorative-link";
-@import "01-atoms/divider";
 @import "01-atoms/error-msg";
 @import "01-atoms/figure";
 @import "01-atoms/forms";
@@ -49,19 +42,12 @@ $assets-path: './assets';
 @import "01-atoms/iframe";
 @import "01-atoms/image";
 @import "01-atoms/input-checkbox";
-@import "01-atoms/input-date";
 @import "01-atoms/input-group";
 @import "01-atoms/input-number";
 @import "01-atoms/input-radio";
 @import "01-atoms/label";
 @import "01-atoms/page-title";
-@import "01-atoms/publish-state";
-@import "01-atoms/sidebar-heading";
-@import "01-atoms/site-logo";
-@import "01-atoms/svg-icons";
-@import "01-atoms/svg-loc-icons";
 @import "01-atoms/textarea";
-@import "01-atoms/table";
 @import "01-atoms/video";
 
 // Molecules - chunks of code that are used in Organisms/Components
