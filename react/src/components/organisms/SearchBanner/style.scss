@@ -14,7 +14,6 @@
   }
 
   &--noTabs {
-    padding-bottom: 30px;
     text-align: center;
 
     .ma_search-banner__filter-box-container {
@@ -118,12 +117,6 @@
     }
 
     &--desktop-hidden {
-      @media ($bp-medium-min) {
-        display: none;
-      }
-    }
-
-    &__organizations {
       @media ($bp-medium-min) {
         display: none;
       }

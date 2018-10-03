@@ -13,6 +13,47 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.3.0 (9/28/2018)
+
+### Added
+- (React) DP-10057 Created Tooltip component with stories. Added Question Mark SVG to Icon component.
+- (React) DP-10502: Adds ButtonFixedFeedback component.
+- (React, Patternlab) DP-10514: Add primary `.ma__button-search` and secondary `.ma__button-search--secondar` usage themes to button search  #261
+
+### Fixed
+- (Patternlab) DP-10514: Fix and unify button search hover styles in organization-navigation search #261
+- (React) Fixes error thrown due to value passed to selectbox that does not exist.
+
+### Changed
+- (React) DP-10521: Refactor FilterBox to allow any form components  #277
+Note: This will need to be followed up in search and other apps consuming FilterBox / SearchBanner
+- (React) Make SearchBanner with postInputFilter responsive, remove classname specific styles for preInputFilter for mobile responsiveness  #280
+
+
+### Fixed
+- (React) DP-10497: Updates the selectbox atom in Mayflower-React, passing the default selected prop to state in the contructor. Also updates the setting of select in the selectbox, changing for ref to value.
+
+## 8.2.0 (9/26/2018)
+
+### Added
+- (React) Componentize scss into results heading  #268
+- (React) Componentize scss into error page organism and pages  #271
+
+### Fixed
+- (React) DP-10497: Updates the selectbox atom in Mayflower-React, passing the default selected prop to state in the contructor. Also updates the setting of select in the selectbox, changing for ref to value.
+
+## 8.1.0 (9/24/2018)
+
+### Added
+- (Patternlab) DP-9272: Set up an id for `item.label` to associate with "aria-describedby" in decorative link for its directions link to add link context in Contact. #220
+- (React) Replace hard coded image with Image component and add configurable fields to SiteLogo. #264
+- (React) Add an option to allow pass in component as a post input filter to HeaderSearch and SearchBanner #259
+
+### Removed
+- (React) EEC support: removes the component name check in AccordionWrapper child validation
+
+
+
 ## 8.0.1 (9/19/2018)
 
 ### Fixed

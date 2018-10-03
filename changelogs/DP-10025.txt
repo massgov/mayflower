@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Added
+Patch
+- (Patternlab) DP-10025: Update sticky TOC selector to target new curated list structure.
+
