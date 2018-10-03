@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Major
+- (React) DP-10440: Adding FooterSlim component from EEC
