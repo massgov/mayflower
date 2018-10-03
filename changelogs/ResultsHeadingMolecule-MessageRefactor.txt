@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Refactor
+Minor
+React: Refactor the results heading message to a passable string.
