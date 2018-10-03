@@ -92,35 +92,6 @@
 
   "COMMENT":"****PAGE CONTENT COMPONENTS****",
 
-  "jumpLinks": {
-    "title": "In this guide",
-    "links": [{
-      "text": "Buying or Renting a Home",
-      "href": "buying-or-renting-a-home"
-    },{
-      "text": "Bringing Leased Vehicles to MA",
-      "href": "bringing-leased-vehicles-to-ma"
-    },{
-      "text": "Moving Day",
-      "href": "moving-day"
-    },{
-      "text": "Moving with Pets",
-      "href": "moving-with-pets"
-    },{
-      "text": "Another Section Name",
-      "href": "another-section-name1"
-    },{
-      "text": "Another Section Name",
-      "href": "another-section-name2"
-    },{
-      "text": "Converting Your Out-of-Country Driver’s License",
-      "href": "converting-your-out-of-country-drivers-license"
-    },{
-      "text": "Another Section Name",
-      "href": "another-section-name5"
-    }]
-  },
-
   "stackedRows": [{
     "title":"Buying or Renting a Home",
     "id":"buying-or-renting-a-home",
