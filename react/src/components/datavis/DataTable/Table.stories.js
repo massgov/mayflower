@@ -34,40 +34,36 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
     );
   }))
   .add('DataTable with Filter', withInfo()(() => {
-    const columnsConfig = (header) => {
-      return  [
-          {
-            Header: "Municipality",
-            id: "Municipality",
-            accessor: d => d[header],
-            filterMethod: (filter, row) =>{
-              return row[filter.id].startsWith(filter.value.toUpperCase())
-            },
-            Filter: ({filter, onChange}) => (
-            <input
-                   placeholder="Enter a municipality name ..."
-                   value={filter ? filter.value : ''}
-                   onChange={event => onChange(event.target.value)}
-              />
-            )
-          },
-          {
-            Header: "Trips started",
-            id: "originTrips",
-            accessor: d => d.ORIGIN_TRIPS,
-            Cell: row => (<div>{row.value.toLocaleString()}</div>)
-          },
-          {
-            Header: "Trips started per person",
-            id: "originTripsPerCap",
-            accessor: d => d.ORIGIN_TRIPS_PER_PERSON
-          },
-        ]
-    }
+    const columns = [{
+      Header: "Municipality",
+      id: "Municipality",
+      accessor: 'TOWN',
+      filterMethod: (filter, row) =>{
+        return row[filter.id].startsWith(filter.value.toUpperCase())
+      },
+      Filter: ({filter, onChange}) => (
+      <input
+             placeholder="Enter a municipality name ..."
+             value={filter ? filter.value : ''}
+             onChange={event => onChange(event.target.value)}
+        />
+      )
+    },
+    {
+      Header: "Trips started",
+      id: "originTrips",
+      accessor: d => d.ORIGIN_TRIPS,
+      Cell: row => (<div>{row.value.toLocaleString()}</div>)
+    },
+    {
+      Header: "Trips started per person",
+      id: "originTripsPerCap",
+      accessor: d => d.ORIGIN_TRIPS_PER_PERSON
+    }];
     const props = {
       data: townData,
       filterable: true,
-      columns: columnsConfig('TOWN'),
+      columns,
       defaultPageSize: 10,
       defaultSorted: [
         {
