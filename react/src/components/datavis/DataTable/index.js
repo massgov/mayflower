@@ -3,10 +3,10 @@ import ReactTable from 'react-table';
 
 import '../../../../node_modules/react-table/react-table.css';
 
-const Table = (props) => {
+const DataTable = (props) => {
     return(
       <ReactTable {...props} />
     )
 }
 
-export default Table;
+export default DataTable;
