@@ -12,7 +12,21 @@ import Table from './index';
 
 storiesOf('dataviz', module).addDecorator(withKnobs)
   .add('Table', withInfo(`<div></div>`)(() => {
+    const columns = [{
+      Header: 'County',
+      accessor: 'COUNTY' 
+    },{
+      Header: 'Trips started',
+      accessor: 'ORIGIN_TRIPS' // String-based value accessors!
+    }, {
+      Header: 'Trips started per person',
+      accessor: 'ORIGIN_TRIPS_PER_PERSON'
+    }]
+    const props = {
+      data: countyData,
+      columns
+    }
     return(
-      <Table data={countyData}/>
+      <Table {...props}/>
     );
   }));
