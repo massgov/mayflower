@@ -9,9 +9,10 @@ import countyData from './county.data.json';
 //import townData from './town.data.json';
 
 import Table from './index';
+import TableDocs from './Table.md';
 
 storiesOf('dataviz', module).addDecorator(withKnobs)
-  .add('Table', withInfo(`<div></div>`)(() => {
+  .add('Table', withInfo(`<div>${TableDocs}</div>`)(() => {
     const columns = [{
       Header: 'County',
       accessor: 'COUNTY' 
