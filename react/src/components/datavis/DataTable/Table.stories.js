@@ -25,7 +25,9 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
     }]
     const props = {
       data: countyData,
-      columns
+      columns,
+      defaultPageSize: 14,
+      showPaginationBottom: false
     }
     return(
       <DataTable {...props}/>
@@ -37,7 +39,6 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
           {
             Header: "Municipality",
             id: "Municipality",
-            className: "center",
             accessor: d => d[header],
             filterMethod: (filter, row) =>{
               return row[filter.id].startsWith(filter.value.toUpperCase())
@@ -53,14 +54,12 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
           {
             Header: "Trips started",
             id: "originTrips",
-            className: "center",
             accessor: d => d.ORIGIN_TRIPS,
             Cell: row => (<div>{row.value.toLocaleString()}</div>)
           },
           {
             Header: "Trips started per person",
             id: "originTripsPerCap",
-            className: "center",
             accessor: d => d.ORIGIN_TRIPS_PER_PERSON
           },
         ]
@@ -69,7 +68,7 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
       data: townData,
       filterable: true,
       columns: columnsConfig('TOWN'),
-      defaultPageSize: 14,
+      defaultPageSize: 10,
       defaultSorted: [
         {
           id: "originTrips",
