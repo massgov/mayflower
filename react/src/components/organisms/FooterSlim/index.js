@@ -9,32 +9,48 @@ import './style.css';
 
 
 const FooterSlim = (props) => {
-  const year = '';
+  props.links.map((link, linkIndex) => {
+    console.log(link.href)
+  })
   return (
   <footer className="ma__footer_slim" id="footer">
     <div className="ma__footer_slim--container ma__container">
       <SiteLogo />
       <div className="ma__footer_slim--container-inner">
         <section className="ma__footer_slim--info">
-          <h3>{ props.FooterSlimTitle }</h3>
-          <p>{ props.FooterSlimDescription }</p>
+          <h3>{props.title }</h3>
+          <p>{props.description }</p>
           <p className="ma__footer_slim--copyright">
             &copy; {moment().year()} Commonwealth of Massachusetts
           </p>
         </section>
         <section className="ma__footer_slim--details">
+        {props.links &&
           <div className="ma__footer_slim--links">
-            {/* todo: */}
-            <a href="#">Lead Agencies Policies</a>
-            <a href="#">Child Care Licensing Procedures</a>
+            {props.links.map((link, linkIndex) => {
+              return <a href={link.href}>{link.title}</a>
+            })}
           </div>
+        }
           <div className="ma__footer_slim--contact">
-            {props.FooterSlimAddress ? (<p><Icon name="marker" svgWidth={20} svgHeight={20} /><span>props.FooterSlimAddress}</span></p>) : ''}
-            {props.FooterSlimPhone ? (<p><Icon name="phone" svgWidth={20} svgHeight={20} /><span>{props.FooterSlimPhone}</span></p>) : ''}
-            <p>
-              <Icon name="laptop" svgWidth={20} svgHeight={20} />
-              <a href={props.FooterSlimLink.href}>{props.FooterSlimLink.title}</a>
-            </p>
+            {props.contact.address &&
+              <p>
+                <Icon name="marker" svgWidth={20} svgHeight={20} />
+                <span>{props.contact.address}</span>
+              </p>
+            }
+            {props.contact.phone &&
+              <p>
+                <Icon name="phone" svgWidth={20} svgHeight={20} />
+                <span>{props.contact.phone}</span>
+              </p>
+            }
+            {props.contact.online &&
+              <p>
+                <Icon name="laptop" svgWidth={20} svgHeight={20} />
+                <a href={props.contact.online.href}>{props.contact.online.title}</a>
+              </p>
+            }
           </div>
         </section>
       </div>
@@ -43,13 +59,25 @@ const FooterSlim = (props) => {
 )};
 
 FooterSlim.propTypes = {
-  FooterSlimTitle: PropTypes.text,
-  FooterSlimDescription: PropTypes.text,
-  FooterSlimAddress: PropTypes.text,
-  FooterSlimPhone: PropTypes.text,
-  FooterSlimLink: PropTypes.shape({
-    href: PropTypes.text,
-    title: PropTypes.title
+  /** The main title to be displayed in the footer */
+  title: PropTypes.string.isRequired,
+  /** A short description */
+  description: PropTypes.string.isRequired,
+  /** Additional links for key information */
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+  /** Contact details for the responsible authority */
+  contact: PropTypes.shape({
+    address: PropTypes.string,
+    phone: PropTypes.string,
+    online: PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string
+    })
   })
 };
 
