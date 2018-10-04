@@ -67,6 +67,7 @@ export AccordionItem from './components/molecules/AccordionItem';
 // @organisms
 export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Footer from './components/organisms/Footer';
+export FooterSlim from './components/organisms/FooterSlim';
 export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';
 export UtilityPanel from './components/organisms/UtilityPanel';
