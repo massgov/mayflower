@@ -1,1 +1,7 @@
-@import 'react-table/react-table.css';
+.ReactTable {
+  .rt-thead, .-pagination {
+    input, .-btn {
+      border-radius: none !important;
+    }
+  }
+}
