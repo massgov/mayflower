@@ -6,6 +6,10 @@
   padding: 20px 0 30px;
   position: relative;
 
+  .ma__container {
+    @include ma-container;
+  }
+  
   &--container {
     position: relative;
 
