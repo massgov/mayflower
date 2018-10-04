@@ -28,26 +28,28 @@ const FooterSlim = (props) => (
               ))}
             </div>
           }
-          <div className="ma__footer_slim--contact">
-            {props.contact.address &&
+          {props.contact &&
+            <div className="ma__footer_slim--contact">
+              {props.contact.address &&
               <p>
                 <Icon name="marker" svgWidth={20} svgHeight={20} />
                 <span>{props.contact.address}</span>
               </p>
-            }
-            {props.contact.phone &&
+              }
+              {props.contact.phone &&
               <p>
                 <Icon name="phone" svgWidth={20} svgHeight={20} />
                 <span>{props.contact.phone}</span>
               </p>
-            }
-            {props.contact.online && props.contact.online.href && props.contact.online.title &&
+              }
+              {props.contact.online && props.contact.online.href && props.contact.online.title &&
               <p>
                 <Icon name="laptop" svgWidth={20} svgHeight={20} />
                 <a href={props.contact.online.href}>{props.contact.online.title}</a>
               </p>
-            }
-          </div>
+              }
+            </div>
+          }
         </section>
       </div>
     </div>
