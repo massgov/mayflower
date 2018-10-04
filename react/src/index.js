@@ -90,3 +90,6 @@ export Error500 from './components/pages/Error500';
 
 //@animations
 export Collapse from './components/animations/Collapse';
+
+//@dataviz
+export DataTable from './components/datavis/DataTable';
