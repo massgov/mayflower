@@ -41,7 +41,7 @@ const FooterSlim = (props) => (
                 <span>{props.contact.phone}</span>
               </p>
             }
-            {props.contact.online &&
+            {props.contact.online && props.contact.online.href && props.contact.online.title &&
               <p>
                 <Icon name="laptop" svgWidth={20} svgHeight={20} />
                 <a href={props.contact.online.href}>{props.contact.online.title}</a>
