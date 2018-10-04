@@ -72,7 +72,7 @@ export RichText from './components/organisms/RichText';
 export UtilityPanel from './components/organisms/UtilityPanel';
 export UtilityNav from './components/organisms/UtilityNav';
 export Header from './components/organisms/Header';
-export HeaderSlim from './components/organisms/Header';
+export HeaderSlim from './components/organisms/HeaderSlim';
 export ErrorPage from './components/organisms/ErrorPage';
 export LinkList from './components/organisms/LinkList';
 export PageHeader from './components/organisms/PageHeader';
