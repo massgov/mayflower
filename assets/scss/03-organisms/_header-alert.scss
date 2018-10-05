@@ -39,9 +39,8 @@
   }
 
   &__message {
-    @include ma-link-underline;
     font-size: 1.5rem;
-    line-height: 1em;
+    line-height: 1.3em;
 
     a {
       display: inline;
@@ -64,19 +63,11 @@
 
   &__message {
 
-    &:hover {
-      border-bottom-color: rgba($c-font-base, .5);
-    }
-    
     a {
       color: $c-font-base;
 
       svg {
-        fill: rgba($c-font-base, .5);  
-      }
-
-      &:hover {
-        border-bottom-color: transparent;
+        fill: rgba($c-font-base, .5);
       }
     }
   }
