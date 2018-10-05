@@ -15,6 +15,7 @@
   }
 
   .ma__contact-row__additional {
+
     @media ($bp-small-min) {
       display: flex;
       flex-wrap: wrap;
@@ -92,7 +93,7 @@
   // Otherwise we have at most 2 items.
   @media ($bp-medium-max) {
 
-    .ma__contact-row__additional.has-many .ma__contact-group:not(:first-child) {
+    .ma__contact-row__additional.has-many .ma__contact-row__additional--column:not(:first-child) {
       max-height: 0;
       overflow: hidden;
       opacity: 0;
@@ -109,10 +110,10 @@
 
     &.is-open {
 
-      .ma__contact-row__additional.has-many .ma__contact-group:not(:first-child) {
+      .ma__contact-row__additional.has-many .ma__contact-row__additional--column:not(:first-child) {
         max-height: 100vh; //arbitrarily large max height for contact groups to avoid clipping
         opacity: 1;
-        padding-bottom: 20px;
+        padding-top: 20px;
       }
 
       // button text
