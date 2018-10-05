@@ -57,6 +57,10 @@
                 padding-right: 2rem;
             }
 
+            .ma__relationship-indicators--term {
+              display: block;
+            }
+
             &.tags-open {
                 flex-direction: column;
 
@@ -65,7 +69,8 @@
                 }
             }
         
-            .ma__relationship-indicators--term {
+            // Only hide tags if secondary tags present.
+            &:not(.single) .ma__relationship-indicators--term {
                 display: none;
 
                 @media ($bp-large-min) {
