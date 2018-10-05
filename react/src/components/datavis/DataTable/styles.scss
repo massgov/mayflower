@@ -1,7 +1,7 @@
 .ReactTable {
   .rt-thead, .-pagination {
-    input, .-btn {
-      border-radius: none !important;
+    input, select, .-btn {
+      border-radius: 0 !important;
     }
   }
 }
