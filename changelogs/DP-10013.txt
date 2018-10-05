@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Change
-Patch
-- patternlab /  DP-10013: MF - offered by relationship indicator row changes Medium priority
-
