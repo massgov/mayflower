@@ -4,6 +4,8 @@
 */
 
 //@base
+import OperationalHours from "./components/atoms/time/OperationalHours";
+
 export Placeholder from './components/base/Placeholder';
 
 // @atoms
@@ -41,6 +43,8 @@ export Table from './components/atoms/table/Table';
 // @atoms/@text
 export Paragraph from './components/atoms/text/Paragraph';
 export PublishState from './components/atoms/text/PublishState';
+// @atoms/@time
+export OperationalHours from './components/atoms/time/OperationalHours';
 
 // @molecules
 export Link from './components/molecules/Link';
@@ -66,6 +70,7 @@ export AccordionItem from './components/molecules/AccordionItem';
 
 // @organisms
 export GeneralTeaser from './components/organisms/GeneralTeaser';
+export Teaser from './components/organisms/Teaser';
 export Footer from './components/organisms/Footer';
 export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';
