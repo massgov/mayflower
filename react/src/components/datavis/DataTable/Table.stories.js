@@ -58,9 +58,10 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
       id: 'originTripsPerCap',
       accessor: (d) => d.ORIGIN_TRIPS_PER_PERSON
     }];
+    const isStriped = boolean('DataTable.isStriped', true);
     const props = {
       data: townData,
-      filterable: true,
+      filterable: boolean('DataTable.filterable', true),
       columns,
       defaultPageSize: 10,
       defaultSorted: [
@@ -69,7 +70,7 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
           desc: true
         }
       ],
-      className: '-striped -highlight',
+      className: isStriped && '-striped',
       showPaginationBottom: true
     };
     return(
