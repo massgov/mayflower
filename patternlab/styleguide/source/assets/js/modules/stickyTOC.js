@@ -3,7 +3,7 @@ export default (function (window,document,$,undefined) {
   $('.pre-content .ma__sticky-toc').each(function() {
     const $toc = $('.ma__sticky-toc'),
           $tocContent = $('.ma__sticky-toc__links'),
-          $tocSections = $('.ma__information-details .page-content, .ma__stacked-row-section__container .ma__stacked-row-section__title').find('h2'),
+          $tocSections = $('.page-content, .ma__stacked-row-section__container .ma__stacked-row-section__title, .ma__stacked-row .ma__stacked-row__title').find('h2:visible, .ma__comp-heading:visible'),
           lastHeading = $tocSections.last().text(),
           tocSectionCount = $tocSections.length,
           $tocColumn = $('.ma__sticky-toc__column'),
@@ -11,9 +11,10 @@ export default (function (window,document,$,undefined) {
           $tocToggle = $('.stickyTOC-open'),
           $tocFooter = $('.ma__sticky-toc__footer'),
           $stickyToc = $('.ma__sticky-toc__current-section'),
-          minSectionsToShow = $toc.data('min-to-show');
+          minSectionsToShow = $toc.data('min-to-show'),
+          feedbackButton = $('body').find('.ma__fixed-feedback-button');
 
-    // // Remove wrapper if not enough links.
+    // Remove wrapper if not enough links.
     if (minSectionsToShow && (tocSectionCount < minSectionsToShow) || !minSectionsToShow && tocSectionCount < 3 ) {
       $toc.remove();
     }
@@ -135,19 +136,23 @@ export default (function (window,document,$,undefined) {
         menuToggle();
       }
 
+      hideShowFeedback();
+
     });
 
     // Close button
     $('.secondary-label-close').on('click', function() {
       menuToggle();
+      hideShowFeedback();
     });
 
     // Close sticky menu on click off, include tools buttons
     $('body').on('click', function(event) {
       if(!$(event.target).closest('.ma__sticky-toc__stuck-menu').length && !$(event.target).closest('.ma__sticky-toc__tools').length) {
-        console.log("click");
+      
         if($('.ma__sticky-toc__stuck-menu').hasClass('sticky-nav-open')) {
           menuToggle();
+          hideShowFeedback();
         }
       }
     });
@@ -156,5 +161,9 @@ export default (function (window,document,$,undefined) {
     $('body').on('click', '.ma__sticky-toc__stuck-menu a', function() {
       menuToggle();
     });
+
+    function hideShowFeedback() {
+      feedbackButton.toggleClass('hide-button');
+    }
   });
 })(window,document,jQuery);
