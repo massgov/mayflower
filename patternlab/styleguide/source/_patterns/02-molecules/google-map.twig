@@ -19,10 +19,10 @@
       {% set markers = markers ~ marker %}
     {% endfor %}
     {# example url for images https://maps.googleapis.com/maps/api/staticmap?center=63.259591,-144.667969&zoom=6&markers=label:S%7C62.107733,-145.541936&markers=... #}
-    <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ center }}&zoom={{ zoom }}{{ markers }}" alt="Click for directions">
+    <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ center }}&zoom={{ zoom }}{{ markers }}&key=YOUR_API_KEY" alt="Click for directions">
   </div>
   {% else %}
-  {# for google maps#}
+  {# for google maps #}
   <div class="ma__google-map__map js-google-map"></div>
   {# user editable data used in this specific map #}
   <script>

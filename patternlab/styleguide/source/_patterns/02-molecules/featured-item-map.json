@@ -1,0 +1,25 @@
+{
+  "featuredItem": {
+    "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
+    "text": "See a larger map",
+    "googleMap": {
+      "static": true,
+      "map": {
+        "center": {
+          "lat": 42.366565,
+          "lng": -71.058940
+        },
+        "zoom": 16
+      },
+      "markers": [
+        {
+          "position": {
+            "lat": 42.366565,
+            "lng": -71.058940
+          },
+          "label": "A"
+        }
+      ]
+    }
+  }
+}

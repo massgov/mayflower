@@ -1,6 +1,5 @@
 {
   "googleMap": {
-    "static": true,
     "map": {
       "center": {
         "lat": 42.366565,
