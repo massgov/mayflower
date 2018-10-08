@@ -1,42 +1,72 @@
 @import "global";
 
-.ma__tab-container {
+.ma__tab-container, %ma__tab-container {
   display: flex;
   flex-direction: column;
   .ma__tab-container-head {
     display: inline-flex;
     height: 60px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    .ma__tab-title, %ma__tab-title {
+      border: 1px solid black;
+      cursor: pointer;
+      padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+      font-size: 1.25rem;
+      color: inherit;
+
+    }
+    .ma__tab-title--active {
+      @extend %ma__tab-title;
+      border-bottom: none;
+      border-top: 5px solid $c-primary;
+      color: $c-primary;
+      font-weight: 700;
+    }
+    .ma__tab-title ~ .ma__tab-title {
+      border-left: 1px solid black;
+      border-right: none;
+    }
+    .ma__tab-title:first-child {
+      border-right: none;
+    }
+    .ma__tab-title:last-child {
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+    }
+  }
+  .ma__tab-container-head::-webkit-scrollbar {
+    display: none;
   }
   .ma__tab-container-body {
     padding: 1rem;
   }
-  .ma__tab-title {
-    cursor: pointer;
-    border: 1px solid black;
-    padding: 1.5rem 1.5rem 0.8rem 1.5rem;
-    font-size: 1.25rem;
-    color: inherit;
-  }
-  .ma__tab-title--active {
-    cursor: pointer;
-    border: 1px solid black;
-    border-bottom: none;
-    border-top: 5px solid black;
-    font-size: 1.25rem;
-    color: $c-primary;
-    font-weight: 700;
-    padding: 1.5rem 1.5rem 0.8rem 1.5rem;
-  }
-  &--nested {
-    .ma__tab-title, .ma__tab-title--active {
-      border: none;
-    }
-    .ma__tab-title--active {
-      border-bottom: 5px solid $c-primary;
-    }
+  .ma__tab-container--nested {
+    @extend %ma__tab-container;
     .ma__tab-container-head {
       height: 70px;
       border-bottom: 1px solid black;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+      .ma__tab-title {
+        @extend %ma__tab-title;
+        border: none;
+      }
+      .ma__tab-title--active {
+        @extend %ma__tab-title;
+        border-bottom: 5px solid $c-primary;
+      }
+      .ma__tab-title:last-child {
+        border-left: none;
+        border-right: none;
+      }
+    }
+    .ma__tab-container-head::-webkit-scrollbar {
+      display: none;
     }
   }
 }

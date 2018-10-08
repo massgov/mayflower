@@ -16,7 +16,7 @@ class Tab extends React.Component {
         {({ activeTab, setActiveTab }) => {
           const active = (activeTab === this.tabIdent);
           const tabClasses = classNames({
-            'ma__tab-title': !active,
+            'ma__tab-title': true,
             'ma__tab-title--active': active
           });
           return(
