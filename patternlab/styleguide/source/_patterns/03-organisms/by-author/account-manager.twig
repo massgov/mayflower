@@ -1,9 +1,19 @@
-<div class="ma__account-manager">
+<section class="ma__account-manager">
   {# Static title, users can not change #}
   <h3 class="ma__comp-heading">Manage your Account</h3>
+
   
+  <div class="ma__account-manager--sections">
+    {% for item in items %}
+    <div class="ma__account-manager--section">
+      {% set richText = item.richText %}
+      {% include "@organisms/by-author/rich-text.twig" %}
 
-    
-
+      {% set decorativeLink = item.link %}
+      {% include "@atoms/decorative-link.twig" %}
+    </div>
+    {% endfor %}
+  </div>
  
-</div>
+
+</section>
