@@ -1,11 +1,13 @@
 ### Description
-An account manager section wrapper for How To Pages
+An account manager sections for How To Pages
 
 ### Status
 * Stable as of 5.0.0
 
 ### Pattern Contains
-account-manager-section
+* decorative-link
+* rich-text
+
 
 ### Variables
 ~~~
