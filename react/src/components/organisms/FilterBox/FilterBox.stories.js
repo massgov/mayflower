@@ -78,7 +78,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         },
         fields: [
           {
-            class: 'ma__filter-box__organizations',
+            class: 'ma__filter-box__organizations ma__filter-box--desktop-hidden',
             component: <InputTextTypeAhead {...organization} />
           },
           {
