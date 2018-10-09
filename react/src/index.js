@@ -67,11 +67,13 @@ export AccordionItem from './components/molecules/AccordionItem';
 // @organisms
 export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Footer from './components/organisms/Footer';
+export FooterSlim from './components/organisms/FooterSlim';
 export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';
 export UtilityPanel from './components/organisms/UtilityPanel';
 export UtilityNav from './components/organisms/UtilityNav';
 export Header from './components/organisms/Header';
+export HeaderSlim from './components/organisms/HeaderSlim';
 export ErrorPage from './components/organisms/ErrorPage';
 export LinkList from './components/organisms/LinkList';
 export PageHeader from './components/organisms/PageHeader';
