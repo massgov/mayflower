@@ -4,13 +4,7 @@
 
   <div class="ma__account-manager--sections">
     {% for section in accountManagementSections %}
-      <div class="ma__account-manager--section">
-        {% set richText = section.richText %}
-        {% include "@organisms/by-author/rich-text.twig" %}
-
-        {% set decorativeLink = section.link %}
-        {% include "@atoms/decorative-link.twig" %}
-      </div>
+      {% include "@molecules/account-manager-section.twig" %}
     {% endfor %}
   </div>
 </section>
