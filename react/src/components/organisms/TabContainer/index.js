@@ -19,6 +19,7 @@ class TabContainer extends React.Component {
     this.state = {
       activeTab: null,
       activeContent: null,
+      // eslint-disable-next-line react/no-unused-state
       setActiveTab: this.setActiveTab,
       nested: this.props.nested
     };
@@ -38,9 +39,11 @@ class TabContainer extends React.Component {
       'ma__tab-container': true,
       'ma__tab-container--nested': (this.state.nested === true)
     });
-    const { children } = this.props;
+    // eslint-disable-next-line react/prop-types
+    const { children, defaultTab } = this.props;
+    const active = !defaultTab ? 0 : defaultTab;
     this.childrenWithProps = React.Children.map(children, (child, index) => {
-      if (index === 0) {
+      if (index === active) {
         return React.cloneElement(child, { default: true });
       }
       return child;
@@ -57,8 +60,15 @@ class TabContainer extends React.Component {
     );
   }
 }
+
 TabContainer.defaultProps = {
-  nested: false
+  nested: false,
+  defaultTab: 0
+};
+
+TabContainer.propTypes = {
+  nested: PropTypes.bool,
+  defaultTab: PropTypes.number
 };
 
 export default TabContainer;

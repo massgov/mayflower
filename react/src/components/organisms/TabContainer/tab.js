@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import classNames from 'classnames';
-import { TabContext } from '../../organisms/TabContainer/context';
+import { TabContext } from './context';
 
 class Tab extends React.Component {
   constructor(props) {
@@ -22,16 +22,26 @@ class Tab extends React.Component {
             'ma__tab-title--active': active
           });
           if (!this.defaultSet && this.props.default === true) {
+            // eslint-disable-next-line react/prop-types
             setActiveTab(this.tabIdent, this.props.children);
             this.defaultSet = true;
           }
           return(
-            <div className={tabClasses} onClick={() => setActiveTab(this.tabIdent, this.props.children)}>{this.props.title}</div>
+            <button className={tabClasses} onClick={() => setActiveTab(this.tabIdent, this.props.children)}>{this.props.title}</button>
           );
         }}
       </TabContext.Consumer>
     );
   }
 }
+
+Tab.defaultProps = {
+  default: false
+};
+
+Tab.propTypes = {
+  default: PropTypes.bool,
+  title: PropTypes.string.isRequired
+};
 
 export default Tab;
