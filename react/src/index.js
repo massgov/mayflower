@@ -9,6 +9,7 @@ export Placeholder from './components/base/Placeholder';
 // @atoms
 export Divider from './components/atoms/Divider';
 // @atoms/@buttons
+export ArrowButton from './components/atoms/buttons/ArrowButton';
 export Button from './components/atoms/buttons/Button';
 export ButtonSort from './components/atoms/buttons/ButtonSort';
 export ButtonToggle from './components/atoms/buttons/ButtonToggle';
