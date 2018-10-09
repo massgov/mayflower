@@ -1,5 +1,5 @@
 <div class="ma__relationship-indicators">
-  <div class="ma__relationship-indicators--section primary">
+  <div class="ma__relationship-indicators--section primary{% if relationshipIndicators.secondary is empty %} single{% endif %}">
     <span class="ma__relationship-indicators--label">
       {{ relationshipIndicators.primary.label }}
     </span>
