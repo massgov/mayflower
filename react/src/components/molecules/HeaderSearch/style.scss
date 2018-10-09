@@ -1,6 +1,5 @@
 @import 'global';
 @import "01-atoms/button-search";
-@import '02-molecules/header-search';
 
 .ma__header-search {
   &__wrapper{
@@ -63,3 +62,5 @@
     }
   }
 }
+
+@import "02-molecules/header-search";
