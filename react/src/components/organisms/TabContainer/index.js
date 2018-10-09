@@ -7,11 +7,14 @@ import { TabContext } from './context';
 class TabContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.setActiveTab = (tab, content) => {
-      this.setState({
-        activeTab: tab,
-        activeContent: content
-      });
+    this.setActiveTab = (tab, content = null) => {
+      const state = {
+        activeTab: tab
+      };
+      if (content) {
+        state.activeContent = content;
+      }
+      this.setState(state);
     };
     this.state = {
       activeTab: null,
@@ -35,10 +38,19 @@ class TabContainer extends React.Component {
       'ma__tab-container': true,
       'ma__tab-container--nested': (this.state.nested === true)
     });
+    const { children } = this.props;
+    this.childrenWithProps = React.Children.map(children, (child, index) => {
+      if (index === 0) {
+        return React.cloneElement(child, { default: true });
+      }
+      return child;
+    });
     return(
       <TabContext.Provider value={this.state}>
         <div className={classes}>
-          <div className="ma__tab-container-head">{this.props.children}</div>
+          <div className="ma__tab-container-head">{this.childrenWithProps}
+            {this.state.nested === false && <div className="ma__tab-title ma__tab-title--remaining" />}
+          </div>
           {this.state.activeTab && <div className="ma__tab-container-body">{this.state.activeContent}</div>}
         </div>
       </TabContext.Provider>

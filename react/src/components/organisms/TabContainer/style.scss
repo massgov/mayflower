@@ -11,7 +11,7 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     .ma__tab-title, %ma__tab-title {
-      border: 1px solid black;
+      border: 1px solid $c-gray-light;
       cursor: pointer;
       padding: 1.5rem 1.5rem 0.8rem 1.5rem;
       font-size: 1.25rem;
@@ -26,28 +26,34 @@
       font-weight: 700;
     }
     .ma__tab-title ~ .ma__tab-title {
-      border-left: 1px solid black;
+      border-left: 1px solid $c-gray-light;
       border-right: none;
     }
     .ma__tab-title:first-child {
       border-right: none;
     }
-    .ma__tab-title:last-child {
-      border-left: 1px solid black;
-      border-right: 1px solid black;
+    .ma__tab-title--remaining {
+      cursor: initial;
+      border-left: none;
+      border-top: none;
+      border-right: none;
+      border-bottom: 1px solid $c-gray-light;
+      flex-grow: 2;
     }
   }
   .ma__tab-container-head::-webkit-scrollbar {
     display: none;
   }
-  .ma__tab-container-body {
+  .ma__tab-container-body, %ma__tab-container-body {
     padding: 1rem;
+    border: 1px solid $c-gray-light;
+    border-top-color: transparent;
   }
   .ma__tab-container--nested {
     @extend %ma__tab-container;
     .ma__tab-container-head {
       height: 70px;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid $c-gray-light;
       flex-wrap: nowrap;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -60,13 +66,17 @@
         @extend %ma__tab-title;
         border-bottom: 5px solid $c-primary;
       }
-      .ma__tab-title:last-child {
+      .ma__tab-title ~ .ma__tab-title {
         border-left: none;
         border-right: none;
       }
     }
     .ma__tab-container-head::-webkit-scrollbar {
       display: none;
+    }
+    .ma__tab-container-body {
+      @extend %ma__tab-container-body;
+      border: none;
     }
   }
 }
