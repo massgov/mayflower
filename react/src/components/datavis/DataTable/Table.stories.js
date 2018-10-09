@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 import countyData from './county.data.json';
@@ -23,11 +23,13 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
       Header: 'Trips started per person',
       accessor: 'ORIGIN_TRIPS_PER_PERSON'
     }];
+    const isStriped = boolean('DataTable.isStriped', true);
     const props = {
       data: countyData,
       columns,
       defaultPageSize: 14,
-      showPaginationBottom: false
+      showPaginationBottom: false,
+      className: isStriped && '-striped'
     };
     return(
       <DataTable {...props} />
