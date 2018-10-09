@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import FilterBox from '../../organisms/FilterBox';
 import HeaderSearch from '../../molecules/HeaderSearch';
@@ -44,11 +45,17 @@ class SearchBanner extends Component {
         }
       };
     }
-    const filterExpanded = this.state.filterBoxExpanded ? ' ma__search-banner__filter-box-toggle--expanded' : '';
-    const filterDesktopHidden = this.props.filterDesktopHidden ? ' ma__search-banner__filter-box-toggle--desktop-hidden' : '';
-    const toggleButtonClass = `ma__search-banner__filter-box-toggle${filterExpanded}${filterDesktopHidden}`;
+    const searchBannerClasses = classNames({
+      'ma__search-banner__top': true,
+      'ma__search-banner__top--noTabs': !tabs
+    });
+    const toggleButtonClasses = classNames({
+      'ma__search-banner__filter-box-toggle': true,
+      'ma__search-banner__filter-box-toggle--expanded': this.state.filterBoxExpanded,
+      'ma__search-banner__filter-box-toggle--desktop-hidden': this.props.filterDesktopHidden
+    });
     return(
-      <div className={`ma__search-banner__top ${!tabs && 'ma__search-banner__top--noTabs'}`}>
+      <div className={searchBannerClasses}>
         <div className="main-content--two">
           <h2 className="visually-hidden">Search Form</h2>
           <HeaderSearch {...searchBox} />
@@ -57,7 +64,13 @@ class SearchBanner extends Component {
         <div className="ma_search-banner__filter-box-container">
           {filterBox && (
             <div className="main-content--two ma__search-banner__filter-box-toggle-container">
-              <button onClick={this.toggleFilterBox} type="button" className={toggleButtonClass}>
+              <button
+                onClick={this.toggleFilterBox}
+                type="button"
+                className={toggleButtonClasses}
+                aria-controls={this.props.filterBox.id}
+                aria-hidden={!this.state.filterBoxExpanded}
+              >
                 {filterToggleText}
                 <Icon name="chevron" svgWidth={20} svgHeight={20} />
               </button>
@@ -89,7 +102,11 @@ SearchBanner.propTypes = {
 
 SearchBanner.defaultProps = {
   filterDesktopHidden: false,
-  filterToggleText: 'More Filters'
+  filterToggleText: 'More Filters',
+  filterBoxExpanded: false,
+  filterBox: {
+    id: 'filter-box'
+  }
 };
 
 export default SearchBanner;

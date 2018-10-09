@@ -101,6 +101,7 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
         filterDesktopHidden: DesktopHidden,
         active: boolean('filterBox.active', true),
         action: text('filterBox.action', '#'),
+        id: text('filterBox.id', 'filter-box'),
         fields: [
           {
             class: 'ma__filter-box__organizations ma__filter-box--desktop-hidden',
@@ -119,7 +120,7 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
           text: text('filterBox.submitButton.text', 'Submit'),
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
           size: select('filterBox.submitButton.size', buttonOptions.size),
-          theme: select('filterBox.submitButton.theme', buttonOptions.theme, ''),
+          theme: select('filterBox.submitButton.theme', buttonOptions.theme, 'c-primary'),
           outline: boolean('filterBox.submitButton.outline', false),
           onClick: action('SearchBanner filterBox.submitButton.onClick')
         },

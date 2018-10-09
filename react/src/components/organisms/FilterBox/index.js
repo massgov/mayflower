@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
@@ -15,12 +16,18 @@ const FilterBox = (props) => {
       props.clearButton.onClearCallback();
     }
   };
-  const filterDesktopHidden = props.filterDesktopHidden ? ' ma__filter-box--desktop-hidden' : '';
-  const isActive = active ? 'ma__filter-box__form--active' : '';
+  const filterBoxClasses = classNames({
+    'ma__filter-box': true,
+    'ma__filter-box--desktop-hidden': props.filterDesktopHidden
+  });
+  const filterBoxFormClasses = classNames({
+    'ma__filter-box__form js-filter-box': true,
+    'ma__filter-box__form--active': active
+  });
   return(
-    <section className={`ma__filter-box${filterDesktopHidden}`}>
+    <section className={filterBoxClasses} id={props.id}>
       <div className="ma__filter-box__container">
-        <form className={`ma__filter-box__form js-filter-box ${isActive}`} action={action}>
+        <form className={filterBoxFormClasses} action={action}>
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
               { fields.map((field, i) => (
@@ -49,12 +56,14 @@ const FilterBox = (props) => {
 };
 
 FilterBox.propTypes = {
+  /** The id of the FilterBox component. */
+  id: PropTypes.string,
   /** Apply active state  */
   active: PropTypes.bool,
   /** The form action  */
   action: PropTypes.string,
   /** @atoms/forms/Button */
-  submitButton: PropTypes.shape(Button.PropTypes).isRequired,
+  submitButton: PropTypes.shape(Button.PropTypes),
   /** Clear all button at the bottom of the filter */
   clearButton: PropTypes.shape({
     text: PropTypes.string,
@@ -74,6 +83,19 @@ FilterBox.propTypes = {
 };
 
 FilterBox.defaultProps = {
+  id: 'filter-box',
+  active: false,
+  clearButton: {
+    text: 'Clear all filters',
+    info: 'Clear all applied filters'
+  },
+  submitButton: {
+    text: 'Submit',
+    type: 'submit',
+    size: '',
+    theme: 'c-primary',
+    usage: ''
+  },
   action: '#'
 };
 
