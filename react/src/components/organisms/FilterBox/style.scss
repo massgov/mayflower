@@ -19,13 +19,13 @@ $assets-path: '../../../assets';
 			 }
 			 .main-content--two{
 				 display: flex;
+				 flex-direction: column;
+				 justify-content: flex-start;
 				 @media($bp-x-large-min){
 						flex-flow: row wrap;
 						justify-content: space-between;
-						align-items: center;
+						align-items: flex-end;
 				 }
-				 flex-direction: column;
-				 justify-content: flex-start;
 			 }
 	  }
     &__filters, &__controls{
@@ -49,12 +49,6 @@ $assets-path: '../../../assets';
 		&--desktop-hidden {
 			@media($bp-medium-min){
 				display: none;
-			}
-		}
-
-		&__controls {
-			@media($bp-x-large-min){
-				padding-top: 1.5rem;
 			}
 		}
 
