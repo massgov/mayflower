@@ -4,24 +4,28 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
+import round from '../helper';
 
 import countyData from './county.data.json';
 import townData from './town.data.json';
 
 import DataTable from './index';
-import TableDocs from './Table.md';
+import DataTableDocs from './DataTable.md';
 
 storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
-  .add('DataTable Simple', withInfo(`<div>${TableDocs}</div>`)(() => {
+  .add('DataTable Simple', withInfo(`<div>${DataTableDocs}</div>`)(() => {
     const columns = [{
       Header: 'County',
       accessor: 'COUNTY'
     }, {
       Header: 'Trips started',
-      accessor: 'ORIGIN_TRIPS' // String-based value accessors!
+      accessor: 'ORIGIN_TRIPS', // String-based value accessors!
+      className: 'data-align-right'
     }, {
       Header: 'Trips started per person',
-      accessor: 'ORIGIN_TRIPS_PER_PERSON'
+      id: 'originTripsPerCap', // id is required for non string-based accessor
+      accessor: (d) => Math.round(d.ORIGIN_TRIPS_PER_PERSON * 100) / 100,
+      className: 'data-align-right'
     }];
     const isStriped = boolean('DataTable.isStriped', true);
     const props = {
@@ -52,13 +56,15 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
     {
       Header: 'Trips started',
       id: 'originTrips',
-      accessor: (d) => d.ORIGIN_TRIPS,
+      accessor: (d) => round(d.ORIGIN_TRIPS, 2),
+      className: 'data-align-right',
       Cell: (row) => (<div>{row.value.toLocaleString()}</div>)
     },
     {
       Header: 'Trips started per person',
       id: 'originTripsPerCap',
-      accessor: (d) => d.ORIGIN_TRIPS_PER_PERSON
+      className: 'data-align-right',
+      accessor: (d) => Math.round(d.ORIGIN_TRIPS_PER_PERSON * 100) / 100
     }];
     const isStriped = boolean('DataTable.isStriped', true);
     const props = {
