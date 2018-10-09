@@ -54,7 +54,7 @@ FilterBox.propTypes = {
   /** The form action  */
   action: PropTypes.string,
   /** @atoms/forms/Button */
-  submitButton: PropTypes.shape(Button.PropTypes).isRequired,
+  submitButton: PropTypes.shape(Button.PropTypes),
   /** Clear all button at the bottom of the filter */
   clearButton: PropTypes.shape({
     text: PropTypes.string,
@@ -74,7 +74,15 @@ FilterBox.propTypes = {
 };
 
 FilterBox.defaultProps = {
-  action: '#'
+  action: '#',
+  submitButton: {
+    text: 'Submit',
+    type: 'submit'
+  },
+  clearButton: {
+    text: 'Clear all filters',
+    info: 'Clear all filters'
+  }
 };
 
 export default FilterBox;
