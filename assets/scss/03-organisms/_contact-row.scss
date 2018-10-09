@@ -1,3 +1,6 @@
+//Custom breakpoint for contact row
+$accordion-break: 720px;
+
 .ma__contact-row {
   position: relative;
 
@@ -16,7 +19,7 @@
 
   .ma__contact-row__additional {
 
-    @media ($bp-small-min) {
+    @media (min-width: $accordion-break) {
       display: flex;
       flex-wrap: wrap;
 
@@ -91,7 +94,7 @@
   // Accordion behavior for mobile
   // note: We only need accordion behavior if we have a 'has-many' class.
   // Otherwise we have at most 2 items.
-  @media ($bp-medium-max) {
+  @media (max-width: $accordion-break) {
 
     .ma__contact-row__additional.has-many .ma__contact-row__additional--column:not(:first-child) {
       max-height: 0;
