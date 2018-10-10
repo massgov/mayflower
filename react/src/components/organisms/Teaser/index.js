@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import componentPropTypeCheck, { componentArrayPropTypeCheck } from "../../utilities/componentPropTypeCheck";
 import './style.css';
 
@@ -26,18 +27,20 @@ class Teaser extends React.Component {
   };
 
   render() {
-    const primaryInfoClass =
-      this.props.left && !this.props.right
-        ? 'ma__general-teaser__primaryinfo__details'
-        : 'ma__general-teaser__primaryinfo';
-    const secondaryInfoClass =
-      !this.props.left && this.props.right
-        ? 'ma__general-teaser__secondary'
-        : 'ma__general-teaser__secondary--border';
-
-    const teaserClass = this.state.isActive ? ' ma__general-teaser--active' : '';
+    const primaryInfoClass = classNames({
+      'ma__general-teaser__primaryinfo__details': (this.props.left && !this.props.right),
+      'ma__general-teaser__primaryinfo': !(this.props.left && !this.props.right)
+    });
+    const secondaryInfoClass = classNames({
+      'ma__general-teaser__secondary': (!this.props.left && this.props.right),
+      'ma__general-teaser__secondary--border': !(!this.props.left && this.props.right)
+    });
+    const teaserClass = classNames({
+      'ma__general-teaser': true,
+      'ma__general-teaser--active': (this.state.isActive)
+    });
     const sectionProps = {
-      className: `ma__general-teaser${teaserClass}`,
+      className: teaserClass,
       onMouseEnter: () => this.handleMouseEnter(),
       onMouseLeave: () => this.handleMouseLeave()
     };
