@@ -2,12 +2,11 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, boolean, object } from '@storybook/addon-knobs/react';
-import { action } from '@storybook/addon-actions';
+import { withKnobs, boolean } from '@storybook/addon-knobs/react';
 import round from '../helper';
 
-import countyData from './county.data.json';
-import townData from './town.data.json';
+import countyData from './DataTableCounty.json';
+import townData from './DataTableTown.json';
 
 import DataTable from './index';
 import DataTableDocs from './DataTable.md';
