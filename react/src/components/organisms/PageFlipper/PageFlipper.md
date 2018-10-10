@@ -11,18 +11,10 @@ This pattern shows Left and Right arrows page links along with a blurb about the
 ~~~
 pageFlipper: {
   context : { /optional
-    label: {
-      type: string / required
-    },
-    link: {
-      decorativeLink / required
-    }
+    label: { type: string / required },
+    DecorativeLink: { DecorativeLink / required }
   },
-  prev: {
-    type: arrowNav / optional
-  },
-  next: {
-    type: arrowNav / optional
-  }
+  PreviousLink: { type: ArrowNav / optional },
+  NextLink: { type: ArrowNav / optional }
 }
 ~~~

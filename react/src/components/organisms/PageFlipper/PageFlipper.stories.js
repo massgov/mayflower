@@ -11,16 +11,33 @@ storiesOf('organisms', module)
   .addDecorator(withKnobs)
   .add('PageFlipper', withInfo({ PageFlipperReadme })(() => {
     const nextProps = {
-      label: text('nextArrow.label', 'Next'),
-      title: text('nextArrow.title', 'See the next Site'),
-      ArrowButton: <ArrowButton direction="right" />,
-      Link: <Link href='#' info="welclome" text='next site' icon='' />
+      label: text('Next Arrow Label', 'Next'),
+      title: text('Next Arrow Title', 'See the next Site'),
+      ArrowButton: <ArrowButton
+        href='#'
+        info={text('Next Arrow Info', '')}
+        direction="right"
+      />,
+      Link: <Link
+        href='#'
+        info={text('Next Arrow Link info', 'welcome')}
+        text={text('Next Arrow Link text', 'Next Site')}
+        icon=''
+      />
     }
     const prevProps = {
-      label: text('prevArrow.label', 'Previous'),
-      title: text('prevArrow.title', 'See the previous site'),
-      ArrowButton: <ArrowButton />,
-      Link: <Link href='#' info="goodbye" text='previous site' icon='' />
+      label: text('Previous Arrow Label', 'Previous'),
+      title: text('Previous Arrow Title', 'See the previous site'),
+      ArrowButton: <ArrowButton
+        href='#'
+        info={text('Previous Arrow Info', '')}
+      />,
+      Link: <Link
+        href='#'
+        info={text('Previous Arrow Link info', "goodbye")}
+        text={text('Previous Arrow Link text', 'Previous Site')}
+        icon=''
+      />
     }
     const props = {
       NextLink: <ArrowNav {...nextProps} />,
