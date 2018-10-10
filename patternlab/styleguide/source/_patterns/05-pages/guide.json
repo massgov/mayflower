@@ -87,7 +87,9 @@
   },
 
   "stickyTOC": {
-    "title": "Table of Contents"
+    "title": "Table of Contents",
+    "parent": "#main-content",
+    "sections": ".ma__stacked-row__title h2"
   },
 
   "COMMENT":"****PAGE CONTENT COMPONENTS****",
