@@ -48,7 +48,7 @@ Button.propTypes = {
   /** Create a smaller button */
   size: PropTypes.oneOf(['', 'small', 'large']),
   /** Themes correspond to site color scheme i.e. sass variables */
-  theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark']),
+  theme: PropTypes.oneOf(['', 'c-primary-alt', 'c-highlight', 'c-gray-dark']),
   /** Button usage */
   usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary']),
   /** Set button to disabled */
@@ -60,7 +60,7 @@ Button.defaultProps = {
   href: '',
   type: '',
   size: '',
-  theme: 'c-primary',
+  theme: '',
   usage: '',
   disabled: false
 };
