@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) DP-8725: Applies responsive functionality to tables in rich text. #205
 - (Patternlab) DP-10522: Adding a section to how-to's for return visitors #294
 - (React) DP-10690: Added monospace font Source Code Pro into Mayflower React for dataviz and datatables. #246
+- (React) DP-10678: Adds passable aria-label prop to tabs molecule to address a11y issue. #299
 
 ### Fixed
 - (Patternlab) Updated header alert CSS to fix underline issues with multi-line sentences. #281
