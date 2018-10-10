@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import './style.css';
 
 class InputText extends React.Component {
   constructor(props) {
