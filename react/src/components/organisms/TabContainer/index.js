@@ -20,7 +20,7 @@ class TabContainer extends React.Component {
       activeTab: null,
       activeContent: null,
       // eslint-disable-next-line react/no-unused-state
-      setActiveTab: this.setActiveTab,
+      setActiveTab: this.setActiveTab
     };
   }
 
@@ -57,7 +57,9 @@ TabContainer.defaultProps = {
 };
 
 TabContainer.propTypes = {
+  // When true, the styles of the container changes to drop borders around each tab.
   nested: PropTypes.bool,
+  // The numerical index of which tab should default to be open, starting at 0.
   defaultTab: PropTypes.number
 };
 
