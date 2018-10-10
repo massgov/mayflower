@@ -14,13 +14,13 @@ storiesOf('organisms', module)
       label: text('nextArrow.label', 'Next'),
       title: text('nextArrow.title', 'See the next Site'),
       ArrowButton: <ArrowButton direction="right" />,
-      Link: <Link href='#' info="welclome" text='next site' />
+      Link: <Link href='#' info="welclome" text='next site' icon='' />
     }
     const prevProps = {
       label: text('prevArrow.label', 'Previous'),
       title: text('prevArrow.title', 'See the previous site'),
       ArrowButton: <ArrowButton />,
-      Link: <Link href='#' info="goodbye" text='previous site' />
+      Link: <Link href='#' info="goodbye" text='previous site' icon='' />
     }
     const props = {
       NextLink: <ArrowNav {...nextProps} />,
