@@ -21,23 +21,13 @@ class TabContainer extends React.Component {
       activeContent: null,
       // eslint-disable-next-line react/no-unused-state
       setActiveTab: this.setActiveTab,
-      nested: this.props.nested
     };
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    if (props.nested !== state.nested) {
-      return{
-        nested: props.nested
-      };
-    }
-    return null;
   }
 
   render() {
     const classes = classNames({
       'ma__tab-container': true,
-      'ma__tab-container--nested': (this.state.nested === true)
+      'ma__tab-container--nested': (this.props.nested === true)
     });
     // eslint-disable-next-line react/prop-types
     const { children, defaultTab } = this.props;
@@ -52,7 +42,7 @@ class TabContainer extends React.Component {
       <TabContext.Provider value={this.state}>
         <div className={classes}>
           <div className="ma__tab-container-head">{this.childrenWithProps}
-            {this.state.nested === false && <div className="ma__tab-title ma__tab-title--remaining" />}
+            {this.props.nested === false && <div className="ma__tab-title ma__tab-title--remaining" />}
           </div>
           {this.state.activeTab && <div className="ma__tab-container-body">{this.state.activeContent}</div>}
         </div>
