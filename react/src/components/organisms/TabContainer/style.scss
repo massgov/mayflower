@@ -16,6 +16,7 @@
       cursor: pointer;
       padding: 1.5rem 1.5rem 0.8rem 1.5rem;
       font-size: 1.25rem;
+      border-top: 5px solid transparent;
     }
     .ma__tab-title:focus, .ma__tab-title--active:focus {
       outline: none !important;
@@ -60,6 +61,7 @@
     @extend %ma__tab-container;
     .ma__tab-container-head {
       height: 70px;
+      border-top: 5px solid transparent;
       border-bottom: 1px solid $c-gray-light;
       flex-wrap: nowrap;
       overflow-x: auto;
