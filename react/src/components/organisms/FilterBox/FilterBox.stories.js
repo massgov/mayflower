@@ -68,6 +68,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
           type: select('filterBox.submitButton.type', buttonOptions.type, 'submit'),
           size: select('filterBox.submitButton.size', buttonOptions.size),
           theme: select('filterBox.submitButton.theme', buttonOptions.theme, ''),
+          usage: select('filterBox.submitButton.usage', buttonOptions.usage, ''),
           outline: boolean('filterBox.submitButton.outline', false),
           onClick: action('FilterBox submitButton.onClick')
         },
