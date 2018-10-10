@@ -20,6 +20,7 @@ const Tabs = (tabs) => {
         <div className="ma__tabs">
           {
             tabs.tabs.map((tab) => {
+              console.log(tab.ariaLabel)
               const isSelected = tabs.selectedTab === tab.value ? 'is-selected' : '';
               return(
                 <button
@@ -27,7 +28,7 @@ const Tabs = (tabs) => {
                   className={`ma__tabs-item ${isSelected}`}
                   name={tab.value}
                   onClick={(e) => handleAllClick(e)}
-                  aria-label={tab.ariaLabel ? tab.value : tab.ariaLabel}
+                  aria-label={tab.ariaLabel ? tab.ariaLabel : tab.value}
                 >
                   {tab.label}
                 </button>
