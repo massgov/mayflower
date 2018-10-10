@@ -93,7 +93,7 @@ FilterBox.defaultProps = {
     text: 'Submit',
     type: 'submit',
     size: '',
-    theme: 'c-primary',
+    theme: '',
     usage: ''
   },
   action: '#'

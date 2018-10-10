@@ -3,7 +3,7 @@
  */
 export default {
   theme: {
-    'c-primary': 'no theme i.e. primary (default)',
+    '': 'no theme i.e. primary (default)',
     'c-primary-alt': 'c-primary-alt',
     'c-highlight': 'c-highlight',
     'c-gray-dark': 'c-gray-dark'
