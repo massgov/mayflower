@@ -1,0 +1,21 @@
+{
+  "richText": {
+    "rteElements": [
+      {
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph": {
+            "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+          }
+        }
+      }
+    ]
+  },
+  "link": {
+    "href": "#",
+    "text": "Check your status",
+    "context": "",
+    "button": false,
+    "info": ""
+  }
+}

@@ -31,7 +31,11 @@ class HeaderSearch extends React.Component {
     const shouldShowTypeAhead = (orgDropdown && orgDropdown.dropdownButton && orgDropdown.inputText);
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
-        {shouldShowTypeAhead && <TypeAheadDropdown {...orgDropdown} /> }
+        {shouldShowTypeAhead && 
+          <div className="ma__header-search__pre-filter">
+            <TypeAheadDropdown {...orgDropdown} />
+          </div>
+        }
         <section className="ma__header-search">
           <form action="#" className="ma__form" onSubmit={headerSearch.onSubmit}>
             <label
@@ -47,7 +51,10 @@ class HeaderSearch extends React.Component {
               type="search"
               value={this.state.value}
             />
-            {this.props.postInputFilter}
+            {this.props.suggestions && this.props.suggestions}
+            <div className="ma__header-search__post-filter">
+              {this.props.postInputFilter}
+            </div>
             <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
         </section>
@@ -71,6 +78,8 @@ HeaderSearch.propTypes = {
   onChange: PropTypes.func,
   /** Default input text value */
   defaultText: PropTypes.string,
+  /** Render suggestions as passable element */
+  suggestions: PropTypes.element,
   /** @molecules/TypeAheadDropdown */
   orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
   /** postInputFilter passable component */

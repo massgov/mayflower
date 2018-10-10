@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (Patternlab) DP-10570: Updates watch files for JavaScript

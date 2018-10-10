@@ -13,7 +13,7 @@
 
     &--responsive {
       @media ($bp-medium-max) {
-        > div:first-child, input + section {
+        .ma__header-search__pre-filter, .ma__header-search__post-filter {
           display: none;
         }
       }

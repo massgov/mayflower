@@ -13,6 +13,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.4.0 (10/05/2018)
+
+### Added
+- (Patternlab) DP-10025: Update sticky TOC selector to target new curated list structure. #242
+- (React) DP-10441: Adds a slim header organism for targeted applications to mayflower react. #286
+- (React) DP-10440: Adds FooterSlim organism. #285
+- (React) Adds passable suggetions prop to HeaderSearch component. #288
+
+### Fixed
+- (React) Fixed AccordionWrapper child PropType. #275
+- (Patternlab) DP-10570: Updates watch files for JavaScript. #284
+
+### Changed
+- (Patternlab) DP-10013: Offered by relationship indicator row changes Medium priority. #231
+- (Patternlab) DP-10274: New feedback button obscures navigation elements on mobile. #237
+
+
 ## 8.3.0 (9/28/2018)
 
 ### Added
