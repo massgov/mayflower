@@ -1,21 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const CompHeading = (props) => {
   const compHeading = props;
   const Element = `h${compHeading.sub ? 3 : compHeading.level}`;
 
-  let classes = ['ma__comp-heading'];
-  if (compHeading.color) {
-    classes.push(`ma__comp-heading--${compHeading.color}`);
-  }
-  if (compHeading.centered) {
-    classes.push('ma__comp-heading--centered');
-  }
-  if (compHeading.sidebar) {
-    classes.push('ma__comp-heading--sidebar');
-  }
-  classes = classes.join(' ');
+  const classes = classNames({
+    'ma__comp-heading': true,
+    [`ma__comp-heading--${compHeading.color}`]: compHeading.color,
+    'ma__comp-heading--centered': compHeading.centered,
+    'ma__comp-heading--sidebar': compHeading.sidebar
+  });
 
   return(
     <Element className={classes} tabIndex="-1" id={compHeading.id || null}>

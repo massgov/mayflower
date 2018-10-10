@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const ColoredHeading = (coloredHeading) => {
   const Element = `h${coloredHeading.level}`;
-
-  let classes = ['ma__colored-heading'];
-  if (coloredHeading.color) {
-    classes.push(`ma__colored-heading--${coloredHeading.color}`);
-  }
-  classes = classes.join(' ');
+  const classes = classNames({
+    'ma__colored-heading': true,
+    [`ma__colored-heading--${coloredHeading.color}`]: coloredHeading.color
+  });
 
   return(
     <Element className={classes} tabIndex="-1">
