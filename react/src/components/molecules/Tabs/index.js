@@ -27,7 +27,7 @@ const Tabs = (tabs) => {
                       className={`ma__tabs-item ${isSelected}`}
                       name={tab.value}
                       onClick={(e) => handleAllClick(e)}
-                      aria-label={tab.value}
+                      aria-label={tab.ariaLabel ? tab.value : tab.ariaLabel}
                     >
                       {tab.label}
                     </button>
@@ -45,7 +45,8 @@ Tabs.propTypes = {
   selectedTab: PropTypes.string,
   tabs: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string,
-    label: PropTypes.string
+    label: PropTypes.string,
+    ariaLabel: PropTypes.string
   }))
 };
 
