@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class InputText extends React.Component {
   constructor(props) {
@@ -23,30 +24,29 @@ class InputText extends React.Component {
 
   render() {
     const inputText = this.props;
-    const inputLabelClasses = ['ma__label'];
-    if (inputText.labelText) {
-      inputLabelClasses.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
-      if (inputText.hiddenLabel) {
-        inputLabelClasses.push('ma__label--hidden');
-      }
-    }
-    const inputClasses = ['ma__input'];
-    if (inputText.required) {
-      inputClasses.push('js-is-required');
-    }
+    const inputLabelClasses = classNames({
+      ma__label: true,
+      'ma__label--required': inputText.required,
+      'ma__label--optional': !inputText.required,
+      'ma__label--hidden': inputText.hiddenLabel
+    });
+    const inputClasses = classNames({
+      ma__input: true,
+      'js-is-required': inputText.required
+    });
     return(
       <React.Fragment>
         {inputText.labelText &&
         <label
           htmlFor={inputText.id}
-          className={inputLabelClasses.join(' ')}
+          className={inputLabelClasses}
         >
           {inputText.labelText}
         </label>}
         {inputText.errorMsg &&
         <div className="ma__error-msg">{inputText.errorMsg}</div>}
         <input
-          className={inputClasses.join(' ')}
+          className={inputClasses}
           name={inputText.name}
           id={inputText.id}
           type={inputText.type}
