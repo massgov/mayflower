@@ -70,6 +70,7 @@
       .ma__tab-title {
         @extend %ma__tab-title;
         border: none;
+        border-bottom: 5px solid transparent;
       }
       .ma__tab-title:focus, .ma__tab-title--active:focus {
         outline: none;
