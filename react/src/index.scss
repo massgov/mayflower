@@ -28,6 +28,8 @@ $assets-path: './assets';
 @import "08-print/print";
 
 // Atoms - reusable styles
+@import "01-atoms/glbal/elements";
+@import "01-atoms/forms";
 @import "01-atoms/content-link";
 
 // Molecules - chunks of code that are used in Organisms/Components
