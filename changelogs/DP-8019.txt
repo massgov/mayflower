@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Patch
+- (Patternlab) DP-8019: Update sticky TOC to only target h2 elements.
