@@ -69,7 +69,7 @@ class SearchBanner extends Component {
                 type="button"
                 className={toggleButtonClasses}
                 aria-controls={this.props.filterBox.id}
-                aria-hidden={!this.state.filterBoxExpanded}
+                aria-expanded={this.state.filterBoxExpanded}
               >
                 {filterToggleText}
                 <Icon name="chevron" svgWidth={20} svgHeight={20} />
