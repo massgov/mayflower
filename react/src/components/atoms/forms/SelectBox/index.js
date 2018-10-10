@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './style.css';
 
 class SelectBox extends React.Component {
@@ -34,17 +35,27 @@ class SelectBox extends React.Component {
   }
 
   render() {
-    let classNames = '';
-    if (this.props.className) {
-      classNames = this.props.className;
-    } else {
-      classNames = !this.props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown';
-    }
-    const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
     const { selected } = this.state;
     const { stackLabel } = this.props;
-    const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
-    const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
+    const sectionClasses = classNames({
+      'ma__select-box': true,
+      'js-dropdown': true,
+      'ma__select-box--optional': !this.props.required,
+      [`${this.props.className}`]: this.props.className
+    });
+    const selectClasses = classNames({
+      'ma__select-box__select': true,
+      'js-dropdown-select': true,
+      'js-required': this.props.required
+    });
+    const labelClassNames = classNames({
+      'ma__select-box__label': stackLabel,
+      'ma__label--inline ma__label--small': !stackLabel
+    });
+    const selectBoxClasses = classNames({
+      'ma__select-box__field': true,
+      'ma__select-box__field--inline': !stackLabel
+    });
     const getValueByText = (array = [], text) => {
       const matchedItem = array.find((item) => item.text === text);
       const matchedValue = matchedItem && matchedItem.value;
@@ -53,14 +64,13 @@ class SelectBox extends React.Component {
     const valueInOptions = getValueByText(this.props.options, selected);
     const selectedValue = valueInOptions || this.props.options[0].value;
     return(
-      <section className={classNames}>
+      <section className={sectionClasses}>
         <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
-
-        <div className={`ma__select-box__field ${selectBoxInline}`}>
+        <div className={selectBoxClasses}>
           <select
             name={this.props.id}
             id={this.props.id}
-            className={selectClassNames}
+            className={selectClasses}
             onChange={this.handleOnChange}
             value={selectedValue}
           >
