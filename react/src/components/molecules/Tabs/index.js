@@ -27,7 +27,7 @@ const Tabs = (tabs) => {
                   className={`ma__tabs-item ${isSelected}`}
                   name={tab.value}
                   onClick={(e) => handleAllClick(e)}
-                  aria-label={tab.ariaLabel ? tab.ariaLabel : tab.value}
+                  aria-label={tab.ariaLabel || tab.value}
                 >
                   {tab.label}
                 </button>
