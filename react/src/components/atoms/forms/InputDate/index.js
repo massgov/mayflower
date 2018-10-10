@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Pikaday from 'pikaday';
+import classNames from 'classnames';
 
 class InputDate extends React.Component {
   constructor(props) {
@@ -44,12 +45,16 @@ class InputDate extends React.Component {
   }
 
   render() {
-    const classNames = this.props.required ? 'ma__input-date js-input-date js-is-required' : 'ma__input-date js-input-date ';
+    const dateClasses = classNames({
+      'ma__input-date': true,
+      'js-input-date': true,
+      'js-is-required': this.props.required
+    });
     return(
       <React.Fragment>
         <label htmlFor={this.props.id}>{this.props.labelText}</label>
         <input
-          className={classNames}
+          className={dateClasses}
           name={this.props.name}
           id={this.props.id}
           type="date"
