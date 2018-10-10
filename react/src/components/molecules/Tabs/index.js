@@ -20,7 +20,6 @@ const Tabs = (tabs) => {
         <div className="ma__tabs">
           {
             tabs.tabs.map((tab) => {
-              console.log(tab.ariaLabel)
               const isSelected = tabs.selectedTab === tab.value ? 'is-selected' : '';
               return(
                 <button
