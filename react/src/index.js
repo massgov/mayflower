@@ -45,6 +45,7 @@ export PublishState from './components/atoms/text/PublishState';
 
 // @molecules
 export Link from './components/molecules/Link';
+export ArrowNav from './components/molecules/ArrowNav';
 export IconLink from './components/molecules/IconLink';
 export CalloutLink from './components/molecules/CalloutLink';
 export DateRange from './components/molecules/DateRange';
