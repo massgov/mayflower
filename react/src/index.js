@@ -4,8 +4,6 @@
 */
 
 //@base
-import OperationalHours from "./components/atoms/time/OperationalHours";
-
 export Placeholder from './components/base/Placeholder';
 
 // @atoms
