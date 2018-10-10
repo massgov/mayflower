@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Patch
-- (Patternlab) DP-8725: Applies responsive functionality to tables in rich text.
