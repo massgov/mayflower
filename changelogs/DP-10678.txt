@@ -1,4 +1,4 @@
 ___DESCRIPTION___
 Added
 Minor
-- (React) DP-10678: Adds passable aria-label prop to tabs molecule to address a11y issue.
+- (React) DP-10678: Adds passable aria-label prop to tabs molecule to address a11y issue. #299
