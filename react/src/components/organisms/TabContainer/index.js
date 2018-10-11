@@ -42,7 +42,6 @@ class TabContainer extends React.Component {
       <TabContext.Provider value={this.state}>
         <div className={classes}>
           <div className="ma__tab-container-head">{this.childrenWithProps}
-            {this.props.nested === false && <div className="ma__tab-title ma__tab-title--remaining" />}
           </div>
           {this.state.activeTab && <div className="ma__tab-container-body">{this.state.activeContent}</div>}
         </div>

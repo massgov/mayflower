@@ -1,69 +1,83 @@
 @import "global";
 
-.ma__tab-container, %ma__tab-container {
+.ma__tab-container {
   display: flex;
   flex-direction: column;
+
   .ma__tab-container-head {
     display: inline-flex;
-    height: 60px;
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    .ma__tab-title, %ma__tab-title {
-      border-color: $c-gray-light;
-      outline-color: $c-gray-light;
-      cursor: pointer;
-      padding: 1.5rem 1.5rem 0.8rem 1.5rem;
-      font-size: 1.25rem;
-      border-top: 5px solid transparent;
-      background-color: unset;
-      white-space: nowrap;
-      border-bottom-width: 1px;
-      border-style: solid;
+    margin-bottom: 0;
+
+    &::-webkit-scrollbar {
+      display: none;
     }
-    .ma__tab-title:focus, .ma__tab-title--active:focus {
-      outline: none !important;
-      border-color: $c-gray-light !important;
-      border-top-color: $c-primary !important;
-      outline-color: $c-gray-light !important;
-      border-left-color: $c-gray-light !important;
-      border-bottom: none;
-    }
-    .ma__tab-title--active {
-      @extend %ma__tab-title;
-      color: $c-primary;
-      border-bottom: none;
-      font-weight: 700;
-      border-top: 5px solid $c-primary;
-    }
-    .ma__tab-title ~ .ma__tab-title {
-      border-left: 1px solid $c-gray-light;
-      border-right: none;
-    }
-    .ma__tab-title:first-child {
+  }
+
+  .ma__tab-container-body {
+    padding: 1rem;
+    border: 1px solid $c-gray-light;
+    margin-top: -1px;
+  }
+
+  .ma__tab-title {
+    cursor: pointer;
+    padding: 1.75rem 1.5rem 0.8rem 1.5rem;
+    font-size: 1.25rem;
+    background-color: unset;
+    white-space: nowrap;
+    border-left: 1px solid $c-gray-light;
+    border-top: 1px solid $c-gray-light;
+    border-right: none;
+    margin-bottom: -1px;
+    display: block;
+
+    &:first-child {
       border-right: none;
       border-left-width: 1px;
     }
-    .ma__tab-title--remaining {
-      cursor: initial;
-      border-left: none;
-      border-top: none;
-      border-right: none;
-      border-bottom: 1px solid $c-gray-light;
-      flex-grow: 2;
+
+    &:last-child {
+      border-right: 1px solid $c-gray-light;
     }
+
+    &:focus {
+      outline: none;
+      border-top-color: $c-primary !important;
+      border-left-color: $c-gray-light !important;
+      border-bottom: none;
+    }
+    &:active {
+      outline: none;
+    }
+
+    &--active {
+      border-top: 5px solid $c-primary;
+      padding-top: 1.5rem;
+      font-weight: 700;
+      border-bottom: 1px solid white;
+      color: $c-primary;
+      background-color: white;
+
+      &:focus {
+        outline: none;
+        border-top-color: $c-primary !important;
+        border-left-color: $c-gray-light !important;
+        border-bottom: none;
+      }
+
+      &:active {
+        outline: none;
+      }
+
+    }
+
   }
-  .ma__tab-container-head::-webkit-scrollbar {
-    display: none;
-  }
-  .ma__tab-container-body, %ma__tab-container-body {
-    padding: 1rem;
-    border: 1px solid $c-gray-light;
-    border-top-color: transparent;
-  }
+
   .ma__tab-container--nested {
-    @extend %ma__tab-container;
     .ma__tab-container-head {
       height: 70px;
       border-top: 5px solid transparent;
@@ -72,35 +86,37 @@
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       -ms-overflow-style: -ms-autohiding-scrollbar;
-      .ma__tab-title {
-        @extend %ma__tab-title;
-        border: none;
-        border-bottom: 5px solid transparent;
+
+      &::-webkit-scrollbar {
+        display: none;
       }
-      .ma__tab-title:focus, .ma__tab-title--active:focus {
-        outline: none;
-        border-bottom-width: 5px !important;
-        border-bottom-style: solid !important;
-        border-bottom-color: $c-primary !important;
-      }
-      .ma__tab-title--active {
-        @extend %ma__tab-title;
+    }
+
+    .ma__tab-title {
+      border: none;
+      border-bottom: 5px solid transparent;
+
+      &--active {
         color: $c-primary;
-        border-bottom-width: 5px !important;
-        border-bottom-style: solid !important;
-        border-bottom-color: $c-primary !important;
+        border-bottom: 5px solid $c-primary;
+
+        &:focus {
+          outline: none;
+          border-bottom: 5px solid $c-primary !important;
+        }
       }
-      .ma__tab-title ~ .ma__tab-title {
-        border-left: none;
-        border-right: none;
+
+      &:focus {
+        outline: none;
+        border-bottom: 5px solid $c-primary !important;
       }
+
     }
-    .ma__tab-container-head::-webkit-scrollbar {
-      display: none;
-    }
+
     .ma__tab-container-body {
-      @extend %ma__tab-container-body;
       border: none;
     }
+
   }
+
 }
