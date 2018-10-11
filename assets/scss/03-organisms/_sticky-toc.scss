@@ -26,7 +26,11 @@
     @include ma-heading-colored;
     margin-bottom: 0;
     position: relative;
-      top: -30px;
+    top: -30px;
+
+    .main-content--two .page-content & {
+      margin-bottom: 0;
+    }
 
     &:after {
       display: none;
