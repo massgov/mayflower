@@ -6,6 +6,8 @@ import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
 import SiteLogo from '../../atoms/media/SiteLogo';
 
+import './style.css';
+
 class Header extends Component {
   constructor(props) {
     super(props);
