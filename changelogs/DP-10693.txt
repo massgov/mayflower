@@ -2,3 +2,4 @@ ___DESCRIPTION___
 Adds
 Major
 - (React) DP-10693: Adds ArrowButton atom component.
+- (React) DP-10693: Adds ArrowNav molecule component.
