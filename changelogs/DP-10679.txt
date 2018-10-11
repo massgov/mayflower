@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Fixed
-- (React) Fixed SearchBanner accessibility issues relating to the filterbox expand/close button. #296
