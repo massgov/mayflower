@@ -25,7 +25,7 @@
 
   .ma__tab-title {
     cursor: pointer;
-    padding: 1.75rem 1.5rem 0.8rem 1.5rem;
+    padding: 1.76rem 1.5rem 0.8rem 1.5rem;
     font-size: 1.25rem;
     background-color: unset;
     white-space: nowrap;
@@ -50,9 +50,6 @@
       border-left-color: $c-gray-light !important;
       border-bottom: none;
     }
-    &:active {
-      outline: none;
-    }
 
     &--active {
       border-top: 5px solid $c-primary;
@@ -67,10 +64,6 @@
         border-top-color: $c-primary !important;
         border-left-color: $c-gray-light !important;
         border-bottom: none;
-      }
-
-      &:active {
-        outline: none;
       }
 
     }
