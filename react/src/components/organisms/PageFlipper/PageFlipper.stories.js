@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
+import { action } from '@storybook/addon-actions';
 import { withKnobs, select, object, text, number } from '@storybook/addon-knobs/react';
-import {ArrowNav, DecorativeLink, ArrowButton, Link} from '../../../index';
+import {ArrowNav, DecorativeLink} from '../../../index';
 
 import PageFlipper from './index';
 import PageFlipperReadme from './PageFlipper.md';
@@ -10,36 +11,35 @@ import PageFlipperReadme from './PageFlipper.md';
 storiesOf('organisms', module)
   .addDecorator(withKnobs)
   .add('PageFlipper', withInfo({ PageFlipperReadme })(() => {
+    const decorativeLinkProps = {
+      href: text('Decorative href', ''),
+      info: text('Decorative Info', ''),
+      text: text('Decorative Text', ''),
+      showFileIcon: false
+    }
     const nextProps = {
-      label: text('Next Arrow Label', 'Next'),
-      title: text('Next Arrow Title', 'See the next Site'),
-      ArrowButton: <ArrowButton
-        href='#'
-        info={text('Next Arrow Info', '')}
-        direction="right"
-      />,
-      Link: <Link
-        href='#'
-        info={text('Next Arrow Link info', 'welcome')}
-        text={text('Next Arrow Link text', 'Next Site')}
-        icon=''
-      />
+      href: text('Next Link href', ''),
+      info: text('Next Info', 'This is the next page'),
+      text: text('Next Link Text', 'Next Site'),
+      title: text('Title Text', 'See the Next Site'),
+      onClick: action('Next Clicked'),
+      direction: 'right',
+      label: text('Next Label', 'Next Site'),
     }
     const prevProps = {
-      label: text('Previous Arrow Label', 'Previous'),
-      title: text('Previous Arrow Title', 'See the previous site'),
-      ArrowButton: <ArrowButton
-        href='#'
-        info={text('Previous Arrow Info', '')}
-      />,
-      Link: <Link
-        href='#'
-        info={text('Previous Arrow Link info', "goodbye")}
-        text={text('Previous Arrow Link text', 'Previous Site')}
-        icon=''
-      />
+      href: text('Previous Link href', ''),
+      info: text('Previous Info', 'This is the previous page'),
+      text: text('Previous Link Text', 'Previous Site'),
+      title: text('Previous Title Text', 'See the Previous Site'),
+      onClick: action('Previous Clicked'),
+      direction: 'left',
+      label: text('Previous Label', 'Previous Site'),
     }
     const props = {
+      context: {
+        label: text('Contextual Label', ''),
+        DecorativeLink: <DecorativeLink {...decorativeLinkProps} />
+      },
       NextLink: <ArrowNav {...nextProps} />,
       PreviousLink: <ArrowNav {...prevProps} />
     };

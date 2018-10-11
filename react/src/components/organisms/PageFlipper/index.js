@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const PageFlipper = (props) => {
-  const contextLink = props.context ? (
+  const contextLabel = (props.context.label) ? (<span className="ma__page-flipper__context-label">{props.context.label}</span>) : '';
+  const contextDecorativeLink = (props.context.DecorativeLink.props.text) ? props.context.DecorativeLink : '';
+  console.log('hi', contextLabel, contextDecorativeLink, props.context.DecorativeLink);
+  const contextLink = (contextLabel || contextDecorativeLink) ? (
     <div className="ma__page-flipper__context">
-      <span className="ma__page-flipper__context-label">{props.context.label}</span>
-      {props.context.DecorativeLink}
+      {contextLabel}
+      {contextDecorativeLink}
     </div>
   ) : '';
   const blank = (<div className="ma__page-flipper__blank">&nbsp;</div>);
