@@ -7,13 +7,14 @@ import { withKnobs, text, boolean, object } from '@storybook/addon-knobs/react';
 import MainNav from './index';
 import MainNavDocs from './MainNav.md';
 import MainNavData from './MainNav.knob.options';
+import MainNavDataBudget from './MainNav.knob.budget';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('MainNav', withInfo(`<div>${MainNavDocs}</div>`)(() => {
     const newProps = {
       mainNav: []
     };
-    newProps.mainNav = MainNavData.mainNav.map((nav, navIndex) => {
+    newProps.mainNav = MainNavDataBudget.mainNav.map((nav, navIndex) => {
       let active = false;
       if (typeof nav.active === 'string') {
         active = (nav.active.toLowerCase() === 'true');
