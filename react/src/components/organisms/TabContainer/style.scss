@@ -58,9 +58,9 @@
       border-top: 5px solid $c-primary;
       padding-top: 1.5rem;
       font-weight: 700;
-      border-bottom: 1px solid white;
       color: $c-primary;
       background-color: white;
+      z-index: 1;
 
       &:focus {
         outline: none;
