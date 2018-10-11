@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Paragraph from '../../atoms/text/Paragraph';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 
+import './style.css';
+
 const UtilityPanel = (utilityPanel) => {
   const descriptionClasses = ['ma__utility-panel__description'];
   const links = utilityPanel.links;
