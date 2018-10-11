@@ -15,18 +15,10 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       mainNav: []
     };
     newProps.mainNav = MainNavDataBudget.mainNav.map((nav, navIndex) => {
-      let active = false;
-      if (typeof nav.active === 'string') {
-        active = (nav.active.toLowerCase() === 'true');
-      } else if (typeof nav.active === 'boolean') {
-        active = nav.active;
-      } else {
-        active = false;
-      }
       const storyProps = {
         href: text(`mainNav.href${navIndex}`, nav.href),
         text: text(`mainNav.text${navIndex}`, nav.text),
-        active: boolean(`mainNav.active${navIndex}`, active),
+        active: boolean(`mainNav.active${navIndex}`, nav.active),
         subNav: object(`mainNav.subNav${navIndex}`, nav.subNav)
       };
       return(storyProps);

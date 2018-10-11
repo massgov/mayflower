@@ -2,7 +2,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Living',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -41,7 +41,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Working',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -72,7 +72,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Learning',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -95,7 +95,7 @@ const mainNav = [
   {
     href: '/patterns/05-pages-section-landing/05-pages-section-landing.html',
     text: 'Visiting & Exploring',
-    active: 'true',
+    active: true,
     subNav: [
       {
         href: '#',
@@ -118,7 +118,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Your Government',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',

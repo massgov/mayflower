@@ -2,7 +2,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Budget Home',
-    active: 'true',
+    active: true,
     subNav: [
       {
         href: 'http://budget.digital.mass.gov/bb/h1/fy19h1/msg_19/hdefault.htm',
@@ -21,7 +21,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Appropriation Recommendation',
-    active: '',
+    active: false,
     subNav: [
       {
         href: 'http://budget.digital.mass.gov/bb/h1/fy19h1/brec_19/ga_19/hdefault.htm',
@@ -40,7 +40,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Budgetary Sections',
-    active: '',
+    active: false,
     subNav: [
       {
         href: 'http://budget.digital.mass.gov/bb/h1/fy19h1/brec_19/hpreamble.htm',
@@ -63,7 +63,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Financial Statements',
-    active: '',
+    active: false,
     subNav: [
       {
         href: 'http://budget.digital.mass.gov/bb/h1/fy19h1/prnt_19/bal_19/pfinstate19.htm',
@@ -82,7 +82,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Tax Expenditure Budget',
-    active: '',
+    active: false,
     subNav: [
       {
         href: 'http://budget.digital.mass.gov/bb/h1/fy19h1/tax_19/hdefault.htm',

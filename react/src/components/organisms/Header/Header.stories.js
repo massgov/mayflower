@@ -8,6 +8,7 @@ import { action } from '@storybook/addon-actions';
 import Header from './index';
 import HeaderDocs from './Header.md';
 import MainNavData from '../../molecules/MainNav/MainNav.knob.options';
+import MainNavDataBudget from '../../molecules/MainNav/MainNav.knob.budget';
 import UtilityNavData from '../UtilityNav/UtilityNav.knob.options';
 
 storiesOf('organisms', module).addDecorator(withKnobs)
@@ -15,19 +16,11 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     const mainNavProps = {
       mainNav: []
     };
-    mainNavProps.mainNav = MainNavData.mainNav.map((nav, navIndex) => {
-      let active = false;
-      if (typeof nav.active === 'string') {
-        active = (nav.active.toLowerCase() === 'true');
-      } else if (typeof nav.active === 'boolean') {
-        active = nav.active;
-      } else {
-        active = false;
-      }
+    mainNavProps.mainNav = MainNavDataBudget.mainNav.map((nav, navIndex) => {
       const storyProps = {
         href: text(`mainNav.href${navIndex}`, nav.href),
         text: text(`mainNav.text${navIndex}`, nav.text),
-        active: boolean(`mainNav.active${navIndex}`, active),
+        active: boolean(`mainNav.active${navIndex}`, nav.active),
         subNav: object(`mainNav.subNav${navIndex}`, nav.subNav)
       };
       return(storyProps);
