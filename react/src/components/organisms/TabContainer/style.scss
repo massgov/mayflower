@@ -17,6 +17,10 @@
       padding: 1.5rem 1.5rem 0.8rem 1.5rem;
       font-size: 1.25rem;
       border-top: 5px solid transparent;
+      background-color: unset;
+      white-space: nowrap;
+      border-bottom-width: 1px;
+      border-style: solid;
     }
     .ma__tab-title:focus, .ma__tab-title--active:focus {
       outline: none !important;
@@ -39,6 +43,7 @@
     }
     .ma__tab-title:first-child {
       border-right: none;
+      border-left-width: 1px;
     }
     .ma__tab-title--remaining {
       cursor: initial;
