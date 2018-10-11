@@ -1,4 +1,4 @@
 ___DESCRIPTION___
-Fixed
+Added
 Patch
-- Patternlab/React DP-10674/DP-10684: Add IE bug fix to svg icons in assets, patternlab and react. #PR#
+- Patternlab/React DP-10674/DP-10684: Add IE bug fix to svg icons in assets, patternlab and react. #307#
