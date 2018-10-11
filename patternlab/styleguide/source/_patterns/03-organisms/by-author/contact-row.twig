@@ -2,7 +2,7 @@
   {% set contactHeading = 2 %}
   {% set contactHeading = (contactRow.compHeading.level ? : contactHeading) + 1 %}
 
-   {% if contactRow.compHeading %}
+  {% if contactRow.compHeading %}
     {% set compHeading = contactRow.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
   {% endif %}
@@ -14,41 +14,50 @@
     {% endif %}
   {% endblock %}
 
-  
-
   <div class="ma__contact-row__additional {{ contactRow.hasManyAdditional ? 'has-many': ''}}">
-
-  {% if contactRow.additionalContacts|length > 1 %}
-  {% set half = contactRow.additionalContacts|length/2 %}
-  {% set leftHalf = contactRow.additionalContacts|slice(0,half) %}
-  {% set rightHalf = contactRow.additionalContacts|slice(half) %}
-				
-				
-
-	<div class="ma__contact-row__additional--column">
-		{% for contact in leftHalf %}
-			{% set contactGroup = contact|merge({"level": contactHeading}) %}
-      {% include "@molecules/contact-group.twig" %}
-		
-		{% endfor %}
-	</div>
-	<div class="ma__contact-row__additional--column">
-		{% for contact in rightHalf %}
-      {% set contactGroup = contact|merge({"level": contactHeading}) %}
-      {% include "@molecules/contact-group.twig" %}
   
-		{% endfor %}
-	</div>	
-  {% else %}
+    {% set half = contactRow.additionalContacts|length/2 %} 
 
-    <div class="ma__contact-row__additional--column">
-		{% for contact in contactRow.additionalContacts %}
-			{% set contactGroup = contact|merge({"level": contactHeading}) %}
-      {% include "@molecules/contact-group.twig" %}
-		
-		{% endfor %}
-	</div>
-  {% endif %}
+    {% if contactRow.additionalContacts|length > 1 %}
+
+      {% set leftHalf = contactRow.additionalContacts|slice(0,half) %}
+      {% set rightHalf = contactRow.additionalContacts|slice(half) %}
+
+      <div class="ma__contact-row__additional--column">
+        {% if contactRow.primaryContact %}
+          {% block primaryContactGroup %}
+            {% set contactGroup = contactRow.primaryContact|merge({"level": contactHeading}) %}
+            {% include "@molecules/contact-group.twig" %}
+          {% endblock %}
+        {% endif %}
+
+        {% for contact in leftHalf %}
+          {% set contactGroup = contact|merge({"level": contactHeading}) %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endfor %}
+      </div>
+
+      <div class="ma__contact-row__additional--column">
+        {% for contact in rightHalf %}
+          {% set contactGroup = contact|merge({"level": contactHeading}) %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endfor %}
+      </div>
+
+    {% else %}
+
+      <div class="ma__contact-row__additional--column">
+        {% if contactRow.primaryContact %}
+          {{ block('primaryContactGroup') }}
+        {% endif %}
+
+        {% for contact in contactRow.additionalContacts %}
+          {% set contactGroup = contact|merge({"level": contactHeading}) %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endfor %}
+      </div>
+
+    {% endif %}
 
     {% if contactRow.moreLink %}
       <div class="ma__contact-group ma__contact-group--more-link">
