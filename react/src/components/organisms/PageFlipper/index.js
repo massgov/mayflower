@@ -5,7 +5,6 @@ import './style.css';
 const PageFlipper = (props) => {
   const contextLabel = (props.context.label) ? (<span className="ma__page-flipper__context-label">{props.context.label}</span>) : '';
   const contextDecorativeLink = (props.context.DecorativeLink.props.text) ? props.context.DecorativeLink : '';
-  console.log('hi', contextLabel, contextDecorativeLink, props.context.DecorativeLink);
   const contextLink = (contextLabel || contextDecorativeLink) ? (
     <div className="ma__page-flipper__context">
       {contextLabel}
