@@ -89,10 +89,10 @@ export default (function (window,document,$,undefined) {
       let $button = $(this);
       let $buttonParent = $button.parent('.has-subnav'); 
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
+      let menuHeight = $menuWrapper.outerHeight();
 
       $buttonParent.on('mouseenter mouseleave', function() {
         let windowWidth = $(window).width();
-        let menuHeight = $menuWrapper.outerHeight();
 
         if(windowWidth > mobileBreak) {
           $('.section-toggle').remove();
@@ -104,6 +104,46 @@ export default (function (window,document,$,undefined) {
         };
       });
 
+      $button.on('focus', function() {
+        $thisMenu.attr("tabindex", 500);
+        $thisMenu.find("a[href]").attr("tabindex", 500);
+
+        $('.ma__organization-navigation__item')
+        
+        $button.keyup(function (e){
+
+          $('.item-open').removeClass('item-open');
+          
+          if (e.keyCode == 13 || e.keyCode == 32) {
+            $('.section-toggle').remove();
+
+            $thisMenu.attr("tabindex", -1);
+            $thisMenu.find("a[href]").attr("tabindex", 0);
+            $buttonParent.toggleClass('item-open');
+            $thisMenu.css('top', menuHeight);
+            
+            $buttonParent.add($thisMenu).on('mouseenter mouseleave', function() {
+              return false;
+            });
+           }
+        });
+
+        $thisMenu.find('a').last().keyup(function (e){
+          
+          if (e.keyCode == 9 || e.keyCode == 40) {
+             
+            setTimeout(function(){
+              
+              $thisMenu.attr("tabindex", 500);
+              $thisMenu.find("a[href]").attr("tabindex", 500);
+            }, 500);
+            
+           }
+        });
+      });
+
+      
+  
       $button.on('click', function() {
         let windowWidth = $(window).width();
 
@@ -163,6 +203,10 @@ export default (function (window,document,$,undefined) {
     }
 
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
+
+    $(".internal-link").on('focus', function(e) {
+      $('.item-open').removeClass('item-open');
+    });
   
     $(".internal-link").on('click', function(e) {
       // Close open menus and reset markup.
