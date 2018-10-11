@@ -18,72 +18,38 @@
 
   <div class="ma__contact-row__additional {{ contactRow.hasManyAdditional ? 'has-many': ''}}">
 
-    {# If a primary contact is set, open the first column #}
-    {% if contactRow.primaryContact %}
+  {% if contactRow.additionalContacts|length > 1 %}
+  {% set half = contactRow.additionalContacts|length/2 %}
+  {% set leftHalf = contactRow.additionalContacts|slice(0,half) %}
+  {% set rightHalf = contactRow.additionalContacts|slice(half) %}
+				
+				
 
-      <div class="ma__contact-row__additional--column">
-      {% block primaryContactGroup %}
-        {% set contactGroup = contactRow.primaryContact|merge({"level": contactHeading}) %}
-        {% include "@molecules/contact-group.twig" %}
-      {% endblock %}
+	<div class="ma__contact-row__additional--column">
+		{% for contact in leftHalf %}
+			{% set contactGroup = contact|merge({"level": contactHeading}) %}
+      {% include "@molecules/contact-group.twig" %}
+		
+		{% endfor %}
+	</div>
+	<div class="ma__contact-row__additional--column">
+		{% for contact in rightHalf %}
+      {% set contactGroup = contact|merge({"level": contactHeading}) %}
+      {% include "@molecules/contact-group.twig" %}
+  
+		{% endfor %}
+	</div>	
+  {% else %}
 
-    {% endif %}
-    
-    {% block additionalContacts %}
-    {# If a primary contact is not set, open the first column #}
-    
-    {% if contactRow.primaryContact is empty %} 
-      <div class="ma__contact-row__additional--column">
-      
-      {# If primary contact, start counting at 1 #}
-      {% set counter = 'odd' %}
-      
-      {% else %}
-      {# If no primary contact, start counting at 2 #}
-      {% set counter = 'even' %}
-    
-    {% endif %}
-
-      {% for contact in contactRow.additionalContacts %}
-      {% set oddOrEven = cycle(['odd', 'even'], loop.index0) %}
-
-      {% if oddOrEven == counter %}
-        {% set contactGroup = contact|merge({"level": contactHeading}) %}
-        {% include "@molecules/contact-group.twig" %}
-      {% endif %}
-        
-      {% endfor %}
-    
-    </div>{# close column #}
-
-    {% spaceless %}
     <div class="ma__contact-row__additional--column">
-      
-      {% if contactRow.primaryContact is empty %} 
-      {# If no primary contact, start counting at 2 #}
-      {% set counter = 'even' %}
+		{% for contact in contactRow.additionalContacts %}
+			{% set contactGroup = contact|merge({"level": contactHeading}) %}
+      {% include "@molecules/contact-group.twig" %}
+		
+		{% endfor %}
+	</div>
+  {% endif %}
 
-      {% else %}
-      {# If no primary contact, start counting at 3 #}
-      {% set counter = 'odd' %}
-
-      {% endif %}
-      
-      {% for contact in contactRow.additionalContacts %}
-      
-      {% set oddOrEven = cycle(['odd', 'even'], loop.index0) %}
-      {% if oddOrEven == counter %}
-        {% set contactGroup = contact|merge({"level": contactHeading}) %}
-        {% include "@molecules/contact-group.twig" %}
-      {% endif %}
-        
-      {% endfor %}
-    </div>{# close column #}
-    {% endspaceless %}
-
-    {# end additionalContacts block #}
-    {% endblock %}
-    
     {% if contactRow.moreLink %}
       <div class="ma__contact-group ma__contact-group--more-link">
         {% block moreLink %}
