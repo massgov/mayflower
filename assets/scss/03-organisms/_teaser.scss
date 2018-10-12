@@ -1,12 +1,8 @@
-@import "../00-base/variables";
 @import "../00-base/colors";
 @import "../00-base/breakpoints";
 
-
-$c-theme-gray: #535353;
 $c-gray-dcdcdc: #dcdcdc;
 $c-theme-green: #43956f;
-
 
 .ma__results-list-container{
   .ma__general-teaser {
@@ -97,7 +93,7 @@ $c-theme-green: #43956f;
         margin-bottom: 0;
         span {
           font-size: 1.25rem;
-          color: $c-theme-gray;
+          color: $c-gray-dark;
           font-weight: 550;
         }
         > svg {
@@ -119,8 +115,7 @@ $c-theme-green: #43956f;
   }
 
   &__date + &__org {
-    border-left-style: solid;
-    border-left-width: 1px;
+    border-left: 1px solid;
     margin-left: 0.75em;
     padding-left: 0.75em;
   }
@@ -135,7 +130,7 @@ $c-theme-green: #43956f;
         }
       }
       svg {
-        fill: rgba(20, 85, 143, 0.5);
+        fill: rgba($c-primary, 0.5);
         width: 1em;
         height: 0.6em;
       }
@@ -200,17 +195,14 @@ $c-theme-green: #43956f;
     &--border {
       flex: 1 1 40%;
       flex-grow: 1;
-      border-left-style: solid;
-      border-left-width: 1px;
       padding-left: 0.75em;
-      border-left-color: $c-gray-dcdcdc;
+      border-left: 1px solid $c-gray-light;
     }
 
     @media ($bp-small-min) {
       flex: 1 1 40%;
       flex-grow: 1;
-      border-left-style: none;
-      border-left-width: 0px;
+      border-left: 1px solid $c-gray-light;
       align-content: flex-start;
     }
   }
@@ -235,18 +227,18 @@ $c-theme-green: #43956f;
     vertical-align: middle;
     height: 1.1rem;
     width: 1.1rem;
-    fill: $c-theme-green;
+    fill: $c-primary-alt;
   }
   svg.link-arrow {
     height: 1rem;
     width: 1rem;
-    fill: $c-bay-blue-lighter;
+    fill: $c-primary-lighter;
   }
   .ma__decorative-link {
     svg {
       height: 1rem;
       width: 1rem;
-      fill: $c-bay-blue-lighter;
+      fill: $c-primary-lighter;
     }
   }
   .ma__general-teaser__primary {
@@ -257,7 +249,7 @@ $c-theme-green: #43956f;
   }
   .ma-icon{
     &__green {
-      fill: $c-theme-green;
+      fill: $c-primary-alt;
     }
   }
   .ma__website {
@@ -280,9 +272,6 @@ $c-theme-green: #43956f;
       height: 1rem;
       width: 1rem;
       margin-right: 8px;
-    }
-    &__number {
-
     }
   }
 }

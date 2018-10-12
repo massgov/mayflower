@@ -60,6 +60,11 @@ const OperationalHours = (props) => {
 };
 
 OperationalHours.propTypes = {
+  // An object that is keyed by the days of the week. Each day
+  // contains the following:
+  // status: represents an open or closed day of business for the week. If true, the business is open.
+  // start: The time the business opens.
+  // end: The time the business closes.
   hours: PropTypes.shape({
     monday: PropTypes.shape({
       status: PropTypes.bool,
@@ -91,6 +96,7 @@ OperationalHours.propTypes = {
       end: PropTypes.instanceOf(Date)
     })
   }).isRequired,
+  // A unique string used for generating the display of days for week.
   listKey: PropTypes.string.isRequired
 };
 
