@@ -38,10 +38,10 @@ storiesOf('organisms', module)
     const props = {
       context: {
         label: text('Contextual Label', ''),
-        DecorativeLink: <DecorativeLink {...decorativeLinkProps} />
+        contextDecorativeLink: <DecorativeLink {...decorativeLinkProps} />
       },
-      NextLink: <ArrowNav {...nextProps} />,
-      PreviousLink: <ArrowNav {...prevProps} />
+      nextLink: <ArrowNav {...nextProps} />,
+      previousLink: <ArrowNav {...prevProps} />
     };
     return(<PageFlipper {...props} />);
   }));
