@@ -2,6 +2,7 @@
   min-height: 45px;
   padding-left: 40px;
   position: relative;
+  cursor: pointer;
 
   @media ($bp-small-max) {
     display: flex;
@@ -62,7 +63,7 @@
       }
     }
   }
-  
+
   &__link {
     @media ($bp-small-max) {
       @include ma-visually-hidden;

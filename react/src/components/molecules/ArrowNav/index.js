@@ -6,10 +6,11 @@ import './style.css';
 
 const ArrowNav = (props) => {
   const sectionClasses = classNames({
+    'js-clickable-link': true,
     'ma__arrow-nav': true,
     [`ma__arrow-nav--${props.direction}`] : props.direction
   });
-  const Element = props.href ? 'a' : 'button';
+  const Element = props.href ? 'a' : 'section';
   const onClickCallback = (e) => {
     if (typeof props.onClick === 'function') {
       e.preventDefault();
@@ -17,22 +18,22 @@ const ArrowNav = (props) => {
     }
   };
   return (
-    <section className={sectionClasses}>
-      <ArrowButton {...props} />
+    <Element
+      className={sectionClasses}
+      onClick={(e) => onClickCallback(e)}
+      href={props.href}
+      title={props.info}
+    >
+      <ArrowButton direction={props.direction} />
       <h2 className="ma__arrow-nav__title" data-label={ props.label }>
         <span>{props.title}</span>
       </h2>
       <div className="ma__arrow-nav__link">
-        <a
-          href={props.href}
-          onClick={(e) => onClickCallback(e)}
-          className="js-clickable-link"
-          title={props.info}
-        >
+        <a>
           {props.text}
         </a>
       </div>
-    </section>
+    </Element>
   )
 }
 
