@@ -26,6 +26,7 @@ const getAccordionItem = (name = 'laptop', index) => {
     border: boolean(`TableofContents.Children.${index}.AccordionItem.border`, false),
     secondary: boolean(`TableofContents.Children.${index}.AccordionItem.secondary`, false),
     emphasize: boolean(`TableofContents.Children.${index}.AccordionItem.emphasize`, true),
+    // eslint-disable-next-line radix
     headerLevel: parseInt(select(`TableofContents.Children.${index}.AccordionItem.headerLevel`, {
       1: '1',
       2: '2',
@@ -49,6 +50,7 @@ const getLink = (sampleText = 'Sample Link') => {
 const getColoredHeading = () => {
   const props = {
     text: text('TableofContents.ColoredHeading.text', 'Table of Contents'),
+    // eslint-disable-next-line radix
     level: parseInt(select('TableofContents.ColoredHeading.level', {
       1: '1',
       2: '2',
@@ -77,6 +79,7 @@ const getSidebarHeading = () => {
   };
   const props = {
     title: text('TableofContents.SidebarHeading.title', 'Key Agencies'),
+    // eslint-disable-next-line radix
     level: parseInt(select('TableofContents.SidebarHeading.level', levelOptions, '2'))
   };
   return<SidebarHeading {...props} />;
