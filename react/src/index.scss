@@ -32,7 +32,6 @@ $assets-path: './assets';
 @import "01-atoms/global/elements";
 @import "01-atoms/forms";
 @import "01-atoms/content-link";
-
 // Molecules - chunks of code that are used in Organisms/Components
 @import "02-molecules/action-event";
 @import "02-molecules/action-gallery";
