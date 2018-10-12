@@ -27,11 +27,11 @@ class TabContainer extends React.Component {
   render() {
     const classes = classNames({
       'ma__tab-container': true,
-      'ma__tab-container--nested': (this.props.nested === true)
+      'ma__tab-container--nested': this.props.nested
     });
     // eslint-disable-next-line react/prop-types
     const { children, defaultTab } = this.props;
-    const active = !defaultTab ? 0 : defaultTab;
+    const active = defaultTab;
     this.childrenWithProps = React.Children.map(children, (child, index) => {
       if (index === active) {
         return React.cloneElement(child, { default: true });
