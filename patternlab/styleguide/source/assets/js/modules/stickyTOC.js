@@ -3,7 +3,7 @@ export default (function (window,document,$,undefined) {
   $('.pre-content .ma__sticky-toc').each(function() {
     const $toc = $('.ma__sticky-toc'),
           $tocContent = $('.ma__sticky-toc__links'),
-          $tocSections = $('.page-content, .ma__stacked-row-section__container .ma__stacked-row-section__title, .ma__stacked-row .ma__stacked-row__title').find('h2:visible, .ma__comp-heading:visible'),
+          $tocSections = $('.page-content, .ma__stacked-row-section__container .ma__stacked-row-section__title, .ma__stacked-row .ma__stacked-row__title').find('h2:visible, h2.ma__comp-heading:visible'),
           lastHeading = $tocSections.last().text(),
           tocSectionCount = $tocSections.length,
           $tocColumn = $('.ma__sticky-toc__column'),

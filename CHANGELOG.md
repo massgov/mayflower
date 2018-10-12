@@ -13,6 +13,42 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.5.0 (10/10/2018)
+
+### Added
+- (Patternlab) DP-8725: Applies responsive functionality to tables in rich text. #205
+- (Patternlab) DP-10522: Adding a section to how-to's for return visitors #294
+- (React) DP-10690: Added monospace font Source Code Pro into Mayflower React for dataviz and datatables. #246
+- (React) DP-10678: Adds passable aria-label prop to tabs molecule to address a11y issue. #299
+
+### Fixed
+- (Patternlab) Updated header alert CSS to fix underline issues with multi-line sentences. #281
+- (Patternlab) DP-8019: Update sticky TOC to only target h2 elements. #302
+- (React) Fixed filterbox control section spacing, added filter desktop hidden option and fixed button theme c-primary proptype . #295
+- (React) Fixed SearchBanner accessibility issues relating to the filterbox expand/close button. #296
+
+
+### Changed
+- (React) DP-10244: Changes atoms to have styles in the component. #287
+
+
+## 8.4.0 (10/05/2018)
+
+### Added
+- (Patternlab) DP-10025: Update sticky TOC selector to target new curated list structure. #242
+- (React) DP-10441: Adds a slim header organism for targeted applications to mayflower react. #286
+- (React) DP-10440: Adds FooterSlim organism. #285
+- (React) Adds passable suggetions prop to HeaderSearch component. #288
+
+### Fixed
+- (React) Fixed AccordionWrapper child PropType. #275
+- (Patternlab) DP-10570: Updates watch files for JavaScript. #284
+
+### Changed
+- (Patternlab) DP-10013: Offered by relationship indicator row changes Medium priority. #231
+- (Patternlab) DP-10274: New feedback button obscures navigation elements on mobile. #237
+
+
 ## 8.3.0 (9/28/2018)
 
 ### Added

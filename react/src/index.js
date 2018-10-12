@@ -70,6 +70,7 @@ export AccordionItem from './components/molecules/AccordionItem';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Teaser from './components/organisms/Teaser';
 export Footer from './components/organisms/Footer';
+export FooterSlim from './components/organisms/FooterSlim';
 export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';
 export UtilityPanel from './components/organisms/UtilityPanel';
@@ -94,3 +95,6 @@ export Error500 from './components/pages/Error500';
 
 //@animations
 export Collapse from './components/animations/Collapse';
+
+//@dataviz
+export DataTable from './components/dataviz/DataTable';

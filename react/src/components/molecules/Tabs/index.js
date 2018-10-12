@@ -19,21 +19,21 @@ const Tabs = (tabs) => {
       <div className="main-content--two">
         <div className="ma__tabs">
           {
-                tabs.tabs.map((tab) => {
-                  const isSelected = tabs.selectedTab === tab.value ? 'is-selected' : '';
-                  return(
-                    <button
-                      key={`tab_${tab.value}`}
-                      className={`ma__tabs-item ${isSelected}`}
-                      name={tab.value}
-                      onClick={(e) => handleAllClick(e)}
-                      aria-label={tab.value}
-                    >
-                      {tab.label}
-                    </button>
-                    );
-                  })
-              }
+            tabs.tabs.map((tab) => {
+              const isSelected = tabs.selectedTab === tab.value ? 'is-selected' : '';
+              return(
+                <button
+                  key={`tab_${tab.value}`}
+                  className={`ma__tabs-item ${isSelected}`}
+                  name={tab.value}
+                  onClick={(e) => handleAllClick(e)}
+                  aria-label={tab.ariaLabel || tab.value}
+                >
+                  {tab.label}
+                </button>
+                );
+              })
+            }
         </div>
       </div>
     </div>
@@ -45,7 +45,8 @@ Tabs.propTypes = {
   selectedTab: PropTypes.string,
   tabs: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string,
-    label: PropTypes.string
+    label: PropTypes.string,
+    ariaLabel: PropTypes.string
   }))
 };
 

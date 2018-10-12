@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Minor
-- (React) Fixed AccordionWrapper child PropType
