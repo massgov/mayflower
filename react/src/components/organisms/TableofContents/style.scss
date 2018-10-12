@@ -1,2 +1,7 @@
 @import 'global';
 @import "03-organisms/table-of-contents-hierarchy";
+
+
+.ma__accordion-content__body a {
+  transition: none;
+}
