@@ -7,6 +7,7 @@
 
 // Tweaks to render correctly for component library.
 .ma__toc--hierarchy {
+  font-size: 1.375rem;
   .ma__accordion-header__button--solid.is-open {
     margin-bottom: unset;
   }
@@ -22,7 +23,10 @@
   .ma__accordion-content__body.collapsed {
     padding: unset;
   }
-
+  .ma__accordion-header__button {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .ma__toc--hierarchy__title {
     color: $c-primary;
   }

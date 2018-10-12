@@ -17,13 +17,11 @@ const getDecorativeLink = (index) => {
   return<DecorativeLink {...props} />;
 };
 
-const getIcon = (iconProps) => <Icon {...iconProps} />;
-
 const getAccordionItem = (name = 'laptop', index) => {
   const props = {
     title: 'Collapsible Header Two',
     info: 'Collapsible Header Two',
-    icon: getIcon({ name }),
+    icon: null,
     border: boolean(`TableofContents.Children.${index}.AccordionItem.border`, false),
     secondary: boolean(`TableofContents.Children.${index}.AccordionItem.secondary`, false),
     emphasize: boolean(`TableofContents.Children.${index}.AccordionItem.emphasize`, true),
