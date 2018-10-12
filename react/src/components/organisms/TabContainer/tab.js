@@ -11,6 +11,10 @@ class Tab extends React.Component {
     this.defaultSet = false;
   }
 
+  scrollIntoView = (target) => {
+    target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+  }
+
   render() {
     return(
       <TabContext.Consumer>
@@ -27,7 +31,15 @@ class Tab extends React.Component {
             this.defaultSet = true;
           }
           return(
-            <button className={tabClasses} onClick={() => setActiveTab(this.tabIdent, this.props.children)}>{this.props.title}</button>
+            <button
+              className={tabClasses}
+              onClick={(e) => {
+                this.scrollIntoView(e.target);
+                setActiveTab(this.tabIdent, this.props.children)
+              }}
+            >
+            {this.props.title}
+            </button>
           );
         }}
       </TabContext.Consumer>
