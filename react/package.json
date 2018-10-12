@@ -44,6 +44,7 @@
     "prop-types": "^15.6.0",
     "react-autosuggest": "^9.3.4",
     "react-select": "^1.2.1",
+    "react-table": "^6.8.6",
     "react-transition-group": "^2.4.0",
     "shortid": "^2.2.8",
     "svg-sprite-loader": "^3.8.0"
