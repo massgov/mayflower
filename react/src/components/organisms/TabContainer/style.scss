@@ -17,6 +17,33 @@
     }
   }
 
+  .ma__tab-scroll {
+    fill: $c-primary;
+    background-color: unset;
+    cursor: pointer;
+    padding: 1.75rem 0.5rem 0.8rem 0.5rem;
+    font-size: 1.25rem;
+    white-space: nowrap;
+    border-top: 1px solid $c-gray-light;
+    margin-bottom: -1px;
+    display: block;
+
+    &--right{
+      svg {
+        transform: rotate(-90deg);
+      }
+      border-right: 1px solid $c-gray-light;
+    }
+
+    &--left {
+      svg {
+        transform: rotate(90deg);
+      }
+      border-left: 1px solid $c-gray-light;
+    }
+
+  }
+
   .ma__tab-container-body {
     padding: 1rem;
     border: 1px solid $c-gray-light;
