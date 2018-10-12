@@ -70,6 +70,9 @@
 
   &__extra {
     display: none;
+    &.expanded {
+      display: block;
+    }
   }
 
   &__expand {

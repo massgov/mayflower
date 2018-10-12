@@ -2,46 +2,74 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
-const ListingTable = (props) => {
+import Collapse from '../../animations/Collapse';
 
+import './style.css';
+
+class ListingTableItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({
+      open: !this.state.open
+    });
+  }
+
+  render() {
+    const row = this.props.row;
+    const visibleItems = row.visibleItems || 2;
+    const inlineAccordion = (row.items.length > visibleItems) ? true : false;
+    const rowClasses = ClassNames({
+      'ma__rich-text': true,
+      'js-accordion': inlineAccordion
+    });
+    const shownItems = row.items.slice(0, visibleItems);
+    const shownItemsContent = shownItems.map((item) => (<span class="ma__listing-table__data-item">{item}</span>));
+    const invisibleItems = (inlineAccordion) ? row.items.slice(visibleItems) : [];
+    const invisibleItemsContent = (invisibleItems.length) ? (
+      <Collapse in={this.state.open} dimension="height">
+        <div className="ma__listing-table__extra">
+          {invisibleItems.map((item) => (<span className="ma__listing-table__data-item">{item}</span>))}
+        </div>
+      </Collapse>
+    ) : '';
+    const invisibleMore = (inlineAccordion) ? (
+      <div className="ma__listing-table__expand">
+        <button
+          type="button"
+          onClick={(e) => this.handleClick(e)}
+          aria-expanded="false"
+        >
+        {(this.state.open) ? (<span>{row.lessLabel || 'Less'}</span>) : (<span>{row.moreLabel || 'More'}</span>)}
+        </button>
+      </div>
+    ) : '';
+    return (
+      <tr>
+        <th scope="row">{ row.label }</th>
+        <td className={rowClasses}>
+          {shownItemsContent}
+          {invisibleItemsContent}
+          {invisibleMore}
+        </td>
+      </tr>
+    )
+  }
+}
+
+const ListingTable = (props) => {
+  const rows = props.rows;
   return (
     <div class="ma__listing-table">
       <div class="ma__listing-table__container">
         <table>
-          {props.rows.map((row) => {
-            const visibleItems = row.visibleItems || 2;
-            const inlineAccordion = (row.items.length > visibleItems) ? true : false;
-            const rowClasses = ClassNames({
-              'ma__rich-text': true,
-              'js-accordion': inlineAccordion
-            });
-            const shownItems = row.items.slice(0, visibleItems);
-            const shownItemsContent = shownItems.map((item) => (<span class="ma__listing-table__data-item">{item}</span>));
-            const invisibleItems = (inlineAccordion) ? row.items.slice(visibleItems) : [];
-            const invisibleItemsContent = (invisibleItems.length) ? (
-              <div class="ma__listing-table__extra js-accordion-content">
-                {invisibleItems.map((item) => (<span class="ma__listing-table__data-item">{item}</span>))}
-              </div>
-            ) : '';
-            const invisibleMore = (inlineAccordion) ? (
-              <div className="ma__listing-table__expand">
-                <button type="button" className="js-accordion-link" aria-expanded="false">
-                  <span>{row.moreLabel || 'More'}</span>
-                  <span>{row.lessLabel || 'Less'}</span>
-                </button>
-              </div>
-            ) : '';
-            return (
-              <tr>
-                <th scope="row">{ row.label }</th>
-                <td className={rowClasses}>
-                  {shownItemsContent}
-                  {invisibleItemsContent}
-                  {invisibleMore}
-                </td>
-              </tr>
-            )
-          })}
+          {rows.map((row) => (<ListingTableItem row={row} />))}
         </table>
       </div>
     </div>
