@@ -1,2 +1,26 @@
 @import 'global';
+@import '00-base/mixins';
 @import "03-organisms/table-of-contents-hierarchy";
+@import '03-organisms/accordion-wrapper';
+@import '02-molecules/accordion-item';
+
+
+// Tweaks to render correctly for component library.
+.ma__toc--hierarchy {
+  .ma__accordion-header__button--solid.is-open {
+    margin-bottom: unset;
+  }
+  .ma__accordion-content__body  {
+    background: $c-white;
+    list-style: none;
+    margin-bottom: unset;
+    padding: 10px 0 10px 20px;
+  }
+  .ma__accordion-content__body.collapsed {
+    padding: unset;
+  }
+
+  .ma__toc--hierarchy__title {
+    color: $c-primary;
+  }
+}
