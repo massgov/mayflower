@@ -13,31 +13,41 @@ storiesOf('molecules', module)
     const props = {
       rows: object('Data Rows', [
         {
-          label: 'Label 1',
+          label: 'Show 2 items',
           items: [
             'First item',
             'Second item'
           ]
         },
         {
-          label: 'Label 2 (4 items)',
-          moreLabel: 'moar',
-          lessLabel: 'less',
+          label: 'Four items, but only show 2 (default)',
+          moreLabel: 'show more',
+          lessLabel: 'show less',
           items: [
             'Item 1',
             'Item 2',
             'Item 3 (expand)',
-            'Item 4 (expanded)'
+            'Item 4 (expand)'
           ]
         },
         {
-          label: 'Show 4 items',
+          label: 'Four items, show 3, default lables',
+          visibleItems: 3,
+          items: [
+            'Item 1',
+            'Item 2',
+            'Item 3 (expand)',
+            'Item 4 (expand)'
+          ]
+        },
+        {
+          label: 'Show all 4 items',
           visibleItems: 4,
           items: [
             'Item 1',
             'Item 2',
-            'Item 3 (expand)',
-            'Item 4 (expanded)'
+            'Item 3',
+            'Item 4'
           ]
         }
       ]),
