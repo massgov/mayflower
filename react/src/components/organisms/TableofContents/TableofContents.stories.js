@@ -4,6 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/react';
 
 import TableofContents from '.';
+import markdown from './TableofContents.md';
 import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link, Icon } from '../../../index';
 
 const getDecorativeLink = (index) => {
@@ -88,7 +89,7 @@ const getSidebarHeading = () => {
 storiesOf('organisms', module).addDecorator(withKnobs)
   .add(
     'TableofContents: ColoredHeading',
-    withInfo()(() => {
+    withInfo(`<div>${markdown}</div>`)(() => {
       const props = {
         heading: getColoredHeading()
       };
@@ -104,7 +105,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
   )
   .add(
     'TableofContents: SidebarHeading',
-    withInfo()(() => {
+    withInfo(`<div>${markdown}</div>`)(() => {
       const props = {
         heading: getSidebarHeading()
       };
