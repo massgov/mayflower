@@ -16,6 +16,9 @@
     margin-bottom: unset;
     padding: 10px 0 10px 20px;
   }
+  .ma__accordion-content__body a {
+    transition: none;
+  }
   .ma__accordion-content__body.collapsed {
     padding: unset;
   }
