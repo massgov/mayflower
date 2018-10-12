@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/react';
 
 import TableofContents from '.';
-import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, AccordionWrapper, Link, Icon } from '../../../index';
+import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link, Icon } from '../../../index';
 
 const getDecorativeLink = (index) => {
   const props = {
@@ -16,32 +16,24 @@ const getDecorativeLink = (index) => {
   return<DecorativeLink {...props} />;
 };
 
-const getAccordionWrapper = (index) => {
+const getIcon = (iconProps) => <Icon {...iconProps} />;
+
+const getAccordionItem = (name = 'laptop', index) => {
   const props = {
-    border: boolean(`TableofContents.Children.${index}.AccordionWrapper.border`, false),
-    secondary: boolean(`TableofContents.Children.${index}.AccordionWrapper.secondary`, false),
-    emphasize: boolean(`TableofContents.Children.${index}.AccordionWrapper.emphasize`, true),
-    headerLevel: select(`TableofContents.Children.${index}.AccordionWrapper.headerLevel`, {
+    title: 'Collapsible Header Two',
+    info: 'Collapsible Header Two',
+    icon: getIcon({ name }),
+    border: boolean(`TableofContents.Children.${index}.AccordionItem.border`, false),
+    secondary: boolean(`TableofContents.Children.${index}.AccordionItem.secondary`, false),
+    emphasize: boolean(`TableofContents.Children.${index}.AccordionItem.emphasize`, true),
+    headerLevel: parseInt(select(`TableofContents.Children.${index}.AccordionItem.headerLevel`, {
       1: '1',
       2: '2',
       3: '3',
       4: '4',
       5: '5',
       6: '6'
-    }, 2)
-  };
-  return(
-    <AccordionWrapper {...props}>
-      {getAccordionItem('phone')}
-    </AccordionWrapper>);
-};
-const getIcon = (iconProps) => <Icon {...iconProps} />;
-
-const getAccordionItem = (name = 'laptop') => {
-  const props = {
-    title: 'Collapsible Header Two',
-    info: 'Collapsible Header Two',
-    icon: getIcon({ name })
+    }, '2'))
   };
   return<AccordionItem {...props}>{getLink()}</AccordionItem>;
 };
@@ -57,14 +49,14 @@ const getLink = (sampleText = 'Sample Link') => {
 const getColoredHeading = () => {
   const props = {
     text: text('TableofContents.ColoredHeading.text', 'Table of Contents'),
-    level: select('TableofContents.ColoredHeading.level', {
+    level: parseInt(select('TableofContents.ColoredHeading.level', {
       1: '1',
       2: '2',
       3: '3',
       4: '4',
       5: '5',
       6: '6'
-    }, 2),
+    }, '2')),
     color: select('TableofContents.ColoredHeading.color', {
       '': 'Grey (default)',
       green: 'Green',
@@ -76,16 +68,16 @@ const getColoredHeading = () => {
 
 const getSidebarHeading = () => {
   const levelOptions = {
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6
+    1: '1',
+    2: '2',
+    3: '3',
+    4: '4',
+    5: '5',
+    6: '6'
   };
   const props = {
     title: text('TableofContents.SidebarHeading.title', 'Key Agencies'),
-    level: select('TableofContents.SidebarHeading.level', levelOptions, 2)
+    level: parseInt(select('TableofContents.SidebarHeading.level', levelOptions, '2'))
   };
   return<SidebarHeading {...props} />;
 };
@@ -100,8 +92,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       return(
         <TableofContents {...props}>
           {getDecorativeLink(0)}
-          {getAccordionWrapper(0)}
-          {getDecorativeLink(1)}
+          {getAccordionItem('phone', 1)}
+          {getAccordionItem('phone', 2)}
+          {getDecorativeLink(3)}
         </TableofContents>
       );
     })
@@ -115,8 +108,9 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       return(
         <TableofContents {...props}>
           {getDecorativeLink(0)}
-          {getAccordionWrapper(1)}
-          {getDecorativeLink(2)}
+          {getAccordionItem('phone', 1)}
+          {getAccordionItem('phone', 2)}
+          {getDecorativeLink(3)}
         </TableofContents>
       );
     })
