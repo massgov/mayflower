@@ -24,13 +24,13 @@ class ListingTableItem extends React.Component {
   render() {
     const row = this.props.row;
     const visibleItems = row.visibleItems || 2;
-    const inlineAccordion = (row.items.length > visibleItems) ? true : false;
+    const inlineAccordion = (row.items.length > visibleItems);
     const rowClasses = ClassNames({
       'ma__rich-text': true,
       'js-accordion': inlineAccordion
     });
     const shownItems = row.items.slice(0, visibleItems);
-    const shownItemsContent = shownItems.map((item) => (<span class="ma__listing-table__data-item">{item}</span>));
+    const shownItemsContent = shownItems.map((item) => (<span className="ma__listing-table__data-item">{item}</span>));
     const invisibleItems = (inlineAccordion) ? row.items.slice(visibleItems) : [];
     const invisibleItemsContent = (invisibleItems.length) ? (
       <Collapse in={this.state.open} dimension="height">
@@ -46,11 +46,11 @@ class ListingTableItem extends React.Component {
           onClick={(e) => this.handleClick(e)}
           aria-expanded="false"
         >
-        {(this.state.open) ? (<span>{row.lessLabel || 'Less'}</span>) : (<span>{row.moreLabel || 'More'}</span>)}
+          {(this.state.open) ? (<span>{row.lessLabel || 'Less'}</span>) : (<span>{row.moreLabel || 'More'}</span>)}
         </button>
       </div>
     ) : '';
-    return (
+    return(
       <tr>
         <th scope="row">{ row.label }</th>
         <td className={rowClasses}>
@@ -59,22 +59,22 @@ class ListingTableItem extends React.Component {
           {invisibleMore}
         </td>
       </tr>
-    )
+    );
   }
 }
 
 const ListingTable = (props) => {
   const rows = props.rows;
-  return (
-    <div class="ma__listing-table">
-      <div class="ma__listing-table__container">
+  return(
+    <div className="ma__listing-table">
+      <div className="ma__listing-table__container">
         <table>
           {rows.map((row) => (<ListingTableItem row={row} />))}
         </table>
       </div>
     </div>
   );
-}
+};
 
 ListingTable.propTypes = {
   /** Rows of data. Each containing specific parameters */
@@ -90,6 +90,6 @@ ListingTable.propTypes = {
     /** Items in the table. Strings */
     items: PropTypes.arrayOf(PropTypes.string)
   })
-}
+};
 
 export default ListingTable;

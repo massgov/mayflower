@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, object } from '@storybook/addon-knobs/react';
+import { withKnobs, object } from '@storybook/addon-knobs/react';
 
 import ListingTable from './index';
 import ListingTableDocs from './ListingTable.md';
@@ -50,7 +50,7 @@ storiesOf('molecules', module)
             'Item 4'
           ]
         }
-      ]),
-    }
+      ])
+    };
     return(<ListingTable {...props} />);
   }));
