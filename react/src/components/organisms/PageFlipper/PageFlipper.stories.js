@@ -12,9 +12,9 @@ storiesOf('organisms', module)
   .addDecorator(withKnobs)
   .add('PageFlipper', withInfo({ PageFlipperReadme })(() => {
     const decorativeLinkProps = {
-      href: text('Decorative href', ''),
-      info: text('Decorative Info', ''),
-      text: text('Decorative Text', ''),
+      href: text('Decorative href', '#'),
+      info: text('Decorative Info', 'info'),
+      text: text('Decorative Text', 'See the latest stories'),
       showFileIcon: false
     };
     const nextProps = {
