@@ -27,7 +27,7 @@ const OperationalHours = (props) => {
         <tbody>
           {props.hours &&
             Object.entries(props.hours).map(([key, value]) => {
-              const active = key === currentDay ? '--active' : '';
+              const active = (props.showActive && key === currentDay) ? '--active' : '';
               const rowKey = props.listKey
                 ? `${props.listKey}-row-${key}`
                 : null;
@@ -96,8 +96,13 @@ OperationalHours.propTypes = {
       end: PropTypes.instanceOf(Date)
     })
   }).isRequired,
+  showActive: PropTypes.bool,
   // A unique string used for generating the display of days for week.
   listKey: PropTypes.string.isRequired
+};
+
+OperationalHours.defaultProps = {
+  showActive: true
 };
 
 export default OperationalHours;

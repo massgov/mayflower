@@ -2,11 +2,12 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, date } from '@storybook/addon-knobs/react';
+import { withKnobs, date, boolean } from '@storybook/addon-knobs/react';
 import OperationalHours from '.';
 
 storiesOf('atoms/time', module).addDecorator(withKnobs)
   .add('OperationalHours', withInfo('<div></div>')(() => {
+    const showActive = boolean('OperationalHours.showActive', false);
     const startTime = new Date('March 15, 2002 03:00:00');
     const endTime = new Date('March 15, 2002 18:00:00');
     const hours = {
@@ -44,9 +45,10 @@ storiesOf('atoms/time', module).addDecorator(withKnobs)
         status: true,
         start: new Date(date('OperationalHours.hours.sunday.start', startTime)),
         end: new Date(date('OperationalHours.hours.sunday.end', endTime))
-      },
+      }
     };
     const props = {
+      showActive,
       hours,
       listKey: 'OperationalHoursStory'
     };
