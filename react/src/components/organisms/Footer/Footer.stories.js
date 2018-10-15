@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, object } from '@storybook/addon-knobs/react';
+import { withKnobs, object, text } from '@storybook/addon-knobs/react';
 
 import stateSeal from 'SharedAssets/images/stateseal.png';
 
@@ -19,8 +19,13 @@ storiesOf('organisms/Footer', module).addDecorator(withKnobs)
       footerLinks: object('footer.footerLinksData', FooterLinksData),
       socialLinks: object('footer.socialLinksData', SocialLinksData),
       footerLogo: object('footer.footerLogo', {
-        src: stateSeal,
-        altText: 'Massachusetts State Seal'
+        url: {
+          domain: text('footer.footerLogo.url.domain', 'https://www.mass.gov/')
+        },
+        image: {
+          src: text('footer.footerLogo.image.src', stateSeal)
+        },
+        title: text('footer.footerLogo.title', 'Mass.gov homepage')
       }),
       footerText: object('footer.footerText', {
         copyright: '2018 Commonwealth of Massachusetts.',

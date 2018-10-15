@@ -17,7 +17,9 @@ const Footer = ({
       </div>
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
-          <img src={footerLogo.src} alt={footerLogo.altText} width="120" height="120" />
+          <a href={footerLogo.url.domain ? footerLogo.url.domain : '/'} title={footerLogo.title}>
+            <img src={footerLogo.image.src} alt="" width="100" height="100" />
+          </a>
         </div>
         <div className="ma__footer__social">
           <SocialLinks {...socialLinks} />
@@ -47,10 +49,15 @@ Footer.propTypes = {
   backToTopButton: PropTypes.bool,
   /** Adds footer logo */
   footerLogo: PropTypes.shape({
-    /** logo image source url */
-    src: PropTypes.string,
-    /** logo image alt text */
-    altText: PropTypes.string
+    url: PropTypes.shape({
+      /** The URL for the site root */
+      domain: PropTypes.string
+    }),
+    image: PropTypes.shape({
+      /** logo image source url */
+      src: PropTypes.string,
+    }),
+    title: PropTypes.string
   }),
   /** Adds footer info section */
   footerText: PropTypes.shape({
@@ -69,8 +76,13 @@ Footer.propTypes = {
 Footer.defaultProps = {
   backToTopButton: false,
   footerLogo: {
-    src: logo,
-    altText: 'Massachusetts State Seal'
+    url: {
+      domain: '/'
+    },
+    image: {
+      src: logo
+    },
+    title: 'Mass.gov homepage'
   },
   footerText: {
     copyright: `${moment().year()} Commonwealth of Massachusetts.`,
