@@ -11,5 +11,10 @@ export default {
     button: 'button',
     submit: 'submit',
     reset: 'reset'
+  },
+  // currently only button search has usage classes
+  usage: {
+    '': 'primary (default)',
+    secondary: 'secondary'
   }
 };

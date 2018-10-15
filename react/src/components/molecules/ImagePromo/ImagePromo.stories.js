@@ -6,8 +6,7 @@ import { withKnobs, text, number, boolean } from '@storybook/addon-knobs/react';
 
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
-import SvgWheelchair from '../../atoms/icons/SvgWheelchair';
-import SvgOpenNow from '../../atoms/icons/SvgOpenNow';
+import Icon from '../../atoms/icons/Icon';
 
 const getCommonPropsWithKnobs = () => ({
   title: {
@@ -34,14 +33,12 @@ const getCommonPropsWithKnobs = () => ({
   phone: null
 });
 
-storiesOf('molecules', module).addDecorator(withKnobs)
+storiesOf('molecules/ImagePromo', module).addDecorator(withKnobs)
   .add('ImagePromo', withInfo(`<div>${ImagePromoDocs}</div>`)(() => {
     const props = getCommonPropsWithKnobs();
 
     return(<ImagePromo {...props} />);
-  }));
-
-storiesOf('molecules/ImagePromo', module).addDecorator(withKnobs)
+  }))
   .add('ImagePromo as orgInfo', withInfo(`<div>${ImagePromoDocs}</div>`)(() => {
     // Override some props/knobs for "with map link" variation example.
     const commonProps = getCommonPropsWithKnobs();
@@ -75,11 +72,11 @@ storiesOf('molecules/ImagePromo', module).addDecorator(withKnobs)
       tags: [{
         id: 123,
         label: 'handicapped accessible',
-        icon: <SvgWheelchair />
+        icon: <Icon name="wheelchair" />
       }, {
         id: 456,
         label: 'open now',
-        icon: <SvgOpenNow />
+        icon: <Icon name="opennow" />
       }],
       image: {
         ...commonProps.image,

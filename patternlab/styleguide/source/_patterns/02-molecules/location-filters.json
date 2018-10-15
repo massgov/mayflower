@@ -59,6 +59,11 @@
       "checked": "false",
       "icon": "open-now"
     }],
-    "submitButton": "Submit"   
+    "buttons": [{
+      "text": "Submit",
+      "type": "submit",
+      "theme": "",
+      "outline": false
+    }] 
   }
 }

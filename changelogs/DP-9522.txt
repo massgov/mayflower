@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed for changes in existing functionality.
-Patch
-(Patternlab) DP-9522: Updates the Locaton Listing component to updated designs

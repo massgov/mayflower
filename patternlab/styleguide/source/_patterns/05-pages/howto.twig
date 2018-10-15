@@ -5,6 +5,10 @@
   {% include "@organisms/by-template/header.twig" %}
 {% endblock %}
 
+{% block preContent %}
+  {% include "@molecules/relationship-indicators.twig" %}
+  {% include "@organisms/by-template/page-header.twig" %}
+{% endblock %}
 
 {% block pageContent %}
   {% set richText = pageContent.intro %}
@@ -17,10 +21,14 @@
   {% include "@organisms/by-author/steps-ordered.twig" %}
   {% set richText = pageContent.moreInfo %}
   {% include "@organisms/by-author/rich-text.twig" %}
+  {% set accountManagementSections = pageContent.accountManagementSections %}
+  {% include "@organisms/by-author/account-manager.twig" %}
   {% set formDownloads = pageContent.formDownloads %}
   {% include "@organisms/by-author/form-downloads.twig" %}
   {% set contactList = pageContent.contactList %}
   {% include "@organisms/by-author/contact-list.twig" %}
+  {% set linkList = sidebar.linkList %}
+  {% include "@organisms/by-author/link-list.twig" %}
 {% endblock %}
 
 

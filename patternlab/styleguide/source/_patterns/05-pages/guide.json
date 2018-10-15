@@ -13,28 +13,47 @@
 
   "COMMENT":"****PRECONTENT COMPONENTS****",
 
-  "contentEyebrow": {
-    "hideBorder": true,
-    "headerTags": {
-      "label": "More about:",
-      "taxonomyTerms": [{
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 1"
+        "title": "Department of Conservation and Recreation"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 2"
+        "title": "Other agency or organization"
+      }]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 3"
+        "title": "Cross-Country Skiing"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 4"
+        "title": "Accessible Hiking"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 5"
+        "title": "Scenic Viewing Areas"
       },{
+        "class": "ma__relationship-indicators--term",
         "href": "#",
-        "text": "Term 6"
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
       }]
     }
   },
@@ -67,36 +86,11 @@
     }
   },
 
-  "COMMENT":"****PAGE CONTENT COMPONENTS****",
-
-  "jumpLinks": {
-    "title": "In this guide",
-    "links": [{
-      "text": "Buying or Renting a Home",
-      "href": "buying-or-renting-a-home"
-    },{
-      "text": "Bringing Leased Vehicles to MA",
-      "href": "bringing-leased-vehicles-to-ma"
-    },{
-      "text": "Moving Day",
-      "href": "moving-day"
-    },{
-      "text": "Moving with Pets",
-      "href": "moving-with-pets"
-    },{
-      "text": "Another Section Name",
-      "href": "another-section-name1"
-    },{
-      "text": "Another Section Name",
-      "href": "another-section-name2"
-    },{
-      "text": "Converting Your Out-of-Country Driver’s License",
-      "href": "converting-your-out-of-country-drivers-license"
-    },{
-      "text": "Another Section Name",
-      "href": "another-section-name5"
-    }]
+  "stickyTOC": {
+    "title": "Table of Contents"
   },
+
+  "COMMENT":"****PAGE CONTENT COMPONENTS****",
 
   "stackedRows": [{
     "title":"Buying or Renting a Home",

@@ -8,8 +8,8 @@
 
   &:before,
   &:after {
-    border-left: 5px solid transparent; 
-    border-right: 5px solid transparent; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
     content: "";
     position: absolute;
       right: 0;
@@ -45,7 +45,7 @@
   }
 
   &--asc:before {
-    border-bottom-color: $c-gray-a6a6a6;
+    border-bottom-color: $c-gray;
   }
 
   &:after {
@@ -53,6 +53,6 @@
   }
 
   &--dsc:after {
-    border-top-color: $c-gray-a6a6a6;
+    border-top-color: $c-gray;
   }
 }

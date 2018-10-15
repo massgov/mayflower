@@ -18,29 +18,9 @@ class DynamicDataListener extends Listener {
   }
 
   public function gatherData() {
-    $this->setMayflowerRelease();
-  }
-
-  /**
-   * Read version from package.json and set into data.
-   */
-  public function setMayflowerRelease() {
-    $package = json_decode(file_get_contents(__DIR__.'/../../../package.json'));
-    $version = $package->version;
-    $date = $this->getGitDate('HEAD');
-
-    // If we're not on the exact commit that represents the version tag, denote
-    // that this is a dev version.
-    if($version === $this->getGitTag()) {
-      $version = sprintf('v%s', $version);
-    }
-    else {
-      $version = sprintf('v%s-dev', $version);
-    }
-
     Data::setOption('mayflower', [
-      'version' => $version,
-      'releaseDate' => $date,
+      'version' => sprintf('v%s', $this->getGitVersion()),
+      'releaseDate' => $this->getGitDate('HEAD'),
     ]);
   }
 
@@ -49,22 +29,22 @@ class DynamicDataListener extends Listener {
    *
    * @return bool|string
    */
-  private function getGitTag() {
-    $proc = new Process('git describe --tags --exact-match');
+  private function getGitVersion() {
+    $proc = new Process('git describe --tags');
     $proc->run();
     return $proc->isSuccessful() ? trim($proc->getOutput()) : FALSE;
   }
 
   /**
-   * Return the last commit date for a tag or branch.
+   * Return the commit date for the current commit.
    *
    * @param $ref
    *   The branch or tag name.
    *
    * @return bool|string
    */
-  private function getGitDate($ref) {
-    $proc = new Process('git show -s --format=%ci ' . escapeshellarg($ref));
+  private function getGitDate() {
+    $proc = new Process('git show -s --format=%ci HEAD');
     $proc->run();
     if($proc->isSuccessful()) {
       $date = new \DateTime($proc->getOutput());

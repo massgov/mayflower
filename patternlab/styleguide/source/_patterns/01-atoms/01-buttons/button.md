@@ -7,9 +7,10 @@ This is the standard button pattern
 ### Variant options
 * Using a [link](./?p=atoms-button-as-link) instead of a button
 * [small](./?p=atoms-button-as-small)
-* [outline](./?p=atoms-button-as-outline)
-* [gray](./?p=atoms-button-as-quaternary-color) color
-* [green with an outline](./?p=atoms-button-as-secondary-color)
+* [large](./?p=atoms-button-as-large)
+* [secondary](./?p=atoms-button-as-secondary)
+* [tertiary](./?p=atoms-button-as-tertiary)
+* [quaternary](./?p=atoms-button-as-quaternary)
 
 
 ### Variables
@@ -24,10 +25,10 @@ button: {
   type:
     type: string / optional (ex: "button", "submit")
   size:
-    type: string / optional ("" or "small")
+    type: string / optional ("","small","large")
   theme:
-    type: string / optional ("", "secondary", or "quaternary")
-  outline: 
-    type: boolean
+    type: string / optional ("", "c-primary-alt","c-highlight")
+  usage: 
+    type: string / optional ("","secondary","tertiary","quaternary")
 }
 ~~~

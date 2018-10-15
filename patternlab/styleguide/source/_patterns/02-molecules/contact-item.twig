@@ -18,9 +18,10 @@
   {% set address = item.address %}
 {% endif %}
 
+{% set linkContext = "linkContext-" ~ random() %}
 <div class="ma__contact-group__item">
   {% if item.label %}
-    <span class="ma__contact-group__label">{{item.label}}</span>
+    <span class="ma__contact-group__label" id="{{ linkContext }}">{{item.label}}</span>
   {% endif %}
 
   {# Online wrap value in a link #}
@@ -34,12 +35,21 @@
       class="ma__content-link ma__content-link--phone">
       {% if item.contactName %}<span class="visually-hidden">Call {{ item.contactName }}{% if item.label %}, {{item.label}} {% endif %}at </span>{% endif %}{{ link.text }}</a>
 
+ {# Phone - add tel: to href #}
+  {% elseif item.type == "fax" %}
+     <span x-ms-format-detection="none" class="ma__contact-group__value">{{ link.text }}</span>
+
     {# Email - add mailto: to href #}
   {% elseif item.type == "email" %}
     <a
       href="mailto:{{ link.href }}"
       class="ma__content-link">{% if item.contactName %}<span class="visually-hidden">Email {{ item.contactName }} at </span>{% endif %}{{ link.text }}</a>
 
+   {% elseif item.type == "login" %}
+    <a
+      href="{{ link.href }}"
+      class="ma__content-link">{{ link.text }}</a>
+      
     {# Address - RTE version of value and look for directions link #}
   {% elseif item.type == "address" %}
     <div class="ma__contact-group__address">
@@ -48,13 +58,22 @@
     {% if link.href %}
       <div class="ma__contact-group__directions">
         {% set decorativeLink = link %}
+        {% set decorativeLink = decorativeLink|merge({'context': linkContext}) %}
         {% include "@atoms/decorative-link.twig" %}
       </div>
     {% endif %}
+
+  {% elseif item.type == "seeAllLink" %}
+    <div class="ma__contact-group__seeAll">
+      {% set decorativeLink = link %}
+      {% include "@atoms/decorative-link.twig" %}
+    </div>
+
   {% else %}
     <span class="ma__contact-group__value">{{ link.text }}</span>
   {% endif %}
 </div>
+
 {% if item.details %}
   <p class="ma__contact-group__details">{{ item.details }}</p>
 {% endif %}

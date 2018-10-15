@@ -31,7 +31,7 @@
 
   &__label {
     font-size: 1rem;
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     line-height: 1em;
     margin-right: .4em;
     padding-bottom: 6px;
@@ -39,9 +39,8 @@
   }
 
   &__message {
-    @include ma-link-underline;
     font-size: 1.5rem;
-    line-height: 1em;
+    line-height: 1.3em;
 
     a {
       display: inline;
@@ -51,7 +50,7 @@
 
 //theme
 .ma__header-alert {
-  background-color: $c-theme-tertiary;
+  background-color: $c-warning;
 
   &__hide {
     font-weight: 700;
@@ -64,19 +63,11 @@
 
   &__message {
 
-    &:hover {
-      border-bottom-color: rgba($c-font-base, .5);
-    }
-    
     a {
       color: $c-font-base;
 
       svg {
-        fill: rgba($c-font-base, .5);  
-      }
-
-      &:hover {
-        border-bottom-color: transparent;
+        fill: rgba($c-font-base, .5);
       }
     }
   }

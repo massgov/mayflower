@@ -1,4 +1,4 @@
-export default function (window,document,$,undefined) {
+export default (function (window,document,$,undefined) {
   $('.js-location-filters').each(function() {
     let $el = $(this);
 
@@ -220,4 +220,4 @@ export default function (window,document,$,undefined) {
     );
   }
 
-}(window,document,jQuery);
+})(window,document,jQuery);

@@ -355,7 +355,7 @@ $page-banner-height: 330px;
   .ma__decorative-link {
     display: block;
     font-size: 1.813rem;
-    letter-spacing: .02em;
+    letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
     margin-bottom: 0;
     margin-top: .8em;
@@ -395,7 +395,7 @@ $page-banner-height: 330px;
     @media ($bp-medium-min){
       @include span-columns(4 of 12);
       font-size: 1.813rem;
-      letter-spacing: .02em;
+      letter-spacing: $letter-spacing-small;
       line-height: 2.188rem;
       padding-top: 100px;
       padding-right: 20px;
@@ -429,29 +429,29 @@ $page-banner-inner-width: 612px;
 
   &__container {
     &:before {
-      background-color: rgba($c-theme-secondary, 0.8);
+      background-color: rgba($c-primary-alt, 0.8);
     }
   }
 
   &--blue &__container {
     &:before {
-      background-color: rgba($c-theme-blue, 0.8);
+      background-color: rgba($c-primary, 0.8);
     }
   }
 
   &__content {
-    background-image: linear-gradient(-90deg, rgba($c-theme-secondary, .7), $c-theme-secondary 95%);
+    background-image: linear-gradient(-90deg, rgba($c-primary-alt, .7), $c-primary-alt 95%);
 
     &:before {
-      background-color: $c-theme-secondary;
+      background-color: $c-primary-alt;
     }
   }
 
   &--blue &__content {
-    background-image: linear-gradient(-90deg, rgba($c-theme-blue, .7), $c-theme-blue 95%);
+    background-image: linear-gradient(-90deg, rgba($c-primary, .7), $c-primary 95%);
 
     &:before {
-      background-color: $c-theme-blue;
+      background-color: $c-primary;
     }
   }
 
@@ -461,7 +461,7 @@ $page-banner-inner-width: 612px;
 
   &--columns &__content {
     &:after {
-      background-color: rgba($c-theme-secondary,.7);
+      background-color: rgba($c-primary-alt,.7);
     }
 
     @media ($bp-x-small-min) {
@@ -473,11 +473,11 @@ $page-banner-inner-width: 612px;
 
   &--linked &__container {
     @media ($bp-large-extended) {
-      background-color: $c-theme-secondary;
+      background-color: $c-primary-alt;
     }
   }
   &--linked &__content {
-    background-color: $c-theme-secondary;
+    background-color: $c-primary-alt;
     background-image: none;
   }
 

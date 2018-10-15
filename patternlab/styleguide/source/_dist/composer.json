@@ -1,0 +1,15 @@
+{
+  "name": "massgov/mayflower-artifacts",
+  "description": "This repository is the product of the built artifact from massgov/mayflower",
+  "type": "drupal-library",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Bryan Hirsch",
+      "email": "bryan.hirsch@mass.gov"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}

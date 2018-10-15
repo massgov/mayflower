@@ -3,17 +3,54 @@
 
   "COMMENT":"****PRECONTENT COMPONENTS****",
 
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Department of Conservation and Recreation"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Other agency or organization"
+      }]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
+      }]
+    }
+  },
   "pageHeader": {
     "divider": false,
     "title": "Executive Office of Health and Human Services Locations",
     "subTitle": "",
-    "headerTags": {
-      "label": "More about:",
-      "taxonomyTerms": [{
-        "href": "#",
-        "text": "Health and Human Services (EOHHS)"
-      }]
-    },
     "optionalContents": [{
       "path": "@organisms/by-author/rich-text.twig",
       "data": {
@@ -101,7 +138,12 @@
               "value": "open",
               "checked": "false"
             }],
-            "submitButton": "Submit"
+            "buttons": [{
+              "text": "Submit",
+              "type": "submit",
+              "theme": "",
+              "outline": false
+            }]
           },
           "googleMap": {
             "map": {
@@ -119,6 +161,7 @@
               "label": "",
               "infoWindow": {
                 "name": "Attleboro District Court",
+                "link": "#",
                 "phone": "15082225900",
                 "fax": "15082233706",
                 "email": "courts@state.ma.us",
@@ -134,7 +177,8 @@
                 "name": "Barnstable District Court",
                 "phone": "15087478512",
                 "email": "courts@state.ma.us",
-                "address": "3195 Main Street\nBarnstable, MA 02630"
+                "address": "3195 Main Street\nBarnstable, MA 02630",
+                "directions": "#"
               }
             },{
               "position": {
@@ -144,10 +188,12 @@
               "label": "",
               "infoWindow": {
                 "name": "Berkshire County Superior Court",
+                "link": "#",
                 "phone": "14134997487",
                 "fax": "15082233706",
                 "email": "courts@state.ma.us",
-                "address": "76 East Street\nPittsfield, MA 01201"
+                "address": "76 East Street\nPittsfield, MA 01201",
+                "directions": "#"
               }
             },{
               "position": {
@@ -160,7 +206,8 @@
                 "phone": "16172324660",
                 "fax": "15082233706",
                 "email": "courts@state.ma.us",
-                "address": "360 Washington St\nBrookline, MA 02445"
+                "address": "360 Washington St\nBrookline, MA 02445",
+                "directions":"#"
               }
             },{
               "position": {
@@ -196,6 +243,7 @@
               "label": "",
               "infoWindow": {
                 "name": "Edgartown District Court",
+                "link": "#",
                 "phone": "15082225900",
                 "fax": "15082233706",
                 "email": "courts@state.ma.us",
@@ -225,7 +273,8 @@
                 "phone": "15082225900",
                 "fax": "15082233706",
                 "email": "courts@state.ma.us",
-                "address": "45 Williams Street\nMarlborough, MA 01752"
+                "address": "45 Williams Street\nMarlborough, MA 01752",
+                "directions": "#"
               }
             },{
               "position": {
@@ -248,6 +297,7 @@
               "label": "",
               "infoWindow": {
                 "name": "Suffolk County Superior Court",
+                "link": "#",
                 "phone": "15082225900",
                 "fax": "15082233706",
                 "email": "courts@state.ma.us",
@@ -264,13 +314,14 @@
                 "phone": "15082225900",
                 "fax": "15082233706",
                 "email": "courts@state.ma.us",
-                "address": "40 Broadway\nTaunton, MA  02780"
+                "address": "40 Broadway\nTaunton, MA  02780",
+                "directions": "#"
               }
             }]
           },
           "resultsHeading": {
             "level": "2",
-            "numResults": "1-8",
+            "numResults": "1 - 8",
             "totalResults": "12",
             "subject": "Executive Office of Health and Human Services Locations"
           },
