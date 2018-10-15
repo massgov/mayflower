@@ -1,18 +1,21 @@
+@mixin tabscroll {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .ma__tab-container {
   display: flex;
   flex-direction: column;
 
-  .ma__tab-container-head {
+  &-head {
     display: inline-flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
     margin-bottom: 0;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    @include tabscroll;
   }
 
   .ma__tab-container-body {
@@ -72,14 +75,7 @@
     .ma__tab-container-head {
       border-top: 5px solid transparent;
       border-bottom: 1px solid $c-gray-light;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      -ms-overflow-style: -ms-autohiding-scrollbar;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
+      @include tabscroll;
     }
 
     .ma__tab-title {
