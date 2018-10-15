@@ -36,9 +36,9 @@ storiesOf('organisms', module)
       label: text('Previous Label', 'Previous Site'),
     }
     const props = {
-      context: {
+      intro: {
         label: text('Contextual Label', ''),
-        contextDecorativeLink: <DecorativeLink {...decorativeLinkProps} />
+        introDecorativeLink: <DecorativeLink {...decorativeLinkProps} />
       },
       nextLink: <ArrowNav {...nextProps} />,
       previousLink: <ArrowNav {...prevProps} />

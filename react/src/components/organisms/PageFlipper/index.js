@@ -4,12 +4,12 @@ import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const PageFlipper = (props) => {
-  const contextLabel = (props.context.label) ? (<span className="ma__page-flipper__context-label">{props.context.label}</span>) : '';
-  const contextDecorativeLink = (props.context.contextDecorativeLink.props.text) ? props.context.contextDecorativeLink : '';
-  const contextLink = (contextLabel || contextDecorativeLink) ? (
+  const introLabel = (props.intro.label) ? (<span className="ma__page-flipper__context-label">{props.intro.label}</span>) : '';
+  const introDecorativeLink = (props.intro.introDecorativeLink.props.text) ? props.intro.introDecorativeLink : '';
+  const introLink = (introLabel || introDecorativeLink) ? (
     <div className="ma__page-flipper__context">
-      {contextLabel}
-      {contextDecorativeLink}
+      {introLabel}
+      {introDecorativeLink}
     </div>
   ) : '';
   const blank = (<div className="ma__page-flipper__blank">&nbsp;</div>);
@@ -17,7 +17,7 @@ const PageFlipper = (props) => {
   const next = props.nextLink ? props.nextLink : blank;
   return (
     <React.Fragment>
-      {contextLink}
+      {introLink}
       <div className="ma__page-flipper">
         <div className="ma__page-flipper__container">
           {prev}
@@ -29,9 +29,9 @@ const PageFlipper = (props) => {
 }
 
 PageFlipper.propTypes = {
-  context: PropTypes.shape({
+  intro: PropTypes.shape({
     label: PropTypes.string,
-    contextDecorativeLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'DecorativeLink')
+    introDecorativeLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'DecorativeLink')
   }),
   previousLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'ArrowNav'),
   nextLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'ArrowNav')
