@@ -30,6 +30,8 @@ export SidebarHeading from './components/atoms/headings/SidebarHeading';
 export Icon from './components/atoms/icons/Icon';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
+export FootNote from './components/atoms/links/FootNote';
+export FootNoteLink from './components/atoms/links/FootNoteLink';
 // @atoms/@lists
 export OrderedList from './components/atoms/lists/OrderedList';
 export UnorderedList from './components/atoms/lists/UnorderedList';
