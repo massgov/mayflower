@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 class FootNote extends React.Component {
-  handleScroll = (id) => {
-    const element = document.getElementById(id);
+  handleScroll() {
+    const element = document.getElementById(`footnoteref${this.props.index}`);
     element.scrollIntoView({ block: 'end', behavior: 'smooth' });
   }
   render() {
     const { children, index } = this.props;
     return(
       <div className="ma__footnote-item">
-        <p id={`footnotemsg${index}`} onClick={() => this.handleScroll(`footnoteref${index}`)}>
+        <p id={`footnotemsg${index}`} onClick={() => this.handleScroll()}>
           <span classNames="ma__footnote-item-content">{`${index}. ${children}`}</span>
         </p>
       </div>
