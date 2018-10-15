@@ -34,7 +34,7 @@ class ListingTableItem extends React.Component {
     const invisibleItems = (inlineAccordion) ? row.items.slice(visibleItems) : [];
     const invisibleItemsContent = (invisibleItems.length) ? (
       <Collapse in={this.state.open} dimension="height">
-        <div className="ma__listing-table__extra">
+        <div className="ma__listing-table__extra collapsed">
           {invisibleItems.map((item) => (<span className="ma__listing-table__data-item">{item}</span>))}
         </div>
       </Collapse>

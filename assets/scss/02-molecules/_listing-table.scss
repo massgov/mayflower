@@ -73,6 +73,7 @@
 
     &.collapsed {
       visibility: hidden;
+      display:block;
       height: 0px;
     }
 
