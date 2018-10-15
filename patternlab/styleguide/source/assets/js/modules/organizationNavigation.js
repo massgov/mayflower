@@ -119,7 +119,7 @@ export default (function (window, document, $, undefined) {
 
             $thisMenu.find("a[href]").attr("tabindex", 0);
 
-            $buttonParent.attr('aria-expanded', $buttonParent.attr('aria-expanded') == 'false' ? 'true' : 'false');
+            $buttonParent.attr('aria-expanded', $buttonParent.attr('aria-expanded') === 'false' ? 'true' : 'false');
             $buttonParent.toggleClass('item-open');
             $thisMenu.css('top', menuHeight);
 
