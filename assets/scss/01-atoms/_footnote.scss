@@ -1,0 +1,31 @@
+.ma__footnote-item {
+  transition: all 0.4s ease;
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  color: $c-font-link;
+
+  p {
+    margin-bottom: 0px;
+    cursor: pointer;
+
+    &:after {
+      content: "\0021A9";
+      line-height: 1;
+      color: $c-font-link;
+      padding-top: .25em;
+      margin-left: .25em;
+    }
+
+    &:hover {
+      border-bottom: 1px solid;
+
+      &::after {
+        border: none;
+        margin-left: 0;
+        opacity: .7;
+      }
+    }
+  }
+
+}
