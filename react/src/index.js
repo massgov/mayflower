@@ -81,6 +81,8 @@ export IllustratedHeader from './components/organisms/IllustratedHeader';
 export FilterBox from './components/organisms/FilterBox';
 export SearchBanner from './components/organisms/SearchBanner';
 export AccordionWrapper from './components/organisms/AccordionWrapper';
+export TabContainer from './components/organisms/TabContainer';
+export Tab from './components/organisms/TabContainer/tab';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';
@@ -92,3 +94,6 @@ export Error500 from './components/pages/Error500';
 
 //@animations
 export Collapse from './components/animations/Collapse';
+
+//@dataviz
+export DataTable from './components/dataviz/DataTable';
