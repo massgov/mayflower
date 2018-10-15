@@ -18,7 +18,7 @@
     @include tabscroll;
   }
 
-  .ma__tab-container-body {
+  &-body {
     padding: 1rem;
     border: 1px solid $c-gray-light;
     margin-top: -1px;
@@ -59,51 +59,35 @@
       color: $c-primary;
       background-color: white;
       z-index: 1;
-
-      &:focus {
-        outline: none;
-        border-top-color: $c-primary !important;
-        border-left-color: $c-gray-light !important;
-        border-bottom: none;
-      }
-
     }
-
   }
 
   .ma__tab-container--nested {
-    .ma__tab-container-head {
-      border-top: 5px solid transparent;
-      border-bottom: 1px solid $c-gray-light;
-      @include tabscroll;
+    .ma__tab-container {
+      &-head {
+        border-bottom: 1px solid $c-gray-light;
+      }
+
+      &-body {
+        border: none;
+      }
     }
 
     .ma__tab-title {
       border: none;
-      border-bottom: 5px solid transparent;
+      border-bottom: 5px solid;
+      border-bottom-color: transparent;
       padding: 1.5rem 1.5rem 0.8rem 1.5rem;
 
       &--active {
         color: $c-primary;
         border-bottom: 5px solid $c-primary;
-
-        &:focus {
-          outline: none;
-          border-bottom: 5px solid $c-primary !important;
-        }
       }
 
       &:focus {
         outline: none;
-        border-bottom: 5px solid $c-primary !important;
+        border-bottom-color: $c-primary !important;
       }
-
     }
-
-    .ma__tab-container-body {
-      border: none;
-    }
-
   }
-
 }
