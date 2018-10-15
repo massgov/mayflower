@@ -117,7 +117,6 @@ export default (function (window, document, $, undefined) {
             $('.section-toggle').remove();
 
             $thisMenu.find("a[href]").attr("tabindex", 0);
-
             $buttonParent.toggleClass('item-open');
             $thisMenu.css('top', menuHeight);
 
