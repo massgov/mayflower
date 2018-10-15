@@ -28,10 +28,8 @@ const ArrowNav = (props) => {
       <h2 className="ma__arrow-nav__title" data-label={props.label}>
         <span>{props.title}</span>
       </h2>
-      <div className="ma__arrow-nav__link">
-        <a href={props.href}>
-          {props.text}
-        </a>
+      <div className="ma__arrow-nav__text">
+        {props.text}
       </div>
     </Element>
   );
@@ -54,9 +52,7 @@ ArrowNav.propTypes = {
   text: PropTypes.string
 };
 
-ArrowNav.defaults = {
-  label: '',
-  title: '',
+ArrowNav.defaultProps = {
   info: '',
   href: '',
   onClick: '',

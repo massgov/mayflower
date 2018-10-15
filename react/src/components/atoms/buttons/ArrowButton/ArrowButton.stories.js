@@ -9,7 +9,7 @@ import ArrowButton from './index';
 import ArrowButtonDocs from './ArrowButton.md';
 
 storiesOf('atoms/buttons', module).addDecorator(withKnobs)
-  .add('Arrow Button', withInfo(`<div>${ArrowButtonDocs}</div>`)(() => {
+  .add('ArrowButton', withInfo(`<div>${ArrowButtonDocs}</div>`)(() => {
     const props = {
       direction: select('arrowButton.direction', ['left', 'right']),
       href: text('arrowButton.href', ''),
