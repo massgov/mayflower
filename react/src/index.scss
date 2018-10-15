@@ -9,7 +9,7 @@
 @import "bourbon-neat/app/assets/stylesheets/neat";
 
 // Bower vendors
-@import "../../patternlab/styleguide/source/assets/js/vendor/bower_components/pikaday/scss/pikaday";
+@import "pikaday/scss/pikaday";
 
 // Path to Mayflower shared assets.
 $assets-path: './assets';
