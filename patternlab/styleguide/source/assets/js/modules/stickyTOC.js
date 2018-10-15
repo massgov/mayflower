@@ -12,8 +12,6 @@ export default (function (window,document) {
     };
     // The number of sections / links.
     let tocSectionCount = tocSections.headings.length;
-    // The text of the last heading.
-    const lastHeading = tocSections.headings[tocSectionCount - 1].textContent;
     // Another wroapper around the links, probably originally to put the links in two columns.
     const tocColumn = toc.querySelector(".ma__sticky-toc__column");
     // Container in the sticky header to hold the current sections header.
@@ -22,10 +20,16 @@ export default (function (window,document) {
     const minSectionsToShow = toc.dataset["min-to-show"] ? toc.dataset["min-to-show"] : 3;
     // The overlay div that shows when the stuck menu is shown.
     const stuckOverlay = toc.querySelector(".ma__sticky-toc__overlay");
+    // The stuck header.
+    const stuckNav = toc.querySelector(".ma__sticky-toc__stuck");
     // The menu that slides out after the sticky menu is clicked.
     let stuckMenu;
+    let pauseScroll = false;
     
+    // Initialize the TOC by creating links and target spans.
     function initializeToc() {
+      // Add a class to the parent to help with consistent handling across applications.
+      tocParent.classList.add('toc-parent');
       // Use headers to fill TOC.
       Array.from(tocSections.headings).forEach((section) => {
         let sectionId = section.id;
@@ -48,13 +52,15 @@ export default (function (window,document) {
         dest.id = sectionId;
 
         section.id = "";
-        section.parentElement.prepend(dest);
+        section.parentElement.insertBefore(dest, section);
       });
     }
 
-    function syncVisibility() {
+    // Set the various visibility rules.
+    function handleResize() {
       tocSectionCount = 0;
       Array.from(tocSections.headings).forEach((heading, index) => {
+        // If the section isn't visible, set the link not to display.
         const isVisible = heading.offsetHeight * heading.offsetWidth;
         if (isVisible) {
           tocSections.links[index].style.display = "";
@@ -71,7 +77,7 @@ export default (function (window,document) {
       }
       else {
         // To set an overflow rule for jumpy IE wrapping
-        document.firstElementChild.classList.add('stickyTOC');
+        document.documentElement.classList.add('stickyTOC');
         toc.style.display = "block";
       }
 
@@ -81,11 +87,15 @@ export default (function (window,document) {
       }
     }
 
+    // Add the event listeners to handle all of the interaction.
     function setEventListeners() {
       // Update the sticky header text when a link is clicked, even if another header is visible.
       tocParent.addEventListener("click", (e) => {
         if (e.target.matches(".ma__sticky-toc__link a")) {
+          pauseScroll = true;
+          setTimeout(() => { pauseScroll = false; }, 20);
           stickyToc.textContent = e.target.textContent;
+          toc.classList.add('stuck');
         }
       }, true);
 
@@ -112,36 +122,42 @@ export default (function (window,document) {
         button.classList.remove("open");
         button.textContent = "show more";
         // Reset visibility.
-        syncVisibility();
+        handleResize();
       });
 
       // Handler for showing or hiding the sticky TOC.
       window.addEventListener("scroll", () => {
-        const windowTop = window.pageYOffset;
-        const windowBottom = window.innerHeight;
-        const docHeight = document.documentElement.scrollHeight;
-        const stickyNavActive  = toc.getBoundingClientRect().top + toc.offsetHeight;
+        if (!pauseScroll) {
+          const windowTop = window.pageYOffset;
+          const windowBottom = window.innerHeight;
+          const docHeight = document.documentElement.scrollHeight;
+          const stickyNavDemensions = toc.getBoundingClientRect();
+          const stickyNavActive  = stickyNavDemensions.top + stickyNavDemensions.height;
+          const stuckNavDemensions = stuckNav.getBoundingClientRect();
+          const stuckNavBottom = stuckNavDemensions.top + stuckNavDemensions.height;
+          // The text of the last heading.
+          const lastHeading = tocSections.headings[tocSectionCount - 1].textContent;
 
-        // Active Sticky TOC when on page TOC scrolls past.
-        if (stickyNavActive > 0) {
-          toc.classList.remove("stuck");
-        }
-        else {
-          toc.classList.add("stuck");
-
-          // Force showing the last heading if we are at the bottom of the page.
-          if (windowTop + windowBottom === docHeight) {
-            stickyToc.textContent = lastHeading;
+          // Active Sticky TOC when on page TOC scrolls past.
+          if (stickyNavActive > 0) {
+            toc.classList.remove("stuck");
           }
           else {
-            // Identify the section to show for the heading.
-            const active = Array.from(tocSections.headings).reverse().find((section) => {
-              const target = section.parentElement.querySelector(".sticky-toc-jump-target");
-              const top = target.getBoundingClientRect().top;
-              return top < 10;
-            });
-            if (active) {
-              stickyToc.textContent = active.textContent;
+            toc.classList.add("stuck");
+
+            // Force showing the last heading if we are at the bottom of the page.
+            if (windowTop + windowBottom === docHeight) {
+              stickyToc.textContent = lastHeading;
+            }
+            else {
+              // Identify the section to show for the heading.
+              const active = Array.from(tocSections.headings).reverse().find((section) => {
+                const top = section.getBoundingClientRect().top;
+                return top <= stuckNavBottom;
+              });
+              if (active) {
+                stickyToc.textContent = active.textContent;
+              }
             }
           }
         }
@@ -196,7 +212,9 @@ export default (function (window,document) {
     }
 
     initializeToc();
-    syncVisibility();
-    setEventListeners();
+    handleResize();
+    if (tocSectionCount > 0) {
+      setEventListeners();
+    }
   });
 })(window,document);
