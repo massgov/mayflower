@@ -95,13 +95,13 @@ Header.propTypes = {
   hideHeaderSearch: PropTypes.bool,
   /** Adds a prop to not display go back to classic.mass.gov */
   hideBackTo: PropTypes.bool,
-  /** The domain you want to send users to from the site logo icon */
+  /** imports the SiteLogo component */
   siteLogo: PropTypes.shape(SiteLogo.propTypes)
 };
 
 Header.defaultProps = {
   hideHeaderSearch: false,
-  hideBackTo: false,
+  hideBackTo: true,
   siteLogo: {
     url: {
       domain: 'https://www.mass.gov/'

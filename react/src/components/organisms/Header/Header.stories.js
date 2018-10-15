@@ -81,7 +81,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
       headerSearch: headerSearchProps,
       mainNav: mainNavProps,
       hideHeaderSearch: boolean('Header.hideHeaderSearch', false),
-      hideBackTo: boolean('header.hideBackTo', false),
+      hideBackTo: boolean('header.hideBackTo', true),
       siteLogo: siteLogoProps
     };
     return(<Header {...headerProps} />);
