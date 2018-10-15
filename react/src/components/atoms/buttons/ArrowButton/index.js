@@ -1,5 +1,5 @@
 import React from 'react';
-import {PropTypes} from 'prop-types';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './style.css';
 
@@ -17,7 +17,7 @@ const ArrowButton = (props) => {
     }
   };
 
-  return (
+  return(
     <Element
       className={buttonClasses}
       onClick={(e) => onClickCallback(e)}
@@ -26,7 +26,7 @@ const ArrowButton = (props) => {
       aria-label={props.info}
     />
   );
-}
+};
 
 ArrowButton.propTypes = {
   /** Custom click handler function. */
@@ -36,7 +36,7 @@ ArrowButton.propTypes = {
   /** The text which renders in the standard browser tooltip on hover */
   info: PropTypes.string,
   /** Direction of the arrow. */
-  direction: PropTypes.oneOf(['left', 'right']),
+  direction: PropTypes.oneOf(['left', 'right'])
 };
 
 ArrowButton.defaultProps = {

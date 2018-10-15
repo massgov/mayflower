@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {ArrowButton} from '../../../index';
+import { ArrowButton } from '../../../index';
 import './style.css';
 
 const ArrowNav = (props) => {
   const sectionClasses = classNames({
     'js-clickable-link': true,
     'ma__arrow-nav': true,
-    [`ma__arrow-nav--${props.direction}`] : props.direction
+    [`ma__arrow-nav--${props.direction}`]: props.direction
   });
   const Element = props.href ? 'a' : 'section';
   const onClickCallback = (e) => {
@@ -17,7 +17,7 @@ const ArrowNav = (props) => {
       props.onClick(e);
     }
   };
-  return (
+  return(
     <Element
       className={sectionClasses}
       onClick={(e) => onClickCallback(e)}
@@ -25,17 +25,17 @@ const ArrowNav = (props) => {
       title={props.info}
     >
       <ArrowButton direction={props.direction} />
-      <h2 className="ma__arrow-nav__title" data-label={ props.label }>
+      <h2 className="ma__arrow-nav__title" data-label={props.label}>
         <span>{props.title}</span>
       </h2>
       <div className="ma__arrow-nav__link">
-        <a>
+        <a href={props.href}>
           {props.text}
         </a>
       </div>
     </Element>
-  )
-}
+  );
+};
 
 ArrowNav.propTypes = {
   /** Top label information */
@@ -51,8 +51,8 @@ ArrowNav.propTypes = {
   /** Function */
   onClick: PropTypes.func,
   /** Bottom Link text */
-  text: PropTypes.string,
-}
+  text: PropTypes.string
+};
 
 ArrowNav.defaults = {
   label: '',
@@ -61,7 +61,7 @@ ArrowNav.defaults = {
   href: '',
   onClick: '',
   text: '',
-  direction: 'left',
-}
+  direction: 'left'
+};
 
 export default ArrowNav;

@@ -13,9 +13,9 @@ const PageFlipper = (props) => {
     </div>
   ) : '';
   const blank = (<div className="ma__page-flipper__blank">&nbsp;</div>);
-  const prev = props.previousLink ? props.previousLink : blank;
-  const next = props.nextLink ? props.nextLink : blank;
-  return (
+  const prev = props.previousLink || blank;
+  const next = props.nextLink || blank;
+  return(
     <React.Fragment>
       {introLink}
       <div className="ma__page-flipper">
@@ -26,7 +26,7 @@ const PageFlipper = (props) => {
       </div>
     </React.Fragment>
   );
-}
+};
 
 PageFlipper.propTypes = {
   intro: PropTypes.shape({
@@ -35,6 +35,6 @@ PageFlipper.propTypes = {
   }),
   previousLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'ArrowNav'),
   nextLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'ArrowNav')
-}
+};
 
 export default PageFlipper;

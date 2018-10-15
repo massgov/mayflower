@@ -6,7 +6,6 @@ import { action } from '@storybook/addon-actions';
 
 import ArrowNav from './index';
 import ArrowNavReadme from './ArrowNav.md';
-import { Link, ArrowButton } from '../../../index';
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs)
@@ -18,7 +17,7 @@ storiesOf('molecules', module)
       title: text('Title Text', 'Title'),
       onClick: action('Clicked'),
       direction: select('Arrow Direction', ['left', 'right']),
-      label: text('Label', "Label"),
+      label: text('Label', 'Label')
     };
     return(<ArrowNav {...props} />);
   }));

@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, select, object, text, number } from '@storybook/addon-knobs/react';
-import {ArrowNav, DecorativeLink} from '../../../index';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { ArrowNav, DecorativeLink } from '../../../index';
 
 import PageFlipper from './index';
 import PageFlipperReadme from './PageFlipper.md';
@@ -16,7 +16,7 @@ storiesOf('organisms', module)
       info: text('Decorative Info', ''),
       text: text('Decorative Text', ''),
       showFileIcon: false
-    }
+    };
     const nextProps = {
       href: text('Next Link href', ''),
       info: text('Next Info', 'This is the next page'),
@@ -24,8 +24,8 @@ storiesOf('organisms', module)
       title: text('Title Text', 'See the Next Site'),
       onClick: action('Next Clicked'),
       direction: 'right',
-      label: text('Next Label', 'Next Site'),
-    }
+      label: text('Next Label', 'Next Site')
+    };
     const prevProps = {
       href: text('Previous Link href', ''),
       info: text('Previous Info', 'This is the previous page'),
@@ -33,8 +33,8 @@ storiesOf('organisms', module)
       title: text('Previous Title Text', 'See the Previous Site'),
       onClick: action('Previous Clicked'),
       direction: 'left',
-      label: text('Previous Label', 'Previous Site'),
-    }
+      label: text('Previous Label', 'Previous Site')
+    };
     const props = {
       intro: {
         label: text('Contextual Label', ''),
