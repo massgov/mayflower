@@ -29,11 +29,14 @@ const PageFlipper = (props) => {
 };
 
 PageFlipper.propTypes = {
+  /** Introduction section containing a label and / or a link. */
   intro: PropTypes.shape({
     label: PropTypes.string,
     introDecorativeLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'DecorativeLink')
   }),
+  /** Previous Link (or left button) */
   previousLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'ArrowNav'),
+  /** Nexxt Link (or right button) */
   nextLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'ArrowNav')
 };
 

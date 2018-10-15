@@ -11,13 +11,13 @@ storiesOf('molecules', module)
   .addDecorator(withKnobs)
   .add('ArrowNav', withInfo({ ArrowNavReadme })(() => {
     const props = {
-      href: text('Link href', ''),
-      info: text('Info', 'link info'),
-      text: text('Link Text', 'Text'),
-      title: text('Title Text', 'Title'),
+      href: text('ArrowNav.href', ''),
+      info: text('ArrowNav.info', 'link info'),
+      text: text('ArrowNav.text', 'Text'),
+      title: text('ArrowNav.title', 'Title'),
       onClick: action('Clicked'),
-      direction: select('Arrow Direction', ['left', 'right']),
-      label: text('Label', 'Label')
+      direction: select('ArrowNav.direction', ['left', 'right']),
+      label: text('ArrowNav.label', 'Label')
     };
     return(<ArrowNav {...props} />);
   }));
