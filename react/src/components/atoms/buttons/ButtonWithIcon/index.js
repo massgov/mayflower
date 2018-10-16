@@ -43,12 +43,21 @@ class ButtonWithIcon extends React.Component {
       onClick: this.handleClick,
       tabIndex: 0
     };
-    return(
-      <button {...buttonProps} aria-label={this.props.ariaLabel} ref={this.setButtonRef}>
-        <span>{this.props.text}</span>
-        {this.props.icon}
-      </button>
-    );
+    if (this.props.ariaLabel !== '') {
+        return(
+          <button {...buttonProps} aria-label={this.props.ariaLabel} ref={this.setButtonRef}>
+            <span>{this.props.text}</span>
+            {this.props.icon}
+          </button>
+        );
+    } else {
+      return(
+        <button {...buttonProps} ref={this.setButtonRef}>
+          <span>{this.props.text}</span>
+          {this.props.icon}
+        </button>
+      );
+    }
   }
 }
 
