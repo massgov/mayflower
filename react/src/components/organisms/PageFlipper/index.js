@@ -31,7 +31,9 @@ const PageFlipper = (props) => {
 PageFlipper.propTypes = {
   /** Introduction section containing a label and / or a link. */
   intro: PropTypes.shape({
+    /** Optional label */
     label: PropTypes.string,
+    /** Optional DecorativeLink */
     introDecorativeLink: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'DecorativeLink')
   }),
   /** Previous Link (or left button) */
