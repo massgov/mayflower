@@ -14,7 +14,7 @@
       <li class="ma__utility-nav__item js-util-nav-toggle">
         <a class="ma__utility-nav__link"
           href="#"
-          aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
+          {% if item.ariaLabelText %} aria-label="{{ item.ariaLabelText }}"{% endif %}>
           {{ icon(item.icon) }}
           <span>
             {{ item.text }}
