@@ -1,4 +1,4 @@
-export default (function (window,document) {
+export default (function (window, document) {
 
   const tocs = Array.from(document.getElementsByClassName("ma__sticky-toc"));
   tocs.forEach((toc) => {
@@ -29,17 +29,17 @@ export default (function (window,document) {
     // Initialize the TOC by creating links and target spans.
     function initializeToc() {
       // Add a class to the parent to help with consistent handling across applications.
-      tocParent.classList.add('toc-parent');
+      tocParent.classList.add("toc-parent");
       // Use headers to fill TOC.
       Array.from(tocSections.headings).forEach((section) => {
         let sectionId = section.id;
-        const sectionTitle = section.textContent;
+        const sectionTitle = section.innerHTML;
         // If the section doesn't have an ID, create one from the heading text.
         if (!sectionId) {
-          sectionId = sectionTitle.replace(/\s+/g, '-').toLowerCase();
+          sectionId = section.textContent.replace(/\s+/g, "-").toLowerCase();
         }
         // Create a link for the sticky TOC.
-        const tocLink = document.createElement('div');
+        const tocLink = document.createElement("div");
         tocLink.className = "ma__sticky-toc__link";
         tocLink.innerHTML = `<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg><a href="#${sectionId}" >${sectionTitle}</a>`;
         tocColumn.appendChild(tocLink);
@@ -47,7 +47,7 @@ export default (function (window,document) {
 
         // To scroll all the way to the heading would make the heading covered by the sticky header.
         // Instead, add a span that will be invisible, but be placed above each heading as the scroll target.
-        const dest = document.createElement('span');
+        const dest = document.createElement("span");
         dest.className = "sticky-toc-jump-target";
         dest.id = sectionId;
 
@@ -77,13 +77,13 @@ export default (function (window,document) {
       }
       else {
         // To set an overflow rule for jumpy IE wrapping
-        document.documentElement.classList.add('stickyTOC');
+        document.documentElement.classList.add("stickyTOC");
         toc.style.display = "block";
       }
 
       // Show expander when more than 10 links.
       if (tocSectionCount <= 10 && window.innerWidth > 480 ) {
-        toc.querySelector(".ma__sticky-toc__footer").style.display = 'none';
+        toc.querySelector(".ma__sticky-toc__footer").style.display = "none";
       }
     }
 
@@ -94,8 +94,8 @@ export default (function (window,document) {
         if (e.target.matches(".ma__sticky-toc__link a")) {
           pauseScroll = true;
           setTimeout(() => { pauseScroll = false; }, 20);
-          stickyToc.textContent = e.target.textContent;
-          toc.classList.add('stuck');
+          stickyToc.innerHTML = e.target.innerHTML;
+          toc.classList.add("stuck");
         }
       }, true);
 
@@ -136,7 +136,7 @@ export default (function (window,document) {
           const stuckNavDemensions = stuckNav.getBoundingClientRect();
           const stuckNavBottom = stuckNavDemensions.top + stuckNavDemensions.height;
           // The text of the last heading.
-          const lastHeading = tocSections.headings[tocSectionCount - 1].textContent;
+          const lastHeading = tocSections.headings[tocSectionCount - 1].innerHTML;
 
           // Active Sticky TOC when on page TOC scrolls past.
           if (stickyNavActive > 0) {
@@ -147,7 +147,7 @@ export default (function (window,document) {
 
             // Force showing the last heading if we are at the bottom of the page.
             if (windowTop + windowBottom === docHeight) {
-              stickyToc.textContent = lastHeading;
+              stickyToc.innerHTML = lastHeading;
             }
             else {
               // Identify the section to show for the heading.
@@ -156,7 +156,7 @@ export default (function (window,document) {
                 return top <= stuckNavBottom;
               });
               if (active) {
-                stickyToc.textContent = active.textContent;
+                stickyToc.innerHTML = active.innerHTML;
               }
             }
           }
@@ -171,7 +171,7 @@ export default (function (window,document) {
       });
 
       // Add and/or open the sticky table of contents when the button is clicked.
-      toc.querySelector(".stickyTOC-open").addEventListener('click', () => {
+      toc.querySelector(".stickyTOC-open").addEventListener("click", () => {
         // Append sticky menu when first called
         if (typeof stuckMenu === "undefined") {
           const menuCopy = tocColumn.cloneNode(true);
@@ -217,4 +217,4 @@ export default (function (window,document) {
       setEventListeners();
     }
   });
-})(window,document);
+})(window, document);
