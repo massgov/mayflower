@@ -86,6 +86,7 @@ export SearchBanner from './components/organisms/SearchBanner';
 export AccordionWrapper from './components/organisms/AccordionWrapper';
 export TabContainer from './components/organisms/TabContainer';
 export Tab from './components/organisms/TabContainer/tab';
+export TeaserListing from './components/organisms/TeaserListing';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';
