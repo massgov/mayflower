@@ -53,9 +53,12 @@ img {
   max-width: 100%;
 }
 
-p,
 ul, ol {
   margin-top: 0;
+}
+
+p {
+  margin-top: 0 !important;
 }
 
 ul ul,
@@ -158,13 +161,6 @@ div {
     outline: none;
   }
 }
-<<<<<<< HEAD
-
-//theme
-
-=======
->>>>>>> origin/develop
-
 
 b, strong {
   font-weight: 700;

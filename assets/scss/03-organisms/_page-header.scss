@@ -91,17 +91,11 @@ $page-header-widget-width: 350px;
     }
 
     @media ($bp-medium-min){
-      padding-top: 65px;
       padding-bottom: 45px;
     }
 
     @media ($bp-large-min){
-      padding-top: 75px;
       padding-bottom: 60px;
-    }
-
-    @media ($bp-x-large-min){
-      padding-top: 85px;
     }
   }
 
@@ -194,6 +188,7 @@ $page-header-widget-width: 350px;
 
   &__category {
     font-size: 1.375rem;
+    padding-bottom: 1rem;
     line-height: 1.1;
     font-weight: 700;
     letter-spacing: $letter-spacing-large;
