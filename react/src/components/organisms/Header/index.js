@@ -5,6 +5,8 @@ import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
 import SiteLogo from '../../atoms/media/SiteLogo';
+import logo from '../../../assets/images/stateseal.png';
+import './styles.css';
 
 import './style.css';
 
@@ -42,7 +44,7 @@ class Header extends Component {
         </div>
         <div className="ma__header__container">
           <div className="ma__header__logo">
-            <SiteLogo {...header.siteLogoDomain} />
+            <SiteLogo {...header.siteLogo} />
           </div>
           {!header.hideHeaderSearch &&
           <div className="ma__header__search js-header-search-menu">
@@ -95,13 +97,26 @@ Header.propTypes = {
   hideHeaderSearch: PropTypes.bool,
   /** Adds a prop to not display go back to classic.mass.gov */
   hideBackTo: PropTypes.bool,
-  /** The domain you want to send users to from the site logo icon */
-  siteLogoDomain: PropTypes.shape(SiteLogo.propTypes)
+  /** imports the SiteLogo component */
+  siteLogo: PropTypes.shape(SiteLogo.propTypes)
 };
 
 Header.defaultProps = {
   hideHeaderSearch: false,
-  hideBackTo: false
+  hideBackTo: true,
+  siteLogo: {
+    url: {
+      domain: 'https://www.mass.gov/'
+    },
+    image: {
+      src: logo,
+      alt: 'Massachusetts state seal',
+      width: 45,
+      height: 45
+    },
+    siteName: 'Mass.gov',
+    title: 'Mass.gov homepage'
+  }
 };
 
 export default Header;

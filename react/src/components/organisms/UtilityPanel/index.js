@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Paragraph from '../../atoms/text/Paragraph';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
+import './styles.css';
 
 import './style.css';
 
