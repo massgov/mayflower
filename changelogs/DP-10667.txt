@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- React DP-10667: Remove aria-label from search button. Button with icon has aria-label only when it has value. #PR#
