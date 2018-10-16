@@ -5,14 +5,15 @@ import { Icon } from '../../../index';
 
 const Link = (props) => {
   const icon = props.icon ? (<Icon name={props.icon} svgWidth={13.2} svgHeight={13.2} />) : '';
-  return (
-  <a
-    href={props.href}
-    className="js-clickable-link"
-    title={props.info}
-  >{props.text}&nbsp;{icon}
-  </a>
-)};
+  return(
+    <a
+      href={props.href}
+      className="js-clickable-link"
+      title={props.info}
+    >{ props.text }&nbsp;{ icon }
+    </a>
+  );
+};
 
 Link.propTypes = {
   href: PropTypes.string,
