@@ -12,14 +12,13 @@ class ListingTableItem extends React.Component {
     this.state = {
       open: false
     };
-    this.handleClick = this.handleClick.bind(this);
-  }
+  };
 
-  handleClick() {
+  handleClick = () => {
     this.setState({
       open: !this.state.open
     });
-  }
+  };
 
   render() {
     const {row} = this.props;
@@ -30,33 +29,37 @@ class ListingTableItem extends React.Component {
       'js-accordion': inlineAccordion
     });
     const shownItems = row.items.slice(0, visibleItems);
-    const shownItemsContent = shownItems.map((item) => (<span className="ma__listing-table__data-item">{item}</span>));
     const invisibleItems = (inlineAccordion) ? row.items.slice(visibleItems) : [];
-    const invisibleItemsContent = (invisibleItems.length) ? (
-      <Collapse in={this.state.open} dimension="height">
-        <div className="ma__listing-table__extra collapsed">
-          {invisibleItems.map((item) => (<span className="ma__listing-table__data-item">{item}</span>))}
-        </div>
-      </Collapse>
-    ) : '';
-    const invisibleMore = (inlineAccordion) ? (
-      <div className="ma__listing-table__expand">
-        <button
-          type="button"
-          onClick={(e) => this.handleClick(e)}
-          aria-expanded="false"
-        >
-          {(this.state.open) ? (<span>{row.lessLabel || 'Less'}</span>) : (<span>{row.moreLabel || 'More'}</span>)}
-        </button>
-      </div>
-    ) : '';
     return(
       <tr>
         <th scope="row">{ row.label }</th>
         <td className={rowClasses}>
-          {shownItemsContent}
-          {invisibleItemsContent}
-          {invisibleMore}
+          {shownItems.map((item) => (
+            <span className="ma__listing-table__data-item">{item}</span>
+          ))}
+          {(invisibleItems.length > 0) && (
+            <Collapse in={this.state.open} dimension="height">
+              <div className="ma__listing-table__extra collapsed">
+                {invisibleItems.map((item) => (
+                  <span className="ma__listing-table__data-item">{item}</span>
+                ))}
+              </div>
+            </Collapse>
+          )}
+          {(inlineAccordion) && (
+            <div className="ma__listing-table__expand">
+              <button
+                type="button"
+                onClick={(e) => this.handleClick(e)}
+                aria-expanded="false"
+              >
+                {(this.state.open) ?
+                  (<span>{row.lessLabel || 'Less'}</span>) :
+                  (<span>{row.moreLabel || 'More'}</span>)
+                }
+              </button>
+            </div>
+          )}
         </td>
       </tr>
     );
