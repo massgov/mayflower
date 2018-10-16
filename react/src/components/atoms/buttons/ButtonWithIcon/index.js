@@ -101,7 +101,7 @@ ButtonWithIcon.defaultProps = {
   capitalized: false,
   iconSize: '',
   iconColor: '',
-  ariaLabel: 'search',
+  ariaLabel: '',
   usage: ''
 };
 
