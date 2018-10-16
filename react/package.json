@@ -37,6 +37,7 @@
     "bourbon": "^5.1.0",
     "bourbon-neat": "^1.7.2",
     "classnames": "^2.2.6",
+    "html-react-parser": "^0.4.7",
     "moment": "^2.21.0",
     "normalize-scss": "^7.0.1",
     "object.entries": "^1.0.4",

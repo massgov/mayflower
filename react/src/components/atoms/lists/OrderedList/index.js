@@ -1,4 +1,5 @@
 import React from 'react';
+import Parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 import './style.css';
 
@@ -32,11 +33,12 @@ OrderedList.defaultProps = {
 };
 
 const listItem = (props, itemIndex, olIndex) => {
-  const raw = {
-    __html: props.text
-  };
   const key = `li.${olIndex}.${itemIndex}`;
-  return(<li key={key} dangerouslySetInnerHTML={raw} />);
+  return(
+    <li key={key}>
+      {Parser(props.text)}
+    </li>
+  );
 };
 
 const subList = (props) => {
