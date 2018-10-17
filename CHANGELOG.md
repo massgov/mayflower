@@ -13,6 +13,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.7.0 (10/17/2018)
+
+### Added
+- (React) DP-10784: Port Listing Table in React from PL. #313
+
+### Changed
+- (PatternLab) DP-10756: Modify display of relationship indicators on mobile. #310
+
+### Fixed
+- (Patternlab) DP-10721: Remove duplicated social heading on service page and remove backward compatible sidebar heading to use IconLink comp heading in the template. #316
+
+## 8.6.0 (10/16/2018)
+
+### Added
+- (React) Add react-table as a DataTable component directly using react-table API. #289
+- (React) DP-10649: Add TabContainer and Tab components. #298
+- (React) DP-10693: Add ArrowButton atom component, ArrowNav molecule component and PageFlipper organism component. #301
+
+### changed
+- (React) DP-10770: Update SiteLogo props structure in Header component making it fully configurable and sets default props #312
+- (React) DP-10770: Componentize Header related component styles, including HeaderSearch, MainNav, UtilityNav, UtilityPanel and Header #312
+
 ## 8.5.0 (10/10/2018)
 
 ### Added
