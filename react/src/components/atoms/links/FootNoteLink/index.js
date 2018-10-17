@@ -1,17 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const FootNoteLink = (props) => (
-  <a
-    id={`footnoteref${props.index}`}
-    href={`#footnotemsg${props.index}`}
-    className="ma__footnote-link"
-    aria-describedby={`footnotemsg${props.index}`}
-    aria-label="see footnote"
-  >
-    <sup>[{props.index}]</sup>
-  </a>
-);
+class FootNoteLink extends React.Component {
+  handleScroll() {
+    const element = document.getElementById(`footnotemsg${this.props.index}`);
+    element.scrollIntoView({ block: 'end', behavior: 'smooth' });
+  }
+  render() {
+    const { index } = this.props;
+    return(
+      <a
+        id={`footnoteref${index}`}
+        href={`#footnotemsg${index}`}
+        className="ma__footnote-link"
+        aria-describedby={`footnotemsg${index}`}
+        aria-label="see footnote"
+        onClick={() => this.handleScroll()}
+      >
+        <sup>[{index}]</sup>
+      </a>
+    );
+  }
+}
 
 FootNoteLink.propTypes = {
   /** Pair the FootNoteLink molecule with the FootNote. */
