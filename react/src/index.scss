@@ -9,7 +9,7 @@
 @import "bourbon-neat/app/assets/stylesheets/neat";
 
 // Bower vendors
-@import "../../patternlab/styleguide/source/assets/js/vendor/bower_components/pikaday/scss/pikaday";
+@import "pikaday/scss/pikaday";
 
 // Path to Mayflower shared assets.
 $assets-path: './assets';
@@ -30,41 +30,8 @@ $assets-path: './assets';
 
 // Atoms - reusable styles
 @import "01-atoms/global/elements";
-@import "01-atoms/arrow-button";
-@import "01-atoms/button-sort";
-@import "01-atoms/button-toggle";
-@import "01-atoms/buttons";
-@import "01-atoms/category-icon";
-@import "01-atoms/checklist";
-@import "01-atoms/colored-heading";
-@import "01-atoms/column-heading";
-@import "01-atoms/content-link";
-@import "01-atoms/comp-heading";
-@import "01-atoms/decorative-link";
-@import "01-atoms/divider";
-@import "01-atoms/error-msg";
-@import "01-atoms/figure";
 @import "01-atoms/forms";
-@import "01-atoms/helper-text";
-@import "01-atoms/icon-list";
-@import "01-atoms/iframe";
-@import "01-atoms/image";
-@import "01-atoms/input-checkbox";
-@import "01-atoms/input-date";
-@import "01-atoms/input-group";
-@import "01-atoms/input-number";
-@import "01-atoms/input-radio";
-@import "01-atoms/label";
-@import "01-atoms/page-title";
-@import "01-atoms/publish-state";
-@import "01-atoms/sidebar-heading";
-@import "01-atoms/site-logo";
-@import "01-atoms/svg-icons";
-@import "01-atoms/svg-loc-icons";
-@import "01-atoms/textarea";
-@import "01-atoms/table";
-@import "01-atoms/video";
-
+@import "01-atoms/content-link";
 // Molecules - chunks of code that are used in Organisms/Components
 @import "02-molecules/action-event";
 @import "02-molecules/action-gallery";
@@ -95,7 +62,6 @@ $assets-path: './assets';
 @import "02-molecules/general-teaser";
 @import "02-molecules/google-map";
 @import "02-molecules/header-contact";
-@import "02-molecules/header-search";
 @import "02-molecules/header-tags";
 @import "02-molecules/illustrated-link";
 @import "02-molecules/image-link";
@@ -106,7 +72,6 @@ $assets-path: './assets';
 @import "02-molecules/listing-table";
 @import "02-molecules/location-filters";
 @import "02-molecules/location-icons";
-@import "02-molecules/main-nav";
 @import "02-molecules/org-info";
 @import "02-molecules/org-selector";
 @import "02-molecules/page-intro";
@@ -151,7 +116,6 @@ $assets-path: './assets';
 @import "03-organisms/footnote-list";
 @import "03-organisms/form-downloads";
 @import "03-organisms/form-requirements";
-@import "03-organisms/header";
 @import "03-organisms/header-alert";
 @import "03-organisms/helpful-links";
 @import "03-organisms/icon-links";
@@ -197,8 +161,6 @@ $assets-path: './assets';
 @import "03-organisms/test-feed";
 @import "03-organisms/top-actions";
 @import "03-organisms/transition-page";
-@import "03-organisms/utility-nav";
-@import "03-organisms/utility-panel";
 @import "03-organisms/search-banner";
 
 // Templates - page content types
