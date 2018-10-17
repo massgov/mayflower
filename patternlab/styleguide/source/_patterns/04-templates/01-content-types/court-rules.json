@@ -82,7 +82,7 @@
     "widgets": null
   },
   "stickyTOC": {
-    "title": "In this Section",
+    "title": "Table of Contents",
     "parent": ".ma__court-rules__content",
     "sections": ".page-content h2.ma__comp-heading"
   },

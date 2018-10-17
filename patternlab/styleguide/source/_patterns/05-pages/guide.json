@@ -87,7 +87,7 @@
   },
 
   "stickyTOC": {
-    "title": "In this Guide",
+    "title": "Table of Contents",
     "parent": "#main-content",
     "sections": ".ma__stacked-row__title h2"
   },
