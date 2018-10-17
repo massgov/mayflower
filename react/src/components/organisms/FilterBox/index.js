@@ -37,9 +37,11 @@ const FilterBox = (props) => {
               ))}
             </div>
             <div className="ma__filter-box__controls">
-              <div className="ma__filter-box__button">
-                <Button {...submitButton} />
-              </div>
+              {submitButton && (
+                <div className="ma__filter-box__button">
+                  <Button {...submitButton} />
+                </div>
+              )}
               {clearButton && (
               <React.Fragment>
                 <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
