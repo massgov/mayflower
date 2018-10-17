@@ -120,10 +120,6 @@
     },
 
     "social": {
-      "sidebarHeading": {
-        "title": "Social",
-        "titleContext": "links for Unemployment Benefits"
-      },
       "iconLinks": {
         "compHeading": {
           "title": "Social",
@@ -783,6 +779,3 @@
     }]
   }
 }
-
-
-
