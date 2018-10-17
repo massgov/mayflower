@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Minor
+- (React) DP-0784: Port Listing Table in React from PL
