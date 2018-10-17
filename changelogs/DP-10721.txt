@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Minor
-- (Patternlab) Remove duplicated social heading on service page and remove backward compatible sidebar heading to use IconLink comp heading in the template. #316 
