@@ -19,10 +19,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-10784: Port Listing Table in React from PL. #313
 
 ### Changed
-- (PatternLab) DP-10756: Modify display of relationship indicators on mobile. #311
+- (PatternLab) DP-10756: Modify display of relationship indicators on mobile. #310
 
 ### Fixed
-- (Patternlab) DP-10721: Remove duplicated social heading on service page and remove backward compatible sidebar heading to use IconLink comp heading in the template. #316 
+- (Patternlab) DP-10721: Remove duplicated social heading on service page and remove backward compatible sidebar heading to use IconLink comp heading in the template. #316
 
 ## 8.6.0 (10/16/2018)
 
