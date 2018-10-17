@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Changed
+Minor
+- Update SiteLogo props structure in Header component making it fully configurable and sets default props
+- Componentize Header related component styles, including HeaderSearch, MainNav, UtilityNav, UtilityPanel and Header
