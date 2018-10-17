@@ -17,7 +17,7 @@ export default (function (window, document) {
     // Container in the sticky header to hold the current sections header.
     const stickyToc = toc.querySelector(".ma__sticky-toc__current-section");
     // The minimum number of sections required on the page to display the table of contents.
-    const minSectionsToShow = toc.dataset["min-to-show"] ? toc.dataset["min-to-show"] : 3;
+    const minSectionsToShow = toc.dataset["min-to-show"] ? toc.dataset["min-to-show"] : 2;
     // The overlay div that shows when the stuck menu is shown.
     const stuckOverlay = toc.querySelector(".ma__sticky-toc__overlay");
     // The stuck header.
