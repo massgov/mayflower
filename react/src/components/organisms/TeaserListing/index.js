@@ -94,7 +94,7 @@ class TeaserListing extends React.Component {
           )}
           {(invisibleItems.length == 0) && (
             <ul className={itemsClasses}>
-              {teaser.items.map((teaser) => (<GeneralTeaser {...teaser} />))}
+              {teaser.items.map((teaser, key) => (<li key={key}><GeneralTeaser {...teaser} /></li>))}
             </ul>
           )}
           {(teaser.more) && (
@@ -114,11 +114,11 @@ TeaserListing.propTypes = {
   /** Optional SidebarHeading component */
   sidebarHeading: PropTypes.shape(PropTypes.SidebarHeading),
   /** Stacked if true, side-by-side if false. */
-  stacked: PropTypes.boolean,
+  stacked: PropTypes.bool,
   /** Grid display of secondary items or three column grid. */
-  contained: PropTypes.boolean,
+  contained: PropTypes.bool,
   /** Set for an alternative two column layout for large screens. (Both display the same at smaller screen widths) */
-  gridTwoColumns: PropTypes.boolean,
+  gridTwoColumns: PropTypes.bool,
   /** Number of items to show. If set, Collapse is used to make an accordion. */
   shownItems: PropTypes.number,
   /** Accordion Label */
