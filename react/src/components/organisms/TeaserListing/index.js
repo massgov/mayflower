@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ClassNames from 'classnames';
+import classNames from 'classnames';
 
 import Collapse from '../../animations/Collapse';
 import SidebarHeading from '../../atoms/headings/SidebarHeading';
@@ -26,20 +26,20 @@ class TeaserListing extends React.Component {
 
   render() {
     const teaser = this.props;
-    const featuredClasses = ClassNames({
+    const featuredClasses = classNames({
       'ma__teaser-listing__featured-items': true,
       'stacked': teaser.stacked,
       'side-by-side': !teaser.stacked
     });
     const columnCount = (teaser.contained && teaser.gridTwoColumns) ? 2 : 3;
-    const itemsClasses = ClassNames({
+    const itemsClasses = classNames({
       'ma__teaser-listing__items': true,
-      'ma__teaser-listing__2-col-grid': columnCount == 2,
-      'ma__teaser-listing__3-col-grid': columnCount == 3
+      'ma__teaser-listing__2-col-grid': columnCount === 2,
+      'ma__teaser-listing__3-col-grid': columnCount === 3
     });
     const shownNumber = teaser.shownNumber || null;
     const shownItems = shownNumber ? teaser.items.slice(0, shownNumber) : null;
-    const invisibleItems = (shownNumber) ? row.items.slice(shownNumber) : [];
+    const invisibleItems = (shownNumber) ? teaser.items.slice(shownNumber) : [];
 
     let teaserHeading = 2;
     teaserHeading = ((teaser.compHeading && teaser.compHeading.level) ? teaser.compHeading.level : teaserHeading) + 1;
@@ -57,7 +57,15 @@ class TeaserListing extends React.Component {
           )}
           {(teaser.featuredItems) && (
             <div className={featuredClasses}>
-              {teaser.featuredItems.map((teaser) => (<GeneralTeaser level={teaserHeading} {...teaser} />))}
+              {teaser.featuredItems.map((teaser, index) => {
+                const key = `TeaserListing.featuredItems.${index}`;
+                const teaserProps = {
+                  key,
+                  level: teaserHeading,
+                  ...teaser
+                };
+                return<GeneralTeaser {...teaserProps} />;
+              })}
             </div>
           )}
           {(invisibleItems.length > 0) && (
@@ -92,9 +100,9 @@ class TeaserListing extends React.Component {
               </button>
             </div>
           )}
-          {(invisibleItems.length == 0) && (
+          {(invisibleItems.length === 0) && (
             <ul className={itemsClasses}>
-              {teaser.items.map((teaser, key) => (<li key={key}><GeneralTeaser {...teaser} /></li>))}
+              {teaser.items.map((teaser, key) => (<li key={`TeaserListing.items.${key}`}><GeneralTeaser {...teaser} /></li>))}
             </ul>
           )}
           {(teaser.more) && (
@@ -140,6 +148,6 @@ TeaserListing.defaultProps = {
   moreLabel: 'More',
   lessLabel: 'Less',
   items: []
-}
+};
 
 export default TeaserListing;
