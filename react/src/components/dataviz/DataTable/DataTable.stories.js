@@ -38,6 +38,33 @@ storiesOf('dataviz/DataTable', module).addDecorator(withKnobs)
       <DataTable {...props} />
     );
   }))
+  .add('DataTable with Link', withInfo(`<div>${DataTableDocs}</div>`)(() => {
+    const columns = [{
+      Header: 'County',
+      accessor: 'COUNTY',
+      Cell: e => <a href={e.value}> {e.value} </a>
+    }, {
+      Header: 'Trips started',
+      accessor: 'ORIGIN_TRIPS', // String-based value accessors!
+      className: 'data-align-right'
+    }, {
+      Header: 'Trips started per person',
+      id: 'originTripsPerCap', // id is required for non string-based accessor
+      accessor: (d) => Math.round(d.ORIGIN_TRIPS_PER_PERSON * 100) / 100,
+      className: 'data-align-right'
+    }];
+    const isStriped = boolean('DataTable.isStriped', true);
+    const props = {
+      data: countyData,
+      columns,
+      defaultPageSize: 14,
+      showPaginationBottom: false,
+      className: isStriped && '-striped'
+    };
+    return(
+      <DataTable {...props} />
+    );
+  }))
   .add('DataTable with Filter', withInfo()(() => {
     const columns = [{
       Header: 'Municipality',

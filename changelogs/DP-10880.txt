@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- React DP-10880: Adds a hover and link styling to data table component. #PR#

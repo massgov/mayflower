@@ -15,4 +15,24 @@
       text-align: #{$option};
     }
   }
+  
+  .rt-tr {
+    transition: background 3.2s ease;
+    
+    &:hover .rt-td {
+      background: rgba(0,0,0,0.07);
+    }
+
+    .rt-td a {
+      @include ma-link-transition;
+      text-decoration: none;
+      font-weight: 700;
+      color: $c-font-link;
+
+      &:hover {
+        border-bottom: 2px solid rgba($c-font-link,0.7);
+      }
+    }
+  }
+  
 }
