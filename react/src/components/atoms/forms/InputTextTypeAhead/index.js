@@ -75,7 +75,7 @@ class InputTextTypeAhead extends Component {
   render() {
     const { suggestions } = this.state;
     const {
-      boxed, id, label, placeholder, autoFocusInput
+      boxed, id, label, placeholder, autoFocusInput, disabled
     } = this.props;
     const isBoxed = boxed && 'ma__input-typeahead--boxed';
     const value = JSON.parse(JSON.stringify(this.state.value));
@@ -86,7 +86,8 @@ class InputTextTypeAhead extends Component {
       onBlur: this.onBlur,
       type: 'search',
       autoFocus: autoFocusInput,
-      placeholder
+      placeholder,
+      disabled
     };
     const shouldRenderSuggestions = (x) => x.trim().length >= 0;
     const getSuggestionValue = (suggestion) => suggestion.text;
@@ -156,12 +157,14 @@ InputTextTypeAhead.propTypes = {
   selected: PropTypes.string,
   /** Focus on typeahead input */
   autoFocusInput: PropTypes.bool,
-  clearInputTextTypeAheadSelected: PropTypes.bool
+  clearInputTextTypeAheadSelected: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 InputTextTypeAhead.defaultProps = {
   autoFocusInput: false,
-  clearInputTextTypeAheadSelected: false
+  clearInputTextTypeAheadSelected: false,
+  disabled: false
 };
 
 export default InputTextTypeAhead;
