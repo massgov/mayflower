@@ -84,9 +84,9 @@ const getSidebarHeading = () => {
   return<SidebarHeading {...props} />;
 };
 
-storiesOf('organisms', module).addDecorator(withKnobs)
+storiesOf('organisms/TableofContents', module).addDecorator(withKnobs)
   .add(
-    'TableofContents: ColoredHeading',
+    'TableofContents with ColoredHeading',
     withInfo(`<div>${markdown}</div>`)(() => {
       const props = {
         heading: getColoredHeading()
@@ -102,7 +102,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
     })
   )
   .add(
-    'TableofContents: SidebarHeading',
+    'TableofContents with SidebarHeading',
     withInfo(`<div>${markdown}</div>`)(() => {
       const props = {
         heading: getSidebarHeading()
