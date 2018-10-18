@@ -14,9 +14,7 @@ class FootNote extends React.Component {
         <a
           id={`footnotemsg${index}`}
           onClick={() => this.handleScroll()}
-          onKeyPress={() => this.handleScroll()}
-          role="button"
-          tabIndex="0"
+          href={`#footnoteref${index}`}
         >
           <span classNames="ma__footnote-item-content">{`${index}. ${children}`}</span>
         </a>
