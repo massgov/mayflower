@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 class FootNoteLink extends React.Component {
   handleScroll() {
@@ -9,16 +10,17 @@ class FootNoteLink extends React.Component {
   render() {
     const { index } = this.props;
     return(
-      <a
+      <button
         id={`footnoteref${index}`}
-        href={`#footnotemsg${index}`}
         className="ma__footnote-link"
         aria-describedby={`footnotemsg${index}`}
         aria-label="see footnote"
         onClick={() => this.handleScroll()}
+        tabIndex="0"
+        role="link"
       >
-        <sup>[{index}]</sup>
-      </a>
+        <span><sup>[{index}]</sup></span>
+      </button>
     );
   }
 }

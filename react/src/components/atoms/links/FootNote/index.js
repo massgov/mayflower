@@ -11,13 +11,12 @@ class FootNote extends React.Component {
     const { children, index } = this.props;
     return(
       <div className="ma__footnote-item">
-        <a
+        <button
           id={`footnotemsg${index}`}
           onClick={() => this.handleScroll()}
-          href={`#footnoteref${index}`}
         >
           <span classNames="ma__footnote-item-content">{`${index}. ${children}`}</span>
-        </a>
+        </button>
       </div>
     );
   }

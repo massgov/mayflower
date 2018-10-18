@@ -1,14 +1,20 @@
 .ma__footnote-item {
   transition: all 0.4s ease;
-  font-size: 1.25rem;
-  line-height: 1;
   display: flex;
-  color: $c-font-link;
+  
+  @include ma-button-reset;
 
-  a {
+  button {
+    @include ma-button-reset;
+    
+  }
+
+  span {
     margin-bottom: 0px;
     cursor: pointer;
     font-weight: 400;
+    font-size: 1.25rem;
+    color: $c-font-link;
 
     &:after {
       content: "\0021A9";
