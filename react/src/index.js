@@ -86,6 +86,7 @@ export IllustratedHeader from './components/organisms/IllustratedHeader';
 export FilterBox from './components/organisms/FilterBox';
 export SearchBanner from './components/organisms/SearchBanner';
 export AccordionWrapper from './components/organisms/AccordionWrapper';
+export TableofContents from './components/organisms/TableofContents';
 export TabContainer from './components/organisms/TabContainer';
 export Tab from './components/organisms/TabContainer/tab';
 
