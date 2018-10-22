@@ -1,0 +1,23 @@
+{
+  "googleMap": {
+    "static": true,
+    "image": {
+      "alt": "alt text",
+      "src": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
+      "versions": [
+        {
+          "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
+          "width": "620w"
+        },
+        {
+          "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
+          "width": "780w"
+        },
+        {
+          "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
+          "width": "910w"
+        }
+      ]
+    }
+  }
+}
