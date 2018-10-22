@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 
 import logo from '../../../../assets/images/stateseal.png';
@@ -31,7 +32,7 @@ SiteLogo.defaultProps = {
   },
   image: {
     src: logo,
-    alt: 'Massachusetts state seal',
+    alt: '',
     width: 45,
     height: 45
   },

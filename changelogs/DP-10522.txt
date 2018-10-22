@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- patternlab / DP-10522: Adding a section to how-to's for return visitors

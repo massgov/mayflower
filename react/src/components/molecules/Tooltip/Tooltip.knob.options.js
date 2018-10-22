@@ -9,4 +9,4 @@ export default {
     2: 'h2',
     3: 'h3'
   }
-}
+};

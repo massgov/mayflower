@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Changed
-- Updated header alert CSS to fix underline issues with multi-line sentences.
