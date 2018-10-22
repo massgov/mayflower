@@ -167,25 +167,191 @@
                 ]
               },
               "googleMap": {
-                "static": true,
-                "image": {
-                  "alt": "alt text",
-                  "src": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
-                  "versions": [
-                    {
-                      "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
-                      "width": "620w"
+                "map": {
+                  "center": {
+                    "lat": 42.4072107,
+                    "lng": -71.3824374
+                  },
+                  "zoom": 8
+                },
+                "markers": [
+                  {
+                    "position": {
+                      "lat": 41.9462525,
+                      "lng": -71.289677
                     },
-                    {
-                      "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
-                      "width": "780w"
-                    },
-                    {
-                      "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
-                      "width": "910w"
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Attleboro District Court",
+                      "link": "#",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "88 North Main Street\nAttleboro, MA 02703"
                     }
-                  ]
-                }
+                  },
+                  {
+                    "position": {
+                      "lat": 41.70035,
+                      "lng": -70.3062102
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Barnstable District Court",
+                      "phone": "15087478512",
+                      "email": "courts@state.ma.us",
+                      "address": "3195 Main Street\nBarnstable, MA 02630",
+                      "directions": "#"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.4475416,
+                      "lng": -73.2546978
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Berkshire County Superior Court",
+                      "link": "#",
+                      "phone": "14134997487",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "76 East Street\nPittsfield, MA 01201",
+                      "directions": "#"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.3341085,
+                      "lng": -71.1237564
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Brookline District Court",
+                      "phone": "16172324660",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "360 Washington St\nBrookline, MA 02445",
+                      "directions": "#"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.4048224,
+                      "lng": -71.0894367
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Cambridge District Court",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "4040 Mystic Valley Parkway\nMedford, MA 02155"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.4539254,
+                      "lng": -71.3452413
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Concord District Court",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "305 Walden Street\nConcord, MA 01742"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 41.3903691,
+                      "lng": -70.5168911
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Edgartown District Court",
+                      "link": "#",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "81 Main Street\nEdgartown, MA  02539"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.6426951,
+                      "lng": -71.3097237
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Lowell District Court",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "41 Hurd Street\nLowell, MA 01852"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.3386919,
+                      "lng": -71.5660499
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Marlborough District Court",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "45 Williams Street\nMarlborough, MA 01752",
+                      "directions": "#"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.5233862,
+                      "lng": -70.8988276
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Salem District Court",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "56 Federal Street\nSalem, MA 01970"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 42.3598093,
+                      "lng": -71.0632991
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Suffolk County Superior Court",
+                      "link": "#",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "Three Pemberton Square\n Boston, MA 02108"
+                    }
+                  },
+                  {
+                    "position": {
+                      "lat": 41.9032297,
+                      "lng": -71.0963431
+                    },
+                    "label": "",
+                    "infoWindow": {
+                      "name": "Taunton District Court",
+                      "phone": "15082225900",
+                      "fax": "15082233706",
+                      "email": "courts@state.ma.us",
+                      "address": "40 Broadway\nTaunton, MA  02780",
+                      "directions": "#"
+                    }
+                  }
+                ]
               },
               "resultsHeading": {
                 "level": "2",

@@ -6,7 +6,7 @@
   role="presentation">
   {# for static maps #}
   {% if googleMap.static %}
-  <div class="ma__google-map__map">
+  <div class="ma__google-map__map static-image">
     {% set image = googleMap.image %}
     {% include "@atoms/09-media/image.twig" %}
   </div>

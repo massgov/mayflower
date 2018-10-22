@@ -1,6 +1,6 @@
 .ma__google-map {
 
-  &__map {
+  &__map:not(.static-image) {
     height: 360px;
 
     @media ($bp-x-small-min) {
