@@ -39,8 +39,12 @@
     .ma__google-map {
       padding: 0;
       
-      &__map {
+      &__map:not(.static-image){
         height: 400px;
+      }
+
+      .static-image img {
+        width: 100%;
       }
     }
   }
