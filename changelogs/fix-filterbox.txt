@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Fixed
-- (React) Fixed filterbox control section spacing, added filter desktop hidden option and fixed button theme c-primary proptype . #295
