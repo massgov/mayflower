@@ -11,6 +11,7 @@ class ButtonWithIcon extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   setButtonRef(node) {
+    console.log(node)
     if (typeof this.props.setButtonRef === 'function') {
       this.props.setButtonRef(node);
     }
@@ -23,7 +24,7 @@ class ButtonWithIcon extends React.Component {
   }
   render() {
     const {
-      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage
+      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage, ariaLabel
     } = this.props;
     // concat a space at the end of custom classes
     let buttonClasses = classes ? `${classes.join(' ')} ` : '';
@@ -43,21 +44,13 @@ class ButtonWithIcon extends React.Component {
       onClick: this.handleClick,
       tabIndex: 0
     };
-    if (this.props.ariaLabel !== '') {
-        return(
-          <button {...buttonProps} aria-label={this.props.ariaLabel} ref={this.setButtonRef}>
-            <span>{this.props.text}</span>
-            {this.props.icon}
-          </button>
-        );
-    } else {
-      return(
-        <button {...buttonProps} ref={this.setButtonRef}>
-          <span>{this.props.text}</span>
-          {this.props.icon}
-        </button>
-      );
-    }
+    if ( ariaLabel && ariaLabel !== '' ) { buttonProps['aria-label'] = ariaLabel };
+    return(
+      <button {...buttonProps} ref={this.setButtonRef} >
+        <span>{this.props.text}</span>
+        {this.props.icon}
+      </button>
+    );
   }
 }
 
