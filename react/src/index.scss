@@ -32,7 +32,6 @@ $assets-path: './assets';
 @import "01-atoms/global/elements";
 @import "01-atoms/forms";
 @import "01-atoms/content-link";
-
 // Molecules - chunks of code that are used in Organisms/Components
 @import "02-molecules/action-event";
 @import "02-molecules/action-gallery";
@@ -63,7 +62,6 @@ $assets-path: './assets';
 @import "02-molecules/general-teaser";
 @import "02-molecules/google-map";
 @import "02-molecules/header-contact";
-@import "02-molecules/header-search";
 @import "02-molecules/header-tags";
 @import "02-molecules/illustrated-link";
 @import "02-molecules/image-link";
@@ -74,7 +72,6 @@ $assets-path: './assets';
 @import "02-molecules/listing-table";
 @import "02-molecules/location-filters";
 @import "02-molecules/location-icons";
-@import "02-molecules/main-nav";
 @import "02-molecules/org-info";
 @import "02-molecules/org-selector";
 @import "02-molecules/page-intro";
@@ -119,7 +116,6 @@ $assets-path: './assets';
 @import "03-organisms/footnote-list";
 @import "03-organisms/form-downloads";
 @import "03-organisms/form-requirements";
-@import "03-organisms/header";
 @import "03-organisms/header-alert";
 @import "03-organisms/helpful-links";
 @import "03-organisms/icon-links";
@@ -165,8 +161,6 @@ $assets-path: './assets';
 @import "03-organisms/test-feed";
 @import "03-organisms/top-actions";
 @import "03-organisms/transition-page";
-@import "03-organisms/utility-nav";
-@import "03-organisms/utility-panel";
 @import "03-organisms/search-banner";
 
 // Templates - page content types
