@@ -17,10 +17,6 @@
 
     @media ($bp-large-min) {
       float: left;
-      width: calc(100% - #{$layout-sidebar-width} - 40px); //outer page padding
-    }
-
-    @media ($bp-x-large-min) {
       width: 64%;
     }
   }
@@ -29,22 +25,28 @@
 
     @media ($bp-large-min) {
       float: right;
-      width: $layout-sidebar-width + 40px; //outer page padding
-    }
-
-    @media ($bp-x-large-min) {
       width: 36%;
+      height: 400px;
     }
 
     .ma__google-map {
       padding: 0;
       
-      &__map:not(.static-image){
+      &__map {
         height: 400px;
+        
+        &.static-image {
+          height: auto;
+        }
       }
 
       .static-image img {
         width: 100%;
+
+        @media ($bp-large-min) {
+          height: 400px;
+          width: auto;
+        }
       }
     }
   }
