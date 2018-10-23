@@ -16,7 +16,7 @@ storiesOf('atoms/media', module).addDecorator(withKnobs)
       },
       image: {
         src: text('siteLogo.image.src', logo),
-        alt: text('siteLogo.image.alt', 'Massachusetts state seal'),
+        alt: text('siteLogo.image.alt', ''),
         width: number('siteLogo.image.width', 45),
         height: number('siteLogo.image.height', 45)
       },
