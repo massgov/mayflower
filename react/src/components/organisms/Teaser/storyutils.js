@@ -109,7 +109,8 @@ const getOperationalHours = () => {
   };
   const props = {
     hours,
-    listKey: 'demo'
+    listKey: 'demo',
+    currentDay: 'friday'
   };
   return<OperationalHours {...props} />;
 };
