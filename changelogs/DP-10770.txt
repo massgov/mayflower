@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) DP-10770: Update MainNav component data to match [mass.gov API endpoint](https:// mass.gov/api/v1/nav/main) and remove unused logic #PR#
