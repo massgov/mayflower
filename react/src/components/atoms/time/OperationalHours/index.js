@@ -17,9 +17,9 @@ const getDayOfWeek = () => {
 
   return weekday[d.getDay()];
 };
+const currentDay = getDayOfWeek();
 
 const OperationalHours = (props) => {
-  const currentDay = getDayOfWeek();
   const listing = props.listKey ? '--listing' : '';
   return(
     <div className="ma__operational-hours">
@@ -27,7 +27,7 @@ const OperationalHours = (props) => {
         <tbody>
           {props.hours &&
             Object.entries(props.hours).map(([key, value]) => {
-              const active = (props.showActive && key === currentDay) ? '--active' : '';
+              const active = (props.showActive && key === props.currentDay) ? '--active' : '';
               const rowKey = props.listKey
                 ? `${props.listKey}-row-${key}`
                 : null;
@@ -99,11 +99,14 @@ OperationalHours.propTypes = {
   /** Whether to show if currently active or not. */
   showActive: PropTypes.bool,
   /** A unique string used for generating the display of days for week. */
-  listKey: PropTypes.string.isRequired
+  listKey: PropTypes.string.isRequired,
+  /** Current day for the week that gets highlighted. */
+  currentDay: PropTypes.string
 };
 
 OperationalHours.defaultProps = {
-  showActive: true
+  showActive: true,
+  currentDay
 };
 
 export default OperationalHours;
