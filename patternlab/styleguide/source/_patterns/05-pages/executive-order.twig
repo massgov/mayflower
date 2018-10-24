@@ -9,6 +9,10 @@
   {% set listingTable = mainContent.listingTable %}
   {% include "@molecules/listing-table.twig" %}
 
+  {% if stickyTOC %}
+    {% include "@organisms/by-template/sticky-toc.twig" %}
+  {% endif %}
+
   {% set contactList = sideContent.contactList %}
   {% include "@organisms/by-author/contact-list.twig" %}
 

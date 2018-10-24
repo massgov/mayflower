@@ -23,7 +23,7 @@ class ButtonWithIcon extends React.Component {
   }
   render() {
     const {
-      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage
+      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage, ariaLabel
     } = this.props;
     // concat a space at the end of custom classes
     let buttonClasses = classes ? `${classes.join(' ')} ` : '';
@@ -43,8 +43,9 @@ class ButtonWithIcon extends React.Component {
       onClick: this.handleClick,
       tabIndex: 0
     };
+    if ( ariaLabel && ariaLabel !== '' ) { buttonProps['aria-label'] = ariaLabel };
     return(
-      <button {...buttonProps} aria-label={this.props.ariaLabel} ref={this.setButtonRef}>
+      <button {...buttonProps} ref={this.setButtonRef} >
         <span>{this.props.text}</span>
         {this.props.icon}
       </button>
@@ -92,7 +93,7 @@ ButtonWithIcon.defaultProps = {
   capitalized: false,
   iconSize: '',
   iconColor: '',
-  ariaLabel: 'search',
+  ariaLabel: '',
   usage: ''
 };
 
