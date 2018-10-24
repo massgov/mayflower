@@ -93,7 +93,7 @@ const mainNav = [
     ]
   },
   {
-    href: '/patterns/05-pages-section-landing/05-pages-section-landing.html',
+    href: '#',
     text: 'Visiting & Exploring',
     active: true,
     subNav: [
@@ -102,7 +102,7 @@ const mainNav = [
         text: 'Recreational Licenses & Permits'
       },
       {
-        href: '/patterns/05-pages-topic/05-pages-topic.html',
+        href: '#',
         text: 'State Parks & Recreation'
       },
       {
@@ -129,7 +129,7 @@ const mainNav = [
         text: 'State Agencies'
       },
       {
-        href: '/patterns/05-pages-topic-your-government/05-pages-topic-your-government.html',
+        href: '#',
         text: 'Executive Branch'
       },
       {
