@@ -24,7 +24,8 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
           inputOptions.options.orgSelector.map((option) => option.text),
           ''
         ),
-        onChange: action('InputTextTypeAhead onChange')
+        onChange: action('InputTextTypeAhead onChange'),
+        disabled: boolean('InputTextTypeAhead.disabled', false)
       };
       return(<InputTextTypeAhead {...props} />);
     })
