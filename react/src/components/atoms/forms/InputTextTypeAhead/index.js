@@ -3,6 +3,7 @@ import Autosuggest from 'react-autosuggest';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './style.css';
 
 class InputTextTypeAhead extends Component {
@@ -77,7 +78,6 @@ class InputTextTypeAhead extends Component {
     const {
       boxed, id, label, placeholder, autoFocusInput, disabled
     } = this.props;
-    const isBoxed = boxed && 'ma__input-typeahead--boxed';
     const value = JSON.parse(JSON.stringify(this.state.value));
     const inputProps = {
       value,
@@ -111,10 +111,15 @@ class InputTextTypeAhead extends Component {
         </span>
       );
     };
+    const inputTextTypeAheadClasses = classNames({
+      'ma__input-typeahead': true,
+      'ma__input-typeahead--boxed': boxed,
+      'ma__input-typeahead--disabled': disabled
+    });
     return(
       <React.Fragment>
         {label && (<label htmlFor={id} className="ma__label">{label}</label>)}
-        <div className={`ma__input-typeahead ${isBoxed}`}>
+        <div className={inputTextTypeAheadClasses}>
           <Autosuggest
             suggestions={suggestions}
             onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
