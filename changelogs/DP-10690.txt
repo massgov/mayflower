@@ -1,3 +1,0 @@
-___DESCRIPTION___
-Added
-- (React) DP-10690: Added monospace font Source Code Pro into Mayflower React for dataviz and datatables.. #246

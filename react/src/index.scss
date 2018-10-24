@@ -9,7 +9,7 @@
 @import "bourbon-neat/app/assets/stylesheets/neat";
 
 // Bower vendors
-@import "../../patternlab/styleguide/source/assets/js/vendor/bower_components/pikaday/scss/pikaday";
+@import "pikaday/scss/pikaday";
 
 // Path to Mayflower shared assets.
 $assets-path: './assets';
@@ -64,7 +64,6 @@ $assets-path: './assets';
 @import "03-organisms/footnote-list";
 @import "03-organisms/form-downloads";
 @import "03-organisms/form-requirements";
-@import "03-organisms/header";
 @import "03-organisms/header-alert";
 @import "03-organisms/helpful-links";
 @import "03-organisms/icon-links";
@@ -110,8 +109,6 @@ $assets-path: './assets';
 @import "03-organisms/test-feed";
 @import "03-organisms/top-actions";
 @import "03-organisms/transition-page";
-@import "03-organisms/utility-nav";
-@import "03-organisms/utility-panel";
 @import "03-organisms/search-banner";
 
 // Templates - page content types

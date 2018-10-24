@@ -31,7 +31,7 @@ class HeaderSearch extends React.Component {
     const shouldShowTypeAhead = (orgDropdown && orgDropdown.dropdownButton && orgDropdown.inputText);
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
-        {shouldShowTypeAhead && 
+        {shouldShowTypeAhead &&
           <div className="ma__header-search__pre-filter">
             <TypeAheadDropdown {...orgDropdown} />
           </div>
@@ -91,7 +91,7 @@ HeaderSearch.defaultProps = {
   label: 'Search terms',
   placeholder: 'Search Mass.gov',
   buttonSearch: {
-    ariaLabel: 'search',
+    ariaLabel: '',
     usage: 'secondary'
   }
 };

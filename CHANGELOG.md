@@ -13,6 +13,66 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.8.0 (10/24/2018)
+
+### Added
+- (React) DP-10799: Add FootNote and FootNoteLink atoms to mayflower react. #317
+- (React) DP-10910: Add disabled prop to inputTextTypeAhead and conditionally render filter controls in FilterBox #327
+- (React) DP-10913: Adds Teaser, OperationalHours components. #292
+- (React) DP-10765: Porting Table of Contents Hierarchy component. #311
+
+### Changed
+- (React) Componentize scss for page header organism. #329
+
+### Removed
+- (React) DP-10662: Remove deprecate alt value from site logo image. #315
+- (React) DP-10667: Remove aria-label from search button. Button with icon has aria-label only when it has value. #318
+
+### Fixed
+- (React) DP-10895: Fix bug in page flipper if intro props are not passed. #330
+
+
+## 8.7.0 (10/17/2018)
+
+### Added
+- (React) DP-10784: Port Listing Table in React from PL. #313
+
+### Changed
+- (PatternLab) DP-10756: Modify display of relationship indicators on mobile. #310
+
+### Fixed
+- (Patternlab) DP-10721: Remove duplicated social heading on service page and remove backward compatible sidebar heading to use IconLink comp heading in the template. #316
+
+## 8.6.0 (10/16/2018)
+
+### Added
+- (React) Add react-table as a DataTable component directly using react-table API. #289
+- (React) DP-10649: Add TabContainer and Tab components. #298
+- (React) DP-10693: Add ArrowButton atom component, ArrowNav molecule component and PageFlipper organism component. #301
+
+### changed
+- (React) DP-10770: Update SiteLogo props structure in Header component making it fully configurable and sets default props #312
+- (React) DP-10770: Componentize Header related component styles, including HeaderSearch, MainNav, UtilityNav, UtilityPanel and Header #312
+
+## 8.5.0 (10/10/2018)
+
+### Added
+- (Patternlab) DP-8725: Applies responsive functionality to tables in rich text. #205
+- (Patternlab) DP-10522: Adding a section to how-to's for return visitors #294
+- (React) DP-10690: Added monospace font Source Code Pro into Mayflower React for dataviz and datatables. #246
+- (React) DP-10678: Adds passable aria-label prop to tabs molecule to address a11y issue. #299
+
+### Fixed
+- (Patternlab) Updated header alert CSS to fix underline issues with multi-line sentences. #281
+- (Patternlab) DP-8019: Update sticky TOC to only target h2 elements. #302
+- (React) Fixed filterbox control section spacing, added filter desktop hidden option and fixed button theme c-primary proptype . #295
+- (React) Fixed SearchBanner accessibility issues relating to the filterbox expand/close button. #296
+
+
+### Changed
+- (React) DP-10244: Changes atoms to have styles in the component. #287
+
+
 ## 8.4.0 (10/05/2018)
 
 ### Added

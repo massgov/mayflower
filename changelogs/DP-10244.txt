@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Major
-- (React) DP-10244: Changes atoms to have styles in the component.
