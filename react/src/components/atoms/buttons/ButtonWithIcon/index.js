@@ -11,7 +11,6 @@ class ButtonWithIcon extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   setButtonRef(node) {
-    console.log(node)
     if (typeof this.props.setButtonRef === 'function') {
       this.props.setButtonRef(node);
     }
