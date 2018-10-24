@@ -13,6 +13,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.8.0 (10/24/2018)
+
+### Added
+- (React) DP-10799: Add FootNote and FootNoteLink atoms to mayflower react. #317
+- (React) DP-10910: Add disabled prop to inputTextTypeAhead and conditionally render filter controls in FilterBox #327
+DP-10913: Adds Teaser, OperationalHours components. #292
+
+### Changed
+- (React) Componentize scss for page header organism. #329
+
+### Removed
+- (React) DP-10662: Remove deprecate alt value from site logo image. #315
+- (React) DP-10667: Remove aria-label from search button. Button with icon has aria-label only when it has value. #318
+
+### Fixed
+- (React) DP-10895: Fix bug in page flipper if intro props are not passed. #330
+
+
 ## 8.7.0 (10/17/2018)
 
 ### Added
