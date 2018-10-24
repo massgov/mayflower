@@ -1,7 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-DP-10913: Adds Teaser, OperationalHours components.
-
-___PROJECTS PREFIX___
-- React

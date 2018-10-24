@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Minor
-- React: Componentize scss for page header organism. PR #329
