@@ -15,6 +15,10 @@ export default (function (window, document, $, undefined) {
 
     const feedbackButton = $('body').find('.ma__fixed-feedback-button');
 
+    $orgNav.find('svg').each(function () {
+      $(this).attr('focusable', 'false');
+    });
+
     // Mobile Menu vars.
     const $mobileToggle = $orgNav.find('.ma__organization-navigation__mobile-toggle');
     const mobileBreak = 910;
