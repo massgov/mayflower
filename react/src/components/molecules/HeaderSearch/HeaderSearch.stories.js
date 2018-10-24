@@ -20,7 +20,7 @@ storiesOf('molecules/HeaderSearch', module).addDecorator(withKnobs)
       placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
       buttonSearch: {
         onClick: action('Button clicked'),
-        ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', 'Search'),
+        ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', ''),
         text: text('HeaderSearch.buttonSearch.text', 'Search'),
         usage: select('HeaderSearch.buttonSearch.usage', {
           '': 'primary (default)',
@@ -68,7 +68,7 @@ storiesOf('molecules/HeaderSearch', module).addDecorator(withKnobs)
       placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
       buttonSearch: {
         onClick: action('Button clicked'),
-        ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', 'Search'),
+        ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', ''),
         text: text('HeaderSearch.buttonSearch.text', 'Search'),
         usage: select('HeaderSearch.buttonSearch.usage', {
           '': 'primary (default)',
