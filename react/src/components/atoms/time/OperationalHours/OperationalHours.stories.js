@@ -2,8 +2,18 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, date, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, date, boolean, select } from '@storybook/addon-knobs/react';
 import OperationalHours from '.';
+
+const weekday = [
+  'sunday',
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday'
+];
 
 storiesOf('atoms/time', module).addDecorator(withKnobs)
   .add('OperationalHours', withInfo('<div></div>')(() => {
@@ -50,7 +60,8 @@ storiesOf('atoms/time', module).addDecorator(withKnobs)
     const props = {
       showActive,
       hours,
-      listKey: 'OperationalHoursStory'
+      listKey: 'OperationalHoursStory',
+      currentDay: select('OperationalHoursStory.currentDay', weekday, 'friday')
     };
 
     return(

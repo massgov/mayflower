@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- (React) Add FootNote and FootNoteLink atoms to mayflower react. #317
