@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- Patternlab DP-9176: Add aria-label attribute to the table of content accordion button in binder page to override the symbols for screen readers, remove the visually hidden text which aria-label attribute replaces with. #215#

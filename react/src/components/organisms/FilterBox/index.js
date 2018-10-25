@@ -36,18 +36,24 @@ const FilterBox = (props) => {
                 </div>
               ))}
             </div>
-            <div className="ma__filter-box__controls">
-              <div className="ma__filter-box__button">
-                <Button {...submitButton} />
-              </div>
-              {clearButton && (
-              <React.Fragment>
-                <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
-                  {clearButton.text}
-                </button>
-              </React.Fragment>
-            )}
-            </div>
+            {
+              (submitButton || clearButton) && (
+                <div className="ma__filter-box__controls">
+                  {submitButton && (
+                    <div className="ma__filter-box__button">
+                      <Button {...submitButton} />
+                    </div>
+                  )}
+                  {clearButton && (
+                  <React.Fragment>
+                    <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
+                      {clearButton.text}
+                    </button>
+                  </React.Fragment>
+                )}
+                </div>
+              )
+            }
           </div>
         </form>
       </div>
