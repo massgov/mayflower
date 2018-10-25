@@ -36,10 +36,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
         right: 0;
         top: 0;
 
-      @media ($bp-x-small-max) {
-        padding-left: 10px;
-      }
-
       @media ($bp-header-search-reduce-button) {
         span {
           display: none;
