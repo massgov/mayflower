@@ -15,6 +15,7 @@
   &-head {
     display: inline-flex;
     margin-bottom: 0;
+    padding-inline-start: 0;
     list-style: none;
     @include tabscroll;
   }
@@ -26,17 +27,11 @@
   }
 
   .ma__tab-title {
-    cursor: pointer;
-    padding: 1.75rem 1.5rem 0.8rem 1.5rem;
-    font-size: 1.25rem;
-    background-color: unset;
-    white-space: nowrap;
     border-left: 1px solid $c-gray-light;
     border-top: 1px solid $c-gray-light;
     border-right: none;
     border-bottom: none;
     margin-bottom: -1px;
-    display: block;
 
     &:first-child {
       border-left-width: 1px;
@@ -54,11 +49,24 @@
 
     &--active {
       border-top: 5px solid $c-primary;
-      padding-top: 1.5rem;
       font-weight: 700;
       color: $c-primary;
       background-color: white;
       z-index: 1;
+    }
+
+    button {
+      cursor: pointer;
+      padding: 1.75rem 1.5rem 0.8rem 1.5rem;
+      font-size: 1.25rem;
+      background-color: unset;
+      white-space: nowrap;
+      border: none;
+      display: block;
+    }
+
+    &--active button {
+      padding-top: 1.5rem;
     }
   }
 
