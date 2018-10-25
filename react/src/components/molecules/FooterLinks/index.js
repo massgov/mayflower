@@ -6,24 +6,28 @@ const FooterLinks = (footerLinks) => (
   <section className="ma__footer-links">
     {
       footerLinks.items.map((footerLinksNav, i) => (
-        <FooterLinksNav {...footerLinksNav} key={`footerLinksNav_${i}`} index={i} />
+        <FooterLinksNav {...footerLinksNav} showNavHeading={footerLinks.showNavHeading} key={`footerLinksNav_${i}` } index={i} />
       ))
     }
   </section>
 );
 
-const FooterLinksNav = (footerLinksNav) => (
-  <nav aria-labelledby={footerLinksNav.id}>
-    <h2 className="visually-hidden" id={footerLinksNav.id}>{footerLinksNav.heading}</h2>
-    <ul className="ma__footer-links__items">
-      {
-        footerLinksNav.links.map((link, i) => (
-          <FooterLink {...link} key={`footerLink_${i}`} />
-        ))
-      }
-    </ul>
-  </nav>
-);
+
+const FooterLinksNav = (footerLinksNav) => {
+  const footerNavHeadingClasses = footerLinksNav.showNavHeading ? 'ma__sidebar-heading' : 'visually-hidden';
+  return (
+    <nav aria-labelledby={footerLinksNav.id}>
+      <h2 className={footerNavHeadingClasses} id={footerLinksNav.id}>{footerLinksNav.heading}</h2>
+      <ul className="ma__footer-links__items">
+        {
+          footerLinksNav.links.map((link, i) => (
+            <FooterLink {...link} key={`footerLink_${i}`} />
+          ))
+        }
+      </ul>
+    </nav>
+  )
+}
 
 const FooterLink = (footerLink) => (
   <li className="ma__footer-links__item">
