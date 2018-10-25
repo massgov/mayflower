@@ -112,6 +112,10 @@ $action-finder-bp: 900px;
 
   &__items:not(&__items--all) {
     padding-bottom: 25px;
+
+    @media ($bp-medium-min) {
+      padding-bottom: 45px;
+    }
   }
 
   .ma__illustrated-link,

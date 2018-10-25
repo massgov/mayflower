@@ -83,19 +83,10 @@ $page-header-widget-width: 350px;
   }
 
   &__content {
-    padding-top: 30px;
-    padding-bottom: 40px;
-
-    @media ($bp-small-min){
-      padding-top: 40px;
-    }
-
-    @media ($bp-medium-min){
-      padding-bottom: 45px;
-    }
-
+    padding: 30px 0;
+    
     @media ($bp-large-min){
-      padding-bottom: 60px;
+      padding: 45px 0;
     }
   }
 
