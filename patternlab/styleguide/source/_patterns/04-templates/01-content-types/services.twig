@@ -79,6 +79,9 @@
               {% include "@organisms/by-author/event-listing.twig" %}
             {% endif %}
             {% if splitColumns %}
+              <div class="more-info-header">
+                <h2 class="ma__comp-heading">More Information</h2>
+              </div>
               {% include "@organisms/by-author/split-columns.twig" %}
             {% endif %}
           {% endblock %}
