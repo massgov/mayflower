@@ -71,8 +71,7 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
-  /** Whether to display or visually hiding footer nav headings */
-  showNavHeading: true,
+  showNavHeading: false,
   backToTopButton: false,
   footerLogo: {
     src: logo,
