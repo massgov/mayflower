@@ -34,11 +34,7 @@ $assets-path: './assets';
 @import "01-atoms/content-link";
 
 // @todo: remove when Footer molecule is updated.
-@import "02-molecules/social-links";
 @import "02-molecules/general-teaser";
-
-// Organisms - components
-@import "03-organisms/footer";
 
 // Templates - page content types
 @import "04-templates/binder-page";
