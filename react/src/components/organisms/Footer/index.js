@@ -7,6 +7,8 @@ import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
 import Icon from '../../atoms/icons/Icon';
 
+import './style.css';
+
 const Footer = ({
   footerLinks, socialLinks, backToTopButton, footerText, footerLogo
 }) => (

@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) DP-10244: Componentize SCSS for molecules #297
+- (React) DP-10764: Componentize SCSS for organisms #339

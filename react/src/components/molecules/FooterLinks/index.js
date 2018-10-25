@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 const FooterLinks = (footerLinks) => (
   <section className="ma__footer-links">

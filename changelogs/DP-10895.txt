@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Minor
-- (React) DP-10895: Fix bug in page flipper if intro props are not passed. #

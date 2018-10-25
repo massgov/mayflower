@@ -6,6 +6,8 @@ import CompHeading from '../../atoms/headings/CompHeading';
 import Paragraph from '../../atoms/text/Paragraph';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 
+import './style.css';
+
 const LinkList = (props) => {
   const {
     compHeading, description, stacked, hideBullets, links, more
