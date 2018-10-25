@@ -32,7 +32,7 @@ SiteLogo.defaultProps = {
   },
   image: {
     src: logo,
-    alt: 'Massachusetts state seal',
+    alt: '',
     width: 45,
     height: 45
   },
