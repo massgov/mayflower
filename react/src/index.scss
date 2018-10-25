@@ -35,6 +35,7 @@ $assets-path: './assets';
 
 // @todo: remove when Footer molecule is updated.
 @import "02-molecules/social-links";
+@import "02-molecules/general-teaser";
 
 // Organisms - components
 @import "03-organisms/about-section";
