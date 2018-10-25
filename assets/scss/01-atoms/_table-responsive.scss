@@ -2,6 +2,10 @@
   position: relative;
   margin-bottom: 1em;
   overflow: hidden;
+
+  &.has-horizontal-scroll {
+    padding-bottom: 50px;
+  }
 }
 
 .ma__table--responsive__wrapper {
@@ -93,7 +97,6 @@
     position: absolute;
     right: 0;
     z-index: 50;
-
    
     // Native position is at the bottom of the responsive container;
     // so show the bar.
