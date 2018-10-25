@@ -31,9 +31,10 @@ class Tab extends React.Component {
             this.defaultSet = true;
           }
           return(
-            <li role="presentation" className={tabClasses}>
+            <li role="presentation">
               <button
                 role="tab"
+                className={tabClasses}
                 id={this.tabIdent}
                 onClick={(e) => {
                   this.scrollIntoView(e.target);
