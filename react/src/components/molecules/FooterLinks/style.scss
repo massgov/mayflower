@@ -5,8 +5,15 @@
 
 .ma__footer-links {
   &__items {
-    .ma__sidebar-heading {
-      color: $c-gray;
+    &--heading {
+      border-bottom: none;
+
+      .ma__sidebar-heading {
+        color: $c-gray;
+        font-size: 1rem;
+      }
+
+
     }
     ul {
       @include ma-reset-list;
