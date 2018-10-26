@@ -1,6 +1,6 @@
-export default (function (window,document,$,undefined) {
+export default (function (window, document, $, undefined) {
 
-  $('.ma__organization-navigation').each(function() {
+  $('.ma__organization-navigation').each(function () {
     // Org Nav Wrapper.
     const $orgNav = $(this);
     const $orgNavItems = $orgNav.find('.ma__organization-navigation__items');
@@ -14,6 +14,10 @@ export default (function (window,document,$,undefined) {
     let $relatedOrgs = $pageWrapper.find('.ma__our-organizations');
 
     const feedbackButton = $('body').find('.ma__fixed-feedback-button');
+
+    $orgNav.find('svg').each(function () {
+      $(this).attr('focusable', 'false');
+    });
 
     // Mobile Menu vars.
     const $mobileToggle = $orgNav.find('.ma__organization-navigation__mobile-toggle');
@@ -31,10 +35,10 @@ export default (function (window,document,$,undefined) {
     let $sectionButton = $orgNav.find('.ma__org-nav-i-want-to-section .ma__comp-heading');
 
     // Sticky on scroll.
-    if($('.pre-content').length) {
+    if ($('.pre-content').length) {
       const bannerBottom = $('.ma__page-banner').offset().top + $('.ma__page-banner').height();
       let menuHeight = $orgNav.height();
-      $(window).scroll(function() {
+      $(window).scroll(function () {
         const orgWindowTop = $(window).scrollTop();
         let windowWidth = $(window).width();
 
@@ -42,18 +46,18 @@ export default (function (window,document,$,undefined) {
         if (bannerBottom > orgWindowTop) {
           $('.pre-content').removeAttr('style');
           $orgNav.removeClass('stuck');
-        } 
+        }
         else {
           $('.pre-content').css('padding-top', menuHeight);
           $orgNav.addClass('stuck');
         }
       });
-    }  
+    }
 
     // Mobile toggle. 
-    $mobileToggle.on('click', function() {
-      
-      if(!$orgNav.hasClass('stuck')) {
+    $mobileToggle.on('click', function () {
+
+      if (!$orgNav.hasClass('stuck')) {
         $orgNav.addClass('stuck')
       }
 
@@ -71,30 +75,31 @@ export default (function (window,document,$,undefined) {
     });
 
     // Search form swing open/closed.
-    $searchToggle.on('click', function() {
+    $searchToggle.on('click', function () {
       $menuWrapper.toggleClass('form-open');
 
       let $buttonLabel = $searchToggle.find('.search-label');
       $buttonLabel.text($buttonLabel.text() == "Close" ? "Search this organization" : "Close");
     });
 
-    $orgNavSearchForm.on('submit', function() {
+    $orgNavSearchForm.on('submit', function () {
       let searchAction = $(this).attr('action') + "&q=";
       let searchParams = $orgNavSearchInput.val();
       $(this).attr('action', searchAction + searchParams);
     });
 
     // Open the dropdowns.
-    $menuButton.each(function() {
+    $menuButton.each(function () {
       let $button = $(this);
-      let $buttonParent = $button.parent('.has-subnav'); 
+      let $buttonParent = $button.parent('.has-subnav');
       let $thisMenu = $buttonParent.find('.ma__organization-navigation__subitems');
+      let $otherMenus = $('.ma__organization-navigation__subitems').not($thisMenu);
+      let menuHeight = $menuWrapper.outerHeight();
 
-      $buttonParent.on('mouseenter mouseleave', function() {
+      $buttonParent.on('mouseenter mouseleave', function () {
         let windowWidth = $(window).width();
-        let menuHeight = $menuWrapper.outerHeight();
 
-        if(windowWidth > mobileBreak) {
+        if (windowWidth > mobileBreak) {
           $('.section-toggle').remove();
           $buttonParent.toggleClass('item-open');
           $thisMenu.css('top', menuHeight);
@@ -104,10 +109,32 @@ export default (function (window,document,$,undefined) {
         };
       });
 
-      $button.on('click', function() {
+      $button.on('focus', function () {
+        $thisMenu.find("a[href]").attr("tabindex", -1);
+        $otherMenus.find("a[href]").attr("tabindex", -1);
+
+        $button.keyup(function (e) {
+
+          $('.item-open').removeClass('item-open');
+
+          if (e.keyCode == 13 || e.keyCode == 32) {
+            $('.section-toggle').remove();
+
+            $thisMenu.find("a[href]").attr("tabindex", 0);
+            $buttonParent.toggleClass('item-open');
+            $thisMenu.css('top', menuHeight);
+
+            $buttonParent.add($thisMenu).on('mouseenter mouseleave', function () {
+              return false;
+            });
+          }
+        });
+      });
+
+      $button.on('click', function () {
         let windowWidth = $(window).width();
 
-        if(windowWidth < mobileBreak) {
+        if (windowWidth < mobileBreak) {
           $buttonParent.toggleClass('item-open');
           let $buttonClone = $button.clone(true);
 
@@ -115,56 +142,60 @@ export default (function (window,document,$,undefined) {
           if (!$('.section-toggle').length) {
             $buttonClone.addClass('section-toggle').prependTo($thisMenu);
           }
-        } 
+        }
         else {
           return false;
         };
       });
-  
+
     });
 
-    $('body').on('click', '.section-toggle', function() {
+    $('body').on('click', '.section-toggle', function () {
       $('.section-toggle').remove();
     });
 
     // Mobile view open the "I want to sections".
-    $sectionButton.each(function() {
+    $sectionButton.each(function () {
 
       let $button = $(this);
       let $seeAll = $button.parent().find('.ma__link-list__see-all');
-        $button.on( 'click', function() {
-          let windowWidth = $(window).width();
-          if (windowWidth < mobileBreak) {
-            $button.toggleClass('item-open');
-            $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
-          }
-        });
-      
+      $button.on('click', function () {
+        let windowWidth = $(window).width();
+        if (windowWidth < mobileBreak) {
+          $button.toggleClass('item-open');
+          $button.next('.ma__link-list__container').add($seeAll).toggleClass('item-open');
+        }
+      });
+
     });
 
-    if($relatedOrgs.length){
+    if ($relatedOrgs.length) {
       $relatedOrgs.attr('id', 'organizations');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#organizations">Our organizations</a></li>');
     }
 
-    if($newsLink.length){
+    if ($newsLink.length) {
       $newsLink.attr('id', 'news');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#news">News</a></li>');
     }
 
-    if($eventsLink.length){
+    if ($eventsLink.length) {
       $eventsLink.attr('id', 'events');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#events">Events</a></li>');
     }
 
-    if($locationsLink.length){
+    if ($locationsLink.length) {
       $locationsLink.attr('id', 'locations');
       $orgNavItems.append('<li class="ma__organization-navigation__item"><a class="internal-link" href="#locations">Locations</a></li>');
     }
 
     $('.ma__organization-navigation__item.mobileLogin').appendTo($orgNavItems);
-  
-    $(".internal-link").on('click', function(e) {
+
+    $(".internal-link").on('focus', function (e) {
+      $('.item-open').removeClass('item-open');
+    });
+
+    $(".internal-link").on('click', function (e) {
       // Close open menus and reset markup.
       $('.menu-open').removeClass('menu-open');
       $('.item-open').removeClass('item-open');
@@ -173,42 +204,42 @@ export default (function (window,document,$,undefined) {
 
       e.preventDefault();
       let location = $(this).attr('href');
-      $('html, body').animate({scrollTop: $(location).offset().top - 120}, 1000);
+      $('html, body').animate({ scrollTop: $(location).offset().top - 120 }, 1000);
 
-      if(feedbackButton.is(":hidden")) {
+      if (feedbackButton.is(":hidden")) {
         feedbackButton.show();
       }
     });
 
-    $(window).on("resize", function() {
+    $(window).on("resize", function () {
       let windowWidth = $(window).width();
       let $contactGroups = $orgNav.find('.ma__org-nav-contact-us .ma__contact-group');
 
       if (windowWidth > mobileBreak) {
         // Check if already wrapped.
-        if($('.wrappedGroup').length === 0){
+        if ($('.wrappedGroup').length === 0) {
 
-          if(!$('.ma__contact-group__seeAll').length) {
+          if (!$('.ma__contact-group__seeAll').length) {
             // If no 'see all link', wrap address separately.
             $('.ma__contact-group:first-child').addClass('wrappedGroup');
             $contactGroups = $contactGroups.not(':first');
-          } 
+          }
           else {
             $contactGroups.slice(0, 2).wrapAll("<div class='wrappedGroup' />");
             $contactGroups = $contactGroups.slice(2);
           }
 
-          if($contactGroups.length < 3) {
+          if ($contactGroups.length < 3) {
             $contactGroups.wrap("<div class='wrappedGroup' />");
           }
           else {
             // Wrap contact groups in sets of 2 for layout.
-            for (let i = 0; i < $contactGroups.length; i+=2) {
-              $contactGroups.slice(i, i+2).wrapAll("<div class='wrappedGroup' />");
+            for (let i = 0; i < $contactGroups.length; i += 2) {
+              $contactGroups.slice(i, i + 2).wrapAll("<div class='wrappedGroup' />");
             }
           }
         }
-      } 
+      }
       else {
         $('.wrappedGroup').find($contactGroups).unwrap();
         $('body').removeClass('scroll-disabled');
@@ -216,4 +247,4 @@ export default (function (window,document,$,undefined) {
 
     }).resize();
   });
-}) (window,document,jQuery);
+})(window, document, jQuery);

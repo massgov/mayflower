@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, object } from '@storybook/addon-knobs/react';
+import { withKnobs, object, boolean } from '@storybook/addon-knobs/react';
 
 import stateSeal from 'SharedAssets/images/stateseal.png';
 
@@ -17,6 +17,7 @@ storiesOf('organisms/Footer', module).addDecorator(withKnobs)
   .add('Footer', withInfo({ FooterReadme })(() => {
     const props = {
       footerLinks: object('footer.footerLinksData', FooterLinksData),
+      showNavHeading: boolean('footer.showNavHeading', true),
       socialLinks: object('footer.socialLinksData', SocialLinksData),
       footerLogo: object('footer.footerLogo', {
         src: stateSeal,
@@ -36,6 +37,7 @@ storiesOf('organisms/Footer', module).addDecorator(withKnobs)
   .add('Footer with live JSON', withInfo({ FooterReadme })(() => {
     const props = {
       footerLinks: object('footer.footerLinksLiveData', FooterLinksLiveData),
+      showNavHeading: boolean('footer.showNavHeading', false),
       socialLinks: object('footer.socialLinksLiveData', SocialLinksLiveData),
       footerText: object('footer.footerText', {
         copyright: '2018 Commonwealth of Massachusetts.',

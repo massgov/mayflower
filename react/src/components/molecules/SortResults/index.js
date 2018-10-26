@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonSort from '../../atoms/buttons/ButtonSort';
 
+import './style.css';
+
 const SortResults = (sortResults) => (
   <div className="ma__sort-results js-sort-results">
     {sortResults.label &&

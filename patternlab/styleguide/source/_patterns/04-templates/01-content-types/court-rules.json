@@ -81,6 +81,11 @@
       }],
     "widgets": null
   },
+  "stickyTOC": {
+    "title": "Table of Contents",
+    "parent": ".ma__court-rules__content",
+    "sections": ".page-content h2.ma__comp-heading"
+  },
   "relationshipIndicators": {
     "primary": {
       "position": "primary",

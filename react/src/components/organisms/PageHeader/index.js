@@ -6,6 +6,8 @@ import Paragraph from '../../atoms/text/Paragraph';
 import PublishState from '../../atoms/text/PublishState';
 import './style.css';
 
+import './style.css';
+
 const PageHeader = (pageHeader) => {
   const {
     category, title, subTitle, optionalContents, publishState

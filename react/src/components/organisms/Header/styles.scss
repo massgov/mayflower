@@ -2,16 +2,16 @@
 @import "bourbon-neat/app/assets/stylesheets/neat";
 @import "03-organisms/header";
 
-.ma__header__container {
-  .ma__header-search {
-    .ma__button-search {
-      &, &--secondary {
-        @media($bp-medium-max) {
-          span {
-            display: inline-block;
-          }
-        }
-      }
-    }
-  }
-}
+// .ma__header__container {
+//   .ma__header-search {
+//     .ma__button-search {
+//       &, &--secondary {
+//         @media($bp-medium-max) {
+//           span {
+//             display: inline-block;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
