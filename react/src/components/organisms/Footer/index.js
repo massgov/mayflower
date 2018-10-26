@@ -10,12 +10,12 @@ import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
 const Footer = ({
-  footerLinks, socialLinks, backToTopButton, footerText, footerLogo
+  footerLinks, socialLinks, backToTopButton, footerText, footerLogo, showNavHeading
 }) => (
   <footer className="ma__footer js-footer" id="footer">
     <div className="ma__footer__container">
       <div className="ma__footer__nav">
-        <FooterLinks {...footerLinks} />
+        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
       </div>
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
@@ -43,6 +43,8 @@ const Footer = ({
 Footer.propTypes = {
   /** @molecules/FooterLinks */
   footerLinks: PropTypes.shape(FooterLinks.propTypes).isRequired,
+  /** Whether to display or visually hiding footer nav headings */
+  showNavHeading: PropTypes.bool,
   /** @molecules/SocialLinks */
   socialLinks: PropTypes.shape(SocialLinks.propTypes).isRequired,
   /** A floating button on the lower right corner which onClick takes user to the top of the page. */
@@ -69,6 +71,7 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
+  showNavHeading: false,
   backToTopButton: false,
   footerLogo: {
     src: logo,

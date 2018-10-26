@@ -1,21 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import { SidebarHeading } from '../../../index';
 
 const FooterLinks = (footerLinks) => (
   <section className="ma__footer-links">
     {
       footerLinks.items.map((footerLinksNav, i) => (
-        <FooterLinksNav {...footerLinksNav} key={`footerLinksNav_${i}`} index={i} />
+        <FooterLinksNav {...footerLinksNav} showNavHeading={footerLinks.showNavHeading} key={`footerLinksNav_${i}` } index={i} />
       ))
     }
   </section>
 );
 
+
 const FooterLinksNav = (footerLinksNav) => (
-  <nav aria-labelledby={footerLinksNav.id}>
-    <h2 className="visually-hidden" id={footerLinksNav.id}>{footerLinksNav.heading}</h2>
-    <ul className="ma__footer-links__items">
+  <nav aria-labelledby={footerLinksNav.id} className={`ma__footer-links__items${footerLinksNav.showNavHeading ? ' ma__footer-links__items--heading' : ''}`}>
+    {
+      footerLinksNav.showNavHeading ? <SidebarHeading title={footerLinksNav.heading} level={2} /> : <h2 className="visually-hidden" id={footerLinksNav.id}>{footerLinksNav.heading}</h2>
+    }
+    <ul>
       {
         footerLinksNav.links.map((link, i) => (
           <FooterLink {...link} key={`footerLink_${i}`} />

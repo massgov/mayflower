@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Minor
+- (React) DP-11038: Add an option for footer component to show footer links category heading. #340
