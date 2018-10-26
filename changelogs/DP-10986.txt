@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Minor
-- (Patternlab, React) DP-10986: Add font smoothing for Texta font weight accuracy. #336
