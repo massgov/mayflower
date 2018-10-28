@@ -41,6 +41,21 @@
       
       &__map {
         height: 400px;
+
+        &.static-image {
+          height: auto; 
+          
+          @media ($bp-large-min) {
+            position: relative;
+            height: 400px;
+
+            img {
+              height: 400px;
+              object-fit: none;
+              object-position: center;
+            }
+          }
+        }
       }
     }
   }
