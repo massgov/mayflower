@@ -11,7 +11,7 @@ export default (function (window, document, $, undefined) {
       $button.addClass('toggle-sets');
     }
 
-    $('body').on('click', '.toggle-sets button', function () {
+    $button.on('click', function () {
       $columns.toggleClass('is-open');
       $button.toggleClass('is-open');
     });
