@@ -12,29 +12,21 @@ $accordion-break: 720px;
 
   @media ($bp-large-min) {
     .ma__comp-heading,
-    .ma__contact-row__additional {
+    .ma__contact-row__columns {
       width: calc(100% - 300px);
     }
   }
 
-  .ma__contact-row__additional {
+  .ma__contact-row__columns {
 
     @media (min-width: $accordion-break) {
-      display: flex;
-      flex-wrap: wrap;
+      column-count: 2; 
+      column-gap: 40px; 
+      column-rule: 1px solid black;
 
-      &--column {
-        width: 50%;
-        flex: 1;
-
-        &:first-child {
-          padding-right: 1rem;
-        }
-
-        &:nth-child(2):not(:empty)  {
-          border-left: 1px solid $c-gray-light;
-          padding-left: 2rem;
-        }
+      .ma__contact-group {
+        break-inside: avoid;
+        will-change: transform;
       }
     }
   }
