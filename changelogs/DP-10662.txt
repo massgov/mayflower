@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Minor
-- React DP-1234: Remove deprecate alt value from site logo image. #PR#

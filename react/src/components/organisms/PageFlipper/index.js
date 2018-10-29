@@ -4,20 +4,18 @@ import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const PageFlipper = (props) => {
-  const introLabel = (props.intro.label) ? (<span className="ma__page-flipper__context-label">{props.intro.label}</span>) : '';
-  const introDecorativeLink = (props.intro.introDecorativeLink.props.text) ? props.intro.introDecorativeLink : '';
-  const introLink = (introLabel || introDecorativeLink) ? (
-    <div className="ma__page-flipper__context">
-      {introLabel}
-      {introDecorativeLink}
-    </div>
-  ) : '';
   const blank = (<div className="ma__page-flipper__blank">&nbsp;</div>);
   const prev = props.previousLink || blank;
   const next = props.nextLink || blank;
   return(
     <React.Fragment>
-      {introLink}
+      { props.intro && (
+        <div className="ma__page-flipper__context">
+          { props.intro.label && <span className="ma__page-flipper__context-label">{props.intro.label}</span> }
+          { (props.intro.introDecorativeLink && props.intro.introDecorativeLink.props.text) && props.intro.introDecorativeLink }
+        </div>
+        )
+      }
       <div className="ma__page-flipper">
         <div className="ma__page-flipper__container">
           {prev}
