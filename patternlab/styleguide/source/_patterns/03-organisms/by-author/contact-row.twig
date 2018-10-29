@@ -1,4 +1,4 @@
-<section class="ma__contact-row js-accordion">
+<section class="ma__contact-row">
   {% set contactHeading = 2 %}
   {% set contactHeading = (contactRow.compHeading.level ? : contactHeading) + 1 %}
 
@@ -20,13 +20,13 @@
     
     
     {% if  contactRow.addressContactGroup %}
-      <div class="ma__contact-row--address ma__contact-group">
+      <div class="ma__contact-row--address ma__contact-set">
       {% set contactGroup = contactRow.addressContactGroup %}
       {% include "@molecules/contact-group.twig" %}
       </div>
       {% endif %}
       {% if contactRow.phoneContactGroup %}
-      <div class="ma__contact-row--phone ma__contact-group">
+      <div class="ma__contact-row--phone ma__contact-set">
       {% set contactGroup = contactRow.phoneContactGroup %}
       {% include "@molecules/contact-group.twig" %}
       </div>
@@ -35,13 +35,13 @@
     
     
     {% if  contactRow.onlineContactGroup %}
-      <div class="ma__contact-row--online ma__contact-group">
+      <div class="ma__contact-row--online ma__contact-set">
       {% set contactGroup = contactRow.onlineContactGroup %}
       {% include "@molecules/contact-group.twig" %}
       </div>
       {% endif %}
       {% if contactRow.faxContactGroup %}
-      <div class="ma__contact-row--fax ma__contact-group">
+      <div class="ma__contact-row--fax ma__contact-set">
       {% set contactGroup = contactRow.faxContactGroup %}
       {% include "@molecules/contact-group.twig" %}
       </div>
