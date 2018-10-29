@@ -9,6 +9,11 @@ class Tab extends React.Component {
     super(props);
     this.tabIdent = shortid.generate();
     this.defaultSet = false;
+
+
+    this.button = React.createRef();
+
+
   }
 
   scrollIntoView = (target) => {
@@ -33,6 +38,13 @@ class Tab extends React.Component {
           return(
             <li role="presentation" className={tabClasses}>
               <button
+
+
+    // ADDED ref TO CHECK IF THE BUTTON HAS FOCUS.
+    //  ( ACTIVE TAB DOESN'T MEAN IT HAS FOCUS. )
+                ref={this.button}
+
+
                 role="tab"
                 id={this.tabIdent}
                 onClick={(e) => {
@@ -42,6 +54,26 @@ class Tab extends React.Component {
                 aria-selected={active}
                 tabIndex={!active ? -1 : 0}
                 aria-describedby={this.props.a11yID}
+
+
+    // THIS EVENT IS ONLY AVAILABLE TO THE CURRENTLY ONFOCUS TAB.
+                // {active && onKeyDown={this.handleButtonKeyDown}}
+                onKeyDown = {(e) => {
+                  if (e.keyCode === 37) {// LEFT
+                    console.log(this.props);
+                    console.log(e.target.onfocus);
+                    console.log(this.button)
+                  }
+
+                  if (e.keyCode === 39) {// RIGHT
+                    console.log('RIGHT');
+                  }
+
+                  if (e.keyCode === 40) {// DOWN
+                    console.log('DOWN');
+                  }
+                }}
+
               >
               {this.props.title}
               </button>
