@@ -22,6 +22,69 @@ class TabContainer extends React.Component {
       // eslint-disable-next-line react/no-unused-state
       setActiveTab: this.setActiveTab
     };
+
+    // this.handleButtonKeyDown = this.handleButtonKeyDown.bind(this);
+    // this.handleTabContainerKeyDown = this.handleTabContainerKeyDown.bind(this);
+  }
+
+  handleButtonKeyDown(e) {
+  //   Things need to happen with the event:
+  //     1. check the current tab is active and has focus.
+  //     2. check which key is down:
+  //       a. LEFT ARROW: add focus to next LEFT button if the button exists (= if the current tab is not the last one.)
+  //       b. RIGHT ARROW: add focus to next RIGHT button if the button exists (= if the current tab is not the first one.)
+  //       c. DOWN ARROW: add focus to the paired tab panel
+  //       d. other keys: null
+
+  //     HOW TO FIND TABS NEXT TO THE CURRENT ONE:
+  //       CURRENT(= ACTIVE) TAB: this.childrenWithProps[ACTIVE_TAB].key
+  //       PREVIOUS TAB: key value - 0.1
+  //       NEXT TAB:     key value + 0.1
+
+
+
+    // if (active && this.button.focused) {
+    //   if (e.keyCode == 37) { // LEFT
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     if (button is not FIRST) {
+    //       PREVIOUS_TAB.setActiveTab(this.tabIdent, this.props.children);
+    //       PREVIOUS_TAB(children[active - 1]).focus();
+    //     }
+    //   } else if (e.keyCode == 39) { // RIGHT
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     if (button is not LAST) {
+    //       NEXT_TAB.setActiveTab(this.tabIdent, this.props.children);
+    //       NEXT_TAB(children[active + 1]).focus();
+    //     }
+    //   } else if (e.key == 40) { // DOWN
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     // SET FOCUS ON TAB PANEL
+    //     // CURRENT TAB STAYS ACTIVE
+    //     this.getElementByClassName('ma__tab-container-body').focus();
+    //     this.getElementByClassName('ma__tab-container-body').setAttribute(tabindex, 0);
+    //   }
+    // }
+  }
+
+  handleTabContainerKeyDown(e) {
+  //   Things need to happen with the event:
+  //     1. check which key is down:
+  //       a. UP ARROW: move the focus to the active tab
+  //       b. other keys: null
+
+  //   if (e.keyCode == 38) { // UP
+  //     e.preventDefault();
+  //     e.stopPropagation();
+
+  //     // Move focus to active tab.
+  //     this.state.activeTab.focus();
+  //   }
   }
 
   render() {
@@ -38,13 +101,42 @@ class TabContainer extends React.Component {
       }
       return child;
     });
+
+
+
+// console.log(this.childrenWithProps);
+console.log(this.childrenWithProps);
+// console.log('Length: ' + this.childrenWithProps.length);
+// console.log(this.state.activeTab);
+
+
+
+
     return(
-      <TabContext.Provider value={this.state}>
+      <TabContext.Provider value={this.state} onKeyDown={this.handleButtonKeyDown}>
         <div className={classes}>
-          <span id={this.props.a11yID} class="ma__visually-hidden">Use left and right arrows to navigate between tabs.</span>
-          <ul className="ma__tab-container-head" role="tablist">{this.childrenWithProps}
+          <span id={this.props.a11yID} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
+          <ul className="ma__tab-container-head" role="tablist"
+              >{this.childrenWithProps}
           </ul>
-          {this.state.activeTab && <div className="ma__tab-container-body" aria-labelledby={this.state.activeTab} id={`tabpanel-${this.state.activeTab}`} tabIndex="-1" role="tabpanel">{this.state.activeContent}</div>}
+
+
+
+// ADD onKeyDown to move the focus back to its paired tab. --> onKeyDown
+
+          {this.state.activeTab && <div className="ma__tab-container-body"
+                                    aria-labelledby={this.state.activeTab}
+                                    id={`tabpanel-${this.state.activeTab}`}
+                                    tabIndex="-1"
+                                    role="tabpanel"
+
+
+                                    onKeyDown={this.handleTabContainerKeyDown}
+
+
+                                    >
+                                      {this.state.activeContent}
+                                  </div>}
         </div>
       </TabContext.Provider>
     );
