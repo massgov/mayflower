@@ -24,6 +24,10 @@ $accordion-break: 720px;
       column-gap: 40px; 
       column-rule: 1px solid $c-bd-divider;
 
+      .ma__contact-set {
+        overflow: hidden;
+      }
+
       .ma__contact-group {
         break-inside: avoid;
         will-change: transform;
