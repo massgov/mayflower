@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Change
-Patch
-- patternlab / DP-10793: Update video layout on service pages
