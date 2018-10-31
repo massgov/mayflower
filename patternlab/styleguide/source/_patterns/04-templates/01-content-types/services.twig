@@ -23,13 +23,15 @@
             {% include "@atoms/09-media/image.twig" %}
           {% endif %}
           {% block pageContentIntro %}
+           
+            {% set richText = introPageContent.intro %}
+            {% include "@organisms/by-author/rich-text.twig" %}
+
             {% if introPageContent.video %}
               {% set video = introPageContent.video %}
               {% include "@atoms/09-media/video.twig" %}
             {% endif %}
 
-            {% set richText = introPageContent.intro %}
-            {% include "@organisms/by-author/rich-text.twig" %}
 
             {% if introPageContent.keyActions %}
               {% set keyActions = introPageContent.keyActions %}
