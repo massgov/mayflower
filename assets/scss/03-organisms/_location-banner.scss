@@ -54,6 +54,11 @@
               height: 400px;
               object-fit: none;
               object-position: center;
+
+              // IE 10 and 11 don't support object declarations so we pull the image over some for better centering.
+              @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                margin-left: -15%;
+              }
             }
           }
         }
