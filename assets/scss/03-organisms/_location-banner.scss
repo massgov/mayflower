@@ -26,6 +26,7 @@
   }
 
   &__map {
+    overflow: hidden;
 
     @media ($bp-large-min) {
       float: right;
