@@ -11,6 +11,10 @@
 
 // WARNING: avoid nesting of elements,
 // because it makes them harder to override
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 html {
   font-size: 14.5px;
@@ -32,9 +36,9 @@ body {
   color: $c-font-base;
   font-family: "Texta", "Helvetica", "Arial", "sans-serif";
   font-weight: 400;
-  // for IE weirdness 
+  // for IE weirdness
   -ms-overflow-style: none;
-  
+
 
   // .translated-rtl & {
   //   direction: rtl;

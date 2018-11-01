@@ -13,6 +13,30 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 8.10.0 (10/31/2018)
+
+### Changed
+- (Patternlab) DP-10793: Update video layout on service pages #337
+
+
+## 8.9.0 (10/26/2018)
+
+### Added
+- (Patternlab) DP-10774: Implements sticky table of contents on Advisory, Decision, Executive Order, Regulation, and Rules of Court content types. It also updated the integration of the stickty table of contents for Information Details, Curated Lists, and Guide pages. #339
+- (React) DP-11038: Add an option for footer component to show footer links category heading. #340
+
+### Changed
+- (React) DP-10244: Componentize SCSS for molecules #297
+- (React) DP-10764: Componentize SCSS for organisms #339
+- (Patternlab) DP-9176: Add aria-label attribute to the table of content accordion button in binder page to override the symbols for screen readers, remove the visually hidden text which aria-label attribute replaces with. #215
+
+### Removed
+
+### Fixed
+- (Patternlab) DP-10362: Makes Org subnav dropdowns keyboard accessible. #308
+- (Patternlab, React) DP-10986: Add font smoothing for Texta font weight accuracy. #336
+
 ## 8.8.0 (10/24/2018)
 
 ### Added

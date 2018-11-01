@@ -1,7 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- (Patternlab) DP-10774: Implements sticky table of contents on Advisory,
-Decision, Executive Order, Regulation, and Rules of Court content types.
-It also updated the integration of the stickty table of contents for
-Information Details, Curated Lists, and Guide pages.
