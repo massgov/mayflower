@@ -1,0 +1,21 @@
+@import 'global';
+@import '01-atoms/decorative-link';
+@import '00-base/mixins/ma-link-transition';
+@import '00-base/mixins/ma-link-underline';
+
+ul.ma-breadcrumb {
+  display: inline-flex;
+  a {
+    color: $c-gray-dark;
+  }
+  .ma__decorative-link--active a {
+    color: $c-bay-blue;
+  }
+}
+ul.ma-breadcrumb li:nth-child(n+2) {
+  ::before {
+    content: "> ";
+  }
+}
+
+
