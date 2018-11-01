@@ -84,10 +84,6 @@ $page-header-widget-width: 350px;
 
   &__content {
     padding: 30px 0;
-    
-    @media ($bp-large-min){
-      padding: 45px 0;
-    }
   }
 
   &__tags ~ &__content {

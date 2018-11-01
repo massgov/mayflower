@@ -21,13 +21,10 @@ $page-banner-height: 330px;
     @media ($bp-small-min) {
       height: 250px;
     }
-
-    .ma__page-banner__content {
-      max-height: 100px;
-    }
   }
 
   &--overlay {
+
     @media ($bp-large-min) {
       height: 400px;
     }
@@ -73,9 +70,11 @@ $page-banner-height: 330px;
       left: 500px;
       background-size: cover;
       background-position: center;
+      
       @media (min-width: $max-width) {
         right: calc(-100vw + #{$max-width});
       }
+      
       @media ($bp-large-extended) {
         left: 0;
         top: 100%;
@@ -139,8 +138,7 @@ $page-banner-height: 330px;
     align-items: center;
     flex-wrap: wrap;
     font-size: 1rem;
-    max-width: 850px;
-    max-height: 174px;
+    max-width: 1050px;
     padding: 30px 25px 45px 0;
     z-index: 1;
     top: -50%;
@@ -219,10 +217,10 @@ $page-banner-height: 330px;
   &--columns &__content {
     height: $page-banner-height;
     max-height: 174px;
-    max-width: 640px;
+    max-width: 700px;
     position: relative;
     top: 0;
-
+    
     @media ($bp-x-small-min) {
       position: relative;
       top: calc(#{$page-banner-height}/2);
@@ -230,7 +228,7 @@ $page-banner-height: 330px;
 
     @media ($bp-medium-min) {
       height: 100%;
-      top: 50px;
+        top: 50px;
       transform: skew(-30deg);
     }
   }
