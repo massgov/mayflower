@@ -1,21 +1,36 @@
 @import 'global';
-@import '01-atoms/decorative-link';
-@import '00-base/mixins/ma-link-transition';
-@import '00-base/mixins/ma-link-underline';
 
-ul.ma-breadcrumb {
+.ma__breadcrumb {
   display: inline-flex;
+  font-size: 1.1rem;
+  width: unset;
+  list-style: none;
+
+  & li:nth-child(n+2) {
+    ::before {
+      content: "> ";
+    }
+  }
+}
+
+.ma__breadcrumb-item {
+  @include ma-link-transition;
+  @include ma-link-underline;
+  font-weight: 500;
+
   a {
     color: $c-gray-dark;
   }
-  .ma__decorative-link--active a {
-    color: $c-bay-blue;
-  }
-}
-ul.ma-breadcrumb li:nth-child(n+2) {
-  ::before {
-    content: "> ";
-  }
-}
 
+  a:hover {
+    border-bottom: 3px solid rgba($c-font-link,.5);
+  }
 
+  &--active {
+    a {
+        color: $c-primary;
+        font-weight: 700;
+    }
+  }
+
+}

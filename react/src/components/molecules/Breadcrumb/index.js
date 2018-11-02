@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const Breadcrumb = (props) => (
-  <ul className="ma-breadcrumb" role="navigation">
+  <ul className="ma__breadcrumb" role="navigation">
     {props.children}
   </ul>
 );
