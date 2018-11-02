@@ -5,6 +5,7 @@ export default (function (window,document,$,undefined) {
   let contentClass = '.js-inline-overlay-content';
   let toggleClass = '.js-inline-overlay-toggle';
   let titleClass  = '.js-inline-overlay-title';
+  let feedbackButton = $('body').find('.ma__fixed-feedback-button');
 
   function initialize () {
     // Add random ID if no ID present.
@@ -23,6 +24,8 @@ export default (function (window,document,$,undefined) {
     $containerEl.toggleClass('is-open', !isOpen);
 
     $(`${toggleClass}[aria-expanded=${!isOpen}]`).parents(titleClass).focus();
+
+    feedbackButton.toggleClass('hide-button');
   }
 
   initialize();

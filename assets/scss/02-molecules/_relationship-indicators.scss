@@ -51,10 +51,19 @@
         }
 
         &.primary {
-            flex-flow: row nowrap;
         
             @media ($bp-medium-min) {
                 padding-right: 2rem;
+            }
+
+            .ma__relationship-indicators--term {
+
+              @media ($bp-medium-max) {
+
+                &:nth-child(n+2) {
+                  display: none;
+                }
+              }
             }
 
             &.tags-open {
@@ -65,16 +74,12 @@
                 }
             }
         
-            .ma__relationship-indicators--term {
+            // Only hide tags if secondary tags present.
+            &:not(.single) .ma__relationship-indicators--term {
+              
+              &:nth-child(n+2) {
                 display: none;
-
-                @media ($bp-large-min) {
-                    display: block;
-
-                    &:nth-child(n+2) {
-                        display: none;
-                    }
-                }
+              }
             }
 
             a {
@@ -88,14 +93,6 @@
 
             button {
                 color: $c-primary-alt;
-
-                .tag-state {
-                    display: none;
-
-                    @media ($bp-large-min) {
-                        display: inline-block;
-                    }
-                }
 
                 &.is-open {
 

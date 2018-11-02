@@ -11,6 +11,10 @@
 
 // WARNING: avoid nesting of elements,
 // because it makes them harder to override
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 html {
   @media ($bp-small-max){
@@ -48,6 +52,10 @@ a {
 img {
   height: auto;
   max-width: 100%;
+}
+
+b, strong {
+  font-weight: 700;
 }
 
 p,
@@ -154,8 +162,4 @@ div {
   &[tabindex="-1"]:focus {
     outline: none;
   }
-}
-
-b, strong {
-  font-weight: 700;
 }

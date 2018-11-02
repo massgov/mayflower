@@ -1,64 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
-import DateRange from '../../molecules/DateRange';
-import SelectBox from '../../atoms/forms/SelectBox';
-import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
+import { validateFilters } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const FilterBox = (props) => {
   const {
-    action, topic, organization, pressType, dateRange, submitButton, clearButton, active
+    action, submitButton, clearButton, active, fields
   } = props;
   const handleClear = () => {
     if (typeof props.clearButton.onClearCallback === 'function') {
       props.clearButton.onClearCallback();
     }
   };
-  const filterDesktopHidden = props.filterDesktopHidden ? ' ma__filter-box--desktop-hidden' : '';
-  const isActive = active ? 'ma__filter-box__form--active' : '';
+  const filterBoxClasses = classNames({
+    'ma__filter-box': true,
+    'ma__filter-box--desktop-hidden': props.filterDesktopHidden
+  });
+  const filterBoxFormClasses = classNames({
+    'ma__filter-box__form js-filter-box': true,
+    'ma__filter-box__form--active': active
+  });
   return(
-    <section className={`ma__filter-box${filterDesktopHidden}`}>
+    <section className={filterBoxClasses} id={props.id}>
       <div className="ma__filter-box__container">
-        <form className={`ma__filter-box__form js-filter-box ${isActive}`} action={action}>
+        <form className={filterBoxFormClasses} action={action}>
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
-              {organization && (
-                <div className="ma__filter-box__organizations">
-                  <InputTextTypeAhead {...organization} />
+              { fields.map((field, i) => (
+                <div className={field.class} key={`filterbox-field-${i}`}>
+                  { field.component }
                 </div>
-              )}
-              {topic && (
-              <div className="ma__filter-box__topic">
-                <SelectBox {...topic} />
-              </div>
-              )}
-              {pressType && (
-              <div className="ma__filter-box__type">
-                {pressType.selectBox && <SelectBox {...pressType.selectBox} />}
-                {pressType.typeAhead && <InputTextTypeAhead {...pressType.typeAhead} />}
-              </div>
-              )}
-              {dateRange && (
-              <div className="ma__filter-box__date">
-                <DateRange {...dateRange} />
-              </div>
-              )}
+              ))}
             </div>
-            <div className="ma__filter-box__controls">
-              <div className="ma__filter-box__button">
-                <Button {...submitButton} />
-              </div>
-              {clearButton && (
-              <React.Fragment>
-                <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
-                  {clearButton.text}
-                </button>
-              </React.Fragment>
-            )}
-            </div>
+            {
+              (submitButton || clearButton) && (
+                <div className="ma__filter-box__controls">
+                  {submitButton && (
+                    <div className="ma__filter-box__button">
+                      <Button {...submitButton} />
+                    </div>
+                  )}
+                  {clearButton && (
+                  <React.Fragment>
+                    <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
+                      {clearButton.text}
+                    </button>
+                  </React.Fragment>
+                )}
+                </div>
+              )
+            }
           </div>
         </form>
       </div>
@@ -67,20 +62,14 @@ const FilterBox = (props) => {
 };
 
 FilterBox.propTypes = {
+  /** The id of the FilterBox component. */
+  id: PropTypes.string,
   /** Apply active state  */
   active: PropTypes.bool,
   /** The form action  */
   action: PropTypes.string,
-  /** @atoms/forms/SelectBox */
-  topic: PropTypes.shape(SelectBox.PropTypes),
-  /** @atoms/forms/SelectBox or /** @atoms/forms/InputTextTypeAhead  */
-  pressType: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.shape(SelectBox.propTypes), PropTypes.shape(InputTextTypeAhead.propTypes)])),
-  /** @atoms/forms/InputTextTypeAhead */
-  organization: PropTypes.shape(InputTextTypeAhead.propTypes),
-  /** @molecules/DateRange */
-  dateRange: PropTypes.shape(DateRange.PropTypes),
   /** @atoms/forms/Button */
-  submitButton: PropTypes.shape(Button.PropTypes).isRequired,
+  submitButton: PropTypes.shape(Button.PropTypes),
   /** Clear all button at the bottom of the filter */
   clearButton: PropTypes.shape({
     text: PropTypes.string,
@@ -88,10 +77,31 @@ FilterBox.propTypes = {
     onClearCallback: PropTypes.func
   }),
   /** Controls if we allow filterbox to render only on mobile */
-  filterDesktopHidden: PropTypes.bool
+  filterDesktopHidden: PropTypes.bool,
+  /** An array of filter fields */
+  fields: (props, propName, componentName) => (
+    validateFilters(props, propName, componentName, [
+      'SelectBox',
+      'InputTextTypeAhead',
+      'DateRange'
+    ])
+  )
 };
 
 FilterBox.defaultProps = {
+  id: 'filter-box',
+  active: false,
+  clearButton: {
+    text: 'Clear all filters',
+    info: 'Clear all applied filters'
+  },
+  submitButton: {
+    text: 'Submit',
+    type: 'submit',
+    size: '',
+    theme: '',
+    usage: ''
+  },
   action: '#'
 };
 

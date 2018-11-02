@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './style.css';
+
 // Loads all SVGs within the assets directory
 const req = require.context('!svg-sprite-loader!./assets', true, /.svg$/);
 function loadAssets(asset) {

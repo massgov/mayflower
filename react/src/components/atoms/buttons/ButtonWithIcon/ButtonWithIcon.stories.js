@@ -31,7 +31,8 @@ storiesOf('atoms/buttons', module)
         iconColor: select('ButtonWithIcon.iconColor', buttonWithIconOptions.color),
         canExpand: boolean('ButtonWithIcon.canExpand', true),
         expanded: boolean('ButtonWithIcon.expanded', true),
-        capitalized: boolean('ButtonWithIcon.capitalized', true)
+        capitalized: boolean('ButtonWithIcon.capitalized', true),
+        ariaLabel: text('ButtonWithIcon.arialLabel', '')
       };
 
       // Set the icon prop to the actual element based on knob selection.
@@ -46,7 +47,8 @@ storiesOf('atoms/buttons', module)
     'ButtonSearch',
     withInfo(`<div>${buttonWithIconReadme}</div>`)(() => {
       const props = {
-        onClick: action('ButtonWithIcon clicked')
+        onClick: action('ButtonWithIcon clicked'),
+        usage: select('ButtonWithIcon.usage', buttonWithIconOptions.usage, '')
       };
 
       // Set the icon prop to the actual element based on knob selection.

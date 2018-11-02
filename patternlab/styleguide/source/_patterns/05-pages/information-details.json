@@ -9,6 +9,11 @@
       "title": "Why is habitat management needed?",
       "subTitle": "MassWildlife's Habitat Programs are designed to help wildlife that rely on open habitats (grassland, shrubland, and young forests).",
       "widgets": null
+    },
+    "stickyTOC": {
+      "title": "Table of Contents",
+      "parent": "#main-content",
+      "sections": ".ma__information-details__content h2"
     }
   },
   "relationshipIndicators": {
@@ -18,40 +23,12 @@
       "tags": [{
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "title": "Department of Conservation and Recreation"
-      },{
+        "title": "Highway Division"
+      },
+      {
         "class": "ma__relationship-indicators--term",
         "href": "#",
-        "title": "Other agency or organization"
-      }]
-    },
-    "secondary": {
-      "position": "",
-      "label": "related to",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Snowmobile in the Parks"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Cross-Country Skiing"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Accessible Hiking"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Scenic Viewing Areas"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Hunting"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Biking"
+        "title": "Mass Dept of Transportation"
       }]
     }
   },

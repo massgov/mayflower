@@ -28,4 +28,9 @@
     transform-origin: top left;
     z-index: $z-sticky-content;
   }
-}
+
+  &.hide-button {
+    display: none;
+  }
+} 
+

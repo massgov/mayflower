@@ -89,8 +89,8 @@ class Collapse extends React.Component {
 
     const collapseStyles = {
       [EXITED]: 'collapsed',
-      [EXITING]: 'expanding',
-      [ENTERING]: 'collapsing',
+      [EXITING]: 'collapsing',
+      [ENTERING]: 'expanding',
       [ENTERED]: 'expanded'
     };
 
