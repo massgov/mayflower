@@ -1,6 +1,7 @@
 .ma__mass-feedback-form {
 
-  &__form {
+  &__form,
+  &.thank-you-panel {
     border: 2px solid $c-gray-light;
     background: $c-white;
     max-width: 35em;
