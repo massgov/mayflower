@@ -20,7 +20,11 @@ const getItem = (text, active, index) => {
   const itemProps = {
     active: boolean(`Breadcrumb.${index}.active`, active)
   };
-  return<BreadcrumbItem {...itemProps}>{getLink(text, index)}</BreadcrumbItem>;
+  return(
+    <BreadcrumbItem {...itemProps}>
+      {!active ? (getLink(text, index)) : (<span>{text}</span>)}
+    </BreadcrumbItem>
+  );
 };
 
 storiesOf('molecules', module)

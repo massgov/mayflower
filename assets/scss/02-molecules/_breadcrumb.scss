@@ -1,0 +1,39 @@
+.ma__breadcrumb {
+  display: block;
+  font-size: 1.1rem;
+  list-style: none;
+  width: unset;
+  margin-block-start: unset;
+  margin-block-end: unset;
+  padding-inline-start: unset;
+
+  & li:not(:last-child) {
+    ::after {
+      content: " >";
+      margin-right: 7px;
+    }
+  }
+}
+
+.ma__breadcrumb-item {
+  @include ma-link-transition;
+  @include ma-link-underline;
+  display: inline-block;
+
+  a, span {
+    color: $c-gray-dark;
+    font-weight: 500;
+  }
+
+  a:hover, span:hover {
+    color: $c-primary;
+    border-bottom: 3px solid rgba($c-font-link,.5);
+  }
+
+  &--active {
+    span {
+      font-weight: 700;
+    }
+  }
+
+}
