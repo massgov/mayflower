@@ -38,6 +38,6 @@ storiesOf('molecules', module)
       {getItem('Appropriation Recommendation', 0)}
       {getItem('Independents', 1)}
       {getItem('District Attorneys', 2)}
-      {currentItem('Suffolk DA - Historical Spending', true)}
+      {currentItem('Suffolk DA - Historical Spending')}
     </Breadcrumb>
   )));
