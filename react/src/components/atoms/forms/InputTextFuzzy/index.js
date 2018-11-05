@@ -110,13 +110,13 @@ class InputTextFuzzy extends React.Component {
 }
 
 InputTextFuzzy.propTypes = {
-  /** The id of the typeahead element */
+  /** The id of the typeahead element. */
   id: PropTypes.string.isRequired,
-  /** The label text above the input text box */
+  /** The label text above the input text box. */
   label: PropTypes.string,
-  /** The placeholder text to appear in the input text box */
+  /** The placeholder text to appear in the input text box. */
   placeholder: PropTypes.string,
-  /** Style the input with a box outline */
+  /** Style the input with a box outline. */
   boxed: PropTypes.bool,
   /** The keys within options to use with search. */
   keys: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -130,7 +130,7 @@ InputTextFuzzy.propTypes = {
   onChange: PropTypes.func,
   /** Function that runs after a suggestion has been clicked. */
   onSuggestionClick: PropTypes.func,
-  /** The default value for the select box */
+  /** The default value for the select box. */
   selected: PropTypes.string,
 };
 
