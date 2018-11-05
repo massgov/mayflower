@@ -1,0 +1,24 @@
+{
+  "inputGroup": {
+    "required": true,
+    "inline": true,
+    "title": "",
+    "type": "radio",
+    "items": [
+      {
+        "name": "field47054416",
+        "value": "yes",
+        "id": "field47054416_1",
+        "label": "Yes",
+        "checked": false
+      },
+      {
+        "name": "field47054416",
+        "value": "no",
+        "id": "field47054416_2",
+        "label": "No",
+        "checked": false
+      }
+    ]
+  }
+}
