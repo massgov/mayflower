@@ -1,1 +1,24 @@
-{}
+{
+  "inputGroup": {
+    "required": true,
+    "inline": false,
+    "title": "",
+    "type": "radio",
+    "items": [
+      {
+        "name": "field47054416",
+        "value": "personal",
+        "id": "field47054416_1",
+        "label": "Personal",
+        "checked": false
+      },
+      {
+        "name": "field47054416",
+        "value": "professional",
+        "id": "field47054416_2",
+        "label": "Professional",
+        "checked": false
+      }
+    ]
+  }
+}

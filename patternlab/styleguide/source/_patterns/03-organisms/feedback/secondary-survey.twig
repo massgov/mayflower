@@ -50,30 +50,31 @@
     </fieldset>
 
     <fieldset>
-      <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell68557240" lang="en" fs-field-type="textarea" fs-field-validation-name="What did you come here to do today?">
-          <label id="label68557240" class="fsLabel" for="field68557240">What did you come here to do today?</label>
-          <textarea id="field68557240" class="fsField" name="field68557240" rows="5" cols="50"></textarea>
-        </div>
+        <legend>What did you come here to do today?</legend>
+        
+        {% include "@atoms/03-forms/textarea.twig" %}
     </fieldset>
 
-    <fieldset id="label68557373">
-            <legend class="fsLabel fsLabelVertical"><span>Are you using Mass.gov for professional or personal reasons?</span></legend>
-            <div class="fieldset-content">
-              <label class="fsOptionLabel vertical" for="field68557373_1"><input type="radio" id="field68557373_1" name="field68557373" value="Professional" class="fsField vertical">Professional</label>
-              <label class="fsOptionLabel vertical" for="field68557373_2"><input type="radio" id="field68557373_2" name="field68557373" value="Personal" class="fsField vertical">Personal</label>
-            </div>
+    <fieldset>
+    <legend>
+        Are you using Mass.gov for professional or personal reasons?
+      </legend>
+      {% set inputGroup = inputGroup %}
+      {% include "@atoms/03-forms/input-group.twig" %}
+           
           </fieldset>
 
           <fieldset>
-           <div class="fsRowBody fsCell fsFieldCell fsFirst fsLast fsLabelVertical fsSpan100" id="fsCell68557414" lang="en" fs-field-type="textarea" fs-field-validation-name="Do you have any other feedback for us? (Optional)">
-          <label id="label68557414" class="fsLabel" for="field68557414">Do you have any other feedback for us? (Optional)</label>
-          <textarea id="field68557414" class="fsField" name="field68557414" rows="5" cols="50"></textarea>
-        </div>
+          <legend>Do you have any other feedback for us? (Optional)</legend>
+        
+        {% include "@atoms/03-forms/textarea.twig" %}
+          
+       
           </fieldset>
 
           <fieldset>
-          <label id="label68557501" class="fsLabel" for="field68557501">If we have additional questions about your feedback, can we contact you? If so, enter your email address below. (Optional)</label>
-          <input type="email" id="field68557501" name="field68557501" size="50" value="" class="fsField fsFormatEmail">
+          <legend>If we have additional questions about your feedback, can we contact you? If so, enter your email address below. (Optional)</legend>
+          {% include "@atoms/03-forms/input-text.twig" %}
           </fieldset>
 
           <fieldset>
