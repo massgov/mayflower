@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs/react';
 
 import Breadcrumb from './index';
 import BreadcrumbItem from './item';
@@ -16,17 +16,12 @@ const getLink = (sampleText = 'Sample Link', index) => {
   return<Link {...linkProps} />;
 };
 
-const currentItem = (currentLinkText) => {
-  const linkText = text('Breadcrumb.current.text', currentLinkText);
-  return(
-    <BreadcrumbItem>
-      <a href="/" aria-current="page" onClick={(e) => e.preventDefault()}>{linkText}</a>
-    </BreadcrumbItem>
-  );
+const currentItemProp = {
+  currentPage: text('Breadcrumb.current.text', 'Suffolk DA - Historical Spending')
 };
 
-const getItem = (itemText, index) => (
-  <BreadcrumbItem>
+const getItem = (itemText, index, currentPage) => (
+  <BreadcrumbItem currentPage={currentPage}>
     {getLink(itemText, index)}
   </BreadcrumbItem>
 );
@@ -38,6 +33,6 @@ storiesOf('molecules', module)
       {getItem('Appropriation Recommendation', 0)}
       {getItem('Independents', 1)}
       {getItem('District Attorneys', 2)}
-      {currentItem('Suffolk DA - Historical Spending')}
+      <BreadcrumbItem {...currentItemProp} />
     </Breadcrumb>
   )));
