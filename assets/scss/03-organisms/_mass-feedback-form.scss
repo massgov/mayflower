@@ -1,14 +1,50 @@
 .ma__mass-feedback-form {
 
-  &__wrapper {
-    border: 2px solid #dcdcdc;
-    background: #ffffff;
+  &__form {
+    border: 2px solid $c-gray-light;
+    background: $c-white;
     max-width: 35em;
     padding: 2.5em;
     margin: 0 auto 5rem;
-  }
 
-  &__submit-wrapper {
-   margin-top: 45px;   
+   fieldset:not(:first-child) {
+     margin-top: 45px;
+   }
+
+    .ma__header-alert {
+      display: block;
+      margin-bottom: 20px;
+
+      &__label {
+        display: none;
+      }
+    }
+
+    .ma__textarea__wrapper {
+
+      textarea {
+        resize: none;
+      }
+
+      &::after {
+        bottom: 10px;
+        right: 10px;
+        top: auto;
+        font-weight: 400;
+      }
+    }
+
+    &--no-response {
+
+      .ma__content-link--chevron {
+        padding-left: 0.5rem;
+
+        &::after {
+          top: 3px;
+          right: 0;
+          transform: translateY(50%) rotate(45deg);
+        }
+      }
+    }
   }
 }
