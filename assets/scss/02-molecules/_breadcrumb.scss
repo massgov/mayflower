@@ -12,7 +12,7 @@
     display: inline-block;
 
     &:not(:last-child) {
-      ::after {
+      &::after {
         content: " >";
         margin-right: 7px;
       }
