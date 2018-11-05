@@ -16,24 +16,28 @@ const getLink = (sampleText = 'Sample Link', index) => {
   return<Link {...linkProps} />;
 };
 
-const getItem = (itemText, current, index) => {
-  const itemProps = {
-    current: boolean(`Breadcrumb.${index}.current`, current)
-  };
+const currentItem = (currentLinkText) => {
+  const linkText = text('Breadcrumb.current.text', currentLinkText);
   return(
-    <BreadcrumbItem {...itemProps}>
-      {!current ? (getLink(itemText, index)) : (<a href="/" aria-current="page" onClick={(e) => e.preventDefault()}>{itemText}</a>)}
+    <BreadcrumbItem>
+      <a href="/" aria-current="page" onClick={(e) => e.preventDefault()}>{linkText}</a>
     </BreadcrumbItem>
   );
 };
+
+const getItem = (itemText, index) => (
+  <BreadcrumbItem>
+    {getLink(itemText, index)}
+  </BreadcrumbItem>
+);
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs)
   .add('Breadcrumb', withInfo('<div></div>')(() => (
     <Breadcrumb>
-      {getItem('Appropriation Recommendation', false, 0)}
-      {getItem('Independents', false, 1)}
-      {getItem('District Attorneys', false, 2)}
-      {getItem('Suffolk DA - Historical Spending', true, 3)}
+      {getItem('Appropriation Recommendation', 0)}
+      {getItem('Independents', 1)}
+      {getItem('District Attorneys', 2)}
+      {currentItem('Suffolk DA - Historical Spending', true)}
     </Breadcrumb>
   )));
