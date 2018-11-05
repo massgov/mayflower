@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const Breadcrumb = (props) => (
-  <ul className="ma__breadcrumb" role="navigation">
-    {props.children}
-  </ul>
+  <nav aria-label="breadcrumb">
+    <ol className="ma__breadcrumb">
+      {props.children}
+    </ol>
+  </nav>
 );
 
 Breadcrumb.propTypes = {

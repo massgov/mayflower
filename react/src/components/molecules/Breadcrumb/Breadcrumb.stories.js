@@ -16,13 +16,13 @@ const getLink = (sampleText = 'Sample Link', index) => {
   return<Link {...linkProps} />;
 };
 
-const getItem = (text, active, index) => {
+const getItem = (itemText, current, index) => {
   const itemProps = {
-    active: boolean(`Breadcrumb.${index}.active`, active)
+    current: boolean(`Breadcrumb.${index}.current`, current)
   };
   return(
     <BreadcrumbItem {...itemProps}>
-      {!active ? (getLink(text, index)) : (<span>{text}</span>)}
+      {!current ? (getLink(itemText, index)) : (<a href="/" aria-current="page" onClick={(e) => e.preventDefault()}>{itemText}</a>)}
     </BreadcrumbItem>
   );
 };
