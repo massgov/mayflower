@@ -1,8 +1,7 @@
 <div class="ma__mass-feedback-form thank-you-panel">
-  <legend>Thanks, your survey has been submitted to the Mass.gov team!</legend>
-  <p>If you would like to continue helping us imporve Mass.gov, join our user panel to test new features for the site.</p>
+  <legend>{{ title }}</legend>
+  <p>{{ description }}</p>
   <span class="ma__decorative-link">
-    <a href="">Join user panel&nbsp;{{ icon('arrow') }}</a>
+    <a href="{{ link.href }}">{{ link.text }}&nbsp;{{ icon('arrow') }}</a>
   </span>
-
 </div>

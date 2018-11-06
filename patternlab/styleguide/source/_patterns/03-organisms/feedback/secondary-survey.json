@@ -109,5 +109,14 @@
         }
       }
     ]
+  },
+  "location": {
+    "id": "#",
+    "name": "#",
+    "placement": "footer"
+  },
+  "uniqueID": {
+    "id": "#",
+    "name": "#"
   }
 }
