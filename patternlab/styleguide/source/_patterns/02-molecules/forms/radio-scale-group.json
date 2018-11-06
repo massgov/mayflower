@@ -1,6 +1,8 @@
 {
   "radioScalesGroups": {
     "title": "optional title for these scales",
+    "startScaleLabel": "Strongly Disagree",
+    "endScaleLabel": "Strongly Agree",
     "groups": [
       {
         "path": "@atoms/03-forms/radio-scale.twig",
