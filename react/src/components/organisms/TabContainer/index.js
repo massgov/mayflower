@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import createFocusGroup from 'focus-group';
 import './style.css';
 import { TabContext } from './context';
 
@@ -23,8 +24,26 @@ class TabContainer extends React.Component {
       setActiveTab: this.setActiveTab
     };
 
-    // this.handleButtonKeyDown = this.handleButtonKeyDown.bind(this);
-    // this.handleTabContainerKeyDown = this.handleTabContainerKeyDown.bind(this);
+    // FocusGroup set up
+    const tabFocusGroupOptions = {
+      members: document.querySelectorAll('.ma__tab-container .ma__tab-title button'),
+      keybindings: {
+        next: [{keyCode: 39}],// right arrow
+        prev: [{keyCode: 37}]// left arrow
+      },
+      wrap: true
+    };
+    this.focusGroup = createFocusGroup(tabFocusGroupOptions).activate();
+
+    // const nestedTabFocusGroupOptions = {
+    //   members: document.querySelectorAll('.ma__tab-container-body .ma__tab-title button'),
+    //   keybindings: {
+    //     next: [{keyCode: 39}],// right arrow
+    //     prev: [{keyCode: 37}]// left arrow
+    //   },
+    //   wrap: true
+    // };
+    // this.child.focusGroup = createFocusGroup(nestedTabFocusGroupOptions).activate();
   }
 
   handleButtonKeyDown(e) {
@@ -105,7 +124,10 @@ class TabContainer extends React.Component {
 
 
 // console.log(this.childrenWithProps);
-console.log(this.childrenWithProps);
+// console.log(this.childrenWithProps);
+console.log('active tab: ' + this.activeTab);
+console.log('current focus: ' + document.activeElement.id);
+
 // console.log('Length: ' + this.childrenWithProps.length);
 // console.log(this.state.activeTab);
 
