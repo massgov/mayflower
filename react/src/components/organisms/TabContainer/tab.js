@@ -60,9 +60,10 @@ class Tab extends React.Component {
                 // {active && onKeyDown={this.handleButtonKeyDown}}
                 onKeyDown = {(e) => {
                   if (e.keyCode === 37) {// LEFT
-                    console.log(this.props);
-                    console.log(e.target.onfocus);
-                    console.log(this.button)
+                    // console.log(this.props);
+                    // console.log(e.target.onfocus);
+                    // console.log(this.button)
+                    console.log('LEFT');
                   }
 
                   if (e.keyCode === 39) {// RIGHT
