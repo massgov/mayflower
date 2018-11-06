@@ -5,7 +5,7 @@
     border: 2px solid $c-gray-light;
     background: $c-white;
     max-width: 35em;
-    padding: 2.5em;
+    padding: 2.5em 20px;
     margin: 0 auto 5rem;
 
    fieldset:not(:first-child) {
@@ -39,11 +39,135 @@
 
       .ma__content-link--chevron {
         padding-left: 0.5rem;
+        cursor: pointer;
 
         &::after {
           top: 3px;
           right: 0;
           transform: translateY(50%) rotate(45deg);
+        }
+      }
+
+      .no-response-info {
+        display: none;
+      }
+
+      &.is-open {
+
+        .ma__content-link--chevron::after {
+          top: 0;
+          transform: translateY(50%) rotate(-135deg);
+        }
+
+        .no-response-info {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__fields {
+    display: none;
+
+    &.open {
+      display: block;
+    }
+
+    &.positive {
+
+      .feedback-positive {
+        display: inline;
+      }
+    }
+
+    &.negative {
+
+      .feedback-negative {
+        display: inline;
+      }
+    }
+
+    .feedback-response {
+      display: none;
+    }
+  }
+
+  .ma__radio-scale__items {
+    position: relative;
+    padding-top: 45px;
+
+    .ma__radio-scale__item {
+      margin-bottom: 45px;
+    }
+
+    &::before,
+    &::after {
+      display: none;
+
+      @media ($bp-feedback-min) {
+        display: block;
+        position: absolute;
+        top: 0;
+        text-align: center;
+        width: 10%;
+        line-height: 1;
+        font-weight: 500;
+        color: $c-black;
+        font-size: 1rem;
+      }
+    }
+
+    &::before {
+
+      @media ($bp-feedback-min) {
+        left: 38%;
+      }
+    }
+
+    &::after {
+
+      @media ($bp-feedback-min) {
+        right: 0;
+      }
+    }
+
+    .ma__radio-scale {
+      position: relative;
+
+      &::before,
+      &::after {
+        position: absolute;
+        bottom: 45px;
+        font-size: 1rem;
+
+        @media ($bp-feedback-min) {
+          display: none;
+        }
+      }
+
+      &::before {
+        right: 0;
+      }
+
+      &::after {
+        left: 0;
+      }
+
+      legend {
+        line-height: 1;
+        margin-bottom: 20px;
+
+        @media ($bp-feedback-min) {
+          width: 35%;
+          float: left;
+        }
+      }
+
+      .ma__radio-scale__radios {
+
+        @media ($bp-feedback-min) {
+          width: 60%;
+          float: right;
         }
       }
     }

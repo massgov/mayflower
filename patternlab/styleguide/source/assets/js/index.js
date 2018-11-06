@@ -11,6 +11,7 @@ import emergencyAlerts from "./modules/emergencyAlerts.js";
 import eventFilters from "./modules/eventFilters";
 import eventListingInteractive from "./modules/eventListingInteractive";
 import feedbackModal_feedbackForm from "./modules/feedbackModal.js";
+import feedbackForm from "./modules/feedbackForm.js";
 import feedbackModal from "./modules/feedbackModal.js";
 import footnote from "./modules/footnote.js";
 import formValidation from "./modules/formValidation.js";

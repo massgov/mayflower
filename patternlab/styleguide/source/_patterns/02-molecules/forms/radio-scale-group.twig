@@ -1,9 +1,11 @@
 <style>
-  .ma__radio-scale__items::before {
+  .ma__radio-scale__items::before,
+  .ma__radio-scale::before {
     content: "{{ radioScalesGroups.startScaleLabel }}";
   }
 
-  .ma__radio-scale__items::after {
+  .ma__radio-scale__items::after,
+  .ma__radio-scale::after {
     content: "{{ radioScalesGroups.endScaleLabel }}";
   }
 </style>

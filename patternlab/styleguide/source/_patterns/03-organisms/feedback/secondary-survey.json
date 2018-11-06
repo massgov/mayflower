@@ -30,7 +30,7 @@
         "path": "@atoms/03-forms/radio-scale.twig",
         "data": {
           "radioScale": {
-            "legend": "This is a radio button scale",
+            "legend": "This page is helpful.",
             "required": true,
             "groupID": "radioScale1",
             "name": "radiosScale1",
@@ -62,6 +62,13 @@
                 "label": "4",
                 "text": "",
                 "checked": false
+              },
+              {
+                "value": "5",
+                "id": "button5",
+                "label": "4",
+                "text": "",
+                "checked": false
               }
             ]
           }
@@ -71,35 +78,90 @@
         "path": "@atoms/03-forms/radio-scale.twig",
         "data": {
           "radioScale": {
-            "legend": "This is another radio button scale",
+            "legend": "This page is easy to use.",
             "required": true,
             "groupID": "radioScale2",
             "name": "radiosScale2",
             "items": [
               {
                 "value": "1",
-                "id": "button5",
+                "id": "button6",
                 "label": "1",
                 "text": "text",
                 "checked": false
               },
               {
                 "value": "2",
-                "id": "button6",
+                "id": "button7",
                 "label": "2",
                 "text": "",
                 "checked": false
               },
               {
                 "value": "3",
-                "id": "button7",
+                "id": "button8",
                 "label": "3",
                 "text": "",
                 "checked": false
               },
               {
                 "value": "4",
-                "id": "button8",
+                "id": "button9",
+                "label": "4",
+                "text": "",
+                "checked": false
+              },
+              {
+                "value": "5",
+                "id": "button10",
+                "label": "4",
+                "text": "",
+                "checked": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "path": "@atoms/03-forms/radio-scale.twig",
+        "data": {
+          "radioScale": {
+            "legend": "I am confident that I will find the information that I need.",
+            "required": true,
+            "groupID": "radioScale3",
+            "name": "radiosScale3",
+            "items": [
+              {
+                "value": "1",
+                "id": "button11",
+                "label": "1",
+                "text": "text",
+                "checked": false
+              },
+              {
+                "value": "2",
+                "id": "button12",
+                "label": "2",
+                "text": "",
+                "checked": false
+              },
+              {
+                "value": "3",
+                "id": "button13",
+                "label": "3",
+                "text": "",
+                "checked": false
+              },
+              {
+                "value": "4",
+                "id": "button14",
+                "label": "4",
+                "text": "",
+                "checked": false
+              },
+              {
+                "value": "5",
+                "id": "button15",
                 "label": "4",
                 "text": "",
                 "checked": false
