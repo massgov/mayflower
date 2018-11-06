@@ -1,0 +1,10 @@
+<fieldset class="ma__radio-scale-groups">
+  {% if radioScalesGroups.title %}
+    <legend>{{ radioScalesGroups.title }}</legend>
+  {% endif %}
+  {% for group in radioScalesGroups.groups %}
+    <div>
+      {% include group.path with group.data %}
+    </div>
+  {% endfor %}
+</fieldset>
