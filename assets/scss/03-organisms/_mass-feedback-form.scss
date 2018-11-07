@@ -1,15 +1,26 @@
 .ma__mass-feedback-form {
 
-  &__form,
-  &.thank-you-panel {
+  &__form {
     border: 2px solid $c-gray-light;
     background: $c-white;
     max-width: 35em;
     padding: 2.5em 20px;
     margin: 0 auto 5rem;
 
-   fieldset:not(:first-child) {
+    @media ($bp-feedback-min) {
+      padding: 2.5em;
+    }
+
+   fieldset {
      margin-top: 45px;
+   }
+
+   > *:first-child { 
+     margin-top: 0; 
+    }
+
+   textarea {
+     width: 100%;
    }
 
     .ma__header-alert {
@@ -94,10 +105,15 @@
 
   .ma__radio-scale__items {
     position: relative;
-    padding-top: 45px;
 
-    .ma__radio-scale__item {
+    @media ($bp-feedback-min) {
+      padding-top: 45px;
+    }
+
+    .ma__radio-scale__item:not(:last-child) {
       margin-bottom: 45px;
+
+      
     }
 
     &::before,
@@ -107,20 +123,20 @@
       @media ($bp-feedback-min) {
         display: block;
         position: absolute;
-        top: 0;
+        top: -10px;
         text-align: center;
         width: 10%;
         line-height: 1;
-        font-weight: 500;
-        color: $c-black;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: $c-gray-dark;
       }
     }
 
     &::before {
 
       @media ($bp-feedback-min) {
-        left: 38%;
+        left: 40%;
       }
     }
 
@@ -133,6 +149,7 @@
 
     .ma__radio-scale {
       position: relative;
+      margin-top: 0;
 
       &::before,
       &::after {
@@ -155,11 +172,12 @@
 
       legend {
         line-height: 1;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
 
         @media ($bp-feedback-min) {
           width: 35%;
           float: left;
+          margin-bottom: 0;
         }
       }
 
@@ -170,6 +188,18 @@
           float: right;
         }
       }
+    }
+  }
+
+  &.thank-you-panel {
+    border: 2px solid $c-gray-light;
+    background: $c-white;
+    max-width: 35em;
+    padding: 2.5em 20px;
+    margin: 0 auto 5rem;
+
+    @media ($bp-feedback-min) {
+      padding: 2.5em;
     }
   }
 }
