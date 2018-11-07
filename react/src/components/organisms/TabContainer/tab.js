@@ -11,8 +11,7 @@ class Tab extends React.Component {
     this.defaultSet = false;
 
 
-    this.button = React.createRef();
-
+    // this.handleButtonKeyDown = this.handleButtonKeyDown.bind(this);
 
   }
 
@@ -38,13 +37,6 @@ class Tab extends React.Component {
           return(
             <li role="presentation" className={tabClasses}>
               <button
-
-
-    // ADDED ref TO CHECK IF THE BUTTON HAS FOCUS.
-    //  ( ACTIVE TAB DOESN'T MEAN IT HAS FOCUS. )
-                ref={this.button}
-
-
                 role="tab"
                 id={this.tabIdent}
                 onClick={(e) => {
@@ -56,27 +48,38 @@ class Tab extends React.Component {
                 aria-describedby={this.props.a11yID}
 
 
-    // THIS EVENT IS ONLY AVAILABLE TO THE CURRENTLY ONFOCUS TAB.
-                // {active && onKeyDown={this.handleButtonKeyDown}}
+    // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
                 onKeyDown = {(e) => {
-                  if (e.keyCode === 37) {// LEFT
-                    // console.log(this.props);
-                    // console.log(e.target.onfocus);
-                    // console.log(this.button)
-                    console.log('LEFT');
+                  if (e.keyCode === 37 || e.keyCode === 39) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    if (this.tabIdent !== document.activeElement.id) {
+                      console.log('Set the active tab!');
+                      setActiveTab(document.activeElement.id, this.props.children);
+                    }
                   }
 
+                  // TEST OUTPUT
+                  if (e.keyCode === 37) {// LEFT
+                    console.log('LEFT');
+                  }
                   if (e.keyCode === 39) {// RIGHT
                     console.log('RIGHT');
                   }
-
                   if (e.keyCode === 40) {// DOWN
                     console.log('DOWN');
                   }
+                  console.log('button: ' + this.tabIdent);
+                  console.log("focus at: " + document.activeElement.id);
                 }}
-
               >
               {this.props.title}
+
+
+              <br />{this.tabIdent}
+
+
               </button>
             </li>
           );

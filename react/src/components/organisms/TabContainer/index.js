@@ -10,7 +10,8 @@ class TabContainer extends React.Component {
     super(props);
     this.setActiveTab = (tab, content = null) => {
       const state = {
-        activeTab: tab
+        activeTab: tab,
+        currentFocus: ''
       };
       if (content) {
         state.activeContent = content;
@@ -25,6 +26,7 @@ class TabContainer extends React.Component {
     };
 
     // FocusGroup set up
+    // TO DO: setup for the nested tabs
     const tabFocusGroupOptions = {
       members: document.querySelectorAll('.ma__tab-container .ma__tab-title button'),
       keybindings: {
@@ -34,64 +36,11 @@ class TabContainer extends React.Component {
       wrap: true
     };
     this.focusGroup = createFocusGroup(tabFocusGroupOptions).activate();
-
-    // const nestedTabFocusGroupOptions = {
-    //   members: document.querySelectorAll('.ma__tab-container-body .ma__tab-title button'),
-    //   keybindings: {
-    //     next: [{keyCode: 39}],// right arrow
-    //     prev: [{keyCode: 37}]// left arrow
-    //   },
-    //   wrap: true
-    // };
-    // this.child.focusGroup = createFocusGroup(nestedTabFocusGroupOptions).activate();
   }
 
-  handleButtonKeyDown(e) {
-  //   Things need to happen with the event:
-  //     1. check the current tab is active and has focus.
-  //     2. check which key is down:
-  //       a. LEFT ARROW: add focus to next LEFT button if the button exists (= if the current tab is not the last one.)
-  //       b. RIGHT ARROW: add focus to next RIGHT button if the button exists (= if the current tab is not the first one.)
-  //       c. DOWN ARROW: add focus to the paired tab panel
-  //       d. other keys: null
+  // handleButtonKeyDown(e) {}
 
-  //     HOW TO FIND TABS NEXT TO THE CURRENT ONE:
-  //       CURRENT(= ACTIVE) TAB: this.childrenWithProps[ACTIVE_TAB].key
-  //       PREVIOUS TAB: key value - 0.1
-  //       NEXT TAB:     key value + 0.1
-
-
-
-    // if (active && this.button.focused) {
-    //   if (e.keyCode == 37) { // LEFT
-    //     e.preventDefault();
-    //     e.stopPropagation();
-
-    //     if (button is not FIRST) {
-    //       PREVIOUS_TAB.setActiveTab(this.tabIdent, this.props.children);
-    //       PREVIOUS_TAB(children[active - 1]).focus();
-    //     }
-    //   } else if (e.keyCode == 39) { // RIGHT
-    //     e.preventDefault();
-    //     e.stopPropagation();
-
-    //     if (button is not LAST) {
-    //       NEXT_TAB.setActiveTab(this.tabIdent, this.props.children);
-    //       NEXT_TAB(children[active + 1]).focus();
-    //     }
-    //   } else if (e.key == 40) { // DOWN
-    //     e.preventDefault();
-    //     e.stopPropagation();
-
-    //     // SET FOCUS ON TAB PANEL
-    //     // CURRENT TAB STAYS ACTIVE
-    //     this.getElementByClassName('ma__tab-container-body').focus();
-    //     this.getElementByClassName('ma__tab-container-body').setAttribute(tabindex, 0);
-    //   }
-    // }
-  }
-
-  handleTabContainerKeyDown(e) {
+  handleTabContainerKeyDown() {
   //   Things need to happen with the event:
   //     1. check which key is down:
   //       a. UP ARROW: move the focus to the active tab
@@ -100,9 +49,7 @@ class TabContainer extends React.Component {
   //   if (e.keyCode == 38) { // UP
   //     e.preventDefault();
   //     e.stopPropagation();
-
   //     // Move focus to active tab.
-  //     this.state.activeTab.focus();
   //   }
   }
 
@@ -121,21 +68,8 @@ class TabContainer extends React.Component {
       return child;
     });
 
-
-
-// console.log(this.childrenWithProps);
-// console.log(this.childrenWithProps);
-console.log('active tab: ' + this.activeTab);
-console.log('current focus: ' + document.activeElement.id);
-
-// console.log('Length: ' + this.childrenWithProps.length);
-// console.log(this.state.activeTab);
-
-
-
-
     return(
-      <TabContext.Provider value={this.state} onKeyDown={this.handleButtonKeyDown}>
+      <TabContext.Provider value={this.state}>
         <div className={classes}>
           <span id={this.props.a11yID} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
           <ul className="ma__tab-container-head" role="tablist"
@@ -144,7 +78,7 @@ console.log('current focus: ' + document.activeElement.id);
 
 
 
-// ADD onKeyDown to move the focus back to its paired tab. --> onKeyDown
+// ADD onKeyDown to move the focus back to its paired tab. --> onKeyDown={this.handleTabContainerKeyDown}
 
           {this.state.activeTab && <div className="ma__tab-container-body"
                                     aria-labelledby={this.state.activeTab}
