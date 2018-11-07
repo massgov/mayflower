@@ -31,8 +31,8 @@ class InputTextFuzzy extends React.Component {
   };
   renderItem = (suggestion) => {
     return (
-      <span className="suggestion-content">
-          <span className="name">
+      <span className="ma__suggestion-content">
+          <span className="ma__suggestion-content-name">
             {
               suggestion.matches.map((match) => {
                 if(this.props.keys.indexOf(match.key) > -1) {
