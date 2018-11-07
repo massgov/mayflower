@@ -34,14 +34,14 @@ class ListingTableItem extends React.Component {
       <tr>
         <th scope="row">{ row.label }</th>
         <td className={rowClasses}>
-          {shownItems.map((item) => (
-            <span className="ma__listing-table__data-item">{item}</span>
+          {shownItems.map((item, index) => (
+            <span key={`${row.label}-shown-item-${index}`} className="ma__listing-table__data-item">{item}</span>
           ))}
           {(invisibleItems.length > 0) && (
             <Collapse in={this.state.open} dimension="height">
               <div className="ma__listing-table__extra collapsed">
-                {invisibleItems.map((item) => (
-                  <span className="ma__listing-table__data-item">{item}</span>
+                {invisibleItems.map((item, index) => (
+                  <span key={`${row.label}-invisible-item-${index}`} className="ma__listing-table__data-item">{item}</span>
                 ))}
               </div>
             </Collapse>
@@ -72,7 +72,9 @@ const ListingTable = (props) => {
     <div className="ma__listing-table">
       <div className="ma__listing-table__container">
         <table>
-          {rows.map((row) => (<ListingTableItem row={row} />))}
+          <tbody>
+            {rows.map((row, index) => (<ListingTableItem key={`listing-table-item-${index}`} row={row} />))}
+          </tbody>
         </table>
       </div>
     </div>
