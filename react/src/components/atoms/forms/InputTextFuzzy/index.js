@@ -12,7 +12,8 @@ class InputTextFuzzy extends React.Component {
     super(props);
     this.state = {
       value: this.props.selected || '',
-      suggestions: []
+      suggestions: [],
+      highlightedItemIndex: null
     };
     const fuseOptions = this.props.fuseOptions;
     fuseOptions.keys = this.props.keys;
@@ -72,10 +73,48 @@ class InputTextFuzzy extends React.Component {
         placeholder: this.props.placeholder,
         onChange: this.handleChange,
         value: this.state.value,
-        disabled: this.props.disabled
+        disabled: this.props.disabled,
+        onKeyDown: (event, { newHighlightedSectionIndex, newHighlightedItemIndex }) => {
+          switch(event.key) {
+            case 'ArrowDown':
+            case 'ArrowUp':
+              event.preventDefault();
+              this.setState({
+                highlightedItemIndex: newHighlightedItemIndex === null ? 0 : newHighlightedItemIndex
+              });
+              break;
+            case 'Enter':
+              this.setState(currentState => {
+                const suggestion = currentState.suggestions[currentState.highlightedItemIndex];
+                return {
+                  value: suggestion.item.text,
+                  suggestions: [],
+                  highlightedItemIndex: null
+                };
+              }, () => {
+                if (typeof this.props.onSuggestionClick === 'function') {
+                  const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
+
+                  // Suggestion is an object that can contain info on score, matches, etc.
+                  this.props.onSuggestionClick(event, {suggestion});
+                }
+              });
+              break;
+            case 'Escape':
+              this.setState({
+                suggestions: [],
+                highlightedItemIndex: null
+              });
+              break;
+          }
+        }
       },
       id: this.props.id
     };
+    if (this.state.highlightedItemIndex !== null) {
+      autoProps.highlightedItemIndex = this.state.highlightedItemIndex;
+    }
+
     autoProps.itemProps = (props) => {
       const { itemIndex } = props;
       const suggestion = this.state.suggestions[itemIndex];
@@ -84,12 +123,23 @@ class InputTextFuzzy extends React.Component {
         onMouseDown: event => {
           this.setState({
             value: suggestion.item.text,
-            suggestions: []
+            suggestions: [],
+            highlightedItemIndex: null
           });
           if (typeof this.props.onSuggestionClick === 'function') {
             // Suggestion is an object that can contain info on score, matches, etc.
-            this.props.onSuggestionClick({event, suggestion});
+            this.props.onSuggestionClick(event, {suggestion});
           }
+        },
+        onMouseEnter: event => {
+          this.setState({
+            highlightedItemIndex: itemIndex
+          })
+        },
+        onMouseLeave: event => {
+          this.setState({
+            highlightedItemIndex: null
+          })
         }
       }
     };
@@ -136,10 +186,15 @@ InputTextFuzzy.propTypes = {
 
 InputTextFuzzy.defaultProps = {
   fuseOptions: {
+    /** Set the result list to sort by score. */
     shouldSort: true,
+    /** Prevents matching from stopping at the first match found. */
     findAllMatches: true,
+    /** Lets the matches found be included in the result set. */
     includeMatches: true,
+    /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches.*/
     threshold: 0.3,
+    /** Prevents matches against empty strings. */
     minMatchCharLength: 1
   },
   disabled: false,
