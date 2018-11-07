@@ -1,0 +1,30 @@
+<div class="ma__feedback-modal">
+  <div class="ma__feedback-modal__button js-ma__feedback-modal-toggle">
+    {% include "@atoms/01-buttons/fixed-feedback-button.twig" %}
+  </div>
+  <div class="ma__feedback-modal__overlay js-ma__feedback-modal-toggle"></div>
+  <div class="ma__feedback-modal__modal">
+    <div class="ma__feedback-modal__close js-ma__feedback-modal-toggle">
+      <span class="ma__feedback-modal__close-text">{{ feedbackModal.closeButton.text|default("Close") }}</span>
+      {% if feedbackModal.closeButton.icon or feedbackModal.closeButton.iconPseudo %}
+        <style>
+          {# If an alternate pseudo constent is provided, update the content setting. #}
+          {% if feedbackModal.closeButton.iconPseudo %}
+            .ma__feedback-modal__close-icon::after {
+              content: "{{ feedbackModal.closeButton.iconPseudo }}";
+            }
+          {% endif %}
+        </style>
+      {% endif %}
+      <span class="ma__feedback-modal__close-icon {{ block('feedbackModalIcon') ? 'ma__feedback-modal--embed-icon' }}">
+        {% block feedbackModalIcon %}
+        {% endblock %}
+      </span>
+    </div>
+    <div class="ma__feedback-modal__steps">
+      {% block feedbackModalSteps %}
+        {% include "@base/placeholder.twig" with {'placeholder': {'text': 'Modal Steps'}} %}
+      {% endblock %}
+    </div>
+  </div>
+</div>

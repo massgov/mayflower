@@ -1,0 +1,6 @@
+___DESCRIPTION___
+Minor
+Added
+- patternlab / DP-11087 : Create Mayflower for new footer based feedback form - Option 2b (simplest)
+
+
