@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Minor
+Patch
+- patternlab / DP-11030: Create a clearer distinction between contact and related in service
