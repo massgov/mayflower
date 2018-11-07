@@ -1,0 +1,56 @@
+<div class="ma__mass-feedback-form" id="feedback" data-mass-feedback-form>
+  <h2 class="visually-hidden">Feedback</h2>
+  
+  <form class="ma__mass-feedback-form__form" method="post" action="{{ formAction}}" id="">
+    <fieldset class="ma_feedback-fieldset feedback-load">
+      <legend>
+        {{ title }}<sup>*</sup>
+      </legend>
+
+      {% set inputGroup = inputGroup %}
+      {% include "@atoms/03-forms/input-group.twig" %}
+    </fieldset>
+
+    <div class="ma__mass-feedback-form__fields">
+      <fieldset class="ma_feedback-fieldset">
+        <legend class="feedback-response feedback-positive">
+          {{ queryAffirmative }}
+        </legend>
+        <legend class="feedback-response feedback-negative">
+          {{ queryNegative }}
+        </legend>
+
+        <p>{{ queryDescription }}</p>
+
+        {% if reportMessage %}
+          {% set headerAlerts = reportMessage %}
+          {% include "@organisms/by-template/header-alerts.twig" %}
+        {% endif %}
+      </fieldset>
+
+      <fieldset class="ma_feedback-fieldset">
+        {% set textarea = textarea %}
+        {% include "@atoms/03-forms/textarea.twig" %}
+        
+        {% set helperText = helperText %}
+        {% include "@atoms/03-forms/helper-text.twig" %}
+
+        {% if noResponseMessage %}
+        <div class="ma__mass-feedback-form__form--no-response">
+          <legend>{{ noResponseMessage }} {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}</legend>
+          {% if noResponseDescription %}<p class="no-response-info">{{ noResponseDescription }}</p>{% endif %}
+        </div>
+        {% endif %}
+      </fieldset>
+    </div>
+
+    <fieldset class="ma_feedback-fieldset ma__mass-feedback-form__form--submit-wrapper">
+      <input id="" class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
+    </fieldset>
+
+    <input type="hidden" id="{{ currentPage.id }}" name="{{ currentPage.name }}" value="/added-by-js" />
+    <input type="hidden" id="{{ currentNode.id }}" name="{{ currentNode.name }}" value="/added-by-js" />
+    <input type="hidden" id="{{ location.id }}" name="{{ location.name }}" size="50" value="{{ location.placement }}" />
+    <input type="hidden" id="{{ uniqueID.id }}" name="{{ uniqueID.name }}" size="50" value="/added-by-js" />
+  </form>
+</div>

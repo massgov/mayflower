@@ -54,6 +54,10 @@ img {
   max-width: 100%;
 }
 
+b, strong {
+  font-weight: 700;
+}
+
 p,
 ul, ol {
   margin-top: 0;
@@ -158,9 +162,4 @@ div {
   &[tabindex="-1"]:focus {
     outline: none;
   }
-}
-
-
-b, strong {
-  font-weight: 700;
 }

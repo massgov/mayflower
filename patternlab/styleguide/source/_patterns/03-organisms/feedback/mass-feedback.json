@@ -1,0 +1,68 @@
+{
+  "formAction": "#",
+  "title": "Did you find what you were looking for on this webpage?",
+  "queryAffirmative": "Do you have anything else to tell us?",
+  "queryNegative": "Please tell us what you were looking for.",
+  "queryDescription": "We will use this information to improve the site.",
+  "inputGroup": {
+    "required": true,
+    "inline": true,
+    "title": "",
+    "type": "radio",
+    "items": [
+      {
+        "name": "foundIndicator",
+        "value": "yes",
+        "id": "field1",
+        "label": "Yes",
+        "checked": false
+      },
+      {
+        "name": "foundIndicator",
+        "value": "no",
+        "id": "field2",
+        "label": "No",
+        "checked": false
+      }
+    ]
+  },
+  "reportMessage": [
+    {
+      "id": "",
+      "text": "If you need to report child abuse, any other kind of abuse, or need urgent assistance, please click here.",
+      "href": "#",
+      "info": ""
+    }
+  ],
+  "textarea": {
+    "labelText": "Text Area",
+    "hiddenLabel": true,
+    "required": false,
+    "maxlength": 1000,
+    "id": "textarea",
+    "name": "textarea"
+  },
+  "helperText": {
+    "inputId": "GUID2738572489",
+    "message": "Do not include sensetive information, such as Social Security or bank account numbers."
+  },
+  "noResponseMessage": "Your feedback will not receive a response.",
+  "noResponseDescription": "This form only gathers feedback about the website.",
+  "currentPage": {
+    "id": "#",
+    "name": "#"
+  },
+  "currentNode": {
+    "id": "#",
+    "name": "#"
+  },
+  "location": {
+    "id": "#",
+    "name": "#",
+    "placement": "footer"
+  },
+  "uniqueID": {
+    "id": "#",
+    "name": "#"
+  }
+}
