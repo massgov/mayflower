@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
 import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
-import './HeaderSearch.css';
+import './style.css';
 
 class HeaderSearch extends React.Component {
   constructor(props) {
@@ -91,7 +91,7 @@ HeaderSearch.defaultProps = {
   label: 'Search terms',
   placeholder: 'Search Mass.gov',
   buttonSearch: {
-    ariaLabel: 'search',
+    ariaLabel: '',
     usage: 'secondary'
   }
 };
