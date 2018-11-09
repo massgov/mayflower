@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Changed
 - (Patternlab) DP-11030: Create a clearer distinction between contact and related in service #343
 - (React) DP-11158: Adds ListingTable to the index.js file. Fixes unique key issues on lists. Adds tbody tag to table. Fixes PropTypes definition for rows prop. #354
+- (Patternlab) DP-9883: Updated the styles of the contact groups in the contact row to display the same number of groups in each column under the "Contact Us" section of the org page. #223
 
 ### Fixed 
 - (React) DP-11205: Fix FootNote atom bug. #355
@@ -31,8 +32,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 - (Patternlab) DP-10793: Update video layout on service pages #337
-- (Patternlab) DP-9883: Updated the styles of the contact groups in the contact row to display the same number of groups in each column under the "Contact Us" section of the org page. #223
-
 
 ## 8.9.0 (10/26/2018)
 
