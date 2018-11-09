@@ -1,7 +1,0 @@
-___DESCRIPTION___
-Changed
-Minor
-- (React) DP-11158: Adds ListingTable to the index.js file.
-- (React) DP-11158: Fixes unique key issues on lists.
-- (React) DP-11158: Adds tbody tag to table.
-- (React) DP-11158: Fixes PropTypes definition for rows prop.
