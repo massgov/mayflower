@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Minor
+Patch
+- (React) DP-11205: Fix FootNote atom bug.
