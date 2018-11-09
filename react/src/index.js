@@ -69,9 +69,9 @@ export Tabs from './components/molecules/Tabs';
 export Tooltip from './components/molecules/Tooltip';
 export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
+export ListingTable from './components/molecules/ListingTable';
 export Breadcrumb from './components/molecules/Breadcrumb';
 export BreadcrumbItem from './components/molecules/Breadcrumb/item';
-
 
 // @organisms
 export GeneralTeaser from './components/organisms/GeneralTeaser';
