@@ -34,14 +34,14 @@ class ListingTableItem extends React.Component {
       <tr>
         <th scope="row">{ row.label }</th>
         <td className={rowClasses}>
-          {shownItems.map((item) => (
-            <span className="ma__listing-table__data-item">{item}</span>
+          {shownItems.map((item, index) => (
+            <span key={`${row.label}-shown-item-${index}`} className="ma__listing-table__data-item">{item}</span>
           ))}
           {(invisibleItems.length > 0) && (
             <Collapse in={this.state.open} dimension="height">
               <div className="ma__listing-table__extra collapsed">
-                {invisibleItems.map((item) => (
-                  <span className="ma__listing-table__data-item">{item}</span>
+                {invisibleItems.map((item, index) => (
+                  <span key={`${row.label}-invisible-item-${index}`} className="ma__listing-table__data-item">{item}</span>
                 ))}
               </div>
             </Collapse>
@@ -72,7 +72,9 @@ const ListingTable = (props) => {
     <div className="ma__listing-table">
       <div className="ma__listing-table__container">
         <table>
-          {rows.map((row) => (<ListingTableItem row={row} />))}
+          <tbody>
+            {rows.map((row, index) => (<ListingTableItem key={`listing-table-item-${index}`} row={row} />))}
+          </tbody>
         </table>
       </div>
     </div>
@@ -81,7 +83,7 @@ const ListingTable = (props) => {
 
 ListingTable.propTypes = {
   /** Rows of data. Each containing specific parameters */
-  rows: PropTypes.shape({
+  rows: PropTypes.arrayOf(PropTypes.shape({
     /** Lable of row. Required */
     label: PropTypes.string.isRequired,
     /** Number of visible items. Defaults to 2. */
@@ -90,9 +92,9 @@ ListingTable.propTypes = {
     moreLabel: PropTypes.string,
     /** Less Label for when items need hiding. Defaults to "Less" */
     lessLabel: PropTypes.string,
-    /** Items in the table. Strings */
-    items: PropTypes.arrayOf(PropTypes.string)
-  })
+    /** Items in the table. */
+    items: PropTypes.arrayOf(PropTypes.oneOf(PropTypes.string, PropTypes.object))
+  }))
 };
 
 export default ListingTable;
