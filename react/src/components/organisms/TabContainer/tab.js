@@ -51,27 +51,13 @@ class Tab extends React.Component {
     // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
                 onKeyDown = {(e) => {
                   if (e.keyCode === 37 || e.keyCode === 39) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    if (this.tabIdent !== document.activeElement.id) {
-                      console.log('Set the active tab!');
-                      setActiveTab(document.activeElement.id, this.props.children);
+                    if (typeof this.props.keyPressCallBack === 'function' ) {
+                      this.props.keyPressCallBack(e.keyCode, document.activeElement.id,this.props.index)
                     }
-                  }
-
-                  // TEST OUTPUT
-                  if (e.keyCode === 37) {// LEFT
-                    console.log('LEFT');
-                  }
-                  if (e.keyCode === 39) {// RIGHT
-                    console.log('RIGHT');
                   }
                   if (e.keyCode === 40) {// DOWN
                     console.log('DOWN');
                   }
-                  console.log('button: ' + this.tabIdent);
-                  console.log("focus at: " + document.activeElement.id);
                 }}
               >
               {this.props.title}

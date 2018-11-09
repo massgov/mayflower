@@ -10,14 +10,14 @@ class TabContainer extends React.Component {
     super(props);
     this.setActiveTab = (tab, content = null) => {
       const state = {
-        activeTab: tab,
-        currentFocus: ''
+        activeTab: tab
       };
       if (content) {
         state.activeContent = content;
       }
       this.setState(state);
     };
+
     this.state = {
       activeTab: null,
       activeContent: null,
@@ -36,6 +36,7 @@ class TabContainer extends React.Component {
       wrap: true
     };
     this.focusGroup = createFocusGroup(tabFocusGroupOptions).activate();
+    this.keyPressCallBack = this.keyPressCallBack.bind(this);
   }
 
   // handleButtonKeyDown(e) {}
@@ -53,6 +54,12 @@ class TabContainer extends React.Component {
   //   }
   }
 
+  keyPressCallBack(keycode, focus, index) {
+    const focIndex = keycode === 39 ? index + 1 : index - 1;
+    const grandChildren = this.props.children[focIndex];
+    this.setActiveTab(focus,grandChildren.props.children)
+  }
+
   render() {
     const classes = classNames({
       'ma__tab-container': true,
@@ -63,10 +70,11 @@ class TabContainer extends React.Component {
     const active = defaultTab;
     this.childrenWithProps = React.Children.map(children, (child, index) => {
       if (index === active) {
-        return React.cloneElement(child, { default: true, a11yID: this.props.a11yID });
+        return React.cloneElement(child, { default: true, a11yID: this.props.a11yID, keyPressCallBack: this.keyPressCallBack, index: index });
       }
-      return child;
+      return React.cloneElement(child, { keyPressCallBack: this.keyPressCallBack, index: index });
     });
+
 
     return(
       <TabContext.Provider value={this.state}>
