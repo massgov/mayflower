@@ -13,9 +13,7 @@
             "height": "130",
             "width": "230"
         },
-        "hasManyAdditional": true,
-        "additionalContacts": [
-          {
+        "primaryContact": {
             "icon": "marker",
             "name": "Address",
             "items": [
@@ -27,7 +25,9 @@
                     "details": ""
                 }
             ]
-          },
+        },
+        "hasManyAdditional": true,
+        "additionalContacts": [
             {
                 "icon": "phone",
                 "name": "Phone",
