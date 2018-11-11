@@ -5,7 +5,6 @@ $page-banner-height: 330px;
   background-size: cover;
   background-position: center center;
   height: auto;
-
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
@@ -15,11 +14,14 @@ $page-banner-height: 330px;
     margin-bottom: 40px;
   }
 
-  &--small,
-  &--large {
+  .decision-tree & {
 
-    @media ($bp-small-min) {
-      height: 250px;
+    h1 {
+      font-size: 2.125rem;
+
+      @media ($bp-small-min) {
+        font-size: 1.8125rem;
+      }
     }
   }
 
@@ -216,7 +218,6 @@ $page-banner-height: 330px;
 
   &--columns &__content {
     height: $page-banner-height;
-    max-height: 174px;
     max-width: 700px;
     position: relative;
     top: 0;
