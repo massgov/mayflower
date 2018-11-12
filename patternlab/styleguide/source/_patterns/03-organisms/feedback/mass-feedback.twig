@@ -28,16 +28,16 @@
         {% endif %}
       </fieldset>
 
-      <fieldset class="ma_feedback-fieldset">
+      <fieldset class="ma_feedback-fieldset user-respose">
         {% set textarea = textarea %}
         {% include "@atoms/03-forms/textarea.twig" %}
         
         {% set helperText = helperText %}
         {% include "@atoms/03-forms/helper-text.twig" %}
 
-        {% if noResponseMessage %}
-        <div class="ma__mass-feedback-form__form--no-response">
-          <legend>{{ noResponseMessage }} {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}</legend>
+        {% if ResponseMessage %}
+        <div class="ma__mass-feedback-form__form--user-response">
+          <legend>{{ ResponseMessage }} {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}</legend>
           {% if noResponseDescription %}<p class="no-response-info">{{ noResponseDescription }}</p>{% endif %}
         </div>
         {% endif %}

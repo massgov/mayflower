@@ -46,7 +46,7 @@
     "inputId": "GUID2738572489",
     "message": "Do not include sensetive information, such as Social Security or bank account numbers."
   },
-  "noResponseMessage": "Your feedback will not receive a response.",
+  "ResponseMessage": "Your feedback will not receive a response.",
   "noResponseDescription": "This form only gathers feedback about the website.",
   "currentPage": {
     "id": "#",
