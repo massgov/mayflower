@@ -191,6 +191,31 @@
     }
   }
 
+  &__contact-form {
+    
+    @media ($bp-feedback-min) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+
+    .form_field {
+     
+      @media ($bp-feedback-min) {
+        width: 48%;
+
+        &:nth-child(n+3) {
+          margin-top: 20px;
+        }
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+
   &.thank-you-panel {
     border: 2px solid $c-gray-light;
     background: $c-white;
