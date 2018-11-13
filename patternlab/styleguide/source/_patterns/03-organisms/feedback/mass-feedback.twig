@@ -1,10 +1,10 @@
-<div class="ma__mass-feedback-form" id="" >
+<div class="ma__mass-feedback-form">
   <h2 class="visually-hidden">Feedback</h2>
-  
+
   <form class="ma__mass-feedback-form__form" method="post" action="{{ formAction}}" id="">
     <fieldset class="ma_feedback-fieldset feedback-load">
       <legend>
-        {{ title }}<sup>*</sup>
+        {{ title }}
       </legend>
 
       {% set inputGroup = inputGroup %}
@@ -16,6 +16,7 @@
         <legend class="feedback-response feedback-positive">
           {{ queryAffirmative }}
         </legend>
+
         <legend class="feedback-response feedback-negative">
           {{ queryNegative }}
         </legend>
@@ -31,7 +32,7 @@
       <fieldset class="ma_feedback-fieldset user-response">
         {% set textarea = textarea %}
         {% include "@atoms/03-forms/textarea.twig" %}
-        
+
         {% set helperText = helperText %}
         {% include "@atoms/03-forms/helper-text.twig" %}
 
@@ -42,8 +43,9 @@
             {% if responseRequired.inputGroup %} {{ org }}? {% endif %} 
             {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}
           </legend>
+
           {% if noResponseDescription %}<p class="no-response-info">{{ noResponseDescription }}</p>{% endif %}
-          
+
           {% if responseRequired.inputGroup %}
           <fieldset class="ma_feedback-fieldset user-response__contact">
 
@@ -54,23 +56,28 @@
               {% if responseRequired.responseDescription %}
                 <p class="response-info">{{ responseRequired.responseDescription }}</p>
               {% endif %}
+
               <div class="ma__mass-feedback-form__contact-form--items">
-              <div class="contact-form--item firstName">
-                <legend>First Name</legend>
-                {% include "@atoms/03-forms/input-text.twig" %}
+                <div class="contact-form--item firstName">
+                  <legend>First Name</legend>
+                  {% include "@atoms/03-forms/input-text.twig" %}
                 </div>
+
                 <div class="contact-form--item lastName">
-                <legend>Last Name</legend>
-                {% include "@atoms/03-forms/input-text.twig" %}
+                  <legend>Last Name</legend>
+                  {% include "@atoms/03-forms/input-text.twig" %}
                 </div>
+
                 <div class="contact-form--item email">
-                <legend>Phone</legend>
-                {% include "@atoms/03-forms/input-text.twig" %}
+                  <legend>Phone</legend>
+                  {% include "@atoms/03-forms/input-text.twig" %}
                 </div>
+
                 <div class="contact-form--item phone">
-                <legend>Email</legend>
-                {% include "@atoms/03-forms/input-text.twig" %}
-              </div>
+                  <legend>Email</legend>
+                  {% include "@atoms/03-forms/input-text.twig" %}
+                </div>
+
               </div>
             </div>
           </fieldset>
@@ -78,6 +85,7 @@
 
         </div>
         {% endif %}
+
       </fieldset>
     </div>
 
