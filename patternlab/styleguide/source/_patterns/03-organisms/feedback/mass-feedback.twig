@@ -46,26 +46,27 @@
             {% set inputGroup = responseRequired.inputGroup %}
             {% include "@atoms/03-forms/input-group.twig" %}
 
-            {% if responseRequired.responseDescription %}
-              <p class="response-info">{{ responseRequired.responseDescription }}</p>
-            {% endif %}
-
             <div class="ma__mass-feedback-form__contact-form">
-              <div class="form_field firstName">
-              <legend>First Name</legend>
-              {% include "@atoms/03-forms/input-text.twig" %}
+              {% if responseRequired.responseDescription %}
+                <p class="response-info">{{ responseRequired.responseDescription }}</p>
+              {% endif %}
+              <div class="ma__mass-feedback-form__contact-form--items">
+              <div class="contact-form--item firstName">
+                <legend>First Name</legend>
+                {% include "@atoms/03-forms/input-text.twig" %}
+                </div>
+                <div class="contact-form--item lastName">
+                <legend>Last Name</legend>
+                {% include "@atoms/03-forms/input-text.twig" %}
+                </div>
+                <div class="contact-form--item email">
+                <legend>Phone</legend>
+                {% include "@atoms/03-forms/input-text.twig" %}
+                </div>
+                <div class="contact-form--item phone">
+                <legend>Email</legend>
+                {% include "@atoms/03-forms/input-text.twig" %}
               </div>
-              <div class="form_field lastName">
-              <legend>Last Name</legend>
-              {% include "@atoms/03-forms/input-text.twig" %}
-              </div>
-              <div class="form_field email">
-              <legend>Phone</legend>
-              {% include "@atoms/03-forms/input-text.twig" %}
-              </div>
-              <div class="form_field phone">
-              <legend>Email</legend>
-              {% include "@atoms/03-forms/input-text.twig" %}
               </div>
             </div>
           </fieldset>

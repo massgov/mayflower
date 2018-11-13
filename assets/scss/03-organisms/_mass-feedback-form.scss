@@ -204,6 +204,14 @@
   }
 
   &__contact-form {
+    display: none;
+
+    &.open {
+      display: block;
+    }
+  }
+
+  &__contact-form--items {
     
     @media ($bp-feedback-min) {
       display: flex;
@@ -212,7 +220,7 @@
     }
     
 
-    .form_field {
+    .contact-form--item {
      
       @media ($bp-feedback-min) {
         width: 48%;
