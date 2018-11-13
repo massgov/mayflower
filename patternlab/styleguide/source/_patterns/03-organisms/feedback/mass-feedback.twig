@@ -37,7 +37,11 @@
 
         {% if Response %}
         <div class="ma__mass-feedback-form__form--user-response">
-          <legend>{{ Response }} {% if responseRequired.inputGroup %} {{ org }}? {% endif %} {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}</legend>
+          <legend>
+            {{ Response }} 
+            {% if responseRequired.inputGroup %} {{ org }}? {% endif %} 
+            {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}
+          </legend>
           {% if noResponseDescription %}<p class="no-response-info">{{ noResponseDescription }}</p>{% endif %}
           
           {% if responseRequired.inputGroup %}
