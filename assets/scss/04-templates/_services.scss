@@ -15,6 +15,27 @@
     }
   }
 
+  .more-info-header {
+    @include ma-container;
+    @include clearfix;
+
+    .ma__comp-heading {
+      margin-bottom: 0;
+    }
+  }
+
+  .ma__split-columns {
+
+    .ma__comp-heading,
+    .ma__sidebar-heading {
+      @include ma-h3;
+      border: 0;
+      margin-bottom: 0 !important;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+  }
+
   .main-content--full .page-content--intro {
     .ma__video--right + .ma__teaser-text {
 
