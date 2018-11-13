@@ -13,6 +13,14 @@
 
    fieldset {
      margin-top: 45px;
+
+     &.user-response {
+       margin-top: 30px;
+     }
+
+     &.user-response__contact {
+       margin-top: 15px;
+     }
    }
 
    > *:first-child { 
@@ -25,7 +33,7 @@
 
     .ma__header-alert {
       display: block;
-      margin-bottom: 20px;
+      margin-bottom: 0;
 
       &__label {
         display: none;
@@ -61,6 +69,10 @@
 
       .no-response-info {
         display: none;
+      }
+
+      .response-info {
+        margin-top: 20px;
       }
 
       &.is-open {

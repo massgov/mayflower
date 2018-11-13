@@ -27,6 +27,14 @@
       }
     ]
   },
+  "reportMessage": [
+    {
+      "id": "",
+      "text": "If you need to report child abuse, any other kind of abuse, or need urgent assistance, please click here.",
+      "href": "#",
+      "info": ""
+    }
+  ],
   "textarea": {
     "labelText": "Text Area",
     "hiddenLabel": true,
@@ -40,7 +48,7 @@
     "message": "Do not include sensetive information, such as Social Security or bank account numbers."
   },
   "Response": "Would you like a response from",
-  "resposeRequired": {
+  "responseRequired": {
     "responseDescription": "Responses may take 1 to 3 days",
     "inputGroup": {
       "required": true,
