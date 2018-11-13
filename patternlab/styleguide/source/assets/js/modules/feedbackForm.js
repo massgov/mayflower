@@ -2,6 +2,7 @@ export default (function (window, document, $) {
 
   const $feedbackForm = $('.ma__mass-feedback-form__form');
   const $fields = $('.ma__mass-feedback-form__fields');
+  const $textArea = $fields.find('textarea');
   const $contactForm = $feedbackForm.find('.ma__mass-feedback-form__contact-form');
   const $loadRadios = $feedbackForm.find('.feedback-load input[type="radio"]');
   const $contactRadios = $feedbackForm.find('.user-response__contact input[type="radio"]');
@@ -12,6 +13,20 @@ export default (function (window, document, $) {
   // Open no reponse answer accordion.
   $noResponseLink.on('click', function () {
     $Response.toggleClass('is-open');
+  });
+
+  // Auto size the text boxes
+  $textArea.each(function () {
+    let $el = $(this);
+
+    $el.on('keyup', function () {
+      if ($el.prop('scrollHeight') > $el.prop('clientHeight')) {
+        $el.css('height', $el.prop('scrollHeight') + "px");
+      }
+      else {
+        $el.css('height', "100%");
+      }
+    });
   });
 
   // Open feedback form on radio button selection.
