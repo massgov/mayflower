@@ -49,21 +49,26 @@
   },
   "Response": "Your feedback will not receive a response.",
   "noResponseDescription": "This form only gathers feedback about the website.",
-  "currentPage": {
-    "id": "#",
-    "name": "#"
-  },
-  "currentNode": {
-    "id": "#",
-    "name": "#"
-  },
-  "location": {
-    "id": "#",
-    "name": "#",
-    "placement": "footer"
-  },
-  "uniqueID": {
-    "id": "#",
-    "name": "#"
-  }
+  "hiddenElements": [
+    {
+      "id": "example1",
+      "name": "example1",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example2",
+      "name": "example2",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example3",
+      "name": "example3",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example4",
+      "name": "example4",
+      "value": "https://mass.gov"
+    }
+  ]
 }

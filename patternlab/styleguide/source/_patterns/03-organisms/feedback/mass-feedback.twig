@@ -93,9 +93,8 @@
       <input id="" class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
     </fieldset>
 
-    <input type="hidden" id="{{ currentPage.id }}" name="{{ currentPage.name }}" value="/added-by-js" />
-    <input type="hidden" id="{{ currentNode.id }}" name="{{ currentNode.name }}" value="/added-by-js" />
-    <input type="hidden" id="{{ location.id }}" name="{{ location.name }}" size="50" value="{{ location.placement }}" />
-    <input type="hidden" id="{{ uniqueID.id }}" name="{{ uniqueID.name }}" size="50" value="/added-by-js" />
+    {% for element in hiddenElements %}
+      <input type="hidden" id="{{ element.id }}" name="{{ element.name }}" value="{{ element.value }}" class="{{ element.class }}" />
+    {% endfor %}
   </form>
 </div>
