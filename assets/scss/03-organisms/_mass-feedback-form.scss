@@ -13,6 +13,14 @@
 
    fieldset {
      margin-top: 45px;
+
+     &.user-response {
+       margin-top: 30px;
+     }
+
+     &.user-response__contact {
+       margin-top: 15px;
+     }
    }
 
    > *:first-child { 
@@ -25,7 +33,13 @@
 
     .ma__header-alert {
       display: block;
-      margin-bottom: 20px;
+      margin-bottom: 0;
+
+      &.is-closed {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out; 
+      }
 
       &__label {
         display: none;
@@ -46,7 +60,7 @@
       }
     }
 
-    &--no-response {
+    &--user-response {
 
       .ma__content-link--chevron {
         padding-left: 0.5rem;
@@ -60,7 +74,12 @@
       }
 
       .no-response-info {
-        display: none;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .response-info {
+        margin-top: 20px;
       }
 
       &.is-open {
@@ -71,17 +90,20 @@
         }
 
         .no-response-info {
-          display: block;
+          max-height: 100vh;
+          transition: max-height 0.4s ease-in-out; 
         }
       }
     }
   }
 
   &__fields {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out; 
 
-    &.open {
-      display: block;
+    &.is-open {
+      max-height: 100vh;
     }
 
     &.positive {
@@ -112,8 +134,6 @@
 
     .ma__radio-scale__item:not(:last-child) {
       margin-bottom: 45px;
-
-      
     }
 
     &::before,
@@ -186,6 +206,41 @@
         @media ($bp-feedback-min) {
           width: 60%;
           float: right;
+        }
+      }
+    }
+  }
+
+  &__contact-form {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out; 
+
+    &.is-open {
+      max-height: 100vh;
+    }
+
+    &--items {
+    
+      @media ($bp-feedback-min) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+  
+      .contact-form--item {
+       
+        @media ($bp-feedback-min) {
+          width: 48%;
+  
+          &:nth-child(n+3) {
+            margin-top: 20px;
+          }
+        }
+  
+        input {
+          width: 100%;
         }
       }
     }

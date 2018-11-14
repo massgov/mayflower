@@ -2,32 +2,65 @@ export default (function (window, document, $) {
 
   const $feedbackForm = $('.ma__mass-feedback-form__form');
   const $fields = $('.ma__mass-feedback-form__fields');
-  const $radios = $feedbackForm.find('input[type="radio"]');
-  const $noResponse = $('.ma__mass-feedback-form__form--no-response');
-  const $noResponseLink = $noResponse.find('.form--no-response');
+  const $textArea = $fields.find('textarea');
+  const $contactForm = $feedbackForm.find('.ma__mass-feedback-form__contact-form');
+  const $loadRadios = $feedbackForm.find('.feedback-load input[type="radio"]');
+  const $contactRadios = $feedbackForm.find('.user-response__contact input[type="radio"]');
+  const $Response = $('.ma__mass-feedback-form__form--user-response');
+  const $noResponseLink = $Response.find('.form--no-response');
   const $alertToggle = $('.ma__header-alert__hide');
 
+  // Open no reponse answer accordion.
   $noResponseLink.on('click', function () {
-    $noResponse.toggleClass('is-open');
+    $Response.toggleClass('is-open');
   });
 
-  $radios.on('change', function () {
+  // Auto size the text boxes
+  $textArea.each(function () {
+    let $el = $(this);
 
-    let selected = $("input[name='foundIndicator']:checked").val();
+    $el.on('keyup', function () {
+      if ($el.prop('scrollHeight') > $el.prop('clientHeight')) {
+        $el.css('height', $el.prop('scrollHeight') + "px");
+      }
+      else {
+        $el.css('height', "100%");
+      }
+    });
+  });
 
-    if (selected === 'yes') {
-      $fields.addClass('open positive');
+  // Open feedback form on radio button selection.
+  $loadRadios.on('change', function () {
+
+    let foundIndicator = $("input[name='foundIndicator']:checked").val();
+
+    if (foundIndicator === 'yes') {
+      $fields.addClass('is-open positive');
       $fields.removeClass('negative');
     }
-    else if (selected === 'no') {
-      $fields.addClass('open negative');
+    else if (foundIndicator === 'no') {
+      $fields.addClass('is-open negative');
       $fields.removeClass('positive');
     }
   });
 
+  // Open contact form on radio selection.
+  $contactRadios.on('change', function () {
+
+    let contactGroup = $("input[name='contactGroups']:checked").val();
+
+    if (contactGroup === 'yes') {
+      $contactForm.addClass('is-open');
+    }
+    else if (contactGroup === 'no') {
+      $contactForm.removeClass('is-open');
+    }
+  });
+
+  // Close alert.
   $alertToggle.on('click', function (e) {
     e.preventDefault();
-    $('.ma__header-alerts').hide();
+    $('.ma__header-alerts').addClass('is-closed');
   });
 
 })(window, document, jQuery);
