@@ -58,6 +58,13 @@ class Tab extends React.Component {
                   if (e.keyCode === 40) {// DOWN
                     console.log('DOWN');
                   }
+
+
+console.log('active tab: ' + activeTab);
+console.log('index: ' + this.props.index);
+console.log('current focus: ' + document.activeElement.id);
+
+
                 }}
               >
               {this.props.title}

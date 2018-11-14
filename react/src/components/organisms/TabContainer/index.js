@@ -33,7 +33,7 @@ class TabContainer extends React.Component {
         next: [{keyCode: 39}],// right arrow
         prev: [{keyCode: 37}]// left arrow
       },
-      wrap: true
+      wrap: false
     };
     this.focusGroup = createFocusGroup(tabFocusGroupOptions).activate();
     this.keyPressCallBack = this.keyPressCallBack.bind(this);
@@ -55,7 +55,18 @@ class TabContainer extends React.Component {
   }
 
   keyPressCallBack(keycode, focus, index) {
+
+console.log('received index: ' + index);
+console.log('received focus: ' + focus);
+
+    if(keycode === 39 && index === 0) {
+      console.log('last tab');
+    }
+
     const focIndex = keycode === 39 ? index + 1 : index - 1;
+
+console.log('current index: ' + focIndex);
+
     const grandChildren = this.props.children[focIndex];
     this.setActiveTab(focus,grandChildren.props.children)
   }
