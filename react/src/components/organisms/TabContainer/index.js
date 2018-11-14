@@ -41,17 +41,12 @@ class TabContainer extends React.Component {
 
   // handleButtonKeyDown(e) {}
 
-  handleTabContainerKeyDown() {
-  //   Things need to happen with the event:
-  //     1. check which key is down:
-  //       a. UP ARROW: move the focus to the active tab
-  //       b. other keys: null
-
-  //   if (e.keyCode == 38) { // UP
-  //     e.preventDefault();
-  //     e.stopPropagation();
-  //     // Move focus to active tab.
-  //   }
+  handleTabContainerKeyDown(e) {
+    if (e.keyCode == 38) { // UP
+      e.preventDefault();
+      e.stopPropagation();
+      document.getElementById(`${this.state.activeTab}`).focus();
+    }
   }
 
   keyPressCallBack(keycode, focus, index) {
@@ -95,20 +90,13 @@ console.log('current index: ' + focIndex);
               >{this.childrenWithProps}
           </ul>
 
-
-
-// ADD onKeyDown to move the focus back to its paired tab. --> onKeyDown={this.handleTabContainerKeyDown}
-
           {this.state.activeTab && <div className="ma__tab-container-body"
                                     aria-labelledby={this.state.activeTab}
                                     id={`tabpanel-${this.state.activeTab}`}
                                     tabIndex="-1"
                                     role="tabpanel"
 
-
-                                    onKeyDown={this.handleTabContainerKeyDown}
-
-
+                                    onKeyDown={(e) => this.handleTabContainerKeyDown(e)}
                                     >
                                       {this.state.activeContent}
                                   </div>}
