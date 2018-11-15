@@ -9,13 +9,22 @@ class TabContainer extends React.Component {
   constructor(props) {
     super(props);
     this.setActiveTab = (tab, content = null) => {
+console.log('=================');
+console.log('1. setActiveTab is called.');
       const state = {
         activeTab: tab
       };
+console.log('2. set state for activeTab. - done');
       if (content) {
+console.log('3. check for active tab\'s body content.');
         state.activeContent = content;
       }
+console.log('4. override the state.');
       this.setState(state);
+console.log('5. end of setActiveTab');
+console.log('current activeTab: ' + this.state.activeTab);
+console.log('===================');
+
     };
     this.state = {
       activeTab: null,
