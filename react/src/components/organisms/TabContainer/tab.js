@@ -41,28 +41,34 @@ class Tab extends React.Component {
                 id={this.tabIdent}
                 onClick={(e) => {
                   this.scrollIntoView(e.target);
-                  setActiveTab(this.tabIdent, this.props.children)
+                  setActiveTab(this.tabIdent, this.props.children);
+
+                  console.log('activeTab at onclick: ' + activeTab);
                 }}
                 aria-selected={active}
-                tabIndex={!active ? -1 : 0}
+                tabIndex={this.props.tabIndex}
                 aria-describedby={this.props.a11yID}
 
 
     // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
                 onKeyDown = {(e) => {
                   if (e.keyCode === 37 || e.keyCode === 39) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     if (typeof this.props.keyPressCallBack === 'function' ) {
                       this.props.keyPressCallBack(e.keyCode, document.activeElement.id,this.props.index)
                     }
                   }
                   if (e.keyCode === 40) {// DOWN
-                    console.log('DOWN');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.querySelector('.ma__tab-container-body').focus();
                   }
 
 
-console.log('active tab: ' + activeTab);
-console.log('index: ' + this.props.index);
-console.log('current focus: ' + document.activeElement.id);
+// console.log('active tab: ' + activeTab);
+// console.log('index: ' + this.props.index);
+// console.log('current focus: ' + document.activeElement.id);
 
 
                 }}
