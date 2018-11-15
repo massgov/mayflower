@@ -37,6 +37,8 @@ console.log('===================');
   }
 
   componentWillMount(){
+
+console.log('activeTab at Mount: ' + this.state.activeTab);
     // Parent FocusGroup set up
     const parentTabs = document.querySelectorAll('ul.ma__tab-container-head--parent li button');
     const parentTabGroup = createFocusGroup({
@@ -108,6 +110,9 @@ console.log('focIndex: ' + focIndex);
   }
 
   render() {
+
+console.log('activeTab at render: ' + this.state.activeTab);
+
     const classes = classNames({
       'ma__tab-container': true,
       'ma__tab-container--nested': this.props.nested
