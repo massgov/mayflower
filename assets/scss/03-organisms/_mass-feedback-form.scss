@@ -50,12 +50,14 @@
 
       textarea {
         resize: none;
+        overflow: hidden;
       }
 
       &::after {
-        bottom: 10px;
-        right: 10px;
+        bottom: 8px;
+        right: 5px;
         top: auto;
+        font-size: 1rem;
         font-weight: 400;
       }
     }
