@@ -24,37 +24,37 @@ class TabContainer extends React.Component {
       setActiveTab: this.setActiveTab
     };
 
-
-
-
     this.keyPressCallBack = this.keyPressCallBack.bind(this);
   }
 
-  componentDidMount(){
+  componentWillMount(){
+    // Parent FocusGroup set up
     const parentTabs = document.querySelectorAll('ul.ma__tab-container-head--parent li button');
-    createFocusGroup({
+    const parentTabGroup = createFocusGroup({
       members: parentTabs,
       keybindings: {
         next: [{keyCode: 39}],// right arrow
         prev: [{keyCode: 37}]// left arrow
       },
       wrap: false
-    }).activate();
+    });
+    parentTabGroup.activate();
 
-    // const nestedTabs = document.querySelectorAll('ul.ma__tab-container-head--nested li button');
-    // createFocusGroup({
-    //   members: nestedTabs,
-    //   keybindings: {
-    //     next: [{keyCode: 39}],// right arrow
-    //     prev: [{keyCode: 37}]// left arrow
-    //   },
-    //   wrap: false
-    // }).activate();
-    // this.focusGroup = createFocusGroup(parentTabFocusGroupOptions).activate();
+    // Nested FocusGroup set up
+    const nestedTabs = document.querySelectorAll('ul.ma__tab-container-head--nested li button');
+    const nestedTabGroup = createFocusGroup({
+      members: nestedTabs,
+      keybindings: {
+        next: [{keyCode: 39}],// right arrow
+        prev: [{keyCode: 37}]// left arrow
+      },
+      wrap: false
+    });
+    nestedTabGroup.activate();
 
 // TEST OUTPUT
-    console.log('focus group:');
-    console.log(createFocusGroup.members);
+    console.log(parentTabGroup._members);
+    console.log(nestedTabGroup._members);
   }
 
   handleTabContainerKeyDown(e) {
@@ -66,41 +66,33 @@ class TabContainer extends React.Component {
   }
 
   keyPressCallBack(keycode, focus, index) {
-
+// TEST OUTPUT
+console.log('------------------');
 console.log('received index: ' + index);
 console.log('received focus: ' + focus);
-
-    if(index === 0) {
-      console.log('first tab');
-    }
+console.log(this.props.children.length);
 
     let focIndex = "";
     if(keycode === 39) {
-      if (index === 0 && this.state.activeTab === null) {
-        focIndex = index;
-        console.log('right arrow + first tab: ' + focIndex);
-      } else {
+      if (index < this.props.children.length - 1 ) {// Check for the last index.
         focIndex = index + 1;
+      } else {
+        focIndex = index;
       }
-      console.log('right arrow: ' + focIndex);
+
     }
     if (keycode === 37) {
       if (index === 0) {
         focIndex = index;
-        console.log('left arrow + first tab: ' + focIndex);
+console.log('left arrow + first tab: ' + focIndex);
       } else {
         focIndex = index - 1;
-        console.log('left arrow: ' + focIndex);
       }
     }
-    // document.getElementById(`${this.state.activeTab}`).focus();
-
 
      // const focIndex = keycode === 39 ? index + 1 : index - 1;
 
-console.log('current index: ' + this.index);
-console.log('-------');
-  // console.log(document.querySelectorAll('ul.ma__tab-container-head--parent li > button'))
+console.log('focIndex: ' + focIndex);
 
     const grandChildren = this.props.children[focIndex];
     this.setActiveTab(focus,grandChildren.props.children)
@@ -120,6 +112,7 @@ console.log('-------');
     // eslint-disable-next-line react/prop-types
     const { children, defaultTab } = this.props;
     const active = defaultTab;
+    // const tabCount = children.length;
     this.childrenWithProps = React.Children.map(children, (child, index) => {
       if (index === active) {
         return React.cloneElement(child, { default: true, a11yID: this.props.a11yID, tabIndex: 0, keyPressCallBack: this.keyPressCallBack, index: index });

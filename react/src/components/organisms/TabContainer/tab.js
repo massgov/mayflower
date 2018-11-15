@@ -9,10 +9,6 @@ class Tab extends React.Component {
     super(props);
     this.tabIdent = shortid.generate();
     this.defaultSet = false;
-
-
-    // this.handleButtonKeyDown = this.handleButtonKeyDown.bind(this);
-
   }
 
   scrollIntoView = (target) => {
@@ -43,7 +39,10 @@ class Tab extends React.Component {
                   this.scrollIntoView(e.target);
                   setActiveTab(this.tabIdent, this.props.children);
 
-                  console.log('activeTab at onclick: ' + activeTab);
+
+console.log('activeTab at onclick: ' + activeTab);
+
+
                 }}
                 aria-selected={active}
                 tabIndex={this.props.tabIndex}
@@ -55,6 +54,7 @@ class Tab extends React.Component {
                   if (e.keyCode === 37 || e.keyCode === 39) {
                     e.preventDefault();
                     e.stopPropagation();
+
                     if (typeof this.props.keyPressCallBack === 'function' ) {
                       this.props.keyPressCallBack(e.keyCode, document.activeElement.id,this.props.index)
                     }
@@ -64,18 +64,11 @@ class Tab extends React.Component {
                     e.stopPropagation();
                     document.querySelector('.ma__tab-container-body').focus();
                   }
-
-
-// console.log('active tab: ' + activeTab);
-// console.log('index: ' + this.props.index);
-// console.log('current focus: ' + document.activeElement.id);
-
-
                 }}
               >
               {this.props.title}
 
-
+{/* TEST OUTPUT */}
               <br />{this.tabIdent}
 
 
