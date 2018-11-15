@@ -76,6 +76,8 @@
       .no-response-info {
         max-height: 0;
         overflow: hidden;
+        margin: 0;
+        transition: max-height 0.4s ease-in-out; 
       }
 
       .response-info {
@@ -90,7 +92,7 @@
         }
 
         .no-response-info {
-          max-height: 100vh;
+          max-height: 2rem;
           transition: max-height 0.4s ease-in-out; 
         }
       }
