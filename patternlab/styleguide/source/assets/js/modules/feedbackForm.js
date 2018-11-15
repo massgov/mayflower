@@ -32,7 +32,7 @@ export default (function (window, document, $) {
   // Open feedback form on radio button selection.
   $loadRadios.on('change', function () {
 
-    let foundIndicator = $("input[name='foundIndicator']:checked").val();
+    let foundIndicator = $loadRadios.filter(":checked").val();
 
     if (foundIndicator === 'yes') {
       $fields.addClass('is-open positive');
@@ -47,7 +47,7 @@ export default (function (window, document, $) {
   // Open contact form on radio selection.
   $contactRadios.on('change', function () {
 
-    let contactGroup = $("input[name='contactGroups']:checked").val();
+    let contactGroup = $contactRadios.filter(":checked").val();
 
     if (contactGroup === 'yes') {
       $contactForm.addClass('is-open');
