@@ -22,6 +22,7 @@ export InputDate from './components/atoms/forms/InputDate';
 export InputText from './components/atoms/forms/InputText';
 export SelectBox from './components/atoms/forms/SelectBox';
 export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
+export InputTextFuzzy from './components/atoms/forms/InputTextFuzzy';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
 export CompHeading from './components/atoms/headings/CompHeading';
@@ -69,6 +70,9 @@ export Tabs from './components/molecules/Tabs';
 export Tooltip from './components/molecules/Tooltip';
 export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
+export ListingTable from './components/molecules/ListingTable';
+export Breadcrumb from './components/molecules/Breadcrumb';
+export BreadcrumbItem from './components/molecules/Breadcrumb/item';
 
 // @organisms
 export GeneralTeaser from './components/organisms/GeneralTeaser';

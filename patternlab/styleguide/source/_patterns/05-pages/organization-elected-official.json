@@ -272,47 +272,43 @@
           }
         }
       ],
-      "sideBar": [
-
-      ]
+      "sideBar": []
     },
     {
       "title": "",
       "id": "",
       "pageContent": [
         {
-         "path": "@organisms/by-author/contact-row.twig",
+          "path": "@organisms/by-author/contact-row.twig",
           "data": {
-          "contactRow": {
-            "compHeading": {
-              "title": "Contact Us",
-              "sub": "",
-              "color": "",
-              "id": "contact us",
-              "centered": ""
-            },
-            "image": {
-              "alt": "eohhs logo",
-              "src": "../../assets/images/placeholder/230x130.png",
-              "height": "130",
-              "width": "230"
-            },
-            "primaryContact": {
-              "icon": "marker",
-              "name": "Address",
-              "items": [
-                {
-                  "type": "address",
-                  "label": "",
-                  "value": "One Ashburton Place, 11th Floor, Boston, MA 02108",
-                  "link": "https://www.google.com/maps/place/1+Ashburton+Pl,+Boston,+MA+02108",
-                  "details": ""
-                }
-              ]
-            },
-            "hasManyAdditional": true,
-            "additionalContacts": [
-              {
+            "contactRow": {
+              "compHeading": {
+                "title": "Contact Us",
+                "sub": "",
+                "color": "",
+                "id": "contact us",
+                "centered": ""
+              },
+              "image": {
+                "alt": "eohhs logo",
+                "src": "../../assets/images/placeholder/230x130.png",
+                "height": "130",
+                "width": "230"
+              },
+              "addressContactGroup": {
+                "icon": "marker",
+                "name": "Address",
+                "items": [
+                  {
+                    "type": "address",
+                    "label": "",
+                    "value": "One Ashburton Place, 11th Floor, Boston, MA 02108",
+                    "link": "https://www.google.com/maps/place/1+Ashburton+Pl,+Boston,+MA+02108",
+                    "details": ""
+                  }
+                ]
+              },
+              "phoneContactGroup": {
                 "icon": "phone",
                 "name": "Phone",
                 "items": [
@@ -366,7 +362,7 @@
                   }
                 ]
               },
-              {
+              "onlineContactGroup": {
                 "icon": "laptop",
                 "name": "Online",
                 "hidden": "",
@@ -397,7 +393,7 @@
                   }
                 ]
               },
-              {
+              "faxContactGroup": {
                 "icon": "fax-icon",
                 "name": "Fax",
                 "items": [
@@ -415,9 +411,8 @@
                   }
                 ]
               }
-            ]
+            }
           }
-        }
         },
         {
           "path": "@organisms/by-author/image-link-list.twig",

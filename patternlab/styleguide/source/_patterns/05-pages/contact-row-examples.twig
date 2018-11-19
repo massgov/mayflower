@@ -1,0 +1,29 @@
+{% extends '@templates/single-column.twig' %}
+
+{% block header %}
+  {% include "@organisms/by-template/header.twig" %}
+{% endblock %}
+
+{% block pageContent %}
+
+
+  {% set contactRow = pageContent.section1.contactRow %}
+  {% include "@organisms/by-author/contact-row.twig" %}
+
+  {% set contactRow = pageContent.section2.contactRow %}
+  {% include "@organisms/by-author/contact-row.twig" %}
+
+  {% set contactRow = pageContent.section3.contactRow %}
+  {% include "@organisms/by-author/contact-row.twig" %}
+
+
+  {% set contactRow = pageContent.section4.contactRow %}
+  {% include "@organisms/by-author/contact-row.twig" %}
+
+{% endblock %}
+
+{% block footer %}
+  {% include "@organisms/by-template/footer.twig" %}
+{% endblock %}
+
+
