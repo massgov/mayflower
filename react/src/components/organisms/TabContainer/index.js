@@ -9,7 +9,6 @@ class TabContainer extends React.Component {
   constructor(props) {
     super(props);
     this.setActiveTab = (tab, content = null) => {
-console.log('%c [this.setActiveTab] this.setActiveTab. ' + tab, 'color: purple;');
       const state = {
         activeTab: tab
       };
@@ -17,8 +16,6 @@ console.log('%c [this.setActiveTab] this.setActiveTab. ' + tab, 'color: purple;'
         state.activeContent = content;
       }
       this.setState(state);
-
-console.log('%c [this.setActiveTab] current activeTab after this.setState(state): ' + this.state.activeTab, 'color: purple;');
     };
 
     this.state = {
@@ -55,14 +52,9 @@ console.log('%c [this.setActiveTab] current activeTab after this.setState(state)
     const grandChildren = this.props.children[focIndex];
 
     this.setActiveTab(nextTabId,grandChildren.props.children);
-
-console.log('%c [keyPressCallBack] tab id sent to setActiveTab: ' + nextTabId, 'color: blue;');
   }
 
   render() {
-
-console.log('%c [render() index.js] activeTab at render (this.state.activeTab): ' + this.state.activeTab, 'color: red;');
-
     const classes = classNames({
       'ma__tab-container': true,
       'ma__tab-container--nested': this.props.nested

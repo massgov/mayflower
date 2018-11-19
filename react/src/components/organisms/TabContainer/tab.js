@@ -60,11 +60,6 @@ class Tab extends React.Component {
                 }}
               >
               {this.props.title}
-
-{/* TEST OUTPUT */}
-              <br />{this.props.tabIdent}
-
-
               </button>
             </li>
           );
