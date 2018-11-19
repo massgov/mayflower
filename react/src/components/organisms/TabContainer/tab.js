@@ -24,6 +24,11 @@ class Tab extends React.Component {
     if (e.keyCode === 40 || e.keyCode === 13) {// DOWN || ENTER
       document.querySelector('.ma__tab-container-body').focus();
     }
+    // Move focus from the nested tab group to the tab content container.
+    if (e.shiftKey && e.keyCode === 9) {// SHIFT + TAB
+      const parentWrapper = document.getElementById(this.props.tabIdent).closest('.ma__tab-container-body');
+      parentWrapper && parentWrapper.focus();
+    }
   };
 
   render() {
