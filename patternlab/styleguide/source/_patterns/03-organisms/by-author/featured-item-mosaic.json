@@ -1,13 +1,13 @@
 {
   "featuredItemMosaic": {
-    "compHeading":{
+    "compHeading": {
       "title": "Featured Items",
       "sub": "",
       "color": "",
       "id": "",
       "centered": ""
     },
-    "columns":[
+    "columns": [
       [
         {
           "href": "#",
@@ -29,10 +29,10 @@
       [
         {
           "href": "#",
-          "text": "Second action which has a very long title",
+          "text": "Get directions",
           "image": {
             "alt": "alt text",
-            "src": "../../assets/images/placeholder/400x300.png",
+            "src": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=600x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=ZfVgzAGuHDGCUTdazkS3WBiiOWY",
             "height": "",
             "width": ""
           }
@@ -71,7 +71,7 @@
         }
       ]
     ],
-    "more":{
+    "more": {
       "href": "#",
       "text": "view all events at this location",
       "info": "",
