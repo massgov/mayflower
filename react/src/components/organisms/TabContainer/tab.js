@@ -49,7 +49,7 @@ class Tab extends React.Component {
                     e.stopPropagation();
 
                     if (typeof this.props.keyPressCallBack === 'function' ) {
-                      this.props.keyPressCallBack(e.keyCode, document.activeElement.id,this.props.index)
+                      this.props.keyPressCallBack(e.keyCode, this.props.tabIdent,this.props.index);
                     }
                   }
                   if (e.keyCode === 40) {// DOWN
