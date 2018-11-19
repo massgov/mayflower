@@ -32,6 +32,14 @@
       width: calc(100% - 1.5rem);
     }
   }
+
+  &--disabled {
+    color: $c-gray;
+    input{
+      background-color: $c-gray-lightest;
+      color: $c-gray;
+    }
+  }
 }
 
 input[type=search]{

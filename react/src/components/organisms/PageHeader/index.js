@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 // import child components
 import Paragraph from '../../atoms/text/Paragraph';
 import PublishState from '../../atoms/text/PublishState';
+import './style.css';
+
+import './style.css';
 
 const PageHeader = (pageHeader) => {
   const {

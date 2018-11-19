@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import PageHeader from '../PageHeader';
 import PublishState from '../../atoms/text/PublishState';
 
+import './style.css';
+
 const IllustratedHeader = (illustratedHeader) => {
   const {
     bgInfo, bgImage, inverted, category, pageHeader, publishState, children

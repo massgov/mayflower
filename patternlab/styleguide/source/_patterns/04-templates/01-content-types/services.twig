@@ -23,13 +23,15 @@
             {% include "@atoms/09-media/image.twig" %}
           {% endif %}
           {% block pageContentIntro %}
+           
+            {% set richText = introPageContent.intro %}
+            {% include "@organisms/by-author/rich-text.twig" %}
+
             {% if introPageContent.video %}
               {% set video = introPageContent.video %}
               {% include "@atoms/09-media/video.twig" %}
             {% endif %}
 
-            {% set richText = introPageContent.intro %}
-            {% include "@organisms/by-author/rich-text.twig" %}
 
             {% if introPageContent.keyActions %}
               {% set keyActions = introPageContent.keyActions %}
@@ -79,6 +81,9 @@
               {% include "@organisms/by-author/event-listing.twig" %}
             {% endif %}
             {% if splitColumns %}
+              <div class="more-info-header">
+                <h2 class="ma__comp-heading">More Information</h2>
+              </div>
               {% include "@organisms/by-author/split-columns.twig" %}
             {% endif %}
           {% endblock %}

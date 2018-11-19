@@ -13,6 +13,62 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 8.11.0 (11/09/2018)
+
+### Added
+- (React) DP-11077: Adds Breadcrumb and BreadcrumbItem components. #348
+- (React) DP-11078: Adds InputTextFuzzy component. #349
+
+### Changed
+- (Patternlab) DP-11030: Create a clearer distinction between contact and related in service #343
+- (React) DP-11158: Adds ListingTable to the index.js file. Fixes unique key issues on lists. Adds tbody tag to table. Fixes PropTypes definition for rows prop. #354
+- (Patternlab) DP-9883: Updated the styles of the contact groups in the contact row to display the same number of groups in each column under the "Contact Us" section of the org page. #223
+
+### Fixed 
+- (React) DP-11205: Fix FootNote atom bug. #355
+
+## 8.10.0 (10/31/2018)
+
+### Changed
+- (Patternlab) DP-10793: Update video layout on service pages #337
+
+## 8.9.0 (10/26/2018)
+
+### Added
+- (Patternlab) DP-10774: Implements sticky table of contents on Advisory, Decision, Executive Order, Regulation, and Rules of Court content types. It also updated the integration of the stickty table of contents for Information Details, Curated Lists, and Guide pages. #339
+- (React) DP-11038: Add an option for footer component to show footer links category heading. #340
+
+### Changed
+- (React) DP-10244: Componentize SCSS for molecules #297
+- (React) DP-10764: Componentize SCSS for organisms #339
+- (Patternlab) DP-9176: Add aria-label attribute to the table of content accordion button in binder page to override the symbols for screen readers, remove the visually hidden text which aria-label attribute replaces with. #215
+
+### Removed
+
+### Fixed
+- (Patternlab) DP-10362: Makes Org subnav dropdowns keyboard accessible. #308
+- (Patternlab, React) DP-10986: Add font smoothing for Texta font weight accuracy. #336
+
+## 8.8.0 (10/24/2018)
+
+### Added
+- (React) DP-10799: Add FootNote and FootNoteLink atoms to mayflower react. #317
+- (React) DP-10910: Add disabled prop to inputTextTypeAhead and conditionally render filter controls in FilterBox #327
+- (React) DP-10913: Adds Teaser, OperationalHours components. #292
+- (React) DP-10765: Porting Table of Contents Hierarchy component. #311
+
+### Changed
+- (React) Componentize scss for page header organism. #329
+
+### Removed
+- (React) DP-10662: Remove deprecate alt value from site logo image. #315
+- (React) DP-10667: Remove aria-label from search button. Button with icon has aria-label only when it has value. #318
+
+### Fixed
+- (React) DP-10895: Fix bug in page flipper if intro props are not passed. #330
+
+
 ## 8.7.0 (10/17/2018)
 
 ### Added
