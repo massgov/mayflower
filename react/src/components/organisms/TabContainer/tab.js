@@ -13,6 +13,19 @@ class Tab extends React.Component {
     target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
   }
 
+  handleKeyDown = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.keyCode === 37 || e.keyCode === 39) {
+      if (typeof this.props.keyPressCallBack === 'function' ) {
+        this.props.keyPressCallBack(e.keyCode, this.props.tabIdent,this.props.index);
+      }
+    }
+    if (e.keyCode === 40) {// DOWN
+      document.querySelector('.ma__tab-container-body').focus();
+    }
+  };
+
   render() {
     return(
       <TabContext.Consumer>
@@ -43,21 +56,22 @@ class Tab extends React.Component {
                 aria-describedby={this.props.a11yID}
 
                 // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
-                onKeyDown = {(e) => {
-                  if (e.keyCode === 37 || e.keyCode === 39) {
-                    e.preventDefault();
-                    e.stopPropagation();
+                onKeyDown = {(e) => this.handleKeyDown(e)}
+                // onKeyDown = {(e) => {
+                //   if (e.keyCode === 37 || e.keyCode === 39) {
+                //     e.preventDefault();
+                //     e.stopPropagation();
 
-                    if (typeof this.props.keyPressCallBack === 'function' ) {
-                      this.props.keyPressCallBack(e.keyCode, this.props.tabIdent,this.props.index);
-                    }
-                  }
-                  if (e.keyCode === 40) {// DOWN
-                    e.preventDefault();
-                    e.stopPropagation();
-                    document.querySelector('.ma__tab-container-body').focus();
-                  }
-                }}
+                //     if (typeof this.props.keyPressCallBack === 'function' ) {
+                //       this.props.keyPressCallBack(e.keyCode, this.props.tabIdent,this.props.index);
+                //     }
+                //   }
+                //   if (e.keyCode === 40) {// DOWN
+                //     e.preventDefault();
+                //     e.stopPropagation();
+                //     document.querySelector('.ma__tab-container-body').focus();
+                //   }
+                // }}
               >
               {this.props.title}
               </button>

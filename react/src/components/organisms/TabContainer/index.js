@@ -25,11 +25,11 @@ class TabContainer extends React.Component {
       setActiveTab: this.setActiveTab
     };
 
-    this.keyPressCallBack = this.keyPressCallBack.bind(this);
-
     // Set up IDs for tabs.
     const { children } = props;
     this.arrayId = React.Children.map(children, (child, index) => {return shortid.generate()});
+
+    this.keyPressCallBack = this.keyPressCallBack.bind(this);
   }
 
   // Move the focus from the tab content to its associated tab.
