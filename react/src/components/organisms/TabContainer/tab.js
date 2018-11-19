@@ -14,10 +14,6 @@ class Tab extends React.Component {
   }
 
   render() {
-
-// console.log('default');
-// console.log(this.props.default);
-
     return(
       <TabContext.Consumer>
         {(context) => {
@@ -41,18 +37,12 @@ class Tab extends React.Component {
                 onClick={(e) => {
                   this.scrollIntoView(e.target);
                   setActiveTab(this.props.tabIdent, this.props.children);
-
-
-console.log('activeTab at onclick: ' + activeTab);
-
-
                 }}
                 aria-selected={active}
                 tabIndex={this.props.tabIndex}
                 aria-describedby={this.props.a11yID}
 
-
-    // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
+                // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
                 onKeyDown = {(e) => {
                   if (e.keyCode === 37 || e.keyCode === 39) {
                     e.preventDefault();

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import classNames from 'classnames';
-import createFocusGroup from 'focus-group';
 import './style.css';
 import { TabContext } from './context';
 
@@ -10,7 +9,7 @@ class TabContainer extends React.Component {
   constructor(props) {
     super(props);
     this.setActiveTab = (tab, content = null) => {
-console.log('%c [this.setActiveTab] RUNNING this.setActiveTab. ' + tab, 'color: purple;');
+console.log('%c [this.setActiveTab] this.setActiveTab. ' + tab, 'color: purple;');
       const state = {
         activeTab: tab
       };
@@ -20,29 +19,8 @@ console.log('%c [this.setActiveTab] RUNNING this.setActiveTab. ' + tab, 'color: 
       this.setState(state);
 
 console.log('%c [this.setActiveTab] current activeTab after this.setState(state): ' + this.state.activeTab, 'color: purple;');
-console.log('%c [this.setActiveTab] state:', 'color: purple;');
-console.log(state);
     };
 
-
-// TEST
-this.updateActiveTab = (tab, content = null) => {
-//console.log('%c [this.updateActiveTab] RUNNING this.setActiveTab.', 'color: green;');
-      const state = {
-        activeTab: tab,
-        activeContent: content
-      };
-      this.setState(state);
-
-//console.log('%c [this.updateActiveTab] current activeTab after this.setState(state): ' + this.state.activeTab, 'color: green;');
-//console.log('%c [this.updateActiveTab] state:', 'color: green;');
-//console.log(state);
-    };
-// END TEST
-
-
-
-//console.log('%c [this.state] RUNNING setActiveTab WITHIN.', 'color: red;');
     this.state = {
       activeTab: null,
       activeContent: null,
@@ -50,40 +28,14 @@ this.updateActiveTab = (tab, content = null) => {
       setActiveTab: this.setActiveTab
     };
 
-    // Parent FocusGroup set up
-    // const parentTabs = document.querySelectorAll('ul.ma__tab-container-head--parent li button');
-    // const parentTabGroup = createFocusGroup({
-    //   members: parentTabs,
-    //   keybindings: {
-    //     next: [{keyCode: 39}],// right arrow
-    //     prev: [{keyCode: 37}]// left arrow
-    //   },
-    //   wrap: false
-    // });
-    // parentTabGroup.activate();
-
-
-    // Nested FocusGroup set up
-    // const nestedTabs = document.querySelectorAll('ul.ma__tab-container-head--nested li button');
-    // const nestedTabGroup = createFocusGroup({
-    //   members: nestedTabs,
-    //   keybindings: {
-    //     next: [{keyCode: 39}],// right arrow
-    //     prev: [{keyCode: 37}]// left arrow
-    //   },
-    //   wrap: false
-    // });
-    // nestedTabGroup.activate();
-
     this.keyPressCallBack = this.keyPressCallBack.bind(this);
-
 
     // Set up IDs for tabs.
     const { children } = props;
     this.arrayId = React.Children.map(children, (child, index) => {return shortid.generate()});
-
   }
 
+  // Move the focus from the tab content to its associated tab.
   handleTabContainerKeyDown(e) {
     if (e.keyCode == 38) { // UP
       e.preventDefault();
@@ -93,62 +45,23 @@ this.updateActiveTab = (tab, content = null) => {
   }
 
   keyPressCallBack(keycode, focus, index) {
-// TEST OUTPUT
-// console.log('%c ---  CALLBACK  ---', 'color: blue;');
-console.log('%c [keyPressCallBack] received index: ' + index, 'color: blue;');
-console.log('%c [keyPressCallBack] received focus: ' + focus, 'color: blue;');
-// console.log(document.querySelectorAll('ul.ma__tab-container-head--parent li button'));
-console.log('%c [keyPressCallBack] received index object: ', 'color: blue;');
-console.log(this.props.children[index]);
-console.log(this.props.children[index].tabIdent);
+    // Update index for the navigated (= next) tab.
+    const focIndex = keycode === 39 ? (index < this.props.children.length - 1 ? index + 1 : index) : (index === 0 ? index : index - 1);
 
-console.log(this.props.children.length);
-
-// console.log(this.props.children.length);
-
-    let focIndex = "";
-    if(keycode === 39) {
-      if (index < this.props.children.length - 1 ) {// Check for the last index.
-        focIndex = index + 1;
-        // this.props.children[focIndex].focus;
-      } else {
-        focIndex = index;
-      }
-
-    }
-    if (keycode === 37) {
-      if (index === 0) {
-        focIndex = index;
-// console.log('left arrow + first tab: ' + focIndex);
-      } else {
-        focIndex = index - 1;
-      }
-    }
-
-     // const focIndex = keycode === 39 ? index + 1 : index - 1;
-
-//console.log('%c [keyPressCallBack] focIndex: ' + focIndex, 'color: blue;');
+    // Set the focus to the navigated (= next) tab.
+    const nextTabId = this.arrayId[focIndex];
+    document.getElementById(nextTabId).focus();
 
     const grandChildren = this.props.children[focIndex];
 
-    // this.setActiveTab(focus,grandChildren.props.children);
-    // console.log(focus)
-    // console.log(this.props)
-console.log(this.props.children[focIndex]);
-// console.log(this.props.children[focIndex].);
+    this.setActiveTab(nextTabId,grandChildren.props.children);
 
-
-    this.updateActiveTab(focus,grandChildren.props.children);
-
-
-console.log('%c [keyPressCallBack] focus in callback: ' + focus, 'color: blue;');
+console.log('%c [keyPressCallBack] tab id sent to setActiveTab: ' + nextTabId, 'color: blue;');
   }
 
   render() {
 
-console.log('activeTab at render (this.state.activeTab): ' + this.state.activeTab);
-// console.log(this.childrenWithProps);
-// console.log(this.childrenWithProps.);
+console.log('%c [render() index.js] activeTab at render (this.state.activeTab): ' + this.state.activeTab, 'color: red;');
 
     const classes = classNames({
       'ma__tab-container': true,
