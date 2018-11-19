@@ -20,16 +20,12 @@ $bp-illustrated-header-image-width: 360px;
     background-size: cover;
     min-height: 300px;
 
-    @media ($bp-x-small-min) {
-      min-height: 350px;
-    }
-
     @media ($bp-illustrated-header-columns-min) {
       background-position: center left;
       height: 100%;
       position: absolute;
-        top: 0;
-        right: 0;
+      top: 0;
+      right: 0;
       width: $bp-illustrated-header-image-width + 40px; // 40px is right padding of the page
     }
 
@@ -47,6 +43,8 @@ $bp-illustrated-header-image-width: 360px;
   &__container {
     @include ma-container;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   &__content {
@@ -56,15 +54,15 @@ $bp-illustrated-header-image-width: 360px;
 
     @media ($bp-illustrated-header-columns-min) {
       float: none;
-      min-height: 430px;
+      min-height: 300px;
       width: calc(100% - #{$bp-illustrated-header-image-width}); // width of right rail
 
       &:after {
         content: "";
         height: 200%;
         position: absolute;
-          bottom: 0;
-          right: 0;
+        bottom: 0;
+        right: 0;
         transform: rotate(30deg);
         transform-origin: bottom right;
         width: 200%;
@@ -74,7 +72,6 @@ $bp-illustrated-header-image-width: 360px;
 
     @media ($bp-page-width-min) {
       width: 840px;
-
     }
 
   }
