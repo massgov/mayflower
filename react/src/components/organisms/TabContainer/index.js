@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import classNames from 'classnames';
 import createFocusGroup from 'focus-group';
 import './style.css';
@@ -9,23 +10,39 @@ class TabContainer extends React.Component {
   constructor(props) {
     super(props);
     this.setActiveTab = (tab, content = null) => {
-console.log('=================');
-console.log('1. setActiveTab is called.');
+console.log('%c [this.setActiveTab] RUNNING this.setActiveTab. ' + tab, 'color: purple;');
       const state = {
         activeTab: tab
       };
-console.log('2. set state for activeTab. - done');
       if (content) {
-console.log('3. check for active tab\'s body content.');
         state.activeContent = content;
       }
-console.log('4. override the state.');
       this.setState(state);
-console.log('5. end of setActiveTab');
-console.log('current activeTab: ' + this.state.activeTab);
-console.log('===================');
 
+console.log('%c [this.setActiveTab] current activeTab after this.setState(state): ' + this.state.activeTab, 'color: purple;');
+console.log('%c [this.setActiveTab] state:', 'color: purple;');
+console.log(state);
     };
+
+
+// TEST
+this.updateActiveTab = (tab, content = null) => {
+//console.log('%c [this.updateActiveTab] RUNNING this.setActiveTab.', 'color: green;');
+      const state = {
+        activeTab: tab,
+        activeContent: content
+      };
+      this.setState(state);
+
+//console.log('%c [this.updateActiveTab] current activeTab after this.setState(state): ' + this.state.activeTab, 'color: green;');
+//console.log('%c [this.updateActiveTab] state:', 'color: green;');
+//console.log(state);
+    };
+// END TEST
+
+
+
+//console.log('%c [this.state] RUNNING setActiveTab WITHIN.', 'color: red;');
     this.state = {
       activeTab: null,
       activeContent: null,
@@ -33,39 +50,38 @@ console.log('===================');
       setActiveTab: this.setActiveTab
     };
 
-    this.keyPressCallBack = this.keyPressCallBack.bind(this);
-  }
-
-  componentWillMount(){
-
-console.log('activeTab at Mount: ' + this.state.activeTab);
     // Parent FocusGroup set up
-    const parentTabs = document.querySelectorAll('ul.ma__tab-container-head--parent li button');
-    const parentTabGroup = createFocusGroup({
-      members: parentTabs,
-      keybindings: {
-        next: [{keyCode: 39}],// right arrow
-        prev: [{keyCode: 37}]// left arrow
-      },
-      wrap: false
-    });
-    parentTabGroup.activate();
+    // const parentTabs = document.querySelectorAll('ul.ma__tab-container-head--parent li button');
+    // const parentTabGroup = createFocusGroup({
+    //   members: parentTabs,
+    //   keybindings: {
+    //     next: [{keyCode: 39}],// right arrow
+    //     prev: [{keyCode: 37}]// left arrow
+    //   },
+    //   wrap: false
+    // });
+    // parentTabGroup.activate();
+
 
     // Nested FocusGroup set up
-    const nestedTabs = document.querySelectorAll('ul.ma__tab-container-head--nested li button');
-    const nestedTabGroup = createFocusGroup({
-      members: nestedTabs,
-      keybindings: {
-        next: [{keyCode: 39}],// right arrow
-        prev: [{keyCode: 37}]// left arrow
-      },
-      wrap: false
-    });
-    nestedTabGroup.activate();
+    // const nestedTabs = document.querySelectorAll('ul.ma__tab-container-head--nested li button');
+    // const nestedTabGroup = createFocusGroup({
+    //   members: nestedTabs,
+    //   keybindings: {
+    //     next: [{keyCode: 39}],// right arrow
+    //     prev: [{keyCode: 37}]// left arrow
+    //   },
+    //   wrap: false
+    // });
+    // nestedTabGroup.activate();
 
-// TEST OUTPUT
-    console.log(parentTabGroup._members);
-    console.log(nestedTabGroup._members);
+    this.keyPressCallBack = this.keyPressCallBack.bind(this);
+
+
+    // Set up IDs for tabs.
+    const { children } = props;
+    this.arrayId = React.Children.map(children, (child, index) => {return shortid.generate()});
+
   }
 
   handleTabContainerKeyDown(e) {
@@ -78,15 +94,23 @@ console.log('activeTab at Mount: ' + this.state.activeTab);
 
   keyPressCallBack(keycode, focus, index) {
 // TEST OUTPUT
-console.log('------------------');
-console.log('received index: ' + index);
-console.log('received focus: ' + focus);
+// console.log('%c ---  CALLBACK  ---', 'color: blue;');
+console.log('%c [keyPressCallBack] received index: ' + index, 'color: blue;');
+console.log('%c [keyPressCallBack] received focus: ' + focus, 'color: blue;');
+// console.log(document.querySelectorAll('ul.ma__tab-container-head--parent li button'));
+console.log('%c [keyPressCallBack] received index object: ', 'color: blue;');
+console.log(this.props.children[index]);
+console.log(this.props.children[index].tabIdent);
+
 console.log(this.props.children.length);
+
+// console.log(this.props.children.length);
 
     let focIndex = "";
     if(keycode === 39) {
       if (index < this.props.children.length - 1 ) {// Check for the last index.
         focIndex = index + 1;
+        // this.props.children[focIndex].focus;
       } else {
         focIndex = index;
       }
@@ -95,7 +119,7 @@ console.log(this.props.children.length);
     if (keycode === 37) {
       if (index === 0) {
         focIndex = index;
-console.log('left arrow + first tab: ' + focIndex);
+// console.log('left arrow + first tab: ' + focIndex);
       } else {
         focIndex = index - 1;
       }
@@ -103,15 +127,28 @@ console.log('left arrow + first tab: ' + focIndex);
 
      // const focIndex = keycode === 39 ? index + 1 : index - 1;
 
-console.log('focIndex: ' + focIndex);
+//console.log('%c [keyPressCallBack] focIndex: ' + focIndex, 'color: blue;');
 
     const grandChildren = this.props.children[focIndex];
-    this.setActiveTab(focus,grandChildren.props.children)
+
+    // this.setActiveTab(focus,grandChildren.props.children);
+    // console.log(focus)
+    // console.log(this.props)
+console.log(this.props.children[focIndex]);
+// console.log(this.props.children[focIndex].);
+
+
+    this.updateActiveTab(focus,grandChildren.props.children);
+
+
+console.log('%c [keyPressCallBack] focus in callback: ' + focus, 'color: blue;');
   }
 
   render() {
 
-console.log('activeTab at render: ' + this.state.activeTab);
+console.log('activeTab at render (this.state.activeTab): ' + this.state.activeTab);
+// console.log(this.childrenWithProps);
+// console.log(this.childrenWithProps.);
 
     const classes = classNames({
       'ma__tab-container': true,
@@ -125,15 +162,25 @@ console.log('activeTab at render: ' + this.state.activeTab);
     })
     // eslint-disable-next-line react/prop-types
     const { children, defaultTab } = this.props;
-    const active = defaultTab;
-    // const tabCount = children.length;
+    const active = defaultTab;// Default props value
     this.childrenWithProps = React.Children.map(children, (child, index) => {
-      if (index === active) {
-        return React.cloneElement(child, { default: true, a11yID: this.props.a11yID, tabIndex: 0, keyPressCallBack: this.keyPressCallBack, index: index });
+      if (index === active) {// Child index value
+        return React.cloneElement(child, {
+          default: true,
+          a11yID: this.props.a11yID,
+          tabIndex: 0,
+          keyPressCallBack: this.keyPressCallBack,
+          index: index,
+          tabIdent: this.arrayId[index]
+        });
       }
-      return React.cloneElement(child, { tabIndex: -1, keyPressCallBack: this.keyPressCallBack, index: index });
+      return React.cloneElement(child, {
+        tabIndex: -1,
+        keyPressCallBack: this.keyPressCallBack,
+        index: index,
+        tabIdent: this.arrayId[index]
+      });
     });
-
 
     return(
       <TabContext.Provider value={this.state}>
@@ -170,7 +217,9 @@ TabContainer.propTypes = {
   // The numerical index of which tab should default to be open, starting at 0.
   defaultTab: PropTypes.number,
   /** id of the description span for a11y. should be unique to the page */
-  a11yID: PropTypes.string
+  a11yID: PropTypes.string,
+  // Unique identifier for tab button to make each tab unique in the page.
+  tabIdent: PropTypes.string
 };
 
 export default TabContainer;

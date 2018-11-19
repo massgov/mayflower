@@ -4,5 +4,6 @@ import React from 'react';
 export const TabContext = React.createContext({
   activeTab: null,
   activeContent: null,
-  setActiveTab: () => {}
+  setActiveTab: () => {},
+  updateActiveTab: () => {}
 });
