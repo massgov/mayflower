@@ -1,0 +1,11 @@
+<picture class="ma__picture">
+  {% if picture.srcSets %}
+    {% for src in picture.srcSets %}
+    <source srcset="{{ src.url }}" media="(min-width: {{ src.width }}px)">
+    {% endfor %}
+  {% endif %}
+
+  {% if picture.defaultImage %}
+    <img src="{{ picture.defaultImage }}">
+  {% endif %}
+</picture>
