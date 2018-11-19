@@ -21,7 +21,7 @@ class Tab extends React.Component {
         this.props.keyPressCallBack(e.keyCode, this.props.tabIdent,this.props.index);
       }
     }
-    if (e.keyCode === 40) {// DOWN
+    if (e.keyCode === 40 || e.keyCode === 13) {// DOWN || ENTER
       document.querySelector('.ma__tab-container-body').focus();
     }
   };
@@ -57,21 +57,6 @@ class Tab extends React.Component {
 
                 // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
                 onKeyDown = {(e) => this.handleKeyDown(e)}
-                // onKeyDown = {(e) => {
-                //   if (e.keyCode === 37 || e.keyCode === 39) {
-                //     e.preventDefault();
-                //     e.stopPropagation();
-
-                //     if (typeof this.props.keyPressCallBack === 'function' ) {
-                //       this.props.keyPressCallBack(e.keyCode, this.props.tabIdent,this.props.index);
-                //     }
-                //   }
-                //   if (e.keyCode === 40) {// DOWN
-                //     e.preventDefault();
-                //     e.stopPropagation();
-                //     document.querySelector('.ma__tab-container-body').focus();
-                //   }
-                // }}
               >
               {this.props.title}
               </button>
