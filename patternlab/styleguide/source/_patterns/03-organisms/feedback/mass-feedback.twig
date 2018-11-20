@@ -1,7 +1,7 @@
 <div class="ma__mass-feedback-form">
   <h2 class="visually-hidden">Feedback</h2>
 
-  <form class="ma__mass-feedback-form__form" method="post" action="{{ formAction}}" id="">
+  <form class="ma__mass-feedback-form__form" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
     <fieldset class="ma_feedback-fieldset feedback-load">
       <legend>
         {{ title }}
@@ -30,7 +30,6 @@
       </fieldset>
 
       <fieldset class="ma_feedback-fieldset user-response">
-        {% set textarea = textarea %}
         {% include "@atoms/03-forms/textarea.twig" %}
 
         {% set helperText = helperText %}
