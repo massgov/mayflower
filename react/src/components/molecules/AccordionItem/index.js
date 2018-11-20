@@ -45,26 +45,24 @@ class AccordionItem extends React.Component {
 
     return(
       <div className={accordionClasses}>
-        <header className="ma__accordion-header">
-            <button
-              className={buttonClasses}
-              onClick={this.handleClick}
-              aria-expanded={this.state.open}
-              aira-controls={this.accordionId}
-            >
-              { this.props.icon && !this.props.secondary && (
-                <div className="ma__accordion-header__icon">
-                  {this.props.icon}
-                </div>
-              )}
-              { this.props.secondary && (
-                <div className="ma__accordion-header__icon--secondary">
-                  <Icon name="chevron" svgHeight={20} svgWidth={20} />
-                </div>
-              )}
-               <Heading class={headingClasses} text={this.props.title} level={this.props.headerLevel} />
-            </button>
-        </header>
+        <button
+          className={buttonClasses}
+          onClick={this.handleClick}
+          aria-expanded={this.state.open}
+          aira-controls={this.accordionId}
+        >
+          { this.props.icon && !this.props.secondary && (
+            <div className="ma__accordion-header__icon">
+              {this.props.icon}
+            </div>
+          )}
+          { this.props.secondary && (
+            <div className="ma__accordion-header__icon--secondary">
+              <Icon name="chevron" svgHeight={20} svgWidth={20} />
+            </div>
+          )}
+           <Heading class={headingClasses} text={this.props.title} level={this.props.headerLevel} />
+        </button>
         <Collapse in={this.state.open} dimension="height">
           <div className="ma__accordion-content__body" id={this.accordionId}>
             {this.props.children}
