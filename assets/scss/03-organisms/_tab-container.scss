@@ -46,17 +46,9 @@
       border-left-color: $c-gray-light !important;
     }
 
-    &--active {
-      border-top: 5px solid $c-primary;
-      font-weight: 700;
-      color: $c-primary;
-      background-color: white;
-      z-index: 1;
-    }
-
     button {
       cursor: pointer;
-      padding: 1.75rem 1.5rem 0.8rem 1.5rem;
+      padding: 1.88rem 1.5rem 0.73rem 1.5rem;
       font-size: 1.25rem;
       background-color: unset;
       white-space: nowrap;
@@ -68,8 +60,16 @@
       }
     }
 
-    &--active button {
-      padding-top: 1.5rem;
+    &--active {
+      border-top: 5px solid $c-primary;
+      background-color: white;
+      z-index: 1;
+
+      button {
+        padding-top: 1.5rem;
+        font-weight: 700;
+        color: $c-primary;
+      }
     }
   }
 
