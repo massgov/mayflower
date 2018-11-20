@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 
 const Heading = (props) => {
   const Element = `h${props.level}`;
+
+  console.log(props.children);
   return(
     <Element className={props.class}>
       {props.text}
+      {
+        // Allow Heading to render child component for such as accordion.
+        props.children
+      }
     </Element>
   );
 };
