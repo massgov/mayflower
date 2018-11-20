@@ -23,7 +23,6 @@ storiesOf('molecules', module).addDecorator(withKnobs)
   .add('AccordionItem', withInfo(`<div>${AccordionDocs}</div>`)(() => {
     const props = {
       title: text('accordion.title', 'Collapsible Header'),
-      info: text('accordion.info', 'Collapsible Header'),
       icon: select('accordion.icon', Object.keys(icons), 'circlechevron'),
       border: boolean('accordion.border', true),
       emphasize: boolean('accordion.emphasize', true),
