@@ -19,8 +19,8 @@ const getDecorativeLink = (index) => {
 
 const getAccordionItem = (name = 'laptop', index) => {
   const props = {
-    title: 'Collapsible Header Two',
-    info: 'Collapsible Header Two',
+    title: 'Collapsible Header Three',
+    info: 'Collapsible Header Three',
     icon: null,
     border: boolean(`TableofContents.Children.${index}.AccordionItem.border`, false),
     secondary: boolean(`TableofContents.Children.${index}.AccordionItem.secondary`, false),
@@ -33,7 +33,7 @@ const getAccordionItem = (name = 'laptop', index) => {
       4: '4',
       5: '5',
       6: '6'
-    }, '2'))
+    }, '3'))
   };
   return<AccordionItem {...props}>{getLink()}</AccordionItem>;
 };
