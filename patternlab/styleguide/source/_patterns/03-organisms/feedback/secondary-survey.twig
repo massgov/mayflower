@@ -1,7 +1,7 @@
 <div class="ma__mass-feedback-form" id="feedback" data-mass-feedback-form>
   <h2 class="visually-hidden">Feedback</h2>
   
-  <form class="ma__mass-feedback-form__form" method="post" novalidate="" action="h" class="" id="">
+  <form class="ma__mass-feedback-form__form" method="post" novalidate="" action="{{ formAction }}" id="{{ formId }}">
     <fieldset class="ma_feedback-fieldset">
       <legend>Tell us more about your experience</legend>
       <p>Please tell us how much you agree with the following statements:</p>
@@ -12,6 +12,7 @@
     <fieldset class="ma_feedback-fieldset">
       <legend>What did you come here to do today?</legend>
 
+      {% set textarea = doToday %}
       {% include "@atoms/03-forms/textarea.twig" %}
     </fieldset>
 
@@ -25,12 +26,14 @@
     <fieldset class="ma_feedback-fieldset">
       <legend>Do you have any other feedback for us? (Optional)</legend>
 
+      {% set textarea = otherFeedback %}
       {% include "@atoms/03-forms/textarea.twig" %}
     </fieldset>
 
     <fieldset class="ma_feedback-fieldset">
       <legend>If we have additional questions about your feedback, can we contact you? If so, enter your email address below. (Optional)</legend>
 
+      {% set inputText = emailContact %}
       {% include "@atoms/03-forms/input-text.twig" %}
     </fieldset>
 
