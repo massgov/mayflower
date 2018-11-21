@@ -41,7 +41,7 @@
     &__button {
       border: none;
       display: block;
-      padding: 20px 40px;
+      padding: 20px 40px 20px 42px;
       position: relative;
       text-align: left;
       width: 100%;
@@ -122,7 +122,7 @@
     &__title {
       @include ma-h5;
       font-weight: 700;
-      min-height: 32px;
+//      min-height: 32px;
 
       &--secondary {
         font-weight: 500;

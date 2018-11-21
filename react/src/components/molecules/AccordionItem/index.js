@@ -70,10 +70,9 @@ class AccordionItem extends React.Component {
               </div>
             )}
             <span className={buttonLabelClasses}>{ this.props.title }</span>
-            {
-              !this.props.secondary &&
-              (<span className="ma__accordion-header__button__status" aria-hidden="true">+</span>)
-            }
+            { !this.props.secondary && (
+              <span className="ma__accordion-header__button__status" aria-hidden="true">+</span>
+            )}
 
           </button>
         </Heading>
