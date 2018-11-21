@@ -4,15 +4,13 @@ import PropTypes from 'prop-types';
 const Heading = (props) => {
   const Element = `h${props.level}`;
 
-  console.log('%c HEADING props.children', 'color: blue;');
-  console.log(props.children);
   return(
     <Element className={props.class}>
-      {props.text ? props.text:''}
-      {
-        // Allow Heading to render child component for such as accordion.
-        props.children
-      }
+      {/* When Heading is used as a wrapper for its child component, it doesn't display text. */}
+      {props.text && props.text}
+      {props.children &&
+          // Allow Heading to render child component for such as accordion.
+          props.children }
     </Element>
   );
 };
