@@ -31,6 +31,10 @@ class AccordionItem extends React.Component {
       'ma__accordion-item--secondary': this.props.secondary,
       'ma__accordion-item--borderless': !this.props.border && !this.props.secondary
     });
+    const headingClasses = classNames({
+      'ma__accordion-header__wrapper': !this.props.secondary,
+      'ma__accordion-header__wrapper--secondary': this.props.secondary
+    });
     const buttonClasses = classNames({
       'ma__accordion-header__button': !this.props.secondary,
       'ma__accordion-header__button--secondary': this.props.secondary,
@@ -38,31 +42,37 @@ class AccordionItem extends React.Component {
       'ma__accordion-header__button--solid': this.props.emphasize && !this.props.secondary,
       'ma__accordion-header__button--trans': !this.props.emphasize && !this.props.secondary
     });
-    const headingClasses = classNames({
+    const buttonLabelClasses = classNames({
       'ma__accordion-header__title': !this.props.secondary,
       'ma__accordion-header__title--secondary': this.props.secondary
     });
-
     return(
       <div className={accordionClasses}>
-        <button
-          className={buttonClasses}
-          onClick={this.handleClick}
-          aria-expanded={this.state.open}
-          aira-controls={this.accordionId}
-        >
-          { this.props.icon && !this.props.secondary && (
-            <div className="ma__accordion-header__icon">
-              {this.props.icon}
-            </div>
-          )}
-          { this.props.secondary && (
-            <div className="ma__accordion-header__icon--secondary">
-              <Icon name="chevron" svgHeight={20} svgWidth={20} />
-            </div>
-          )}
-           <Heading class={headingClasses} text={this.props.title} level={this.props.headerLevel} />
-        </button>
+        {/*
+          Heading is a wrapper for <button>.
+          this.props.title is displayed as a label for the button.
+        */}
+        <Heading class={headingClasses} level={this.props.headerLevel}>
+          <button
+            className={buttonClasses}
+            onClick={this.handleClick}
+            aria-expanded={this.state.open}
+            aira-controls={this.accordionId}
+          >
+            { this.props.icon && !this.props.secondary && (
+              <div className="ma__accordion-header__icon">
+                {this.props.icon}
+              </div>
+            )}
+            { this.props.secondary && (
+              <div className="ma__accordion-header__icon--secondary">
+                <Icon name="chevron" svgHeight={20} svgWidth={20} />
+              </div>
+            )}
+            <span className={buttonLabelClasses}>{ this.props.title }</span>
+            <span className="ma__accordion-header__button__status" aria-hidden="true">+</span>
+          </button>
+        </Heading>
         <Collapse in={this.state.open} dimension="height">
           <div className="ma__accordion-content__body" id={this.accordionId}>
             {this.props.children}
