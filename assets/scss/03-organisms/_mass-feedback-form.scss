@@ -1,3 +1,5 @@
+$formTransitions: max-height 0.6s linear; 
+
 .ma__mass-feedback-form {
 
   &__form {
@@ -34,12 +36,6 @@
     .ma__header-alert {
       display: block;
       margin-bottom: 0;
-
-      &.is-closed {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-in-out; 
-      }
 
       &__label {
         display: none;
@@ -79,7 +75,7 @@
         max-height: 0;
         overflow: hidden;
         margin: 0;
-        transition: max-height 0.4s ease-in-out; 
+        transition: $formTransitions; 
       }
 
       .response-info {
@@ -95,7 +91,7 @@
 
         .no-response-info {
           max-height: 2rem;
-          transition: max-height 0.4s ease-in-out; 
+          transition: $formTransitions; 
         }
       }
     }
@@ -104,7 +100,7 @@
   &__fields {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-out; 
+    transition: $formTransitions; 
 
     &.is-open {
       max-height: 100vh;
@@ -218,10 +214,11 @@
   &__contact-form {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-out; 
+    transition: $formTransitions; 
 
     &.is-open {
-      max-height: 100vh;
+      max-height: 350px;
+      transition: $formTransitions; 
     }
 
     &--items {
