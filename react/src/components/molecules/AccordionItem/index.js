@@ -32,8 +32,8 @@ class AccordionItem extends React.Component {
       'ma__accordion-item--borderless': !this.props.border && !this.props.secondary
     });
     const headingClasses = classNames({
-      'ma__accordion-header__wrapper': !this.props.secondary,
-      'ma__accordion-header__wrapper--secondary': this.props.secondary
+      'ma__accordion-header': !this.props.secondary,
+      'ma__accordion-header--secondary': this.props.secondary
     });
     const buttonClasses = classNames({
       'ma__accordion-header__button': !this.props.secondary,
