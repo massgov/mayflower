@@ -8,7 +8,7 @@ export default (function (window, document, $) {
   const $contactRadios = $feedbackForm.find('.user-response__contact input[type="radio"]');
   const $Response = $('.ma__mass-feedback-form__form--user-response');
   const $noResponseLink = $Response.find('.form--no-response');
-  const $alertToggle = $('.ma__header-alert__hide');
+  const $alertToggle = $('.ma__in-page-alert__hide');
   const $submitButton = $('.ma__mass-feedback-form__form--submit-wrapper .submitButton');
 
   // Open no reponse answer accordion.

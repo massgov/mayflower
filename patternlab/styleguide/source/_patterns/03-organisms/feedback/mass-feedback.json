@@ -27,14 +27,11 @@
       }
     ]
   },
-  "reportMessage": [
-    {
-      "id": "",
-      "text": "If you need to report child abuse, any other kind of abuse, or need urgent assistance, please click here.",
-      "href": "#",
-      "info": ""
-    }
-  ],
+  "reportMessage": {
+    "text": "If you need to report child abuse, any other kind of abuse, or need urgent assistance, please click here.",
+    "href": "https://www.google.com/",
+    "info": ""
+  },
   "textarea": {
     "labelText": "Text Area",
     "hiddenLabel": true,

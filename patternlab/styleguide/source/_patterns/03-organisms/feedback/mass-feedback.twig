@@ -24,8 +24,8 @@
         <p>{{ queryDescription }}</p>
 
         {% if reportMessage %}
-          {% set headerAlerts = reportMessage %}
-          {% include "@organisms/by-template/header-alerts.twig" %}
+          {% set pageAlert = reportMessage %}
+          {% include "@organisms/by-template/in-page-alert.twig" %}
         {% endif %}
       </fieldset>
 

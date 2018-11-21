@@ -18,6 +18,7 @@ import headerTags from "./modules/headerTags.js";
 import hideAlert from "./modules/hideAlert.js";
 import inlineOverlay from "./modules/inlineOverlay.js";
 import imageFill from "./modules/imageFill.js";
+import inpageAlert from "./modules/inpageAlert.js";
 import keywordSearch from "./modules/keywordSearch.js";
 import linkListToggle from "./modules/linkListToggle.js";
 import locationListing from "./modules/locationListing.js";
