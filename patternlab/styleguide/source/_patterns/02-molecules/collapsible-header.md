@@ -13,5 +13,7 @@ collapsibleHeader: {
     type: string / required
   icon: 
     type: string (path to icon) / optional
+  level:
+    type: number / optional
 }
 ~~~
