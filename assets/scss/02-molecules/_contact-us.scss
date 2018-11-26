@@ -29,6 +29,10 @@
     display: none;
   }
 
+  .ma__column-heading {
+    margin-bottom: 0;
+  }
+
   &--accordion &__header {
     border: none;
     display: block;
@@ -40,10 +44,6 @@
 
     @media ($bp-medium-min) {
       padding: 20px 30px;
-    }
-
-    .ma__column-heading {
-      margin-bottom: 0;
     }
   }
 
