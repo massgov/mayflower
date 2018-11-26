@@ -129,7 +129,7 @@ export default (function (window, document, $) {
   // This calculates the additional offset that a table sticky header should drop down.
   function getAdditionalOffset() {
     let additionalOffset = 0;
-
+    console.log("start", additionalOffset);
     if (document.documentElement.clientWidth <= 825) {
       const $jsStickyHeader = $(".js-sticky-header");
       if ($jsStickyHeader) {
@@ -139,6 +139,14 @@ export default (function (window, document, $) {
     if ($(".js-scroll-anchors")[0] &&
       document.documentElement.clientWidth <= 765) {
       additionalOffset += $(".js-scroll-anchors").height();
+    }
+    if (document.documentElement.classList.contains('stickyTOC')) {
+      if (document.documentElement.clientWidth <= 841) {
+        additionalOffset += 75;
+      }
+      else {
+        additionalOffset += 70;
+      }
     }
     return additionalOffset > 0 ? additionalOffset + "px" : 0;
   }
