@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- patternlab / DP-10264: Support Google static maps for locations
