@@ -2,8 +2,7 @@
 {% set headingLevel = collapsibleHeader.level ? : 3 %}
 <h{{ headingLevel }} class="ma__collapsible-header">
   <button
-    class="ma__collapsible-header__button js-accordion-link"
-    aria-label="{{ collapsibleHeader.info }}">
+    class="ma__collapsible-header__button js-accordion-link">
     {% if collapsibleHeader.icon %}
       <div class="ma__collapsible-header__icon">
         {{ icon(collapsibleHeader.icon) }}
