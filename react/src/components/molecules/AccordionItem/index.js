@@ -23,11 +23,8 @@ class AccordionItem extends React.Component {
     });
   }
 
-  renderButton(headingClasses, buttonClasses, buttonLabelClasses) {
-  // Heading is a wrapper for <button>.
-  // this.props.title is displayed as the label for the button, not heading title.
-
-    return (
+  renderButton(headingLevel, headingClasses, buttonClasses, buttonLabelClasses) {
+    const button = (
       <button
         className={buttonClasses}
         onClick={this.handleClick}
@@ -48,7 +45,16 @@ class AccordionItem extends React.Component {
         { !this.props.secondary && (
           <span className="ma__accordion-header__button__status" aria-hidden="true">+</span>
         )}
-      </button>
+      </button>);
+ 
+    // Heading is a wrapper for <button>.
+    // this.props.title is displayed as the label for the button, not heading title.
+    return(
+      headingLevel ? (
+        <Heading class={headingClasses} level={headingLevel}>
+          { button }
+        </Heading>
+      ) : { button }
     );
   }
 
@@ -72,16 +78,10 @@ class AccordionItem extends React.Component {
     const buttonLabelClasses = classNames({
       'ma__accordion-header__title': !this.props.secondary,
       'ma__accordion-header__title--secondary': this.props.secondary
-    });    
+    });
     return(
-      <div className={accordionClasses}>  
-        { this.props.headerLevel ? 
-          (<Heading class={headingClasses} level={this.props.headerLevel}>) : null
-        }  
-        {this.renderButton(headingClasses, buttonClasses, buttonLabelClasses)}
-        { this.props.headerLevel ? 
-          (</Heading>) : null
-        }
+      <div className={accordionClasses}>
+        {this.renderButton(this.props.headerLevel, headingClasses, buttonClasses, buttonLabelClasses)}
         <Collapse in={this.state.open} dimension="height">
           <div className="ma__accordion-content__body" id={this.accordionId}>
             {this.props.children}
