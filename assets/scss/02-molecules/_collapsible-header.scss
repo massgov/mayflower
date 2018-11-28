@@ -10,20 +10,18 @@
     text-align: left;
     width: 100%;
 
-    &:after {
+    .is-open &__status {
+      transform: rotate(135deg);
+    }
+
+    &__status {
       font-size: 2.5rem;
-      content: "+";
       line-height: .65em;
-      overflow: hidden;
       position: absolute;
         right: 15px;
         top: 25px;
       transform-origin: center center;
       transition: transform .2s ease;
-
-      .is-open & {
-        transform: rotate(135deg);
-      }
     }
   }
 
