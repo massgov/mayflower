@@ -18,8 +18,13 @@ storiesOf('organisms', module)
       const title = object(`TeaserListing.featuredItems.${index}.title`, { ...newItem.title });
       const description = object(`TeaserListing.featuredItems.${index}.description`, { ...newItem.description });
       return{
+        image: item.image,
+        eyebrow: item.eyebrow,
+        org: item.org,
+        date: item.date,
         title: <DecorativeLink {...title} />,
         description: <Paragraph {...description} />
+
       };
     });
     const itemsOptions = TeaserListingData.teaserListing.items.map((item, index) => {
@@ -34,12 +39,12 @@ storiesOf('organisms', module)
     const props = {
       compHeading: object('TeaserListing.compHeading', TeaserListingData.teaserListing.compHeading),
       sidebarHeading: object('TeaserListing.sidebarHeading', TeaserListingData.teaserListing.sidebarHeading),
-      stacked: boolean('TeaserListing.stacked', true),
-      contained: boolean('TeaserListing.contained', false),
-      gridTwoColumns: boolean('TeaserListing.gridTwoColumns', false),
+      stacked: boolean('TeaserListing.stacked', false),
+      contained: boolean('TeaserListing.contained', true),
+      gridTwoColumns: boolean('TeaserListing.gridTwoColumns', true),
       shownItems: number('TeaserListing.shownItems', 4),
-      moreLabel: text('TeaserListing.moreLabel', ''),
-      lessLabel: text('TeaserListing.lessLabel', ''),
+      moreLabel: text('TeaserListing.moreLabel', 'More'),
+      lessLabel: text('TeaserListing.lessLabel', 'Less'),
       featuredItems: featuredOptions,
       items: itemsOptions,
       more: object('TeaserListing.more', TeaserListingData.teaserListing.more)

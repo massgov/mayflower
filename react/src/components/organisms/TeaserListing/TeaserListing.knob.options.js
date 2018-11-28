@@ -18,50 +18,48 @@ export default {
     "description" : {
       "text": "This is an optional descriptive paragraph field, explaining the listings below. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
     },
-    "featuredItems": [{
-      "image": {
-        "src":"https://mayflower.digital.mass.gov/assets/images/placeholder/172x228.png",
-        "alt": "placeholder image",
-        "width": "172",
-        "height": "228"
+    "featuredItems": [
+      {
+        "image": {
+          "src":"https://mayflower.digital.mass.gov/assets/images/placeholder/172x228.png",
+          "alt": "placeholder image",
+          "width": "172",
+          "height": "228"
+        },
+        "eyebrow": "Eyebrow",
+        "title" : {
+          "href":"#",
+          "text":"Massachusetts Health Officials Release Quarterly Report on Opioid OD Deaths",
+          "info": "",
+          "property": ""
+        },
+        "org": "Health & Human Services, Public Safety",
+        "date": "4/4/2017",
+        "description": {
+          "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+        }
       },
-      "eyebrow": "Eyebrow",
-      "title" : {
-        "href":"#",
-        "text":"Feature 1",
-        "info": "",
-        "property": ""
-      },
-      "emphasizedText": [
-        "Health & Human Services, Public Safety",
-        "4/4/2017"
-      ],
-      "description": {
-        "text": "This is a description for F1."
+      {
+        "image": {
+          "src":"https://mayflower.digital.mass.gov/assets/images/placeholder/172x228.png",
+          "alt": "placeholder image",
+          "width": "172",
+          "height": "228"
+        },
+        "eyebrow": "Eyebrow",
+        "title" : {
+          "href": "#",
+          "text":"Feature 2",
+          "info": "",
+          "property": ""
+        },
+        "org": "Org Name",
+        "date": "4/3/2017",
+        "description": {
+          "text": "Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus."
+        }
       }
-    },
-    {
-      "image": {
-        "src":"https://mayflower.digital.mass.gov/assets/images/placeholder/172x228.png",
-        "alt": "placeholder image",
-        "width": "172",
-        "height": "228"
-      },
-      "eyebrow": "Eyebrow",
-      "title" : {
-        "href": "#",
-        "text":"Feature 2",
-        "info": "",
-        "property": ""
-      },
-      "emphasizedText": [
-        "Org Name",
-        "4/3/2017"
-      ],
-      "description": {
-        "text": "This is the description for F2."
-      }
-    }],
+    ],
     "items": [
       {
         "layout": "contents-stacked",

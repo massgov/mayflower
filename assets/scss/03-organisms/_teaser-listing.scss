@@ -220,13 +220,16 @@
       padding-top: 40px;
       border-top-style: solid;
       border-top-width: 1px;
+      &.expanded {
+        display: block;
+      }
     }
     .ma__content-link--chevron.ma__content-link__acordion-toggle .more {
       display: inline;
       border: 0;
     }
     .ma__content-link--chevron.ma__content-link__acordion-toggle .less {
-      display: none;
+      display: inline;
       border: 0;
     }
     .ma__content-link--chevron.ma__content-link__acordion-toggle:after {
