@@ -21,14 +21,14 @@
       {% set decorativeLink = contactUs.subTitle %}
       {% include "@atoms/decorative-link.twig" %}
     {% else %}
-      {{contactUs.subTitle.text}}
+      <span class="ma__contact-us__header__label">{{contactUs.subTitle.text}}</span>
     {% endif %}
     {% if outerAccordion %}
       <span class="ma__contact-us--accordion__status js-accordion-status" aria-hidden="true">+</span>
       </button>
     {% endif %}
     </h{{ contactUsHeading }}>
-    {% set groupHeading = groupHeading + 1 %}
+    {% set groupHeading = contactUsHeading + 1 %}
     {% set contactName = contactUs.subTitle.text %}
   {% endif %}
 

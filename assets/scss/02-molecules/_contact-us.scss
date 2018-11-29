@@ -17,6 +17,10 @@
   &--accordion {
     border-width: 2px;
     border-style: solid;
+
+    .ma__column-heading {
+      margin-bottom: 0;
+    }
   }
 
   & + &--accordion {
@@ -27,10 +31,6 @@
   &:before {
     content: "true";
     display: none;
-  }
-
-  .ma__column-heading {
-    margin-bottom: 0;
   }
 
   &--accordion &__header {
@@ -45,6 +45,13 @@
     @media ($bp-medium-min) {
       padding: 20px 30px;
     }
+  }
+
+  &__header__label {
+    font-weight: 700;
+    font-size: 1.625rem;
+    line-height: 1.3;
+    color: #141414;
   }
 
   &--accordion__status {
@@ -116,8 +123,11 @@
       max-width: 100%;
       min-width: 100%;
     }
+  }
 
-
+  &.is-open &__content-wrap .ma__contact-group {
+    padding-left: 31px;
+    border-left: none;
   }
 
   &__content-wrap .ma__contact-us__more-info {
