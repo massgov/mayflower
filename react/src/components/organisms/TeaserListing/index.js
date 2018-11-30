@@ -98,7 +98,7 @@ class TeaserListing extends React.Component {
               <button
                 className="ma__content-link ma__content-link--chevron ma__content-link__acordion-toggle js-accordion-link"
                 aria-label={(this.state.open) ? teaser.lessLabel : teaser.moreLabel}
-                onClick={(e) => this.handleClick(e)}
+                onClick={this.handleClick}
               >
               {(this.state.open) ?
                 (<span className="less">{teaser.lessLabel}</span>) :
@@ -111,7 +111,7 @@ class TeaserListing extends React.Component {
             <div>
               <ul className={itemsClasses}>
                 {teaser.items.map((teaser, p) => {
-                  const key=`teaser-listing--item-${key}`;
+                  const key=`teaser-listing--item-${p}`;
                   return(
                     <li key={key}>
                       <GeneralTeaser {...teaser} />
