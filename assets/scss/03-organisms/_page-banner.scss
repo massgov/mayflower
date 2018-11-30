@@ -10,7 +10,7 @@ $page-banner-height: 330px;
   position: relative;
 
   @media ($bp-x-small-min) {
-    height: 350px;
+    height: 300px;
     margin-bottom: 40px;
   }
 
@@ -28,7 +28,7 @@ $page-banner-height: 330px;
   &--overlay {
 
     @media ($bp-large-min) {
-      height: 400px;
+      height: 350px;
     }
 
     .ma__page-banner__content-wrapper {
