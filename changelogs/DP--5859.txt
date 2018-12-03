@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Changed
+Patch
+- patternlab / DP-5859: Checkboxes missing from What You Need section on print style for How To Pages
+
