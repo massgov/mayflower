@@ -70,7 +70,7 @@ class TeaserListing extends React.Component {
             </div>
           )}
           {(invisibleItems.length > 0) && (
-            <div>
+            <React.Fragment>
               <ul className={itemsClasses}>
                 {shownItems.map((teaser, o) => {
                   const key = `teaser-listing--item-${o}`;
@@ -105,10 +105,9 @@ class TeaserListing extends React.Component {
                 (<span className="more">{teaser.moreLabel}</span>)
               }
               </button>
-            </div>
+            </React.Fragment>
           )}
           {(invisibleItems.length === 0) && (
-            <div>
               <ul className={itemsClasses}>
                 {teaser.items.map((teaser, p) => {
                   const key=`teaser-listing--item-${p}`;
@@ -119,7 +118,6 @@ class TeaserListing extends React.Component {
                   );
                 })}
               </ul>
-            </div>
           )}
           {(teaser.more) && (
             <div className="ma__teaser-listing__more">
