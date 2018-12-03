@@ -1,0 +1,5 @@
+___DESCRIPTION___
+fixed 
+patch
+- patternlab / DP-11026: Responsive tables obscure the last row of the table
+
