@@ -194,6 +194,9 @@
     @media ($bp-large-min) {
       margin-top: 45px;
     }
+    svg {
+      fill: rgba($c-font-link, 0.5);
+    }
   }
 
   // Accordion behavior
