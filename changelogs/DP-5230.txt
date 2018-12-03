@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Patch
+- patternlab / DP-5230: Fix print styles: how-to left alignment
