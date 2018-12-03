@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Minor
+- (React) DP-11402: Fixes a bug in InputTextFuzzy where hitting enter on a suggestion did not pass a suggestion object to the onSuggestionClick prop function.

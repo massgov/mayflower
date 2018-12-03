@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Minor
+- (React) DP-11380: Fix tab scrollIntoView to prevent scrolling vertically
