@@ -369,6 +369,8 @@
   }
 
   .ma__link-list__items {
+    // important to over write custom html styles.
+    padding-left: 0 !important;
     
     .ma__link-list__item {
       width: 100%;
