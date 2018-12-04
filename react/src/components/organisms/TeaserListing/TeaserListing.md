@@ -1,42 +1,7 @@
-### Description
-This Pattern shows a list of General Teaser patterns.
+#### Description
+A styles list of General Teasers. A variant pattern showing a list of General Teasers followed by a secondary grid of General Teasers can also be generate using this component.
 
-### Status
-* Stable as of TBD
-
-### Pattern Contains
-* Comp heading
-* Sidebar heading
-* Paragraph
-* General Teaser
-* Link
-
-### Variables
-~~~
-teaserListing: {
-  compHeading: {
-    type: compHeading / optional
-  },
-  sidebarHeading: {
-    type: sidebarHeading / optional
-  },
-  stacked:
-    type: boolean / optional,
-  expandable:
-    type: boolean / optional,
-  accordionLabel:
-    type: string / required if expandable is true
-  itemsLabel:
-    type: string / required if expandable is true
-  featuredItems: [{
-    type: generalTeaser / optional
-  }],
-  items: [{
-    type: generalTeaser / optional
-  }],
-  more: {
-    type: link / optional
-  }
-}
-~~~
-
+##### Variant Generation
+* Set the `stacked` variable to false for displaying primary items side-by-side. Default is stacked.
+* Set the `contained` variable to true for a grid display of secondary items. Defaults to a three column grid.
+* Set the `gridTwoColumns` variable to true for an alternative two column layout for large screens. (Both display the same at smaller screen widths)
