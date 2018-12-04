@@ -14,6 +14,8 @@ $page-banner-height: 330px;
     margin-bottom: 40px;
   }
 
+  // to match height and font size being provided to prod by 
+  // decision tree module styles
   .decision-tree & {
 
     h1 {
@@ -22,6 +24,10 @@ $page-banner-height: 330px;
       @media ($bp-small-min) {
         font-size: 1.8125rem;
       }
+    }
+
+    &.ma__page-banner--overlay {
+      height: 120px;
     }
   }
 
