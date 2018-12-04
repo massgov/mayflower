@@ -39,6 +39,9 @@ storiesOf('organisms', module)
     const props = {
       compHeading: object('TeaserListing.compHeading', TeaserListingData.teaserListing.compHeading),
       sidebarHeading: object('TeaserListing.sidebarHeading', TeaserListingData.teaserListing.sidebarHeading),
+      description: {
+        text: text('TeaserListing.description.text', TeaserListingData.teaserListing.description.text)
+      },
       stacked: boolean('TeaserListing.stacked', false),
       contained: boolean('TeaserListing.contained', true),
       gridTwoColumns: boolean('TeaserListing.gridTwoColumns', true),

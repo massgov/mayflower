@@ -112,7 +112,7 @@ class TeaserListing extends React.Component {
                 {teaser.items.map((teaser, p) => {
                   const key=`teaser-listing--item-${p}`;
                   return(
-                    <li key={key}>
+                    <li key={key} className="ma__teaser-listing__item">
                       <GeneralTeaser {...teaser} />
                     </li>
                   );
@@ -135,6 +135,10 @@ TeaserListing.propTypes = {
   compHeading: PropTypes.CompHeading,
   /** Optional SidebarHeading component */
   sidebarHeading: PropTypes.SidebarHeading,
+  /** Descriptive paragraph */
+  description: PropTypes.shape({
+    text: PropTypes.string
+  }),
   /** Stacked if true, side-by-side if false. */
   stacked: PropTypes.bool,
   /** Grid display of secondary items or three column grid. */
