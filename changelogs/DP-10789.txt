@@ -1,4 +1,4 @@
 ___DESCRIPTION___
 Added
-Major
-- (React) DP-10789: Ports Teaser Listing Organism to React #324#
+Minor
+- (React) DP-10789: Ports Teaser Listing Organism to React #324
