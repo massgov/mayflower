@@ -276,31 +276,10 @@ $page-banner-height: 330px;
 
   &__title {
     flex-grow: 1;
-    font-size: 3rem;
     line-height: 1.05;
     margin-bottom: 0;
     vertical-align: middle;
     z-index: 1;
-
-    @media ($bp-x-small-min) {
-      font-size: 3.25rem;
-    }
-
-    @media ($bp-small-min) {
-      font-size: 3.5rem;
-    }
-
-    @media ($bp-medium-min){
-      font-size: 4rem;
-    }
-
-    @media ($bp-large-min){
-      font-size: 4.625rem;
-    }
-
-    @media ($bp-x-large-min){
-      font-size: 5.125rem;
-    }
 
     & > abbr {
       font-size: .4em;
