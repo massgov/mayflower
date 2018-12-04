@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added
+Minor
+- (Patternlab) DP-10265: Added a block for the map to the location-banner.twig.
