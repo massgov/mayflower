@@ -91,14 +91,13 @@ class InputTextFuzzy extends React.Component {
                   suggestions: [],
                   highlightedItemIndex: null
                 };
-              }, () => {
-                if (typeof this.props.onSuggestionClick === 'function') {
-                  const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
-
-                  // Suggestion is an object that can contain info on score, matches, etc.
-                  this.props.onSuggestionClick(event, {suggestion});
-                }
               });
+              if (typeof this.props.onSuggestionClick === 'function') {
+                const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
+
+                // Suggestion is an object that can contain info on score, matches, etc.
+                this.props.onSuggestionClick(event, {suggestion});
+              }
               break;
             case 'Escape':
               this.setState({

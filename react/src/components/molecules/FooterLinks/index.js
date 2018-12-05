@@ -7,7 +7,7 @@ const FooterLinks = (footerLinks) => (
   <section className="ma__footer-links">
     {
       footerLinks.items.map((footerLinksNav, i) => (
-        <FooterLinksNav {...footerLinksNav} showNavHeading={footerLinks.showNavHeading} key={`footerLinksNav_${i}` } index={i} />
+        <FooterLinksNav {...footerLinksNav} showNavHeading={footerLinks.showNavHeading} key={`footerLinksNav_${i}`} index={i} />
       ))
     }
   </section>

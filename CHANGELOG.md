@@ -13,6 +13,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.13.0 (12/04/2018)
+
+### Added
+- (React) DP-10789: Ports Teaser Listing Organism to React #324
+
+### Fixed
+- (React) DP-11380: Fix tab scrollIntoView to prevent scrolling vertically #360
+- (React) DP-11402: Fixes a bug in InputTextFuzzy where hitting enter on a suggestion did not pass a suggestion object to the onSuggestionClick prop function. #366
+
+## 8.12.0 (11/28/2018)
+
+### Added
+- (Patternlab) DP-10264: Support Google static maps for locations #344
+
 
 ## 8.11.0 (11/09/2018)
 
@@ -25,7 +39,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-11158: Adds ListingTable to the index.js file. Fixes unique key issues on lists. Adds tbody tag to table. Fixes PropTypes definition for rows prop. #354
 - (Patternlab) DP-9883: Updated the styles of the contact groups in the contact row to display the same number of groups in each column under the "Contact Us" section of the org page. #223
 
-### Fixed 
+### Fixed
 - (React) DP-11205: Fix FootNote atom bug. #355
 
 ## 8.10.0 (10/31/2018)
