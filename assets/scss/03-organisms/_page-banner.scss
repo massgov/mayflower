@@ -10,7 +10,7 @@ $page-banner-height: 330px;
   position: relative;
 
   @media ($bp-x-small-min) {
-    height: 350px;
+    max-height: 350px;
     margin-bottom: 40px;
   }
 
