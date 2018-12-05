@@ -45,6 +45,7 @@ $page-banner-height: 330px;
   &--columns {
     height: auto;
     min-height: 350px;
+    max-height: none;
 
     @media ($bp-medium-min) {
       padding-top: 45px;
