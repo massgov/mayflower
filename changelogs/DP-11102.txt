@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Patch
+- patternlab / DP-11102 and DP-11026: responsive tables obscure stickTOC and final table row
