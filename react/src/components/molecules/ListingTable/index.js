@@ -33,6 +33,7 @@ class ListingTableItem extends React.Component {
     return(
       <tr>
         <th scope="row">{ row.label }</th>
+
         <td className={rowClasses}>
           {shownItems.map((item, index) => (
             <span key={`${row.label}-shown-item-${index}`} className="ma__listing-table__data-item">{item}</span>
@@ -51,7 +52,7 @@ class ListingTableItem extends React.Component {
               <button
                 type="button"
                 onClick={(e) => this.handleClick(e)}
-                aria-expanded={(this.state.open) ? "true" : "false"}
+                aria-expanded={this.state.open}
               >
                 {(this.state.open) ?
                   (<span>{row.lessLabel || 'Less'}</span>) :
