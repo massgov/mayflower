@@ -65,21 +65,60 @@
       ]
     }
   },
-  "currentPage": {
-    "id": "#",
-    "name": "#"
-  },
-  "currentNode": {
-    "id": "#",
-    "name": "#"
-  },
-  "location": {
-    "id": "#",
-    "name": "#",
-    "placement": "footer"
-  },
-  "uniqueID": {
-    "id": "#",
-    "name": "#"
-  }
+  "contactInputs": [
+    {
+      "hiddenLabel": false,
+      "labelText": "First Name",
+      "required": true,
+      "id": "text-input1",
+      "name": "text-input1",
+      "type": "text"
+    },
+    {
+      "hiddenLabel": false,
+      "labelText": "Last Name",
+      "required": true,
+      "id": "text-input2",
+      "name": "text-input2",
+      "type": "text"
+    },
+    {
+      "hiddenLabel": false,
+      "labelText": "Phone",
+      "required": false,
+      "id": "text-input3",
+      "name": "text-input3",
+      "type": "tel"
+    },
+    {
+      "hiddenLabel": false,
+      "labelText": "Email",
+      "required": true,
+      "id": "text-input4",
+      "name": "text-input4",
+      "type": "email"
+    }
+  ],
+  "hiddenElements": [
+    {
+      "id": "example1",
+      "name": "example1",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example2",
+      "name": "example2",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example3",
+      "name": "example3",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example4",
+      "name": "example4",
+      "value": "https://mass.gov"
+    }
+  ]
 }

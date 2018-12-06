@@ -57,27 +57,14 @@
               {% endif %}
 
               <div class="ma__mass-feedback-form__contact-form--items">
-                <div class="contact-form--item firstName">
-                  <legend>First Name</legend>
+              {% for input in contactInputs %}
+                <div class="contact-form--item">
+                  {% set inputText = input %}
                   {% include "@atoms/03-forms/input-text.twig" %}
                 </div>
-
-                <div class="contact-form--item lastName">
-                  <legend>Last Name</legend>
-                  {% include "@atoms/03-forms/input-text.twig" %}
-                </div>
-
-                <div class="contact-form--item email">
-                  <legend>Phone</legend>
-                  {% include "@atoms/03-forms/input-text.twig" %}
-                </div>
-
-                <div class="contact-form--item phone">
-                  <legend>Email</legend>
-                  {% include "@atoms/03-forms/input-text.twig" %}
-                </div>
-
+              {% endfor %}
               </div>
+
             </div>
           </fieldset>
           {% endif %}
