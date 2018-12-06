@@ -105,7 +105,7 @@ $formTransitions: max-height 0.6s linear;
     transition: $formTransitions; 
 
     &.is-open {
-      max-height: 100vh;
+      max-height: 150vh;
     }
 
     &.positive {
@@ -219,7 +219,7 @@ $formTransitions: max-height 0.6s linear;
     transition: $formTransitions; 
 
     &.is-open {
-      max-height: 350px;
+      max-height: 450px;
       transition: $formTransitions; 
     }
 
