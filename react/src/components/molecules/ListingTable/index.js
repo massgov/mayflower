@@ -51,7 +51,7 @@ class ListingTableItem extends React.Component {
               <button
                 type="button"
                 onClick={(e) => this.handleClick(e)}
-                aria-expanded="false"
+                aria-expanded={(this.state.open) ? "true" : "false"}
               >
                 {(this.state.open) ?
                   (<span>{row.lessLabel || 'Less'}</span>) :
