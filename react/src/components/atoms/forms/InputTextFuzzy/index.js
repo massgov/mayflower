@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Fuse from 'fuse.js';
 import Autowhatever from 'react-autowhatever';
+import parse from 'autosuggest-highlight/parse';
 import classNames from 'classnames';
 
 import './style.css';
@@ -28,51 +29,6 @@ class InputTextFuzzy extends React.Component {
       this.props.onChange(e);
     }
   };
-  parse = (text, matches) => {
-    const result = [];
-
-    if (matches.length === 0) {
-      result.push({
-        text: text,
-        highlight: false
-      });
-    } else {
-      if (matches[0][0] > 0) {
-        result.push({
-          text: text.slice(0, matches[0][0]),
-          highlight: false
-        });
-      }
-    }
-
-    matches.forEach( (match, i) => {
-      const startIndex = match[0];
-      const endIndex = match[1];
-
-      result.push({
-        text: text.slice(startIndex, endIndex),
-        highlight: true
-      });
-      // If last match
-      if (i === matches.length - 1) {
-        // If the end range of the match is less than the match's length
-        if (endIndex < text.length) {
-          // Don't highlight anything from the end range to the end of the match text.
-          result.push({
-            text: text.slice(endIndex, text.length),
-            highlight: false
-          });
-        }
-      } else if (endIndex < matches[i + 1][0]) {
-        result.push({
-          text: text.slice(endIndex, matches[i + 1][0]),
-          highlight: false
-        });
-      }
-    });
-
-    return result;
-  };
   renderItem = (suggestion) => {
     return (
       <span className="ma__suggestion-content">
@@ -87,7 +43,7 @@ class InputTextFuzzy extends React.Component {
                       range[1] + 1
                     ]
                   });
-                  const parts = this.parse(match.value, ranges);
+                  const parts = parse(match.value, ranges);
                   return parts.filter(part => {
                     return part.text.length > 0;
                   }).map((part, index) => {
