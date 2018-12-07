@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Minor
-- (React) DP-11398: Adds the ability to submit without selecting a suggestion, misc bug fixes.
