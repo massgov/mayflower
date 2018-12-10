@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
+import Heading from '../../atoms/headings/Heading';
+import CompHeading from '../../atoms/headings/CompHeading';
 
 import Collapse from '../../animations/Collapse';
 
@@ -29,13 +31,17 @@ class ListingTableItem extends React.Component {
       'js-accordion': inlineAccordion,
       'is-open': this.state.open
     });
+    const rowHeadingClasses = ClassNames({
+      'ma__listing-table__list-title': true
+    });
     const shownItems = row.items.slice(0, visibleItems);
     const invisibleItems = (inlineAccordion) ? row.items.slice(visibleItems) : [];
     return(
-      <tr>
-        <th scope="row">{ row.label }</th>
+      <li>
+        <Heading class={rowHeadingClasses} text={ row.label } />
+        {/* <th scope="row">{ row.label }</th> */}
 
-        <td className={rowClasses}>
+        <div className={rowClasses}>
           {shownItems.map((item, index) => (
             <span key={`${row.label}-shown-item-${index}`} className="ma__listing-table__data-item">{item}</span>
           ))}
@@ -63,23 +69,28 @@ class ListingTableItem extends React.Component {
               </button>
             </div>
           )}
-        </td>
-      </tr>
+        </div>
+      </li>
     );
   }
 }
 
 const ListingTable = (props) => {
+
+  console.log('heading', props.heading);
+
   const rows = props.rows;
   return(
     <div className="ma__listing-table">
-      <div className="ma__listing-table__container">
-        <table>
-          <tbody>
+      {props.heading}
+      {/* {props.heading.class} */}
+      <ul className="ma__listing-table__container">
+        {/* <table>
+          <tbody> */}
             {rows.map((row, index) => (<ListingTableItem key={`listing-table-item-${index}`} row={row} />))}
-          </tbody>
-        </table>
-      </div>
+          {/* </tbody>
+        </table> */}
+      </ul>
     </div>
   );
 };
