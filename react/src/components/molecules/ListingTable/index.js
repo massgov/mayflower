@@ -26,7 +26,8 @@ class ListingTableItem extends React.Component {
     const inlineAccordion = (row.items.length > visibleItems);
     const rowClasses = ClassNames({
       'ma__rich-text': true,
-      'js-accordion': inlineAccordion
+      'js-accordion': inlineAccordion,
+      'is-open': this.state.open
     });
     const shownItems = row.items.slice(0, visibleItems);
     const invisibleItems = (inlineAccordion) ? row.items.slice(visibleItems) : [];
@@ -40,7 +41,7 @@ class ListingTableItem extends React.Component {
           ))}
           {(invisibleItems.length > 0) && (
             <Collapse in={this.state.open} dimension="height">
-              <div className="ma__listing-table__extra collapsed">
+              <div className="ma__listing-table__extra">
                 {invisibleItems.map((item, index) => (
                   <span key={`${row.label}-invisible-item-${index}`} className="ma__listing-table__data-item">{item}</span>
                 ))}
@@ -54,10 +55,11 @@ class ListingTableItem extends React.Component {
                 onClick={(e) => this.handleClick(e)}
                 aria-expanded={this.state.open}
               >
-                {(this.state.open) ?
-                  (<span>{row.lessLabel || 'Less'}</span>) :
-                  (<span>{row.moreLabel || 'More'}</span>)
-                }
+                <span>{
+                  (this.state.open) ?
+                  (row.lessLabel || 'Less') :
+                  (row.moreLabel || 'More')
+                }</span>
               </button>
             </div>
           )}
