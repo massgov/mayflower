@@ -203,11 +203,6 @@
 
   .ma__banner-credit {
     @include ma-container;
-    // position: absolute;
-    // bottom: 20px;
-    // left: 50%;
-    // transform: translateX(-50%);
-    // width: 100%;
     z-index: 3;
     width: 100%;
   }
