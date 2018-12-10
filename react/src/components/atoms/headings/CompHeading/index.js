@@ -16,6 +16,9 @@ const CompHeading = (props) => {
   if (compHeading.sidebar) {
     classes.push('ma__comp-heading--sidebar');
   }
+  if (compHeading.visuallyHidden) {
+    classes.push('ma__visually-hidden');
+  }  
   classes = classes.join(' ');
 
   return(
@@ -47,7 +50,9 @@ CompHeading.propTypes = {
   /** Whether you want the heading to be centered or left on the page. */
   centered: PropTypes.bool,
   /** Whether you want the heading to be a sidebar or not. */
-  sidebar: PropTypes.bool
+  sidebar: PropTypes.bool,
+  /** Whether you want the heading to be visible to all or only visible to screenreaders(visually hidden). */
+  visuallyHidden: PropTypes.bool
 };
 
 CompHeading.defaultProps = {
@@ -57,7 +62,8 @@ CompHeading.defaultProps = {
   color: '',
   id: '',
   centered: false,
-  sidebar: false
+  sidebar: false,
+  visuallyHidden: false
 };
 
 export default CompHeading;
