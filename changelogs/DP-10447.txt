@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Patch
+- patternlab / DP-10447: Pages show excess scroll space to right and bottom in IE11
