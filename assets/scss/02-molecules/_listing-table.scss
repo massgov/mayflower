@@ -112,11 +112,15 @@
         transform: translateY(-45%) rotate(45deg);
       }
 
-      span:first-child {
+      // span.open and span.close are Patternlab specific styles to manage 
+      // the display of the accordion button label.
+      // In React, the label is dynamically switched in ONE container.
+      // No need for these styles.
+      span.open {
         display: inline;
       }
 
-      span:nth-child(2) {
+      span.close {
         display: none;
       }
 
@@ -128,10 +132,11 @@
         &:after {
           transform: translateY(-55%) rotate(-135deg);
         }
-        span:first-child {
+        // See above note for Patternlab specific styles.
+        span.open {
           display: none;
         }
-        span:nth-child(2) {
+        span.close {
           display: inline;
         }
       }
