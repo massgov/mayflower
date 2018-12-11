@@ -10,6 +10,9 @@ This pattern shows a two column list of data rendered in a table.
 ### Variables
 ~~~
 listingTable: {
+  compHeading: {
+    type: compHeading / optional
+  },
   rows: [{
     label: 
       type: string / required
