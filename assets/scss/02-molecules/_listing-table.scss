@@ -71,13 +71,18 @@
 
     @media ($bp-small-min) {
       padding-bottom: 10px;
-      width: 33%;
+      width: 32%;
     }
   }
 
   // td {
   .ma__rich-text {
     font-size: 20px;
+    
+    @media ($bp-small-min) {
+      width: 66%;
+      // width: calc(66% - 6px);
+    }
   }
 
   &__data-item {
