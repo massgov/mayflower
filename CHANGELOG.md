@@ -13,6 +13,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.14.1 (12/07/2018)
+
+### Fixed
+- (React) DP-11398: Adds the ability to submit without selecting a suggestion, misc bug fixes.
+
+## 8.14.0 (12/05/2018)
+
+### Added
+- (Patternlab) DP-10265: Added a block for the map to the location-banner.twig. #371
+
+### Fixed
+- (Patternlab) DP-11102 and DP-11026: responsive tables obscure stickTOC and final table row #361
+
 ## 8.13.0 (12/04/2018)
 
 ### Added
