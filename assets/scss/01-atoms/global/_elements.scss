@@ -17,9 +17,12 @@
 }
 
 html {
-  @media ($bp-small-max){
-    font-size: 14.5px;
+  font-size: 14.5px;
+  
+  @media ($bp-small-min){
+    font-size: 16px;
   }
+  
 
   // .translated-rtl & {
   //   direction: rtl;
@@ -55,9 +58,13 @@ svg {
   overflow: hidden;
 }
 
-p,
 ul, ol {
   margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 ul ul,
@@ -160,7 +167,6 @@ div {
     outline: none;
   }
 }
-
 
 b, strong {
   font-weight: 700;

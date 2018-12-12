@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Changed
+Major
+- patternlab / DP-9727: Header and spacing size reductions
+
