@@ -25,8 +25,9 @@
             {% set inlineAccordion = true %}
             {% set accordionClass = " js-accordion" %}
             {# Get the value of the show/hide button text. #}
-            {% set moreLabel = row.moreLabel ?: "show more" %}
-            {% set lessLabel = row.lessLabel ?: "show less" %}
+            {% set allLabel = "show all " ~  row.items|length ~ " " ~ row.label|trim(':')|lower %}
+            {% set moreLabel = row.moreLabel ?: allLabel %}
+            {% set lessLabel = row.lessLabel ?: "show fewer" %}
           {% endif %}
 
           <div class="ma__rich-text{{ accordionClass }}">

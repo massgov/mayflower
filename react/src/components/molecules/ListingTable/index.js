@@ -64,7 +64,7 @@ class ListingTableItem extends React.Component {
                 <span>{
                   (this.state.open) ?
                   (row.lessLabel || 'Less') :
-                  (row.moreLabel || 'More')
+                  (row.moreLabel || 'All')
                 }</span>
               </button>
             </div>
