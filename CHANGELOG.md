@@ -13,6 +13,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.15.0 (12/12/2018)
+
+### Changed
+- (Patternlab) DP-9727: Header and spacing size reductions #363
+
+### Fixed
+- (Patternlab) DP-10447: Pages show excess scroll space to right and bottom in IE11 #367
+
 ## 8.14.1 (12/07/2018)
 
 ### Fixed
