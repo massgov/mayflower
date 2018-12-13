@@ -5,6 +5,7 @@ export default {
   color: {
     '': 'grey (default)',
     green: 'green',
-    blue: 'blue'
+    blue: 'blue',
+    id: ''
   }
 };
