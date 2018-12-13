@@ -2,6 +2,11 @@
   position: relative;
   margin-bottom: 1em;
   overflow: hidden;
+
+  &.has-horizontal-scroll {
+    // to accommodate the sticky nav bar
+    padding-bottom: 50px;
+  }
 }
 
 .ma__table--responsive__wrapper {
@@ -84,7 +89,7 @@
 .ma__table__horizontal-nav {
     align-items: center;
     background-color:$c-white;
-    border-top: 2px solid $c-gray-light;
+    border-top: 1px solid $c-gray-light;
     bottom: 0;
     display: none;
     height: 50px;
