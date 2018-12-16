@@ -9,14 +9,14 @@
       {% include "@organisms/by-template/page-header.twig" %}
     {% endblock %}
   </div>
+  {% if sideContent.contactList %}
     <div class="main-content main-content--two ma__policy-advisory__top-contact">
       <div class="page-content">
-        {% if sideContent.contactList %}
           {% set contactList = sideContent.contactList %}
           {% include "@organisms/by-author/contact-list.twig" %}
-        {% endif %}
       </div>
     </div>
+    {% endif %}
   <div class="ma__policy-advisory__content">
     {% if stickyTOC %}
       {% include "@organisms/by-template/sticky-toc.twig" %}
