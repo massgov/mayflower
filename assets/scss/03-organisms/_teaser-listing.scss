@@ -194,11 +194,15 @@
     @media ($bp-large-min) {
       margin-top: 45px;
     }
+    svg {
+      fill: rgba($c-font-link, 0.5);
+    }
   }
 
   // Accordion behavior
   &__container {
     .ma__content-link--chevron.ma__content-link__acordion-toggle {
+      font-size: 1.25rem;
       font-weight: 700;
       border: 0;
       padding-left: 0;
@@ -220,13 +224,16 @@
       padding-top: 40px;
       border-top-style: solid;
       border-top-width: 1px;
+      &.expanded {
+        display: block;
+      }
     }
     .ma__content-link--chevron.ma__content-link__acordion-toggle .more {
       display: inline;
       border: 0;
     }
     .ma__content-link--chevron.ma__content-link__acordion-toggle .less {
-      display: none;
+      display: inline;
       border: 0;
     }
     .ma__content-link--chevron.ma__content-link__acordion-toggle:after {

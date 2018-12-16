@@ -13,6 +13,36 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.15.0 (12/12/2018)
+
+### Changed
+- (Patternlab) DP-9727: Header and spacing size reductions #363
+
+### Fixed
+- (Patternlab) DP-10447: Pages show excess scroll space to right and bottom in IE11 #367
+
+## 8.14.1 (12/07/2018)
+
+### Fixed
+- (React) DP-11398: Adds the ability to submit without selecting a suggestion, misc bug fixes.
+
+## 8.14.0 (12/05/2018)
+
+### Added
+- (Patternlab) DP-10265: Added a block for the map to the location-banner.twig. #371
+
+### Fixed
+- (Patternlab) DP-11102 and DP-11026: responsive tables obscure stickTOC and final table row #361
+
+## 8.13.0 (12/04/2018)
+
+### Added
+- (React) DP-10789: Ports Teaser Listing Organism to React #324
+
+### Fixed
+- (React) DP-11380: Fix tab scrollIntoView to prevent scrolling vertically #360
+- (React) DP-11402: Fixes a bug in InputTextFuzzy where hitting enter on a suggestion did not pass a suggestion object to the onSuggestionClick prop function. #366
+
 ## 8.12.0 (11/28/2018)
 
 ### Added
