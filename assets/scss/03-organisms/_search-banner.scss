@@ -2,13 +2,17 @@
   background-position: center center;
   background-size: cover;
   display: flex;
-    align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
   font-size: 0;
-  padding: 30px 0 95px;
-
+  padding: 30px 0 20px;
+  
   @media ($bp-small-min) {
     height: 1px; // IE11 hack to vertially align content with min-height
     min-height: 800px;
+    padding: 20px 0;
+
   }
 
   .page-content &:last-child {
@@ -24,17 +28,22 @@
     content: "";
     height: 100%;
     position: absolute;
-      top: 0;
-      left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 1;
   }
 
   &__container {
     @include ma-container;
+    padding-bottom: 25px;
     font-size: 1.375rem;
     position: relative;
     z-index: 2;
+
+    @media ($bp-small-min) {
+      padding-bottom: 90px;
+    }
   }
 
   .ma__page-intro {
@@ -194,20 +203,16 @@
 
   .ma__banner-credit {
     @include ma-container;
-    position: absolute;
-      bottom: 20px;
-      left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
     z-index: 3;
+    width: 100%;
   }
 
   // Start backward compatible with v5.7 - converted image-credit to new Banner Credit molecule
   &__image-credit {
     @include ma-container;
     position: absolute;
-      bottom: 20px;
-      left: 50%;
+    bottom: 20px;
+    left: 50%;
     transform: translateX(-50%);
     width: 100%;
     z-index: 3;

@@ -40,12 +40,12 @@ class InputTextFuzzy extends React.Component {
                   const ranges = match.indices.map((range) => {
                     return [
                       range[0],
-                      range[1] === range[0] ? range[1] : range[1] + 1
+                      range[1] + 1
                     ]
                   });
                   const parts = parse(match.value, ranges);
                   return parts.filter(part => {
-                    return part.text.length >= 1;
+                    return part.text.length > 0;
                   }).map((part, index) => {
                     const className = part.highlight ? 'highlight' : null;
                     const key = `${match.key}.suggestion_${index}`;
@@ -70,6 +70,7 @@ class InputTextFuzzy extends React.Component {
       renderItem: this.renderItem,
       renderItemData: { value: this.state.value },
       inputProps: {
+        type: 'search',
         placeholder: this.props.placeholder,
         onChange: this.handleChange,
         value: this.state.value,
@@ -79,24 +80,51 @@ class InputTextFuzzy extends React.Component {
             case 'ArrowDown':
             case 'ArrowUp':
               event.preventDefault();
-              this.setState({
-                highlightedItemIndex: newHighlightedItemIndex === null ? 0 : newHighlightedItemIndex
+              this.setState(currentState => {
+                if (currentState.suggestions.length > 0 && currentState.value && currentState.value.length > 0) {
+                  return {
+                    highlightedItemIndex: !(newHighlightedItemIndex) ? 0 : newHighlightedItemIndex
+                  };
+                }
               });
               break;
             case 'Enter':
-              this.setState(currentState => {
-                const suggestion = currentState.suggestions[currentState.highlightedItemIndex];
-                return {
+              // If there are suggestions and the user chose one.
+              if (this.state.suggestions.length > 0 && this.state.highlightedItemIndex !== null && this.state.highlightedItemIndex > -1) {
+                const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
+                this.setState({
                   value: suggestion.item.text,
                   suggestions: [],
                   highlightedItemIndex: null
-                };
-              });
-              if (typeof this.props.onSuggestionClick === 'function') {
-                const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
-
-                // Suggestion is an object that can contain info on score, matches, etc.
-                this.props.onSuggestionClick(event, {suggestion});
+                });
+                if (typeof this.props.onSuggestionClick === 'function') {
+                  // Suggestion is an object that can contain info on score, matches, etc.
+                  this.props.onSuggestionClick(event, {suggestion});
+                }
+              } else {
+                // Try to see if the typed in value is in the options array.
+                const suggestion = this.props.options.find(option => {
+                  let match = false;
+                  this.props.keys.forEach(key => {
+                    if (option[key] && option[key] === this.state.value) {
+                      match = true;
+                    }
+                  });
+                  return match;
+                });
+                if (suggestion) {
+                  this.setState({
+                    suggestions: [],
+                    highlightedItemIndex: null
+                  });
+                  if (typeof this.props.onSuggestionClick === 'function') {
+                    this.props.onSuggestionClick(event, {
+                      suggestion: {
+                        item: { text: this.state.value }
+                      }
+                    });
+                  }
+                }
               }
               break;
             case 'Escape':
