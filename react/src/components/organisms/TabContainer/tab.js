@@ -48,24 +48,15 @@ class Tab extends React.Component {
             this.defaultSet = true;
           }
           return(
-            <li role="presentation" className={tabClasses}>
-              <button
-                role="tab"
-                id={this.props.tabIdent}
-                onClick={(e) => {
-                  this.scrollIntoView(e.target);
-                  setActiveTab(this.props.tabIdent, this.props.children);
-                }}
-                aria-selected={active}
-                tabIndex={this.props.tabIndex}
-                aria-describedby={this.props.a11yID}
-
-                // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
-                onKeyDown = {(e) => this.handleKeyDown(e)}
-              >
-              {this.props.title}
-              </button>
-            </li>
+            <button
+              className={tabClasses}
+              onClick={(e) => {
+                this.scrollIntoView(e.target);
+                setActiveTab(this.tabIdent, this.props.children)
+              }}
+            >
+            {this.props.title}
+            </button>
           );
         }}
       </TabContext.Consumer>
