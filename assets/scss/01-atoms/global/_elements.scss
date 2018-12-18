@@ -17,9 +17,12 @@
 }
 
 html {
-  @media ($bp-small-max){
-    font-size: 14.5px;
+  font-size: 14.5px;
+  
+  @media ($bp-small-min){
+    font-size: 16px;
   }
+  
 
   // .translated-rtl & {
   //   direction: rtl;
@@ -33,9 +36,6 @@ body {
   color: $c-font-base;
   font-family: "Texta", "Helvetica", "Arial", "sans-serif";
   font-weight: 400;
-  // for IE weirdness
-  -ms-overflow-style: none;
-
 
   // .translated-rtl & {
   //   direction: rtl;
@@ -54,13 +54,17 @@ img {
   max-width: 100%;
 }
 
-b, strong {
-  font-weight: 700;
+svg {
+  overflow: hidden;
 }
 
-p,
 ul, ol {
   margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 ul ul,
@@ -162,4 +166,8 @@ div {
   &[tabindex="-1"]:focus {
     outline: none;
   }
+}
+
+b, strong {
+  font-weight: 700;
 }

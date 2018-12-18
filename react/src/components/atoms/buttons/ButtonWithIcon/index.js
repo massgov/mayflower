@@ -43,7 +43,7 @@ class ButtonWithIcon extends React.Component {
       onClick: this.handleClick,
       tabIndex: 0
     };
-    if ( ariaLabel && ariaLabel !== '' ) { buttonProps['aria-label'] = ariaLabel };
+    if (ariaLabel && ariaLabel !== '') { buttonProps['aria-label'] = ariaLabel; }
     return(
       <button {...buttonProps} ref={this.setButtonRef} >
         <span>{this.props.text}</span>

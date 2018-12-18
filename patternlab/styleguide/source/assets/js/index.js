@@ -29,7 +29,8 @@ import orgSelector from "./modules/orgSelector.js";
 import organizationNavigation from "./modules/organizationNavigation.js";
 import pagination from "./modules/pagination.js";
 import pikaday from "./modules/pikaday.js";
-// `richText` is needed above `responsiveTable` to setup tables.
+// `richText` and `stickTOC` are needed above `responsiveTable` to setup tables and offsets.
+import stickyTOC from "./modules/stickyTOC.js";
 import richText from "./modules/richText.js";
 import responsiveTable from "./modules/responsiveTable.js";
 import responsiveVideo from "./modules/responsiveVideo.js";
@@ -39,4 +40,4 @@ import teaserListingGroup from "./modules/teaserListingGroup";
 import truncateTitle from "./modules/truncateTitle.js";
 import formInputs from "./modules/formInputs.js";
 import utilNav from "./modules/utilNav.js";
-import stickyTOC from "./modules/stickyTOC.js";
+

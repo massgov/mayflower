@@ -17,15 +17,16 @@
 
     @media ($bp-large-min) {
       float: left;
-      width: calc(100% - #{$layout-sidebar-width} - 40px); //outer page padding
+      width: calc(100% - #{$layout-sidebar-width} - 45px); //outer page padding
     }
 
     @media ($bp-x-large-min) {
-      width: 64%;
+      width: 63.5%;
     }
   }
 
   &__map {
+    overflow: hidden;
 
     @media ($bp-large-min) {
       float: right;
@@ -41,6 +42,26 @@
       
       &__map {
         height: 400px;
+
+        &.static-image {
+          height: auto; 
+          
+          @media ($bp-large-min) {
+            position: relative;
+            height: 400px;
+
+            img {
+              height: 400px;
+              object-fit: none;
+              object-position: center;
+
+              // IE 10 and 11 don't support object declarations so we pull the image over some for better centering.
+              @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                margin-left: -15%;
+              }
+            }
+          }
+        }
       }
     }
   }
