@@ -13,6 +13,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.16.0 (12/19/2018)
+
+### Changed
+- (Patternlab) DP-5859: Checkboxes missing from What You Need section on print style for How To Pages #369
+
+### Fixed 
+- (Patternlab) DP-10231: bug fix for location pagination #362
+
 ## 8.15.0 (12/12/2018)
 
 ### Changed

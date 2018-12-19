@@ -429,4 +429,20 @@
   .ma__link-list__toggle {
     display: none;
   }
+
+  // Page level custom print styles
+  .ma__details__content .ma__rich-text {
+    ul li {
+      list-style-type: none;
+      padding-left: 2em;
+      text-indent: -2em;
+
+      &::before {
+        // checkbox
+        content: "\2610";
+        margin-right:5px;
+        font-size: 2.5rem;
+      }
+    }
+  }
 }
