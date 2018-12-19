@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- patternlab / DP-10231: bug fix for location pagination
