@@ -30,10 +30,9 @@ class MainNav extends Component {
   render() {
     return(
       <section className="ma__main-nav">
-        <ul className="ma__main-nav__items js-main-nav">
+        <ul className="ma__main-nav__items js-main-nav" role="menubar">
           {this.props.mainNav.map((item, index) => {
             const buttonId = `button${index}`;
-            const menuId = `menu${index}`;
             const liId = `li${index}`;
             const topItemClasses = ['ma__main-nav__item'];
             const { navSelected } = this.state;
@@ -49,22 +48,24 @@ class MainNav extends Component {
                 id: buttonId,
                 index,
                 className: 'ma__main-nav__top-link',
-                tabIndex: index === 0 ? 0 : -1,
                 'aria-expanded': `${isExpanded}`,
                 'aria-haspopup': 'true',
-                'aria-controls': menuId,
+                role: 'menuitem',
+                'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
                 key: buttonId
               };
               itemBody.push(<button {...buttonProps}>{item.text}</button>);
               const navItemClasses = {
                 className: `ma__main-nav__subitems js-main-nav-content ${isOpen}`,
-                key: `navItem${index}`
+                key: `navItem${index}`,
+                'aria-hidden': !isExpanded,
+                tabIndex: !isExpanded ? -1 : null
               };
               itemBody.push((
                 <div {...navItemClasses}>
-                  <ul id={menuId} role="menu" aria-labelledby={buttonId} className="ma__main-nav__container">
-                    <li role="menuitem" className="ma__main-nav__subitem">
-                      <a href={item.href} className="ma__main-nav__link" tabIndex="-1">{item.text}</a>
+                  <ul role="menu" aria-labelledby={buttonId} className="ma__main-nav__container" tabIndex={!isExpanded ? -1 : null}>
+                    <li role="presentation" className="ma__main-nav__subitem">
+                      <a href={item.href} role="menuitem" className="ma__main-nav__link" tabIndex={!isExpanded ? -1 : null}>{item.text}</a>
                     </li>
                     {item.subNav.map((subItem, subItemIndex) => {
                       const liProps = {
@@ -74,13 +75,13 @@ class MainNav extends Component {
                       };
                       return(
                         <li {...liProps}>
-                          <a href={subItem.href} className="ma__main-nav__link" tabIndex="-1">{subItem.text}</a>
+                          <a href={subItem.href} role="menuitem" className="ma__main-nav__link">{subItem.text}</a>
                         </li>);
                       })
                     }
-                    <li role="menuitem" className="ma__main-nav__subitem">
-                      <a href={item.href} className="ma__main-nav__link" tabIndex="-1">
-                        <Icon name="arrowbent" />
+                    <li role="presentation" className="ma__main-nav__subitem">
+                      <a href={item.href} role="menuitem" className="ma__main-nav__link">
+                        <Icon name="arrowbent" aria-hidden />
                         <span>{item.text}</span>
                       </a>
                     </li>
@@ -92,9 +93,9 @@ class MainNav extends Component {
                 id: buttonId,
                 className: 'ma__main-nav__top-link',
                 'aria-haspopup': 'true',
-                'aria-controls': menuId,
-                tabIndex: index === 0 ? 0 : -1,
-                key: buttonId
+                key: buttonId,
+                role: 'menuitem',
+                'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
               };
               itemBody.push(<button {...buttonProps}>{item.text}</button>);
             }
@@ -104,7 +105,7 @@ class MainNav extends Component {
               id: liId
             };
             return(
-              <li {...liClasses} onMouseEnter={(e) => this.mouseOver(e)} onMouseLeave={(e) => this.mouseOut(e)}>
+              <li {...liClasses} role="presentation" onMouseEnter={(e) => this.mouseOver(e)} onMouseLeave={(e) => this.mouseOut(e)}>
                 {itemBody}
               </li>);
             })
