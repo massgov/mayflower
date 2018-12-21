@@ -32,13 +32,21 @@
     "href": "https://www.google.com/",
     "info": ""
   },
-  "textarea": {
+  "affirmativeTextarea": {
     "labelText": "Text Area",
     "hiddenLabel": true,
     "required": false,
     "maxlength": 1000,
-    "id": "textarea",
-    "name": "textarea"
+    "id": "affirmative-textarea",
+    "name": "affirmative-textarea"
+  },
+  "negativeTextarea": {
+    "labelText": "Text Area",
+    "hiddenLabel": true,
+    "required": false,
+    "maxlength": 1000,
+    "id": "negative-textarea",
+    "name": "negative-textarea"
   },
   "helperText": {
     "inputId": "GUID2738572489",

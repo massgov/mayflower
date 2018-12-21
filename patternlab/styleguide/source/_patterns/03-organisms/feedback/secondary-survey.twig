@@ -4,7 +4,7 @@
   <form class="ma__mass-feedback-form__form" method="post" novalidate="" action="{{ formAction }}" id="{{ formId }}">
     <fieldset class="ma_feedback-fieldset">
       <legend>Tell us more about your experience</legend>
-      <p>Please tell us how much you agree with the following statements:</p>
+      <p>How much do you agree with the following statements?</p>
 
       {% include "@molecules/forms/radio-scale-group.twig" %}
     </fieldset>
@@ -24,7 +24,7 @@
     </fieldset>
 
     <fieldset class="ma_feedback-fieldset">
-      <legend>Do you have any other feedback for us? (Optional)</legend>
+      <legend>What other feedback do you have about Mass.gov? (Optional)</legend>
 
       {% set textarea = otherFeedback %}
       {% include "@atoms/03-forms/textarea.twig" %}
@@ -38,7 +38,7 @@
     </fieldset>
 
     <fieldset class="ma_feedback-fieldset">
-      <input id="" class="submitButton ma__button ma__button--small" type="submit" value="Send Feedback" />
+      <input id="" class="submitButton ma__button ma__button--small" type="submit" value="Submit" />
     </fieldset>
 
     {% for element in hiddenElements %}

@@ -1,9 +1,9 @@
-<div class="ma__mass-feedback-form ma__mass-feedback-form--success" id="feedback" data-mass-feedback-form>
+<div class="ma__mass-feedback-form ma__mass-feedback-form--success" id="feedback-success" data-mass-feedback-form>
 <form class="ma__mass-feedback-form__form" method="post" novalidate="" action="{{action}}" class="" id="">
   <legend>{{ title }} {{org}}!</legend>
   {% if contactLink %}
     <span class="ma__decorative-link">
-      <a href="{{ contactLink }}">If you need to contact the {{org}}, please click here&nbsp;{{ icon('arrow') }}</a>
+      <a href="{{ contactLink }}">If you need to contact {{org}}, please click here&nbsp;{{ icon('arrow') }}</a>
     </span>
   {% endif %}
   <p class="">{{ description }}</p>

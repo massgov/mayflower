@@ -27,19 +27,23 @@
           {% set pageAlert = reportMessage %}
           {% include "@organisms/by-template/in-page-alert.twig" %}
         {% endif %}
-      </fieldset>
-
-      <fieldset class="ma_feedback-fieldset user-response">
-        {% include "@atoms/03-forms/textarea.twig" %}
+        <div class="feedback-response feedback-positive">
+          {% set textarea = affirmativeTextarea %}
+          {% include "@atoms/03-forms/textarea.twig" %}
+        </div>
+        <div class="feedback-response feedback-negative">
+          {% set textarea = negativeTextarea %}
+          {% include "@atoms/03-forms/textarea.twig" %}
+        </div>
 
         {% set helperText = helperText %}
         {% include "@atoms/03-forms/helper-text.twig" %}
 
         {% if Response %}
-        <div class="ma__mass-feedback-form__form--user-response">
+        <div class="ma__mass-feedback-form__form--user-response feedback-response feedback-negative">
           <legend>
             {{ Response }} 
-            {% if responseRequired.inputGroup %} {{ org }}? {% endif %} 
+            {% if responseRequired.inputGroup %} {{ org }}? *{% endif %}
             {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}
           </legend>
 
