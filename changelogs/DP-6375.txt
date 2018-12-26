@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Fixed
+Patch
+- patternlab /  DP-6375: A11y - incorrect use of aria expand/collapse tagging on topic pages content cards
+
