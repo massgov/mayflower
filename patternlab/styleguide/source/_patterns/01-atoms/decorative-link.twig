@@ -2,5 +2,8 @@
   <a
     href="{{decorativeLink.href}}"
     class="js-clickable-link"
-    title="{% if decorativeLink.info %}{{ decorativeLink.info }}{% else %}{{decorativeLink.text}}{% endif %}"{% if decorativeLink.context %} aria-describedby="{{ decorativeLink.context }}"{% endif %}>{{decorativeLink.text}}&nbsp;{{ icon('arrow') }}</a>
+    title="{% if decorativeLink.info %}{{ decorativeLink.info }}{% else %}{{decorativeLink.text}}{% endif %}"
+    {% if decorativeLink.context %} aria-describedby="{{ decorativeLink.context }}"{% endif %}
+    {% if decorativeLink.label %} aria-labelledby="{{ decorativeLink.label }}" {% else %} aria-labelledby="{{ decorativeLink.info }}"{% endif %}
+    >{{decorativeLink.text}}&nbsp;{{ icon('arrow') }}</a>
 </span>
