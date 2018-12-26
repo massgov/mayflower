@@ -7,6 +7,7 @@ import googleMap from "./modules/googleMap.js";
 import back2top from "./modules/back2top.js";
 import clickable from "./modules/clickable.js";
 import contactAccordion from "./modules/contactAccordion.js";
+import contextualNav from "./modules/contextualNav.js";
 import dropdown from "./modules/dropdown.js";
 import emergencyAlerts from "./modules/emergencyAlerts.js";
 import eventFilters from "./modules/eventFilters";

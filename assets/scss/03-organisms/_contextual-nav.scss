@@ -1,0 +1,22 @@
+.ma__contextual-navigation {
+  margin-top: 0 !important;
+  background-color: #f2f2f2;
+}
+
+.ma__contextual-navigation--links {
+  margin: 0 auto;
+  padding: 8px 0 12px;
+  max-width: 1240px;
+  border-top: 2px solid #dcdcdc;
+} 
+
+li.ma__contextual-navigation--link {
+  display: inline;
+}
+
+li.ma__contextual-navigation--link a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #535353;
+  padding-right: 20px;
+}
