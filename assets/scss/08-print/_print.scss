@@ -34,7 +34,7 @@
   .ma__content-eyebrow__tags,
   .ma__page-header__tags,
   .ma__footer,
-  #feedback,
+  .ma__fixed-feedback-button,
   .messages--error,
   *[aria-hidden="true"],
   .ma__download-link__icon,
@@ -57,7 +57,8 @@
   .ma__page-banner--small .ma__page-banner__icon,
   .ma__banner-carousel,
   .ma__quick-actions,
-  .ma__wait-time {
+  .ma__wait-time,
+  .ma__video {
     display: none !important;
   }
 
