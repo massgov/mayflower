@@ -197,6 +197,28 @@
     }
   }
 
+  .ma__page-banner--columns {
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .ma__page-banner__content {
+      height: auto !important;
+      top: auto !important;
+    }
+
+    .ma__page-banner__container {
+      min-height: 0 !important;
+    }
+
+    .ma__page-banner__description {
+      padding: 0 !important;
+      float: none !important;
+      width: 100% !important;
+      max-width: none;
+    }
+  }
+
   .main-content {
     margin-bottom: 0;
   }
