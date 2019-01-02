@@ -9,3 +9,4 @@ contextualNavLinks.forEach(function (navLink, index) {
     navLink.parentNode.remove();
   }
 });
+
