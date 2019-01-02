@@ -1,0 +1,4 @@
+___DESCRIPTION___
+
+### Changed/Fixed Minor
+- (React) DP-11634: Update the MainNav molecule for better a11y, enabling users to tab through the navigation menu. Also updated the svg-sprite-loader package to permit Icon component #385
