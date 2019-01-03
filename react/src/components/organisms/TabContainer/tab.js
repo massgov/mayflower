@@ -51,10 +51,11 @@ Tab.defaultProps = {
 };
 
 Tab.propTypes = {
-  // When true, the tab will be open by default when used with TabContainer.
+   /** When true, the tab will be open by default when used with TabContainer. */
   default: PropTypes.bool,
-  // The text of the tab.
+   /** The text of the tab. */
   title: PropTypes.string.isRequired,
+  /** A callback function ran after the tab has been clicked. */
   handleClick: PropTypes.func
 };
 
