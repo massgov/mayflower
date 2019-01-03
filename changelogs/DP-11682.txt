@@ -1,0 +1,4 @@
+ ___DESCRIPTION___
+ 
+  ### Changed/Fixed Minor
+ - (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated to the link for a screenreaders. #386
