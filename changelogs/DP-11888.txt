@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) DP-11888: Adds the ability to pass a function to tabs to run after its default click handler.
