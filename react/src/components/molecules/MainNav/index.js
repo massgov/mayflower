@@ -41,13 +41,12 @@ class MainNav extends Component {
   render() {
     return(
       <section className="ma__main-nav">
-        <ul className="ma__main-nav__items js-main-nav" role="menubar">
+        <ul className="ma__main-nav__items" role="menubar">
           {this.props.mainNav.map((item, index) => {
             const topItemClasses = classNames({
               'ma__main-nav__item': true,
               'is-active': item.active,
-              'has-subnav js-main-nav-toggle': item.subNav,
-              'js-main-nav-top-link': !item.subNav
+              'has-subnav': item.subNav
             });
             const buttonId = `button${index}`;
             const liId = `li${index}`;
@@ -68,7 +67,6 @@ class MainNav extends Component {
               itemBody.push(<button {...buttonProps}>{item.text}</button>);
               const navItemClasses = classNames({
                 'ma__main-nav__subitems': true,
-                'js-main-nav-content': true,
                 'is-open-react': isExpanded,
                 'is-closed-react': !isExpanded
               });
