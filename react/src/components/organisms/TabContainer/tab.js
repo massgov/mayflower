@@ -32,6 +32,9 @@ class Tab extends React.Component {
               onClick={(e) => {
                 e.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 setActiveTab(this.tabIdent, this.props.children);
+                if (typeof this.props.handleClick === 'function') {
+                  this.props.handleClick(e, this.tabIdent, this.props.children);
+                }
               }}
             >
               {this.props.title}
@@ -51,7 +54,8 @@ Tab.propTypes = {
   // When true, the tab will be open by default when used with TabContainer.
   default: PropTypes.bool,
   // The text of the tab.
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  handleClick: PropTypes.func
 };
 
 export default Tab;
