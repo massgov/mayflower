@@ -34,16 +34,17 @@ class Icon extends React.Component {
       svgHeight,
       title,
       name,
-      classes
+      classes,
+      ...rest
     } = this.props;
     if (svgFile) {
       const attr = {
         width: svgWidth || null,
         height: svgHeight || null,
-        className: classes ? classes.join(' ') : null
+        className: (classes && classes.length > 0) ? classes.join(' ') : null
       };
       return(
-        <svg {...attr}>
+        <svg {...attr} {...rest}>
           {title && <title>{ title }</title> }
           <use xlinkHref={`#${name}`} />
         </svg>
