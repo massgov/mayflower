@@ -13,6 +13,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.17.0 (01/04/2019)
+
+### Changed
+- (React) DP-11888: Adds the ability to pass a function to tabs to run after its default click handler. #394
+
+### Fixed
+- (React) DP-11634: Update the MainNav molecule for better a11y, enabling users to tab through the navigation menu. Also updated the svg-sprite-loader package, enabling aria attributes on the Icon component. #385
+
 ## 8.16.0 (12/19/2018)
 
 ### Changed
