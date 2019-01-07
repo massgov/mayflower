@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Patch
+- patternlab / DP-9775: MF Adjust print styles for topic and org pages to have less space at top.
