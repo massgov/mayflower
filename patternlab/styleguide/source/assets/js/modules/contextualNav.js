@@ -1,3 +1,4 @@
+// Open menu.
 const menuButton = document.querySelector(".js-header-menu-button");
 
 if (null !== menuButton) {
@@ -7,13 +8,11 @@ if (null !== menuButton) {
   });
 }
 
-
-
-
+// Remove current page from contextual nav menu.
 const contextualNavLinks = document.querySelectorAll(".ma__contextual-navigation--anchor");
 const currentLocation = window.location.href;
 
-contextualNavLinks.forEach(function (navLink, index) {
+contextualNavLinks.forEach(function (navLink) {
 
   let navLinkHref = navLink.getAttribute("href");
 
@@ -22,26 +21,20 @@ contextualNavLinks.forEach(function (navLink, index) {
   }
 });
 
-const contextualMenuButton = document.querySelectorAll('.ma__contextual-navigation__nav-wrapper .js-main-nav-toggle');
+// Open submenus.
 
-if (null !== contextualMenuButton) {
-  contextualMenuButton.forEach(function () {
+document.querySelectorAll('.ma__contextual-navigation__nav-wrapper .ma__main-nav__top-link').forEach(button => {
+  button.addEventListener('click', () => {
+    let subMenu = button.parentNode.querySelector('.js-main-nav-content');
+    let isClosed = subMenu.classList.contains('is-closed');
 
-    this.addEventListener('click', function () {
-
-      document.querySelector("body").classList.toggle("show-submenu");
-
-
-      let submenu = document.querySelector('.js-main-nav-content');
-      if (submenu.classList.contains('is-closed')) {
-        submenu.className += ' is-open';
-        submenu.classList.remove('is-closed');
-      } else {
-        submenu.className += ' is-closed';
-        submenu.classList.remove('is-open');
-      }
-
-    });
+    if (isClosed) {
+      subMenu.classList.add('is-open');
+      subMenu.classList.remove('is-closed');
+    }
+    else {
+      subMenu.classList.remove('is-open');
+      subMenu.classList.add('is-closed');
+    }
   });
-
-}
+});
