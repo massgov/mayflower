@@ -34,7 +34,7 @@
   .ma__content-eyebrow__tags,
   .ma__page-header__tags,
   .ma__footer,
-  #feedback,
+  .ma__fixed-feedback-button,
   .messages--error,
   *[aria-hidden="true"],
   .ma__download-link__icon,
@@ -57,7 +57,8 @@
   .ma__page-banner--small .ma__page-banner__icon,
   .ma__banner-carousel,
   .ma__quick-actions,
-  .ma__wait-time {
+  .ma__wait-time,
+  .ma__video {
     display: none !important;
   }
 
@@ -458,5 +459,21 @@
 
   .ma__fixed-feedback-button {
     display: none;
+  }
+
+  // Page level custom print styles
+  .ma__details__content .ma__rich-text {
+    ul li {
+      list-style-type: none;
+      padding-left: 2em;
+      text-indent: -2em;
+
+      &::before {
+        // checkbox
+        content: "\2610";
+        margin-right:5px;
+        font-size: 2.5rem;
+      }
+    }
   }
 }
