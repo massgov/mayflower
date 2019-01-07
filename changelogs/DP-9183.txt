@@ -1,0 +1,4 @@
+___DESCRIPTION___
+changed
+patch
+- patternlab / DP-9183: Expand button on alert
