@@ -12,7 +12,8 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      utilNavOpen: false
+      utilNavOpen: false,
+      subMenuOpen: false
     };
   }
   menuButtonClicked() {
@@ -24,12 +25,25 @@ class Header extends Component {
       this.setState({ utilNavOpen: true });
     }
   }
+  onSubMenuMouseOver() {
+    this.setState({ subMenuOpen: true })
+  }
+  onSubMenuMouseOut() {
+    this.setState({ subMenuOpen: false })
+  }
+  closeSubNav() {
+    this.setState({ subMenuOpen: false })
+    const bodyClass = document.querySelector('body').classList;
+    if(bodyClass.contains('show-submenu')) {
+      bodyClass.remove('show-submenu')
+    };
+  }
   render() {
     const header = this.props;
     const utilNavOpen = { isOpen: this.state.utilNavOpen };
     const HeaderUtilityNavProps = Object.assign({}, header.utilityNav, utilNavOpen);
     const HeaderUtilityNav = <UtilityNav {...HeaderUtilityNavProps} />;
-
+    const { subMenuOpen } = this.state;
     return(
       <header className="ma__header" id="header">
         {!header.hideBackTo && (
@@ -53,9 +67,11 @@ class Header extends Component {
         <nav className="ma__header__nav" aria-labelledby="main_navigation" id="main-navigation">
           <h2 id="main_navigation" className="visually-hidden">Main Navigation</h2>
           <div className="ma__header__button-container js-sticky-header">
-            <button className="ma__header__back-button js-close-sub-nav">
-              <span>Back</span>
-            </button>
+            {subMenuOpen && (
+              <button className="ma__header__back-button js-close-sub-nav" onClick={() => this.closeSubNav}>
+                <span>Back</span>
+              </button>
+            )}
             <button
               className="ma__header__menu-button js-header-menu-button"
               onClick={() => this.menuButtonClicked()}
@@ -72,7 +88,11 @@ class Header extends Component {
             </div>
             }
             <div className="ma__header__main-nav">
-              <MainNav {...header.mainNav} />
+              <MainNav
+                {...header.mainNav}
+                onSubMenuMouseOver={() => this.onSubMenuMouseOver()}
+                onSubMenuMouseOut={() => this.onSubMenuMouseOut()}
+              />
             </div>
             <div className="ma__header__utility-nav ma__header__utility-nav--narrow">
               {HeaderUtilityNav}

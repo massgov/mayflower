@@ -14,18 +14,39 @@ class MainNav extends Component {
 
   mouseOver(e) {
     const bodyClass = document.querySelector('body').classList;
-    bodyClass.toggle('show-submenu');
+    if(!bodyClass.contains('show-submenu')) {
+      bodyClass.add('show-submenu')
+    };
     this.setState({
       navSelected: e.currentTarget.id
     });
+    if (typeof this.props.onSubMenuMouseOver === 'function') {
+      this.props.onSubMenuMouseOver(e)
+    };
   }
+
   mouseOut() {
     const bodyClass = document.querySelector('body').classList;
-    bodyClass.toggle('show-submenu');
+    bodyClass.remove('show-submenu');
     this.setState({
       navSelected: -1
     });
+    if (typeof this.props.onSubMenuMouseOut === 'function') {
+      this.props.onSubMenuMouseOut()
+    };
   }
+
+  closeMobileNav() {
+    const bodyClass = document.querySelector('body').classList;
+    bodyClass.remove('show-submenu','show-menu');
+    this.setState({
+      navSelected: -1
+    });
+    if (typeof this.props.onSubMenuMouseOut === 'function') {
+      this.props.onSubMenuMouseOut()
+    };
+  }
+
   onKeyDown(e) {
     if (e.keyCode === 13) {
       this.setState({
@@ -38,6 +59,7 @@ class MainNav extends Component {
       });
     }
   }
+
   render() {
     return(
       <section className="ma__main-nav">
@@ -77,8 +99,8 @@ class MainNav extends Component {
                       <a href={item.href} role="menuitem" className="ma__main-nav__link" tabIndex={!isExpanded ? -1 : null}>{item.text}</a>
                     </li>
                     {item.subNav.map((subItem, subItemIndex) => (
-                      <li role="menuitem" className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`}>
-                        <a href={subItem.href} role="menuitem" className="ma__main-nav__link">{subItem.text}</a>
+                      <li role="menuitem" className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`} >
+                        <a href={subItem.href} role="menuitem" className="ma__main-nav__link" onClick={(e) => this.closeMobileNav(e)}>{subItem.text}</a>
                       </li>
                     ))}
                     <li role="presentation" className="ma__main-nav__subitem">
