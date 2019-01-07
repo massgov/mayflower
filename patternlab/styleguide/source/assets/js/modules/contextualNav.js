@@ -22,11 +22,12 @@ contextualNavLinks.forEach(function (navLink) {
 });
 
 // Open submenus.
-
 document.querySelectorAll('.ma__contextual-navigation__nav-wrapper .ma__main-nav__top-link').forEach(button => {
   button.addEventListener('click', () => {
     let subMenu = button.parentNode.querySelector('.js-main-nav-content');
     let isClosed = subMenu.classList.contains('is-closed');
+
+    document.querySelector("body").classList.toggle("show-submenu");
 
     if (isClosed) {
       subMenu.classList.add('is-open');
@@ -36,5 +37,16 @@ document.querySelectorAll('.ma__contextual-navigation__nav-wrapper .ma__main-nav
       subMenu.classList.remove('is-open');
       subMenu.classList.add('is-closed');
     }
+  });
+});
+
+// Close Submenus 
+document.querySelector('.ma__contextual-navigation__nav-wrapper .js-close-sub-nav').addEventListener('click', () => {
+  const openMenu = document.querySelectorAll(".js-main-nav-content.is-open");
+  document.querySelector("body").classList.toggle("show-submenu");
+
+  [].forEach.call(openMenu, function (el) {
+    el.classList.remove('is-open');
+    el.classList.add('is-closed');
   });
 });
