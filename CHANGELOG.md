@@ -13,6 +13,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.18.0 (01/08/2019)
+
+## Changed
+- (React) DP-12012: Enable the footnotes atom in react to render raw html if passed a child. Update the footnote style to up arrow. #397
+- (Patternlab) DP-9183: Expand button on alert. #388
+- (Patternlabl) DP-9775: MF Adjust print styles for topic and org pages to have less space at top. #392
+
+## Fixed/Patched
+- (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated to the link for a screenreaders. #386
+- (Patternlab) DP-11400: Add more spacing on org page above "More about [name]". #368
+- (Patternlab) DP-5230: Fix print styles: how-to left alignment. #370
+- (Patternlab) DP-5232: Fix print styles: remove feedback button. #390
+- (Patternlab) DP-9185: MF [a11y] Use proper html element for semantics. #389
+
 ## 8.17.0 (01/04/2019)
 
 ### Changed
