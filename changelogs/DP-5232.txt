@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-patch
-- patternlab / DP-5232: Fix print styles: remove feedback button

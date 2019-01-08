@@ -1,4 +1,0 @@
-___DESCRIPTION___
-fixed
-patch
-- patternlab / DP-11400: Add more spacing on org page above "More about [name]"
