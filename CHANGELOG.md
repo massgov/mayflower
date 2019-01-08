@@ -22,7 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) DP-9186: Change section tags to div tags on rich text pattern for better semantics. #391
 
 ## Fixed/Patched
-- (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated to the link for a screenreaders. #386
+- (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated with the link for screenreaders. #386
 - (Patternlab) DP-11400: Add more spacing on org page above "More about [name]". #368
 - (Patternlab) DP-5230: Fix print styles: how-to left alignment. #370
 - (Patternlab) DP-5232: Fix print styles: remove feedback button. #390
