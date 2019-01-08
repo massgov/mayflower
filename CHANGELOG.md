@@ -18,7 +18,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ## Changed
 - (React) DP-12012: Enable the footnotes atom in react to render raw html if passed a child. Update the footnote style to up arrow. #397
 - (Patternlab) DP-9183: Expand button on alert. #388
-- (Patternlabl) DP-9775: MF Adjust print styles for topic and org pages to have less space at top. #392
+- (Patternlab) DP-9775: MF Adjust print styles for topic and org pages to have less space at top. #392
+- (Patternlab) DP-9186: Change section tags to div tags on rich text pattern for better semantics. #391
 
 ## Fixed/Patched
 - (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated to the link for a screenreaders. #386
