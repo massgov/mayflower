@@ -43,7 +43,7 @@ class UtilityNav extends Component {
             return(
               (item.panel) ?
                 <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} /> :
-                <NavItemLink data={item} />
+                <NavItemLink key={`navItem.${itemIndex}`} data={item} />
               );
           })}
         </ul>
