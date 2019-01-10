@@ -76,10 +76,10 @@ const NavItem = (obj) => {
   };
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
-      <button onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} aria-label={item.ariaLabelText || item.text}>
+      <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
         <Icon name={item.icon} />
         <span>{item.text}</span>
-      </button>
+      </a>
       <div {...divProps}>
         <div className="ma__utility-nav__container">
           <div className="ma__utility-nav__content-title">
