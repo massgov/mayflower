@@ -40,7 +40,12 @@ class UtilityNav extends Component {
             // Use utility nav ident to make unique item ids.
             newItem.navIdent = this.ident;
             const { isOpen } = this.state;
-            return(<NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />);
+            console.log(item.panel)
+            return(
+              (item.panel) ?
+                <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} /> :
+                <NavItemLink data={item} />
+              );
           })}
         </ul>
       </section>
@@ -70,7 +75,7 @@ const NavItem = (obj) => {
     'aria-hidden': isExpanded ? 'false' : 'true',
     id: divId
   };
-  return((
+  return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
       <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
         <Icon name={item.icon} />
@@ -92,7 +97,19 @@ const NavItem = (obj) => {
         </div>
       </div>
     </li>
-  ));
+  );
+};
+
+const NavItemLink = (obj) => {
+  const item = obj.data;
+  return(
+    <li className="ma__utility-nav__item js-util-nav-toggle">
+      <a className="ma__utility-nav__link" href={item.href} aria-label={item.ariaLabelText || item.text}>
+        <Icon name={item.icon} />
+        <span>{item.text}</span>
+      </a>
+    </li>
+  );
 };
 
 
