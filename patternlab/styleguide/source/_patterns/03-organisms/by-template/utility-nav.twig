@@ -12,14 +12,13 @@
     {% endif %}
     {% for item in utilityNav.items %}
       <li class="ma__utility-nav__item js-util-nav-toggle">
-        <a class="ma__utility-nav__link"
-          href="#"
+        <button class="ma__utility-nav__link"
           aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
           {{ icon(item.icon) }}
           <span>
             {{ item.text }}
           </span>
-        </a>
+        </button>
         <div aria-hidden="true" class="ma__utility-nav__content js-util-nav-content is-closed">
           <div class="ma__utility-nav__container">
             <div class="ma__utility-nav__content-title">
