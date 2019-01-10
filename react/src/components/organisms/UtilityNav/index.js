@@ -40,7 +40,6 @@ class UtilityNav extends Component {
             // Use utility nav ident to make unique item ids.
             newItem.navIdent = this.ident;
             const { isOpen } = this.state;
-            console.log(item.panel)
             return(
               (item.panel) ?
                 <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} /> :
