@@ -1,5 +1,6 @@
 .ma__contextual-navigation {
   background-color : rgb(242, 242, 242);
+  padding : 0px 40px;
   margin-top : 0px !important;
 }
 
@@ -21,10 +22,6 @@ li.ma__contextual-navigation--link a {
   padding-right : 20px;
 }
 
-.main-content--full .page-content > * {
-  margin-top : 0px !important;
-}
-
 .ma__contextual-navigation__header .ma__header {
   padding-top : 0px;
 }
@@ -33,25 +30,14 @@ li.ma__contextual-navigation--link a {
   margin-right : auto;
   margin-left : auto;
   max-width : 1320px;
-  padding-left : 20px;
-  padding-right : 20px;
   display : flex;
   -webkit-box-pack : justify;
   justify-content : space-between;
   position : relative;
+  padding-left : 40px;
+  padding-right : 40px;
 }
-@media (min-width: 781px) {
-  .ma__contextual-navigation__header .ma__contextual-navigation__nav-wrapper {
-    padding-left : 30px;
-    padding-right : 30px;
-  }
-}
-@media (min-width: 911px) {
-  .ma__contextual-navigation__header .ma__contextual-navigation__nav-wrapper {
-    padding-left : 40px;
-    padding-right : 40px;
-  }
-}
+
 .ma__contextual-navigation__header .ma__header__nav {
   background-color : rgb(20, 85, 143);
 }
@@ -167,11 +153,11 @@ li.ma__contextual-navigation--link a {
   transition-delay : 0s;
   transition-property : all;
   width : 100%;
-  opacity: 1;
+  opacity : 1;
 }
 
 .show-menu.show-submenu .ma__contextual-navigation__header .ma__main-nav__top-link {
-  opacity: 0;
+  opacity : 0;
 }
 
 .ma__contextual-navigation__header .ma__main-nav__item .ma__main-nav__top-link::after {
@@ -240,14 +226,4 @@ li.ma__contextual-navigation--link a {
 
 .ma__contextual-navigation__header .ma__main-nav__subitem:last-child .ma__main-nav__link:hover, .ma__contextual-navigation__header .ma__main-nav__subitem:last-child .ma__main-nav__link:focus {
   background-color : rgb(242, 242, 242);
-}
-
-.goog-te-gadget-simple {
-  img:first-of-type {
-    display: none;
-  }
-
-  span:first-of-type {
-    display: none;
-  }
 }

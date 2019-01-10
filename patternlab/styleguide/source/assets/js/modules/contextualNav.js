@@ -1,4 +1,4 @@
-// Open menu.
+// Open - close menu.
 var menuButton = document.querySelector(".js-header-menu-button");
 
 if (null !== menuButton) {
@@ -8,18 +8,26 @@ if (null !== menuButton) {
   });
 }
 
-// Remove current page from contextual nav menu.
-var contextualNavLinks = document.querySelectorAll(".ma__contextual-navigation--anchor");
-var currentLocation = window.location.href;
+// Open submenus.
+var button = document.querySelectorAll('.ma__contextual-navigation__nav-wrapper .ma__main-nav__top-link');
 
-contextualNavLinks.forEach(function (navLink) {
+for (var i = 0; i < button.length; i++) {
 
-  var navLinkHref = navLink.getAttribute("href");
+  button[i].addEventListener('click', function () {
+    document.querySelector("body").classList.toggle('show-submenu');
 
-  if (navLinkHref == currentLocation) {
-    navLink.parentNode.remove();
-  }
-});
+    var subMenu = this.parentNode.querySelector('.js-main-nav-content');
+    var isClosed = subMenu.classList.contains('is-closed');
+
+    if (isClosed) {
+      subMenu.classList.add('is-open');
+      subMenu.classList.remove('is-closed');
+    } else {
+      subMenu.classList.remove('is-open');
+      subMenu.classList.add('is-closed');
+    }
+  });
+}
 
 // Open submenus.
 document.querySelectorAll('.ma__contextual-navigation__nav-wrapper .ma__main-nav__top-link').forEach(function (button) {
@@ -49,14 +57,8 @@ document.querySelectorAll('.ma__contextual-navigation__nav-wrapper .ma__main-nav
 // Close Submenus 
 document.querySelector('.ma__contextual-navigation__nav-wrapper .js-close-sub-nav').addEventListener('click', function () {
   var openMenu = document.querySelectorAll(".js-main-nav-content.is-open");
-  var menuIsOpen = document.querySelector("body").classList.contains('show-submenu');
 
-  if (menuIsOpen) {
-    document.querySelector("body").classList.remove('show-submenu');
-  }
-  else {
-    document.querySelector("body").classList.add('show-submenu');
-  }
+  document.querySelector("body").classList.toggle('show-submenu');
 
   [].forEach.call(openMenu, function (el) {
     el.classList.remove('is-open');
