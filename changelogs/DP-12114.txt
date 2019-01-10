@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Added/Fixed
+
+- (React) DP-12114: Add option to render an external link in Utility Nav. #400
+- (React/Patternlab) DP-12114: Fixed HTML semantic for Utility Nav buttons to use button instead of anchor link. #400
