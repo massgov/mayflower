@@ -125,8 +125,10 @@ UtilityNav.propTypes = {
     icon: PropTypes.oneOf([
       'building', 'login'
     ]),
+    /** The href for the link if not a button. */
+    href: PropTypes.string,
     /** The text to use on the close link. */
-    closeText: PropTypes.string.isRequired,
+    closeText: PropTypes.string,
     /** Displays an utility panel when text is clicked. */
     panel: PropTypes.shape(UtilityPanel.propTypes)
   })),
