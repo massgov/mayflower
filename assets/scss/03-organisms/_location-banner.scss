@@ -39,13 +39,14 @@
 
     .ma__google-map {
       padding: 0;
-      
+
       &__map {
         height: 400px;
 
         &.static-image {
-          height: auto; 
-          
+          height: auto;
+          width: 100%;
+
           @media ($bp-large-min) {
             position: relative;
             height: 400px;
