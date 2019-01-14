@@ -1,5 +1,10 @@
 export default {
   items: [{
+    text: 'All Budgets',
+    ariaLabelText: '',
+    icon: 'building',
+    href: 'https://www.mass.gov'
+  }, {
     text: 'State Organizations',
     ariaLabelText: '',
     icon: 'building',
