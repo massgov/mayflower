@@ -23,6 +23,7 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         text: text(`utilityNav.items.text.${itemIndex}`, item.text),
         ariaLabelText: text(`utilityNav.items.ariaLabelText.${itemIndex}`, item.ariaLabelText),
         closeText: text(`utilityNav.items.closeText.${itemIndex}`, item.closeText),
+        href: text(`utilityNav.items.href.${itemIndex}`, item.href),
         panel: object(`utilityNav.items.panel.${itemIndex}`, item.panel)
       };
       storyProps.icon = select(`utilityNav.items.icons.${itemIndex}`, icons, item.icon);

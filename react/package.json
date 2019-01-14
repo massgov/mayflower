@@ -49,7 +49,7 @@
     "react-table": "^6.8.6",
     "react-transition-group": "^2.4.0",
     "shortid": "^2.2.8",
-    "svg-sprite-loader": "^3.8.0"
+    "svg-sprite-loader": "^4.1.3"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.10",

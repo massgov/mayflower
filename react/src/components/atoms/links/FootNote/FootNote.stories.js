@@ -11,7 +11,7 @@ storiesOf('atoms/links', module).addDecorator(withKnobs)
   .add('FootNote', withInfo(`<div>${FootNoteDocs}</div>`)(() => {
     const props = {
       index: text('FootNote.index', '1'),
-      children: text('FootNote.children', 'This is the footnote.')
+      children: text('FootNote.children', 'This is the footnote <a href="https://www.mass.gov/">(reference)</a>.')
     };
     return(
       <div>
