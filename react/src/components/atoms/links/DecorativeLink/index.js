@@ -40,7 +40,7 @@ const DecorativeLink = (props) => {
         className="js-clickable-link"
         title={props.info || false}
       >
-        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}{props.text}&nbsp;<Icon name="arrow" aria-hidden="true"/>
+        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}{props.text}&nbsp;<Icon name="arrow" aria-hidden="true" />
       </a>
     </span>
   );
