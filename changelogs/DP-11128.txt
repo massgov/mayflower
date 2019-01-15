@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixes
+Minor
+- (React) DP-11128: Fixed image promo title not wrapping in IE11 bug. #404
