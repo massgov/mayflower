@@ -1,0 +1,3 @@
+___DESCRIPTION___
+Patch - Fixed
+- (React) DP-12183: Fixes alignment issue of download icon in the decorative link react component in IE11 #403
