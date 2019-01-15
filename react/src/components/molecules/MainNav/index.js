@@ -81,12 +81,16 @@ class MainNav extends Component {
                         <a href={subItem.href} role="menuitem" className="ma__main-nav__link">{subItem.text}</a>
                       </li>
                     ))}
-                    <li role="presentation" className="ma__main-nav__subitem">
-                      <a href={item.href} role="menuitem" className="ma__main-nav__link">
-                        <Icon name="arrowbent" aria-hidden />
-                        <span>{item.text}</span>
-                      </a>
-                    </li>
+                    {
+                      item.href && (
+                        <li role="presentation" className="ma__main-nav__subitem ma__main-nav__subitem--main">
+                          <a href={item.href} role="menuitem" className="ma__main-nav__link">
+                            <Icon name="arrowbent" aria-hidden />
+                            <span>{item.text}</span>
+                          </a>
+                        </li>
+                      )
+                    }
                   </ul>
                 </div>));
             } else {
