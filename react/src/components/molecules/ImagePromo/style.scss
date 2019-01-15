@@ -26,6 +26,7 @@
     .ma__image-promo__header {
       display: inline-flex;
       flex-direction: column;
+      flex: 100%;
 
       .ma__image-promo__title,
       .ma__org-info__job-title {
