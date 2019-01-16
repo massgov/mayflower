@@ -12,20 +12,6 @@ class MainNav extends Component {
     };
   }
 
-  mouseOver(e) {
-    const bodyClass = document.querySelector('body').classList;
-    bodyClass.toggle('show-submenu');
-    this.setState({
-      navSelected: e.currentTarget.id
-    });
-  }
-  mouseOut() {
-    const bodyClass = document.querySelector('body').classList;
-    bodyClass.toggle('show-submenu');
-    this.setState({
-      navSelected: -1
-    });
-  }
   onKeyDown(e) {
     if (e.keyCode === 13) {
       this.setState({
@@ -38,6 +24,23 @@ class MainNav extends Component {
       });
     }
   }
+
+  mouseOver(e) {
+    const bodyClass = document.querySelector('body').classList;
+    bodyClass.toggle('show-submenu');
+    this.setState({
+      navSelected: e.currentTarget.id
+    });
+  }
+
+  mouseOut() {
+    const bodyClass = document.querySelector('body').classList;
+    bodyClass.toggle('show-submenu');
+    this.setState({
+      navSelected: -1
+    });
+  }
+
   render() {
     return(
       <section className="ma__main-nav">
