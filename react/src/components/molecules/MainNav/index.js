@@ -12,7 +12,7 @@ class MainNav extends Component {
     };
   }
 
-  onKeyDown(e) {
+  onKeyDown = (e) => {
     if (e.keyCode === 13) {
       this.setState({
         navSelected: e.currentTarget.id
@@ -23,23 +23,23 @@ class MainNav extends Component {
         navSelected: -1
       });
     }
-  }
+  };
 
-  mouseOver(e) {
+  mouseOver = (e) => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
     this.setState({
       navSelected: e.currentTarget.id
     });
-  }
+  };
 
-  mouseOut() {
+  mouseOut = () => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
     this.setState({
       navSelected: -1
     });
-  }
+  };
 
   render() {
     return(
@@ -113,9 +113,9 @@ class MainNav extends Component {
                 key={`liClasses${index}`}
                 id={liId}
                 role="presentation"
-                onKeyDown={(e) => this.onKeyDown(e)}
-                onMouseEnter={(e) => this.mouseOver(e)}
-                onMouseLeave={(e) => this.mouseOut(e)}
+                onKeyDown={this.onKeyDown}
+                onMouseEnter={this.mouseOver}
+                onMouseLeave={this.mouseOut}
               >
                 {itemBody}
               </li>);
