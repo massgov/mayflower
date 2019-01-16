@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (Patternlab) DP-11437: MF Location search by city/zip fix for autocomplete issue.

@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) DP-11683: Set a condition in the decorative link atom to only add title when its value is available. #407
