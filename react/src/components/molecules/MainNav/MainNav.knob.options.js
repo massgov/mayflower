@@ -1,6 +1,5 @@
 const mainNav = [
   {
-    href: '#',
     text: 'Living',
     active: '',
     subNav: [
@@ -151,4 +150,3 @@ const mainNav = [
 export default {
   mainNav
 };
-

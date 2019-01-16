@@ -12,21 +12,7 @@ class MainNav extends Component {
     };
   }
 
-  mouseOver(e) {
-    const bodyClass = document.querySelector('body').classList;
-    bodyClass.toggle('show-submenu');
-    this.setState({
-      navSelected: e.currentTarget.id
-    });
-  }
-  mouseOut() {
-    const bodyClass = document.querySelector('body').classList;
-    bodyClass.toggle('show-submenu');
-    this.setState({
-      navSelected: -1
-    });
-  }
-  onKeyDown(e) {
+  onKeyDown = (e) => {
     if (e.keyCode === 13) {
       this.setState({
         navSelected: e.currentTarget.id
@@ -37,7 +23,24 @@ class MainNav extends Component {
         navSelected: -1
       });
     }
-  }
+  };
+
+  mouseOver = (e) => {
+    const bodyClass = document.querySelector('body').classList;
+    bodyClass.toggle('show-submenu');
+    this.setState({
+      navSelected: e.currentTarget.id
+    });
+  };
+
+  mouseOut = () => {
+    const bodyClass = document.querySelector('body').classList;
+    bodyClass.toggle('show-submenu');
+    this.setState({
+      navSelected: -1
+    });
+  };
+
   render() {
     return(
       <section className="ma__main-nav">
@@ -81,12 +84,16 @@ class MainNav extends Component {
                         <a href={subItem.href} role="menuitem" className="ma__main-nav__link">{subItem.text}</a>
                       </li>
                     ))}
-                    <li role="presentation" className="ma__main-nav__subitem">
-                      <a href={item.href} role="menuitem" className="ma__main-nav__link">
-                        <Icon name="arrowbent" aria-hidden />
-                        <span>{item.text}</span>
-                      </a>
-                    </li>
+                    {
+                      item.href && (
+                        <li role="presentation" className="ma__main-nav__subitem ma__main-nav__subitem--main">
+                          <a href={item.href} role="menuitem" className="ma__main-nav__link">
+                            <Icon name="arrowbent" aria-hidden />
+                            <span>{item.text}</span>
+                          </a>
+                        </li>
+                      )
+                    }
                   </ul>
                 </div>));
             } else {
@@ -106,9 +113,9 @@ class MainNav extends Component {
                 key={`liClasses${index}`}
                 id={liId}
                 role="presentation"
-                onKeyDown={(e) => this.onKeyDown(e)}
-                onMouseEnter={(e) => this.mouseOver(e)}
-                onMouseLeave={(e) => this.mouseOut(e)}
+                onKeyDown={this.onKeyDown}
+                onMouseEnter={this.mouseOver}
+                onMouseLeave={this.mouseOut}
               >
                 {itemBody}
               </li>);
@@ -123,7 +130,7 @@ class MainNav extends Component {
 MainNav.propTypes = {
   /** An array of navigation objects to display in the main nav */
   mainNav: PropTypes.arrayOf(PropTypes.shape({
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     text: PropTypes.string.isRequired,
     active: PropTypes.bool,
     subNav: PropTypes.arrayOf(PropTypes.shape({
