@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Path
+- (React) DP-11667: Add search role to HeaderSearch molecule for a11y. #405
