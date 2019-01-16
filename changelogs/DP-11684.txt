@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) DP-11683: Hides arrow in decorative link so not read by the screen reader. #407
