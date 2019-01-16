@@ -19,7 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-12114: Add option to render an external link in Utility Nav. #400
 
 ### Changed
-- (React) DP-12114: Add option to conditionally render the main nav top level link. #408
+- (React) DP-12117: Add option to conditionally render the main nav top level link. #408
 
 ### Fixed
 - (React) DP-11128: Fixed image promo title not wrapping in IE11 bug. #404
