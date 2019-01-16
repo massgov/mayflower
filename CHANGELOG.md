@@ -26,7 +26,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) DP-11437: MF Location search by city/zip fix for autocomplete issue. #401
 - (React) DP-11667: Add search role to HeaderSearch molecule for a11y. #405
 - (React) DP-11683: Set a condition in the decorative link atom to only add title when its value is available. #407
-- (React) DP-11683: Hides arrow in decorative link so not read by the screen reader. #407
+- (React) DP-11684: Hides arrow in decorative link so not read by the screen reader. #407
 - (React) DP-12183: Fixes alignment issue of download icon in the decorative link react component in IE11 #403
 
 ## 8.18.0 (01/08/2019)
