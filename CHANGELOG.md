@@ -15,13 +15,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## 8.19.0 (01/16/2019)
 
-# Added
+### Added
 - (React) DP-12114: Add option to render an external link in Utility Nav. #400
 
-## Changed
+### Changed
 - (React) DP-12114: Add option to conditionally render the main nav top level link. #408
 
-## Fixed
+### Fixed
 - (React) DP-11128: Fixed image promo title not wrapping in IE11 bug. #404
 - (Patternlab) DP-11437: MF Location search by city/zip fix for autocomplete issue. #401
 - (React) DP-11667: Add search role to HeaderSearch molecule for a11y. #405
@@ -31,13 +31,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ## 8.18.0 (01/08/2019)
 
-## Changed
+### Changed
 - (React) DP-12012: Enable the footnotes atom in react to render raw html if passed a child. Update the footnote style to up arrow. #397
 - (Patternlab) DP-9183: Expand button on alert. #388
 - (Patternlab) DP-9775: MF Adjust print styles for topic and org pages to have less space at top. #392
 - (Patternlab) DP-9186: Change section tags to div tags on rich text pattern for better semantics. #391
 
-## Fixed/Patched
+### Fixed/Patched
 - (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated with the link for screenreaders. #386
 - (Patternlab) DP-11400: Add more spacing on org page above "More about [name]". #368
 - (Patternlab) DP-5230: Fix print styles: how-to left alignment. #370
