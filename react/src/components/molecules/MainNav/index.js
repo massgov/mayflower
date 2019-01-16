@@ -127,7 +127,7 @@ class MainNav extends Component {
 MainNav.propTypes = {
   /** An array of navigation objects to display in the main nav */
   mainNav: PropTypes.arrayOf(PropTypes.shape({
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     text: PropTypes.string.isRequired,
     active: PropTypes.bool,
     subNav: PropTypes.arrayOf(PropTypes.shape({
