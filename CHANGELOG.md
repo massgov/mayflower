@@ -16,8 +16,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ## 8.19.1 (01/17/2019)
 
 ### Fixed
-- (Patternlab) DP-12234: Fix the spacing issue after the conditional content for phone in contact item.
-- (React) DP-12080: Add capacity to pass an id to the input tag of the InputTextFuzzy atom.
+- (Patternlab) DP-12234: Fix the spacing issue after the conditional content for phone in contact item. #410
+- (React) DP-12080: Add capacity to pass an id to the input tag of the InputTextFuzzy atom. #412
 
 ## 8.19.0 (01/16/2019)
 
