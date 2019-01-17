@@ -5,10 +5,15 @@
     @include ma-component-spacing(small);
   }
 
+  .ma_stacked-row-external-sidebar & {
+    @include ma-component-spacing(small);
+    padding: 0;
+  }
+
   &--meta-wrapper {
     display: flex;
     font-style: italic;
-    color: $c-theme-gray;
+    color: $c-gray-dark;
 
     .curated-person--title {
       padding-right: 1rem;

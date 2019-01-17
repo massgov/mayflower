@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (Patternlab) DP-xxxx: Update location that JavaScript templates are copied

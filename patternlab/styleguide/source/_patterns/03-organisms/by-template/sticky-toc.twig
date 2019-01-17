@@ -1,45 +1,48 @@
 {% if stickyTOC %}
-  <section class="ma__sticky-toc" data-min-to-show="{{ stickyTOC.min ? stickyTOC.min : 2 }}">
-    <a href="#ma-end-sticky-toc" class="ma__visually-hidden">skip table of contents</a>
-    <div class="ma__sticky-toc__inner">
-      <div class="ma__sticky-toc__container">
-        <h2 class="ma__sticky-toc__title" id="page-contents">{{ stickyTOC.title }}</h2>
-        <nav class="ma__sticky-toc__links" aria-labelledby="page-contents">
-          <button class="ma__sticky-toc__toggle-link">+</button>
-          <div class="ma__sticky-toc__column">
-            <div class="ma__sticky-toc__secondary-label">{{ stickyTOC.title }} <span class="secondary-label-close"></span></div>
-            {% for link in stickyTOC.links %}
-              <div class="ma__sticky-toc__link">
-                {{ icon('circle-chevron') }}
-                </svg>
-                <a href="#{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
-              </div>
-            {% endfor %}
+<section class="ma__sticky-toc" data-min-to-show="{{ stickyTOC.min ? stickyTOC.min : 2 }}" data-parent="{{ stickyTOC.parent }}"
+  data-sections="{{ stickyTOC.sections }}">
+  <div class="ma__jump-links__skip-link__container">
+    <a href="#ma-end-sticky-toc" class="ma__jump-links__skip-link">Skip table of contents</a>
+  </div>
+  <div class="ma__sticky-toc__inner">
+    <div class="ma__sticky-toc__container">
+      <h2 class="ma__sticky-toc__title" id="page-contents">{{ stickyTOC.title }}</h2>
+      <nav class="ma__sticky-toc__links" aria-labelledby="page-contents">
+        <button class="ma__sticky-toc__toggle-link">+</button>
+        <div class="ma__sticky-toc__column">
+          <div class="ma__sticky-toc__secondary-label">{{ stickyTOC.title }} <span class="secondary-label-close"></span></div>
+          {% for link in stickyTOC.links %}
+          <div class="ma__sticky-toc__link">
+            {{ icon('circle-chevron') }}
+            </svg>
+            <a href="#{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
           </div>
-        </nav>
-        <div class="ma__sticky-toc__footer">
-          <button type="button" class="js-sticky-toc__toggle-items">Show More</span>
+          {% endfor %}
+        </div>
+      </nav>
+      <div class="ma__sticky-toc__footer">
+        <button type="button" class="js-sticky-toc__toggle-items">Show More</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="ma__sticky-toc__stuck">
+    <div class="ma__sticky-toc__stuck--inner-wrapper">
+      <div class="ma__sticky-toc__current-section"></div>
+      <div class="ma__sticky-toc__tools">
+        <div class="ma__sticky-toc__sticky-top tool">
+          <button class="stickyTOC-top">
+            {{ icon('arrow') }}
+            <span aria-label="Go to top of the page">top</span>
           </button>
         </div>
-      </div>
-    </div>
-    <div class="ma__sticky-toc__stuck">
-      <div class="ma__sticky-toc__stuck--inner-wrapper">
-        <div class="ma__sticky-toc__current-section"></div>
-        <div class="ma__sticky-toc__tools">
-          <div class="ma__sticky-toc__sticky-top tool">
-            <button class="stickyTOC-top">
-              {{ icon('arrow') }}
-              <span>top</span>
-            </button>
-          </div>
-          <div class="ma__sticky-toc__sticky-toggle">
-            <button class="stickyTOC-open">{{ stickyTOC.title }}</button>
-          </div>
+        <div class="ma__sticky-toc__sticky-toggle">
+          <button class="stickyTOC-open">{{ stickyTOC.title }}</button>
         </div>
       </div>
     </div>
-    <a id="ma-end-sticky-toc"></a>
-    <div class="ma__sticky-toc__overlay"></div>
-  </section>
+  </div>
+  <a id="ma-end-sticky-toc"></a>
+  <div class="ma__sticky-toc__overlay"></div>
+</section>
 {% endif %}

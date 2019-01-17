@@ -1,9 +1,11 @@
-<section class="ma__contact-row js-accordion">
+<section class="ma__contact-row">
   {% set contactHeading = 2 %}
   {% set contactHeading = (contactRow.compHeading.level ? : contactHeading) + 1 %}
 
-  {% set compHeading = contactRow.compHeading %}
-  {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% if contactRow.compHeading %}
+    {% set compHeading = contactRow.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% endif %}
 
   {% block contactImage %}
     {% if contactRow.image %}
@@ -12,40 +14,54 @@
     {% endif %}
   {% endblock %}
 
-  {% if contactRow.primaryContact %}
-    <div class="ma__contact-row__primary">
-      {% block primaryContactGroup %}
-        {% set contactGroup = contactRow.primaryContact|merge({"level": contactHeading}) %}
-        {% include "@molecules/contact-group.twig" %}
-      {% endblock %}
-    </div>
-  {% endif %}
-
-  <div class="ma__contact-row__additional {{ contactRow.hasManyAdditional ? 'has-many': ''}}">
+  <div class="ma__contact-row__columns">
     {% block additionalContacts %}
-      {% for contact in contactRow.additionalContacts %}
-        {% set contactGroup = contact|merge({"level": contactHeading}) %}
+
+    {% if  contactRow.addressContactGroup %}
+      <div class="ma__contact-row--address ma__contact-set">
+        {% set contactGroup = contactRow.addressContactGroup %}
         {% include "@molecules/contact-group.twig" %}
-      {% endfor %}
-    {% endblock %}
-    {% if contactRow.moreLink %}
-      <div class="ma__contact-group">
-        {% block moreLink %}
-          {% set decorativeLink = contactRow.moreLink %}
-          {% include "@atoms/decorative-link.twig" %}
-        {% endblock %}
       </div>
     {% endif %}
+
+    {% if contactRow.phoneContactGroup %}
+      <div class="ma__contact-row--phone ma__contact-set">
+        {% set contactGroup = contactRow.phoneContactGroup %}
+        {% include "@molecules/contact-group.twig" %}
+      </div>
+    {% endif %}
+
+    {% if  contactRow.onlineContactGroup %}
+      <div class="ma__contact-row--online ma__contact-set">
+        {% set contactGroup = contactRow.onlineContactGroup %}
+        {% include "@molecules/contact-group.twig" %}
+      </div>
+    {% endif %}
+
+    {% if contactRow.faxContactGroup %}
+      <div class="ma__contact-row--fax ma__contact-set">
+        {% set contactGroup = contactRow.faxContactGroup %}
+        {% include "@molecules/contact-group.twig" %}
+      </div>
+    {% endif %}
+
+    {% endblock %}
   </div>
 
-  {% if contactRow.hasManyAdditional %}
-    <div class="ma__contact-row__expand">
-      <button type="button" class="js-accordion-link">
-        Show <span>more</span><span>less</span> contact info
-      </button>
-    </div>
+  {% if contactRow.moreLink %}
+  <div class="ma__contact-group contact-group__more-link">
+    {% block moreLink %}
+      {% set decorativeLink = contactRow.moreLink %}
+      {% include "@atoms/decorative-link.twig" %}
+    {% endblock %}
+  </div>
   {% endif %}
 
 
+  <div class="ma__contact-row__expand">
+    <button type="button">
+      Show <span>more</span><span>less</span> contact info
+    </button>
+  </div>
 
 </section>

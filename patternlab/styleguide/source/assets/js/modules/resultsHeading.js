@@ -46,8 +46,7 @@ export default (function (window,document,$,undefined) {
     // Asynchronously render via TwigJS.
     twiggy('@molecules/results-heading.twig')
         .then(t => t.renderAsync({resultsHeading: args.data}))
-        .then(markup => args.$el.html(markup))
-
+        .then(markup => args.$el.html($(markup).children()))
   }
 
 })(window,document,jQuery);

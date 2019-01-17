@@ -9,7 +9,6 @@ import ResultsHeading from './index';
 import ResultsHeadingDocs from './ResultsHeading.md';
 import { TagsData, SortData } from './ResultsHeading.knobs.options';
 import buttonToggleOptions from '../../atoms/buttons/ButtonToggle/ButtonToggle.knobs.options';
-import selectOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
   .add('ResultsHeading', withInfo(`<div>${ResultsHeadingDocs}</div>`)(() => {

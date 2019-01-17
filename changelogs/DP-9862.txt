@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed:
-Patch:
-- (Patternlab) DP-9862: Remove all absolute URL references from Patternlab data and templates.

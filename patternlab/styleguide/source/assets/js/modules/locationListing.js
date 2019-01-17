@@ -1,26 +1,26 @@
 import sticky from "../helpers/sticky.js";
 import listings from "../helpers/listing.js";
 
-export default (function (window, document, $, undefined) {
+export default (function (window, document, $) {
   // Active state classes for location listing rows.
-  let activeClass = 'is-active',
-    markerActiveClass = 'is-marker-bounce',
+  let activeClass = "is-active",
+    markerActiveClass = "is-marker-bounce",
     // Selectors for event listeners on dynamic content.
-    row = '.js-location-listing-link',
-    activeLocationListingRow = row + '.' + activeClass,
-    markerActiveLocationListingRow = row + '.' + markerActiveClass,
+    row = ".js-location-listing-link",
+    activeLocationListingRow = row + "." + activeClass,
+    markerActiveLocationListingRow = row + "." + markerActiveClass,
     // Parent component selectors.
-    container = '.js-location-listing-results',
-    parent = '.js-image-promos',
-    mapCol = '.js-location-listing-map';
+    container = ".js-location-listing-results",
+    parent = ".js-image-promos",
+    mapCol = ".js-location-listing-map";
 
-  $('.js-location-listing').each(function (i) {
+  $(".js-location-listing").each(function (i) {
     let $el = $(this),
-      $mapCol = $el.find('.js-location-listing-map'),
-      $map = $el.find('.js-google-map'),
-      $resultsHeading = $el.find('.js-results-heading'),
-      $pagination = $el.find('.js-pagination'),
-      $locationFilter = $el.find('.js-location-filters');
+      $mapCol = $el.find(".js-location-listing-map"),
+      $map = $el.find(".js-google-map"),
+      $resultsHeading = $el.find(".js-results-heading"),
+      $pagination = $el.find(".js-pagination"),
+      $locationFilter = $el.find(".js-location-filters");
 
     sticky.init($mapCol);
 
@@ -29,34 +29,36 @@ export default (function (window, document, $, undefined) {
 
     let masterData = []; // master data structure to preserve state
     // Listen for map initialization, populate master data structure using locationListing, map markers.
-    $map.on('ma:GoogleMap:MapInitialized', function (e, markers) {
+    $map.on("ma:GoogleMap:MapInitialized", function (e, markers) {
       masterData = populateMasterDataSource(rawData, markers); // to preserve state
     });
 
     // Listen for Google Map api library load completion, with geocode, geometry, and places libraries
-    $(document).on('ma:LibrariesLoaded:GoogleMaps', function () {
+    $(document).on("ma:LibrariesLoaded:GoogleMaps", function () {
       // Set up click handler for location listing rows.
-      $el.on('click', row, function (e) {
+      $el.on("click", row, function (e) {
+        // If the link has an href, allow the normal link functionality
+        // and exit event handler.
+        if (e.target.href) {
+          e.stopImmediatePropagation();
+          return;
+        }
+
         let index = $(e.currentTarget).index();
-        // trigger map to recenter on this item based on it's index.
-        $map.trigger('ma:GoogleMap:MapRecenter', index);
-        // mark this link as active
+
+        // Trigger map to recenter on this item based on it's index.
+        $map.trigger("ma:GoogleMap:MapRecenter", index);
+
+        // Mark this link as active.
         $el.find(activeLocationListingRow).removeClass(activeClass);
-        $(e.currentTarget).addClass(activeClass); // in case the event is triggered on a child element.
-        // focus on the map - mainly for mobile when it is stacked
-        let position = $map.offset().top;
-        $("html,body").stop(true, true).animate({ scrollTop: position }, '750');
+        // In case the event is triggered on a child element.
+        $(e.currentTarget).addClass(activeClass);
       });
 
       // Set up hover / focus event for listing rows.
-      $el.on('mouseenter focusin', row, function (e) {
-        // remove active state from previously selected list item
+      $el.on("mouseenter focusin", row, function (e) {
+        // Remove active state from previously selected list item.
         $el.find(activeLocationListingRow).removeClass(activeClass);
-
-        // Don't bounce the marker again if focus moves within the same listing.
-        if ($(e.currentTarget).hasClass(markerActiveClass)) {
-          return false;
-        }
 
         // Remove "focus" class from any "focused" location listing row.
         // ("focus" vs focus because hover doesn't bring focus to element.)
@@ -67,35 +69,48 @@ export default (function (window, document, $, undefined) {
         let index = $(e.currentTarget).index();
 
         // Trigger map to recenter on this item and make the marker bounce
-        $map.trigger('ma:GoogleMap:MarkerBounce', index);
+        $map.trigger("ma:GoogleMap:MarkerBounce", index);
       });
 
       // Remove "focus" class from any "focused" location listing row.
-      $el.on('mouseleave', row, function (e) {
+      $el.on("mouseleave", row, function (e) {
         $el.find(markerActiveLocationListingRow).removeClass(markerActiveClass);
       });
 
       // Handle location listings form interaction (triggered by locationFilters.js).
-      $locationFilter.on('ma:LocationFilter:FormSubmitted', function (e, formValues) {
-        // transformData() returns a jQuery deferred object which allows us to wait for any asynchronous js execution to return before executing the .done(callback).
-        // @see: https://api.jquery.com/deferred.done/
-        transformData(masterData, formValues).done(function (transformation) {
-          masterData = transformation.data; // preserve state
-          // Update the results heading based on the current items state.
-          transformation.data.resultsHeading = listings.transformResultsHeading({ data: transformation.data });
-          // Update pagination data structure, reset to first page
-          transformation.data.pagination = listings.transformPaginationData({ data: transformation.data });
-          // Render the listing page.
-          listings.renderListingPage({ data: transformation.data });
-          // Get the associated markers based on the listing items.
-          transformation.markers = getActiveMarkers({ data: transformation.data });
-          // Trigger child components render with updated data
-          updateChildComponents(transformation);
-        });
+      $locationFilter.on("ma:LocationFilter:FiltersUpdated", function (e, formValues, resetValues) {
+        // Only update things if masterData contains data.
+        if (masterData.items && masterData.items.length > 0) {
+          // transformData() returns a jQuery deferred object which allows us to wait for any asynchronous js execution to return before executing the .done(callback).
+          // @see: https://api.jquery.com/deferred.done/
+          transformData(masterData, formValues).done(function (transformation) {
+            let page = 1;
+            if (!resetValues) {
+              page = parseInt(getPage(), 10);
+            }
+            masterData = transformation.data; // preserve state
+            // Update the results heading based on the current items state.
+            transformation.data.resultsHeading = listings.transformResultsHeading({
+              data: transformation.data,
+              page: page
+            });
+            // Update pagination data structure, reset to first page
+            transformation.data.pagination = listings.transformPaginationData({
+              data: transformation.data,
+              targetPage: page
+            });
+            // Render the listing page.
+            listings.renderListingPage({data: transformation.data, page: page});
+            // Get the associated markers based on the listing items.
+            transformation.markers = getActiveMarkers({data: transformation.data, page: page});
+            // Trigger child components render with updated data
+            updateChildComponents(transformation);
+          });
+        }
       });
 
       // Handle active filter/tag button interactions (triggered by resultsHeading.js).
-      $resultsHeading.on('ma:ResultsHeading:ActiveTagClicked', function (e, clearedFilter) {
+      $resultsHeading.on("ma:ResultsHeading:ActiveTagClicked", function (e, clearedFilter) {
         // transformData() returns a jQuery deferred object which allows us to wait for any asynchronous js execution to return before executing the .done(callback).
         // @see: https://api.jquery.com/deferred.done/
         transformData(masterData, clearedFilter).done(function (transformation) {
@@ -118,39 +133,44 @@ export default (function (window, document, $, undefined) {
 
       function handlePagination(e, target) {
         let nextPage = parseInt(target, 10);
+        // If this is happening during page load, e will be null, and focus should not be updated.
+        let focus = !!e;
 
         masterData.pagination = listings.transformPaginationData({ data: masterData, targetPage: nextPage });
         masterData.resultsHeading = listings.transformResultsHeading({ data: masterData, page: nextPage });
-        listings.renderListingPage({ data: masterData, page: nextPage });
+        listings.renderListingPage({ data: masterData, page: nextPage, focus });
 
         let markers = getActiveMarkers({ data: masterData, page: nextPage });
         // Trigger child components render with updated data
         updateChildComponents({ data: masterData, markers: markers });
       }
 
-      // Handle pagination event (triggered by pagination.js), render targetPage.
-      $pagination.on('ma:Pagination:Pagination', handlePagination);
-      let defaultPage = 1;
-      let params = new URLSearchParams(window.location.search);
-      if (history.state) {
-        defaultPage = history.state.page;
-      }
-      if (params) {
-        defaultPage = params.get("_page");
-      }
-      if (parseInt(defaultPage, 10) !== 1) {
-        handlePagination(null, defaultPage);
+      function getPage() {
+        let defaultPage = 1;
+        let params = new URLSearchParams(window.location.search);
+        if (history.state) {
+          defaultPage = history.state.page;
+        }
+        if (params) {
+          defaultPage = params.get("_page");
+        }
+        return defaultPage;
       }
 
+      // Handle pagination event (triggered by pagination.js), render targetPage.
+      $pagination.on("ma:Pagination:Pagination", handlePagination);
+      let defaultPage = getPage();
+
+      handlePagination(null, defaultPage);
     });
 
     // Trigger events to update child components with new data.
     function updateChildComponents(args) {
-      $resultsHeading.trigger('ma:ResultsHeading:DataUpdated', [args.data.resultsHeading]);
-      $map.trigger('ma:GoogleMap:MarkersUpdated', [{ markers: args.markers, place: args.place }]);
-      $pagination.trigger('ma:Pagination:DataUpdated', [args.data.pagination]);
+      $resultsHeading.trigger("ma:ResultsHeading:DataUpdated", [args.data.resultsHeading]);
+      $map.trigger("ma:GoogleMap:MarkersUpdated", [{ markers: args.markers, place: args.place }]);
+      $pagination.trigger("ma:Pagination:DataUpdated", [args.data.pagination]);
       if (args.clearedFilter) {
-        $locationFilter.trigger('ma:FormFilter:DataUpdated', [args.clearedFilter]);
+        $locationFilter.trigger("ma:FormFilter:DataUpdated", [args.clearedFilter]);
       }
     }
   });
@@ -198,10 +218,9 @@ export default (function (window, document, $, undefined) {
     listing.pagination.pages = pages;
 
 
-    // Get the listing imagePromos, generate markup for each
-    let masterListing = listing.imagePromos.items,
-      masterListingMarkup = listings.transformListing(masterListing, 'locationListingRow');
+    let masterListing = listing.imagePromos.items;
 
+    let masterListingMarkup = listings.transformListing(masterListing, "locationListingRow");
     // The max number of items per page, if designated in locationListing data structure, else all
     masterData.maxItems = listing.maxItems ? listing.maxItems : listing.imagePromos.items.length;
     // The initial results heading data structure
@@ -282,16 +301,18 @@ export default (function (window, document, $, undefined) {
     // First filter the data based on component state, then sort alphabetically by default.
     let filteredData = listings.filterListingData(data, transformation),
       sortedData = listings.sortDataAlphabetically(filteredData),
-      place = '';
+      place = "";
 
     // Sort data by location, if that filter is present.
-    if (listings.hasFilter(filteredData.resultsHeading.tags, 'location')) {
-      place = listings.getFilterValues(filteredData.resultsHeading.tags, 'location')[0]; // returns array
+    if (listings.hasFilter(filteredData.resultsHeading.tags, "location")) {
+      place = listings.getFilterValues(filteredData.resultsHeading.tags, "location")[0]; // returns array
       // If place argument was selected from the locationFilter autocomplete (initiated on the zipcode text input).
-      let autocompletePlace = ma.autocomplete.getPlace();
+      if (typeof ma.autocomplete !== "undefined") {
+        let autocompletePlace = ma.autocomplete.getPlace();
+      }
       // Geocode the address, then sort the markers and instance of locationListing masterData.
       ma.geocoder = ma.geocoder ? ma.geocoder : new google.maps.Geocoder();
-      if (typeof autocompletePlace !== "undefined" && autocompletePlace.hasOwnProperty('place_id')) {
+      if (typeof autocompletePlace !== "undefined" && autocompletePlace.hasOwnProperty("place_id")) {
         // This is an asynchronous function
         listings.geocodePlaceId(autocompletePlace.place_id, function (result) {
           transformReturn.data = sortDataAroundPlace(result, filteredData);
@@ -376,4 +397,4 @@ export default (function (window, document, $, undefined) {
     // Return the newly sorted instance of location listing masterData.
     return data;
   }
-})(window, document, jQuery);
+}) (window, document, jQuery);

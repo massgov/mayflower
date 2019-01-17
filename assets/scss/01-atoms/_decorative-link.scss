@@ -3,11 +3,7 @@
   display: inline-block;
   vertical-align: middle;
   width: 100%;
-}
 
-//theme
-.ma__decorative-link {
-  
   a:hover {
     border-bottom-color: rgba($c-font-link,.5);
   }
@@ -15,4 +11,40 @@
   svg {
     fill: rgba($c-font-link,.5);
   }
+
+  &.button-link {
+    outline: 1px solid rgba($c-font-link, 0.5);
+    display: inline-block;
+    width: auto;
+    padding: .5rem 1.8rem .5rem .8rem;
+    background-color: $c-white;
+
+    &:hover {
+      outline: 1px solid rgba($c-font-link, 1);
+
+      a {
+        border-bottom-color: transparent;
+  
+        svg {
+          fill: rgba($c-font-link, 1);
+        }
+      }
+    }
+  }
+
+  a {
+    .ma__download-link--icon {
+      display: inline-flex;
+      align-self: center;
+      top: .3em;
+      position: relative;
+
+      svg {
+        margin-right: 0;
+        width: 29px;
+        height: 30px;
+      }
+    }
+  }
+
 }

@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
-import SvgMarker from '../../atoms/icons/SvgMarker';
-import SvgLaptop from '../../atoms/icons/SvgLaptop';
-import SvgPhone from '../../atoms/icons/SvgPhone';
-import SvgFax from '../../atoms/icons/SvgFax';
+import Icon from '../../atoms/icons/Icon';
+import './style.css';
 
 const ContactGroup = (contactGroup) => {
   const icons = {
-    SvgMarker: <SvgMarker />, SvgPhone: <SvgPhone />, SvgLaptop: <SvgLaptop />, SvgFax: <SvgFax />
+    SvgMarker: <Icon name="marker" />, SvgPhone: <Icon name="phone" />, SvgLaptop: <Icon name="laptop" />, SvgFax: <Icon name="fax" />
   };
   const Element = `h${contactGroup.level ? contactGroup.level : 2}`;
   const createItems = (item) => {

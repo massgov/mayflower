@@ -20,8 +20,12 @@
         {% include "@molecules/results-heading.twig" %}
         {% set promoHeading = locationListing.imagePromos.promoHeading %}
         {% set items = locationListing.imagePromos.items[:maxItems] %}
-        {% set imagePromos = { promoHeading: promoHeading, items: items } %}
-        {% include "@organisms/by-author/image-promos.twig" %}
+
+        {% block imagePromos %}
+          {% set imagePromos = { promoHeading: promoHeading, items: items } %}
+          {% include "@organisms/by-author/image-promos.twig" %}
+        {% endblock %}
+
         {% set pagination = locationListing.pagination %}
         {% include "@molecules/pagination.twig" %}
       </div>
@@ -32,5 +36,17 @@
   // Make locationListing data object available in locationListing module js.
   var ma = ma || {};
   ma.locationListing = ma.locationListing || [];
+  {# Convert the description of each item to a text string #}
+  {% set items = [] %}
+  {% for item in locationListing.imagePromos.items %}
+    {% set description %}
+      {% include "@organisms/by-author/rich-text.twig" with {
+        richText: item.description.richText
+      } %}
+    {% endset %}
+    {% set item = item|merge({'description': {'text': description} }) %}
+    {% set items = items|merge([item]) %}
+  {% endfor %}
+  {% set locationListing = locationListing|merge({'imagePromos': {'items': items} }) %}
   ma.locationListing.push({{ locationListing|json_encode|raw }});
 </script>

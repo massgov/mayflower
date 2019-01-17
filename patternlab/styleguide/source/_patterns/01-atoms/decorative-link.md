@@ -10,6 +10,8 @@ decorativeLink {
     type: string (url) / required
   text:
     type: string / required
+  context: 
+    type: string / optional
   info: 
     type: string (adds more description to the link) / optional
 }

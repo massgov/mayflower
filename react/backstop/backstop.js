@@ -1,87 +1,56 @@
-const listDirs = require('./listDirs');
-const storyBookBackstop = require('./storyBookBackstop');
 const path = require('path');
 
-const processAtoms = (process.argv.indexOf('--atoms') > -1);
+const listDirs = require('./listDirs.js');
+const storyBookBackstop = require('./storyBookBackstop');
 
-let testId;
-let components;
-let viewports;
+const debug = (process.argv.indexOf('--debug') > -1);
+
+// Default viewport values.
+const viewports = [
+  { label: 'small_atom', width: 400, height: 250 },
+  { label: 'phone', width: 320, height: 480 },
+  { label: 'tablet', width: 1024, height: 768 }
+];
 
 // Scan for component names and set up viewports.
-const componentsPath = `${__dirname}/../src/components/`;
-if (processAtoms) {
-  testId = 'mayflower-react-atoms';
-  components = listDirs(componentsPath)
-    // Component directory names are capitalized.
-    .filter((filePath) => (/^[A-Z]/.test(path.basename(filePath))))
-    // Only test atoms with this backstop configuration.
-    .filter((filePath) => (filePath.indexOf('/atoms/') > -1))
-    // Skip table and media/Image, they need to be tested with larger viewports.
-    .filter((filePath) => ((filePath.indexOf('table') === -1) && (path.basename(filePath) !== 'Image')));
-
-  viewports = [{
-    label: 'small_atom',
-    width: 400,
-    height: 250
-  }];
-} else {
-  testId = 'mayflower-react';
-  components = listDirs(componentsPath)
-    // Component directory names are capitalized.
-    .filter((filePath) => (/^[A-Z]/.test(path.basename(filePath))))
-    // Only test stories other than atoms with this backstop configuration.
-    .filter((filePath) => (filePath.indexOf('/atoms/') === -1));
-
-  viewports = [{
-    label: 'phone',
-    width: 320,
-    height: 480
-  }, {
-    label: 'tablet',
-    width: 1024,
-    height: 768
-  }];
-}
+const componentsPath = path.resolve(__dirname, '../src/components/');
+const dirList = listDirs(componentsPath)
+  // Do not test animations.
+  .filter((filePath) => (filePath.indexOf('/animations') === -1))
+  // Do not test styles.
+  .filter((filePath) => (filePath.indexOf('/styles') === -1));
+const testComponents = storyBookBackstop.listComponents(dirList);
 
 // Map discovered Component dirs to Backstop scenarios.
-let scenarios = storyBookBackstop.mapComponents(components);
+let scenarios = storyBookBackstop.mapComponents(testComponents, debug);
 
-if (!processAtoms) {
-  // Add the "atoms/media/Image" story and atoms/Table story, they are not tested
-  // with --atoms due to viewports sizes.
-  scenarios.push({
-    label: 'atoms/media/Image',
-    url: storyBookBackstop.makeStoryUrl('atoms/media', 'Image')
-  });
-  scenarios.push({
-    label: 'atoms/table/Table',
-    url: storyBookBackstop.makeStoryUrl('atoms/table', 'Table')
-  });
-
-  // Error and example Template pages need a delay to allow the background
-  // animation to complete.
-  scenarios = scenarios.map((item) => {
-    const result = item;
-    const { label } = result;
-    if ((label.indexOf('Error') > -1) || (label.indexOf('NarrowTemplate'))) {
-      result.delay = 5000;
-    }
-    return result;
-  });
-}
+// The Error and example Template pages need a delay to allow the background
+// animation to complete.
+scenarios = scenarios.map((item) => {
+  const delays = [
+    'Error',
+    'NarrowTemplate',
+    'GeneralTeaser'
+  ];
+  // eslint-disable-next-line prefer-const
+  let result = { ...item };
+  if (delays.some((value) => item.label.indexOf(value) > -1)) {
+    result.delay = 5000;
+  }
+  return result;
+});
 
 module.exports = {
-  id: testId,
+  id: 'vrt',
   viewports,
   onReadyScript: 'onReady.js',
   scenarios,
   paths: {
-    bitmaps_reference: `${__dirname}/data/bitmaps_reference`,
-    bitmaps_test: `${__dirname}/data/bitmaps_test`,
-    engine_scripts: `${__dirname}/scripts`,
-    html_report: `${__dirname}/data/html_report`,
-    ci_report: `${__dirname}/data/ci_report`
+    bitmaps_reference: path.resolve(__dirname, './data/bitmaps_reference'),
+    bitmaps_test: path.resolve(__dirname, './data/bitmaps_test'),
+    engine_scripts: path.resolve(__dirname, './scripts'),
+    html_report: path.resolve(__dirname, './data/html_report'),
+    ci_report: path.resolve(__dirname, './data/ci_report')
   },
   report: ['browser', 'CI'],
   engine: 'puppeteer',

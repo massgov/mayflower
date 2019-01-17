@@ -1,3 +1,6 @@
+@import 'global';
+@import '02-molecules/org-selector';
+
 .react-autosuggest__suggestions{
   &-container--open{
     position: absolute;

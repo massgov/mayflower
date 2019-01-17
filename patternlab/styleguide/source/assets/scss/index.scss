@@ -11,6 +11,9 @@
 // Bower vendors
 @import "../js/vendor/bower_components/pikaday/scss/pikaday";
 
+// Assets path variable
+@import "00-base/paths";
+
 // Base variables
 @import "00-base/breakpoints";
 @import "00-base/mixins";
@@ -41,6 +44,7 @@
 @import "01-atoms/divider";
 @import "01-atoms/error-msg";
 @import "01-atoms/figure";
+@import "01-atoms/fixed-feedback-button";
 @import "01-atoms/forms";
 @import "01-atoms/helper-text";
 @import "01-atoms/icon-list";
@@ -61,6 +65,7 @@
 @import "01-atoms/svg-loc-icons";
 @import "01-atoms/textarea";
 @import "01-atoms/table";
+@import "01-atoms/table-responsive";
 @import "01-atoms/video";
 
 // Molecules - chunks of code that are used in Organisms/Components
@@ -126,6 +131,7 @@
 @import "03-organisms/about-section";
 @import "03-organisms/ajax-pattern";
 @import "03-organisms/action-card";
+@import "03-organisms/account-manager";
 @import "03-organisms/action-details";
 @import "03-organisms/action-finder";
 @import "03-organisms/banner-carousel";
@@ -166,6 +172,8 @@
 @import "03-organisms/page-overview";
 @import "03-organisms/location-banner";
 @import "03-organisms/mapped-locations";
+@import "03-organisms/organization-navigation-item";
+@import "03-organisms/organization-navigation";
 @import "03-organisms/page-banner";
 @import "03-organisms/page-discourse";
 @import "03-organisms/page-flipper";
@@ -215,3 +223,4 @@
 @import "04-templates/press";
 @import "04-templates/services";
 @import "04-templates/stacked-row";
+@import "04-templates/stacked-row-section-external-sidebar.scss";

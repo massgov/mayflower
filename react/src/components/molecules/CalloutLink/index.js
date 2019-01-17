@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SvgArrow from '../../atoms/icons/SvgArrow';
+import Icon from '../../atoms/icons/Icon';
+import './style.css';
 
 const CalloutLink = (calloutLink) => {
   const calloutLinkTheme = calloutLink.theme ? ` ma__callout-link--${calloutLink.theme}` : '';
@@ -16,7 +17,7 @@ const CalloutLink = (calloutLink) => {
           </div>
         )}
         <span className="ma__callout-link__container">
-          <span className="ma__callout-link__text" >{calloutLink.text}&nbsp;<SvgArrow /></span>
+          <span className="ma__callout-link__text" >{calloutLink.text}&nbsp;<Icon name="arrow" /></span>
         </span>
         { calloutLink.emphasized && (<span className="ma__callout-link__emphasized">{calloutLink.emphasized}</span>)}
         { calloutLink.description && (<p className="ma__callout-link__description">{calloutLink.description}</p>)}

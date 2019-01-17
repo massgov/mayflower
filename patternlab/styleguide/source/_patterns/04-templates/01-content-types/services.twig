@@ -10,7 +10,7 @@
   {% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
   <div class="pre-content">
     {% block preContent %}
-      {% include "@organisms/by-template/content-eyebrow.twig" %}
+      {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-banner.twig" %}
     {% endblock %}
   </div>
@@ -23,13 +23,15 @@
             {% include "@atoms/09-media/image.twig" %}
           {% endif %}
           {% block pageContentIntro %}
+           
+            {% set richText = introPageContent.intro %}
+            {% include "@organisms/by-author/rich-text.twig" %}
+
             {% if introPageContent.video %}
               {% set video = introPageContent.video %}
               {% include "@atoms/09-media/video.twig" %}
             {% endif %}
 
-            {% set richText = introPageContent.intro %}
-            {% include "@organisms/by-author/rich-text.twig" %}
 
             {% if introPageContent.keyActions %}
               {% set keyActions = introPageContent.keyActions %}
@@ -45,11 +47,6 @@
                 {% include "@atoms/09-media/image.twig" %}
               {% endif %}
               {% if introSidebar.social %}
-                {# Backward Compatible with v5.7 - added heading to iconLinks so this heading isn't needed #}
-                {% if introSidebar.social.sidebarHeading %}
-                  {% set sidebarHeading = introSidebar.social.sidebarHeading %}
-                  {% include "@atoms/04-headings/sidebar-heading.twig" %}
-                {% endif %}
                 {% set iconLinks = introSidebar.social.iconLinks %}
                 {% include "@molecules/icon-links.twig" %}
               {% endif %}
@@ -84,6 +81,9 @@
               {% include "@organisms/by-author/event-listing.twig" %}
             {% endif %}
             {% if splitColumns %}
+              <div class="more-info-header">
+                <h2 class="ma__comp-heading">More Information</h2>
+              </div>
               {% include "@organisms/by-author/split-columns.twig" %}
             {% endif %}
           {% endblock %}
@@ -99,4 +99,3 @@
 {% block footer %}
 
 {% endblock %}
-

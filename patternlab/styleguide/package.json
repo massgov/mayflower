@@ -1,7 +1,11 @@
 {
   "name": "@massds/mayflower",
   "description": "Open source UI components and visual style guide for Massachusetts government websites",
-  "version": "6.1.0",
+  "engines": {
+    "node": ">6.9.0",
+    "npm": ">5.0.0"
+  },
+  "version": "6.3.0",
   "author": "Massachusetts Digital Services (MDS)",
   "repository": {
     "type": "git",
@@ -20,12 +24,13 @@
   },
   "homepage": "https://github.com/massgov/mayflower#readme",
   "devDependencies": {
-    "babelify": "^8.0.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "babelify": "^8.0.0",
     "browser-sync": "^2.24.6",
     "browserify": "^16.1.1",
     "child-process-promise": "^2.2.1",
+    "dotenv": "^6.0.0",
     "eslint": "^5.2.0",
     "eslint-plugin-react": "^7.2.0",
     "gulp": "^4.0.0",
@@ -39,22 +44,19 @@
     "gulp-pixrem": "^1.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-s3-upload": "^1.7.0",
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-svgmin": "^1.2.4",
-    "gulp-svgstore": "^6.1.1",
     "gulp-uglify": "^3.0.0",
     "lazypipe": "^1.0.1",
     "main-bower-files": "^2.13.1",
     "merge-stream": "^1.0.1",
     "node-bourbon": "^4.2.8",
     "node-neat": "^1.7.2",
-    "node-sass": "^4.9.2",
     "node-normalize-scss": "^8.0.0",
-    "optimist": "^0.6.1",
+    "node-sass": "^4.9.2",
     "through2": "^2.0.3",
-    "undertaker-registry": "^1.0.1"
+    "undertaker-registry": "^1.0.1",
+    "untildify": "^3.0.3"
   },
   "dependencies": {},
   "scripts": {

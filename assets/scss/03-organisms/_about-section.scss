@@ -25,10 +25,6 @@
       display: inline-block;
       margin: 5px 0 40px;
     }
-
-    .ma__person-card__links .ma__content-link {
-      margin: 0;
-    }
   }
 
   &__content-container {
@@ -113,7 +109,7 @@
     .ma__comp-heading {
       @include ma-h5;
       text-transform: uppercase;
-      color: $c-theme-green;
+      color: $c-primary-alt;
       font-weight: 700;
       margin-bottom: 0;
 

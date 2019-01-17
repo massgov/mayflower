@@ -13,6 +13,413 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.19.0 (01/16/2019)
+
+### Added
+- (React) DP-12114: Add option to render an external link in Utility Nav. #400
+
+### Changed
+- (React) DP-12117: Add option to conditionally render the main nav top level link. #408
+
+### Fixed
+- (React) DP-11128: Fixed image promo title not wrapping in IE11 bug. #404
+- (Patternlab) DP-11437: MF Location search by city/zip fix for autocomplete issue. #401
+- (React) DP-11667: Add search role to HeaderSearch molecule for a11y. #405
+- (React) DP-11683: Set a condition in the decorative link atom to only add title when its value is available. #407
+- (React) DP-11684: Hides arrow in decorative link so not read by the screen reader. #407
+- (React) DP-12183: Fixes alignment issue of download icon in the decorative link react component in IE11 #403
+
+## 8.18.0 (01/08/2019)
+
+### Changed
+- (React) DP-12012: Enable the footnotes atom in react to render raw html if passed a child. Update the footnote style to up arrow. #397
+- (Patternlab) DP-9183: Expand button on alert. #388
+- (Patternlab) DP-9775: MF Adjust print styles for topic and org pages to have less space at top. #392
+- (Patternlab) DP-9186: Change section tags to div tags on rich text pattern for better semantics. #391
+
+### Fixed/Patched
+- (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated with the link for screenreaders. #386
+- (Patternlab) DP-11400: Add more spacing on org page above "More about [name]". #368
+- (Patternlab) DP-5230: Fix print styles: how-to left alignment. #370
+- (Patternlab) DP-5232: Fix print styles: remove feedback button. #390
+- (Patternlab) DP-9185: MF [a11y] Use proper html element for semantics. #389
+
+## 8.17.0 (01/04/2019)
+
+### Changed
+- (React) DP-11888: Adds the ability to pass a function to tabs to run after its default click handler. #394
+
+### Fixed
+- (React) DP-11634: Update the MainNav molecule for better a11y, enabling users to tab through the navigation menu. Also updated the svg-sprite-loader package, enabling aria attributes on the Icon component. #385
+
+## 8.16.0 (12/19/2018)
+
+### Changed
+- (Patternlab) DP-5859: Checkboxes missing from What You Need section on print style for How To Pages #369
+
+### Fixed 
+- (Patternlab) DP-10231: bug fix for location pagination #362
+
+## 8.15.0 (12/12/2018)
+
+### Changed
+- (Patternlab) DP-9727: Header and spacing size reductions #363
+
+### Fixed
+- (Patternlab) DP-10447: Pages show excess scroll space to right and bottom in IE11 #367
+
+## 8.14.1 (12/07/2018)
+
+### Fixed
+- (React) DP-11398: Adds the ability to submit without selecting a suggestion, misc bug fixes.
+
+## 8.14.0 (12/05/2018)
+
+### Added
+- (Patternlab) DP-10265: Added a block for the map to the location-banner.twig. #371
+
+### Fixed
+- (Patternlab) DP-11102 and DP-11026: responsive tables obscure stickTOC and final table row #361
+
+## 8.13.0 (12/04/2018)
+
+### Added
+- (React) DP-10789: Ports Teaser Listing Organism to React #324
+
+### Fixed
+- (React) DP-11380: Fix tab scrollIntoView to prevent scrolling vertically #360
+- (React) DP-11402: Fixes a bug in InputTextFuzzy where hitting enter on a suggestion did not pass a suggestion object to the onSuggestionClick prop function. #366
+
+## 8.12.0 (11/28/2018)
+
+### Added
+- (Patternlab) DP-10264: Support Google static maps for locations #344
+
+
+## 8.11.0 (11/09/2018)
+
+### Added
+- (React) DP-11077: Adds Breadcrumb and BreadcrumbItem components. #348
+- (React) DP-11078: Adds InputTextFuzzy component. #349
+
+### Changed
+- (Patternlab) DP-11030: Create a clearer distinction between contact and related in service #343
+- (React) DP-11158: Adds ListingTable to the index.js file. Fixes unique key issues on lists. Adds tbody tag to table. Fixes PropTypes definition for rows prop. #354
+- (Patternlab) DP-9883: Updated the styles of the contact groups in the contact row to display the same number of groups in each column under the "Contact Us" section of the org page. #223
+
+### Fixed
+- (React) DP-11205: Fix FootNote atom bug. #355
+
+## 8.10.0 (10/31/2018)
+
+### Changed
+- (Patternlab) DP-10793: Update video layout on service pages #337
+
+## 8.9.0 (10/26/2018)
+
+### Added
+- (Patternlab) DP-10774: Implements sticky table of contents on Advisory, Decision, Executive Order, Regulation, and Rules of Court content types. It also updated the integration of the stickty table of contents for Information Details, Curated Lists, and Guide pages. #339
+- (React) DP-11038: Add an option for footer component to show footer links category heading. #340
+
+### Changed
+- (React) DP-10244: Componentize SCSS for molecules #297
+- (React) DP-10764: Componentize SCSS for organisms #339
+- (Patternlab) DP-9176: Add aria-label attribute to the table of content accordion button in binder page to override the symbols for screen readers, remove the visually hidden text which aria-label attribute replaces with. #215
+
+### Removed
+
+### Fixed
+- (Patternlab) DP-10362: Makes Org subnav dropdowns keyboard accessible. #308
+- (Patternlab, React) DP-10986: Add font smoothing for Texta font weight accuracy. #336
+
+## 8.8.0 (10/24/2018)
+
+### Added
+- (React) DP-10799: Add FootNote and FootNoteLink atoms to mayflower react. #317
+- (React) DP-10910: Add disabled prop to inputTextTypeAhead and conditionally render filter controls in FilterBox #327
+- (React) DP-10913: Adds Teaser, OperationalHours components. #292
+- (React) DP-10765: Porting Table of Contents Hierarchy component. #311
+
+### Changed
+- (React) Componentize scss for page header organism. #329
+
+### Removed
+- (React) DP-10662: Remove deprecate alt value from site logo image. #315
+- (React) DP-10667: Remove aria-label from search button. Button with icon has aria-label only when it has value. #318
+
+### Fixed
+- (React) DP-10895: Fix bug in page flipper if intro props are not passed. #330
+
+
+## 8.7.0 (10/17/2018)
+
+### Added
+- (React) DP-10784: Port Listing Table in React from PL. #313
+
+### Changed
+- (PatternLab) DP-10756: Modify display of relationship indicators on mobile. #310
+
+### Fixed
+- (Patternlab) DP-10721: Remove duplicated social heading on service page and remove backward compatible sidebar heading to use IconLink comp heading in the template. #316
+
+## 8.6.0 (10/16/2018)
+
+### Added
+- (React) Add react-table as a DataTable component directly using react-table API. #289
+- (React) DP-10649: Add TabContainer and Tab components. #298
+- (React) DP-10693: Add ArrowButton atom component, ArrowNav molecule component and PageFlipper organism component. #301
+
+### changed
+- (React) DP-10770: Update SiteLogo props structure in Header component making it fully configurable and sets default props #312
+- (React) DP-10770: Componentize Header related component styles, including HeaderSearch, MainNav, UtilityNav, UtilityPanel and Header #312
+
+## 8.5.0 (10/10/2018)
+
+### Added
+- (Patternlab) DP-8725: Applies responsive functionality to tables in rich text. #205
+- (Patternlab) DP-10522: Adding a section to how-to's for return visitors #294
+- (React) DP-10690: Added monospace font Source Code Pro into Mayflower React for dataviz and datatables. #246
+- (React) DP-10678: Adds passable aria-label prop to tabs molecule to address a11y issue. #299
+
+### Fixed
+- (Patternlab) Updated header alert CSS to fix underline issues with multi-line sentences. #281
+- (Patternlab) DP-8019: Update sticky TOC to only target h2 elements. #302
+- (React) Fixed filterbox control section spacing, added filter desktop hidden option and fixed button theme c-primary proptype . #295
+- (React) Fixed SearchBanner accessibility issues relating to the filterbox expand/close button. #296
+
+
+### Changed
+- (React) DP-10244: Changes atoms to have styles in the component. #287
+
+
+## 8.4.0 (10/05/2018)
+
+### Added
+- (Patternlab) DP-10025: Update sticky TOC selector to target new curated list structure. #242
+- (React) DP-10441: Adds a slim header organism for targeted applications to mayflower react. #286
+- (React) DP-10440: Adds FooterSlim organism. #285
+- (React) Adds passable suggetions prop to HeaderSearch component. #288
+
+### Fixed
+- (React) Fixed AccordionWrapper child PropType. #275
+- (Patternlab) DP-10570: Updates watch files for JavaScript. #284
+
+### Changed
+- (Patternlab) DP-10013: Offered by relationship indicator row changes Medium priority. #231
+- (Patternlab) DP-10274: New feedback button obscures navigation elements on mobile. #237
+
+
+## 8.3.0 (9/28/2018)
+
+### Added
+- (React) DP-10057 Created Tooltip component with stories. Added Question Mark SVG to Icon component.
+- (React) DP-10502: Adds ButtonFixedFeedback component.
+- (React, Patternlab) DP-10514: Add primary `.ma__button-search` and secondary `.ma__button-search--secondar` usage themes to button search  #261
+
+### Fixed
+- (Patternlab) DP-10514: Fix and unify button search hover styles in organization-navigation search #261
+- (React) Fixes error thrown due to value passed to selectbox that does not exist.
+
+### Changed
+- (React) DP-10521: Refactor FilterBox to allow any form components  #277
+Note: This will need to be followed up in search and other apps consuming FilterBox / SearchBanner
+- (React) Make SearchBanner with postInputFilter responsive, remove classname specific styles for preInputFilter for mobile responsiveness  #280
+
+
+### Fixed
+- (React) DP-10497: Updates the selectbox atom in Mayflower-React, passing the default selected prop to state in the contructor. Also updates the setting of select in the selectbox, changing for ref to value.
+
+## 8.2.0 (9/26/2018)
+
+### Added
+- (React) Componentize scss into results heading  #268
+- (React) Componentize scss into error page organism and pages  #271
+
+### Fixed
+- (React) DP-10497: Updates the selectbox atom in Mayflower-React, passing the default selected prop to state in the contructor. Also updates the setting of select in the selectbox, changing for ref to value.
+
+## 8.1.0 (9/24/2018)
+
+### Added
+- (Patternlab) DP-9272: Set up an id for `item.label` to associate with "aria-describedby" in decorative link for its directions link to add link context in Contact. #220
+- (React) Replace hard coded image with Image component and add configurable fields to SiteLogo. #264
+- (React) Add an option to allow pass in component as a post input filter to HeaderSearch and SearchBanner #259
+
+### Removed
+- (React) EEC support: removes the component name check in AccordionWrapper child validation
+
+
+
+## 8.0.1 (9/19/2018)
+
+### Fixed
+- (Patternlab, React) Fix npm publish circle scripts #258
+
+## 8.0.0 (9/19/2018)
+:loudspeaker: We are going to undertake major refactoring work on component naming, markup and classnames in version 8, please refer to this changelog👆 or [Mayflower components documentation](https://massds.gitbook.io/mayflower/components) or join [Mayflower Public Slack](https://join.slack.com/t/mayflowerdesignsystem/shared_invite/enQtNDIzNDc2MjQwMzM2LTAzYTcyZTI3ZDZiMjZmNGIxZWE2OTBiY2FlMmQyNjAwODVmNTQ4ZDhlMzVjMmMxMjA2YTc2MTgzZmNiZjUyY2E) and watch out for API changes if you decide to move to V8.
+
+### Added
+- (React) DP-8086: Adds the following new components: GeneralTeaser, IconLink, Link.
+- (React) DP-8086: Modifies Image component to add a new prop for classnames: classes.
+- (React) DP-10392: Adds shared assets into build
+- (React) DP-10392: Adds SharedAsset path alias handling
+- (Patternlab & React) #236:
+	- Creates style for tertiary & quaternary button variants & associated story in PL/storybook.
+	- Adds color variable for 50% bay blue called c-primary-lighter
+
+
+### Changed
+- (Patternlab) DP-9189: Adds aria-lable to override the top button label in sticky toc. #216
+- (Patternlab) DP-9193: Make TOC skip link visible at focus #180
+- (Patternlab) DP-9255: Add conditions to place 'title' and 'aria-labelledby' only when their values are available. #218
+- (Patternlab)  DP-10084: MF Change to styling of More links on service page
+- (Patternlab) DP-10157: [MF] How-to BM1: Add slight visual emphasis to mobile sticky nav
+- (Patternlab & React) #236:  
+	- Updates base button classnames based on theme prop to reflect new naming variable (c-primary, c-primary-alt, c-highlight, c-dark-gray)
+	- Removes outline prop from button.
+	- Adds usage prop to button to reflect primary, secondary, tertiary, and quaternary designs.
+	- Updates color variables to be named based on usage and not color.
+	- Update back-button molecule to include button classname changes.
+
+### Fixed
+- (Patternlab) DP-10131: fix IE 11 specific overflow style on contact list #197
+- (React) DP-10368: Fixed SearchBanner molecule filters position when no tabs are rendered.
+- (React) Fix react visual regressions by setting a default date for general teaser in storybook
+
+
+
+
+
+
+
+## 7.1.0 (9/12/2018)
+
+### Added
+- (Docs) Release docs 0.1.0 added first-round documentation for buttons, headings links, lists, table, text area, select box, checkbox, radio button, pagination, relationship indicator, tooltip, accordion and global accessibility.
+- (Docs) Release docs 0.2.0 break down and clean up global accessibility guidelines.
+- patternlab DP-9337:  Implement Organization Page navigation menu
+
+### Changed
+- (Patternlab) DP-5917: Updates to truncate long pagination displays with ellipsis. #196.
+- (Patternlab) DP-9875: Adjust the package-lock.json and CircleCI for this change to yarn.lock file. #217
+- (React) DP-10134: Augments react Backstop scenario detection so stories with multiple add() calls will all be tested.
+- (Patternlab, React) DP-10156: Consolidate and replace letter-spacing to variables `$letter-spacing-large`, `$letter-spacing-medium`, `$letter-spacing-small` and `$letter-spacing-default`.
+- Patternlab DP-9912: Replicated related links to the bottom of the page along with changes style to the heading. #214
+- (Patternlab) DP-10287: Adds block to page-overview twig file for responsive images. #230
+- (Patternlab & React):
+	- Updates the naming of our global color variables.
+	- Pulls originally naming from documentations.
+	- Updates grayscale color variables.
+	- Updates color variables to be named based on usage and not color.
+
+### Fixed
+- (Patternlab) DP-5955: Fixes top alignment of the "Related Services" and "Additional Resources" split columns block on tablet view mode. #184
+- (Patternlab) Fixes patternlab SCSS watching.
+
+### Removed
+- (Patternlab) DP-9875: Remove the yarn.lock #217
+- (Patternlab & React):
+	- Removes #757575, replacing with #707070 color variable.
+	- Removes feedback accessibility fix for green issue variable.
+
+## 7.0.1 (8/30/2018)
+
+### Fixed
+- (PatternLab) z-index fix for feedback button to always ensure it appears on top. #209
+- (PatternLab) Allow deploy tag jobs to be rerun #206
+
+## 7.0.0 (8/29/2018)
+
+### Changed
+- (Patternlab) DP-9702: replace floating "Tell us what you think" button with fixed feedback button
+- patternlab / DP-10012: offered by relationship indicator row changes
+- (Patternlab) DP-10056: Mayflower Patternlab has an updated build process that includes the following changes:
+    * Gulp Patternlab tasks now run `dist:build` automatically.  The `dist` folder contains the fully compiled Mayflower Artifacts, and can be placed anywhere on your system, not just inside the mayflower repository.
+    * Patternlab deployment tasks have been moved out of gulp and into the CircleCI configuration to simplify our Gulp tasks.
+    * The `massgov/mayflower-artifacts` Composer package has been given a `type` of `drupal-library` so it is installable to a specific location on the filesystem.
+- (Patternlab, React) DP-10056: Mayflower React and Mayflower Patternlab now manage the version number in their respective `package.json` files independently.  We no longer need to bump package version numbers manually on release - simply cut the tag.
+- (NPM Artifact): The @massds/mayflower NPM repo has been restructured to match the `massgov/mayflower-artifacts` composer package.
+
+### Fixed
+- (Patternlab) DP-10029: Updated styles to fix spacing on non-hyperlinked images on location listing row.
+
+### Updated
+- Patternlab DP-9912: Add new relationship indicator row to multiple content types. #149
+
+
+## 6.3.0 (8/27/2018)
+
+### Added
+- (React) DP-9981: Adds standard accordion components and functionality to Mayflower-React. Also fixes VR bug related to react components.
+  - Adds AccordionItem molecule with secondary, borderless, emphasized, and subtle variants.
+  - Adds AccordionWrapper organism to Mayflower React, which is a dumb wrapper for styling grouped AccordionItems.
+  - Adds Collapse animation atom to Mayflower React based off of the Bootstrap React animation.
+  - Adds dependency to react-transition-group for Collapse animation atom.
+  - Add the SvgCircleChevron icon atom to Mayflower-React.
+  - Adds dependency to classnames for simplifying conditional classname set up. Other component should be refactored to leverage this new package dependency as a follow up.
+- (React) DP-10028:
+  - Add error message as an atom with error and success states
+  - Add InputError and InputSuccess icons
+- (React) DP-10098: Added `bourbon`, `normalize-scss` and `bourbon-neat` as react dev dependencies.
+
+### Changed
+- (Patternlab) DP-9522: Updates the Locaton Listing component to updated designs.
+- (React) DP-9919: Directly consume global level SCSS variables from shared assets.
+- (React) DP-9981: Changes heading atom in Mayflower React, adding the option to pass a classname to a heading component.
+- (React) DP-10098: Consume scss and images directly from shared assets.
+- (Patternlab, React) DP-10107:
+  - Make current button "small" the default button size and add "large" and "small" variations.
+  - Update the button size for location listing CTA to align with default size.
+
+
+### Fixed
+- (Patternlab) DP-9486: Make location filter persist on location listing page.
+- (Patternlab) DP-9486: Fixed the location listing autocomplete search filter. #189
+- (React) DP-9981: Fixes issues related to visual regression of react components without a story and with nested variants.
+- (React) DP-10069: Render current year in footer component and make footer fully configurable.
+
+### Removed
+- (React) DP-10098: Removed Mayflower npm dependency in mayflower react.
+
+## 6.2.3 (8/17/2018)
+
+### Fixed
+- DP-10102: Revert recent change to the sticky table of contents because it was causing additional items and no sticky heading updates.
+
+## 6.2.2 (8/16/2018)
+
+### Fixed
+- Bypassing issue where tag 6.2.1 exists after missing react json file update in v6.2.1.
+
+## 6.2.1 (8/16/2018)
+
+### Fixed
+- (Patternlab) DP-9571: Restore raw filter on raw-html.twig to fix visual breakage on mass.gov.
+
+## 6.2.0 (8/15/2018)
+
+### Added
+- (Patternlab) DP-9431: Update Curated Lists to use Sticky TOC
+- (Patternlab) DP-9579: Add a comment to keep raw filter from 03-organisms/by-author/event-listing-interactive.twig to prevent rendering ascii characters.
+- (Patternlab) DP-9580: Adds a comment to keep the raw filter to rendering ascii characters.
+- (Patternlab) DP-9831: Add contact and related links in sidebar to curated lists.
+
+### Changed
+- (Patternlab, React, Docs) Changed the green theme color globally to #388557 for accessibility. #155
+- (Patternlab) DP-9521: Updates theme of location row to new theme design.
+- (Patternlab) DP-9693: Modify body text color to use a darker grey.
+- (Patternlab) DP-9862: Remove all absolute URL references from Patternlab data and templates.
+
+### Removed
+- (Patternlab) DP-9569: Remove raw filter from `_patterns/01-atoms/08-lists/ordered-list.twig`
+- (Patternlab) DP-9571: Remove raw filter from `_patterns/01-atoms/11-text/raw-html.twig`
+- (Patternlab) DP-9574: Remove raw filter from `02-molecules/google-map.twig`
+
+### Fixed
+- (Patternlab) DP-10032: Fix for binder overlay button click not triggering overlay.
+- (Patternlab) Update location that JavaScript templates are copied
+
+
 
 ## 6.1.0 (8/8/2018)
 ### Added

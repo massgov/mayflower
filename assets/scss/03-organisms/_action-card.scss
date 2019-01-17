@@ -118,7 +118,7 @@
 
   &__category {
     font-size: .875rem;
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     line-height: 1.5;
     text-transform: uppercase;
 
@@ -147,7 +147,7 @@
 .ma__action-card {
 
   &__title {
-    @include ma-border-decorative($c-theme-secondary);
+    @include ma-border-decorative($c-primary-alt);
   }
 
   &__item {
@@ -164,10 +164,10 @@
     }
 
     &--blue {
-      background-color: $c-theme-blue;
+      background-color: $c-primary;
 
       &:hover {
-        background-color: rgba($c-theme-blue,.8);
+        background-color: rgba($c-primary,.8);
       
         a {
           border-bottom-color: $c-font-inverse;
@@ -176,10 +176,10 @@
     }
 
     &--green {
-      background-color: $c-theme-green;
+      background-color: $c-primary-alt;
 
       &:hover {
-        background-color: rgba($c-theme-green,.8);
+        background-color: rgba($c-primary-alt,.8);
         
         a {
           border-bottom-color: $c-font-inverse;
@@ -188,10 +188,10 @@
     }
 
     &--dark-gray {
-      background-color: $c-theme-gray;
+      background-color: $c-gray-dark;
 
       &:hover {
-        background-color: rgba($c-theme-gray,.8);
+        background-color: rgba($c-gray-dark,.8);
       
         a {
           border-bottom-color: $c-font-inverse;

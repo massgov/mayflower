@@ -21,8 +21,8 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0; /* Removes leftover margin */
 }
@@ -37,6 +37,8 @@ legend,
 label {
   display: block;
   margin-bottom: .25em;
+  padding: 0;
+  font-weight: 500;
 }
 
 
@@ -49,7 +51,7 @@ fieldset {
 // override if an input label combo is added directly to the page-content area
 // This is mainly for Pattern Lab
 .main-content .page-content > label:not(.ma__label--hidden) {
-  
+
   & + textarea,
   & + .ma__textarea__wrapper,
   & + .ma__input-number,
@@ -107,6 +109,7 @@ select,
 textarea {
   font-family: "Texta", "Helvetica", "Arial", "sans-serif";
   font-weight: 400;
+  font-size: 1.375rem;
 }
 
 input {
@@ -115,7 +118,7 @@ input {
   color: $c-font-base;
 
   &.has-error:not(:focus) {
-    background-image: url('../images/svg-icons/input-error.svg');
+    background-image: url('#{$assets-path}/images/svg-icons/input-error.svg');
     border-color: $c-bd-error;
   }
 
@@ -148,9 +151,3 @@ textarea {
     }
   }
 }
-
-legend,
-label {
-  font-weight: 500;
-}
-

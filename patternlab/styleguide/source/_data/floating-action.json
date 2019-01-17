@@ -6,9 +6,8 @@
       "text": "Tell us what you think",
       "info": "",
       "type": "",
-      "theme": "green",
-      "outline": true,
-      "size": "small"
+      "theme": "secondary",
+      "outline": true
     }
   }
 }

@@ -83,26 +83,7 @@ $page-header-widget-width: 350px;
   }
 
   &__content {
-    padding-top: 30px;
-    padding-bottom: 40px;
-
-    @media ($bp-small-min){
-      padding-top: 40px;
-    }
-
-    @media ($bp-medium-min){
-      padding-top: 65px;
-      padding-bottom: 45px;
-    }
-
-    @media ($bp-large-min){
-      padding-top: 75px;
-      padding-bottom: 60px;
-    }
-
-    @media ($bp-x-large-min){
-      padding-top: 85px;
-    }
+    padding: 30px 0;
   }
 
   &__tags ~ &__content {
@@ -193,9 +174,11 @@ $page-header-widget-width: 350px;
   }
 
   &__category {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
+    padding-bottom: 1rem;
+    line-height: 1.1;
     font-weight: 700;
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
   }
 
@@ -212,9 +195,6 @@ $page-header-widget-width: 350px;
   }
 
   &__sub-title {
-    font-size: 1.813rem;
-    line-height: 1.2;
-    margin-bottom: 1em;
 
     &:last-child {
       margin-bottom: 0;
@@ -227,6 +207,15 @@ $page-header-widget-width: 350px;
     @media ($bp-x-large-min) {
       padding-right: $column + ($gutter * 2);
     }
+  }
+
+  // Control font size and line height
+  // regardless of it's added to page 
+  &__sub-title,
+  &__sub-title * {
+    font-size: 1.625rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1em;
   }
 
   &--has-widgets &__sub-title {

@@ -99,35 +99,32 @@ export default (function (window,document,$,undefined) {
         });
       });
 
-      // Listen for map recenter event
+      // Listen for map recenter event.
       $el.on("ma:GoogleMap:MapRecenter", function (event, markerIndex) {
         if (typeof markers[markerIndex] === "undefined") {
           return false;
         }
         let marker = markers[markerIndex];
-        // center the map on this marker
-        map.setCenter(marker.getPosition());
-        // close all open infoWindows
+        // Close all open infoWindows.
         for (let i in markers) {
           if (markers[i].open) {
             markers[i].hideInfo();
           }
         }
-        // show the infoWindow for this marker
+        // Show the infoWindow for this marker.
         marker.showInfo();
       });
-      // Listen for map marker bounce event
+
+      // Listen for map marker bounce event.
       $el.on("ma:GoogleMap:MarkerBounce", function( event, markerIndex ) {
         if(typeof markers[markerIndex] === "undefined") {
           return false;
         }
         let marker = markers[markerIndex];
-        // center and zoom the map on this marker
-        map.setCenter(marker.getPosition());
-        map.setZoom(15);
-        // make the marker bounce three times
+        // Make the marker bounce three times.
         marker.bounce();
       });
+
       // Listen for data change event to update markers by filters.
       $el.on("ma:GoogleMap:MarkersUpdated", function (e, args) {
         // Update map based on pre-sorted markers order
@@ -138,7 +135,7 @@ export default (function (window,document,$,undefined) {
           place: args.place ? args.place : false
         });
 
-        // hide all info windows
+        // Hide all info windows.
         for (let i in markers) {
           if(markers[i].open) {
             markers[i].hideInfo();
@@ -208,7 +205,7 @@ export default (function (window,document,$,undefined) {
         marker.setAnimation(google.maps.Animation.BOUNCE);
         markerBouncing = setTimeout(() => {
           marker.setAnimation(null);
-        },3000);
+        }, 1500);
       };
 
       initializedMarkers.push(marker);

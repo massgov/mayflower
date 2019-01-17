@@ -48,7 +48,7 @@
   }
 
   th {
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     padding-right: 15px;
     padding-bottom: 0;
     text-align: left;
@@ -70,6 +70,30 @@
 
   &__extra {
     display: none;
+
+    &.collapsed {
+      visibility: hidden;
+      display:block;
+      height: 0px;
+    }
+
+    &.collapsing, &.expanding {
+      position: relative;
+      overflow: hidden;
+      visibility: visible;
+      -webkit-transition-property: height, visibility;
+      transition-property: height, visibility;
+      transition-duration: 0.35s;
+      -webkit-transition-duration: 0.35s;
+      transition-timing-function: ease;
+      -webkit-transition-timing-function: ease;
+    }
+
+    &.expanded {
+      height: auto;
+      visibility: visible;
+      display: block;
+    }
   }
 
   &__expand {
@@ -129,7 +153,7 @@
 
   &__expand {
     > button {
-      color: $c-theme-primary;
+      color: $c-primary;
       font-weight: 500;
     }
   }

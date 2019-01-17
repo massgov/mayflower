@@ -5,20 +5,21 @@
 <main id="main-content" class="ma__policy-advisory" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
+      {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
     {% endblock %}
   </div>
+  {% if sideContent.contactList %}
     <div class="main-content main-content--two ma__policy-advisory__top-contact">
       <div class="page-content">
-        {% if sideContent.contactList %}
           {% set contactList = sideContent.contactList %}
           {% include "@organisms/by-author/contact-list.twig" %}
-        {% endif %}
       </div>
     </div>
+    {% endif %}
   <div class="ma__policy-advisory__content">
-    {% if jumpLinks %}
-      {% include "@organisms/by-template/jump-links.twig" %}
+    {% if stickyTOC %}
+      {% include "@organisms/by-template/sticky-toc.twig" %}
     {% endif %}
     <div class="main-content main-content--two">
       <div class="page-content">
@@ -55,7 +56,7 @@
           {% set contactList = sideContent.contactList %}
           {% include "@organisms/by-author/contact-list.twig" %}
         {% endif %}
-        
+
         {% if sideContent.pressListing %}
           {% set pressListing = sideContent.pressListing %}
           {% include "@organisms/by-author/press-listing.twig" %}

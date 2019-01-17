@@ -23,7 +23,7 @@
 
     &:before {
       border: 2px solid;
-      content: ""; 
+      content: "";
       display: inline-block;
       height: 2em;
       font-size: .5em;
@@ -44,7 +44,7 @@
   input:checked ~ label {
 
     &:before {
-      content: url("../images/checkmark.svg"); //"✔";
+      content: url("#{$assets-path}/images/checkmark.svg"); //"✔";
     }
   }
 
@@ -57,7 +57,7 @@
 .ma__input-checkbox {
 
   & > svg {
-    fill: $c-theme-secondary;
+    fill: $c-primary-alt;
   }
 
   label {

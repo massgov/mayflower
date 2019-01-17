@@ -1,12 +1,13 @@
-import React from 'react';
-import SvgBuilding from '../../atoms/icons/SvgBuilding';
-import SvgLogin from '../../atoms/icons/SvgLogin';
-
 export default {
   items: [{
+    text: 'All Budgets',
+    ariaLabelText: '',
+    icon: 'building',
+    href: 'https://www.mass.gov'
+  }, {
     text: 'State Organizations',
     ariaLabelText: '',
-    icon: <SvgBuilding />,
+    icon: 'building',
     closeText: 'Close',
     panel: {
       description: {
@@ -16,7 +17,7 @@ export default {
   }, {
     text: 'Log in to...',
     ariaLabelText: 'Log in to the most requested services',
-    icon: <SvgLogin />,
+    icon: 'login',
     closeText: 'Close',
     panel: {
       description: {

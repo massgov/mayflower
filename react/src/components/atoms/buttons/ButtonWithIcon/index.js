@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SvgSearch from '../../icons/SvgSearch';
+import classNames from 'classnames';
+import Icon from '../../icons/Icon';
 import './style.css';
 
 class ButtonWithIcon extends React.Component {
@@ -22,35 +23,29 @@ class ButtonWithIcon extends React.Component {
   }
   render() {
     const {
-      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type
+      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage, ariaLabel
     } = this.props;
-    let classNames = classes.join(' ');
-    if (canExpand) {
-      classNames += ' ma__button-icon--expandable';
-      if (expanded) {
-        classNames += ' ma__button-icon--expanded';
-      }
-    }
-    if (capitalized) {
-      classNames += ' ma__button-capitalized';
-    }
-    if (iconSize === 'small' || icon.type.name === 'SvgChevron') {
-      classNames += ' ma__icon-small';
-    }
-    if (iconColor === 'green') {
-      classNames += ' ma__icon-green';
-    }
-    if (icon.type.name === 'SvgSearch') {
-      classNames += ' ma__button-search';
-    }
+    // concat a space at the end of custom classes
+    let buttonClasses = classes ? `${classes.join(' ')} ` : '';
+    buttonClasses += classNames({
+      'ma__button-icon': true,
+      'ma__button-icon--expandable': canExpand,
+      'ma__button-icon--expanded': canExpand && expanded,
+      'ma__button-capitalized': capitalized,
+      'ma__icon-small': iconSize === 'small' || icon.props.name === 'chevron',
+      'ma__icon-green': iconColor,
+      'ma__button-search': icon.props.name === 'search',
+      'ma__button-search--secondary': icon.props.name === 'search' && usage === 'secondary'
+    });
     const buttonProps = {
       type,
-      className: `ma__button-icon ${classNames}`,
+      className: buttonClasses,
       onClick: this.handleClick,
       tabIndex: 0
     };
+    if (ariaLabel && ariaLabel !== '') { buttonProps['aria-label'] = ariaLabel; }
     return(
-      <button {...buttonProps} aria-label={this.props.ariaLabel} ref={this.setButtonRef}>
+      <button {...buttonProps} ref={this.setButtonRef} >
         <span>{this.props.text}</span>
         {this.props.icon}
       </button>
@@ -79,24 +74,27 @@ ButtonWithIcon.propTypes = {
   capitalized: PropTypes.bool,
   // Defines the size, default size fits the most square icons and "small" setting is specific for the chevron icon.
   iconSize: PropTypes.oneOf(['', 'small']),
-  // Defines the fill color of the svg, default color is $c-gray-dcdcdc.
+  // Defines the fill color of the svg, default color is $c-gray-light.
   iconColor: PropTypes.oneOf(['', 'green']),
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
    * button's functionality. */
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  /** Button usage */
+  usage: PropTypes.oneOf(['', 'secondary'])
 };
 
 ButtonWithIcon.defaultProps = {
   text: 'Search',
   type: 'submit',
   classes: [],
-  icon: <SvgSearch />,
+  icon: <Icon name="search" svgHeight={20} svgWidth={20} />,
   canExpand: false,
   capitalized: false,
   iconSize: '',
   iconColor: '',
-  ariaLabel: 'search'
+  ariaLabel: '',
+  usage: ''
 };
 
 export default ButtonWithIcon;

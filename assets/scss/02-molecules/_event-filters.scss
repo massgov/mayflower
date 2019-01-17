@@ -38,6 +38,6 @@
 
   // backward compatible with v5.6
   &__submit {
-    @include ma-button('','solid',$c-theme-primary);
+    @include ma-button('','solid',$c-primary);
   }
 }

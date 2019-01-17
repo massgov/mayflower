@@ -11,3 +11,5 @@ source/_data/url.json
 /deploy
 /npm
 /artifact
+/dist
+.env

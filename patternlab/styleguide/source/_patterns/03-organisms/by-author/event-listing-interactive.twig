@@ -21,7 +21,7 @@
   // Make eventListing data object available in eventListing module js.
   var ma = ma || {};
   ma.eventListingInteractive = ma.eventListingInteractive || [];
-  ma.eventListingInteractive.push({{ eventListingInteractive|json_encode|raw }});
+  ma.eventListingInteractive.push({{ eventListingInteractive|json_encode|raw }}{# raw is necessary to prevent rendering ascii characters. #});
 </script>
 
 

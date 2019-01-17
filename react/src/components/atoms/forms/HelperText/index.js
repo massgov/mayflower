@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.css';
 
 const HelperText = (props) => (
-  <React.Fragment>
-    <label
-      htmlFor={props.inputId}
-      aria-labelledby={props.inputId}
-      className="ma__helper-text"
-    >
-      {props.message}
-    </label>
-  </React.Fragment>
+  <label
+    htmlFor={props.inputId}
+    aria-labelledby={props.inputId}
+    className="ma__helper-text"
+  >
+    {props.message}
+  </label>
 );
 
 HelperText.propTypes = {

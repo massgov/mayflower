@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SvgArrow from '../../icons/SvgArrow';
-import SvgDocPdf from '../../icons/SvgDocPdf';
-import SvgDocDocx from '../../icons/SvgDocDocx';
-import SvgDocXlxs from '../../icons/SvgDocXlxs';
-import SvgDocGeneric from '../../icons/SvgDocGeneric';
-import './DecorativeLink.css';
+import Icon from '../../icons/Icon';
+import './style.css';
 
 const DecorativeLink = (props) => {
   const classes = ['ma__decorative-link'];
-  let Icon = null;
+  let decIcon = null;
   let title;
   if (props.showFileIcon) {
     classes.push('ma__download-link');
@@ -22,29 +18,29 @@ const DecorativeLink = (props) => {
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
     switch (ext) {
       case 'pdf':
-        Icon = SvgDocPdf;
+        decIcon = <Icon name="pdf" title={title} svgWidth={35} svgHeight={36} />;
         break;
       case 'docx':
-        Icon = SvgDocDocx;
+        decIcon = <Icon name="docx" title={title} svgWidth={35} svgHeight={36} />;
         break;
       case 'xlxs':
-        Icon = SvgDocXlxs;
+        decIcon = <Icon name="xlxs" title={title} svgWidth={35} svgHeight={36} />;
         break;
       case 'generic':
-        Icon = SvgDocGeneric;
+        decIcon = <Icon name="generic" title={title} svgWidth={35} svgHeight={36} />;
         break;
       default:
-        Icon = null;
+        decIcon = null;
     }
   }
   return(
     <span className={classes.join(' ')}>
-      {Icon && <span><Icon title={title} />&nbsp;</span>}
       <a
         href={props.href}
         className="js-clickable-link"
-        title={props.info}
-      >{props.text}&nbsp;<SvgArrow />
+        title={props.info || false}
+      >
+        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}{props.text}&nbsp;<Icon name="arrow" aria-hidden="true" />
       </a>
     </span>
   );
@@ -59,7 +55,6 @@ DecorativeLink.propTypes = {
 
 DecorativeLink.defaultProps = {
   href: '#',
-  info: '',
   text: 'Lorem ipsum dolor sit amet',
   showFileIcon: false
 };

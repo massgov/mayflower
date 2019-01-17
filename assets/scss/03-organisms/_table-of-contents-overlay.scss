@@ -6,9 +6,9 @@
   .ma__toc--overlay__container .ma__toc__toc__title,
   .ma__toc__toc__title {
     border: 0;
-    padding-top: 20px;
+    padding-top: 12px;
     padding-right: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 12px;
     padding-left: 20px;
     display: block;
     text-align: left;
@@ -164,30 +164,30 @@
 .ma__toc--overlay {
 
   .ma__toc__toc__title {
-    background: $c-gray-f2f2f2;
-    color: $c-theme-blue;
+    background: $c-gray-lightest;
+    color: $c-primary;
   }
   .ma__toc--hierarchy {
-    border-bottom: 1px solid $c-gray-dcdcdc;
+    border-bottom: 1px solid $c-gray-light;
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
-    color: $c-theme-blue;
+    color: $c-primary;
   }
   .ma__toc__toc__toggle[aria-expanded="true"] {
     color: $c-white;
-    background: $c-theme-blue;
+    background: $c-primary;
   }
 
   .ma__toc__subtitle {
-    color: $c-theme-gray;
+    color: $c-gray-dark;
   }
   .ma__toc--hierarchy__accordion {
     .ma__toc--hierarchy__title {
       border-left-color: transparent;
     }
     .ma__toc--hierarchy__title.is-current {
-      border-left-color: rgba($c-theme-green, 0.5) !important;
+      border-left-color: rgba($c-primary-alt, 0.5) !important;
     }
   }
 
@@ -196,6 +196,6 @@
   }
 
   li.is-current:before {
-    background: $c-theme-green;
+    background: $c-primary-alt;
   }
 }

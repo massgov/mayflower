@@ -5,6 +5,7 @@
 <main id="main-content" class="ma__court-rules" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
+      {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
     {% endblock %}
   </div>
@@ -17,8 +18,8 @@
     </div>
   </div>
   <div class="ma__court-rules__content">
-    {% if jumpLinks %}
-      {% include "@organisms/by-template/jump-links.twig" %}
+    {% if stickyTOC %}
+      {% include "@organisms/by-template/sticky-toc.twig" %}
     {% endif %}
     <div class="main-content main-content--two">
       <div class="page-content">

@@ -26,7 +26,11 @@
     @include ma-heading-colored;
     margin-bottom: 0;
     position: relative;
-      top: -30px;
+    top: -30px;
+
+    .main-content--two .page-content & {
+      margin-bottom: 0;
+    }
 
     &:after {
       display: none;
@@ -161,7 +165,7 @@
   }
 
   &__title {
-    background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-theme-secondary 35px);
+    background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
     color: $c-white;
     font-weight: 700;
   }
@@ -176,7 +180,7 @@
   &__link {
 
     & > svg {
-      fill: $c-theme-secondary;
+      fill: $c-primary-alt;
 
       @media ($bp-x-small-max) {
         display: none;
@@ -222,7 +226,7 @@
   }
 
   &__toggle-link {
-    color: $c-theme-secondary;
+    color: $c-primary-alt;
   }
 
   &__footer {
@@ -238,7 +242,7 @@
 
     button {
       position: relative;
-      color: $c-theme-blue;
+      color: $c-primary;
       font-weight: 700;
       background-color: transparent;
       border: none;
@@ -254,8 +258,8 @@
         transform: translateY(-50%) rotate(45deg);
         right: 0;
         display: inline-block;
-        border-right: 4px solid rgba($c-theme-blue, 0.3);
-        border-bottom: 4px solid rgba($c-theme-blue, 0.3);
+        border-right: 4px solid rgba($c-primary, 0.3);
+        border-bottom: 4px solid rgba($c-primary, 0.3);
         height: 10px;
         width: 10px;
         transition: all .2s;
@@ -321,12 +325,12 @@
     border-right: 1px solid $c-bd-divider;
 
     button {
-      border: 4px solid rgba($c-theme-primary, .5);
+      border: 4px solid rgba($c-primary, .5);
       height: 47px;
       position: relative;
 
       svg {
-        fill: rgba($c-theme-primary, 0.5);
+        fill: rgba($c-primary, 0.5);
         transform: rotate(-90deg);
         width: 11px;
         height: 12px;
@@ -342,8 +346,8 @@
         text-transform: uppercase;
         font-size: 0.75rem;
         font-weight: 700;
-        color: $c-theme-primary;
-        letter-spacing: 1px;
+        color: $c-primary;
+        letter-spacing: $letter-spacing-large;
         margin-top: -4px;
       }
     }
@@ -353,7 +357,7 @@
     width: 100%;
 
     button {
-      @include ma-button("","solid",$c-theme-primary);
+      @include ma-button("","solid",$c-primary);
       font-size: 1.3rem;
       padding: 10px 0;
       width: 100%;
@@ -378,7 +382,7 @@
     position: relative;
     width: 35px;
     height: 35px;
-    background-color: $c-theme-primary;
+    background-color: $c-primary;
     color: $c-white;
 
     .sticky-nav-open & {
@@ -442,9 +446,9 @@
     border: 0;
     font-size: 1.375rem;
     font-weight: 500;
-    letter-spacing: 0.1rem;
+    letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
-    color: $c-theme-gray;
+    color: $c-gray-dark;
     background-color: $c-white;
     height: 65px;
     padding: 10px 20px;
@@ -457,7 +461,7 @@
       width: calc(100% - 40px);
       height: 1px;
       bottom: 0;
-      background-color: $c-theme-gray;
+      background-color: $c-gray-dark;
     }
   }
 
@@ -483,6 +487,7 @@
 
   &.sticky-nav-open {
     right: 0;
+    z-index: 10000;
 
     .ma__sticky-toc__secondary-label {
       top:0;

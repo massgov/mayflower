@@ -1,24 +1,25 @@
-@import 'colors';
+@import 'global';
+@import "01-atoms/button-search";
 
 .ma__button-icon {
   background-color: $c-white;
   border: 2px solid;
-  border-color: $c-gray-dcdcdc;
+  border-color: $c-gray-light;
   display: inline-block;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: .1em;
+  letter-spacing: $letter-spacing-large;
   min-height: 46px;
   padding: 0 14px;
   text-transform: uppercase;
   transition: background-color .4s, color .4s, border .4s, fill .4s;
   white-space: nowrap;
-  color: $c-theme-secondary;
+  color: $c-primary-alt;
 
   &.ma__button-capitalized {
     text-transform: capitalize;
     font-size: 16px;
-    letter-spacing: 0.02em;
+    letter-spacing: $letter-spacing-small;
   }
 
   &--expandable {
@@ -42,13 +43,13 @@
   & > svg {
     display: inline-block;
     vertical-align: middle;
-    fill: $c-theme-gray;
+    fill: $c-gray-dark;
     height: 20px;
     transition: fill .4s;
   }
 
   &.ma__icon-green > svg {
-    fill: $c-theme-secondary;
+    fill: $c-primary-alt;
   }
 
   &.ma__icon-small > svg {
@@ -56,8 +57,8 @@
   }
 
   &--expanded, &:hover {
-    background-color: $c-theme-secondary;
-    border-color: $c-theme-secondary;
+    background-color: $c-primary-alt;
+    border-color: $c-primary-alt;
     color: $c-white;
     svg {
       fill: $c-white;

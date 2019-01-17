@@ -4,6 +4,11 @@
   {% include "@organisms/by-template/header.twig" %}
 {% endblock %}
 
+{% block preContent %}
+  {% include "@molecules/relationship-indicators.twig" %}
+  {% include "@organisms/by-template/page-header.twig" %}
+{% endblock %}
+
 {% block sidebar %}{% endblock %}
 
 {% block footer %}

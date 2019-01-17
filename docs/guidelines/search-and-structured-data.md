@@ -14,7 +14,7 @@ Below is a dictionary describing the metatag standards implemented in mass.gov w
 ### Descriptions
 
 | **Metatag** | **Description** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- |
 | mg\_organization | One or more entities responsible for making the resource available such as a publishing house, a government agency or department, or a corporate entity. |
 | category | A classification scheme that categorizes content into context specific groupings. The available options for this field are from a controlled vocabulary managed by the digital services team. Refer to the [controlled vocabulary for category](search-and-structured-data.md#category-vocabulary). |
 | mg\_date | A point in time  associated with the resource. |
@@ -30,7 +30,7 @@ Below is a dictionary describing the metatag standards implemented in mass.gov w
 In order for the above metatags to be consumed and leveraged consistently in the search application, each metatag has a required syntax. Follow the syntax guidelines precisely for your content to show up as desired in search.mass.gov.
 
 | **Metatag** | **Syntax** | **Example** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- |
 | mg\_organization | lowercase, comma separated list, slug with no special characters or spaces, one or more values | `department-of-public-health,department-of-mental-health` |
 | category | lowercase, controlled vocabulary, one value only, slug with no special characters | `news` |
 | mg\_date | YYYYMMDD | `20180528` |
@@ -48,13 +48,13 @@ Controlled vocabularies provide a way to organize knowledge for subsequent retri
 #### category vocabulary
 
 | **Vocabulary** |
-| --- | --- |
+| :--- |
 | news, laws-regulations, services, state-organizations, data |
 
 #### mg\_type vocabulary
 
 | **Category** | **Vocabulary** |
-| --- | --- | --- |
+| :--- | :--- |
 | news | press-release, press-statement, news, blog-post, speech |
 | laws-regulations | general-law, session-law, executive-order, regulation, advisory, policy-advisory, policy-statement, administrative-bulletin, technical-information-release, directive, letter-ruling, memorandum, industry-letter, circular-letter, regulatory-bulletin, administrative-procedure, advisory-ruling, decision, ruling, opinion, settlement, consent-order, cease-directive, cease-order, consent-agreement, temporary-order-to-cease-and-desist, order, temporary-order, rules-of-civil-procedure, rules-of-criminal-procedure, rules-of-appellate-procedure, districtmunicipal-courts-supplemental-rules-of-civil-procedure, rules-of-domestic-relations-procedure, districtmunicipal-courts-supplemental-rules-of-criminal-procedure, trial-court-rules, superior-court-rules, supreme-judicial-court-rules, appeals-court-rules, districtmunicipal-court-rules, probate-and-family-court-rules, housing-court-rules, juvenile-court-rules, land-court-rules, guide-to-evidence, electronic-filing-rules, professional-conduct-rules, districtmunicipal-courts-rules-for-probation-violation-proceedings, special-rules-of-the-district-court, probate-and-family-court-uniform-practices, supplemental-rules-of-the-probate-and-family-court, rules-governing-persons-authorized-to-admit-to-bail-out-of-court, districtmunicipal-courts-rules-of-criminal-procedure, office-of-jury-commissioner-regulations, districtmunicipal-courts-rules-for-appellate-division-appeals, law-library |
 
@@ -65,7 +65,7 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 #### Advanced Search Filters
 
 | **Metatag** | **Filter Functionality** | **Example** |
-| --- | --- |
+| :--- | :--- | :--- |
 | mg\_organization | Controls the ability to filter content by organization on search.mass.gov. | ![Example Screenshot of the Organization Filter](../.gitbook/assets/advanced-search-collapsed.png) |
 | category | Controls if content is rendered within a specific tab in the search application. | ![Example Screenshot of the Search Tabs](../.gitbook/assets/advanced-search-collapsed.png) |
 | mg\_date | Powers the advanced search filter that allows users to restrict their search results to a specific date range. | ![Example Screenshot of the Advanced Filters include the Date Range Filter](../.gitbook/assets/advanced-search-expanded.png) |
@@ -74,17 +74,17 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 #### Sort
 
 | **Metatag** | **Sort Functionality** | **Example** |
-| --- | --- |
-| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/mg_date.png) |
+| :--- | :--- | :--- |
+| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](https://github.com/massgov/edit-mayflower-docs/tree/2ebf90829554ce8935dcf605d3b3d2c5ae3d1bc7/docs/assets/mg_date.png.png) |
 
 #### Search Result Teasers
 
 | **Metatag** | **Teaser Functionality** | **Example** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- |
 | mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/mg_organization.png) |
-| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/mg_organization.png) |
+| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/mg_organization-10.png) |
 | mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](../.gitbook/assets/mg_organization.png) |
-| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/mg_phone_number.png) |
+| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/mg_phone_number-13.png) |
 | mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/mg_phone_number.png) |
 | mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/mg_phone_number.png) |
 | mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/mg_phone_number.png) |
@@ -145,18 +145,18 @@ If you don't want to include PageMap data in the HTML of your pages, you can add
       </PageMap>
    </url>
    <url>
-      <loc>https://mass.gov/page/example-two.pdf</loc> 
-      <lastmod>2018-06-16T01:38Z</lastmod> 
-      <changefreq>daily</changefreq> 
-      <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0"> 
-         <DataObject type="metatags"> 
+      <loc>https://mass.gov/page/example-two.pdf</loc>
+      <lastmod>2018-06-16T01:38Z</lastmod>
+      <changefreq>daily</changefreq>
+      <PageMap xmlns="http://www.google.com/schemas/sitemap-pagemap/1.0">
+         <DataObject type="metatags">
             <Attribute name="mg_organization">department-of-public-health,department-of-mental-health</Attribute>
             <Attribute name="mg_date">20180430</Attribute>
             <Attribute name="category">news</Attribute>
             <Attribute name="mg_type">press-release</Attribute>
-         </DataObject> 
+         </DataObject>
       </PageMap>
-   </url> 
+   </url>
 </urlset>
 ```
 
@@ -169,14 +169,13 @@ Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov inde
 #### Websites Included in Search.Mass.Gov
 
 | **Website & Description** | **Domain** | **URL Patterns included in Search** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- |
 | Barnstable County Sheriff's Department | bsheriff.net | [www.bsheriff.net/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.bsheriff.net) |
 | Berkshire County Sheriff's Department | bcsoma.org | [https://bcsoma.org/](https://bcsoma.org/) |
 | Bershire Regional Planning Commission | berkshireplanning.org | [www.berkshireplanning.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.berkshireplanning.org) |
 | Board and Commission Appointment by the Governor of Massachusetts \(_Boards and Commissions Office_\) | appointments.state.ma.us | [appointments.state.ma.us/](https://appointments.state.ma.us/) |
 | Boston Region Metropolitan Planning Organization | ctps.org | [www.ctps.org/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.ctps.org) |
 | Bristol County District Attorney | bristolda.com | [http://bristolda.com/](http://bristolda.com/) |
-| Compare Care \(Mass Health Care Options\) | masscomparecare.gov | [https://www.masscomparecare.gov/](https://www.masscomparecare.gov/) |
 | Center for Health Information and Analysis | chiamass.gov | [www.chiamass.gov/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.chiamass.gov) |
 | Civil Service Eligible Lists | csexam.hrd.state.ma.us | [https://www.csexam.hrd.state.ma.us/ eligiblelist/eligiblelist.aspx\*](https://www.csexam.hrd.state.ma.us/eligiblelist/eligiblelist.aspx*) |
 | Committee for Public Counsel Services \(Public Defender Agency of Massachusetts\) | publiccounsel.net | [www.publiccounsel.net/](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.publiccounsel.net) |
@@ -245,7 +244,7 @@ When a user filters content by organization in search.mass.gov, that organizatio
 #### Examples of the Organization Display Details in Search.Mass.Gov
 
 | Organization | Example Display |
-| --- | --- | --- | --- | --- |
+| :--- | :--- |
 | Department of Public Health \(DPH\) | ![](../.gitbook/assets/dph-organization-display.png) |
 | Division of Fisheries and Wildlife \(MassWildlife\) | ![](../.gitbook/assets/dfw-organization-display.png) |
 | Massachusetts Registry of Motor Vehicles \(RMV\) | ![](../.gitbook/assets/rmv-organization-display.png) |

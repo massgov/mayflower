@@ -1,5 +1,7 @@
-@import "colors";
-@import "breakpoints";
+@import "global";
+//include form styles here to export input styling
+$assets-path: '../../../assets';
+@import "01-atoms/forms";
 
 .ma__filter-box{
 		z-index: 10;
@@ -17,13 +19,13 @@
 			 }
 			 .main-content--two{
 				 display: flex;
+				 flex-direction: column;
+				 justify-content: flex-start;
 				 @media($bp-x-large-min){
 						flex-flow: row wrap;
 						justify-content: space-between;
-						align-items: center;
+						align-items: flex-end;
 				 }
-				 flex-direction: column;
-				 justify-content: flex-start;
 			 }
 	  }
     &__filters, &__controls{
@@ -35,18 +37,21 @@
        align-items: baseline;
 			 justify-content: start;
 			 margin: 1rem 0;
+
+			 > div {
+				 @media($bp-medium-max){
+					 width: 100%;
+				 }
+					 margin: 0.5rem 1rem 0.5rem 0;
+			 }
     }
-		&__controls {
-			@media($bp-x-large-min){
-				padding-top: 1.5rem;
+
+		&--desktop-hidden {
+			@media($bp-medium-min){
+				display: none;
 			}
 		}
-    &__topic, &__organizations, &__type, &__date {
-		@media($bp-medium-max){
-			width: 100%;
-		}
-     margin: 0.5rem 1rem 0.5rem 0;
-	  }
+
 	  &__button {
 	  	 margin: 0;
 	  }

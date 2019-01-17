@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 import UtilityPanel from '../UtilityPanel';
-import LatLonGlobe from '../../atoms/icons/LatLonGlobe/LatLonGlobe';
-import SvgBuilding from '../../atoms/icons/SvgBuilding';
-import SvgLogin from '../../atoms/icons/SvgLogin';
+import Icon from '../../atoms/icons/Icon';
+import './styles.css';
 
 class UtilityNav extends Component {
   constructor(props) {
@@ -41,7 +40,11 @@ class UtilityNav extends Component {
             // Use utility nav ident to make unique item ids.
             newItem.navIdent = this.ident;
             const { isOpen } = this.state;
-            return(<NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />);
+            return(
+              (item.panel) ?
+                <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} /> :
+                <NavItemLink key={`navItem.${itemIndex}`} data={item} />
+              );
           })}
         </ul>
       </section>
@@ -54,7 +57,7 @@ const GoogleLanguages = () => (
     <div className="ma__utility-nav__translate">
       <div id="google_translate_element" />
       <div className="ma__utility-nav__translate-icon">
-        <LatLonGlobe />
+        <Icon name="latlonglobe" />
       </div>
     </div>
   </li>
@@ -71,10 +74,10 @@ const NavItem = (obj) => {
     'aria-hidden': isExpanded ? 'false' : 'true',
     id: divId
   };
-  return((
+  return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
       <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
-        {item.icon}
+        <Icon name={item.icon} />
         <span>{item.text}</span>
       </a>
       <div {...divProps}>
@@ -84,7 +87,7 @@ const NavItem = (obj) => {
               <span>{ item.closeText }</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>
-            {item.icon}
+            <Icon name={item.icon} />
             <span>{ item.text }</span>
           </div>
           <div className="ma__utility-nav__content-body">
@@ -93,7 +96,19 @@ const NavItem = (obj) => {
         </div>
       </div>
     </li>
-  ));
+  );
+};
+
+const NavItemLink = (obj) => {
+  const item = obj.data;
+  return(
+    <li className="ma__utility-nav__item js-util-nav-toggle">
+      <a className="ma__utility-nav__link" href={item.href} aria-label={item.ariaLabelText || item.text}>
+        <Icon name={item.icon} />
+        <span>{item.text}</span>
+      </a>
+    </li>
+  );
 };
 
 
@@ -107,12 +122,13 @@ UtilityNav.propTypes = {
     /** Defines the label to use with aria-label. */
     ariaLabelText: PropTypes.string,
     /** The icon to display to the left of text. */
-    icon: PropTypes.oneOfType([
-      PropTypes.shape(SvgBuilding.propTypes),
-      PropTypes.shape(SvgLogin.propTypes)
+    icon: PropTypes.oneOf([
+      'building', 'login'
     ]),
+    /** The href for the link if not a button. */
+    href: PropTypes.string,
     /** The text to use on the close link. */
-    closeText: PropTypes.string.isRequired,
+    closeText: PropTypes.string,
     /** Displays an utility panel when text is clicked. */
     panel: PropTypes.shape(UtilityPanel.propTypes)
   })),

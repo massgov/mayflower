@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Heading = (props) => {
   const Element = `h${props.level}`;
   return(
-    <Element>
+    <Element className={props.class}>
       {props.text}
     </Element>
   );
@@ -13,7 +13,10 @@ const Heading = (props) => {
 Heading.propTypes = {
   /** The heading text  */
   text: PropTypes.string.isRequired,
-  level: PropTypes.number
+  /** The heading level */
+  level: PropTypes.number,
+  /** A passable heading classname */
+  class: PropTypes.string
 };
 
 Heading.defaultProps = {

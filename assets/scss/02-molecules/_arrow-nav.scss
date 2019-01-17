@@ -2,6 +2,7 @@
   min-height: 45px;
   padding-left: 40px;
   position: relative;
+  cursor: pointer;
 
   @media ($bp-small-max) {
     display: flex;
@@ -43,7 +44,7 @@
 
   &__title {
     font-size: 1rem;
-    letter-spacing: .1em;
+    letter-spacing: $letter-spacing-large;
     line-height: 1.625rem;
     margin-bottom: 0;
     text-transform: uppercase;
@@ -62,8 +63,16 @@
       }
     }
   }
-  
+
   &__link {
+    @media ($bp-small-max) {
+      @include ma-visually-hidden;
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+    color: $c-font-link;
     @media ($bp-small-max) {
       @include ma-visually-hidden;
     }

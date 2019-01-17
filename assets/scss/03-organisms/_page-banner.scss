@@ -5,24 +5,34 @@ $page-banner-height: 330px;
   background-size: cover;
   background-position: center center;
   height: auto;
-
   margin-bottom: 20px;
   overflow: hidden;
   position: relative;
 
   @media ($bp-x-small-min) {
-    height: 366px;
+    height: 300px;
     margin-bottom: 40px;
   }
 
-  &--small,
-  &--large {
-    @media ($bp-small-min) {
-      height: 300px;
+  // to match height and font size being provided to prod by 
+  // decision tree module styles
+  .decision-tree & {
+
+    h1 {
+      font-size: 2.125rem;
+
+      @media ($bp-small-min) {
+        font-size: 1.8125rem;
+      }
+    }
+
+    &.ma__page-banner--overlay {
+      height: 120px;
     }
   }
 
   &--overlay {
+
     @media ($bp-large-min) {
       height: 400px;
     }
@@ -34,7 +44,8 @@ $page-banner-height: 330px;
 
   &--columns {
     height: auto;
-    min-height: 450px;
+    min-height: 350px;
+    max-height: none;
 
     @media ($bp-medium-min) {
       padding-top: 45px;
@@ -68,9 +79,11 @@ $page-banner-height: 330px;
       left: 500px;
       background-size: cover;
       background-position: center;
+      
       @media (min-width: $max-width) {
         right: calc(-100vw + #{$max-width});
       }
+      
       @media ($bp-large-extended) {
         left: 0;
         top: 100%;
@@ -212,10 +225,10 @@ $page-banner-height: 330px;
 
   &--columns &__content {
     height: $page-banner-height;
-    max-width: 640px;
-position: relative;
+    max-width: 700px;
+    position: relative;
     top: 0;
-
+    
     @media ($bp-x-small-min) {
       position: relative;
       top: calc(#{$page-banner-height}/2);
@@ -270,31 +283,10 @@ position: relative;
 
   &__title {
     flex-grow: 1;
-    font-size: 3rem;
     line-height: 1.05;
     margin-bottom: 0;
     vertical-align: middle;
     z-index: 1;
-
-    @media ($bp-x-small-min) {
-      font-size: 3.25rem;
-    }
-
-    @media ($bp-small-min) {
-      font-size: 3.5rem;
-    }
-
-    @media ($bp-medium-min){
-      font-size: 4rem;
-    }
-
-    @media ($bp-large-min){
-      font-size: 4.625rem;
-    }
-
-    @media ($bp-x-large-min){
-      font-size: 5.125rem;
-    }
 
     & > abbr {
       font-size: .4em;
@@ -348,7 +340,7 @@ position: relative;
   .ma__decorative-link {
     display: block;
     font-size: 1.813rem;
-    letter-spacing: .02em;
+    letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
     margin-bottom: 0;
     margin-top: .8em;
@@ -388,7 +380,7 @@ position: relative;
     @media ($bp-medium-min){
       @include span-columns(4 of 12);
       font-size: 1.813rem;
-      letter-spacing: .02em;
+      letter-spacing: $letter-spacing-small;
       line-height: 2.188rem;
       padding-top: 100px;
       padding-right: 20px;
@@ -422,29 +414,29 @@ $page-banner-inner-width: 612px;
 
   &__container {
     &:before {
-      background-color: rgba($c-theme-secondary, 0.8);
+      background-color: rgba($c-primary-alt, 0.8);
     }
   }
 
   &--blue &__container {
     &:before {
-      background-color: rgba($c-theme-blue, 0.8);
+      background-color: rgba($c-primary, 0.8);
     }
   }
 
   &__content {
-    background-image: linear-gradient(-90deg, rgba($c-theme-secondary, .7), $c-theme-secondary 95%);
+    background-image: linear-gradient(-90deg, rgba($c-primary-alt, .7), $c-primary-alt 95%);
 
     &:before {
-      background-color: $c-theme-secondary;
+      background-color: $c-primary-alt;
     }
   }
 
   &--blue &__content {
-    background-image: linear-gradient(-90deg, rgba($c-theme-blue, .7), $c-theme-blue 95%);
+    background-image: linear-gradient(-90deg, rgba($c-primary, .7), $c-primary 95%);
 
     &:before {
-      background-color: $c-theme-blue;
+      background-color: $c-primary;
     }
   }
 
@@ -454,7 +446,7 @@ $page-banner-inner-width: 612px;
 
   &--columns &__content {
     &:after {
-      background-color: rgba($c-theme-secondary,.7);
+      background-color: rgba($c-primary-alt,.7);
     }
 
     @media ($bp-x-small-min) {
@@ -466,11 +458,11 @@ $page-banner-inner-width: 612px;
 
   &--linked &__container {
     @media ($bp-large-extended) {
-      background-color: $c-theme-secondary;
+      background-color: $c-primary-alt;
     }
   }
   &--linked &__content {
-    background-color: $c-theme-secondary;
+    background-color: $c-primary-alt;
     background-image: none;
   }
 

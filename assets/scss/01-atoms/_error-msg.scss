@@ -5,13 +5,15 @@
   line-height: 1.75rem;
   margin-bottom: .5em;
 
-  &.has-error {
-    display: block;
-  }
-}
-
-//theme
-.ma__error-msg {
   color: $c-font-error;
   font-weight: 500;
+
+  &--success {
+    color: $c-primary-alt !important;
+  }
+
+  &.has-error {
+    display: flex !important;
+    align-items: center;
+  }
 }
