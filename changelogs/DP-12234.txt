@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Patternlab
-Minor
-- (Patternlab) DP-12234: Fix the spacing issue after the conditional content for phone in contact item.
