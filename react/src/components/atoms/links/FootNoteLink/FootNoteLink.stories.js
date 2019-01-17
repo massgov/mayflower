@@ -12,10 +12,11 @@ storiesOf('atoms/links', module).addDecorator(withKnobs)
     const props = {
       index: text('FootNoteLink.index', '1')
     };
+    const rawHtml = 'This is the footnote <a href="#">(reference)</a>.';
     return(
       <div>
         <p>This is where the footnote would be referenced. <FootNoteLink index={props.index} /> </p>
-        <FootNote index={props.index}>This is the footnote.</FootNote>
+        <FootNote index={props.index}>{rawHtml}</FootNote>
       </div>
     );
   }));

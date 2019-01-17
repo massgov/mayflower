@@ -110,6 +110,7 @@ class TabContainer extends React.Component {
     );
   }
 }
+TabContainer.contextType = TabContext;
 
 TabContainer.defaultProps = {
   nested: false,

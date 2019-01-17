@@ -15,7 +15,7 @@ class FootNote extends React.Component {
           id={`footnotemsg${index}`}
           onClick={() => this.handleScroll()}
         >
-          <span className="ma__footnote-item-content">{`${index}. ${children}`}</span>
+          <span className="ma__footnote-item-content" dangerouslySetInnerHTML={{ __html: `${index}. ${children}` }} />
         </button>
       </div>
     );

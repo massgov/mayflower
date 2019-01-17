@@ -307,7 +307,9 @@ export default (function (window, document, $) {
     if (listings.hasFilter(filteredData.resultsHeading.tags, "location")) {
       place = listings.getFilterValues(filteredData.resultsHeading.tags, "location")[0]; // returns array
       // If place argument was selected from the locationFilter autocomplete (initiated on the zipcode text input).
-      let autocompletePlace = ma.autocomplete.getPlace();
+      if (typeof ma.autocomplete !== "undefined") {
+        let autocompletePlace = ma.autocomplete.getPlace();
+      }
       // Geocode the address, then sort the markers and instance of locationListing masterData.
       ma.geocoder = ma.geocoder ? ma.geocoder : new google.maps.Geocoder();
       if (typeof autocompletePlace !== "undefined" && autocompletePlace.hasOwnProperty("place_id")) {
