@@ -48,15 +48,24 @@ class Tab extends React.Component {
             this.defaultSet = true;
           }
           return(
-            <button
-              className={tabClasses}
-              onClick={(e) => {
-                this.scrollIntoView(e.target);
-                setActiveTab(this.tabIdent, this.props.children)
-              }}
-            >
-            {this.props.title}
-            </button>
+            <li role="presentation" className={tabClasses}>
+              <button
+                role="tab"
+                id={this.props.tabIdent}
+                onClick={(e) => {
+                  this.scrollIntoView(e.target);
+                  setActiveTab(this.props.tabIdent, this.props.children);
+                }}
+                aria-selected={active}
+                tabIndex={this.props.tabIndex}
+                aria-describedby={this.props.a11yID}
+
+                // THIS EVENT IS ONLY AVAILABLE TO THE ONFOCUS TAB.
+                onKeyDown = {(e) => this.handleKeyDown(e)}
+              >
+              {this.props.title}
+              </button>
+            </li>
           );
         }}
       </TabContext.Consumer>
@@ -69,7 +78,7 @@ Tab.defaultProps = {
 };
 
 Tab.propTypes = {
-  /** When true, the tab will be open by default when used with TabContainer. */
+  // When true, the tab will be open by default when used with TabContainer.
   default: PropTypes.bool,
   // The text of the tab.
   title: PropTypes.string.isRequired,
