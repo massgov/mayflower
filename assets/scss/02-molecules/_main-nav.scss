@@ -54,6 +54,9 @@
       &.is-open:after {
         display: none;
       }
+      &.is-open-react:after {
+        display: none;
+      }
     }
   }
 
@@ -108,7 +111,7 @@
       }
     }
 
-    .is-open & {
+    .is-open, is-open-react & {
 
       &:after {
         @media ($bp-header-toggle-min) {
@@ -180,7 +183,7 @@
         right: 0;
       }
 
-      &.is-closed {
+      &.is-closed, &.is-closed-react {
         right: -300px;
       }
     }
@@ -194,6 +197,10 @@
 
       &.is-closed {
         @include ma-visually-hidden;
+      }
+
+      &.is-closed-react {
+       display: none;
       }
 
       .ma__main-nav__item:last-child & {

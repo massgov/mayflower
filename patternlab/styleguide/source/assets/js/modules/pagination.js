@@ -22,13 +22,13 @@ export default (function (window, document, $, undefined) {
 
     // Listen for previous page button click and trigger pagination event.
     $el.on('click', prevButton, function () {
-      targetPageNumber = targetPageNumber - 1;
+      targetPageNumber = parseInt(targetPageNumber) - 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
     // Listen for next button click and trigger pagination event.
     $el.on('click', nextButton, function () {
-      targetPageNumber = targetPageNumber + 1;
+      targetPageNumber = parseInt(targetPageNumber) + 1;
       pushPaginationState(targetPageNumber);
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
@@ -39,7 +39,7 @@ export default (function (window, document, $, undefined) {
       $el.trigger('ma:Pagination:Pagination', [history.state.page]);
     });
 
-    window.onpopstate = function(e) {
+    window.onpopstate = function (e) {
       if (e.state) {
         if (e.state.page) {
           $el.trigger("ma:Pagination:Pagination", [e.state.page]);
@@ -98,9 +98,9 @@ export default (function (window, document, $, undefined) {
     }
 
     let truncatedPagination = data,
-        current = data.currentPage,
-        last = data.totalPages,
-        delta = 1;
+      current = data.currentPage,
+      last = data.totalPages,
+      delta = 1;
 
     // For the first and last pages, set the delta to 2 so 2 page numbers
     // within the current page can be shown.
@@ -109,10 +109,10 @@ export default (function (window, document, $, undefined) {
     }
 
     let left = current - delta,
-        right = current + delta + 1,
-        range = [],
-        rangeWithEllipsis = [],
-        l;
+      right = current + delta + 1,
+      range = [],
+      rangeWithEllipsis = [],
+      l;
 
     for (let i = 1; i <= last; i++) {
       if (i == 1 || i == last || i >= left && i < right) {
@@ -161,4 +161,4 @@ export default (function (window, document, $, undefined) {
     }
   }
 
-}) (window, document, jQuery);
+})(window, document, jQuery);
