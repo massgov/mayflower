@@ -75,6 +75,7 @@ class InputTextFuzzy extends React.Component {
         onChange: this.handleChange,
         value: this.state.value,
         disabled: this.props.disabled,
+        id: this.props.inputId,
         onKeyDown: (event, { newHighlightedSectionIndex, newHighlightedItemIndex }) => {
           switch(event.key) {
             case 'ArrowDown':
@@ -177,7 +178,7 @@ class InputTextFuzzy extends React.Component {
     });
     return(
       <React.Fragment>
-        {this.props.label && (<label htmlFor={this.props.id} className="ma__label">{this.props.label}</label>)}
+        {this.props.label && (<label htmlFor={this.props.inputId} className="ma__label">{this.props.label}</label>)}
         <div className={inputTextTypeAheadClasses}>
           <Autowhatever {...autoProps} />
         </div>
@@ -209,6 +210,8 @@ InputTextFuzzy.propTypes = {
   onSuggestionClick: PropTypes.func,
   /** The default value for the select box. */
   selected: PropTypes.string,
+  /** The id of the the input tag */
+  inputId: PropTypes.string
 };
 
 InputTextFuzzy.defaultProps = {
