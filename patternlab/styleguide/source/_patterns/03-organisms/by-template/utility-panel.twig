@@ -1,4 +1,4 @@
-<section class="ma__utility-panel">
+<div class="ma__utility-panel">
   <div class="ma__utility-panel__description {{ utilityPanel.links ? '' : 'ma__utility-panel__description--full' }}">
     {% set richText = utilityPanel.description.richText %}
     {% include "@organisms/by-author/rich-text.twig" %}
@@ -10,4 +10,4 @@
       </li>
     {% endfor %}
   </ul>
-</section>
+</div>
