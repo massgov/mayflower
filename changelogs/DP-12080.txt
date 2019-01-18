@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed/Added
-Minor
-- (React) DP-12080: Add capacity to pass an id to the input tag of the InputTextFuzzy atom.
