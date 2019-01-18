@@ -36,7 +36,7 @@ class HeaderSearch extends React.Component {
             <TypeAheadDropdown {...orgDropdown} />
           </div>
         }
-        <section className="ma__header-search">
+        <div className="ma__header-search">
           <form action="#" className="ma__form" onSubmit={headerSearch.onSubmit} role="search">
             <label
               htmlFor={headerSearch.id}
@@ -57,7 +57,7 @@ class HeaderSearch extends React.Component {
             </div>
             <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
-        </section>
+        </div>
       </div>
     );
   }
