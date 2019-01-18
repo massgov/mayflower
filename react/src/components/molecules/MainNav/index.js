@@ -43,7 +43,7 @@ class MainNav extends Component {
 
   render() {
     return(
-      <section className="ma__main-nav">
+      <div className="ma__main-nav">
         <ul className="ma__main-nav__items" role="menubar">
           {this.props.mainNav.map((item, index) => {
             const topItemClasses = classNames({
@@ -122,7 +122,7 @@ class MainNav extends Component {
             })
           }
         </ul>
-      </section>
+      </div>
     );
   }
 }
