@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- (Patternlab/React) DP-11662: Replace the markup validation flagged elements <section> with <div> for .ma__utility-nav and .ma__utility-panel.
