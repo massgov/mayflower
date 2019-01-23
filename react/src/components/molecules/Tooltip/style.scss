@@ -9,4 +9,23 @@
       margin-left: .2em;
     }
   }
+
+  &__inner--inline {
+    display: inline;
+    label {
+      display: inline;
+    }
+
+    &__container{
+      label.ma__tooltip__close {
+        display: block;
+      }
+    }
+
+    // &__modal {
+    //   @media($bp-small-max) {
+    //     width: 100%;
+    //   }
+    // }
+  }
 }

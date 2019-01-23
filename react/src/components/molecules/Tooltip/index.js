@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Icon from '../../atoms/icons/Icon';
 // eslint-disable-next-line import/no-unresolved
 import './style.css';
 
 const Tooltip = (tooltip) => {
+  const inlineToolTip = tooltip.htmlTag === 'span';
+
+  const tooltipInnerClasses = classNames({
+    ma__tooltip__inner: true,
+    'ma__tooltip__inner--inline': inlineToolTip
+  });
+
   const CustomElement = tooltip.htmlTag;
   const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;
   const location = (tooltip.location === 'above') ? 'ma__tooltip__modal--above' : 'ma__tooltip__modal--below';
@@ -12,7 +20,7 @@ const Tooltip = (tooltip) => {
 
   return(
     <CustomElement className="ma__tooltip">
-      <div className="ma__tooltip__inner">
+      <div className={tooltipInnerClasses}>
         <input
           id={tooltip.controlId}
           type="checkbox"
@@ -26,8 +34,10 @@ const Tooltip = (tooltip) => {
           aria-labelledby={tooltip.controlId}
           aria-hidden="true"
         >
-        {tooltip.openText}
-          {openIcon}
+          { inlineToolTip && ('\u00A0')}
+          { tooltip.openText }
+          { openIcon }
+          { inlineToolTip && ('\u00A0\u00A0')}
         </label>
         <div className={`ma__tooltip__modal ${location}`}>
           <div className="ma__tooltip__container">

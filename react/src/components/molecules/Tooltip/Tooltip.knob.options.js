@@ -1,5 +1,5 @@
 export default {
-  openText: 'Want more information?',
+  openText: '$22,680.00. ($378.00 per employee)',
   closeText: 'Close',
   message: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Etiam porta sem malesuada magna mollis euismod.',
   controlId: 'tooltip1',
