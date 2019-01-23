@@ -12,12 +12,12 @@
 
   &__inner--inline {
     display: inline;
-    label {
+    .ma__tooltip__open {
       display: inline;
     }
 
     &__container{
-      label.ma__tooltip__close {
+      .ma__tooltip__close {
         display: block;
       }
     }
