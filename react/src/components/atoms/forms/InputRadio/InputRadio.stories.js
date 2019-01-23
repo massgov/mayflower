@@ -18,7 +18,8 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
       required: boolean('inputRadio.required', true),
       outline: boolean('inputRadio.outline', true),
       checked: boolean('inputRadio.checked', null),
-      disabled: boolean('inputRadio.disabled', false)
+      disabled: boolean('inputRadio.disabled', false),
+      error: boolean('inputRadio.error', false)
     };
     return(
       <InputRadio {...props} onChange={action('onChange')} />

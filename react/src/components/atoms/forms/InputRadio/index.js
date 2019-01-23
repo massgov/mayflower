@@ -19,9 +19,19 @@ class InputRadio extends React.Component {
 
   render() {
     const radioClasses = classNames({
-      'ma__input-radio': true,
+      'ma__input-radio': !this.props.outline,
       'ma__input-radio--outline': this.props.outline
     });
+    const inputClasses = classNames({
+      'ma__input-radio__control': !this.props.outline,
+      'ma__input-radio--outline__control': this.props.outline,
+      'ma__input-radio--outline__control--error': this.props.error
+    })
+    const labelClasses = classNames({
+      'ma__input-radio__label': !this.props.outline,
+      'ma__input-radio--outline__label': this.props.outline,
+      'ma__input-radio--outline__label--error': this.props.error
+    })
     return(
       <div className={radioClasses}>
         <input
@@ -33,8 +43,9 @@ class InputRadio extends React.Component {
           required={this.props.required}
           onChange={this.handleChange}
           disabled={this.props.disabled}
+          className={inputClasses}
         />
-        <label htmlFor={this.props.id}>
+        <label htmlFor={this.props.id} className={labelClasses}>
           <span>{this.props.label}</span>
         </label>
       </div>
@@ -59,14 +70,18 @@ InputRadio.propTypes = {
   outline: PropTypes.bool,
   /** OnChange function */
   onChange: PropTypes.func,
-  disabled: PropTypes.bool
+  /** Whether the radio button is disabled or not */
+  disabled: PropTypes.bool,
+  /** Whether the input is in an error state */
+  error: PropTypes.bool
 };
 
 InputRadio.defaultProps = {
   outline: false,
   required: false,
   onChange: () => {},
-  disabled: false
+  disabled: false,
+  error: false
 };
 
 export default InputRadio;

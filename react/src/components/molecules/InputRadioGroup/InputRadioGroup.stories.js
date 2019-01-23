@@ -14,28 +14,31 @@ storiesOf('molecules', module).addDecorator(withKnobs)
     const InputRadioGroupProps = {
       title: text('inputRadioGroup.title', 'Pick your favorite plant'),
       name: text('inputRadioGroup.group', 'favorite-plant'),
-      outline: boolean('inputRadioGroup.outline', 'true'),
-      defaultSelected: text('inputRadioGroup.defaultSelected', 'moss'),
+      outline: boolean('inputRadioGroup.outline', true),
+      defaultSelected: text('inputRadioGroup.defaultSelected', ''),
+      error: boolean('inputRadioGroup.error', false),
+      disabled: boolean('inputRadioGroup.disabled', false),
+      inline: boolean('inputRadioGroup.inline', true)
     };
     const InputRadioOneProps = {
-      id: text('inputRadio.id', 'fern'),
-      value: text('inputRadio.value', 'fern'),
-      label: text('inputRadio.label', 'Fern')
+      id: text('InputRadioOneProps.inputRadio.id', 'fern'),
+      value: text('InputRadioOneProps.inputRadio.value', 'fern'),
+      label: text('InputRadioOneProps.inputRadio.label', 'Fern')
     };
     const InputRadioTwoProps = {
-      id: text('inputRadio.id', 'moss'),
-      value: text('inputRadio.value', 'moss'),
-      label: text('inputRadio.label', 'Moss')
+      id: text('InputRadioTwoProps.inputRadio.id', 'moss'),
+      value: text('InputRadioTwoProps.inputRadio.value', 'moss'),
+      label: text('InputRadioTwoProps.inputRadio.label', 'Moss')
     };
     const InputRadioThreeProps = {
-      id: text('inputRadio.id', 'palm'),
-      value: text('inputRadio.value', 'palm'),
-      label: text('inputRadio.label', 'Palm')
+      id: text('InputRadioThreeProps.inputRadio.id', 'palm'),
+      value: text('InputRadioThreeProps.inputRadio.value', 'palm'),
+      label: text('InputRadioThreeProps.inputRadio.label', 'Palm')
     };
     const InputRadioFourProps = {
-      id: text('inputRadio.id', 'mayflower'),
-      value: text('inputRadio.value', 'mayflower'),
-      label: text('inputRadio.label', 'Mayflower')
+      id: text('InputRadioFourProps.inputRadio.id', 'mayflower'),
+      value: text('InputRadioFourProps.inputRadio.value', 'mayflower'),
+      label: text('InputRadioFourProps.inputRadio.label', 'Mayflower')
     };
     return(
       <InputRadioGroup {...InputRadioGroupProps} onChange={action('onChange')} >

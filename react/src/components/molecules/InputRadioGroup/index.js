@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './style.css';
 
 class InputRadioGroup extends React.Component {
@@ -21,7 +22,9 @@ class InputRadioGroup extends React.Component {
           onChange: this.handleChange,
           checked: isChecked,
           required: this.props.required,
-          outline: this.props.outline
+          outline: this.props.outline,
+          error: this.props.error,
+          disabled: this.props.disabled
         });
         return(
           <div className={`ma__input-group__item item-${this.props.children.length}`}>
@@ -49,19 +52,25 @@ class InputRadioGroup extends React.Component {
   }
 
   render() {
-    const errorClasses = ['ma__error-msg'];
-    if (this.props.errorDisplay) {
-      errorClasses.push('has-error');
-    }
+    const itemsClasses = classNames({
+      'ma__input-group__items': true,
+      'ma__input-group__items--inline': this.props.inline,
+      'ma__input-group__items--outline': this.props.outline,
+    })
+    const errorClasses = classNames({
+      'ma__error-msg': true,
+      'has-error': this.props.error
+    })
+
     return(
       <fieldset>
         <div className="ma__input-group">
           <legend className="ma__input-group__title">
             {this.props.title}
           </legend>
-          <div className="ma__input-group__items ma__input-group__items--inline">
-            {this.props.errorMsg &&
-            <div className={errorClasses.join(' ')}>{this.props.errorMsg}</div>}
+          <div className={itemsClasses}>
+            {this.props.errorMsg && this.props.error &&
+            <div className={errorClasses}>{this.props.errorMsg}</div>}
             {this.getRadioInputs()}
           </div>
         </div>
@@ -77,19 +86,26 @@ InputRadioGroup.propTypes = {
   required: PropTypes.bool,
   /** Whether you want the radio input outlined */
   outline: PropTypes.bool,
-  /** Only AccordionItem can be passed as a Child to the AccordionWrapper */
+  /** Only InputRadio can be passed as a Child to the InputRadioGroup */
   children: PropTypes.node.isRequired,
   /** The default select radio button option on initial render */
   defaultSelected: PropTypes.string,
-  /** Display the Error Mesage or not. */
-  errorDisplay: PropTypes.bool,
+  /** Whether the radio group is in error state or not. */
+  error: PropTypes.bool,
   /** Error Message content. */
   errorMsg: PropTypes.string,
+  /** Display Inputs inline */
+  inline: PropTypes.bool,
+  /** Whether the radio button group is in a disabled state or not */
+  disabled: PropTypes.bool
 };
 
 InputRadioGroup.defaultProps = {
   outline: false,
-  required: false
+  required: false,
+  inline: true,
+  error: false,
+  disabled: false
 };
 
 export default InputRadioGroup;
