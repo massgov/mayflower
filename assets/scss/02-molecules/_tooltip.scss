@@ -9,11 +9,9 @@
     border-bottom-style: dotted;
     border-bottom-width: 2px;
     cursor: pointer;
-    font-size: 1rem;
     transition: border ease .4s;
 
     & > svg {
-      margin-bottom: -.2em;
       width: 16px;
       height: 16px;
     }
@@ -109,7 +107,7 @@
     }
 
     & > svg {
-      fill: tint($c-font-link, 50%);  
+      fill: tint($c-font-link, 50%);
     }
   }
 
