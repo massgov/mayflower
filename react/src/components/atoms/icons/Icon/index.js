@@ -9,7 +9,7 @@ function loadAssets(asset) {
   let file;
   req
     .keys()
-    .filter((filename) => filename.indexOf(`${asset}.svg`) > -1)
+    .filter((filename) => filename.indexOf(asset) > -1)
     .forEach((filename) => {
       file = req(filename);
     });
