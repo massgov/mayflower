@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Icon from '../../atoms/icons/Icon';
 import Heading from '../../atoms/headings/Heading';
 import Collapse from '../../animations/Collapse';
+import shortid from 'shortid';
 import './style.css';
 
 class AccordionItem extends React.Component {
@@ -12,6 +13,7 @@ class AccordionItem extends React.Component {
     this.state = {
       open: false
     };
+    this.accordionId = shortid.generate();
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -21,11 +23,50 @@ class AccordionItem extends React.Component {
     });
   }
 
+  renderButton(headingLevel, headingClasses, buttonClasses, buttonLabelClasses) {
+    const button = (
+      <button
+        className={buttonClasses}
+        onClick={this.handleClick}
+        aria-expanded={this.state.open}
+        aira-controls={this.accordionId}
+      >
+        { this.props.icon && !this.props.secondary && (
+          <div className="ma__accordion-header__icon">
+            {this.props.icon}
+          </div>
+        )}
+        { this.props.secondary && (
+          <div className="ma__accordion-header__icon--secondary">
+            <Icon name="chevron" svgHeight={20} svgWidth={20} />
+          </div>
+        )}
+        <span className={buttonLabelClasses}>{ this.props.title }</span>
+        { !this.props.secondary && (
+          <span className="ma__accordion-header__button__status" aria-hidden="true">+</span>
+        )}
+      </button>);
+ 
+    // Heading is a wrapper for <button>.
+    // this.props.title is displayed as the label for the button, not heading title.
+    return(
+      headingLevel ? (
+        <Heading class={headingClasses} level={headingLevel}>
+          { button }
+        </Heading>
+      ) : { button }
+    );
+  }
+
   render() {
     const accordionClasses = classNames({
       'ma__accordion-item': !this.props.secondary,
       'ma__accordion-item--secondary': this.props.secondary,
       'ma__accordion-item--borderless': !this.props.border && !this.props.secondary
+    });
+    const headingClasses = classNames({
+      'ma__accordion-header': !this.props.secondary,
+      'ma__accordion-header--secondary': this.props.secondary
     });
     const buttonClasses = classNames({
       'ma__accordion-header__button': !this.props.secondary,
@@ -34,35 +75,15 @@ class AccordionItem extends React.Component {
       'ma__accordion-header__button--solid': this.props.emphasize && !this.props.secondary,
       'ma__accordion-header__button--trans': !this.props.emphasize && !this.props.secondary
     });
-    const headingClasses = classNames({
+    const buttonLabelClasses = classNames({
       'ma__accordion-header__title': !this.props.secondary,
       'ma__accordion-header__title--secondary': this.props.secondary
     });
-
     return(
       <div className={accordionClasses}>
-        <header className="ma__accordion-header">
-          <button
-            className={buttonClasses}
-            aria-label={this.props.info}
-            onClick={this.handleClick}
-            aria-expanded={this.state.open}
-          >
-            { this.props.icon && !this.props.secondary && (
-              <div className="ma__accordion-header__icon">
-                {this.props.icon}
-              </div>
-            )}
-            { this.props.secondary && (
-              <div className="ma__accordion-header__icon--secondary">
-                <Icon name="chevron" svgHeight={20} svgWidth={20} />
-              </div>
-            )}
-            <Heading class={headingClasses} text={this.props.title} level={this.props.headerLevel} />
-          </button>
-        </header>
+        {this.renderButton(this.props.headerLevel, headingClasses, buttonClasses, buttonLabelClasses)}
         <Collapse in={this.state.open} dimension="height">
-          <div className="ma__accordion-content__body">
+          <div className="ma__accordion-content__body" id={this.accordionId}>
             {this.props.children}
           </div>
         </Collapse>

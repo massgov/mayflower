@@ -27,5 +27,7 @@ coloredHeading {
     type: string ('','green','blue') / optional
   level:
     type: number / optional
+  id:
+    type: string / optional
 }
 ~~~

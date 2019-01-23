@@ -13,6 +13,10 @@
   }
 
   &-header {
+    margin-bottom: 0;
+    &--secondary {
+      margin-bottom: 0;
+    }
 
     &__icon--secondary {
       font-size: 2.5rem;
@@ -81,14 +85,14 @@
           -webkit-box-shadow: 0 0 0 1px #9bdaf1;
           box-shadow: 0 0 0 1px #9bdaf1;
         }
-        &:after{
+
+        .ma__accordion-header__button__status {
           transform: rotate(135deg);
         }
       }
 
-      &:after {
+      &__status {
         font-size: 2.5rem;
-        content: "+";
         line-height: .65em;
         overflow: hidden;
         position: absolute;
@@ -116,8 +120,11 @@
     &__title {
       @include ma-h5;
       font-weight: 700;
-      margin-bottom: 0;
       min-height: 32px;
+      display: block;
+      margin-right: 20px;
+      margin-bottom: 0;
+
       &--secondary {
         font-weight: 500;
         @include ma-h5;

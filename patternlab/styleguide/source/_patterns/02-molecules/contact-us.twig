@@ -9,22 +9,26 @@
   {% endif %}
 {% endif %}
 
-{% set groupHeading = contactUs.level ? : 2 %}
-
+{% set contactUsHeading = contactUs.level ? : 2 %}
 <section
   class="ma__contact-us {{ accordionClass }} {{ contactUs.isExpanded ? 'is-open':'' }} {{ contactUs.columns ? 'ma__contact-us--columns':'' }}">
-
   {% if contactUs.subTitle %}
+    <h{{ contactUsHeading }} class="ma__column-heading">
     {% if outerAccordion %}
       <button class="ma__contact-us__header js-accordion-link" type="button">
     {% endif %}
-      {% set columnHeading = contactUs.subTitle|merge({"level": contactUs.level}) %}
-      {% include "@atoms/04-headings/column-heading.twig" %}
+    {% if contactUs.subTitle.href %}
+      {% set decorativeLink = contactUs.subTitle %}
+      {% include "@atoms/decorative-link.twig" %}
+    {% else %}
+      <span class="ma__contact-us__header__label">{{contactUs.subTitle.text}}</span>
+    {% endif %}
     {% if outerAccordion %}
-      <span class="ma__contact-us--accordion__status js-accordion-status" aria-label="click to show info">+</span>
+      <span class="ma__contact-us--accordion__status js-accordion-status" aria-hidden="true">+</span>
       </button>
     {% endif %}
-    {% set groupHeading = groupHeading + 1 %}
+    </h{{ contactUsHeading }}>
+    {% set groupHeading = contactUsHeading + 1 %}
     {% set contactName = contactUs.subTitle.text %}
   {% endif %}
 

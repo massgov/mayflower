@@ -1,12 +1,14 @@
-<header class="ma__collapsible-header">
+{# use the level passed, the gloval level, or the default #}
+{% set headingLevel = collapsibleHeader.level ? : 3 %}
+<h{{ headingLevel }} class="ma__collapsible-header">
   <button
-    class="ma__collapsible-header__button js-accordion-link"
-    aria-label="{{ collapsibleHeader.info }}">
+    class="ma__collapsible-header__button js-accordion-link">
     {% if collapsibleHeader.icon %}
       <div class="ma__collapsible-header__icon">
         {{ icon(collapsibleHeader.icon) }}
       </div>
     {% endif %}
-    <h2 class="ma__collapsible-header__title">{{ collapsibleHeader.title }}</h2>
+    <span class="ma__collapsible-header__title">{{ collapsibleHeader.title }}</span>
+    <span class="ma__collapsible-header__button__status" aria-hidden="true">+</span>
   </button>
-</header>
+</h{{ headingLevel }}>

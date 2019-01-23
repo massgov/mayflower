@@ -7,6 +7,8 @@ import TableofContents from '.';
 import markdown from './TableofContents.md';
 import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link, Icon } from '../../../index';
 
+const navId = 'tableOfContent';
+
 const getDecorativeLink = (index) => {
   const props = {
     info: text(`TableofContents.Children.${index}.DecorativeLink.info`, 'Title info here'),
@@ -19,8 +21,8 @@ const getDecorativeLink = (index) => {
 
 const getAccordionItem = (name = 'laptop', index) => {
   const props = {
-    title: 'Collapsible Header Two',
-    info: 'Collapsible Header Two',
+    title: 'Collapsible Header Three',
+    info: 'Collapsible Header Three',
     icon: null,
     border: boolean(`TableofContents.Children.${index}.AccordionItem.border`, false),
     secondary: boolean(`TableofContents.Children.${index}.AccordionItem.secondary`, false),
@@ -33,7 +35,7 @@ const getAccordionItem = (name = 'laptop', index) => {
       4: '4',
       5: '5',
       6: '6'
-    }, '2'))
+    }, '3'))
   };
   return<AccordionItem {...props}>{getLink()}</AccordionItem>;
 };
@@ -62,7 +64,8 @@ const getColoredHeading = () => {
       '': 'Grey (default)',
       green: 'Green',
       blue: 'Blue'
-    }, 'green')
+    }, 'green'),
+    id: navId
   };
   return<ColoredHeading {...props} />;
 };
@@ -89,6 +92,7 @@ storiesOf('organisms/TableofContents', module).addDecorator(withKnobs)
     'TableofContents with ColoredHeading',
     withInfo(`<div>${markdown}</div>`)(() => {
       const props = {
+        navId,
         heading: getColoredHeading()
       };
       return(

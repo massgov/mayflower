@@ -1,6 +1,6 @@
-<nav class="ma__toc--hierarchy">
+<nav class="ma__toc--hierarchy" aria-labelledby="{{ tableOfContentsHierarchy.title.id }}">
   {% if tableOfContentsHierarchy.title.colored %}
-    {% set coloredHeading = { "text": tableOfContentsHierarchy.title.text, "color": "green" } %}
+    {% set coloredHeading = { "text": tableOfContentsHierarchy.title.text, "color": "green", "id": tableOfContentsHierarchy.title.id } %}
     {% include "@atoms/04-headings/colored-heading.twig" %}
   {% else %}
     {% set sidebarHeading = { "title": tableOfContentsHierarchy.title.text } %}

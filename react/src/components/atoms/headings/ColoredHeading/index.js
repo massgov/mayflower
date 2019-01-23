@@ -12,7 +12,7 @@ const ColoredHeading = (coloredHeading) => {
   classes = classes.join(' ');
 
   return(
-    <Element className={classes} tabIndex="-1">
+    <Element className={classes} tabIndex="-1" id={coloredHeading.id || null}>
       {coloredHeading.text}
     </Element>
   );
@@ -29,7 +29,8 @@ ColoredHeading.propTypes = {
 
 ColoredHeading.defaultProps = {
   level: 2,
-  color: ''
+  color: '',
+  id: ''
 };
 
 export default ColoredHeading;

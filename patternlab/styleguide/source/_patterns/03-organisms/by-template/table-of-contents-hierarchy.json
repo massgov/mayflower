@@ -2,7 +2,8 @@
   "tableOfContentsHierarchy": {
     "title": {
       "text": "Table of Contents",
-      "colored": true
+      "colored": true,
+      "id": "tableOfContents"
     },
     "sections": [
       {

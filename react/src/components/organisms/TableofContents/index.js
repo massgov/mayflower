@@ -3,7 +3,7 @@ import { componentArrayPropTypeCheck } from '../../utilities/componentPropTypeCh
 import './style.css';
 
 const TableofContents = (props) => (
-  <nav className="ma__toc--hierarchy">
+  <nav className="ma__toc--hierarchy" aria-labelledby={props.navId}>
     {props.heading}
     <ul className="ma__toc--hierarchy__container">
       {
