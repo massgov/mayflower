@@ -11,19 +11,17 @@ import Paragraph from '../../atoms/text/Paragraph';
 import OrderedList from '../../atoms/lists/OrderedList';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 
-storiesOf('organisms', module).addDecorator(withKnobs)
+const themeOptions = {
+  '': 'c-highlight (default)',
+  'c-primary': 'c-primary',
+  'c-primary-alt': 'c-primary-alt',
+  'c-gray-dark': 'c-gray-dark',
+  'c-error-red': 'c-error-red'
+};
+
+storiesOf('organisms/CalloutAlert', module).addDecorator(withKnobs)
   .add('CalloutAlert', withInfo(`<div>${CalloutAlertDocs}</div>`)(() => {
     const name = select('CalloutAlert.icon', svgOptions, '');
-
-
-    const themeOptions = {
-      '': 'c-highlight (default)',
-      'c-primary': 'c-primary',
-      'c-primary-alt': 'c-primary-alt',
-      'c-gray-dark': 'c-gray-dark',
-      'c-error-red': 'c-error-red'
-    };
-
     const theme = select('CalloutAlert.theme', themeOptions, '');
     const calloutAlertProps = {
       icon: { name },
@@ -35,6 +33,18 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         <Paragraph />
         <OrderedList />
         <DecorativeLink />
+      </CalloutAlert>
+    );
+  }))
+  .add('CalloutAlert with real data', withInfo(`<div>${CalloutAlertDocs}</div>`)(() => {
+    const calloutAlertProps = {
+      theme: 'c-primary'
+    };
+
+    return(
+      <CalloutAlert {...calloutAlertProps} >
+        <Paragraph text="<strong>You are required to remit payment to the department starting 7/1.</strong> Because you have more than 25 total employees in Massachusetts." />
+        <Paragraph text="<strong>You are required to remit payment on behalf of your contractors.</strong> For employers with over 50% their workforce made up of 1099s need to consider these as full time employees under the new language." />
       </CalloutAlert>
     );
   }));

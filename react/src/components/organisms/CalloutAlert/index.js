@@ -38,4 +38,8 @@ CalloutAlert.propTypes = {
   children: PropTypes.element
 };
 
+CalloutAlert.defaultProps = {
+  icon: { name: 'alert' }
+};
+
 export default CalloutAlert;
