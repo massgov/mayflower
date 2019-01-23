@@ -56,12 +56,12 @@ class InputRadioGroup extends React.Component {
     const itemsClasses = classNames({
       'ma__input-group__items': true,
       'ma__input-group__items--inline': this.props.inline,
-      'ma__input-group__items--outline': this.props.outline,
-    })
+      'ma__input-group__items--outline': this.props.outline
+    });
     const errorClasses = classNames({
       'ma__error-msg': true,
       'has-error': this.props.error
-    })
+    });
 
     return(
       <fieldset>
@@ -72,7 +72,7 @@ class InputRadioGroup extends React.Component {
           <div className={itemsClasses}>
             {this.getRadioInputs()}
             {this.props.errorMsg && this.props.error &&
-            <ErrorMessage status={this.props.error && 'error'} error={this.props.errorMsg} inputID={this.props.name}/>}
+            <ErrorMessage status={this.props.error && 'error'} error={this.props.errorMsg} inputID={this.props.name} />}
           </div>
         </div>
       </fieldset>
