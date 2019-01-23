@@ -1,17 +1,17 @@
-import { text, boolean, select, number } from '@storybook/addon-knobs/react';
+import { text, boolean, number } from '@storybook/addon-knobs/react';
 
 export default {
-  hiddenLabel: () => boolean('inputText.hiddenLabel', false),
-  labelText: () => text('inputText.labelText', 'Text Input'),
-  required: () => boolean('inputText.required', false),
-  id: () => text('inputText.id', 'text-input'),
-  name: () => text('inputText.name', 'text-input'),
-  width: () => number('inputText.width', 0),
-  maxlength: () => number('inputText.maxlength', 20),
-  placeholder: () => text('inputText.placeholder', 'type something'),
-  errorMsg: () => text('inputText.errorMsg', 'you did not type something'),
-  defaultText: () => text('inputText.defaultText', '0'),
-  max: () => number('inputNumber.max', 1000),
-  min: () => number('inputNumber.min', -1000),
-  step: () => number('inputNumber.step', 0.01)
+  hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
+  labelText: () => text('InputCurrency.labelText', 'Text Input'),
+  required: () => boolean('InputCurrency.required', false),
+  id: () => text('InputCurrency.id', 'text-input'),
+  name: () => text('InputCurrency.name', 'text-input'),
+  width: () => number('InputCurrency.width', 0),
+  maxlength: () => number('InputCurrency.maxlength', 20),
+  placeholder: () => text('InputCurrency.placeholder', 'type something'),
+  errorMsg: () => text('InputCurrency.errorMsg', 'you did not type something'),
+  defaultText: () => text('InputCurrency.defaultText', '0'),
+  max: () => number('InputCurrency.max', 1000),
+  min: () => number('InputCurrency.min', -1000),
+  step: () => number('InputCurrency.step', 0.01)
 };

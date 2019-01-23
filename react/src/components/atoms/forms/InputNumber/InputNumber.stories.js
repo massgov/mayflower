@@ -9,15 +9,10 @@ import InputCurrency from './index';
 import InputTextOptions from './InputNumber.knobs.options';
 
 storiesOf('atoms/forms', module).addDecorator(withKnobs)
-  .add('InputNumber', withInfo('<div></div>')(() => {
+  .add('InputCurrency', withInfo('<div></div>')(() => {
     const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputTextOptions).map(([k, v]) => (
       { [k]: v() })));
     inputTextOptionsWithKnobs.onChange = action('Text input modified');
-    const currencyProps = {
-      max: number('inputNumber.max', 1000),
-      min: number('inputNumber.min', -1000),
-      step: number('inputNumber.step', 0.01)
-    };
 
     return(
       <InputCurrency {...inputTextOptionsWithKnobs} />
