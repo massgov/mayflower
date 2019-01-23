@@ -4,25 +4,22 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import CalloutAlert from './index';
+import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 
 import Icon from '../../atoms/icons/Icon';
 import Paragraph from '../../atoms/text/Paragraph';
 import OrderedList from '../../atoms/lists/OrderedList';
 
-const getIcon = (iconProps) => <Icon {...iconProps} />;
-
-const icons = {
-  circlechevron: getIcon({ name: 'circlechevron' }),
-  laptop: getIcon({ name: 'laptop' }),
-  phone: getIcon({ name: 'phone' }),
-  fax: getIcon({ name: 'fax' }),
-  none: null
-};
-
 storiesOf('organisms', module).addDecorator(withKnobs)
   .add('CalloutAlert', withInfo(`<div></div>`)(() => {
+    const name = select('Icon.name', svgOptions, '');
+
+    const calloutAlertProps = {
+      icon: { name }
+    };
+
     return(
-      <CalloutAlert>
+      <CalloutAlert {...calloutAlertProps}>
         <Paragraph />
         <OrderedList />
       </CalloutAlert>
