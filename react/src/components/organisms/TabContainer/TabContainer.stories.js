@@ -16,7 +16,7 @@ storiesOf('organisms/TabContainer', module).addDecorator(withKnobs)
   .add(
     'TabContainer',
     withInfo()(() => (
-      <TabContainer>
+      <TabContainer a11yID="this-test-prop">
         <Tab title="Tab 1">
           <TabContainer {...props}>
             <Tab title="Nested Tab Here">This should support nesting like this.</Tab>

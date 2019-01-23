@@ -15,6 +15,8 @@
   &-head {
     display: inline-flex;
     margin-bottom: 0;
+    padding-inline-start: 0;
+    list-style: none;
     @include tabscroll;
   }
 
@@ -25,17 +27,11 @@
   }
 
   .ma__tab-title {
-    cursor: pointer;
-    padding: 1.75rem 1.5rem 0.8rem 1.5rem;
-    font-size: 1.25rem;
-    background-color: unset;
-    white-space: nowrap;
     border-left: 1px solid $c-gray-light;
     border-top: 1px solid $c-gray-light;
     border-right: none;
     border-bottom: none;
     margin-bottom: -1px;
-    display: block;
 
     &:first-child {
       border-left-width: 1px;
@@ -46,18 +42,34 @@
     }
 
     &:focus {
-      outline: none;
       border-top-color: $c-primary !important;
       border-left-color: $c-gray-light !important;
     }
 
+    button {
+      cursor: pointer;
+      padding: 1.77rem 1.5rem 0.81rem 1.5rem;
+      background-color: unset;
+      white-space: nowrap;
+      border: none;
+      display: block;
+      font-size: 1.25rem;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
     &--active {
       border-top: 5px solid $c-primary;
-      padding-top: 1.5rem;
-      font-weight: 700;
-      color: $c-primary;
       background-color: white;
       z-index: 1;
+
+      button {
+        padding-top: 1.5rem;
+        font-weight: 700;
+        color: $c-primary;
+      }
     }
   }
 
@@ -76,11 +88,18 @@
       border: none;
       border-bottom: 5px solid;
       border-bottom-color: transparent;
-      padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+
+      button {
+        padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+      }
 
       &--active {
         color: $c-primary;
         border-bottom: 5px solid $c-primary;
+
+        buttton {
+          padding-bottom: 1.25rem;
+        }
       }
 
       &:focus {
