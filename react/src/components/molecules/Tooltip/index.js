@@ -37,8 +37,8 @@ const Tooltip = (tooltip) => {
           { inlineToolTip && ('\u00A0')}
           { tooltip.openText }
           { openIcon }
-          { inlineToolTip && ('\u00A0\u00A0')}
         </label>
+        { inlineToolTip && ('\u00A0\u00A0')}
         <div className={`ma__tooltip__modal ${location}`}>
           <div className="ma__tooltip__container">
             <label
