@@ -7,9 +7,11 @@ export default {
   id: () => text('inputText.id', 'text-input'),
   name: () => text('inputText.name', 'text-input'),
   width: () => number('inputText.width', 0),
-  maxlength: () => number('inputText.maxlength', 0),
-  pattern: () => text('inputText.pattern', ''),
+  maxlength: () => number('inputText.maxlength', 20),
   placeholder: () => text('inputText.placeholder', 'type something'),
   errorMsg: () => text('inputText.errorMsg', 'you did not type something'),
   defaultText: () => text('inputText.defaultText', '0'),
+  max: () => number('inputNumber.max', 1000),
+  min: () => number('inputNumber.min', -1000),
+  step: () => number('inputNumber.step', 0.01)
 };

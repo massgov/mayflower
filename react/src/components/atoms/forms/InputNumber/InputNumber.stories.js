@@ -2,10 +2,10 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import {number, withKnobs} from '@storybook/addon-knobs/react';
+import { number, withKnobs } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
-import Currency, { Input } from './index';
+import InputCurrency from './index';
 import InputTextOptions from './InputNumber.knobs.options';
 
 storiesOf('atoms/forms', module).addDecorator(withKnobs)
@@ -14,14 +14,12 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
       { [k]: v() })));
     inputTextOptionsWithKnobs.onChange = action('Text input modified');
     const currencyProps = {
-      max: number('inputNumber.max', 10),
-      min: number('inputNumber.min', -10),
+      max: number('inputNumber.max', 1000),
+      min: number('inputNumber.min', -1000),
       step: number('inputNumber.step', 0.01)
     };
 
     return(
-      <Input {...inputTextOptionsWithKnobs}>
-        <Currency {...currencyProps} />
-      </Input>
+      <InputCurrency {...inputTextOptionsWithKnobs} />
     );
   }));
