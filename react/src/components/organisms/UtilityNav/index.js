@@ -31,7 +31,7 @@ class UtilityNav extends Component {
     const { navSelected } = this.state;
     const { googleLanguages, items } = this.props;
     return((
-      <section className="ma__utility-nav js-util-nav">
+      <div className="ma__utility-nav js-util-nav">
         <ul className="ma__utility-nav__items">
           {googleLanguages && <GoogleLanguages />}
           {items.map((item, itemIndex) => {
@@ -47,7 +47,7 @@ class UtilityNav extends Component {
               );
           })}
         </ul>
-      </section>
+      </div>
     ));
   }
 }
