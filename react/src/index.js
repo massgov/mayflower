@@ -21,6 +21,7 @@ export ErrorMessage from './components/atoms/forms/ErrorMessage';
 export InputDate from './components/atoms/forms/InputDate';
 export InputText from './components/atoms/forms/InputText';
 export SelectBox from './components/atoms/forms/SelectBox';
+export InputRadio from './components/atoms/forms/InputRadio';
 export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
 export InputTextFuzzy from './components/atoms/forms/InputTextFuzzy';
 // @atoms/@headings
@@ -65,6 +66,7 @@ export SearchBannerForm from './components/molecules/SearchBannerForm';
 export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
+export InputRadioGroup from './components/molecules/ImagePromo';
 export ImagePromo from './components/molecules/ImagePromo';
 export Tabs from './components/molecules/Tabs';
 export Tooltip from './components/molecules/Tooltip';
