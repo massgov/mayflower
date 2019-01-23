@@ -12,10 +12,20 @@ import OrderedList from '../../atoms/lists/OrderedList';
 
 storiesOf('organisms', module).addDecorator(withKnobs)
   .add('CalloutAlert', withInfo(`<div></div>`)(() => {
-    const name = select('Icon.name', svgOptions, '');
+    const name = select('CalloutAlert.icon', svgOptions, '');
 
+
+    const themeOptions = {
+      '': 'c-highlight (default)',
+      'c-primary': 'c-primary',
+      'c-primary-alt': 'c-primary-alt',
+      'c-gray-dark': 'c-gray-dark',
+      'c-error-red': 'c-error-red'
+    }
+    const theme = select('CalloutAlert.theme', themeOptions, '');
     const calloutAlertProps = {
-      icon: { name }
+      icon: { name },
+      theme
     };
 
     return(
