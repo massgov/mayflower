@@ -93,13 +93,25 @@ const Currency = (props) => (
             } else {
               stringValue = e.target.value;
             }
-            let showError = false;
-            if (!context.showError) {
-              if (stringValue.length > 0 && !Number.isNaN(numbro.unformat(stringValue)) && !validNumber(numbro.unformat(stringValue))) {
-                showError = true;
+            const update = {
+              value: stringValue
+            };
+            const numberValue = numbro.unformat(stringValue);
+            // This validation is needed here as onKeyDown does not
+            // get the new value in the input after a key press.
+            if (!Number.isNaN(numberValue) && stringValue.length > 0) {
+              if (validNumber(numberValue)) {
+                update.showError = false;
+                update.errorMsg = '';
+              } else {
+                update.showError = true;
+                update.errorMsg = errorMsg;
               }
+            } else {
+              update.showError = false;
+              update.errorMsg = '';
             }
-            context.updateState({ showError, errorMsg, value: stringValue });
+            context.updateState(update);
           };
           const inputAttr = {
             className: inputClasses,
@@ -153,7 +165,7 @@ const Currency = (props) => (
               const numberValue = numbro.unformat(stringValue);
               if (!Number.isNaN(numberValue) && stringValue.length > 0) {
                 let newValue;
-                const step = Number(props.step) || 1;
+                const step = !Number.isNaN(Number(props.step)) ? Number(props.step) : 1;
                 if (e.key === 'ArrowDown') {
                   newValue = Number.parseFloat(numberValue - step).toFixed(2);
                   const showError = !validNumber(newValue);
@@ -161,14 +173,12 @@ const Currency = (props) => (
                 } else if (e.key === 'ArrowUp') {
                   newValue = Number.parseFloat(numberValue + step).toFixed(2);
                   const showError = !validNumber(newValue);
-                  context.updateState({ showError, value: newValue });
+                  context.updateState({ showError, errorMsg, value: newValue });
                 }
               }
             },
             required: props.required,
             value: context.value
-            //value: (Number.isNaN(Number(context.value))) ? '' : (typeof context.value !== 'string') ? String(context.value) : context.value
-            //value: (context.value.toString().length > 0) ? context.value : ''
           };
           return<input {...inputAttr} />;
         }
