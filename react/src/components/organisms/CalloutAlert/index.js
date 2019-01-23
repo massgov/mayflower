@@ -10,9 +10,14 @@ const CalloutAlert = (props) => {
     [`ma__callout-alert--${props.theme}`]: props.theme
   });
 
+  const calloutAlertContentClasses = classNames({
+    'ma__callout-alert__content': true,
+    'ma__callout-alert__content--no-icon': !(props.icon && props.icon.name)
+  });
+
   return(
     <div className={calloutAlertClasses}>
-      <div className="ma__callout-alert__content">
+      <div className={calloutAlertContentClasses}>
         {
           props.icon && (
             <div className="ma__callout-alert__icon">
