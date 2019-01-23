@@ -1,4 +1,4 @@
-import { text, boolean, number } from '@storybook/addon-knobs/react';
+import { text, boolean, number, object, select } from '@storybook/addon-knobs/react';
 
 export default {
   hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
@@ -13,5 +13,12 @@ export default {
   defaultText: () => text('InputCurrency.defaultText', '0'),
   max: () => number('InputCurrency.max', 1000),
   min: () => number('InputCurrency.min', -1000),
-  step: () => number('InputCurrency.step', 0.01)
+  step: () => number('InputCurrency.step', 0.01),
+  format: () => object('InputCurrency.format', {
+    mantissa: 0,
+    trimMantissa: false,
+    thousandSeparated: true,
+    negative: 'parenthesis'
+  }),
+  language: () => select('InputCurrency.language', ['English', 'Chinese', 'French', 'Russian'], 'English')
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import numbro from 'numbro';
+import languages from 'numbro/dist/languages.min';
 
 import Input from '../Input';
 import { InputContext } from '../Input/context';
@@ -18,13 +19,25 @@ const Currency = (props) => (
           let errorMsg = '';
           const toCurrency = (number, decimal) => {
             if (!Number.isNaN(number)) {
+              if (props.language) {
+                let i = 0;
+                const langKeys = Object.keys(languages);
+                const langMax = langKeys.length;
+                for (; i < langMax; i += 1) {
+                  const langKey = langKeys[i];
+                  const lang = languages[langKey];
+                  numbro.registerLanguage(lang);
+                }
+                numbro.setLanguage(props.language);
+              }
               const currency = numbro(number);
-              return currency.format({
+              const format = props.format || {
                 mantissa: decimal || 0,
                 trimMantissa: false,
                 thousandSeparated: true,
                 negative: 'parenthesis'
-              });
+              };
+              return currency.formatCurrency(format);
             }
             return number;
           };
@@ -160,7 +173,7 @@ const Currency = (props) => (
 
 const InputCurrency = (props) => {
   const {
-    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, ...inputProps
+    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, format, language, ...inputProps
   } = props;
   // Input and Currency share the props.required and props.id values.
   const currencyProps = {
@@ -174,7 +187,9 @@ const InputCurrency = (props) => {
     required: props.required,
     id: props.id,
     onChange,
-    onBlur
+    onBlur,
+    format,
+    language
   };
   return<Input {...inputProps}><Currency {...currencyProps} /></Input>;
 };
