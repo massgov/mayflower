@@ -58,12 +58,9 @@ class InputRadioGroup extends React.Component {
       'ma__input-group__items--inline': this.props.inline,
       'ma__input-group__items--outline': this.props.outline
     });
-    const errorClasses = classNames({
-      'ma__error-msg': true,
-      'has-error': this.props.error
-    });
 
     return(
+      <React.Fragment>
       <fieldset>
         <div className="ma__input-group">
           <legend className="ma__input-group__title">
@@ -71,11 +68,12 @@ class InputRadioGroup extends React.Component {
           </legend>
           <div className={itemsClasses}>
             {this.getRadioInputs()}
-            {this.props.errorMsg && this.props.error &&
-            <ErrorMessage status={this.props.error && 'error'} error={this.props.errorMsg} inputID={this.props.name} />}
           </div>
         </div>
       </fieldset>
+      {this.props.errorMsg && this.props.error &&
+        <ErrorMessage status={this.props.error && 'error'} error={this.props.errorMsg} inputID={this.props.name} />}
+      </React.Fragment>
     );
   }
 }
