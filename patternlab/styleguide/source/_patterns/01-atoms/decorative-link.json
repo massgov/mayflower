@@ -2,6 +2,7 @@
   "decorativeLink": {
     "href": "#",
     "text": "Lorem ipsum dolor sit amet.",
+    "label": "",
     "context": "",
     "button": false,
     "info": ""

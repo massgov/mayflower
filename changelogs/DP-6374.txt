@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Fixed
+Patch
+- patternlab / DP-6374: A11y - Add better aria tagging to content cards more link on topic pages
+
