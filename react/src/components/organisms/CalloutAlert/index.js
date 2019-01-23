@@ -9,7 +9,7 @@ const CalloutAlert = (calloutLink) => {
     <div className={`ma__callout-alert`}>
       <div className="ma__callout-alert__content">
         <div className="ma__callout-alert__icon">
-          <Icon name="building" />
+          <Icon name="alert" />
         </div>
         {calloutLink.children}
       </div>

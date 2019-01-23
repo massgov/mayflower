@@ -1,4 +1,5 @@
 export const assets = {
+  alert: 'alert.svg',
   arrow: 'arrow.svg',
   arrowbent: 'arrowbent.svg',
   building: 'building.svg',
