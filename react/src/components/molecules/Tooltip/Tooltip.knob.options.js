@@ -8,5 +8,9 @@ export default {
   level: {
     2: 'h2',
     3: 'h3'
+  },
+  htmlTag: {
+    div: 'div',
+    span: 'span'
   }
 };

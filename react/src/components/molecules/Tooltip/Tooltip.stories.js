@@ -18,7 +18,8 @@ storiesOf('molecules', module)
       openIcon: boolean('Tooltip.openIcon', true),
       info: text('Tooltip.info', tooltipOptions.info),
       title: text('Tooltip.title', tooltipOptions.title),
-      level: select('Tooltip.level', tooltipOptions.level)
+      level: select('Tooltip.level', tooltipOptions.level),
+      htmlTag: select('Tooltip.htmlTag', tooltipOptions.htmlTag)
     };
     return(<Tooltip {...props} />);
   }));

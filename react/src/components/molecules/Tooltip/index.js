@@ -5,12 +5,13 @@ import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
 const Tooltip = (tooltip) => {
+  const CustomElement = tooltip.htmlTag;
   const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;
   const location = (tooltip.location === 'above') ? 'ma__tooltip__modal--above' : 'ma__tooltip__modal--below';
   const openIcon = tooltip.openIcon ? <Icon name="questionmark" svgHeight={20} svgWidth={20} /> : '';
 
   return(
-    <div className="ma__tooltip">
+    <CustomElement className="ma__tooltip">
       <div className="ma__tooltip__inner">
         <input
           id={tooltip.controlId}
@@ -28,7 +29,7 @@ const Tooltip = (tooltip) => {
           {tooltip.openText}
           {openIcon}
         </label>
-        <section className={`ma__tooltip__modal ${location}`}>
+        <div className={`ma__tooltip__modal ${location}`}>
           <div className="ma__tooltip__container">
             <label
               htmlFor="{{ tooltip.controlId }}"
@@ -44,9 +45,9 @@ const Tooltip = (tooltip) => {
               {tooltip.message}
             </div>
           </div>
-        </section>
+        </div>
       </div>
-    </div>
+    </CustomElement>
   );
 };
 
@@ -68,7 +69,13 @@ Tooltip.propTypes = {
   /** Title of opened window */
   title: PropTypes.string,
   /** Heading level of title. Default h2 */
-  level: PropTypes.number
+  level: PropTypes.number,
+  /** Wrapper html tag for tooltop, options to render tooltip text as a div (block) or a span (inline) */
+  htmlTag: PropTypes.oneOf(['div', 'span'])
+};
+
+Tooltip.defaultProps = {
+  htmlTag: 'div'
 };
 
 export default Tooltip;
