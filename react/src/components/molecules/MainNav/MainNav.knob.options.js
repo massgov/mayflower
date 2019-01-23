@@ -1,7 +1,7 @@
 const mainNav = [
   {
     text: 'Living',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -40,7 +40,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Working',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -71,7 +71,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Learning',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -92,16 +92,16 @@ const mainNav = [
     ]
   },
   {
-    href: '/patterns/05-pages-section-landing/05-pages-section-landing.html',
+    href: '#',
     text: 'Visiting & Exploring',
-    active: 'true',
+    active: true,
     subNav: [
       {
         href: '#',
         text: 'Recreational Licenses & Permits'
       },
       {
-        href: '/patterns/05-pages-topic/05-pages-topic.html',
+        href: '#',
         text: 'State Parks & Recreation'
       },
       {
@@ -117,7 +117,7 @@ const mainNav = [
   {
     href: '#',
     text: 'Your Government',
-    active: '',
+    active: false,
     subNav: [
       {
         href: '#',
@@ -128,7 +128,7 @@ const mainNav = [
         text: 'State Agencies'
       },
       {
-        href: '/patterns/05-pages-topic-your-government/05-pages-topic-your-government.html',
+        href: '#',
         text: 'Executive Branch'
       },
       {
