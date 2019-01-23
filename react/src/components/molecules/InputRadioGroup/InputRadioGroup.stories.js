@@ -17,6 +17,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       outline: boolean('inputRadioGroup.outline', true),
       defaultSelected: text('inputRadioGroup.defaultSelected', ''),
       error: boolean('inputRadioGroup.error', false),
+      errorMsg: text('inputRadioGroup.errorMsg', 'You must selected your favorite plant.'),
       disabled: boolean('inputRadioGroup.disabled', false),
       inline: boolean('inputRadioGroup.inline', true)
     };

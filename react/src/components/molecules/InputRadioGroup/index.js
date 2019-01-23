@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './style.css';
+import ErrorMessage from '../../atoms/forms/ErrorMessage';
 
 class InputRadioGroup extends React.Component {
   constructor(props) {
@@ -69,9 +70,9 @@ class InputRadioGroup extends React.Component {
             {this.props.title}
           </legend>
           <div className={itemsClasses}>
-            {this.props.errorMsg && this.props.error &&
-            <div className={errorClasses}>{this.props.errorMsg}</div>}
             {this.getRadioInputs()}
+            {this.props.errorMsg && this.props.error &&
+            <ErrorMessage status={this.props.error && 'error'} error={this.props.errorMsg} inputID={this.props.name}/>}
           </div>
         </div>
       </fieldset>

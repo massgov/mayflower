@@ -15,7 +15,7 @@ $total-margin: $margin * 2;
     }
   }
 
-  &--inline {
+  &--inline.ma__input-group__items--outline {
     .item-1 {
       width: calc(100% - #{$total-margin});
     }
