@@ -26,7 +26,7 @@ const Tooltip = (tooltip) => {
           aria-labelledby={tooltip.controlId}
           aria-hidden="true"
         >
-          {tooltip.openText}
+        {tooltip.openText}
           {openIcon}
         </label>
         <div className={`ma__tooltip__modal ${location}`}>
@@ -70,7 +70,7 @@ Tooltip.propTypes = {
   title: PropTypes.string,
   /** Heading level of title. Default h2 */
   level: PropTypes.number,
-  /** Wrapper html tag for tooltop, options to render tooltip text as a div (block) or a span (inline) */
+  /** Wrapper html tag for tooltop openText, options to render tooltip text as a div (block) or a span (inline) */
   htmlTag: PropTypes.oneOf(['div', 'span'])
 };
 
