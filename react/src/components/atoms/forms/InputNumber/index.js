@@ -74,11 +74,10 @@ const Currency = (props) => (
             }
             if (!Number.isNaN(Number(props.max))) {
               if (num > Number(props.max)) {
-                errorMsg = `Please enter a valid less than or equal to ${props.min}.`;
+                errorMsg = `Please enter a valid less than or equal to ${props.max}.`;
                 return false;
               }
             }
-            errorMsg = '';
             return true;
           };
           const getDefaultNum = (num) => {

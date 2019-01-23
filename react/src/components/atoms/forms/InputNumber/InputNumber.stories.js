@@ -14,8 +14,8 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
       { [k]: v() })));
     inputTextOptionsWithKnobs.onChange = action('Text input modified');
     const currencyProps = {
-      max: number('inputNumber.max', 1000000000),
-      min: number('inputNumber.min', -100000000),
+      max: number('inputNumber.max', 10),
+      min: number('inputNumber.min', -10),
       step: number('inputNumber.step', 0.01)
     };
 

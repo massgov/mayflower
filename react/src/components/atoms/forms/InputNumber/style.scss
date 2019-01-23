@@ -1,2 +1,6 @@
 @import 'global';
 @import '01-atoms/error-msg';
+
+.ma__error-msg {
+  display: block !important;
+}
