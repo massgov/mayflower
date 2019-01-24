@@ -34,7 +34,7 @@ const CalloutAlert = (props) => {
 CalloutAlert.propTypes = {
   icon: PropTypes.shape(Icon.propTypes),
   /** Themes correspond to site color scheme i.e. sass variables */
-  theme: PropTypes.oneOf(['', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red']),
+  theme: PropTypes.oneOf(['', 'c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red']),
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
 };
 
