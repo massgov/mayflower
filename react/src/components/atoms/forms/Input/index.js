@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import './style.css';
 import { InputContext } from './context';
+import ErrorMessage from '../ErrorMessage';
 
 class Input extends React.Component {
   constructor(props) {
@@ -21,12 +22,16 @@ class Input extends React.Component {
       'ma__label--required': (this.props.labelText && this.props.required),
       'ma__label--optional': (this.props.labelText && !this.props.required)
     });
+    const errorProps = {
+      error: this.state.errorMsg,
+      inputId: this.props.id
+    };
     return(
       <InputContext.Provider value={this.state}>
         <React.Fragment>
           {this.props.labelText && <label htmlFor={this.props.id} className={inputLabelClasses}>{this.props.labelText}</label>}
           {this.props.children}
-          {this.state.showError && this.props.errorMsg.length > 0 && <div className="ma__input-error-msg">{this.state.errorMsg}</div>}
+          {this.state.showError && this.state.errorMsg.length > 0 && <ErrorMessage {...errorProps} />}
         </React.Fragment>
       </InputContext.Provider>
     );
