@@ -13,7 +13,7 @@ const Currency = (props) => (
       {
         (context) => {
           const inputClasses = classNames({
-            ma__input: true,
+            'ma__input-currency': true,
             'js-is-required': props.required
           });
           let errorMsg = '';

@@ -1,0 +1,14 @@
+.ma__input-currency {
+  display: inline-block;
+  position: relative;
+  text-align: right;
+
+  input {
+    padding-right: 58px;
+  }
+
+  input.has-error {
+    border-color: $c-bd-error;
+  }
+
+}
