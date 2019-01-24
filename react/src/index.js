@@ -97,6 +97,7 @@ export TableofContents from './components/organisms/TableofContents';
 export TabContainer from './components/organisms/TabContainer';
 export Tab from './components/organisms/TabContainer/tab';
 export TeaserListing from './components/organisms/TeaserListing';
+export CalloutAlert from './components/organisms/CalloutAlert';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';
