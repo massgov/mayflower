@@ -15,7 +15,7 @@ export default {
   min: () => number('InputCurrency.min', -1000),
   step: () => number('InputCurrency.step', 0.01),
   format: () => object('InputCurrency.format', {
-    mantissa: 0,
+    mantissa: 2,
     trimMantissa: false,
     thousandSeparated: true,
     negative: 'parenthesis'
