@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './style.css';
+import test from './style.css';
 import { InputContext } from './context';
 
 class Input extends React.Component {
@@ -15,6 +15,7 @@ class Input extends React.Component {
     };
   }
   render() {
+    console.log(test);
     const inputLabelClasses = classNames({
       ma__label: true,
       'ma__label--hidden': (this.props.labelText && this.props.hiddenLabel),
@@ -26,7 +27,7 @@ class Input extends React.Component {
         <React.Fragment>
           {this.props.labelText && <label htmlFor={this.props.id} className={inputLabelClasses}>{this.props.labelText}</label>}
           {this.props.children}
-          {this.state.showError && this.props.errorMsg.length > 0 && <div className="ma__error-msg">{this.state.errorMsg}</div>}
+          {this.state.showError && this.props.errorMsg.length > 0 && <div className="ma__input-error-msg">{this.state.errorMsg}</div>}
         </React.Fragment>
       </InputContext.Provider>
     );
