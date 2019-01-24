@@ -17,7 +17,7 @@ class InputRadioGroup extends React.Component {
     if (selected !== this.state.selected) {
       this.setState({ selected });
       if (typeof this.props.onChange === 'function') {
-        const name = this.props.name;
+        const { name } = this.props;
         this.props.onChange({ selected, name, event });
       }
     }
