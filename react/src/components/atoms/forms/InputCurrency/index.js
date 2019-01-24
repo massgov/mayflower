@@ -105,7 +105,7 @@ const Currency = (props) => (
               const step = !Number.isNaN(Number(props.step)) ? Number(props.step) : 1;
               newValue = Number.parseFloat(numberValue + step).toFixed(2);
               const showError = !validNumber(newValue);
-              context.updateState({ showError, errorMsg, value: newValue });
+              context.updateState({ showError, errorMsg, value: toCurrency(newValue,2) });
             }
           };
           const decreaseValue = () => {
@@ -121,7 +121,7 @@ const Currency = (props) => (
               const step = !Number.isNaN(Number(props.step)) ? Number(props.step) : 1;
               newValue = Number.parseFloat(numberValue - step).toFixed(2);
               const showError = !validNumber(newValue);
-              context.updateState({ showError, errorMsg, value: newValue });
+              context.updateState({ showError, errorMsg, value: toCurrency(newValue,2) });
             }
           };
           const inputAttr = {
