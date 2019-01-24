@@ -3,54 +3,42 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './style.css';
 
-class InputRadio extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange = (event) => {
-    const selected = event.target.value;
-    const value = this.props.value;
-    if (typeof this.props.onChange === 'function') {
-      this.props.onChange(selected, value, event);
-    }
-  }
-
-  render() {
-    const radioClasses = classNames({
-      'ma__input-radio': !this.props.outline,
-      'ma__input-radio--outline': this.props.outline
-    });
-    const inputClasses = classNames({
-      'ma__input-radio__control': !this.props.outline,
-      'ma__input-radio--outline__control': this.props.outline,
-      'ma__input-radio--outline__control--error': this.props.error
-    });
-    const labelClasses = classNames({
-      'ma__input-radio__label': !this.props.outline,
-      'ma__input-radio--outline__label': this.props.outline,
-      'ma__input-radio--outline__label--error': this.props.error
-    });
-    return(
-      <div className={radioClasses}>
-        <input
-          checked={this.props.checked}
-          name={this.props.name}
-          type="radio"
-          value={this.props.value}
-          id={this.props.id}
-          required={this.props.required}
-          onChange={this.handleChange}
-          disabled={this.props.disabled}
-          className={inputClasses}
-        />
-        <label htmlFor={this.props.id} className={labelClasses}>
-          <span>{this.props.label}</span>
-        </label>
-      </div>
-    );
-  }
+const InputRadio = (props) => {
+  const radioClasses = classNames({
+    'ma__input-radio': !props.outline,
+    'ma__input-radio--outline': props.outline
+  });
+  const inputClasses = classNames({
+    'ma__input-radio__control': !props.outline,
+    'ma__input-radio--outline__control': props.outline,
+    'ma__input-radio--outline__control--error': props.error
+  });
+  const labelClasses = classNames({
+    'ma__input-radio__label': !props.outline,
+    'ma__input-radio--outline__label': props.outline,
+    'ma__input-radio--outline__label--error': props.error
+  });
+  return(
+    <div className={radioClasses}>
+      <input
+        checked={props.checked}
+        name={props.name}
+        type="radio"
+        value={props.value}
+        id={props.id}
+        required={props.required}
+        onChange={(e) => {
+          const selected = e.target.value;
+          props.onChange(selected, props.value, e)
+        }}
+        disabled={props.disabled}
+        className={inputClasses}
+      />
+      <label htmlFor={props.id} className={labelClasses}>
+        <span>{props.label}</span>
+      </label>
+    </div>
+  );
 }
 
 InputRadio.propTypes = {
