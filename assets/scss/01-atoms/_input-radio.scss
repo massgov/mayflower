@@ -85,7 +85,7 @@ $control-height: $spacing * 2.25;
 
 .ma__input-radio--outline {
   &__control {
-    @extend .sr-only;
+    @include ma-visually-hidden;
   }
 
   &__label {
@@ -236,30 +236,4 @@ $control-height: $spacing * 2.25;
     }
   }
 
-}
-
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-  overflow: hidden;
-
-  &.sr-focusable {
-    &:focus,
-    &:active {
-      position: static;
-      width: auto;
-      height: auto;
-      clip: auto;
-      clip-path: none;
-      white-space: normal;
-      overflow: visible;
-    }
-  }
 }
