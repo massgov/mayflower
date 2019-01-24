@@ -11,14 +11,13 @@ class InputRadioGroup extends React.Component {
     this.state = {
       selected: this.props.defaultSelected
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(selected, value, event) {
+  handleChange = (selected, value, event) => {
     if (selected !== this.state.selected) {
       this.setState({ selected });
       if (typeof this.props.onChange === 'function') {
-        const name = this.props.name;
+        const { name } = this.props;
         this.props.onChange({ selected, name, event });
       }
     }
@@ -58,7 +57,7 @@ class InputRadioGroup extends React.Component {
                     error={this.props.error}
                     disabled={this.props.disabled}
                     // eslint-disable-next-line react/no-array-index-key
-                    key={`${radioButton.id}-${index}`}
+                    key={`InputRadioGroup-${radioButton.id}-${index}`}
                   />
                 </div>
               );
@@ -67,7 +66,7 @@ class InputRadioGroup extends React.Component {
           </div>
         </fieldset>
         {this.props.errorMsg && this.props.error &&
-        <ErrorMessage status={this.props.error && 'error'} error={this.props.errorMsg} inputID={this.props.name} />}
+        <ErrorMessage status={true} error={this.props.errorMsg} inputID={this.props.name} />}
       </React.Fragment>
     );
   }
