@@ -11,6 +11,7 @@
     font-size: 1.375rem;
     line-height: 1rem;
     padding-left: 1.5em;
+    font-weight: 400;
 
     &:before {
       border: 2px solid;
@@ -27,21 +28,6 @@
       text-align: center;
       width: .45em;
       overflow: hidden;
-    }
-
-    span {
-      line-height: 1.2em;
-    }
-  }
-}
-
-//theme
-.ma__input-radio {
-
-  label {
-    font-weight: 400;
-
-    &:before {
       background-color: $c-white;
       border-color: $c-bd-input-dark;
       color: transparent;
@@ -50,6 +36,11 @@
         background-color: rgba($c-white, 0.1);
         border-color: rgba($c-bd-input,.5);
       }
+
+    }
+
+    span {
+      line-height: 1.2em;
     }
   }
 
@@ -75,6 +66,193 @@
      */
     @media (-webkit-min-device-pixel-ratio:0) {
       outline: -webkit-focus-ring-color auto 5px;
+    }
+  }
+}
+
+
+// Custom styling for button like radio inputs
+
+$spacing: 1rem;
+$border-radius: 4px;
+$control-height: $spacing * 2.25;
+
+.ma__input-radio--outline {
+  &__control {
+    @extend .sr-only;
+  }
+
+  &__label {
+    color: $c-primary;
+    display: block; // so that `label` expands to fill space and respects padding
+    position: relative; // so that pseudoelements are positioned relative to this container
+    height: $control-height;
+    line-height: $control-height;
+    padding: 0 $spacing 0 ($spacing * 2.75);
+    cursor: pointer;
+    user-select: none;
+    z-index: 0; // create new stacking context so ::after pseudoelement doesn't go behind document
+
+    &::before {
+      left: $spacing;
+      height: $spacing * 3 / 4;
+      width: $spacing * 3 / 4;
+      border-radius: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &::after {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius * 8;
+      z-index: -1; // so that background is behind everything
+      font-weight: 700; //fixed
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $c-white;
+      border: 1px solid $c-primary;
+    }
+
+  }
+
+  &__control:checked + &__label {
+    color: $c-white;
+
+    &::after {
+      background-color: $c-primary;
+      border: 1px solid $c-primary;
+    }
+
+    &::before {
+      background-color: $c-primary;
+      border: 1px solid $c-primary;
+      box-shadow: 0 0 0 4px $c-white;
+    }
+
+  }
+
+  &__control:hover + &__label {
+    &::after {
+      background-color: rgba($c-primary,0.1);
+    }
+  }
+
+  &__control:checked:hover + &__label {
+    &::after,
+    &::before {
+      background-color: rgba($c-primary,0.8);
+      border: 1px solid rgba($c-primary,0.8);
+    }
+  }
+
+  &__control:active + &__label,
+  &__control:focus + &__label {
+
+      &::before {
+        box-shadow: 0 0 0 4px #c-white;
+      }
+
+      &::after {
+        box-shadow: 0 0 2px 2px $c-primary-lighter;
+        border: 1px solid $c-primary-lighter;
+      }
+    }
+
+  &__control:disabled + &__label {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: $c-gray-dark;
+
+    &::before {
+      background-color: $c-white;
+      border: 1px solid $c-gray-dark;
+      box-shadow: none;
+    }
+
+    &::after {
+      background-color: $c-gray-light;
+      border: 1px solid $c-gray-dark;
+    }
+
+  }
+
+  &__control:checked:disabled + &__label {
+    color: $c-gray-dark;
+
+    &::before {
+      box-shadow: 0 0 0 4px #c-white;
+    }
+
+    &::after,
+    &::before {
+      border: 1px solid $c-gray-dark;
+      background-color: $c-gray;
+    }
+
+  }
+
+
+  &__control--error + &__label--error {
+    color: $c-error;
+
+    &::before,
+    &::after {
+      border: 1px solid $c-error;
+    }
+  }
+
+  &__control--error:checked + &__label--error {
+    color: $c-white;
+
+    &::before,
+    &::after {
+      border: 1px solid $c-error;
+      background-color: $c-error;
+    }
+  }
+
+  &__control--error:active + &__label--error,
+  &__control--error:focus + &__label--error {
+    &::before,
+    &::after {
+      border: 1px solid $c-error;
+    }
+    &::after {
+      box-shadow: 0 0 2px 2px $c-error;
+    }
+  }
+
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  overflow: hidden;
+
+  &.sr-focusable {
+    &:focus,
+    &:active {
+      position: static;
+      width: auto;
+      height: auto;
+      clip: auto;
+      clip-path: none;
+      white-space: normal;
+      overflow: visible;
     }
   }
 }
