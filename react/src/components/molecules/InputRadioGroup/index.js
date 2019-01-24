@@ -67,7 +67,7 @@ class InputRadioGroup extends React.Component {
           </div>
         </fieldset>
         {this.props.errorMsg && this.props.error &&
-        <ErrorMessage status={true} error={this.props.errorMsg} inputID={this.props.name} />}
+        <ErrorMessage status error={this.props.errorMsg} inputID={this.props.name} />}
       </React.Fragment>
     );
   }
@@ -96,7 +96,7 @@ InputRadioGroup.propTypes = {
   onChange: PropTypes.func,
   /** An array of radio buttons. */
   radioButtons: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     value: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired
   }))

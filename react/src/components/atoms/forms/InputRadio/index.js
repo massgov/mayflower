@@ -26,7 +26,7 @@ const InputRadio = (props) => {
         name={props.name}
         type="radio"
         value={props.value}
-        id={props.id}
+        id={props.id ? props.id : props.value}
         required={props.required}
         onChange={props.onChange}
         disabled={props.disabled}
@@ -37,13 +37,13 @@ const InputRadio = (props) => {
       </label>
     </div>
   );
-}
+};
 
 InputRadio.propTypes = {
   /** The name of the input radio. */
   name: PropTypes.string.isRequired,
-  /** The id of the input radio. */
-  id: PropTypes.string.isRequired,
+  /** The id of the input radio. Defaults to the value if not provided. */
+  id: PropTypes.string,
   /** The value of the input radio */
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   /** The input radio label */
