@@ -66,7 +66,7 @@ class InputRadioGroup extends React.Component {
           </div>
         </fieldset>
         {this.props.errorMsg && this.props.error &&
-        <ErrorMessage status={this.props.error && 'error'} error={this.props.errorMsg} inputID={this.props.name} />}
+        <ErrorMessage status={true} error={this.props.errorMsg} inputID={this.props.name} />}
       </React.Fragment>
     );
   }
