@@ -90,7 +90,7 @@ const Currency = (props) => (
             }
             context.updateState(update);
             if (typeof props.onChange === 'function') {
-              props.onChange(numberValue);
+              props.onChange(numberValue, e);
             }
           };
           const inputAttr = {
