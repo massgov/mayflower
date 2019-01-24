@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import test from './style.css';
+import './style.css';
 import { InputContext } from './context';
 
 class Input extends React.Component {
@@ -15,7 +15,6 @@ class Input extends React.Component {
     };
   }
   render() {
-    console.log(test);
     const inputLabelClasses = classNames({
       ma__label: true,
       'ma__label--hidden': (this.props.labelText && this.props.hiddenLabel),
