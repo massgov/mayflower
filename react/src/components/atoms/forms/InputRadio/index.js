@@ -9,7 +9,7 @@ class InputRadio extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange = (event) => {
     const selected = event.target.value;
     const value = this.props.value;
     if (typeof this.props.onChange === 'function') {
