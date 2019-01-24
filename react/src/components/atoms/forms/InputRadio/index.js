@@ -28,10 +28,7 @@ const InputRadio = (props) => {
         value={props.value}
         id={props.id}
         required={props.required}
-        onChange={(e) => {
-          const selected = e.target.value;
-          props.onChange(selected, props.value, e)
-        }}
+        onChange={props.onChange}
         disabled={props.disabled}
         className={inputClasses}
       />
