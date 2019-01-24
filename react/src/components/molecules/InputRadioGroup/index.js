@@ -57,7 +57,7 @@ class InputRadioGroup extends React.Component {
                     error={this.props.error}
                     disabled={this.props.disabled}
                     // eslint-disable-next-line react/no-array-index-key
-                    key={`${radioButton.id}-${index}`}
+                    key={`InputRadioGroup-${radioButton.id}-${index}`}
                   />
                 </div>
               );
