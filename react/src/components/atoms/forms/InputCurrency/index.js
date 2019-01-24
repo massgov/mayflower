@@ -225,7 +225,11 @@ InputCurrency.propTypes = {
   /** Min value for the field. */
   min: PropTypes.number,
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
-  step: PropTypes.number
+  step: PropTypes.number,
+  /** A language tag that represents what country the currency should display. Comes from IETF BCP 47: https://numbrojs.com/languages.html */
+  language: PropTypes.string,
+  /** Numbro Formatting options for displaying the currency. See https://numbrojs.com/format.html */
+  format: PropTypes.object
 };
 InputCurrency.defaultProps = {
   hiddenLabel: false,
