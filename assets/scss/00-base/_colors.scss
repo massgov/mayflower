@@ -28,7 +28,7 @@ $c-atlantic-gray: #707070;
 
 // Error Colors
 $c-error-red: #CD0D0D;
-$c-error-red-lighter: FDF3F3;
+$c-error-red-lighter: #EEACAC;
 $c-error-red-lightest: #FCF3F3;
 
 // Full Gray Scale
@@ -42,6 +42,7 @@ $c-white: white;
 // Additional Global Colors Representing Special States
 $c-error: $c-error-red;
 $c-error-lighter: $c-error-red-lighter;
+$c-error-lightest: $c-error-red-lightest;
 $c-warning: $c-duckling-yellow;
 $c-focus: $c-bay-blue-lighter;
 // Need to add these colors to this listing new to add

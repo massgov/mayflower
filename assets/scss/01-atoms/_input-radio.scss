@@ -175,10 +175,13 @@ $control-height: $spacing * 2.25;
   @include label-appearance($c-primary, $c-primary, $c-primary, $c-focus, ':active', '');
   @include label-appearance($c-white, $c-primary, $c-primary, $c-focus, ':focus', '');
 
+  //:disabled
   @include label-appearance($c-white, $c-gray-light, $c-gray-dark, '', ':disabled', '');
   @include label-appearance($c-gray-dark, $c-gray-light, $c-gray-dark, '', ':checked:disabled', '');
 
-  @include label-appearance($c-error, $c-white, $c-error, '', ':hover', '--error');
+  //--error
+  @include label-appearance($c-error, $c-white, $c-error, '', '', '--error');
+  @include label-appearance($c-error, $c-error-lightest, $c-error, '', ':hover', '--error');
   @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked', '--error');
   @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked:hover', '--error');
   @include label-appearance($c-error, $c-error-lighter, $c-error, $c-error-lighter, ':active', '--error');
