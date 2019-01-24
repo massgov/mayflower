@@ -101,11 +101,9 @@ const Currency = (props) => (
             }
             const numberValue = numbro.unformat(stringValue);
             if (!Number.isNaN(numberValue)) {
-              let newValue;
-              const step = !Number.isNaN(Number(props.step)) ? Number(props.step) : 1;
-              newValue = Number.parseFloat(numberValue + step).toFixed(2);
+              const newValue = Number.parseFloat(numberValue + props.step).toFixed(2);
               const showError = !validNumber(newValue);
-              context.updateState({ showError, errorMsg, value: toCurrency(newValue,2) });
+              context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
             }
           };
           const decreaseValue = () => {
@@ -117,11 +115,9 @@ const Currency = (props) => (
             }
             const numberValue = numbro.unformat(stringValue);
             if (!Number.isNaN(numberValue)) {
-              let newValue;
-              const step = !Number.isNaN(Number(props.step)) ? Number(props.step) : 1;
-              newValue = Number.parseFloat(numberValue - step).toFixed(2);
+              const newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
               const showError = !validNumber(newValue);
-              context.updateState({ showError, errorMsg, value: toCurrency(newValue,2) });
+              context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
             }
           };
           const inputAttr = {
@@ -180,13 +176,12 @@ const Currency = (props) => (
               const numberValue = numbro.unformat(stringValue);
               if (!Number.isNaN(numberValue) && stringValue.length > 0) {
                 let newValue;
-                const step = !Number.isNaN(Number(props.step)) ? Number(props.step) : 1;
                 if (e.key === 'ArrowDown') {
-                  newValue = Number.parseFloat(numberValue - step).toFixed(2);
+                  newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
                   const showError = !validNumber(newValue);
                   context.updateState({ showError, errorMsg, value: newValue });
                 } else if (e.key === 'ArrowUp') {
-                  newValue = Number.parseFloat(numberValue + step).toFixed(2);
+                  newValue = Number.parseFloat(numberValue + props.step).toFixed(2);
                   const showError = !validNumber(newValue);
                   context.updateState({ showError, errorMsg, value: newValue });
                 }
