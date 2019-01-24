@@ -233,6 +233,10 @@ const InputCurrency = (props) => {
     format,
     language
   };
+  if (!Number.isNaN(inputProps.defaultText)) {
+    const currency = numbro(Number(inputProps.defaultText));
+    inputProps.defaultText = currency.formatCurrency(format);
+  }
   return<Input {...inputProps}><Currency {...currencyProps} /></Input>;
 };
 
