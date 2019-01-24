@@ -13,7 +13,7 @@ class InputRadioGroup extends React.Component {
     };
   }
 
-  handleChange(selected, value, event) {
+  handleChange = (selected, value, event) => {
     if (selected !== this.state.selected) {
       this.setState({ selected });
       if (typeof this.props.onChange === 'function') {
