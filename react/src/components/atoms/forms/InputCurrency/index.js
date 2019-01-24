@@ -6,6 +6,7 @@ import languages from 'numbro/dist/languages.min';
 
 import Input from '../Input';
 import { InputContext } from '../Input/context';
+import './style.css';
 
 const Currency = (props) => (
   <React.Fragment>
