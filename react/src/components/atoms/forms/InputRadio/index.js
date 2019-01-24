@@ -15,8 +15,9 @@ const InputRadio = (props) => {
   });
   const labelClasses = classNames({
     'ma__input-radio__label': !props.outline,
+    'ma__input-radio__label--error': props.error && !props.outline,
     'ma__input-radio--outline__label': props.outline,
-    'ma__input-radio--outline__label--error': props.error
+    'ma__input-radio--outline__label--error': props.error && props.outline
   });
   return(
     <div className={radioClasses}>
