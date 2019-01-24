@@ -29,8 +29,9 @@ class InputRadio extends React.Component {
     });
     const labelClasses = classNames({
       'ma__input-radio__label': !this.props.outline,
+      'ma__input-radio__label--error': this.props.error && !this.props.outline,
       'ma__input-radio--outline__label': this.props.outline,
-      'ma__input-radio--outline__label--error': this.props.error
+      'ma__input-radio--outline__label--error': this.props.error && this.props.outline
     });
     return(
       <div className={radioClasses}>
