@@ -24,7 +24,7 @@ storiesOf('organisms/CalloutAlert', module).addDecorator(withKnobs)
     const name = select('CalloutAlert.icon', svgOptions, '');
     const theme = select('CalloutAlert.theme', themeOptions, '');
     const calloutAlertProps = {
-      icon: { name },
+      icon: { name, ariaHidden: true },
       theme
     };
 
@@ -38,6 +38,7 @@ storiesOf('organisms/CalloutAlert', module).addDecorator(withKnobs)
   }))
   .add('CalloutAlert with real data', withInfo(`<div>${CalloutAlertDocs}</div>`)(() => {
     const calloutAlertProps = {
+      icon: { ariaHidden: true },
       theme: 'c-primary'
     };
 

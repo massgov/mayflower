@@ -35,16 +35,18 @@ class Icon extends React.Component {
       title,
       name,
       classes,
+      ariaHidden,
       ...rest
     } = this.props;
     if (svgFile) {
       const attr = {
         width: svgWidth || null,
         height: svgHeight || null,
-        className: (classes && classes.length > 0) ? classes.join(' ') : null
+        className: (classes && classes.length > 0) ? classes.join(' ') : null,
+        'aria-hidden': ariaHidden || null
       };
       return(
-        <svg {...attr} {...rest}>
+        <svg {...attr} {...rest} >
           {title && <title>{ title }</title> }
           <use xlinkHref={`#${name}`} />
         </svg>
@@ -59,7 +61,8 @@ Icon.propTypes = {
   title: PropTypes.string,
   svgWidth: PropTypes.number,
   svgHeight: PropTypes.number,
-  classes: PropTypes.arrayOf(PropTypes.string)
+  classes: PropTypes.arrayOf(PropTypes.string),
+  ariaHidden: PropTypes.bool
 };
 
 Icon.defaultProps = {
