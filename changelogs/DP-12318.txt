@@ -1,0 +1,8 @@
+___DESCRIPTION___
+Added
+Minor
+- (React) DP-12318: Adds the form components input radio button (atom) and input radio button group (molcule) to mayflower-react.
+- (PatternLab/React) DP-12318: Adds a primary lighter color to scss variables.
+Changes
+Minor
+- (React) DP-12318: Updates the eslint settings for better handling of jsx syntax.
