@@ -1,6 +1,15 @@
 $margin: 5px;
 $total-margin: $margin * 2;
 
+.ma__input-group__title {
+  &--disabled {
+    opacity: 0.5;
+  }
+  &--error {
+    color: $c-error;
+  }
+}
+
 .ma__input-group__items {
 
   &--outline {

@@ -30,12 +30,17 @@ class InputRadioGroup extends React.Component {
       'ma__input-group__items--inline': this.props.inline,
       'ma__input-group__items--outline': this.props.outline
     });
+    const titleClasses = classNames({
+      'ma__input-group__title': true,
+      'ma__input-group__title--error': this.props.error,
+      'ma__input-group__title--disabled': this.props.disabled
+    });
 
     return(
       <React.Fragment>
         <fieldset>
           <div className="ma__input-group">
-            <legend className="ma__input-group__title">
+            <legend className={titleClasses}>
               {this.props.title}
             </legend>
             <div className={itemsClasses}>

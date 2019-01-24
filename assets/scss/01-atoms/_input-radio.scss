@@ -68,6 +68,12 @@
       outline: -webkit-focus-ring-color auto 5px;
     }
   }
+
+  &__control:disabled + &__label {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }
 
 
@@ -169,6 +175,7 @@ $control-height: $spacing * 2.25;
     cursor: not-allowed;
     pointer-events: none;
     color: $c-gray-dark;
+    opacity: 0.5;
 
     &::before {
       background-color: $c-white;
