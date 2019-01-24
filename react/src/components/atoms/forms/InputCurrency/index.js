@@ -168,10 +168,10 @@ const Currency = (props) => (
             },
             onKeyDown: (e) => {
               let stringValue;
-              if (typeof e.target.value !== 'string') {
-                stringValue = String(e.target.value);
+              if (typeof context.value !== 'string') {
+                stringValue = String(context.value);
               } else {
-                stringValue = e.target.value;
+                stringValue = context.value;
               }
               const numberValue = numbro.unformat(stringValue);
               if (!Number.isNaN(numberValue) && stringValue.length > 0) {
@@ -179,11 +179,11 @@ const Currency = (props) => (
                 if (e.key === 'ArrowDown') {
                   newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
                   const showError = !validNumber(newValue);
-                  context.updateState({ showError, errorMsg, value: newValue });
+                  context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
                 } else if (e.key === 'ArrowUp') {
                   newValue = Number.parseFloat(numberValue + props.step).toFixed(2);
                   const showError = !validNumber(newValue);
-                  context.updateState({ showError, errorMsg, value: newValue });
+                  context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
                 }
               }
             },
