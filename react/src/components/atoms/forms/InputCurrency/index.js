@@ -31,12 +31,10 @@ const Currency = (props) => (
                 numbro.setLanguage(props.language);
               }
               const currency = numbro(number);
-              const format = props.format || {
-                mantissa: decimal || 0,
-                trimMantissa: false,
-                thousandSeparated: true,
-                negative: 'parenthesis'
-              };
+              const { format } = props;
+              if (decimal) {
+                format.mantissa = decimal;
+              }
               return currency.formatCurrency(format);
             }
             return number;
@@ -235,7 +233,15 @@ InputCurrency.defaultProps = {
   hiddenLabel: false,
   required: false,
   onChange: null,
-  onBlur: null
+  onBlur: null,
+  language: 'en-US',
+  format: {
+    mantissa: 2,
+    trimMantissa: false,
+    thousandSeparated: true,
+    negative: 'parenthesis'
+  },
+  step: 0.01
 };
 
 export default InputCurrency;
