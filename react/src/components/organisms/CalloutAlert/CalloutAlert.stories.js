@@ -38,7 +38,7 @@ storiesOf('organisms/CalloutAlert', module).addDecorator(withKnobs)
   }))
   .add('CalloutAlert with real data', withInfo(`<div>${CalloutAlertDocs}</div>`)(() => {
     const calloutAlertProps = {
-      icon: { ariaHidden: true },
+      icon: { name: 'alert', ariaHidden: true },
       theme: 'c-primary'
     };
 
