@@ -24,6 +24,10 @@ export SelectBox from './components/atoms/forms/SelectBox';
 export InputRadio from './components/atoms/forms/InputRadio';
 export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
 export InputTextFuzzy from './components/atoms/forms/InputTextFuzzy';
+export Input from './components/atoms/forms/Input';
+// Also export the context.
+export { InputContext } from './components/atoms/forms/Input/context';
+export InputCurrency from './components/atoms/forms/InputCurrency';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
 export CompHeading from './components/atoms/headings/CompHeading';
