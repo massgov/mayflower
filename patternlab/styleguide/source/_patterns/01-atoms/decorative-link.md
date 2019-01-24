@@ -15,7 +15,7 @@ decorativeLink {
   info: 
     type: string (adds more description to the link) / optional
   labelContext:
-    type: string (adds more context to the link label) / optional
+    type: string (adds context to the "more" link label) / optional
 
 }
 ~~~
