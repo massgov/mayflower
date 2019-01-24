@@ -66,7 +66,7 @@ export SearchBannerForm from './components/molecules/SearchBannerForm';
 export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
-export InputRadioGroup from './components/molecules/ImagePromo';
+export InputRadioGroup from './components/molecules/InputRadioGroup';
 export ImagePromo from './components/molecules/ImagePromo';
 export Tabs from './components/molecules/Tabs';
 export Tooltip from './components/molecules/Tooltip';
