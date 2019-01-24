@@ -6,10 +6,10 @@ import { action } from '@storybook/addon-actions';
 
 import InputRadioGroup from './index';
 import inputRadioGroupOptions from './InputRadioGroup.knobs.options';
-// import InputRadioGroupDocs from './AccordionWrapper.md';
+import InputRadioGroupDocs from './InputRadioGroup.md';
 
 storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('InputRadioGroup', withInfo(/* `<div>${InputRadioGroup}Docs}</div>` */)(() => {
+  .add('InputRadioGroup', withInfo(`<div>${InputRadioGroupDocs}</div>`)(() => {
     const InputRadioGroupProps = {
       title: text('inputRadioGroup.title', 'Pick your favorite plant'),
       name: text('inputRadioGroup.group', 'favorite-plant'),

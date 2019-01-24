@@ -6,10 +6,10 @@ import { withKnobs, text, boolean } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 import InputRadio from './index';
-// import InputRadioDocs from './Button.md';
+import InputRadioDocs from './InputRadio.md';
 
 storiesOf('atoms/forms', module).addDecorator(withKnobs)
-  .add('InputRadio', withInfo(/* `<div>${ButtonDocs}</div>` */)(() => {
+  .add('InputRadio', withInfo(`<div>${InputRadioDocs}</div>`)(() => {
     const props = {
       name: text('inputRadio.name', 'plant'),
       id: text('inputRadio.id', 'fern'),

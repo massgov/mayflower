@@ -77,8 +77,6 @@ InputRadioGroup.propTypes = {
   required: PropTypes.bool,
   /** Whether you want the radio input outlined */
   outline: PropTypes.bool,
-  /** Only InputRadio can be passed as a Child to the InputRadioGroup */
-  children: PropTypes.node.isRequired,
   /** The default select radio button option on initial render */
   defaultSelected: PropTypes.string,
   /** Whether the radio group is in error state or not. */
