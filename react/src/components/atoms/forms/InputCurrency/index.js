@@ -14,7 +14,7 @@ const Currency = (props) => (
       {
         (context) => {
           const inputClasses = classNames({
-            'ma__input-currency': true,
+            'ma__input-currency__control': true,
             'js-is-required': props.required
           });
           let errorMsg = '';
@@ -196,18 +196,18 @@ const Currency = (props) => (
             value: context.value
           };
           return(
-            <div className="ma__input-currency-wrapper">
+            <div className="ma__input-currency">
               <input {...inputAttr} />
               <button
                 type="button"
                 aria-label="increase value"
-                className="ma__input-currency__plus"
+                className="ma__input-currency__control-plus"
                 onClick={increaseValue}
               />
               <button
                 type="button"
                 aria-label="decrease value"
-                className="ma__input-currency__minus"
+                className="ma__input-currency__control-minus"
                 onClick={decreaseValue}
               />
             </div>

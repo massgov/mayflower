@@ -1,76 +1,67 @@
-.ma__input-currency-wrapper {
+.ma__input-currency {
   display: inline-block;
   position: relative;
-}
 
-.ma__input-currency {
-  text-align: right;
-  padding-right: 58px;
+  &__control {
+  	  text-align: right;
+	  padding-right: 58px;
 
-  input {
-    padding-right: 58px;
-  }
+	  input {
+	    padding-right: 58px;
+	  }
 
-  input.has-error {
-    border-color: $c-bd-error;
-  }
+	  input.has-error {
+	    border-color: $c-bd-error;
+	  }
 
-  &__plus,
-  &__minus {
-    @include ma-button-reset;
-    border: 2px solid $c-bd-input;
-    border-bottom: none;
-    display: block;
-    height: 50%;
-    padding: 0;
-    position: absolute;
-      right: 0;
-    width: 40px;
+	  &-plus,
+	  &-minus {
+	    @include ma-button-reset;
+	    border: 2px solid $c-bd-input;
+	    border-bottom: none;
+	    display: block;
+	    height: 50%;
+	    padding: 0;
+	    position: absolute;
+	      right: 0;
+	    width: 40px;
 
-    &:focus {
-      border-bottom-style: dotted;
-      border-bottom-width: 1px;
-    }
+	    &:focus {
+	      border-bottom-style: dotted;
+	      border-bottom-width: 1px;
+	    }
 
-    &:after {
-      border-style: solid;
-      border-width: 5px;
-      border-top: none;
-      border-bottom-width: 6px;
-      content: "";
-      display: block;
-      height: 0;
-      margin: 0 auto;
-      position: absolute;
-        bottom: 2px;
-        left: 50%;
-      transform: translateX(-50%);
-      vertical-align: bottom;
-      width: 0;
-    }
+	    &:after {
+	      border: 5px solid $c-black;
+	      border-top: none;
+	      border-bottom-width: 6px;
+	      content: "";
+	      display: block;
+	      height: 0;
+	      margin: 0 auto;
+	      position: absolute;
+	        bottom: 2px;
+	        left: 50%;
+	      transform: translateX(-50%);
+	      vertical-align: bottom;
+	      width: 0;
+	      border-left-color: transparent;
+	      border-right-color: transparent;
+	    }
 
-    &:focus:after {
-      bottom: 1px;
-    }
-  }
+	    &:focus:after {
+	      bottom: 1px;
+	    }
+	  }
 
-  &__plus {
-    bottom: 50%;
-  }
+	  &-plus {
+	    bottom: 50%;
+	  }
 
-  &__minus {
-    top: 50%;
-    transform: rotate(180deg);
-  }
-
-  &__plus,
-  &__minus {
-
-    &:after {
-      border-color: $c-black;
-      border-left-color: transparent;
-      border-right-color: transparent;
-    }
+	  &-minus {
+	    top: 50%;
+	    transform: rotate(180deg);
+	  }
   }
 
 }
