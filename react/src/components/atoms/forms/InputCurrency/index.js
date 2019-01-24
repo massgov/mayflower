@@ -92,6 +92,38 @@ const Currency = (props) => (
               props.onChange(numberValue, e);
             }
           };
+          const increaseValue = () => {
+            let stringValue;
+            if (typeof context.value !== 'string') {
+              stringValue = String(context.value);
+            } else {
+              stringValue = context.value;
+            }
+            const numberValue = numbro.unformat(stringValue);
+            if (!Number.isNaN(numberValue)) {
+              let newValue;
+              const step = !Number.isNaN(Number(props.step)) ? Number(props.step) : 1;
+              newValue = Number.parseFloat(numberValue + step).toFixed(2);
+              const showError = !validNumber(newValue);
+              context.updateState({ showError, errorMsg, value: newValue });
+            }
+          };
+          const decreaseValue = () => {
+            let stringValue;
+            if (typeof context.value !== 'string') {
+              stringValue = String(context.value);
+            } else {
+              stringValue = context.value;
+            }
+            const numberValue = numbro.unformat(stringValue);
+            if (!Number.isNaN(numberValue)) {
+              let newValue;
+              const step = !Number.isNaN(Number(props.step)) ? Number(props.step) : 1;
+              newValue = Number.parseFloat(numberValue - step).toFixed(2);
+              const showError = !validNumber(newValue);
+              context.updateState({ showError, errorMsg, value: newValue });
+            }
+          };
           const inputAttr = {
             className: inputClasses,
             name: props.name,
@@ -163,7 +195,23 @@ const Currency = (props) => (
             required: props.required,
             value: context.value
           };
-          return<input {...inputAttr} />;
+          return(
+            <div className="ma__input-currency-wrapper">
+              <input {...inputAttr} />
+              <button
+                type="button"
+                aria-label="increase value"
+                className="ma__input-currency__plus"
+                onClick={increaseValue}
+              />
+              <button
+                type="button"
+                aria-label="decrease value"
+                className="ma__input-currency__minus"
+                onClick={decreaseValue}
+              />
+            </div>
+          );
         }
       }
     </InputContext.Consumer>
