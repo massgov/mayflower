@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.css';
+import InputRadio from '../../atoms/forms/InputRadio';
 import ErrorMessage from '../../atoms/forms/ErrorMessage';
+import './style.css';
 
 class InputRadioGroup extends React.Component {
   constructor(props) {
@@ -11,35 +12,6 @@ class InputRadioGroup extends React.Component {
       selected: this.props.defaultSelected
     };
     this.handleChange = this.handleChange.bind(this);
-    this.getRadioInputs = this.getRadioInputs.bind(this);
-  }
-
-  getRadioInputs() {
-    const radioChildren = React.Children.map(this.props.children, (child) => {
-      if (child.type.name === 'InputRadio') {
-        const isChecked = child.props.value === this.state.selected;
-        const clone = React.cloneElement(child, {
-          name: this.props.name,
-          onChange: this.handleChange,
-          checked: isChecked,
-          required: this.props.required,
-          outline: this.props.outline,
-          error: this.props.error,
-          disabled: this.props.disabled
-        });
-        return(
-          <div className={`ma__input-group__item item-${this.props.children.length}`}>
-            {clone}
-          </div>
-        );
-      }
-      return(
-        /* eslint-disable no-console */
-        console.log(`Warning! You cannot pass a ${child.type.name} child to InputRadio`)
-        /* eslint-disable no-console */
-      );
-    });
-    return radioChildren;
   }
 
   handleChange(selected, value, event) {
@@ -61,17 +33,35 @@ class InputRadioGroup extends React.Component {
 
     return(
       <React.Fragment>
-      <fieldset>
-        <div className="ma__input-group">
-          <legend className="ma__input-group__title">
-            {this.props.title}
-          </legend>
-          <div className={itemsClasses}>
-            {this.getRadioInputs()}
+        <fieldset>
+          <div className="ma__input-group">
+            <legend className="ma__input-group__title">
+              {this.props.title}
+            </legend>
+            <div className={itemsClasses}>
+              {this.props.radioButtons.map((radioButton, index) => {
+              const isChecked = radioButton.value === this.state.selected;
+              return(
+                <div className={`ma__input-group__item item-${this.props.radioButtons.length}`}>
+                  <InputRadio
+                    {...radioButton}
+                    name={this.props.name}
+                    onChange={this.handleChange}
+                    checked={isChecked}
+                    required={this.props.required}
+                    outline={this.props.outline}
+                    error={this.props.error}
+                    disabled={this.props.disabled}
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={`${radioButton.id}-${index}`}
+                  />
+                </div>
+              );
+            })}
+            </div>
           </div>
-        </div>
-      </fieldset>
-      {this.props.errorMsg && this.props.error &&
+        </fieldset>
+        {this.props.errorMsg && this.props.error &&
         <ErrorMessage status={this.props.error && 'error'} error={this.props.errorMsg} inputID={this.props.name} />}
       </React.Fragment>
     );
@@ -79,7 +69,9 @@ class InputRadioGroup extends React.Component {
 }
 
 InputRadioGroup.propTypes = {
+  /** The legend title of the radio button group. */
   title: PropTypes.string.isRequired,
+  /** The name of the radio button group */
   name: PropTypes.string.isRequired,
   /** Whether radio input is required or not */
   required: PropTypes.bool,
@@ -96,7 +88,15 @@ InputRadioGroup.propTypes = {
   /** Display Inputs inline */
   inline: PropTypes.bool,
   /** Whether the radio button group is in a disabled state or not */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** On change callback function */
+  onChange: PropTypes.func,
+  /** An array of radio buttons. */
+  radioButtons: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired
+  }))
 };
 
 InputRadioGroup.defaultProps = {
