@@ -23,9 +23,7 @@ class HelpTip extends Component {
   componentWillReceiveProps(nextProps) {
     const isAnyDifferent = some(
       ['textBefore', 'textAfter', 'triggerText', 'helpText'],
-      property => {
-        return this.props[property] !== nextProps[property];
-      }
+      (property) => this.props[property] !== nextProps[property]
     );
     if (isAnyDifferent) {
       this.setState({ isOpen: false });
@@ -48,12 +46,12 @@ class HelpTip extends Component {
   // Rendering
   // ---------
 
-  buildDangerouslyIfHasMarkup = (text, hasMarkup) => {
-    return hasMarkup ? <span dangerouslySetInnerHTML={{ __html: text }} /> : text;
-  }
+  buildDangerouslyIfHasMarkup = (text, hasMarkup) => (hasMarkup ? <span dangerouslySetInnerHTML={{ __html: text }} /> : text)
 
   render() {
-    const { hasMarkup, labelId, triggerText, textAfter, helpText, children } = this.props;
+    const {
+      hasMarkup, labelId, triggerText, textAfter, helpText, children, id
+    } = this.props;
 
     const baseClass = classNames({
       'ma__help-tip': true,
@@ -62,20 +60,20 @@ class HelpTip extends Component {
     const helpTextClasses = classNames({
       'ma__help-tip__text': !children,
       'ma__help-tip__text--children': children
-    })
+    });
 
-    return (
-      <span className={baseClass} id={"dadgasfgas"}>
+    return(
+      <span className={baseClass} id={id}>
         <span className="ma__help-tip__label" id={labelId}>
           {this.buildDangerouslyIfHasMarkup(this.props.textBefore, hasMarkup)}
-          {/* can't use a button b/c disrupts fieldsets when used inside of legend*/}
+          {/* can't use a button b/c disrupts fieldsets when used inside of legend */}
           <div
             className={`ma__help-tip__trigger ${this.state.isOpen ? 'active' : ''}`}
             onClick={this.toggleOpen}
             onKeyUp={this.toggleOpenForKeyUp}
             tabIndex="0"
             role="button"
-            aria-describedby={"dadgasfgas"}
+            aria-describedby={id}
             aria-expanded={this.state.isOpen}
           >
             {this.buildDangerouslyIfHasMarkup(triggerText, hasMarkup)}
@@ -122,6 +120,7 @@ HelpTip.propTypes = {
   triggerText: PropTypes.string.isRequired,
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   labelId: PropTypes.string,
+  id: PropTypes.string,
   bypassMobileStyle: PropTypes.bool,
   hasMarkup: PropTypes.bool
 };
