@@ -67,7 +67,7 @@ const Number = (props) => (
             disabled: props.disabled
           };
           return(
-            <div className="ma__input-currency">
+            <div className="ma__input-number">
               <input {...inputAttr} />
               <button
                 type="button"
