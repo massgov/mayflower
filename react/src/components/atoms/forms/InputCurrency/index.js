@@ -77,7 +77,7 @@ const Currency = (props) => (
               props.onChange(numberValue, e);
             }
           };
-          const increaseValue = () => {
+          const handleAdjust = (direction) => {
             let stringValue;
             if (typeof context.value !== 'string') {
               stringValue = String(context.value);
@@ -86,21 +86,12 @@ const Currency = (props) => (
             }
             const numberValue = numbro.unformat(stringValue);
             if (!Number.isNaN(numberValue)) {
-              const newValue = Number.parseFloat(numberValue + props.step).toFixed(2);
-              const showError = !validNumber(newValue);
-              context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
-            }
-          };
-          const decreaseValue = () => {
-            let stringValue;
-            if (typeof context.value !== 'string') {
-              stringValue = String(context.value);
-            } else {
-              stringValue = context.value;
-            }
-            const numberValue = numbro.unformat(stringValue);
-            if (!Number.isNaN(numberValue)) {
-              const newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
+              let newValue;
+              if (direction === 'up') {
+                newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
+              } else if (direction === 'down') {
+                newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
+              }
               const showError = !validNumber(newValue);
               context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
             }
@@ -183,14 +174,14 @@ const Currency = (props) => (
                 type="button"
                 aria-label="increase value"
                 className="ma__input-currency__control-plus"
-                onClick={increaseValue}
+                onClick={() => handleAdjust('up')}
                 disabled={props.disabled}
               />
               <button
                 type="button"
                 aria-label="decrease value"
                 className="ma__input-currency__control-minus"
-                onClick={decreaseValue}
+                onClick={() => handleAdjust('down')}
                 disabled={props.disabled}
               />
             </div>
