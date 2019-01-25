@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import Input from '../Input';
 import { InputContext } from '../Input/context';
+import { validNumber } from '../Input/validate';
 import './style.css';
 
 const Number = (props) => (
@@ -18,9 +19,8 @@ const Number = (props) => (
           let errorMsg = '';
           const handleChange = (e) => {
             const { value } = e.target;
-            const update = {
-              value
-            };
+            const update = { value };
+
             context.updateState(update);
             if (typeof props.onChange === 'function') {
               props.onChange(e);

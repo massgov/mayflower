@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const validNumber = (num, min, max) => {
+export const validNumber = (num, min, max, erroMsg) => {
   if (!Number.isNaN(Number(min))) {
     // Make sure the new value isn't less than the min value.
     if (num < Number(min)) {
