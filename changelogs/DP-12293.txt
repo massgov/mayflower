@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- (React) DP-12293: Adds Input, InputCurrency components and InputContext context. Uses Numbro.js library.
