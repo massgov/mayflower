@@ -1,0 +1,86 @@
+{
+  "relatedOrgsAndTopics": {
+    "columns": [
+      {
+        "linkList": {
+          "sidebarHeading": {
+            "title": "Related Organizations"
+          },
+          "stacked": true,
+          "links": [
+            {
+              "href": "#",
+              "text": "Related Organization #1"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #2"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #3"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #4"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #5"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #6"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #7"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #8"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #9"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #10"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #11"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #12"
+            }
+          ]
+        }
+      },
+      {
+        "linkList": {
+          "sidebarHeading": {
+            "title": "Related Topics"
+          },
+          "stacked": true,
+          "links": [
+            {
+              "href": "#",
+              "text": "Related Topic #1"
+            },
+            {
+              "href": "#",
+              "text": "Related Topic #2"
+            },
+            {
+              "href": "#",
+              "text": "Related Topic #3"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
