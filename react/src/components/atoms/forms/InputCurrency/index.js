@@ -95,6 +95,9 @@ const Currency = (props) => (
               const showError = !validNumber(newValue);
               context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
             }
+            if (typeof props.onAdjust === 'function') {
+              props.onAdjust(numberValue);
+            }
           };
           const inputAttr = {
             className: inputClasses,
@@ -162,6 +165,9 @@ const Currency = (props) => (
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
                 }
               }
+              if (typeof props.onChange === 'function') {
+                props.onChange(numberValue);
+              }
             },
             required: props.required,
             value: context.value,
@@ -207,8 +213,9 @@ const InputCurrency = (props) => {
     maxlength,
     required: props.required,
     id: props.id,
-    onChange,
-    onBlur,
+    onChange: props.onChange,
+    onAdjust: props.onAdjust,
+    onBlur: props.onBlur,
     format,
     language,
     disabled: props.disabled
@@ -245,7 +252,10 @@ InputCurrency.propTypes = {
   errorMsg: PropTypes.string,
   /** Custom change function */
   onChange: PropTypes.func,
+  /** Custom onBlur function */
   onBlur: PropTypes.func,
+  /** Custom up/down button onClick function */
+  onAdjust: PropTypes.func,
   /** Default input value */
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Max value for the field. */
