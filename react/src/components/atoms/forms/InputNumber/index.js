@@ -17,7 +17,7 @@ const Number = (props) => (
           });
           let errorMsg = '';
           const handleChange = (e) => {
-            const { value } = e.target.value;
+            const { value } = e.target;
             const update = {
               value
             };
@@ -38,6 +38,15 @@ const Number = (props) => (
             required: props.required,
             value: context.value
           };
+          const handleAdjust = (direction) => {
+            let newValue;
+            if (direction === 'up') {
+              newValue = +context.value + props.step;
+            } else if (direction === 'down') {
+              newValue = +context.value - props.step;
+            }
+            context.updateState({ value: newValue });
+          }
           return(
             <div className="ma__input-currency">
               <input {...inputAttr} />
@@ -45,13 +54,13 @@ const Number = (props) => (
                 type="button"
                 aria-label="increase value"
                 className="ma__input-currency__control-plus"
-                onClick={(e) => console.log(e.target.value)}
+                onClick={() => handleAdjust('up')}
               />
               <button
                 type="button"
                 aria-label="decrease value"
                 className="ma__input-currency__control-minus"
-                onClick={(e) => console.log(e.target.value)}
+                onClick={() => handleAdjust('down')}
               />
             </div>
           );
@@ -63,7 +72,7 @@ const Number = (props) => (
 
 const InputNumber = (props) => {
   const {
-    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, format, language, ...inputProps
+    max, min, step, name, onChange, placeholder, width, maxlength, ...inputProps
   } = props;
   // Input and Currency share the props.required and props.id values.
   const currencyProps = {
@@ -104,14 +113,15 @@ InputNumber.propTypes = {
   errorMsg: PropTypes.string,
   /** Custom change function */
   onChange: PropTypes.func,
-  defaultText: PropTypes.string,
+  defaultText: PropTypes.number,
   /** Max value for the field. */
   max: PropTypes.number,
   /** Min value for the field. */
   min: PropTypes.number,
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
-  step: PropTypes.number,
+  step: PropTypes.number
 };
+
 InputNumber.defaultProps = {
   hiddenLabel: false,
   required: false,
