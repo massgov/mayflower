@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- (React) DP-12320: Added Callout Alert pattern and added themes and icon options. #418
