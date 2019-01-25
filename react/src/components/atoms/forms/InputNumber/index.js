@@ -45,7 +45,8 @@ const Number = (props) => (
             style: props.width ? { width: `${props.width}px` } : null,
             onChange: handleChange,
             required: props.required,
-            value: context.value
+            value: context.value,
+            disabled: props.disabled
           };
           return(
             <div className="ma__input-currency">
@@ -55,12 +56,14 @@ const Number = (props) => (
                 aria-label="increase value"
                 className="ma__input-currency__control-plus"
                 onClick={() => handleAdjust('up')}
+                disabled={props.disabled}
               />
               <button
                 type="button"
                 aria-label="decrease value"
                 className="ma__input-currency__control-minus"
                 onClick={() => handleAdjust('down')}
+                disabled={props.disabled}
               />
             </div>
           );
@@ -85,7 +88,8 @@ const InputNumber = (props) => {
     maxlength,
     required: props.required,
     id: props.id,
-    onChange
+    onChange,
+    disabled: props.disabled
   };
   return<Input {...inputProps}><Number {...currencyProps} /></Input>;
 };
@@ -97,6 +101,8 @@ InputNumber.propTypes = {
   labelText: PropTypes.string.isRequired,
   /** Whether the field is required or not */
   required: PropTypes.bool,
+  /** Whether the field is disabled or not */
+  disabled: PropTypes.bool,
   /** The unique ID for the input field */
   id: PropTypes.string.isRequired,
   /** The name for the input field */
