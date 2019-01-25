@@ -29,24 +29,19 @@ class InputTextFuzzy extends React.Component {
       this.props.onChange(e);
     }
   };
-  renderItem = (suggestion) => {
-    return (
-      <span className="ma__suggestion-content">
-          <span className="ma__suggestion-content-name">
-            {
+  renderItem = (suggestion) => (
+    <span className="ma__suggestion-content">
+      <span className="ma__suggestion-content-name">
+        {
               suggestion.matches.map((match) => {
-                if(this.props.keys.indexOf(match.key) > -1) {
+                if (this.props.keys.indexOf(match.key) > -1) {
                   // Add one to each range to get a proper highlight match.
-                  const ranges = match.indices.map((range) => {
-                    return [
+                  const ranges = match.indices.map((range) => [
                       range[0],
                       range[1] + 1
-                    ]
-                  });
+                    ]);
                   const parts = parse(match.value, ranges);
-                  return parts.filter(part => {
-                    return part.text.length > 0;
-                  }).map((part, index) => {
+                  return parts.filter((part) => part.text.length > 0).map((part, index) => {
                     const className = part.highlight ? 'highlight' : null;
                     const key = `${match.key}.suggestion_${index}`;
                     return(
@@ -56,13 +51,10 @@ class InputTextFuzzy extends React.Component {
                 }
               })
             }
-          </span>
-        </span>
-    );
-  };
-  renderItemsContainer = ({ children, containerProps }) => {
-    return(<div className="ma__input-fuzzy" {...containerProps}>{children}</div>)
-  };
+      </span>
+    </span>
+  );
+  renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
   render() {
     const autoProps = {
       items: this.state.suggestions,
@@ -77,13 +69,13 @@ class InputTextFuzzy extends React.Component {
         disabled: this.props.disabled,
         id: this.props.inputId,
         onKeyDown: (event, { newHighlightedSectionIndex, newHighlightedItemIndex }) => {
-          switch(event.key) {
+          switch (event.key) {
             case 'ArrowDown':
             case 'ArrowUp':
               event.preventDefault();
-              this.setState(currentState => {
+              this.setState((currentState) => {
                 if (currentState.suggestions.length > 0 && currentState.value && currentState.value.length > 0) {
-                  return {
+                  return{
                     highlightedItemIndex: !(newHighlightedItemIndex) ? 0 : newHighlightedItemIndex
                   };
                 }
@@ -100,13 +92,13 @@ class InputTextFuzzy extends React.Component {
                 });
                 if (typeof this.props.onSuggestionClick === 'function') {
                   // Suggestion is an object that can contain info on score, matches, etc.
-                  this.props.onSuggestionClick(event, {suggestion});
+                  this.props.onSuggestionClick(event, { suggestion });
                 }
               } else {
                 // Try to see if the typed in value is in the options array.
-                const suggestion = this.props.options.find(option => {
+                const suggestion = this.props.options.find((option) => {
                   let match = false;
-                  this.props.keys.forEach(key => {
+                  this.props.keys.forEach((key) => {
                     if (option[key] && option[key] === this.state.value) {
                       match = true;
                     }
@@ -146,9 +138,9 @@ class InputTextFuzzy extends React.Component {
     autoProps.itemProps = (props) => {
       const { itemIndex } = props;
       const suggestion = this.state.suggestions[itemIndex];
-      return {
+      return{
         'data-item-index': itemIndex,
-        onMouseDown: event => {
+        onMouseDown: (event) => {
           this.setState({
             value: suggestion.item.text,
             suggestions: [],
@@ -156,25 +148,25 @@ class InputTextFuzzy extends React.Component {
           });
           if (typeof this.props.onSuggestionClick === 'function') {
             // Suggestion is an object that can contain info on score, matches, etc.
-            this.props.onSuggestionClick(event, {suggestion});
+            this.props.onSuggestionClick(event, { suggestion });
           }
         },
-        onMouseEnter: event => {
+        onMouseEnter: (event) => {
           this.setState({
             highlightedItemIndex: itemIndex
-          })
+          });
         },
-        onMouseLeave: event => {
+        onMouseLeave: (event) => {
           this.setState({
             highlightedItemIndex: null
-          })
+          });
         }
-      }
+      };
     };
     const inputTextTypeAheadClasses = classNames({
       'ma__input-typeahead': true,
       'ma__input-typeahead--disabled': this.props.disabled,
-      'ma__input-typeahead--boxed': this.props.boxed,
+      'ma__input-typeahead--boxed': this.props.boxed
     });
     return(
       <React.Fragment>
@@ -200,7 +192,7 @@ InputTextFuzzy.propTypes = {
   keys: PropTypes.arrayOf(PropTypes.string).isRequired,
   /** An array of objects representing all searchable values. */
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
-  /** Any Fusejs options to override the default options set in this component.*/
+  /** Any Fusejs options to override the default options set in this component. */
   fuseOptions: PropTypes.object,
   /** Disables input. */
   disabled: PropTypes.bool,
@@ -222,7 +214,7 @@ InputTextFuzzy.defaultProps = {
     findAllMatches: true,
     /** Lets the matches found be included in the result set. */
     includeMatches: true,
-    /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches.*/
+    /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches. */
     threshold: 0.3,
     /** Prevents matches against empty strings. */
     minMatchCharLength: 1

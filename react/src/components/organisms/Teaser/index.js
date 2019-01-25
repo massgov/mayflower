@@ -1,28 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import componentPropTypeCheck, { componentArrayPropTypeCheck } from "../../utilities/componentPropTypeCheck";
+import componentPropTypeCheck, { componentArrayPropTypeCheck } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 class Teaser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: false,
+      isActive: false
     };
   }
 
   handleMouseEnter = () => {
     this.setState({ isActive: true });
     if (typeof this.props.setActiveHover === 'function') {
-      this.props.setActiveHover(this.props.id)
+      this.props.setActiveHover(this.props.id);
     }
   };
 
   handleMouseLeave = () => {
     this.setState({ isActive: false });
     if (typeof this.props.clearActiveHover === 'function') {
-      this.props.clearActiveHover()
+      this.props.clearActiveHover();
     }
   };
 
@@ -44,7 +44,7 @@ class Teaser extends React.Component {
       onMouseEnter: () => this.handleMouseEnter(),
       onMouseLeave: () => this.handleMouseLeave()
     };
-    return (
+    return(
       <section {...sectionProps}>
         <div className="ma__general-teaser__details">
           {this.props.title && (
@@ -112,7 +112,7 @@ Teaser.propTypes = {
         'IconLink'
       ]);
     }
-  },
+  }
 };
 
 export default Teaser;
