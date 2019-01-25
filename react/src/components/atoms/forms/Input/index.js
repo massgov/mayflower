@@ -17,7 +17,6 @@ class Input extends React.Component {
     };
   }
   render() {
-    console.log(this.props)
     const inputLabelClasses = classNames({
       ma__label: true,
       'ma__label--hidden': (this.props.labelText && this.props.hiddenLabel),
