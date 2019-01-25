@@ -113,7 +113,7 @@ InputNumber.propTypes = {
   errorMsg: PropTypes.string,
   /** Custom change function */
   onChange: PropTypes.func,
-  defaultText: PropTypes.number,
+  defaultValue: PropTypes.number,
   /** Max value for the field. */
   max: PropTypes.number,
   /** Min value for the field. */

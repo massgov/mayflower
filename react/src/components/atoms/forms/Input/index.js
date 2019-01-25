@@ -9,7 +9,7 @@ class Input extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.defaultText,
+      value: this.props.defaultValue,
       updateState: (newState) => this.setState(newState),
       showError: false,
       errorMsg: this.props.errorMsg

@@ -10,7 +10,7 @@ export default {
   maxlength: () => number('InputCurrency.maxlength', 20),
   placeholder: () => text('InputCurrency.placeholder', 'type something'),
   errorMsg: () => text('InputCurrency.errorMsg', 'you did not type something'),
-  defaultText: () => text('InputCurrency.defaultText', 0),
+  defaultValue: () => text('InputCurrency.defaultValue', 0),
   max: () => number('InputCurrency.max', 10000),
   min: () => number('InputCurrency.min', -1000),
   step: () => number('InputCurrency.step', 1)
