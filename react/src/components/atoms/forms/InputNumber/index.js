@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import Input from '../Input';
 import { InputContext } from '../Input/context';
+import { validNumber } from '../Input/validate';
 import './style.css';
 
 const Number = (props) => (
@@ -21,11 +22,25 @@ const Number = (props) => (
             const { value } = e.target;
             const update = { value };
 
+            if (props.required) {
+              errorMsg = 'Please enter a value.';
+              update.showError = true;
+              update.errorMsg = errorMsg;
+            } else if (validNumber(value, props.min, props.max, errorMsg)) {
+              update.showError = true;
+              update.errorMsg = errorMsg;
+            } else {
+              errorMsg = '';
+              update.showError = false;
+              update.errorMsg = errorMsg;
+            }
+
             context.updateState(update);
             if (typeof props.onChange === 'function') {
               props.onChange(e);
             }
           };
+
           const handleAdjust = (e, direction) => {
             let newValue;
             if (direction === 'up') {
