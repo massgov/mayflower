@@ -233,9 +233,9 @@ const InputCurrency = (props) => {
     format,
     language
   };
-  if (!Number.isNaN(inputProps.defaultText)) {
-    const currency = numbro(Number(inputProps.defaultText));
-    inputProps.defaultText = currency.formatCurrency(format);
+  if (!Number.isNaN(inputProps.defaultValue)) {
+    const currency = numbro(Number(inputProps.defaultValue));
+    inputProps.defaultValue = currency.formatCurrency(format);
   }
   return<Input {...inputProps}><Currency {...currencyProps} /></Input>;
 };
@@ -265,7 +265,7 @@ InputCurrency.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   /** Default input text value */
-  defaultText: PropTypes.string,
+  defaultValue: PropTypes.string,
   /** Max value for the field. */
   max: PropTypes.number,
   /** Min value for the field. */
