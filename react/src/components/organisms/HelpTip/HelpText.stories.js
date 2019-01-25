@@ -9,7 +9,7 @@ import CalloutAlert from '../CalloutAlert';
 import Paragraph from '../../atoms/text/Paragraph';
 
 storiesOf('organisms', module).addDecorator(withKnobs)
-  .add('HelpTip', withInfo(/* `<div>${IllustratedHeaderDocs}</div>` */)(() => {
+  .add('HelpTip', withInfo(`<div></div>`)(() => {
     const props = {
       textBefore: text('helpTip.textBefore', 'I am a sentence with an '),
       triggerText: text('helpTip.triggerText', 'interesting help tip'),
