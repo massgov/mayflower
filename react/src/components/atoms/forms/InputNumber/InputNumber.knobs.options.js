@@ -1,4 +1,5 @@
 import { text, boolean, number, object, select } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 
 export default {
   hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
@@ -14,5 +15,7 @@ export default {
   defaultValue: () => text('InputCurrency.defaultValue', ''),
   max: () => number('InputCurrency.max', 10000),
   min: () => number('InputCurrency.min', -1000),
-  step: () => number('InputCurrency.step', 1)
+  step: () => number('InputCurrency.step', 1),
+  onChange: () => action('onChange'),
+  onAdjust: () => action('onAdjust')
 };

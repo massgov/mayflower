@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import Input from '../Input';
 import { InputContext } from '../Input/context';
-import { validNumber } from '../Input/validate';
 import './style.css';
 
 const Number = (props) => (
@@ -17,6 +16,7 @@ const Number = (props) => (
             'js-is-required': props.required
           });
           let errorMsg = '';
+
           const handleChange = (e) => {
             const { value } = e.target;
             const update = { value };
@@ -26,7 +26,7 @@ const Number = (props) => (
               props.onChange(e);
             }
           };
-          const handleAdjust = (direction) => {
+          const handleAdjust = (e, direction) => {
             let newValue;
             if (direction === 'up') {
               newValue = +context.value + props.step;
@@ -34,6 +34,9 @@ const Number = (props) => (
               newValue = +context.value - props.step;
             }
             context.updateState({ value: newValue });
+            if (typeof props.onChange === 'function') {
+              props.onChange(e);
+            }
           }
           const inputAttr = {
             className: inputClasses,
@@ -55,14 +58,14 @@ const Number = (props) => (
                 type="button"
                 aria-label="increase value"
                 className="ma__input-currency__control-plus"
-                onClick={() => handleAdjust('up')}
+                onClick={(e) => handleAdjust(e, 'up')}
                 disabled={props.disabled}
               />
               <button
                 type="button"
                 aria-label="decrease value"
                 className="ma__input-currency__control-minus"
-                onClick={() => handleAdjust('down')}
+                onClick={(e) => handleAdjust(e, 'down')}
                 disabled={props.disabled}
               />
             </div>
@@ -119,6 +122,8 @@ InputNumber.propTypes = {
   errorMsg: PropTypes.string,
   /** Custom change function */
   onChange: PropTypes.func,
+  /** Custom up/down button onClick function */
+  onAdjust: PropTypes.func,
   /** Default input value */
   defaultValue: PropTypes.number,
   /** Max value for the field. */
