@@ -74,10 +74,10 @@ const Currency = (props) => (
             }
             context.updateState(update);
             if (typeof props.onChange === 'function') {
-              props.onChange(numberValue, e);
+              props.onChange(e, numberValue);
             }
           };
-          const handleAdjust = (direction) => {
+          const handleAdjust = (e, direction) => {
             let stringValue;
             if (typeof context.value !== 'string') {
               stringValue = String(context.value);
@@ -95,8 +95,8 @@ const Currency = (props) => (
               const showError = !validNumber(newValue);
               context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
             }
-            if (typeof props.onAdjust === 'function') {
-              props.onAdjust(numberValue);
+            if (typeof props.onChange === 'function') {
+              props.onChange(e, numberValue);
             }
           };
           const inputAttr = {
@@ -166,7 +166,7 @@ const Currency = (props) => (
                 }
               }
               if (typeof props.onChange === 'function') {
-                props.onChange(numberValue);
+                props.onChange(e, numberValue);
               }
             },
             required: props.required,
@@ -180,14 +180,14 @@ const Currency = (props) => (
                 type="button"
                 aria-label="increase value"
                 className="ma__input-currency__control-plus"
-                onClick={() => handleAdjust('up')}
+                onClick={(e) => handleAdjust(e, 'up')}
                 disabled={props.disabled}
               />
               <button
                 type="button"
                 aria-label="decrease value"
                 className="ma__input-currency__control-minus"
-                onClick={() => handleAdjust('down')}
+                onClick={(e) => handleAdjust(e, 'down')}
                 disabled={props.disabled}
               />
             </div>
@@ -214,7 +214,6 @@ const InputCurrency = (props) => {
     required: props.required,
     id: props.id,
     onChange: props.onChange,
-    onAdjust: props.onAdjust,
     onBlur: props.onBlur,
     format,
     language,
@@ -254,8 +253,6 @@ InputCurrency.propTypes = {
   onChange: PropTypes.func,
   /** Custom onBlur function */
   onBlur: PropTypes.func,
-  /** Custom up/down button onClick function */
-  onAdjust: PropTypes.func,
   /** Default input value */
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Max value for the field. */

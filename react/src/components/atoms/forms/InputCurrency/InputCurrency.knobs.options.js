@@ -24,6 +24,5 @@ export default {
   }),
   language: () => select('InputCurrency.language', ['English', 'Chinese', 'French', 'Russian'], 'English'),
   onChange: () => action('onChange'),
-  onAdjust: () => action('onAdjust'),
   onBlur: () => action('onBlur')
 };
