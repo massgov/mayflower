@@ -26,6 +26,15 @@ const Number = (props) => (
               props.onChange(e);
             }
           };
+          const handleAdjust = (direction) => {
+            let newValue;
+            if (direction === 'up') {
+              newValue = +context.value + props.step;
+            } else if (direction === 'down') {
+              newValue = +context.value - props.step;
+            }
+            context.updateState({ value: newValue });
+          }
           const inputAttr = {
             className: inputClasses,
             name: props.name,
@@ -38,15 +47,6 @@ const Number = (props) => (
             required: props.required,
             value: context.value
           };
-          const handleAdjust = (direction) => {
-            let newValue;
-            if (direction === 'up') {
-              newValue = +context.value + props.step;
-            } else if (direction === 'down') {
-              newValue = +context.value - props.step;
-            }
-            context.updateState({ value: newValue });
-          }
           return(
             <div className="ma__input-currency">
               <input {...inputAttr} />

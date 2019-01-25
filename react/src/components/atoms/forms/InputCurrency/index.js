@@ -6,6 +6,7 @@ import languages from 'numbro/dist/languages.min';
 
 import Input from '../Input';
 import { InputContext } from '../Input/context';
+import { validNumber } from '../Input/validate';
 import './style.css';
 
 const Currency = (props) => (
@@ -40,22 +41,6 @@ const Currency = (props) => (
             }
             return number;
           };
-          const validNumber = (num) => {
-            if (!Number.isNaN(Number(props.min))) {
-              // Make sure the new value isn't less than the min value.
-              if (num < Number(props.min)) {
-                errorMsg = `Please enter a valid greater than or equal to ${props.min}.`;
-                return false;
-              }
-            }
-            if (!Number.isNaN(Number(props.max))) {
-              if (num > Number(props.max)) {
-                errorMsg = `Please enter a valid less than or equal to ${props.max}.`;
-                return false;
-              }
-            }
-            return true;
-          };
           const handleChange = (e) => {
             let stringValue;
             if (typeof e.target.value !== 'string') {
@@ -74,7 +59,7 @@ const Currency = (props) => (
               update.showError = true;
               update.errorMsg = errorMsg;
             } else if (!Number.isNaN(numberValue) && stringValue.length > 0) {
-              if (validNumber(numberValue)) {
+              if (validNumber(numberValue, props.min, props.max)) {
                 errorMsg = '';
                 update.showError = false;
                 update.errorMsg = errorMsg;
@@ -264,8 +249,8 @@ InputCurrency.propTypes = {
   /** Custom change function */
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
-  /** Default input text value */
-  defaultValue: PropTypes.string,
+  /** Default input value */
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /** Max value for the field. */
   max: PropTypes.number,
   /** Min value for the field. */
