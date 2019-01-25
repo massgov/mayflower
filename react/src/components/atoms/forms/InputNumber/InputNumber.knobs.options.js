@@ -4,6 +4,7 @@ export default {
   hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
   labelText: () => text('InputCurrency.labelText', 'Number Input'),
   required: () => boolean('InputCurrency.required', false),
+  disabled: () => boolean('InputCurrency.disabled', false),
   id: () => text('InputCurrency.id', 'number-input'),
   name: () => text('InputCurrency.name', 'number-input'),
   width: () => number('InputCurrency.width', 0),
