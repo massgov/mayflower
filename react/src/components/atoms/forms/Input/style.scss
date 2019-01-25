@@ -19,3 +19,24 @@
   }
 }
 
+%disabled {
+  opacity: 0.5;
+}
+
+input:disabled {
+  @extend %disabled;
+  background-color: $c-gray-lightest;
+}
+
+button:disabled {
+  @extend %disabled;
+  &:before, &:after {
+    @extend %disabled;
+  }
+}
+
+.ma__label {
+  &--disabled {
+    @extend %disabled;
+  }
+}

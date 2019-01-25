@@ -12,15 +12,18 @@ class Input extends React.Component {
       value: this.props.defaultValue,
       updateState: (newState) => this.setState(newState),
       showError: false,
-      errorMsg: this.props.errorMsg
+      errorMsg: this.props.errorMsg,
+      disabled: this.props.disabled
     };
   }
   render() {
+    console.log(this.props)
     const inputLabelClasses = classNames({
       ma__label: true,
       'ma__label--hidden': (this.props.labelText && this.props.hiddenLabel),
       'ma__label--required': (this.props.labelText && this.props.required),
-      'ma__label--optional': (this.props.labelText && !this.props.required)
+      'ma__label--optional': (this.props.labelText && !this.props.required),
+      'ma__label--disabled': (this.props.labelText && this.props.disabled)
     });
     const errorProps = {
       error: this.state.errorMsg,

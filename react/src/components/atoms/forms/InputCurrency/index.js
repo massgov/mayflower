@@ -59,7 +59,7 @@ const Currency = (props) => (
               update.showError = true;
               update.errorMsg = errorMsg;
             } else if (!Number.isNaN(numberValue) && stringValue.length > 0) {
-              if (validNumber(numberValue, props.min, props.max)) {
+              if (validNumber(numberValue, props.min, props.max, errorMsg)) {
                 errorMsg = '';
                 update.showError = false;
                 update.errorMsg = errorMsg;
@@ -173,7 +173,8 @@ const Currency = (props) => (
               }
             },
             required: props.required,
-            value: context.value
+            value: context.value,
+            disabled: props.disabled
           };
           return(
             <div className="ma__input-currency">
@@ -183,12 +184,14 @@ const Currency = (props) => (
                 aria-label="increase value"
                 className="ma__input-currency__control-plus"
                 onClick={increaseValue}
+                disabled={props.disabled}
               />
               <button
                 type="button"
                 aria-label="decrease value"
                 className="ma__input-currency__control-minus"
                 onClick={decreaseValue}
+                disabled={props.disabled}
               />
             </div>
           );
@@ -216,7 +219,8 @@ const InputCurrency = (props) => {
     onChange,
     onBlur,
     format,
-    language
+    language,
+    disabled: props.disabled
   };
   if (!Number.isNaN(inputProps.defaultValue)) {
     const currency = numbro(Number(inputProps.defaultValue));
@@ -232,6 +236,8 @@ InputCurrency.propTypes = {
   labelText: PropTypes.string.isRequired,
   /** Whether the field is required or not */
   required: PropTypes.bool,
+  /** Whether the field is disabled or not */
+  disabled: PropTypes.bool,
   /** The unique ID for the input field */
   id: PropTypes.string.isRequired,
   /** The name for the input field */
