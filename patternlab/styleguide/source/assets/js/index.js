@@ -30,6 +30,7 @@ import pikaday from "./modules/pikaday.js";
 // `richText` and `stickTOC` are needed above `responsiveTable` to setup tables and offsets.
 import stickyTOC from "./modules/stickyTOC.js";
 import richText from "./modules/richText.js";
+import relatedOrgsAndTopics from "./modules/relatedOrgsAndTopics.js";
 import responsiveTable from "./modules/responsiveTable.js";
 import responsiveVideo from "./modules/responsiveVideo.js";
 import resultsHeading from "./modules/resultsHeading.js";
