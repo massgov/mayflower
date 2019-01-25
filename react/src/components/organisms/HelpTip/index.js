@@ -115,19 +115,28 @@ class HelpTip extends Component {
 }
 
 HelpTip.propTypes = {
+  /** The text/content before the text that will be a clickable inline toolitp */
   textBefore: PropTypes.string,
+  /** The text/content after the text that will be a clickable inline toolitp */
   textAfter: PropTypes.string,
+  /** The text that will be a clickable inline toolitp */
   triggerText: PropTypes.string.isRequired,
+  /** The help text that is displayed on clicking the trigger text */
+  /** You can also render children in the help text */
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  /** The label id */
   labelId: PropTypes.string,
+  /** The id for the whole component */
   id: PropTypes.string,
+  /** Whether you want the help text to slide up on mobile screens */
   bypassMobileStyle: PropTypes.bool,
+  /** Whether textBefore, textAfter, or triggerText has html markup */
   hasMarkup: PropTypes.bool
 };
 
 HelpTip.defaultProps = {
   labelId: '',
-  hasMarkup: false
+  hasMarkup: true
 };
 
 export default HelpTip;
