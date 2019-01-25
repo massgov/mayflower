@@ -1,0 +1,67 @@
+.ma__input-currency {
+  display: inline-block;
+  position: relative;
+
+  &__control {
+  	  text-align: right;
+	  padding-right: 58px;
+
+	  input {
+	    padding-right: 58px;
+	  }
+
+	  input.has-error {
+	    border-color: $c-bd-error;
+	  }
+
+	  &-plus,
+	  &-minus {
+	    @include ma-button-reset;
+	    border: 2px solid $c-bd-input;
+	    border-bottom: none;
+	    display: block;
+	    height: 50%;
+	    padding: 0;
+	    position: absolute;
+	      right: 0;
+	    width: 40px;
+
+	    &:focus {
+	      border-bottom-style: dotted;
+	      border-bottom-width: 1px;
+	    }
+
+	    &:after {
+	      border: 5px solid $c-black;
+	      border-top: none;
+	      border-bottom-width: 6px;
+	      content: "";
+	      display: block;
+	      height: 0;
+	      margin: 0 auto;
+	      position: absolute;
+	        bottom: 2px;
+	        left: 50%;
+	      transform: translateX(-50%);
+	      vertical-align: bottom;
+	      width: 0;
+	      border-left-color: transparent;
+	      border-right-color: transparent;
+	    }
+
+	    &:focus:after {
+	      bottom: 1px;
+	    }
+	  }
+
+	  &-plus {
+	    bottom: 50%;
+	  }
+
+	  &-minus {
+	    top: 50%;
+	    transform: rotate(180deg);
+	  }
+  }
+
+}
