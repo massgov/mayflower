@@ -38,9 +38,9 @@ const DecorativeLink = (props) => {
       <a
         href={props.href}
         className="js-clickable-link"
-        title={props.info}
+        title={props.info || false}
       >
-        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}{props.text}&nbsp;<Icon name="arrow" />
+        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}{props.text}&nbsp;<Icon name="arrow" aria-hidden="true" />
       </a>
     </span>
   );
@@ -55,7 +55,6 @@ DecorativeLink.propTypes = {
 
 DecorativeLink.defaultProps = {
   href: '#',
-  info: '',
   text: 'Lorem ipsum dolor sit amet',
   showFileIcon: false
 };

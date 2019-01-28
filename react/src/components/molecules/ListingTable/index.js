@@ -12,7 +12,7 @@ class ListingTableItem extends React.Component {
     this.state = {
       open: false
     };
-  };
+  }
 
   handleClick = () => {
     this.setState({
@@ -21,7 +21,7 @@ class ListingTableItem extends React.Component {
   };
 
   render() {
-    const {row} = this.props;
+    const { row } = this.props;
     const visibleItems = row.visibleItems || 2;
     const inlineAccordion = (row.items.length > visibleItems);
     const rowClasses = ClassNames({
