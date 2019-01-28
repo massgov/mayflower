@@ -1,4 +1,4 @@
-import { text, boolean, number, object, select } from '@storybook/addon-knobs/react';
+import { text, boolean, number } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 
 export default {
