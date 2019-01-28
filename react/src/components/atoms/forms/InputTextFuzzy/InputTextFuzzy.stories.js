@@ -19,6 +19,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         options: inputOptions.options.orgSelector.filter((option) => option.text !== ''),
         placeholder: text('InputTextFuzzy.placeholder', 'All Organizations'),
         id: text('InputTextFuzzy.id', 'org-typeahead'),
+        inputId: text('InputTextFuzzy.inputId', 'input-org-typeahead'),
         selected: select(
           'InputTextFuzzy.selected',
           inputOptions.options.orgSelector.map((option) => option.text),

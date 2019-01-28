@@ -13,15 +13,55 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.21.0 (01/24/2019
+
+### Added
+- (React) DP-12318: Adds the form components input radio button (atom) and input radio button group (molecule) to mayflower-react. #424
+- (PatternLab/React) DP-12318: Adds a primary lighter color and error color to scss variables. #424
+- (React) DP-12293: Adds Input, InputCurrency components and InputContext context. Uses Numbro.js library. #419
+- (React) DP-12320: Added Callout Alert pattern and added themes and icon options. #418
+
+### Changed
+- (React) DP-12318: Updates the eslint settings for better handling of jsx syntax. #424
+
+## 8.20.0 (01/23/2019)
+
+### Changed
+- (Patternlab/React) DP-11662: Replace the markup validation flagged elements `<section>` with `<div>` for `.ma__utility-nav` and `.ma__utility-panel`. #415
+- (React/Patternlab) DP-11668: Change to a valid container for `.ma__main-nav`. #416
+- (React/Patternlab) DP-12120: Hide feedback wrapper in print #406
+
+## 8.19.1 (01/17/2019)
+
+### Fixed
+- (Patternlab) DP-12234: Fix the spacing issue after the conditional content for phone in contact item. #410
+- (React) DP-12080: Add capacity to pass an id to the input tag of the InputTextFuzzy atom. #412
+
+## 8.19.0 (01/16/2019)
+
+### Added
+- (React) DP-12114: Add option to render an external link in Utility Nav. #400
+
+### Changed
+- (React) DP-12117: Add option to conditionally render the main nav top level link. #408
+
+### Fixed
+- (React) DP-11128: Fixed image promo title not wrapping in IE11 bug. #404
+- (Patternlab) DP-11437: MF Location search by city/zip fix for autocomplete issue. #401
+- (React) DP-11667: Add search role to HeaderSearch molecule for a11y. #405
+- (React) DP-11683: Set a condition in the decorative link atom to only add title when its value is available. #407
+- (React) DP-11684: Hides arrow in decorative link so not read by the screen reader. #407
+- (React) DP-12183: Fixes alignment issue of download icon in the decorative link react component in IE11 #403
+
 ## 8.18.0 (01/08/2019)
 
-## Changed
+### Changed
 - (React) DP-12012: Enable the footnotes atom in react to render raw html if passed a child. Update the footnote style to up arrow. #397
 - (Patternlab) DP-9183: Expand button on alert. #388
 - (Patternlab) DP-9775: MF Adjust print styles for topic and org pages to have less space at top. #392
 - (Patternlab) DP-9186: Change section tags to div tags on rich text pattern for better semantics. #391
 
-## Fixed/Patched
+### Fixed/Patched
 - (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated with the link for screenreaders. #386
 - (Patternlab) DP-11400: Add more spacing on org page above "More about [name]". #368
 - (Patternlab) DP-5230: Fix print styles: how-to left alignment. #370
@@ -41,7 +81,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Changed
 - (Patternlab) DP-5859: Checkboxes missing from What You Need section on print style for How To Pages #369
 
-### Fixed 
+### Fixed
 - (Patternlab) DP-10231: bug fix for location pagination #362
 
 ## 8.15.0 (12/12/2018)

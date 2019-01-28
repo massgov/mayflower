@@ -37,7 +37,7 @@ class HeaderSearch extends React.Component {
           </div>
         }
         <section className="ma__header-search">
-          <form action="#" className="ma__form" onSubmit={headerSearch.onSubmit}>
+          <form action="#" className="ma__form" onSubmit={headerSearch.onSubmit} role="search">
             <label
               htmlFor={headerSearch.id}
               className="ma__header-search__label"

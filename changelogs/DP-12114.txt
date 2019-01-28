@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- (React) DP-12114: Add option to render an external link in Utility Nav. #400
