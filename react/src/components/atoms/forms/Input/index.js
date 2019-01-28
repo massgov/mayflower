@@ -9,7 +9,7 @@ const Input = (props) => {
     ma__label: true,
     'ma__label--hidden': (props.labelText && props.hiddenLabel),
     'ma__label--required': (props.labelText && props.required),
-    'ma__label--optional': (props.labelText && props.required)
+    'ma__label--optional': (props.labelText && !props.required)
   });
   // InputProvider will get the same props.children as Input.
   return(
