@@ -141,7 +141,7 @@ class CompoundSlider extends Component {
       <InputContext.Consumer>
         {
           (context) => {
-            const { min, max, step } = this.props;
+            const { min, max, step, disabled } = this.props;
             const handleDragEnd = (values) => {
               const value = values[0];
               context.updateState({ value });
@@ -152,7 +152,8 @@ class CompoundSlider extends Component {
               vertical: !(this.props.axis === 'x'),
               onSlideEnd: handleDragEnd,
               values: [Number(this.props.defaultText)],
-              mode: 2
+              mode: 2,
+              disabled
             };
             let sliderStyle = {};
             let railStyle = {};

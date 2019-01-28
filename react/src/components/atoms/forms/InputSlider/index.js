@@ -11,9 +11,10 @@ const InputSlider = (props) => {
   const sliderProps = {
     axis, max, min, step, width, height, defaultText
   };
-  const { id } = inputProps;
+  const { id, disabled } = inputProps;
   sliderProps.id = id;
   sliderProps.ticks = new Map(ticks);
+  sliderProps.disabled = disabled;
   return(
     <Input {...inputProps}>
       <CompoundSlider {...sliderProps} />
@@ -25,7 +26,8 @@ const InputSlider = (props) => {
 InputSlider.defaultProps = {
   defaultText: 0,
   width: 300,
-  height: 300
+  height: 300,
+  disabled: false
 };
 
 export default InputSlider;

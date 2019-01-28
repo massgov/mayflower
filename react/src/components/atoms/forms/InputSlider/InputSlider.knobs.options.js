@@ -3,6 +3,7 @@ import { text, boolean, number, object, select, array } from '@storybook/addon-k
 export default {
   labelText: () => text('InputSlider.labelText', 'Text Input'),
   id: () => text('InputSlider.id', 'text-input'),
+  disabled: () => boolean('InputSlider.disabled', false),
   defaultText: () => text('InputSlider.defaultText', '0'),
   axis: () => select('InputSlider.axis', ['x', 'y'], 'x'),
   max: () => number('InputSlider.max', 100),
