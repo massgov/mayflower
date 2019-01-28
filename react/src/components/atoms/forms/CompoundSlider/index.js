@@ -193,7 +193,7 @@ class CompoundSlider extends Component {
               wrapperStyle = { height: 520, width: '100%' };
             }
             return(
-              <div style={wrapperStyle}>
+              <div id={this.props.id} style={wrapperStyle}>
                 <Slider rootStyle={sliderStyle} {...sliderProps}>
                   <Rail>
                     {({ getRailProps }) => (
@@ -270,7 +270,7 @@ class CompoundSlider extends Component {
 }
 
 CompoundSlider.defaultProps = {
-  ticks: []
+  ticks: new Map()
 };
 
 export default CompoundSlider;
