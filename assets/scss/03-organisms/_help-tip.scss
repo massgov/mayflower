@@ -19,8 +19,8 @@ $border-width: 1px;
         visibility: visible;
         -webkit-transition-property: height, visibility;
         transition-property: height, visibility;
-        transition-duration: 0.35s;
-        -webkit-transition-duration: 0.35s;
+        transition-duration: 0.2s;
+        -webkit-transition-duration: 0.2s;
         transition-timing-function: ease;
         -webkit-transition-timing-function: ease;
     }
@@ -47,19 +47,14 @@ $border-width: 1px;
     cursor: pointer;
     border: none;
     padding: 0px 2px;
+    border-bottom: 2px dotted $c-primary;
 
-    &:focus {
-      outline: 0;
-      box-shadow: focus-shadow($border-width, $c-focus);
-    }
 
-    &:hover {
-      border-bottom: 2px dotted $c-primary;
-    }
-
-    &.active {
+    &.active, &:hover, &:focus {
       background-color: $c-primary;
       color: $c-white;
+      outline: 0;
+      box-shadow: focus-shadow($border-width, $c-focus);
     }
 
     svg {
@@ -74,29 +69,29 @@ $border-width: 1px;
   &__text {
     overflow-y: scroll; // overflow scroll MUCH smoother on mobile safari
     -webkit-overflow-scrolling: touch;
-    
+
     @media ($bp-large-min) {
       overflow-y: auto;
     }
-    
+
     .ma__help-tip__text--direct {
       padding: $spacing ($spacing * 2);
     }
-    
+
   }
 
   &__text--children {
     overflow-y: scroll; // overflow scroll MUCH smoother on mobile safari
     -webkit-overflow-scrolling: touch;
-    
+
     @media ($bp-large-min) {
       overflow-y: auto;
     }
-    
+
     .ma__help-tip__text--direct {
       padding: $spacing $spacing;
     }
-    
+
   }
   &__close-mobile {
     display: none;
@@ -144,7 +139,7 @@ $border-width: 1px;
       right: 0;
       z-index: 1; // to create a new stacking context on top
       margin-top: .5rem;
-      background-color: $c-primary; 
+      background-color: $c-primary;
     }
 
     #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
