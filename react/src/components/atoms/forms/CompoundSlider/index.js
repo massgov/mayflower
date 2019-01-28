@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
 import { InputContext } from '../Input/context';
+import './style.css';
 
-const Handle = ({ handle: { id, value, percent }, getHandleProps, axis, min, max }) => {
+const Handle = (props) => {
+  const {
+    handle: { id, value, percent }, getHandleProps, axis, min, max
+  } = props;
   const divProps = {
     'aria-valuemin': min,
     'aria-valuemax': max,
@@ -12,125 +18,72 @@ const Handle = ({ handle: { id, value, percent }, getHandleProps, axis, min, max
   };
   if (axis === 'x') {
     divProps.style = {
-      left: `${percent}%`,
-      position: 'absolute',
-      marginLeft: -15,
-      marginTop: 25,
-      zIndex: 2,
-      width: 30,
-      height: 30,
-      border: 0,
-      textAlign: 'center',
-      cursor: 'pointer',
-      borderRadius: '50%',
-      backgroundColor: '#2C4870',
-      color: '#fff'
+      left: `${percent}%`
     };
   } else if (axis === 'y') {
     divProps.style = {
-      top: `${percent}%`,
-      position: 'absolute',
-      marginLeft: -6,
-      marginTop: -12,
-      zIndex: 2,
-      width: 24,
-      height: 24,
-      cursor: 'pointer',
-      border: 0,
-      borderRadius: '50%',
-      boxShadow: '1px 1px 1px 1px rgba(0, 0, 0, 0.2)',
-      backgroundColor: '#2C4870',
-      color: '#fff'
+      top: `${percent}%`
     };
   }
   return(
-    <div {...divProps}>
-      <div style={{fontFamily: 'Roboto', fontSize: 11, marginTop: -35 }}>
+    <div className="ma__slider-handle" {...divProps}>
+      <div className="ma__slider-handle-value">
         {value}
       </div>
     </div>
   );
 };
-const Track = ({ source, target, getTrackProps, axis }) => {
+
+const Track = (props) => {
+  const {
+    source, target, getTrackProps, axis
+  } = props;
   const divProps = {
     ...getTrackProps()
   };
   if (axis === 'x') {
     divProps.style = {
-      position: 'absolute',
-      height: 10,
-      zIndex: 1,
-      marginTop: 35,
-      backgroundColor: '#546C91',
-      borderRadius: 5,
-      cursor: 'pointer',
       left: `${source.percent}%`,
       width: `${target.percent - source.percent}%`
     };
   } else if (axis === 'y') {
     divProps.style = {
-      position: 'absolute',
-      zIndex: 1,
-      backgroundColor: '#546C91',
-      borderRadius: 7,
-      cursor: 'pointer',
-      width: 14,
-      marginLeft: -1,
       top: `${source.percent}%`,
-      height: `${target.percent - source.percent}%`,
+      height: `${target.percent - source.percent}%`
     };
   }
   return(
-    <div
-      {...divProps}
-    />
+    <div className="ma__slider-track" {...divProps} />
   );
 };
-const Tick = ({ tick, count, axis }) => {
+const Tick = (props) => {
+  const {
+    tick, count, axis, id
+  } = props;
   const top = {};
   const bottom = {};
   if (axis === 'x') {
     top.style = {
-      position: 'absolute',
-      marginTop: 52,
-      marginLeft: -0.5,
-      width: 1,
-      height: 8,
-      backgroundColor: 'silver',
       left: `${tick.percent}%`
     };
     bottom.style = {
-      position: 'absolute',
-      marginTop: 60,
-      fontSize: 10,
-      textAlign: 'center',
       marginLeft: `${-(100 / count) / 2}%`,
       width: `${100 / count}%`,
       left: `${tick.percent}%`
     };
   } else if (axis === 'y') {
     top.style = {
-      position: 'absolute',
-      marginTop: -0.5,
-      marginLeft: 10,
-      height: 1,
-      width: 6,
-      backgroundColor: 'silver',
       top: `${tick.percent}%`
     };
     bottom.style = {
-      position: 'absolute',
-      marginTop: -5,
-      marginLeft: 20,
-      fontSize: 10,
       top: `${tick.percent}%`
     };
   }
   return(
-    <div>
-      <div {...top} />
-      <div {...bottom}><label>{tick.value}</label></div>
-    </div>
+    <React.Fragment>
+      <div className="ma__slider-tick-top" {...top} />
+      <div className="ma__slider-tick-bottom" {...bottom}><label htmlFor={id}>{tick.value}</label></div>
+    </React.Fragment>
   );
 };
 
@@ -141,10 +94,15 @@ class CompoundSlider extends Component {
       <InputContext.Consumer>
         {
           (context) => {
-            const { min, max, step, disabled } = this.props;
+            const {
+              min, max, step, disabled
+            } = this.props;
             const handleDragEnd = (values) => {
               const value = values[0];
               context.updateState({ value });
+              if (typeof this.props.onChange === 'function') {
+                this.props.onChange(value);
+              }
             };
             const sliderProps = {
               domain: [min, max],
@@ -155,50 +113,17 @@ class CompoundSlider extends Component {
               mode: 2,
               disabled
             };
-            let sliderStyle = {};
-            let railStyle = {};
-            let wrapperStyle = {};
-            if (this.props.axis === 'x') {
-              sliderStyle = {
-                position: 'relative',
-                width: '100%',
-                height: 80,
-              };
-              railStyle = {
-                position: 'absolute',
-                width: '100%',
-                height: 10,
-                marginTop: 35,
-                borderRadius: 5,
-                backgroundColor: '#8B9CB6'
-              };
-              wrapperStyle = {
-                height: 120,
-                width: '100%'
-              };
-            } else if (this.props.axis === 'y') {
-              sliderStyle = {
-                position: 'relative',
-                height: '400px',
-                marginLeft: '45%'
-              };
-              railStyle = {
-                position: 'absolute',
-                width: '14px',
-                height: '100%',
-                cursor: 'pointer',
-                marginLeft: '-1px',
-                borderRadius: '7px',
-                backgroundColor: '#8B9CB6'
-              };
-              wrapperStyle = { height: 520, width: '100%' };
-            }
+            const wrapperClasses = classNames({
+              'ma__input-slider': true,
+              'ma__input-slider-x': this.props.axis === 'x',
+              'ma__input-slider-y': this.props.axis === 'y'
+            });
             return(
-              <div id={this.props.id} style={wrapperStyle}>
-                <Slider rootStyle={sliderStyle} {...sliderProps}>
+              <div id={this.props.id} className={wrapperClasses}>
+                <Slider className="ma__slider" {...sliderProps}>
                   <Rail>
                     {({ getRailProps }) => (
-                      <div style={railStyle} {...getRailProps()} />
+                      <div className="ma__slider-rail" {...getRailProps()} />
                     )}
                   </Rail>
                   <Handles>
@@ -249,7 +174,8 @@ class CompoundSlider extends Component {
                                 key: `CompoundSlider.tick.${tick.value}`,
                                 count: ticksLength,
                                 tick,
-                                axis: this.props.axis
+                                axis: this.props.axis,
+                                id: this.props.id
                               };
                               return<Tick {...tickProps} />;
                             })}
@@ -269,6 +195,27 @@ class CompoundSlider extends Component {
     );
   }
 }
+
+CompoundSlider.propTypes = {
+  /** The unique ID for the input field */
+  id: PropTypes.string.isRequired,
+  /** Custom change function */
+  onChange: PropTypes.func,
+  /** Default input text value */
+  defaultText: PropTypes.string,
+  /** Max value for the field. */
+  max: PropTypes.number.isRequired,
+  /** Min value for the field. */
+  min: PropTypes.number.isRequired,
+  /** This controls how much sliding the handle increments/decrements the value of the slider. */
+  step: PropTypes.number,
+  /** A Map object where each entry is a key (number inclusively between min and max) and value (label to display at the key) pair for displaying tick marks. */
+  ticks: PropTypes.object,
+  /** The direction for the slider, where x is horizontal and y is vertical. */
+  axis: PropTypes.oneOf(['x', 'y']),
+  /** Disables the slider if true. */
+  disabled: PropTypes.bool
+};
 
 CompoundSlider.defaultProps = {
   ticks: new Map()
