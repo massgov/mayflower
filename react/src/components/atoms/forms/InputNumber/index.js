@@ -79,14 +79,14 @@ const Number = (props) => (
               <button
                 type="button"
                 aria-label="increase value"
-                className="ma__input-currency__control-plus"
+                className="ma__input-number__control-plus"
                 onClick={(e) => handleAdjust(e, 'up')}
                 disabled={props.disabled}
               />
               <button
                 type="button"
                 aria-label="decrease value"
-                className="ma__input-currency__control-minus"
+                className="ma__input-number__control-minus"
                 onClick={(e) => handleAdjust(e, 'down')}
                 disabled={props.disabled}
               />
