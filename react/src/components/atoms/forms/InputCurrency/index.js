@@ -88,7 +88,7 @@ const Currency = (props) => (
             if (!Number.isNaN(numberValue)) {
               let newValue;
               if (direction === 'up') {
-                newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
+                newValue = Number.parseFloat(numberValue + props.step).toFixed(2);
               } else if (direction === 'down') {
                 newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
               }
