@@ -33,7 +33,7 @@ class Input extends React.Component {
         <React.Fragment>
           {this.props.labelText && <label htmlFor={this.props.id} className={inputLabelClasses}>{this.props.labelText}</label>}
           {this.props.children}
-          {this.state.showError && this.state.errorMsg.length > 0 && <ErrorMessage {...errorProps} />}
+          {this.state.showError && this.state.errorMsg && this.state.errorMsg.length > 0 && <ErrorMessage {...errorProps} />}
         </React.Fragment>
       </InputContext.Provider>
     );

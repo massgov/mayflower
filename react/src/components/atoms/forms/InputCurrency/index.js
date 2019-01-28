@@ -59,14 +59,9 @@ const Currency = (props) => (
               update.showError = true;
               update.errorMsg = errorMsg;
             } else if (!Number.isNaN(numberValue) && stringValue.length > 0) {
-              if (validNumber(numberValue, props.min, props.max, errorMsg)) {
-                errorMsg = '';
-                update.showError = false;
-                update.errorMsg = errorMsg;
-              } else {
-                update.showError = true;
-                update.errorMsg = errorMsg;
-              }
+              const validate = validNumber(numberValue, props.min, props.max);
+                update.showError = validate.showError;
+                update.errorMsg = validate.errorMsg;
             } else {
               errorMsg = '';
               update.showError = false;
@@ -92,7 +87,7 @@ const Currency = (props) => (
               } else if (direction === 'down') {
                 newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
               }
-              const showError = !validNumber(newValue);
+              const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
               context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
             }
             if (typeof props.onChange === 'function') {
@@ -122,11 +117,8 @@ const Currency = (props) => (
                 context.updateState({ showError: true, errorMsg });
               }
               if (!Number.isNaN(numberValue) && stringValue.length > 0) {
-                if (validNumber(numberValue)) {
-                  context.updateState({ showError: false, value: toCurrency(numberValue, 2) });
-                } else {
-                  context.updateState({ showError: true, errorMsg });
-                }
+                const { showError, errorMsg } = validNumber(numberValue, props.min, props.max);
+                context.updateState({ showError, errorMsg, value: toCurrency(numberValue, 2) });
                 // invokes custom function if passed in the component
                 if (typeof props.onBlur === 'function') {
                   // context.value won't be immediately changed, so pass new value over.
@@ -157,11 +149,11 @@ const Currency = (props) => (
                 let newValue;
                 if (e.key === 'ArrowDown') {
                   newValue = Number.parseFloat(numberValue - props.step).toFixed(2);
-                  const showError = !validNumber(newValue);
+                  const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
                 } else if (e.key === 'ArrowUp') {
                   newValue = Number.parseFloat(numberValue + props.step).toFixed(2);
-                  const showError = !validNumber(newValue);
+                  const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) });
                 }
               }
