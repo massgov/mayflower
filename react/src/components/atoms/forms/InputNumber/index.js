@@ -16,26 +16,34 @@ const Number = (props) => (
             'ma__input-currency__control': true,
             'js-is-required': props.required
           });
-          let errorMsg = '';
+
+          const displayErrorMessage = (val, min, max, isRequired) => {
+            if (isRequired && val.length === 0) {
+              const errorMsg = 'Please enter a value.';
+              return{
+                showError: true,
+                errorMsg
+              };
+            } else if (val.length > 0) {
+              const { showError, errorMsg } = validNumber(val, min, max);
+              return{
+                showError, errorMsg
+              };
+            }
+            return{
+              showError: false,
+              errorMsg: ''
+            };
+          };
 
           const handleChange = (e) => {
             const { value } = e.target;
-            const update = { value };
-
-            if (props.required) {
-              errorMsg = 'Please enter a value.';
-              update.showError = true;
-              update.errorMsg = errorMsg;
-            } else if (validNumber(value, props.min, props.max, errorMsg)) {
-              update.showError = true;
-              update.errorMsg = errorMsg;
-            } else {
-              errorMsg = '';
-              update.showError = false;
-              update.errorMsg = errorMsg;
-            }
+            const updateValue = { value };
+            const updateError = displayErrorMessage(value, props.min, props.max, props.required);
+            const update = Object.assign(updateValue, updateError);
 
             context.updateState(update);
+
             if (typeof props.onChange === 'function') {
               props.onChange(e);
             }
@@ -151,7 +159,7 @@ InputNumber.defaultProps = {
   hiddenLabel: false,
   required: false,
   onChange: null,
-  step: 0.01
+  step: 1
 };
 
 export default InputNumber;
