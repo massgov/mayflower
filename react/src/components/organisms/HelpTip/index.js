@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import some from 'lodash.some';
 
 import Collapse from '../../animations/Collapse';
 import Icon from '../../atoms/icons/Icon';
@@ -21,16 +20,13 @@ class HelpTip extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const isAnyDifferent = some(
-      ['textBefore', 'textAfter', 'triggerText', 'helpText'],
-      (property) => this.props[property] !== nextProps[property]
-    );
+    const isAnyDifferent = ['textBefore', 'textAfter', 'triggerText', 'helpText'].some((property) => this.props[property] !== nextProps[property]);
     if (isAnyDifferent) {
       this.setState({ isOpen: false });
     }
   }
 
-  toggleOpen = (e) => {
+  toggleOpen = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
