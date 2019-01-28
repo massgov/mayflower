@@ -24,7 +24,7 @@ const Number = (props) => (
                 showError: true,
                 errorMsg
               };
-            } else if (val.length > 0) {
+            } else if (String(val).length > 0) {
               const { showError, errorMsg } = validNumber(val, min, max);
               return{
                 showError, errorMsg
@@ -38,11 +38,8 @@ const Number = (props) => (
 
           const handleChange = (e) => {
             const { value } = e.target;
-            const updateValue = { value };
             const updateError = displayErrorMessage(value, props.min, props.max, props.required);
-            const update = Object.assign(updateValue, updateError);
-
-            context.updateState(update);
+            context.updateState({ value, ...updateError });
 
             if (typeof props.onChange === 'function') {
               props.onChange(e);
@@ -56,11 +53,13 @@ const Number = (props) => (
             } else if (direction === 'down') {
               newValue = +context.value - props.step;
             }
-            context.updateState({ value: newValue });
+            const updateError = displayErrorMessage(newValue, props.min, props.max, props.required);
+            context.updateState({ value: newValue, ...updateError });
             if (typeof props.onChange === 'function') {
               props.onChange(e);
             }
-          }
+          };
+
           const inputAttr = {
             className: inputClasses,
             name: props.name,
