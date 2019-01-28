@@ -7,6 +7,24 @@ This pattern shows a two column list of data rendered in a table.
 ### Variables
 ~~~
 listingTable: {
+  heading: {
+    title:
+      type: string / required
+    titleContext: 
+      type: string / optional
+    id: 
+      type: string (unique per page) / optional
+    sub: 
+      type: string /optional
+    level: 
+      type: int / required
+    color: 
+      type: string /optional
+    centered: 
+      type: string /optional
+    visuallyHidden: 
+      type: boolean /optional (default: true)
+  },
   rows: [{
     label:
       type: string / required

@@ -29,5 +29,7 @@ compHeading: {
     type: boolean / optional
   sidebar: 
     type: boolean / optional
+  visuallyHidden: 
+    type: boolean / optional
 }
 ~~~

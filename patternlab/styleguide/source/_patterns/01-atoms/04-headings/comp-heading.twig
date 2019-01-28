@@ -20,8 +20,10 @@
 
 {% set sidebar = compHeading.sidebar ? 'ma__comp-heading--sidebar' : '' %}
 
+{% set visuallyHidden = compHeading.visuallyHidden ? 'ma__visually-hidden' : '' %}
+
 <h{{ headingLevel }}
-  class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }}"
+  class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }} {{ visuallyHidden }}"
   {% if compHeading.id %}
     id="{{compHeading.id}}"
   {% endif %}

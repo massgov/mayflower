@@ -1,5 +1,15 @@
 {
   "listingTable": {
+    "compHeading": {
+      "title": "Page information",
+      "level": "",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": "",
+      "visuallyHidden": false
+    },
+
     "rows": [{
       "label": "Sponsoring legislator:",
       "text": "The Massachusetts State Ethics Commission"

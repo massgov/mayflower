@@ -1,6 +1,9 @@
 .ma__listing-table {
 
   &__container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
 
     .pre-content > &,
     .post-content > &,
@@ -9,37 +12,24 @@
     }
   }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-
+  li {
+    list-style: none;
     @media ($bp-small-max) {
       display: block;
     }
   }
 
-  tbody {
-    @media ($bp-small-max) {
-      display: block;
-    }
-  }
-
-  tr {
-    @media ($bp-small-max) {
-      display: block;
-    }
-  }
-
-  tr + tr {
+  li + li {
     border-top-style: solid;
     border-top-width: 1px;
   }
 
-  td, th {
+  &__list-title, .ma__rich-text {
     font-size: 16px;
     line-height: 1.5;
     padding: 10px 0;
     vertical-align: top;
+    display: inline-block;
 
     @media ($bp-small-max) {
       display: block;
@@ -47,21 +37,27 @@
     }
   }
 
-  th {
+  &__list-title {
     letter-spacing: $letter-spacing-large;
     padding-right: 15px;
     padding-bottom: 0;
+    margin-bottom: 0;
     text-align: left;
     text-transform: uppercase;
 
     @media ($bp-small-min) {
       padding-bottom: 10px;
-      width: 33%;
+      width: 32%;
     }
   }
 
-  td {
+  .ma__rich-text {
     font-size: 20px;
+    
+    @media ($bp-small-min) {
+      width: 66%;
+      // width: calc(66% - 6px);
+    }
   }
 
   &__data-item {
@@ -112,11 +108,15 @@
         transform: translateY(-45%) rotate(45deg);
       }
 
-      span:first-child {
+      // span.open and span.close are Patternlab specific styles to manage 
+      // the display of the accordion button label.
+      // In React, the label is dynamically switched in ONE container.
+      // No need for these styles.
+      span.open {
         display: inline;
       }
 
-      span:nth-child(2) {
+      span.close {
         display: none;
       }
 
@@ -124,14 +124,15 @@
         display: block;
       }
 
-      td.is-open & {
+      div.is-open & {
         &:after {
           transform: translateY(-55%) rotate(-135deg);
         }
-        span:first-child {
+        // See above note for Patternlab specific styles.
+        span.open {
           display: none;
         }
-        span:nth-child(2) {
+        span.close {
           display: inline;
         }
       }
@@ -147,7 +148,7 @@
 //theme
 .ma__listing-table {
 
-  tr + tr {
+  li + li {
     border-top-color: $c-bd-divider;
   }
 
