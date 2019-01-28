@@ -10,6 +10,15 @@ import inputSliderText from './InputSlider.md';
 import { FormContext } from '../Input/context';
 
 class ShowSliderValue extends React.Component {
+  render() {
+    return(
+      <FormProvider>
+        {this.props.children}
+      </FormProvider>
+    );
+  }
+}
+class FormProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,9 +46,8 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
   .add('InputSlider', withInfo(`<div>${inputSliderText}</div>`)(() => {
     const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
       { [k]: v() })));
+    inputTextOptionsWithKnobs.errorMsg = 'testing';
     return(
-      <ShowSliderValue>
-        <InputSlider {...inputTextOptionsWithKnobs} />
-      </ShowSliderValue>
+      <InputSlider {...inputTextOptionsWithKnobs} />
     );
   }));

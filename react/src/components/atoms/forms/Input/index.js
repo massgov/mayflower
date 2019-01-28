@@ -3,9 +3,28 @@ import classNames from 'classnames';
 
 import './style.css';
 import { InputContext, FormContext } from './context';
-import ErrorMessage from '../ErrorMessage';
 
-class Input extends React.Component {
+const Input = (props) => {
+  const inputLabelClasses = classNames({
+    ma__label: true,
+    'ma__label--hidden': (props.labelText && props.hiddenLabel),
+    'ma__label--required': (props.labelText && props.required),
+    'ma__label--optional': (props.labelText && props.required)
+  });
+  // InputProvider will get the same props.children as Input.
+  return(
+    <React.Fragment>
+      {props.labelText && <label htmlFor={props.id} className={inputLabelClasses}>{props.labelText}</label>}
+      <InputProvider {...props} />
+    </React.Fragment>
+  );
+};
+
+// Anything within a provider always re-renders when state changes.
+// Using keys will not prevent this because each child in the provider
+// is created with React.createElement, which makes a new object every render.
+// This class is so that the label does not re-render for every state change.
+class InputProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,42 +34,36 @@ class Input extends React.Component {
       errorMsg: this.props.errorMsg
     };
   }
-  updateState = (newState) => this.setState(newState);
+  updateState = (newState) => {
+    this.setState(newState);
+  };
+  checkFormContext = (formContext) => {
+    if (formContext.isActive) {
+      if (!Object.prototype.hasOwnProperty.call(formContext.value, this.props.id)) {
+        formContext.setValue({ id: this.props.id, value: this.state.value });
+      } else if (formContext.value[this.props.id] !== this.state.value) {
+        formContext.setValue({ id: this.props.id, value: this.state.value });
+      }
+    }
+  };
   render() {
-    const inputLabelClasses = classNames({
-      ma__label: true,
-      'ma__label--hidden': (this.props.labelText && this.props.hiddenLabel),
-      'ma__label--required': (this.props.labelText && this.props.required),
-      'ma__label--optional': (this.props.labelText && !this.props.required)
-    });
-    const errorProps = {
-      error: this.state.errorMsg,
-      inputId: this.props.id
-    };
     return(
       <InputContext.Provider value={this.state}>
         <FormContext.Consumer>
           {
-            (formContext) => {
-              if (formContext.isActive) {
-                if (!Object.prototype.hasOwnProperty.call(formContext.value, this.props.id)) {
-                  formContext.setValue({ id: this.props.id, value: this.state.value });
-                } else if (formContext.value[this.props.id] !== this.state.value) {
-                    formContext.setValue({ id: this.props.id, value: this.state.value });
-                }
-              }
-            }
+            // Currently, this is called on every render of InputProvider.
+            // @TODO: Pull this out of here when InputProvider.contextType is supported
+            // and do this logic in componentDidUpdate.
+            // InputProvider.contextType should be set to FormContext.
+            this.checkFormContext
           }
         </FormContext.Consumer>
-        <React.Fragment>
-          {this.props.labelText && <label htmlFor={this.props.id} className={inputLabelClasses}>{this.props.labelText}</label>}
-          {this.props.children}
-          {this.state.showError && this.state.errorMsg.length > 0 && <ErrorMessage {...errorProps} />}
-        </React.Fragment>
+        {this.props.children}
       </InputContext.Provider>
     );
   }
 }
+
 
 Input.contextType = InputContext;
 

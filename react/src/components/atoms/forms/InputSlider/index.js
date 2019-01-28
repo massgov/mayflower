@@ -3,6 +3,7 @@ import ReactInputSlider from 'react-input-slider';
 import classNames from 'classnames';
 import 'react-input-slider/dist/input-slider.css';
 import Input from '../Input';
+import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import './style.css';
 
@@ -18,7 +19,7 @@ class Slider extends Component {
     this.setState({ ...position });
   };
   render() {
-    return (
+    return(
       <React.Fragment>
         <InputContext.Consumer>
           {
@@ -39,7 +40,8 @@ class Slider extends Component {
                 y: this.state.y,
                 onChange: this.handleChange,
                 onDragEnd: handleDragEnd,
-                axis: this.props.axis
+                axis: this.props.axis,
+                list: `InputSlider-datalist-${this.props.id}`
               };
               if (this.props.axis === 'x') {
                 risProps.xmin = this.props.min;
@@ -70,7 +72,17 @@ const InputSlider = (props) => {
   const sliderProps = {
     axis, max, min, step, width, height
   };
-  return<Input {...inputProps}><Slider {...sliderProps} /></Input>;
+  const { id } = inputProps;
+  sliderProps.id = id;
+  return(
+    <Input {...inputProps}>
+      <Slider {...sliderProps} />
+      <Error id={id} />
+      <datalist id={`InputSlider-datalist-${id}`}>
+        <option value="0" label="0%" />
+      </datalist>
+    </Input>
+  );
 };
 
 InputSlider.defaultProps = {
