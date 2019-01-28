@@ -46,16 +46,26 @@ class HelpTip extends Component {
 
   render() {
     const {
-      hasMarkup, labelId, triggerText, textAfter, helpText, children, id
+      hasMarkup, labelId, triggerText, textAfter, helpText, children, id, theme
     } = this.props;
 
     const baseClass = classNames({
       'ma__help-tip': true,
-      'mobile-tray': !this.props.bypassMobileStyle
+      'mobile-tray': !this.props.bypassMobileStyle,
+      [`ma__help-tip__text--${theme}`]: theme
     });
     const helpTextClasses = classNames({
       'ma__help-tip__text': !children,
-      'ma__help-tip__text--children': children
+      'ma__help-tip__text--children': children,
+      [`ma__help-tip__text--${theme}`]: theme
+    });
+    const helpTextContainer = classNames({
+      'ma__help-tip__container': true,
+      [`ma__help-tip__container--${theme}`]: theme
+    });
+    const helpTextDirect = classNames({
+      'ma__help-tip__text-direct': true,
+      [`ma__help-tip__text-direct--${theme}`]: theme
     });
 
     return(
@@ -77,7 +87,7 @@ class HelpTip extends Component {
           </div>
           {this.buildDangerouslyIfHasMarkup(textAfter, hasMarkup)}
         </span>
-        <Collapse in={this.state.isOpen} dimension="height" className="ma__help-tip__container">
+        <Collapse in={this.state.isOpen} dimension="height" className={helpTextContainer}>
           <div className="ma__help-tip__content">
             <div
               tabIndex="0"
@@ -99,8 +109,7 @@ class HelpTip extends Component {
             </div>
             {(helpText || children) && (
               <div className={helpTextClasses} aria-live="polite">
-                {helpText && <p className="ma__help-tip__text--direct">{helpText}</p>}
-                {children && children}
+                {children || (<p className={helpTextDirect}>{helpText}</p>)}
               </div>
             )}
           </div>
@@ -127,12 +136,15 @@ HelpTip.propTypes = {
   /** Whether you want the help text to slide up on mobile screens */
   bypassMobileStyle: PropTypes.bool,
   /** Whether textBefore, textAfter, or triggerText has html markup */
-  hasMarkup: PropTypes.bool
+  hasMarkup: PropTypes.bool,
+  /** Themes correspond to site color scheme i.e. sass variables */
+  theme: PropTypes.oneOf(['', 'c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red'])
 };
 
 HelpTip.defaultProps = {
   labelId: '',
-  hasMarkup: true
+  hasMarkup: true,
+  theme: 'c-primary'
 };
 
 export default HelpTip;

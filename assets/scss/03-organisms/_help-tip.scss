@@ -122,13 +122,50 @@ $border-width: 1px;
    svg {
       width: .75rem;
       height: .75rem;
-      fill: $c-primary;
    }
 
     &:focus {
       outline: 0;
       box-shadow: focus-shadow($border-width, $c-focus);
     }
+  }
+
+  #{$helpTipBaseClass}__container {
+    &--c-primary {
+      #{$helpTipBaseClass}__close-desktop {
+        svg {
+          fill: $c-primary;
+        }
+      }
+    }
+    &--c-primary-alt {
+      #{$helpTipBaseClass}__close-desktop {
+        svg {
+          fill: $c-primary-alt;
+        }
+      }
+    }
+    &--c-highlight {
+      #{$helpTipBaseClass}__close-desktop {
+        svg {
+          fill: $c-highlight;
+        }
+      }
+    }
+    &--c-gray-dark {
+      #{$helpTipBaseClass}__close-desktop {
+        svg {
+          fill: $c-gray-dark;
+        }
+      }
+    }
+     &--c-error-red {
+      #{$helpTipBaseClass}__close-desktop {
+        svg {
+          fill: $c-error-red;
+        }
+      }
+    } 
   }
 
   &.mobile-tray {
@@ -139,16 +176,36 @@ $border-width: 1px;
       right: 0;
       z-index: 1; // to create a new stacking context on top
       margin-top: .5rem;
-      background-color: $c-primary;
+      &--c-primary {
+        background-color: $c-primary;
+      }
+      &--c-primary-alt {
+        background-color: $c-primary-alt;
+      }
+      &--c-highlight {
+        background-color: $c-highlight;
+      }
+      &--c-gray-dark {
+        background-color: $c-gray-dark;
+      }
+      &--c-error-red {
+        background-color: $c-error-red;
+      }
+      &--c-white {
+        background-color: $c-gray-dark;
+      }
     }
-
-    #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
-      height: 50vh;
-      .ma__help-tip__text--direct {
+    #{$helpTipBaseClass}__text {
+      .ma__help-tip__text-direct {
+        padding: 10px 5px;
+        margin: 0px;
         font-size: 1.25rem;
         line-height: 1.1;
         color: $c-white;
       }
+    }
+    #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
+      height: 50vh;
     }
 
     #{$helpTipBaseClass}__text--children {
@@ -170,7 +227,25 @@ $border-width: 1px;
       #{$helpTipBaseClass}__container {
         position: relative;
         bottom: auto;
-        background-color: $c-primary-lightest;
+        
+        &--c-primary {
+          background-color: $c-primary-lightest;
+        }
+        &--c-primary-alt {
+          background-color: $c-primary-alt-lightest;
+        }
+        &--c-highlight {
+          background-color: $c-highlight-lightest;
+        }
+        &--c-gray-dark {
+          background-color: $c-gray-lightest;
+        }
+        &--c-error-red {
+          background-color: $c-error-red-lightest;
+        }
+        &--c-white {
+          background-color: $c-white;
+        }
       }
 
       #{$helpTipBaseClass}__close-mobile {
@@ -181,11 +256,31 @@ $border-width: 1px;
         display: block;
       }
 
-      #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
+      #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children  {
         height: auto;
-        .ma__help-tip__text--direct {
-          color: $c-primary;
+        #{$helpTipBaseClass}__text-direct {
+          padding: 10px 5px;
+          margin: 0px;  
+          &--c-primary {
+            color: $c-primary;
+          }
+          &--c-primary-alt {
+            color: $c-primary-alt;
+          }
+          &--c-highlight {
+            color: $c-highlight;
+          }
+          &--c-gray-dark {
+            color: $c-gray-dark;
+          }
+          &--c-error-red {
+            color: $c-error-red
+          }
+          &--c-white {
+            color: $c-gray-dark;
+          }
         }
+        
       }
     }
   }
