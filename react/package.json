@@ -37,7 +37,6 @@
     "bourbon": "^5.1.0",
     "bourbon-neat": "^1.7.2",
     "classnames": "^2.2.6",
-    "datalist-polyfill": "^1.23.2",
     "fuse.js": "^3.3.0",
     "moment": "^2.21.0",
     "normalize-scss": "^7.0.1",
