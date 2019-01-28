@@ -1,4 +1,4 @@
 ___DESCRIPTION___
 Changed
 Minor
-- (Patternlab) DP-9204: Add a label to the video container. Change the reading order to 1. label, 2. transcript link, 3. video for screenreader users. #PR#
+- (Patternlab) DP-9204: Add a label to the video container. Change the reading order to 1. label, 2. transcript link, 3. video for screenreader users. #433#
