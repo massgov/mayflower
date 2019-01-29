@@ -81,8 +81,8 @@ const Tick = (props) => {
   }
   return(
     <React.Fragment>
-      <div className="ma__slider-tick-top" {...top} />
-      <div className="ma__slider-tick-bottom" {...bottom}><label htmlFor={id}>{tick.value}</label></div>
+      <div className="ma__slider-tick ma__slider-tick--top" {...top} />
+      <div className="ma__slider-tick ma__slider-tick--bottom" {...bottom}><label htmlFor={id}>{tick.value}</label></div>
     </React.Fragment>
   );
 };

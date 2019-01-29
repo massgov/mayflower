@@ -43,7 +43,9 @@ InputSlider.propTypes = {
   /** The direction for the slider, where x is horizontal and y is vertical. */
   axis: PropTypes.oneOf(['x', 'y']),
   /** Disables the slider if true. */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** Whether input is required or not */
+  required: PropTypes.bool
 };
 
 
