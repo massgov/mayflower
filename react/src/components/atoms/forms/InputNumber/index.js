@@ -18,7 +18,7 @@ const Number = (props) => (
           });
 
           const displayErrorMessage = (val, min, max, isRequired) => {
-            if (isRequired && val.length === 0) {
+            if (isRequired && String(val).length === 0) {
               const errorMsg = 'Please enter a value.';
               return{
                 showError: true,
