@@ -150,6 +150,7 @@ class CompoundSlider extends Component {
             };
             const wrapperClasses = classNames({
               'ma__input-slider': true,
+              'ma__input-slider--disabled': disabled,
               'ma__input-slider-x': this.props.axis === 'x',
               'ma__input-slider-y': this.props.axis === 'y'
             });
