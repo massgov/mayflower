@@ -138,7 +138,7 @@ class CompoundSlider extends Component {
               }
               return current;
             };
-            const defaultValue = domainCheck(Number(this.props.defaultText));
+            const defaultValue = domainCheck(Number(this.props.defaultValue));
             const sliderProps = {
               domain,
               step,
@@ -238,7 +238,7 @@ CompoundSlider.propTypes = {
   /** Custom change function */
   onChange: PropTypes.func,
   /** Default input text value */
-  defaultText: PropTypes.string,
+  defaultValue: PropTypes.string,
   /** Max value for the field. */
   max: PropTypes.number.isRequired,
   /** Min value for the field. */

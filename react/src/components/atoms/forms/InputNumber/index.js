@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Input from '../Input';
+import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import './style.css';
 
 Number.prototype.countDecimals = function () {
-    if(Math.floor(this.valueOf()) === this.valueOf()) return 0;
-    return this.toString().split(".")[1].length || 0;
-}
+  if (Math.floor(this.valueOf()) === this.valueOf()) return 0;
+  return this.toString().split('.')[1].length || 0;
+};
 
 const NumberInput = (props) => (
   <React.Fragment>
@@ -125,7 +126,12 @@ const InputNumber = (props) => {
     onChange,
     disabled: props.disabled
   };
-  return<Input {...inputProps}><NumberInput {...numberProps} /></Input>;
+  return(
+    <Input {...inputProps}>
+      <NumberInput {...numberProps} />
+      <Error id={props.id} />
+    </Input>
+  );
 };
 
 InputNumber.propTypes = {

@@ -30,7 +30,7 @@ class InputProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.defaultText,
+      value: this.props.defaultValue,
       updateState: this.updateState,
       showError: false,
       errorMsg: this.props.errorMsg,
