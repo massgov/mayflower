@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Added (see below)
-Minor (see below)
-- (React) DP-12379: Added InputNumber component. #430
-- (React) DP-12379: Added disabled state to InputCurrency and allow passing custom onChange callback. #430

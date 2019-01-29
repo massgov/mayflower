@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed (see below)
-Minor (see below)
-- (React) DP-12428: Fix missing key on the radio button group and id prop issue. #435

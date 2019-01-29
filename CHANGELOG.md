@@ -13,7 +13,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
-## 8.21.0 (01/24/2019
+
+## 8.22.0 (01/29/2019)
+
+### Added
+- (React) DP-12338: Added a help tip organism. #432
+- (React) DP-12338: Added a close icon. #432
+- (React) DP-12379: Added InputNumber component. #430
+- (React) DP-12379: Added disabled state to InputCurrency and allow passing custom onChange callback. #430
+- (Patternlab) DP-12387: Added a block to the steps-ordered.twig and action-step.twig to use a view mode on the Drupal twig. #428
+
+### Fixed
+- (React) DP-12428: Fix missing key on the radio button group and id prop issue. #435
+
+## 8.21.0 (01/24/2019)
 
 ### Added
 - (React) DP-12318: Adds the form components input radio button (atom) and input radio button group (molecule) to mayflower-react. #424
