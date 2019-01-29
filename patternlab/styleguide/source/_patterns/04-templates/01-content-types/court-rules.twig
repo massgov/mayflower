@@ -31,7 +31,7 @@
           {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page Content'}} %}
         {% endblock %}
 
-        {% block formDownloads %}
+        {% block formDownloadLinks %}
           {% if mainContent.formDownloads %}
             {% set formDownloads = mainContent.formDownloads %}
             {% include "@organisms/by-author/form-downloads.twig" %}

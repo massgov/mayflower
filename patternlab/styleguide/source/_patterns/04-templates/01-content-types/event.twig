@@ -51,7 +51,7 @@
           {% include "@organisms/by-author/rich-text.twig" %}
         {% endif %}
 
-        {% block formDownloadLinks %}
+        {% block additionalResources %}
           {% if mainContent.formDownloads %}
             {% set formDownloads = mainContent.formDownloads %}
             {% include "@organisms/by-author/form-downloads.twig" %}
