@@ -177,22 +177,40 @@ $border-width: 1px;
       z-index: 1; // to create a new stacking context on top
       margin-top: .5rem;
       &--c-primary {
-        background-color: $c-primary;
+        background-color: $c-primary-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-primary;
+        }
       }
       &--c-primary-alt {
-        background-color: $c-primary-alt;
+        background-color: $c-primary-alt-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-primary-alt;
+        }
       }
       &--c-highlight {
-        background-color: $c-highlight;
+        background-color: $c-highlight-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-highlight;
+        }
       }
       &--c-gray-dark {
-        background-color: $c-gray-dark;
+        background-color: $c-gray-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-gray-dark;
+        }
       }
       &--c-error-red {
-        background-color: $c-error-red;
+        background-color: $c-error-red-lightest;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-error-red;
+        }
       }
       &--c-white {
-        background-color: $c-gray-dark;
+        background-color: $c-white;
+        #{$helpTipBaseClass}__close-mobile {
+          background-color: $c-gray-dark;
+        }
       }
     }
     #{$helpTipBaseClass}__text {
@@ -201,7 +219,7 @@ $border-width: 1px;
         margin: 0px;
         font-size: 1.25rem;
         line-height: 1.1;
-        color: $c-white;
+        color: $c-gray-dark;
       }
     }
     #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
@@ -268,7 +286,7 @@ $border-width: 1px;
             color: $c-primary-alt;
           }
           &--c-highlight {
-            color: $c-highlight;
+            color: $c-gray-dark;
           }
           &--c-gray-dark {
             color: $c-gray-dark;
