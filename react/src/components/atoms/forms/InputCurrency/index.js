@@ -174,6 +174,7 @@ const Currency = (props) => (
                 className="ma__input-currency__control-plus"
                 onClick={(e) => handleAdjust(e, 'up')}
                 disabled={props.disabled}
+                tabIndex={-1}
               />
               <button
                 type="button"
@@ -181,6 +182,7 @@ const Currency = (props) => (
                 className="ma__input-currency__control-minus"
                 onClick={(e) => handleAdjust(e, 'down')}
                 disabled={props.disabled}
+                tabIndex={-1}
               />
             </div>
           );
