@@ -102,8 +102,8 @@ const InputNumber = (props) => {
   const {
     max, min, step, name, onChange, placeholder, width, maxlength, ...inputProps
   } = props;
-  // Input and Currency share the props.required and props.id values.
-  const currencyProps = {
+  // Input and Number share the props.required, props.id and props.disabled values.
+  const numberProps = {
     max,
     min,
     step,
@@ -116,7 +116,7 @@ const InputNumber = (props) => {
     onChange,
     disabled: props.disabled
   };
-  return<Input {...inputProps}><Number {...currencyProps} /></Input>;
+  return<Input {...inputProps}><Number {...numberProps} /></Input>;
 };
 
 InputNumber.propTypes = {
