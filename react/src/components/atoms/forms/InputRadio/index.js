@@ -32,7 +32,7 @@ const InputRadio = (props) => {
         disabled={props.disabled}
         className={inputClasses}
       />
-      <label htmlFor={props.id} className={labelClasses}>
+      <label htmlFor={props.id ? props.id : props.value} className={labelClasses}>
         <span>{props.label}</span>
       </label>
     </div>
