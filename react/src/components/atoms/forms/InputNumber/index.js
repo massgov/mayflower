@@ -85,12 +85,16 @@ const NumberInput = (props) => (
           return(
             <div className="ma__input-number">
               <input {...inputAttr} />
+              {
+                <span className="ma__input-number-unit">{props.unit}</span>
+              }
               <button
                 type="button"
                 aria-label="increase value"
                 className="ma__input-number__control-plus"
                 onClick={(e) => handleAdjust(e, 'up')}
                 disabled={props.disabled}
+                tabIndex={-1}
               />
               <button
                 type="button"
@@ -98,6 +102,7 @@ const NumberInput = (props) => (
                 className="ma__input-number__control-minus"
                 onClick={(e) => handleAdjust(e, 'down')}
                 disabled={props.disabled}
+                tabIndex={-1}
               />
             </div>
           );
@@ -123,7 +128,8 @@ const InputNumber = (props) => {
     required: props.required,
     id: props.id,
     onChange,
-    disabled: props.disabled
+    disabled: props.disabled,
+    unit: props.unit
   };
   return<Input {...inputProps}><NumberInput {...numberProps} /></Input>;
 };
@@ -160,7 +166,9 @@ InputNumber.propTypes = {
   /** Min value for the field. */
   min: PropTypes.number,
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
-  step: PropTypes.number
+  step: PropTypes.number,
+  /** A single character unit that renders in the input after the value, e.g. %  */
+  unit: PropTypes.string
 };
 
 InputNumber.defaultProps = {
