@@ -48,6 +48,18 @@ $margin: 20px;
     }
   }
 
+  &--disabled {
+    opacity: 0.5;
+    .ma__slider {
+      &-track {
+        background-color: $c-gray;
+      }
+      &-handle {
+        background-color: $c-gray-dark;
+      }
+    }
+  }
+
   &-x {
     height: 120px;
     width: calc(100% - #{$margin*2});
