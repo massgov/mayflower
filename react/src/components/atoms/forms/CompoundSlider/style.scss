@@ -2,7 +2,7 @@
 
 $margin: 20px;
 %transition {
-  transition: all 0.2s ease;
+  transition-duration: 0.2s;
 }
 
 .ma__input-slider {
@@ -20,7 +20,6 @@ $margin: 20px;
       position: absolute;
       z-index: 1;
       cursor: pointer;
-      @extend %transition;
     }
     &-handle {
       border: 1px solid $c-white;
@@ -33,6 +32,7 @@ $margin: 20px;
       cursor: pointer;
       border-radius: 50%;
       z-index: 2;
+      transition-property: all;
       @extend %transition;
 
       &:hover {
@@ -55,36 +55,38 @@ $margin: 20px;
       position: relative;
       width: 100%;
       height: 80px;
-    }
-    .ma__slider-rail {
-      width: 100%;
-      height: 10px;
-      margin-top: 35px;
-    }
-    .ma__slider-handle {
-      margin-left: -15px;
-      margin-top: 25px;
-      text-align: center;
-    }
-    .ma__slider-track {
-      height: 10px;
-      margin-top: 35px;
-    }
-    .ma__slider-tick {
-      position: absolute;
-      font-size: 0.75em;
-
-      &--top {
-        margin-top: 52px;
-        margin-left: -0.5px;
-        width: 1px;
-        height: 8px;
-        background-color: $c-gray-light;
+      &-rail {
+        width: 100%;
+        height: 10px;
+        margin-top: 35px;
       }
-      &--bottom {
-        margin-top: 60px;
-        font-size: 0.8em;
+      &-handle {
+        margin-left: -15px;
+        margin-top: 25px;
         text-align: center;
+      }
+      &-track {
+        height: 10px;
+        margin-top: 35px;
+        transition-property: width;
+        @extend %transition;
+      }
+      &-tick {
+        position: absolute;
+        font-size: 0.75em;
+
+        &--top {
+          margin-top: 52px;
+          margin-left: -0.5px;
+          width: 1px;
+          height: 8px;
+          background-color: $c-gray-light;
+        }
+        &--bottom {
+          margin-top: 60px;
+          font-size: 0.8em;
+          text-align: center;
+        }
       }
     }
   }
@@ -95,35 +97,37 @@ $margin: 20px;
       position: relative;
       height: 400px;
       margin-left: 45%;
-    }
-    .ma__slider-rail {
-      width: 14px;
-      height: 100%;
-      cursor: pointer;
-      margin-left: -1px;
-    }
-    .ma__slider-handle {
-      margin-left: -6px;
-      margin-top: -12px;
-    }
-    .ma__slider-track {
-      width: 14px;
-      margin-left: -1px;
-    }
-    .ma__slider-tick {
-      position: absolute;
-      font-size: 0.75em;
-
-      &--top {
-        margin-top: -0.5px;
-        margin-left: 10px;
-        height: 1px;
-        width: 6px;
-        background-color: $c-gray-light;
+      &-rail {
+        width: 14px;
+        height: 100%;
+        cursor: pointer;
+        margin-left: -1px;
       }
-      &--bottom {
-       margin-top: -5px;
-       margin-left: 20px;
+      &-handle {
+        margin-left: -6px;
+        margin-top: -12px;
+      }
+      &-track {
+        width: 14px;
+        margin-left: -1px;
+        transition-property: height;
+        @extend %transition;
+      }
+      &-tick {
+        position: absolute;
+        font-size: 0.75em;
+
+        &--top {
+          margin-top: -0.5px;
+          margin-left: 10px;
+          height: 1px;
+          width: 6px;
+          background-color: $c-gray-light;
+        }
+        &--bottom {
+         margin-top: -5px;
+         margin-left: 20px;
+        }
       }
     }
   }
