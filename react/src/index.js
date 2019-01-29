@@ -33,6 +33,7 @@ export InputCurrency from './components/atoms/forms/InputCurrency';
 // Also export the context.
 export { InputContext, FormContext } from './components/atoms/forms/Input/context';
 
+export InputNumber from './components/atoms/forms/InputNumber';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
 export CompHeading from './components/atoms/headings/CompHeading';
@@ -109,6 +110,7 @@ export TabContainer from './components/organisms/TabContainer';
 export Tab from './components/organisms/TabContainer/tab';
 export TeaserListing from './components/organisms/TeaserListing';
 export CalloutAlert from './components/organisms/CalloutAlert';
+export HelpTip from './components/organisms/HelpTip';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';

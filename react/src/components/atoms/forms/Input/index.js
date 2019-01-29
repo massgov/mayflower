@@ -9,7 +9,9 @@ const Input = (props) => {
     ma__label: true,
     'ma__label--hidden': (props.labelText && props.hiddenLabel),
     'ma__label--required': (props.labelText && props.required),
-    'ma__label--optional': (props.labelText && !props.required)
+    'ma__label--optional': (props.labelText && !props.required),
+    'ma__label--disabled': (props.labelText && props.disabled)
+
   });
   // InputProvider will get the same props.children as Input.
   return(
@@ -31,7 +33,8 @@ class InputProvider extends React.Component {
       value: this.props.defaultText,
       updateState: this.updateState,
       showError: false,
-      errorMsg: this.props.errorMsg
+      errorMsg: this.props.errorMsg,
+      disabled: this.props.disabled
     };
   }
   updateState = (newState) => {
