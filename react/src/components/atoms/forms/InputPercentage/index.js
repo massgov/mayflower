@@ -7,12 +7,7 @@ import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import './style.css';
 
-Number.prototype.countDecimals = function () {
-    if(Math.floor(this.valueOf()) === this.valueOf()) return 0;
-    return this.toString().split(".")[1].length || 0;
-}
-
-const NumberInput = (props) => (
+const Number = (props) => (
   <React.Fragment>
     <InputContext.Consumer>
       {
@@ -21,8 +16,6 @@ const NumberInput = (props) => (
             'ma__input-currency__control': true,
             'js-is-required': props.required
           });
-
-          const decimalPlaces = props.step.countDecimals();
 
           const displayErrorMessage = (val, min, max, isRequired) => {
             if (isRequired && String(val).length === 0) {
@@ -45,9 +38,8 @@ const NumberInput = (props) => (
 
           const handleChange = (e) => {
             const { value } = e.target;
-            const floatValue = Number.parseFloat(value).toFixed(decimalPlaces);
             const updateError = displayErrorMessage(value, props.min, props.max, props.required);
-            context.updateState({ value: floatValue, ...updateError });
+            context.updateState({ value, ...updateError });
 
             if (typeof props.onChange === 'function') {
               props.onChange(e);
@@ -57,9 +49,9 @@ const NumberInput = (props) => (
           const handleAdjust = (e, direction) => {
             let newValue;
             if (direction === 'up') {
-              newValue = Number.parseFloat(Number(context.value) + props.step).toFixed(decimalPlaces);
+              newValue = +context.value + props.step;
             } else if (direction === 'down') {
-              newValue = Number.parseFloat(Number(context.value) - props.step).toFixed(decimalPlaces);
+              newValue = +context.value - props.step;
             }
             const updateError = displayErrorMessage(newValue, props.min, props.max, props.required);
             context.updateState({ value: newValue, ...updateError });
@@ -79,12 +71,12 @@ const NumberInput = (props) => (
             onChange: handleChange,
             required: props.required,
             value: context.value,
-            disabled: props.disabled,
-            step: props.step
+            disabled: props.disabled
           };
           return(
             <div className="ma__input-number">
               <input {...inputAttr} />
+              <span className="ma__input-number-unit">%</span>
               <button
                 type="button"
                 aria-label="increase value"
@@ -125,7 +117,7 @@ const InputNumber = (props) => {
     onChange,
     disabled: props.disabled
   };
-  return<Input {...inputProps}><NumberInput {...numberProps} /></Input>;
+  return<Input {...inputProps}><Number {...numberProps} /></Input>;
 };
 
 InputNumber.propTypes = {
