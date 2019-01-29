@@ -31,10 +31,12 @@
           {% include "@organisms/by-author/rich-text.twig" %}
         {% endif %}
 
-        {% if mainContent.meetingMinutes.formDownloads %}
-          {% set formDownloads = mainContent.meetingMinutes.formDownloads %}
-          {% include "@organisms/by-author/form-downloads.twig" %}
-        {% endif %}
+        {% block formDownloads %}
+          {% if mainContent.meetingMinutes.formDownloads %}
+            {% set formDownloads = mainContent.meetingMinutes.formDownloads %}
+            {% include "@organisms/by-author/form-downloads.twig" %}
+          {% endif %}
+        {% endblock %}
 
         {% if mainContent.agenda.richText %}
           {% set richText = mainContent.agenda.richText %}
