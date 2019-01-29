@@ -1,6 +1,9 @@
 @import 'global';
 
 $margin: 20px;
+%transition {
+  transition: all 0.2s ease;
+}
 
 .ma__input-slider {
   left: 13px;
@@ -17,6 +20,7 @@ $margin: 20px;
       position: absolute;
       z-index: 1;
       cursor: pointer;
+      @extend %transition;
     }
     &-handle {
       border: 1px solid $c-white;
@@ -29,6 +33,11 @@ $margin: 20px;
       cursor: pointer;
       border-radius: 50%;
       z-index: 2;
+      @extend %transition;
+
+      &:hover {
+        transform: scale(1.1);
+      }
 
       &-value {
         display: none;
