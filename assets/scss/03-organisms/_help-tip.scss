@@ -148,7 +148,7 @@ $border-width: 1px;
     &--c-highlight {
       #{$helpTipBaseClass}__close-desktop {
         svg {
-          fill: $c-highlight;
+          fill: $c-gray-dark;
         }
       }
     }
