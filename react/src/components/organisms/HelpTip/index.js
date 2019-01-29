@@ -130,21 +130,22 @@ HelpTip.propTypes = {
   /** You can also render children in the help text */
   helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /** The label id */
-  labelId: PropTypes.string,
+  labelId: PropTypes.string.isRequired,
   /** The id for the whole component */
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   /** Whether you want the help text to slide up on mobile screens */
   bypassMobileStyle: PropTypes.bool,
   /** Whether textBefore, textAfter, or triggerText has html markup */
   hasMarkup: PropTypes.bool,
   /** Themes correspond to site color scheme i.e. sass variables */
-  theme: PropTypes.oneOf(['', 'c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red'])
+  theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red', 'c-white'])
 };
 
 HelpTip.defaultProps = {
   labelId: '',
   hasMarkup: true,
-  theme: 'c-primary'
+  theme: 'c-primary',
+  bypassMobileStyle: false
 };
 
 export default HelpTip;
