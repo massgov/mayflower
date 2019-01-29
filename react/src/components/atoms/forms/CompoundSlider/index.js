@@ -95,7 +95,7 @@ class CompoundSlider extends Component {
         {
           (context) => {
             const {
-              min, max, step, disabled
+              min, max, step, disabled, domain
             } = this.props;
             const handleDragEnd = (values) => {
               const value = values[0];
@@ -104,13 +104,48 @@ class CompoundSlider extends Component {
                 this.props.onChange(value);
               }
             };
+            const domainCheck = (valToCheck) => {
+              let minCheck = Number(min);
+              let maxCheck = Number(max);
+              if (Number.isNaN(valToCheck)) {
+                return minCheck;
+              }
+              let returnValue = valToCheck;
+              const [domainMin, domainMax] = domain;
+              // If the min/max passed falls outside of the domain, set it to the respective domain min/max.
+              if (Number.isNaN(minCheck) || Math.abs(minCheck - domainMax) > Math.abs(domainMin - domainMax)) {
+                minCheck = domainMin;
+              }
+              if (Number.isNaN(maxCheck) || Math.abs(maxCheck - domainMin) > Math.abs(domainMin - domainMax)) {
+                maxCheck = domainMax;
+              }
+              // Ensure the value is always between the min or max values, if any.
+              if (valToCheck < minCheck) {
+                returnValue = minCheck;
+              }
+              if (valToCheck > maxCheck) {
+                returnValue = maxCheck;
+              }
+              return returnValue;
+            };
+            // Anything returned by mode when set to a function will become the value.
+            // This can be used for min/max validation.
+            // Next and current values are not numbers, but arrays of objects.
+            const handleMode = (current, next) => {
+              const [{ val: nextValue }] = next;
+              if (nextValue === domainCheck(nextValue)) {
+                return next;
+              }
+              return current;
+            };
+            const defaultValue = domainCheck(Number(this.props.defaultText));
             const sliderProps = {
-              domain: [min, max],
+              domain,
               step,
               vertical: !(this.props.axis === 'x'),
               onSlideEnd: handleDragEnd,
-              values: [Number(this.props.defaultText)],
-              mode: 2,
+              values: [defaultValue],
+              mode: handleMode,
               disabled
             };
             const wrapperClasses = classNames({
@@ -214,11 +249,14 @@ CompoundSlider.propTypes = {
   /** The direction for the slider, where x is horizontal and y is vertical. */
   axis: PropTypes.oneOf(['x', 'y']),
   /** Disables the slider if true. */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** The range of numbers, inclusively, for the slider to fall between. First number is the min and second number is the max. */
+  domain: PropTypes.arrayOf(PropTypes.number)
 };
 
 CompoundSlider.defaultProps = {
-  ticks: new Map()
+  ticks: new Map(),
+  domain: [0, 100]
 };
 
 export default CompoundSlider;

@@ -10,9 +10,5 @@ export default {
   max: () => number('InputSlider.max', 100),
   min: () => number('InputSlider.min', 0),
   step: () => number('InputSlider.step', 1),
-  ticks: () => [
-    [0, '0%'],
-    [60, 'Minimum requirement'],
-    [100, '100%']
-  ]
+  ticks: () => object('InputSlider.ticks', { 0: '0%', 60: 'Minimum requirement', 100: '100%' })
 };
