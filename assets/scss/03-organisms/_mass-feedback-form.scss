@@ -30,8 +30,12 @@ $formQuickTransitions: max-height 0.3s linear;
     }
 
     .ma__in-page-alert {
-      max-height: 150px;
+      max-height: 185px;
       margin: 0 0 25px;
+
+      @media ($bp-feedback-min) {
+        max-height: 150px;
+      }
 
       &.is-closed {
         max-height: 0;
@@ -90,8 +94,13 @@ $formQuickTransitions: max-height 0.3s linear;
         }
 
         .no-response-info {
-          max-height: 2rem;
+          max-height: 5rem;
           transition: $formQuickTransitions;
+
+          @media ($bp-feedback-min) {
+            max-height: 2rem;
+          }
+
         }
       }
     }
