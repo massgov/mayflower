@@ -16,6 +16,10 @@ export default {
   max: () => number('InputCurrency.max', 10000),
   min: () => number('InputCurrency.min', -1000),
   step: () => number('InputCurrency.step', 1),
+<<<<<<< HEAD
   onChange: () => action('onChange'),
   unit: () => text('InputCurrency.unit', '')
+=======
+  onChange: () => action('onChange')
+>>>>>>> develop
 };
