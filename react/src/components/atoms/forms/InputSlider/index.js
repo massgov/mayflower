@@ -5,10 +5,10 @@ import CompoundSlider from '../CompoundSlider';
 
 const InputSlider = (props) => {
   const {
-    axis, max, min, step, defaultText, ticks, ...inputProps
+    axis, max, min, step, defaultText, ticks, onChange, ...inputProps
   } = props;
   const sliderProps = {
-    axis, max, min, step, defaultText
+    axis, max, min, step, defaultText, onChange
   };
   const { id, disabled } = inputProps;
   sliderProps.id = id;
