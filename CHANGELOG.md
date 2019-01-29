@@ -23,6 +23,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-12379: Added disabled state to InputCurrency and allow passing custom onChange callback. #430
 - (Patternlab) DP-12387: Added a block to the steps-ordered.twig and action-step.twig to use a view mode on the Drupal twig. #428
 
+### Fixed
+- (React) DP-12428: Fix missing key on the radio button group and id prop issue. #435
+
 ## 8.21.0 (01/24/2019)
 
 ### Added
