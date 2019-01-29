@@ -165,7 +165,7 @@ $border-width: 1px;
           fill: $c-error-red;
         }
       }
-    } 
+    }
   }
 
   &.mobile-tray {
@@ -219,7 +219,7 @@ $border-width: 1px;
         margin: 0px;
         font-size: 1.25rem;
         line-height: 1.1;
-        color: $c-gray-dark;
+        color: $c-black;
       }
     }
     #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
@@ -245,7 +245,7 @@ $border-width: 1px;
       #{$helpTipBaseClass}__container {
         position: relative;
         bottom: auto;
-        
+
         &--c-primary {
           background-color: $c-primary-lightest;
         }
@@ -278,27 +278,9 @@ $border-width: 1px;
         height: auto;
         #{$helpTipBaseClass}__text-direct {
           padding: 10px 5px;
-          margin: 0px;  
-          &--c-primary {
-            color: $c-primary;
-          }
-          &--c-primary-alt {
-            color: $c-primary-alt;
-          }
-          &--c-highlight {
-            color: $c-gray-dark;
-          }
-          &--c-gray-dark {
-            color: $c-gray-dark;
-          }
-          &--c-error-red {
-            color: $c-error-red
-          }
-          &--c-white {
-            color: $c-gray-dark;
-          }
+          margin: 0px;
         }
-        
+
       }
     }
   }
