@@ -26,11 +26,11 @@ const Handle = (props) => {
     };
   }
   return(
-    <div className="ma__slider-handle" {...divProps}>
+    <button className="ma__slider-handle" {...divProps}>
       <div className="ma__slider-handle-value">
         {value}
       </div>
-    </div>
+    </button>
   );
 };
 
