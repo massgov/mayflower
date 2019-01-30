@@ -257,7 +257,7 @@ CompoundSlider.propTypes = {
 
 CompoundSlider.defaultProps = {
   ticks: new Map(),
-  domain: [0, 100]
+  domain: [0, 1]
 };
 
 export default CompoundSlider;

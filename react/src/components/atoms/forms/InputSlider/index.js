@@ -45,7 +45,9 @@ InputSlider.propTypes = {
   /** Disables the slider if true. */
   disabled: PropTypes.bool,
   /** Whether input is required or not */
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  /** The range of numbers, inclusively, for the slider to fall between. First number is the min and second number is the max. */
+  domain: PropTypes.arrayOf(PropTypes.number)
 };
 
 
