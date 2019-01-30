@@ -5,19 +5,24 @@ import './style.css';
 import { InputContext, FormContext } from './context';
 
 const Input = (props) => {
+  const inputClasses = classNames({
+    'ma__input-group': true,
+    'ma__input-group--inline': props.inline
+  });
   const inputLabelClasses = classNames({
     ma__label: true,
     'ma__label--hidden': (props.labelText && props.hiddenLabel),
     'ma__label--required': (props.labelText && props.required),
     'ma__label--optional': (props.labelText && !props.required),
     'ma__label--disabled': (props.labelText && props.disabled)
-
   });
   // InputProvider will get the same props.children as Input.
   return(
     <React.Fragment>
-      {props.labelText && <label htmlFor={props.id} className={inputLabelClasses}>{props.labelText}</label>}
-      <InputProvider {...props} />
+      <div className={inputClasses}>
+        {props.labelText && <label htmlFor={props.id} className={inputLabelClasses}>{props.labelText}</label>}
+        <InputProvider {...props} />
+      </div>
     </React.Fragment>
   );
 };
@@ -34,7 +39,8 @@ class InputProvider extends React.Component {
       updateState: this.updateState,
       showError: false,
       errorMsg: this.props.errorMsg,
-      disabled: this.props.disabled
+      disabled: this.props.disabled,
+      inline: this.props.inline
     };
   }
   updateState = (newState) => {
@@ -61,7 +67,9 @@ class InputProvider extends React.Component {
             this.checkFormContext
           }
         </FormContext.Consumer>
-        {this.props.children}
+        <div className="ma__input-group-right">
+          {this.props.children}
+        </div>
       </InputContext.Provider>
     );
   }

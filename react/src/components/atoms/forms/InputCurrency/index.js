@@ -231,8 +231,11 @@ const InputCurrency = (props) => {
 InputCurrency.propTypes = {
   /** Whether the label should be hidden or not */
   hiddenLabel: PropTypes.bool,
-  /** The label text for the input field */
-  labelText: PropTypes.string.isRequired,
+  /** The label text for the input field, can be a string or a component */
+  labelText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
   /** Whether the field is required or not */
   required: PropTypes.bool,
   /** Whether the field is disabled or not */
@@ -266,7 +269,9 @@ InputCurrency.propTypes = {
   /** A language tag that represents what country the currency should display. Comes from IETF BCP 47: https://numbrojs.com/languages.html */
   language: PropTypes.string,
   /** Numbro Formatting options for displaying the currency. See https://numbrojs.com/format.html */
-  format: PropTypes.object
+  format: PropTypes.object,
+  /** Inline label and input field */
+  inline: PropTypes.bool
 };
 InputCurrency.defaultProps = {
   hiddenLabel: false,

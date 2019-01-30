@@ -20,6 +20,10 @@
       border-right: 0;
       padding-right: 5px;
 
+      @media ($bp-small-max) {
+        width: 100%;
+      }
+
       &-buttons {
         display: block;
         position: relative;

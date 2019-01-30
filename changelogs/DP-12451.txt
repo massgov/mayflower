@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) DP-12451: Added an inline option for Input and fixed responsiveness. Allow Input labelText to render elements other than a string. #441
