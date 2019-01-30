@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) bugfix: Allow InputNumber up/down button onClick callback to access value from input. #439
