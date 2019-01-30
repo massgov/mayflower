@@ -4,12 +4,9 @@
     position: relative;
 
     &__control {
-    	  text-align: right;
-  	  padding-right: 58px;
+    	text-align: right;
+  	  padding-right: 65px;
 
-  	  input {
-  	    padding-right: 58px;
-  	  }
 
   	  input.has-error {
   	    border-color: $c-bd-error;
