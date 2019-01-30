@@ -137,8 +137,11 @@ const InputNumber = (props) => {
 InputNumber.propTypes = {
   /** Whether the label should be hidden or not */
   hiddenLabel: PropTypes.bool,
-  /** The label text for the input field */
-  labelText: PropTypes.string.isRequired,
+  /** The label text for the input field, can be a string or a component */
+  labelText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
   /** Whether the field is required or not */
   required: PropTypes.bool,
   /** Whether the field is disabled or not */

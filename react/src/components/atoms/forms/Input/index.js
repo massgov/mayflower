@@ -15,7 +15,6 @@ const Input = (props) => {
     'ma__label--required': (props.labelText && props.required),
     'ma__label--optional': (props.labelText && !props.required),
     'ma__label--disabled': (props.labelText && props.disabled)
-
   });
   // InputProvider will get the same props.children as Input.
   return(
