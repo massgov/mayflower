@@ -9,7 +9,7 @@ export default {
   axis: () => select('InputSlider.axis', ['x', 'y'], 'x'),
   max: () => number('InputSlider.max', 100),
   min: () => number('InputSlider.min', 0),
-  step: () => number('InputSlider.step', 1),
-  ticks: () => object('InputSlider.ticks', { 0: '0%', 60: 'Minimum requirement', 100: '100%' }),
-  domain: () => object('InputSlider.domain', [0, 1])
+  step: () => number('InputSlider.step', 0.1),
+  ticks: () => object('InputSlider.ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' }),
+  domain: () => object('InputSlider.domain', { 0: '0', 1: '1' })
 };

@@ -15,6 +15,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
     const ticks = [];
     Object.keys(inputTextOptionsWithKnobs.ticks).forEach((tick) => ticks.push([tick, inputTextOptionsWithKnobs.ticks[tick]]));
     inputTextOptionsWithKnobs.ticks = ticks;
+    inputTextOptionsWithKnobs.domain = Object.values(inputTextOptionsWithKnobs.domain);
     return(
       <InputSlider {...inputTextOptionsWithKnobs} />
     );

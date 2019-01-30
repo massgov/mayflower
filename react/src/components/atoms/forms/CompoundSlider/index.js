@@ -246,7 +246,7 @@ CompoundSlider.propTypes = {
   /** This controls how much sliding the handle increments/decrements the value of the slider. */
   step: PropTypes.number,
   /** A Map object where each entry is a key (number inclusively between min and max) and value (label to display at the key) pair for displaying tick marks. */
-  ticks: PropTypes.object,
+  ticks: PropTypes.instanceOf(Map),
   /** The direction for the slider, where x is horizontal and y is vertical. */
   axis: PropTypes.oneOf(['x', 'y']),
   /** Disables the slider if true. */
