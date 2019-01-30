@@ -181,7 +181,7 @@ InputNumber.propTypes = {
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
   step: PropTypes.number,
   /** Inline label and input field */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
   /** A unit that is a string of no more than 2 characters renders in the input after the value, e.g. %  */
   unit: (props, propName) => singleCharacterPropTypeCheck(props, propName, 2)
 };
