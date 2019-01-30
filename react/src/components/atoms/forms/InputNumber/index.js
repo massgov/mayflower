@@ -90,22 +90,24 @@ const NumberInput = (props) => (
               {
                 (props.unit && hasValue) ? <span className="ma__input-number-unit">{props.unit}</span> : null
               }
-              <button
-                type="button"
-                aria-label="increase value"
-                className="ma__input-number__control-plus"
-                onClick={(e) => handleAdjust(e, 'up')}
-                disabled={props.disabled}
-                tabIndex={-1}
-              />
-              <button
-                type="button"
-                aria-label="decrease value"
-                className="ma__input-number__control-minus"
-                onClick={(e) => handleAdjust(e, 'down')}
-                disabled={props.disabled}
-                tabIndex={-1}
-              />
+              <div className="ma__input-number__control-buttons">
+                <button
+                  type="button"
+                  aria-label="increase value"
+                  className="ma__input-number__control-plus"
+                  onClick={(e) => handleAdjust(e, 'up')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+                <button
+                  type="button"
+                  aria-label="decrease value"
+                  className="ma__input-number__control-minus"
+                  onClick={(e) => handleAdjust(e, 'down')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+              </div>
             </div>
           );
         }
