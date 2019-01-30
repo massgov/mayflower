@@ -169,8 +169,8 @@ InputNumber.propTypes = {
   min: PropTypes.number,
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
   step: PropTypes.number,
-  /** A single character unit that renders in the input after the value, e.g. %  */
-  unit: (props, propName) => singleCharacterPropTypeCheck(props, propName)
+  /** A unit that is a string of no more than 2 characters renders in the input after the value, e.g. %  */
+  unit: (props, propName) => singleCharacterPropTypeCheck(props, propName, 2)
 };
 
 InputNumber.defaultProps = {
