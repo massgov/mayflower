@@ -3,14 +3,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Input from '../Input';
+import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
+import { singleCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
 import './style.css';
 
 Number.prototype.countDecimals = function () {
-    if(Math.floor(this.valueOf()) === this.valueOf()) return 0;
-    return this.toString().split(".")[1].length || 0;
-}
+  if (Math.floor(this.valueOf()) === this.valueOf()) return 0;
+  return this.toString().split('.')[1].length || 0;
+};
 
 const NumberInput = (props) => (
   <React.Fragment>
@@ -50,7 +52,7 @@ const NumberInput = (props) => (
             context.updateState({ value: floatValue, ...updateError });
 
             if (typeof props.onChange === 'function') {
-              props.onChange(e);
+              props.onChange(e, floatValue);
             }
           };
 
@@ -64,7 +66,7 @@ const NumberInput = (props) => (
             const updateError = displayErrorMessage(newValue, props.min, props.max, props.required);
             context.updateState({ value: newValue, ...updateError });
             if (typeof props.onChange === 'function') {
-              props.onChange(e);
+              props.onChange(e, newValue);
             }
           };
 
@@ -82,23 +84,31 @@ const NumberInput = (props) => (
             disabled: props.disabled,
             step: props.step
           };
+          const hasValue = context.value && context.value !== 'NaN';
           return(
             <div className="ma__input-number">
               <input {...inputAttr} />
-              <button
-                type="button"
-                aria-label="increase value"
-                className="ma__input-number__control-plus"
-                onClick={(e) => handleAdjust(e, 'up')}
-                disabled={props.disabled}
-              />
-              <button
-                type="button"
-                aria-label="decrease value"
-                className="ma__input-number__control-minus"
-                onClick={(e) => handleAdjust(e, 'down')}
-                disabled={props.disabled}
-              />
+              {
+                (props.unit && hasValue) ? <span className="ma__input-number-unit">{props.unit}</span> : null
+              }
+              <div className="ma__input-number__control-buttons">
+                <button
+                  type="button"
+                  aria-label="increase value"
+                  className="ma__input-number__control-plus"
+                  onClick={(e) => handleAdjust(e, 'up')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+                <button
+                  type="button"
+                  aria-label="decrease value"
+                  className="ma__input-number__control-minus"
+                  onClick={(e) => handleAdjust(e, 'down')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+              </div>
             </div>
           );
         }
@@ -123,16 +133,25 @@ const InputNumber = (props) => {
     required: props.required,
     id: props.id,
     onChange,
-    disabled: props.disabled
+    disabled: props.disabled,
+    unit: props.unit
   };
-  return<Input {...inputProps}><NumberInput {...numberProps} /></Input>;
+  return(
+    <Input {...inputProps}>
+      <NumberInput {...numberProps} />
+      <Error id={props.id} />
+    </Input>
+  );
 };
 
 InputNumber.propTypes = {
   /** Whether the label should be hidden or not */
   hiddenLabel: PropTypes.bool,
-  /** The label text for the input field */
-  labelText: PropTypes.string.isRequired,
+  /** The label text for the input field, can be a string or a component */
+  labelText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
   /** Whether the field is required or not */
   required: PropTypes.bool,
   /** Whether the field is disabled or not */
@@ -160,7 +179,11 @@ InputNumber.propTypes = {
   /** Min value for the field. */
   min: PropTypes.number,
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
-  step: PropTypes.number
+  step: PropTypes.number,
+  /** Inline label and input field */
+  inline: PropTypes.bool,
+  /** A unit that is a string of no more than 2 characters renders in the input after the value, e.g. %  */
+  unit: (props, propName) => singleCharacterPropTypeCheck(props, propName, 2)
 };
 
 InputNumber.defaultProps = {
