@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Input from '../Input';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
+import { singleCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
 import './style.css';
 
 Number.prototype.countDecimals = function () {
@@ -168,7 +169,7 @@ InputNumber.propTypes = {
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
   step: PropTypes.number,
   /** A single character unit that renders in the input after the value, e.g. %  */
-  unit: PropTypes.string
+  unit: (props, propName) => singleCharacterPropTypeCheck(props, propName)
 };
 
 InputNumber.defaultProps = {

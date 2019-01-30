@@ -80,3 +80,10 @@ export const validateFilters = (
 };
 
 export default componentPropTypeCheck;
+
+export const singleCharacterPropTypeCheck = (props, propName) => {
+  const prop = props[propName];
+  if (typeof prop !== 'string' || prop.length > 1) {
+    return new Error(`${propName} needs to be a single character string.`);
+  }
+};
