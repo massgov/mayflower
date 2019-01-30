@@ -1,4 +1,5 @@
 import { text, boolean, number, object, select, array } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
 
 export default {
   labelText: () => text('InputSlider.labelText', 'Family Leave'),
@@ -11,5 +12,6 @@ export default {
   min: () => number('InputSlider.min', 0),
   step: () => number('InputSlider.step', 0.1),
   ticks: () => object('InputSlider.ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' }),
-  domain: () => object('InputSlider.domain', { 0: 0, 1: 1 })
+  domain: () => object('InputSlider.domain', { 0: 0, 1: 1 }),
+  onChange: () => action('inputSlide.onChange')
 };
