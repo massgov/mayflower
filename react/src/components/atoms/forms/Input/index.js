@@ -9,10 +9,11 @@ class Input extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.defaultText,
+      value: this.props.defaultValue,
       updateState: (newState) => this.setState(newState),
       showError: false,
-      errorMsg: this.props.errorMsg
+      errorMsg: this.props.errorMsg,
+      disabled: this.props.disabled
     };
   }
   render() {
@@ -20,7 +21,8 @@ class Input extends React.Component {
       ma__label: true,
       'ma__label--hidden': (this.props.labelText && this.props.hiddenLabel),
       'ma__label--required': (this.props.labelText && this.props.required),
-      'ma__label--optional': (this.props.labelText && !this.props.required)
+      'ma__label--optional': (this.props.labelText && !this.props.required),
+      'ma__label--disabled': (this.props.labelText && this.props.disabled)
     });
     const errorProps = {
       error: this.state.errorMsg,
@@ -31,7 +33,7 @@ class Input extends React.Component {
         <React.Fragment>
           {this.props.labelText && <label htmlFor={this.props.id} className={inputLabelClasses}>{this.props.labelText}</label>}
           {this.props.children}
-          {this.state.showError && this.state.errorMsg.length > 0 && <ErrorMessage {...errorProps} />}
+          {this.state.showError && this.state.errorMsg && this.state.errorMsg.length > 0 && <ErrorMessage {...errorProps} />}
         </React.Fragment>
       </InputContext.Provider>
     );
