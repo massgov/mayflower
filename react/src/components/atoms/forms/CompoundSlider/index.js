@@ -7,12 +7,18 @@ import './style.css';
 
 const Handle = (props) => {
   const {
-    handle: { id, value, percent }, getHandleProps, axis, min, max
+    handle: { id, value, percent }, getHandleProps, axis, min, max, step
   } = props;
+  const countDecimals = (x) => {
+    if (Math.floor(x) === x) return 0;
+    return String(x).split('.')[1].length || 0;
+  };
+  const decimalPlaces = countDecimals(step);
+  const roundedValue = (Number.isInteger(value)) ? value : Number.parseFloat(value).toFixed(decimalPlaces);
   const divProps = {
     'aria-valuemin': min,
     'aria-valuemax': max,
-    'aria-valuenow': value,
+    'aria-valuenow': roundedValue,
     role: 'slider',
     ...getHandleProps(id)
   };
@@ -28,7 +34,7 @@ const Handle = (props) => {
   return(
     <button className="ma__slider-handle" {...divProps}>
       <div className="ma__slider-handle-value">
-        {value}
+        {roundedValue}
       </div>
     </button>
   );
@@ -97,8 +103,13 @@ class CompoundSlider extends Component {
             const {
               min, max, step, disabled, domain
             } = this.props;
+            const countDecimals = (x) => {
+              if (Math.floor(x) === x) return 0;
+              return String(x).split('.')[1].length || 0;
+            };
+            const decimalPlaces = countDecimals(step);
             const handleDragEnd = (values) => {
-              const value = values[0];
+              const value = (Number.isInteger) ? values[0] : Number.parseFloat(values[0]).toFixed(decimalPlaces);
               context.updateState({ value });
               if (typeof this.props.onChange === 'function') {
                 this.props.onChange(value);
@@ -174,6 +185,7 @@ class CompoundSlider extends Component {
                             axis={this.props.axis}
                             min={min}
                             max={max}
+                            step={step}
                           />
                         ))}
                       </div>
