@@ -39,6 +39,11 @@ $margin: 20px;
         transform: scale(1.1);
       }
 
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 2px 2px $c-focus;
+      }
+
       &-value {
         display: none;
         font-size: 1rem;
