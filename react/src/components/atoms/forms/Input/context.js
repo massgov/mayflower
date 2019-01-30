@@ -6,3 +6,8 @@ export const InputContext = React.createContext({
   updateState: () => {},
   showError: null
 });
+export const FormContext = React.createContext({
+  isActive: false,
+  value: {},
+  setValue: () => {}
+});

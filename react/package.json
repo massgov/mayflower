@@ -46,6 +46,7 @@
     "prop-types": "^15.6.0",
     "react-autosuggest": "^9.3.4",
     "react-autowhatever": "^10.1.2",
+    "react-compound-slider": "^0.19.2",
     "react-select": "^1.2.1",
     "react-table": "^6.8.6",
     "react-transition-group": "^2.4.0",
