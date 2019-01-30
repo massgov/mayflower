@@ -1,11 +1,9 @@
-import React from 'react';
-import { text, boolean, number, object } from '@storybook/addon-knobs/react';
+import { text, boolean, number } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
-import Paragraph from '../../text/Paragraph';
 
 export default {
   hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
-  labelText: () => object('InputCurrency.labelText', <Paragraph />),
+  labelText: () => text('InputCurrency.labelText', 'Number Input'),
   required: () => boolean('InputCurrency.required', false),
   inline: () => boolean('InputCurrency.inline', false),
   disabled: () => boolean('InputCurrency.disabled', false),
