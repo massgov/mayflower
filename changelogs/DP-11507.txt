@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Removed
+Minor
+- (Patternlab) DP-11507: Remove richtext.js. #PR#
