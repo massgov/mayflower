@@ -6,6 +6,7 @@ import Input from '../Input';
 import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
+import { singleCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
 import './style.css';
 
 Number.prototype.countDecimals = function () {
@@ -83,23 +84,31 @@ const NumberInput = (props) => (
             disabled: props.disabled,
             step: props.step
           };
+          const hasValue = context.value && context.value !== 'NaN';
           return(
             <div className="ma__input-number">
               <input {...inputAttr} />
-              <button
-                type="button"
-                aria-label="increase value"
-                className="ma__input-number__control-plus"
-                onClick={(e) => handleAdjust(e, 'up')}
-                disabled={props.disabled}
-              />
-              <button
-                type="button"
-                aria-label="decrease value"
-                className="ma__input-number__control-minus"
-                onClick={(e) => handleAdjust(e, 'down')}
-                disabled={props.disabled}
-              />
+              {
+                (props.unit && hasValue) ? <span className="ma__input-number-unit">{props.unit}</span> : null
+              }
+              <div className="ma__input-number__control-buttons">
+                <button
+                  type="button"
+                  aria-label="increase value"
+                  className="ma__input-number__control-plus"
+                  onClick={(e) => handleAdjust(e, 'up')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+                <button
+                  type="button"
+                  aria-label="decrease value"
+                  className="ma__input-number__control-minus"
+                  onClick={(e) => handleAdjust(e, 'down')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+              </div>
             </div>
           );
         }
@@ -124,7 +133,8 @@ const InputNumber = (props) => {
     required: props.required,
     id: props.id,
     onChange,
-    disabled: props.disabled
+    disabled: props.disabled,
+    unit: props.unit
   };
   return(
     <Input {...inputProps}>
@@ -166,7 +176,9 @@ InputNumber.propTypes = {
   /** Min value for the field. */
   min: PropTypes.number,
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
-  step: PropTypes.number
+  step: PropTypes.number,
+  /** A unit that is a string of no more than 2 characters renders in the input after the value, e.g. %  */
+  unit: (props, propName) => singleCharacterPropTypeCheck(props, propName, 2)
 };
 
 InputNumber.defaultProps = {
