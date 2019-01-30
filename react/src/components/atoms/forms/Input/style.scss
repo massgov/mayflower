@@ -2,6 +2,7 @@
 
 
 .ma__input-group {
+  $group: &;
   &--inline {
     display: flex;
       flex-direction: row;
@@ -10,6 +11,14 @@
       @media ($bp-small-max) {
       	flex-direction: column;
       }
+    #{$group}-right {
+      display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        @media ($bp-small-max) {
+          align-items: flex-start;
+        }
+    }
   }
 }
 
