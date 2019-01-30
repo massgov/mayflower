@@ -83,11 +83,12 @@ const NumberInput = (props) => (
             disabled: props.disabled,
             step: props.step
           };
+          const hasValue = context.value && context.value !== 'NaN';
           return(
             <div className="ma__input-number">
               <input {...inputAttr} />
               {
-                props.unit && <span className="ma__input-number-unit">{props.unit}</span>
+                (props.unit && hasValue) ? <span className="ma__input-number-unit">{props.unit}</span> : null
               }
               <button
                 type="button"
