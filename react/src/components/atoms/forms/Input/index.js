@@ -13,10 +13,14 @@ class Input extends React.Component {
       updateState: (newState) => this.setState(newState),
       showError: false,
       errorMsg: this.props.errorMsg,
-      disabled: this.props.disabled
+      disabled: this.props.disabled,
+      inline: true
     };
   }
   render() {
+    const inputClasses = classNames({
+      'ma__input-group--inline': this.state.inline
+    });
     const inputLabelClasses = classNames({
       ma__label: true,
       'ma__label--hidden': (this.props.labelText && this.props.hiddenLabel),
@@ -30,11 +34,13 @@ class Input extends React.Component {
     };
     return(
       <InputContext.Provider value={this.state}>
-        <React.Fragment>
+        <div className={inputClasses}>
           {this.props.labelText && <label htmlFor={this.props.id} className={inputLabelClasses}>{this.props.labelText}</label>}
-          {this.props.children}
-          {this.state.showError && this.state.errorMsg && this.state.errorMsg.length > 0 && <ErrorMessage {...errorProps} />}
-        </React.Fragment>
+          <div className="ma__input-group-right">
+            {this.props.children}
+            {this.state.showError && this.state.errorMsg && this.state.errorMsg.length > 0 && <ErrorMessage {...errorProps} />}
+          </div>
+        </div>
       </InputContext.Provider>
     );
   }

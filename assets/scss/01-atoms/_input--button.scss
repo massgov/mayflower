@@ -7,6 +7,10 @@
     	  text-align: right;
   	  padding-right: 58px;
 
+      @media ($bp-small-max) {
+        width: 100%;
+      }
+
   	  input {
   	    padding-right: 58px;
   	  }

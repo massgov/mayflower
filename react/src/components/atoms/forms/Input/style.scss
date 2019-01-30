@@ -1,5 +1,18 @@
 @import 'global';
 
+
+.ma__input-group {
+  &--inline {
+    display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      @media ($bp-small-max) {
+      	flex-direction: column;
+      }
+  }
+}
+
 // error message
 .ma__input-error-msg {
   font-size: 1.125rem;
