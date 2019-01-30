@@ -6,7 +6,7 @@ import Input from '../Input';
 import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
-import { singleCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
+import { numberCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
 import './style.css';
 
 Number.prototype.countDecimals = function () {
@@ -183,7 +183,7 @@ InputNumber.propTypes = {
   /** Inline label and input field */
   inline: PropTypes.bool,
   /** A unit that is a string of no more than 2 characters renders in the input after the value, e.g. %  */
-  unit: (props, propName) => singleCharacterPropTypeCheck(props, propName, 2)
+  unit: (props, propName) => numberCharacterPropTypeCheck(props, propName, 2)
 };
 
 InputNumber.defaultProps = {
