@@ -31,7 +31,7 @@ InputSlider.propTypes = {
   /** Custom change function */
   onChange: PropTypes.func,
   /** Default input text value */
-  defaultText: PropTypes.string,
+  defaultValue: PropTypes.string,
   /** Max value for the field. */
   max: PropTypes.number.isRequired,
   /** Min value for the field. */
@@ -50,7 +50,7 @@ InputSlider.propTypes = {
 
 
 InputSlider.defaultProps = {
-  defaultText: 0,
+  defaultValue: 0,
   disabled: false
 };
 
