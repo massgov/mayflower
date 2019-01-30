@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- (React) DP-12303: Adds CompoundSlider, InputSlider, Error components and adds the react-compound-slider package. #431 
-- (React) DP-12303: Adds FormContext support, changes the way Input renders to reduce re-renders on context changes. #431

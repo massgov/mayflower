@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- (React) DP-12413: Add unit option in InputNumber for rendering percentage. #436
