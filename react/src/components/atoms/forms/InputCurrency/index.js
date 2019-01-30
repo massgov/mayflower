@@ -169,20 +169,24 @@ const Currency = (props) => (
           return(
             <div className="ma__input-currency">
               <input {...inputAttr} />
-              <button
-                type="button"
-                aria-label="increase value"
-                className="ma__input-currency__control-plus"
-                onClick={(e) => handleAdjust(e, 'up')}
-                disabled={props.disabled}
-              />
-              <button
-                type="button"
-                aria-label="decrease value"
-                className="ma__input-currency__control-minus"
-                onClick={(e) => handleAdjust(e, 'down')}
-                disabled={props.disabled}
-              />
+              <div className="ma__input-number__control-buttons">
+                <button
+                  type="button"
+                  aria-label="increase value"
+                  className="ma__input-currency__control-plus"
+                  onClick={(e) => handleAdjust(e, 'up')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+                <button
+                  type="button"
+                  aria-label="decrease value"
+                  className="ma__input-currency__control-minus"
+                  onClick={(e) => handleAdjust(e, 'down')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+              </div>
             </div>
           );
         }

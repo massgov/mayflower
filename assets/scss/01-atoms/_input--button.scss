@@ -1,19 +1,33 @@
 @mixin ma__input--button($type) {
   .ma__input-#{$type} {
-    display: inline-block;
+    display: inline-flex;
+      flex-direction: row;
+
     position: relative;
 
+
+    &-unit {
+      border: 2px solid $c-bd-input;
+      padding-right: 5px;
+      padding-top: 1px;
+      border-left: none;
+      border-right: none;
+      color: $c-gray-dark;
+    }
+
     &__control {
-    	  text-align: right;
-  	  padding-right: 58px;
+    	text-align: right;
+      border-right: 0;
+      padding-right: 5px;
 
       @media ($bp-small-max) {
         width: 100%;
       }
 
-  	  input {
-  	    padding-right: 58px;
-  	  }
+      &-buttons {
+        display: block;
+        position: relative;
+      }
 
   	  input.has-error {
   	    border-color: $c-bd-error;
@@ -28,7 +42,6 @@
   	    height: 50%;
   	    padding: 0;
   	    position: absolute;
-  	      right: 0;
   	    width: 40px;
 
   	    &:focus {
