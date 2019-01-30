@@ -87,7 +87,7 @@ const NumberInput = (props) => (
             <div className="ma__input-number">
               <input {...inputAttr} />
               {
-                <span className="ma__input-number-unit">{props.unit}</span>
+                props.unit && <span className="ma__input-number-unit">{props.unit}</span>
               }
               <button
                 type="button"
