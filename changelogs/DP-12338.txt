@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Added (see below)
-Minor (see below)
-- (React) DP-12338: Added a help tip organism. #432
-- (React) DP-12338: Added a close icon. #432
