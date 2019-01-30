@@ -14,12 +14,13 @@ class Input extends React.Component {
       showError: false,
       errorMsg: this.props.errorMsg,
       disabled: this.props.disabled,
-      inline: true
+      inline: this.props.line
     };
   }
   render() {
     const inputClasses = classNames({
-      'ma__input-group--inline': this.state.inline
+      'ma__input-group': true,
+      'ma__input-group--inline': this.props.inline
     });
     const inputLabelClasses = classNames({
       ma__label: true,

@@ -256,7 +256,9 @@ InputCurrency.propTypes = {
   /** A language tag that represents what country the currency should display. Comes from IETF BCP 47: https://numbrojs.com/languages.html */
   language: PropTypes.string,
   /** Numbro Formatting options for displaying the currency. See https://numbrojs.com/format.html */
-  format: PropTypes.object
+  format: PropTypes.object,
+  /** Inline label and input field */
+  inline: PropTypes.bool
 };
 InputCurrency.defaultProps = {
   hiddenLabel: false,

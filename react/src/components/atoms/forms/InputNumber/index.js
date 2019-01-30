@@ -160,7 +160,9 @@ InputNumber.propTypes = {
   /** Min value for the field. */
   min: PropTypes.number,
   /** Using the up/down arrow keys will increment/decrement the input value by this number. */
-  step: PropTypes.number
+  step: PropTypes.number,
+  /** Inline label and input field */
+  inline: PropTypes.bool
 };
 
 InputNumber.defaultProps = {
