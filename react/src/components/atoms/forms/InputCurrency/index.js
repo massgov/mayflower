@@ -5,6 +5,7 @@ import numbro from 'numbro';
 import languages from 'numbro/dist/languages.min';
 
 import Input from '../Input';
+import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import './style.css';
@@ -215,7 +216,12 @@ const InputCurrency = (props) => {
     const currency = numbro(Number(inputProps.defaultValue));
     inputProps.defaultValue = currency.formatCurrency(format);
   }
-  return<Input {...inputProps}><Currency {...currencyProps} /></Input>;
+  return(
+    <Input {...inputProps}>
+      <Currency {...currencyProps} />
+      <Error id={props.id} />
+    </Input>
+  );
 };
 
 InputCurrency.propTypes = {
