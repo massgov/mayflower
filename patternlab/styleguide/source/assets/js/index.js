@@ -28,8 +28,8 @@ import organizationNavigation from "./modules/organizationNavigation.js";
 import pagination from "./modules/pagination.js";
 import pikaday from "./modules/pikaday.js";
 // `richText` and `stickTOC` are needed above `responsiveTable` to setup tables and offsets.
+// `richText`'s functionality has been moved to Drupal.
 import stickyTOC from "./modules/stickyTOC.js";
-import richText from "./modules/richText.js";
 import responsiveTable from "./modules/responsiveTable.js";
 import responsiveVideo from "./modules/responsiveVideo.js";
 import resultsHeading from "./modules/resultsHeading.js";
