@@ -57,6 +57,13 @@ button:disabled {
   }
 }
 
+.ma__input-number-unit{
+  &--disabled {
+    @extend %disabled;
+    background-color: $c-gray-lightest;
+  }
+}
+
 .ma__label {
   &--disabled {
     @extend %disabled;
