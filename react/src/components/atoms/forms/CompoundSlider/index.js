@@ -7,7 +7,7 @@ import './style.css';
 
 const Handle = (props) => {
   const {
-    handle: { id, value, percent }, getHandleProps, axis, min, max, step, skipped
+    handle: { id, value, percent }, getHandleProps, axis, min, max, step, displayValueFormat
   } = props;
   const countDecimals = (x) => {
     if (Math.floor(x) === x) return 0;
@@ -34,14 +34,15 @@ const Handle = (props) => {
       top: `${percent}%`
     };
   }
-  if (skipped) {
-    divProps.tabIndex = -1;
-  }
   return(
     <button className="ma__slider-handle" {...divProps}>
-      <div className="ma__slider-handle-value">
-        {roundedValue}
-      </div>
+      { props.displayValueFormat && (
+        <div className="ma__slider-handle-value">
+          { props.displayValueFormat === 'percentage' ? `${roundedValue * 100}%` : roundedValue }
+        </div>
+      )
+      }
+
     </button>
   );
 };
@@ -107,7 +108,7 @@ class CompoundSlider extends Component {
         {
           (context) => {
             const {
-              min, max, step, disabled, domain, skipped
+              min, max, step, disabled, domain
             } = this.props;
             const countDecimals = (x) => {
               if (Math.floor(x) === x) return 0;
@@ -173,7 +174,7 @@ class CompoundSlider extends Component {
               'ma__input-slider-y': this.props.axis === 'y'
             });
             return(
-              <div id={this.props.id} className={wrapperClasses} aria-hidden={skipped} >
+              <div id={this.props.id} className={wrapperClasses}>
                 <Slider className="ma__slider" {...sliderProps}>
                   <Rail>
                     {({ getRailProps }) => (
@@ -193,7 +194,7 @@ class CompoundSlider extends Component {
                             min={min}
                             max={max}
                             step={step}
-                            skipped={skipped}
+                            displayValueFormat={this.props.displayValueFormat}
                           />
                         ))}
                       </div>
@@ -273,8 +274,8 @@ CompoundSlider.propTypes = {
   disabled: PropTypes.bool,
   /** The range of numbers, inclusively, for the slider to fall between. First number is the min and second number is the max. */
   domain: PropTypes.arrayOf(PropTypes.number),
-  /** Whether to skip the slider with keyboard interaction. */
-  skipped: PropTypes.bool
+  /** Display the value of the slider based. If null, don't display. If equals percentage, format the value in percentage. */
+  displayValueFormat: PropTypes.oneOf(['percentage', '', null])
 };
 
 CompoundSlider.defaultProps = {
