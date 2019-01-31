@@ -210,7 +210,7 @@ InputNumber.propTypes = {
   /** A unit that is a string of no more than 2 characters renders in the input after the value, e.g. %  */
   unit: (props, propName) => numberCharacterPropTypeCheck(props, propName, 2),
   /** Whether to render up/down buttons */
-  hasButtons: PropTypes.bool
+  showButtons: PropTypes.bool
 };
 
 InputNumber.defaultProps = {
