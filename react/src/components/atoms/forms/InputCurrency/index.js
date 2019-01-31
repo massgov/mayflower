@@ -5,6 +5,7 @@ import numbro from 'numbro';
 import languages from 'numbro/dist/languages.min';
 
 import Input from '../Input';
+import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import './style.css';
@@ -168,20 +169,24 @@ const Currency = (props) => (
           return(
             <div className="ma__input-currency">
               <input {...inputAttr} />
-              <button
-                type="button"
-                aria-label="increase value"
-                className="ma__input-currency__control-plus"
-                onClick={(e) => handleAdjust(e, 'up')}
-                disabled={props.disabled}
-              />
-              <button
-                type="button"
-                aria-label="decrease value"
-                className="ma__input-currency__control-minus"
-                onClick={(e) => handleAdjust(e, 'down')}
-                disabled={props.disabled}
-              />
+              <div className="ma__input-number__control-buttons">
+                <button
+                  type="button"
+                  aria-label="increase value"
+                  className="ma__input-currency__control-plus"
+                  onClick={(e) => handleAdjust(e, 'up')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+                <button
+                  type="button"
+                  aria-label="decrease value"
+                  className="ma__input-currency__control-minus"
+                  onClick={(e) => handleAdjust(e, 'down')}
+                  disabled={props.disabled}
+                  tabIndex={-1}
+                />
+              </div>
             </div>
           );
         }
@@ -215,14 +220,22 @@ const InputCurrency = (props) => {
     const currency = numbro(Number(inputProps.defaultValue));
     inputProps.defaultValue = currency.formatCurrency(format);
   }
-  return<Input {...inputProps}><Currency {...currencyProps} /></Input>;
+  return(
+    <Input {...inputProps}>
+      <Currency {...currencyProps} />
+      <Error id={props.id} />
+    </Input>
+  );
 };
 
 InputCurrency.propTypes = {
   /** Whether the label should be hidden or not */
   hiddenLabel: PropTypes.bool,
-  /** The label text for the input field */
-  labelText: PropTypes.string.isRequired,
+  /** The label text for the input field, can be a string or a component */
+  labelText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired,
   /** Whether the field is required or not */
   required: PropTypes.bool,
   /** Whether the field is disabled or not */
@@ -256,7 +269,9 @@ InputCurrency.propTypes = {
   /** A language tag that represents what country the currency should display. Comes from IETF BCP 47: https://numbrojs.com/languages.html */
   language: PropTypes.string,
   /** Numbro Formatting options for displaying the currency. See https://numbrojs.com/format.html */
-  format: PropTypes.object
+  format: PropTypes.object,
+  /** Inline label and input field */
+  inline: PropTypes.bool
 };
 InputCurrency.defaultProps = {
   hiddenLabel: false,
