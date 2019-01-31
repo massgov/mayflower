@@ -1,3 +1,0 @@
-Added
-Minor
-- (Patternlab) DP-9464: Added a block to the action-steps.twig for decorativeLink.
