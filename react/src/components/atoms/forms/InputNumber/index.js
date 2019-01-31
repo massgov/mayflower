@@ -96,24 +96,28 @@ const NumberInput = (props) => (
               {
                 (props.unit && hasValue) ? <span className={unitClasses}>{props.unit}</span> : null
               }
-              <div className="ma__input-number__control-buttons">
-                <button
-                  type="button"
-                  aria-label="increase value"
-                  className="ma__input-number__control-plus"
-                  onClick={(e) => handleAdjust(e, 'up')}
-                  disabled={props.disabled}
-                  tabIndex={-1}
-                />
-                <button
-                  type="button"
-                  aria-label="decrease value"
-                  className="ma__input-number__control-minus"
-                  onClick={(e) => handleAdjust(e, 'down')}
-                  disabled={props.disabled}
-                  tabIndex={-1}
-                />
-              </div>
+              {
+                props.showButtons && (
+                  <div className="ma__input-number__control-buttons">
+                    <button
+                      type="button"
+                      aria-label="increase value"
+                      className="ma__input-number__control-plus"
+                      onClick={(e) => handleAdjust(e, 'up')}
+                      disabled={props.disabled}
+                      tabIndex={-1}
+                    />
+                    <button
+                      type="button"
+                      aria-label="decrease value"
+                      className="ma__input-number__control-minus"
+                      onClick={(e) => handleAdjust(e, 'down')}
+                      disabled={props.disabled}
+                      tabIndex={-1}
+                    />
+                  </div>
+                )
+              }
             </div>
           );
         }
@@ -124,7 +128,7 @@ const NumberInput = (props) => (
 
 const InputNumber = (props) => {
   const {
-    max, min, step, name, onChange, placeholder, width, maxlength, ...inputProps
+    max, min, step, name, onChange, placeholder, width, maxlength, showButtons, ...inputProps
   } = props;
   // Input and Number share the props.required, props.id and props.disabled values.
   const numberProps = {
@@ -139,7 +143,8 @@ const InputNumber = (props) => {
     id: props.id,
     onChange,
     disabled: props.disabled,
-    unit: props.unit
+    unit: props.unit,
+    showButtons
   };
   return(
     <Input {...inputProps}>
@@ -188,14 +193,17 @@ InputNumber.propTypes = {
   /** Inline label and input field */
   inline: PropTypes.bool,
   /** A unit that is a string of no more than 2 characters renders in the input after the value, e.g. %  */
-  unit: (props, propName) => numberCharacterPropTypeCheck(props, propName, 2)
+  unit: (props, propName) => numberCharacterPropTypeCheck(props, propName, 2),
+  /** Whether to render up/down buttons */
+  hasButtons: PropTypes.bool
 };
 
 InputNumber.defaultProps = {
   hiddenLabel: false,
   required: false,
   onChange: null,
-  step: 1
+  step: 1,
+  hasButtons: true
 };
 
 export default InputNumber;
