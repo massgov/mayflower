@@ -106,10 +106,6 @@ class CompoundSlider extends Component {
             const {
               min, max, step, disabled, domain, skipped
             } = this.props;
-            const countDecimals = (x) => {
-              if (Math.floor(x) === x) return 0;
-              return String(x).split('.')[1].length || 0;
-            };
             const decimalPlaces = countDecimals(step);
             const handleDragEnd = (values) => {
               const value = (Number.isInteger(step)) ? values[0] : Number.parseFloat(values[0]).toFixed(decimalPlaces);
