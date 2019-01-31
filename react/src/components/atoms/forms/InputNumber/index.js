@@ -50,6 +50,14 @@ const NumberInput = (props) => (
             };
           };
 
+          const handleOnBlur = (e) => {
+            const { value } = e.target;
+            const floatValue = Number.parseFloat(value).toFixed(decimalPlaces);
+            if (typeof props.onBlur === 'function') {
+              props.onBlur(e, floatValue);
+            }
+          };
+
           const handleChange = (e) => {
             const { value } = e.target;
             const floatValue = Number.parseFloat(value).toFixed(decimalPlaces);
@@ -84,6 +92,7 @@ const NumberInput = (props) => (
             maxLength: Number(props.maxlength),
             style: props.width ? { width: `${props.width}px` } : null,
             onChange: handleChange,
+            onBlur: handleOnBlur,
             required: props.required,
             disabled: props.disabled,
             step: props.step
@@ -131,7 +140,7 @@ const NumberInput = (props) => (
 
 const InputNumber = (props) => {
   const {
-    max, min, step, name, onChange, placeholder, width, maxlength, showButtons, ...inputProps
+    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, showButtons, ...inputProps
   } = props;
   // Input and Number share the props.required, props.id and props.disabled values.
   const numberProps = {
@@ -145,6 +154,7 @@ const InputNumber = (props) => {
     required: props.required,
     id: props.id,
     onChange,
+    onBlur,
     disabled: props.disabled,
     unit: props.unit,
     showButtons
@@ -185,6 +195,8 @@ InputNumber.propTypes = {
   errorMsg: PropTypes.string,
   /** Custom change function */
   onChange: PropTypes.func,
+  /** Custom onBlur function */
+  onBlur: PropTypes.func,
   /** Default input value */
   defaultValue: PropTypes.number,
   /** Max value for the field. */

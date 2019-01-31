@@ -18,6 +18,7 @@ export default {
   min: () => number('InputCurrency.min', -1000),
   step: () => number('InputCurrency.step', 1),
   onChange: () => action('onChange'),
+  onBlur: () => action('onBlur'),
   unit: () => text('InputCurrency.unit', ''),
   showButtons: () => boolean('InputCurrency.hasButtons', true)
 };
