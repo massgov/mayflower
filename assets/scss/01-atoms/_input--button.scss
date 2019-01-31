@@ -9,19 +9,26 @@
     &-unit {
       border: 2px solid $c-bd-input;
       padding-right: 5px;
-      padding-top: 1px;
+      padding-top: 4px;
       border-left: none;
-      border-right: none;
       color: $c-gray-dark;
+
+      &--showButtons {
+        border-right: none;
+      }
     }
+
 
     &__control {
     	text-align: right;
-      //border-right: 0;
       padding-right: 5px;
 
       @media ($bp-small-max) {
         width: 100%;
+      }
+
+      &--showButtons {
+        border-right: none;
       }
 
       &-buttons {

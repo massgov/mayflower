@@ -19,14 +19,18 @@ const NumberInput = (props) => (
     <InputContext.Consumer>
       {
         (context) => {
+          const hasValue = context.value && context.value !== 'NaN';
+
           const inputClasses = classNames({
-            'ma__input-currency__control': true,
-            'js-is-required': props.required
+            'ma__input-number__control': true,
+            'js-is-required': props.required,
+            'ma__input-number__control--showButtons': props.showButtons || (props.unit && hasValue)
           });
 
           const unitClasses = classNames({
             'ma__input-number-unit': true,
-            'ma__input-number-unit--disabled': props.disabled
+            'ma__input-number-unit--disabled': props.disabled,
+            'ma__input-number-unit--showButtons': props.showButtons
           });
 
           const decimalPlaces = props.step.countDecimals();
@@ -89,7 +93,7 @@ const NumberInput = (props) => (
             disabled: props.disabled,
             step: props.step
           };
-          const hasValue = context.value && context.value !== 'NaN';
+
           return(
             <div className="ma__input-number">
               <input {...inputAttr} />
