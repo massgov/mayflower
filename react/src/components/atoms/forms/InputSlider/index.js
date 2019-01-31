@@ -5,10 +5,10 @@ import CompoundSlider from '../CompoundSlider';
 
 const InputSlider = (props) => {
   const {
-    axis, max, min, step, defaultValue, ticks, onChange, domain, ...inputProps
+    axis, max, min, step, defaultValue, ticks, onChange, domain, skipped, ...inputProps
   } = props;
   const sliderProps = {
-    axis, max, min, step, defaultValue, onChange, domain
+    axis, max, min, step, defaultValue, onChange, domain, skipped
   };
   const { id, disabled } = inputProps;
   sliderProps.id = id;
@@ -47,7 +47,9 @@ InputSlider.propTypes = {
   /** Whether input is required or not */
   required: PropTypes.bool,
   /** The range of numbers, inclusively, for the slider to fall between. First number is the min and second number is the max. */
-  domain: PropTypes.arrayOf(PropTypes.number)
+  domain: PropTypes.arrayOf(PropTypes.number),
+  /** Whether to skip the slider with keyboard interaction and hide the slider on screen readers. */
+  skipped: PropTypes.bool
 };
 
 

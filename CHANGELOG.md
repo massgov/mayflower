@@ -13,6 +13,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+
+## 8.24.0 (01/31/2019)
+
+### Changed
+- (Patternlab) DP-9200: Add labelContext to decorative link #425
+
+### Fixed
+- (React) #449
+  - allow InputNumber to update on defaultValue prop change
+  - fix disabled styling of InputNumber with unit on disabled
+  - make up/down buttons optional
+  - add option to skip the slider
+
 ## 8.23.3 (01/30/2019)
 
 ### Fixed
