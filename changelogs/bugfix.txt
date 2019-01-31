@@ -1,8 +1,0 @@
-___DESCRIPTION___
-Changed/Fixed
-Minor
-- (React) #449
-  - allow InputNumber to update on defaultValue prop change
-  - fix disabled styling of InputNumber with unit on disabled
-  - make up/down buttons optional
-  - add option to skip the slider
