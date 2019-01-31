@@ -5,6 +5,7 @@ export default {
   hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
   labelText: () => text('InputCurrency.labelText', 'Currency Input'),
   required: () => boolean('InputCurrency.required', false),
+  inline: () => boolean('InputCurrency.inline', false),
   disabled: () => boolean('InputCurrency.disabled', false),
   id: () => text('InputCurrency.id', 'currency-input'),
   name: () => text('InputCurrency.name', 'currency-input'),

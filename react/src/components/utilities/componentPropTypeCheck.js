@@ -80,3 +80,10 @@ export const validateFilters = (
 };
 
 export default componentPropTypeCheck;
+
+export const numberCharacterPropTypeCheck = (props, propName, number) => {
+  const prop = props[propName];
+  if (typeof prop !== 'string' || prop.length > number) {
+    return new Error(`${propName} needs to be a string of less than or equal to ${number} characters.`);
+  }
+};

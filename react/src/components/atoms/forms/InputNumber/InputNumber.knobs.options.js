@@ -5,6 +5,7 @@ export default {
   hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
   labelText: () => text('InputCurrency.labelText', 'Number Input'),
   required: () => boolean('InputCurrency.required', false),
+  inline: () => boolean('InputCurrency.inline', false),
   disabled: () => boolean('InputCurrency.disabled', false),
   id: () => text('InputCurrency.id', 'number-input'),
   name: () => text('InputCurrency.name', 'number-input'),
@@ -16,5 +17,6 @@ export default {
   max: () => number('InputCurrency.max', 10000),
   min: () => number('InputCurrency.min', -1000),
   step: () => number('InputCurrency.step', 1),
-  onChange: () => action('onChange')
+  onChange: () => action('onChange'),
+  unit: () => text('InputCurrency.unit', '')
 };
