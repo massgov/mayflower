@@ -51,12 +51,10 @@
           {% include "@organisms/by-author/rich-text.twig" %}
         {% endif %}
 
-        {% block additionalResources %}
-          {% if mainContent.formDownloads %}
-            {% set formDownloads = mainContent.formDownloads %}
-            {% include "@organisms/by-author/form-downloads.twig" %}
-          {% endif %}
-        {% endblock %}
+        {% if mainContent.formDownloads %}
+          {% set formDownloads = mainContent.formDownloads %}
+          {% include "@organisms/by-author/form-downloads.twig" %}
+        {% endif %}
 
         {% if mainContent.contactList %}
           {% set contactList = mainContent.contactList %}
