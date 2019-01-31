@@ -218,7 +218,8 @@ InputNumber.defaultProps = {
   required: false,
   onChange: null,
   step: 1,
-  hasButtons: true
+  hasButtons: true,
+  unit: ''
 };
 
 export default InputNumber;
