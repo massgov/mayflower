@@ -2,7 +2,6 @@
   .ma__input-#{$type} {
     display: inline-flex;
       flex-direction: row;
-
     position: relative;
 
 
@@ -25,7 +24,10 @@
       }
 
       &-buttons {
-        display: block;
+        display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
         position: relative;
       }
 
@@ -38,29 +40,18 @@
   	    @include ma-button-reset;
   	    border: 2px solid $c-bd-input;
   	    border-bottom: none;
-  	    display: block;
   	    height: 50%;
-  	    padding: 0;
-  	    position: absolute;
   	    width: 40px;
-
-  	    &:focus {
-  	      border-bottom-style: dotted;
-  	      border-bottom-width: 1px;
-  	    }
 
   	    &:after {
   	      border: 5px solid $c-black;
   	      border-top: none;
   	      border-bottom-width: 6px;
   	      content: "";
+          padding: 2px 0;
   	      display: block;
   	      height: 0;
   	      margin: 0 auto;
-  	      position: absolute;
-  	        bottom: 2px;
-  	        left: 50%;
-  	      transform: translateX(-50%);
   	      vertical-align: bottom;
   	      width: 0;
   	      border-left-color: transparent;
