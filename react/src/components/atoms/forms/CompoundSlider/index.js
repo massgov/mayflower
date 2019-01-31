@@ -14,7 +14,13 @@ const Handle = (props) => {
     return String(x).split('.')[1].length || 0;
   };
   const decimalPlaces = countDecimals(step);
-  const roundedValue = (Number.isInteger(step)) ? value : Number.parseFloat(value).toFixed(decimalPlaces);
+  const roundValue = (stp, val, dp) => {
+    if (Number.isInteger(stp)) {
+      return val;
+    }
+    return Number.parseFloat(val).toFixed(dp);
+  };
+  const roundedValue = roundValue(step, value, decimalPlaces);
   const divProps = {
     'aria-valuemin': min,
     'aria-valuemax': max,
@@ -38,7 +44,7 @@ const Handle = (props) => {
     <button className="ma__slider-handle" {...divProps}>
       { props.displayValueFormat && (
         <div className="ma__slider-handle-value">
-          { props.displayValueFormat === 'percentage' ? `${roundedValue * 100}%` : roundedValue }
+          { props.displayValueFormat === 'percentage' ? `${roundValue(step, value * 100, 0)}%` : roundedValue }
         </div>
       )
       }
