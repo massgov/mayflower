@@ -20,6 +20,9 @@ const Handle = (props) => {
     'aria-valuemax': max,
     'aria-valuenow': roundedValue,
     role: 'slider',
+    onClick: (e) => {
+      e.preventDefault();
+    },
     ...getHandleProps(id)
   };
   if (axis === 'x') {
