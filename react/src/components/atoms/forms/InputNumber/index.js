@@ -24,6 +24,11 @@ const NumberInput = (props) => (
             'js-is-required': props.required
           });
 
+          const unitClasses = classNames({
+            'ma__input-number-unit': true,
+            'ma__input-number-unit--disabled': props.disabled
+          });
+
           const decimalPlaces = props.step.countDecimals();
 
           const displayErrorMessage = (val, min, max, isRequired) => {
@@ -89,7 +94,7 @@ const NumberInput = (props) => (
             <div className="ma__input-number">
               <input {...inputAttr} />
               {
-                (props.unit && hasValue) ? <span className="ma__input-number-unit">{props.unit}</span> : null
+                (props.unit && hasValue) ? <span className={unitClasses}>{props.unit}</span> : null
               }
               <div className="ma__input-number__control-buttons">
                 <button
