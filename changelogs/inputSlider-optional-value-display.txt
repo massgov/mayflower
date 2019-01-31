@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Added (see below)
+Minor
+- (React) Added options to render value above the InputSlider handle #455
