@@ -2,6 +2,7 @@
  * Option definitions for the Tables's enumerable properties (imported in stories)
  */
 export default {
+  id: 'responsive-table',
   feeTable: {
     head: {
       rows: [{
@@ -30,7 +31,7 @@ export default {
         cells: [{
           heading: true,
           colspan: '',
-          rowspan: '4',
+          rowspan: '5',
           text: 'Freshwater Fishing'
         }, {
           heading: false,
@@ -89,7 +90,7 @@ export default {
         cells: [{
           heading: true,
           colspan: '',
-          rowspan: '4',
+          rowspan: '5',
           text: 'Hunting'
         }, {
           heading: false,
