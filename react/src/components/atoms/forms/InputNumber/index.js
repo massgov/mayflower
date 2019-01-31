@@ -19,7 +19,7 @@ const NumberInput = (props) => (
     <InputContext.Consumer>
       {
         (context) => {
-          const hasValue = context.value && context.value !== 'NaN';
+          const hasValue = context.value || context.value === 0;
 
           const inputClasses = classNames({
             'ma__input-number__control': true,
@@ -89,10 +89,13 @@ const NumberInput = (props) => (
             style: props.width ? { width: `${props.width}px` } : null,
             onChange: handleChange,
             required: props.required,
-            value: context.value,
             disabled: props.disabled,
             step: props.step
           };
+
+          if (hasValue) {
+            inputAttr.value = context.value;
+          }
 
           return(
             <div className="ma__input-number">
