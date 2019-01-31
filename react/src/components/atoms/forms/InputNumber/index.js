@@ -6,13 +6,9 @@ import Input from '../Input';
 import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
+import { countDecimals } from '../Input/utility';
 import { numberCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
 import './style.css';
-
-Number.prototype.countDecimals = function () {
-  if (Math.floor(this.valueOf()) === this.valueOf()) return 0;
-  return this.toString().split('.')[1].length || 0;
-};
 
 const NumberInput = (props) => (
   <React.Fragment>
@@ -33,7 +29,7 @@ const NumberInput = (props) => (
             'ma__input-number-unit--showButtons': props.showButtons
           });
 
-          const decimalPlaces = props.step.countDecimals();
+          const decimalPlaces = countDecimals(props.step);
 
           const displayErrorMessage = (val, min, max, isRequired) => {
             if (isRequired && String(val).length === 0) {
