@@ -31,7 +31,7 @@ export default {
         cells: [{
           heading: true,
           colspan: '',
-          rowspan: '5',
+          rowspan: '4',
           text: 'Freshwater Fishing'
         }, {
           heading: false,
@@ -90,7 +90,7 @@ export default {
         cells: [{
           heading: true,
           colspan: '',
-          rowspan: '5',
+          rowspan: '4',
           text: 'Hunting'
         }, {
           heading: false,

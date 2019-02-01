@@ -59,15 +59,20 @@ const Table = (table) => {
                 <tr key={row.key || defaultRowKey} className={row.rowSpanOffset ? 'is-offset' : null}>
                   { row.cells.map((cell, cellIndex) => {
                     let dataLabel = null;
-                    if (tableHeaderRow.cells && tableHeaderRow.cells.length > 0) {
+                    if ((cellIndex > 0) && tableHeaderRow.cells && tableHeaderRow.cells.length > 0) {
                       // Mayflower twig loops started at 1 - add one to index.
                       dataLabel = tableHeaderRow.cells[(cellIndex + 1) - tableIndexOffset].text;
                     }
                     const defaultCellKey = `${defaultRowKey}-cell${cellIndex}`;
+                    const cellClasses = classnames({
+                      'ma__table-cell': true,
+                      'no-left-pad': (!row.rowSpanOffset && !cell.heading && cellIndex === 1)
+                    });
                     return(cell.heading ? (
                       <th
+                        className={cellClasses}
                         key={cell.key || defaultCellKey}
-                        data-label={cellIndex > 0 ? dataLabel : null}
+                        data-label={dataLabel}
                         scope="row"
                         colSpan={cell.colspan || null}
                         rowSpan={cell.rowspan || null}
@@ -75,6 +80,7 @@ const Table = (table) => {
                       </th>
                     ) : (
                       <td
+                        className={cellClasses}
                         key={cell.key || defaultCellKey}
                         data-label={dataLabel}
                         colSpan={cell.colspan || null}
