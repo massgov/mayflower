@@ -11,7 +11,7 @@ const Handle = (props) => {
     handle: { id, value, percent }, getHandleProps, axis, min, max, step, skipped
   } = props;
   const decimalPlaces = countDecimals(step);
-  const roundedValue = (Number.isInteger(step)) ? value : Number.parseFloat(value).toFixed(decimalPlaces);
+  const roundedValue = (Number.isInteger(step)) ? value : Number(Number.parseFloat(value).toFixed(decimalPlaces));
   const divProps = {
     'aria-valuemin': min,
     'aria-valuemax': max,
@@ -108,17 +108,18 @@ class CompoundSlider extends Component {
             } = this.props;
             const decimalPlaces = countDecimals(step);
             const handleDragEnd = (values) => {
-              const value = (Number.isInteger(step)) ? values[0] : Number.parseFloat(values[0]).toFixed(decimalPlaces);
-              context.updateState({ value });
-              if (typeof this.props.onChange === 'function') {
-                this.props.onChange(value);
-              }
+              const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
+              context.updateState({ value }, () => {
+                if (typeof this.props.onChange === 'function') {
+                  this.props.onChange(value, this.props.id);
+                }
+              });
             };
             const domainCheck = (valToCheck) => {
               let minCheck = Number(min);
               let maxCheck = Number(max);
               if (Number.isNaN(valToCheck)) {
-                return(Number.isInteger(step)) ? minCheck : Number.parseFloat(minCheck).toFixed(decimalPlaces);
+                return(Number.isInteger(step)) ? minCheck : Number(Number.parseFloat(minCheck).toFixed(decimalPlaces));
               }
               let returnValue = valToCheck;
               const [domainMin, domainMax] = domain;
@@ -136,14 +137,14 @@ class CompoundSlider extends Component {
               if (valToCheck > maxCheck) {
                 returnValue = maxCheck;
               }
-              return(Number.isInteger(step)) ? returnValue : Number.parseFloat(returnValue).toFixed(decimalPlaces);
+              return(Number.isInteger(step)) ? returnValue : Number(Number.parseFloat(returnValue).toFixed(decimalPlaces));
             };
             // Anything returned by mode when set to a function will become the value.
             // This can be used for min/max validation.
             // Next and current values are not numbers, but arrays of objects.
             const handleMode = (current, next) => {
               const [{ val: nextValue }] = next;
-              const checkValue = (Number.isInteger(step)) ? nextValue : Number.parseFloat(nextValue).toFixed(decimalPlaces);
+              const checkValue = (Number.isInteger(step)) ? nextValue : Number(Number.parseFloat(nextValue).toFixed(decimalPlaces));
               if (checkValue === domainCheck(nextValue)) {
                 return next;
               }
