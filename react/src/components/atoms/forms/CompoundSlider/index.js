@@ -3,16 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
 import { InputContext } from '../Input/context';
+import { countDecimals } from '../Input/utility';
 import './style.css';
 
 const Handle = (props) => {
   const {
     handle: { id, value, percent }, getHandleProps, axis, min, max, step, skipped
   } = props;
-  const countDecimals = (x) => {
-    if (Math.floor(x) === x) return 0;
-    return String(x).split('.')[1].length || 0;
-  };
   const decimalPlaces = countDecimals(step);
   const roundedValue = (Number.isInteger(step)) ? value : Number.parseFloat(value).toFixed(decimalPlaces);
   const divProps = {
@@ -109,10 +106,6 @@ class CompoundSlider extends Component {
             const {
               min, max, step, disabled, domain, skipped
             } = this.props;
-            const countDecimals = (x) => {
-              if (Math.floor(x) === x) return 0;
-              return String(x).split('.')[1].length || 0;
-            };
             const decimalPlaces = countDecimals(step);
             const handleDragEnd = (values) => {
               const value = (Number.isInteger(step)) ? values[0] : Number.parseFloat(values[0]).toFixed(decimalPlaces);
