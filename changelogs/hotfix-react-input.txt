@@ -1,2 +1,0 @@
-### Fixed
-- (React): Remove will receive props from input component. #454
