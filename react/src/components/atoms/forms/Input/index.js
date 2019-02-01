@@ -47,10 +47,6 @@ class InputProvider extends React.Component {
     this.setState(newState);
   };
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.defaultValue });
-  }
-
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
       if (!Object.prototype.hasOwnProperty.call(formContext.value, this.props.id)) {

@@ -13,6 +13,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.24.1 (01/31/2019)
+
+### Fixed
+- (React): Remove will receive props from input component. #454
+- (React) add onBlur to InputNumber and consolidate countDecimal util function and add a default unit prop to InputNumber. #456
 
 ## 8.24.0 (01/31/2019)
 
