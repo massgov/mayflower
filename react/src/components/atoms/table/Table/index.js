@@ -67,7 +67,7 @@ const Table = (table) => {
                     return(cell.heading ? (
                       <th
                         key={cell.key || defaultCellKey}
-                        data-label={dataLabel}
+                        data-label={cellIndex > 0 ? dataLabel : null}
                         scope="row"
                         colSpan={cell.colspan || null}
                         rowSpan={cell.rowspan || null}
