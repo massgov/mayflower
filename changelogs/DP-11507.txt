@@ -1,4 +1,4 @@
 ___DESCRIPTION___
 Removed
 Minor
-- (Patternlab) DP-11507: Remove richtext.js. #PR#
+- (Patternlab) DP-11507: Remove ll.8-29 where add hooks to table richtext.js. #450#
