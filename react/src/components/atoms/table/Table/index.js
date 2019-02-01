@@ -12,25 +12,11 @@ const Table = (table) => {
       tableWideClass = ' ma__table--wide';
     }
   }
-  const mergedCells = false;
   const responsiveClasses = classnames({
-    'ma__table--responsive__wrapper': true,
-    'ma__table--merged-cells': !!(mergedCells)
+    'ma__table--responsive__wrapper': true
   });
   return(
     <div className="ma__table--responsive js-ma-responsive-table">
-      <nav className="ma__table__horizontal-nav">
-        <button className="ma__table__horizontal-nav__left" aria-controls={table.id}>
-          <span className="visually-hidden">Scroll left</span>
-        </button>
-        <div className="ma__scroll-indicator" aria-controls={table.id} role="scrollbar" aria-orientation="horizontal">
-          <div className="ma__scroll-indicator__button" />
-        </div>
-
-        <button className="ma__table__horizontal-nav__right" aria-controls={table.id}>
-          <span className="visually-hidden">Scroll right</span>
-        </button>
-      </nav>
       <div className={responsiveClasses} role="region" id={table.id}>
         <table className={`ma__table${tableWideClass}`}>
           {
