@@ -1,2 +1,0 @@
-### Fixed
-- (React) add onBlur to InputNumber and consolidate countDecimal util function and add a default unit prop to InputNumber. #456
