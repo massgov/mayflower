@@ -54,6 +54,8 @@ class InputProvider extends React.Component {
   };
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
+      // By giving the form getters and setters and not the input value,
+      // extra re-renders are avoided when context updates.
       if (!Object.prototype.hasOwnProperty.call(formContext.value, this.props.id)) {
         const { value } = formContext;
         value[this.props.id] = { getValue: this.getValue, setValue: this.setValue };
