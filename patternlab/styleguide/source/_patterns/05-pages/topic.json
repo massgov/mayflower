@@ -180,12 +180,11 @@
     }
   },
   "relatedOrgsAndTopics": {
+    "header": "Related Information",
     "columns": [
       {
+        "column_title": "Organizations",
         "linkList": {
-          "sidebarHeading": {
-            "title": "Related Organizations"
-          },
           "stacked": true,
           "links": [
             {
@@ -240,10 +239,8 @@
         }
       },
       {
+        "column_title": "Topics",
         "linkList": {
-          "sidebarHeading": {
-            "title": "Related Topics"
-          },
           "stacked": true,
           "links": [
             {
@@ -257,14 +254,6 @@
             {
               "href": "#",
               "text": "Related Topic #3"
-            },
-            {
-              "href": "#",
-              "text": "Related Topic #4"
-            },
-            {
-              "href": "#",
-              "text": "Related Topic #5"
             }
           ]
         }

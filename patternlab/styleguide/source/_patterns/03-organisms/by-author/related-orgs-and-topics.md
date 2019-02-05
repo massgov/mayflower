@@ -10,6 +10,8 @@ This is a two column list layout for use on Topic pages
 
 ### Variables
 ~~~
+title: 
+  type: string / optional
 linkList : {
   compHeading: {
     type: compHeading / optional
