@@ -21,6 +21,7 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       inline: boolean('inputRadioGroup.inline', true),
       radioButtons: object('inputRadioGroup.radioButtons', inputRadioGroupOptions.radioButtons)
     };
+    console.table(InputRadioGroupProps.radioButtons);
 
     return(
       <InputRadioGroup {...InputRadioGroupProps} onChange={action('onChange')} />

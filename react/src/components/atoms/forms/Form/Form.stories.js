@@ -24,6 +24,9 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
     // Set the slider step to the same as the input step, so changing the slider matches changes to number.
     // Make sure the domain is within the same range as the min and max of the input to make this work.
     inputSliderOptionsWithKnobs.step = inputTextOptionsWithKnobs.step;
+    console.log(inputSliderOptionsWithKnobs);
+    console.log(inputTextOptionsWithKnobs);
+
     return(
       <FormProvider>
         <Form>

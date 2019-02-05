@@ -5,17 +5,23 @@ import './style.css';
 import { InputContext, FormContext } from './context';
 
 const Input = (props) => {
-  const inputClasses = classNames({
+  let inputClasses = classNames({
     'ma__input-group': true,
     'ma__input-group--inline': props.inline
   });
-  const inputLabelClasses = classNames({
+  if (props.inputClasses) {
+    inputClasses = `${inputClasses} ${props.inputClasses}`;
+  }
+  let inputLabelClasses = classNames({
     ma__label: true,
     'ma__label--hidden': (props.labelText && props.hiddenLabel),
     'ma__label--required': (props.labelText && props.required),
     'ma__label--optional': (props.labelText && !props.required),
     'ma__label--disabled': (props.labelText && props.disabled)
   });
+  if (props.inputLabelClasses) {
+    inputLabelClasses = `${inputLabelClasses} ${props.inputLabelClasses}`;
+  }
   // InputProvider will get the same props.children as Input.
   return(
     <React.Fragment>
