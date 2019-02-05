@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import numbro from 'numbro';
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
 import { InputContext } from '../Input/context';
 import './style.css';
@@ -44,7 +45,7 @@ const Handle = (props) => {
     <button className="ma__slider-handle" {...divProps}>
       { props.displayValueFormat && (
         <div className="ma__slider-handle-value">
-          { props.displayValueFormat === 'percentage' ? `${roundValue(step, value * 100, 0)}%` : roundedValue }
+          { props.displayValueFormat === 'percentage' ? numbro(value).format({ output: "percent", mantissa: 0 }) : roundedValue }
         </div>
       )
       }
