@@ -44,10 +44,10 @@
 
     .ma__link-list__item {
       font-size: 1.5rem;
-      line-height: 1;
+      line-height: 1.2;
       padding: 0;
-      margin-bottom: 1rem;
-      transition: max-height 0.4s, opacity 0.3s;
+      margin-bottom: 1.2rem;
+      transition: max-height 0.4s, opacity 0.4s;
 
       &:nth-child(n+4) {
         opacity: 0;
@@ -62,11 +62,13 @@
         &:nth-child(n+4) {
           opacity: 1;
           max-height: 4rem;
+          margin-bottom: 1.2rem;
         }
 
         &:nth-child(n+11) {
           opacity: 0;
           max-height: 0;
+          margin-bottom: 0;
         }
       }
     }
@@ -74,10 +76,14 @@
 
   &__column.open {
 
+    .ma__link-list__item {
+      margin-bottom: 1.2rem;
+    }
+
     .ma__link-list__item:nth-child(n+4) {
       opacity: 1;
-      max-height: 4rem;
-      transition: max-height 0.6s, opacity 0.4s;
+      max-height: 5rem;
+      transition: max-height 0.6s, opacity 0.6s;
     }
   }
 
