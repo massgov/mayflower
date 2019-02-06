@@ -14,5 +14,6 @@ export default {
   ticks: () => object('InputSlider.ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' }),
   domain: () => object('InputSlider.domain', { 0: 0, 1: 1 }),
   onChange: () => action('inputSlide.onChange'),
-  skipped: () => boolean('InputSlider.skipped', false)
+  skipped: () => boolean('InputSlider.skipped', false),
+  displayValueFormat: () => select('InputSlider.displayValueFormat', ['percentage', 'value', null], 'percentage')
 };
