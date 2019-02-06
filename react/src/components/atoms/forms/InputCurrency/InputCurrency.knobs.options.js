@@ -1,4 +1,6 @@
 import { text, boolean, number, object, select } from '@storybook/addon-knobs/react';
+import { action } from '@storybook/addon-actions';
+
 
 export default {
   hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
@@ -22,5 +24,6 @@ export default {
     thousandSeparated: true,
     negative: 'parenthesis'
   }),
+  onChange: () => action('onChange'),
   language: () => select('InputCurrency.language', ['English', 'Chinese', 'French', 'Russian'], 'English')
 };
