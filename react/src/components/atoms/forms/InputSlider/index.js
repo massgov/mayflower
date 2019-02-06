@@ -5,10 +5,10 @@ import CompoundSlider from '../CompoundSlider';
 
 const InputSlider = (props) => {
   const {
-    axis, max, min, step, ticks, onChange, domain, skipped, ...inputProps
+    axis, max, min, step, ticks, onChange, domain, skipped, displayValueFormat, ...inputProps
   } = props;
   const sliderProps = {
-    axis, max, min, step, defaultValue: props.defaultValue, onChange, domain, skipped
+    axis, max, min, step, defaultValue: props.defaultValue, onChange, domain, skipped, displayValueFormat
   };
   const { id, disabled } = inputProps;
   sliderProps.id = id;
@@ -49,7 +49,9 @@ InputSlider.propTypes = {
   /** The range of numbers, inclusively, for the slider to fall between. First number is the min and second number is the max. */
   domain: PropTypes.arrayOf(PropTypes.number),
   /** Whether to skip the slider with keyboard interaction and hide the slider on screen readers. */
-  skipped: PropTypes.bool
+  skipped: PropTypes.bool,
+  /** Display the value of the slider based. If null, don't display. If equals percentage, format the value in percentage. */
+  displayValueFormat: PropTypes.oneOf(['percentage', '', null])
 };
 
 

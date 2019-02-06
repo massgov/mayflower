@@ -45,10 +45,12 @@ $margin: 20px;
       }
 
       &-value {
-        display: none;
-        font-size: 1rem;
-        margin-top: -20px;
-        color: $c-black;
+        font-size: 1.1rem;
+        margin: -30px auto 0;
+        position: absolute;
+         left: 0;
+        color: $c-primary;
+        font-weight: 500;
       }
     }
   }
