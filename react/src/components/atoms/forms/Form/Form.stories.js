@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs } from '@storybook/addon-knobs/react';
+import {object, withKnobs, array, text} from '@storybook/addon-knobs/react';
 
 import Form, { FormProvider } from './index';
 import InputNumber from '../InputNumber';
@@ -12,13 +12,20 @@ import InputSlider from '../InputSlider';
 
 storiesOf('atoms/forms', module).addDecorator(withKnobs)
   .add('Form', withInfo(`<div></div>`)(() => {
+    delete InputNumberOptions.defaultValue;
     const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
       { [k]: v() })));
+    delete InputSliderOptions.ticks;
+    delete InputSliderOptions.domain;
+    delete InputSliderOptions.labelText;
     const inputSliderOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
       { [k]: v() })));
+    inputSliderOptionsWithKnobs.labelText = text('InputSlider.labelText', 'Slider (Linked to Input 3)');
+    inputSliderOptionsWithKnobs.ticks = object('InputSlider.ticks', { 0: '0%', 60: 'Minimum requirement', 100: '100%' });
+    const formTicks = object('Form.ticks', { 0: '0%', 60: 'Minimum requirement', 100: '100%' });
     const ticks = [];
-    const domain = [0, 100];
-    Object.keys(inputSliderOptionsWithKnobs.ticks).forEach((tick) => ticks.push([tick, inputSliderOptionsWithKnobs.ticks[tick]]));
+    const domain = array('Form.domain', [0, 100]).map((x) => Number(x));
+    Object.keys(formTicks).forEach((tick) => ticks.push([tick, formTicks[tick]]));
     inputSliderOptionsWithKnobs.ticks = ticks;
     inputSliderOptionsWithKnobs.domain = domain;
     // Set the slider step to the same as the input step, so changing the slider matches changes to number.
@@ -44,13 +51,58 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
                       formContext.setValue({ id: 'test0', value: formContext.getValue('test1')});
                     }
                   }
+                  if (formContext.hasId('test3')) {
+                    if (id === 'test3') {
+                      formContext.setValue({ id: 'slider', value: formContext.getValue('test3') });
+                    }
+                  }
               };
-              const ids = [
-                'test0',
-                'test1',
-                'test2',
-                'test3'
-              ];
+              const ids = new Map([
+                [
+                  'test0',
+                  {
+                    ...inputTextOptionsWithKnobs,
+                    key: 'Form.InputNumber.test0',
+                    defaultValue: 0,
+                    labelText: 'Input 0 (Linked to Input 1)',
+                    id: 'test0'
+                  }
+                ],
+                [
+                  'test1',
+                  {
+                    ...inputTextOptionsWithKnobs,
+                    key: 'Form.InputNumber.test1',
+                    defaultValue: 1,
+                    labelText: 'Input 1 (Linked to Input 0)',
+                    id: 'test1'
+                  }
+                ],
+                [
+                  'test2',
+                  {
+                    ...inputTextOptionsWithKnobs,
+                    key: 'Form.InputNumber.test2',
+                    defaultValue: 2,
+                    labelText: 'Input 2 (Set to 25 when Input 1 is 30)',
+                    id: 'test2'
+                  }
+                ],
+                [
+                  'test3',
+                  {
+                    ...inputTextOptionsWithKnobs,
+                    key: 'Form.InputNumber.test3',
+                    defaultValue: 0,
+                    labelText: 'Input 3 (Linked to Slider)',
+                    id: 'test3'
+                  }
+                ]
+              ]);
+              const inputs = [];
+              ids.forEach((numberProps) => {
+                inputs.push(<InputNumber {...numberProps} />);
+              });
               inputSliderOptionsWithKnobs.onChange = (newVal, id) => {
                 if (formContext.hasId(id)) {
                   formContext.setValue({ id: 'test3', value: formContext.getValue(id) });
@@ -58,8 +110,8 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
               };
               return(
                 <React.Fragment>
-                  {ids.map((id, index) => <InputNumber key={`Form.InputNumber.${index}`} {...inputTextOptionsWithKnobs} id={id} defaultValue={index} />)}
-                  <InputSlider {...inputSliderOptionsWithKnobs} />
+                  {inputs}
+                  <InputSlider {...inputSliderOptionsWithKnobs} id="slider" />
                 </React.Fragment>
               );
             }

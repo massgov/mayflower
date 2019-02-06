@@ -150,7 +150,7 @@ class CompoundSlider extends Component {
               }
               return current;
             };
-            const defaultValue = domainCheck(Number(this.props.defaultValue));
+            const defaultValue = domainCheck(Number(context.getValue()));
             const sliderProps = {
               domain,
               step,
