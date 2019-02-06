@@ -8,7 +8,9 @@
       {% include "@organisms/by-author/link-list.twig" %}
 
       {% if column.linkList.links|length > 3 %}
-        <button type="button" class="ma__related-orgs-and-topics--toggle js-ma__related-orgs-and-topics--toggle" aria-label="See more {{ column.column_title }}">show <span class="more">more</span><span class="fewer">fewer</span></button>
+        <button type="button" class="ma__related-orgs-and-topics--toggle js-ma__related-orgs-and-topics--toggle">
+          show <span class="more">more</span><span class="fewer">fewer</span><span class="ma__visually-hidden">{{ column.column_title }}</span>
+        </button>
       {% endif %}
     </div>
     {% endfor %}
