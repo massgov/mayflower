@@ -16,7 +16,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ## 8.25.0 (02/06/2019)
 
 ### Added
-- (PatternLab) DP-11087: Create Mayflower for new footer based feedback form - Option 2b (simplest) #351
 - (PatternLab) DP-11135: Create Mayflower for new feedback form - Option 2a (contact link) #352
 - (PatternLab) DP-11301:  Feedback integration updates and merging to develop #434
 - (PatternLab) DP-12404: Added a formDownloads block to the following twig templates: court-rules.twig, policy-advisory.twig, & executive-order.twig. #440
