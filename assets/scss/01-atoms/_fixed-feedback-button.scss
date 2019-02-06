@@ -18,14 +18,13 @@
     display: block;
     font-size: 1.5rem;
     font-weight: 500;
-    left: 0;
+    left: -40px;
     letter-spacing: 0.15rem;
     padding: 0 10px;
     position: absolute;
     pointer-events: auto;
-    top: 50%;
-    transform: rotate(-90deg) translatex(-50%);
-    transform-origin: top left;
+    top: 115px;
+    transform: rotate(270deg);
     z-index: $z-sticky-content;
   }
 
