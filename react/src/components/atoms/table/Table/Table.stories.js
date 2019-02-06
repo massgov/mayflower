@@ -11,8 +11,9 @@ import tableOptions from './Table.knobs.options';
 storiesOf('atoms/table', module)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
-  .add('Table', (() => (
-    <Table {...object('tableOptions.feeTable', tableOptions.feeTable)} />
-  )),
-   { info: TableDocs }
+  .add(
+    'Table', (() => (
+      <Table {...object('tableOptions.feeTable', tableOptions.feeTable)} />
+    )),
+    { info: TableDocs }
   );

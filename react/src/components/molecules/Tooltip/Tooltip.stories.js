@@ -3,13 +3,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, boolean } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
-import tooltipOptions from './Tooltip.knob.options';
 
+import tooltipOptions from './Tooltip.knob.options';
 import Tooltip from './index';
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs)
-  .add('Tooltip', withInfo('<div>Tooltip</div>')(() => {
+  .add('Tooltip', (() => {
     const props = {
       openText: text('Tooltip.openText', tooltipOptions.openText),
       closeText: text('Tooltip.closeText', tooltipOptions.closeText),

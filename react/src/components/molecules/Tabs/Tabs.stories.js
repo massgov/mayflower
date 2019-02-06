@@ -8,8 +8,9 @@ import { action } from '@storybook/addon-actions';
 import Tabs from './index';
 import tabsOptions from './Tabs.knobs.options';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('Tabs', withInfo('<div></div>')(() => {
+storiesOf('molecules', module)
+  .addDecorator(withKnobs)
+  .add('Tabs', (() => {
     const props = {
       tabs: object('tabs', tabsOptions.tabValues),
       handleClick: action('tab clicked'),

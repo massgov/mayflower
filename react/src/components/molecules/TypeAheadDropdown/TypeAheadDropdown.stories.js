@@ -7,10 +7,10 @@ import { action } from '@storybook/addon-actions';
 
 import TypeAheadDropdown from '.';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
-// import SearchBannerDocs from './SearchBannerForm.md';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('TypeAheadDropdown', withInfo('<div></div>')(() => {
+storiesOf('molecules', module)
+  .addDecorator(withKnobs)
+  .add('TypeAheadDropdown', (() => {
     const options = inputOptions.options.orgSelector;
     options[0] = { text: 'All Organizations', value: '' };
     const props = {

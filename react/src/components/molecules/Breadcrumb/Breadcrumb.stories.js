@@ -28,7 +28,7 @@ const getItem = (itemText, index, currentPage) => (
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs)
-  .add('Breadcrumb', withInfo('<div></div>')(() => (
+  .add('Breadcrumb', (() => (
     <Breadcrumb>
       {getItem('Appropriation Recommendation', 0)}
       {getItem('Independents', 1)}

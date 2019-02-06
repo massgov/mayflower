@@ -7,8 +7,9 @@ import logo from '../../../assets/images/stateseal.png';
 import HeaderSlim from '.';
 import { SiteLogo } from '../../../index';
 
-storiesOf('organisms', module).addDecorator(withKnobs)
-  .add('HeaderSlim', withInfo('<div></div>')(() => {
+storiesOf('organisms', module)
+  .addDecorator(withKnobs)
+  .add('HeaderSlim', (() => {
     const siteLogoProps = {
       url: {
         domain: text('siteLogo.url.domain', 'https://www.mass.gov/')
