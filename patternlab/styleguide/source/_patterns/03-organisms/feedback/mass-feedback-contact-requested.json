@@ -45,7 +45,7 @@
   },
   "helperText": {
     "inputId": "GUID2738572489",
-    "message": "Do not include sensetive information, such as Social Security or bank account numbers."
+    "message": "Do not include sensitive information, such as Social Security or bank account numbers."
   },
   "Response": "Would you like a response from",
   "responseRequired": {

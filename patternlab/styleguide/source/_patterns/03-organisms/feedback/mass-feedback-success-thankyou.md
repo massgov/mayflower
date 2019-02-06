@@ -1,5 +1,5 @@
 ### Description
-This Pattern contains the markup for the feedback form success and thanky you panels
+This Pattern contains the markup for the feedback form success and thank you panels
 
 ### Status
 * Stable as of 5.0.0
