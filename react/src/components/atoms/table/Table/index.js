@@ -107,6 +107,7 @@ Table.propTypes = {
   }),
   bodies: PropTypes.arrayOf(PropTypes.shape({
     rows: PropTypes.arrayOf(PropTypes.shape({
+      // If true, padding-left is set to zero on the first th/td.
       rowSpanOffset: PropTypes.bool,
       cells: PropTypes.arrayOf(PropTypes.shape({
         heading: PropTypes.bool.isRequired,
