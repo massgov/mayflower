@@ -26,13 +26,13 @@ const InputRadio = (props) => {
         name={props.name}
         type="radio"
         value={props.value}
-        id={props.id ? props.id : props.value}
+        id={props.id || props.value}
         required={props.required}
         onChange={props.onChange}
         disabled={props.disabled}
         className={inputClasses}
       />
-      <label htmlFor={props.id} className={labelClasses}>
+      <label htmlFor={props.id || props.value} className={labelClasses}>
         <span>{props.label}</span>
       </label>
     </div>

@@ -13,7 +13,63 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
-## 8.21.0 (01/24/2019
+## 8.24.1 (01/31/2019)
+
+### Fixed
+- (React): Remove will receive props from input component. #454
+- (React) add onBlur to InputNumber and consolidate countDecimal util function and add a default unit prop to InputNumber. #456
+
+## 8.24.0 (01/31/2019)
+
+### Changed
+- (Patternlab) DP-9200: Add labelContext to decorative link #425
+
+### Fixed
+- (React) #449
+  - allow InputNumber to update on defaultValue prop change
+  - fix disabled styling of InputNumber with unit on disabled
+  - make up/down buttons optional
+  - add option to skip the slider
+
+## 8.23.3 (01/30/2019)
+
+### Fixed
+- (React) hotfix: change input buttons positioning from absolute to using flexbox.
+
+## 8.23.2 (01/30/2019)
+
+### Fixed
+- (React) hotfix: preventDefault inputSlider handle onClick.
+
+## 8.23.1 (01/30/2019)
+
+### Fixed
+- (React) hotfix: fix proptype check function name.
+
+## 8.23.0 (01/30/2019)
+
+### Added
+- (React) DP-12303: Adds CompoundSlider, InputSlider, Error components and adds the react-compound-slider package. #431
+- (React) DP-12303: Adds FormContext support, changes the way Input renders to reduce re-renders on context changes. #431
+- (React) DP-12413: Add unit option in InputNumber for rendering percentage. #436
+- (React) DP-12451: Added an inline option for Input and fixed responsiveness. Allow Input labelText to render elements other than a string. #441
+
+### Fixed
+- (React) bugfix: Allow InputNumber up/down button onClick callback to access value from input. #439
+
+## 8.22.0 (01/29/2019)
+
+### Added
+- (React) DP-12338: Added a help tip organism. #432
+- (React) DP-12338: Added a close icon. #432
+- (React) DP-12379: Added InputNumber component. #430
+- (React) DP-12379: Added disabled state to InputCurrency and allow passing custom onChange callback. #430
+- (Patternlab) DP-12387: Added a block to the steps-ordered.twig and action-step.twig to use a view mode on the Drupal twig. #428
+
+### Fixed
+- (React) DP-12428: Fix missing key on the radio button group and id prop issue. #435
+
+## 8.21.0 (01/24/2019)
 
 ### Added
 - (React) DP-12318: Adds the form components input radio button (atom) and input radio button group (molecule) to mayflower-react. #424

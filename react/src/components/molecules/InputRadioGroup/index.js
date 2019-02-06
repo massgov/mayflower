@@ -46,8 +46,9 @@ class InputRadioGroup extends React.Component {
             <div className={itemsClasses}>
               {this.props.radioButtons.map((radioButton, index) => {
               const isChecked = radioButton.value === this.state.selected;
+              const buttonId = radioButton.id || radioButton.value
               return(
-                <div className={`ma__input-group__item item-${this.props.radioButtons.length}`}>
+                <div className={`ma__input-group__item item-${this.props.radioButtons.length}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
                   <InputRadio
                     {...radioButton}
                     name={this.props.name}
@@ -58,7 +59,7 @@ class InputRadioGroup extends React.Component {
                     error={this.props.error}
                     disabled={this.props.disabled}
                     // eslint-disable-next-line react/no-array-index-key
-                    key={`InputRadioGroup-${radioButton.id}-${index}`}
+                    key={`InputRadioGroup-${buttonId}-${index}`}
                   />
                 </div>
               );
