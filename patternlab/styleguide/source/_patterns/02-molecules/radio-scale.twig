@@ -1,0 +1,53 @@
+<fieldset class="ma__radio-scale {{ radioScale.fieldsetClasses|default() }}">
+
+  {% if radioScale.beforeText or radioScale.afterText %}
+    <style>
+      {% if radioScale.beforeText %}
+        .ma__radio-scale__radios::before {
+          content: "{{ radioScale.beforeText.text }}";
+        }
+      {% endif %}
+      {% if radioScale.afterText %}
+        .ma__radio-scale__radios::after {
+          content: "{{ radioScale.afterText.text }}";
+        }
+      {% endif %}
+    </style>
+  {% endif %}
+
+  {% if radioScale.legend %}
+    <legend class="ma__radio-scale__legend {{ radioScale.legend.legendClasses|default() }}">{{ radioScale.legend.text }}</legend>
+  {% endif %}
+
+  <div class="ma__radio-scale__radios">
+    {% for radio in radioScale.radioOptions %}
+      <label
+            class="ma__radio-scale__label {{ radio.labelClasses|default() }}"
+            {% if radio.for_id %}
+              for="{{ radio.for_id }}"
+            {% endif %}
+      >
+
+        <input
+              class="ma__radio-scale__radio {{ radio.inputClasses|default() }}"
+              type="radio"
+              {% if radio.checked %}
+                checked="checked"
+              {% endif %}
+              {% if radio.for_id %}
+                id="{{ radio.for_id }}"
+              {% endif %}
+              {% if radio.name %}
+                name="{{ radio.name }}"
+              {% endif %}
+              {% if radio.value %}
+                value="{{ radio.value }}"
+              {% endif %}
+        />
+        {% if radio.text %}
+          <span class="ma__radio-scale__text {{ radio.textClasses|default() }}">{{ radio.text }}</span>
+        {% endif %}
+      </label>
+    {% endfor %}
+  </div>
+</fieldset>
