@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { FormContext } from '../Input/context';
 
 const Form = (props) => (
@@ -13,7 +14,7 @@ const Form = (props) => (
   </FormContext.Consumer>
 );
 
-export class FormProvider extends Component {
+class FormProvider extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,6 +60,11 @@ FormProvider.defaultProps = {
   isActive: true
 };
 
-FormProvider.contextType = FormContext;
+FormProvider.propTypes = {
+  /** Controls if child Input components should hook into FormContext or not */
+  isActive: PropTypes.bool
+};
 
+FormProvider.contextType = FormContext;
+export { FormProvider };
 export default Form;

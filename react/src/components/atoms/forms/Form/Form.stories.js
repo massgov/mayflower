@@ -5,13 +5,14 @@ import { withInfo } from '@storybook/addon-info';
 import {object, withKnobs, array, text} from '@storybook/addon-knobs/react';
 
 import Form, { FormProvider } from './index';
+import FormInfo from './Form.md';
 import InputNumber from '../InputNumber';
 import InputNumberOptions from '../InputNumber/InputNumber.knobs.options';
 import InputSliderOptions from '../InputSlider/InputSlider.knobs.options';
 import InputSlider from '../InputSlider';
 
 storiesOf('atoms/forms', module).addDecorator(withKnobs)
-  .add('Form', withInfo(`<div></div>`)(() => {
+  .add('Form', withInfo(`<div>${FormInfo}</div>`)(() => {
     delete InputNumberOptions.defaultValue;
     const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
       { [k]: v() })));
