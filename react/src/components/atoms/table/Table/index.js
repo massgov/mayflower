@@ -43,7 +43,7 @@ const Table = (table) => {
                 const headerCellIndex = (cellIndex + 1) - tableIndexOffset;
                 if (tableHeaderRow.cells && tableHeaderRow.cells.length > 0 && headerCellIndex > 0) {
                   // Mayflower twig loops started at 1 - add one to index.
-                  dataLabel = tableHeaderRow.cells[headerCellIndex].text;
+                  dataLabel = tableHeaderRow.cells[headerCellIndex] ? tableHeaderRow.cells[headerCellIndex].text : '';
                 }
                 const defaultCellKey = `${defaultRowKey}-cell${cellIndex}`;
                 const cellClasses = classnames({
