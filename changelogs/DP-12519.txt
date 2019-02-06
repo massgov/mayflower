@@ -1,2 +1,0 @@
-### Fixed
-- (React): DP-12519: Fixed button height for overflow content and added class prop to radioButtons to allow override default breakpoints to stack at medium or large breakpoints. #461
