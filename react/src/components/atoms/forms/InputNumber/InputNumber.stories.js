@@ -6,13 +6,18 @@ import { withKnobs } from '@storybook/addon-knobs/react';
 
 import InputNumber from './index';
 import InputNumberOptions from './InputNumber.knobs.options';
-import inputNumberText from './InputNumber.md';
+import InputNumberDocs from './InputNumber.md';
 
-storiesOf('atoms/forms', module).addDecorator(withKnobs)
-  .add('InputNumber', withInfo(`<div>${inputNumberText}</div>`)(() => {
-    const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
-      { [k]: v() })));
-    return(
-      <InputNumber {...inputTextOptionsWithKnobs} />
-    );
-  }));
+storiesOf('atoms/forms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .add(
+    'InputNumber', (() => {
+      const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
+        { [k]: v() })));
+      return(
+        <InputNumber {...inputTextOptionsWithKnobs} />
+      );
+    }),
+    { info: InputNumberDocs }
+  );

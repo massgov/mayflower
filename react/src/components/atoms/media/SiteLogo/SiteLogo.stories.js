@@ -6,10 +6,12 @@ import { withKnobs, text, number } from '@storybook/addon-knobs/react';
 import logo from 'SharedAssets/images/stateseal.png';
 
 import SiteLogo from '.';
-import SiteLogoReadme from './SiteLogo.md';
+import SiteLogoDocs from './SiteLogo.md';
 
-storiesOf('atoms/media', module).addDecorator(withKnobs)
-  .add('SiteLogo', withInfo(`<div>${SiteLogoReadme}</div>`)(() => {
+storiesOf('atoms/media', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .add('SiteLogo', (() => {
     const siteLogoProps = {
       url: {
         domain: text('siteLogo.url.domain', 'https://www.mass.gov/')
@@ -24,4 +26,6 @@ storiesOf('atoms/media', module).addDecorator(withKnobs)
       title: text('siteLogo.title', 'Mass.gov homepage')
     };
     return(<SiteLogo {...siteLogoProps} />);
-  }));
+  }),
+   { info: SiteLogoDocs }
+  );

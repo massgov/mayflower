@@ -7,16 +7,21 @@ import FootNote from './index';
 import FootNoteLink from '../FootNoteLink/index';
 import FootNoteDocs from './FootNote.md';
 
-storiesOf('atoms/links', module).addDecorator(withKnobs)
-  .add('FootNote', withInfo(`<div>${FootNoteDocs}</div>`)(() => {
-    const props = {
-      index: text('FootNote.index', '1'),
-      children: text('FootNote.children', 'This is the footnote <a href="https://www.mass.gov/">(reference)</a>.')
-    };
-    return(
-      <div>
-        <p>This is where the footnote would be referenced. <FootNoteLink index={props.index} /> </p>
-        <FootNote index={props.index}>{props.children}</FootNote>
-      </div>
-    );
-  }));
+storiesOf('atoms/links', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .add(
+    'FootNote', (() => {
+      const props = {
+        index: text('FootNote.index', '1'),
+        children: text('FootNote.children', 'This is the footnote <a href="https://www.mass.gov/">(reference)</a>.')
+      };
+      return(
+        <div>
+          <p>This is where the footnote would be referenced. <FootNoteLink index={props.index} /> </p>
+          <FootNote index={props.index}>{props.children}</FootNote>
+        </div>
+      );
+    }),
+    { info: FootNoteDocs }
+  );

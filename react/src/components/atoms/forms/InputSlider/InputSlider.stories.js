@@ -6,20 +6,25 @@ import { withKnobs } from '@storybook/addon-knobs/react';
 
 import InputSlider from './index';
 import InputSliderOptions from './InputSlider.knobs.options';
-import inputSliderText from './InputSlider.md';
+import InputSliderDocs from './InputSlider.md';
 
-storiesOf('atoms/forms', module).addDecorator(withKnobs)
-  .add('InputSlider', withInfo(`<div>${inputSliderText}</div>`)(() => {
-    const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
-      { [k]: v() })));
-    const ticks = [];
-    const domain = [];
-    Object.keys(inputTextOptionsWithKnobs.ticks).forEach((tick) => ticks.push([tick, inputTextOptionsWithKnobs.ticks[tick]]));
-    inputTextOptionsWithKnobs.ticks = ticks;
-    // Object knob converts numbers to strings - put it back to number.
-    Object.keys(inputTextOptionsWithKnobs.domain).forEach((range) => domain.push(Number(range)));
-    inputTextOptionsWithKnobs.domain = domain;
-    return(
-      <InputSlider {...inputTextOptionsWithKnobs} />
-    );
-  }));
+storiesOf('atoms/forms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .add(
+    'InputSlider', (() => {
+      const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
+        { [k]: v() })));
+      const ticks = [];
+      const domain = [];
+      Object.keys(inputTextOptionsWithKnobs.ticks).forEach((tick) => ticks.push([tick, inputTextOptionsWithKnobs.ticks[tick]]));
+      inputTextOptionsWithKnobs.ticks = ticks;
+      // Object knob converts numbers to strings - put it back to number.
+      Object.keys(inputTextOptionsWithKnobs.domain).forEach((range) => domain.push(Number(range)));
+      inputTextOptionsWithKnobs.domain = domain;
+      return(
+        <InputSlider {...inputTextOptionsWithKnobs} />
+      );
+    }),
+    { info: InputSliderDocs }
+  );

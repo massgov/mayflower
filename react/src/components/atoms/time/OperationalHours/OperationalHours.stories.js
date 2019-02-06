@@ -15,7 +15,8 @@ const weekday = [
   'saturday'
 ];
 
-storiesOf('atoms/time', module).addDecorator(withKnobs)
+storiesOf('atoms/time', module)
+  .addDecorator(withKnobs)
   .add('OperationalHours', withInfo('<div></div>')(() => {
     const showActive = boolean('OperationalHours.showActive', false);
     const startTime = new Date('March 15, 2002 03:00:00');

@@ -4,7 +4,8 @@ import { withKnobs, select, text, array, boolean } from '@storybook/addon-knobs/
 import { assets, svgOptions } from './Icon.knob.options';
 import Icon from './index';
 
-storiesOf('atoms/icons', module).addDecorator(withKnobs)
+storiesOf('atoms/icons', module)
+  .addDecorator(withKnobs)
   .add('Icon', () => {
     // This needs to be dynamic somehow.
 

@@ -9,10 +9,11 @@ import InputTextTypeAhead from './index';
 import inputOptions from './InputTextTypeAhead.knobs.options';
 import InputTextTypeAheadDocs from './InputTextTypeAhead.md';
 
-storiesOf('atoms/forms', module).addDecorator(withKnobs)
+storiesOf('atoms/forms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
   .add(
-    'InputTextTypeAhead',
-    withInfo(`<div>${InputTextTypeAheadDocs}</div>`)(() => {
+    'InputTextTypeAhead', (() => {
       const props = {
         boxed: boolean('inputTextTypeAhead.boxed', true),
         label: text('inputTextTypeAhead.label', 'State Organization'),
@@ -28,5 +29,6 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         disabled: boolean('InputTextTypeAhead.disabled', false)
       };
       return(<InputTextTypeAhead {...props} />);
-    })
+    }),
+    { info: InputTextTypeAheadDocs }
   );
