@@ -102,7 +102,7 @@
 
 $spacing: 1rem;
 $border-radius: 4px;
-$control-height: $spacing * 2.25;
+$control-height: 1.2rem;
 
 .ma__input-radio--outline {
   &__control {
@@ -112,9 +112,9 @@ $control-height: $spacing * 2.25;
   &__label {
     display: block; // so that `label` expands to fill space and respects padding
     position: relative; // so that pseudoelements are positioned relative to this container
-    height: $control-height;
+    min-height: $control-height;
     line-height: $control-height;
-    padding: 0 $spacing 0 ($spacing * 2.75);
+    padding: 0.5rem $spacing 0.5rem ($spacing * 2.75);
     cursor: pointer;
     user-select: none;
     z-index: 0; // create new stacking context so ::after pseudoelement doesn't go behind document
