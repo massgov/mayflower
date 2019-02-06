@@ -40,7 +40,7 @@ const Table = (table) => {
             <tr key={row.key || defaultRowKey} className={row.rowSpanOffset ? 'is-offset' : null}>
               { row.cells.map((cell, cellIndex) => {
                 let dataLabel = null;
-                if ((cellIndex > 0) && tableHeaderRow.cells && tableHeaderRow.cells.length > 0) {
+                if ((cellIndex > 0 && rowIndex > 0) && tableHeaderRow.cells && tableHeaderRow.cells.length > 0) {
                   // Mayflower twig loops started at 1 - add one to index.
                   dataLabel = tableHeaderRow.cells[(cellIndex + 1) - tableIndexOffset].text;
                 }
