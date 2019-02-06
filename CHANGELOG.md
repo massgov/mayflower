@@ -13,6 +13,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 8.25.0 (02/06/2019)
+
+### Added
+- (PatternLab) DP-11087: Create Mayflower for new footer based feedback form - Option 2b (simplest) #351
+- (PatternLab) DP-11135: Create Mayflower for new feedback form - Option 2a (contact link) #352
+- (PatternLab) DP-11301:  Feedback integration updates and merging to develop #434
+- (PatternLab) DP-12404: Added a formDownloads block to the following twig templates: court-rules.twig, policy-advisory.twig, & executive-order.twig. #440
+- (PatternLab) DP-12464: Added a block to the action-steps.twig for decorativeLink. #451
+- (React) Added options to render value above the InputSlider handle #455
+
+### Fixed
+- (React): DP-12519: Fixed button height for overflow content and added class prop to radioButtons to allow override default breakpoints to stack at medium or large breakpoints. #461
+- (Patternlab) DP-9204: Add a label to the video container. Change the reading order to 1. label, 2. transcript link, 3. video for screenreader users. #433
+
 ## 8.24.1 (01/31/2019)
 
 ### Fixed
