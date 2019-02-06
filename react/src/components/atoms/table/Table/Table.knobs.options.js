@@ -45,7 +45,7 @@ export default {
           text: '$27.50'
         }]
       }, {
-        rowSpanOffset: true,
+        rowSpanOffset: false,
         cells: [{
           heading: false,
           colspan: '',
