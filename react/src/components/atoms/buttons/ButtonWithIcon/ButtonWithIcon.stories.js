@@ -18,7 +18,7 @@ const icons = {
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ButtonWithIcon', (() => {
       const props = {

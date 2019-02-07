@@ -9,7 +9,7 @@ import NarrowTemplateOptions from './NarrowTemplate.knobs.options';
 
 storiesOf('templates', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'NarrowTemplate', (() => {
       const siteLogoDomainProps = {

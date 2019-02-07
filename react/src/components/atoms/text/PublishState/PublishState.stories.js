@@ -8,7 +8,7 @@ import PublishState from './index';
 
 storiesOf('atoms/text', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'PublishState', (() => {
       const props = {

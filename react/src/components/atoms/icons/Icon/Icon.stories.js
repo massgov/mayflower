@@ -5,7 +5,7 @@ import { assets, svgOptions } from './Icon.knob.options';
 import Icon from './index';
 
 storiesOf('atoms/icons', module)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Icon', () => {
     // This needs to be dynamic somehow.
 

@@ -10,7 +10,7 @@ import InputCurrencyDocs from './InputCurrency.md';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputCurrency', (() => {
       const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputCurrencyOptions).map(([k, v]) => (

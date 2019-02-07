@@ -9,7 +9,7 @@ import FootNoteDocs from './FootNote.md';
 
 storiesOf('atoms/links', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'FootNote', (() => {
       const props = {

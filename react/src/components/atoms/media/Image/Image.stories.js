@@ -9,7 +9,7 @@ import ImageDocs from './Image.md';
 
 storiesOf('atoms/media', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Image', (() => {
       const props = {

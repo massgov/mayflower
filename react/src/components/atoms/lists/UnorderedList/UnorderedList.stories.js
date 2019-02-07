@@ -11,7 +11,7 @@ import unorderedOptions from './UnorderedList.knob.options';
 
 storiesOf('atoms/lists', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'UnorderedList', (() => {
       const orderedOptionsWithKnobs = Object.assign(...Object.entries(unorderedOptions).map(([k, v]) => (

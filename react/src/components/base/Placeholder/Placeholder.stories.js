@@ -8,7 +8,7 @@ import PlaceholderDocs from './Placeholder.md';
 
 storiesOf('base', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Placeholder', (() => {
       const props = {

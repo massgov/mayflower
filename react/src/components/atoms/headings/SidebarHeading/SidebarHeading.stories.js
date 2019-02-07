@@ -9,7 +9,7 @@ import SidebarHeading from './index';
 
 storiesOf('atoms/headings', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SidebarHeading', (() => {
       const levelOptions = {

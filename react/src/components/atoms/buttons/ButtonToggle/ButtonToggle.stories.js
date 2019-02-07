@@ -11,7 +11,7 @@ import buttonToggleOptions from './ButtonToggle.knobs.options';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ButtonToggle', (() => {
       const props = {

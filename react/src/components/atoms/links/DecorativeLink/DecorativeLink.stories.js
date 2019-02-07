@@ -11,7 +11,7 @@ import DecorativeLinkDocs from './DecorativeLink.md';
 
 storiesOf('atoms/links', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DecorativeLink', (() => {
       const decoreOptionsWithKnobs = Object.assign(...Object.entries(decorativeLinkOptions).map(([k, v]) => (

@@ -6,7 +6,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 import Heading from './index';
 
 storiesOf('atoms/headings', module)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Heading', (() => {
     const levelOptions = {
       1: '1',

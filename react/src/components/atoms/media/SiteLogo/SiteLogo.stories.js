@@ -10,7 +10,7 @@ import SiteLogoDocs from './SiteLogo.md';
 
 storiesOf('atoms/media', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SiteLogo', (() => {
       const siteLogoProps = {

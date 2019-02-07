@@ -9,7 +9,7 @@ import ArrowNavDocs from './ArrowNav.md';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ArrowNav', (() => {
       const props = {

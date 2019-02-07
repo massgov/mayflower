@@ -10,7 +10,7 @@ import headingsOptions from '../Headings.knobs.options';
 
 storiesOf('atoms/headings', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ColoredHeading', (() => {
       const props = {

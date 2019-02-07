@@ -7,7 +7,7 @@ import tooltipOptions from './Tooltip.knob.options';
 import Tooltip from './index';
 
 storiesOf('molecules', module)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Tooltip', (() => {
     const props = {
       openText: text('Tooltip.openText', tooltipOptions.openText),

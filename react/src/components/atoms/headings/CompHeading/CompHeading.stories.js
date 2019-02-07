@@ -10,7 +10,7 @@ import CompHeadingDocs from './CompHeading.md';
 
 storiesOf('atoms/headings', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Comp Heading', (() => {
       const compOptionsWithKnobs = Object.assign(...Object.entries(compHeadingOptions).map(([k, v]) => (
