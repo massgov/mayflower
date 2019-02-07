@@ -11,7 +11,7 @@ import SelectBoxDocs from './SelectBox.md';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SelectBox', (() => {
       const props = {

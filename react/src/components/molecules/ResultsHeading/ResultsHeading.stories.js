@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs/react';
@@ -7,7 +6,7 @@ import { action } from '@storybook/addon-actions';
 
 import ResultsHeading from './index';
 import ResultsHeadingDocs from './ResultsHeading.md';
-import { TagsData, SortData } from './ResultsHeading.knobs.options';
+import { TagsData, SortData, InputType } from './ResultsHeading.knobs.options';
 import buttonToggleOptions from '../../atoms/buttons/ButtonToggle/ButtonToggle.knobs.options';
 
 storiesOf('molecules', module)
@@ -15,7 +14,7 @@ storiesOf('molecules', module)
   .addDecorator(withKnobs)
   .add(
     'ResultsHeading', (() => {
-      const inputType = select('sortResults.inputType', { '': 'None', buttonToggle: 'buttonToggle', selectBox: 'selectBox' }, 'selectBox');
+      const inputType = select('sortResults.inputType', InputType, 'selectBox');
       const props = {
         numResults: text('resultsHeading.numResults', '1-12'),
         totalResults: text('resultsHeading.totalResults', '108'),

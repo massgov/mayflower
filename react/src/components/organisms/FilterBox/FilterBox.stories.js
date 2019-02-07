@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
@@ -8,14 +7,13 @@ import { InputTextTypeAhead, SelectBox, DateRange } from '../../../index';
 
 import FilterBox from '.';
 import sharedProps from './FilterBox.props';
-
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('organisms', module)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('FilterBox', (() => {
     const organization = {
       label: text('filterBox.organization.label', 'State organization'),

@@ -1,18 +1,16 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, array, object, boolean, number } from '@storybook/addon-knobs/react';
 
 import { DecorativeLink, Paragraph } from '../../../index';
-
 import TeaserListing from '.';
 import TeaserListingDocs from './TeaserListing.md';
 import TeaserListingData from './TeaserListing.knob.options';
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'TeaserListing', (() => {
       const featuredOptions = TeaserListingData.teaserListing.featuredItems.map((item, index) => {

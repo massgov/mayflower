@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
@@ -18,7 +17,7 @@ const themeOptions = {
 };
 
 storiesOf('organisms/HelpTip', module)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('HelpTip with HelpText', (() => {
     const props = {
       textBefore: text('helpTip.textBefore', 'I am a sentence with an '),

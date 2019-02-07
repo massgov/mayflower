@@ -10,7 +10,7 @@ import { SiteLogo } from '../../../index';
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'FooterSlim', (() => {
       const siteLogoProps = {

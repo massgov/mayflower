@@ -8,7 +8,7 @@ import ErrorPageDocs from './ErrorPage.md';
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ErrorPage', (() => {
       const props = {

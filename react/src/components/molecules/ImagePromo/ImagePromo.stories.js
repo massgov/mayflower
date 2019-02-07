@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, number, boolean } from '@storybook/addon-knobs/react';
@@ -42,7 +41,7 @@ storiesOf('molecules/ImagePromo', module)
     return(<ImagePromo {...props} />);
   }))
   .add(
-    'ImagePromo as orgInfo', withInfo(`<div>${ImagePromoDocs}</div>`)(() => {
+    'ImagePromo as orgInfo', (() => {
     // Override some props/knobs for "with map link" variation example.
       const commonProps = getCommonPropsWithKnobs();
       const props = Object.assign(commonProps, {

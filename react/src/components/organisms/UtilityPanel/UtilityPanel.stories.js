@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs/react';
@@ -10,7 +9,7 @@ import UtilityPanelData from './UtilityPanel.json';
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'UtilityPanel', (() => (
       <UtilityPanel {...UtilityPanelData} />

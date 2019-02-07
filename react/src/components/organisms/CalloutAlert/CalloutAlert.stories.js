@@ -6,13 +6,12 @@ import { withKnobs, select } from '@storybook/addon-knobs/react';
 import CalloutAlert from './index';
 import CalloutAlertDocs from './CalloutAlert.md';
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
-
 import Paragraph from '../../atoms/text/Paragraph';
 import OrderedList from '../../atoms/lists/OrderedList';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 
 const themeOptions = {
-  '': 'c-highlight (default)',
+  'c-highlight (default)': '',
   'c-primary': 'c-primary',
   'c-primary-alt': 'c-primary-alt',
   'c-gray-dark': 'c-gray-dark',
@@ -21,25 +20,27 @@ const themeOptions = {
 
 storiesOf('organisms/CalloutAlert', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
-  .add('CalloutAlert', (() => {
-    const name = select('CalloutAlert.icon', svgOptions, '');
-    const theme = select('CalloutAlert.theme', themeOptions, '');
-    const calloutAlertProps = {
-      icon: { name, ariaHidden: true },
-      theme
-    };
-
-    return(
-      <CalloutAlert {...calloutAlertProps}>
-        <Paragraph />
-        <OrderedList />
-        <DecorativeLink />
-      </CalloutAlert>
-    );
-  }))
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'CalloutAlert with real data', withInfo(`<div>${CalloutAlertDocs}</div>`)(() => {
+    'CalloutAlert', (() => {
+      const name = select('CalloutAlert.icon', svgOptions, '');
+      const theme = select('CalloutAlert.theme', themeOptions, '');
+      const calloutAlertProps = {
+        icon: { name, ariaHidden: true },
+        theme
+      };
+      return(
+        <CalloutAlert {...calloutAlertProps}>
+          <Paragraph />
+          <OrderedList />
+          <DecorativeLink />
+        </CalloutAlert>
+      );
+    }),
+    { info: CalloutAlertDocs }
+  )
+  .add(
+    'CalloutAlert with real data', (() => {
       const calloutAlertProps = {
         icon: { name: 'alert', ariaHidden: true },
         theme: 'c-primary'

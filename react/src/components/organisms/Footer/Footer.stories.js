@@ -4,10 +4,8 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object, boolean } from '@storybook/addon-knobs/react';
 
 import stateSeal from 'SharedAssets/images/stateseal.png';
-
 import Footer from './index';
 import FooterDocs from './Footer.md';
-
 import FooterLinksData from '../../molecules/FooterLinks/FooterLinks.json';
 import SocialLinksData from '../../molecules/SocialLinks/SocialLinks.json';
 import FooterLinksLiveData from '../../molecules/FooterLinks/FooterLinksLive.json';
@@ -15,7 +13,7 @@ import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.jso
 
 storiesOf('organisms/Footer', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Footer', (() => {
       const props = {

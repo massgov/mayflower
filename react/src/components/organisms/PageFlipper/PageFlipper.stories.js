@@ -3,14 +3,14 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs/react';
-import { ArrowNav, DecorativeLink } from '../../../index';
 
+import { ArrowNav, DecorativeLink } from '../../../index';
 import PageFlipper from './index';
 import PageFlipperDocs from './PageFlipper.md';
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'PageFlipper', (() => {
       const decorativeLinkProps = {

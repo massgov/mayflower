@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select } from '@storybook/addon-knobs/react';
@@ -29,7 +28,7 @@ storiesOf('molecules/CalloutLink', module)
     }),
     { info: CalloutLinkDocs }
   )
-  .add('CalloutLink with Description', withInfo(`<div>${CalloutLinkDocs}</div>`)(() => {
+  .add('CalloutLink with Description', (() => {
     const props = {
       text: text('calloutLink.text', 'Link to another page'),
       href: text('calloutLink.href', ''),
@@ -42,7 +41,7 @@ storiesOf('molecules/CalloutLink', module)
     );
   }))
   .add(
-    'CalloutLink with Details', withInfo(`<div>${CalloutLinkDocs}</div>`)(() => {
+    'CalloutLink with Details', (() => {
       const props = {
         text: text('calloutLink.text', 'Attorney General Announces a New Health Care Program'),
         href: text('calloutLink.href', ''),

@@ -11,7 +11,7 @@ import InputTextTypeAheadDocs from './InputTextTypeAhead.md';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputTextTypeAhead', (() => {
       const props = {

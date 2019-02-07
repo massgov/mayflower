@@ -9,7 +9,7 @@ import inputOptions from './InputTextFuzzy.knobs.options';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputTextFuzzy', (() => {
       const props = {

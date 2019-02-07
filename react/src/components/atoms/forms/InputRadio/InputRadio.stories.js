@@ -10,7 +10,7 @@ import InputRadioDocs from './InputRadio.md';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputRadio', (() => {
       const props = {

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, array, text, boolean, select, number } from '@storybook/addon-knobs/react';
@@ -12,7 +11,7 @@ storiesOf('molecules', module)
   .addDecorator(withInfo)
   .addDecorator(withKnobs)
   .add(
-    'SearchBannerForm', withInfo(`<div>${SearchBannerDocs}</div>`)(() => {
+    'SearchBannerForm', (() => {
       const props = {
         action: '#',
         onSubmit: action('Form submitted'),

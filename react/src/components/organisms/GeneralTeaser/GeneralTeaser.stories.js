@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean, number, object, array } from '@storybook/addon-knobs/react';
 import { withInfo } from '@storybook/addon-info';
+
 import GeneralTeaser from './index';
 import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '../../../index';
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
-
 import GeneralTeaserDocs from './GeneralTeaser.md';
 
 // The default rendered date needs to be constant for visual regression tests.
@@ -13,9 +13,8 @@ const defaultDate = new Date('2018-02-02');
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
-  .add(
-    'GeneralTeaser', (() => {
+  .addDecorator(withKnobs({escapeHTML: false}))
+  .add('GeneralTeaser', (() => {
       const props = {
         image: {
           src: text('GeneralTeaser.image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),
@@ -36,10 +35,10 @@ storiesOf('organisms', module)
         },
         primaryInfo: {
           icon: select('GeneralTeaser.primaryInfo.icon', {
-            SvgMarker: 'SvgMarker (Address Icon)',
-            SvgPhone: 'SvgPhone (Phone Icon)',
-            SvgLaptop: 'SvgLaptop (Laptop Icon)',
-            SvgFax: 'SvgFax (FaxIcon)'
+            'SvgMarker (Address Icon)': 'SvgMarker',
+            'SvgPhone (Phone Icon)': 'SvgPhone',
+            'SvgLaptop (Laptop Icon)': 'SvgLaptop',
+            'SvgFax (FaxIcon)', 'SvgFax'
           }, 'SvgMarker'),
           name: select('GeneralTeaser.primaryInfo.name', {
             Phone: 'Phone',

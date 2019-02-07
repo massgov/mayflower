@@ -2,11 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
-import Paragraph from '../../atoms/text/Paragraph';
 
+import Paragraph from '../../atoms/text/Paragraph';
 import AccordionItem from './index';
 import AccordionItemDocs from './AccordionItem.md';
-
 import Icon from '../../atoms/icons/Icon';
 
 const getIcon = (iconProps) => <Icon {...iconProps} />;

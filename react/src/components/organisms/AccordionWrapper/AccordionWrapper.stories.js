@@ -5,7 +5,6 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
 
 import AccordionWrapper from './index';
 import AccordionWrapperDocs from './AccordionWrapper.md';
-
 import AccordionItem from '../../molecules/AccordionItem';
 import Icon from '../../atoms/icons/Icon';
 import Paragraph from '../../atoms/text/Paragraph';
@@ -23,7 +22,7 @@ const icons = {
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'AccordionWrapper', (() => {
       const AccordionItem1Props = {

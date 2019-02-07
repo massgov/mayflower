@@ -86,7 +86,7 @@ const getSidebarHeading = () => {
 
 storiesOf('organisms/TableofContents', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'TableofContents with ColoredHeading', (() => {
       const props = {

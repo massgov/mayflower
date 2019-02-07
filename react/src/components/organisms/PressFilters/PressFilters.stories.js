@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
@@ -7,7 +6,6 @@ import { action } from '@storybook/addon-actions';
 
 import PressFilters from './index';
 import PressFiltersDocs from './PressFilters.md';
-
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import headingOptions from '../../atoms/headings/Headings.knobs.options';
@@ -18,7 +16,7 @@ import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.op
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'PressFilters', (() => {
       const defaultHeadingLevel = '2';

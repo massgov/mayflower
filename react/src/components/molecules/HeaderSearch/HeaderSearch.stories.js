@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs/react';
@@ -8,7 +7,6 @@ import { action } from '@storybook/addon-actions';
 import { SelectBox } from '../../../index';
 import selectOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
-
 import HeaderSearch from '.';
 import HeaderSearchDocs from './HeaderSearch.md';
 
@@ -26,7 +24,7 @@ storiesOf('molecules/HeaderSearch', module)
           ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', ''),
           text: text('HeaderSearch.buttonSearch.text', 'Search'),
           usage: select('HeaderSearch.buttonSearch.usage', {
-            '': 'primary (default)',
+            'primary (default)': '',
             secondary: 'secondary'
           }, '')
         },
@@ -58,7 +56,7 @@ storiesOf('molecules/HeaderSearch', module)
     { info: HeaderSearchDocs }
   )
   .add(
-    'HeaderSearch with postInputFilter', withInfo(`<div>${HeaderSearchDocs}</div>`)(() => {
+    'HeaderSearch with postInputFilter', (() => {
       const options = inputOptions.options.orgSelector;
       const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
       const selectBoxProps = {
@@ -77,7 +75,7 @@ storiesOf('molecules/HeaderSearch', module)
           ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', ''),
           text: text('HeaderSearch.buttonSearch.text', 'Search'),
           usage: select('HeaderSearch.buttonSearch.usage', {
-            '': 'primary (default)',
+            'primary (default)': '',
             secondary: 'secondary'
           }, '')
         },
