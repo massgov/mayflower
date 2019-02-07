@@ -13,8 +13,9 @@ const defaultDate = new Date('2018-02-02');
 
 storiesOf('organisms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs({escapeHTML: false}))
-  .add('GeneralTeaser', (() => {
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add(
+    'GeneralTeaser', (() => {
       const props = {
         image: {
           src: text('GeneralTeaser.image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),
@@ -38,7 +39,7 @@ storiesOf('organisms', module)
             'SvgMarker (Address Icon)': 'SvgMarker',
             'SvgPhone (Phone Icon)': 'SvgPhone',
             'SvgLaptop (Laptop Icon)': 'SvgLaptop',
-            'SvgFax (FaxIcon)', 'SvgFax'
+            'SvgFax (FaxIcon)': 'SvgFax'
           }, 'SvgMarker'),
           name: select('GeneralTeaser.primaryInfo.name', {
             Phone: 'Phone',
