@@ -10,7 +10,7 @@ import HelperTextOptions from './HelperText.knobs.options';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add(
     'HelperText', (() => {
       const props = {

@@ -10,7 +10,7 @@ import ErrorMessageOptions from './ErrorMessage.knobs.options';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add(
     'ErrorMessage', (() => {
       const props = {

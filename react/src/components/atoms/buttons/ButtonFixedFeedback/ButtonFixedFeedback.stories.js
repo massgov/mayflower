@@ -9,7 +9,7 @@ import ButtonFixedFeedbackDocs from './ButtonFixedFeedback.md';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add(
     'ButtonFixedFeedback', (() => {
       const props = {

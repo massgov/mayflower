@@ -10,7 +10,7 @@ import buttonSortOptions from './ButtonSort.knobs.options';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add(
     'ButtonSort', (() => {
       const props = {

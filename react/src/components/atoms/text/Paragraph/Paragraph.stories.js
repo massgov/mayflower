@@ -8,7 +8,7 @@ import Paragraph from './index';
 
 storiesOf('atoms/text', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add(
     'Paragraph', (() => {
       const props = {

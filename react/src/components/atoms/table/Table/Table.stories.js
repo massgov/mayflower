@@ -10,7 +10,7 @@ import tableOptions from './Table.knobs.options';
 
 storiesOf('atoms/table', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add(
     'Table', (() => (
       <Table {...object('tableOptions.feeTable', tableOptions.feeTable)} />

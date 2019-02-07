@@ -11,7 +11,7 @@ import inputDateOptions from './InputDate.knobs.options';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add(
     'InputDate', (() => {
       const props = {

@@ -20,7 +20,7 @@ const icons = {
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'AccordionItem', (() => {
       const props = {

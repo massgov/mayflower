@@ -8,7 +8,7 @@ import IconLink from '.';
 import { Icon, Link } from '../../../index';
 
 storiesOf('molecules', module)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('IconLink', (() => {
     const linkProps = {
       info: text('IconLink.link.info', 'Title info here'),

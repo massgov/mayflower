@@ -11,7 +11,7 @@ import buttonOptions from './Button.knobs.options';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add(
     'Button', (() => {
       const props = {

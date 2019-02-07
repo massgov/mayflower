@@ -27,7 +27,7 @@ const getItem = (itemText, index, currentPage) => (
 );
 
 storiesOf('molecules', module)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({escapeHTML: false}))
   .add('Breadcrumb', (() => (
     <Breadcrumb>
       {getItem('Appropriation Recommendation', 0)}
