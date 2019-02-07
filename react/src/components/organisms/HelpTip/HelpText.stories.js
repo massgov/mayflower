@@ -17,6 +17,7 @@ const themeOptions = {
 };
 
 storiesOf('organisms/HelpTip', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('HelpTip with HelpText', (() => {
     const props = {

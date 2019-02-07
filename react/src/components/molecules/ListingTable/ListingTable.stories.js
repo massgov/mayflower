@@ -8,7 +8,7 @@ import ListingTableDocs from './ListingTable.md';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ListingTable', (() => {
       const props = {

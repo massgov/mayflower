@@ -8,6 +8,7 @@ import TypeAheadDropdown from '.';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('molecules', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('TypeAheadDropdown', (() => {
     const options = inputOptions.options.orgSelector;

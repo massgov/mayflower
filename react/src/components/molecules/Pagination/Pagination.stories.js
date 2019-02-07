@@ -10,7 +10,7 @@ import paginationOptions from './Pagination.knobs.options';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Pagination', (() => {
       const props = {

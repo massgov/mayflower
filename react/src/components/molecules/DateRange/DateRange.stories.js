@@ -10,7 +10,7 @@ import inputDateOptions from '../../atoms/forms/InputDate/InputDate.knobs.option
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DateRange', (() => {
       const props = {

@@ -9,7 +9,7 @@ import SearchBannerDocs from './SearchBannerForm.md';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SearchBannerForm', (() => {
       const props = {

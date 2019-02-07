@@ -8,6 +8,7 @@ import Tabs from './index';
 import tabsOptions from './Tabs.knobs.options';
 
 storiesOf('molecules', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Tabs', (() => {
     const props = {

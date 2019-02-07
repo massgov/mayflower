@@ -13,6 +13,7 @@ import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.option
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('organisms', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('FilterBox', (() => {
     const organization = {

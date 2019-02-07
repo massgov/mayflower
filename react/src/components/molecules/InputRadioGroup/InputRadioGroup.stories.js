@@ -10,7 +10,7 @@ import InputRadioGroupDocs from './InputRadioGroup.md';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputRadioGroup', (() => {
       const InputRadioGroupProps = {

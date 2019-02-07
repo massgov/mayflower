@@ -8,6 +8,7 @@ import HeaderSlim from '.';
 import { SiteLogo } from '../../../index';
 
 storiesOf('organisms', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('HeaderSlim', (() => {
     const siteLogoProps = {

@@ -9,7 +9,7 @@ import sortResultsOptions from './SortResults.knobs.options';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SortResults', (() => {
       const props = {

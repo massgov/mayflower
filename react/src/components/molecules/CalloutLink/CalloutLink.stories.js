@@ -9,7 +9,7 @@ import calloutLinkOptions from './CalloutLink.knobs.options';
 
 storiesOf('molecules/CalloutLink', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'CalloutLink', (() => {
       const props = {

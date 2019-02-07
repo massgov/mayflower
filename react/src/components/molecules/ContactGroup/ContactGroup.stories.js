@@ -10,7 +10,7 @@ import contactGroupOptions from './ContactGroup.knobs.options';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ContactGroup', (() => {
       const props = {

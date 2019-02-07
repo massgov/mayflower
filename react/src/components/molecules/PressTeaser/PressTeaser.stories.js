@@ -7,7 +7,9 @@ import PressTeaser from './index';
 import PressTeaserDocs from './PressTeaser.md';
 import headingsOptions from '../../atoms/headings/Headings.knobs.options';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
+storiesOf('molecules', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'PressTeaser', (() => {
       const props = {

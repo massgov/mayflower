@@ -12,7 +12,7 @@ import HeaderSearchDocs from './HeaderSearch.md';
 
 storiesOf('molecules/HeaderSearch', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'HeaderSearch', (() => {
       const options = inputOptions.options.orgSelector;

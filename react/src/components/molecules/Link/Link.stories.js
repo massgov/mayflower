@@ -9,7 +9,7 @@ import LinkDocs from './Link.md';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Link', (() => {
       const optionsWithKnobs = Object.assign(...Object.entries(linkOptions).map(([k, v]) => (

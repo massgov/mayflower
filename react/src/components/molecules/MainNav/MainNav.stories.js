@@ -9,7 +9,7 @@ import MainNavData from './MainNav.knob.options';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'MainNav', (() => {
       const newProps = {

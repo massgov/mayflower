@@ -27,6 +27,7 @@ const getItem = (itemText, index, currentPage) => (
 );
 
 storiesOf('molecules', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Breadcrumb', (() => (
     <Breadcrumb>

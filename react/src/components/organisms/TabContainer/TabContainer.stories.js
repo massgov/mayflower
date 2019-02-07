@@ -13,6 +13,7 @@ const props = {
 };
 
 storiesOf('organisms/TabContainer', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('TabContainer', (() => (
     <TabContainer>

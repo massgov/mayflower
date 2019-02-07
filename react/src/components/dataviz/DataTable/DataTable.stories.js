@@ -13,7 +13,7 @@ import DataTableDocs from './DataTable.md';
 
 storiesOf('dataviz/DataTable', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DataTable Simple', (() => {
       const columns = [{

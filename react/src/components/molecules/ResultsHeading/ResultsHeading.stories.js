@@ -11,7 +11,7 @@ import buttonToggleOptions from '../../atoms/buttons/ButtonToggle/ButtonToggle.k
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ResultsHeading', (() => {
       const inputType = select('sortResults.inputType', InputType, 'selectBox');

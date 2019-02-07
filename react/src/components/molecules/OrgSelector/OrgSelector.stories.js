@@ -11,7 +11,7 @@ import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhea
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'OrgSelector', (() => {
       const input = select('orgSelector.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
