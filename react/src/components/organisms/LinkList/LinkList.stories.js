@@ -7,10 +7,11 @@ import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs
 import LinkList from './index';
 import LinkListDocs from './LinkList.md';
 
-storiesOf('organisms', module).addDecorator(withKnobs)
+storiesOf('organisms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
   .add(
-    'LinkList',
-    withInfo(LinkListDocs)(() => {
+    'LinkList', (() => {
       const levelOptions = [1, 2, 3, 4, 5, 6];
       const props = {
         compHeading: {
@@ -55,5 +56,6 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         }
       };
       return(<LinkList {...props} />);
-    })
+    }),
+    { info: LinkListDocs }
   );

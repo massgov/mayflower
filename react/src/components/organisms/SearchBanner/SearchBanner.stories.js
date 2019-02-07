@@ -15,8 +15,10 @@ import filterBoxSharedProps from '../FilterBox/FilterBox.props';
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 
-storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
-  .add('SearchBanner', withInfo('<div></div>')(() => {
+storiesOf('organisms/SearchBanner', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .add('SearchBanner', (() => {
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);

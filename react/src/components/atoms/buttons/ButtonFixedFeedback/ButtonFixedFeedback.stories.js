@@ -8,13 +8,17 @@ import ButtonFixedFeedback from './index';
 import ButtonFixedFeedbackDocs from './ButtonFixedFeedback.md';
 
 storiesOf('atoms/buttons', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs)
-  .add('ButtonFixedFeedback', withInfo(`<div>${ButtonFixedFeedbackDocs}</div>`)(() => {
-    const props = {
-      href: text('ButtonFixedFeedbackOptions.href', '#'),
-      text: text('ButtonFixedFeedbackOptions.text', 'Feedback')
-    };
-    return(
-      <ButtonFixedFeedback {...props} />
-    );
-  }));
+  .add(
+    'ButtonFixedFeedback', (() => {
+      const props = {
+        href: text('ButtonFixedFeedbackOptions.href', '#'),
+        text: text('ButtonFixedFeedbackOptions.text', 'Feedback')
+      };
+      return(
+        <ButtonFixedFeedback {...props} />
+      );
+    }),
+    { info: ButtonFixedFeedbackDocs }
+  );

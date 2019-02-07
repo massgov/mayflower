@@ -5,8 +5,9 @@ import { withKnobs, text, select } from '@storybook/addon-knobs/react';
 
 import Heading from './index';
 
-storiesOf('atoms/headings', module).addDecorator(withKnobs)
-  .add('Heading', withInfo()(() => {
+storiesOf('atoms/headings', module)
+  .addDecorator(withKnobs)
+  .add('Heading', (() => {
     const levelOptions = {
       1: '1',
       2: '2',

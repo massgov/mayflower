@@ -9,20 +9,25 @@ import Button from './index';
 import ButtonDocs from './Button.md';
 import buttonOptions from './Button.knobs.options';
 
-storiesOf('atoms/buttons', module).addDecorator(withKnobs)
-  .add('Button', withInfo(`<div>${ButtonDocs}</div>`)(() => {
-    const props = {
-      usage: select('button.usage', buttonOptions.usage),
-      theme: select('button.theme', buttonOptions.theme),
-      type: select('button.type', buttonOptions.type),
-      size: select('button.size', buttonOptions.size),
-      info: text('button.info', 'this will be the tooltip text on hover'),
-      disabled: boolean('button.disabled', false),
-      text: text('button.text', 'Button'),
-      href: text('button.href', ''),
-      onClick: action('button clicked')
-    };
-    return(
-      <Button {...props} />
-    );
-  }));
+storiesOf('atoms/buttons', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .add(
+    'Button', (() => {
+      const props = {
+        usage: select('button.usage', buttonOptions.usage),
+        theme: select('button.theme', buttonOptions.theme),
+        type: select('button.type', buttonOptions.type),
+        size: select('button.size', buttonOptions.size),
+        info: text('button.info', 'this will be the tooltip text on hover'),
+        disabled: boolean('button.disabled', false),
+        text: text('button.text', 'Button'),
+        href: text('button.href', ''),
+        onClick: action('button clicked')
+      };
+      return(
+        <Button {...props} />
+      );
+    }),
+    { info: ButtonDocs }
+  );

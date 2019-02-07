@@ -7,8 +7,9 @@ import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 import IconLink from '.';
 import { Icon, Link } from '../../../index';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('IconLink', withInfo('<div></div>')(() => {
+storiesOf('molecules', module)
+  .addDecorator(withKnobs)
+  .add('IconLink', (() => {
     const linkProps = {
       info: text('IconLink.link.info', 'Title info here'),
       text: text('IconLink.link.text', 'Lorem ipsum dolor sit amet'),

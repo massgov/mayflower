@@ -8,12 +8,17 @@ import ColoredHeadingDocs from './ColoredHeading.md';
 import coloredHeadingOptions from './ColoredHeading.knobs.options';
 import headingsOptions from '../Headings.knobs.options';
 
-storiesOf('atoms/headings', module).addDecorator(withKnobs)
-  .add('ColoredHeading', withInfo(`<div>${ColoredHeadingDocs}</div>`)(() => {
-    const props = {
-      text: text('coloredHeading.text', 'Title text'),
-      level: select('coloredHeading.level', headingsOptions.levels, 2),
-      color: select('coloredHeading.color', coloredHeadingOptions.color)
-    };
-    return(<ColoredHeading {...props} />);
-  }));
+storiesOf('atoms/headings', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs)
+  .add(
+    'ColoredHeading', (() => {
+      const props = {
+        text: text('coloredHeading.text', 'Title text'),
+        level: select('coloredHeading.level', headingsOptions.levels, 2),
+        color: select('coloredHeading.color', coloredHeadingOptions.color)
+      };
+      return(<ColoredHeading {...props} />);
+    }),
+    { info: ColoredHeadingDocs }
+  );
