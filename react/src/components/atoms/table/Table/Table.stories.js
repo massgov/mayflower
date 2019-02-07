@@ -11,7 +11,7 @@ import tableOptions from './Table.knobs.options';
 storiesOf('atoms/table', module)
   .addDecorator(withInfo)
   .addDecorator(withKnobs({escapeHTML: false}))
-  .add('Table', withInfo(`<div>${tableReadme}</div>`)(() => {
+  .add('Table', (() => {
     tableOptions.feeTable = object('tableOptions.feeTable', tableOptions.feeTable);
     const tableProps = JSON.parse(JSON.stringify(tableOptions));
     tableProps.id = text('Table.id', tableOptions.id);
