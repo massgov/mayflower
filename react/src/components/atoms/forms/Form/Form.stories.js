@@ -23,7 +23,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
     const inputSliderOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
       { [k]: v() })));
     inputSliderOptionsWithKnobs.labelText = text('InputSlider.labelText', 'Slider (Linked to Input 3)');
-    const formTicks = object('Form.ticks', { 0: '0%', 60: 'Minimum requirement', 100: '100%' });
+    const formTicks = object('InputSlider.ticks', { 0: '0%', 60: 'Minimum requirement', 100: '100%' });
     const ticks = [];
     Object.keys(formTicks).forEach((tick) => ticks.push([tick, formTicks[tick]]));
     inputSliderOptionsWithKnobs.ticks = ticks;
