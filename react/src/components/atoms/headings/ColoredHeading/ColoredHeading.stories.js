@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import ColoredHeading from './index';
 import ColoredHeadingDocs from './ColoredHeading.md';
@@ -10,7 +10,7 @@ import headingsOptions from '../Headings.knobs.options';
 
 storiesOf('atoms/headings', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ColoredHeading', (() => {
       const props = {

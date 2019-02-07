@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import ResultsHeading from './index';
@@ -11,7 +11,7 @@ import buttonToggleOptions from '../../atoms/buttons/ButtonToggle/ButtonToggle.k
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ResultsHeading', (() => {
       const inputType = select('sortResults.inputType', InputType, 'selectBox');

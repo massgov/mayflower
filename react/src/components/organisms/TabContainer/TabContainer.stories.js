@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean } from '@storybook/addon-knobs';
 import shortid from 'shortid';
 
 import TabContainer from '.';
@@ -13,6 +13,7 @@ const props = {
 };
 
 storiesOf('organisms/TabContainer', module)
+  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('TabContainer', (() => (
     <TabContainer>

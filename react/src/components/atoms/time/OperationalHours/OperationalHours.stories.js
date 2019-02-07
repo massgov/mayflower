@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, date, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, date, boolean, select } from '@storybook/addon-knobs';
 import OperationalHours from '.';
 
 const weekday = [
@@ -16,7 +16,7 @@ const weekday = [
 ];
 
 storiesOf('atoms/time', module)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('OperationalHours', withInfo('<div></div>')(() => {
     const showActive = boolean('OperationalHours.showActive', false);
     const startTime = new Date('March 15, 2002 03:00:00');

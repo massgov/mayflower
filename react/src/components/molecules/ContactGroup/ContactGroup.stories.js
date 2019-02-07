@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import ContactGroup from './index';
 import ContactGroupDocs from './ContactGroup.md';
@@ -10,7 +10,7 @@ import contactGroupOptions from './ContactGroup.knobs.options';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ContactGroup', (() => {
       const props = {

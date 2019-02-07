@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, object } from '@storybook/addon-knobs';
 
 import MainNav from './index';
 import MainNavDocs from './MainNav.md';
@@ -9,7 +9,7 @@ import MainNavData from './MainNav.knob.options';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'MainNav', (() => {
       const newProps = {

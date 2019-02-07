@@ -2,14 +2,14 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { text, select, withKnobs } from '@storybook/addon-knobs/react';
+import { text, select, withKnobs } from '@storybook/addon-knobs';
 
 import SidebarHeadingDocs from './SidebarHeading.md';
 import SidebarHeading from './index';
 
 storiesOf('atoms/headings', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SidebarHeading', (() => {
       const levelOptions = {

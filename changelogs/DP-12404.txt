@@ -1,3 +1,0 @@
-Minor
-Added
-- (Patternlab) DP-12404: Added a formDownloads block to the following twig templates: court-rules.twig, policy-advisory.twig, & executive-order.twig. #440

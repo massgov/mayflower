@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import ButtonSort from './index';
 import ButtonSortDocs from './ButtonSort.md';
@@ -10,7 +10,7 @@ import buttonSortOptions from './ButtonSort.knobs.options';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ButtonSort', (() => {
       const props = {

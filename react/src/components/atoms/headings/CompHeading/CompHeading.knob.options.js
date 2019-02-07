@@ -1,4 +1,4 @@
-import { text, boolean, select } from '@storybook/addon-knobs/react';
+import { text, boolean, select } from '@storybook/addon-knobs';
 
 const levelOptions = {
   1: 1,

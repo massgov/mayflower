@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, number, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
@@ -34,7 +34,7 @@ const getCommonPropsWithKnobs = () => ({
 
 storiesOf('molecules/ImagePromo', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('ImagePromo', (() => {
     const props = getCommonPropsWithKnobs();
 

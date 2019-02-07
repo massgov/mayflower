@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, object, text, number } from '@storybook/addon-knobs/react';
+import { withKnobs, object, text, number } from '@storybook/addon-knobs';
 
 import FooterSlim from './index';
 import FooterSlimDocs from './FooterSlim.md';

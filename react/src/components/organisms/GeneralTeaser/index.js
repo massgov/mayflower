@@ -131,8 +131,8 @@ const GeneralTeaser = (generalTeaser) => {
 
 GeneralTeaser.propTypes = {
   image: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    alt: PropTypes.string.isRequired
+    src: PropTypes.string,
+    alt: PropTypes.string
   }),
   eyebrow: PropTypes.string,
   // eslint-disable-next-line consistent-return

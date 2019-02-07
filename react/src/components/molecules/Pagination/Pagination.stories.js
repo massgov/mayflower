@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, object } from '@storybook/addon-knobs';
 
 import Pagination from './index';
 import PaginationDocs from './Pagination.md';
@@ -10,7 +10,7 @@ import paginationOptions from './Pagination.knobs.options';
 
 storiesOf('molecules', module)
   .addDecorator(withInfo)
-  .addDecorator(withKnobs)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Pagination', (() => {
       const props = {
