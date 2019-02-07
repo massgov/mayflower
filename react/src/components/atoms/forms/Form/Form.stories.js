@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import {object, withKnobs, array, text} from '@storybook/addon-knobs/react';
+import {object, withKnobs, text} from '@storybook/addon-knobs/react';
 
 import Form, { FormProvider } from './index';
 import FormInfo from './Form.md';
@@ -19,7 +19,6 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
     const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
       { [k]: v() })));
     delete InputSliderOptions.ticks;
-    delete InputSliderOptions.domain;
     delete InputSliderOptions.labelText;
     const inputSliderOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
       { [k]: v() })));
@@ -27,13 +26,10 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
     inputSliderOptionsWithKnobs.ticks = object('InputSlider.ticks', { 0: '0%', 60: 'Minimum requirement', 100: '100%' });
     const formTicks = object('Form.ticks', { 0: '0%', 60: 'Minimum requirement', 100: '100%' });
     const ticks = [];
-    const domain = array('Form.domain', [0, 100]).map((x) => Number(x));
     Object.keys(formTicks).forEach((tick) => ticks.push([tick, formTicks[tick]]));
     inputSliderOptionsWithKnobs.ticks = ticks;
-    inputSliderOptionsWithKnobs.domain = domain;
     // Set the slider step to the same as the input step, so changing the slider matches changes to number.
     // Make sure the domain is within the same range as the min and max of the input to make this work.
-    inputSliderOptionsWithKnobs.step = inputTextOptionsWithKnobs.step;
     delete InputCurrencyOptions.labelText;
     const inputCurrencyOptionsWithKnobs = Object.assign(...Object.entries(InputCurrencyOptions).map(([k, v]) => (
       { [k]: v() })));
@@ -66,9 +62,9 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
                   }
                   if (formContext.hasId('test3')) {
                     if (id === 'test3') {
-                      formContext.setValue({ id: 'slider', value: formContext.getValue('test3') }, () => {
+                      formContext.setValue({ id: 'slider', value: formContext.getValue('test3') / 100 }, () => {
                         // Use afterUpdate function so that slider is updated before this check.
-                        if (formContext.getValue('slider') === 60) {
+                        if (formContext.getValue('slider') === 0.6) {
                           formContext.setValue({ id: 'currency-input', value: '$999.00' });
                         }
                       });
@@ -123,10 +119,10 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
               });
               inputSliderOptionsWithKnobs.onChange = (newVal, id) => {
                 if (formContext.hasId(id)) {
-                  formContext.setValue({ id: 'test3', value: formContext.getValue(id) });
+                  formContext.setValue({ id: 'test3', value: formContext.getValue(id) * 100 });
                   if (formContext.hasId('currency-input')) {
-                    if (newVal === 60) {
-                      // Sets currency to 999 when slider is 60.
+                    if (newVal === 0.6) {
+                      // Sets currency to 999 when slider is 60%.
                       formContext.setValue({ id: 'currency-input', value: '$999.00' });
                     }
                   }

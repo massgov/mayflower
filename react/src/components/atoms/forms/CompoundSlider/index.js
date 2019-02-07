@@ -36,7 +36,7 @@ const Handle = (props) => {
     <button className="ma__slider-handle" {...divProps}>
       { props.displayValueFormat && (
         <div className="ma__slider-handle-value">
-          { props.displayValueFormat === 'percentage' ? numbro(value).format({ output: "percent", mantissa: 0 }) : roundedValue }
+          { props.displayValueFormat === 'percentage' ? numbro(value).format({ output: 'percent', mantissa: 0 }) : roundedValue }
         </div>
       )
       }

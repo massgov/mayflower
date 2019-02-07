@@ -12,7 +12,8 @@ export default {
   min: () => number('InputSlider.min', 0),
   step: () => number('InputSlider.step', 0.1),
   ticks: () => object('InputSlider.ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' }),
-  domain: () => object('InputSlider.domain', { 0: 0, 1: 1 }),
+  // Array knob converts numbers to strings - put it back to number.
+  domain: () => array('InputSlider.domain', [0, 1]).map((num) => Number(num)),
   onChange: () => action('inputSlide.onChange'),
   skipped: () => boolean('InputSlider.skipped', false),
   displayValueFormat: () => select('InputSlider.displayValueFormat', ['percentage', 'value', null], 'percentage')
