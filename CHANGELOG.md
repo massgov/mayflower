@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Changed
 - (Patternlab/React) DP-11666: Replace <section> with <div> for.ma__header-search  #417
 - (React) DP-12414: Modifies Table component to make it responsive, using the Table Responsive pattern from pattern lab. #459
+- (React) Refactors Input, InputNumber, InputSlider, InputCurrency to use Form Context and added story Form. #460
 
 ## 8.25.0 (02/06/2019)
 
