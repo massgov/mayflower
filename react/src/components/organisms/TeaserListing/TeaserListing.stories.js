@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, array, object, boolean, number } from '@storybook/addon-knobs/react';
+import { withKnobs, text, array, object, boolean, number } from '@storybook/addon-knobs';
 
 import { DecorativeLink, Paragraph } from '../../../index';
 import TeaserListing from '.';

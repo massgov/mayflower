@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import Paragraph from '../../atoms/text/Paragraph';
 import AccordionItem from './index';

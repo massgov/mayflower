@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import { SelectBox, InputTextTypeAhead, DateRange } from '../../../index';

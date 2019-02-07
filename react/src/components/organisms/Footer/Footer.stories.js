@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, object, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, object, boolean } from '@storybook/addon-knobs';
 
 import stateSeal from 'SharedAssets/images/stateseal.png';
 import Footer from './index';

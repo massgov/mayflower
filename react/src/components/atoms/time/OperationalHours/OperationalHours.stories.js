@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, date, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, date, boolean, select } from '@storybook/addon-knobs';
 import OperationalHours from '.';
 
 const weekday = [

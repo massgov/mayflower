@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, text } from '@storybook/addon-knobs/react';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 
 import NarrowTemplate from '.';
 import NarrowTemplateDocs from './NarrowTemplate.md';
