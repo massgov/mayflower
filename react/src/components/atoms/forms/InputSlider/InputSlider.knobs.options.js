@@ -8,9 +8,9 @@ export default {
   required: () => boolean('InputSlider.required', true),
   defaultValue: () => text('InputSlider.defaultValue', '0'),
   axis: () => select('InputSlider.axis', ['x', 'y'], 'x'),
-  max: () => number('InputSlider.max', 100),
+  max: () => number('InputSlider.max', 1),
   min: () => number('InputSlider.min', 0),
-  step: () => number('InputSlider.step', 0.1),
+  step: () => number('InputSlider.step', 0.01),
   ticks: () => object('InputSlider.ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' }),
   // Array knob converts numbers to strings - put it back to number.
   domain: () => array('InputSlider.domain', [0, 1]).map((num) => Number(num)),
