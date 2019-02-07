@@ -51,7 +51,7 @@ InputSlider.propTypes = {
   /** Whether to skip the slider with keyboard interaction and hide the slider on screen readers. */
   skipped: PropTypes.bool,
   /** Display the value of the slider based. If null, don't display. If equals percentage, format the value in percentage. */
-  displayValueFormat: PropTypes.oneOf(['percentage', '', null])
+  displayValueFormat: PropTypes.oneOf(['percentage', 'value', null])
 };
 
 

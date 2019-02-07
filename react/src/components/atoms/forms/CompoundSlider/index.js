@@ -270,7 +270,7 @@ CompoundSlider.propTypes = {
   /** The range of numbers, inclusively, for the slider to fall between. First number is the min and second number is the max. */
   domain: PropTypes.arrayOf(PropTypes.number),
   /** Display the value of the slider based. If null, don't display. If equals percentage, format the value in percentage. */
-  displayValueFormat: PropTypes.oneOf(['percentage', '', null])
+  displayValueFormat: PropTypes.oneOf(['percentage', 'value', null])
 };
 
 CompoundSlider.defaultProps = {
