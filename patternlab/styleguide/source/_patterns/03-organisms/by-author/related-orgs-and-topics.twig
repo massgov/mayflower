@@ -1,0 +1,18 @@
+<section class="ma__related-orgs-and-topics">
+  <h2 class="ma__comp-heading">{{ relatedOrgsAndTopics.header }}</h2>
+  <div class="ma__related-orgs-and-topics__columns">
+    {% for column in relatedOrgsAndTopics.columns %}
+    <div class="ma__related-orgs-and-topics__column">
+      <h3 class="ma__comp-heading ">{{ column.column_title }}</h3>
+      {% set linkList = column.linkList %}
+      {% include "@organisms/by-author/link-list.twig" %}
+
+      {% if column.linkList.links|length > 3 %}
+        <button type="button" class="ma__related-orgs-and-topics--toggle js-ma__related-orgs-and-topics--toggle">
+          show <span class="more">more</span><span class="fewer">fewer</span><span class="ma__visually-hidden">{{ column.column_title }}</span>
+        </button>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>

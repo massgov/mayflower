@@ -1,0 +1,83 @@
+{
+  "relatedOrgsAndTopics": {
+    "header": "Related Information",
+    "columns": [
+      {
+        "column_title": "Organizations",
+        "linkList": {
+          "stacked": true,
+          "links": [
+            {
+              "href": "#",
+              "text": "Related Organization #1"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #2"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #3"
+            },
+            {
+              "href": "#",
+              "text": "Executive Office of Health and Human Services"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #5"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #6"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #7"
+            },
+            {
+              "href": "#",
+              "text": "Board of Registration in Allied Mental Health and Human Services Professions"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #9"
+            },
+            {
+              "href": "#",
+              "text": "Board of Registration of Professional Engineers and Professional Land Surveyors "
+            },
+            {
+              "href": "#",
+              "text": "Massachusetts Commission on Lesbian, Gay, Bisexual, Transgender, Queer and Questioning Youth"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #12"
+            }
+          ]
+        }
+      },
+      {
+        "column_title": "Topics",
+        "linkList": {
+          "stacked": true,
+          "links": [
+            {
+              "href": "#",
+              "text": "Related Topic #1"
+            },
+            {
+              "href": "#",
+              "text": "Related Topic #2"
+            },
+            {
+              "href": "#",
+              "text": "Related Topic #3"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
