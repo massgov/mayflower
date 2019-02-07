@@ -22,7 +22,8 @@ storiesOf('atoms/forms', module)
         name: text('inputDate.name', 'date-input'),
         restrict: select('inputDate.restrict', inputDateOptions.restrict, ''),
         onChangeCallback: action('custom-click on select'),
-        defaultDate: new Date(date('dateRange.endDate.defaultDate', new Date('Jan 01 2018')))
+        defaultDate: new Date(date('dateRange.endDate.defaultDate', new Date('Jan 01 2018'))),
+        format: select('inputData.format', inputDateOptions.format, 'M/DD/YYYY')
       };
       return(
         <InputDate {...props} />

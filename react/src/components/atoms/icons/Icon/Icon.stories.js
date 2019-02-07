@@ -9,7 +9,7 @@ storiesOf('atoms/icons', module)
   .add('Icon', () => {
     // This needs to be dynamic somehow.
 
-    const name = select('Icon.name', svgOptions, '');
+    const name = select('Icon.name', svgOptions, 'alert');
     const svgWidth = text('Icon.svgWidth', 40);
     const svgHeight = text('Icon.svgHeight', 40);
     const title = text('Icon.title', 'Icon Title Here');

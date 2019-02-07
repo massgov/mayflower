@@ -1,10 +1,10 @@
 export default {
   size: {
-    '': 'default',
+    default: '',
     small: 'small'
   },
   color: {
-    '': 'grey (default)',
+    'grey (default)': '',
     green: 'green'
   },
   type: {
@@ -14,7 +14,7 @@ export default {
   },
   // currently only button search has usage classes
   usage: {
-    '': 'primary (default)',
+    'primary (default)': '',
     secondary: 'secondary'
   }
 };
