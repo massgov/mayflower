@@ -16,6 +16,7 @@ export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 export ButtonFixedFeedback from './components/atoms/buttons/ButtonFixedFeedback';
 // @atoms/@forms
+export Form, { FormProvider } from './components/atoms/forms/Form';
 export HelperText from './components/atoms/forms/HelperText';
 export ErrorMessage from './components/atoms/forms/ErrorMessage';
 export InputDate from './components/atoms/forms/InputDate';
