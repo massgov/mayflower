@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import { SelectBox, InputTextTypeAhead, DateRange } from '../../../index';
@@ -10,13 +9,14 @@ import SearchBanner from './index';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 import tabsOptions from '../../molecules/Tabs/Tabs.knobs.options';
 import filterBoxSharedProps from '../FilterBox/FilterBox.props';
-
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 
-storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
-  .add('SearchBanner', withInfo('<div></div>')(() => {
+storiesOf('organisms/SearchBanner', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('SearchBanner', (() => {
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);
@@ -139,7 +139,7 @@ storiesOf('organisms/SearchBanner', module).addDecorator(withKnobs)
     return(<SearchBanner {...props} />);
   }))
   // second story
-  .add('SearchBanner with postInputFilter', withInfo('<div></div>')(() => {
+  .add('SearchBanner with postInputFilter', (() => {
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
     const withFilterBox = boolean('HeaderSearch.withFilterBox', true);

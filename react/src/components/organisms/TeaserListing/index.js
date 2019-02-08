@@ -132,9 +132,9 @@ class TeaserListing extends React.Component {
 
 TeaserListing.propTypes = {
   /** Optional CompHeading component */
-  compHeading: PropTypes.CompHeading,
+  compHeading: PropTypes.shape(CompHeading.propTypes),
   /** Optional SidebarHeading component */
-  sidebarHeading: PropTypes.SidebarHeading,
+  sidebarHeading: PropTypes.shape(SidebarHeading.propTypes),
   /** Descriptive paragraph */
   description: PropTypes.shape({
     text: PropTypes.string
@@ -152,11 +152,11 @@ TeaserListing.propTypes = {
   /** Items Label */
   lessLabel: PropTypes.string,
   /** Array of Featured GeneralTeaser Components. */
-  featuredItems: PropTypes.arrayOf(PropTypes.GeneralTeaser),
+  featuredItems: PropTypes.arrayOf(PropTypes.shape(GeneralTeaser.propTypes)),
   /** Array of GeneralTeaser Componets */
-  items: PropTypes.arrayOf(PropTypes.GeneralTeaser),
+  items: PropTypes.arrayOf(PropTypes.shape(GeneralTeaser.propTypes)),
   /** Optional Link for more. */
-  more: PropTypes.Link
+  more: PropTypes.shape(Link.propTypes)
 };
 
 TeaserListing.defaultProps = {

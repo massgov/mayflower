@@ -219,7 +219,7 @@ InputNumber.defaultProps = {
   required: false,
   onChange: null,
   step: 1,
-  hasButtons: true,
+  showButtons: true,
   unit: ''
 };
 

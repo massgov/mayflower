@@ -1,4 +1,4 @@
-import { text, select } from '@storybook/addon-knobs/react';
+import { text, select } from '@storybook/addon-knobs';
 
 const levelOptions = {
   1: 1,
