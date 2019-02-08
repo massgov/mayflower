@@ -1,5 +1,4 @@
 import React from 'react';
-import { isValidElementType } from "react-is";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
