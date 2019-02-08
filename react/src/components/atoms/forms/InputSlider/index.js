@@ -5,10 +5,10 @@ import CompoundSlider from '../CompoundSlider';
 
 const InputSlider = (props) => {
   const {
-    axis, max, min, step, defaultValue, ticks, onChange, domain, skipped, displayValueFormat, ...inputProps
+    axis, max, min, step, ticks, onChange, domain, skipped, displayValueFormat, ...inputProps
   } = props;
   const sliderProps = {
-    axis, max, min, step, defaultValue, onChange, domain, skipped, displayValueFormat
+    axis, max, min, step, defaultValue: props.defaultValue, onChange, domain, skipped, displayValueFormat
   };
   const { id, disabled } = inputProps;
   sliderProps.id = id;
@@ -51,7 +51,7 @@ InputSlider.propTypes = {
   /** Whether to skip the slider with keyboard interaction and hide the slider on screen readers. */
   skipped: PropTypes.bool,
   /** Display the value of the slider based. If null, don't display. If equals percentage, format the value in percentage. */
-  displayValueFormat: PropTypes.oneOf(['percentage', '', null])
+  displayValueFormat: PropTypes.oneOf(['percentage', 'value', null])
 };
 
 

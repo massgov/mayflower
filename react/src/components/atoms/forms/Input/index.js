@@ -36,6 +36,8 @@ class InputProvider extends React.Component {
     super(props);
     this.state = {
       value: this.props.defaultValue,
+      getValue: this.getValue,
+      setValue: this.setValue,
       updateState: this.updateState,
       showError: false,
       errorMsg: this.props.errorMsg,
@@ -43,16 +45,21 @@ class InputProvider extends React.Component {
       inline: this.props.inline
     };
   }
-  updateState = (newState) => {
-    this.setState(newState);
+  getValue = () => this.state.value;
+  setValue = (value, afterUpdate) => {
+    this.setState({ value }, afterUpdate);
   };
-
+  updateState = (newState, afterUpdate) => {
+    this.setState(newState, afterUpdate);
+  };
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
+      // By giving the form getters and setters and not the input value,
+      // extra re-renders are avoided when context updates.
       if (!Object.prototype.hasOwnProperty.call(formContext.value, this.props.id)) {
-        formContext.setValue({ id: this.props.id, value: this.state.value });
-      } else if (formContext.value[this.props.id] !== this.state.value) {
-        formContext.setValue({ id: this.props.id, value: this.state.value });
+        const { value } = formContext;
+        value[this.props.id] = { getValue: this.getValue, setValue: this.setValue };
+        formContext.updateState({ value });
       }
     }
   };

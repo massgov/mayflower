@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Minor
-- (Patternlab/React) DP-11666: Replace <section> with <div> for.ma__header-search  #417#
