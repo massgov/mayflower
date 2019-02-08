@@ -1,10 +1,9 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
 
-import HelpTip from './index';
+import HelpTipV2 from './index';
 import CalloutAlert from '../CalloutAlert';
 import Paragraph from '../../atoms/text/Paragraph';
 
@@ -17,9 +16,10 @@ const themeOptions = {
   'c-white': 'c-white'
 };
 
-storiesOf('organisms/HelpTip', module).addDecorator(withKnobs)
-  .add('HelpTip with HelpText', withInfo('<div></div>')(() => {
+storiesOf('organisms/HelpTipV2', module).addDecorator(withKnobs)
+  .add('HelpTip with HelpTextV2', withInfo('<div></div>')(() => {
     const props = {
+      text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
       textBefore: text('helpTip.textBefore', 'I am a sentence with an '),
       triggerText: text('helpTip.triggerText', 'interesting help tip'),
       textAfter: text('helpTip.textAfter', " isn't that so cool."),
@@ -33,13 +33,14 @@ storiesOf('organisms/HelpTip', module).addDecorator(withKnobs)
 
     return(
       <React.Fragment>
-        <HelpTip {...props} />
-        <HelpTip {...props} />
+        <HelpTipV2 {...props} />
+        <HelpTipV2 {...props} />
       </React.Fragment>
     );
   }))
-  .add('HelpTip with Children', withInfo('<div></div>')(() => {
+  .add('HelpTip with Children V2', withInfo('<div></div>')(() => {
     const props = {
+      text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
       textBefore: text('helpTip.textBefore', 'I am a sentence with an '),
       triggerText: text('helpTip.triggerText', 'interesting help tip'),
       textAfter: text('helpTip.textAfter', " isn't that so cool."),
@@ -51,11 +52,11 @@ storiesOf('organisms/HelpTip', module).addDecorator(withKnobs)
     };
 
     return(
-      <HelpTip {...props}>
+      <HelpTipV2 {...props}>
         <CalloutAlert theme={props.theme} icon={{ name: '' }}>
           <Paragraph text="<strong>You are required to remit payment to the department starting 7/1.</strong> Because you have more than 25 total employees in Massachusetts." />
           <Paragraph text="<strong>You are required to remit payment on behalf of your contractors.</strong> For employers with over 50% their workforce made up of 1099s need to consider these as full time employees under the new language." />
         </CalloutAlert>
-      </HelpTip>
+      </HelpTipV2>
     );
   }));

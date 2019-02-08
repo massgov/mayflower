@@ -5,7 +5,7 @@ $border-width: 1px;
 .ma__help-tip {
   $helpTipBaseClass: &;
 
-  display: block;
+  display: inline;
   margin-bottom: .5rem;
 
   &__container {
@@ -28,6 +28,7 @@ $border-width: 1px;
     &.collapsed {
         visibility: hidden;
         height: 0px;
+        display: none;
     }
 
     &.expanded {
