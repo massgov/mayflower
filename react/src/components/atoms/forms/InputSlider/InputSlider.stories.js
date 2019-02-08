@@ -11,7 +11,7 @@ storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'InputSlider', withInfo(`<div>${inputSliderText}</div>`)(() => {
+    'InputSlider', (() => {
       const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
         { [k]: v() })));
       const ticks = [];
