@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import {object, withKnobs, text, number, array} from '@storybook/addon-knobs/react';
+import { object, withKnobs, text, number, array } from '@storybook/addon-knobs/react';
 
 import Form, { FormProvider } from './index';
 import FormInfo from './Form.md';
