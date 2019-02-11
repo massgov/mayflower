@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
 import Breadcrumb from './index';
 import BreadcrumbItem from './item';
@@ -27,8 +27,9 @@ const getItem = (itemText, index, currentPage) => (
 );
 
 storiesOf('molecules', module)
-  .addDecorator(withKnobs)
-  .add('Breadcrumb', withInfo('<div></div>')(() => (
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('Breadcrumb', (() => (
     <Breadcrumb>
       {getItem('Appropriation Recommendation', 0)}
       {getItem('Independents', 1)}

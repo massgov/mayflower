@@ -1,11 +1,10 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { object, withKnobs, text, number, array } from '@storybook/addon-knobs/react';
+import { object, withKnobs, text, number, array } from '@storybook/addon-knobs';
 
 import Form, { FormProvider } from './index';
-import FormInfo from './Form.md';
+import FormDocs from './Form.md';
 import InputNumber from '../InputNumber';
 import InputNumberOptions from '../InputNumber/InputNumber.knobs.options';
 import InputSliderOptions from '../InputSlider/InputSlider.knobs.options';
@@ -13,44 +12,47 @@ import InputSlider from '../InputSlider';
 import InputCurrency from '../InputCurrency';
 import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
 
-storiesOf('atoms/forms', module).addDecorator(withKnobs)
-  .add('Form', withInfo(`<div>${FormInfo}</div>`)(() => {
-    delete InputNumberOptions.defaultValue;
+storiesOf('atoms/forms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add(
+    'Form', (() => {
+      delete InputNumberOptions.defaultValue;
 
-    const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
-      { [k]: v() })));
+      const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
+        { [k]: v() })));
 
-    delete InputSliderOptions.ticks;
-    delete InputSliderOptions.labelText;
-    delete InputSliderOptions.step;
-    delete InputSliderOptions.max;
-    delete InputSliderOptions.domain;
+      delete InputSliderOptions.ticks;
+      delete InputSliderOptions.labelText;
+      delete InputSliderOptions.step;
+      delete InputSliderOptions.max;
+      delete InputSliderOptions.domain;
 
-    const inputSliderOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
-      { [k]: v() })));
-    inputSliderOptionsWithKnobs.domain = array('InputSlider.domain', [0, 1]).map((num) => Number(num));
-    inputSliderOptionsWithKnobs.max = number('InputSlider.max', 1);
-    inputSliderOptionsWithKnobs.step = number('InputSlider.step', 0.01, { min: 0, max: 1, step: 0.01 });
-    inputSliderOptionsWithKnobs.labelText = text('InputSlider.labelText', 'Slider (Linked to Input 3)');
-    const formTicks = object('InputSlider.ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' });
-    const ticks = [];
-    Object.keys(formTicks).forEach((tick) => ticks.push([tick, formTicks[tick]]));
-    inputSliderOptionsWithKnobs.ticks = ticks;
-    // Make sure the domain is within the same range as the min and max of the input to make this work.
-    delete InputCurrencyOptions.labelText;
-    const inputCurrencyOptionsWithKnobs = Object.assign(...Object.entries(InputCurrencyOptions).map(([k, v]) => (
-      { [k]: v() })));
-    inputCurrencyOptionsWithKnobs.labelText = text('InputCurrency.labelText', 'Currency Input (Set to 999 when Slider is 60)');
-    const languages = new Map();
-    languages.set('Chinese', 'zh-CN');
-    languages.set('English', 'en-US');
-    languages.set('French', 'fr-FR');
-    languages.set('Russian', 'ru-RU');
-    inputCurrencyOptionsWithKnobs.language = languages.get(inputCurrencyOptionsWithKnobs.language);
-    return(
-      <FormProvider>
-        <Form>
-          {
+      const inputSliderOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
+        { [k]: v() })));
+      inputSliderOptionsWithKnobs.domain = array('InputSlider.domain', [0, 1]).map((num) => Number(num));
+      inputSliderOptionsWithKnobs.max = number('InputSlider.max', 1);
+      inputSliderOptionsWithKnobs.step = number('InputSlider.step', 0.01, { min: 0, max: 1, step: 0.01 });
+      inputSliderOptionsWithKnobs.labelText = text('InputSlider.labelText', 'Slider (Linked to Input 3)');
+      const formTicks = object('InputSlider.ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' });
+      const ticks = [];
+      Object.keys(formTicks).forEach((tick) => ticks.push([tick, formTicks[tick]]));
+      inputSliderOptionsWithKnobs.ticks = ticks;
+      // Make sure the domain is within the same range as the min and max of the input to make this work.
+      delete InputCurrencyOptions.labelText;
+      const inputCurrencyOptionsWithKnobs = Object.assign(...Object.entries(InputCurrencyOptions).map(([k, v]) => (
+        { [k]: v() })));
+      inputCurrencyOptionsWithKnobs.labelText = text('InputCurrency.labelText', 'Currency Input (Set to 999 when Slider is 60)');
+      const languages = new Map();
+      languages.set('Chinese', 'zh-CN');
+      languages.set('English', 'en-US');
+      languages.set('French', 'fr-FR');
+      languages.set('Russian', 'ru-RU');
+      inputCurrencyOptionsWithKnobs.language = languages.get(inputCurrencyOptionsWithKnobs.language);
+      return(
+        <FormProvider>
+          <Form>
+            {
             (formContext) => {
               inputTextOptionsWithKnobs.onChange = (e, newVal, id) => {
                   if (formContext.hasId('test1')) {
@@ -144,7 +146,9 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
               );
             }
           }
-        </Form>
-      </FormProvider>
-    );
-  }));
+          </Form>
+        </FormProvider>
+      );
+    }),
+    { info: FormDocs }
+  );

@@ -1,0 +1,6 @@
+___DESCRIPTION___
+Changed
+Minor
+- (React) DP-12458: Updates storybook to version 4.1.1 & related updates to component stories for the withInfo and withKnobs addons. Adds related babel package dependencies as storybook 4 upgrades to Babel 7. Updates storybook webpack config per upgrade to Babel 7. #464
+- (React) DP-12458: Updates nwb to version 0.23.x. #464
+- (React) DP-12458: Updates backstop to version 3.9.2. #464
