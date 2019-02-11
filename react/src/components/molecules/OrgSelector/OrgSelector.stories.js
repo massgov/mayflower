@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import OrgSelector from './index';
@@ -10,10 +9,11 @@ import OrgSelectorDocs from './OrgSelector.md';
 import orgSelectorOptions from './OrgSelector.knobs.options';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
+storiesOf('molecules', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'OrgSelector',
-    withInfo(`<div>${OrgSelectorDocs}</div>`)(() => {
+    'OrgSelector', (() => {
       const input = select('orgSelector.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
       const props = {
         organizations: object('orgSelector.organizations', orgSelectorOptions.organizations),
@@ -42,5 +42,6 @@ storiesOf('molecules', module).addDecorator(withKnobs)
       }
 
       return(<OrgSelector {...props} />);
-    })
+    }),
+    { info: OrgSelectorDocs }
   );

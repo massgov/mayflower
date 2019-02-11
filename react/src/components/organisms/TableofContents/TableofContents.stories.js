@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, select, text } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 
 import TableofContents from '.';
-import markdown from './TableofContents.md';
+import TableofContentsDocs from './TableofContents.md';
 import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link, Icon } from '../../../index';
 
 const getDecorativeLink = (index) => {
@@ -84,10 +84,11 @@ const getSidebarHeading = () => {
   return<SidebarHeading {...props} />;
 };
 
-storiesOf('organisms/TableofContents', module).addDecorator(withKnobs)
+storiesOf('organisms/TableofContents', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'TableofContents with ColoredHeading',
-    withInfo(`<div>${markdown}</div>`)(() => {
+    'TableofContents with ColoredHeading', (() => {
       const props = {
         heading: getColoredHeading()
       };
@@ -99,11 +100,11 @@ storiesOf('organisms/TableofContents', module).addDecorator(withKnobs)
           {getDecorativeLink(3)}
         </TableofContents>
       );
-    })
+    }),
+    { info: TableofContentsDocs }
   )
   .add(
-    'TableofContents with SidebarHeading',
-    withInfo(`<div>${markdown}</div>`)(() => {
+    'TableofContents with SidebarHeading', (() => {
       const props = {
         heading: getSidebarHeading()
       };
@@ -115,5 +116,6 @@ storiesOf('organisms/TableofContents', module).addDecorator(withKnobs)
           {getDecorativeLink(3)}
         </TableofContents>
       );
-    })
+    }),
+    { info: TableofContentsDocs }
   );

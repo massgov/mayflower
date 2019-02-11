@@ -1,23 +1,23 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs';
 
 import LinkList from './index';
 import LinkListDocs from './LinkList.md';
 
-storiesOf('organisms', module).addDecorator(withKnobs)
+storiesOf('organisms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'LinkList',
-    withInfo(LinkListDocs)(() => {
+    'LinkList', (() => {
       const levelOptions = [1, 2, 3, 4, 5, 6];
       const props = {
         compHeading: {
           title: text('linkList.compHeading.title', 'Link List'),
           titleContext: text('linkList.compHeading.titleContext', 'link list'),
           level: select('linkList.compHeading.level', levelOptions, levelOptions[2]),
-          color: select('linkList.compHeading.color', { '': 'green (default)', yellow: 'yellow' }, ''),
+          color: select('linkList.compHeading.color', { 'green (default)': '', yellow: 'yellow' }, ''),
           id: text('linkList.compHeading.titleContext', 'link list'),
           centered: boolean('linkList.compHeading.centered', false),
           sidebar: boolean('linkList.compHeading.sidebar', false)
@@ -55,5 +55,6 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         }
       };
       return(<LinkList {...props} />);
-    })
+    }),
+    { info: LinkListDocs }
   );

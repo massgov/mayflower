@@ -1,14 +1,16 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, select, array } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, array } from '@storybook/addon-knobs';
+
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 import IconLink from '.';
 import { Icon, Link } from '../../../index';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('IconLink', withInfo('<div></div>')(() => {
+storiesOf('molecules', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('IconLink', (() => {
     const linkProps = {
       info: text('IconLink.link.info', 'Title info here'),
       text: text('IconLink.link.text', 'Lorem ipsum dolor sit amet'),

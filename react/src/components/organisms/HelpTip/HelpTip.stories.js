@@ -16,8 +16,10 @@ const themeOptions = {
   'c-white': 'c-white'
 };
 
-storiesOf('organisms/HelpTip', module).addDecorator(withKnobs)
-  .add('HelpTip with HelpText', withInfo('<div></div>')(() => {
+storiesOf('organisms/HelpTip', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('HelpTip with HelpText', (() => {
     const props = {
       text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
       triggerText: array('helpTip.triggerText', ['a help tip','another help tip']),
@@ -35,7 +37,7 @@ storiesOf('organisms/HelpTip', module).addDecorator(withKnobs)
       </React.Fragment>
     );
   }))
-  .add('HelpTip with Children', withInfo('<div></div>')(() => {
+  .add('HelpTip with Children', (() => {
     const props = {
       text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
       triggerText: array('helpTip.triggerText', ['a help tip','another help tip']),
