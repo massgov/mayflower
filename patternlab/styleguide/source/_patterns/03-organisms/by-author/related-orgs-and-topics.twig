@@ -1,9 +1,9 @@
 <section class="ma__related-orgs-and-topics">
-  <h2 class="ma__comp-heading">{{ relatedOrgsAndTopics.header }}</h2>
+    {% set compHeading = relatedOrgsAndTopics.header %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
   <div class="ma__related-orgs-and-topics__columns">
     {% for column in relatedOrgsAndTopics.columns %}
     <div class="ma__related-orgs-and-topics__column">
-      <h3 class="ma__comp-heading ">{{ column.column_title }}</h3>
       {% set linkList = column.linkList %}
       {% include "@organisms/by-author/link-list.twig" %}
 
