@@ -56,6 +56,10 @@ $border-width: 1px;
       color: $c-white;
       outline: 0;
       box-shadow: focus-shadow($border-width, $c-focus);
+
+      svg {
+        fill: tint($c-font-link, 70%);
+      }
     }
 
     svg {
