@@ -9,7 +9,7 @@ import Paragraph from '../../atoms/text/Paragraph';
 
 const themeOptions = {
   'c-highlight': 'c-highlight',
-  'c-primary': 'c-primary (default)',
+  'c-primary (default)': 'c-primary',
   'c-primary-alt': 'c-primary-alt',
   'c-gray-dark': 'c-gray-dark',
   'c-error-red': 'c-error-red',

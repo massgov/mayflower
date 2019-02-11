@@ -8,7 +8,7 @@ import Paragraph from '../../atoms/text/Paragraph';
 import './style.css';
 
 
-class HelpTipV2 extends Component {
+class HelpTip extends Component {
   constructor(props) {
     super(props);
     const openArray = this.props.triggerText.map((trigger,index) => {
@@ -150,7 +150,7 @@ class HelpTipV2 extends Component {
   }
 }
 
-HelpTipV2.propTypes = {
+HelpTip.propTypes = {
   /** The text that will have one or more help tips inserted in it. */
   text: PropTypes.string,
   /** The text that will be a clickable inline toolitp */
@@ -170,11 +170,11 @@ HelpTipV2.propTypes = {
   theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red', 'c-white'])
 };
 
-HelpTipV2.defaultProps = {
+HelpTip.defaultProps = {
   labelId: '',
   hasMarkup: true,
   theme: 'c-primary',
   bypassMobileStyle: false
 };
 
-export default HelpTipV2;
+export default HelpTip;
