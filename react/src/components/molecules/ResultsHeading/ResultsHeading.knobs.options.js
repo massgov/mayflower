@@ -30,3 +30,5 @@ export const SortData = {
     value: 'date'
   }]
 };
+
+export const InputType = { None: '', buttonToggle: 'buttonToggle', selectBox: 'selectBox' };

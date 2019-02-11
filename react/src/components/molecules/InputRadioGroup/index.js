@@ -46,9 +46,9 @@ class InputRadioGroup extends React.Component {
             <div className={itemsClasses}>
               {this.props.radioButtons.map((radioButton, index) => {
               const isChecked = radioButton.value === this.state.selected;
-              const buttonId = radioButton.id || radioButton.value
+              const buttonId = radioButton.id || radioButton.value;
               return(
-                <div className={`ma__input-group__item item-${this.props.radioButtons.length}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
+                <div className={`ma__input-group__item item-${this.props.radioButtons.length} ${radioButton.class}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
                   <InputRadio
                     {...radioButton}
                     name={this.props.name}
@@ -99,7 +99,9 @@ InputRadioGroup.propTypes = {
   radioButtons: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     value: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired
+    label: PropTypes.string.isRequired,
+    /** Allow adding one class to radio button, e.g. "col-medium-1", "col-large-1" */
+    class: PropTypes.string
   }))
 };
 

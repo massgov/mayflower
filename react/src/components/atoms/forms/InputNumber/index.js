@@ -52,7 +52,7 @@ const NumberInput = (props) => (
 
           const handleOnBlur = (e) => {
             const { value } = e.target;
-            const floatValue = Number.parseFloat(value).toFixed(decimalPlaces);
+            const floatValue = Number(Number.parseFloat(value).toFixed(decimalPlaces));
             if (typeof props.onBlur === 'function') {
               props.onBlur(e, floatValue);
             }
@@ -60,27 +60,28 @@ const NumberInput = (props) => (
 
           const handleChange = (e) => {
             const { value } = e.target;
-            const floatValue = Number.parseFloat(value).toFixed(decimalPlaces);
+            const floatValue = Number(Number.parseFloat(value).toFixed(decimalPlaces));
             const updateError = displayErrorMessage(value, props.min, props.max, props.required);
-            context.updateState({ value: floatValue, ...updateError });
-
-            if (typeof props.onChange === 'function') {
-              props.onChange(e, floatValue);
-            }
+            context.updateState({ value: floatValue, ...updateError }, () => {
+              if (typeof props.onChange === 'function') {
+                props.onChange(e, context.value, props.id);
+              }
+            });
           };
 
           const handleAdjust = (e, direction) => {
             let newValue;
             if (direction === 'up') {
-              newValue = Number.parseFloat(Number(context.value) + props.step).toFixed(decimalPlaces);
+              newValue = Number(Number.parseFloat(Number(context.value) + props.step).toFixed(decimalPlaces));
             } else if (direction === 'down') {
-              newValue = Number.parseFloat(Number(context.value) - props.step).toFixed(decimalPlaces);
+              newValue = Number(Number.parseFloat(Number(context.value) - props.step).toFixed(decimalPlaces));
             }
             const updateError = displayErrorMessage(newValue, props.min, props.max, props.required);
-            context.updateState({ value: newValue, ...updateError });
-            if (typeof props.onChange === 'function') {
-              props.onChange(e, newValue);
-            }
+            context.updateState({ value: newValue, ...updateError }, () => {
+              if (typeof props.onChange === 'function') {
+                props.onChange(e, context.value, props.id);
+              }
+            });
           };
 
           const inputAttr = {
@@ -218,7 +219,7 @@ InputNumber.defaultProps = {
   required: false,
   onChange: null,
   step: 1,
-  hasButtons: true,
+  showButtons: true,
   unit: ''
 };
 

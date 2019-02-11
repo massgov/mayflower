@@ -2,17 +2,18 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import SelectBox from './index';
 import selectOptions from './SelectBox.knobs.options';
 import SelectBoxDocs from './SelectBox.md';
 
-storiesOf('atoms/forms', module).addDecorator(withKnobs)
+storiesOf('atoms/forms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'SelectBox',
-    withInfo(`<div>${SelectBoxDocs}</div>`)(() => {
+    'SelectBox', (() => {
       const props = {
         label: text('selectBox.label', 'Color Scheme:'),
         stackLabel: boolean('selectBox.stackLabel', false),
@@ -24,5 +25,6 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
       };
       props.className = text('selectBox.className', !props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown');
       return(<SelectBox {...props} />);
-    })
+    }),
+    { info: SelectBoxDocs }
   );

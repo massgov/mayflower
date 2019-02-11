@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import numbro from 'numbro';
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
 import { InputContext } from '../Input/context';
 import { countDecimals } from '../Input/utility';
@@ -8,10 +9,10 @@ import './style.css';
 
 const Handle = (props) => {
   const {
-    handle: { id, value, percent }, getHandleProps, axis, min, max, step, skipped
+    handle: { id, value, percent }, getHandleProps, axis, min, max, step, displayValueFormat
   } = props;
   const decimalPlaces = countDecimals(step);
-  const roundedValue = (Number.isInteger(step)) ? value : Number.parseFloat(value).toFixed(decimalPlaces);
+  const roundedValue = (Number.isInteger(step)) ? value : Number(Number.parseFloat(value).toFixed(decimalPlaces));
   const divProps = {
     'aria-valuemin': min,
     'aria-valuemax': max,
@@ -31,14 +32,15 @@ const Handle = (props) => {
       top: `${percent}%`
     };
   }
-  if (skipped) {
-    divProps.tabIndex = -1;
-  }
   return(
     <button className="ma__slider-handle" {...divProps}>
-      <div className="ma__slider-handle-value">
-        {roundedValue}
-      </div>
+      { props.displayValueFormat && (
+        <div className="ma__slider-handle-value">
+          { props.displayValueFormat === 'percentage' ? numbro(value).format({ output: 'percent', mantissa: 0 }) : roundedValue }
+        </div>
+      )
+      }
+
     </button>
   );
 };
@@ -104,21 +106,22 @@ class CompoundSlider extends Component {
         {
           (context) => {
             const {
-              min, max, step, disabled, domain, skipped
+              min, max, step, disabled, domain
             } = this.props;
             const decimalPlaces = countDecimals(step);
             const handleDragEnd = (values) => {
-              const value = (Number.isInteger(step)) ? values[0] : Number.parseFloat(values[0]).toFixed(decimalPlaces);
-              context.updateState({ value });
-              if (typeof this.props.onChange === 'function') {
-                this.props.onChange(value);
-              }
+              const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
+              context.updateState({ value }, () => {
+                if (typeof this.props.onChange === 'function') {
+                  this.props.onChange(value, this.props.id);
+                }
+              });
             };
             const domainCheck = (valToCheck) => {
               let minCheck = Number(min);
               let maxCheck = Number(max);
               if (Number.isNaN(valToCheck)) {
-                return(Number.isInteger(step)) ? minCheck : Number.parseFloat(minCheck).toFixed(decimalPlaces);
+                return(Number.isInteger(step)) ? minCheck : Number(Number.parseFloat(minCheck).toFixed(decimalPlaces));
               }
               let returnValue = valToCheck;
               const [domainMin, domainMax] = domain;
@@ -136,20 +139,20 @@ class CompoundSlider extends Component {
               if (valToCheck > maxCheck) {
                 returnValue = maxCheck;
               }
-              return(Number.isInteger(step)) ? returnValue : Number.parseFloat(returnValue).toFixed(decimalPlaces);
+              return(Number.isInteger(step)) ? returnValue : Number(Number.parseFloat(returnValue).toFixed(decimalPlaces));
             };
             // Anything returned by mode when set to a function will become the value.
             // This can be used for min/max validation.
             // Next and current values are not numbers, but arrays of objects.
             const handleMode = (current, next) => {
               const [{ val: nextValue }] = next;
-              const checkValue = (Number.isInteger(step)) ? nextValue : Number.parseFloat(nextValue).toFixed(decimalPlaces);
+              const checkValue = (Number.isInteger(step)) ? nextValue : Number(Number.parseFloat(nextValue).toFixed(decimalPlaces));
               if (checkValue === domainCheck(nextValue)) {
                 return next;
               }
               return current;
             };
-            const defaultValue = domainCheck(Number(this.props.defaultValue));
+            const defaultValue = domainCheck(Number(context.getValue()));
             const sliderProps = {
               domain,
               step,
@@ -166,7 +169,7 @@ class CompoundSlider extends Component {
               'ma__input-slider-y': this.props.axis === 'y'
             });
             return(
-              <div id={this.props.id} className={wrapperClasses} aria-hidden={skipped} >
+              <div id={this.props.id} className={wrapperClasses}>
                 <Slider className="ma__slider" {...sliderProps}>
                   <Rail>
                     {({ getRailProps }) => (
@@ -186,7 +189,7 @@ class CompoundSlider extends Component {
                             min={min}
                             max={max}
                             step={step}
-                            skipped={skipped}
+                            displayValueFormat={this.props.displayValueFormat}
                           />
                         ))}
                       </div>
@@ -266,8 +269,8 @@ CompoundSlider.propTypes = {
   disabled: PropTypes.bool,
   /** The range of numbers, inclusively, for the slider to fall between. First number is the min and second number is the max. */
   domain: PropTypes.arrayOf(PropTypes.number),
-  /** Whether to skip the slider with keyboard interaction. */
-  skipped: PropTypes.bool
+  /** Display the value of the slider based. If null, don't display. If equals percentage, format the value in percentage. */
+  displayValueFormat: PropTypes.oneOf(['percentage', 'value', null])
 };
 
 CompoundSlider.defaultProps = {
