@@ -1,3 +1,9 @@
 @import 'global';
 $assets-path: '../../../../assets';
 @import '01-atoms/input-checkbox';
+
+.ma__input-checkbox {
+  &:focus{
+    outline: none;
+  }
+}

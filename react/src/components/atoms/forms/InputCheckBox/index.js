@@ -14,14 +14,24 @@ const CheckBox = (props) => (
           const { id, value } = context;
           const { icon, label } = props;
           const inputProps = {
-            id,
-            checked: value
-          }
-          const handleClick = () => context.updateState({ value: !value });
+            id
+          };
+          inputProps.checked = value ? 'checked' : null;
+          const handleClick = () => {
+            context.updateState({ value: !value }, () => {
+              if (typeof props.onChange === 'function') {
+                props.onChange(!value, id);
+              }
+            });
+          };
           const handleKeyDown = (e) => {
             // keycode for space key
             if (e.keyCode === 32) {
-              context.updateState({ value: !value });
+              context.updateState({ value: !value }, () => {
+                if (typeof props.onChange === 'function') {
+                  props.onChange(!value, id);
+                }
+              });
             }
           };
           return(
@@ -47,13 +57,14 @@ const CheckBox = (props) => (
 
 const InputCheckBox = (props) => {
   const {
-    icon, label, ...inputProps
+    icon, label, onChange, ...inputProps
   } = props;
   // Input and checkBox share the props.checked, props.id values.
   const checkBoxProps = {
     icon,
     label,
-    id: props.id
+    id: props.id,
+    onChange
   };
   return(
     <Input {...inputProps}>
@@ -67,7 +78,8 @@ InputCheckBox.propTypes = {
   id: PropTypes.string,
   defaultValue: PropTypes.string,
   icon: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 export default InputCheckBox;
