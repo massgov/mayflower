@@ -1,4 +1,4 @@
 ___DESCRIPTION___
 Changed
 Minor
-- (React) DP-12561: Updates the help tip organism so users can pass multiple help tips in a single span of text.
+- (React) DP-12561: Updates the help tip organism so users can pass multiple help tips in a single span of text. #469
