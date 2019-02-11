@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Input from '../Input';
-import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import './style.css';
 
@@ -69,14 +68,13 @@ const InputCheckBox = (props) => {
   return(
     <Input {...inputProps}>
       <CheckBox {...checkBoxProps} />
-      <Error id={props.id} />
     </Input>
   );
 };
 
 InputCheckBox.propTypes = {
   id: PropTypes.string,
-  defaultValue: PropTypes.string,
+  defaultValue: PropTypes.bool,
   icon: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func
