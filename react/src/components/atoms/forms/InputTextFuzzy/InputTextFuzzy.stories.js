@@ -1,16 +1,17 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object, select, boolean, array } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object, select, boolean, array } from '@storybook/addon-knobs';
 
 import InputTextFuzzy from './index';
-import markdown from './InputTextFuzzy.md';
+import InputTextFuzzyDocs from './InputTextFuzzy.md';
 import inputOptions from './InputTextFuzzy.knobs.options';
 
-storiesOf('atoms/forms', module).addDecorator(withKnobs)
+storiesOf('atoms/forms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'InputTextFuzzy',
-    withInfo(`<div>${markdown}</div>`)(() => {
+    'InputTextFuzzy', (() => {
       const props = {
         boxed: boolean('InputTextFuzzy.boxed', false),
         disabled: boolean('InputTextFuzzy.disabled', false),
@@ -34,6 +35,7 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         })
       };
       return(<InputTextFuzzy {...props} />);
-    })
+    }),
+    { info: InputTextFuzzyDocs }
   );
 

@@ -1,14 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text, array, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, select, text, array, boolean } from '@storybook/addon-knobs';
 import { assets, svgOptions } from './Icon.knob.options';
 import Icon from './index';
 
-storiesOf('atoms/icons', module).addDecorator(withKnobs)
+storiesOf('atoms/icons', module)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Icon', () => {
     // This needs to be dynamic somehow.
 
-    const name = select('Icon.name', svgOptions, '');
+    const name = select('Icon.name', svgOptions, 'alert');
     const svgWidth = text('Icon.svgWidth', 40);
     const svgHeight = text('Icon.svgHeight', 40);
     const title = text('Icon.title', 'Icon Title Here');

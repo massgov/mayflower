@@ -2,17 +2,18 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import InputTextTypeAhead from './index';
 import inputOptions from './InputTextTypeAhead.knobs.options';
 import InputTextTypeAheadDocs from './InputTextTypeAhead.md';
 
-storiesOf('atoms/forms', module).addDecorator(withKnobs)
+storiesOf('atoms/forms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'InputTextTypeAhead',
-    withInfo(`<div>${InputTextTypeAheadDocs}</div>`)(() => {
+    'InputTextTypeAhead', (() => {
       const props = {
         boxed: boolean('inputTextTypeAhead.boxed', true),
         label: text('inputTextTypeAhead.label', 'State Organization'),
@@ -28,5 +29,6 @@ storiesOf('atoms/forms', module).addDecorator(withKnobs)
         disabled: boolean('InputTextTypeAhead.disabled', false)
       };
       return(<InputTextTypeAhead {...props} />);
-    })
+    }),
+    { info: InputTextTypeAheadDocs }
   );

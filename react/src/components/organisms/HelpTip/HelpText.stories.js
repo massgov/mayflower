@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, select } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 
 import HelpTip from './index';
 import CalloutAlert from '../CalloutAlert';
@@ -17,8 +16,10 @@ const themeOptions = {
   'c-white': 'c-white'
 };
 
-storiesOf('organisms/HelpTip', module).addDecorator(withKnobs)
-  .add('HelpTip with HelpText', withInfo('<div></div>')(() => {
+storiesOf('organisms/HelpTip', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('HelpTip with HelpText', (() => {
     const props = {
       textBefore: text('helpTip.textBefore', 'I am a sentence with an '),
       triggerText: text('helpTip.triggerText', 'interesting help tip'),
@@ -35,7 +36,7 @@ storiesOf('organisms/HelpTip', module).addDecorator(withKnobs)
       <HelpTip {...props} />
     );
   }))
-  .add('HelpTip with Children', withInfo('<div></div>')(() => {
+  .add('HelpTip with Children', (() => {
     const props = {
       textBefore: text('helpTip.textBefore', 'I am a sentence with an '),
       triggerText: text('helpTip.triggerText', 'interesting help tip'),
