@@ -45,7 +45,7 @@ const CheckBox = (props) => (
               aria-checked={value}
             >
               <input type="checkbox" {...inputProps} />
-              <Icon {...icon} />
+              {icon && <Icon {...icon} />}
               <label htmlFor={id}><span>{ label }</span></label>
             </span>
 
@@ -80,10 +80,6 @@ InputCheckBox.propTypes = {
   icon: PropTypes.shape(Icon.propTypes),
   label: PropTypes.string,
   onChange: PropTypes.func
-};
-
-InputCheckBox.defaultProps = {
-  icon: null
 };
 
 export default InputCheckBox;
