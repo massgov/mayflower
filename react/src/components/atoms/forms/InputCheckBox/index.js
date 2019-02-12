@@ -58,11 +58,17 @@ const InputCheckBox = (props) => {
 };
 
 InputCheckBox.propTypes = {
+  /** Id of the input that the label is tied to and the value is associated with in the formContext. */
   id: PropTypes.string,
+  /** Default checked value. */
   defaultValue: PropTypes.bool,
-  icon: PropTypes.shape(Icon.propTypes),
+  /** Label for the checkbox input. */
   label: PropTypes.string,
+  /** Icon that renders after the label. */
+  icon: PropTypes.shape(Icon.propTypes),
+  /** Custom callback function called when input checked value is changed. */
   onChange: PropTypes.func,
+  /** Whether the input is disabled. */
   disabled: PropTypes.bool
 };
 
