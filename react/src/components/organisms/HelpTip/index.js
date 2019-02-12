@@ -11,35 +11,24 @@ import './style.css';
 class HelpTip extends Component {
   constructor(props) {
     super(props);
-    const openArray = this.props.triggerText.map((trigger,index) => {
-      return false
-    })
+    const openArray = this.props.triggerText.map((trigger, index) => false);
     this.state = {
       isOpen: openArray
     };
   }
 
-  componentWillMount() {
-    const openArray = this.props.triggerText.map((trigger,index) => {
-      return false
-    })
-    this.setState({ isOpen: openArray });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const isAnyDifferent = ['text', 'triggerText', 'helpText'].some((property) => this.props[property] !== nextProps[property]);
-    const openArray = this.props.triggerText.map((trigger,index) => {
-      return false
-    })
-    if (isAnyDifferent) {
-      this.setState({ isOpen: openArray });
-    }
-  }
-
-  toggleOpen = (index) => {
-    const { isOpen } = this.state;
-    isOpen[index] = !this.state.isOpen[index];
-    this.setState({ isOpen });
+  getSplitText = (text, triggers) => {
+    let splitText = text;
+    triggers.forEach((trigger, index) => {
+      if (index === 0) {
+        splitText = splitText.split(trigger);
+      } else {
+        const nextPart = (splitText[index].split(trigger));
+        splitText.pop();
+        splitText = splitText.concat(nextPart);
+      }
+    });
+    return splitText;
   };
 
   toggleOpenForKeyUp = (e, index) => {
@@ -51,23 +40,15 @@ class HelpTip extends Component {
     }
   };
 
-  getSplitText = (text, triggers) => {
-    let splitText = text;
-    triggers.forEach((trigger, index) => {
-      if(index === 0) {
-        splitText = splitText.split(trigger);
-      } else {
-        const nextPart = (splitText[index].split(trigger));
-        splitText.pop()
-        splitText = splitText.concat(nextPart)
-      }
-    })
-    return splitText;
+  toggleOpen = (index) => {
+    const { isOpen } = this.state;
+    isOpen[index] = !this.state.isOpen[index];
+    this.setState({ isOpen });
   };
 
   buildDangerouslyIfHasMarkup = (text, hasMarkup) => (
     hasMarkup ? <span dangerouslySetInnerHTML={{ __html: text }} /> : text
-  )
+  );
 
   render() {
     const {
@@ -92,18 +73,18 @@ class HelpTip extends Component {
       'ma__help-tip__text-direct': true,
       [`ma__help-tip__text-direct--${theme}`]: theme
     });
-    const splitText = this.getSplitText(text,triggerText);
+    const splitText = this.getSplitText(text, triggerText);
     const childArray = children && (Array.isArray(children) ? children : [children]);
 
     return(
       <span className={baseClass} id={id}>
-        {triggerText.map((trigger,index) => (
-          <span className="ma__help-tip__label" id={`${labelId}-${index}`}>
+        {triggerText.map((trigger, index) => (
+          <span key={`HelpTip-${labelId}-${index}`} className="ma__help-tip__label" id={`${labelId}-${index}`}>
             {index === 0 && this.buildDangerouslyIfHasMarkup(splitText[index], hasMarkup)}
-            <div
+            <span
               className={`ma__help-tip__trigger ${this.state.isOpen[index] ? 'active' : ''}`}
               onClick={() => this.toggleOpen(index)}
-              onKeyUp={(e) => this.toggleOpenForKeyUp(e,index)}
+              onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
               tabIndex="0"
               role="button"
               aria-describedby={id}
@@ -111,19 +92,19 @@ class HelpTip extends Component {
             >
               {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
               <Icon name="questionmark" svgHeight={15} svgWidth={15} />
-            </div>
-            {this.buildDangerouslyIfHasMarkup(splitText[index+1], hasMarkup)}
+            </span>
+            {this.buildDangerouslyIfHasMarkup(splitText[index + 1], hasMarkup)}
           </span>
         ))}
-        {triggerText.map((trigger,index) => (
-          <Collapse in={this.state.isOpen[index]} dimension="height" className={helpTextContainer}>
+        {triggerText.map((trigger, index) => (
+          <Collapse key={`HelpTip-collapse-${labelId}-${index}`} in={this.state.isOpen[index]} dimension="height" className={helpTextContainer}>
             <div className="ma__help-tip__content">
               <div
                 tabIndex="0"
                 role="button"
                 className="ma__help-tip__close-mobile"
                 onClick={() => this.toggleOpen(index)}
-                onKeyUp={(e) => this.toggleOpenForKeyUp(e,index)}
+                onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
               >
                 <Icon name="close" label="Close help tip" />
               </div>
@@ -132,7 +113,7 @@ class HelpTip extends Component {
                 role="button"
                 className="ma__help-tip__close-desktop"
                 onClick={() => this.toggleOpen(index)}
-                onKeyUp={(e) => this.toggleOpenForKeyUp(e,index)}
+                onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
               >
                 <Icon name="close" label="Close help tip" />
               </div>
