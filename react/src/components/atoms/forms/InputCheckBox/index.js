@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Input from '../Input';
+import Icon from '../../icons/Icon';
 import { InputContext } from '../Input/context';
 import './style.css';
 
@@ -33,6 +34,7 @@ const CheckBox = (props) => (
               });
             }
           };
+          console.log(icon)
           return(
             <span
               className="ma__input-checkbox"
@@ -43,7 +45,7 @@ const CheckBox = (props) => (
               aria-checked={value}
             >
               <input type="checkbox" {...inputProps} />
-              { icon }
+              <Icon {...icon} />
               <label htmlFor={id}><span>{ label }</span></label>
             </span>
 
@@ -75,9 +77,13 @@ const InputCheckBox = (props) => {
 InputCheckBox.propTypes = {
   id: PropTypes.string,
   defaultValue: PropTypes.bool,
-  icon: PropTypes.string,
+  icon: PropTypes.shape(Icon.propTypes),
   label: PropTypes.string,
   onChange: PropTypes.func
+};
+
+InputCheckBox.defaultProps = {
+  icon: null
 };
 
 export default InputCheckBox;

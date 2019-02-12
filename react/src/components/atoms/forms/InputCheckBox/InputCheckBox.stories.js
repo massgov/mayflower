@@ -14,7 +14,7 @@ storiesOf('atoms/forms', module)
   .add(
     'InputCheckBox', (() => {
       const inputCheckBoxOptionsWithKnobs = Object.assign(...Object.entries(InputCheckBoxOptions).map(([k, v]) => (
-        { [k]: v() })));
+        k === 'icon' ? { icon: { name: v(), ariaHidden: true } } : { [k]: v() })));
       return(
         <InputCheckBox {...inputCheckBoxOptionsWithKnobs} />
       );
