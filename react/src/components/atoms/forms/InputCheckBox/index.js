@@ -34,7 +34,6 @@ const CheckBox = (props) => (
               });
             }
           };
-          console.log(icon)
           return(
             <span
               className="ma__input-checkbox"
@@ -45,7 +44,7 @@ const CheckBox = (props) => (
               aria-checked={value}
             >
               <input type="checkbox" {...inputProps} />
-              {icon && <Icon {...icon} />}
+              {icon && icon.name && <Icon {...icon} />}
               <label htmlFor={id}><span>{ label }</span></label>
             </span>
 
