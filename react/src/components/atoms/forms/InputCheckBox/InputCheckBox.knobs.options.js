@@ -7,5 +7,6 @@ export default {
   label: () => text('InputCheckBox.label', 'Apply to all'),
   icon: () => select('InputCheckBox.icon', svgOptions, ''),
   defaultValue: () => boolean('InputCheckBox.checked', false),
-  onChange: () => action('InputCheckBox.onChange')
+  onChange: () => action('InputCheckBox.onChange'),
+  disabled: () => boolean('InputCheckBox.disabled', false)
 };

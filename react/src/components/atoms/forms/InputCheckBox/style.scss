@@ -3,7 +3,15 @@ $assets-path: '../../../../assets';
 @import '01-atoms/input-checkbox';
 
 .ma__input-checkbox {
-  &:focus{
+  @include ma-button-reset;
+  &:focus {
     outline: none;
+  }
+  label:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: 0.5;
   }
 }

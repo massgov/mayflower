@@ -12,11 +12,7 @@ const CheckBox = (props) => (
       {
         (context) => {
           const { id, value } = context;
-          const { icon, label } = props;
-          const inputProps = {
-            id
-          };
-          inputProps.checked = value ? 'checked' : null;
+          const { icon, label, disabled } = props;
           const handleClick = () => {
             context.updateState({ value: !value }, () => {
               if (typeof props.onChange === 'function') {
@@ -24,29 +20,16 @@ const CheckBox = (props) => (
               }
             });
           };
-          const handleKeyDown = (e) => {
-            // keycode for space key
-            if (e.keyCode === 32) {
-              context.updateState({ value: !value }, () => {
-                if (typeof props.onChange === 'function') {
-                  props.onChange(!value, id);
-                }
-              });
-            }
-          };
           return(
-            <span
+            <button
               className="ma__input-checkbox"
               onClick={handleClick}
-              onKeyDown={handleKeyDown}
-              role="checkbox"
-              tabIndex={0}
-              aria-checked={value}
+              disabled={disabled}
             >
-              <input type="checkbox" {...inputProps} />
+              <input type="checkbox" id={id} checked={value} readOnly />
               {icon && icon.name && <Icon {...icon} />}
-              <label htmlFor={id}><span>{ label }</span></label>
-            </span>
+              <label htmlFor={id} tabIndex={-1} ><span>{ label }</span></label>
+            </button>
 
           );
         }
@@ -57,14 +40,15 @@ const CheckBox = (props) => (
 
 const InputCheckBox = (props) => {
   const {
-    icon, label, onChange, ...inputProps
+    icon, label, onChange, disabled, ...inputProps
   } = props;
   // Input and checkBox share the props.checked, props.id values.
   const checkBoxProps = {
     icon,
     label,
     id: props.id,
-    onChange
+    onChange,
+    disabled
   };
   return(
     <Input {...inputProps}>
@@ -78,7 +62,8 @@ InputCheckBox.propTypes = {
   defaultValue: PropTypes.bool,
   icon: PropTypes.shape(Icon.propTypes),
   label: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  disabled: PropTypes.bool
 };
 
 export default InputCheckBox;
