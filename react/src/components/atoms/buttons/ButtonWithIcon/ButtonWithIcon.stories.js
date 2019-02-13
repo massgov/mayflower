@@ -3,10 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, array, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, array, select, boolean } from '@storybook/addon-knobs';
 
 import ButtonWithIcon from '.';
-import buttonWithIconReadme from './ButtonWithIcon.md';
+import ButtonWithIconDocs from './ButtonWithIcon.md';
 import buttonWithIconOptions from './ButtonWithIcon.knob.options';
 
 import Icon from '../../icons/Icon';
@@ -17,10 +17,10 @@ const icons = {
 };
 
 storiesOf('atoms/buttons', module)
-  .addDecorator(withKnobs)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'ButtonWithIcon',
-    withInfo(`<div>${buttonWithIconReadme}</div>`)(() => {
+    'ButtonWithIcon', (() => {
       const props = {
         onClick: action('ButtonWithIcon clicked'),
         text: text('ButtonWithIcon.text', 'Button With Icon'),
@@ -41,11 +41,11 @@ storiesOf('atoms/buttons', module)
       return(
         <ButtonWithIcon {...props} />
       );
-    })
+    }),
+    { info: ButtonWithIconDocs }
   )
   .add(
-    'ButtonSearch',
-    withInfo(`<div>${buttonWithIconReadme}</div>`)(() => {
+    'ButtonSearch', (() => {
       const props = {
         onClick: action('ButtonWithIcon clicked'),
         usage: select('ButtonWithIcon.usage', buttonWithIconOptions.usage, '')
@@ -57,5 +57,6 @@ storiesOf('atoms/buttons', module)
       return(
         <ButtonWithIcon {...props} />
       );
-    })
+    }),
+    { info: ButtonWithIconDocs }
   );

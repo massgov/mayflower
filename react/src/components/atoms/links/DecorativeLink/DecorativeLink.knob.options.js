@@ -1,4 +1,4 @@
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { text, boolean } from '@storybook/addon-knobs';
 
 export default {
   info: (value) => text('info', value),

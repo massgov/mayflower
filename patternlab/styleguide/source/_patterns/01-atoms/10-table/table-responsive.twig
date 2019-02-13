@@ -1,5 +1,9 @@
 {% set tableID = table.id or 'responsive-table-' ~ random() %}
 {% set tableHeaderRow = table.head.rows|last %}
+
+{% if tableHeaderRow.cells|length > 3 %}
+  {% set tableWideClass = "ma__table--wide" %}
+{% endif %}
 <div class="ma__table--responsive js-ma-responsive-table">
 
   <nav class="ma__table__horizontal-nav">
@@ -16,7 +20,7 @@
     </button>
   </nav>
   <div class="ma__table--responsive__wrapper {{ mergedCells ? 'ma__table--merged-cells' : ''}}" id="{{tableID}}" tabindex="0" role="region" aria-orientation="horizontal" aria-label="{{table.description}}">
-    <table class="ma__table ">
+    <table class="ma__table {{ tableWideClass }}">
       <thead>
         {% for row in table.head.rows %}
           <tr>

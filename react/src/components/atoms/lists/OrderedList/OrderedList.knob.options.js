@@ -1,4 +1,4 @@
-import { text } from '@storybook/addon-knobs/react';
+import { text } from '@storybook/addon-knobs';
 
 const list = [{
   text: 'This is a list item in an ordered list'

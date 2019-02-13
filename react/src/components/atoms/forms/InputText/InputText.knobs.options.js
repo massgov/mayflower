@@ -1,4 +1,4 @@
-import { text, boolean, select, number } from '@storybook/addon-knobs/react';
+import { text, boolean, select, number } from '@storybook/addon-knobs';
 
 export default {
   hiddenLabel: (value) => boolean('inputText.hiddenLabel', value),
