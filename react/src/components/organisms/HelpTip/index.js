@@ -145,7 +145,7 @@ HelpTip.propTypes = {
   id: PropTypes.string.isRequired,
   /** Whether you want the help text to slide up on mobile screens */
   bypassMobileStyle: PropTypes.bool,
-  /** Whether textBefore, textAfter, or triggerText has html markup */
+  /** Whether text contains html markup */
   hasMarkup: PropTypes.bool,
   /** Themes correspond to site color scheme i.e. sass variables */
   theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red', 'c-white'])
