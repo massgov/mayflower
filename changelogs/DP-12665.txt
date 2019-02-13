@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Major
+- (React) DP-12665: Upgrades react to version 16.8.1 and node to version 10.15.1.

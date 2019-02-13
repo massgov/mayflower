@@ -16,45 +16,34 @@ function loadAssets(asset) {
   return file;
 }
 
-class Icon extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      svgFile: null
+const Icon = (props) => {
+  const {
+    svgWidth,
+    svgHeight,
+    title,
+    name,
+    classes,
+    ariaHidden,
+    ...rest
+  } = props;
+  const SVG = loadAssets(name);
+  if (SVG) {
+    classes.push(`svg-${name}`);
+    const attr = {
+      width: svgWidth || null,
+      height: svgHeight || null,
+      className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
+      'aria-hidden': ariaHidden || null
     };
+    return(
+      <svg {...attr} {...rest} >
+        {title && <title>{title}</title>}
+        <use xlinkHref={`#${name}`} />
+      </svg>
+    );
   }
-  componentWillMount() {
-    const svgFile = loadAssets(this.props.name);
-    this.setState({ svgFile });
-  }
-  render() {
-    const { svgFile } = this.state;
-    const {
-      svgWidth,
-      svgHeight,
-      title,
-      name,
-      classes,
-      ariaHidden,
-      ...rest
-    } = this.props;
-    if (svgFile) {
-      const attr = {
-        width: svgWidth || null,
-        height: svgHeight || null,
-        className: (classes && classes.length > 0) ? classes.join(' ') : null,
-        'aria-hidden': ariaHidden || null
-      };
-      return(
-        <svg {...attr} {...rest} >
-          {title && <title>{ title }</title> }
-          <use xlinkHref={`#${name}`} />
-        </svg>
-      );
-    }
-    return null;
-  }
-}
+  return null;
+};
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
@@ -66,7 +55,8 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  title: null
+  title: null,
+  classes: []
 };
 
 export default Icon;
