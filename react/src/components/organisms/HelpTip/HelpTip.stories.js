@@ -22,8 +22,8 @@ storiesOf('organisms/HelpTip', module)
   .add('HelpTip with HelpText', (() => {
     const props = {
       text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
-      triggerText: array('helpTip.triggerText', ['a help tip','another help tip']),
-      helpText: array('helpTip.helpText', ['This is a bunch of help text that should be helpful.','Another bunch of help text that should be helpful.']),
+      triggerText: array('helpTip.triggerText', ['a help tip', 'another help tip']),
+      helpText: array('helpTip.helpText', ['This is a bunch of help text that should be helpful.', 'Another bunch of help text that should be helpful.']),
       id: text('helpText.id', 'helptext-id-123'),
       labelId: text('helpTip.labelId', 'labelId'),
       bypassMobileStyle: boolean('helpTip.bypassMobileStyle', false),
@@ -31,16 +31,12 @@ storiesOf('organisms/HelpTip', module)
       theme: select('helpTip.theme', themeOptions, 'c-primary')
     };
 
-    return(
-      <React.Fragment>
-        <HelpTip {...props} />
-      </React.Fragment>
-    );
+    return(<HelpTip {...props} />);
   }))
   .add('HelpTip with Children', (() => {
     const props = {
       text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
-      triggerText: array('helpTip.triggerText', ['a help tip','another help tip']),
+      triggerText: array('helpTip.triggerText', ['a help tip', 'another help tip']),
       id: text('helpText.id', 'helptext-id-123'),
       labelID: text('helpTip.labelID', 'labelID'),
       bypassMobileStyle: boolean('helpTip.bypassMobileStyle', false),
@@ -50,11 +46,11 @@ storiesOf('organisms/HelpTip', module)
 
     return(
       <HelpTip {...props}>
-        <CalloutAlert theme={props.theme} icon={{ name: '' }}>
+        <CalloutAlert theme={props.theme} icon={null}>
           <Paragraph text="<strong>You are required to remit payment to the department starting 7/1.</strong> Because you have more than 25 total employees in Massachusetts." />
           <Paragraph text="<strong>You are required to remit payment on behalf of your contractors.</strong> For employers with over 50% their workforce made up of 1099s need to consider these as full time employees under the new language." />
         </CalloutAlert>
-        <CalloutAlert theme={props.theme} icon={{ name: '' }}>
+        <CalloutAlert theme={props.theme} icon={null}>
           <Paragraph text="<strong>You are required to remit payment to the department starting 7/1.</strong> Because you have more than 25 total employees in Massachusetts." />
           <Paragraph text="<strong>You are required to remit payment on behalf of your contractors.</strong> For employers with over 50% their workforce made up of 1099s need to consider these as full time employees under the new language." />
         </CalloutAlert>
