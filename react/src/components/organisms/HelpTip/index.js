@@ -87,10 +87,9 @@ class HelpTip extends Component {
               onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
               tabIndex="0"
               role="button"
-              aria-describedby={id}
               aria-expanded={this.state.isOpen[index]}
-              aria-label={this.state.isOpen[index] ? 'Close the help tip.' : 'Open the help tip to learn more.'}
               aria-controls={`help-tip-content-${id}-${index}`}
+              aria-label={this.state.isOpen[index] ? 'Close help tip.' : 'Open help tip.'}
             >
               {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
               <Icon name="questionmark" svgHeight={15} svgWidth={15} />
@@ -100,14 +99,14 @@ class HelpTip extends Component {
         ))}
         {triggerText.map((trigger, index) => (
           <Collapse key={`help-tip-collapse-${id}-${index}`} in={this.state.isOpen[index]} dimension="height" className={helpTextContainer}>
-            <div className="ma__help-tip__content" id={`help-tip-content-${id}-${index}`}>
+            <div className="ma__help-tip__content" id={`help-tip-content-${id}-${index}`} aria-hidden={!this.state.isOpen[index]}>
               <div
                 tabIndex="0"
                 role="button"
                 className="ma__help-tip__close-mobile"
                 onClick={() => this.toggleOpen(index)}
                 onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
-                aria-label={this.state.isOpen[index] ? 'Close the help tip.' : 'Open the help tip to learn more.'}
+                aria-label={this.state.isOpen[index] && 'Close help tip.'}
               >
                 <Icon name="close" label="Close help tip" />
               </div>
@@ -117,7 +116,7 @@ class HelpTip extends Component {
                 className="ma__help-tip__close-desktop"
                 onClick={() => this.toggleOpen(index)}
                 onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
-                aria-label={this.state.isOpen[index] ? 'Close the help tip.' : 'Open the help tip to learn more.'}
+                aria-label={this.state.isOpen[index] && 'Close help tip.'}
               >
                 <Icon name="close" label="Close help tip" />
               </div>
