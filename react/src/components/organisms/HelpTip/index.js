@@ -89,7 +89,7 @@ class HelpTip extends Component {
               role="button"
               aria-expanded={this.state.isOpen[index]}
               aria-controls={`help-tip-content-${id}-${index}`}
-              aria-label={this.state.isOpen[index] ? 'Hide details.' : `Show details about ${trigger}`}
+              aria-label={this.state.isOpen[index] ? `Hide details about ${trigger}.` : `Show details about ${trigger}`}
             >
               {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
               <Icon name="questionmark" svgHeight={15} svgWidth={15} />
