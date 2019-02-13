@@ -49,12 +49,14 @@ $border-width: 1px;
     padding: 0px 2px;
     border-bottom: 2px dotted $c-primary;
 
+    &:focus {
+      box-shadow: 0 0 3px 3px $c-focus;
+      outline: 0;
+    }
 
-    &.active, &:hover, &:focus {
+    &.active, &:hover {
       background-color: $c-primary;
       color: $c-white;
-      outline: 0;
-      box-shadow: focus-shadow($border-width, $c-focus);
 
       svg {
         fill: tint($c-font-link, 70%);

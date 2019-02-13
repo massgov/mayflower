@@ -52,7 +52,7 @@ class HelpTip extends Component {
 
   render() {
     const {
-      hasMarkup, labelId, triggerText, textAfter, helpText, children, id, theme, text
+      hasMarkup, triggerText, textAfter, helpText, children, id, theme, text
     } = this.props;
 
     const baseClass = classNames({
@@ -79,7 +79,7 @@ class HelpTip extends Component {
     return(
       <span className={baseClass} id={id}>
         {triggerText.map((trigger, index) => (
-          <span key={`HelpTip-${labelId}-${index}`} className="ma__help-tip__label" id={`${labelId}-${index}`}>
+          <span key={`help-tip-label-${id}-${index}`} className="ma__help-tip__label" id={`label-${id}-${index}`}>
             {index === 0 && this.buildDangerouslyIfHasMarkup(splitText[index], hasMarkup)}
             <span
               className={`ma__help-tip__trigger ${this.state.isOpen[index] ? 'active' : ''}`}
@@ -89,6 +89,8 @@ class HelpTip extends Component {
               role="button"
               aria-describedby={id}
               aria-expanded={this.state.isOpen[index]}
+              aria-label={this.state.isOpen[index] ? 'Close the help tip.' : 'Open the help tip to learn more.'}
+              aria-controls={`help-tip-content-${id}-${index}`}
             >
               {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
               <Icon name="questionmark" svgHeight={15} svgWidth={15} />
@@ -97,14 +99,15 @@ class HelpTip extends Component {
           </span>
         ))}
         {triggerText.map((trigger, index) => (
-          <Collapse key={`HelpTip-collapse-${labelId}-${index}`} in={this.state.isOpen[index]} dimension="height" className={helpTextContainer}>
-            <div className="ma__help-tip__content">
+          <Collapse key={`help-tip-collapse-${id}-${index}`} in={this.state.isOpen[index]} dimension="height" className={helpTextContainer}>
+            <div className="ma__help-tip__content" id={`help-tip-content-${id}-${index}`}>
               <div
                 tabIndex="0"
                 role="button"
                 className="ma__help-tip__close-mobile"
                 onClick={() => this.toggleOpen(index)}
                 onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
+                aria-label={this.state.isOpen[index] ? 'Close the help tip.' : 'Open the help tip to learn more.'}
               >
                 <Icon name="close" label="Close help tip" />
               </div>
@@ -114,6 +117,7 @@ class HelpTip extends Component {
                 className="ma__help-tip__close-desktop"
                 onClick={() => this.toggleOpen(index)}
                 onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
+                aria-label={this.state.isOpen[index] ? 'Close the help tip.' : 'Open the help tip to learn more.'}
               >
                 <Icon name="close" label="Close help tip" />
               </div>
@@ -139,8 +143,6 @@ HelpTip.propTypes = {
   /** The help text that is displayed on clicking the trigger text */
   /** You can also render children in the help text */
   helpText: PropTypes.arrayOf(PropTypes.string),
-  /** The label id */
-  labelId: PropTypes.string.isRequired,
   /** The id for the whole component */
   id: PropTypes.string.isRequired,
   /** Whether you want the help text to slide up on mobile screens */
@@ -152,7 +154,6 @@ HelpTip.propTypes = {
 };
 
 HelpTip.defaultProps = {
-  labelId: '',
   hasMarkup: true,
   theme: 'c-primary',
   bypassMobileStyle: false

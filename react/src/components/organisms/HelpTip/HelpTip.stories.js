@@ -25,7 +25,6 @@ storiesOf('organisms/HelpTip', module)
       triggerText: array('helpTip.triggerText', ['a help tip', 'another help tip']),
       helpText: array('helpTip.helpText', ['This is a bunch of help text that should be helpful.', 'Another bunch of help text that should be helpful.']),
       id: text('helpText.id', 'helptext-id-123'),
-      labelId: text('helpTip.labelId', 'labelId'),
       bypassMobileStyle: boolean('helpTip.bypassMobileStyle', false),
       hasMarkup: boolean('helpTip.hasMarkup', true),
       theme: select('helpTip.theme', themeOptions, 'c-primary')
@@ -38,7 +37,6 @@ storiesOf('organisms/HelpTip', module)
       text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
       triggerText: array('helpTip.triggerText', ['a help tip', 'another help tip']),
       id: text('helpText.id', 'helptext-id-123'),
-      labelID: text('helpTip.labelID', 'labelID'),
       bypassMobileStyle: boolean('helpTip.bypassMobileStyle', false),
       hasMarkup: boolean('helpTip.hasMarkup', true),
       theme: select('helpTip.theme', themeOptions, 'c-primary')
