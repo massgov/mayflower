@@ -81,15 +81,20 @@ class HelpTip extends Component {
         {triggerText.map((trigger, index) => (
           <span key={`help-tip-label-${id}-${index}`} className="ma__help-tip__label" id={`label-${id}-${index}`}>
             {index === 0 && this.buildDangerouslyIfHasMarkup(splitText[index], hasMarkup)}
+            <span className="ma_help-tip__label-a11y" id={`context-a11y-${id}-${index}`} aria-hidden="true">
+              {this.state.isOpen[index] ? 'Close tooltip info about ' : 'Open tooltip info about '}
+              {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
+            </span>
             <span
               className={`ma__help-tip__trigger ${this.state.isOpen[index] ? 'active' : ''}`}
+              id={`trigger-${id}-${index}`}
               onClick={() => this.toggleOpen(index)}
               onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
               tabIndex="0"
               role="button"
+              aria-describedby={`context-a11y-${id}-${index}`}
               aria-expanded={this.state.isOpen[index]}
               aria-controls={`help-tip-content-${id}-${index}`}
-              aria-label={this.state.isOpen[index] ? `Hide details about ${trigger}.` : `Show details about ${trigger}`}
             >
               {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
               <Icon name="questionmark" svgHeight={15} svgWidth={15} />
@@ -108,7 +113,7 @@ class HelpTip extends Component {
                 onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
                 aria-label={this.state.isOpen[index] && 'Close help tip.'}
               >
-                <Icon name="close" label="Close help tip" />
+                <Icon name="close" />
               </div>
               <div
                 tabIndex="0"
@@ -118,7 +123,7 @@ class HelpTip extends Component {
                 onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
                 aria-label={this.state.isOpen[index] && 'Close help tip.'}
               >
-                <Icon name="close" label="Close help tip" />
+                <Icon name="close" />
               </div>
               {(helpText || childArray) && (
                 <div className={helpTextClasses} aria-live="polite">
