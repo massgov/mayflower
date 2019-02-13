@@ -16,7 +16,7 @@ const CheckBox = (props) => (
           const handleClick = () => {
             context.updateState({ value: !value }, () => {
               if (typeof props.onChange === 'function') {
-                props.onChange(!value, id);
+                props.onChange(context.getValue(), id);
               }
             });
           };
