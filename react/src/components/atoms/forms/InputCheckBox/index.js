@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Input from '../Input';
 import Error from '../Input/error';
@@ -12,11 +13,12 @@ const CheckBox = (props) => (
     <InputContext.Consumer>
       {
         (context) => {
-          const { id, value } = context;
+          const { value } = context;
           const {
-            icon, label, disabled, required
+            icon, label, disabled, required, id
           } = props;
           const handleClick = (e) => {
+            e.persist();
             context.updateState({ value: !value }, () => {
               if (typeof props.onChange === 'function') {
                 props.onChange(e, context.getValue(), id);
@@ -28,16 +30,23 @@ const CheckBox = (props) => (
               context.updateState({ showError: false });
             }
           };
+          const checkboxClasses = classNames({
+            'ma__input-checkbox': true,
+            'ma__input-checkbox--disabled': disabled
+          });
+          const inputProps = {
+            type: 'checkbox',
+            id,
+            checked: value,
+            onClick: handleClick,
+            disabled
+          };
           return(
-            <button
-              className="ma__input-checkbox"
-              onClick={(e) => handleClick(e)}
-              disabled={disabled}
-            >
-              <input type="checkbox" id={id} checked={value} readOnly required={required} />
+            <span className={checkboxClasses}>
+              <input {...inputProps} />
               {icon && icon.name && <Icon {...icon} />}
               <label htmlFor={id} tabIndex={-1} ><span>{ label }</span></label>
-            </button>
+            </span>
 
           );
         }
@@ -48,7 +57,7 @@ const CheckBox = (props) => (
 
 const InputCheckBox = (props) => {
   const {
-    icon, label, onChange, disabled, ...inputProps
+    icon, label, onChange, ...inputProps
   } = props;
   // Input and checkBox share the props.checked, props.id values.
   const checkBoxProps = {
@@ -57,7 +66,7 @@ const InputCheckBox = (props) => {
     id: props.id,
     required: props.required,
     onChange,
-    disabled
+    disabled: props.disabled
   };
   return(
     <Input {...inputProps}>
