@@ -16,10 +16,10 @@ const CheckBox = (props) => (
           const {
             icon, label, disabled, required
           } = props;
-          const handleClick = () => {
+          const handleClick = (e) => {
             context.updateState({ value: !value }, () => {
               if (typeof props.onChange === 'function') {
-                props.onChange(context.getValue(), id);
+                props.onChange(e, context.getValue(), id);
               }
             });
             if (!!value && required) {
@@ -31,10 +31,10 @@ const CheckBox = (props) => (
           return(
             <button
               className="ma__input-checkbox"
-              onClick={handleClick}
+              onClick={(e) => handleClick(e)}
               disabled={disabled}
             >
-              <input type="checkbox" id={id} checked={value} readOnly />
+              <input type="checkbox" id={id} checked={value} readOnly required={required} />
               {icon && icon.name && <Icon {...icon} />}
               <label htmlFor={id} tabIndex={-1} ><span>{ label }</span></label>
             </button>
@@ -81,7 +81,12 @@ InputCheckBox.propTypes = {
   /** Whether the input is disabled. */
   disabled: PropTypes.bool,
   /** Whether checked is required. */
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  /** The label text for the input field, can be a string or a component */
+  labelText: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]).isRequired
 };
 
 export default InputCheckBox;

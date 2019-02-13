@@ -10,5 +10,6 @@ export default {
   onChange: () => action('InputCheckBox.onChange'),
   disabled: () => boolean('InputCheckBox.disabled', false),
   required: () => boolean('InputCheckBox.required', false),
-  errorMsg: () => text('InputCheckBox.errorMsg', 'You are required to check this box.')
+  errorMsg: () => text('InputCheckBox.errorMsg', 'You are required to check this box.'),
+  labelText: () => text('InputCheckBox', 'Checkbox Input')
 };
