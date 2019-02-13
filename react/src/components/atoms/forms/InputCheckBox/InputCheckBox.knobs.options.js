@@ -8,5 +8,7 @@ export default {
   icon: () => select('InputCheckBox.icon', svgOptions, ''),
   defaultValue: () => boolean('InputCheckBox.checked', false),
   onChange: () => action('InputCheckBox.onChange'),
-  disabled: () => boolean('InputCheckBox.disabled', false)
+  disabled: () => boolean('InputCheckBox.disabled', false),
+  required: () => boolean('InputCheckBox.required', false),
+  errorMsg: () => text('InputCheckBox.errorMsg', 'You are required to check this box.')
 };

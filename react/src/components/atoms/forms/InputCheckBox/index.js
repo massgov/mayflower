@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Input from '../Input';
+import Error from '../Input/error';
 import Icon from '../../icons/Icon';
 import { InputContext } from '../Input/context';
 import './style.css';
@@ -12,13 +13,20 @@ const CheckBox = (props) => (
       {
         (context) => {
           const { id, value } = context;
-          const { icon, label, disabled } = props;
+          const {
+            icon, label, disabled, required
+          } = props;
           const handleClick = () => {
             context.updateState({ value: !value }, () => {
               if (typeof props.onChange === 'function') {
                 props.onChange(context.getValue(), id);
               }
             });
+            if (!!value && required) {
+              context.updateState({ showError: true });
+            } else {
+              context.updateState({ showError: false });
+            }
           };
           return(
             <button
@@ -47,12 +55,14 @@ const InputCheckBox = (props) => {
     icon,
     label,
     id: props.id,
+    required: props.required,
     onChange,
     disabled
   };
   return(
     <Input {...inputProps}>
       <CheckBox {...checkBoxProps} />
+      <Error id={props.id} />
     </Input>
   );
 };
@@ -69,7 +79,9 @@ InputCheckBox.propTypes = {
   /** Custom callback function called when input checked value is changed. */
   onChange: PropTypes.func,
   /** Whether the input is disabled. */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** Whether checked is required. */
+  required: PropTypes.bool
 };
 
 export default InputCheckBox;
