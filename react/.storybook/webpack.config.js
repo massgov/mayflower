@@ -8,6 +8,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
         defaultConfig.module.rules[ruleIndex].options.presets.push('@babel/react');
         defaultConfig.module.rules[ruleIndex].options.plugins.push('@babel/proposal-export-default-from');
         defaultConfig.module.rules[ruleIndex].options.plugins.push('@babel/proposal-class-properties');
+        defaultConfig.module.rules[ruleIndex].options.plugins.push('@babel/plugin-syntax-dynamic-import');
       }
     }
   });

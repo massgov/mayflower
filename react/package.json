@@ -43,7 +43,6 @@
     "numbro": "^2.1.2",
     "object.entries": "^1.0.4",
     "pikaday": "^1.7.0",
-    "prop-types": "^15.6.0",
     "react-autosuggest": "^9.3.4",
     "react-autowhatever": "^10.1.2",
     "react-compound-slider": "^0.19.2",
@@ -56,6 +55,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@storybook/addon-actions": "^4.1.11",
     "@storybook/addon-info": "^4.1.11",
     "@storybook/addon-knobs": "^4.1.11",
@@ -77,13 +77,14 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-hooks": "^1.0.1",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
     "nwb": "0.23.x",
     "pre-push": "^0.1.1",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "prop-types": "^15.7.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
   },
   "homepage": "",
   "license": "MIT",
