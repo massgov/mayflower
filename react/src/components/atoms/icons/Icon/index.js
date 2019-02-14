@@ -31,7 +31,7 @@ const Icon = (props) => {
     const attr = {
       width: svgWidth || null,
       height: svgHeight || null,
-      className: (classes && classes.length > 0) ? `svg-${name} ${classes.filter((c) => c).toString()}` : `svg-${name}`,
+      className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
       'aria-hidden': ariaHidden || null
     };
     return(
