@@ -21,6 +21,10 @@
     line-height: 1rem;
     padding-left: 1.25em;
 
+    &:focus {
+      outline: none;
+    }
+
     &:before {
       border: 2px solid;
       content: "";
@@ -34,6 +38,12 @@
         left: 0;
       text-align: center;
       width: 2em;
+    }
+
+    &--disabled{
+      label {
+        opacity: 0.5;
+      }
     }
 
     span {
