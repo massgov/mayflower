@@ -28,11 +28,10 @@ const Icon = (props) => {
   } = props;
   const SVG = loadAssets(name);
   if (SVG) {
-    classes.push(`svg-${name}`);
     const attr = {
       width: svgWidth || null,
       height: svgHeight || null,
-      className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
+      className: (classes && classes.length > 0) ? `svg-${name} ${classes.filter((c) => c).toString()}` : `svg-${name}`,
       'aria-hidden': ariaHidden || null
     };
     return(
