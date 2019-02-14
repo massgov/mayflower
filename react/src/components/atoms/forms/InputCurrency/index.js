@@ -224,7 +224,7 @@ const InputCurrency = (props) => {
     language,
     disabled: props.disabled
   };
-  const currency = numbro(inputProps.defaultValue);
+  const currency = inputProps.defaultValue && numbro(inputProps.defaultValue);
   if (currency) {
     inputProps.defaultValue = currency.formatCurrency(format);
   }
