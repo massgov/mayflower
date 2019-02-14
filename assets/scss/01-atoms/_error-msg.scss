@@ -1,19 +1,22 @@
 // error message
 .ma__error-msg {
-  display: none;
+  display: flex;
+  align-items: flex-start;
   font-size: 1.125rem;
-  line-height: 1.75rem;
+  line-height: 1.2rem;
   margin-bottom: .5em;
-
-  color: $c-font-error;
   font-weight: 500;
 
+ svg {
+   flex: 0 0 1.2rem;
+   margin-right: 3px;
+ }
+
   &--success {
-    color: $c-primary-alt !important;
+    color: $c-primary-alt;
   }
 
-  &.has-error {
-    display: flex !important;
-    align-items: center;
+  &.has-error{
+    color: $c-font-error;
   }
 }
