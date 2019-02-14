@@ -1,6 +1,6 @@
 // error message
 .ma__error-msg {
-  display: flex;
+  display: none;
   align-items: flex-start;
   font-size: 1.125rem;
   line-height: 1.2rem;
@@ -13,10 +13,12 @@
  }
 
   &--success {
+    display: flex;
     color: $c-primary-alt;
   }
 
   &.has-error{
+    display: flex;
     color: $c-font-error;
   }
 }
