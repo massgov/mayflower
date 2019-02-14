@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ErrorMessage from '../ErrorMessage';
 import './style.css';
 
 class InputText extends React.Component {
@@ -23,43 +24,46 @@ class InputText extends React.Component {
   }
 
   render() {
-    const inputText = this.props;
+    const {
+      name, id, type, placeholder, maxlength, pattern, width, required, labelText, hiddenLabel, errorMsg
+    } = this.props;
     const inputLabelClasses = ['ma__label'];
-    if (inputText.labelText) {
-      inputLabelClasses.push(`ma__label--${inputText.required ? 'required' : 'optional'}`);
-      if (inputText.hiddenLabel) {
+    if (labelText) {
+      inputLabelClasses.push(`ma__label--${required ? 'required' : 'optional'}`);
+      if (hiddenLabel) {
         inputLabelClasses.push('ma__label--hidden');
       }
     }
     const inputClasses = ['ma__input'];
-    if (inputText.required) {
+    if (required) {
       inputClasses.push('js-is-required');
     }
     return(
       <React.Fragment>
-        {inputText.labelText &&
+        {labelText &&
         <label
-          htmlFor={inputText.id}
+          htmlFor={id}
           className={inputLabelClasses.join(' ')}
         >
-          {inputText.labelText}
+          {labelText}
         </label>}
-        {inputText.errorMsg &&
-        <div className="ma__error-msg">{inputText.errorMsg}</div>}
         <input
           className={inputClasses.join(' ')}
-          name={inputText.name}
-          id={inputText.id}
-          type={inputText.type}
-          placeholder={inputText.placeholder}
-          data-type={inputText.type}
-          maxLength={inputText.maxlength || null}
-          pattern={inputText.pattern || null}
-          style={inputText.width ? { width: `${inputText.width}px` } : null}
+          name={name}
+          id={id}
+          type={type}
+          placeholder={placeholder}
+          data-type={type}
+          maxLength={maxlength || null}
+          pattern={pattern || null}
+          style={width ? { width: `${width}px` } : null}
           onChange={this.handleChange}
-          required={inputText.required}
+          required={required}
           value={this.state.value}
         />
+        {errorMsg && required && !this.state.value &&
+          (<ErrorMessage error={errorMsg} inputId={id} />)
+        }
       </React.Fragment>
     );
   }
