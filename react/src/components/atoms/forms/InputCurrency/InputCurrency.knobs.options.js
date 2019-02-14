@@ -12,7 +12,7 @@ export default {
   name: () => text('InputCurrency.name', 'currency-input'),
   width: () => number('InputCurrency.width', 0),
   maxlength: () => number('InputCurrency.maxlength', 20),
-  placeholder: () => text('InputCurrency.placeholder', 'type something'),
+  placeholder: () => text('InputCurrency.placeholder', '$0.00'),
   errorMsg: () => text('InputCurrency.errorMsg', 'you did not type something'),
   defaultValue: () => text('InputCurrency.defaultValue', null),
   max: () => number('InputCurrency.max', 10000),
