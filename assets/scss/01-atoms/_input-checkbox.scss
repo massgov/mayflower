@@ -40,14 +40,18 @@
       width: 2em;
     }
 
-    &--disabled{
-      label {
-        opacity: 0.5;
-      }
-    }
-
     span {
       line-height: 1.2em;
+    }
+  }
+
+  &--disabled{
+    label {
+      opacity: 0.5;
+    }
+
+    svg {
+      opacity: 0.5;
     }
   }
 
