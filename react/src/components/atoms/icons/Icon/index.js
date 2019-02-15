@@ -28,7 +28,6 @@ const Icon = (props) => {
   } = props;
   const SVG = loadAssets(name);
   if (SVG) {
-    classes.push(`svg-${name}`);
     const attr = {
       width: svgWidth || null,
       height: svgHeight || null,
