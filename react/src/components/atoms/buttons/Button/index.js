@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { specs, describe, it } from 'storybook-addon-specifications'
 import './style.css';
 
 const Button = (button) => {

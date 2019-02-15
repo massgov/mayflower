@@ -12,6 +12,13 @@ module.exports = (baseConfig, env, defaultConfig) => {
       }
     }
   });
+  defaultConfig.externals = {
+    'jsdom': 'window',
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': 'window',
+    'react/addons': true,
+  };
   defaultConfig.resolve = {
     ...defaultConfig.resolve,
      alias: {

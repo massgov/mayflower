@@ -4,6 +4,9 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { specs, describe, it } from 'storybook-addon-specifications';
+import { mount } from "enzyme";
+import expect from "expect";
 
 import Button from './index';
 import ButtonDocs from './Button.md';
@@ -25,8 +28,15 @@ storiesOf('atoms/buttons', module)
         href: text('button.href', ''),
         onClick: action('button clicked')
       };
+      const story = <Button {...props} />;
+      /*specs(() => describe('Hello World', function () {
+        it('Should have the Hello World label', function () {
+          let output = mount(story);
+          expect(output.text()).toContain('Button');
+        });
+      }));*/
       return(
-        <Button {...props} />
+        story
       );
     }),
     { info: ButtonDocs }
