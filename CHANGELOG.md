@@ -13,6 +13,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.0.0 (02/13/2019)
+
+### Changed
+- (React) DP-12665: Upgrades react to version 16.8.1 and node to version 10.15.1. #467
+- (React) DP-12458: Updates storybook to version 4.1.1 & related updates to component stories for the withInfo and withKnobs addons. Adds related babel package dependencies as storybook 4 upgrades to Babel 7. Updates storybook webpack config per upgrade to Babel 7. #464
+- (React) DP-12458: Updates nwb to version 0.23.x. #464
+- (React) DP-12458: Updates backstop to version 3.9.2. #464
+- (Patternlab) DP-11507: Remove ll.8-29 where add hooks to table richtext.js. #450
+
 ## 8.26.0 (02/07/2019)
 
 ### Changed
