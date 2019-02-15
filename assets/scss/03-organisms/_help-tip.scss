@@ -52,6 +52,7 @@ $border-width: 1px;
     border: none;
     padding: 0px 2px;
     border-bottom: 2px dotted $c-primary;
+    background-color: $c-bay-blue-lightest;
 
     &:focus {
       box-shadow: 0 0 3px 3px $c-focus;
@@ -72,7 +73,7 @@ $border-width: 1px;
       width: 16px;
       height: 16px;
       margin-bottom: -.1em;
-      fill: tint($c-font-link, 50%);
+      fill: $c-font-link;
     }
   }
 
