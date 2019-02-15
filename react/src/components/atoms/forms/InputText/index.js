@@ -61,7 +61,7 @@ class InputText extends React.Component {
           required={required}
           value={this.state.value}
         />
-        {errorMsg && required && !this.state.value &&
+        {errorMsg &&
           (<ErrorMessage error={errorMsg} inputId={id} />)
         }
       </React.Fragment>
@@ -91,6 +91,8 @@ InputText.propTypes = {
   /** The placeholder text for the input field */
   placeholder: PropTypes.string,
   /** The message to be displayed in the event of an error */
+  errorMsg: PropTypes.string,
+  /** Custom change function */
   errorMsg: PropTypes.string,
   /** Custom change function */
   onChange: PropTypes.func,

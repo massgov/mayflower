@@ -11,6 +11,6 @@ export default {
   maxlength: () => number('inputText.maxlength', 0),
   pattern: () => text('inputText.pattern', ''),
   placeholder: () => text('inputText.placeholder', 'type something'),
-  errorMsg: () => text('inputText.errorMsg', 'you did not type something'),
+  errorMsg: () => text('inputText.errorMsg', ''),
   defaultText: () => text('inputText.defaultText', 'default text value')
 };
