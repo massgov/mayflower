@@ -50,6 +50,7 @@
     "react-select": "^1.2.1",
     "react-table": "^6.8.6",
     "react-transition-group": "^2.4.0",
+    "require-context.macro": "^1.0.4",
     "shortid": "^2.2.8",
     "svg-sprite-loader": "^4.1.3"
   },
