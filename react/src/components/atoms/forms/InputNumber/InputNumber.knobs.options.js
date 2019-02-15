@@ -11,7 +11,7 @@ export default {
   name: () => text('InputNumber.name', 'number-input'),
   width: () => number('InputNumber.width', 0),
   maxlength: () => number('InputNumber.maxlength', 20),
-  placeholder: () => text('InputNumber.placeholder', 'type something'),
+  placeholder: () => text('InputNumber.placeholder', '0'),
   errorMsg: () => text('InputNumber.errorMsg', 'you did not type something'),
   defaultValue: () => number('InputNumber.defaultValue'),
   max: () => number('InputNumber.max', 10000),
