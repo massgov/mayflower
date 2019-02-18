@@ -5,7 +5,7 @@
       {% set menuId =  'menu' ~ loop.index %}
       <li class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}">
         {% if nav.subNav %}
-          <button id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
+          <button id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">{{ nav.text }}</button>
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
               <li role="menuitem" class="ma__main-nav__subitem"><a href="{{ nav.href }}" class="ma__main-nav__link" tabindex="-1">{{ nav.text }}</a></li>
