@@ -22,7 +22,7 @@ if (null !== searchForm) {
     }
     event.preventDefault();
     document.querySelector("body").classList.toggle("show-menu");
-    document.getElementById('nav-search').focus();
+    document.querySelector('.ma__header__nav-search .ma__header-search__input').focus();
     feedbackButton.classList.toggle("hide-button");
   });
 }
