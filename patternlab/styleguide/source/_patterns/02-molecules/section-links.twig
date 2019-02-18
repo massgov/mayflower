@@ -51,14 +51,14 @@
     </nav>
     {% if sectionLinks.seeAll %}
       <div class="ma__section-links__footer">
-        <span class="ma__decorative-link">
-          <a
-            href="{{sectionLinks.seeAll.href}}"
-            class="js-clickable-link"
-            {% if sectionLinks.seeAll.info %}title="{{ sectionLinks.seeAll.info }}"{% endif %}>
-            {{sectionLinks.seeAll.text}} <span class="ma__visually-hidden"> {{sectionLinks.title.text}}</span>&nbsp;{{ icon('arrow') }}
-          </a>
-        </span>
+      {% set decorativeLink = {
+          "type": "",
+          "href": sectionLinks.seeAll.href,
+          "text": sectionLinks.seeAll.text ~ ' <span class="ma__visually-hidden">' ~ sectionLinks.title.text ~ '</span>',
+          "info": "learn more about " ~ sectionLinks.title.text }
+        %}
+        {% include "@atoms/decorative-link.twig" %}
+        
       </div>
     {% endif %}
   </div>
