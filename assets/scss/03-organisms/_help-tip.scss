@@ -2,10 +2,14 @@ $spacing: 1rem;
 $border-radius: 4px;
 $border-width: 1px;
 
+.ma_help-tip__label-a11y {
+  display: none;
+}
+
 .ma__help-tip {
   $helpTipBaseClass: &;
 
-  display: block;
+  display: inline;
   margin-bottom: .5rem;
 
   &__container {
@@ -26,7 +30,7 @@ $border-width: 1px;
     }
 
     &.collapsed {
-        visibility: hidden;
+        display: none;
         height: 0px;
     }
 
@@ -48,13 +52,20 @@ $border-width: 1px;
     border: none;
     padding: 0px 2px;
     border-bottom: 2px dotted $c-primary;
+    background-color: $c-bay-blue-lightest;
 
+    &:focus {
+      box-shadow: 0 0 3px 3px $c-focus;
+      outline: 0;
+    }
 
-    &.active, &:hover, &:focus {
+    &.active, &:hover {
       background-color: $c-primary;
       color: $c-white;
-      outline: 0;
-      box-shadow: focus-shadow($border-width, $c-focus);
+
+      svg {
+        fill: tint($c-font-link, 70%);
+      }
     }
 
     svg {
@@ -62,7 +73,7 @@ $border-width: 1px;
       width: 16px;
       height: 16px;
       margin-bottom: -.1em;
-      fill: tint($c-font-link, 50%);
+      fill: $c-font-link;
     }
   }
 
@@ -174,7 +185,7 @@ $border-width: 1px;
       bottom: 0;
       left: 0;
       right: 0;
-      z-index: 1; // to create a new stacking context on top
+      z-index: 10; // to create a new stacking context on top, stack below mobile site header (z-index: 90)
       margin-top: .5rem;
       &--c-primary {
         background-color: $c-primary-lightest;

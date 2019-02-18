@@ -1,9 +1,9 @@
 import { text, boolean, select, number } from '@storybook/addon-knobs';
 
 export default {
-  hiddenLabel: (value) => boolean('inputText.hiddenLabel', value),
+  hiddenLabel: () => boolean('inputText.hiddenLabel', false),
   labelText: () => text('inputText.labelText', 'Text Input'),
-  required: (value) => boolean('inputText.required', value),
+  required: () => boolean('inputText.required', false),
   id: () => text('inputText.id', 'text-input'),
   name: () => text('inputText.name', 'text-input'),
   type: () => select('inputText.type', ['text', 'email', 'number'], 'text'),
@@ -11,6 +11,6 @@ export default {
   maxlength: () => number('inputText.maxlength', 0),
   pattern: () => text('inputText.pattern', ''),
   placeholder: () => text('inputText.placeholder', 'type something'),
-  errorMsg: () => text('inputText.errorMsg', 'you did not type something'),
+  errorMsg: () => text('inputText.errorMsg', ''),
   defaultText: () => text('inputText.defaultText', 'default text value')
 };

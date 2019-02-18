@@ -14,7 +14,7 @@ const ErrorMessage = ({
       className={`ma__error-msg has-error ${isSuccessful ? 'ma__error-msg--success' : ''}`}
       role={isSuccessful ? 'presentation' : 'alert'}
     >
-      {isSuccessful ? <Icon name="inputsuccess" svgWidth={16} svgHeight={18} /> : <Icon name="inputerror" svgWidth={16} svgHeight={18} />}&nbsp;
+      {isSuccessful ? <Icon name="inputsuccess" svgWidth={16} svgHeight={18} /> : <Icon name="inputerror" svgWidth={16} svgHeight={18} />}
       {isSuccessful ? success : error }
     </div>
   );

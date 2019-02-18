@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Paragraph = (paragraph) => (
-  <p dangerouslySetInnerHTML={{ __html: paragraph.text }} />
+  <p className={paragraph.className} dangerouslySetInnerHTML={{ __html: paragraph.text }} />
 );
 
 Paragraph.propTypes = {
   /** The text displayed. */
-  text: PropTypes.string
+  text: PropTypes.string,
+  /** A custom class. */
+  className: PropTypes.string
 };
 
 Paragraph.defaultProps = {

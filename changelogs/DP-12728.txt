@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Patch
+- (React) DP-12728: Allow input currency defaultValue to be null. #477
