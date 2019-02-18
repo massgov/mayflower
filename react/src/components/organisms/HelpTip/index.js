@@ -4,49 +4,55 @@ import classNames from 'classnames';
 
 import Collapse from '../../animations/Collapse';
 import Icon from '../../atoms/icons/Icon';
+import Paragraph from '../../atoms/text/Paragraph';
 import './style.css';
 
 
 class HelpTip extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const openArray = this.props.triggerText.map((trigger, index) => false);
     this.state = {
-      isOpen: false
+      isOpen: openArray
     };
   }
 
-  componentWillMount() {
-    this.setState({ isOpen: false });
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const isAnyDifferent = ['textBefore', 'textAfter', 'triggerText', 'helpText'].some((property) => this.props[property] !== nextProps[property]);
-    if (isAnyDifferent) {
-      this.setState({ isOpen: false });
-    }
-  }
-
-  toggleOpen = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+  getSplitText = (text, triggers) => {
+    let splitText = text;
+    triggers.forEach((trigger, index) => {
+      if (index === 0) {
+        splitText = splitText.split(trigger);
+      } else {
+        const nextPart = (splitText[index].split(trigger));
+        splitText.pop();
+        splitText = splitText.concat(nextPart);
+      }
+    });
+    return splitText;
   };
 
-  toggleOpenForKeyUp = (e) => {
+  toggleOpenForKeyUp = (e, index) => {
     if (e.which === 13 || e.which === 32) {
       // 13 is enter, 32 is spacebar
       e.preventDefault();
       e.stopPropagation();
-      this.toggleOpen(e);
+      this.toggleOpen(index);
     }
   };
 
-  // Rendering
-  // ---------
+  toggleOpen = (index) => {
+    const { isOpen } = this.state;
+    isOpen[index] = !this.state.isOpen[index];
+    this.setState({ isOpen });
+  };
 
-  buildDangerouslyIfHasMarkup = (text, hasMarkup) => (hasMarkup ? <span dangerouslySetInnerHTML={{ __html: text }} /> : text)
+  buildDangerouslyIfHasMarkup = (text, hasMarkup) => (
+    hasMarkup ? <span dangerouslySetInnerHTML={{ __html: text }} /> : text
+  );
 
   render() {
     const {
-      hasMarkup, labelId, triggerText, textAfter, helpText, children, id, theme
+      hasMarkup, triggerText, textAfter, helpText, children, id, theme, text
     } = this.props;
 
     const baseClass = classNames({
@@ -67,82 +73,91 @@ class HelpTip extends Component {
       'ma__help-tip__text-direct': true,
       [`ma__help-tip__text-direct--${theme}`]: theme
     });
+    const splitText = this.getSplitText(text, triggerText);
+    const childArray = children && (Array.isArray(children) ? children : [children]);
 
     return(
       <span className={baseClass} id={id}>
-        <span className="ma__help-tip__label" id={labelId}>
-          {this.buildDangerouslyIfHasMarkup(this.props.textBefore, hasMarkup)}
-          {/* can't use a button b/c disrupts fieldsets when used inside of legend */}
-          <div
-            className={`ma__help-tip__trigger ${this.state.isOpen ? 'active' : ''}`}
-            onClick={this.toggleOpen}
-            onKeyUp={this.toggleOpenForKeyUp}
-            tabIndex="0"
-            role="button"
-            aria-describedby={id}
-            aria-expanded={this.state.isOpen}
-          >
-            {this.buildDangerouslyIfHasMarkup(triggerText, hasMarkup)}
-            <Icon name="questionmark" svgHeight={15} svgWidth={15} />
-          </div>
-          {this.buildDangerouslyIfHasMarkup(textAfter, hasMarkup)}
-        </span>
-        <Collapse in={this.state.isOpen} dimension="height" className={helpTextContainer}>
-          <div className="ma__help-tip__content">
-            <div
+        {triggerText.map((trigger, index) => (
+          <span key={`help-tip-label-${id}-${index}`} className="ma__help-tip__label" id={`label-${id}-${index}`}>
+            {index === 0 && this.buildDangerouslyIfHasMarkup(splitText[index], hasMarkup)}
+            <span className="ma_help-tip__label-a11y" id={`context-a11y-${id}-${index}`} aria-hidden="true">
+              {this.state.isOpen[index] ? 'Close tooltip info about ' : 'Open tooltip info about '}
+              {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
+            </span>
+            <span
+              className={`ma__help-tip__trigger ${this.state.isOpen[index] ? 'active' : ''}`}
+              id={`trigger-${id}-${index}`}
+              onClick={() => this.toggleOpen(index)}
+              onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
               tabIndex="0"
               role="button"
-              className="ma__help-tip__close-mobile"
-              onClick={this.toggleOpen}
-              onKeyUp={this.toggleOpenForKeyUp}
+              aria-describedby={`context-a11y-${id}-${index}`}
+              aria-expanded={this.state.isOpen[index]}
+              aria-controls={`help-tip-content-${id}-${index}`}
             >
-              <Icon name="close" label="Close help tip" />
-            </div>
-            <div
-              tabIndex="0"
-              role="button"
-              className="ma__help-tip__close-desktop"
-              onClick={this.toggleOpen}
-              onKeyUp={this.toggleOpenForKeyUp}
-            >
-              <Icon name="close" label="Close help tip" />
-            </div>
-            {(helpText || children) && (
-              <div className={helpTextClasses} aria-live="polite">
-                {children || (<p className={helpTextDirect}>{helpText}</p>)}
+              {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
+              <Icon name="questionmark" svgHeight={15} svgWidth={15} />
+            </span>
+            {this.buildDangerouslyIfHasMarkup(splitText[index + 1], hasMarkup)}
+          </span>
+        ))}
+        {triggerText.map((trigger, index) => (
+          <Collapse key={`help-tip-collapse-${id}-${index}`} in={this.state.isOpen[index]} dimension="height" className={helpTextContainer}>
+            <div className="ma__help-tip__content" id={`help-tip-content-${id}-${index}`} aria-hidden={!this.state.isOpen[index]}>
+              <div
+                tabIndex="0"
+                role="button"
+                className="ma__help-tip__close-mobile"
+                onClick={() => this.toggleOpen(index)}
+                onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
+                aria-label={this.state.isOpen[index] && 'Close help tip.'}
+              >
+                <Icon name="close" />
               </div>
-            )}
-          </div>
-        </Collapse>
+              <div
+                tabIndex="0"
+                role="button"
+                className="ma__help-tip__close-desktop"
+                onClick={() => this.toggleOpen(index)}
+                onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
+                aria-label={this.state.isOpen[index] && 'Close help tip.'}
+              >
+                <Icon name="close" />
+              </div>
+              {(helpText || childArray) && (
+                <div className={helpTextClasses} aria-live="polite">
+                  {helpText && helpText[index] && (<Paragraph className={helpTextDirect} text={helpText[index]} />)}
+                  {childArray && childArray[index] && childArray[index]}
+                </div>
+              )}
+            </div>
+          </Collapse>
+        ))}
       </span>
     );
   }
 }
 
 HelpTip.propTypes = {
-  /** The text/content before the text that will be a clickable inline toolitp */
-  textBefore: PropTypes.string,
-  /** The text/content after the text that will be a clickable inline toolitp */
-  textAfter: PropTypes.string,
+  /** The text that will have one or more help tips inserted in it. */
+  text: PropTypes.string,
   /** The text that will be a clickable inline toolitp */
-  triggerText: PropTypes.string.isRequired,
+  triggerText: PropTypes.arrayOf(PropTypes.string),
   /** The help text that is displayed on clicking the trigger text */
   /** You can also render children in the help text */
-  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  /** The label id */
-  labelId: PropTypes.string.isRequired,
+  helpText: PropTypes.arrayOf(PropTypes.string),
   /** The id for the whole component */
   id: PropTypes.string.isRequired,
   /** Whether you want the help text to slide up on mobile screens */
   bypassMobileStyle: PropTypes.bool,
-  /** Whether textBefore, textAfter, or triggerText has html markup */
+  /** Whether text contains html markup */
   hasMarkup: PropTypes.bool,
   /** Themes correspond to site color scheme i.e. sass variables */
   theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red', 'c-white'])
 };
 
 HelpTip.defaultProps = {
-  labelId: '',
   hasMarkup: true,
   theme: 'c-primary',
   bypassMobileStyle: false

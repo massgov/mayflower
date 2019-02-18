@@ -24,6 +24,6 @@ export const assets = {
 };
 
 export const svgOptions = {
-  '': 'Choose',
+  choose: '',
   ...assets
 };
