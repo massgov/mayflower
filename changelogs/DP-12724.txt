@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) DP-12724: Fix helptip mobile tray z-index . #474
