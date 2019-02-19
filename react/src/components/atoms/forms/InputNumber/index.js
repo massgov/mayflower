@@ -66,7 +66,7 @@ const NumberInput = (props) => (
             const updateError = displayErrorMessage(value, props.min, props.max, props.required);
             context.updateState({ value: floatValue, ...updateError }, () => {
               if (typeof props.onChange === 'function') {
-                props.onChange(e, value, props.id);
+                props.onChange(e, floatValue, props.id);
               }
             });
           };
