@@ -72,6 +72,7 @@ const NumberInput = (props) => (
           };
 
           const handleAdjust = (e, direction) => {
+            e.persist();
             let newValue;
             // default to 0 if defaultValue is NaN
             const baseValue = Number(context.value) ? Number(context.value) : 0;
