@@ -13,6 +13,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.0.1 (02/19/2019)
+
+### Fixed
+- (React) DP-12776: Hotfix value delay in InputNumber callback and event returning all null values. #482
+
 ## 9.1.0 (02/15/2019)
 
 ### Added
@@ -28,7 +33,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) DP-12728: Allow input currency defaultValue to be null. #477
 - (React) DP-12733: Fixed error message responsive styling. #475
 - (React) DP-12733: Fixed icon classes bug. #475
-
 
 ## 9.0.0 (02/13/2019)
 
