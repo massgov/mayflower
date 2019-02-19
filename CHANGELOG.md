@@ -18,6 +18,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - (React) DP-12776: Hotfix value delay in InputNumber callback and event returning all null values. #482
 
+## 9.1.0 (02/15/2019)
+
+### Added
+- (Patternlab) DP-9494: MF Add related orgs/topics to topic page. #429
+- (React) DP-12560: Add input checkbox. #468
+
+### Changed
+- (React) DP-12561: Updates the help tip organism so users can pass multiple help tips in a single span of text. #469
+- (React) DP-12749: Style helptip trigger and add highlight color. #478
+
+### Fixed
+- (React) DP-12724: Fix helptip mobile tray z-index. #474
+- (React) DP-12728: Allow input currency defaultValue to be null. #477
+- (React) DP-12733: Fixed error message responsive styling. #475
+- (React) DP-12733: Fixed icon classes bug. #475
+
 ## 9.0.0 (02/13/2019)
 
 ### Changed
