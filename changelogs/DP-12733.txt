@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) DP-12733: Fixed error message responsive styling. #475
-- (React) DP-12733: Fixed icon classes bug. #475
