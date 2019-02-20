@@ -1,5 +1,4 @@
 {% set titleId = "section_titles_" ~ sectionLinks.id %}
-{% set linkContextDefault =  sectionLinks.title.text %}
 
 <section class="ma__section-links js-accordion">
   <div class="ma__section-links__content">
@@ -56,7 +55,7 @@
           "type": "",
           "href": sectionLinks.seeAll.href,
           "text": sectionLinks.seeAll.text,
-          "labelContext": (sectionLinks.seeAll.labelContext) ? sectionlinks.seeAll.labelContext : linkContextDefault,
+          "labelContext": (sectionLinks.seeAll.labelContext) ? sectionlinks.seeAll.labelContext : sectionLinks.title.text,
           "info": "learn more about " ~ sectionLinks.title.text }
         %}
         {% include "@atoms/decorative-link.twig" %}
