@@ -82,12 +82,14 @@ const Currency = (props) => (
               stringValue = context.value;
             }
             const numberValue = numbro.unformat(stringValue);
+            // default to 0 if defaultValue is NaN
+            const baseValue = numberValue || 0;
             if (!Number.isNaN(numberValue)) {
               let newValue;
               if (direction === 'up') {
-                newValue = Number(Number.parseFloat(numberValue + props.step).toFixed(2));
+                newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(2));
               } else if (direction === 'down') {
-                newValue = Number(Number.parseFloat(numberValue - props.step).toFixed(2));
+                newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(2));
               }
               const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
               context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
