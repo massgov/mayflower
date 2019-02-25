@@ -1,0 +1,5 @@
+___DESCRIPTION___
+Fixed
+Patch
+- (React) DP-12807: Prevent InputCurrency returning NaN when default value is set to null #484
+- (React) DP-12806: Fix error message inline styling #484
