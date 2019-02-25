@@ -13,6 +13,43 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.1.1 (02/19/2019)
+
+### Fixed
+- (React) DP-12776: Hotfix value delay in InputNumber callback and event returning all null values. #482
+
+## 9.1.0 (02/15/2019)
+
+### Added
+- (Patternlab) DP-9494: MF Add related orgs/topics to topic page. #429
+- (React) DP-12560: Add input checkbox. #468
+
+### Changed
+- (React) DP-12561: Updates the help tip organism so users can pass multiple help tips in a single span of text. #469
+- (React) DP-12749: Style helptip trigger and add highlight color. #478
+
+### Fixed
+- (React) DP-12724: Fix helptip mobile tray z-index. #474
+- (React) DP-12728: Allow input currency defaultValue to be null. #477
+- (React) DP-12733: Fixed error message responsive styling. #475
+- (React) DP-12733: Fixed icon classes bug. #475
+
+## 9.0.0 (02/13/2019)
+
+### Changed
+- (React) DP-12665: Upgrades react to version 16.8.1 and node to version 10.15.1. #467
+- (React) DP-12458: Updates storybook to version 4.1.1 & related updates to component stories for the withInfo and withKnobs addons. Adds related babel package dependencies as storybook 4 upgrades to Babel 7. Updates storybook webpack config per upgrade to Babel 7. #464
+- (React) DP-12458: Updates nwb to version 0.23.x. #464
+- (React) DP-12458: Updates backstop to version 3.9.2. #464
+- (Patternlab) DP-11507: Remove ll.8-29 where add hooks to table richtext.js. #450
+
+## 8.26.0 (02/07/2019)
+
+### Changed
+- (Patternlab/React) DP-11666: Replace `<section>` with `<div>` for `.ma__header-search`  #417
+- (React) DP-12414: Modifies Table component to make it responsive, using the Table Responsive pattern from pattern lab. #459
+- (React) Refactors Input, InputNumber, InputSlider, InputCurrency to use Form Context and added story Form. #460
+
 ## 8.25.0 (02/06/2019)
 
 ### Added

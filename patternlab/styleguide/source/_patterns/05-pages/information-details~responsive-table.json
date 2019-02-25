@@ -74,7 +74,7 @@
           }
         },
         {
-          "path": "@atoms/10-table/table.twig",
+          "path": "@atoms/10-table/table-responsive.twig",
           "data": {
             "table": {
               "description": "A description of what the table contains",

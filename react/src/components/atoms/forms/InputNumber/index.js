@@ -51,36 +51,42 @@ const NumberInput = (props) => (
           };
 
           const handleOnBlur = (e) => {
+            e.persist();
             const { value } = e.target;
-            const floatValue = Number.parseFloat(value).toFixed(decimalPlaces);
+            const floatValue = Number(Number.parseFloat(value).toFixed(decimalPlaces));
             if (typeof props.onBlur === 'function') {
               props.onBlur(e, floatValue);
             }
           };
 
           const handleChange = (e) => {
+            e.persist();
             const { value } = e.target;
-            const floatValue = Number.parseFloat(value).toFixed(decimalPlaces);
+            const floatValue = Number(Number.parseFloat(value).toFixed(decimalPlaces));
             const updateError = displayErrorMessage(value, props.min, props.max, props.required);
-            context.updateState({ value: floatValue, ...updateError });
-
-            if (typeof props.onChange === 'function') {
-              props.onChange(e, floatValue);
-            }
+            context.updateState({ value: floatValue, ...updateError }, () => {
+              if (typeof props.onChange === 'function') {
+                props.onChange(e, floatValue, props.id);
+              }
+            });
           };
 
           const handleAdjust = (e, direction) => {
+            e.persist();
             let newValue;
+            // default to 0 if defaultValue is NaN
+            const baseValue = Number(context.value) ? Number(context.value) : 0;
             if (direction === 'up') {
-              newValue = Number.parseFloat(Number(context.value) + props.step).toFixed(decimalPlaces);
+              newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(decimalPlaces));
             } else if (direction === 'down') {
-              newValue = Number.parseFloat(Number(context.value) - props.step).toFixed(decimalPlaces);
+              newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(decimalPlaces));
             }
             const updateError = displayErrorMessage(newValue, props.min, props.max, props.required);
-            context.updateState({ value: newValue, ...updateError });
-            if (typeof props.onChange === 'function') {
-              props.onChange(e, newValue);
-            }
+            context.updateState({ value: newValue, ...updateError }, () => {
+              if (typeof props.onChange === 'function') {
+                props.onChange(e, newValue, props.id);
+              }
+            });
           };
 
           const inputAttr = {
@@ -218,7 +224,7 @@ InputNumber.defaultProps = {
   required: false,
   onChange: null,
   step: 1,
-  hasButtons: true,
+  showButtons: true,
   unit: ''
 };
 

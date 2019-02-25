@@ -7,6 +7,10 @@ import Divider from './index';
 import DividerDocs from './Divider.md';
 
 storiesOf('atoms', module)
-  .add('Divider', withInfo(`<div>${DividerDocs}</div>`)(() => (
-    <Divider />
-  )));
+  .addDecorator(withInfo)
+  .add(
+    'Divider', (() => (
+      <Divider />
+    )),
+    { info: DividerDocs }
+  );

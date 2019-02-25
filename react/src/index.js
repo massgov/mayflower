@@ -16,6 +16,7 @@ export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 export ButtonFixedFeedback from './components/atoms/buttons/ButtonFixedFeedback';
 // @atoms/@forms
+export Form, { FormProvider } from './components/atoms/forms/Form';
 export HelperText from './components/atoms/forms/HelperText';
 export ErrorMessage from './components/atoms/forms/ErrorMessage';
 export InputDate from './components/atoms/forms/InputDate';
@@ -29,6 +30,7 @@ export Error from './components/atoms/forms/Input/error';
 export InputSlider from './components/atoms/forms/InputSlider';
 export CompoundSlider from './components/atoms/forms/CompoundSlider';
 export InputCurrency from './components/atoms/forms/InputCurrency';
+export InputCheckBox from './components/atoms/forms/InputCheckBox';
 
 // Also export the context.
 export { InputContext, FormContext } from './components/atoms/forms/Input/context';

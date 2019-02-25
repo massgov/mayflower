@@ -1,5 +1,6 @@
-import { text, boolean, number, object, select } from '@storybook/addon-knobs/react';
+import { text, boolean, number, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+
 
 export default {
   hiddenLabel: () => boolean('InputCurrency.hiddenLabel', false),
@@ -11,9 +12,9 @@ export default {
   name: () => text('InputCurrency.name', 'currency-input'),
   width: () => number('InputCurrency.width', 0),
   maxlength: () => number('InputCurrency.maxlength', 20),
-  placeholder: () => text('InputCurrency.placeholder', 'type something'),
+  placeholder: () => text('InputCurrency.placeholder', '$0.00'),
   errorMsg: () => text('InputCurrency.errorMsg', 'you did not type something'),
-  defaultValue: () => text('InputCurrency.defaultValue', 0),
+  defaultValue: () => text('InputCurrency.defaultValue', null),
   max: () => number('InputCurrency.max', 10000),
   min: () => number('InputCurrency.min', -1000),
   step: () => number('InputCurrency.step', 0.01),
@@ -23,7 +24,6 @@ export default {
     thousandSeparated: true,
     negative: 'parenthesis'
   }),
-  language: () => select('InputCurrency.language', ['English', 'Chinese', 'French', 'Russian'], 'English'),
   onChange: () => action('onChange'),
-  onBlur: () => action('onBlur')
+  language: () => select('InputCurrency.language', ['English', 'Chinese', 'French', 'Russian'], 'English')
 };

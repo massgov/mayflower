@@ -3,7 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 
 import Error500 from '.';
-import Error500Readme from './Error500.md';
+import Error500Docs from './Error500.md';
 
 storiesOf('pages', module)
-  .add('Error500', withInfo(`<div>${Error500Readme}</div>`)(() => (<Error500 />)));
+  .addDecorator(withInfo)
+  .add(
+    'Error500', (() => (
+      <Error500 />
+    )),
+    { info: Error500Docs }
+  );

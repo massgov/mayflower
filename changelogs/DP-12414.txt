@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Minor
-- (React) DP-12414: Modifies Table component to make it responsive, using the Table Responsive pattern from pattern lab.
