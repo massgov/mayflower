@@ -1,23 +1,17 @@
 <div class="ma__pagination js-pagination">
   <div class="ma__pagination__container">
-    <button
-      class="ma__pagination__prev js-pagination-prev"
-      type="button"
-      {% if pagination.prev.disabled %}
-        disabled
-      {% endif %}>{{ pagination.prev.text }}</button>
+    <a 
+      class="ma__pagination__prev js-pagination-prev {% if pagination.prev.disabled %}disabled{% endif %}"
+      href="#">{{ pagination.prev.text }}</a>
     {% for page in pagination.pages %}
       {% if page.text == "spacer" %}
         <span class="ma__pagination__spacer">&hellip;</span>
       {% else %}
-      <button class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" type="button" data-page="{{ page.text }}">{{ page.text }}</button>
+      <a class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" href="#" data-page="{{ page.text }}">{{ page.text }}</a>
       {% endif %}
     {% endfor %}
-    <button
-      class="ma__pagination__next js-pagination-next"
-      type="button"
-      {% if pagination.next.disabled %}
-        disabled
-      {% endif %}>{{ pagination.next.text }}</button>
+    <a
+      class="ma__pagination__next js-pagination-next {% if pagination.next.disabled %}disabled{% endif %}"
+      href="#">{{ pagination.next.text }}</a>
   </div>
 </div>

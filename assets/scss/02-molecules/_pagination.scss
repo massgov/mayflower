@@ -13,6 +13,7 @@
     border-top-style: solid;
     border-top-width: 2px;
     padding: 20px 0;
+    display: flex;
   }
 
   &__prev,
@@ -29,8 +30,8 @@
       margin: 0 .1em;
     }
 
-    &:disabled {
-      cursor: default;
+    &.disabled {
+      pointer-events: none;
       opacity: .5;
     }
 
