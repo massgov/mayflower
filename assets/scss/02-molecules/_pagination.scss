@@ -88,6 +88,7 @@
   }
 
   &__page {
+    margin: 0 0.5em;
 
     @media ($bp-small-max) {
       display: none;
@@ -179,10 +180,6 @@
     &:hover:after {
       border-color: rgba($c-font-link, .5);
     }
-
-  }
-
-  &__spacer {
 
   }
 }
