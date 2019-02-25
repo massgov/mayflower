@@ -264,8 +264,8 @@
 
   &__item {
 
-    &:hover,
-    &.is-open {
+    &.is-open,
+    &.has-focus {
       background-color: $c-white;
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
     }

@@ -37,21 +37,35 @@ export default (function (window, document, $, undefined) {
           'left': keycode === 37, // left arrow
           'right': keycode === 39, // right arrow
           'up': keycode === 38, // up arrow
-          'down': keycode === 40 // down arrow
+          'down': keycode === 40, // down arrow
+          'space': keycode === 32, //space
+          'enter': keycode === 13 // enter
         };
 
       // Default behavior is prevented for all actions except 'skip'.
       if (action.close || action.left || action.right || action.up || action.down) {
+        $('.has-focus').removeClass('has-focus');
         e.preventDefault();
       }
 
-      // Skip out of the menu and close any currently-open submenus.
-      if (action.skip) {
-        hide($openContent);
-        $link.removeClass(openClass);
-        $topLevelLink.attr('aria-expanded', 'false');
-        return;
+      if (action.space || action.enter) {
+        $(this).addClass('has-focus');
       }
+
+      if (action.skip && ($topLevelItem.find('.js-main-nav-content').hasClass('is-open'))) {
+        $topLevelItem.find('.ma__main-nav__link').attr('tabIndex', '0');
+      }
+
+      $topLevelItem.find('.js-main-nav-content .ma__main-nav__link:last').on('keydown', function () {
+        if (action.skip) {
+          hide($openContent);
+          $link.removeClass(openClass);
+          $topLevelLink.attr('aria-expanded', 'false');
+          $topLevelItem.find('.ma__main-nav__link').attr('tabIndex', '-1');
+          $('.has-focus').removeClass('has-focus');
+          return;
+        }
+      });
 
       // Navigate into or within a submenu. This is needed on up/down actions
       // (unless the menu is flipped and closed) and when using the right arrow
@@ -118,6 +132,7 @@ export default (function (window, document, $, undefined) {
 
     });
     $mainNavItems.on('mouseenter', function (e) {
+      $(this).toggleClass(openClass);
       $(this).children('button').attr("aria-expanded", "true");
 
       if (windowWidth > breakpoint) {
