@@ -205,6 +205,8 @@ $utility-nav-height: 43px;
       height: 145px;
       margin-top: 0;
       overflow: visible;
+      // hide scrollbars in IE 
+      -ms-overflow-style: none;
       padding-left: 0;
       position: absolute;
         left: 0;
