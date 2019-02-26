@@ -6,6 +6,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './style.css';
 
+const getTextByValue = (array = [], value) => {
+  const matchedItem = array.find((item) => item.value === value);
+  const matchedText = matchedItem && matchedItem.text;
+  return matchedText;
+ };
+
 class InputTextTypeAhead extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +30,7 @@ class InputTextTypeAhead extends Component {
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.selected });
-    this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.text === nextProps.selected);
+    this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.value === nextProps.selected);
   }
   onKeyDown(event) {
     if (typeof this.props.onKeyDown === 'function') {
@@ -80,7 +86,7 @@ class InputTextTypeAhead extends Component {
     } = this.props;
     const value = JSON.parse(JSON.stringify(this.state.value));
     const inputProps = {
-      value,
+      value: getTextByValue(this.props.options, value),
       onKeyDown: this.onKeyDown,
       onChange: this.onChange,
       onBlur: this.onBlur,

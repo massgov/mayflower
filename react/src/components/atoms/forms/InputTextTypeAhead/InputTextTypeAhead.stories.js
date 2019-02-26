@@ -22,7 +22,7 @@ storiesOf('atoms/forms', module)
         options: object('inputTextTypeAhead.options', inputOptions.options.orgSelector),
         selected: select(
           'inputTextTypeAhead.selected',
-          inputOptions.options.orgSelector.map((option) => option.text),
+          inputOptions.options.orgSelector.map((option) => option.value),
           ''
         ),
         onChange: action('InputTextTypeAhead onChange'),
