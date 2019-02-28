@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Fixed
+Patch
+- (React) DP-12875: Disable handle button when InputSlider is disabled. #494
