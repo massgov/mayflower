@@ -9,7 +9,7 @@ import './style.css';
 
 const Handle = (props) => {
   const {
-    handle: { id, value, percent }, getHandleProps, axis, min, max, step, displayValueFormat
+    handle: { id, value, percent }, getHandleProps, axis, min, max, step, displayValueFormat, disabled
   } = props;
   const decimalPlaces = countDecimals(step);
   const roundedValue = (Number.isInteger(step)) ? value : Number(Number.parseFloat(value).toFixed(decimalPlaces));
@@ -17,6 +17,7 @@ const Handle = (props) => {
     'aria-valuemin': min,
     'aria-valuemax': max,
     'aria-valuenow': roundedValue,
+    disabled,
     role: 'slider',
     onClick: (e) => {
       e.preventDefault();
@@ -190,6 +191,7 @@ class CompoundSlider extends Component {
                             max={max}
                             step={step}
                             displayValueFormat={this.props.displayValueFormat}
+                            disabled={disabled}
                           />
                         ))}
                       </div>
