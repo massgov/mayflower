@@ -1,0 +1,18 @@
+
+<section class="ma__related-locations">
+  <div class="ma__related-locations__container">
+    <h2 class="ma__related-locations__title">{{ relatedLocations.title }}{% if relatedLocations.titleContext %}<span class="visually-hidden"> {{relatedLocations.titleContext}}</span>{% endif %}</h2>
+    <div class="ma__related-locations__items">
+      {% for page in relatedLocations.pages %}
+        <figure class="ma__related-locations__item ma__related-locations__item--figure">
+          <a href="{{ page.link.href }}" title="{{ page.link.info }}">
+            {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
+            {% include "@atoms/09-media/image.twig" %}
+          </a>
+          {% set decorativeLink = page.link %}
+          {% include "@atoms/decorative-link.twig" %}
+        </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
