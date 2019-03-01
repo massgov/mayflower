@@ -65,8 +65,13 @@ $margin: 20px;
       &-handle {
         background-color: $c-gray-dark;
         cursor: not-allowed;
+        opacity: 1;
         &:hover {
           transform: none;
+        }
+
+        &-value {
+          color: $c-black;
         }
       }
     }
