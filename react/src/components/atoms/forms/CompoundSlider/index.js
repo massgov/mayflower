@@ -109,11 +109,19 @@ class CompoundSlider extends Component {
               min, max, step, disabled, domain
             } = this.props;
             const decimalPlaces = countDecimals(step);
-            const handleDragEnd = (values) => {
+            const handleChange = (values) => {
               const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
               context.updateState({ value }, () => {
                 if (typeof this.props.onChange === 'function') {
                   this.props.onChange(value, this.props.id);
+                }
+              });
+            };
+            const handleUpdate = (values) => {
+              const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
+              context.updateState({ value }, () => {
+                if (typeof this.props.onUpdate === 'function') {
+                  this.props.onUpdate(value, this.props.id);
                 }
               });
             };
@@ -157,7 +165,8 @@ class CompoundSlider extends Component {
               domain,
               step,
               vertical: !(this.props.axis === 'x'),
-              onSlideEnd: handleDragEnd,
+              onChange: handleChange,
+              onUpdate: handleUpdate,
               values: [defaultValue],
               mode: handleMode,
               disabled
@@ -253,6 +262,8 @@ CompoundSlider.propTypes = {
   id: PropTypes.string.isRequired,
   /** Custom change function */
   onChange: PropTypes.func,
+  /** Custom on update function, callback whenever slider clicked or moved */
+  onUpdate: PropTypes.func,
   /** Default input text value */
   defaultValue: PropTypes.string,
   /** Max value for the field. */
