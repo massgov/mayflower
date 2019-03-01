@@ -33,7 +33,7 @@ storiesOf('atoms/forms', module)
       inputSliderOptionsWithKnobs.domain = array('InputSlider.domain', [0, 1]).map((num) => Number(num));
       inputSliderOptionsWithKnobs.max = number('InputSlider.max', 1);
       inputSliderOptionsWithKnobs.step = number('InputSlider.step', 0.01, { min: 0, max: 1, step: 0.01 });
-      inputSliderOptionsWithKnobs.labelText = text('InputSlider.labelText', 'Slider (Linked to Input 3)');
+      inputSliderOptionsWithKnobs.labelText = text('InputSlider.labelText', 'Slider (Linked to Input 0 and Input 1)');
       const formTicks = object('InputSlider.ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' });
       const ticks = [];
       Object.keys(formTicks).forEach((tick) => ticks.push([tick, formTicks[tick]]));
