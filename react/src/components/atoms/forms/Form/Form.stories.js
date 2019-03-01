@@ -55,29 +55,21 @@ storiesOf('atoms/forms', module)
             {
             (formContext) => {
               inputTextOptionsWithKnobs.onChange = (e, newVal, id) => {
-                  if (formContext.hasId('test1')) {
-                    if (formContext.getValue('test1') === 30) {
-                      formContext.setValue({ id: 'test2', value: 25 });
-                    }
-                  }
                   // Keep test0 and test1 in sync.
-                  if (formContext.hasId('test1') && formContext.hasId('test0')) {
+                  if (formContext.hasId('test0') && formContext.hasId('test1')) {
                     if (id === 'test0') {
-                      formContext.setValue({ id: 'test1', value: formContext.getValue('test0') });
+                      formContext.setValue({ id: 'test1', value: 100 - formContext.getValue('test0') });
                     }
                     if (id === 'test1') {
-                      formContext.setValue({ id: 'test0', value: formContext.getValue('test1') });
+                      formContext.setValue({ id: 'test0', value: 100 - formContext.getValue('test1') });
                     }
                   }
-                  if (formContext.hasId('test3')) {
-                    if (id === 'test3') {
-                      formContext.setValue({ id: 'slider', value: Number(formContext.getValue('test3') / 100).toFixed(2) }, () => {
-                        // Use afterUpdate function so that slider is updated before this check.
-                        if (formContext.getValue('slider') === 0.6) {
-                          formContext.setValue({ id: 'currency-input', value: '$999.00' });
-                        }
-                      });
-                    }
+                  if (formContext.hasId('slider') && formContext.hasId('currency-input')) {
+                      if (formContext.getValue('slider') > 0.6) {
+                        formContext.setValue({ id: 'currency-input', value: '$999.00' });
+                      } else {
+                        formContext.setValue({ id: 'currency-input', value: '$0.00' });
+                      }
                   }
               };
               const ids = [
@@ -87,8 +79,9 @@ storiesOf('atoms/forms', module)
                     ...inputTextOptionsWithKnobs,
                     key: 'Form.InputNumber.test0',
                     defaultValue: 0,
-                    labelText: 'Input 0 (Linked to Input 1)',
-                    id: 'test0'
+                    labelText: 'Input 0 (Linked to Input 1 and Slider)',
+                    id: 'test0',
+                    unit: '%'
                   }
                 ],
                 [
@@ -97,28 +90,9 @@ storiesOf('atoms/forms', module)
                     ...inputTextOptionsWithKnobs,
                     key: 'Form.InputNumber.test1',
                     defaultValue: 1,
-                    labelText: 'Input 1 (Linked to Input 0)',
-                    id: 'test1'
-                  }
-                ],
-                [
-                  'test2',
-                  {
-                    ...inputTextOptionsWithKnobs,
-                    key: 'Form.InputNumber.test2',
-                    defaultValue: 2,
-                    labelText: 'Input 2 (Set to 25 when Input 1 is 30)',
-                    id: 'test2'
-                  }
-                ],
-                [
-                  'test3',
-                  {
-                    ...inputTextOptionsWithKnobs,
-                    key: 'Form.InputNumber.test3',
-                    defaultValue: 0,
-                    labelText: 'Input 3 (Linked to Slider)',
-                    id: 'test3'
+                    labelText: 'Input 1 (Linked to Input 0 and Slider)',
+                    id: 'test1',
+                    unit: '%'
                   }
                 ]
               ];
@@ -126,21 +100,24 @@ storiesOf('atoms/forms', module)
               ids.forEach((numberProps) => {
                 inputs.push(<InputNumber {...numberProps[1]} />);
               });
-              inputSliderOptionsWithKnobs.onChange = (newVal, id) => {
+              inputSliderOptionsWithKnobs.onUpdate = (newVal, id) => {
                 if (formContext.hasId(id)) {
-                  formContext.setValue({ id: 'test3', value: Number(formContext.getValue(id) * 100).toFixed(2) });
+                  formContext.setValue({ id: 'test0', value: Number(formContext.getValue(id) * 100).toFixed() });
+                  formContext.setValue({ id: 'test1', value: Number((1 - formContext.getValue(id)) * 100).toFixed() });
                   if (formContext.hasId('currency-input')) {
-                    if (newVal === 0.6) {
+                    if (newVal > 0.6) {
                       // Sets currency to 999 when slider is 60%.
                       formContext.setValue({ id: 'currency-input', value: '$999.00' });
+                    } else {
+                      formContext.setValue({ id: 'currency-input', value: '$0.00' });
                     }
                   }
                 }
               };
               return(
                 <React.Fragment>
-                  {inputs}
                   <InputCurrency {...inputCurrencyOptionsWithKnobs} />
+                  {inputs}
                   <InputSlider {...inputSliderOptionsWithKnobs} id="slider" />
                 </React.Fragment>
               );
