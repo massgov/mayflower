@@ -42,7 +42,7 @@ storiesOf('atoms/forms', module)
       delete InputCurrencyOptions.labelText;
       const inputCurrencyOptionsWithKnobs = Object.assign(...Object.entries(InputCurrencyOptions).map(([k, v]) => (
         { [k]: v() })));
-      inputCurrencyOptionsWithKnobs.labelText = text('InputCurrency.labelText', 'Currency Input (Set to 999 when Slider is 60)');
+      inputCurrencyOptionsWithKnobs.labelText = text('InputCurrency.labelText', 'Currency Input (Set to 999 when Slider is greater than 60)');
       const languages = new Map();
       languages.set('Chinese', 'zh-CN');
       languages.set('English', 'en-US');
@@ -56,20 +56,25 @@ storiesOf('atoms/forms', module)
             (formContext) => {
               inputTextOptionsWithKnobs.onChange = (e, newVal, id) => {
                   // Keep test0 and test1 in sync.
-                  if (formContext.hasId('test0') && formContext.hasId('test1')) {
+                  if (formContext.hasId('test0') && formContext.hasId('test1') && (formContext.hasId('slider'))) {
                     if (id === 'test0') {
                       formContext.setValue({ id: 'test1', value: 100 - formContext.getValue('test0') });
-                    }
-                    if (id === 'test1') {
-                      formContext.setValue({ id: 'test0', value: 100 - formContext.getValue('test1') });
-                    }
-                  }
-                  if (formContext.hasId('slider') && formContext.hasId('currency-input')) {
-                      if (formContext.getValue('slider') > 0.6) {
+                      formContext.setValue({ id: 'slider', value: formContext.getValue('test0') });
+                      if (formContext.getValue('test0') > 0.6) {
                         formContext.setValue({ id: 'currency-input', value: '$999.00' });
                       } else {
                         formContext.setValue({ id: 'currency-input', value: '$0.00' });
                       }
+                    }
+                    if (id === 'test1') {
+                      formContext.setValue({ id: 'test0', value: 100 - formContext.getValue('test1') });
+                      formContext.setValue({ id: 'slider', value: formContext.getValue('test0') });
+                      if (formContext.getValue('test0') > 0.6) {
+                        formContext.setValue({ id: 'currency-input', value: '$999.00' });
+                      } else {
+                        formContext.setValue({ id: 'currency-input', value: '$0.00' });
+                      }
+                    }
                   }
               };
               const ids = [
