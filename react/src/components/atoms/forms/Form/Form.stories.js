@@ -56,11 +56,13 @@ storiesOf('atoms/forms', module)
             (formContext) => {
               inputTextOptionsWithKnobs.onChange = (e, newVal, id) => {
                   // Keep test0 and test1 in sync.
+                  const test0 = formContext.getValue('test0');
+                  console.log(test0)
                   if (formContext.hasId('test0') && formContext.hasId('test1') && (formContext.hasId('slider'))) {
                     if (id === 'test0') {
-                      formContext.setValue({ id: 'test1', value: 100 - formContext.getValue('test0') });
-                      formContext.setValue({ id: 'slider', value: formContext.getValue('test0') });
-                      if (formContext.getValue('test0') > 0.6) {
+                      formContext.setValue({ id: 'test1', value: 100 - test0 });
+                      formContext.setValue({ id: 'slider', value: test0 / 100 });
+                      if (test0 > 60) {
                         formContext.setValue({ id: 'currency-input', value: '$999.00' });
                       } else {
                         formContext.setValue({ id: 'currency-input', value: '$0.00' });
@@ -68,8 +70,8 @@ storiesOf('atoms/forms', module)
                     }
                     if (id === 'test1') {
                       formContext.setValue({ id: 'test0', value: 100 - formContext.getValue('test1') });
-                      formContext.setValue({ id: 'slider', value: formContext.getValue('test0') });
-                      if (formContext.getValue('test0') > 0.6) {
+                      formContext.setValue({ id: 'slider', value: test0 / 100 });
+                      if (test0 > 60) {
                         formContext.setValue({ id: 'currency-input', value: '$999.00' });
                       } else {
                         formContext.setValue({ id: 'currency-input', value: '$0.00' });
