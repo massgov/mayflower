@@ -1,6 +1,6 @@
 {
   "relatedLocations": {
-    "title": "Related Locations",
+    "customTitle": true,
     "titleContext": "",
     "pages": [
       {
@@ -42,6 +42,27 @@
           "info": ""
         }
       }
-    ]
+    ],
+    "linkList": {
+      "compHeading": {
+        "title": "More Locations",
+        "level": "3"
+      },
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "Related Location #1"
+        },
+        {
+          "href": "#",
+          "text": "Related Location #2"
+        },
+        {
+          "href": "#",
+          "text": "Related Location #3"
+        }
+      ]
+    }
   }
 }

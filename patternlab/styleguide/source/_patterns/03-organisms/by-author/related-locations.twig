@@ -1,7 +1,8 @@
 
 <section class="ma__related-locations">
   <div class="ma__related-locations__container">
-    <h2 class="ma__related-locations__title">{{ relatedLocations.title }}{% if relatedLocations.titleContext %}<span class="visually-hidden"> {{relatedLocations.titleContext}}</span>{% endif %}</h2>
+    <h2 class="ma__related-locations__title">{{relatedLocations.customTitle ? 'Nearby Locations' : 'Related Locations'}}
+    {% if relatedLocations.titleContext %}<span class="visually-hidden"> {{relatedLocations.titleContext}}</span>{% endif %}</h2>
     <div class="ma__related-locations__items">
       {% for page in relatedLocations.pages %}
         <figure class="ma__related-locations__item ma__related-locations__item--figure">
@@ -13,6 +14,10 @@
           {% include "@atoms/decorative-link.twig" %}
         </figure>
       {% endfor %}
+    </div>
+    <div class="ma__more-locations__items">
+      {% set linkList = relatedLocations.linkList %}
+      {% include "@organisms/by-author/link-list.twig" %}
     </div>
   </div>
 </section>
