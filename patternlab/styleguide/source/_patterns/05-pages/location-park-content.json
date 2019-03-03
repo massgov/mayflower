@@ -205,6 +205,11 @@
         "href": "contacts",
         "text": "Contacts",
         "info": ""
+      },
+      {
+        "href": "related-locations",
+        "text": "Related Locations",
+        "info": ""
       }
     ]
   },
@@ -815,7 +820,7 @@
   },
   "COMMENT": "****POSTCONTENT COMPONENTS****",
   "relatedLocations": {
-    "customTitle": true,
+    "customTitle": false,
     "titleContext": "",
     "pages": [
       {
@@ -859,10 +864,6 @@
       }
     ],
     "linkList": {
-      "compHeading": {
-        "title": "More Locations",
-        "level": "3"
-      },
       "stacked": true,
       "links": [
         {

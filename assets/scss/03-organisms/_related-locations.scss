@@ -8,8 +8,13 @@
     padding-bottom: 50px;
 
     & > * {
+
+      @media ($bp-large-min) {
+        margin-left: 160px;
+      }
+
       @media ($bp-x-large-min) {
-        margin-left: $column-with-gutter * 2;
+        margin-left: 210px;
       }
     }
     
@@ -26,7 +31,6 @@
    
     @media ($bp-small-min) {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
     }
   }
@@ -34,26 +38,10 @@
   &__item {
     margin-bottom: 30px;
     width: 100%;
+    position: relative;
 
     @media ($bp-small-min) {
-      max-width: 33%;
-    }
-  }
-
-  &__item--figure {
-    display: block;
-    margin: 0 0 35px 0;
-
-    a {
-      height: 100%;
-      width: 100%;
-    }
-
-    .ma__decorative-link {
-      display: block;
-      font-size: 1.625rem;
-      line-height: 1.2;
-      margin-top: 10px;
+      flex: 1 1 auto;
     }
   }
 
