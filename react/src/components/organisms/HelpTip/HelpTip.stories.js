@@ -27,7 +27,8 @@ storiesOf('organisms/HelpTip', module)
       id: text('helpText.id', 'helptext-id-123'),
       bypassMobileStyle: boolean('helpTip.bypassMobileStyle', false),
       hasMarkup: boolean('helpTip.hasMarkup', true),
-      theme: select('helpTip.theme', themeOptions, 'c-primary')
+      theme: select('helpTip.theme', themeOptions, 'c-primary'),
+      disabled: boolean('helpTip.disabled', false)
     };
 
     return(<HelpTip {...props} />);
@@ -39,7 +40,8 @@ storiesOf('organisms/HelpTip', module)
       id: text('helpText.id', 'helptext-id-123'),
       bypassMobileStyle: boolean('helpTip.bypassMobileStyle', false),
       hasMarkup: boolean('helpTip.hasMarkup', true),
-      theme: select('helpTip.theme', themeOptions, 'c-primary')
+      theme: select('helpTip.theme', themeOptions, 'c-primary'),
+      disabled: boolean('helpTip.disabled', false)
     };
 
     return(
