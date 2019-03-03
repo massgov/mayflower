@@ -1,4 +1,6 @@
-
+{% if not relatedLocations.pages %}
+  {% set headingLevel = '2 class="ma__comp-heading"' %}
+{% endif %}
 <section class="ma__related-locations">
   <div class="ma__related-locations__container">
   {% if relatedLocations.pages %}
@@ -18,6 +20,7 @@
       {% endfor %}
     </div>
     <div class="ma__more-locations__items">
+      <h{{ headingLevel ? headingLevel : 3 }}>More Locations</h{{ headingLevel ? headingLevel : 3 }}> 
       {% set linkList = relatedLocations.linkList %}
       {% include "@organisms/by-author/link-list.twig" %}
     </div>

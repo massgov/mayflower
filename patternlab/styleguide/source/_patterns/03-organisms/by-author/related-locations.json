@@ -44,10 +44,6 @@
       }
     ],
     "linkList": {
-      "compHeading": {
-        "title": "More Locations",
-        "level": "3"
-      },
       "stacked": true,
       "links": [
         {
