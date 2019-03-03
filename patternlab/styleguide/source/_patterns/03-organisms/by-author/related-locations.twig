@@ -1,8 +1,10 @@
 
 <section class="ma__related-locations">
   <div class="ma__related-locations__container">
+  {% if relatedLocations.pages %}
     <h2 class="ma__related-locations__title">{{relatedLocations.customTitle ? 'Nearby Locations' : 'Related Locations'}}
     {% if relatedLocations.titleContext %}<span class="visually-hidden"> {{relatedLocations.titleContext}}</span>{% endif %}</h2>
+  {% endif %}
     <div class="ma__related-locations__items">
       {% for page in relatedLocations.pages %}
         <figure class="ma__related-locations__item ma__related-locations__item--figure">
