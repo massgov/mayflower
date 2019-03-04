@@ -43,6 +43,7 @@ const Currency = (props) => (
             return number;
           };
           const handleChange = (e) => {
+            e.persist();
             let stringValue;
             if (typeof e.target.value !== 'string') {
               stringValue = String(e.target.value);
@@ -70,11 +71,12 @@ const Currency = (props) => (
             }
             context.updateState(update, () => {
               if (typeof props.onChange === 'function') {
-                props.onChange(numberValue, props.id);
+                props.onChange(e, numberValue, props.id);
               }
             });
           };
           const handleAdjust = (e, direction) => {
+            e.persist();
             let stringValue;
             if (typeof context.value !== 'string') {
               stringValue = String(context.value);
@@ -94,7 +96,7 @@ const Currency = (props) => (
               const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
               context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                 if (typeof props.onChange === 'function') {
-                  props.onChange(newValue, props.id);
+                  props.onChange(e, newValue, props.id);
                 }
               });
             }
@@ -144,6 +146,7 @@ const Currency = (props) => (
               }
             },
             onKeyDown: (e) => {
+              e.persist();
               let stringValue;
               if (typeof context.value !== 'string') {
                 stringValue = String(context.value);
@@ -158,7 +161,7 @@ const Currency = (props) => (
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id);
+                      props.onChange(e, newValue, props.id);
                     }
                   });
                 } else if (e.key === 'ArrowUp') {
@@ -166,7 +169,7 @@ const Currency = (props) => (
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id);
+                      props.onChange(e, newValue, props.id);
                     }
                   });
                 }
