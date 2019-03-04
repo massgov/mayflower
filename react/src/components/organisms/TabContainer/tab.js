@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { TabContext } from './context';
@@ -40,7 +40,6 @@ const Tab = React.forwardRef((props, ref) => {
           e.currentTarget.removeAttribute('tabindex');
           const nested = body
             .getElementsByClassName('ma__tab-container--nested')[0]
-            .getElementsByTagName('ul')[0]
             .getElementsByClassName('ma__tab-title--active')[0]
             .getElementsByTagName('button')[0];
           nested.setAttribute('tabindex', '-1');
@@ -48,7 +47,6 @@ const Tab = React.forwardRef((props, ref) => {
           nested.focus();
         } else if (context.tabRefs[nextIdent]) {
           e.currentTarget.setAttribute('tabindex', '-1');
-          context.tabRefs[nextIdent].current.setAttribute('tabindex', '0');
           context.tabRefs[nextIdent].current.focus();
         }
       }
@@ -61,7 +59,6 @@ const Tab = React.forwardRef((props, ref) => {
           .closest('.ma__tab-container-body')
           .parentElement
           .getElementsByClassName('ma__tab-title--active')[0]
-          .previousElementSibling
           .getElementsByTagName('button')[0];
         prevTab.setAttribute('tabindex', '-1');
         prevTab.focus();
@@ -69,7 +66,6 @@ const Tab = React.forwardRef((props, ref) => {
         e.currentTarget.removeAttribute('tabindex');
         const nested = body
           .getElementsByClassName('ma__tab-container--nested')[0]
-          .getElementsByTagName('ul')[0]
           .getElementsByClassName('ma__tab-title--active')[0]
           .getElementsByTagName('button')[0];
         nested.setAttribute('tabindex', '-1');
@@ -77,7 +73,6 @@ const Tab = React.forwardRef((props, ref) => {
         nested.focus();
       } else if (context.tabRefs[previousIdent]) {
         e.currentTarget.setAttribute('tabindex', '-1');
-        context.tabRefs[previousIdent].current.setAttribute('tabindex', '0');
         context.tabRefs[previousIdent].current.focus();
       }
     }
@@ -85,7 +80,7 @@ const Tab = React.forwardRef((props, ref) => {
   const { setActiveTab, activeTab } = context;
   const tabClasses = classNames({
     'ma__tab-title': true,
-    'ma__tab-title--active': active
+    'ma__tab-title--active': props.default || active
   });
   const buttonProps = {
     onClick: (e) => {

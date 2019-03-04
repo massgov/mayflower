@@ -33,10 +33,18 @@ class TabContainer extends React.Component {
         this.tabRefs[tabId].current.focus();
       }
     };
-    React.Children.forEach(props.children, (child, index) => tabIds.set(index, shortid.generate()));
+    const tabRefs = {};
+    let activeContent = null;
+    React.Children.forEach(props.children, (child, index) => {
+      tabIds.set(index, shortid.generate());
+      tabRefs[tabIds.get(index)] = React.createRef();
+      if (index === props.defaultTab) {
+        activeContent = child.props.children;
+      }
+    });
     this.state = {
-      activeTab: null,
-      activeContent: null,
+      activeTab: tabIds.get(props.defaultTab),
+      activeContent,
       // eslint-disable-next-line react/no-unused-state
       setActiveTab: this.setActiveTab,
       // eslint-disable-next-line react/no-unused-state
@@ -44,7 +52,7 @@ class TabContainer extends React.Component {
       // eslint-disable-next-line react/no-unused-state
       focusTab: this.focusTab,
       tabIds,
-      tabRefs: {},
+      tabRefs,
       tabContainerId: shortid.generate(),
       tabContainerBodyId: shortid.generate()
     };
@@ -64,14 +72,9 @@ class TabContainer extends React.Component {
     const { children, defaultTab } = this.props;
     const active = defaultTab;
     this.childrenWithProps = React.Children.map(children, (child, index) => {
-      if (!this.state.tabRefs[this.state.tabIds.get(index)]) {
-        this.state.tabRefs[this.state.tabIds.get(index)] = React.createRef();
-      }
-      // Add child's tab index.
       const newProps = {
         default: index === defaultTab,
         tabIdent: this.state.tabIds.get(index),
-        active: index === defaultTab,
         ref: this.state.tabRefs[this.state.tabIds.get(index)]
       };
       if (this.useDefault) {
@@ -82,7 +85,6 @@ class TabContainer extends React.Component {
           newProps.default = false;
           newProps.active = false;
         }
-        this.defaultContent = child.props.children;
         this.useDefault = false;
       } else {
         newProps.default = false;
@@ -92,7 +94,7 @@ class TabContainer extends React.Component {
           newProps.active = false;
         }
       }
-      return React.cloneElement(child, newProps);
+      return(child.props.children) ? React.cloneElement(child, newProps, child.props.children) : React.cloneElement(child, newProps);
     });
     return(
       <TabContext.Provider value={this.state}>
@@ -112,7 +114,7 @@ class TabContainer extends React.Component {
                 id={this.state.tabContainerBodyId}
                 onKeyDown={(e) => {
                   if (e.key === 'ArrowUp') {
-                    const currentTab = (this.defaultContent) ? this.state.tabIds.get(defaultTab) : this.state.activeTab;
+                    const currentTab = this.state.activeTab;
                     this.state.tabRefs[currentTab].current.focus();
                   }
                   if (e.key === 'ArrowDown') {
@@ -130,17 +132,9 @@ class TabContainer extends React.Component {
                       this.state.focusOnTabBody();
                     }
                   }
-                  let nextIdent;
-                  let previousIdent;
-                  this.state.tabIds.forEach((ident, key) => {
-                    if (this.state.activeTab === ident) {
-                      nextIdent = this.state.tabIds.get(key + 1);
-                      previousIdent = this.state.tabIds.get(key - 1);
-                    }
-                  });
                 }}
               >
-                {this.defaultContent || this.state.activeContent}
+                {this.state.activeContent}
               </div>
             )
           }
