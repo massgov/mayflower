@@ -1,53 +1,152 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import shortid from 'shortid';
 import classNames from 'classnames';
 import { TabContext } from './context';
 
-class Tab extends React.Component {
-  constructor(props) {
-    super(props);
-    this.tabIdent = shortid.generate();
-    this.defaultSet = false;
+const Tab = React.forwardRef((props, ref) => {
+  const context = useContext(TabContext);
+  const { tabIdent, active} = props;
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowDown') {
+      const body = document.getElementById(context.tabContainerBodyId);
+      body.setAttribute('tabindex', '0');
+      e.currentTarget.setAttribute('tabindex', '-1');
+      context.focusOnTabBody();
+    }
+    let nextIdent = null;
+    let previousIdent = null;
+    context.tabIds.forEach((ident, key) => {
+      if (context.activeTab === ident) {
+        nextIdent = context.tabIds.get(key + 1);
+        previousIdent = context.tabIds.get(key - 1);
+      }
+    });
+    if (e.key === 'Tab') {
+      if (!nextIdent && e.currentTarget.closest('.ma__tab-container-body')) {
+        e.currentTarget.removeAttribute('tabindex');
+        const nextTab = e.currentTarget
+          .closest('.ma__tab-container-body')
+          .parentElement
+          .getElementsByClassName('ma__tab-title--active')[0]
+          .getElementsByTagName('button')[0];
+        nextTab.setAttribute('tabindex', '-1');
+        nextTab.focus();
+      }
+      const body = document.getElementById(context.tabContainerBodyId);
+      if (body.getElementsByClassName('ma__tab-container--nested')[0]) {
+        e.currentTarget.removeAttribute('tabindex');
+        const nested = body
+          .getElementsByClassName('ma__tab-container--nested')[0]
+          .getElementsByTagName('ul')[0]
+          .getElementsByClassName('ma__tab-title--active')[0]
+          .getElementsByTagName('button')[0];
+        nested.setAttribute('tabindex', '-1');
+        e.currentTarget.blur();
+        nested.focus();
+      }
+    }
+    if (e.key === 'ArrowRight') {
+      // Handle last tab.
+      if (!nextIdent && e.currentTarget.closest('.ma__tab-container-body')) {
+        e.currentTarget.removeAttribute('tabindex');
+        const nextTab = e.currentTarget
+          .closest('.ma__tab-container-body')
+          .parentElement
+          .getElementsByClassName('ma__tab-title--active')[0]
+          .nextElementSibling
+          .getElementsByTagName('button')[0];
+        nextTab.setAttribute('tabindex', '-1');
+        nextTab.focus();
+      } else {
+        const body = document.getElementById(context.tabContainerBodyId);
+        // If tab has nested content...
+        if (body.getElementsByClassName('ma__tab-container--nested')[0]) {
+          e.currentTarget.removeAttribute('tabindex');
+          const nested = body
+            .getElementsByClassName('ma__tab-container--nested')[0]
+            .getElementsByTagName('ul')[0]
+            .getElementsByClassName('ma__tab-title--active')[0]
+            .getElementsByTagName('button')[0];
+          nested.setAttribute('tabindex', '-1');
+          e.currentTarget.blur();
+          nested.focus();
+        } else if (context.tabRefs[nextIdent]) {
+          e.currentTarget.setAttribute('tabindex', '-1');
+          context.tabRefs[nextIdent].current.setAttribute('tabindex', '0');
+          context.tabRefs[nextIdent].current.focus();
+        }
+      }
+    }
+    if (e.key === 'ArrowLeft') {
+      const body = document.getElementById(context.tabContainerBodyId);
+      if (!previousIdent && e.currentTarget.closest('.ma__tab-container-body')) {
+        e.currentTarget.removeAttribute('tabindex');
+        const prevTab = e.currentTarget
+          .closest('.ma__tab-container-body')
+          .parentElement
+          .getElementsByClassName('ma__tab-title--active')[0]
+          .previousElementSibling
+          .getElementsByTagName('button')[0];
+        prevTab.setAttribute('tabindex', '-1');
+        prevTab.focus();
+      } else if (body.getElementsByClassName('ma__tab-container--nested')[0]) {
+        e.currentTarget.removeAttribute('tabindex');
+        const nested = body
+          .getElementsByClassName('ma__tab-container--nested')[0]
+          .getElementsByTagName('ul')[0]
+          .getElementsByClassName('ma__tab-title--active')[0]
+          .getElementsByTagName('button')[0];
+        nested.setAttribute('tabindex', '-1');
+        e.currentTarget.blur();
+        nested.focus();
+      } else if (context.tabRefs[previousIdent]) {
+        e.currentTarget.setAttribute('tabindex', '-1');
+        context.tabRefs[previousIdent].current.setAttribute('tabindex', '0');
+        context.tabRefs[previousIdent].current.focus();
+      }
+    }
+  };
+  const { setActiveTab, activeTab } = context;
+  const tabClasses = classNames({
+    'ma__tab-title': true,
+    'ma__tab-title--active': active
+  });
+  const buttonProps = {
+    onClick: (e) => {
+      e.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (activeTab !== tabIdent) {
+        setActiveTab(tabIdent, props.children);
+        if (typeof props.handleClick === 'function') {
+          props.handleClick(e, tabIdent, props.children);
+        }
+      }
+    },
+    onKeyDown: handleKeyDown,
+    id: tabIdent,
+    'aria-selected': active,
+    'aria-controls': context.tabContainerBodyId,
+    role: 'tab',
+    ref,
+    onFocus: () => {
+      if (activeTab !== tabIdent) {
+        setActiveTab(tabIdent, props.children);
+      }
+    }
+  };
+  if (active) {
+    buttonProps.tabIndex = -1;
   }
-
-  render() {
-    return(
-      <TabContext.Consumer>
-        {(context) => {
-          const { activeTab, setActiveTab } = context;
-          const active = (activeTab === this.tabIdent);
-          const tabClasses = classNames({
-            'ma__tab-title': true,
-            'ma__tab-title--active': active
-          });
-          if (!this.defaultSet && this.props.default === true) {
-            // eslint-disable-next-line react/prop-types
-            setActiveTab(this.tabIdent, this.props.children);
-            this.defaultSet = true;
-          }
-          return(
-            <button
-              className={tabClasses}
-              onClick={(e) => {
-                e.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                setActiveTab(this.tabIdent, this.props.children);
-                if (typeof this.props.handleClick === 'function') {
-                  this.props.handleClick(e, this.tabIdent, this.props.children);
-                }
-              }}
-            >
-              {this.props.title}
-            </button>
-          );
-        }}
-      </TabContext.Consumer>
-    );
-  }
-}
+  return(
+    <li role="presentation" className={tabClasses}>
+      <button {...buttonProps}>{props.title}</button>
+    </li>
+  );
+});
 
 Tab.defaultProps = {
-  default: false
+  default: false,
+  tabIndex: null,
+  active: false
 };
 
 Tab.propTypes = {
