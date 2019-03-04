@@ -73,9 +73,11 @@ const Tab = React.forwardRef((props, ref) => {
           .getElementsByClassName('ma__tab-container--nested')[0]
           .getElementsByClassName('ma__tab-title--active')[0]
           .getElementsByTagName('button')[0];
-        nested.setAttribute('tabindex', '-1');
-        e.currentTarget.blur();
-        nested.focus();
+        if (previousIdent) {
+          nested.setAttribute('tabindex', '-1');
+          e.currentTarget.blur();
+          nested.focus();
+        }
       } else if (context.tabRefs[previousIdent]) {
         e.currentTarget.setAttribute('tabindex', '-1');
         context.tabRefs[previousIdent].current.focus();
