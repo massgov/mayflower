@@ -22,65 +22,53 @@ const Tab = React.forwardRef((props, ref) => {
       }
     });
     if (e.key === 'ArrowRight') {
-      // Handle last tab for non-nested tab containers.
-      if (!nextIdent
-        && !e.currentTarget.getElementsByClassName('ma__tab-container--nested')[0]
-        && e.currentTarget.closest('.ma__tab-container-body')) {
-        e.currentTarget.removeAttribute('tabindex');
-        const nextTab = e.currentTarget
-          .closest('.ma__tab-container-body')
-          .parentElement
-          .getElementsByClassName('ma__tab-title--active')[0]
-          .nextElementSibling
-          .getElementsByTagName('button')[0];
-        nextTab.setAttribute('tabindex', '-1');
-        nextTab.focus();
-      } else {
-        const body = document.getElementById(context.tabContainerBodyId);
-        // If tab has nested content...
-        if (body.getElementsByClassName('ma__tab-container--nested')[0]) {
-          e.currentTarget.removeAttribute('tabindex');
-          const nested = body
-            .getElementsByClassName('ma__tab-container--nested')[0]
-            .getElementsByClassName('ma__tab-title--active')[0]
-            .getElementsByTagName('button')[0];
-          nested.setAttribute('tabindex', '-1');
-          e.currentTarget.blur();
-          nested.focus();
-        } else if (context.tabRefs[nextIdent]) {
-          e.currentTarget.setAttribute('tabindex', '-1');
-          context.tabRefs[nextIdent].current.focus();
+      const body = document.getElementById(context.tabContainerBodyId);
+      if (context.tabRefs[nextIdent]) {
+        e.currentTarget.setAttribute('tabindex', '-1');
+        context.tabRefs[nextIdent].current.focus();
+      }
+      else {
+        // If no TabContainer children.
+        if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
+          // If the TabContainer has a parent TabContainer, and that container has a next selectable sibling.
+          if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
+            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
+            const nextTab = e.currentTarget
+              .closest('div.ma__tab-container')
+              .parentElement
+              .closest('div.ma__tab-container')
+              .getElementsByClassName('ma__tab-title--active')[0]
+              .nextElementSibling
+              .getElementsByTagName('button')[0];
+            nextTab.removeAttribute('tabindex');
+            nextTab.focus();
+          }
         }
       }
     }
     if (e.key === 'ArrowLeft') {
       const body = document.getElementById(context.tabContainerBodyId);
-      if (!previousIdent
-        && !e.currentTarget.getElementsByClassName('ma__tab-container--nested')[0]
-        && e.currentTarget.closest('.ma__tab-container-body')) {
-        e.currentTarget.removeAttribute('tabindex');
-        const prevTab = e.currentTarget
-          .closest('.ma__tab-container-body')
-          .parentElement
-          .getElementsByClassName('ma__tab-title--active')[0]
-          .previousElementSibling
-          .getElementsByTagName('button')[0];
-        prevTab.setAttribute('tabindex', '-1');
-        prevTab.focus();
-      } else if (body.getElementsByClassName('ma__tab-container--nested')[0]) {
-        e.currentTarget.removeAttribute('tabindex');
-        const nested = body
-          .getElementsByClassName('ma__tab-container--nested')[0]
-          .getElementsByClassName('ma__tab-title--active')[0]
-          .getElementsByTagName('button')[0];
-        if (previousIdent) {
-          nested.setAttribute('tabindex', '-1');
-          e.currentTarget.blur();
-          nested.focus();
-        }
-      } else if (context.tabRefs[previousIdent]) {
+      if (context.tabRefs[previousIdent]) {
         e.currentTarget.setAttribute('tabindex', '-1');
         context.tabRefs[previousIdent].current.focus();
+      }
+      else {
+        // If no TabContainer children.
+        if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
+          // If the TabContainer has a parent TabContainer, and that container has a previous selectable sibling.
+          if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
+            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].previousElementSibling) {
+            const prevTab = e.currentTarget
+              .closest('div.ma__tab-container')
+              .parentElement
+              .closest('div.ma__tab-container')
+              .getElementsByClassName('ma__tab-title--active')[0]
+              .previousElementSibling
+              .getElementsByTagName('button')[0];
+            prevTab.removeAttribute('tabindex');
+            prevTab.focus();
+          }
+        }
       }
     }
   };
