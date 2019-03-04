@@ -154,10 +154,12 @@ const Currency = (props) => (
                 stringValue = context.value;
               }
               const numberValue = numbro.unformat(stringValue);
+              // default to 0 if defaultValue is NaN
+              const baseValue = numberValue || 0;
               if (!Number.isNaN(numberValue) && stringValue.length > 0) {
                 let newValue;
                 if (e.key === 'ArrowDown') {
-                  newValue = Number(Number.parseFloat(numberValue - props.step).toFixed(2));
+                  newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(2));
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
@@ -165,7 +167,7 @@ const Currency = (props) => (
                     }
                   });
                 } else if (e.key === 'ArrowUp') {
-                  newValue = Number(Number.parseFloat(numberValue + props.step).toFixed(2));
+                  newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(2));
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
