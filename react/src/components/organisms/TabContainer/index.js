@@ -8,6 +8,13 @@ import { TabContext } from './context';
 class TabContainer extends React.Component {
   constructor(props) {
     super(props);
+    // Allows Tab to interact directly with the tab body div through context.
+    this.tabBodyRef = React.createRef();
+    this.defaultContent = null;
+    this.useDefault = true;
+    const tabIds = new Map();
+    // This only works for class components because it is not re-generated on every render.
+    this.spanId = shortid.generate();
     this.setActiveTab = (tab, content = null) => {
       const state = {
         activeTab: tab
@@ -18,7 +25,6 @@ class TabContainer extends React.Component {
       }
       this.setState(state);
     };
-    this.tabBodyRef = React.createRef();
     this.focusOnTabBody = () => {
       this.tabBodyRef.current.focus();
     };
@@ -27,11 +33,6 @@ class TabContainer extends React.Component {
         this.tabRefs[tabId].current.focus();
       }
     };
-    this.defaultContent = null;
-    this.useDefault = true;
-    const tabIds = new Map();
-    // This only works for class components because it is not re-generated on every render.
-    this.spanId = shortid.generate();
     React.Children.forEach(props.children, (child, index) => tabIds.set(index, shortid.generate()));
     this.state = {
       activeTab: null,
@@ -62,20 +63,17 @@ class TabContainer extends React.Component {
     // eslint-disable-next-line react/prop-types
     const { children, defaultTab } = this.props;
     const active = defaultTab;
-    let tabIndex = 1;
     this.childrenWithProps = React.Children.map(children, (child, index) => {
       if (!this.state.tabRefs[this.state.tabIds.get(index)]) {
         this.state.tabRefs[this.state.tabIds.get(index)] = React.createRef();
       }
       // Add child's tab index.
       const newProps = {
-        tabIndex,
         default: index === defaultTab,
         tabIdent: this.state.tabIds.get(index),
         active: index === defaultTab,
         ref: this.state.tabRefs[this.state.tabIds.get(index)]
       };
-      tabIndex += 1;
       if (this.useDefault) {
         if (active === index) {
           newProps.default = true;
@@ -128,7 +126,6 @@ class TabContainer extends React.Component {
                       nested.setAttribute('tabindex', '0');
                       e.currentTarget.blur();
                       nested.focus();
-                      // e.currentTarget.getElementsByClassName('ma__tab-container--nested')[0].getElementsByTagName('ul')[0].getElementsByClassName('ma__tab-title--active')[0].focus();
                     } else {
                       this.state.focusOnTabBody();
                     }
