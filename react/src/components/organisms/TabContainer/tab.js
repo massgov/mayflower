@@ -5,7 +5,7 @@ import { TabContext } from './context';
 
 const Tab = React.forwardRef((props, ref) => {
   const context = useContext(TabContext);
-  const { tabIdent, active} = props;
+  const { tabIdent, active } = props;
   const handleKeyDown = (e) => {
     if (e.key === 'ArrowDown') {
       const body = document.getElementById(context.tabContainerBodyId);
@@ -121,7 +121,6 @@ const Tab = React.forwardRef((props, ref) => {
 
 Tab.defaultProps = {
   default: false,
-  tabIndex: null,
   active: false
 };
 
@@ -131,7 +130,11 @@ Tab.propTypes = {
   /** The text of the tab. */
   title: PropTypes.string.isRequired,
   /** A callback function ran after the tab has been clicked. */
-  handleClick: PropTypes.func
+  handleClick: PropTypes.func,
+  /** Sets if the tab is the currently active tab or not. */
+  active: PropTypes.bool,
+  /** The unique identifier set by TabContainer. */
+  tabIdent: PropTypes.string
 };
 
 export default Tab;

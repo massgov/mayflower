@@ -30,6 +30,8 @@ class TabContainer extends React.Component {
     this.defaultContent = null;
     this.useDefault = true;
     const tabIds = new Map();
+    // This only works for class components because it is not re-generated on every render.
+    this.spanId = shortid.generate();
     React.Children.forEach(props.children, (child, index) => tabIds.set(index, shortid.generate()));
     this.state = {
       activeTab: null,
@@ -97,7 +99,7 @@ class TabContainer extends React.Component {
     return(
       <TabContext.Provider value={this.state}>
         <div id={this.state.tabContainerId} className={classes}>
-          <span id={`this-test-prop`} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
+          <span id={this.spanId} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
           <ul className={ulClasses} role="tablist">
             {this.childrenWithProps}
           </ul>
