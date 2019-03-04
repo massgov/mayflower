@@ -21,30 +21,6 @@ const Tab = React.forwardRef((props, ref) => {
         previousIdent = context.tabIds.get(key - 1);
       }
     });
-    if (e.key === 'Tab') {
-      if (!nextIdent && e.currentTarget.closest('.ma__tab-container-body')) {
-        e.currentTarget.removeAttribute('tabindex');
-        const nextTab = e.currentTarget
-          .closest('.ma__tab-container-body')
-          .parentElement
-          .getElementsByClassName('ma__tab-title--active')[0]
-          .getElementsByTagName('button')[0];
-        nextTab.setAttribute('tabindex', '-1');
-        nextTab.focus();
-      }
-      const body = document.getElementById(context.tabContainerBodyId);
-      if (body.getElementsByClassName('ma__tab-container--nested')[0]) {
-        e.currentTarget.removeAttribute('tabindex');
-        const nested = body
-          .getElementsByClassName('ma__tab-container--nested')[0]
-          .getElementsByTagName('ul')[0]
-          .getElementsByClassName('ma__tab-title--active')[0]
-          .getElementsByTagName('button')[0];
-        nested.setAttribute('tabindex', '-1');
-        e.currentTarget.blur();
-        nested.focus();
-      }
-    }
     if (e.key === 'ArrowRight') {
       // Handle last tab.
       if (!nextIdent && e.currentTarget.closest('.ma__tab-container-body')) {
@@ -133,7 +109,7 @@ const Tab = React.forwardRef((props, ref) => {
       }
     }
   };
-  if (active) {
+  if (!active) {
     buttonProps.tabIndex = -1;
   }
   return(
