@@ -22,8 +22,10 @@ const Tab = React.forwardRef((props, ref) => {
       }
     });
     if (e.key === 'ArrowRight') {
-      // Handle last tab.
-      if (!nextIdent && e.currentTarget.closest('.ma__tab-container-body')) {
+      // Handle last tab for non-nested tab containers.
+      if (!nextIdent
+        && !e.currentTarget.getElementsByClassName('ma__tab-container--nested')[0]
+        && e.currentTarget.closest('.ma__tab-container-body')) {
         e.currentTarget.removeAttribute('tabindex');
         const nextTab = e.currentTarget
           .closest('.ma__tab-container-body')
@@ -53,12 +55,15 @@ const Tab = React.forwardRef((props, ref) => {
     }
     if (e.key === 'ArrowLeft') {
       const body = document.getElementById(context.tabContainerBodyId);
-      if (!previousIdent && e.currentTarget.closest('.ma__tab-container-body')) {
+      if (!previousIdent
+        && !e.currentTarget.getElementsByClassName('ma__tab-container--nested')[0]
+        && e.currentTarget.closest('.ma__tab-container-body')) {
         e.currentTarget.removeAttribute('tabindex');
         const prevTab = e.currentTarget
           .closest('.ma__tab-container-body')
           .parentElement
           .getElementsByClassName('ma__tab-title--active')[0]
+          .previousElementSibling
           .getElementsByTagName('button')[0];
         prevTab.setAttribute('tabindex', '-1');
         prevTab.focus();
