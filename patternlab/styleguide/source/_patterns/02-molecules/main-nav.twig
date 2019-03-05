@@ -1,9 +1,9 @@
 <div class="ma__main-nav">
-  <ul class="ma__main-nav__items js-main-nav">
+  <ul class="ma__main-nav__items js-main-nav" role="menubar" aria-hidden="false">
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}
       {% set menuId =  'menu' ~ loop.index %}
-      <li class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}">
+      <li role="menuitem" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" {% if nav.subNav %}aria-haspopup="true" {% endif %}>
         {% if nav.subNav %}
           <button id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">{{ nav.text }}</button>
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
