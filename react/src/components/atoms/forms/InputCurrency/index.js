@@ -163,7 +163,7 @@ const Currency = (props) => (
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id, type);
+                      props.onChange(newValue, props.id, type, key);
                     }
                   });
                 } else if (key === 'ArrowUp') {
