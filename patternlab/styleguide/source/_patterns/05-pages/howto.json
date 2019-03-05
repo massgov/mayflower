@@ -307,7 +307,7 @@
     },
     "stepsUnordered": {
       "compHeading": {
-        "title": "How To Apply",
+        "title": "How to apply",
         "level": 3,
         "color": "",
         "id": "how-to-apply",
@@ -389,7 +389,7 @@
     },
     "stepsOrdered": {
       "compHeading": {
-        "title": "Next Steps",
+        "title": "Next steps",
         "titleContext": "to Apply for unemployment benefits",
         "level": 3,
         "color": "",
