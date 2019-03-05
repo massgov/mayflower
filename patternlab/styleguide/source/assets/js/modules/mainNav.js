@@ -138,6 +138,7 @@ export default (function (window, document, $, undefined) {
       if (windowWidth > breakpoint) {
         let $openContent = $(this).find('.js-main-nav-content');
         show($openContent);
+        $('.has-focus').removeClass('has-focus');
       }
     });
     $mainNavItems.on('mouseleave', function (e) {
