@@ -39,7 +39,8 @@ export default (function (window, document, $, undefined) {
           'up': keycode === 38, // up arrow
           'down': keycode === 40, // down arrow
           'space': keycode === 32, //space
-          'enter': keycode === 13 // enter
+          'enter': keycode === 13, // enter
+          'back': e.shiftKey && keycode === 9 // shift + tab
         };
 
       // Default behavior is prevented for all actions except 'skip'.
@@ -54,6 +55,10 @@ export default (function (window, document, $, undefined) {
 
       if (action.skip && ($topLevelItem.find('.js-main-nav-content').hasClass('is-open'))) {
         $topLevelItem.find('.ma__main-nav__link').attr('tabIndex', '0');
+      }
+
+      if (($focusedElement = $('.ma__main-nav__item.is-open')) && action.back) {
+        $('.has-focus').removeClass('has-focus');
       }
 
       $topLevelItem.find('.js-main-nav-content .ma__main-nav__link:last').on('keydown', function () {
