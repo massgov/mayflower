@@ -17,8 +17,8 @@ const Tab = React.forwardRef((props, ref) => {
     let previousIdent = null;
     context.tabIds.forEach((ident, key) => {
       if (context.activeTab === ident) {
-        nextIdent = context.tabIds.get(key + 1);
-        previousIdent = context.tabIds.get(key - 1);
+        nextIdent = key ===  (context.tabIds.size - 1) ? context.tabIds.get(0) : context.tabIds.get(key + 1);
+        previousIdent = key === 0 ? context.tabIds.get(context.tabIds.size - 1) : context.tabIds.get(key - 1);
       }
     });
     if (e.key === 'ArrowRight') {
