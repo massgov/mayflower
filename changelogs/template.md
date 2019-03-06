@@ -1,7 +1,13 @@
+___EXAMPLE___
+Minor
+Added
+- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module #473
+- (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
+
 ___DESCRIPTION___
-Change_type (see below)
 Change_impact (see below)
-- (Project_prefix) DP-1234: Adds apples to apple trees for admin apple pickers #PR#
+Change_type (see below)
+- (Project_prefix) [ComponentName] DP-1234: Adds apples to apple trees for admin apple pickers #PR
 
 ___POST DEPLOY STEPS___
 1. Do this
@@ -28,3 +34,8 @@ ___PROJECTS PREFIX___
 - Patternlab
 - React
 - Docs
+
+
+___COMPONENT NAME___
+Component name in `PascalCase`
+e.g. Header, Form, InputSlider, InputTextTypeAhead
