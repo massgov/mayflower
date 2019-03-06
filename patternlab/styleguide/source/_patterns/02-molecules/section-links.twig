@@ -27,6 +27,7 @@
           "type": "",
           "href": sectionLinks.title.href,
           "text": "Learn More",
+          "labelContext": "about " ~ sectionLinks.title.text,
           "info": "learn more about " ~ sectionLinks.title.text }
         %}
         {% include "@atoms/decorative-link.twig" %}
@@ -51,8 +52,15 @@
     </nav>
     {% if sectionLinks.seeAll %}
       <div class="ma__section-links__footer">
-        {% set decorativeLink = sectionLinks.seeAll %}
+      {% set decorativeLink = {
+          "type": "",
+          "href": sectionLinks.seeAll.href,
+          "text": sectionLinks.seeAll.text,
+          "labelContext": (sectionLinks.seeAll.labelContext) ? sectionlinks.seeAll.labelContext : sectionLinks.title.text,
+          "info": "learn more about " ~ sectionLinks.title.text }
+        %}
         {% include "@atoms/decorative-link.twig" %}
+        
       </div>
     {% endif %}
   </div>

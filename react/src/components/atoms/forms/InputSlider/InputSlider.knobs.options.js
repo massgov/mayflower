@@ -15,6 +15,7 @@ export default {
   // Array knob converts numbers to strings - put it back to number.
   domain: () => array('InputSlider.domain', [0, 1]).map((num) => Number(num)),
   onChange: () => action('inputSlide.onChange'),
+  onUpdate: () => action('inputSlide.onUpdate'),
   skipped: () => boolean('InputSlider.skipped', false),
   displayValueFormat: () => select('InputSlider.displayValueFormat', ['percentage', 'value', null], 'percentage')
 };
