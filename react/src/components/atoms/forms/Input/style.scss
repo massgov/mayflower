@@ -14,7 +14,6 @@
     #{$group}-right {
       display: flex;
         flex-direction: column;
-        align-items: flex-end;
         @media ($bp-small-max) {
           align-items: flex-start;
         }
