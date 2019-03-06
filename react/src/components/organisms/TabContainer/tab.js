@@ -10,7 +10,6 @@ const Tab = React.forwardRef((props, ref) => {
     if (e.key === 'ArrowDown') {
       const body = document.getElementById(context.tabContainerBodyId);
       body.setAttribute('tabindex', '0');
-      e.currentTarget.setAttribute('tabindex', '-1');
       context.focusOnTabBody();
     }
     let nextIdent = null;
