@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { TabContext } from './context';
@@ -7,11 +7,6 @@ const Tab = React.forwardRef((props, ref) => {
   const context = useContext(TabContext);
   const { tabIdent, active } = props;
   const handleKeyDown = (e) => {
-    if (e.key === 'ArrowDown') {
-      const body = document.getElementById(context.tabContainerBodyId);
-      body.setAttribute('tabindex', '0');
-      context.focusOnTabBody();
-    }
     let nextIdent = null;
     let previousIdent = null;
     context.tabIds.forEach((ident, key) => {
@@ -25,8 +20,7 @@ const Tab = React.forwardRef((props, ref) => {
       if (context.tabRefs[nextIdent]) {
         e.currentTarget.setAttribute('tabindex', '-1');
         context.tabRefs[nextIdent].current.focus();
-      }
-      else {
+      } else {
         // If no TabContainer children.
         if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
           // If the TabContainer has a parent TabContainer, and that container has a next selectable sibling.
@@ -50,8 +44,7 @@ const Tab = React.forwardRef((props, ref) => {
       if (context.tabRefs[previousIdent]) {
         e.currentTarget.setAttribute('tabindex', '-1');
         context.tabRefs[previousIdent].current.focus();
-      }
-      else {
+      } else {
         // If no TabContainer children.
         if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
           // If the TabContainer has a parent TabContainer, and that container has a previous selectable sibling.

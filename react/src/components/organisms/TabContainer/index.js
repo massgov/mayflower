@@ -10,6 +10,8 @@ class TabContainer extends React.Component {
     super(props);
     // Allows Tab to interact directly with the tab body div through context.
     this.tabBodyRef = React.createRef();
+    // When false, runs key down code for nested containers.
+    this.preventBodyKeyDown = false;
     this.defaultContent = null;
     this.useDefault = true;
     const tabIds = new Map();
@@ -26,6 +28,7 @@ class TabContainer extends React.Component {
       this.setState(state);
     };
     this.focusOnTabBody = () => {
+      this.tabBodyRef.current.setAttribute('tabindex', '0');
       this.tabBodyRef.current.focus();
     };
     this.focusTab = (tabId) => {
@@ -98,7 +101,79 @@ class TabContainer extends React.Component {
     });
     return(
       <TabContext.Provider value={this.state}>
-        <div id={this.state.tabContainerId} className={classes}>
+        <div
+          id={this.state.tabContainerId}
+          className={classes}
+          onKeyDown={(e) => {
+            if (e.key === 'ArrowUp') {
+              // If the active focus is on the body, move focus to the current tab.
+              if (document.activeElement === this.tabBodyRef.current) {
+                const currentTab = this.state.activeTab;
+                this.preventBodyKeyDown = false;
+                this.state.tabRefs[currentTab].current.removeAttribute('tabindex');
+                this.state.tabRefs[currentTab].current.focus();
+              } else if (this.props.nested) {
+                // If the tab container is nested and active focus is not on the body,
+                // set focus to the parent tab container.
+                  this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
+                  const tab = e.currentTarget
+                    .parentElement
+                    .closest('div.ma__tab-container')
+                    .getElementsByClassName('ma__tab-title--active')[0]
+                    .getElementsByTagName('button')[0];
+                  tab.removeAttribute('tabindex');
+                  tab.focus();
+                  this.preventBodyKeyDown = true;
+                } else {
+                  this.preventBodyKeyDown = false;
+                }
+            }
+            if (e.key === 'ArrowDown') {
+              // If the tab container is not nested and has no nested tab container children...
+              if (!this.props.nested && this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length === 0) {
+                // Set focus on the tab container's body.
+                this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
+                this.focusOnTabBody();
+              }
+              // If the tab container is not nested and has nested tab container children...
+              if (!this.preventBodyKeyDown && !this.props.nested && this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length > 0) {
+                // Set focus on the first tab of the nested tab container child.
+                this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
+                const nested = this.tabBodyRef.current
+                  .getElementsByClassName('ma__tab-container--nested')[0]
+                  .getElementsByTagName('ul')[0]
+                  .getElementsByClassName('ma__tab-title--active')[0]
+                  .getElementsByTagName('button')[0];
+                nested.removeAttribute('tabindex');
+                this.tabBodyRef.current.removeAttribute('tabindex');
+                nested.focus();
+                // The next key down arrow should not run on the parent tab container, but on the child it will.
+                this.preventBodyKeyDown = true;
+              }
+              // If the tab container is nested...
+              if (this.props.nested) {
+                // And has nested tab containers...
+                if (this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length > 0) {
+                  // Set focus on the first tab of the nested tab container child.
+                  this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
+                  const nested = this.tabBodyRef.current
+                    .getElementsByClassName('ma__tab-container--nested')[0]
+                    .getElementsByTagName('ul')[0]
+                    .getElementsByClassName('ma__tab-title--active')[0]
+                    .getElementsByTagName('button')[0];
+                  nested.removeAttribute('tabindex');
+                  this.tabBodyRef.current.removeAttribute('tabindex');
+                  nested.focus();
+                  // The next key down arrow should not run on the parent tab container, but on the child it will.
+                  this.preventBodyKeyDown = true;
+                } else {
+                  this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
+                  this.focusOnTabBody();
+                }
+              }
+            }
+          }}
+        >
           <span id={this.spanId} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
           <ul className={ulClasses} role="tablist">
             {this.childrenWithProps}
@@ -108,31 +183,10 @@ class TabContainer extends React.Component {
               <div
                 aria-labelledby={this.state.activeTab}
                 className="ma__tab-container-body"
-                tabIndex={0}
                 ref={this.tabBodyRef}
                 role="tabpanel"
                 id={this.state.tabContainerBodyId}
-                onKeyDown={(e) => {
-                  if (e.key === 'ArrowUp') {
-                    const currentTab = this.state.activeTab;
-                    this.state.tabRefs[currentTab].current.focus();
-                  }
-                  if (e.key === 'ArrowDown') {
-                    if (e.currentTarget.getElementsByClassName('ma__tab-container--nested')[0]) {
-                      this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
-                      const nested = e.currentTarget
-                        .getElementsByClassName('ma__tab-container--nested')[0]
-                        .getElementsByTagName('ul')[0]
-                        .getElementsByClassName('ma__tab-title--active')[0]
-                        .getElementsByTagName('button')[0];
-                      nested.setAttribute('tabindex', '0');
-                      e.currentTarget.blur();
-                      nested.focus();
-                    } else {
-                      this.state.focusOnTabBody();
-                    }
-                  }
-                }}
+
               >
                 {this.state.activeContent}
               </div>
