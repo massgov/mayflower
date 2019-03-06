@@ -16,7 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ## 9.2.0 (05/05/2019)
 
 ### Added
-- (Patternlab) [MobileNav] DP-4562: Set focus state for search on mobile menu #473
+- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module. #473
 - (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
 
 ### Fixed

@@ -1,7 +1,7 @@
 ___EXAMPLE___
 Minor
 Added
-- (Patternlab) [MobileNav] DP-4562: Set focus state for search on mobile menu #473
+- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module #473
 - (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
 
 ___DESCRIPTION___
