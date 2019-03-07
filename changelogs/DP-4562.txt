@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Added
-Patch
-- patternlab/DP-4562: Set focus state for search on mobile menu
-
