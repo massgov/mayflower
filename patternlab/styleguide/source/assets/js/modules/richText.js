@@ -5,18 +5,6 @@ export default (function (window, document, $) {
     let $el = $(this),
       richTextIndex = index;
 
-    // Provide css hooks to indent each child heading and its nested contents if js hook is present.
-    if ($el.hasClass('js-ma-outline-indent')) {
-      $el.find(':header').each(function(index,heading){
-        if ($(heading).prop("tagName") !== 'H2') {
-          $(heading).addClass("ma__rich-text__indent");
-        }
-        $(heading).nextUntil(':header')
-          .addClass("ma__rich-text__indent")
-          .attr('data-ma-heading-parent', $(heading).prop('tagName'));
-      });
-    }
-
     // Insert anchor tags prior to all child headings if js hook is present.
     if ($el.hasClass('js-ma-insert-heading-anchors')) {
       // Get all of the content headings.
