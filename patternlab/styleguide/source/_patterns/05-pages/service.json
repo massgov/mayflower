@@ -215,7 +215,8 @@
         "type": "internal",
         "href": "http://www.google.com",
         "text": "See all 15",
-        "info": "See all 15 How-To's",
+        "info": "",
+        "labelContext": " of What would you like to do?",
         "button": true
       },
       "featuredLinks": [
@@ -274,7 +275,8 @@
         "type": "internal",
         "href": "http://www.google.com",
         "text": "See all 10",
-        "info": "See all 10 pages",
+        "info": "",
+        "labelContext": " of What you need to know",
         "button": true
       },
       "featuredLinks": "",

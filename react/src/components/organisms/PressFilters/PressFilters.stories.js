@@ -1,13 +1,11 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import PressFilters from './index';
 import PressFiltersDocs from './PressFilters.md';
-
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import headingOptions from '../../atoms/headings/Headings.knobs.options';
@@ -16,10 +14,11 @@ import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.option
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.options';
 
-storiesOf('organisms', module).addDecorator(withKnobs)
+storiesOf('organisms', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'PressFilters',
-    withInfo(PressFiltersDocs)(() => {
+    'PressFilters', (() => {
       const defaultHeadingLevel = '2';
       const pressFiltersStartDate = {
         labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'm/dd/yyyy', restrict: 'max'
@@ -112,5 +111,6 @@ storiesOf('organisms', module).addDecorator(withKnobs)
         };
       }
       return(<PressFilters {...props} />);
-    })
+    }),
+    { info: PressFiltersDocs }
   );

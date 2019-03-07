@@ -1,15 +1,16 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, object, select } from '@storybook/addon-knobs/react';
+import { withKnobs, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import Tabs from './index';
 import tabsOptions from './Tabs.knobs.options';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
-  .add('Tabs', withInfo('<div></div>')(() => {
+storiesOf('molecules', module)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('Tabs', (() => {
     const props = {
       tabs: object('tabs', tabsOptions.tabValues),
       handleClick: action('tab clicked'),

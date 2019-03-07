@@ -13,7 +13,132 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
-## 8.21.0 (01/24/2019
+## 9.2.0 (05/05/2019)
+
+### Added
+- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module. #473
+- (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
+
+### Fixed
+- (React) [InputSlider] DP-12732: Allows slider callback and updates form context on handler drag (Added onUpdate prop) #495
+- (React) [InputSlider] DP-12732: Allows keyboard actions and slider track click to update value (Changed handleChange from using onSlideEnd to onChange) #495
+- (React) [InputCurrency] DP-12807: Prevent InputCurrency returning NaN when default value is set to null #484
+- (React) [ErrorMessage] DP-12806: Fix error message inline styling #484
+- (React) [InputSlider] DP-12875: Disable handle button when InputSlider is disabled. #494
+- (React) [InputCurrency] DP-12890: Fix `NaN` value when defaultValue is null using up/down buttons. #498
+
+### Changed
+- (Patternlab) [SectionLinks] DP-9249: Topic card more links #472
+- (React) [InputCurrency] DP-12890: Pass event type to callback #498
+
+
+## 9.1.1 (02/19/2019)
+
+### Fixed
+- (React) DP-12776: Hotfix value delay in InputNumber callback and event returning all null values. #482
+
+## 9.1.0 (02/15/2019)
+
+### Added
+- (Patternlab) DP-9494: MF Add related orgs/topics to topic page. #429
+- (React) DP-12560: Add input checkbox. #468
+
+### Changed
+- (React) DP-12561: Updates the help tip organism so users can pass multiple help tips in a single span of text. #469
+- (React) DP-12749: Style helptip trigger and add highlight color. #478
+
+### Fixed
+- (React) DP-12724: Fix helptip mobile tray z-index. #474
+- (React) DP-12728: Allow input currency defaultValue to be null. #477
+- (React) DP-12733: Fixed error message responsive styling. #475
+- (React) DP-12733: Fixed icon classes bug. #475
+
+## 9.0.0 (02/13/2019)
+
+### Changed
+- (React) DP-12665: Upgrades react to version 16.8.1 and node to version 10.15.1. #467
+- (React) DP-12458: Updates storybook to version 4.1.1 & related updates to component stories for the withInfo and withKnobs addons. Adds related babel package dependencies as storybook 4 upgrades to Babel 7. Updates storybook webpack config per upgrade to Babel 7. #464
+- (React) DP-12458: Updates nwb to version 0.23.x. #464
+- (React) DP-12458: Updates backstop to version 3.9.2. #464
+- (Patternlab) DP-11507: Remove ll.8-29 where add hooks to table richtext.js. #450
+
+## 8.26.0 (02/07/2019)
+
+### Changed
+- (Patternlab/React) DP-11666: Replace `<section>` with `<div>` for `.ma__header-search`  #417
+- (React) DP-12414: Modifies Table component to make it responsive, using the Table Responsive pattern from pattern lab. #459
+- (React) Refactors Input, InputNumber, InputSlider, InputCurrency to use Form Context and added story Form. #460
+
+## 8.25.0 (02/06/2019)
+
+### Added
+- (PatternLab) DP-11135: Create Mayflower for new feedback form - Option 2a (contact link) #352
+- (PatternLab) DP-11301:  Feedback integration updates and merging to develop #434
+- (PatternLab) DP-12404: Added a formDownloads block to the following twig templates: court-rules.twig, policy-advisory.twig, & executive-order.twig. #440
+- (PatternLab) DP-12464: Added a block to the action-steps.twig for decorativeLink. #451
+- (React) Added options to render value above the InputSlider handle #455
+
+### Fixed
+- (React): DP-12519: Fixed button height for overflow content and added class prop to radioButtons to allow override default breakpoints to stack at medium or large breakpoints. #461
+- (Patternlab) DP-9204: Add a label to the video container. Change the reading order to 1. label, 2. transcript link, 3. video for screenreader users. #433
+
+## 8.24.1 (01/31/2019)
+
+### Fixed
+- (React): Remove will receive props from input component. #454
+- (React) add onBlur to InputNumber and consolidate countDecimal util function and add a default unit prop to InputNumber. #456
+
+## 8.24.0 (01/31/2019)
+
+### Changed
+- (Patternlab) DP-9200: Add labelContext to decorative link #425
+
+### Fixed
+- (React) #449
+  - allow InputNumber to update on defaultValue prop change
+  - fix disabled styling of InputNumber with unit on disabled
+  - make up/down buttons optional
+  - add option to skip the slider
+
+## 8.23.3 (01/30/2019)
+
+### Fixed
+- (React) hotfix: change input buttons positioning from absolute to using flexbox.
+
+## 8.23.2 (01/30/2019)
+
+### Fixed
+- (React) hotfix: preventDefault inputSlider handle onClick.
+
+## 8.23.1 (01/30/2019)
+
+### Fixed
+- (React) hotfix: fix proptype check function name.
+
+## 8.23.0 (01/30/2019)
+
+### Added
+- (React) DP-12303: Adds CompoundSlider, InputSlider, Error components and adds the react-compound-slider package. #431
+- (React) DP-12303: Adds FormContext support, changes the way Input renders to reduce re-renders on context changes. #431
+- (React) DP-12413: Add unit option in InputNumber for rendering percentage. #436
+- (React) DP-12451: Added an inline option for Input and fixed responsiveness. Allow Input labelText to render elements other than a string. #441
+
+### Fixed
+- (React) bugfix: Allow InputNumber up/down button onClick callback to access value from input. #439
+
+## 8.22.0 (01/29/2019)
+
+### Added
+- (React) DP-12338: Added a help tip organism. #432
+- (React) DP-12338: Added a close icon. #432
+- (React) DP-12379: Added InputNumber component. #430
+- (React) DP-12379: Added disabled state to InputCurrency and allow passing custom onChange callback. #430
+- (Patternlab) DP-12387: Added a block to the steps-ordered.twig and action-step.twig to use a view mode on the Drupal twig. #428
+
+### Fixed
+- (React) DP-12428: Fix missing key on the radio button group and id prop issue. #435
+
+## 8.21.0 (01/24/2019)
 
 ### Added
 - (React) DP-12318: Adds the form components input radio button (atom) and input radio button group (molecule) to mayflower-react. #424

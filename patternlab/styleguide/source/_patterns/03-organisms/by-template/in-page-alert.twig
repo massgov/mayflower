@@ -1,0 +1,14 @@
+<section class="ma__in-page-alert js-in-page-alert" role="alert">
+  <div class="ma__in-page-alert__container">
+    <span class="ma__in-page-alert__message">
+      {% if pageAlert.href %}
+        {% set decorativeLink = pageAlert %}
+        {% include "@atoms/decorative-link.twig" %}
+      {% else %}
+        {{ pageAlert.text }}
+      {% endif %}
+    </span>
+  </div>
+  <button class="ma__in-page-alert__hide js-in-page-alert-link"
+    title="hide alert">+</button>
+</section>

@@ -1,0 +1,16 @@
+<fieldset class="ma__radio-scale" id="{{ radioScale.groupID }}">
+  <legend class="ma__radio-scale__legend">{{ radioScale.legend }}</legend>
+  <div class="ma__radio-scale__radios fieldset-content">
+  {% for item in radioScale.items %}
+    <label class="ma__radio-scale__label" for="{{ item.id }}">
+      <input type="radio" 
+      class="ma__radio-scale__radio"
+      id="{{ item.id }}" 
+      name="{{ radioScale.name }}" 
+      value="{{ item.value }}">
+      <span class="ma__radio-scale__text">{{ item.value }}</span>
+    </label>
+  
+  {% endfor %}
+  </div>
+</fieldset>

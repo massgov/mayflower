@@ -3,10 +3,10 @@
  */
 export default {
   icon: {
-    SvgMarker: 'SvgMarker (Address Icon)',
-    SvgPhone: 'SvgPhone (Phone Icon)',
-    SvgLaptop: 'SvgLaptop (Laptop Icon)',
-    SvgFax: 'SvgFax (FaxIcon)'
+    'SvgMarker (Address Icon)': 'SvgMarker',
+    'SvgPhone (Phone Icon)': 'SvgPhone',
+    'SvgLaptop (Laptop Icon)': 'SvgLaptop',
+    'SvgFax (FaxIcon)': 'SvgFax'
   },
   name: {
     Phone: 'Phone',

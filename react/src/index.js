@@ -16,6 +16,7 @@ export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 export ButtonFixedFeedback from './components/atoms/buttons/ButtonFixedFeedback';
 // @atoms/@forms
+export Form, { FormProvider } from './components/atoms/forms/Form';
 export HelperText from './components/atoms/forms/HelperText';
 export ErrorMessage from './components/atoms/forms/ErrorMessage';
 export InputDate from './components/atoms/forms/InputDate';
@@ -25,9 +26,16 @@ export InputRadio from './components/atoms/forms/InputRadio';
 export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
 export InputTextFuzzy from './components/atoms/forms/InputTextFuzzy';
 export Input from './components/atoms/forms/Input';
-// Also export the context.
-export { InputContext } from './components/atoms/forms/Input/context';
+export Error from './components/atoms/forms/Input/error';
+export InputSlider from './components/atoms/forms/InputSlider';
+export CompoundSlider from './components/atoms/forms/CompoundSlider';
 export InputCurrency from './components/atoms/forms/InputCurrency';
+export InputCheckBox from './components/atoms/forms/InputCheckBox';
+
+// Also export the context.
+export { InputContext, FormContext } from './components/atoms/forms/Input/context';
+
+export InputNumber from './components/atoms/forms/InputNumber';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
 export CompHeading from './components/atoms/headings/CompHeading';
@@ -104,6 +112,7 @@ export TabContainer from './components/organisms/TabContainer';
 export Tab from './components/organisms/TabContainer/tab';
 export TeaserListing from './components/organisms/TeaserListing';
 export CalloutAlert from './components/organisms/CalloutAlert';
+export HelpTip from './components/organisms/HelpTip';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';

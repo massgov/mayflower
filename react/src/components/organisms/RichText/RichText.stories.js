@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, boolean, text } from '@storybook/addon-knobs/react';
+import { withKnobs, boolean, text } from '@storybook/addon-knobs';
 
 import {
   Paragraph,
@@ -16,15 +15,14 @@ import {
   decorativeLinkOptions,
   unorderedOptions
 } from './RichText.require';
-
 import RichText from './index';
-import textMarkdown from './RichText.md';
+import RichTextDocs from './RichText.md';
 
 storiesOf('organisms', module)
-  .addDecorator(withKnobs)
+  .addDecorator(withInfo)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'RichText',
-    withInfo({ textMarkdown })(() => {
+    'RichText', (() => {
       const decoreOptionsWithKnobs = Object.assign(...Object.entries(decorativeLinkOptions).map(([k, v]) => (
         { [k]: v(DecorativeLink.defaultProps[k]) })));
       const compOptionsWithKnobs = Object.assign(...Object.entries(compHeadingOptions).map(([k, v]) => (
@@ -75,5 +73,6 @@ storiesOf('organisms', module)
           <UnorderedList {...orderedOptionsWithKnobs} />
           <DecorativeLink {...decoreOptionsWithKnobs} />
         </RichText>);
-    })
+    }),
+    { info: RichTextDocs }
   );

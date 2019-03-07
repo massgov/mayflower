@@ -1,7 +1,7 @@
 ___DESCRIPTION___
-Change_type (see below)
-Change_impact (see below)
-- (Project_prefix) DP-1234: Adds apples to apple trees for admin apple pickers #PR#
+Added
+Minor
+- patternlab DP-1234: MF Add related orgs/topics to topic page.
 
 ___POST DEPLOY STEPS___
 1. Do this
