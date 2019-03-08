@@ -10,14 +10,14 @@
     <div class="ma__related-locations__items">
       {% for page in relatedLocations.pages %}
         <div class="ma__related-locations__item">
-          <a href="{{ page.link.href }}" title="{{ page.link.info }}">
-            {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
-            {% include "@atoms/09-media/image.twig" %}
+          <a class="ma__related-location" href="{{ page.link.href }}" 
+          title="{{ page.link.text }}" 
+          aria-describedby="Link to {{ page.link.text }}">
+          {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
+          {% include "@atoms/09-media/image.twig" %}
+          <span class="ma__related-location__title">{{ page.link.text }}{{ icon('arrow') }}</span>
           </a>
-          {% set decorativeLink = page.link %}
-          {% include "@atoms/decorative-link.twig" %}
         </div>
-        
       {% endfor %}
     </div>
     <div class="ma__more-locations__items">
