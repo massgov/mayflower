@@ -178,6 +178,7 @@ class TabContainer extends React.Component {
               <div
                 aria-labelledby={this.state.activeTab}
                 className="ma__tab-container-body"
+                tabIndex={0}
                 ref={this.tabBodyRef}
                 role="tabpanel"
                 id={this.state.tabContainerBodyId}
