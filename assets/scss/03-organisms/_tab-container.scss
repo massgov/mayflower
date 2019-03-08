@@ -1,3 +1,4 @@
+
 @mixin tabscroll {
   flex-wrap: nowrap;
   overflow-x: auto;
@@ -8,6 +9,13 @@
   }
 }
 
+%focus {
+  &:focus {
+    outline: none;
+    box-shadow: inset 0px 0px 2px 2px $c-focus;
+  }
+}
+
 .ma__tab-container {
   display: flex;
   flex-direction: column;
@@ -15,6 +23,8 @@
   &-head {
     display: inline-flex;
     margin-bottom: 0;
+    padding-inline-start: 0;
+    list-style: none;
     @include tabscroll;
   }
 
@@ -22,20 +32,16 @@
     padding: 1rem;
     border: 1px solid $c-gray-light;
     margin-top: -1px;
+
+    @extend %focus;
   }
 
   .ma__tab-title {
-    cursor: pointer;
-    padding: 1.75rem 1.5rem 0.8rem 1.5rem;
-    font-size: 1.25rem;
-    background-color: unset;
-    white-space: nowrap;
     border-left: 1px solid $c-gray-light;
     border-top: 1px solid $c-gray-light;
     border-right: none;
     border-bottom: none;
     margin-bottom: -1px;
-    display: block;
 
     &:first-child {
       border-left-width: 1px;
@@ -45,19 +51,30 @@
       border-right: 1px solid $c-gray-light;
     }
 
-    &:focus {
-      outline: none;
-      border-top-color: $c-primary !important;
-      border-left-color: $c-gray-light !important;
+
+    button {
+      cursor: pointer;
+      padding: 1.77rem 1.5rem 0.81rem 1.5rem;
+      background-color: unset;
+      white-space: nowrap;
+      border: none;
+      display: block;
+      font-size: 1.25rem;
     }
 
     &--active {
       border-top: 5px solid $c-primary;
-      padding-top: 1.5rem;
-      font-weight: 700;
-      color: $c-primary;
       background-color: white;
       z-index: 1;
+      outline: $c-error-red;
+
+      button {
+        padding-top: 1.5rem;
+        font-weight: 700;
+        color: $c-primary;
+
+        @extend %focus;
+      }
     }
   }
 
@@ -69,6 +86,7 @@
 
       &-body {
         border: none;
+        @extend %focus;
       }
     }
 
@@ -76,16 +94,19 @@
       border: none;
       border-bottom: 5px solid;
       border-bottom-color: transparent;
-      padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+
+      button {
+        padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+      }
 
       &--active {
         color: $c-primary;
         border-bottom: 5px solid $c-primary;
-      }
 
-      &:focus {
-        outline: none;
-        border-bottom-color: $c-primary !important;
+        button {
+          padding-bottom: 1.25rem;
+          @extend %focus;
+        }
       }
     }
   }
