@@ -115,7 +115,6 @@ class TabContainer extends React.Component {
               } else if (this.props.nested) {
                 // If the tab container is nested and active focus is not on the body,
                 // set focus to the parent tab container.
-                  this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
                   const tab = e.currentTarget
                     .parentElement
                     .closest('div.ma__tab-container')
@@ -132,13 +131,11 @@ class TabContainer extends React.Component {
               // If the tab container is not nested and has no nested tab container children...
               if (!this.props.nested && this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length === 0) {
                 // Set focus on the tab container's body.
-                this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
                 this.focusOnTabBody();
               }
               // If the tab container is not nested and has nested tab container children...
               if (!this.preventBodyKeyDown && !this.props.nested && this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length > 0) {
                 // Set focus on the first tab of the nested tab container child.
-                this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
                 const nested = this.tabBodyRef.current
                   .getElementsByClassName('ma__tab-container--nested')[0]
                   .getElementsByTagName('ul')[0]
@@ -155,7 +152,6 @@ class TabContainer extends React.Component {
                 // And has nested tab containers...
                 if (this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length > 0) {
                   // Set focus on the first tab of the nested tab container child.
-                  this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
                   const nested = this.tabBodyRef.current
                     .getElementsByClassName('ma__tab-container--nested')[0]
                     .getElementsByTagName('ul')[0]
@@ -167,7 +163,6 @@ class TabContainer extends React.Component {
                   // The next key down arrow should not run on the parent tab container, but on the child it will.
                   this.preventBodyKeyDown = true;
                 } else {
-                  this.state.tabRefs[this.state.activeTab].current.setAttribute('tabindex', '-1');
                   this.focusOnTabBody();
                 }
               }
