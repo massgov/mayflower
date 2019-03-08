@@ -34,6 +34,7 @@ const Input = (props) => {
 class InputProvider extends React.Component {
   constructor(props) {
     super(props);
+    this.inputRef = React.createRef();
     this.state = {
       value: this.props.defaultValue,
       getValue: this.getValue,
@@ -42,9 +43,13 @@ class InputProvider extends React.Component {
       showError: false,
       errorMsg: this.props.errorMsg,
       disabled: this.props.disabled,
-      inline: this.props.inline
+      inline: this.props.inline,
+      getRef: this.getRef
     };
   }
+  getRef = () => {
+    return this.inputRef;
+  };
   getValue = () => this.state.value;
   setValue = (value, afterUpdate) => {
     this.setState({ value }, afterUpdate);
