@@ -1,17 +1,19 @@
 <div class="ma__pagination js-pagination">
-  <div class="ma__pagination__container">
+  <nav class="ma__pagination__container" aria-label="Pagination Navigation">
     <a 
       class="ma__pagination__prev js-pagination-prev {% if pagination.prev.disabled %}disabled{% endif %}"
+      aria-label="Go to {{ pagination.prev.text }} page"
       href="#">{{ pagination.prev.text }}<span class="visually-hidden"> page</span></a>
     {% for page in pagination.pages %}
       {% if page.text == "spacer" %}
         <span class="ma__pagination__spacer">&hellip;</span>
       {% else %}
-      <a class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" href="#" data-page="{{ page.text }}"><span class="visually-hidden">page </span>{{ page.text }}</a>
+      <a class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" href="#" data-page="{{ page.text }}" aria-label="Go to Page {{ page.text }}"><span class="visually-hidden">page </span>{{ page.text }}</a>
       {% endif %}
     {% endfor %}
     <a
       class="ma__pagination__next js-pagination-next {% if pagination.next.disabled %}disabled{% endif %}"
+      aria-label="Go to {{ pagination.next.text }} page"
       href="#">{{ pagination.next.text }}<span class="visually-hidden"> page</span></a>
-  </div>
+  </nav>
 </div>
