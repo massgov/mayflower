@@ -80,7 +80,7 @@ const NumberInput = (props) => {
       direction = 'down';
     }
     const inputEl = ref.current;
-    if (direction === 'up') {
+    if (direction === 'up' && inputEl.value < props.max) {
       if (is.empty(inputEl.value)) {
         inputEl.value = 1;
       } else {
@@ -89,7 +89,7 @@ const NumberInput = (props) => {
           .format({ mantissa: countDecimals(props.step) }));
       }
       handleChange(e);
-    } else if (direction === 'down') {
+    } else if (direction === 'down' && inputEl.value > props.min) {
       if (is.empty(inputEl.value)) {
         inputEl.value = -1;
       } else {
