@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useRef, useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import is from 'is';
+import numbro from 'numbro';
 
 import Input from '../Input';
 import Error from '../Input/error';
@@ -10,139 +12,156 @@ import { countDecimals } from '../Input/utility';
 import { numberCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
 import './style.css';
 
-const NumberInput = (props) => (
-  <React.Fragment>
-    <InputContext.Consumer>
-      {
-        (context) => {
-          const hasValue = context.value || context.value === 0;
+const NumberInput = (props) => {
+  const context = useContext(InputContext);
+  const hasValue = !is.empty(context.getValue());
+  const ref = useRef();
+  const upRef = useRef();
+  const downRef = useRef();
+  const inputClasses = classNames({
+    'ma__input-number__control': true,
+    'js-is-required': props.required,
+    'ma__input-number__control--showButtons': props.showButtons || (props.unit && hasValue)
+  });
 
-          const inputClasses = classNames({
-            'ma__input-number__control': true,
-            'js-is-required': props.required,
-            'ma__input-number__control--showButtons': props.showButtons || (props.unit && hasValue)
-          });
+  const unitClasses = classNames({
+    'ma__input-number-unit': true,
+    'ma__input-number-unit--disabled': props.disabled,
+    'ma__input-number-unit--showButtons': props.showButtons
+  });
 
-          const unitClasses = classNames({
-            'ma__input-number-unit': true,
-            'ma__input-number-unit--disabled': props.disabled,
-            'ma__input-number-unit--showButtons': props.showButtons
-          });
+  const displayErrorMessage = () => {
+    const val = ref.current.value;
+    const { min, max, isRequired } = props;
+    if (isRequired && String(val).length === 0) {
+      const errorMsg = 'Please enter a value.';
+      return{
+        showError: true,
+        errorMsg
+      };
+    } else if (String(val).length > 0) {
+      const { showError, errorMsg } = validNumber(val, min, max);
+      return{
+        showError, errorMsg
+      };
+    }
+    return{
+      showError: false,
+      errorMsg: ''
+    };
+  };
 
-          const decimalPlaces = countDecimals(props.step);
+  const handleOnBlur = (e) => {
+    e.persist();
+    const inputEl = ref.current;
+    const newValue = Number(inputEl.value);
+    if (typeof props.onBlur === 'function') {
+      props.onBlur(e, newValue);
+    }
+  };
 
-          const displayErrorMessage = (val, min, max, isRequired) => {
-            if (isRequired && String(val).length === 0) {
-              const errorMsg = 'Please enter a value.';
-              return{
-                showError: true,
-                errorMsg
-              };
-            } else if (String(val).length > 0) {
-              const { showError, errorMsg } = validNumber(val, min, max);
-              return{
-                showError, errorMsg
-              };
-            }
-            return{
-              showError: false,
-              errorMsg: ''
-            };
-          };
-
-          const handleOnBlur = (e) => {
-            e.persist();
-            const { value } = e.target;
-            const floatValue = Number(Number.parseFloat(value).toFixed(decimalPlaces));
-            if (typeof props.onBlur === 'function') {
-              props.onBlur(e, floatValue);
-            }
-          };
-
-          const handleChange = (e) => {
-            e.persist();
-            const { value } = e.target;
-            const floatValue = Number(Number.parseFloat(value).toFixed(decimalPlaces));
-            const updateError = displayErrorMessage(value, props.min, props.max, props.required);
-            context.updateState({ value: floatValue, ...updateError }, () => {
-              if (typeof props.onChange === 'function') {
-                props.onChange(e, floatValue, props.id);
-              }
-            });
-          };
-
-          const handleAdjust = (e, direction) => {
-            e.persist();
-            let newValue;
-            // default to 0 if defaultValue is NaN
-            const baseValue = Number(context.value) ? Number(context.value) : 0;
-            if (direction === 'up') {
-              newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(decimalPlaces));
-            } else if (direction === 'down') {
-              newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(decimalPlaces));
-            }
-            const updateError = displayErrorMessage(newValue, props.min, props.max, props.required);
-            context.updateState({ value: newValue, ...updateError }, () => {
-              if (typeof props.onChange === 'function') {
-                props.onChange(e, newValue, props.id);
-              }
-            });
-          };
-
-          const inputAttr = {
-            className: inputClasses,
-            name: props.name,
-            id: props.id,
-            type: 'number',
-            placeholder: props.placeholder,
-            maxLength: Number(props.maxlength),
-            style: props.width ? { width: `${props.width}px` } : null,
-            onChange: handleChange,
-            onBlur: handleOnBlur,
-            required: props.required,
-            disabled: props.disabled,
-            step: props.step
-          };
-
-          if (hasValue) {
-            inputAttr.value = context.value;
-          }
-
-          return(
-            <div className="ma__input-number">
-              <input {...inputAttr} />
-              {
-                (props.unit && hasValue) ? <span className={unitClasses}>{props.unit}</span> : null
-              }
-              {
-                props.showButtons && (
-                  <div className="ma__input-number__control-buttons">
-                    <button
-                      type="button"
-                      aria-label="increase value"
-                      className="ma__input-number__control-plus"
-                      onClick={(e) => handleAdjust(e, 'up')}
-                      disabled={props.disabled}
-                      tabIndex={-1}
-                    />
-                    <button
-                      type="button"
-                      aria-label="decrease value"
-                      className="ma__input-number__control-minus"
-                      onClick={(e) => handleAdjust(e, 'down')}
-                      disabled={props.disabled}
-                      tabIndex={-1}
-                    />
-                  </div>
-                )
-              }
-            </div>
-          );
-        }
+  const handleChange = (e) => {
+    const inputEl = ref.current;
+    e.persist();
+    const newValue = Number(inputEl.value);
+    const updateError = displayErrorMessage();
+    context.updateState({ value: newValue, ...updateError }, () => {
+      if (typeof props.onChange === 'function') {
+        props.onChange(e, newValue, props.id);
       }
-    </InputContext.Consumer>
-  </React.Fragment>
-);
+    });
+  };
+
+  const handleAdjust = (e) => {
+    let direction;
+    if (e.currentTarget === upRef.current) {
+      direction = 'up';
+    } else {
+      direction = 'down';
+    }
+    const inputEl = ref.current;
+    if (direction === 'up' && inputEl.value < props.max) {
+      if (is.empty(inputEl.value)) {
+        inputEl.value = 1;
+      } else {
+        inputEl.value = Number(numbro(inputEl.value)
+          .add(props.step)
+          .format({ mantissa: countDecimals(props.step) }));
+      }
+      handleChange(e);
+    } else if (direction === 'down' && inputEl.value > props.min) {
+      if (is.empty(inputEl.value)) {
+        inputEl.value = -1;
+      } else {
+        inputEl.value = Number(numbro(inputEl.value)
+          .subtract(props.step)
+          .format({ mantissa: countDecimals(props.step) }));
+      }
+      handleChange(e);
+    }
+  };
+
+  const inputAttr = {
+    className: inputClasses,
+    name: props.name,
+    id: props.id,
+    type: 'number',
+    placeholder: props.placeholder,
+    maxLength: Number(props.maxlength),
+    style: props.width ? { width: `${props.width}px` } : null,
+    onChange: handleChange,
+    onBlur: handleOnBlur,
+    required: props.required,
+    disabled: props.disabled,
+    step: props.step,
+    ref
+  };
+
+  if (hasValue) {
+    inputAttr.value = context.getValue();
+  }
+  if (is.number(props.max)) {
+    inputAttr.max = props.max;
+  }
+  if (is.number(props.min)) {
+    inputAttr.min = props.min;
+  }
+
+  return(
+    <div className="ma__input-number">
+      <input {...inputAttr} />
+      {
+                  (props.unit && hasValue) ? <span className={unitClasses}>{props.unit}</span> : null
+                }
+      {
+                  props.showButtons && (
+                    <div className="ma__input-number__control-buttons">
+                      <button
+                        type="button"
+                        aria-label="increase value"
+                        className="ma__input-number__control-plus"
+                        data-direction="up"
+                        onClick={handleAdjust}
+                        disabled={props.disabled}
+                        tabIndex={-1}
+                        ref={upRef}
+                      />
+                      <button
+                        type="button"
+                        aria-label="decrease value"
+                        className="ma__input-number__control-minus"
+                        data-direction="down"
+                        onClick={handleAdjust}
+                        disabled={props.disabled}
+                        tabIndex={-1}
+                        ref={downRef}
+                      />
+                    </div>
+                  )
+                }
+    </div>
+  );
+};
 
 const InputNumber = (props) => {
   const {

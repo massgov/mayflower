@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import numbro from 'numbro';
 import languages from 'numbro/dist/languages.min';
+import is from 'is';
 
 import Input from '../Input';
 import Error from '../Input/error';
@@ -10,205 +11,221 @@ import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import './style.css';
 
-const Currency = (props) => (
-  <React.Fragment>
-    <InputContext.Consumer>
-      {
-        (context) => {
-          const inputClasses = classNames({
-            'ma__input-currency__control': true,
-            'js-is-required': props.required
-          });
-          let errorMsg = '';
-          const toCurrency = (number, decimal) => {
-            if (!Number.isNaN(number)) {
-              if (props.language) {
-                let i = 0;
-                const langKeys = Object.keys(languages);
-                const langMax = langKeys.length;
-                for (; i < langMax; i += 1) {
-                  const langKey = langKeys[i];
-                  const lang = languages[langKey];
-                  numbro.registerLanguage(lang);
-                }
-                numbro.setLanguage(props.language);
-              }
-              const currency = numbro(number);
-              const { format } = props;
-              if (decimal) {
-                format.mantissa = decimal;
-              }
-              return currency.formatCurrency(format);
-            }
-            return number;
-          };
-          const handleChange = (e) => {
-            const { type } = e;
-            let stringValue;
-            if (typeof e.target.value !== 'string') {
-              stringValue = String(e.target.value);
-            } else {
-              stringValue = e.target.value;
-            }
-            const update = {
-              value: stringValue
-            };
-            const numberValue = numbro.unformat(stringValue);
-            // This validation is needed here as onKeyDown does not
-            // get the new value in the input after a key press.
-            if (props.required && stringValue.length === 0) {
-              errorMsg = 'Please enter a value.';
-              update.showError = true;
-              update.errorMsg = errorMsg;
-            } else if (!Number.isNaN(numberValue) && stringValue.length > 0) {
-              const validate = validNumber(numberValue, props.min, props.max);
-                update.showError = validate.showError;
-                update.errorMsg = validate.errorMsg;
-            } else {
-              errorMsg = '';
-              update.showError = false;
-              update.errorMsg = errorMsg;
-            }
-            context.updateState(update, () => {
+const Currency = (props) => {
+  const context = useContext(InputContext);
+  const upRef = useRef();
+  const downRef = useRef();
+  const inputClasses = classNames({
+    'ma__input-currency__control': true,
+    'js-is-required': props.required
+  });
+  let errorMsg = '';
+  const toCurrency = (number, decimal) => {
+    if (is.number(number)) {
+      if (props.language) {
+        let i = 0;
+        const langKeys = Object.keys(languages);
+        const langMax = langKeys.length;
+        for (; i < langMax; i += 1) {
+          const langKey = langKeys[i];
+          const lang = languages[langKey];
+          numbro.registerLanguage(lang);
+        }
+        numbro.setLanguage(props.language);
+      }
+      const currency = numbro(number);
+      const { format } = props;
+      if (decimal) {
+        format.mantissa = decimal;
+      }
+      return currency.formatCurrency(format);
+    }
+    return number;
+  };
+  const handleChange = (e) => {
+    const { type } = e;
+    let stringValue;
+    if (typeof e.target.value !== 'string') {
+      stringValue = String(e.target.value);
+    } else {
+      stringValue = e.target.value;
+    }
+    const update = {
+      value: stringValue
+    };
+    const numberValue = Number(numbro.unformat(stringValue));
+    // This validation is needed here as onKeyDown does not
+    // get the new value in the input after a key press.
+    if (props.required && stringValue.length === 0) {
+      errorMsg = 'Please enter a value.';
+      update.showError = true;
+      update.errorMsg = errorMsg;
+    } else if (is.number(numberValue) && !is.empty(stringValue)) {
+      const validate = validNumber(numberValue, props.min, props.max);
+      update.showError = validate.showError;
+      update.errorMsg = validate.errorMsg;
+    } else {
+      errorMsg = '';
+      update.showError = false;
+      update.errorMsg = errorMsg;
+    }
+    context.updateState(update, () => {
+      if (typeof props.onChange === 'function') {
+        props.onChange(numberValue, props.id, type);
+      }
+    });
+  };
+  const handleAdjust = (e) => {
+    const direction = (e.currentTarget === upRef.current) ? 'up' : 'down';
+    const { type } = e;
+    let stringValue;
+    if (typeof context.value !== 'string') {
+      stringValue = String(context.value);
+    } else {
+      stringValue = context.value;
+    }
+    const numberValue = Number(numbro.unformat(stringValue));
+    // default to 0 if defaultValue is NaN
+    const baseValue = numberValue || 0;
+    if (is.number(numberValue)) {
+      let newValue;
+      if (direction === 'up') {
+        newValue = Number(numbro(baseValue).add(props.step).format({ mantissa: 2 }));
+      } else if (direction === 'down') {
+        newValue = Number(numbro(baseValue).subtract(props.step).format({ mantissa: 2 }));
+      }
+      if (newValue >= props.min && newValue <= props.max) {
+        const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+        context.updateState({
+          showError,
+          errorMsg,
+          value: toCurrency(newValue, 2)
+        }, () => {
+          if (typeof props.onChange === 'function') {
+            props.onChange(newValue, props.id, type, direction);
+          }
+        });
+      }
+    }
+  };
+  const inputAttr = {
+    className: inputClasses,
+    name: props.name,
+    id: props.id,
+    type: 'text',
+    placeholder: props.placeholder,
+    'data-type': 'text',
+    maxLength: !Number.isNaN(Number(props.maxlength)) ? Number(props.maxlength) : null,
+    style: props.width ? { width: `${props.width}px` } : null,
+    onChange: handleChange,
+    onBlur: (e) => {
+      let stringValue;
+      if (typeof e.target.value !== 'string') {
+        stringValue = String(e.target.value);
+      } else {
+        stringValue = e.target.value;
+      }
+      const numberValue = Number(numbro.unformat(stringValue));
+      if (props.required && stringValue.length === 0) {
+        errorMsg = 'Please enter a value.';
+        context.updateState({ showError: true, errorMsg });
+      }
+      if (is.number(numberValue) && !is.empty(stringValue)) {
+        const { showError, errorMsg } = validNumber(numberValue, props.min, props.max);
+        context.updateState({ showError, errorMsg, value: toCurrency(numberValue, 2) }, () => {
+          // invokes custom function if passed in the component
+          if (typeof props.onBlur === 'function') {
+            // context.value won't be immediately changed, so pass new value over.
+            props.onBlur(numberValue);
+          }
+        });
+      }
+    },
+    onFocus: (e) => {
+      let stringValue;
+      if (typeof e.target.value !== 'string') {
+        stringValue = String(e.target.value);
+      } else {
+        stringValue = e.target.value;
+      }
+      if (!Number.isNaN(numbro.unformat(stringValue)) && stringValue.length > 0) {
+        context.updateState({ value: Number(numbro.unformat(stringValue)) });
+      }
+    },
+    onKeyDown: (e) => {
+      const { type, key } = e;
+      let stringValue;
+      if (typeof context.value !== 'string') {
+        stringValue = String(context.value);
+      } else {
+        stringValue = context.value;
+      }
+      const numberValue = Number(numbro.unformat(stringValue));
+      // default to 0 if defaultValue is NaN
+      const baseValue = numberValue || 0;
+      if (is.number(numberValue) && !is.empty(stringValue)) {
+        let newValue;
+        if (key === 'ArrowDown') {
+          newValue = Number(numbro(baseValue).subtract(props.step).format({ mantissa: 2 }));
+          if (newValue >= props.min && newValue <= props.max) {
+            const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+            context.updateState({
+              showError,
+              errorMsg,
+              value: toCurrency(newValue, 2)
+            }, () => {
               if (typeof props.onChange === 'function') {
-                props.onChange(numberValue, props.id, type);
+                props.onChange(newValue, props.id, type, key);
               }
             });
-          };
-          const handleAdjust = (e, direction) => {
-            const { type } = e;
-            let stringValue;
-            if (typeof context.value !== 'string') {
-              stringValue = String(context.value);
-            } else {
-              stringValue = context.value;
-            }
-            const numberValue = numbro.unformat(stringValue);
-            // default to 0 if defaultValue is NaN
-            const baseValue = numberValue || 0;
-            if (!Number.isNaN(numberValue)) {
-              let newValue;
-              if (direction === 'up') {
-                newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(2));
-              } else if (direction === 'down') {
-                newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(2));
+          }
+        } else if (key === 'ArrowUp') {
+          newValue = Number(numbro(baseValue).add(props.step).format({ mantissa: 2 }));
+          if (newValue >= props.min && newValue <= props.max) {
+            const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+            context.updateState({
+              showError,
+              errorMsg,
+              value: toCurrency(newValue, 2)
+            }, () => {
+              if (typeof props.onChange === 'function') {
+                props.onChange(newValue, props.id, type, key);
               }
-              const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-              context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
-                if (typeof props.onChange === 'function') {
-                  props.onChange(newValue, props.id, type, direction);
-                }
-              });
-            }
-          };
-          const inputAttr = {
-            className: inputClasses,
-            name: props.name,
-            id: props.id,
-            type: 'text',
-            placeholder: props.placeholder,
-            'data-type': 'text',
-            maxLength: !Number.isNaN(Number(props.maxlength)) ? Number(props.maxlength) : null,
-            style: props.width ? { width: `${props.width}px` } : null,
-            onChange: handleChange,
-            onBlur: (e) => {
-              let stringValue;
-              if (typeof e.target.value !== 'string') {
-                stringValue = String(e.target.value);
-              } else {
-                stringValue = e.target.value;
-              }
-              const numberValue = numbro.unformat(stringValue);
-              if (props.required && stringValue.length === 0) {
-                errorMsg = 'Please enter a value.';
-                context.updateState({ showError: true, errorMsg });
-              }
-              if (!Number.isNaN(numberValue) && stringValue.length > 0) {
-                const { showError, errorMsg } = validNumber(numberValue, props.min, props.max);
-                context.updateState({ showError, errorMsg, value: toCurrency(numberValue, 2) }, () => {
-                  // invokes custom function if passed in the component
-                  if (typeof props.onBlur === 'function') {
-                    // context.value won't be immediately changed, so pass new value over.
-                    props.onBlur(numberValue);
-                  }
-                });
-              }
-            },
-            onFocus: (e) => {
-              let stringValue;
-              if (typeof e.target.value !== 'string') {
-                stringValue = String(e.target.value);
-              } else {
-                stringValue = e.target.value;
-              }
-              if (!Number.isNaN(numbro.unformat(stringValue)) && stringValue.length > 0) {
-                context.updateState({ value: numbro.unformat(stringValue) });
-              }
-            },
-            onKeyDown: (e) => {
-              const { type, key } = e;
-              let stringValue;
-              if (typeof context.value !== 'string') {
-                stringValue = String(context.value);
-              } else {
-                stringValue = context.value;
-              }
-              const numberValue = numbro.unformat(stringValue);
-              // default to 0 if defaultValue is NaN
-              const baseValue = numberValue || 0;
-              if (!Number.isNaN(numberValue) && stringValue.length > 0) {
-                let newValue;
-                if (key === 'ArrowDown') {
-                  newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(2));
-                  const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                  context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
-                    if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id, type, key);
-                    }
-                  });
-                } else if (key === 'ArrowUp') {
-                  newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(2));
-                  const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                  context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
-                    if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id, type, key);
-                    }
-                  });
-                }
-              }
-            },
-            required: props.required,
-            value: context.getValue(),
-            disabled: props.disabled
-          };
-          return(
-            <div className="ma__input-currency">
-              <input {...inputAttr} />
-              <div className="ma__input-number__control-buttons">
-                <button
-                  type="button"
-                  aria-label="increase value"
-                  className="ma__input-currency__control-plus"
-                  onClick={(e) => handleAdjust(e, 'up')}
-                  disabled={props.disabled}
-                  tabIndex={-1}
-                />
-                <button
-                  type="button"
-                  aria-label="decrease value"
-                  className="ma__input-currency__control-minus"
-                  onClick={(e) => handleAdjust(e, 'down')}
-                  disabled={props.disabled}
-                  tabIndex={-1}
-                />
-              </div>
-            </div>
-          );
+            });
+          }
         }
       }
-    </InputContext.Consumer>
-  </React.Fragment>
-);
+    },
+    required: props.required,
+    value: context.getValue(),
+    disabled: props.disabled
+  };
+  return(
+    <div className="ma__input-currency">
+      <input {...inputAttr} />
+      <div className="ma__input-number__control-buttons">
+        <button
+          type="button"
+          aria-label="increase value"
+          className="ma__input-currency__control-plus"
+          onClick={handleAdjust}
+          disabled={props.disabled}
+          tabIndex={-1}
+          ref={upRef}
+        />
+        <button
+          type="button"
+          aria-label="decrease value"
+          className="ma__input-currency__control-minus"
+          onClick={handleAdjust}
+          disabled={props.disabled}
+          tabIndex={-1}
+          ref={downRef}
+        />
+      </div>
+    </div>
+  );
+};
 
 const InputCurrency = (props) => {
   const {
