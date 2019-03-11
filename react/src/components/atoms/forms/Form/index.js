@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import PropTypes from 'prop-types';
+import is from 'is';
 import { FormContext } from '../Input/context';
 
-const Form = (props) => (
-  <FormContext.Consumer>
-    {
-        (formContext) => (
-          <form className="ma__form-page" action="#">
-            {props.children(formContext)}
-          </form>
-          )
-      }
-  </FormContext.Consumer>
-);
+const Form = (props) => {
+  const formContext = useContext(FormContext);
+  return(
+    <form className="ma__form-page" action="#">
+      {props.children(formContext)}
+    </form>
+  );
+};
 
 class FormProvider extends Component {
   constructor(props) {
@@ -24,7 +22,8 @@ class FormProvider extends Component {
       hasId: this.hasId,
       setValue: this.setValue,
       updateState: this.updateState,
-      getValues: this.getValues
+      getValues: this.getValues,
+      syncContent: this.syncContent
     };
   }
   getValues = () => {
@@ -44,6 +43,12 @@ class FormProvider extends Component {
     if (Object.prototype.hasOwnProperty.call(this.state.value, input.id)) {
       this.state.value[input.id].setValue(input.value, afterUpdate);
     }
+  };
+  syncContent = (inputId) => {
+    if (this.hasId(inputId) && !is.empty(this.state.value[inputId].syncContent)) {
+      return this.state.value[inputId].syncContent.forEach((syncFunc) => (syncFunc(this.getValue(inputId))));
+    }
+    return null;
   };
   hasId = (inputId) => Object.prototype.hasOwnProperty.call(this.state.value, inputId);
   updateState = (newState) => { this.setState(newState); };

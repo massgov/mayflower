@@ -11,6 +11,8 @@ import InputSliderOptions from '../InputSlider/InputSlider.knobs.options';
 import InputSlider from '../InputSlider';
 import InputCurrency from '../InputCurrency';
 import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
+import { InputSyncProvider, InputSync } from '../Input';
+import is from 'is';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
@@ -121,9 +123,18 @@ storiesOf('atoms/forms', module)
                   }
                 }
               };
+              const syncProps = {
+                syncCondition: (currentValue) => (!is.equal(currentValue, formContext.getValue('currency-input')))
+              };
               return(
                 <React.Fragment>
                   <InputCurrency {...inputCurrencyOptionsWithKnobs} />
+                  <InputSync id="currency-input" {...syncProps}>
+                    {() => <span>{`testing: ${formContext.getValue('currency-input')}`}</span> }
+                  </InputSync>
+                  <InputSync id="currency-input" {...syncProps}>
+                    {() => <span>{`testing2: ${formContext.getValue('currency-input')}`}</span> }
+                  </InputSync>
                   {inputs}
                   <InputSlider {...inputSliderOptionsWithKnobs} id="slider" />
                 </React.Fragment>
