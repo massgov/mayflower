@@ -13,6 +13,7 @@ import './style.css';
 
 const Currency = (props) => {
   const context = useContext(InputContext);
+  const ref = useRef();
   const upRef = useRef();
   const downRef = useRef();
   const inputClasses = classNames({
@@ -115,18 +116,18 @@ const Currency = (props) => {
     type: 'text',
     placeholder: props.placeholder,
     'data-type': 'text',
-    maxLength: !Number.isNaN(Number(props.maxlength)) ? Number(props.maxlength) : null,
-    style: props.width ? { width: `${props.width}px` } : null,
+    maxLength: is.number(props.maxlength) ? Number(props.maxlength) : null,
+    style: !is.empty(props.width) ? { width: `${props.width}px` } : null,
+    ref,
     onChange: handleChange,
-    onBlur: (e) => {
-      let stringValue;
-      if (typeof e.target.value !== 'string') {
-        stringValue = String(e.target.value);
-      } else {
-        stringValue = e.target.value;
+    onBlur: () => {
+      const inputEl = ref.current;
+      if (is.empty(inputEl.value)) {
+        inputEl.setAttribute('placeholder', props.placeholder);
       }
+      const stringValue = inputEl.value;
       const numberValue = Number(numbro.unformat(stringValue));
-      if (props.required && stringValue.length === 0) {
+      if (props.required && is.empty(inputEl.value)) {
         errorMsg = 'Please enter a value.';
         context.updateState({ showError: true, errorMsg });
       }
@@ -134,22 +135,17 @@ const Currency = (props) => {
         const { showError, errorMsg } = validNumber(numberValue, props.min, props.max);
         context.updateState({ showError, errorMsg, value: toCurrency(numberValue, 2) }, () => {
           // invokes custom function if passed in the component
-          if (typeof props.onBlur === 'function') {
+          if (is.fn(props.onBlur)) {
             // context.value won't be immediately changed, so pass new value over.
             props.onBlur(numberValue);
           }
         });
       }
     },
-    onFocus: (e) => {
-      let stringValue;
-      if (typeof e.target.value !== 'string') {
-        stringValue = String(e.target.value);
-      } else {
-        stringValue = e.target.value;
-      }
-      if (!Number.isNaN(numbro.unformat(stringValue)) && stringValue.length > 0) {
-        context.updateState({ value: Number(numbro.unformat(stringValue)) });
+    onFocus: () => {
+      const inputEl = ref.current;
+      if (is.empty(inputEl.value)) {
+        inputEl.removeAttribute('placeholder');
       }
     },
     onKeyDown: (e) => {
@@ -248,7 +244,7 @@ const InputCurrency = (props) => {
     language,
     disabled: props.disabled
   };
-  if (inputProps.defaultValue || inputProps.defaultValue === 0) {
+  if (!is.empty(inputProps.defaultValue)) {
     const currency = numbro(inputProps.defaultValue);
     inputProps.defaultValue = currency.formatCurrency(format);
   }
