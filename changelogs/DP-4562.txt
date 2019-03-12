@@ -1,5 +1,0 @@
-___DESCRIPTION___
-Fixed
-Minor
-- (React) DP-12732: Allows slider callback and updates form context on handler drag (Added onUpdate prop) #495
-- (React) DP-12732: Allows keyboard actions and slider track click to update value (Changed handleChange from using onSlideEnd to onChange) #495
