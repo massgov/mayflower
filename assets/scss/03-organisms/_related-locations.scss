@@ -33,6 +33,10 @@
       display: flex;
       justify-content: space-between;
     }
+
+    @media ($bp-large-extended-min) {
+      justify-content: flex-start;
+    }
   }
 
   &__item {
@@ -48,8 +52,8 @@
 
       @media ($bp-large-extended-min) {
         width: 39%;
-        border: solid $c-gray-light;
-        border-width: 0 1px 0 1px;
+        border-left: 1px solid $c-gray-light;
+        
 
         a {
           margin: 0 auto;
@@ -62,9 +66,11 @@
     &:nth-child(3) {
 
       @media ($bp-large-extended-min) {
+        border-left: 1px solid $c-gray-light;
 
         a {
           float: right;
+          
         }
       }
     }
