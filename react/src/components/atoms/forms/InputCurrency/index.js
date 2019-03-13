@@ -43,6 +43,7 @@ const Currency = (props) => (
             return number;
           };
           const handleChange = (e) => {
+            const { type } = e;
             let stringValue;
             if (typeof e.target.value !== 'string') {
               stringValue = String(e.target.value);
@@ -70,11 +71,12 @@ const Currency = (props) => (
             }
             context.updateState(update, () => {
               if (typeof props.onChange === 'function') {
-                props.onChange(numberValue, props.id);
+                props.onChange(numberValue, props.id, type);
               }
             });
           };
           const handleAdjust = (e, direction) => {
+            const { type } = e;
             let stringValue;
             if (typeof context.value !== 'string') {
               stringValue = String(context.value);
@@ -82,17 +84,19 @@ const Currency = (props) => (
               stringValue = context.value;
             }
             const numberValue = numbro.unformat(stringValue);
+            // default to 0 if defaultValue is NaN
+            const baseValue = numberValue || 0;
             if (!Number.isNaN(numberValue)) {
               let newValue;
               if (direction === 'up') {
-                newValue = Number(Number.parseFloat(numberValue + props.step).toFixed(2));
+                newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(2));
               } else if (direction === 'down') {
-                newValue = Number(Number.parseFloat(numberValue - props.step).toFixed(2));
+                newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(2));
               }
               const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
               context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                 if (typeof props.onChange === 'function') {
-                  props.onChange(newValue, props.id);
+                  props.onChange(newValue, props.id, type, direction);
                 }
               });
             }
@@ -142,6 +146,7 @@ const Currency = (props) => (
               }
             },
             onKeyDown: (e) => {
+              const { type, key } = e;
               let stringValue;
               if (typeof context.value !== 'string') {
                 stringValue = String(context.value);
@@ -149,22 +154,24 @@ const Currency = (props) => (
                 stringValue = context.value;
               }
               const numberValue = numbro.unformat(stringValue);
+              // default to 0 if defaultValue is NaN
+              const baseValue = numberValue || 0;
               if (!Number.isNaN(numberValue) && stringValue.length > 0) {
                 let newValue;
-                if (e.key === 'ArrowDown') {
-                  newValue = Number(Number.parseFloat(numberValue - props.step).toFixed(2));
+                if (key === 'ArrowDown') {
+                  newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(2));
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id);
+                      props.onChange(newValue, props.id, type, key);
                     }
                   });
-                } else if (e.key === 'ArrowUp') {
-                  newValue = Number(Number.parseFloat(numberValue + props.step).toFixed(2));
+                } else if (key === 'ArrowUp') {
+                  newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(2));
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id);
+                      props.onChange(newValue, props.id, type, key);
                     }
                   });
                 }
@@ -224,8 +231,8 @@ const InputCurrency = (props) => {
     language,
     disabled: props.disabled
   };
-  const currency = numbro(inputProps.defaultValue);
-  if (currency) {
+  if (inputProps.defaultValue || inputProps.defaultValue === 0) {
+    const currency = numbro(inputProps.defaultValue);
     inputProps.defaultValue = currency.formatCurrency(format);
   }
   return(

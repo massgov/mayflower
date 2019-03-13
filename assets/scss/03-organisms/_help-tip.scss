@@ -54,12 +54,20 @@ $border-width: 1px;
     border-bottom: 2px dotted $c-primary;
     background-color: $c-bay-blue-lightest;
 
+    svg {
+      margin-left: 5px;
+      width: 16px;
+      height: 16px;
+      margin-bottom: -.1em;
+      fill: $c-font-link;
+    }
+
     &:focus {
       box-shadow: 0 0 3px 3px $c-focus;
       outline: 0;
     }
 
-    &.active, &:hover {
+    &--active, &:hover {
       background-color: $c-primary;
       color: $c-white;
 
@@ -68,12 +76,8 @@ $border-width: 1px;
       }
     }
 
-    svg {
-      margin-left: 5px;
-      width: 16px;
-      height: 16px;
-      margin-bottom: -.1em;
-      fill: $c-font-link;
+    &--disabled {
+      pointer-events: none;
     }
   }
 
