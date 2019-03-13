@@ -1,7 +1,7 @@
-{% set headerIndent =  richText.headerIndent ? ' js-ma-outline-indent' : '' %}
-{% set anchorLinks = richText.anchorLinks ? ' js-ma-insert-heading-anchors' : '' %}
+{# {% set headerIndent =  richText.headerIndent ? ' js-ma-outline-indent' : '' %}
+{% set anchorLinks = richText.anchorLinks ? ' js-ma-insert-heading-anchors' : '' %} #}
 
-<div class="ma__rich-text js-ma-rich-text{{headerIndent}}{{anchorLinks}}">
+<div class="ma__rich-text {{headerIndent}}">
   {% if richText.compHeading %}
     {% set compHeading = richText.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
