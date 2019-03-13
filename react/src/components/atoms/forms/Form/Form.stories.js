@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { object, withKnobs, text, number, array } from '@storybook/addon-knobs';
+import is from 'is';
+import deepEqual from 'fast-deep-equal';
 
 import Form, { FormProvider } from './index';
 import FormDocs from './Form.md';
@@ -11,8 +13,9 @@ import InputSliderOptions from '../InputSlider/InputSlider.knobs.options';
 import InputSlider from '../InputSlider';
 import InputCurrency from '../InputCurrency';
 import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
-import { InputSyncProvider, InputSync } from '../Input';
-import is from 'is';
+import InputSync from '../InputSync';
+import Paragraph from '../../../atoms/text/Paragraph';
+import './story.css';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
@@ -56,31 +59,6 @@ storiesOf('atoms/forms', module)
           <Form>
             {
             (formContext) => {
-              inputTextOptionsWithKnobs.onChange = (e, newVal, id) => {
-                  // Keep test0 and test1 in sync.
-                  if (formContext.hasId('test0') && formContext.hasId('test1') && (formContext.hasId('slider'))) {
-                    if (id === 'test0') {
-                      const test0 = formContext.getValue('test0');
-                      formContext.setValue({ id: 'test1', value: 100 - test0 });
-                      formContext.setValue({ id: 'slider', value: test0 / 100 });
-                      if (test0 > 60) {
-                        formContext.setValue({ id: 'currency-input', value: '$999.00' });
-                      } else {
-                        formContext.setValue({ id: 'currency-input', value: '$0.00' });
-                      }
-                    }
-                    if (id === 'test1') {
-                      const test1 = formContext.getValue('test1');
-                      formContext.setValue({ id: 'test0', value: 100 - test1 });
-                      formContext.setValue({ id: 'slider', value: (100 - test1) / 100 });
-                      if ((100 - test1) > 60) {
-                        formContext.setValue({ id: 'currency-input', value: '$999.00' });
-                      } else {
-                        formContext.setValue({ id: 'currency-input', value: '$0.00' });
-                      }
-                    }
-                  }
-              };
               const ids = [
                 [
                   'test0',
@@ -90,7 +68,8 @@ storiesOf('atoms/forms', module)
                     defaultValue: 0,
                     labelText: 'Input 0 (Linked to Input 1 and Slider)',
                     id: 'test0',
-                    unit: '%'
+                    unit: '%',
+                    linkedContent: ['test1', 'test2', 'slider']
                   }
                 ],
                 [
@@ -103,40 +82,59 @@ storiesOf('atoms/forms', module)
                     id: 'test1',
                     unit: '%'
                   }
+                ],
+                [
+                  'test2',
+                  {
+                    ...inputTextOptionsWithKnobs,
+                    key: 'Form.InputNumber.test2',
+                    defaultValue: 100,
+                    labelText: 'Input 1 (Linked to Input 0 and Slider)',
+                    id: 'test2',
+                    unit: '%'
+                  }
                 ]
               ];
               const inputs = [];
               ids.forEach((numberProps) => {
                 inputs.push(<InputNumber {...numberProps[1]} />);
               });
-              inputSliderOptionsWithKnobs.onUpdate = (newVal, id) => {
-                if (formContext.hasId(id)) {
-                  formContext.setValue({ id: 'test0', value: Number(formContext.getValue(id) * 100).toFixed() });
-                  formContext.setValue({ id: 'test1', value: Number((1 - formContext.getValue(id)) * 100).toFixed() });
-                  if (formContext.hasId('currency-input')) {
-                    if (newVal > 0.6) {
-                      // Sets currency to 999 when slider is 60%.
-                      formContext.setValue({ id: 'currency-input', value: '$999.00' });
-                    } else {
-                      formContext.setValue({ id: 'currency-input', value: '$0.00' });
-                    }
+              // Custom conditions for InputSync updates.
+              const inputSyncProps = {
+                syncCondition: (currentId, currentValue) => {
+                  if (currentId === 'currency-input') {
+                    return(!deepEqual(currentValue, formContext.getValue('currency-input')));
                   }
+                    return true;
                 }
               };
-              const syncProps = {
-                syncCondition: (currentValue) => (!is.equal(currentValue, formContext.getValue('currency-input')))
+              inputSliderOptionsWithKnobs.updateFunc = (id, val) => {
+                if (val > 0.6) {
+                  formContext.setValue({ id: 'currency-input', value: '$999.00' });
+                } else {
+                  formContext.setValue({ id: 'currency-input', value: '$0.00' });
+                }
               };
               return(
                 <React.Fragment>
-                  <InputCurrency {...inputCurrencyOptionsWithKnobs} />
-                  <InputSync id="currency-input" {...syncProps}>
-                    {() => <span>{`testing: ${formContext.getValue('currency-input')}`}</span> }
-                  </InputSync>
-                  <InputSync id="currency-input" {...syncProps}>
-                    {() => <span>{`testing2: ${formContext.getValue('currency-input')}`}</span> }
-                  </InputSync>
-                  {inputs}
-                  <InputSlider {...inputSliderOptionsWithKnobs} id="slider" />
+                  <div className="align-left">
+                    <InputCurrency {...inputCurrencyOptionsWithKnobs} />
+                    {inputs}
+                    <InputSlider {...inputSliderOptionsWithKnobs} id="slider" />
+                  </div>
+                  <div className="full-right">
+                    <InputSync formIds={['test0', 'currency-input']}>
+                      {() => (
+                        <React.Fragment>
+                          <Paragraph text={`test0: ${formContext.getValue('test0')}`} />
+                          <Paragraph text={`test1: ${formContext.getValue('test1')}`} />
+                          <Paragraph text={`test2: ${formContext.getValue('test2')}`} />
+                          <Paragraph text={`currency-input: ${formContext.getValue('currency-input')}`} />
+                          <Paragraph text={`slider: ${formContext.getValue('slider')}`} />
+                        </React.Fragment>
+                      ) }
+                    </InputSync>
+                  </div>
                 </React.Fragment>
               );
             }

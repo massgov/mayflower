@@ -114,7 +114,7 @@ class CompoundSlider extends Component {
               const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
               context.updateState({ value }, () => {
                 if (typeof onChange === 'function') {
-                  onChange(value, this.props.id);
+                  this.props.onChange(value, this.props.id);
                 }
               });
             };
@@ -122,7 +122,7 @@ class CompoundSlider extends Component {
               const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
               context.updateState({ value }, () => {
                 if (typeof onUpdate === 'function') {
-                  onUpdate(value, this.props.id);
+                  this.props.onUpdate(value, this.props.id);
                 }
               });
             };
