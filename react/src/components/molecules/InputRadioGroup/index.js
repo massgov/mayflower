@@ -29,9 +29,12 @@ class RadioGroup extends React.Component {
       'ma__input-group__items--outline': this.props.outline
     });
     const titleClasses = classNames({
-      'ma__input-group__title': true,
+      ma__label: true,
       'ma__input-group__title--error': this.props.error,
-      'ma__input-group__title--disabled': this.props.disabled
+      'ma__label--disabled': (this.props.disabled),
+      'ma__label--hidden': (this.props.hiddenLabel),
+      'ma__label--required': (this.props.required),
+      'ma__label--optional': (!this.props.required)
     });
 
     return(
@@ -136,7 +139,8 @@ const InputRadioGroup = (props) => {
     defaultSelected,
     inline,
     onChange,
-    radioButtons
+    radioButtons,
+    hiddenLabel: props.hiddenLabel
   };
   inputProps.id = trueId;
   inputProps.defaultValue = defaultSelected;
@@ -153,6 +157,8 @@ InputRadioGroup.propTypes = {
   id: PropTypes.string,
   /** The legend title of the radio button group. */
   title: PropTypes.string.isRequired,
+  /** Whether the label should be hidden or not */
+  hiddenLabel: PropTypes.bool,
   /** The name of the radio button group */
   name: PropTypes.string.isRequired,
   /** Whether radio input is required or not */
@@ -163,6 +169,8 @@ InputRadioGroup.propTypes = {
   defaultSelected: PropTypes.string,
   /** Whether the radio group is in error state or not. */
   error: PropTypes.bool,
+  /** The message to be displayed in the event of an error. */
+  errorMsg: PropTypes.string,
   /** Display Inputs inline */
   inline: PropTypes.bool,
   /** Whether the radio button group is in a disabled state or not */
