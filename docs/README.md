@@ -13,7 +13,7 @@ The goals of Mayflower are:
 | :--- | :--- | :--- | :--- |
 | [**Mass.gov**](https://mass.gov) | Drupal | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower Patternlab |
 | [**Search.mass.gov**](https://search.mass.gov) | React + S3 | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower React |
-| [**RideShare Report**](https://mass.gov/rideshare) | React + S3 | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower React |
+| [**RideShare Report**](https://www.mass.gov/rideshare) | React + S3 | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower React |
 | [**Public Water Doc Search**](https://massgov.github.io/MassDEP/brp/dwp/pws-documents-search/build/%20) | React + Github Pages | MassDEP | Mayflower artifacts |
 | [**RMV ATLAS**](https://atlas-myrmv.massdot.state.ma.us/myrmv/_/) | FAST proprietary | MassDOT | Mayflower inspired |
 | [**MassDOT Open Data Portal**](https://geo-massdot.opendata.arcgis.com) | ArcGIS | MassDOT | Mayflower inspired |
