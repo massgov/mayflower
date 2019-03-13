@@ -9,7 +9,8 @@ import Error from '../../atoms/forms/Input/error';
 import './style.css';
 
 class RadioGroup extends React.Component {
-  handleChange = (event, inputContext) => {
+  handleChange = (event) => {
+    const inputContext = this.context;
     const selected = event.target.value;
     if (selected !== inputContext.getValue()) {
       inputContext.setValue(selected, () => {
@@ -34,48 +35,48 @@ class RadioGroup extends React.Component {
     });
 
     return(
-      <React.Fragment>
-        <fieldset>
-          <div className="ma__input-group">
-            <legend className={titleClasses}>
-              {this.props.title}
-            </legend>
-            <div className={itemsClasses}>
-              <InputContext.Consumer>
-                {(inputContext) => (
-                  this.props.radioButtons.map((radioButton, index) => {
-                    const contextValue = inputContext.getValue();
-                    // Context value is empty on first render, so use default, if any.
-                    // Next renders will use the value from context.
-                    const inputValue = contextValue || this.props.defaultSelected;
-                    const isChecked = radioButton.value === inputValue;
-                    const buttonId = radioButton.id || radioButton.value;
-                    return(
-                      <div className={`ma__input-group__item item-${this.props.radioButtons.length}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
-                        <InputRadio
-                          {...radioButton}
-                          name={this.props.name}
-                          onChange={(e) => this.handleChange(e, inputContext)}
-                          checked={isChecked}
-                          required={this.props.required}
-                          outline={this.props.outline}
-                          error={this.props.error}
-                          disabled={this.props.disabled}
-                          // eslint-disable-next-line react/no-array-index-key
-                          key={`InputRadioGroup-${buttonId}-${index}`}
-                        />
-                      </div>
-                    );
-                  })
-                )}
-              </InputContext.Consumer>
-            </div>
+      <fieldset>
+        <div className="ma__input-group">
+          <legend className={titleClasses}>
+            {this.props.title}
+          </legend>
+          <div className={itemsClasses}>
+            {this.props.radioButtons.map((radioButton, index) => {
+              const contextValue = this.context.getValue();
+              // Context value is empty on first render, so use default, if any.
+              // Next renders will use the value from context.
+              const inputValue = contextValue || this.props.defaultSelected;
+              const isChecked = radioButton.value === inputValue;
+              const buttonId = radioButton.id || radioButton.value;
+              const inputGroupClasses = {
+                'ma__input-group__item': true
+              };
+              inputGroupClasses[`item-${this.props.radioButtons.length}`] = true;
+              const inputGroupClassName = classNames(inputGroupClasses);
+              return(
+                <div className={`${inputGroupClassName} ${radioButton.class}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
+                  <InputRadio
+                    {...radioButton}
+                    name={this.props.name}
+                    onChange={this.handleChange}
+                    checked={isChecked}
+                    required={this.props.required}
+                    outline={this.props.outline}
+                    error={this.props.error}
+                    disabled={this.props.disabled}
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={`InputRadioGroup-${buttonId}-${index}`}
+                  />
+                </div>
+              );
+            })}
           </div>
-        </fieldset>
-      </React.Fragment>
+        </div>
+      </fieldset>
     );
   }
 }
+RadioGroup.contextType = InputContext;
 
 RadioGroup.propTypes = {
   id: PropTypes.string.isRequired,
