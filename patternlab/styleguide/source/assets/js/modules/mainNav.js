@@ -11,9 +11,29 @@ export default (function (window, document, $, undefined) {
       closeClass = "is-closed",
       submenuClass = "show-submenu",
       $parent = $(this),
+      $openContent = $parent.find('.js-main-nav-content.' + openClass),
       $mainNavToggle = $parent.find('.js-main-nav-toggle'),
       $mainNavItems = $parent.find('.js-main-nav-toggle, .js-main-nav-top-link'),
       breakpoint = 840; // matches CSS breakpoint for Main Nav
+
+    $('.ma__main-nav__item').each(function () {
+      var $elem = $(this);
+
+      // For appropriate focus out behavior in IE
+      $elem.on('focusout', function () {
+        setTimeout(function () {
+          var hasFocus = !!($elem.find(':focus').length > 0);
+          if (!hasFocus) {
+            let $openContent = $elem.find('.js-main-nav-content');
+            hide($openContent);
+            $elem.find('button').attr('aria-expanded', 'false');
+            $elem.find('.ma__main-nav__link').attr('tabIndex', '-1');
+            $('.has-focus').removeClass('has-focus');
+            return false;
+          }
+        }, 10);
+      });
+    });
 
     $mainNavItems.on('keydown', function (e) {
       // Grab all the DOM info we need...
@@ -39,8 +59,7 @@ export default (function (window, document, $, undefined) {
           'up': keycode === 38, // up arrow
           'down': keycode === 40, // down arrow
           'space': keycode === 32, //space
-          'enter': keycode === 13, // enter
-          'back': e.shiftKey && keycode === 9 // shift + tab
+          'enter': keycode === 13 // enter
         };
 
       // Default behavior is prevented for all actions except 'skip'.
@@ -55,10 +74,6 @@ export default (function (window, document, $, undefined) {
 
       if (action.skip && ($topLevelItem.find('.js-main-nav-content').hasClass('is-open'))) {
         $topLevelItem.find('.ma__main-nav__link').attr('tabIndex', '0');
-      }
-
-      if (($focusedElement = $('.ma__main-nav__item.is-open')) && action.back) {
-        $('.has-focus').removeClass('has-focus');
       }
 
       $topLevelItem.find('.js-main-nav-content .ma__main-nav__link:last').on('keydown', function () {
