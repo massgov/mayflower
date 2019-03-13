@@ -130,10 +130,16 @@ const Currency = (props) => {
       if (props.required && is.empty(inputEl.value)) {
         errorMsg = 'Please enter a value.';
         context.updateState({ showError: true, errorMsg });
-      }
-      if (is.number(numberValue) && !is.empty(stringValue)) {
-        const { showError, errorMsg } = validNumber(numberValue, props.min, props.max);
-        context.updateState({ showError, errorMsg, value: toCurrency(numberValue, 2) }, () => {
+      } else if (!is.empty(numberValue)) {
+        let newValue = numberValue;
+        if (newValue > props.max) {
+          newValue = props.max;
+        }
+        if (newValue < props.min) {
+          newValue = props.min;
+        }
+        const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+        context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
           // invokes custom function if passed in the component
           if (is.fn(props.onBlur)) {
             // context.value won't be immediately changed, so pass new value over.

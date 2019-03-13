@@ -30,16 +30,15 @@ const NumberInput = (props) => {
     'ma__input-number-unit--showButtons': props.showButtons
   });
 
-  const displayErrorMessage = () => {
-    const val = ref.current.value;
+  const displayErrorMessage = (val) => {
     const { min, max, isRequired } = props;
-    if (isRequired && String(val).length === 0) {
+    if (isRequired && is.empty(val)) {
       const errorMsg = 'Please enter a value.';
       return{
         showError: true,
         errorMsg
       };
-    } else if (String(val).length > 0) {
+    } else if (!is.empty(val)) {
       const { showError, errorMsg } = validNumber(val, min, max);
       return{
         showError, errorMsg
@@ -54,17 +53,26 @@ const NumberInput = (props) => {
   const handleOnBlur = (e) => {
     e.persist();
     const inputEl = ref.current;
-    const newValue = Number(inputEl.value);
-    if (typeof props.onBlur === 'function') {
-      props.onBlur(e, newValue);
+    let newValue = Number(inputEl.value);
+    if (newValue > props.max) {
+      newValue = props.max;
     }
+    if (newValue < props.min) {
+      newValue = props.min;
+    }
+    const updateError = displayErrorMessage(newValue);
+    context.updateState({ value: newValue, ...updateError }, () => {
+      if (typeof props.onBlur === 'function') {
+        props.onBlur(e, newValue);
+      }
+    });
   };
 
   const handleChange = (e) => {
     const inputEl = ref.current;
     e.persist();
     const newValue = Number(inputEl.value);
-    const updateError = displayErrorMessage();
+    const updateError = displayErrorMessage(newValue);
     context.updateState({ value: newValue, ...updateError }, () => {
       if (typeof props.onChange === 'function') {
         props.onChange(e, newValue, props.id);
