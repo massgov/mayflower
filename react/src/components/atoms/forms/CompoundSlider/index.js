@@ -9,7 +9,7 @@ import './style.css';
 
 const Handle = (props) => {
   const {
-    handle: { id, value, percent }, getHandleProps, axis, min, max, step, displayValueFormat
+    handle: { id, value, percent }, getHandleProps, axis, min, max, step, displayValueFormat, disabled
   } = props;
   const decimalPlaces = countDecimals(step);
   const roundedValue = (Number.isInteger(step)) ? value : Number(Number.parseFloat(value).toFixed(decimalPlaces));
@@ -17,6 +17,7 @@ const Handle = (props) => {
     'aria-valuemin': min,
     'aria-valuemax': max,
     'aria-valuenow': roundedValue,
+    disabled,
     role: 'slider',
     onClick: (e) => {
       e.preventDefault();
@@ -106,14 +107,22 @@ class CompoundSlider extends Component {
         {
           (context) => {
             const {
-              min, max, step, disabled, domain
+              min, max, step, disabled, domain, onChange, onUpdate
             } = this.props;
             const decimalPlaces = countDecimals(step);
-            const handleDragEnd = (values) => {
+            const handleChange = (values) => {
               const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
               context.updateState({ value }, () => {
-                if (typeof this.props.onChange === 'function') {
-                  this.props.onChange(value, this.props.id);
+                if (typeof onChange === 'function') {
+                  onChange(value, this.props.id);
+                }
+              });
+            };
+            const handleUpdate = (values) => {
+              const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
+              context.updateState({ value }, () => {
+                if (typeof onUpdate === 'function') {
+                  onUpdate(value, this.props.id);
                 }
               });
             };
@@ -157,11 +166,14 @@ class CompoundSlider extends Component {
               domain,
               step,
               vertical: !(this.props.axis === 'x'),
-              onSlideEnd: handleDragEnd,
+              onChange: handleChange,
               values: [defaultValue],
               mode: handleMode,
               disabled
             };
+            if (onUpdate) {
+              sliderProps.onUpdate = handleUpdate;
+            }
             const wrapperClasses = classNames({
               'ma__input-slider': true,
               'ma__input-slider--disabled': disabled,
@@ -190,6 +202,7 @@ class CompoundSlider extends Component {
                             max={max}
                             step={step}
                             displayValueFormat={this.props.displayValueFormat}
+                            disabled={disabled}
                           />
                         ))}
                       </div>
@@ -251,7 +264,9 @@ class CompoundSlider extends Component {
 CompoundSlider.propTypes = {
   /** The unique ID for the input field */
   id: PropTypes.string.isRequired,
-  /** Custom change function */
+  /** Custom update function, triggered with the values on drag (caution: high-volume updates when dragging). Only if a function is passed to onUpdate will form context get updated on drag. */
+  onUpdate: PropTypes.func,
+  /** Custom on change function, triggered when the value of the slider has changed. This will recieve changes at the end of a slide as well as changes from clicks on rails and tracks. */
   onChange: PropTypes.func,
   /** Default input text value */
   defaultValue: PropTypes.string,

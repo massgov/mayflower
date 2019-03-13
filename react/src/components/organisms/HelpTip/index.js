@@ -52,7 +52,7 @@ class HelpTip extends Component {
 
   render() {
     const {
-      hasMarkup, triggerText, textAfter, helpText, children, id, theme, text
+      hasMarkup, triggerText, textAfter, helpText, children, id, theme, text, disabled
     } = this.props;
 
     const baseClass = classNames({
@@ -78,31 +78,38 @@ class HelpTip extends Component {
 
     return(
       <span className={baseClass} id={id}>
-        {triggerText.map((trigger, index) => (
-          <span key={`help-tip-label-${id}-${index}`} className="ma__help-tip__label" id={`label-${id}-${index}`}>
-            {index === 0 && this.buildDangerouslyIfHasMarkup(splitText[index], hasMarkup)}
-            <span className="ma_help-tip__label-a11y" id={`context-a11y-${id}-${index}`} aria-hidden="true">
-              {this.state.isOpen[index] ? 'Close tooltip info about ' : 'Open tooltip info about '}
-              {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
+        {triggerText.map((trigger, index) => {
+          const triggerTextClasses = classNames({
+            'ma__help-tip__trigger': true,
+            'ma__help-tip__trigger--active': this.state.isOpen[index],
+            'ma__help-tip__trigger--disabled': disabled
+          });
+          return(
+            <span key={`help-tip-label-${id}-${index}`} className="ma__help-tip__label" id={`label-${id}-${index}`}>
+              {index === 0 && this.buildDangerouslyIfHasMarkup(splitText[index], hasMarkup)}
+              <span className="ma_help-tip__label-a11y" id={`context-a11y-${id}-${index}`} aria-hidden="true">
+                {this.state.isOpen[index] ? 'Close tooltip info about ' : 'Open tooltip info about '}
+                {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
+              </span>
+              <span
+                className={triggerTextClasses}
+                id={`trigger-${id}-${index}`}
+                onClick={() => this.toggleOpen(index)}
+                onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
+                tabIndex={disabled ? -1 : 0}
+                role="button"
+                aria-describedby={`context-a11y-${id}-${index}`}
+                aria-expanded={this.state.isOpen[index]}
+                aria-controls={`help-tip-content-${id}-${index}`}
+              >
+                {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
+                <Icon name="questionmark" svgHeight={15} svgWidth={15} />
+              </span>
+              {this.buildDangerouslyIfHasMarkup(splitText[index + 1], hasMarkup)}
             </span>
-            <span
-              className={`ma__help-tip__trigger ${this.state.isOpen[index] ? 'active' : ''}`}
-              id={`trigger-${id}-${index}`}
-              onClick={() => this.toggleOpen(index)}
-              onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
-              tabIndex="0"
-              role="button"
-              aria-describedby={`context-a11y-${id}-${index}`}
-              aria-expanded={this.state.isOpen[index]}
-              aria-controls={`help-tip-content-${id}-${index}`}
-            >
-              {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
-              <Icon name="questionmark" svgHeight={15} svgWidth={15} />
-            </span>
-            {this.buildDangerouslyIfHasMarkup(splitText[index + 1], hasMarkup)}
-          </span>
-        ))}
-        {triggerText.map((trigger, index) => (
+        );
+        })}
+        {triggerText.map((trigger, index) => !disabled && (
           <Collapse key={`help-tip-collapse-${id}-${index}`} in={this.state.isOpen[index]} dimension="height" className={helpTextContainer}>
             <div className="ma__help-tip__content" id={`help-tip-content-${id}-${index}`} aria-hidden={!this.state.isOpen[index]}>
               <div
@@ -154,7 +161,9 @@ HelpTip.propTypes = {
   /** Whether text contains html markup */
   hasMarkup: PropTypes.bool,
   /** Themes correspond to site color scheme i.e. sass variables */
-  theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red', 'c-white'])
+  theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red', 'c-white']),
+  /** Disable helptip trigger text */
+  disabled: PropTypes.bool
 };
 
 HelpTip.defaultProps = {
