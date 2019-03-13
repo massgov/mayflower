@@ -8,7 +8,7 @@
       {% if page.text == "spacer" %}
         <span class="ma__pagination__spacer">&hellip;</span>
       {% else %}
-      <a class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" href="#" data-page="{{ page.text }}" aria-label="Go to Page {{ page.text }}"><span class="visually-hidden">page </span>{{ page.text }}</a>
+      <a class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" href="#" data-page="{{ page.text }}" {% if page.active %} aria-label="Current Page" {% else %}  aria-label="Go to Page {{ page.text }}" {% endif %} ><span class="visually-hidden">page </span>{{ page.text }}</a>
       {% endif %}
     {% endfor %}
     <a
