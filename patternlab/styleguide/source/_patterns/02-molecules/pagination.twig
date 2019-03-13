@@ -4,7 +4,7 @@
       class="ma__pagination__prev js-pagination-prev {% if pagination.prev.disabled %}disabled{% endif %}"
       {% if pagination.prev.disabled %}aria-disabled="true" {% else %}
       aria-label="Go to {{ pagination.prev.text }} page"{% endif %}
-      href="#">{{ pagination.prev.text }}<span class="visually-hidden"> page</span></a>
+      href="#">{{ pagination.prev.text }}</a>
 
     {% for page in pagination.pages %}
       {% if page.text == "spacer" %}
@@ -17,7 +17,7 @@
         {% if page.active %} aria-label="Currently on Page {{ page.text }}" 
         {% else %}  aria-label="Go to Page {{ page.text }}" {% endif %} 
       >
-        <span class="visually-hidden">page </span>{{ page.text }}
+        {{ page.text }}
       </a>
 
       {% endif %}
@@ -27,6 +27,6 @@
       class="ma__pagination__next js-pagination-next {% if pagination.next.disabled %}disabled{% endif %}"
       {% if pagination.next.disabled %}aria-disabled="true" {% else %}
       aria-label="Go to {{ pagination.next.text }} page"{% endif %}
-      href="#">{{ pagination.next.text }}<span class="visually-hidden"> page</span></a>
+      href="#">{{ pagination.next.text }}</a>
   </nav>
 </div>
