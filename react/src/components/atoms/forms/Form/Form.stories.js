@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { object, withKnobs, text, number, array } from '@storybook/addon-knobs';
 import is from 'is';
+import numbro from 'numbro';
 import deepEqual from 'fast-deep-equal';
 
 import Form, { FormProvider } from './index';
@@ -66,7 +67,7 @@ storiesOf('atoms/forms', module)
                     ...inputTextOptionsWithKnobs,
                     key: 'Form.InputNumber.test0',
                     defaultValue: 0,
-                    labelText: 'Input 0 (Linked to Input 1 and Slider)',
+                    labelText: 'Input 0 (Linked to Input 1, Input 2, and Slider)',
                     id: 'test0',
                     unit: '%',
                     linkedContent: ['test1', 'test2', 'slider']
@@ -78,7 +79,7 @@ storiesOf('atoms/forms', module)
                     ...inputTextOptionsWithKnobs,
                     key: 'Form.InputNumber.test1',
                     defaultValue: 100,
-                    labelText: 'Input 1 (Linked to Input 0 and Slider)',
+                    labelText: 'Input 1 (Linked to Input 0, Input 2, and Slider)',
                     id: 'test1',
                     unit: '%'
                   }
@@ -89,7 +90,7 @@ storiesOf('atoms/forms', module)
                     ...inputTextOptionsWithKnobs,
                     key: 'Form.InputNumber.test2',
                     defaultValue: 100,
-                    labelText: 'Input 1 (Linked to Input 0 and Slider)',
+                    labelText: 'Input 2 (Linked to Input 0, Input 1, and Slider)',
                     id: 'test2',
                     unit: '%'
                   }
@@ -99,20 +100,34 @@ storiesOf('atoms/forms', module)
               ids.forEach((numberProps) => {
                 inputs.push(<InputNumber {...numberProps[1]} />);
               });
-              // Custom conditions for InputSync updates.
+              // Custom conditions for when InputSync updates.
+              // InputSync will normally update whenever the form ids in formIds update.
+              // InputSync can only watch form ids that actually exist,
+              // so it must come after the input it is watching has been rendered.
               const inputSyncProps = {
-                syncCondition: (currentId, currentValue) => {
-                  if (currentId === 'currency-input') {
-                    return(!deepEqual(currentValue, formContext.getValue('currency-input')));
-                  }
-                    return true;
-                }
+                syncCondition: (updatedFormId, formValue) => {
+                  const currencyValue = Number(numbro.unformat(formContext.getValue('currency-input')));
+                  return(currencyValue > 5);
+                },
+                formIds: ['currency-input', 'test0']
               };
-              inputSliderOptionsWithKnobs.updateFunc = (id, val) => {
+              // Using overrideLink breaks the Input's link to other Inputs.
+              // The returned value will become the new value for this Input instead.
+              inputSliderOptionsWithKnobs.overrideLink = (newVal) => {
+                return(Number(numbro(newVal / 100).format({ mantissa: 2 })));
+              };
+              // We still want the slider to change the other Inputs, so add an update function.
+              // Update the inputs back to percentages when slider changes value.
+              inputSliderOptionsWithKnobs.updateFunc = (val) => {
+                const newVal = Number(numbro(val * 100).format({ mantissa: 0 }));
+                // We need to ensure that the new percentage value isn't already set on the Inputs we are changing.
+                // If this check is not done, an infinite loop will occur.
+                if (!deepEqual(newVal, formContext.getValue('test0'))) {
+                  // For test0 and anything linked to test0, this will become the actual value instead of the linked value.
+                  formContext.setValue({ id: 'test0', value: newVal });
+                }
                 if (val > 0.6) {
                   formContext.setValue({ id: 'currency-input', value: '$999.00' });
-                } else {
-                  formContext.setValue({ id: 'currency-input', value: '$0.00' });
                 }
               };
               return(
@@ -123,14 +138,15 @@ storiesOf('atoms/forms', module)
                     <InputSlider {...inputSliderOptionsWithKnobs} id="slider" />
                   </div>
                   <div className="full-right">
-                    <InputSync formIds={['test0', 'currency-input']}>
+                    <InputSync {...inputSyncProps}>
                       {() => (
                         <React.Fragment>
-                          <Paragraph text={`test0: ${formContext.getValue('test0')}`} />
-                          <Paragraph text={`test1: ${formContext.getValue('test1')}`} />
-                          <Paragraph text={`test2: ${formContext.getValue('test2')}`} />
-                          <Paragraph text={`currency-input: ${formContext.getValue('currency-input')}`} />
-                          <Paragraph text={`slider: ${formContext.getValue('slider')}`} />
+                          <span>Updates when Currency Input is greater than $5.00.</span>
+                          <Paragraph text={`Input 0: ${formContext.getValue('test0')}`} />
+                          <Paragraph text={`Input 1: ${formContext.getValue('test1')}`} />
+                          <Paragraph text={`Input 2: ${formContext.getValue('test2')}`} />
+                          <Paragraph text={`Currency Input: ${formContext.getValue('currency-input')}`} />
+                          <Paragraph text={`Slider: ${formContext.getValue('slider')}`} />
                         </React.Fragment>
                       ) }
                     </InputSync>

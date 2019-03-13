@@ -41,6 +41,8 @@ class InputProvider extends React.Component {
     this.state = {
       value: this.props.defaultValue,
       linkedContent: this.props.linkedContent,
+      overrideLink: (is.fn(this.props.overrideLink)) ? this.props.overrideLink : null,
+      getOverrideLink: this.getOverrideLink,
       updateFunc: this.props.updateFunc,
       getLinkedContent: this.getLinkedContent,
       setLinkedContent: this.setLinkedContent,
@@ -58,12 +60,9 @@ class InputProvider extends React.Component {
     this.checkFormContext(this.context);
   }
   componentDidUpdate() {
-    if (is.fn(this.context.syncContent)) {
-      this.context.syncContent(this.props.id);
-    }
     if (is.array(this.state.linkedContent)) {
+      // Add any back references to the current Input to the linkedContent array.
       this.state.linkedContent.forEach((id) => {
-        // Get link, if any, between current input and input in linkedContent.
         const currentLinks = this.context.getLinkedContent(id);
         if (!currentLinks.includes(this.props.id)) {
           const backLink = this.state.linkedContent.filter(v => v !== id);
@@ -73,10 +72,19 @@ class InputProvider extends React.Component {
       });
     }
     if (is.array(this.state.linkedContent) && is.fn(this.context.updateLinkedContent)) {
+      // First, run on update function for this Input.
+      if (is.fn(this.context.onUpdate)) {
+        this.context.onUpdate(this.props.id);
+      }
+      // Then sync all Inputs in the linkedContent array with the newly updated value.
       this.context.updateLinkedContent(this.props.id);
-    }
-    if (is.fn(this.context.onUpdate)) {
+    } else if (is.fn(this.context.onUpdate)) {
+      // If nothing is linked, just run on update function.
       this.context.onUpdate(this.props.id);
+    }
+    // Finally, handle updating any InputSync components on the Form that are watching this Input.
+    if (is.fn(this.context.syncContent)) {
+      this.context.syncContent(this.props.id);
     }
   }
   getValue = () => this.state.value;
@@ -87,14 +95,17 @@ class InputProvider extends React.Component {
   setLinkedContent = (ids) => {
     if (is.array(ids) && !is.empty(ids)) {
       const { linkedContent = [] } = this.state;
-      const updatedIds = linkedContent.concat(ids);
-      this.setState({ linkedContent: updatedIds });
+      if (!is.fn(this.state.overrideLink)) {
+        const updatedIds = linkedContent.concat(ids);
+        this.setState({ linkedContent: updatedIds });
+      }
     }
   };
   getUpdateFunc = () => this.state.updateFunc;
   setUpdateFunc = (updateFunc) => {
     this.setState({ updateFunc });
   };
+  getOverrideLink = () => this.state.overrideLink;
   updateState = (newState, afterUpdate) => {
     this.setState(newState, afterUpdate);
   };
@@ -110,7 +121,8 @@ class InputProvider extends React.Component {
           getLinkedContent: this.getLinkedContent,
           setLinkedContent: this.setLinkedContent,
           getUpdateFunc: this.getUpdateFunc,
-          setUpdateFunc: this.setUpdateFunc
+          setUpdateFunc: this.setUpdateFunc,
+          getOverrideLink: this.getOverrideLink
         };
         formContext.updateState({ value });
       }

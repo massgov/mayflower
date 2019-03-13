@@ -38,7 +38,7 @@ class FormProvider extends Component {
     if (this.hasId(inputId)) {
       const updateFunc = this.getUpdateFunc(inputId);
       if (is.fn(updateFunc)) {
-        updateFunc(inputId, this.getValue(inputId));
+        updateFunc(this.getValue(inputId));
       }
     }
   };
@@ -53,6 +53,7 @@ class FormProvider extends Component {
       }
     }
   };
+  // Returns InputProvider's state.updateFunc.
   getUpdateFunc = (inputId) => {
     if (this.hasId(inputId)) {
       const input = this.state.value[inputId];
@@ -75,34 +76,56 @@ class FormProvider extends Component {
     }
     return null;
   };
+  // Returns InputProvider's state.linkedContent array.
   getLinkedContent = (inputId) => {
-    const { value } = this.state;
-    if (this.hasId(inputId) && Object.prototype.hasOwnProperty.call(value[inputId], 'getLinkedContent')) {
+    if (this.hasId(inputId) && is.fn(this.state.value[inputId].getLinkedContent)) {
       return this.state.value[inputId].getLinkedContent();
     }
     return[];
   };
   setValue = (input, afterUpdate) => {
-    if (Object.prototype.hasOwnProperty.call(this.state.value, input.id)) {
+    if (this.hasId(input.id)) {
       this.state.value[input.id].setValue(input.value, afterUpdate);
     }
   };
+  // Used by InputProvider to set back references and link different InputProviders together.
+  // Ran in InputProvider's componentDidUpdate().
   setLinkedContent = (inputId, idsToLink) => {
-    if (is.array(idsToLink) && !is.empty(idsToLink)) {
+    if (is.array(idsToLink) && !is.array.empty(idsToLink)) {
       if (this.hasId(inputId) && is.fn(this.state.value[inputId].setLinkedContent)) {
         this.state.value[inputId].setLinkedContent(idsToLink);
       }
     }
   };
+  // Handles updating all Inputs linked to the passed in inputId.
   updateLinkedContent = (inputId) => {
     if (this.hasId(inputId) && !is.empty(this.getLinkedContent(inputId))) {
       const linkedContent = this.getLinkedContent(inputId);
-      if (linkedContent && !is.empty(linkedContent)) {
+      const skippedIds = [];
+      if (linkedContent && !is.array.empty(linkedContent)) {
         linkedContent.forEach((id) => {
-          if (!deepEqual(this.getValue(id), this.getValue(inputId))) {
+          const overrideFunc = this.state.value[id].getOverrideLink();
+          const value = this.getValue(inputId);
+          // Skip processing any Input with overrides.
+          if (is.fn(overrideFunc)) {
+            skippedIds.push(id);
+            return;
+          } else if (!deepEqual(this.getValue(id), value)) {
+            // Only update content that actually has differences. Otherwise, this will infinite loop.
             this.setValue({
               id,
-              value: this.getValue(inputId)
+              value
+            });
+          }
+        });
+        skippedIds.forEach((id) => {
+          const overrideFunc = this.state.value[id].getOverrideLink();
+          const value = overrideFunc(this.getValue(inputId));
+          // Checking for differences between the newly overriden value and the previous (if any) overriden value.
+          if (!deepEqual(value, overrideFunc(this.getValue(id)))) {
+            this.setValue({
+              id,
+              value
             });
           }
         });
@@ -110,6 +133,7 @@ class FormProvider extends Component {
     }
     return null;
   };
+  // Triggered by inputId's componentDidUpdate, after all updating is complete.
   syncContent = (inputId) => {
     if (this.hasId(inputId) && is.array(this.state.value[inputId].syncContent)) {
       this.state.value[inputId].syncContent.forEach((syncFunc) => (syncFunc(inputId, this.getValue(inputId))));

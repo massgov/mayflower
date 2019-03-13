@@ -19,7 +19,7 @@ class InputSync extends React.Component {
   }
   checkFormContext = () => {
     if (this.context && this.context.isActive) {
-      if (is.array(this.state.formIds) && !is.empty(this.state.formIds)) {
+      if (is.array(this.state.formIds) && !is.array.empty(this.state.formIds)) {
         this.state.formIds.forEach((id) => {
           this.linkToForm(id);
         });
