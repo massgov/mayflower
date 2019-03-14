@@ -13,7 +13,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
-## 9.2.0 (05/05/2019)
+## 9.2.1 (03/13/2019)
+
+### Fixed
+- (React) [TabContainer] DP-10868: Adds a11y support to Tab and TabContainer components.#497
+
+### Added
+- (Patternlab) [OrganizationNavigation] DP-12928: Add link list specific classes: `ma__org-nav-i-want-to__findService`, `ma__org-nav-i-want-to__learnAbout`,`ma__org-nav-i-want-to__login` to sections for GTM. #504
+
+## 9.2.0 (03/05/2019)
 
 ### Added
 - (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module. #473
