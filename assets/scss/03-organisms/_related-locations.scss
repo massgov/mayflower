@@ -31,7 +31,7 @@
    
     @media ($bp-small-min) {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
     }
 
     @media ($bp-large-extended-min) {
