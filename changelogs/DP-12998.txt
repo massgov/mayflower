@@ -1,0 +1,3 @@
+Minor
+Patch
+- (Patternlab) [Feedback form] DP-12998: Fix print styles: remove feedback elements
