@@ -1,5 +1,7 @@
 # Mayflower
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/massgov/mayflower.svg)](https://greenkeeper.io/)
+
 Mayflower is the enterprise design system for the Commonwealth of Massachusetts.
 
 * *[Documentation](/docs)*: Documentation for the overall design system, including guiding principals.
