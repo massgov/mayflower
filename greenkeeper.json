@@ -1,0 +1,16 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "patternlab/styleguide/package.json",
+        "patternlab/styleguide/source/assets/js/vendor/bower_components/handlebars/package.json",
+        "patternlab/styleguide/source/assets/js/vendor/bower_components/pikaday/package.json",
+        "patternlab/styleguide/source/assets/js/vendor/bower_components/svg4everybody/package.json",
+        "patternlab/styleguide/source/assets/js/vendor/bower_components/twigjs-bower/package.json",
+        "patternlab/styleguide/source/assets/js/vendor/bower_components/url-search-params/package.json",
+        "patternlab/styleguide/vendor/pattern-lab/styleguidekit-assets-default/package.json",
+        "react/package.json"
+      ]
+    }
+  }
+}
