@@ -14,7 +14,7 @@ import './style.css';
 
 const NumberInput = (props) => {
   const context = useContext(InputContext);
-  const hasValue = !is.empty(context.getValue());
+  const hasValue = is.number(context.getValue());
   const ref = useRef();
   const upRef = useRef();
   const downRef = useRef();
@@ -54,24 +54,32 @@ const NumberInput = (props) => {
     e.persist();
     const inputEl = ref.current;
     let newValue = Number(inputEl.value);
-    if (newValue > props.max) {
-      newValue = props.max;
-    }
-    if (newValue < props.min) {
-      newValue = props.min;
-    }
-    const updateError = displayErrorMessage(newValue);
-    context.updateState({ value: newValue, ...updateError }, () => {
-      if (typeof props.onBlur === 'function') {
-        props.onBlur(e, newValue);
+    if (newValue > props.max || newValue < props.min) {
+      if (newValue > props.max) {
+        newValue = props.max;
       }
-    });
+      if (newValue < props.min) {
+        newValue = props.min;
+      }
+      inputEl.value = Number(numbro(newValue)
+        .format({ mantissa: countDecimals(props.step) }));
+      const updateError = displayErrorMessage(newValue);
+      context.updateState({ value: inputEl.value, ...updateError }, () => {
+        if (typeof props.onBlur === 'function') {
+          props.onBlur(e, inputEl.value);
+        }
+      });
+    }
   };
 
   const handleChange = (e) => {
     const inputEl = ref.current;
     e.persist();
-    const newValue = Number(inputEl.value);
+    let newValue = inputEl.value;
+    if (is.number(newValue)) {
+      newValue = Number(numbro(inputEl.value)
+        .format({ mantissa: countDecimals(props.step) }));
+    }
     const updateError = displayErrorMessage(newValue);
     context.updateState({ value: newValue, ...updateError }, () => {
       if (typeof props.onChange === 'function') {
@@ -93,8 +101,7 @@ const NumberInput = (props) => {
         inputEl.value = 1;
       } else {
         inputEl.value = Number(numbro(inputEl.value)
-          .add(props.step)
-          .format({ mantissa: countDecimals(props.step) }));
+          .add(props.step).value());
       }
       handleChange(e);
     } else if (direction === 'down' && inputEl.value > props.min) {
@@ -102,8 +109,7 @@ const NumberInput = (props) => {
         inputEl.value = -1;
       } else {
         inputEl.value = Number(numbro(inputEl.value)
-          .subtract(props.step)
-          .format({ mantissa: countDecimals(props.step) }));
+          .subtract(props.step).value());
       }
       handleChange(e);
     }
@@ -124,10 +130,7 @@ const NumberInput = (props) => {
     step: props.step,
     ref
   };
-
-  if (hasValue) {
-    inputAttr.value = context.getValue();
-  }
+  inputAttr.value = context.getValue();
   if (is.number(props.max)) {
     inputAttr.max = props.max;
   }
@@ -138,35 +141,33 @@ const NumberInput = (props) => {
   return(
     <div className="ma__input-number">
       <input {...inputAttr} />
+      {(props.unit && hasValue) ? <span className={unitClasses}>{props.unit}</span> : null}
       {
-                  (props.unit && hasValue) ? <span className={unitClasses}>{props.unit}</span> : null
-                }
-      {
-                  props.showButtons && (
-                    <div className="ma__input-number__control-buttons">
-                      <button
-                        type="button"
-                        aria-label="increase value"
-                        className="ma__input-number__control-plus"
-                        data-direction="up"
-                        onClick={handleAdjust}
-                        disabled={props.disabled}
-                        tabIndex={-1}
-                        ref={upRef}
-                      />
-                      <button
-                        type="button"
-                        aria-label="decrease value"
-                        className="ma__input-number__control-minus"
-                        data-direction="down"
-                        onClick={handleAdjust}
-                        disabled={props.disabled}
-                        tabIndex={-1}
-                        ref={downRef}
-                      />
-                    </div>
-                  )
-                }
+        props.showButtons && (
+          <div className="ma__input-number__control-buttons">
+            <button
+              type="button"
+              aria-label="increase value"
+              className="ma__input-number__control-plus"
+              data-direction="up"
+              onClick={handleAdjust}
+              disabled={props.disabled}
+              tabIndex={-1}
+              ref={upRef}
+            />
+            <button
+              type="button"
+              aria-label="decrease value"
+              className="ma__input-number__control-minus"
+              data-direction="down"
+              onClick={handleAdjust}
+              disabled={props.disabled}
+              tabIndex={-1}
+              ref={downRef}
+            />
+          </div>
+        )
+      }
     </div>
   );
 };
