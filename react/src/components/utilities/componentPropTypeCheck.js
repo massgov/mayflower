@@ -12,6 +12,7 @@ const componentPropTypeCheck = (props, propName, componentName, componentString)
   if (!component || (component && !isValid(component))) {
     return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component.type.name}. Validation failed.`);
   }
+  return new Error('Proptype error check failure.');
 };
 
 export const componentArrayPropTypeCheck = (
@@ -42,6 +43,7 @@ export const componentArrayPropTypeCheck = (
   if (!component || (component && !isValid(component))) {
     return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component || 'undefined'}. Validation failed.`);
   }
+  return new Error('Proptype array check failure.');
 };
 
 // For FilterBox component.
@@ -77,6 +79,7 @@ export const validateFilters = (
   if (!component || (component && !isValid(component))) {
     return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component || 'undefined'}. Validation failed.`);
   }
+  return new Error('Child proptype check failure.');
 };
 
 export default componentPropTypeCheck;
@@ -86,4 +89,5 @@ export const numberCharacterPropTypeCheck = (props, propName, number) => {
   if (typeof prop !== 'string' || prop.length > number) {
     return new Error(`${propName} needs to be a string of less than or equal to ${number} characters.`);
   }
+  return true;
 };

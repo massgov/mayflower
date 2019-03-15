@@ -20,23 +20,18 @@ const Tab = React.forwardRef((props, ref) => {
       if (context.tabRefs[nextIdent]) {
         e.currentTarget.setAttribute('tabindex', '-1');
         context.tabRefs[nextIdent].current.focus();
-      } else {
+      } else if (!body.getElementsByClassName('ma__tab-container--nested')[0] && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
         // If no TabContainer children.
-        if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
-          // If the TabContainer has a parent TabContainer, and that container has a next selectable sibling.
-          if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
-            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
-            const nextTab = e.currentTarget
-              .closest('div.ma__tab-container')
-              .parentElement
-              .closest('div.ma__tab-container')
-              .getElementsByClassName('ma__tab-title--active')[0]
-              .nextElementSibling
-              .getElementsByTagName('button')[0];
-            nextTab.removeAttribute('tabindex');
-            nextTab.focus();
-          }
-        }
+        // If the TabContainer has a parent TabContainer, and that container has a next selectable sibling.
+        const nextTab = e.currentTarget
+          .closest('div.ma__tab-container')
+          .parentElement
+          .closest('div.ma__tab-container')
+          .getElementsByClassName('ma__tab-title--active')[0]
+          .nextElementSibling
+          .getElementsByTagName('button')[0];
+        nextTab.removeAttribute('tabindex');
+        nextTab.focus();
       }
     }
     if (e.key === 'ArrowLeft') {
@@ -44,23 +39,18 @@ const Tab = React.forwardRef((props, ref) => {
       if (context.tabRefs[previousIdent]) {
         e.currentTarget.setAttribute('tabindex', '-1');
         context.tabRefs[previousIdent].current.focus();
-      } else {
+      } else if (!body.getElementsByClassName('ma__tab-container--nested')[0] && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].previousElementSibling) {
         // If no TabContainer children.
-        if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
-          // If the TabContainer has a parent TabContainer, and that container has a previous selectable sibling.
-          if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
-            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].previousElementSibling) {
-            const prevTab = e.currentTarget
-              .closest('div.ma__tab-container')
-              .parentElement
-              .closest('div.ma__tab-container')
-              .getElementsByClassName('ma__tab-title--active')[0]
-              .previousElementSibling
-              .getElementsByTagName('button')[0];
-            prevTab.removeAttribute('tabindex');
-            prevTab.focus();
-          }
-        }
+        // If the TabContainer has a parent TabContainer, and that container has a previous selectable sibling.
+        const prevTab = e.currentTarget
+          .closest('div.ma__tab-container')
+          .parentElement
+          .closest('div.ma__tab-container')
+          .getElementsByClassName('ma__tab-title--active')[0]
+          .previousElementSibling
+          .getElementsByTagName('button')[0];
+        prevTab.removeAttribute('tabindex');
+        prevTab.focus();
       }
     }
   };

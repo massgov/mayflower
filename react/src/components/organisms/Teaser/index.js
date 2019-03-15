@@ -100,6 +100,7 @@ Teaser.propTypes = {
         'ContactGroup'
       ]);
     }
+    return null;
   },
   /** An array of components to be displayed under the title, on the right.
       If left is not set, this will display on the left side under the title instead.
@@ -112,6 +113,7 @@ Teaser.propTypes = {
         'IconLink'
       ]);
     }
+    return null;
   }
 };
 

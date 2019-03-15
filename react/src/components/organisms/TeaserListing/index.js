@@ -43,8 +43,8 @@ class TeaserListing extends React.Component {
      const invisibleItems = (shownNumber) ? teaser.items.slice(shownNumber) : [];
 
      let teaserHeading = 2;
-     teaserHeading = parseInt((teaser.compHeading && teaser.compHeading.level) ? teaser.compHeading.level : teaserHeading) + 1;
-     teaserHeading = parseInt((teaser.sidebarHeading && teaser.sidebarHeading.level) ? teaser.sidebarHeading.level : teaserHeading) + 1;
+     teaserHeading = parseInt(((teaser.compHeading && teaser.compHeading.level) ? teaser.compHeading.level : teaserHeading), 0) + 1;
+     teaserHeading = parseInt(((teaser.sidebarHeading && teaser.sidebarHeading.level) ? teaser.sidebarHeading.level : teaserHeading), 0) + 1;
 
      return(
        <section className="ma__teaser-listing">
