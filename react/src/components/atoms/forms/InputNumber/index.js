@@ -78,10 +78,15 @@ const NumberInput = (props) => {
           const handleChange = (e) => {
             const inputEl = ref.current;
             e.persist();
-            let newValue = Number(inputEl.value);
-            if (is.number(newValue)) {
-              newValue = Number(numbro(inputEl.value)
-                .format({ mantissa: countDecimals(props.step) }));
+            let newValue;
+            if (is.empty(inputEl.value)) {
+              newValue = inputEl.value;
+            } else {
+              newValue = Number(inputEl.value);
+              if (is.number(newValue)) {
+                newValue = Number(numbro(inputEl.value)
+                  .format({ mantissa: countDecimals(props.step) }));
+              }
             }
             const updateError = displayErrorMessage(newValue);
             context.updateState({ value: newValue, ...updateError }, () => {
