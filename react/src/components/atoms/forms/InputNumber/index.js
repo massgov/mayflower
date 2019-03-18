@@ -71,7 +71,7 @@ const NumberInput = (props) => {
                 .format({ mantissa: countDecimals(props.step) }));
               const updateError = displayErrorMessage(newValue);
               context.updateState({ value: inputEl.value, ...updateError }, () => {
-                if (typeof props.onBlur === 'function') {
+                if (is.fn(props.onBlur)) {
                   props.onBlur(e, inputEl.value);
                 }
               });
