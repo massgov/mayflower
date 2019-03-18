@@ -34,8 +34,8 @@ const NumberInput = (props) => {
           });
 
           const displayErrorMessage = (val) => {
-            const { min, max, isRequired } = props;
-            if (isRequired && is.empty(val)) {
+            const { min, max, required } = props;
+            if (required && is.empty(val)) {
               const errorMsg = 'Please enter a value.';
               return{
                 showError: true,
@@ -52,18 +52,21 @@ const NumberInput = (props) => {
               errorMsg: ''
             };
           };
+          const hasProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && !is.nil(obj[property]);
 
           const handleOnBlur = (e) => {
             e.persist();
             const inputEl = ref.current;
             let newValue = Number(inputEl.value);
-            if (newValue > props.max || newValue < props.min) {
-              if (newValue > props.max) {
+            if ((hasProperty(props, 'max') && newValue > props.max) || (hasProperty(props, 'min') && newValue < props.min)) {
+              if (hasProperty(props, 'max') && newValue > props.max) {
                 newValue = props.max;
               }
-              if (newValue < props.min) {
+              if (hasProperty(props, 'min') && newValue < props.min) {
                 newValue = props.min;
               }
+            }
+            if (!is.empty(inputEl.value)) {
               inputEl.value = Number(numbro(newValue)
                 .format({ mantissa: countDecimals(props.step) }));
               const updateError = displayErrorMessage(newValue);
@@ -104,7 +107,7 @@ const NumberInput = (props) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            if (direction === 'up' && (!Object.prototype.hasOwnProperty.call(props, 'max') || inputEl.value < props.max)) {
+            if (direction === 'up' && (!hasProperty(props, 'max') || inputEl.value < props.max)) {
               if (is.empty(inputEl.value)) {
                 inputEl.value = 1;
               } else {
@@ -112,7 +115,7 @@ const NumberInput = (props) => {
                   .add(props.step).value());
               }
               handleChange(e);
-            } else if (direction === 'down' && (!Object.prototype.hasOwnProperty.call(props, 'min') || inputEl.value > props.min)) {
+            } else if (direction === 'down' && (!hasProperty(props, 'min') || inputEl.value > props.min)) {
               if (is.empty(inputEl.value)) {
                 inputEl.value = -1;
               } else {
