@@ -93,7 +93,7 @@ const NumberInput = (props) => {
             }
             const updateError = displayErrorMessage(newValue);
             context.updateState({ value: newValue, ...updateError }, () => {
-              if (typeof props.onChange === 'function') {
+              if (is.fn(props.onChange)) {
                 props.onChange(e, newValue, props.id);
               }
             });
