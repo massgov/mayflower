@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Fixed
-Patch
-- (React) [TabContainer] DP-10868: Adds a11y support to Tab and TabContainer components.#497
