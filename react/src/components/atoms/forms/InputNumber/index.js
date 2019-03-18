@@ -35,13 +35,13 @@ const NumberInput = (props) => {
 
           const displayErrorMessage = (val) => {
             const { min, max, required } = props;
-            if (required && is.empty(val)) {
+            if (required && !is.number(val)) {
               const errorMsg = 'Please enter a value.';
               return{
                 showError: true,
                 errorMsg
               };
-            } else if (!is.empty(val)) {
+            } else if (is.number(val)) {
               const { showError, errorMsg } = validNumber(val, min, max);
               return{
                 showError, errorMsg
