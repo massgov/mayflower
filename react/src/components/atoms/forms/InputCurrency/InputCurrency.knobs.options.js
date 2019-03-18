@@ -15,8 +15,8 @@ export default {
   placeholder: () => text('InputCurrency.placeholder', '$0.00'),
   errorMsg: () => text('InputCurrency.errorMsg', 'you did not type something'),
   defaultValue: () => text('InputCurrency.defaultValue', null),
-  max: () => number('InputCurrency.max', 10000),
-  min: () => number('InputCurrency.min', -1000),
+  max: () => number('InputCurrency.max', 1000),
+  min: () => number('InputCurrency.min', 0),
   step: () => number('InputCurrency.step', 0.01),
   format: () => object('InputCurrency.format', {
     mantissa: 2,
