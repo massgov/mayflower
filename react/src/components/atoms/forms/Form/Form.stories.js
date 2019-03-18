@@ -1,7 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { object, withKnobs, text, number, array } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { object, withKnobs, text, number, array, boolean } from '@storybook/addon-knobs';
 
 import Form, { FormProvider } from './index';
 import FormDocs from './Form.md';
@@ -11,6 +12,8 @@ import InputSliderOptions from '../InputSlider/InputSlider.knobs.options';
 import InputSlider from '../InputSlider';
 import InputCurrency from '../InputCurrency';
 import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
+import inputRadioGroupOptions from '../../../molecules/InputRadioGroup/InputRadioGroup.knobs.options';
+import InputRadioGroup from '../../../molecules/InputRadioGroup';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
@@ -49,6 +52,19 @@ storiesOf('atoms/forms', module)
       languages.set('French', 'fr-FR');
       languages.set('Russian', 'ru-RU');
       inputCurrencyOptionsWithKnobs.language = languages.get(inputCurrencyOptionsWithKnobs.language);
+      // RadioGroup.
+      const inputRadioGroupProps = {
+        title: text('inputRadioGroup.title', 'Radio 1 (changes to Palm when Input 0 is 20%)'),
+        name: text('inputRadioGroup.group', 'favorite-plant'),
+        outline: boolean('inputRadioGroup.outline', true),
+        defaultSelected: text('inputRadioGroup.defaultSelected', ''),
+        required: boolean('inputRadioGroup.required', false),
+        hiddenLabel: boolean('inputRadioGroup.hiddenLabel', false),
+        errorMsg: text('inputRadioGroup.errorMsg', 'You must select your favorite plant.'),
+        disabled: boolean('inputRadioGroup.disabled', false),
+        inline: boolean('inputRadioGroup.inline', true),
+        radioButtons: object('inputRadioGroup.radioButtons', inputRadioGroupOptions.radioButtons)
+      };
       return(
         <FormProvider>
           <Form>
@@ -61,6 +77,9 @@ storiesOf('atoms/forms', module)
                       const test0 = formContext.getValue('test0');
                       formContext.setValue({ id: 'test1', value: 100 - test0 });
                       formContext.setValue({ id: 'slider', value: test0 / 100 });
+                      if (test0 === 20) {
+                        formContext.setValue({ id: 'favorite-plant', value: 'palm' });
+                      }
                       if (test0 > 60) {
                         formContext.setValue({ id: 'currency-input', value: '$999.00' });
                       } else {
@@ -125,6 +144,7 @@ storiesOf('atoms/forms', module)
                 <React.Fragment>
                   <InputCurrency {...inputCurrencyOptionsWithKnobs} />
                   {inputs}
+                  <InputRadioGroup {...inputRadioGroupProps} onChange={action('onChange')} />
                   <InputSlider {...inputSliderOptionsWithKnobs} id="slider" />
                 </React.Fragment>
               );

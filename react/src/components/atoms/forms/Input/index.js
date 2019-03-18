@@ -39,7 +39,7 @@ class InputProvider extends React.Component {
       getValue: this.getValue,
       setValue: this.setValue,
       updateState: this.updateState,
-      showError: false,
+      showError: this.props.error,
       errorMsg: this.props.errorMsg,
       disabled: this.props.disabled,
       inline: this.props.inline
@@ -82,6 +82,10 @@ class InputProvider extends React.Component {
     );
   }
 }
+
+Input.defaultProps = {
+  error: false
+};
 
 
 Input.contextType = InputContext;
