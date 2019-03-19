@@ -75,7 +75,6 @@ const Currency = (props) => {
               update.showError = false;
               update.errorMsg = errorMsg;
             }
-            update.value = (is.empty(stringValue)) ? '' : toCurrency(numberValue, countDecimals(props.step));
             context.updateState(update, () => {
               if (typeof props.onChange === 'function') {
                 props.onChange(numberValue, props.id, type);
