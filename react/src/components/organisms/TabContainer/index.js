@@ -99,6 +99,7 @@ class TabContainer extends React.Component {
       }
       return(child.props.children) ? React.cloneElement(child, newProps, child.props.children) : React.cloneElement(child, newProps);
     });
+    /* eslint-disable jsx-a11y/no-static-element-interactions */
     return(
       <TabContext.Provider value={this.state}>
         <div
@@ -191,6 +192,7 @@ class TabContainer extends React.Component {
         </div>
       </TabContext.Provider>
     );
+    /* eslint-enable jsx-a11y/no-static-element-interactions */
   }
 }
 TabContainer.contextType = TabContext;
