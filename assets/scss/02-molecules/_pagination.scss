@@ -13,6 +13,7 @@
     border-top-style: solid;
     border-top-width: 2px;
     padding: 20px 0;
+    display: flex;
   }
 
   &__prev,
@@ -29,8 +30,8 @@
       margin: 0 .1em;
     }
 
-    &:disabled {
-      cursor: default;
+    &.disabled {
+      pointer-events: none;
       opacity: .5;
     }
 
@@ -87,6 +88,7 @@
   }
 
   &__page {
+    margin: 0 0.25em;
 
     @media ($bp-small-max) {
       display: none;
@@ -178,10 +180,6 @@
     &:hover:after {
       border-color: rgba($c-font-link, .5);
     }
-
-  }
-
-  &__spacer {
 
   }
 }

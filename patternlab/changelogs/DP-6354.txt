@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Changed
+Patch
+- patternlab / DP-6354: A11y - fix pagination to use links rather than buttons and access accessibility features
