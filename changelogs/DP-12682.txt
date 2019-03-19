@@ -1,0 +1,14 @@
+Changed
+Minor
+
+- (Patternlab) DP-12682: Changes to the details.twig to use the class `sidebar sidebar--colored` in sidebar.
+
+Removed
+Minor
+
+- (Patternlab) DP-12682: Removed the social media links on the Howto page.
+
+Added
+Minor
+
+- (Patternlab) DP-12682: Added a block to the tabular-data.twig for template mapping.
