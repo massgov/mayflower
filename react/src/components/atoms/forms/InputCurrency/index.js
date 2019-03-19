@@ -75,12 +75,6 @@ const Currency = (props) => {
               update.showError = false;
               update.errorMsg = errorMsg;
             }
-            update.value = (is.empty(stringValue)) ? '' : toCurrency(numberValue, countDecimals(props.step));
-            context.updateState(update, () => {
-              if (typeof props.onChange === 'function') {
-                props.onChange(numberValue, props.id, type);
-              }
-            });
           };
           const handleAdjust = (e) => {
             const direction = (e.currentTarget === upRef.current) ? 'up' : 'down';
@@ -113,92 +107,35 @@ const Currency = (props) => {
               }
             }
           };
-          const inputAttr = {
-            className: inputClasses,
-            name: props.name,
-            id: props.id,
-            type: 'text',
-            placeholder: props.placeholder,
-            'data-type': 'text',
-            maxLength: is.number(props.maxlength) ? Number(props.maxlength) : null,
-            style: !is.empty(props.width) ? { width: `${props.width}px` } : null,
-            ref,
-            onChange: handleChange,
-            onBlur: () => {
-              const inputEl = ref.current;
-              if (is.empty(inputEl.value)) {
-                inputEl.setAttribute('placeholder', props.placeholder);
-              }
-              const stringValue = inputEl.value;
-              const numberValue = Number(numbro.unformat(stringValue));
-              if (props.required && is.empty(stringValue)) {
-                errorMsg = 'Please enter a value.';
-                context.updateState({ showError: true, errorMsg });
-              } else if (!is.empty(stringValue)) {
-                let newValue = numberValue;
-                if (hasProperty(props, 'max') && newValue > props.max) {
-                  newValue = props.max;
+          const handleKeyDown = (e) => {
+            const { type, key } = e;
+            const stringValue = ref.current.value;
+            let numberValue;
+            if (is.empty(stringValue)) {
+              numberValue = 0;
+            } else {
+              numberValue = Number(numbro.unformat(stringValue));
+            }
+            // default to 0 if defaultValue is NaN
+            if (is.number(numberValue) && !is.empty(stringValue)) {
+              let newValue = numberValue;
+              if (key === 'ArrowDown') {
+                newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
+                if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
+                  const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+                  context.updateState({
+                    showError,
+                    errorMsg,
+                    value: toCurrency(newValue, countDecimals(props.step))
+                  }, () => {
+                    if (typeof props.onChange === 'function') {
+                      props.onChange(newValue, props.id, type, key);
+                    }
+                  });
                 }
-                if (hasProperty(props, 'min') && newValue < props.min) {
-                  newValue = props.min;
-                }
-                const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                context.updateState({ showError, errorMsg, value: toCurrency(newValue, countDecimals(props.step)) }, () => {
-                  // invokes custom function if passed in the component
-                  if (is.fn(props.onBlur)) {
-                    // context.value won't be immediately changed, so pass new value over.
-                    props.onBlur(numberValue);
-                  }
-                });
-              }
-            },
-            onFocus: () => {
-              const inputEl = ref.current;
-              if (is.empty(inputEl.value)) {
-                inputEl.removeAttribute('placeholder');
-              }
-            },
-            onKeyDown: (e) => {
-              const { type, key } = e;
-              const stringValue = ref.current.value;
-              let numberValue;
-              if (is.empty(stringValue)) {
-                numberValue = 0;
-              } else {
-                numberValue = Number(numbro.unformat(stringValue));
-              }
-              // default to 0 if defaultValue is NaN
-              if (is.number(numberValue) && !is.empty(stringValue)) {
-                let newValue = numberValue;
-                if (key === 'ArrowDown') {
-                  newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
-                  if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
-                    const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                    context.updateState({
-                      showError,
-                      errorMsg,
-                      value: toCurrency(newValue, countDecimals(props.step))
-                    }, () => {
-                      if (typeof props.onChange === 'function') {
-                        props.onChange(newValue, props.id, type, key);
-                      }
-                    });
-                  }
-                } else if (key === 'ArrowUp') {
-                  newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
-                  if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
-                    const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                    context.updateState({
-                      showError,
-                      errorMsg,
-                      value: toCurrency(newValue, countDecimals(props.step))
-                    }, () => {
-                      if (typeof props.onChange === 'function') {
-                        props.onChange(newValue, props.id, type, key);
-                      }
-                    });
-                  }
-                } else {
+              } else if (key === 'ArrowUp') {
+                newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
+                if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({
                     showError,
@@ -211,7 +148,56 @@ const Currency = (props) => {
                   });
                 }
               }
-            },
+            }
+          };
+          const handleBlur = () => {
+            const inputEl = ref.current;
+            if (is.empty(inputEl.value)) {
+              inputEl.setAttribute('placeholder', props.placeholder);
+            }
+            const stringValue = inputEl.value;
+            const numberValue = Number(numbro.unformat(stringValue));
+            if (props.required && is.empty(stringValue)) {
+              errorMsg = 'Please enter a value.';
+              context.updateState({ showError: true, errorMsg });
+            } else if (!is.empty(stringValue)) {
+              let newValue = numberValue;
+              if (hasProperty(props, 'max') && newValue > props.max) {
+                newValue = props.max;
+              }
+              if (hasProperty(props, 'min') && newValue < props.min) {
+                newValue = props.min;
+              }
+              const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+              context.updateState({ showError, errorMsg, value: toCurrency(newValue, countDecimals(props.step)) }, () => {
+                // invokes custom function if passed in the component
+                if (is.fn(props.onBlur)) {
+                  // context.value won't be immediately changed, so pass new value over.
+                  props.onBlur(numberValue);
+                }
+              });
+            }
+          };
+          const handleFocus = () => {
+            const inputEl = ref.current;
+            if (is.empty(inputEl.value)) {
+              inputEl.removeAttribute('placeholder');
+            }
+          };
+          const inputAttr = {
+            className: inputClasses,
+            name: props.name,
+            id: props.id,
+            type: 'text',
+            placeholder: props.placeholder,
+            'data-type': 'text',
+            maxLength: is.number(props.maxlength) ? Number(props.maxlength) : null,
+            style: !is.empty(props.width) ? { width: `${props.width}px` } : null,
+            ref,
+            onChange: handleChange,
+            onBlur: handleBlur,
+            onFocus: handleFocus,
+            onKeyDown: handleKeyDown,
             required: props.required,
             value: context.getValue(),
             disabled: props.disabled
