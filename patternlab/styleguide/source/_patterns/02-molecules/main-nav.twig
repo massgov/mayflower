@@ -1,19 +1,19 @@
 <div class="ma__main-nav">
-  <ul class="ma__main-nav__items js-main-nav" role="menubar" aria-hidden="false">
+  <ul class="ma__main-nav__items js-main-nav" role="menubar">
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}
       {% set menuId =  'menu' ~ loop.index %}
-      <li role="menuitem" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}" {% if nav.subNav %}aria-haspopup="true" {% endif %}>
+      <li  role="presentation" class="ma__main-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-toggle' : 'js-main-nav-top-link' }}">
         {% if nav.subNav %}
-          <button id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">{{ nav.text }}</button>
+          <button id="{{ buttonId }}" class="ma__main-nav__top-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0">{{ nav.text }}</button>
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
-              <li role="menuitem" class="ma__main-nav__subitem"><a href="{{ nav.href }}" class="ma__main-nav__link" tabindex="-1">{{ nav.text }}</a></li>
+              <li role="presentation" class="ma__main-nav__subitem"><a href="{{ nav.href }}" class="ma__main-nav__link" tabindex="-1">{{ nav.text }}</a></li>
               {% for subNav in nav.subNav %}
-                <li role="menuitem" class="ma__main-nav__subitem"><a href="{{ subNav.href }}" class="ma__main-nav__link" tabindex="-1">{{ subNav.text }}</a></li>
+                <li class="ma__main-nav__subitem"><a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link" tabindex="-1">{{ subNav.text }}</a></li>
               {% endfor %}
-              <li role="menuitem" class="ma__main-nav__subitem">
-                <a href="{{ nav.href }}" class="ma__main-nav__link" tabindex="-1">
+              <li class="ma__main-nav__subitem">
+                <a role="menuitem"  href="{{ nav.href }}" class="ma__main-nav__link" tabindex="-1">
                   {{ icon('arrow-bent') }}
                   <span>{{ nav.text }}</span>
                 </a>
