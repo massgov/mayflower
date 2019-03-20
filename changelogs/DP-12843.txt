@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Patch
-- patternlab / DP-12843: Changes to location page to show link to all locations
