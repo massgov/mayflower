@@ -14,8 +14,16 @@ storiesOf('atoms/forms', module)
     'InputNumber', (() => {
       const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
         { [k]: v() })));
+      const storyProps = {
+        style: (inputTextOptionsWithKnobs.inline) ? { width: '400px' } : { width: '200px' }
+      };
+      if (inputTextOptionsWithKnobs.width > 0) {
+        storyProps.style = { width: `${inputTextOptionsWithKnobs.width}px` };
+      }
       return(
-        <InputNumber {...inputTextOptionsWithKnobs} />
+        <div {...storyProps}>
+          <InputNumber {...inputTextOptionsWithKnobs} />
+        </div>
       );
     }),
     { info: InputNumberDocs }
