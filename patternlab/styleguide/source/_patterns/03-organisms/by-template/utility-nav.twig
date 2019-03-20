@@ -1,7 +1,7 @@
 <div class="ma__utility-nav js-util-nav">
   <ul class="ma__utility-nav__items">
     {% if googleLanguages %}
-      <li class="ma__utility-nav__item" tabindex="0">
+      <li class="ma__utility-nav__item">
         <div class="ma__utility-nav__translate">
           <div id="google_translate_element"></div>
           <div class="ma__utility-nav__translate-icon">
@@ -14,7 +14,6 @@
       <li class="ma__utility-nav__item js-util-nav-toggle">
         <a class="ma__utility-nav__link"
           href="#"
-          tabindex="0"
           aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
           {{ icon(item.icon) }}
           <span>
