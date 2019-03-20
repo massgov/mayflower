@@ -1,0 +1,29 @@
+{% if not relatedLocations.pages %}
+  {% set headingLevel = '2 class="ma__comp-heading"' %}
+{% endif %}
+<section class="ma__related-locations">
+  <div class="ma__related-locations__container">
+  {% if relatedLocations.pages %}
+    <h2 id="{{relatedLocations.customTitle ? 'nearby-locations' : 'related-locations'}}" class="ma__related-locations__title">{{relatedLocations.customTitle ? 'Nearby Locations' : 'Related Locations'}}
+    {% if relatedLocations.titleContext %}<span class="visually-hidden"> {{relatedLocations.titleContext}}</span>{% endif %}</h2>
+  {% endif %}
+    <div class="ma__related-locations__items">
+      {% for page in relatedLocations.pages %}
+        <div class="ma__related-locations__item">
+          <a class="ma__related-location" href="{{ page.link.href }}" 
+          title="{{ page.link.text }}" 
+          aria-describedby="Link to {{ page.link.text }}">
+          {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
+          {% include "@atoms/09-media/image.twig" %}
+          <span class="ma__related-location__title">{{ page.link.text }}{{ icon('arrow') }}</span>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="ma__more-locations__items">
+      <h{{ headingLevel ? headingLevel : 3 }}>More Locations</h{{ headingLevel ? headingLevel : 3 }}> 
+      {% set linkList = relatedLocations.linkList %}
+      {% include "@organisms/by-author/link-list.twig" %}
+    </div>
+  </div>
+</section>
