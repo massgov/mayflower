@@ -92,7 +92,16 @@ storiesOf('atoms/forms', module)
                     defaultValue: 100,
                     labelText: 'Input 2 (Linked to Input 0, Input 1, and Slider)',
                     id: 'test2',
-                    unit: '%'
+                    unit: '%',
+                    overrideLink: (newVal) => 100 - newVal,
+                    updateFunc: (val) => {
+                      const newVal = 100 - val;
+                      // We need to ensure that the new percentage value isn't already set on the Inputs we are changing.
+                      // If this check is not done, an infinite loop will occur.
+                      if (!deepEqual(newVal, formContext.getValue('test0'))) {
+                        formContext.setValue({ id: 'test0', value: newVal });
+                      }
+                    }
                   }
                 ]
               ];
@@ -128,6 +137,8 @@ storiesOf('atoms/forms', module)
                 }
                 if (val > 0.6) {
                   formContext.setValue({ id: 'currency-input', value: '$999.00' });
+                } else {
+                  formContext.setValue({ id: 'currency-input', value: '$0.00' });
                 }
               };
               return(
