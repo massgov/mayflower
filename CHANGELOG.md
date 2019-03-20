@@ -13,6 +13,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.3.0 (03/20/2019)
+
+### Changed
+- (Patternlab) DP-8334: Use NPM instead of Bower to pull in front end dependencies #502
+- (Patternlab) [RelatedLocations] DP-12843: Changes to location page to show link to all locations #496
+- (Patternlab) DP-12682: Changes to the details.twig to use the class `sidebar sidebar--colored` in sidebar. #485
+- (React) [InputNumber] DP-12921: Limits the component from changing value between the min and max passed. #503
+- (React) [InputCurrency] DP-12921: Limits the component from changing value between the min and max passed. #503
+- (React) [InputCurrency] DP-12734: Removes placeholder on focus if no value in input. Puts placeholder back if no value in input. #503
+
+### Removed
+- (Patternlab) DP-12682: Removed the social media links on the Howto page. #485
+
+### Added
+- (Patternlab) [TabularData] DP-12682: Added a block to the tabular-data.twig for template mapping. #485
+
+### Fixed
+- (Docs) [Readme] DP-12921: Fixed broken link in Mayflower readme #501
+
 ## 9.2.1 (03/13/2019)
 
 ### Fixed

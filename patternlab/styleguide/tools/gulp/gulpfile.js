@@ -33,7 +33,8 @@ const defaults = {
         // compiled into vendor-generated.js.
         bower: path.resolve(source, "assets/js/vendor"),
         // The following paths will be run through browserify/babelify.
-        js: path.resolve(source, "assets/js/*.js"),
+        js: path.resolve(source, "assets/js/{index,vendor}.js"),
+        // jsVendor: path.resolve(source, "assets/js/vendor.js"),
         // The following paths will be watched to trigger js-based rebuilds.
         jsWatch: [
             path.resolve(source, "assets/js/helpers/*.js"),
