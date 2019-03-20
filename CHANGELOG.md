@@ -17,19 +17,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 - (Patternlab) DP-8334: Use NPM instead of Bower to pull in front end dependencies #502
-- (Patternlab) DP-12843: Changes to location page to show link to all locations #496
+- (Patternlab) [RelatedLocations] DP-12843: Changes to location page to show link to all locations #496
 - (Patternlab) DP-12682: Changes to the details.twig to use the class `sidebar sidebar--colored` in sidebar. #485
 - (React) [InputNumber] DP-12921: Limits the component from changing value between the min and max passed. #503
 - (React) [InputCurrency] DP-12921: Limits the component from changing value between the min and max passed. #503
 - (React) [InputCurrency] DP-12734: Removes placeholder on focus if no value in input. Puts placeholder back if no value in input. #503
 
-
 ### Removed
 - (Patternlab) DP-12682: Removed the social media links on the Howto page. #485
 
 ### Added
-- (Patternlab) DP-12682: Added a block to the tabular-data.twig for template mapping. #485
-
+- (Patternlab) [TabularData] DP-12682: Added a block to the tabular-data.twig for template mapping. #485
 
 ### Fixed
 - (Docs) [Readme] DP-12921: Fixed broken link in Mayflower readme #501
