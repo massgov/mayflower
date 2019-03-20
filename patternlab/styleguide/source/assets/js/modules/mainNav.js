@@ -81,7 +81,6 @@ export default (function (window, document, $, undefined) {
           hide($openContent);
           $link.removeClass(openClass);
           $topLevelLink.attr('aria-expanded', 'false');
-          $topLevelItem.find('.ma__main-nav__link').attr('tabIndex', '-1');
           $('.has-focus').removeClass('has-focus');
           return;
         }
