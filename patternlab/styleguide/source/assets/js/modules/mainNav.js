@@ -27,6 +27,8 @@ export default (function (window, document, $, undefined) {
             let $openContent = $elem.find('.js-main-nav-content');
             hide($openContent);
             $elem.find('button').attr('aria-expanded', 'false');
+            $elem.hasClass('is-open').find('.show-label').text('Hide the sub topics of ');
+            $('.ma__main-nav__subitems').attr("style", "");
             $elem.find('.ma__main-nav__link').attr('tabIndex', '-1');
             $('.has-focus').removeClass('has-focus');
             return false;
@@ -46,6 +48,7 @@ export default (function (window, document, $, undefined) {
         // relevant if open..
         $topLevelItem = $focusedElement.parents('.ma__main-nav__item'),
         $topLevelLink = $topLevelItem.find('.ma__main-nav__top-link'),
+        $showLabel = $topLevelLink.find('.show-label'),
         $dropdownLinks = $link.find('.ma__main-nav__subitem .ma__main-nav__link'),
         dropdownLinksLength = $dropdownLinks.length,
         focusIndexInDropdown = $dropdownLinks.index($focusedElement),
@@ -70,6 +73,7 @@ export default (function (window, document, $, undefined) {
 
       if (action.space || action.enter) {
         $(this).addClass('has-focus');
+        $showLabel.text('Hide the sub topics of ');
       }
 
       if (action.skip && ($topLevelItem.find('.js-main-nav-content').hasClass('is-open'))) {
@@ -81,6 +85,7 @@ export default (function (window, document, $, undefined) {
           hide($openContent);
           $link.removeClass(openClass);
           $topLevelLink.attr('aria-expanded', 'false');
+          $showLabel.text('Show the sub topics of ');
           $('.has-focus').removeClass('has-focus');
           return;
         }
@@ -95,6 +100,7 @@ export default (function (window, document, $, undefined) {
         if (!open) {
           show($topLevelItem.find('.js-main-nav-content'));
           $topLevelLink.attr('aria-expanded', 'true');
+          $showLabel.text('Hide the sub topics of ');
           $link.addClass(openClass);
         }
 
@@ -122,6 +128,7 @@ export default (function (window, document, $, undefined) {
         hide($openContent);
         $link.removeClass(openClass);
         $topLevelLink.focus().attr('aria-expanded', 'false');
+        $showLabel.text('Show the sub topics of ');
         return;
       }
 
