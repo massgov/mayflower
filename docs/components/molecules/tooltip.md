@@ -56,6 +56,7 @@ Tooltip should be recognized by assisitive technologies. The user should be able
     </section>
   </div>
 </div>
+
 ```
 {% endtab %}
 
