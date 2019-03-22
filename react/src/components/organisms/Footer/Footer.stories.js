@@ -17,14 +17,14 @@ storiesOf('organisms/Footer', module)
   .add(
     'Footer', (() => {
       const props = {
-        footerLinks: object('footer.footerLinksData', FooterLinksData),
-        showNavHeading: boolean('footer.showNavHeading', true),
-        socialLinks: object('footer.socialLinksData', SocialLinksData),
-        footerLogo: object('footer.footerLogo', {
+        footerLinks: object('footerLinks', FooterLinksData),
+        showNavHeading: boolean('howNavHeading', true),
+        socialLinks: object('socialLinksData', SocialLinksData),
+        footerLogo: object('footerLogo', {
           src: stateSeal,
           altText: 'Massachusetts State Seal'
         }),
-        footerText: object('footer.footerText', {
+        footerText: object('footerText', {
           copyright: '2018 Commonwealth of Massachusetts.',
           description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
           privacyPolicy: {
@@ -40,10 +40,10 @@ storiesOf('organisms/Footer', module)
   .add(
     'Footer with live JSON', (() => {
       const props = {
-        footerLinks: object('footer.footerLinksLiveData', FooterLinksLiveData),
-        showNavHeading: boolean('footer.showNavHeading', false),
-        socialLinks: object('footer.socialLinksLiveData', SocialLinksLiveData),
-        footerText: object('footer.footerText', {
+        footerLinks: object('footerLinks', FooterLinksLiveData),
+        showNavHeading: boolean('showNavHeading', false),
+        socialLinks: object('socialLinks', SocialLinksLiveData),
+        footerText: object('footerText', {
           copyright: '2018 Commonwealth of Massachusetts.',
           description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',
           privacyPolicy: {

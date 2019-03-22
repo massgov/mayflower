@@ -21,27 +21,27 @@ storiesOf('organisms/HelpTip', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('HelpTip with HelpText', (() => {
     const props = {
-      text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
-      triggerText: array('helpTip.triggerText', ['a help tip', 'another help tip']),
-      helpText: array('helpTip.helpText', ['This is a bunch of help text that should be helpful.', 'Another bunch of help text that should be helpful.']),
-      id: text('helpText.id', 'helptext-id-123'),
-      bypassMobileStyle: boolean('helpTip.bypassMobileStyle', false),
-      hasMarkup: boolean('helpTip.hasMarkup', true),
-      theme: select('helpTip.theme', themeOptions, 'c-primary'),
-      disabled: boolean('helpTip.disabled', false)
+      text: text('text', 'I am a complete sentence with a help tip in it and another help tip here.'),
+      triggerText: array('triggerText', ['a help tip', 'another help tip']),
+      helpText: array('helpText', ['This is a bunch of help text that should be helpful.', 'Another bunch of help text that should be helpful.']),
+      id: text('id', 'helptext-id-123'),
+      bypassMobileStyle: boolean('bypassMobileStyle', false),
+      hasMarkup: boolean('hasMarkup', true),
+      theme: select('theme', themeOptions, 'c-primary'),
+      disabled: boolean('disabled', false)
     };
 
     return(<HelpTip {...props} />);
   }))
   .add('HelpTip with Children', (() => {
     const props = {
-      text: text('helpTip.text', 'I am a complete sentence with a help tip in it and another help tip here.'),
-      triggerText: array('helpTip.triggerText', ['a help tip', 'another help tip']),
-      id: text('helpText.id', 'helptext-id-123'),
-      bypassMobileStyle: boolean('helpTip.bypassMobileStyle', false),
-      hasMarkup: boolean('helpTip.hasMarkup', true),
-      theme: select('helpTip.theme', themeOptions, 'c-primary'),
-      disabled: boolean('helpTip.disabled', false)
+      text: text('text', 'I am a complete sentence with a help tip in it and another help tip here.'),
+      triggerText: array('triggerText', ['a help tip', 'another help tip']),
+      id: text('id', 'helptext-id-123'),
+      bypassMobileStyle: boolean('bypassMobileStyle', false),
+      hasMarkup: boolean('hasMarkup', true),
+      theme: select('theme', themeOptions, 'c-primary'),
+      disabled: boolean('disabled', false)
     };
 
     return(

@@ -13,12 +13,12 @@ storiesOf('atoms/media', module)
   .add(
     'Image', (() => {
       const props = {
-        alt: text('Image.alt', 'alt text'),
-        src: text('Image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),
-        width: number('Image.width', 800),
-        height: number('Image.height', 400),
-        shape: text('Image.shape', ''),
-        classes: text('Image.classes', '')
+        alt: text('alt', 'alt text'),
+        src: text('src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),
+        width: number('width', 800),
+        height: number('height', 400),
+        shape: text('shape', ''),
+        classes: text('classes', '')
       };
       props.classes = [props.classes];
       return(<Image {...props} />);
@@ -28,12 +28,12 @@ storiesOf('atoms/media', module)
   .add(
     'Image (circular)', (() => {
       const props = {
-        alt: text('Image.alt', 'alt text'),
-        src: text('Image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/250x250.png'),
-        width: number('Image.width', 250),
-        height: number('Image.height', 250),
-        shape: text('Image.shape', ''),
-        classes: text('Image.classes', 'ma__image circular')
+        alt: text('alt', 'alt text'),
+        src: text('src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/250x250.png'),
+        width: number('width', 250),
+        height: number('height', 250),
+        shape: text('shape', ''),
+        classes: text('classes', 'ma__image circular')
       };
       props.classes = [props.classes];
 

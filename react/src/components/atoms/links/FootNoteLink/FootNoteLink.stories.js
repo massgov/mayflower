@@ -13,7 +13,7 @@ storiesOf('atoms/links', module)
   .add(
     'FootNoteLink', (() => {
       const props = {
-        index: text('FootNoteLink.index', '1')
+        index: text('index', '1')
       };
       const rawHtml = 'This is the footnote <a href="#">(reference)</a>.';
       return(

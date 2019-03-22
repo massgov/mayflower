@@ -15,20 +15,20 @@ storiesOf('molecules', module)
     'Pagination', (() => {
       const props = {
         next: {
-          disabled: boolean('pagination.next.disabled', false),
-          text: text('pagination.next.text', 'Next'),
-          hide: boolean('pagination.next.hide', false),
+          disabled: boolean('Pagination next: disabled', false, 'Next'),
+          text: text('Pagination next: text', 'Next', 'Next'),
+          hide: boolean('Pagination next: hide', false, 'Next'),
           onClick: action('Next Clicked.'),
-          ariaLabel: text('pagination.next.ariaLabel', 'Go to Next Search Results Page')
+          ariaLabel: text('Pagination next: ariaLabel', 'Go to Next Search Results Page', 'Next')
         },
         prev: {
-          disabled: boolean('pagination.prev.disabled', false),
-          text: text('pagination.prev.text', 'Previous'),
-          hide: boolean('pagination.prev.hide', false),
+          disabled: boolean('Pagination prev: disabled', false, 'Previous'),
+          text: text('Pagination prev: text', 'Previous', 'Previous'),
+          hide: boolean('Pagination prev: hide', false, 'Previous'),
           onClick: action('Previous Clicked.'),
-          ariaLabel: text('pagination.prev.ariaLabel', 'Go to Previous Search Results Page')
+          ariaLabel: text('Pagination prev: ariaLabel', 'Go to Previous Search Results Page', 'Previous')
         },
-        pages: object('pagination.pages', paginationOptions.pages)
+        pages: object('Pagination pages', paginationOptions.pages)
       };
       return(
         <Pagination {...props} />

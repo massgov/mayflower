@@ -13,8 +13,8 @@ storiesOf('atoms/buttons', module)
   .add(
     'ButtonFixedFeedback', (() => {
       const props = {
-        href: text('ButtonFixedFeedbackOptions.href', '#'),
-        text: text('ButtonFixedFeedbackOptions.text', 'Feedback')
+        href: text('href', '#'),
+        text: text('text', 'Feedback')
       };
       return(
         <ButtonFixedFeedback {...props} />

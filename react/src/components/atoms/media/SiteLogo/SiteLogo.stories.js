@@ -15,16 +15,16 @@ storiesOf('atoms/media', module)
     'SiteLogo', (() => {
       const siteLogoProps = {
         url: {
-          domain: text('siteLogo.url.domain', 'https://www.mass.gov/')
+          domain: text('domain', 'https://www.mass.gov/')
         },
         image: {
-          src: text('siteLogo.image.src', logo),
-          alt: text('siteLogo.image.alt', ''),
-          width: number('siteLogo.image.width', 45),
-          height: number('siteLogo.image.height', 45)
+          src: text('src', logo),
+          alt: text('alt', ''),
+          width: number('width', 45),
+          height: number('height', 45)
         },
-        siteName: text('siteLogo.siteName', 'Mass.gov'),
-        title: text('siteLogo.title', 'Mass.gov homepage')
+        siteName: text('siteName', 'Mass.gov'),
+        title: text('title', 'Mass.gov homepage')
       };
       return(<SiteLogo {...siteLogoProps} />);
     }),

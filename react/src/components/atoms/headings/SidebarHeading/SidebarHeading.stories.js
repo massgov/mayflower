@@ -21,8 +21,8 @@ storiesOf('atoms/headings', module)
         6: 6
       };
 
-      const title = text('sidebarHeading.title', 'Key Agencies');
-      const level = select('sidebarHeading.level', levelOptions, levelOptions[2]);
+      const title = text('title', 'Key Agencies');
+      const level = select('level', levelOptions, levelOptions[2]);
 
       return(<SidebarHeading title={title} level={level} />);
     }),

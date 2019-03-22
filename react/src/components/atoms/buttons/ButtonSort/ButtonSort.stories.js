@@ -14,8 +14,8 @@ storiesOf('atoms/buttons', module)
   .add(
     'ButtonSort', (() => {
       const props = {
-        text: text('buttonSort.text', 'Date'),
-        direction: select('buttonSort.direction', buttonSortOptions.direction, '')
+        text: text('text', 'Date'),
+        direction: select('direction', buttonSortOptions.direction, '')
       };
       return(
         <ButtonSort {...props} />

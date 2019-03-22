@@ -14,20 +14,20 @@ storiesOf('organisms', module)
       const levelOptions = [1, 2, 3, 4, 5, 6];
       const props = {
         compHeading: {
-          title: text('linkList.compHeading.title', 'Link List'),
-          titleContext: text('linkList.compHeading.titleContext', 'link list'),
-          level: select('linkList.compHeading.level', levelOptions, levelOptions[2]),
-          color: select('linkList.compHeading.color', { 'green (default)': '', yellow: 'yellow' }, ''),
-          id: text('linkList.compHeading.titleContext', 'link list'),
-          centered: boolean('linkList.compHeading.centered', false),
-          sidebar: boolean('linkList.compHeading.sidebar', false)
+          title: text('LinkList compHeading: title', 'Link List', 'CompHeading'),
+          titleContext: text('LinkList compHeading: titleContext', 'link list', 'CompHeading'),
+          level: select('LinkList compHeading: level', levelOptions, levelOptions[2], 'CompHeading'),
+          color: select('LinkList compHeading: color', { 'green (default)': '', yellow: 'yellow' }, '', 'CompHeading'),
+          id: text('LinkList compHeading: titleContext', 'link list', 'CompHeading'),
+          centered: boolean('LinkList compHeading: centered', false, 'CompHeading'),
+          sidebar: boolean('LinkList compHeading: sidebar', false, 'CompHeading')
         },
         description: {
-          text: text('linkList.description', '')
+          text: text('LinkList description', '')
         },
-        stacked: boolean('linkList.stacked', false),
-        hideBullets: boolean('linkList.hideBullets', false),
-        links: object('linkList.links', [{
+        stacked: boolean('LinkList stacked', false),
+        hideBullets: boolean('LinkList hideBullets', false),
+        links: object('LinkList links', [{
           href: '#',
           text: 'Lorem ipsum dolor sit amet.',
           info: ''
@@ -49,9 +49,9 @@ storiesOf('organisms', module)
           info: ''
         }]),
         more: {
-          href: text('linkList.more.href', '#'),
-          text: text('linkList.more.text', 'See all 10 related services '),
-          info: text('linkList.more.label', 'See all of the resources for Executive Office of Health and Human Services')
+          href: text('LinkList more: href', '#'),
+          text: text('LinkList more: text', 'See all 10 related services '),
+          info: text('LinkList more: label', 'See all of the resources for Executive Office of Health and Human Services')
         }
       };
       return(<LinkList {...props} />);

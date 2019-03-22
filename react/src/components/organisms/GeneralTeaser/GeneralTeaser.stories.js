@@ -18,37 +18,37 @@ storiesOf('organisms', module)
     'GeneralTeaser', (() => {
       const props = {
         image: {
-          src: text('GeneralTeaser.image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),
-          alt: text('GeneralTeaser.image.alt', 'alt text')
+          src: text('GeneralTeaser image: src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png', 'Image'),
+          alt: text('GeneralTeaser image: alt', 'alt text', 'Image')
         },
-        eyebrow: text('GeneralTeaser.eyebrow', 'press-release'),
+        eyebrow: text('GeneralTeaser eyebrow', 'press-release'),
         title: {
-          info: text('GeneralTeaser.title.info', 'Title info here'),
-          text: text('GeneralTeaser.title.text', 'Lorem ipsum dolor sit amet'),
-          href: text('GeneralTeaser.title.href', '#'),
-          showFileIcon: boolean('GeneralTeaser.title.showFileIcon', false)
+          info: text('GeneralTeaser title: info', 'Title info here', 'Title'),
+          text: text('GeneralTeaser title: text', 'Lorem ipsum dolor sit amet', 'Title'),
+          href: text('GeneralTeaser title: href', '#', 'Title'),
+          showFileIcon: boolean('GeneralTeaser title: showFileIcon', false, 'Title')
         },
-        level: number('GeneralTeaser.level', 0),
-        date: text('GeneralTeaser.date', defaultDate.toDateString()),
-        org: text('GeneralTeaser.org', 'Massachusetts Department Of Environmental Protection'),
+        level: number('GeneralTeaser level', 0),
+        date: text('GeneralTeaser date', defaultDate.toDateString()),
+        org: text('GeneralTeaser org', 'Massachusetts Department Of Environmental Protection'),
         description: {
-          text: text('GeneralTeaser.description.text', Paragraph.defaultProps.text)
+          text: text('GeneralTeaser description: text', Paragraph.defaultProps.text)
         },
         primaryInfo: {
-          icon: select('GeneralTeaser.primaryInfo.icon', {
+          icon: select('GeneralTeaser primaryInfo: icon', {
             'SvgMarker (Address Icon)': 'SvgMarker',
             'SvgPhone (Phone Icon)': 'SvgPhone',
             'SvgLaptop (Laptop Icon)': 'SvgLaptop',
             'SvgFax (FaxIcon)': 'SvgFax'
-          }, 'SvgMarker'),
-          name: select('GeneralTeaser.primaryInfo.name', {
+          }, 'SvgMarker', 'Primary Info'),
+          name: select('GeneralTeaser primaryInfo: name', {
             Phone: 'Phone',
             Online: 'Online',
             Fax: 'Fax',
             Address: 'Address'
-          }, 'Phone'),
-          text: text('GeneralTeaser.primaryInfo.text', ''),
-          level: number('GeneralTeaser.primaryInfo.level', 0),
+          }, 'Phone', 'Primary Info'),
+          text: text('GeneralTeaser primaryInfo: text', '', 'Primary Info'),
+          level: number('GeneralTeaser primaryInfo: level', 0, 'Primary Info'),
           items: []
         },
         subLinks: [],
@@ -57,36 +57,36 @@ storiesOf('organisms', module)
       for (let i = 1; i < 4; i += 1) {
       // ContactGroup items array.
         const primaryItem = {
-          type: select(`GeneralTeaser.primaryInfo.items.${i}.type`, {
+          type: select(`GeneralTeaser primaryInfo, item${i}: type`, {
             phone: 'phone',
             online: 'online',
             email: 'email',
             address: 'address'
-          }, 'phone'),
-          label: text(`GeneralTeaser.primaryInfo.items.${i}.label`, `Primary Info Label ${i}:`),
-          address: text(`GeneralTeaser.primaryInfo.items.${i}.address`, '123 Imaginary Lane'),
-          link: object(`GeneralTeaser.primaryInfo.items.${i}.link`, { ...props.title, text: `PrimaryInfo Item Link ${i}` }),
-          details: text(`GeneralTeaser.primaryInfo.items.${i}.details`, `Primary Info details ${i}`)
+          }, 'phone', `Primary Info: Item ${i}`),
+          label: text(`GeneralTeaser primaryInfo, item${i}: label`, `Primary Info Label ${i}:`, `Primary Info: Item ${i}`),
+          address: text(`GeneralTeaser primaryInfo, item${i}: address`, '123 Imaginary Lane', `Primary Info: Item ${i}`),
+          link: object(`GeneralTeaser primaryInfo, item${i}: link`, { ...props.title, text: `PrimaryInfo Item Link ${i}` }, `Primary Info: Item ${i}`),
+          details: text(`GeneralTeaser primaryInfo, item${i}: details`, `Primary Info details ${i}`, `Primary Info: Item ${i}`)
         };
         props.primaryInfo.items.push(primaryItem);
 
         // DecorativeLink props for subLinks.
-        const subLink = object(`GeneralTeaser.subLinks.${i}`, { ...props.title, text: `Sublink ${i}`, key: `GeneralTeaser.subLinks.${i}` });
+        const subLink = object(`GeneralTeaser subLinks, item${i}:`, { ...props.title, text: `Sublink ${i}`, key: `GeneralTeaser subLinks.${i}` }, `SubLinks: Item ${i}`);
         props.subLinks.push(<DecorativeLink {...subLink} />);
         const secondary = {
-          wrapperClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__decorative-link'])
+          wrapperClasses: array('GeneralTeaser secondaryInfo: iconClasses', ['ma__decorative-link'], ' ', 'Secondary Info')
         };
         // Link props for secondaryInfo.
         const secondaryLink = { info: props.title.info, href: props.title.href, text: `SecondaryInfo Link ${i}` };
-        const secondDecore = object(`GeneralTeaser.secondaryInfo.${i}.link`, secondaryLink);
+        const secondDecore = object(`GeneralTeaser secondaryInfo, item${i}: link`, secondaryLink, `Secondary Info: Item ${i}`);
         secondary.icon = <Icon name={secondary.icon} svgWidth={18} svgHeight={18} />;
         secondary.link = <Link {...secondDecore} />;
         const secondaryIcon = {
-          name: select('GeneralTeaser.secondaryInfo.Icon.name', svgOptions, 'marker'),
-          svgWidth: text('GeneralTeaser.secondaryInfo.Icon.svgWidth', 16),
-          svgHeight: text('GeneralTeaser.secondaryInfo.Icon.svgHeight', 16),
-          title: text('GeneralTeaser.secondaryInfo.Icon.title', 'Icon Title Here'),
-          classes: array('GeneralTeaser.secondaryInfo.IconLink.iconClasses', ['ma__general-teaser__secondaryicon'])
+          name: select('GeneralTeaser secondaryInfo: Icon name', svgOptions, 'marker', `Secondary Info: Item ${i}`),
+          svgWidth: text('GeneralTeaser secondaryInfo: Icon svgWidth', 16, `Secondary Info: Item ${i}`),
+          svgHeight: text('GeneralTeaser secondaryInfo: Icon svgHeight', 16, `Secondary Info: Item ${i}`),
+          title: text('GeneralTeaser secondaryInfo: Icon title', 'Icon Title Here', `Secondary Info: Item ${i}`),
+          classes: array('GeneralTeaser secondaryInfo: IconLink iconClasses', ['ma__general-teaser__secondaryicon'], ' ', `Secondary Info: Item ${i}`)
         };
         secondary.icon = <Icon {...secondaryIcon} />;
         props.secondaryInfo.push(<IconLink {...secondary} />);
@@ -194,8 +194,8 @@ storiesOf('organisms', module)
           const secondaryInfo = [];
           const iconTypes = ['marker', 'phone', 'laptop', 'fax'];
           const secondary = {
-            iconClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__general-teaser__secondaryicon']),
-            wrapperClasses: array('GeneralTeaser.secondaryInfo.iconClasses', ['ma__decorative-link'])
+            iconClasses: array('GeneralTeaser secondaryInfo: iconClasses', ['ma__general-teaser__secondaryicon']),
+            wrapperClasses: array('GeneralTeaser secondaryInfo: wrapperClasses', ['ma__decorative-link'])
           };
           // Link props for secondaryInfo.
           const secondaryLink = { ...titleProps };
@@ -209,7 +209,7 @@ storiesOf('organisms', module)
         };
         // Generate each GeneralTeaser for backstop.
         const makeTeasers = () => teasers.map((value, index) => {
-          const key = `GeneralTeaser.${index}`;
+          const key = `GeneralTeaser ${index}`;
           const backstopProps = { key, ...value };
           return<GeneralTeaser {...backstopProps} />;
         });

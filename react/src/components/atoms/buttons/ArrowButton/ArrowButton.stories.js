@@ -14,9 +14,9 @@ storiesOf('atoms/buttons', module)
   .add(
     'ArrowButton', (() => {
       const props = {
-        direction: select('arrowButton.direction', ['left', 'right']),
-        href: text('arrowButton.href', ''),
-        info: text('arrowButton.info', 'Left'),
+        direction: select('direction', ['left', 'right']),
+        href: text('href', ''),
+        info: text('info', 'Left'),
         onClick: action('Button Clicked')
       };
       return(

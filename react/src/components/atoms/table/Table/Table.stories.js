@@ -13,9 +13,9 @@ storiesOf('atoms/table', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Table', (() => {
-      tableOptions.feeTable = object('tableOptions.feeTable', tableOptions.feeTable);
+      tableOptions.feeTable = object('feeTable', tableOptions.feeTable);
       const tableProps = JSON.parse(JSON.stringify(tableOptions));
-      tableProps.id = text('Table.id', tableOptions.id);
+      tableProps.id = text('id', tableOptions.id);
       return(<Table {...tableProps.feeTable} />);
     }),
     { info: TableDocs }

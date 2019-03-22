@@ -14,10 +14,10 @@ storiesOf('atoms/forms', module)
   .add(
     'ErrorMessage', (() => {
       const props = {
-        inputId: text('errorMessage.inputID', ErrorMessageOptions.inputId),
-        error: text('errorMessage.error', ErrorMessageOptions.error),
-        success: text('errorMessage.success'),
-        status: select('errorMessage.status', ErrorMessageOptions.status, 'error')
+        inputId: text('inputID', ErrorMessageOptions.inputId),
+        error: text('error', ErrorMessageOptions.error),
+        success: text('success'),
+        status: select('status', ErrorMessageOptions.status, 'error')
       };
       return(<ErrorMessage {...props} />);
     }),

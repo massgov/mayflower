@@ -13,8 +13,8 @@ storiesOf('molecules', module)
   .add(
     'SortResults', (() => {
       const props = {
-        label: text('sortResults.label', 'Sort by:'),
-        sortButtons: object('sortResults.sortButtons', sortResultsOptions.sortButtons)
+        label: text('label', 'Sort by:'),
+        sortButtons: object('sortButtons', sortResultsOptions.sortButtons)
       };
       return(
         <SortResults {...props} />

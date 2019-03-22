@@ -13,8 +13,8 @@ storiesOf('atoms/links', module)
   .add(
     'FootNote', (() => {
       const props = {
-        index: text('FootNote.index', '1'),
-        children: text('FootNote.children', 'This is the footnote <a href="https://www.mass.gov/">(reference)</a>.')
+        index: text('index', '1'),
+        children: text('children', 'This is the footnote <a href="https://www.mass.gov/">(reference)</a>.')
       };
       return(
         <div>

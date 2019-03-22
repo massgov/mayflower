@@ -13,20 +13,20 @@ storiesOf('atoms/forms', module)
   .add(
     'InputTextFuzzy', (() => {
       const props = {
-        boxed: boolean('InputTextFuzzy.boxed', false),
-        disabled: boolean('InputTextFuzzy.disabled', false),
-        label: text('InputTextFuzzy.label', 'State Organization'),
-        keys: array('InputTextFuzzy.keys', ['text']),
+        boxed: boolean('boxed', false),
+        disabled: boolean('disabled', false),
+        label: text('label', 'State Organization'),
+        keys: array('keys', ['text']),
         options: inputOptions.options.orgSelector.filter((option) => option.text !== ''),
-        placeholder: text('InputTextFuzzy.placeholder', 'All Organizations'),
-        id: text('InputTextFuzzy.id', 'org-typeahead'),
-        inputId: text('InputTextFuzzy.inputId', 'input-org-typeahead'),
+        placeholder: text('placeholder', 'All Organizations'),
+        id: text('id', 'org-typeahead'),
+        inputId: text('inputId', 'input-org-typeahead'),
         selected: select(
-          'InputTextFuzzy.selected',
+          'selected',
           inputOptions.options.orgSelector.map((option) => option.text),
           ''
         ),
-        fuseOptions: object('InputTextFuzzy.fuseOptions', {
+        fuseOptions: object('fuseOptions', {
           shouldSort: true,
           findAllMatches: true,
           includeMatches: true,

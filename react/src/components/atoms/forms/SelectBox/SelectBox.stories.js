@@ -15,15 +15,15 @@ storiesOf('atoms/forms', module)
   .add(
     'SelectBox', (() => {
       const props = {
-        label: text('selectBox.label', 'Color Scheme:'),
-        stackLabel: boolean('selectBox.stackLabel', false),
-        required: boolean('selectBox.required', true),
-        id: text('selectBox.id', 'color-select'),
-        options: object('selectBox.options', selectOptions.options.colors),
-        selected: select('selectBox.defaultSelected', selectOptions.options.colors.map((option) => option.text), selectOptions.options.colors[0].text),
+        label: text('label', 'Color Scheme:'),
+        stackLabel: boolean('stackLabel', false),
+        required: boolean('required', true),
+        id: text('id', 'color-select'),
+        options: object('options', selectOptions.options.colors),
+        selected: select('defaultSelected', selectOptions.options.colors.map((option) => option.text), selectOptions.options.colors[0].text),
         onChangeCallback: action('SelectBox onChangeCallback')
       };
-      props.className = text('selectBox.className', !props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown');
+      props.className = text('className', !props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown');
       return(<SelectBox {...props} />);
     }),
     { info: SelectBoxDocs }

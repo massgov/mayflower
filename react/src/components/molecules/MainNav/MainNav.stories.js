@@ -25,10 +25,10 @@ storiesOf('molecules', module)
           active = false;
         }
         const storyProps = {
-          href: text(`mainNav.href${navIndex}`, nav.href),
-          text: text(`mainNav.text${navIndex}`, nav.text),
-          active: boolean(`mainNav.active${navIndex}`, active),
-          subNav: object(`mainNav.subNav${navIndex}`, nav.subNav)
+          href: text(`MainNav ${navIndex}: href`, nav.href, `MainNav ${navIndex}`),
+          text: text(`MainNav ${navIndex}: text`, nav.text, `MainNav ${navIndex}`),
+          active: boolean(`MainNav ${navIndex}: active`, active, `MainNav ${navIndex}`),
+          subNav: object(`MainNav ${navIndex}: subNav`, nav.subNav, `MainNav ${navIndex}`)
         };
         return(storyProps);
       });

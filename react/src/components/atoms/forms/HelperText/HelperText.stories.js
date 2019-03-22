@@ -13,8 +13,8 @@ storiesOf('atoms/forms', module)
   .add(
     'HelperText', (() => {
       const props = {
-        inputId: text('helperText.inputID', HelperTextOptions.inputId),
-        message: text('helperText.message', HelperTextOptions.message)
+        inputId: text('inputID', HelperTextOptions.inputId),
+        message: text('message', HelperTextOptions.message)
       };
       return(<HelperText {...props} />);
     }),

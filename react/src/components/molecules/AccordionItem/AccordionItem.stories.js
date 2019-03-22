@@ -24,13 +24,13 @@ storiesOf('molecules', module)
   .add(
     'AccordionItem', (() => {
       const props = {
-        title: text('accordion.title', 'Collapsible Header'),
-        info: text('accordion.info', 'Collapsible Header'),
-        icon: select('accordion.icon', Object.keys(icons), 'circlechevron'),
-        border: boolean('accordion.border', true),
-        emphasize: boolean('accordion.emphasize', true),
-        secondary: boolean('accordion.secondary', false),
-        headerLevel: select('accordion.headerLevel', [1, 2, 3, 4, 5, 6], 2)
+        title: text('title', 'Collapsible Header'),
+        info: text('info', 'Collapsible Header'),
+        icon: select('icon', Object.keys(icons), 'circlechevron'),
+        border: boolean('border', true),
+        emphasize: boolean('emphasize', true),
+        secondary: boolean('secondary', false),
+        headerLevel: select('headerLevel', [1, 2, 3, 4, 5, 6], 2)
       };
 
       // Example of child element, paragraph, passable to accordion

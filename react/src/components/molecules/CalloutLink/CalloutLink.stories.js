@@ -13,14 +13,14 @@ storiesOf('molecules/CalloutLink', module)
   .add(
     'CalloutLink', (() => {
       const props = {
-        text: text('calloutLink.text', 'Link to another page'),
-        href: text('calloutLink.href', ''),
-        info: text('calloutLink.info', 'this will be the tooltip text on hover'),
-        description: text('calloutLink.description', ''),
-        eyebrow: text('calloutLink.eyebrow', ''),
-        time: text('calloutLink.time', ''),
-        emphasized: text('calloutLink.emphasized', ''),
-        theme: select('calloutLink.theme', calloutLinkOptions.theme, '')
+        text: text('text', 'Link to another page'),
+        href: text('href', ''),
+        info: text('info', 'this will be the tooltip text on hover'),
+        description: text('description', ''),
+        eyebrow: text('eyebrow', ''),
+        time: text('time', ''),
+        emphasized: text('emphasized', ''),
+        theme: select('theme', calloutLinkOptions.theme, '')
       };
       return(
         <CalloutLink {...props} />
@@ -30,11 +30,11 @@ storiesOf('molecules/CalloutLink', module)
   )
   .add('CalloutLink with Description', (() => {
     const props = {
-      text: text('calloutLink.text', 'Link to another page'),
-      href: text('calloutLink.href', ''),
-      info: text('calloutLink.info', 'this will be the tooltip text on hover'),
-      description: text('calloutLink.description', 'This is some more important information about the text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imperdiet purus pellentesque vel.'),
-      theme: select('calloutLink.theme', calloutLinkOptions.theme, '')
+      text: text('text', 'Link to another page'),
+      href: text('href', ''),
+      info: text('info', 'this will be the tooltip text on hover'),
+      description: text('description', 'This is some more important information about the text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imperdiet purus pellentesque vel.'),
+      theme: select('theme', calloutLinkOptions.theme, '')
     };
     return(
       <CalloutLink {...props} />
@@ -43,13 +43,13 @@ storiesOf('molecules/CalloutLink', module)
   .add(
     'CalloutLink with Details', (() => {
       const props = {
-        text: text('calloutLink.text', 'Attorney General Announces a New Health Care Program'),
-        href: text('calloutLink.href', ''),
-        info: text('calloutLink.info', 'this will be the tooltip text on hover'),
-        eyebrow: text('calloutLink.eyebrow', 'Press Release'),
-        time: text('calloutLink.time', '30 mins Ago'),
-        emphasized: text('calloutLink.emphasized', 'Office of the Attorney General'),
-        theme: select('calloutLink.theme', calloutLinkOptions.theme, 'white')
+        text: text('text', 'Attorney General Announces a New Health Care Program'),
+        href: text('href', ''),
+        info: text('info', 'this will be the tooltip text on hover'),
+        eyebrow: text('eyebrow', 'Press Release'),
+        time: text('time', '30 mins Ago'),
+        emphasized: text('emphasized', 'Office of the Attorney General'),
+        theme: select('theme', calloutLinkOptions.theme, 'white')
       };
       return(
         <CalloutLink {...props} />

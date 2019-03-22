@@ -14,7 +14,7 @@ storiesOf('molecules', module)
     const props = {
       tabs: object('tabs', tabsOptions.tabValues),
       handleClick: action('tab clicked'),
-      selectedTab: select('tabs.selectedTab', tabsOptions.tabValues.map((tab) => tab.value), 'all')
+      selectedTab: select('selectedTab', tabsOptions.tabValues.map((tab) => tab.value), 'all')
     };
     return(<Tabs {...props} />);
   }));

@@ -12,7 +12,7 @@ storiesOf('atoms/text', module)
   .add(
     'PublishState', (() => {
       const props = {
-        text: text('publishState.text', 'Draft')
+        text: text('text', 'Draft')
       };
       return(
         <PublishState {...props} />

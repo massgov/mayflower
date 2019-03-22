@@ -14,12 +14,12 @@ storiesOf('templates', module)
     'NarrowTemplate', (() => {
       const siteLogoDomainProps = {
         url: {
-          domain: text('narrowTemplate.siteLogoDomain.url.domain', 'https://www.mass.gov/')
+          domain: text('NarrowTemplate siteLogoDomain: url domain', 'https://www.mass.gov/')
         }
       };
       const props = {
-        side: select('narrowTemplate.side', NarrowTemplateOptions.side, 'right'),
-        color: select('narrowTemplate.color', NarrowTemplateOptions.color, 'yellow'),
+        side: select('NarrowTemplate side', NarrowTemplateOptions.side, 'right'),
+        color: select('NarrowTemplate color', NarrowTemplateOptions.color, 'yellow'),
         siteLogoDomain: siteLogoDomainProps
       };
       return(<NarrowTemplate {...props} />);

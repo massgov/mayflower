@@ -12,7 +12,7 @@ storiesOf('base', module)
   .add(
     'Placeholder', (() => {
       const props = {
-        text: text('placeholder.text', 'This is just a placeholder for templates')
+        text: text('text', 'This is just a placeholder for templates')
       };
       return(<Placeholder {...props} />);
     }),

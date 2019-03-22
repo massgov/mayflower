@@ -14,15 +14,15 @@ storiesOf('atoms/forms', module)
   .add(
     'InputRadio', (() => {
       const props = {
-        name: text('inputRadio.name', 'plant'),
-        id: text('inputRadio.id', 'fern123'),
-        value: text('inputRadio.value', 'fern'),
-        label: text('inputRadio.label', 'Fern'),
-        required: boolean('inputRadio.required', true),
-        outline: boolean('inputRadio.outline', true),
-        checked: boolean('inputRadio.checked', null),
-        disabled: boolean('inputRadio.disabled', false),
-        error: boolean('inputRadio.error', false)
+        name: text('name', 'plant'),
+        id: text('id', 'fern123'),
+        value: text('value', 'fern'),
+        label: text('label', 'Fern'),
+        required: boolean('required', true),
+        outline: boolean('outline', true),
+        checked: boolean('checked', null),
+        disabled: boolean('disabled', false),
+        error: boolean('error', false)
       };
       return(
         <InputRadio {...props} onChange={action('onChange')} />

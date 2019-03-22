@@ -14,32 +14,32 @@ storiesOf('organisms', module)
   .add(
     'PageFlipper', (() => {
       const decorativeLinkProps = {
-        href: text('pageFlipper.intro.introDecorativeLink.href', '#'),
-        info: text('pageFlipper.intro.introDecorativeLink.info', 'info'),
-        text: text('pageFlipper.intro.introDecorativeLink.text', 'Some Section'),
-        showFileIcon: boolean('pageFlipper.intro.introDecorativeLink.showFileIcon', false)
+        href: text('PageFlipper intro, introDecorativeLink: href', '#', 'DecorativeLink'),
+        info: text('PageFlipper intro, introDecorativeLink: info', 'info', 'DecorativeLink'),
+        text: text('PageFlipper intro, introDecorativeLink: text', 'Some Section', 'DecorativeLink'),
+        showFileIcon: boolean('PageFlipper intro, introDecorativeLink: showFileIcon', false, 'DecorativeLink')
       };
       const nextProps = {
-        href: text('pageFlipper.nextLink.href', ''),
-        info: text('pageFlipper.nextLink.info', 'This is the next page'),
-        text: text('pageFlipper.nextLink.text', 'Next Site'),
-        title: text('pageFlipper.nextLink.title', 'See the Next Site'),
+        href: text('PageFlipper nextLink: href', '', 'Next'),
+        info: text('PageFlipper nextLink: info', 'This is the next page', 'Next'),
+        text: text('PageFlipper nextLink: text', 'Next Site', 'Next'),
+        title: text('PageFlipper nextLink: title', 'See the Next Site', 'Next'),
         onClick: action('Next Clicked'),
         direction: 'right',
-        label: text('pageFlipper.nextLink.label', 'Next Site')
+        label: text('PageFlipper nextLink: label', 'Next Site', 'Next')
       };
       const prevProps = {
-        href: text('pageFlipper.previousLink.href', ''),
-        info: text('pageFlipper.previousLink.info', 'This is the previous page'),
-        text: text('pageFlipper.previousLink.text', 'Previous Site'),
-        title: text('pageFlipper.previousLink.title', 'See the Previous Site'),
+        href: text('PageFlipper previousLink: href', '', 'Previous'),
+        info: text('PageFlipper previousLink: info', 'This is the previous page', 'Previous'),
+        text: text('PageFlipper previousLink: text', 'Previous Site', 'Previous'),
+        title: text('PageFlipper previousLink: title', 'See the Previous Site', 'Previous'),
         onClick: action('Previous Clicked'),
         direction: 'left',
-        label: text('pageFlipper.previousLink.label', 'Previous Site')
+        label: text('PageFlipper previousLink: label', 'Previous Site', 'Previous')
       };
       const props = {
         intro: {
-          label: text('pageFlipper.intro.label', 'This is part of:'),
+          label: text('PageFlipper intro: label', 'This is part of:'),
           introDecorativeLink: <DecorativeLink {...decorativeLinkProps} />
         },
         nextLink: <ArrowNav {...nextProps} />,

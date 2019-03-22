@@ -5,14 +5,14 @@ import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 
 import TableofContents from '.';
 import TableofContentsDocs from './TableofContents.md';
-import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link, Icon } from '../../../index';
+import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link} from '../../../index';
 
 const getDecorativeLink = (index) => {
   const props = {
-    info: text(`TableofContents.Children.${index}.DecorativeLink.info`, 'Title info here'),
-    text: text(`TableofContents.Children.${index}.DecorativeLink.text`, 'Lorem ipsum dolor sit amet'),
-    href: text(`TableofContents.Children.${index}.DecorativeLink.href`, 'index.pdf'),
-    showFileIcon: boolean(`TableofContents.Children.${index}.DecorativeLink.showFileIcon`, true)
+    info: text(`TableofContents Child${index}: DecorativeLink info`, 'Title info here', `DecorativeLink${index}`),
+    text: text(`TableofContents Child${index}: DecorativeLink text`, 'Lorem ipsum dolor sit amet', `DecorativeLink${index}`),
+    href: text(`TableofContents Child${index}: DecorativeLink href`, 'index.pdf', `DecorativeLink${index}`),
+    showFileIcon: boolean(`TableofContents Child${index}: DecorativeLink showFileIcon`, true, `DecorativeLink${index}`)
   };
   return<DecorativeLink {...props} />;
 };
@@ -22,18 +22,18 @@ const getAccordionItem = (name = 'laptop', index) => {
     title: 'Collapsible Header Two',
     info: 'Collapsible Header Two',
     icon: null,
-    border: boolean(`TableofContents.Children.${index}.AccordionItem.border`, false),
-    secondary: boolean(`TableofContents.Children.${index}.AccordionItem.secondary`, false),
-    emphasize: boolean(`TableofContents.Children.${index}.AccordionItem.emphasize`, true),
+    border: boolean(`TableofContents Child${index}: AccordionItem border`, false, `AccordionItem${index}`),
+    secondary: boolean(`TableofContents Child${index}: AccordionItem secondary`, false, `AccordionItem${index}`),
+    emphasize: boolean(`TableofContents Child${index}: AccordionItem emphasize`, true, `AccordionItem${index}`),
     // eslint-disable-next-line radix
-    headerLevel: parseInt(select(`TableofContents.Children.${index}.AccordionItem.headerLevel`, {
+    headerLevel: parseInt(select(`TableofContents Child${index}: AccordionItem headerLevel`, {
       1: '1',
       2: '2',
       3: '3',
       4: '4',
       5: '5',
       6: '6'
-    }, '2'))
+    }, '2', `AccordionItem${index}`))
   };
   return<AccordionItem {...props}>{getLink()}</AccordionItem>;
 };
@@ -48,21 +48,21 @@ const getLink = (sampleText = 'Sample Link') => {
 
 const getColoredHeading = () => {
   const props = {
-    text: text('TableofContents.ColoredHeading.text', 'Table of Contents'),
+    text: text('TableofContents ColoredHeading: text', 'Table of Contents', 'ColoredHeading'),
     // eslint-disable-next-line radix
-    level: parseInt(select('TableofContents.ColoredHeading.level', {
+    level: parseInt(select('TableofContents ColoredHeading: level', {
       1: '1',
       2: '2',
       3: '3',
       4: '4',
       5: '5',
       6: '6'
-    }, '2')),
-    color: select('TableofContents.ColoredHeading.color', {
+    }, '2', 'ColoredHeading')),
+    color: select('TableofContents ColoredHeading: color', {
       '': 'Grey (default)',
       green: 'Green',
       blue: 'Blue'
-    }, 'green')
+    }, 'green', 'ColoredHeading')
   };
   return<ColoredHeading {...props} />;
 };
@@ -77,9 +77,9 @@ const getSidebarHeading = () => {
     6: '6'
   };
   const props = {
-    title: text('TableofContents.SidebarHeading.title', 'Key Agencies'),
+    title: text('TableofContents SidebarHeading: title', 'Key Agencies', 'SidebarHeading'),
     // eslint-disable-next-line radix
-    level: parseInt(select('TableofContents.SidebarHeading.level', levelOptions, '2'))
+    level: parseInt(select('TableofContents SidebarHeading: level', levelOptions, '2', 'SidebarHeading'))
   };
   return<SidebarHeading {...props} />;
 };

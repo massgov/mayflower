@@ -13,13 +13,13 @@ storiesOf('molecules', module)
   .add(
     'ArrowNav', (() => {
       const props = {
-        href: text('ArrowNav.href', ''),
-        info: text('ArrowNav.info', 'link info'),
-        text: text('ArrowNav.text', 'Text'),
-        title: text('ArrowNav.title', 'Title'),
+        href: text('href', ''),
+        info: text('info', 'link info'),
+        text: text('text', 'Text'),
+        title: text('title', 'Title'),
         onClick: action('Clicked'),
-        direction: select('ArrowNav.direction', ['left', 'right']),
-        label: text('ArrowNav.label', 'Label')
+        direction: select('direction', ['left', 'right']),
+        label: text('label', 'Label')
       };
       return(<ArrowNav {...props} />);
     }),

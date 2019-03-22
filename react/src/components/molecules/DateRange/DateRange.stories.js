@@ -12,33 +12,33 @@ storiesOf('molecules', module)
   .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'DateRange', (() => {
+    'DateRange', () => {
       const props = {
-        label: text('dateRange.label', 'Filter by date'),
+        label: text('label', 'Filter by date'),
         startDate: {
-          labelText: text('dateRange.startDate.labelText', 'Select a start date:'),
-          placeholder: text('dateRange.startDate.placeholder', 'today'),
-          required: boolean('dateRange.startDate.required', false),
-          id: text('dateRange.startDate.id', 'start-date'),
-          name: text('dateRange.startDate.name', 'start-date'),
-          restrict: select('dateRange.startDate.restrict', inputDateOptions.restrict, ''),
+          labelText: text('StartDate: labelText', 'Select a start date:', 'StartDate'),
+          placeholder: text('StartDate: placeholder', 'today', 'StartDate'),
+          required: boolean('StartDate: required', false, 'StartDate'),
+          id: text('StartDate: id', 'start-date', 'StartDate'),
+          name: text('StartDate: name', 'start-date', 'StartDate'),
+          restrict: select('StartDate: restrict', inputDateOptions.restrict, '', 'StartDate'),
           onChangeCallback: action('startdate custom onchange callback function'),
-          defaultDate: new Date(date('dateRange.startDate.defaultDate', new Date('Jan 01 2018')))
+          defaultDate: new Date(date('StartDate: defaultDate', new Date('Jan 01 2018'), 'StartDate'))
         },
         endDate: {
-          labelText: text('dateRange.endDate.labelText', 'Select an end date:'),
-          placeholder: text('dateRange.endDate.placeholder', 'm/dd/yy'),
-          required: boolean('dateRange.endDate.required', false),
-          id: text('dateRange.endDate.id', 'end-date'),
-          name: text('dateRange.endDate.name', 'end-date'),
-          restrict: select('dateRange.endDate.restrict', inputDateOptions.restrict, ''),
+          labelText: text('EndDate: labelText', 'Select an end date:', 'EndDate'),
+          placeholder: text('EndDate:placeholder', 'm/dd/yy', 'EndDate'),
+          required: boolean('EndDate: required', false, 'EndDate'),
+          id: text('EndDate: id', 'end-date', 'EndDate'),
+          name: text('EndDate: name', 'end-date', 'EndDate'),
+          restrict: select('EndDate: restrict', inputDateOptions.restrict, '', 'EndDate'),
           onChangeCallback: action('enddate custom onchange callback function'),
-          defaultDate: new Date(date('dateRange.endDate.defaultDate', new Date('Feb 01 2018')))
+          defaultDate: new Date(date('EndDate: defaultDate', new Date('Feb 01 2018'), 'EndDate'))
         }
       };
       return(
         <DateRange {...props} />
       );
-    }),
+    },
     { info: DateRangeDocs }
   );

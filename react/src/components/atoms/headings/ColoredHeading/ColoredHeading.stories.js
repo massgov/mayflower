@@ -14,9 +14,9 @@ storiesOf('atoms/headings', module)
   .add(
     'ColoredHeading', (() => {
       const props = {
-        text: text('coloredHeading.text', 'Title text'),
-        level: select('coloredHeading.level', headingsOptions.levels, 2),
-        color: select('coloredHeading.color', coloredHeadingOptions.color)
+        text: text('text', 'Title text'),
+        level: select('level', headingsOptions.levels, 2),
+        color: select('color', coloredHeadingOptions.color)
       };
       return(<ColoredHeading {...props} />);
     }),

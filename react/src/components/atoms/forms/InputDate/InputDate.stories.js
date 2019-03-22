@@ -14,16 +14,17 @@ storiesOf('atoms/forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputDate', (() => {
+      const defaultDate = new Date('Jan 01 2018');
       const props = {
-        labelText: text('inputDate.labelText', 'Select a date:'),
-        placeholder: text('inputDate.placeholder', 'm/dd/yy'),
-        required: boolean('inputDate.required', true),
-        id: text('inputDate.id', 'date-input'),
-        name: text('inputDate.name', 'date-input'),
-        restrict: select('inputDate.restrict', inputDateOptions.restrict, ''),
+        labelText: text('labelText', 'Select a date:'),
+        placeholder: text('placeholder', 'm/dd/yy'),
+        required: boolean('required', true),
+        id: text('id', 'date-input'),
+        name: text('name', 'date-input'),
+        restrict: select('restrict', inputDateOptions.restrict, ''),
         onChangeCallback: action('custom-click on select'),
-        defaultDate: new Date(date('dateRange.endDate.defaultDate', new Date('Jan 01 2018'))),
-        format: select('inputData.format', inputDateOptions.format, 'M/DD/YYYY')
+        defaultDate: new Date(date('defaultDate', defaultDate)),
+        format: select('format', inputDateOptions.format, 'M/DD/YYYY')
       };
       return(
         <InputDate {...props} />

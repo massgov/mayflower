@@ -16,29 +16,29 @@ storiesOf('molecules/HeaderSearch', module)
   .add(
     'HeaderSearch', (() => {
       const options = inputOptions.options.orgSelector;
-      const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', true);
+      const withOrgDropdown = boolean('withOrgDropdown (shows OrgDropdown knobs when true)', true);
       const props = {
-        placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
+        placeholder: text('placeholder', 'Search Mass.gov'),
         buttonSearch: {
           onClick: action('Button clicked'),
-          ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', ''),
-          text: text('HeaderSearch.buttonSearch.text', 'Search'),
-          usage: select('HeaderSearch.buttonSearch.usage', {
+          ariaLabel: text('ButtonSearch: ariaLabel', '', 'ButtonSearch'),
+          text: text('ButtonSearch: text', 'Search', 'ButtonSearch'),
+          usage: select('ButtonSearch: usage', {
             'primary (default)': '',
             secondary: 'secondary'
-          }, '')
+          }, '', 'ButtonSearch')
         },
         onSubmit: action('Form submitted'),
         onChange: action('Text input modified'),
-        defaultText: text('HeaderSearch.defaultText', '')
+        defaultText: text('defaultText', '')
       };
       if (withOrgDropdown) {
         props.orgDropdown = {
-          dropdownButton: object('HeaderSearch.orgDropdown.dropdownButton', {
+          dropdownButton: object('OrgDropdown: dropdownButton', {
             text: ('All Organizations'),
             capitalized: true
-          }),
-          inputText: object('HeaderSearch.orgDropdown.inputText', {
+          }, 'OrgDropdown'),
+          inputText: object('OrgDropdown: inputText', {
             boxed: true,
             label: null,
             placeholder: 'Search an organization...',
@@ -46,7 +46,7 @@ storiesOf('molecules/HeaderSearch', module)
             options,
             selected: '',
             onChange: action('orgDropdown onChange')
-          })
+          }, 'OrgDropdown')
         };
       }
       return(
@@ -58,39 +58,39 @@ storiesOf('molecules/HeaderSearch', module)
   .add(
     'HeaderSearch with postInputFilter', (() => {
       const options = inputOptions.options.orgSelector;
-      const withOrgDropdown = boolean('HeaderSearch.withOrgDropdown', false);
+      const withOrgDropdown = boolean('withOrgDropdown (shows OrgDropdown knobs when true)', false);
       const selectBoxProps = {
-        label: text('selectBox.label', ''),
-        stackLabel: boolean('selectBox.stackLabel', true),
-        required: boolean('selectBox.required', true),
-        id: text('selectBox.id', 'distance-select'),
-        options: object('selectBox.options', selectOptions.options.distance),
-        selected: select('selectBox.defaultSelected', selectOptions.options.distance.map((option) => option.text), selectOptions.options.distance[0].text),
+        label: text('SelectBox: label', '', 'SelectBox'),
+        stackLabel: boolean('SelectBox: stackLabel', true, 'SelectBox'),
+        required: boolean('SelectBox: required', true, 'SelectBox'),
+        id: text('SelectBox: id', 'distance-select', 'SelectBox'),
+        options: object('SelectBox: options', selectOptions.options.distance, 'SelectBox'),
+        selected: select('SelectBox: defaultSelected', selectOptions.options.distance.map((option) => option.text), selectOptions.options.distance[0].text, 'SelectBox'),
         onChangeCallback: action('SelectBox onChangeCallback')
       };
       const props = {
-        placeholder: text('HeaderSearch.placeholder', 'Search Mass.gov'),
+        placeholder: text('placeholder', 'Search Mass.gov'),
         buttonSearch: {
           onClick: action('Button clicked'),
-          ariaLabel: text('HeaderSearch.buttonSearch.ariaLabel', ''),
-          text: text('HeaderSearch.buttonSearch.text', 'Search'),
-          usage: select('HeaderSearch.buttonSearch.usage', {
+          ariaLabel: text('ButtonSearch: ariaLabel', '', 'ButtonSearch'),
+          text: text('ButtonSearch: text', 'Search', 'ButtonSearch'),
+          usage: select('ButtonSearch: usage', {
             'primary (default)': '',
             secondary: 'secondary'
-          }, '')
+          }, '', 'ButtonSearch')
         },
         onSubmit: action('Form submitted'),
         onChange: action('Text input modified'),
-        defaultText: text('HeaderSearch.defaultText', ''),
+        defaultText: text('ButtonSearch: defaultText', '', 'ButtonSearch'),
         postInputFilter: <SelectBox {...selectBoxProps} />
       };
       if (withOrgDropdown) {
         props.orgDropdown = {
-          dropdownButton: object('HeaderSearch.orgDropdown.dropdownButton', {
+          dropdownButton: object('OrgDropdown: dropdownButton', {
             text: ('All Organizations'),
             capitalized: true
-          }),
-          inputText: object('HeaderSearch.orgDropdown.inputText', {
+          }, 'OrgDropdown'),
+          inputText: object('OrgDropdown: inputText', {
             boxed: true,
             label: null,
             placeholder: 'Search an organization...',
@@ -98,7 +98,7 @@ storiesOf('molecules/HeaderSearch', module)
             options,
             selected: '',
             onChange: action('orgDropdown onChange')
-          })
+          }, 'OrgDropdown')
         };
       }
       return(
