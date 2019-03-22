@@ -2,6 +2,11 @@ $formTransitions: max-height 0.6s linear, margin 0.1s linear;
 $formQuickTransitions: max-height 0.3s linear;
 
 .ma__mass-feedback-form {
+
+  @media ($bp-small-max) {
+    display: none;
+  }
+
   &__form {
     border: 2px solid $c-gray-light;
     background: $c-white;

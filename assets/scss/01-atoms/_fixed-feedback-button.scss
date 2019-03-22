@@ -1,4 +1,9 @@
 .ma__fixed-feedback-button {
+
+  @media ($bp-small-max) {
+    display: none;
+  }
+
   bottom: 0;
   height: 300px;
   pointer-events: none;
