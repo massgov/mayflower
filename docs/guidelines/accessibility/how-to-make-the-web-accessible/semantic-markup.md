@@ -1,6 +1,6 @@
 # Semantic Markup
 
-Pages need to be marked up in a reading order that makes sense. The flow of page elements such as headers, footers, navigation,  and the main content area are key to a screen readers understanding of the page.
+Pages need to be marked up in a reading order that makes sense. The flow of page elements such as headers, footers, navigation, and the main content area are key to a screen readers understanding of the page.
 
 ## **Structure Information for Assistive Technology**
 
