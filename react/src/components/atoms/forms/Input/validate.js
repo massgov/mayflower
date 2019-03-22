@@ -1,6 +1,7 @@
+import is from 'is';
 // eslint-disable-next-line import/prefer-default-export
 export const validNumber = (num, min, max) => {
-  if (!Number.isNaN(Number(min))) {
+  if (is.number(min)) {
     // Make sure the new value isn't less than the min value.
     if (num < Number(min)) {
       return{
@@ -9,7 +10,7 @@ export const validNumber = (num, min, max) => {
       };
     }
   }
-  if (!Number.isNaN(Number(max))) {
+  if (is.number(max)) {
     if (num > Number(max)) {
       return{
         showError: true,

@@ -41,7 +41,7 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 
 | **Visual** | **Name** | **Description & Usage** |
 | :--- | :--- | :--- |
-| ![](../../.gitbook/assets/screen-shot-2018-08-09-at-4.34.45-pm.png) | Component Heading  | Should be used to to separate content within a big section. If used under Colored Heading, should use a lower heading level than the colored heading. |
+| ![](../../.gitbook/assets/screen-shot-2018-08-09-at-4.34.45-pm.png) | Component Heading | Should be used to to separate content within a big section. If used under Colored Heading, should use a lower heading level than the colored heading. |
 | ![](../../.gitbook/assets/screen-shot-2018-08-09-at-4.29.08-pm.png) | Component Heading \(Highlight\) |  |
 
 #### Sidebar Heading Variations
@@ -212,6 +212,4 @@ Not Available
 | Component Heading | `.ma__comp-heading` |
 | Component Heading \(Highlight\) | `.ma__comp-heading--c-highlight` \(_work in progress_\)`.ma__comp-heading--yellow` \(previous version\) |
 | Sidebar Heading | `.ma__sidebar-heading` |
-
-
 
