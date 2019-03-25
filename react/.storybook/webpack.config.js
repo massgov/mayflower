@@ -1,29 +1,23 @@
 const path = require("path");
 
-module.exports = ({ config }) => {
-  config.module.rules.forEach((rule, ruleIndex) => {
+module.exports = (baseConfig, env, defaultConfig) => {
+  defaultConfig.module.rules.forEach((rule, ruleIndex) => {
     if (rule && typeof rule !== 'string' && rule.test.toString().indexOf('js') > -1) {
-      if (config.module.rules[ruleIndex].options) {
-        config.module.rules[ruleIndex].options.presets.push('@babel/env');
-        config.module.rules[ruleIndex].options.presets.push('@babel/react');
-        config.module.rules[ruleIndex].options.plugins.push('@babel/proposal-export-default-from');
-        config.module.rules[ruleIndex].options.plugins.push('@babel/proposal-class-properties');
-        config.module.rules[ruleIndex].options.plugins.push('@babel/plugin-syntax-dynamic-import');
-        config.module.rules[ruleIndex].options.plugins.push('@babel/plugin-proposal-object-rest-spread');
+      if (defaultConfig.module.rules[ruleIndex].options) {
+        defaultConfig.module.rules[ruleIndex].options.presets.push('@babel/env');
+        defaultConfig.module.rules[ruleIndex].options.presets.push('@babel/react');
+        defaultConfig.module.rules[ruleIndex].options.plugins.push('@babel/proposal-export-default-from');
+        defaultConfig.module.rules[ruleIndex].options.plugins.push('@babel/proposal-class-properties');
+        defaultConfig.module.rules[ruleIndex].options.plugins.push('@babel/plugin-syntax-dynamic-import');
       }
     }
   });
-  config.module.rules.push({
-    test: /\.stories\.js?$/,
-    loaders: [require.resolve('@storybook/addon-storysource/loader')],
-    enforce: 'pre',
-  });
-  config.resolve = {
-    ...config.resolve,
-    alias: {
-      ...config.resolve.alias,
+  defaultConfig.resolve = {
+    ...defaultConfig.resolve,
+     alias: {
+      ...defaultConfig.resolve.alias,
       SharedAssets: path.resolve(__dirname, '../../assets/'),
-    }};
+   }};
 
-  return config;
+  return defaultConfig;
 };
