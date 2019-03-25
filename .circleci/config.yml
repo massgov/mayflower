@@ -14,7 +14,7 @@ references:
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:8.9.4
+    - image: circleci/node:10.15.1
 
 patternlab_defaults: &patternlab_defaults
   working_directory: /var/www/code
