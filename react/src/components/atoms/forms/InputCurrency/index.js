@@ -236,7 +236,7 @@ const Currency = (props) => {
       }
     </InputContext.Consumer>
   );
-}
+};
 
 const InputCurrency = (props) => {
   const {

@@ -5,7 +5,7 @@ import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 
 import TableofContents from '.';
 import TableofContentsDocs from './TableofContents.md';
-import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link} from '../../../index';
+import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link } from '../../../index';
 
 const getDecorativeLink = (index) => {
   const props = {

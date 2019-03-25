@@ -9,10 +9,9 @@ import InputNumberDocs from './InputNumber.md';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withInfo)
-  .addDecorator(
-    withKnobs({
-      escapeHTML: false
-    }))
+  .addDecorator(withKnobs({
+    escapeHTML: false
+  }))
   .add(
     'InputNumber', (() => {
       const inputTextOptionsWithKnobs = {};
@@ -20,7 +19,7 @@ storiesOf('atoms/forms', module)
         inputTextOptionsWithKnobs[key] = InputNumberOptions[key]();
       });
       console.table(inputTextOptionsWithKnobs);
-      //inputTextOptionsWithKnobs.hiddenLabel = boolean('InputNumber.blah2.hiddenLabel', false);
+      // inputTextOptionsWithKnobs.hiddenLabel = boolean('InputNumber.blah2.hiddenLabel', false);
 
       // const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => {
       //   console.log(k, v());
@@ -39,6 +38,6 @@ storiesOf('atoms/forms', module)
       );
     }),
     {
-      info: InputNumberDocs,
+      info: InputNumberDocs
     }
   );
