@@ -1,13 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs';
 
 import LinkList from './index';
 import LinkListDocs from './LinkList.md';
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'LinkList', (() => {

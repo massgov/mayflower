@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import round from '../helper';
 
@@ -12,7 +11,6 @@ import DataTable from './index';
 import DataTableDocs from './DataTable.md';
 
 storiesOf('dataviz|DataTable', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DataTable Simple', (() => {

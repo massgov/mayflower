@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, number, text } from '@storybook/addon-knobs';
 
 import logo from '../../../assets/images/stateseal.png';
@@ -8,7 +7,6 @@ import HeaderSlim from '.';
 import { SiteLogo } from '../../../index';
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('HeaderSlim', (() => {
     const siteLogoProps = {

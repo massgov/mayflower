@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, array } from '@storybook/addon-knobs';
 
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
@@ -8,7 +7,6 @@ import IconLink from '.';
 import { Icon, Link } from '../../../index';
 
 storiesOf('molecules', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('IconLink', (() => {
     const linkProps = {

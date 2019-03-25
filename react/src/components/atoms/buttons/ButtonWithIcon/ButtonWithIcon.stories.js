@@ -2,7 +2,6 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, array, select, boolean } from '@storybook/addon-knobs';
 
 import ButtonWithIcon from '.';
@@ -17,7 +16,6 @@ const icons = {
 };
 
 storiesOf('atoms/buttons', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ButtonWithIcon', (() => {

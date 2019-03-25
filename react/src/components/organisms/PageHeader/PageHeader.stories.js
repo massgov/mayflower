@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 import PageHeader from './index';
@@ -8,7 +7,6 @@ import PageHeaderDocs from './PageHeader.md';
 import PageHeaderData from './PageHeader.knobs.options';
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'PageHeader', (() => {

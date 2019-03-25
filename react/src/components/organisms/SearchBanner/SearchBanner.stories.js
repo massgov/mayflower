@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -14,7 +13,6 @@ import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
 
 storiesOf('organisms/SearchBanner', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('SearchBanner', (() => {
     const options = inputOptions.options.orgSelector;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
 import TabContainer from '.';
@@ -8,7 +7,6 @@ import Tab from './tab';
 import TabContainerData from './TabContainer.knobs.options';
 
 storiesOf('organisms/TabContainer', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('TabContainer', (() => {
     const props = {

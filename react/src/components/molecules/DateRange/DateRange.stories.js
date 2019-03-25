@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean, date } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -9,7 +8,6 @@ import DateRangeDocs from './DateRange.md';
 import inputDateOptions from '../../atoms/forms/InputDate/InputDate.knobs.options';
 
 storiesOf('molecules', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DateRange', () => {

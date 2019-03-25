@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import ContactGroup from './index';
@@ -9,7 +8,6 @@ import levelOptions from '../../atoms/headings/Headings.knobs.options';
 import contactGroupOptions from './ContactGroup.knobs.options';
 
 storiesOf('molecules', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ContactGroup', (() => {

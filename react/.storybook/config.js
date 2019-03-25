@@ -4,13 +4,15 @@ import { withInfo } from '@storybook/addon-info';
 
 // automatically import all files ending in *.stories.js
 const req = require.context('../src', true, /.stories.js$/);
+addDecorator(withA11y);
 addDecorator(
   withInfo({
     styles: {
       button: {
         base: {
           fontFamily: 'sans-serif',
-          fontSize: '12px',
+          fontSize: '14px',
+          fontWeight: '500',
           display: 'block',
           position: 'fixed',
           border: 'none',
@@ -28,8 +30,8 @@ addDecorator(
     }
   })
 );
-addDecorator(withA11y);
 function loadStories() {
   req.keys().forEach((filename) => req(filename));
 }
 configure(loadStories, module);
+

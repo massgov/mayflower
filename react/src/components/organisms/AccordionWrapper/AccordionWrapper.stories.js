@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import AccordionWrapper from './index';
@@ -21,7 +20,6 @@ const icons = {
 };
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'AccordionWrapper', (() => {

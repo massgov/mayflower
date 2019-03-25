@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select } from '@storybook/addon-knobs';
 
 import InputCurrency from './index';
@@ -9,7 +8,6 @@ import InputCurrencyOptions from './InputCurrency.knobs.options';
 import InputCurrencyDocs from './InputCurrency.md';
 
 storiesOf('atoms/forms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputCurrency', (() => {

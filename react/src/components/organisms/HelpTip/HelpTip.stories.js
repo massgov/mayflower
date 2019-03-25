@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, array } from '@storybook/addon-knobs/react';
 
 import HelpTip from './index';
@@ -17,7 +16,6 @@ const themeOptions = {
 };
 
 storiesOf('organisms/HelpTip', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('HelpTip with HelpText', (() => {
     const props = {

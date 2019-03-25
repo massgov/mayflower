@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -10,7 +9,6 @@ import { TagsData, SortData } from './ResultsHeading.knobs.options';
 import buttonToggleOptions from '../../atoms/buttons/ButtonToggle/ButtonToggle.knobs.options';
 
 storiesOf('molecules/ResultsHeading', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ResultsHeading with ButtonToggle', (() => {

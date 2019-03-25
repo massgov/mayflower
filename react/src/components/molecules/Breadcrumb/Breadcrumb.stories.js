@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 import Breadcrumb from './index';
@@ -23,7 +22,6 @@ const getItem = (itemText, index, currentPage) => (
 );
 
 storiesOf('molecules', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Breadcrumb', (() => {
     const currentItemProp = {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -15,7 +14,6 @@ import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhea
 import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.options';
 
 storiesOf('organisms/PressFilters', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SelectBox Only', (() => {

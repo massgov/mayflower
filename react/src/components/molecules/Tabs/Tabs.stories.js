@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -8,7 +7,6 @@ import Tabs from './index';
 import tabsOptions from './Tabs.knobs.options';
 
 storiesOf('molecules', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Tabs', (() => {
     const props = {

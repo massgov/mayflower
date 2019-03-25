@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs';
 
 import UtilityNav from './index';
@@ -8,7 +7,6 @@ import UtilityNavDocs from './UtilityNav.md';
 import UtilityNavData from './UtilityNav.knob.options';
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'UtilityNav', (() => {

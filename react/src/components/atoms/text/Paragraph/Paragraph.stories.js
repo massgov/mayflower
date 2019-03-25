@@ -1,13 +1,11 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import ParagraphDocs from './Paragraph.md';
 import Paragraph from './index';
 
 storiesOf('atoms/text', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Paragraph', (() => {

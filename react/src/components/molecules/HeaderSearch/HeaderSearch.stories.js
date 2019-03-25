@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -11,7 +10,6 @@ import HeaderSearch from '.';
 import HeaderSearchDocs from './HeaderSearch.md';
 
 storiesOf('molecules/HeaderSearch', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'HeaderSearch', (() => {

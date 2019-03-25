@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, select, object, optionsKnob } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -8,7 +7,6 @@ import TypeAheadDropdown from '.';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('molecules', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('TypeAheadDropdown', (() => {
     const options = inputOptions.options.orgSelector;

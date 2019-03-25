@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
 import storyUtils from './storyutils';
 import Teaser from '.';
 
 storiesOf('organisms/Teaser', module)
-  .addDecorator(withInfo)
   .add('Teaser: Title Only', (() => {
     const { getDecorativeLink } = storyUtils;
     const props = {

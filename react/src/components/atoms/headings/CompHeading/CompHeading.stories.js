@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import compHeadingOptions from './CompHeading.knob.options';
@@ -9,7 +8,6 @@ import CompHeading from './index';
 import CompHeadingDocs from './CompHeading.md';
 
 storiesOf('atoms/headings', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Comp Heading', (() => {

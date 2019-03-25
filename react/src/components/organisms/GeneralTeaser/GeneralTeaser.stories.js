@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean, number, object, array } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
 
 import GeneralTeaser from './index';
 import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '../../../index';
@@ -12,7 +11,6 @@ import GeneralTeaserDocs from './GeneralTeaser.md';
 const defaultDate = new Date('2018-02-02');
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'GeneralTeaser', (() => {

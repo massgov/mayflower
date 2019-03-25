@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object, boolean } from '@storybook/addon-knobs';
 
 import stateSeal from 'SharedAssets/images/stateseal.png';
@@ -12,7 +11,6 @@ import FooterLinksLiveData from '../../molecules/FooterLinks/FooterLinksLive.jso
 import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.json';
 
 storiesOf('organisms/Footer', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Footer', (() => {

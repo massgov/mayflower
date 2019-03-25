@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object, text, number } from '@storybook/addon-knobs';
 
 import FooterSlim from './index';
@@ -9,7 +8,6 @@ import logo from '../../../assets/images/stateseal.png';
 import { SiteLogo } from '../../../index';
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'FooterSlim', (() => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -9,7 +8,6 @@ import inputRadioGroupOptions from './InputRadioGroup.knobs.options';
 import InputRadioGroupDocs from './InputRadioGroup.md';
 
 storiesOf('molecules', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputRadioGroup', (() => {

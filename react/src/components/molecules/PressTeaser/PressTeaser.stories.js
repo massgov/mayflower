@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import PressTeaser from './index';
@@ -8,7 +7,6 @@ import PressTeaserDocs from './PressTeaser.md';
 import headingsOptions from '../../atoms/headings/Headings.knobs.options';
 
 storiesOf('molecules', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'PressTeaser', (() => {

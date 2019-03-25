@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, object, select, boolean, optionsKnob as options } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -10,7 +9,6 @@ import orgSelectorOptions from './OrgSelector.knobs.options';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('molecules/OrgSelector', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'OrgSelector with SelectBox', (() => {

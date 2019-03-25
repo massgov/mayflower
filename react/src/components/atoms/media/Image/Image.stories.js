@@ -1,14 +1,12 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, number, text } from '@storybook/addon-knobs';
 
 import Image from './index';
 import ImageDocs from './Image.md';
 
 storiesOf('atoms/media', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Image', (() => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select } from '@storybook/addon-knobs';
 
 import CalloutAlert from './index';
@@ -19,7 +18,6 @@ const themeOptions = {
 };
 
 storiesOf('organisms/CalloutAlert', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'CalloutAlert', (() => {

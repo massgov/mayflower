@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -10,7 +9,6 @@ import ButtonToggleDocs from './ButtonToggle.md';
 import buttonToggleOptions from './ButtonToggle.knobs.options';
 
 storiesOf('atoms/buttons', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ButtonToggle', (() => {

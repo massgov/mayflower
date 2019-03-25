@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 import FootNoteLink from './index';
@@ -8,7 +7,6 @@ import FootNote from '../FootNote/index';
 import FootNoteLinkDocs from './FootNoteLink.md';
 
 storiesOf('atoms/links', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'FootNoteLink', (() => {

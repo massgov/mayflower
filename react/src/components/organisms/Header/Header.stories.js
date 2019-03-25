@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, object, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -11,7 +10,6 @@ import UtilityNavData from '../UtilityNav/UtilityNav.knob.options';
 import logo from '../../../assets/images/stateseal.png';
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Header', (() => {

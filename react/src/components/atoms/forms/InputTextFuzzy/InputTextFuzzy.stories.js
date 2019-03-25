@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, object, select, boolean, array } from '@storybook/addon-knobs';
 
 import InputTextFuzzy from './index';
@@ -8,7 +7,6 @@ import InputTextFuzzyDocs from './InputTextFuzzy.md';
 import inputOptions from './InputTextFuzzy.knobs.options';
 
 storiesOf('atoms/forms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputTextFuzzy', (() => {

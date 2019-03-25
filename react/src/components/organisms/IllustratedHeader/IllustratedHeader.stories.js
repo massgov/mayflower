@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import IllustratedHeader from './index';
@@ -8,7 +7,6 @@ import IllustratedHeaderDocs from './IllustratedHeader.md';
 import IllustratedHeaderData from './IllustratedHeader.knobs.options';
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'IllustratedHeader', (() => {
