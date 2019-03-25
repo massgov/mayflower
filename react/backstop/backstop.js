@@ -34,7 +34,7 @@ scenarios = scenarios.map((item) => {
   ];
   // eslint-disable-next-line prefer-const
   let result = { ...item };
-  if (delays.some((value) => item.label.indexOf(value) >= -1)) {
+  if (delays.some((value) => item.label.indexOf(value) > -1)) {
     result.delay = 5000;
   }
   return result;
@@ -55,7 +55,7 @@ module.exports = {
   report: ['browser', 'CI'],
   engine: 'puppeteer',
   engineOptions: {
-    args: ['--no-sandbox']
+    args: ['--no-sandbox', '--disable-dev-shm-usage']
   },
   asyncCaptureLimit: 5,
   asyncCompareLimit: 50,
