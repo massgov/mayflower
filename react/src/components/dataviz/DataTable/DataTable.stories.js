@@ -42,7 +42,7 @@ storiesOf('dataviz|DataTable', module)
     { info: DataTableDocs }
   )
   .add(
-    'DataTable with Filter', withInfo()(() => {
+    'DataTable with Filter', (() => {
       const columns = [{
         Header: 'Municipality',
         id: 'Municipality',
