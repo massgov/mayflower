@@ -23,9 +23,10 @@ function loadStories() {
             cursor: 'pointer',
           },
           topRight: {
-            top: 0,
+            bottom: 0,
             right: 0,
-            borderRadius: '0 0 0 5px',
+            top: 'unset',
+            borderRadius: '5px 0 0 0',
           }
         }
       }
