@@ -69,7 +69,7 @@ const Currency = (props) => (
               update.showError = false;
               update.errorMsg = errorMsg;
             }
-            context.updateState(update, () => {
+            context.updateOwnState(update, () => {
               if (typeof props.onChange === 'function') {
                 props.onChange(numberValue, props.id, type);
               }
@@ -94,7 +94,7 @@ const Currency = (props) => (
                 newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(2));
               }
               const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-              context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
+              context.updateOwnState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                 if (typeof props.onChange === 'function') {
                   props.onChange(newValue, props.id, type, direction);
                 }
@@ -121,11 +121,11 @@ const Currency = (props) => (
               const numberValue = numbro.unformat(stringValue);
               if (props.required && stringValue.length === 0) {
                 errorMsg = 'Please enter a value.';
-                context.updateState({ showError: true, errorMsg });
+                context.updateOwnState({ showError: true, errorMsg });
               }
               if (!Number.isNaN(numberValue) && stringValue.length > 0) {
                 const { showError, errorMsg } = validNumber(numberValue, props.min, props.max);
-                context.updateState({ showError, errorMsg, value: toCurrency(numberValue, 2) }, () => {
+                context.updateOwnState({ showError, errorMsg, value: toCurrency(numberValue, 2) }, () => {
                   // invokes custom function if passed in the component
                   if (typeof props.onBlur === 'function') {
                     // context.value won't be immediately changed, so pass new value over.
@@ -142,7 +142,7 @@ const Currency = (props) => (
                 stringValue = e.target.value;
               }
               if (!Number.isNaN(numbro.unformat(stringValue)) && stringValue.length > 0) {
-                context.updateState({ value: numbro.unformat(stringValue) });
+                context.updateOwnState({ value: numbro.unformat(stringValue) });
               }
             },
             onKeyDown: (e) => {
@@ -161,7 +161,7 @@ const Currency = (props) => (
                 if (key === 'ArrowDown') {
                   newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(2));
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                  context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
+                  context.updateOwnState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
                       props.onChange(newValue, props.id, type, key);
                     }
@@ -169,7 +169,7 @@ const Currency = (props) => (
                 } else if (key === 'ArrowUp') {
                   newValue = Number(Number.parseFloat(baseValue + props.step).toFixed(2));
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                  context.updateState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
+                  context.updateOwnState({ showError, errorMsg, value: toCurrency(newValue, 2) }, () => {
                     if (typeof props.onChange === 'function') {
                       props.onChange(newValue, props.id, type, key);
                     }
@@ -178,7 +178,7 @@ const Currency = (props) => (
               }
             },
             required: props.required,
-            value: context.getValue(),
+            value: context.getOwnValue(),
             disabled: props.disabled
           };
           return(

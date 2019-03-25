@@ -64,7 +64,7 @@ const NumberInput = (props) => (
             const { value } = e.target;
             const floatValue = Number(Number.parseFloat(value).toFixed(decimalPlaces));
             const updateError = displayErrorMessage(value, props.min, props.max, props.required);
-            context.updateState({ value: floatValue, ...updateError }, () => {
+            context.updateOwnState({ value: floatValue, ...updateError }, () => {
               if (typeof props.onChange === 'function') {
                 props.onChange(e, floatValue, props.id);
               }
@@ -82,7 +82,7 @@ const NumberInput = (props) => (
               newValue = Number(Number.parseFloat(baseValue - props.step).toFixed(decimalPlaces));
             }
             const updateError = displayErrorMessage(newValue, props.min, props.max, props.required);
-            context.updateState({ value: newValue, ...updateError }, () => {
+            context.updateOwnState({ value: newValue, ...updateError }, () => {
               if (typeof props.onChange === 'function') {
                 props.onChange(e, newValue, props.id);
               }
@@ -105,7 +105,7 @@ const NumberInput = (props) => (
           };
 
           if (hasValue) {
-            inputAttr.value = context.value;
+            inputAttr.value = context.getOwnValue();
           }
 
           return(

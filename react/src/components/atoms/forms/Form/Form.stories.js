@@ -70,7 +70,7 @@ storiesOf('atoms/forms', module)
                     labelText: 'Input 0 (Linked to Input 1, Input 2, and Slider)',
                     id: 'test0',
                     unit: '%',
-                    linkedContent: ['test1', 'test2', 'slider']
+                    linkedInputProviders: ['test1', 'test2', 'slider']
                   }
                 ],
                 [
@@ -105,29 +105,24 @@ storiesOf('atoms/forms', module)
               // InputSync can only watch form ids that actually exist,
               // so it must come after the input it is watching has been rendered.
               const inputSyncProps = {
-                syncCondition: (updatedFormId, formValue) => {
-                  const currencyValue = Number(numbro.unformat(formContext.getValue('currency-input')));
+                overrideDefaultSyncCondition: (updatedFormId, formValue) => {
+                  const currencyValue = Number(numbro.unformat(formContext.getInputProviderValue('currency-input')));
                   return(currencyValue > 5);
                 },
-                formIds: ['currency-input', 'test0']
-              };
-              // Using overrideLink breaks the Input's link to other Inputs.
-              // The returned value will become the new value for this Input instead.
-              inputSliderOptionsWithKnobs.overrideLink = (newVal) => {
-                return(Number(numbro(newVal / 100).format({ mantissa: 2 })));
+                inputProviderIds: ['currency-input', 'test0']
               };
               // We still want the slider to change the other Inputs, so add an update function.
               // Update the inputs back to percentages when slider changes value.
-              inputSliderOptionsWithKnobs.updateFunc = (val) => {
+              inputSliderOptionsWithKnobs.onComponentUpdate = (val) => {
                 const newVal = Number(numbro(val * 100).format({ mantissa: 0 }));
                 // We need to ensure that the new percentage value isn't already set on the Inputs we are changing.
                 // If this check is not done, an infinite loop will occur.
-                if (!deepEqual(newVal, formContext.getValue('test0'))) {
-                  // For test0 and anything linked to test0, this will become the actual value instead of the linked value.
-                  formContext.setValue({ id: 'test0', value: newVal });
-                }
-                if (val > 0.6) {
-                  formContext.setValue({ id: 'currency-input', value: '$999.00' });
+                // if (!deepEqual(newVal, formContext.getInputProviderValue('test0'))) {
+                //   // For test0 and anything linked to test0, this will become the actual value instead of the linked value.
+                //   formContext.setInputProviderValue({ id: 'test0', value: newVal });
+                // }
+                if (val > 60) {
+                  formContext.setInputProviderValue({ id: 'currency-input', value: '$999.00' });
                 }
               };
               return(
@@ -142,11 +137,11 @@ storiesOf('atoms/forms', module)
                       {() => (
                         <React.Fragment>
                           <span>Updates when Currency Input is greater than $5.00.</span>
-                          <Paragraph text={`Input 0: ${formContext.getValue('test0')}`} />
-                          <Paragraph text={`Input 1: ${formContext.getValue('test1')}`} />
-                          <Paragraph text={`Input 2: ${formContext.getValue('test2')}`} />
-                          <Paragraph text={`Currency Input: ${formContext.getValue('currency-input')}`} />
-                          <Paragraph text={`Slider: ${formContext.getValue('slider')}`} />
+                          <Paragraph text={`Input 0: ${formContext.getInputProviderValue('test0')}`} />
+                          <Paragraph text={`Input 1: ${formContext.getInputProviderValue('test1')}`} />
+                          <Paragraph text={`Input 2: ${formContext.getInputProviderValue('test2')}`} />
+                          <Paragraph text={`Currency Input: ${formContext.getInputProviderValue('currency-input')}`} />
+                          <Paragraph text={`Slider: ${formContext.getInputProviderValue('slider')}`} />
                         </React.Fragment>
                       ) }
                     </InputSync>

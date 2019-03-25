@@ -30,11 +30,11 @@ class InputLink extends React.Component {
       const { value } = this.context;
       value[id].linkContent = [];
       value[id].linkContent.push(this.linkContent);
-      this.context.updateState({ value });
+      this.context.updateFormState({ value });
     } else {
       const { value } = this.context;
       value[id].linkContent.push(this.linkContent);
-      this.context.updateState({ value });
+      this.context.updateFormState({ value });
     }
   };
   // The Form component uses this exact function when the linked formIds update.

@@ -19,15 +19,15 @@ const CheckBox = (props) => (
           } = props;
           const handleClick = (e) => {
             e.persist();
-            context.updateState({ value: !value }, () => {
+            context.updateFormState({ value: !value }, () => {
               if (typeof props.onChange === 'function') {
                 props.onChange(e, context.getValue(), id);
               }
             });
             if (!!value && required) {
-              context.updateState({ showError: true });
+              context.updateFormState({ showError: true });
             } else {
-              context.updateState({ showError: false });
+              context.updateFormState({ showError: false });
             }
           };
           const checkboxClasses = classNames({

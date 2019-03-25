@@ -112,7 +112,7 @@ class CompoundSlider extends Component {
             const decimalPlaces = countDecimals(step);
             const handleChange = (values) => {
               const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
-              context.updateState({ value }, () => {
+              context.updateOwnState({ value }, () => {
                 if (typeof onChange === 'function') {
                   onChange(value, this.props.id);
                 }
@@ -120,7 +120,7 @@ class CompoundSlider extends Component {
             };
             const handleUpdate = (values) => {
               const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
-              context.updateState({ value }, () => {
+              context.updateOwnState({ value }, () => {
                 if (typeof onUpdate === 'function') {
                   onUpdate(value, this.props.id);
                 }
@@ -161,7 +161,7 @@ class CompoundSlider extends Component {
               }
               return current;
             };
-            const defaultValue = domainCheck(Number(context.getValue()));
+            const defaultValue = domainCheck(Number(context.getOwnValue()));
             const sliderProps = {
               domain,
               step,

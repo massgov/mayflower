@@ -9,9 +9,9 @@ class InputSync extends React.Component {
     super(props);
     this.state = {
       value: {},
-      syncContent: this.syncContent,
+      updateSelf: this.updateSelf,
       children: this.props.children,
-      formIds: this.props.formIds
+      inputProviderIds: this.props.inputProviderIds
     };
   }
   componentDidMount() {
@@ -19,41 +19,39 @@ class InputSync extends React.Component {
   }
   checkFormContext = () => {
     if (this.context && this.context.isActive) {
-      if (is.array(this.state.formIds) && !is.array.empty(this.state.formIds)) {
-        this.state.formIds.forEach((id) => {
-          this.linkToForm(id);
+      if (is.array(this.state.inputProviderIds) && !is.array.empty(this.state.inputProviderIds)) {
+        this.state.inputProviderIds.forEach((id) => {
+          this.addSelfToInputProviderStore(id);
         });
       }
     }
   };
-  linkToForm = (id) => {
-    if (!Object.prototype.hasOwnProperty.call(this.context.value[id], 'syncContent')) {
-      const { value } = this.context;
-      value[id].syncContent = [];
-      value[id].syncContent.push(this.syncContent);
-      this.context.updateState({ value });
+  addSelfToInputProviderStore = (id) => {
+    if (!Object.prototype.hasOwnProperty.call(this.context.inputProviderStore[id], 'inputSyncUpdateFunctionStore')) {
+      const { inputProviderStore } = this.context;
+      inputProviderStore[id].inputSyncUpdateFunctionStore = [];
+      inputProviderStore[id].inputSyncUpdateFunctionStore.push(this.state.updateSelf);
+      this.context.updateFormState({ inputProviderStore });
     } else {
-      const { value } = this.context;
-      value[id].syncContent.push(this.syncContent);
-      this.context.updateState({ value });
+      const { inputProviderStore } = this.context;
+      inputProviderStore[id].inputSyncUpdateFunctionStore.push(this.state.updateSelf);
+      this.context.updateFormState({ inputProviderStore });
     }
   };
-  // The Form component uses this exact function when the linked formIds update.
-  // nextId is the form id that's being processed.
-  // nextValue is the current value for the form element.
-  syncContent = (nextId, nextValue) => {
-    // syncCondition is ran for each id passed in props.formIds from the Form component.
-    // This controls what happens for a single call to syncCondition.
-    // syncCondition overrides the default behavior in the else below.
-    if (is.fn(this.props.syncCondition)) {
+  // nextId is the InputProvider id that's being processed.
+  // nextValue is the current InputProvider this.state.value for the InputProvider.
+  updateSelf = (nextId, nextValue) => {
+    // This controls what happens for a single call to overrideDefaultSyncCondition.
+    // overrideDefaultSyncCondition overrides the default behavior in the else below.
+    if (is.fn(this.props.overrideDefaultSyncCondition)) {
       const { value } = this.state;
-      if (this.props.syncCondition(nextId, nextValue)) {
+      if (this.props.overrideDefaultSyncCondition(nextId, nextValue)) {
         value[nextId] = nextValue;
         this.setState({ value });
       }
     } else {
       const { value } = this.state;
-      this.state.formIds.forEach((id) => {
+      this.state.inputProviderIds.forEach((id) => {
         if (!Object.prototype.hasOwnProperty.call(value, id)) {
           value[id] = nextValue;
         } else if (!deepEqual(value[id], nextValue)) {
@@ -72,7 +70,7 @@ class InputSync extends React.Component {
   }
 }
 InputSync.propTypes = {
-  formIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  inputProviderIds: PropTypes.arrayOf(PropTypes.string).isRequired,
   children: PropTypes.any
 };
 InputSync.contextType = FormContext;

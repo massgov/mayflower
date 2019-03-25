@@ -40,91 +40,88 @@ class InputProvider extends React.Component {
     super(props);
     this.state = {
       value: this.props.defaultValue,
-      linkedContent: this.props.linkedContent,
-      overrideLink: (is.fn(this.props.overrideLink)) ? this.props.overrideLink : null,
-      getOverrideLink: this.getOverrideLink,
-      updateFunc: this.props.updateFunc,
-      getLinkedContent: this.getLinkedContent,
-      setLinkedContent: this.setLinkedContent,
-      getValue: this.getValue,
-      setValue: this.setValue,
-      updateState: this.updateState,
+      linkedInputProviders: this.props.linkedInputProviders,
+      onComponentUpdate: this.props.onComponentUpdate,
+      getLinkedInputProviders: this.getLinkedInputProviders,
+      setLinkedInputProviders: this.setLinkedInputProviders,
+      getOwnValue: this.getOwnValue,
+      setOwnValue: this.setOwnValue,
+      updateOwnState: this.updateOwnState,
       showError: false,
       errorMsg: this.props.errorMsg,
       disabled: this.props.disabled,
       inline: this.props.inline,
-      setUpdateFunc: this.setUpdateFunc
+      getOwnOnComponentUpdateFunc: this.getOwnOnComponentUpdateFunc,
+      setOwnOnComponentUpdateFunc: this.setOwnOnComponentUpdateFunc
     };
   }
   componentDidMount() {
     this.checkFormContext(this.context);
   }
   componentDidUpdate() {
-    if (is.array(this.state.linkedContent)) {
-      // Add any back references to the current Input to the linkedContent array.
-      this.state.linkedContent.forEach((id) => {
-        const currentLinks = this.context.getLinkedContent(id);
+    const formProviderContext = this.context;
+    if (is.array(this.state.linkedInputProviders)) {
+      // Add any back references to the current Input to the linkedInputProviders array.
+      this.state.linkedInputProviders.forEach((id) => {
+        const currentLinks = formProviderContext.getLinkedInputProviders(id);
         if (!currentLinks.includes(this.props.id)) {
-          const backLink = this.state.linkedContent.filter(v => v !== id);
+          const backLink = this.state.linkedInputProviders.filter(v => v !== id);
           backLink.push(this.props.id);
-          this.context.setLinkedContent(id, backLink);
+          formProviderContext.setLinkedInputProviders(id, backLink);
         }
       });
     }
-    if (is.array(this.state.linkedContent) && is.fn(this.context.updateLinkedContent)) {
-      // First, run on update function for this Input.
-      if (is.fn(this.context.onUpdate)) {
-        this.context.onUpdate(this.props.id);
+    if (is.array(this.state.linkedInputProviders) && is.fn(formProviderContext.updateLinkedInputProviders)) {
+      // First, run the on update functions for this InputProvider.
+      if (is.fn(this.state.onComponentUpdate)) {
+        this.state.onComponentUpdate(this.state.value);
       }
-      // Then sync all Inputs in the linkedContent array with the newly updated value.
-      this.context.updateLinkedContent(this.props.id);
-    } else if (is.fn(this.context.onUpdate)) {
-      // If nothing is linked, just run on update function.
-      this.context.onUpdate(this.props.id);
+      // Then sync all InputProvider component ids in the linkedInputProviders array with the newly updated value.
+      formProviderContext.updateLinkedInputProviders(this.props.id);
+    } else if (is.fn(this.state.onComponentUpdate)) {
+      // If nothing is linked, just run the on update function for this InputProvider.
+      this.state.onComponentUpdate(this.state.value);
     }
-    // Finally, handle updating any InputSync components on the Form that are watching this Input.
-    if (is.fn(this.context.syncContent)) {
-      this.context.syncContent(this.props.id);
+    // Finally, handle updating any InputSync components on the Form that are watching this InputProvider.
+    if (is.fn(formProviderContext.checkInputSyncUpdateFunctions)) {
+      formProviderContext.checkInputSyncUpdateFunctions(this.props.id);
     }
   }
-  getValue = () => this.state.value;
-  setValue = (value, afterUpdate) => {
+  getOwnValue = () => this.state.value;
+  setOwnValue = (value, afterUpdate) => {
     this.setState({ value }, afterUpdate);
   };
-  getLinkedContent = () => this.state.linkedContent;
-  setLinkedContent = (ids) => {
-    if (is.array(ids) && !is.empty(ids)) {
-      const { linkedContent = [] } = this.state;
-      if (!is.fn(this.state.overrideLink)) {
-        const updatedIds = linkedContent.concat(ids);
-        this.setState({ linkedContent: updatedIds });
-      }
+  getLinkedInputProviders = () => this.state.linkedInputProviders;
+  setLinkedInputProviders = (ids) => {
+    if (is.array(ids) && !is.array.empty(ids)) {
+      const { linkedInputProviders = [] } = this.state;
+      const updatedIds = linkedInputProviders.concat(ids);
+      this.setState({ linkedInputProviders: updatedIds });
     }
   };
-  getUpdateFunc = () => this.state.updateFunc;
-  setUpdateFunc = (updateFunc) => {
-    this.setState({ updateFunc });
+  getOwnOnComponentUpdateFunc = () => this.state.onComponentUpdate;
+  setOwnOnComponentUpdateFunc = (onComponentUpdate) => {
+    this.setState({ onComponentUpdate });
   };
-  getOverrideLink = () => this.state.overrideLink;
-  updateState = (newState, afterUpdate) => {
+  updateOwnState = (newState, afterUpdate) => {
     this.setState(newState, afterUpdate);
   };
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
       // By giving the form getters and setters and not the input value,
       // extra re-renders are avoided when context updates.
-      if (!Object.prototype.hasOwnProperty.call(formContext.value, this.props.id)) {
-        const { value } = formContext;
-        value[this.props.id] = {
-          getValue: this.getValue,
-          setValue: this.setValue,
-          getLinkedContent: this.getLinkedContent,
-          setLinkedContent: this.setLinkedContent,
-          getUpdateFunc: this.getUpdateFunc,
-          setUpdateFunc: this.setUpdateFunc,
-          getOverrideLink: this.getOverrideLink
+      if (!Object.prototype.hasOwnProperty.call(formContext.inputProviderStore, this.props.id)) {
+        const { inputProviderStore } = formContext;
+        inputProviderStore[this.props.id] = {
+          getOwnValue: this.state.getOwnValue,
+          setOwnValue: this.state.setOwnValue,
+          getLinkedInputProviders: this.state.getLinkedInputProviders,
+          setLinkedInputProviders: this.state.setLinkedInputProviders,
+          getOwnOnComponentUpdateFunc: this.state.getOwnOnComponentUpdateFunc,
+          setOwnOnComponentUpdateFunc: this.state.setOwnOnComponentUpdateFunc,
+          getOverrideLink: this.state.getOverrideLink
         };
-        formContext.updateState({ value });
+        formContext.updateFormState({ inputProviderStore });
       }
     }
   };
@@ -139,7 +136,8 @@ class InputProvider extends React.Component {
   }
 }
 InputProvider.defaultProps = {
-  linkedContent: []
+  linkedInputProviders: [],
+  onComponentUpdate: null
 };
 
 
