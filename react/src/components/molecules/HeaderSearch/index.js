@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import is from 'is';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
 import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
@@ -19,9 +20,24 @@ class HeaderSearch extends React.Component {
   handleChange(event) {
     const query = event.target.value;
     this.setState({ value: query });
-    // invokes custom function if passed in the component
+    /**
+       * Invokes a custom onChange function if passed.
+       * @param {string} query - The current query string of the input.
+    */
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(query);
+    }
+  }
+  handleClick(e) {
+    if (is.fn(this.props.buttonSearch.onClick)) {
+      /**
+       * Invokes a custom onClick function if passed to the buttonSearch component.
+       * @param {object} event - The click event.
+       * @param {string} query - The current query string input.
+      */
+      this.props.buttonSearch.onClick({ event: e, query: this.state.value });
+    } else if (this.state.value.length > 0) {
+      window.location.assign(`https://search.mass.gov/?q=${this.state.value}`);
     }
   }
 
@@ -29,6 +45,7 @@ class HeaderSearch extends React.Component {
     const headerSearch = this.props;
     const orgDropdown = headerSearch.orgDropdown;
     const shouldShowTypeAhead = (orgDropdown && orgDropdown.dropdownButton && orgDropdown.inputText);
+    const { onClick, ...buttonSearchRest } = headerSearch.buttonSearch;
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
         {shouldShowTypeAhead &&
@@ -55,7 +72,10 @@ class HeaderSearch extends React.Component {
             <div className="ma__header-search__post-filter">
               {this.props.postInputFilter}
             </div>
-            <ButtonWithIcon {...headerSearch.buttonSearch} />
+            <ButtonWithIcon
+              onClick={(e) => this.handleClick(e)}
+              {...buttonSearchRest}
+            />
           </form>
         </div>
       </div>
