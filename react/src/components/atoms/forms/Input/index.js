@@ -76,7 +76,7 @@ class InputProvider extends React.Component {
       if (is.fn(this.state.onComponentUpdate)) {
         this.state.onComponentUpdate(this.state.value);
       }
-      // Then sync all InputProvider component ids in the linkedInputProviders array with the newly updated value.
+      // Then update all InputProvider components whose ids are in the linkedInputProviders array with the newly updated value.
       formProviderContext.updateLinkedInputProviders(this.props.id);
     } else if (is.fn(this.state.onComponentUpdate)) {
       // If nothing is linked, just run the on update function for this InputProvider.
@@ -106,6 +106,7 @@ class InputProvider extends React.Component {
   updateOwnState = (newState, afterUpdate) => {
     this.setState(newState, afterUpdate);
   };
+// Checks to see if this InputProvider's FormContext is active. If it is, check to see if its id has been added to FormContext's inputProviderStore. If it isn't, add it now.
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
       // By giving the form getters and setters and not the input value,
@@ -119,7 +120,6 @@ class InputProvider extends React.Component {
           setLinkedInputProviders: this.state.setLinkedInputProviders,
           getOwnOnComponentUpdateFunc: this.state.getOwnOnComponentUpdateFunc,
           setOwnOnComponentUpdateFunc: this.state.setOwnOnComponentUpdateFunc,
-          getOverrideLink: this.state.getOverrideLink
         };
         formContext.updateFormState({ inputProviderStore });
       }

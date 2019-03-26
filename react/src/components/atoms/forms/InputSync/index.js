@@ -17,6 +17,7 @@ class InputSync extends React.Component {
   componentDidMount() {
     this.checkFormContext();
   }
+  // Checks to see if there is any related FormContext set for this component. If it is set, and it is active, then add its updater function to FormContext's inputProviderStore for each id within inputProviderIds.
   checkFormContext = () => {
     if (this.context && this.context.isActive) {
       if (is.array(this.state.inputProviderIds) && !is.array.empty(this.state.inputProviderIds)) {
@@ -39,9 +40,8 @@ class InputSync extends React.Component {
     }
   };
   // nextId is the InputProvider id that's being processed.
-  // nextValue is the current InputProvider this.state.value for the InputProvider.
+  // nextValue is the current InputProvider's this.state.value.
   updateSelf = (nextId, nextValue) => {
-    // This controls what happens for a single call to overrideDefaultSyncCondition.
     // overrideDefaultSyncCondition overrides the default behavior in the else below.
     if (is.fn(this.props.overrideDefaultSyncCondition)) {
       const { value } = this.state;
@@ -51,6 +51,9 @@ class InputSync extends React.Component {
       }
     } else {
       const { value } = this.state;
+      // this.state.value stores the value of each InputProvider that is being watched.
+      // For each InputProvider being watched, check to see if the nextValue being set to its is different than the previous value it already was. If so, re-render this current InputSync component by storing the new value.
+      // This same thing can be accomplished if a unique identifier that is 100% based on InputProvider's value is created instead, for memory saving.
       this.state.inputProviderIds.forEach((id) => {
         if (!Object.prototype.hasOwnProperty.call(value, id)) {
           value[id] = nextValue;
