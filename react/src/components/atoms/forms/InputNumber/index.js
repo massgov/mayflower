@@ -107,17 +107,17 @@ const NumberInput = (props) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            if (direction === 'up' && (!hasProperty(props, 'max') || inputEl.value < props.max)) {
+            if (direction === 'up' && (!hasProperty(inputEl, 'max') || inputEl.value < inputEl.max)) {
               if (is.empty(inputEl.value)) {
-                inputEl.value = 1;
+                inputEl.value = props.step;
               } else {
                 inputEl.value = Number(numbro(inputEl.value)
                   .add(props.step).value());
               }
               handleChange(e);
-            } else if (direction === 'down' && (!hasProperty(props, 'min') || inputEl.value > props.min)) {
+            } else if (direction === 'down' && (!hasProperty(props, 'min') || inputEl.value > inputEl.min)) {
               if (is.empty(inputEl.value)) {
-                inputEl.value = -1;
+                inputEl.value = -props.step;
               } else {
                 inputEl.value = Number(numbro(inputEl.value)
                   .subtract(props.step).value());
