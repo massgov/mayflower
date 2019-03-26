@@ -115,7 +115,7 @@ const NumberInput = (props) => {
               handleChange(e);
             } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || inputEl.value > props.min)) {
               if (is.empty(inputEl.value)) {
-                inputEl.value = -props.step;
+                inputEl.value = props.step * -1;
               } else {
                 inputEl.value = Number(numbro(inputEl.value)
                   .subtract(props.step).value());
