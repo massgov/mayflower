@@ -20,6 +20,7 @@ class HeaderSearch extends React.Component {
   handleChange(event) {
     const query = event.target.value;
     this.setState({ value: query });
+    console.log(query)
     /**
        * Invokes a custom onChange function if passed.
        * @param {string} query - The current query string of the input.
@@ -36,7 +37,7 @@ class HeaderSearch extends React.Component {
        * @param {string} query - The current query string input.
       */
       this.props.buttonSearch.onClick({ event: e, query: this.state.value });
-    } else if (this.state.value.length > 0) {
+    } else if (this.state.value && this.state.value.length > 0) {
       window.location.assign(`https://search.mass.gov/?q=${this.state.value}`);
     }
   }
