@@ -29,7 +29,7 @@ class HeaderSearch extends React.Component {
     }
   }
   handleClick(e) {
-    if (is.fn(this.props.buttonSearch.onClick)) {
+    if (this.props.buttonSearch && is.fn(this.props.buttonSearch.onClick)) {
       /**
        * Invokes a custom onClick function if passed to the buttonSearch component.
        * @param {object} event - The click event.
