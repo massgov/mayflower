@@ -20,7 +20,6 @@ class HeaderSearch extends React.Component {
   handleChange(event) {
     const query = event.target.value;
     this.setState({ value: query });
-    console.log(query)
     /**
        * Invokes a custom onChange function if passed.
        * @param {string} query - The current query string of the input.
