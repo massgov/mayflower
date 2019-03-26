@@ -55,7 +55,7 @@ module.exports = {
   report: ['browser', 'CI'],
   engine: 'puppeteer',
   engineOptions: {
-    args: ['--no-sandbox', '--disable-dev-shm-usage']
+    args: ['--no-sandbox']
   },
   asyncCaptureLimit: 5,
   asyncCompareLimit: 50,
