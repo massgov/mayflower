@@ -12,6 +12,7 @@
   &__container {
     border-top-style: solid;
     border-top-width: 2px;
+    border-top-color: $c-bd-divider;
     padding: 20px 0;
     display: flex;
   }
@@ -24,6 +25,8 @@
     line-height: 1;
     padding: 8px 10px;
     position: relative;
+    color: $c-font-link;
+    font-weight: 700;
 
 
     @media ($bp-small-min) {
@@ -48,14 +51,23 @@
       min-width: 45%;
     }
 
+    &:before {
+      border-color: rgba($c-font-link, .5);
+    }
+
+    &:hover:after {
+      border-color: rgba($c-font-link, .5);
+    }
+
     &:after {
       content: "";
       display: block;
       margin-left: 16px;
       position: absolute;
-        bottom: 5px;
-        right: 8px;
+      bottom: 5px;
+      right: 8px;
       width: calc(100% - 35px);
+      border-color: transparent;
 
       @media ($bp-small-min) {
         @include ma-link-underline;
@@ -77,13 +89,23 @@
       display: block;
       margin-right: 16px;
       position: absolute;
-        bottom: 5px;
-        left: 9px;
+      bottom: 5px;
+      left: 9px;
       width: calc(100% - 35px);
+      border-color: transparent;
+      
 
       @media ($bp-small-min) {
         @include ma-link-underline;
       }
+    }
+
+    &:hover:before {
+      border-color: rgba($c-font-link, .5);
+    }
+
+    &:after {
+      border-color: rgba($c-font-link, .5);
     }
   }
 
@@ -99,10 +121,24 @@
       content: "";
       display: block;
       padding: 0;
+      border-color: transparent;
+    }
+
+    &.is-active {
+      background-color: $c-primary;
+      color: #fff;
+
+      &:hover:after {
+        border-color: transparent;
+      }
     }
 
     &.is-active:after {
       display: none;
+    }
+
+    &:hover:after {
+      border-color: rgba($c-font-link, .5);
     }
   }
 
@@ -118,68 +154,3 @@
   }
 }
 
-//theme
-.ma__pagination {
-  
-  &__container {
-    border-top-color: $c-bd-divider;
-  }
-
-  &__prev,
-  &__next,
-  &__page {
-    color: $c-font-link;
-    font-weight: 700;
-  }
-
-  &__prev {
-    
-    &:before {
-      border-color: rgba($c-font-link, .5);
-    }
-
-    &:after {
-      border-color: transparent;
-    }
-
-    &:hover:after {
-      border-color: rgba($c-font-link, .5);
-    }
-  }
-
-  &__next {
-    
-    &:after {
-      border-color: rgba($c-font-link, .5);
-    }
-
-    &:before {
-      border-color: transparent;
-    }
-
-    &:hover:before {
-      border-color: rgba($c-font-link, .5);
-    }
-  }
-
-  &__page {
-
-    &:after {
-      border-color: transparent;
-    }
-
-    &.is-active {
-      background-color: $c-primary;
-      color: #fff;
-
-      &:hover:after {
-        border-color: transparent;
-      }
-    }
-
-    &:hover:after {
-      border-color: rgba($c-font-link, .5);
-    }
-
-  }
-}
