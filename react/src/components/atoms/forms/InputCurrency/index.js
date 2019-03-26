@@ -47,7 +47,7 @@ const Currency = (props) => {
             }
             return number;
           };
-          const hasProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && !is.nil(obj[property]);
+          const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
           const handleChange = (e) => {
             const { type } = e;
             const stringValue = ref.current.value;
@@ -98,7 +98,7 @@ const Currency = (props) => {
               } else if (direction === 'down') {
                 newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
               }
-              if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
+              if ((!hasNumberProperty(props, 'min') || (newValue >= props.min)) && (!hasNumberProperty(props, 'max') || (newValue <= props.max))) {
                 const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                 context.updateState({
                   showError,
@@ -126,7 +126,7 @@ const Currency = (props) => {
               let newValue = numberValue;
               if (key === 'ArrowDown') {
                 newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
-                if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
+                if ((!hasNumberProperty(props, 'min') || newValue >= props.min) && (!hasNumberProperty(props, 'max') || (newValue <= props.max))) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({
                     showError,
@@ -140,7 +140,7 @@ const Currency = (props) => {
                 }
               } else if (key === 'ArrowUp') {
                 newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
-                if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
+                if ((!hasNumberProperty(props, 'min') || newValue >= props.min) && (!hasNumberProperty(props, 'max') || (newValue <= props.max))) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({
                     showError,
@@ -167,10 +167,10 @@ const Currency = (props) => {
               context.updateState({ showError: true, errorMsg });
             } else if (!is.empty(stringValue)) {
               let newValue = numberValue;
-              if (hasProperty(props, 'max') && newValue > props.max) {
+              if (!hasNumberProperty(props, 'max') || newValue > props.max) {
                 newValue = props.max;
               }
-              if (hasProperty(props, 'min') && newValue < props.min) {
+              if (!hasNumberProperty(props, 'min') || newValue < props.min) {
                 newValue = props.min;
               }
               const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
