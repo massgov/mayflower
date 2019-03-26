@@ -5,6 +5,7 @@ require('acorn-jsx/inject')(acorn);
 require('acorn-object-rest-spread/inject')(acorn);
 require('acorn-static-class-property-initializer/inject')(acorn);
 const walk = require('acorn/dist/walk');
+const { toId } = require('@storybook/router');
 
 const acornOptions = {
   sourceType: 'module',
@@ -102,8 +103,7 @@ const mapComponents = (components, debug) => components.map((component) => {
     'Icon'
   ];
   const backstop = (overrides.indexOf(name) > -1) ? '&backstop=true' : '';
-  const url = `${urlBase}iframe.html?selectedKind=${kind}&selectedStory=${name}${backstop}`;
-
+  const url = `${urlBase}iframe.html?id=${toId(kind, name)}${backstop}`;
   return makeScenario(
     `${kind}/${name}`,
     url,

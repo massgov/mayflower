@@ -35,7 +35,7 @@ class SearchBanner extends Component {
     } = this.props;
     let submitButton;
 
-    if (filterBox) {
+    if (filterBox && filterBox.submitButton) {
       const outerClickHandler = filterBox.submitButton.onClick;
       submitButton = {
         ...filterBox.submitButton,
