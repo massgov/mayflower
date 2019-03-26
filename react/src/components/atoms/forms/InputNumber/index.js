@@ -52,19 +52,17 @@ const NumberInput = (props) => {
               errorMsg: ''
             };
           };
-          const hasProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && !is.nil(obj[property]);
+          const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
 
           const handleOnBlur = (e) => {
             e.persist();
             const inputEl = ref.current;
             let newValue = Number(inputEl.value);
-            if ((hasProperty(props, 'max') && newValue > props.max) || (hasProperty(props, 'min') && newValue < props.min)) {
-              if (hasProperty(props, 'max') && newValue > props.max) {
-                newValue = props.max;
-              }
-              if (hasProperty(props, 'min') && newValue < props.min) {
-                newValue = props.min;
-              }
+            if (hasNumberProperty(props, 'max') && newValue > props.max) {
+              newValue = props.max;
+            }
+            if (hasNumberProperty(props, 'min') && newValue < props.min) {
+              newValue = props.min;
             }
             if (!is.empty(inputEl.value)) {
               inputEl.value = Number(numbro(newValue)
@@ -107,7 +105,7 @@ const NumberInput = (props) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            if (direction === 'up' && (!hasProperty(inputEl, 'max') || inputEl.value < inputEl.max)) {
+            if (direction === 'up' && (!hasNumberProperty(props, 'max') || inputEl.value < props.max)) {
               if (is.empty(inputEl.value)) {
                 inputEl.value = props.step;
               } else {
@@ -115,7 +113,7 @@ const NumberInput = (props) => {
                   .add(props.step).value());
               }
               handleChange(e);
-            } else if (direction === 'down' && (!hasProperty(props, 'min') || inputEl.value > inputEl.min)) {
+            } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || inputEl.value > props.min)) {
               if (is.empty(inputEl.value)) {
                 inputEl.value = -props.step;
               } else {

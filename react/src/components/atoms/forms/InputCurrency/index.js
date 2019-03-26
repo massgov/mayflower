@@ -48,6 +48,8 @@ const Currency = (props) => {
             return number;
           };
           const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
+          const greaterThanMin = (val) => !hasNumberProperty(props, 'min') || (val >= props.min);
+          const lessThanMax = (val) => !hasNumberProperty(props, 'max') || (val <= props.max);
           const handleChange = (e) => {
             const { type } = e;
             const stringValue = ref.current.value;
@@ -98,7 +100,7 @@ const Currency = (props) => {
               } else if (direction === 'down') {
                 newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
               }
-              if ((!hasNumberProperty(props, 'min') || (newValue >= props.min)) && (!hasNumberProperty(props, 'max') || (newValue <= props.max))) {
+              if (greaterThanMin(newValue) && lessThanMax(newValue)) {
                 const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                 context.updateState({
                   showError,
@@ -126,7 +128,7 @@ const Currency = (props) => {
               let newValue = numberValue;
               if (key === 'ArrowDown') {
                 newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
-                if ((!hasNumberProperty(props, 'min') || newValue >= props.min) && (!hasNumberProperty(props, 'max') || (newValue <= props.max))) {
+                if (greaterThanMin(newValue) && lessThanMax(newValue)) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({
                     showError,
@@ -140,7 +142,7 @@ const Currency = (props) => {
                 }
               } else if (key === 'ArrowUp') {
                 newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
-                if ((!hasNumberProperty(props, 'min') || newValue >= props.min) && (!hasNumberProperty(props, 'max') || (newValue <= props.max))) {
+                if (greaterThanMin(newValue) && lessThanMax(newValue)) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
                   context.updateState({
                     showError,
