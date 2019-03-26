@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { object, withKnobs, text, number, array } from '@storybook/addon-knobs';
 import is from 'is';
 import numbro from 'numbro';
@@ -19,7 +18,6 @@ import Paragraph from '../../../atoms/text/Paragraph';
 import './story.css';
 
 storiesOf('atoms/forms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Form', (() => {

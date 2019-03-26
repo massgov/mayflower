@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import InputSlider from './index';
@@ -8,7 +7,6 @@ import InputSliderOptions from './InputSlider.knobs.options';
 import InputSliderDocs from './InputSlider.md';
 
 storiesOf('atoms/forms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputSlider', (() => {

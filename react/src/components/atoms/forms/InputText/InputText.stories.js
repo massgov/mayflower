@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -10,7 +9,6 @@ import InputTextDocs from './InputText.md';
 import InputTextOptions from './InputText.knobs.options';
 
 storiesOf('atoms/forms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputText', (() => {

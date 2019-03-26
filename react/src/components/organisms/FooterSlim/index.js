@@ -11,7 +11,6 @@ const FooterSlim = (props) => (
   <footer className="ma__footer_slim" id="footer">
     <div className="ma__footer_slim--container ma__container">
       {props.siteLogo}
-      {console.log(props.siteLogo)}
       <div className="ma__footer_slim--container-inner">
         <section className="ma__footer_slim--info">
           <h3>{props.title }</h3>
