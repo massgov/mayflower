@@ -106,7 +106,9 @@ class InputProvider extends React.Component {
   updateOwnState = (newState, afterUpdate) => {
     this.setState(newState, afterUpdate);
   };
-// Checks to see if this InputProvider's FormContext is active. If it is, check to see if its id has been added to FormContext's inputProviderStore. If it isn't, add it now.
+  // Checks to see if this InputProvider's FormContext is active.
+  // If it is, check to see if its id has been added to FormContext's inputProviderStore.
+  // If it isn't, add it now.
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
       // By giving the form getters and setters and not the input value,

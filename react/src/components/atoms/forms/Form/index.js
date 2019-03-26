@@ -42,7 +42,7 @@ class FormProvider extends Component {
   // This will cause an infinite loop if called in a render function!
   // If used, call this method once only.
   setUpdateFuncOnInputProvider = (inputId, updateFunc) => {
-    if (this.hasInputProviderId(inputId) && is.fn(updateFunc)) {
+    if (this.state.hasInputProviderId(inputId) && is.fn(updateFunc)) {
       const input = this.state.inputProviderStore[inputId];
       if (is.fn(input.setUpdateFuncOnInputProvider)) {
         input.setUpdateFuncOnInputProvider(updateFunc);
@@ -62,12 +62,12 @@ class FormProvider extends Component {
   getInputProviderValues = () => {
     const values = {};
     Object.keys(this.state.inputProviderStore).forEach((inputId) => {
-      values[inputId] = this.getInputProviderValue(inputId);
+      values[inputId] = this.state.getInputProviderValue(inputId);
     });
     return values;
   };
   getInputProviderValue = (inputId) => {
-    if (this.hasInputProviderId(inputId)) {
+    if (this.state.hasInputProviderId(inputId)) {
       const inputProvider = this.state.inputProviderStore[inputId];
       return inputProvider.getOwnValue();
     }
@@ -78,13 +78,13 @@ class FormProvider extends Component {
     // If the form's store has an InputProvider id matching inputId,
     // and that InputProvider has a function to check for InputProvider components linked to it,
     // return the array of InputProvider ids linked to it.
-    if (this.hasInputProviderId(inputId) && is.fn(this.state.inputProviderStore[inputId].getLinkedInputProviders)) {
+    if (this.state.hasInputProviderId(inputId) && is.fn(this.state.inputProviderStore[inputId].getLinkedInputProviders)) {
       return this.state.inputProviderStore[inputId].getLinkedInputProviders();
     }
     return[];
   };
   setInputProviderValue = (input, afterInputProviderSetState) => {
-    if (this.hasInputProviderId(input.id)) {
+    if (this.state.hasInputProviderId(input.id)) {
       const inputProvider = this.state.inputProviderStore[input.id];
       inputProvider.setOwnValue(input.value, afterInputProviderSetState);
     }
@@ -93,21 +93,21 @@ class FormProvider extends Component {
   // Ran in InputProvider's componentDidUpdate().
   setLinkedInputProviders = (inputId, idsToLink) => {
     if (is.array(idsToLink) && !is.array.empty(idsToLink)) {
-      if (this.hasInputProviderId(inputId) && is.fn(this.state.inputProviderStore[inputId].setLinkedInputProviders)) {
+      if (this.state.hasInputProviderId(inputId) && is.fn(this.state.inputProviderStore[inputId].setLinkedInputProviders)) {
         this.state.inputProviderStore[inputId].setLinkedInputProviders(idsToLink);
       }
     }
   };
   // Handles updating all Inputs linked to the passed in inputId.
   updateLinkedInputProviders = (inputId) => {
-    if (this.hasInputProviderId(inputId) && !is.array.empty(this.getLinkedInputProviders(inputId))) {
-      const linkedInputProviders = this.getLinkedInputProviders(inputId);
+    if (this.state.hasInputProviderId(inputId) && !is.array.empty(this.state.getLinkedInputProviders(inputId))) {
+      const linkedInputProviders = this.state.getLinkedInputProviders(inputId);
       if (linkedInputProviders && !is.array.empty(linkedInputProviders)) {
         linkedInputProviders.forEach((id) => {
-          const linkedInputProviderValue = this.getInputProviderValue(inputId);
+          const linkedInputProviderValue = this.state.getInputProviderValue(inputId);
           // Only update content that actually has differences. Otherwise, this will infinite loop.
-          if (!deepEqual(this.getInputProviderValue(id), linkedInputProviderValue)) {
-            this.setInputProviderValue({
+          if (!deepEqual(this.state.getInputProviderValue(id), linkedInputProviderValue)) {
+            this.state.setInputProviderValue({
               id,
               value: linkedInputProviderValue
             });
@@ -119,9 +119,9 @@ class FormProvider extends Component {
   };
   // Triggered by InputProvider's componentDidUpdate, after all updating is complete.
   checkInputSyncUpdateFunctions = (inputId) => {
-    if (this.hasInputProviderId(inputId) && is.array(this.state.inputProviderStore[inputId].inputSyncUpdateFunctionStore)) {
+    if (this.state.hasInputProviderId(inputId) && is.array(this.state.inputProviderStore[inputId].inputSyncUpdateFunctionStore)) {
       const inputProvider = this.state.inputProviderStore[inputId];
-      inputProvider.inputSyncUpdateFunctionStore.forEach((syncFunc) => (syncFunc(inputId, this.getInputProviderValue(inputId))));
+      inputProvider.inputSyncUpdateFunctionStore.forEach((syncFunc) => (syncFunc(inputId, this.state.getInputProviderValue(inputId))));
     }
     return null;
   };
