@@ -15,7 +15,6 @@ const path = require("path");
 const gulp = require("gulp");
 const {exec} = require("child-process-promise");
 const merge = require("merge-stream");
-const mainBowerFiles = require("main-bower-files");
 const browserSync    = require("browser-sync");
 const del = require("del");
 const filter = require("gulp-filter");
@@ -66,9 +65,6 @@ class DistRegistry extends DefaultRegistry {
 
         const js = task("js", function() {
             var pipes = [
-                gulp.src(mainBowerFiles({paths: sources.bower}))
-                    .pipe(jsPipe.vendor(config.minify))
-                    .pipe(gulp.dest(self.resolveDist("assets/js"))),
                 gulp.src(sources.js)
                     .pipe(jsPipe.custom(config.minify))
                     .pipe(gulp.dest(self.resolveDist("assets/js")))

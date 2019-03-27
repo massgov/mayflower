@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
 // import paragraphOptions from './Paragraph.knob.options';
@@ -10,7 +9,6 @@ import UnorderedListDocs from './UnorderedList.md';
 import unorderedOptions from './UnorderedList.knob.options';
 
 storiesOf('atoms/lists', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'UnorderedList', (() => {

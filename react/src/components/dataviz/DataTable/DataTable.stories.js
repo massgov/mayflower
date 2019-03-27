@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 import round from '../helper';
 
@@ -11,8 +10,7 @@ import townData from './DataTableTown.json';
 import DataTable from './index';
 import DataTableDocs from './DataTable.md';
 
-storiesOf('dataviz/DataTable', module)
-  .addDecorator(withInfo)
+storiesOf('dataviz|DataTable', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DataTable Simple', (() => {
@@ -29,13 +27,13 @@ storiesOf('dataviz/DataTable', module)
         accessor: (d) => Math.round(d.ORIGIN_TRIPS_PER_PERSON * 100) / 100,
         className: 'data-align-right'
       }];
-      const isStriped = boolean('DataTable.isStriped', true);
+      const isStriped = boolean('isStriped', true);
       const props = {
         data: countyData,
         columns,
         defaultPageSize: 14,
         showPaginationBottom: false,
-        className: isStriped && '-striped'
+        className: isStriped ? '-striped' : null
       };
       return(
         <DataTable {...props} />
@@ -44,7 +42,7 @@ storiesOf('dataviz/DataTable', module)
     { info: DataTableDocs }
   )
   .add(
-    'DataTable with Filter', withInfo()(() => {
+    'DataTable with Filter', (() => {
       const columns = [{
         Header: 'Municipality',
         id: 'Municipality',
@@ -71,10 +69,10 @@ storiesOf('dataviz/DataTable', module)
         className: 'data-align-right',
         accessor: (d) => Math.round(d.ORIGIN_TRIPS_PER_PERSON * 100) / 100
       }];
-      const isStriped = boolean('DataTable.isStriped', true);
+      const isStriped = boolean('isStriped', true);
       const props = {
         data: townData,
-        filterable: boolean('DataTable.filterable', true),
+        filterable: boolean('filterable', true),
         columns,
         defaultPageSize: 10,
         defaultSorted: [

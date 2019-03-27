@@ -1,68 +1,66 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
 import Icon from '../../atoms/icons/Icon';
 
-const getCommonPropsWithKnobs = () => ({
+const getCommonPropsWithKnobsImagePromo = () => ({
   title: {
-    href: text('ImagePromo.title.href', '#'),
-    text: text('ImagePromo.title.text', 'Activity Title')
+    href: text('ImagePromo: title href', '#', 'Title'),
+    text: text('ImagePromo: title text', 'Activity Title', 'Title')
   },
   tags: null,
-  stacked: boolean('ImagePromo.stacked', false),
-  small: boolean('ImagePromo.small', false),
+  stacked: boolean('ImagePromo: stacked', false),
+  small: boolean('ImagePromo: small', false),
   image: {
-    src: text('ImagePromo.image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/190x107.png'),
-    alt: text('ImagePromo.image.alt', 'placeholder image'),
-    width: number('ImagePromo.image.width', 190),
-    height: number('ImagePromo.image.height', 107)
+    src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/190x107.png', 'Image'),
+    alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
+    width: number('ImagePromo: image width', 190, 'Image'),
+    height: number('ImagePromo: image height', 107, 'Image')
   },
-  subTitle: text('ImagePromo.subTitle', 'subtitle'),
-  description: text('ImagePromo.description', 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.'),
+  subTitle: text('ImagePromo: subTitle', 'subtitle'),
+  description: text('ImagePromo: description', 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.'),
   link: {
-    text: text('ImagePromo.link.text', 'Read More'),
-    href: text('ImagePromo.link.href', '#'),
-    info: text('ImagePromo.link.info', 'Read More about Activity Title')
+    text: text('ImagePromo: link text', 'Read More', 'Link'),
+    href: text('ImagePromo: link href', '#', 'Link'),
+    info: text('ImagePromo: link info', 'Read More about Activity Title', 'Link')
   },
   location: null,
   phone: null
 });
 
 storiesOf('molecules/ImagePromo', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('ImagePromo', (() => {
-    const props = getCommonPropsWithKnobs();
+    const props = getCommonPropsWithKnobsImagePromo();
 
     return(<ImagePromo {...props} />);
   }))
   .add(
     'ImagePromo as orgInfo', (() => {
     // Override some props/knobs for "with map link" variation example.
-      const commonProps = getCommonPropsWithKnobs();
+      const commonProps = getCommonPropsWithKnobsImagePromo();
       const props = Object.assign(commonProps, {
         title: {
-          href: text('ImagePromo.title.href', '#'),
-          text: text('ImagePromo.title.text', 'Maura Healey')
+          href: text('ImagePromo: title href', '#', 'Title'),
+          text: text('ImagePromo: title text', 'Maura Healey', 'Title')
         },
         image: {
-          src: text('ImagePromo.image.src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png'),
-          alt: text('ImagePromo.image.alt', 'placeholder image'),
-          width: number('ImagePromo.image.width', 100),
-          height: number('ImagePromo.image.height', 100)
+          src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png', 'Image'),
+          alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
+          width: number('ImagePromo: image width', 100, 'Image'),
+          height: number('ImagePromo: image height', 100, 'Image')
         },
-        stacked: boolean('ImagePromo.stacked', true),
-        small: boolean('ImagePromo.small', true),
-        subTitle: text('ImagePromo.subTitle', 'Attorney General'),
-        description: text('ImagePromo.description', 'The Attorney General is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.'),
+        stacked: boolean('ImagePromo: stacked', true),
+        small: boolean('ImagePromo: small', true),
+        subTitle: text('ImagePromo: subTitle', 'Attorney General'),
+        description: text('ImagePromo: description', 'The Attorney General is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.'),
         link: {
-          text: text('ImagePromo.link.text', 'more information'),
-          href: text('ImagePromo.link.href', '#'),
-          info: text('ImagePromo.link.info', 'learn more about Attorney General Maura Healey')
+          text: text('ImagePromo: link text', 'more information', 'Link'),
+          href: text('ImagePromo: link href', '#', 'Link'),
+          info: text('ImagePromo: link info', 'learn more about Attorney General Maura Healey', 'Link')
         }
       });
       return(<ImagePromo {...props} />);
@@ -72,7 +70,7 @@ storiesOf('molecules/ImagePromo', module)
   .add(
     'ImagePromo with map link', (() => {
     // Override some props/knobs for "with map link" variation example.
-      const commonProps = getCommonPropsWithKnobs();
+      const commonProps = getCommonPropsWithKnobsImagePromo();
       const props = Object.assign(commonProps, {
         tags: [{
           id: 123,
@@ -88,17 +86,17 @@ storiesOf('molecules/ImagePromo', module)
           width: undefined
         },
         link: {
-          text: text('ImagePromo.link.text', 'Directions'),
-          href: text('ImagePromo.link.href', '#'),
-          info: text('ImagePromo.link.info', 'Directions to Activity Title')
+          text: text('ImagePromo: link text', 'Directions', 'Link'),
+          href: text('ImagePromo: link href', '#', 'Link'),
+          info: text('ImagePromo: link info', 'Directions to Activity Title', 'Link')
         },
         location: {
-          text: text('ImagePromo.location.text', '89 Summer St, Malden, MA 02148'),
+          text: text('ImagePromo: location text', '89 Summer St, Malden, MA 02148', 'Location'),
           map: true
         },
         phone: {
-          text: text('ImagePromo.phone.text', '(781) 322-7500'),
-          href: text('ImagePromo.phone.href', '17813227500')
+          text: text('ImagePromo: phone text', '(781) 322-7500', 'Phone'),
+          href: text('ImagePromo: phone href', '17813227500', 'Phone')
         }
       });
 
