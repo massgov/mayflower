@@ -18,6 +18,15 @@ module.exports = ({ config }) => {
     loaders: [require.resolve('@storybook/addon-storysource/loader')],
     enforce: 'pre',
   });
+  config.module.rules.push({
+    test: /\.(html)$/,
+    use: {
+      loader: 'html-loader',
+      options: {
+        attrs: false
+      }
+    }
+  })
   config.resolve = {
     ...config.resolve,
     alias: {
