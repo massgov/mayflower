@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import numbro from 'numbro';
@@ -8,12 +8,11 @@ import is from 'is';
 import Input from '../Input';
 import { countDecimals } from '../Input/utility';
 import Error from '../Input/error';
-import { InputContext } from '../Input/context';
+import { FormContext, InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import './style.css';
 
-const Currency = (props) => {
-  const ref = React.createRef();
+const Currency = forwardRef((props, ref) => {
   return(
     <InputContext.Consumer>
       {
@@ -52,9 +51,7 @@ const Currency = (props) => {
             const { type } = e;
             const stringValue = ref.current.value;
             let numberValue;
-            const update = {
-              value: stringValue
-            };
+            const update = {};
             if (is.empty(stringValue)) {
               numberValue = 0;
             } else {
@@ -84,12 +81,13 @@ const Currency = (props) => {
           const handleAdjust = (e) => {
             const direction = (e.currentTarget === upRef.current) ? 'up' : 'down';
             const { type } = e;
+            const inputEl = ref.current;
             let numberValue;
-            const stringValue = ref.current.value;
+            const stringValue = inputEl.value;
             if (is.empty(stringValue)) {
               numberValue = 0;
             } else {
-              numberValue = Number(numbro.unformat(ref.current.value));
+              numberValue = Number(numbro.unformat(inputEl.value));
             }
             if (is.number(numberValue)) {
               let newValue;
@@ -100,10 +98,10 @@ const Currency = (props) => {
               }
               if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
                 const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+                inputEl.value = toCurrency(newValue, countDecimals(props.step));
                 context.updateOwnState({
                   showError,
-                  errorMsg,
-                  value: toCurrency(newValue, countDecimals(props.step))
+                  errorMsg
                 }, () => {
                   if (typeof props.onChange === 'function') {
                     props.onChange(newValue, props.id, type, direction);
@@ -114,7 +112,8 @@ const Currency = (props) => {
           };
           const handleKeyDown = (e) => {
             const { type, key } = e;
-            const stringValue = ref.current.value;
+            const inputEl = ref.current;
+            const stringValue = inputEl.value;
             let numberValue;
             if (is.empty(stringValue)) {
               numberValue = 0;
@@ -128,10 +127,10 @@ const Currency = (props) => {
                 newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
                 if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+                  inputEl.value = toCurrency(newValue, countDecimals(props.step));
                   context.updateOwnState({
                     showError,
-                    errorMsg,
-                    value: toCurrency(newValue, countDecimals(props.step))
+                    errorMsg
                   }, () => {
                     if (typeof props.onChange === 'function') {
                       props.onChange(newValue, props.id, type, key);
@@ -142,10 +141,10 @@ const Currency = (props) => {
                 newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
                 if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+                  inputEl.value = toCurrency(newValue, countDecimals(props.step));
                   context.updateOwnState({
                     showError,
-                    errorMsg,
-                    value: toCurrency(newValue, countDecimals(props.step))
+                    errorMsg
                   }, () => {
                     if (typeof props.onChange === 'function') {
                       props.onChange(newValue, props.id, type, key);
@@ -174,7 +173,8 @@ const Currency = (props) => {
                 newValue = props.min;
               }
               const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-              context.updateState({ showError, errorMsg, value: toCurrency(newValue, countDecimals(props.step)) }, () => {
+              inputEl.value = toCurrency(newValue, countDecimals(props.step));
+              context.updateState({ showError, errorMsg }, () => {
                 // invokes custom function if passed in the component
                 if (is.fn(props.onBlur)) {
                   // context.value won't be immediately changed, so pass new value over.
@@ -204,7 +204,7 @@ const Currency = (props) => {
             onFocus: handleFocus,
             onKeyDown: handleKeyDown,
             required: props.required,
-            value: context.getOwnValue(),
+            defaultValue: props.defaultValue,
             disabled: props.disabled
           };
           return(
@@ -236,12 +236,13 @@ const Currency = (props) => {
       }
     </InputContext.Consumer>
   );
-};
+});
 
 const InputCurrency = (props) => {
   const {
     max, min, step, name, onChange, onBlur, placeholder, width, maxlength, format, language, ...inputProps
   } = props;
+  const formContext = useContext(FormContext);
   // Input and Currency share the props.required and props.id values.
   const currencyProps = {
     max,
@@ -257,11 +258,15 @@ const InputCurrency = (props) => {
     onBlur,
     format,
     language,
-    disabled: props.disabled
+    disabled: props.disabled,
+    defaultValue: props.defaultValue
   };
   if (!is.empty(inputProps.defaultValue)) {
     const currency = numbro(inputProps.defaultValue);
     inputProps.defaultValue = currency.formatCurrency(format);
+  }
+  if (formContext && !is.nil(formContext.getInputProviderRef(props.id))) {
+    currencyProps.ref = formContext.getInputProviderRef(props.id);
   }
   return(
     <Input {...inputProps}>

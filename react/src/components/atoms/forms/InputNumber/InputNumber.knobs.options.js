@@ -13,7 +13,7 @@ export default {
   maxlength: () => number('maxlength', 20),
   placeholder: () => text('placeholder', '0'),
   errorMsg: () => text('errorMsg', 'you did not type something'),
-  defaultValue: () => number('defaultValue'),
+  defaultValue: () => number('InputNumber: defaultValue'),
   max: () => number('max', 100),
   min: () => number('min', 0),
   step: () => number('step', 1),

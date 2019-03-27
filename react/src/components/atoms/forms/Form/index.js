@@ -23,38 +23,40 @@ class FormProvider extends Component {
     this.state = {
       isActive: this.props.isActive,
       inputProviderStore: {},
+      getOverriddenInputProviderValue: this.getOverriddenInputProviderValue,
+      getInputProviderRef: this.getInputProviderRef,
       getInputProviderValue: this.getInputProviderValue,
       hasInputProviderId: this.hasInputProviderId,
       setInputProviderValue: this.setInputProviderValue,
       updateFormState: this.updateFormState,
+      forceInputProviderUpdate: this.forceInputProviderUpdate,
       getInputProviderValues: this.getInputProviderValues,
       checkInputSyncUpdateFunctions: this.checkInputSyncUpdateFunctions,
       getLinkedInputProviders: this.getLinkedInputProviders,
       updateLinkedInputProviders: this.updateLinkedInputProviders,
-      setLinkedInputProviders: this.setLinkedInputProviders,
-      getUpdateFuncFromInputProvider: this.getUpdateFuncFromInputProvider,
-      setUpdateFuncOnInputProvider: this.setUpdateFuncOnInputProvider
+      setLinkedInputProviders: this.setLinkedInputProviders
     };
   }
-  // Runs during the passed inputId's componentDidUpdate().
-
-  // Overrides updateFunc for the inputId passed.
-  // This will cause an infinite loop if called in a render function!
-  // If used, call this method once only.
-  setUpdateFuncOnInputProvider = (inputId, updateFunc) => {
-    if (this.state.hasInputProviderId(inputId) && is.fn(updateFunc)) {
-      const input = this.state.inputProviderStore[inputId];
-      if (is.fn(input.setUpdateFuncOnInputProvider)) {
-        input.setUpdateFuncOnInputProvider(updateFunc);
+  getInputProviderRef = (inputId) => {
+    if (this.state.hasInputProviderId(inputId)) {
+      const inputProvider = this.state.inputProviderStore[inputId];
+      if (inputProvider.selfRef) {
+        return inputProvider.selfRef;
       }
     }
+    return null;
   };
-  // Returns InputProvider's state.updateFunc.
-  getUpdateFuncFromInputProvider = (inputId) => {
-    if (this.hasInputProviderId(inputId)) {
+  forceInputProviderUpdate = (inputId) => {
+    if (this.state.hasInputProviderId(inputId)) {
       const inputProvider = this.state.inputProviderStore[inputId];
-      if (is.fn(inputProvider.getUpdateFuncFromInputProvider)) {
-        return inputProvider.getUpdateFuncFromInputProvider();
+      inputProvider.forceOwnUpdate();
+    }
+  };
+  getOverriddenInputProviderValue = (inputId) => {
+    if (this.state.hasInputProviderId(inputId)) {
+      const inputProvider = this.state.inputProviderStore[inputId];
+      if (is.fn(inputProvider.getOwnOverrideLinkedValueFunc)) {
+        return inputProvider.getOwnOverrideLinkedValueFunc;
       }
     }
     return null;
@@ -78,10 +80,26 @@ class FormProvider extends Component {
     // If the form's store has an InputProvider id matching inputId,
     // and that InputProvider has a function to check for InputProvider components linked to it,
     // return the array of InputProvider ids linked to it.
-    if (this.state.hasInputProviderId(inputId) && is.fn(this.state.inputProviderStore[inputId].getLinkedInputProviders)) {
-      return this.state.inputProviderStore[inputId].getLinkedInputProviders();
+    let values = [];
+    if (this.state.hasInputProviderId(inputId)) {
+      Object.keys(this.state.inputProviderStore)
+        .forEach((id) => {
+          if (this.state.hasInputProviderId(id) && is.fn(this.state.inputProviderStore[id].getLinkedInputProviders)) {
+            const linkedProviders = this.state.inputProviderStore[id].getLinkedInputProviders();
+            if (!is.array.empty(linkedProviders)) {
+              if (linkedProviders.includes(inputId)) {
+                // Pull the inputId we're requesting providers for out of the list.
+                values = values.concat(linkedProviders.filter(p => p !== inputId));
+                values.push(id);
+              } else if (inputId === id) {
+                // The component that contains props.linkedInputProviders updates doesn't list itself as a linked InputProvider, so handle that case here.
+                values = values.concat(linkedProviders);
+              }
+            }
+          }
+        });
     }
-    return[];
+    return values;
   };
   setInputProviderValue = (input, afterInputProviderSetState) => {
     if (this.state.hasInputProviderId(input.id)) {
@@ -100,20 +118,26 @@ class FormProvider extends Component {
   };
   // Handles updating all Inputs linked to the passed in inputId.
   updateLinkedInputProviders = (inputId) => {
-    if (this.state.hasInputProviderId(inputId) && !is.array.empty(this.state.getLinkedInputProviders(inputId))) {
-      const linkedInputProviders = this.state.getLinkedInputProviders(inputId);
-      if (linkedInputProviders && !is.array.empty(linkedInputProviders)) {
-        linkedInputProviders.forEach((id) => {
-          const linkedInputProviderValue = this.state.getInputProviderValue(inputId);
+    const linkedInputProviders = this.state.getLinkedInputProviders(inputId);
+    if (!is.array.empty(linkedInputProviders)) {
+      linkedInputProviders.forEach((id) => {
+        const linkedInputProviderValue = this.state.getInputProviderValue(inputId);
+        if (is.fn(this.state.getOverriddenInputProviderValue(id))) {
+          const override = this.state.getOverriddenInputProviderValue(id)(inputId, linkedInputProviderValue);
           // Only update content that actually has differences. Otherwise, this will infinite loop.
-          if (!deepEqual(this.state.getInputProviderValue(id), linkedInputProviderValue)) {
+          if (!deepEqual(override, this.state.getInputProviderValue(id))) {
             this.state.setInputProviderValue({
               id,
-              value: linkedInputProviderValue
+              value: override
             });
           }
-        });
-      }
+        } else if (!deepEqual(this.state.getInputProviderValue(id), linkedInputProviderValue)) {
+          this.state.setInputProviderValue({
+            id,
+            value: linkedInputProviderValue
+          });
+        }
+      });
     }
     return null;
   };

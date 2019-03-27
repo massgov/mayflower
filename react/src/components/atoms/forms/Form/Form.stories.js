@@ -15,6 +15,7 @@ import InputCurrency from '../InputCurrency';
 import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
 import InputSync from '../InputSync';
 import Paragraph from '../../../atoms/text/Paragraph';
+import { countDecimals } from '../Input/utility';
 import './story.css';
 
 storiesOf('atoms/forms', module)
@@ -25,6 +26,7 @@ storiesOf('atoms/forms', module)
 
       const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
         { [k]: v() })));
+
 
       delete InputSliderOptions.ticks;
       delete InputSliderOptions.labelText;
@@ -58,6 +60,12 @@ storiesOf('atoms/forms', module)
           <Form>
             {
             (formContext) => {
+              inputTextOptionsWithKnobs.overrideLinkedValue = (sourceInputId, val) => {
+                if (sourceInputId === 'slider') {
+                  return Number(numbro(val * 100).format({ mantissa: countDecimals(inputTextOptionsWithKnobs.step) }));
+                }
+                return val;
+              };
               const ids = [
                 [
                   'test0',
@@ -76,7 +84,6 @@ storiesOf('atoms/forms', module)
                   {
                     ...inputTextOptionsWithKnobs,
                     key: 'Form.InputNumber.test1',
-                    defaultValue: 100,
                     labelText: 'Input 1 (Linked to Input 0, Input 2, and Slider)',
                     id: 'test1',
                     unit: '%'
@@ -87,18 +94,9 @@ storiesOf('atoms/forms', module)
                   {
                     ...inputTextOptionsWithKnobs,
                     key: 'Form.InputNumber.test2',
-                    defaultValue: 100,
                     labelText: 'Input 2 (Linked to Input 0, Input 1, and Slider)',
                     id: 'test2',
-                    unit: '%',
-                    updateFunc: (val) => {
-                      const newVal = 100 - val;
-                      // We need to ensure that the new percentage value isn't already set on the Inputs we are changing.
-                      // If this check is not done, an infinite loop will occur.
-                      if (!deepEqual(newVal, formContext.getValue('test0'))) {
-                        formContext.setValue({ id: 'test0', value: newVal });
-                      }
-                    }
+                    unit: '%'
                   }
                 ]
               ];
@@ -111,26 +109,15 @@ storiesOf('atoms/forms', module)
               // InputSync can only watch form ids that actually exist,
               // so it must come after the input it is watching has been rendered.
               const inputSyncProps = {
-                overrideDefaultSyncCondition: (updatedFormId, formValue) => {
-                  const currencyValue = Number(numbro.unformat(formContext.getInputProviderValue('currency-input')));
-                  return(currencyValue > 5);
-                },
-                inputProviderIds: ['currency-input', 'test0']
+                inputProviderIds: ['currency-input', 'test0', 'test1', 'test2']
               };
-              // We still want the slider to change the other Inputs, so add an update function.
+              // We still want the slider to change the other Inputs, so add an override function.
               // Update the inputs back to percentages when slider changes value.
-              inputSliderOptionsWithKnobs.onComponentUpdate = (val) => {
-                const newVal = Number(numbro(val * 100).format({ mantissa: 0 }));
-                // We need to ensure that the new percentage value isn't already set on the Inputs we are changing.
-                // If this check is not done, an infinite loop will occur.
-                // if (!deepEqual(newVal, formContext.getInputProviderValue('test0'))) {
-                //   // For test0 and anything linked to test0, this will become the actual value instead of the linked value.
-                //   formContext.setInputProviderValue({ id: 'test0', value: newVal });
-                // }
-                if (val > 60) {
-                  formContext.setInputProviderValue({ id: 'currency-input', value: '$999.00' });
-                }
+              inputSliderOptionsWithKnobs.overrideLinkedValue = (sourceInputId, val) => {
+                return Number(numbro(val / 100).format({ mantissa: countDecimals(inputSliderOptionsWithKnobs.step) }));
               };
+              // Slider doesn't have an input element, so we should use state.value with it. This is set to true by default for sliders.
+              inputSliderOptionsWithKnobs.useOwnStateValue = true;
               return(
                 <React.Fragment>
                   <div className="align-left">

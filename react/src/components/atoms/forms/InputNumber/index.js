@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
@@ -6,21 +6,20 @@ import numbro from 'numbro';
 
 import Input from '../Input';
 import Error from '../Input/error';
-import { InputContext } from '../Input/context';
+import { InputContext, FormContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import { countDecimals } from '../Input/utility';
 import { numberCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
 import './style.css';
 
-const NumberInput = (props) => {
-  const ref = React.createRef();
+const NumberInput = forwardRef((props, ref) => {
   const upRef = React.createRef();
   const downRef = React.createRef();
   return(
     <InputContext.Consumer>
       {
         (context) => {
-          const hasValue = is.number(context.getOwnValue());
+          const hasValue = is.number(props.defaultValue);
           const inputClasses = classNames({
             'ma__input-number__control': true,
             'js-is-required': props.required,
@@ -70,7 +69,7 @@ const NumberInput = (props) => {
               inputEl.value = Number(numbro(newValue)
                 .format({ mantissa: countDecimals(props.step) }));
               const updateError = displayErrorMessage(newValue);
-              context.updateOwnState({ value: inputEl.value, ...updateError }, () => {
+              context.updateOwnState({ ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
                   props.onBlur(e, inputEl.value);
                 }
@@ -92,7 +91,7 @@ const NumberInput = (props) => {
               }
             }
             const updateError = displayErrorMessage(newValue);
-            context.updateOwnState({ value: newValue, ...updateError }, () => {
+            context.updateOwnState({ ...updateError }, () => {
               if (is.fn(props.onChange)) {
                 props.onChange(e, newValue, props.id);
               }
@@ -141,7 +140,7 @@ const NumberInput = (props) => {
             step: props.step,
             ref
           };
-          inputAttr.value = context.getOwnValue();
+          inputAttr.defaultValue = props.defaultValue;
           if (is.number(props.max)) {
             inputAttr.max = props.max;
           }
@@ -184,12 +183,13 @@ const NumberInput = (props) => {
       }
     </InputContext.Consumer>
   );
-};
+});
 
 const InputNumber = (props) => {
   const {
     max, min, step, name, onChange, onBlur, placeholder, width, maxlength, showButtons, ...inputProps
   } = props;
+  const formContext = useContext(FormContext);
   // Input and Number share the props.required, props.id and props.disabled values.
   const numberProps = {
     max,
@@ -205,8 +205,12 @@ const InputNumber = (props) => {
     onBlur,
     disabled: props.disabled,
     unit: props.unit,
-    showButtons
+    showButtons,
+    defaultValue: props.defaultValue
   };
+  if (formContext && !is.nil(formContext.getInputProviderRef(props.id))) {
+    numberProps.ref = formContext.getInputProviderRef(props.id);
+  }
   return(
     <Input {...inputProps}>
       <NumberInput {...numberProps} />
