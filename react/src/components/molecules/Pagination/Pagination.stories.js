@@ -15,18 +15,16 @@ storiesOf('molecules', module)
     'Pagination', (() => {
       const props = {
         next: {
-          disabled: boolean('pagination.next.disabled', false),
+          disabled: boolean('pagination.next.disabled', true),
           text: text('pagination.next.text', 'Next'),
           hide: boolean('pagination.next.hide', false),
-          onClick: action('Next Clicked.'),
-          ariaLabel: text('pagination.next.ariaLabel', 'Go to Next Search Results Page')
+          onClick: action('Next Clicked.')
         },
         prev: {
           disabled: boolean('pagination.prev.disabled', false),
           text: text('pagination.prev.text', 'Previous'),
           hide: boolean('pagination.prev.hide', false),
-          onClick: action('Previous Clicked.'),
-          ariaLabel: text('pagination.prev.ariaLabel', 'Go to Previous Search Results Page')
+          onClick: action('Previous Clicked.')
         },
         pages: object('pagination.pages', paginationOptions.pages)
       };
