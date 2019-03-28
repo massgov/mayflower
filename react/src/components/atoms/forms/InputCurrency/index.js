@@ -98,15 +98,20 @@ const Currency = forwardRef((props, ref) => {
               }
               if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
                 const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                inputEl.value = toCurrency(newValue, countDecimals(props.step));
-                context.updateOwnState({
-                  showError,
-                  errorMsg
-                }, () => {
-                  if (typeof props.onChange === 'function') {
-                    props.onChange(newValue, props.id, type, direction);
+                context.setOwnValue(
+                  // This will not cause a double render because InputCurrency uses input references.
+                  toCurrency(newValue, countDecimals(props.step)),
+                  () => {
+                    context.updateOwnState({
+                      showError,
+                      errorMsg
+                    }, () => {
+                      if (typeof props.onChange === 'function') {
+                        props.onChange(newValue, props.id, type, direction);
+                      }
+                    });
                   }
-                });
+                );
               }
             }
           };
@@ -127,29 +132,39 @@ const Currency = forwardRef((props, ref) => {
                 newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
                 if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                  inputEl.value = toCurrency(newValue, countDecimals(props.step));
-                  context.updateOwnState({
-                    showError,
-                    errorMsg
-                  }, () => {
-                    if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id, type, key);
+                  context.setOwnValue(
+                    // This will not cause a double render because InputCurrency uses input references.
+                    toCurrency(newValue, countDecimals(props.step)),
+                    () => {
+                      context.updateOwnState({
+                        showError,
+                        errorMsg
+                      }, () => {
+                        if (typeof props.onChange === 'function') {
+                          props.onChange(newValue, props.id, type, key);
+                        }
+                      });
                     }
-                  });
+                  );
                 }
               } else if (key === 'ArrowUp') {
                 newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
                 if ((!hasProperty(props, 'min') || newValue >= props.min) && (!hasProperty(props, 'max') || (newValue <= props.max))) {
                   const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                  inputEl.value = toCurrency(newValue, countDecimals(props.step));
-                  context.updateOwnState({
-                    showError,
-                    errorMsg
-                  }, () => {
-                    if (typeof props.onChange === 'function') {
-                      props.onChange(newValue, props.id, type, key);
+                  context.setOwnValue(
+                    // This will not cause a double render because InputCurrency uses input references.
+                    toCurrency(newValue, countDecimals(props.step)),
+                    () => {
+                      context.updateOwnState({
+                        showError,
+                        errorMsg
+                      }, () => {
+                        if (typeof props.onChange === 'function') {
+                          props.onChange(newValue, props.id, type, key);
+                        }
+                      });
                     }
-                  });
+                  );
                 }
               }
             }
@@ -163,7 +178,7 @@ const Currency = forwardRef((props, ref) => {
             const numberValue = Number(numbro.unformat(stringValue));
             if (props.required && is.empty(stringValue)) {
               errorMsg = 'Please enter a value.';
-              context.updateState({ showError: true, errorMsg });
+              context.updateOwnState({ showError: true, errorMsg });
             } else if (!is.empty(stringValue)) {
               let newValue = numberValue;
               if (hasProperty(props, 'max') && newValue > props.max) {
@@ -173,14 +188,18 @@ const Currency = forwardRef((props, ref) => {
                 newValue = props.min;
               }
               const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-              inputEl.value = toCurrency(newValue, countDecimals(props.step));
-              context.updateState({ showError, errorMsg }, () => {
-                // invokes custom function if passed in the component
-                if (is.fn(props.onBlur)) {
-                  // context.value won't be immediately changed, so pass new value over.
-                  props.onBlur(numberValue);
+              context.setOwnValue(
+                toCurrency(newValue, countDecimals(props.step)),
+                () => {
+                  context.updateOwnState({ showError, errorMsg }, () => {
+                    // invokes custom function if passed in the component
+                    if (is.fn(props.onBlur)) {
+                      // context.value won't be immediately changed, so pass new value over.
+                      props.onBlur(numberValue);
+                    }
+                  });
                 }
-              });
+              );
             }
           };
           const handleFocus = () => {
