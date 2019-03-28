@@ -16,6 +16,6 @@ When submitting your request, include:
 
 * The implementation’s target language and/or framework
 * The code repository if it is in Github or it is public
-* The author’s name \(or alias\) and contact URL or email address
+* The author’s name or alias and contact URL or email address
 * The most recent version of the Mayflower Design System that the project targets
 * Any useful caveats or other notes
