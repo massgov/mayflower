@@ -83,46 +83,36 @@ const Currency = (props) => {
               }
             });
           };
+
           const handleAdjust = (e) => {
             const direction = (e.currentTarget === upRef.current) ? 'up' : 'down';
             const { type } = e;
-            let numberValue;
             const stringValue = ref.current.value;
-            if (is.empty(stringValue)) {
-              numberValue = 0;
-            } else {
-              numberValue = Number(numbro.unformat(ref.current.value));
+            const numberValue = stringValue ? Number(numbro.unformat(ref.current.value)) : 0;
+            let newValue;
+            if (direction === 'up') {
+              newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
+            } else if (direction === 'down') {
+              newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
             }
-            if (is.number(numberValue)) {
-              let newValue;
-              if (direction === 'up') {
-                newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
-              } else if (direction === 'down') {
-                newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
-              }
-              if (greaterThanMin(newValue) && lessThanMax(newValue)) {
-                const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                context.updateState({
-                  showError,
-                  errorMsg,
-                  value: toCurrency(newValue, countDecimals(props.step))
-                }, () => {
-                  if (typeof props.onChange === 'function') {
-                    props.onChange(newValue, props.id, type, direction);
-                  }
-                });
-              }
+            if (greaterThanMin(newValue) && lessThanMax(newValue)) {
+              const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
+              context.updateState({
+                showError,
+                errorMsg,
+                value: toCurrency(newValue, countDecimals(props.step))
+              }, () => {
+                if (props.onChange && is.fn(props.onChange)) {
+                  props.onChange(newValue, props.id, type, direction);
+                }
+              });
             }
           };
+
           const handleKeyDown = (e) => {
             const { type, key } = e;
             const stringValue = ref.current.value;
-            let numberValue;
-            if (is.empty(stringValue)) {
-              numberValue = 0;
-            } else {
-              numberValue = Number(numbro.unformat(stringValue));
-            }
+            let numberValue = stringValue ? Number(numbro.unformat(stringValue)) : 0;
             // default to 0 if defaultValue is NaN
             if (is.number(numberValue) && !is.empty(stringValue)) {
               let newValue = numberValue;
@@ -157,18 +147,19 @@ const Currency = (props) => {
               }
             }
           };
+
           const handleBlur = () => {
             const inputEl = ref.current;
-            if (is.empty(inputEl.value)) {
+            const stringValue = inputEl.value;
+            const isNotNumber = !stringValue || isNaN(Number(numbro.unformat(stringValue)));
+            if (isNotNumber) {
               inputEl.setAttribute('placeholder', props.placeholder);
             }
-            const stringValue = inputEl.value;
-            const numberValue = Number(numbro.unformat(stringValue));
+            let newValue = isNotNumber ? "" : Number(numbro.unformat(stringValue));
             if (props.required && is.empty(stringValue)) {
               errorMsg = 'Please enter a value.';
               context.updateState({ showError: true, errorMsg });
             } else if (!is.empty(stringValue)) {
-              let newValue = numberValue;
               if (!hasNumberProperty(props, 'max') || newValue > props.max) {
                 newValue = props.max;
               }
@@ -180,17 +171,19 @@ const Currency = (props) => {
                 // invokes custom function if passed in the component
                 if (is.fn(props.onBlur)) {
                   // context.value won't be immediately changed, so pass new value over.
-                  props.onBlur(numberValue);
+                  props.onBlur(newValue);
                 }
               });
             }
           };
+
           const handleFocus = () => {
             const inputEl = ref.current;
             if (is.empty(inputEl.value)) {
               inputEl.removeAttribute('placeholder');
             }
           };
+
           const inputAttr = {
             className: inputClasses,
             name: props.name,
@@ -209,6 +202,7 @@ const Currency = (props) => {
             value: context.getValue(),
             disabled: props.disabled
           };
+
           return(
             <div className="ma__input-currency">
               <input {...inputAttr} />
