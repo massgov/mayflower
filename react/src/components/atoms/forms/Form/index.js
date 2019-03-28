@@ -149,7 +149,8 @@ class FormProvider extends Component {
     }
     return null;
   };
-  // Triggered by InputProvider's componentDidUpdate, after all updating is complete.
+  // Ran during InputProvider's componentDidUpdate, after all updating is complete.
+  // This function triggers updates to InputSync components watching for the passed in inputId, if any.
   checkInputSyncUpdateFunctions = (inputId) => {
     if (this.state.hasInputProviderId(inputId) && is.array(this.state.inputProviderStore[inputId].inputSyncUpdateFunctionStore)) {
       const inputProvider = this.state.inputProviderStore[inputId];
