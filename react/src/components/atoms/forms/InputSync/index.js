@@ -17,7 +17,8 @@ class InputSync extends React.Component {
   componentDidMount() {
     this.checkFormContext();
   }
-  // Checks to see if there is any related FormContext set for this component. If it is set, and it is active, then add its updater function to FormContext's inputProviderStore for each id within inputProviderIds.
+  // Checks to see if there is any related FormContext set for this component.
+  // If the form is set and it is active, then add its updater function to FormContext's inputProviderStore for each id within inputProviderIds.
   checkFormContext = () => {
     if (this.context && this.context.isActive) {
       if (is.array(this.state.inputProviderIds) && !is.array.empty(this.state.inputProviderIds)) {

@@ -19,7 +19,7 @@ const NumberInput = forwardRef((props, ref) => {
     <InputContext.Consumer>
       {
         (context) => {
-          const hasValue = is.number(props.defaultValue);
+          const hasValue = is.number(Number(context.getOwnValue()));
           const inputClasses = classNames({
             'ma__input-number__control': true,
             'js-is-required': props.required,
@@ -59,21 +59,26 @@ const NumberInput = forwardRef((props, ref) => {
             let newValue = Number(inputEl.value);
             if ((hasProperty(props, 'max') && newValue > props.max) || (hasProperty(props, 'min') && newValue < props.min)) {
               if (hasProperty(props, 'max') && newValue > props.max) {
-                newValue = props.max;
+                newValue = Number(props.max);
               }
               if (hasProperty(props, 'min') && newValue < props.min) {
-                newValue = props.min;
+                newValue = Number(props.min);
               }
             }
             if (!is.empty(inputEl.value)) {
-              inputEl.value = Number(numbro(newValue)
-                .format({ mantissa: countDecimals(props.step) }));
               const updateError = displayErrorMessage(newValue);
-              context.updateOwnState({ ...updateError }, () => {
-                if (is.fn(props.onBlur)) {
-                  props.onBlur(e, inputEl.value);
+              // Since this component doesn't use state, set own value won't cause setState to trigger.
+              context.setOwnValue(
+                Number(numbro(newValue)
+                .format({ mantissa: countDecimals(props.step) })),
+                () => {
+                  context.updateOwnState({ ...updateError }, () => {
+                    if (is.fn(props.onBlur)) {
+                      props.onBlur(e, newValue);
+                    }
+                  });
                 }
-              });
+              );
             }
           };
 
@@ -91,11 +96,16 @@ const NumberInput = forwardRef((props, ref) => {
               }
             }
             const updateError = displayErrorMessage(newValue);
-            context.updateOwnState({ ...updateError }, () => {
-              if (is.fn(props.onChange)) {
-                props.onChange(e, newValue, props.id);
+            context.setOwnValue(
+              newValue,
+              () => {
+                context.updateOwnState({ ...updateError }, () => {
+                  if (is.fn(props.onChange)) {
+                    props.onChange(e, newValue, props.id);
+                  }
+                });
               }
-            });
+            );
           };
 
           const handleAdjust = (e) => {
@@ -106,21 +116,24 @@ const NumberInput = forwardRef((props, ref) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            if (direction === 'up' && (!hasProperty(props, 'max') || inputEl.value < props.max)) {
-              if (is.empty(inputEl.value)) {
-                inputEl.value = 1;
+            let { value: newValue } = inputEl;
+            if (direction === 'up' && (!hasProperty(props, 'max') || newValue < props.max)) {
+              if (is.empty(newValue)) {
+                newValue = 1;
               } else {
-                inputEl.value = Number(numbro(inputEl.value)
+                newValue = Number(numbro(newValue)
                   .add(props.step).value());
               }
+              context.setOwnValue(newValue);
               handleChange(e);
-            } else if (direction === 'down' && (!hasProperty(props, 'min') || inputEl.value > props.min)) {
-              if (is.empty(inputEl.value)) {
-                inputEl.value = -1;
+            } else if (direction === 'down' && (!hasProperty(props, 'min') || newValue > props.min)) {
+              if (is.empty(newValue)) {
+                newValue = -1;
               } else {
-                inputEl.value = Number(numbro(inputEl.value)
+                newValue = Number(numbro(newValue)
                   .subtract(props.step).value());
               }
+              context.setOwnValue(newValue);
               handleChange(e);
             }
           };

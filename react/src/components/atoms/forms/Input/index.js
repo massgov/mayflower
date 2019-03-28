@@ -63,17 +63,6 @@ class InputProvider extends React.Component {
   }
   componentDidUpdate() {
     const formProviderContext = this.context;
-    if (is.array(this.state.linkedInputProviders)) {
-      // Add any back references to the current Input to the linkedInputProviders array.
-      // this.state.linkedInputProviders.forEach((id) => {
-      //   const currentLinks = formProviderContext.getLinkedInputProviders(id);
-      //   if (!currentLinks.includes(this.props.id)) {
-      //     const backLink = this.state.linkedInputProviders.filter(v => v !== id);
-      //     backLink.push(this.props.id);
-      //     formProviderContext.setLinkedInputProviders(id, backLink);
-      //   }
-      // });
-    }
     if (is.fn(formProviderContext.updateLinkedInputProviders)) {
       // First, run the on update functions for this InputProvider.
       if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
@@ -149,6 +138,7 @@ class InputProvider extends React.Component {
         inputProviderStore[this.props.id] = {
           getOwnValue: this.state.getOwnValue,
           setOwnValue: this.state.setOwnValue,
+          updateOwnState: this.state.updateOwnState,
           selfRef: this.selfRef,
           forceOwnUpdate: this.state.forceOwnUpdate,
           useOwnStateValue: this.state.useOwnStateValue,
