@@ -37,6 +37,7 @@ class FormProvider extends Component {
       setLinkedInputProviders: this.setLinkedInputProviders
     };
   }
+  // Returns a react ref back to the input element rendered by the InputProvider whose id matches inputId.
   getInputProviderRef = (inputId) => {
     if (this.state.hasInputProviderId(inputId)) {
       const inputProvider = this.state.inputProviderStore[inputId];
@@ -46,12 +47,16 @@ class FormProvider extends Component {
     }
     return null;
   };
+  // Forces an InputProvider to update using this.forceUpdate.
   forceInputProviderUpdate = (inputId) => {
     if (this.state.hasInputProviderId(inputId)) {
       const inputProvider = this.state.inputProviderStore[inputId];
       inputProvider.forceOwnUpdate();
+      return true;
     }
+    return false;
   };
+  // Gets the value that would be set to the InputProvider by its own overrideLinkedValue function.
   getOverriddenInputProviderValue = (inputId) => {
     if (this.state.hasInputProviderId(inputId)) {
       const inputProvider = this.state.inputProviderStore[inputId];
@@ -61,6 +66,7 @@ class FormProvider extends Component {
     }
     return null;
   };
+  // Returns an object, keyed by InputProvider ids, of values for all InputProviders within inputProviderStore.
   getInputProviderValues = () => {
     const values = {};
     Object.keys(this.state.inputProviderStore).forEach((inputId) => {
@@ -68,6 +74,7 @@ class FormProvider extends Component {
     });
     return values;
   };
+  // Returns an InputProvider's current value.
   getInputProviderValue = (inputId) => {
     if (this.state.hasInputProviderId(inputId)) {
       const inputProvider = this.state.inputProviderStore[inputId];
@@ -84,8 +91,8 @@ class FormProvider extends Component {
     if (this.state.hasInputProviderId(inputId)) {
       Object.keys(this.state.inputProviderStore)
         .forEach((id) => {
-          if (this.state.hasInputProviderId(id) && is.fn(this.state.inputProviderStore[id].getLinkedInputProviders)) {
-            const linkedProviders = this.state.inputProviderStore[id].getLinkedInputProviders();
+          if (this.state.hasInputProviderId(id) && is.fn(this.state.inputProviderStore[id].getOwnLinkedInputProviders)) {
+            const linkedProviders = this.state.inputProviderStore[id].getOwnLinkedInputProviders();
             if (!is.array.empty(linkedProviders)) {
               if (linkedProviders.includes(inputId)) {
                 // Pull the inputId we're requesting providers for out of the list.
@@ -101,6 +108,7 @@ class FormProvider extends Component {
     }
     return values;
   };
+  // Sets an InputProvider's value.
   setInputProviderValue = (input, afterInputProviderSetState) => {
     if (this.state.hasInputProviderId(input.id)) {
       const inputProvider = this.state.inputProviderStore[input.id];
@@ -111,8 +119,8 @@ class FormProvider extends Component {
   // Ran in InputProvider's componentDidUpdate().
   setLinkedInputProviders = (inputId, idsToLink) => {
     if (is.array(idsToLink) && !is.array.empty(idsToLink)) {
-      if (this.state.hasInputProviderId(inputId) && is.fn(this.state.inputProviderStore[inputId].setLinkedInputProviders)) {
-        this.state.inputProviderStore[inputId].setLinkedInputProviders(idsToLink);
+      if (this.state.hasInputProviderId(inputId) && is.fn(this.state.inputProviderStore[inputId].setOwnLinkedInputProviders)) {
+        this.state.inputProviderStore[inputId].setOwnLinkedInputProviders(idsToLink);
       }
     }
   };
@@ -149,7 +157,9 @@ class FormProvider extends Component {
     }
     return null;
   };
+  // Checks to see if the passed inputId exists within the inputProviderStore.
   hasInputProviderId = (inputId) => Object.prototype.hasOwnProperty.call(this.state.inputProviderStore, inputId);
+  // Updates the component's state.
   updateFormState = (newState) => { this.setState(newState); };
   render() {
     return(

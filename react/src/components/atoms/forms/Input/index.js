@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
 
@@ -42,8 +43,8 @@ class InputProvider extends React.Component {
       value: this.props.defaultValue,
       useOwnStateValue: this.props.useOwnStateValue,
       linkedInputProviders: this.props.linkedInputProviders,
-      getLinkedInputProviders: this.getLinkedInputProviders,
-      setLinkedInputProviders: this.setLinkedInputProviders,
+      getOwnLinkedInputProviders: this.getOwnLinkedInputProviders,
+      setOwnLinkedInputProviders: this.setOwnLinkedInputProviders,
       getOwnValue: this.getOwnValue,
       setOwnValue: this.setOwnValue,
       updateOwnState: this.updateOwnState,
@@ -79,9 +80,7 @@ class InputProvider extends React.Component {
       formProviderContext.checkInputSyncUpdateFunctions(this.props.id);
     }
   }
-  forceOwnUpdate = () => {
-    this.forceUpdate();
-  };
+  // Returns the InputProvider's current value. Used by FormContext/FormProvider.
   getOwnValue = () => {
     if (this.state.useOwnStateValue) {
       return this.state.value;
@@ -93,11 +92,15 @@ class InputProvider extends React.Component {
     }
     return this.props.defaultValue;
   };
+  // Sets useOwnStateValue to the passed in value.
+  // When value is true, the InputProvider will switch over to storing an input's value within this.state.value.
+  // Use this for components that don't normally have an input element.
   setUseOwnStateValue = (value) => {
     if (is.bool(value)) {
       this.setState({ useOwnStateValue: value });
     }
   };
+  // Sets the InputProvider's value. Used by FormContext/FormProvider.
   setOwnValue = (value, afterUpdate) => {
     if (this.state.useOwnStateValue) {
       this.setState({ value }, afterUpdate);
@@ -112,8 +115,11 @@ class InputProvider extends React.Component {
       }
     }
   };
-  getLinkedInputProviders = () => this.state.linkedInputProviders;
-  setLinkedInputProviders = (ids) => {
+  // Returns the array of linkedInputProviders this component has, if any.
+  // This should not be used to determine ALL InputProvider components linked to this one.
+  // Use formContext.getLinkedInputProviders instead for that.
+  getOwnLinkedInputProviders = () => this.state.linkedInputProviders;
+  setOwnLinkedInputProviders = (ids) => {
     if (is.array(ids) && !is.array.empty(ids)) {
       const { linkedInputProviders = [] } = this.state;
       const updatedIds = linkedInputProviders.concat(ids);
@@ -122,6 +128,10 @@ class InputProvider extends React.Component {
   };
   setOwnOnComponentUpdateFunc = (getOwnOnComponentUpdateFunc) => {
     this.setState({ getOwnOnComponentUpdateFunc });
+  };
+  // Allows for forcing an update of an InputProvider through FormContext/FormProvider.
+  forceOwnUpdate = () => {
+    this.forceUpdate();
   };
   updateOwnState = (newState, afterUpdate) => {
     this.setState(newState, afterUpdate);
@@ -143,8 +153,8 @@ class InputProvider extends React.Component {
           forceOwnUpdate: this.state.forceOwnUpdate,
           useOwnStateValue: this.state.useOwnStateValue,
           setUseOwnStateValue: this.state.setUseOwnStateValue,
-          getLinkedInputProviders: this.state.getLinkedInputProviders,
-          setLinkedInputProviders: this.state.setLinkedInputProviders,
+          getOwnLinkedInputProviders: this.state.getOwnLinkedInputProviders,
+          setOwnLinkedInputProviders: this.state.setOwnLinkedInputProviders,
           getOwnOnComponentUpdateFunc: this.state.getOwnOnComponentUpdateFunc,
           setOwnOnComponentUpdateFunc: this.state.setOwnOnComponentUpdateFunc,
           getOwnOverrideLinkedValueFunc: this.state.getOwnOverrideLinkedValueFunc
@@ -168,6 +178,20 @@ InputProvider.defaultProps = {
   onComponentUpdate: null,
   overrideLinkedValue: null,
   useOwnStateValue: false
+};
+
+InputProvider.propTypes = {
+  /** Controls if the component's local this.state should be used to store the value for the Input. Use this when your component does not contain an input element. */
+  useOwnStateValue: PropTypes.bool,
+  /** An array of InputProvider component ids. Whenever the value of any InputProvider within this array update, all InputProviders whose ids are in this array will be set to the same value. This should only be set once for any of the InputProviders that should be linked. */
+  linkedInputProviders: PropTypes.arrayOf(PropTypes.string),
+  /** An optional function that overrides the value that would be set to this InputProvider when linked together by any other InputProvider's linkedInputProviders. The value returned by this function becomes the newly overridden value. */
+  overrideLinkedValue: PropTypes.func,
+  /** An optional function that is ran during the componentDidUpdate lifecycle of this component. This function is passed the current value of the InputProvider. */
+  onComponentUpdate: PropTypes.func,
+  /** The default value that should be used for the input. */
+  // eslint-disable-next-line react/forbid-prop-types
+  defaultValue: PropTypes.any
 };
 
 
