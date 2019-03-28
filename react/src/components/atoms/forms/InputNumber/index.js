@@ -52,6 +52,7 @@ const NumberInput = (props) => {
               errorMsg: ''
             };
           };
+
           const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
 
           const handleOnBlur = (e) => {
@@ -77,17 +78,12 @@ const NumberInput = (props) => {
           };
 
           const handleChange = (e) => {
-            const inputEl = ref.current;
             e.persist();
-            let newValue;
-            if (is.empty(inputEl.value)) {
-              newValue = inputEl.value;
-            } else {
-              newValue = Number(inputEl.value);
-              if (is.number(newValue)) {
-                newValue = Number(numbro(inputEl.value)
+            const inputEl = ref.current;
+            let newValue = inputEl.value;
+            if (!is.empty(newValue)) {
+              newValue = is.number(Number(inputEl.value)) && Number(numbro(inputEl.value)
                   .format({ mantissa: countDecimals(props.step) }));
-              }
             }
             const updateError = displayErrorMessage(newValue);
             context.updateState({ value: newValue, ...updateError }, () => {
