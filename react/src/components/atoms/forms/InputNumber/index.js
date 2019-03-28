@@ -58,20 +58,19 @@ const NumberInput = (props) => {
           const handleOnBlur = (e) => {
             e.persist();
             const inputEl = ref.current;
-            let newValue = Number(inputEl.value);
+            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
             if (hasNumberProperty(props, 'max') && newValue > props.max) {
               newValue = props.max;
             }
             if (hasNumberProperty(props, 'min') && newValue < props.min) {
               newValue = props.min;
             }
-            if (!is.empty(inputEl.value)) {
-              inputEl.value = Number(numbro(newValue)
-                .format({ mantissa: countDecimals(props.step) }));
+            if (is.number(newValue)) {
+              newValue = newValue.toFixed(countDecimals(props.step));
               const updateError = displayErrorMessage(newValue);
-              context.updateState({ value: inputEl.value, ...updateError }, () => {
+              context.updateState({ value: newValue, ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
-                  props.onBlur(e, inputEl.value);
+                  props.onBlur(e, newValue);
                 }
               });
             }
@@ -80,11 +79,7 @@ const NumberInput = (props) => {
           const handleChange = (e) => {
             e.persist();
             const inputEl = ref.current;
-            let newValue = inputEl.value;
-            if (!is.empty(newValue)) {
-              newValue = is.number(Number(inputEl.value)) && Number(numbro(inputEl.value)
-                  .format({ mantissa: countDecimals(props.step) }));
-            }
+            const newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
             const updateError = displayErrorMessage(newValue);
             context.updateState({ value: newValue, ...updateError }, () => {
               if (is.fn(props.onChange)) {
@@ -94,6 +89,7 @@ const NumberInput = (props) => {
           };
 
           const handleAdjust = (e) => {
+            e.persist();
             let direction;
             if (e.currentTarget === upRef.current) {
               direction = 'up';
@@ -101,22 +97,23 @@ const NumberInput = (props) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            if (direction === 'up' && (!hasNumberProperty(props, 'max') || inputEl.value < props.max)) {
-              if (is.empty(inputEl.value)) {
-                inputEl.value = props.step;
-              } else {
-                inputEl.value = Number(numbro(inputEl.value)
-                  .add(props.step).value());
-              }
-              handleChange(e);
-            } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || inputEl.value > props.min)) {
-              if (is.empty(inputEl.value)) {
-                inputEl.value = props.step * -1;
-              } else {
-                inputEl.value = Number(numbro(inputEl.value)
-                  .subtract(props.step).value());
-              }
-              handleChange(e);
+            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
+            if (direction === 'up' && (!hasNumberProperty(props, 'max') || newValue < props.max)) {
+              newValue = newValue ? (newValue + props.step).toFixed(countDecimals(props.step)) : props.step;
+              const updateError = displayErrorMessage(newValue);
+              context.updateState({ value: newValue, ...updateError }, () => {
+                if (is.fn(props.onChange)) {
+                  props.onChange(e, newValue, props.id);
+                }
+              });
+            } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || newValue > props.min)) {
+              newValue = newValue ? (newValue + props.step * -1).toFixed(countDecimals(props.step)) : (props.step * -1);
+              const updateError = displayErrorMessage(newValue);
+              context.updateState({ value: newValue, ...updateError }, () => {
+                if (is.fn(props.onChange)) {
+                  props.onChange(e, newValue, props.id);
+                }
+              });
             }
           };
 
