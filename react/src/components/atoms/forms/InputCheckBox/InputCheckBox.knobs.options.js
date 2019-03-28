@@ -3,13 +3,13 @@ import { action } from '@storybook/addon-actions';
 import { svgOptions } from '../../icons/Icon/Icon.knob.options';
 
 export default {
-  id: () => text('InputCheckBox.id', 'input-checkbox'),
-  label: () => text('InputCheckBox.label', 'Apply to all'),
-  icon: () => select('InputCheckBox.icon', svgOptions, ''),
-  defaultValue: () => boolean('InputCheckBox.checked', false),
-  onChange: () => action('InputCheckBox.onChange'),
-  disabled: () => boolean('InputCheckBox.disabled', false),
-  required: () => boolean('InputCheckBox.required', false),
-  errorMsg: () => text('InputCheckBox.errorMsg', 'You are required to check this box.'),
-  labelText: () => text('InputCheckBox', 'Checkbox Input')
+  id: () => text('id', 'input-checkbox'),
+  label: () => text('label', 'Apply to all'),
+  icon: () => select('icon', svgOptions, ''),
+  defaultValue: () => boolean('checked', false),
+  onChange: () => action('onChange'),
+  disabled: () => boolean('disabled', false),
+  required: () => boolean('required', false),
+  errorMsg: () => text('errorMsg', 'You are required to check this box.'),
+  labelText: () => text('labelText', 'Checkbox Input')
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import AccordionWrapper from './index';
@@ -21,25 +20,24 @@ const icons = {
 };
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'AccordionWrapper', (() => {
       const AccordionItem1Props = {
-        title: text('accordion1.title', 'Collapsible Header One'),
-        info: text('accordion1.info', 'Collapsible Header One'),
-        icon: select('accordion1.icon', Object.keys(icons), 'circlechevron')
+        title: text('Accordion1 title', 'Collapsible Header One', 'Accordion1'),
+        info: text('Accordion1 info', 'Collapsible Header One', 'Accordion1'),
+        icon: select('Accordion1 icon', Object.keys(icons), 'circlechevron', 'Accordion1')
       };
       const AccordionItem2Props = {
-        title: text('accordion2.title', 'Collapsible Header Two'),
-        info: text('accordion2.info', 'Collapsible Header Two'),
-        icon: select('accordion2.icon', Object.keys(icons), 'laptop')
+        title: text('Accordion2 title', 'Collapsible Header Two', 'Accordion2'),
+        info: text('Accordion2 info', 'Collapsible Header Two', 'Accordion2'),
+        icon: select('Accordion2 icon', Object.keys(icons), 'laptop', 'Accordion2')
       };
       const AccordionWrapperProps = {
-        border: boolean('accordionWrapper.border', true),
-        secondary: boolean('accordionWrapper.secondary', false),
-        emphasize: boolean('accordionWrapper.emphasize', true),
-        headerLevel: select('accordionWrapper.headerLevel', [1, 2, 3, 4, 5, 6], 2)
+        border: boolean('border', true),
+        secondary: boolean('secondary', false),
+        emphasize: boolean('emphasize', true),
+        headerLevel: select('headerLevel', [1, 2, 3, 4, 5, 6], 2)
       };
 
       // Set the icon prop to the actual element based on knob selection.
