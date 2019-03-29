@@ -66,7 +66,8 @@ const NumberInput = (props) => {
               newValue = props.min;
             }
             if (is.number(newValue)) {
-              newValue = newValue.toFixed(countDecimals(props.step));
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = Number(newValue.toFixed(countDecimals(props.step)));
               const updateError = displayErrorMessage(newValue);
               context.updateState({ value: newValue, ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
@@ -99,7 +100,8 @@ const NumberInput = (props) => {
             const inputEl = ref.current;
             let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
             if (direction === 'up' && (!hasNumberProperty(props, 'max') || newValue < props.max)) {
-              newValue = newValue ? (newValue + props.step).toFixed(countDecimals(props.step)) : props.step;
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = newValue ? Number((newValue + props.step).toFixed(countDecimals(props.step))) : props.step;
               const updateError = displayErrorMessage(newValue);
               context.updateState({ value: newValue, ...updateError }, () => {
                 if (is.fn(props.onChange)) {
@@ -107,7 +109,8 @@ const NumberInput = (props) => {
                 }
               });
             } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || newValue > props.min)) {
-              newValue = newValue ? (newValue + props.step * -1).toFixed(countDecimals(props.step)) : (props.step * -1);
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = newValue ? Number((newValue + props.step * -1).toFixed(countDecimals(props.step))) : (props.step * -1);
               const updateError = displayErrorMessage(newValue);
               context.updateState({ value: newValue, ...updateError }, () => {
                 if (is.fn(props.onChange)) {
