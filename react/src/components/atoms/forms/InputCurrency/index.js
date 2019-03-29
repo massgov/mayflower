@@ -140,6 +140,7 @@ const Currency = (props) => {
           const handleBlur = () => {
             const inputEl = ref.current;
             const stringValue = inputEl.value;
+            // isNotNumber returns true if stringValue is null, undefined or 'NaN'
             const isNotNumber = !stringValue || isNaN(Number(numbro.unformat(stringValue)));
             if (isNotNumber) {
               inputEl.setAttribute('placeholder', props.placeholder);
