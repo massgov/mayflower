@@ -74,7 +74,7 @@ const Currency = (props) => {
           const handleChange = (e) => {
             const { type } = e;
             const stringValue = ref.current.value;
-            const numberValue = stringValue ? Number(numbro.unformat(ref.current.value)) : 0;
+            const numberValue = !is.empty(stringValue) ? Number(numbro.unformat(stringValue)) : 0;
             // If the stringvalue is empty, set to empty string so the required error
             // message is rendered. Otherwise pass the number value for the min/max check.
             const updateError = displayErrorMessage(!is.empty(stringValue) ? numberValue : '');
