@@ -89,7 +89,7 @@ const Currency = (props) => {
             const direction = (e.currentTarget === upRef.current) ? 'up' : 'down';
             const { type } = e;
             const stringValue = ref.current.value;
-            const numberValue = stringValue ? Number(numbro.unformat(ref.current.value)) : 0;
+            const numberValue = stringValue ? Number(numbro.unformat(stringValue)) : 0;
             let newValue;
             if (direction === 'up') {
               newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
