@@ -50,35 +50,36 @@ const Currency = (props) => {
           const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
           const greaterThanMin = (val) => !hasNumberProperty(props, 'min') || (val >= props.min);
           const lessThanMax = (val) => !hasNumberProperty(props, 'max') || (val <= props.max);
+
+          const displayErrorMessage = (val) => {
+            const { min, max, required } = props;
+            if (required && !is.number(val)) {
+              const errorMsg = 'Please enter a value.';
+              return{
+                showError: true,
+                errorMsg
+              };
+            } else if (is.number(val)) {
+              const { showError, errorMsg } = validNumber(val, min, max);
+              return{
+                showError, errorMsg
+              };
+            }
+            return{
+              showError: false,
+              errorMsg: ''
+            };
+          };
+
           const handleChange = (e) => {
             const { type } = e;
             const stringValue = ref.current.value;
-            let numberValue;
-            const update = {
-              value: stringValue
-            };
-            if (is.empty(stringValue)) {
-              numberValue = 0;
-            } else {
-              numberValue = Number(numbro.unformat(stringValue));
-            }
-            // This validation is needed here as onKeyDown does not
-            // get the new value in the input after a key press.
-            if (props.required && is.empty(stringValue)) {
-              errorMsg = 'Please enter a value.';
-              update.showError = true;
-              update.errorMsg = errorMsg;
-            } else if (is.number(numberValue) && !is.empty(stringValue)) {
-              const validate = validNumber(numberValue, props.min, props.max);
-              update.showError = validate.showError;
-              update.errorMsg = validate.errorMsg;
-            } else {
-              errorMsg = '';
-              update.showError = false;
-              update.errorMsg = errorMsg;
-            }
-            context.updateState(update, () => {
-              if (typeof props.onChange === 'function') {
+            const numberValue = stringValue ? Number(numbro.unformat(ref.current.value)) : 0;
+            // If the stringvalue is empty, set to empty string so the required error
+            // message is rendered. Otherwise pass the number value for the min/max check.
+            const updateError = displayErrorMessage(!is.empty(stringValue) ? numberValue : '');
+            context.updateState({ value: stringValue, ...updateError }, () => {
+              if (is.fn(props.onChange)) {
                 props.onChange(numberValue, props.id, type);
               }
             });
@@ -96,13 +97,9 @@ const Currency = (props) => {
               newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
             }
             if (greaterThanMin(newValue) && lessThanMax(newValue)) {
-              const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-              context.updateState({
-                showError,
-                errorMsg,
-                value: toCurrency(newValue, countDecimals(props.step))
-              }, () => {
-                if (props.onChange && is.fn(props.onChange)) {
+              const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
+              context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
+                if (is.fn(props.onChange)) {
                   props.onChange(newValue, props.id, type, direction);
                 }
               });
@@ -112,20 +109,16 @@ const Currency = (props) => {
           const handleKeyDown = (e) => {
             const { type, key } = e;
             const stringValue = ref.current.value;
-            let numberValue = stringValue ? Number(numbro.unformat(stringValue)) : 0;
+            const numberValue = stringValue ? Number(numbro.unformat(stringValue)) : 0;
             // default to 0 if defaultValue is NaN
             if (is.number(numberValue) && !is.empty(stringValue)) {
               let newValue = numberValue;
               if (key === 'ArrowDown') {
                 newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
                 if (greaterThanMin(newValue) && lessThanMax(newValue)) {
-                  const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                  context.updateState({
-                    showError,
-                    errorMsg,
-                    value: toCurrency(newValue, countDecimals(props.step))
-                  }, () => {
-                    if (typeof props.onChange === 'function') {
+                  const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
+                  context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
+                    if (is.fn(props.onChange)) {
                       props.onChange(newValue, props.id, type, key);
                     }
                   });
@@ -133,13 +126,9 @@ const Currency = (props) => {
               } else if (key === 'ArrowUp') {
                 newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
                 if (greaterThanMin(newValue) && lessThanMax(newValue)) {
-                  const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-                  context.updateState({
-                    showError,
-                    errorMsg,
-                    value: toCurrency(newValue, countDecimals(props.step))
-                  }, () => {
-                    if (typeof props.onChange === 'function') {
+                  const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
+                  context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
+                    if (is.fn(props.onChange)) {
                       props.onChange(newValue, props.id, type, key);
                     }
                   });
@@ -155,7 +144,7 @@ const Currency = (props) => {
             if (isNotNumber) {
               inputEl.setAttribute('placeholder', props.placeholder);
             }
-            let newValue = isNotNumber ? "" : Number(numbro.unformat(stringValue));
+            let newValue = isNotNumber ? '' : Number(numbro.unformat(stringValue));
             if (props.required && is.empty(stringValue)) {
               errorMsg = 'Please enter a value.';
               context.updateState({ showError: true, errorMsg });
@@ -166,11 +155,9 @@ const Currency = (props) => {
               if (!hasNumberProperty(props, 'min') || newValue < props.min) {
                 newValue = props.min;
               }
-              const { showError, errorMsg } = validNumber(newValue, props.min, props.max);
-              context.updateState({ showError, errorMsg, value: toCurrency(newValue, countDecimals(props.step)) }, () => {
-                // invokes custom function if passed in the component
+              const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
+              context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
-                  // context.value won't be immediately changed, so pass new value over.
                   props.onBlur(newValue);
                 }
               });
