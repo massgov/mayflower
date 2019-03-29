@@ -73,7 +73,7 @@ const Currency = forwardRef((props, ref) => {
               update.errorMsg = errorMsg;
             }
             context.updateOwnState(update, () => {
-              if (typeof props.onChange === 'function') {
+              if (props.onChange && is.fn(props.onChange)) {
                 props.onChange(numberValue, props.id, type);
               }
             });
@@ -87,7 +87,7 @@ const Currency = forwardRef((props, ref) => {
             if (is.empty(stringValue)) {
               numberValue = 0;
             } else {
-              numberValue = Number(numbro.unformat(inputEl.value));
+              numberValue = Number(numbro.unformat(stringValue));
             }
             if (is.number(numberValue)) {
               let newValue;
@@ -106,7 +106,7 @@ const Currency = forwardRef((props, ref) => {
                       showError,
                       errorMsg
                     }, () => {
-                      if (typeof props.onChange === 'function') {
+                      if (props.onChange && is.fn(props.onChange)) {
                         props.onChange(newValue, props.id, type, direction);
                       }
                     });
@@ -140,7 +140,7 @@ const Currency = forwardRef((props, ref) => {
                         showError,
                         errorMsg
                       }, () => {
-                        if (typeof props.onChange === 'function') {
+                        if (props.onChange && is.fn(props.onChange)) {
                           props.onChange(newValue, props.id, type, key);
                         }
                       });
