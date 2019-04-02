@@ -51,61 +51,42 @@ const NumberInput = forwardRef((props, ref) => {
               errorMsg: ''
             };
           };
-          const hasProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && !is.nil(obj[property]);
+
+          const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
 
           const handleOnBlur = (e) => {
             e.persist();
             const inputEl = ref.current;
-            let newValue = Number(inputEl.value);
-            if ((hasProperty(props, 'max') && newValue > props.max) || (hasProperty(props, 'min') && newValue < props.min)) {
-              if (hasProperty(props, 'max') && newValue > props.max) {
-                newValue = Number(props.max);
-              }
-              if (hasProperty(props, 'min') && newValue < props.min) {
-                newValue = Number(props.min);
-              }
+            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
+            if (hasNumberProperty(props, 'max') && newValue > props.max) {
+              newValue = props.max;
             }
-            if (!is.empty(inputEl.value)) {
+            if (hasNumberProperty(props, 'min') && newValue < props.min) {
+              newValue = props.min;
+            }
+            if (is.number(newValue)) {
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = Number(newValue.toFixed(countDecimals(props.step)));
               const updateError = displayErrorMessage(newValue);
-              // Since this component doesn't use state, set own value won't cause setState to trigger.
-              context.setOwnValue(
-                Number(numbro(newValue)
-                .format({ mantissa: countDecimals(props.step) })),
-                () => {
-                  context.updateOwnState({ ...updateError }, () => {
-                    if (is.fn(props.onBlur)) {
-                      props.onBlur(e, newValue);
-                    }
-                  });
+              context.updateOwnState({ value: newValue, ...updateError }, () => {
+                if (is.fn(props.onBlur)) {
+                  props.onBlur(e, newValue);
                 }
-              );
+              });
             }
           };
 
           const handleChange = (e) => {
-            const inputEl = ref.current;
             e.persist();
-            let newValue;
-            if (is.empty(inputEl.value)) {
-              newValue = inputEl.value;
-            } else {
-              newValue = Number(inputEl.value);
-              if (is.number(newValue)) {
-                newValue = Number(numbro(inputEl.value)
-                  .format({ mantissa: countDecimals(props.step) }));
-              }
-            }
-            const updateError = displayErrorMessage(newValue);
-            context.setOwnValue(
-              newValue,
-              () => {
-                context.updateOwnState({ ...updateError }, () => {
-                  if (is.fn(props.onChange)) {
-                    props.onChange(e, newValue, props.id);
-                  }
-                });
-              }
-            );
+            const inputEl = ref.current;
+            const newValue = !is.number(inputEl.value) ? 0 : Number(inputEl.value);
+              const updateError = displayErrorMessage(newValue);
+
+              context.updateOwnState({ value: newValue, ...updateError }, () => {
+                if (is.fn(props.onChange)) {
+                  props.onChange(e, newValue, props.id);
+                }
+              });
           };
 
           const handleAdjust = (e) => {
@@ -117,41 +98,25 @@ const NumberInput = forwardRef((props, ref) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            let { value: newValue } = inputEl;
-            if (direction === 'up' && (!hasProperty(props, 'max') || newValue < props.max)) {
-              if (is.empty(newValue)) {
-                newValue = 1;
-              } else {
-                newValue = Number(numbro(newValue)
-                  .add(props.step).value());
-              }
-              context.setOwnValue(
-                newValue,
-                () => {
-                  context.updateOwnState({ ...displayErrorMessage(newValue) }, () => {
-                    if (is.fn(props.onChange)) {
-                      props.onChange(e, newValue, props.id);
-                    }
-                  });
+            let newValue = !is.number(Number(inputEl.value)) ? 0 : Number(inputEl.value);
+            if (direction === 'up' && (!hasNumberProperty(props, 'max') || newValue < props.max)) {
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = Number((newValue + props.step).toFixed(countDecimals(props.step)));
+              const updateError = displayErrorMessage(newValue);
+              context.updateOwnState({ value: newValue, ...updateError }, () => {
+                if (is.fn(props.onChange)) {
+                  props.onChange(e, newValue, props.id);
                 }
-              );
-            } else if (direction === 'down' && (!hasProperty(props, 'min') || newValue > props.min)) {
-              if (is.empty(newValue)) {
-                newValue = -1;
-              } else {
-                newValue = Number(numbro(newValue)
-                  .subtract(props.step).value());
-              }
-              context.setOwnValue(
-                newValue,
-                () => {
-                  context.updateOwnState({ ...displayErrorMessage(newValue) }, () => {
-                    if (is.fn(props.onChange)) {
-                      props.onChange(e, newValue, props.id);
-                    }
-                  });
+              });
+            } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || newValue > props.min)) {
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = Number((newValue - props.step).toFixed(countDecimals(props.step)));
+              const updateError = displayErrorMessage(newValue);
+              context.updateOwnState({ value: newValue, ...updateError }, () => {
+                if (is.fn(props.onChange)) {
+                  props.onChange(e, newValue, props.id);
                 }
-              );
+              });
             }
           };
 
@@ -170,7 +135,7 @@ const NumberInput = forwardRef((props, ref) => {
             step: props.step,
             ref
           };
-          inputAttr.defaultValue = props.defaultValue;
+          inputAttr.value = (ref && ref.current) ? ref.current.value : props.defaultValue;
           if (is.number(props.max)) {
             inputAttr.max = props.max;
           }

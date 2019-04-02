@@ -138,6 +138,9 @@ class InputProvider extends React.Component {
     this.forceUpdate();
   };
   updateOwnState = (newState, afterUpdate) => {
+    if (Object.prototype.hasOwnProperty.call(newState, 'value') && !this.state.useOwnStateValue) {
+      this.state.setOwnValue(newState.value);
+    }
     this.setState(newState, afterUpdate);
   };
   // Checks to see if this InputProvider's FormContext is active.
