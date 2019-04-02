@@ -29,40 +29,42 @@ class InputSync extends React.Component {
     }
   };
   addSelfToInputProviderStore = (id) => {
-    if (!Object.prototype.hasOwnProperty.call(this.context.inputProviderStore[id], 'inputSyncUpdateFunctionStore')) {
-      const { inputProviderStore } = this.context;
-      inputProviderStore[id].inputSyncUpdateFunctionStore = [];
-      inputProviderStore[id].inputSyncUpdateFunctionStore.push(this.state.updateSelf);
-      this.context.updateFormState({ inputProviderStore });
-    } else {
-      const { inputProviderStore } = this.context;
-      inputProviderStore[id].inputSyncUpdateFunctionStore.push(this.state.updateSelf);
-      this.context.updateFormState({ inputProviderStore });
+    const { inputProviderStore = {} } = this.context;
+    if (!Object.prototype.hasOwnProperty.call(inputProviderStore, id)) {
+      inputProviderStore[id] = {};
     }
+    if (!Object.prototype.hasOwnProperty.call(inputProviderStore[id], 'inputSyncUpdateFunctionStore')) {
+      inputProviderStore[id].inputSyncUpdateFunctionStore = [];
+    }
+    inputProviderStore[id].inputSyncUpdateFunctionStore.push(this.state.updateSelf);
+    this.context.updateFormState({ inputProviderStore });
   };
   // nextId is the InputProvider id that's being processed.
   // nextValue is the current InputProvider's this.state.value.
+  // Called by InputProvider's componentDidUpdate lifecycle method.
   updateSelf = (nextId, nextValue) => {
     // overrideDefaultSyncCondition overrides the default behavior in the else below.
     if (is.fn(this.props.overrideDefaultSyncCondition)) {
       const { value } = this.state;
-      if (this.props.overrideDefaultSyncCondition(nextId, nextValue)) {
+      if (this.props.overrideDefaultSyncCondition(nextId, this.state.value[nextId], nextValue)) {
         value[nextId] = nextValue;
         this.setState({ value });
       }
     } else {
       const { value } = this.state;
       // this.state.value stores the value of each InputProvider that is being watched.
-      // For each InputProvider being watched, check to see if the nextValue being set to its is different than the previous value it already was. If so, re-render this current InputSync component by storing the new value.
+      // check to see if the nextValue being set to its is different than the previous value it already was.
+      // If so, re-render this current InputSync component by storing the new value.
       // This same thing can be accomplished if a unique identifier that is 100% based on InputProvider's value is created instead, for memory saving.
-      this.state.inputProviderIds.forEach((id) => {
-        if (!Object.prototype.hasOwnProperty.call(value, id)) {
-          value[id] = nextValue;
-        } else if (!deepEqual(value[id], nextValue)) {
-          value[id] = nextValue;
+      if (this.state.inputProviderIds.indexOf(nextId) > -1) {
+        if (!Object.prototype.hasOwnProperty.call(value, nextId)) {
+          value[nextId] = nextValue;
+          this.setState({ value });
+        } else if (!deepEqual(value[nextId], nextValue)) {
+          value[nextId] = nextValue;
           this.setState({ value });
         }
-      });
+      }
     }
   };
   render() {

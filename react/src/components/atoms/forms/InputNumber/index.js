@@ -109,6 +109,7 @@ const NumberInput = forwardRef((props, ref) => {
           };
 
           const handleAdjust = (e) => {
+            e.persist();
             let direction;
             if (e.currentTarget === upRef.current) {
               direction = 'up';
@@ -124,8 +125,16 @@ const NumberInput = forwardRef((props, ref) => {
                 newValue = Number(numbro(newValue)
                   .add(props.step).value());
               }
-              context.setOwnValue(newValue);
-              handleChange(e);
+              context.setOwnValue(
+                newValue,
+                () => {
+                  context.updateOwnState({ ...displayErrorMessage(newValue) }, () => {
+                    if (is.fn(props.onChange)) {
+                      props.onChange(e, newValue, props.id);
+                    }
+                  });
+                }
+              );
             } else if (direction === 'down' && (!hasProperty(props, 'min') || newValue > props.min)) {
               if (is.empty(newValue)) {
                 newValue = -1;
@@ -133,8 +142,16 @@ const NumberInput = forwardRef((props, ref) => {
                 newValue = Number(numbro(newValue)
                   .subtract(props.step).value());
               }
-              context.setOwnValue(newValue);
-              handleChange(e);
+              context.setOwnValue(
+                newValue,
+                () => {
+                  context.updateOwnState({ ...displayErrorMessage(newValue) }, () => {
+                    if (is.fn(props.onChange)) {
+                      props.onChange(e, newValue, props.id);
+                    }
+                  });
+                }
+              );
             }
           };
 
@@ -202,7 +219,6 @@ const InputNumber = (props) => {
   const {
     max, min, step, name, onChange, onBlur, placeholder, width, maxlength, showButtons, ...inputProps
   } = props;
-  const formContext = useContext(FormContext);
   // Input and Number share the props.required, props.id and props.disabled values.
   const numberProps = {
     max,
@@ -221,12 +237,16 @@ const InputNumber = (props) => {
     showButtons,
     defaultValue: props.defaultValue
   };
-  if (formContext && !is.nil(formContext.getInputProviderRef(props.id))) {
-    numberProps.ref = formContext.getInputProviderRef(props.id);
-  }
   return(
     <Input {...inputProps}>
-      <NumberInput {...numberProps} />
+      <InputContext.Consumer>
+        {
+          (inputContext) => {
+            numberProps.ref = inputContext.getOwnRef();
+            return<NumberInput {...numberProps} />;
+          }
+        }
+      </InputContext.Consumer>
       <Error id={props.id} />
     </Input>
   );

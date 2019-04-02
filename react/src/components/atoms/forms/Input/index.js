@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
+import deepEqual from 'fast-deep-equal';
+
 
 import './style.css';
 import { InputContext, FormContext } from './context';
@@ -55,7 +57,8 @@ class InputProvider extends React.Component {
       forceOwnUpdate: this.forceOwnUpdate,
       getOwnOverrideLinkedValueFunc: this.props.overrideLinkedValue,
       getOwnOnComponentUpdateFunc: this.props.onComponentUpdate,
-      setOwnOnComponentUpdateFunc: this.setOwnOnComponentUpdateFunc
+      setOwnOnComponentUpdateFunc: this.setOwnOnComponentUpdateFunc,
+      getOwnRef: this.getOwnRef
     };
     this.selfRef = React.createRef();
   }
@@ -80,6 +83,7 @@ class InputProvider extends React.Component {
       formProviderContext.checkInputSyncUpdateFunctions(this.props.id);
     }
   }
+  getOwnRef = () => this.selfRef;
   // Returns the InputProvider's current value. Used by FormContext/FormProvider.
   getOwnValue = () => {
     if (this.state.useOwnStateValue) {
@@ -139,26 +143,40 @@ class InputProvider extends React.Component {
   // Checks to see if this InputProvider's FormContext is active.
   // If it is, check to see if its id has been added to FormContext's inputProviderStore.
   // If it isn't, add it now.
+  // By giving the form getters and setters and not the input value,
+  // extra re-renders are avoided when context updates.
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
-      // By giving the form getters and setters and not the input value,
-      // extra re-renders are avoided when context updates.
-      if (!Object.prototype.hasOwnProperty.call(formContext.inputProviderStore, this.props.id)) {
-        const { inputProviderStore } = formContext;
-        inputProviderStore[this.props.id] = {
-          getOwnValue: this.state.getOwnValue,
-          setOwnValue: this.state.setOwnValue,
-          updateOwnState: this.state.updateOwnState,
-          selfRef: this.selfRef,
-          forceOwnUpdate: this.state.forceOwnUpdate,
-          useOwnStateValue: this.state.useOwnStateValue,
-          setUseOwnStateValue: this.state.setUseOwnStateValue,
-          getOwnLinkedInputProviders: this.state.getOwnLinkedInputProviders,
-          setOwnLinkedInputProviders: this.state.setOwnLinkedInputProviders,
-          getOwnOnComponentUpdateFunc: this.state.getOwnOnComponentUpdateFunc,
-          setOwnOnComponentUpdateFunc: this.state.setOwnOnComponentUpdateFunc,
-          getOwnOverrideLinkedValueFunc: this.state.getOwnOverrideLinkedValueFunc
-        };
+      // InputSync components could have already created an inputProviderStore entry for this.props.id.
+      // If this is true, add the remaining properties that should normally be added by this component to the inputProviderStore.
+      const { inputProviderStore = {} } = formContext;
+      if (!Object.prototype.hasOwnProperty.call(inputProviderStore, this.props.id)) {
+        inputProviderStore[this.props.id] = {};
+      }
+      // This list is only for things from this.state.
+      const inputStateProperties = [
+        'getOwnValue',
+        'setOwnValue',
+        'updateOwnState',
+        'forceOwnUpdate',
+        'useOwnStateValue',
+        'setUseOwnStateValue',
+        'getOwnLinkedInputProviders',
+        'setOwnLinkedInputProviders',
+        'getOwnOnComponentUpdateFunc',
+        'setOwnOnComponentUpdateFunc',
+        'getOwnOverrideLinkedValueFunc'
+      ];
+      inputStateProperties.forEach((property) => {
+        if (!Object.prototype.hasOwnProperty.call(inputProviderStore[this.props.id], property)) {
+          inputProviderStore[this.props.id][property] = this.state[property];
+        }
+      });
+      // Also check for selfRef.
+      if (!Object.prototype.hasOwnProperty.call(inputProviderStore[this.props.id], 'selfRef')) {
+        inputProviderStore[this.props.id].selfRef = this.selfRef;
+      }
+      if (!deepEqual(inputProviderStore, formContext.inputProviderStore)) {
         formContext.updateFormState({ inputProviderStore });
       }
     }

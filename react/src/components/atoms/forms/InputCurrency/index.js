@@ -1,4 +1,4 @@
-import React, { useContext, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import numbro from 'numbro';
@@ -8,7 +8,7 @@ import is from 'is';
 import Input from '../Input';
 import { countDecimals } from '../Input/utility';
 import Error from '../Input/error';
-import { FormContext, InputContext } from '../Input/context';
+import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import './style.css';
 
@@ -89,6 +89,8 @@ const Currency = forwardRef((props, ref) => {
             } else {
               numberValue = Number(numbro.unformat(stringValue));
             }
+            console.log('numberValue: ', numberValue);
+            console.log('direction: ', direction);
             if (is.number(numberValue)) {
               let newValue;
               if (direction === 'up') {
@@ -261,7 +263,6 @@ const InputCurrency = (props) => {
   const {
     max, min, step, name, onChange, onBlur, placeholder, width, maxlength, format, language, ...inputProps
   } = props;
-  const formContext = useContext(FormContext);
   // Input and Currency share the props.required and props.id values.
   const currencyProps = {
     max,
@@ -284,12 +285,16 @@ const InputCurrency = (props) => {
     const currency = numbro(inputProps.defaultValue);
     inputProps.defaultValue = currency.formatCurrency(format);
   }
-  if (formContext && !is.nil(formContext.getInputProviderRef(props.id))) {
-    currencyProps.ref = formContext.getInputProviderRef(props.id);
-  }
   return(
     <Input {...inputProps}>
-      <Currency {...currencyProps} />
+      <InputContext.Consumer>
+        {
+          (inputContext) => {
+            currencyProps.ref = inputContext.getOwnRef();
+            return<Currency {...currencyProps} />;
+          }
+        }
+      </InputContext.Consumer>
       <Error id={props.id} />
     </Input>
   );

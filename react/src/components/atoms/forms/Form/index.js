@@ -27,6 +27,7 @@ class FormProvider extends Component {
       getInputProviderRef: this.getInputProviderRef,
       getInputProviderValue: this.getInputProviderValue,
       hasInputProviderId: this.hasInputProviderId,
+      hasInputProviderIds: this.hasInputProviderIds,
       setInputProviderValue: this.setInputProviderValue,
       updateFormState: this.updateFormState,
       forceInputProviderUpdate: this.forceInputProviderUpdate,
@@ -78,7 +79,9 @@ class FormProvider extends Component {
   getInputProviderValue = (inputId) => {
     if (this.state.hasInputProviderId(inputId)) {
       const inputProvider = this.state.inputProviderStore[inputId];
-      return inputProvider.getOwnValue();
+      if (is.fn(inputProvider.getOwnValue)) {
+        return inputProvider.getOwnValue();
+      }
     }
     return null;
   };
@@ -94,7 +97,7 @@ class FormProvider extends Component {
           if (this.state.hasInputProviderId(id) && is.fn(this.state.inputProviderStore[id].getOwnLinkedInputProviders)) {
             const linkedProviders = this.state.inputProviderStore[id].getOwnLinkedInputProviders();
             if (!is.array.empty(linkedProviders)) {
-              if (linkedProviders.includes(inputId)) {
+              if (linkedProviders.indexOf(inputId) > -1) {
                 // Pull the inputId we're requesting providers for out of the list.
                 values = values.concat(linkedProviders.filter(p => p !== inputId));
                 values.push(id);
@@ -133,6 +136,8 @@ class FormProvider extends Component {
         if (is.fn(this.state.getOverriddenInputProviderValue(id))) {
           const override = this.state.getOverriddenInputProviderValue(id)(inputId, linkedInputProviderValue);
           // Only update content that actually has differences. Otherwise, this will infinite loop.
+          console.log('override: ', override);
+          console.log('this.state.getInputProviderValue: ', this.state.getInputProviderValue(id));
           if (!deepEqual(override, this.state.getInputProviderValue(id))) {
             this.state.setInputProviderValue({
               id,
@@ -160,12 +165,25 @@ class FormProvider extends Component {
   };
   // Checks to see if the passed inputId exists within the inputProviderStore.
   hasInputProviderId = (inputId) => Object.prototype.hasOwnProperty.call(this.state.inputProviderStore, inputId);
+  // Given an array of inputIds, if any of the InputProvider ids are not in this.state.inputProviderStore, return false, else return true.
+  hasInputProviderIds = (inputIds = []) => {
+    let hasAllIds = true;
+    if (is.array.empty(inputIds)) {
+      return false;
+    }
+    inputIds.forEach((inputId) => {
+      if (!this.state.hasInputProviderId(inputId)) {
+        hasAllIds = false;
+      }
+    });
+    return hasAllIds;
+  };
   // Updates the component's state.
   updateFormState = (newState) => { this.setState(newState); };
   render() {
     return(
       <FormContext.Provider value={this.state}>
-        {this.props.children}
+        {is.fn(this.props.children) ? this.props.children() : this.props.children}
       </FormContext.Provider>
     );
   }

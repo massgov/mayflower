@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { object, withKnobs, text } from '@storybook/addon-knobs';
 import numbro from 'numbro';
@@ -341,8 +341,129 @@ storiesOf('atoms/forms/Form', module)
                 inputProviderIds.push(props.id);
               });
               // InputSync will normally update whenever the form ids set to props.inputProviderIds update.
-              // InputSync can only watch form ids that actually exist,
-              // so it must come after the input it is watching has been rendered.
+              const inputSyncProps = {
+                inputProviderIds
+              };
+              return(
+                <React.Fragment>
+                  <div className="full-right">
+                    <InputSync {...inputSyncProps}>
+                      {() => (
+                        <React.Fragment>
+                          <Paragraph text="Updates whenever the InputProvider ids pointed to in InputSync.props.inputProviderIds update." />
+                          <Paragraph text="Current Values:" />
+                          {
+                            inputProviderIds.map((id, providerIndex) => (
+                              <Paragraph key={`formStory-inputSync-providerId-${providerIndex}`} text={`${id}: ${formContext.getInputProviderValue(id)}`} />
+                            ))
+                          }
+                        </React.Fragment>
+                      ) }
+                    </InputSync>
+                  </div>
+                  <div className="align-left">
+                    <InputCurrency {...inputCurrencyOptionsWithKnobs} />
+                    {inputs}
+                    <InputSlider {...inputSliderOptionsWithKnobs} />
+                  </div>
+                </React.Fragment>
+              );
+            }
+          }
+        </Form>
+      </FormProvider>
+    );
+  }), { info: FormDocs })
+  .add('Input Within InputSync', (() => {
+    delete InputNumberOptions.defaultValue;
+    delete InputSliderOptions.ticks;
+
+    const inputSliderOptionsWithKnobs = Object.assign(...Object.entries(InputSliderOptions).map(([k, v]) => (
+      { [k]: v() })));
+    const formTicks = object('InputSlider: ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' }, 'InputSlider');
+    const ticks = [];
+    Object.keys(formTicks).forEach((tick) => ticks.push([tick, formTicks[tick]]));
+    inputSliderOptionsWithKnobs.ticks = ticks;
+    // Make sure the domain is within the same range as the min and max of the input to make this work.
+    const inputCurrencyOptionsWithKnobs = Object.assign(...Object.entries(InputCurrencyOptions).map(([k, v]) => (
+      { [k]: v() })));
+    inputCurrencyOptionsWithKnobs.labelText = 'Currency Input (set to $999.00 when Input 0 is greater than 60)';
+    const languages = new Map();
+    languages.set('Chinese', 'zh-CN');
+    languages.set('English', 'en-US');
+    languages.set('French', 'fr-FR');
+    languages.set('Russian', 'ru-RU');
+    inputCurrencyOptionsWithKnobs.language = languages.get(inputCurrencyOptionsWithKnobs.language);
+    return(
+      <FormProvider>
+        <Form>
+          {
+            (formContext) => {
+              const getInputNumberKnobs = (idx) => (
+                Object.assign(...Object
+                  .entries(InputNumberOptions)
+                  .map(([k, v]) => ({ [k]: v(idx) })))
+              );
+              const ids = [
+                [
+                  'test0',
+                  {
+                    ...getInputNumberKnobs('test0'),
+                    key: 'Form.InputNumber.test0',
+                    defaultValue: 0,
+                    labelText: 'Input 0 (Updates the currency input and slider)',
+                    id: 'test0',
+                    unit: '%',
+                    // This can also be accomplished with InputNumber's onChange function.
+                    // onComponentUpdate is ran during the componentDidUpdate lifecycle.
+                    onComponentUpdate: (inputProviderValue) => {
+                      // When this input's value is greater than 60...
+                      if (Number(inputProviderValue) > 60) {
+                        // Update the currency input to be $999.00 and the slider to 63 percent.
+                        formContext.setInputProviderValue({ id: inputCurrencyOptionsWithKnobs.id, value: '$999.00' });
+                        formContext.setInputProviderValue({ id: inputSliderOptionsWithKnobs.id, value: '0.63' });
+                      } else {
+                        // Set the currency input to $0.00 otherwise.
+                        formContext.setInputProviderValue({ id: inputCurrencyOptionsWithKnobs.id, value: '$0.00' });
+                      }
+                    }
+                  }
+                ],
+                [
+                  'test1',
+                  {
+                    ...getInputNumberKnobs('test1'),
+                    key: 'Form.InputNumber.test1',
+                    defaultValue: 0,
+                    labelText: 'Input 1',
+                    id: 'test1',
+                    unit: '%'
+                  }
+                ],
+                [
+                  'test2',
+                  {
+                    ...getInputNumberKnobs('test2'),
+                    key: 'Form.InputNumber.test2',
+                    defaultValue: 0,
+                    labelText: 'Input 2',
+                    id: 'test2',
+                    unit: '%'
+                  }
+                ]
+              ];
+              const inputs = [];
+              // For InputSync. Provides the InputProvider ids to watch for updates on.
+              const inputProviderIds = [
+                inputSliderOptionsWithKnobs.id,
+                inputCurrencyOptionsWithKnobs.id
+              ];
+              ids.forEach((numberProps) => {
+                const props = numberProps[1];
+                inputs.push(<InputNumber {...props} />);
+                inputProviderIds.push(props.id);
+              });
+              // InputSync will normally update whenever the form ids set to props.inputProviderIds update.
               const inputSyncProps = {
                 inputProviderIds
               };
@@ -350,7 +471,15 @@ storiesOf('atoms/forms/Form', module)
                 <React.Fragment>
                   <div className="align-left">
                     <InputCurrency {...inputCurrencyOptionsWithKnobs} />
-                    {inputs}
+                    <InputSync inputProviderIds={['currency-input', 'test0', 'test1', 'test2', 'slider']}>
+                      {
+                        () => (
+                          <Fragment>
+                            {inputs}
+                          </Fragment>
+                        )
+                      }
+                    </InputSync>
                     <InputSlider {...inputSliderOptionsWithKnobs} />
                   </div>
                   <div className="full-right">
