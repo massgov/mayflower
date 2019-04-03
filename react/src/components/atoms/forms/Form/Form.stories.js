@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { object, withKnobs, text, number, array } from '@storybook/addon-knobs';
 
 import Form, { FormProvider } from './index';
@@ -13,7 +12,6 @@ import InputCurrency from '../InputCurrency';
 import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
 
 storiesOf('atoms/forms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Form', (() => {
