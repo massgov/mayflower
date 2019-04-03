@@ -68,12 +68,12 @@ class InputProvider extends React.Component {
   componentDidUpdate() {
     const formProviderContext = this.context;
     if (is.fn(formProviderContext.updateLinkedInputProviders)) {
-      // First, run the on update functions for this InputProvider.
+      // Update all InputProvider components whose ids are in the linkedInputProviders array with the newly updated value.
+      formProviderContext.updateLinkedInputProviders(this.props.id);
+      // Then, run the on update functions for this InputProvider.
       if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
         this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue());
       }
-      // Then update all InputProvider components whose ids are in the linkedInputProviders array with the newly updated value.
-      formProviderContext.updateLinkedInputProviders(this.props.id);
     } else if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
       // If nothing is linked, just run the on update function for this InputProvider.
       this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue());

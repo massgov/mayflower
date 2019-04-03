@@ -149,10 +149,10 @@ const Currency = forwardRef((props, ref) => {
               errorMsg = 'Please enter a value.';
               context.updateOwnState({ showError: true, errorMsg });
             } else if (!is.empty(stringValue)) {
-              if (!hasNumberProperty(props, 'max') || newValue > props.max) {
+              if (hasNumberProperty(props, 'max') && newValue > props.max) {
                 newValue = props.max;
               }
-              if (!hasNumberProperty(props, 'min') || newValue < props.min) {
+              if (hasNumberProperty(props, 'min') && newValue < props.min) {
                 newValue = props.min;
               }
               const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
@@ -186,7 +186,7 @@ const Currency = forwardRef((props, ref) => {
             onFocus: handleFocus,
             onKeyDown: handleKeyDown,
             required: props.required,
-            value: context.getOwnValue(),
+            value: (ref && ref.current) ? ref.current.value : props.defaultValue,
             disabled: props.disabled
           };
 
@@ -240,7 +240,8 @@ const InputCurrency = (props) => {
     onBlur,
     format,
     language,
-    disabled: props.disabled
+    disabled: props.disabled,
+    defaultValue: props.defaultValue
   };
   if (!is.empty(inputProps.defaultValue)) {
     const currency = numbro(inputProps.defaultValue);

@@ -131,25 +131,33 @@ class FormProvider extends Component {
   updateLinkedInputProviders = (inputId) => {
     const linkedInputProviders = this.state.getLinkedInputProviders(inputId);
     if (!is.array.empty(linkedInputProviders)) {
+      // This is used to track current and changing values.
+      const currentValues = this.state.getInputProviderValues();
       linkedInputProviders.forEach((id) => {
-        const linkedInputProviderValue = this.state.getInputProviderValue(inputId);
+        const linkedInputProviderValue = currentValues[inputId];
         if (is.fn(this.state.getOverriddenInputProviderValue(id))) {
           const override = this.state.getOverriddenInputProviderValue(id)(inputId, linkedInputProviderValue);
           // Only update content that actually has differences. Otherwise, this will infinite loop.
-          console.log('override: ', override);
-          console.log('this.state.getInputProviderValue: ', this.state.getInputProviderValue(id));
           if (!deepEqual(override, this.state.getInputProviderValue(id))) {
-            this.state.setInputProviderValue({
-              id,
-              value: override
-            });
+            currentValues[id] = override;
+            // this.state.setInputProviderValue({
+            //   id,
+            //   value: override
+            // });
           }
         } else if (!deepEqual(this.state.getInputProviderValue(id), linkedInputProviderValue)) {
-          this.state.setInputProviderValue({
-            id,
-            value: linkedInputProviderValue
-          });
+          currentValues[id] = linkedInputProviderValue;
+          // this.state.setInputProviderValue({
+          //   id,
+          //   value: linkedInputProviderValue
+          // });
         }
+      });
+      linkedInputProviders.forEach((id) => {
+        this.state.setInputProviderValue({
+          id,
+          value: currentValues[id]
+        });
       });
     }
     return null;
