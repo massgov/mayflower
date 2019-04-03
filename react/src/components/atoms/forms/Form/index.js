@@ -48,15 +48,6 @@ class FormProvider extends Component {
     }
     return null;
   };
-  // Forces an InputProvider to update using this.forceUpdate.
-  forceInputProviderUpdate = (inputId) => {
-    if (this.state.hasInputProviderId(inputId)) {
-      const inputProvider = this.state.inputProviderStore[inputId];
-      inputProvider.forceOwnUpdate();
-      return true;
-    }
-    return false;
-  };
   // Gets the value that would be set to the InputProvider by its own overrideLinkedValue function.
   getOverriddenInputProviderValue = (inputId) => {
     if (this.state.hasInputProviderId(inputId)) {
@@ -99,7 +90,7 @@ class FormProvider extends Component {
             if (!is.array.empty(linkedProviders)) {
               if (linkedProviders.indexOf(inputId) > -1) {
                 // Pull the inputId we're requesting providers for out of the list.
-                values = values.concat(linkedProviders.filter(p => p !== inputId));
+                values = values.concat(linkedProviders.filter((p) => p !== inputId));
                 values.push(id);
               } else if (inputId === id) {
                 // The component that contains props.linkedInputProviders updates doesn't list itself as a linked InputProvider, so handle that case here.
@@ -127,6 +118,15 @@ class FormProvider extends Component {
       }
     }
   };
+  // Forces an InputProvider to update using this.forceUpdate.
+  forceInputProviderUpdate = (inputId) => {
+    if (this.state.hasInputProviderId(inputId)) {
+      const inputProvider = this.state.inputProviderStore[inputId];
+      inputProvider.forceOwnUpdate();
+      return true;
+    }
+    return false;
+  };
   // Handles updating all Inputs linked to the passed in inputId.
   updateLinkedInputProviders = (inputId) => {
     const linkedInputProviders = this.state.getLinkedInputProviders(inputId);
@@ -140,17 +140,9 @@ class FormProvider extends Component {
           // Only update content that actually has differences. Otherwise, this will infinite loop.
           if (!deepEqual(override, this.state.getInputProviderValue(id))) {
             currentValues[id] = override;
-            // this.state.setInputProviderValue({
-            //   id,
-            //   value: override
-            // });
           }
         } else if (!deepEqual(this.state.getInputProviderValue(id), linkedInputProviderValue)) {
           currentValues[id] = linkedInputProviderValue;
-          // this.state.setInputProviderValue({
-          //   id,
-          //   value: linkedInputProviderValue
-          // });
         }
       });
       linkedInputProviders.forEach((id) => {
