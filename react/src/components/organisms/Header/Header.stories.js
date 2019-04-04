@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, select, object, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
@@ -11,7 +10,6 @@ import UtilityNavData from '../UtilityNav/UtilityNav.knob.options';
 import logo from '../../../assets/images/stateseal.png';
 
 storiesOf('organisms', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Header', (() => {
@@ -28,10 +26,10 @@ storiesOf('organisms', module)
           active = false;
         }
         const storyProps = {
-          href: text(`mainNav.href${navIndex}`, nav.href),
-          text: text(`mainNav.text${navIndex}`, nav.text),
-          active: boolean(`mainNav.active${navIndex}`, active),
-          subNav: object(`mainNav.subNav${navIndex}`, nav.subNav)
+          href: text(`Header mainNav, item${navIndex}: href`, nav.href, `Main Nav: Item ${navIndex}`),
+          text: text(`Header mainNav, item${navIndex}: text`, nav.text, `Main Nav: Item ${navIndex}`),
+          active: boolean(`Header mainNav, item${navIndex}: active`, active, `Main Nav: Item ${navIndex}`),
+          subNav: object(`Header mainNav, item${navIndex}: subNav`, nav.subNav, `Main Nav: Item ${navIndex}`)
         };
         return(storyProps);
       });
@@ -44,16 +42,16 @@ storiesOf('organisms', module)
           login: 'login'
         };
         const storyProps = {
-          text: text(`utilityNav.text.${itemIndex}`, item.text),
-          ariaLabelText: text(`utilityNav.ariaLabelText.${itemIndex}`, item.ariaLabelText),
-          closeText: text(`utilityNav.closeText.${itemIndex}`, item.closeText),
-          panel: object(`utilityNav.panel.${itemIndex}`, item.panel)
+          text: text(`Header utilityNav, item${itemIndex}: text`, item.text, `Utility Nav: Item ${itemIndex}`),
+          ariaLabelText: text(`Header utilityNav, item${itemIndex}: ariaLabelText`, item.ariaLabelText, `Utility Nav: Item ${itemIndex}`),
+          closeText: text(`Header utilityNav, item${itemIndex}: closeText`, item.closeText, `Utility Nav: Item ${itemIndex}`),
+          panel: object(`Header utilityNav, item${itemIndex}: panel`, item.panel, `Utility Nav: Item ${itemIndex}`)
         };
-        storyProps.icon = select(`utilityNav.icons.${itemIndex}`, icons, item.icon);
+        storyProps.icon = select(`Header utilityNav, item${itemIndex}: icons`, icons, item.icon, `Utility Nav: Item ${itemIndex}`);
         return(storyProps);
       });
       const headerSearchProps = {
-        placeholder: text('searchBannerForm.placeholder', 'Search Mass.gov'),
+        placeholder: text('Header headerSearch: placeholder', 'Search Mass.gov', 'Header Search'),
         buttonSearch: {
           ariaLabel: 'Search',
           onClick: (e) => {
@@ -67,23 +65,23 @@ storiesOf('organisms', module)
       };
       const siteLogoProps = {
         url: {
-          domain: text('siteLogo.url.domain', 'https://www.mass.gov/')
+          domain: text('Header siteLogo: url domain', 'https://www.mass.gov/', 'Site Logo')
         },
         image: {
-          src: text('siteLogo.image.src', logo),
-          alt: text('siteLogo.image.alt', 'Massachusetts state seal'),
-          width: number('siteLogo.image.width', 45),
-          height: number('siteLogo.image.height', 45)
+          src: text('Header siteLogo: image src', logo, 'Site Logo'),
+          alt: text('Header siteLogo: image alt', 'Massachusetts state seal', 'Site Logo'),
+          width: number('Header siteLogo: image width', 45, 'Site Logo'),
+          height: number('Header siteLogo: image height', 45, 'Site Logo')
         },
-        siteName: text('siteLogo.siteName', 'Mass.gov'),
-        title: text('siteLogo.title', 'Mass.gov homepage')
+        siteName: text('Header siteLogo: siteName', 'Mass.gov', 'Site Logo'),
+        title: text('Header siteLogo: title', 'Mass.gov homepage', 'Site Logo')
       };
       const headerProps = {
         utilityNav: utilityProps,
         headerSearch: headerSearchProps,
         mainNav: mainNavProps,
-        hideHeaderSearch: boolean('Header.hideHeaderSearch', false),
-        hideBackTo: boolean('header.hideBackTo', true),
+        hideHeaderSearch: boolean('hideHeaderSearch', false),
+        hideBackTo: boolean('hideBackTo', true),
         siteLogo: siteLogoProps
       };
       return(<Header {...headerProps} />);

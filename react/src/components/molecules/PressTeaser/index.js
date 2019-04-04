@@ -65,7 +65,7 @@ PressTeaser.propTypes = {
   /** The short for tag that will appear in the eyebrow, e.g. press release */
   eyebrow: PropTypes.string,
   /** A linked title for the teaser content, @atoms/links/DecorativeLink */
-  title: PropTypes.instanceOf(DecorativeLink).isRequired,
+  title: PropTypes.shape(DecorativeLink.propTypes).isRequired,
   /** The heading level */
   level: PropTypes.number,
   /** The date the teaser content represents */
@@ -73,7 +73,7 @@ PressTeaser.propTypes = {
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
   /** A short description of the teaser content, rendered as a paragraph */
-  description: PropTypes.instanceOf(RichText)
+  description: PropTypes.shape(RichText.propTypes)
 };
 
 export default PressTeaser;

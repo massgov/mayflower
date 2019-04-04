@@ -4,7 +4,7 @@ import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
 
 const IconLink = (props) => (
   <span className={props.wrapperClasses.join(' ')}>
-    {props.icon} &nbsp;
+    {props.icon && props.icon.props.name && <React.Fragment>{props.icon} &nbsp;</React.Fragment>}
     {props.link}
   </span>
 );

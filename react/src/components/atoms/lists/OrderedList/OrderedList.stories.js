@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import OrderedList from './index';
@@ -8,7 +7,6 @@ import OrderedListDocs from './OrderedList.md';
 import orderedOptions from './OrderedList.knob.options';
 
 storiesOf('atoms/lists', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'OrderedList', (() => {
