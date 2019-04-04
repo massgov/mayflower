@@ -2,6 +2,7 @@
   <nav class="ma__pagination__container" aria-label="Pagination Navigation">
     <a 
       class="ma__pagination__prev js-pagination-prev {% if pagination.prev.disabled %}disabled{% endif %}"
+      role="button"
       {% if pagination.prev.disabled %}aria-disabled="true" {% else %}
       aria-label="Go to {{ pagination.prev.text }} page"{% endif %}
       href="#">{{ pagination.prev.text }}</a>
@@ -13,6 +14,7 @@
 
       <a class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" 
         href="#" 
+        role="button"
         data-page="{{ page.text }}" 
         {% if page.active %} aria-label="Currently on Page {{ page.text }}" 
         {% else %}  aria-label="Go to Page {{ page.text }}" {% endif %} 
@@ -27,6 +29,7 @@
       class="ma__pagination__next js-pagination-next {% if pagination.next.disabled %}disabled{% endif %}"
       {% if pagination.next.disabled %}aria-disabled="true" {% else %}
       aria-label="Go to {{ pagination.next.text }} page"{% endif %}
+      role="button"
       href="#">{{ pagination.next.text }}</a>
   </nav>
 </div>
