@@ -185,6 +185,7 @@
 
       &.is-closed, &.is-closed-react {
         right: -300px;
+        display: none !important;
       }
     }
 
@@ -197,11 +198,11 @@
 
       &.is-closed {
         @include ma-visually-hidden;
-        display: none;
+        display: none !important;
       }
 
       &.is-closed-react {
-       display: none;
+       display: none !important;
       }
 
       .ma__main-nav__item:last-child & {

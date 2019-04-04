@@ -8,38 +8,17 @@ export default (function (window, document, $, undefined) {
 
   $('.js-main-nav').each(function () {
     let openClass = "is-open",
+      hasFocus = "has-focus",
       closeClass = "is-closed",
       submenuClass = "show-submenu",
       $parent = $(this),
-      $openContent = $parent.find('.js-main-nav-content.' + openClass),
-      $mainNavToggle = $parent.find('.js-main-nav-toggle'),
-      $mainNavItems = $parent.find('.js-main-nav-toggle, .js-main-nav-top-link'),
+      $mainNavItem = $parent.find('.js-main-nav-toggle'),
       breakpoint = 840; // matches CSS breakpoint for Main Nav
 
-    $('.ma__main-nav__item').each(function () {
-      var $elem = $(this);
-
-      // For appropriate focus out behavior in IE
-      $elem.on('focusout', function () {
-        setTimeout(function () {
-          var hasFocus = !!($elem.find(':focus').length > 0);
-          if (!hasFocus) {
-            let $openContent = $elem.find('.js-main-nav-content');
-            hide($openContent);
-            $elem.find('button').attr('aria-expanded', 'false');
-            $elem.hasClass('is-open').find('.show-label').text('Hide the sub topics of ');
-            $('.ma__main-nav__subitems').attr("style", "");
-            $elem.find('.ma__main-nav__link').attr('tabIndex', '-1');
-            $('.has-focus').removeClass('has-focus');
-            return false;
-          }
-        }, 10);
-      });
-    });
-
-    $mainNavItems.on('keydown', function (e) {
+    $mainNavItem.on('keydown', function (e) {
       // Grab all the DOM info we need...
       let $link = $(this),
+        $otherLinks = $mainNavItem.not($link),
         $topLevelLinks = $parent.find('.ma__main-nav__top-link'),
         open = $link.hasClass(openClass),
         $openContent = $parent.find('.js-main-nav-content.' + openClass),
@@ -48,7 +27,6 @@ export default (function (window, document, $, undefined) {
         // relevant if open..
         $topLevelItem = $focusedElement.parents('.ma__main-nav__item'),
         $topLevelLink = $topLevelItem.find('.ma__main-nav__top-link'),
-        $showLabel = $topLevelLink.find('.show-label'),
         $dropdownLinks = $link.find('.ma__main-nav__subitem .ma__main-nav__link'),
         dropdownLinksLength = $dropdownLinks.length,
         focusIndexInDropdown = $dropdownLinks.index($focusedElement),
@@ -67,30 +45,29 @@ export default (function (window, document, $, undefined) {
 
       // Default behavior is prevented for all actions except 'skip'.
       if (action.close || action.left || action.right || action.up || action.down) {
-        $('.has-focus').removeClass('has-focus');
         e.preventDefault();
       }
 
-      if (action.space || action.enter) {
-        $(this).addClass('has-focus');
-        $showLabel.text('Hide the sub topics of ');
+      if (action.enter || action.space) {
+        $link.addClass(hasFocus);
+        $otherLinks.removeClass(hasFocus);
       }
 
-      if (action.skip && ($topLevelItem.find('.js-main-nav-content').hasClass('is-open'))) {
-        $topLevelItem.find('.ma__main-nav__link').attr('tabIndex', '0');
+      if (action.skip) {
+        console.log(focusIndexInDropdown);
       }
 
-      $topLevelItem.find('.js-main-nav-content .ma__main-nav__link:last').on('keydown', function () {
-        if (action.skip) {
-          hide($openContent);
-          $link.removeClass(openClass);
-          $topLevelLink.attr('aria-expanded', 'false');
-          $topLevelItem.find('.ma__main-nav__link').attr('tabIndex', '-1');
-          $showLabel.text('Show the sub topics of ');
-          $('.has-focus').removeClass('has-focus');
-          return;
-        }
-      });
+      if (action.skip && dropdownLinksLength === (focusIndexInDropdown + 1)) {
+        console.log(focusIndexInDropdown);
+        hide($openContent);
+        $topLevelLink.attr('aria-expanded', 'false');
+        $link.removeClass(hasFocus);
+        return;
+      }
+
+      // if (action.skip && focusIndexInDropdown === -1) {
+      //   console.log('back');
+      // }
 
       // Navigate into or within a submenu. This is needed on up/down actions
       // (unless the menu is flipped and closed) and when using the right arrow
@@ -98,10 +75,9 @@ export default (function (window, document, $, undefined) {
       if (((action.up || action.down) && !(menuFlipped && !open))
         || (action.right && menuFlipped && !open)) {
         // Open pull down menu if necessary.
-        if (!open) {
+        if (!open && !$link.hasClass(hasFocus)) {
           show($topLevelItem.find('.js-main-nav-content'));
           $topLevelLink.attr('aria-expanded', 'true');
-          $showLabel.text('Hide the sub topics of ');
           $link.addClass(openClass);
         }
 
@@ -115,6 +91,7 @@ export default (function (window, document, $, undefined) {
           }
         } else {
           if (focusIndexInDropdown === 0 || focusIndexInDropdown >= dropdownLinksLength) {
+
             focusIndexInDropdown += (action.up ? -1 : 1);
           }
         }
@@ -128,8 +105,8 @@ export default (function (window, document, $, undefined) {
       if (action.close || (menuFlipped && action.left)) {
         hide($openContent);
         $link.removeClass(openClass);
+        $link.removeClass(hasFocus);
         $topLevelLink.focus().attr('aria-expanded', 'false');
-        $showLabel.text('Show the sub topics of ');
         return;
       }
 
@@ -149,6 +126,7 @@ export default (function (window, document, $, undefined) {
         //  - Open previous pull down menu and select first item
         hide($openContent);
         $topLevelLink.attr('aria-expanded', 'false');
+        $link.removeClass(hasFocus);
         // Get previous item if left arrow, next item if right arrow.
         index += (prev ? -1 : 1);
         // Wrap around if at the end of the set of menus.
@@ -157,26 +135,26 @@ export default (function (window, document, $, undefined) {
         return;
       }
 
-    });
-    $mainNavItems.on('mouseenter', function (e) {
-      $(this).toggleClass(openClass);
-      $(this).children('button').attr("aria-expanded", "true");
-
-      if (windowWidth > breakpoint) {
-        let $openContent = $(this).find('.js-main-nav-content');
-        show($openContent);
+    })
+      .on('mouseenter', function (e) {
+        $(this).children('button').attr("aria-expanded", "true");
         $('.has-focus').removeClass('has-focus');
-      }
-    });
-    $mainNavItems.on('mouseleave', function (e) {
-      $(this).children('button').attr("aria-expanded", "false");
 
-      if (windowWidth > breakpoint) {
-        let $openContent = $(this).find('.js-main-nav-content');
-        hide($openContent);
-      }
-    });
-    $mainNavToggle.children('button, a').on('click', function (e) {
+        if (windowWidth > breakpoint) {
+          let $openContent = $(this).find('.js-main-nav-content');
+          show($openContent);
+        }
+      })
+      .on('mouseleave', function (e) {
+        $(this).children('button').attr("aria-expanded", "false");
+
+        if (windowWidth > breakpoint) {
+          let $openContent = $(this).find('.js-main-nav-content');
+          hide($openContent);
+        }
+      });
+
+    $mainNavItem.children('button, a').on('click', function (e) {
       let $el = $(this),
         $elParent = $el.parent(),
         $content = $elParent.find('.js-main-nav-content'),

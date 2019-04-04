@@ -8,14 +8,14 @@
           <button id="{{ buttonId }}" class="ma__main-nav__top-link" role="menuitem" aria-haspopup="true" aria-expanded="false" tabindex="0"><span class="visually-hidden show-label">Show the sub topics of </span>{{ nav.text }}</button>
           <div class="ma__main-nav__subitems js-main-nav-content is-closed">
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main-nav__container">
-              <li role="presentation" class="ma__main-nav__subitem"><a href="{{ nav.href }}" class="ma__main-nav__link" tabindex="-1">{{ nav.text }}</a></li>
+              <li role="presentation" class="ma__main-nav__subitem"><a href="{{ nav.href }}" class="ma__main-nav__link">{{ nav.text }}</a></li>
               {% for subNav in nav.subNav %}
-                <li class="ma__main-nav__subitem"><a role="menuitem" tabindex="-1" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a></li>
+                <li class="ma__main-nav__subitem"><a role="menuitem" href="{{ subNav.href }}" class="ma__main-nav__link">{{ subNav.text }}</a></li>
               {% endfor %}
               <li class="ma__main-nav__subitem">
-                <a role="menuitem"  href="{{ nav.href }}" class="ma__main-nav__link">
+                <a role="menuitem" href="{{ nav.href }}" class="ma__main-nav__link">
                   {{ icon('arrow-bent') }}
-                  <span><span class="visually-hidden">See all topics under</span>{{ nav.text }}</span>
+                  <span><span class="visually-hidden">See all topics under </span>{{ nav.text }}</span>
                 </a>
               </li>
             </ul>
