@@ -17,7 +17,7 @@
         {% include "@molecules/social-links.twig" %}
       </div>
       <div class="ma__footer__copyright">
-        <p><b>&copy; {{ "now"|date("Y") }} Commonwealth of Massachusetts.</b></p>
+        <p class="ma__footer__copyright--date">&copy; {{ "now"|date("Y") }} Commonwealth of Massachusetts.</p>
         <p>Mass.gov&#x00AE; is a registered service mark of the Commonwealth of Massachusetts.</p>
         <a href="{{ privacyPolicy | default('/privacypolicy') }}">Mass.gov Privacy Policy</a>
       </div>
