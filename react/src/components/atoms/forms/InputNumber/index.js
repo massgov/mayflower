@@ -79,7 +79,7 @@ const NumberInput = forwardRef((props, ref) => {
           const handleChange = (e) => {
             e.persist();
             const inputEl = ref.current;
-            const newValue = !is.number(Number(inputEl.value)) ? 0 : Number(inputEl.value);
+            const newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
               const updateError = displayErrorMessage(newValue);
 
               context.updateOwnState({ value: newValue, ...updateError }, () => {
