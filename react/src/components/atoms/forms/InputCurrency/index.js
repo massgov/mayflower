@@ -52,17 +52,18 @@ const Currency = (props) => {
           const lessThanMax = (val) => !hasNumberProperty(props, 'max') || (val <= props.max);
 
           const displayErrorMessage = (val) => {
-            const { min, max, required } = props;
+            const { min, max, required, errorMsg } = props;
             if (required && !is.number(val)) {
-              const errorMsg = 'Please enter a value.';
+              const defaultErrorMsg = 'Please enter a value.';
               return{
                 showError: true,
-                errorMsg
+                errorMsg: errorMsg || defaultErrorMsg
               };
             } else if (is.number(val)) {
-              const { showError, errorMsg } = validNumber(val, min, max);
+              const { showError, defaultErrorMsg } = validNumber(val, min, max);
               return{
-                showError, errorMsg
+                showError,
+                errorMsg: errorMsg || defaultErrorMsg
               };
             }
             return{

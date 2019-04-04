@@ -34,17 +34,18 @@ const NumberInput = (props) => {
           });
 
           const displayErrorMessage = (val) => {
-            const { min, max, required } = props;
+            const { min, max, required, errorMsg } = props;
             if (required && !is.number(val)) {
-              const errorMsg = 'Please enter a value.';
+              const defaultErrorMsg = 'Please enter a value.';
               return{
                 showError: true,
-                errorMsg
+                errorMsg: errorMsg || defaultErrorMsg
               };
             } else if (is.number(val)) {
-              const { showError, errorMsg } = validNumber(val, min, max);
+              const { showError, defaultErrorMsg } = validNumber(val, min, max);
               return{
-                showError, errorMsg
+                showError,
+                errorMsg: errorMsg || defaultErrorMsg
               };
             }
             return{
@@ -182,7 +183,7 @@ const NumberInput = (props) => {
 
 const InputNumber = (props) => {
   const {
-    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, showButtons, ...inputProps
+    min, max, step, name, onChange, onBlur, placeholder, width, maxlength, showButtons, ...inputProps
   } = props;
   // Input and Number share the props.required, props.id and props.disabled values.
   const numberProps = {
@@ -199,7 +200,8 @@ const InputNumber = (props) => {
     onBlur,
     disabled: props.disabled,
     unit: props.unit,
-    showButtons
+    showButtons,
+    errorMsg: props.errorMsg
   };
   return(
     <Input {...inputProps}>
