@@ -101,7 +101,7 @@ const NumberInput = forwardRef((props, ref) => {
             let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
             if (direction === 'up' && (!hasNumberProperty(props, 'max') || newValue < props.max)) {
               // Since to Fixed returns a string, we have to cast it back to a Number
-              newValue = Number((newValue + props.step).toFixed(countDecimals(props.step)));
+              newValue = newValue ? Number((newValue + props.step).toFixed(countDecimals(props.step))) : props.step;
               const updateError = displayErrorMessage(newValue);
               context.updateOwnState({ value: newValue, ...updateError }, () => {
                 if (is.fn(props.onChange)) {
