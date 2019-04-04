@@ -52,45 +52,35 @@ const NumberInput = (props) => {
               errorMsg: ''
             };
           };
-          const hasProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && !is.nil(obj[property]);
+
+          const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
 
           const handleOnBlur = (e) => {
             e.persist();
             const inputEl = ref.current;
-            let newValue = Number(inputEl.value);
-            if ((hasProperty(props, 'max') && newValue > props.max) || (hasProperty(props, 'min') && newValue < props.min)) {
-              if (hasProperty(props, 'max') && newValue > props.max) {
-                newValue = props.max;
-              }
-              if (hasProperty(props, 'min') && newValue < props.min) {
-                newValue = props.min;
-              }
+            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
+            if (hasNumberProperty(props, 'max') && newValue > props.max) {
+              newValue = props.max;
             }
-            if (!is.empty(inputEl.value)) {
-              inputEl.value = Number(numbro(newValue)
-                .format({ mantissa: countDecimals(props.step) }));
+            if (hasNumberProperty(props, 'min') && newValue < props.min) {
+              newValue = props.min;
+            }
+            if (is.number(newValue)) {
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = Number(newValue.toFixed(countDecimals(props.step)));
               const updateError = displayErrorMessage(newValue);
-              context.updateState({ value: inputEl.value, ...updateError }, () => {
+              context.updateState({ value: newValue, ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
-                  props.onBlur(e, inputEl.value);
+                  props.onBlur(e, newValue);
                 }
               });
             }
           };
 
           const handleChange = (e) => {
-            const inputEl = ref.current;
             e.persist();
-            let newValue;
-            if (is.empty(inputEl.value)) {
-              newValue = inputEl.value;
-            } else {
-              newValue = Number(inputEl.value);
-              if (is.number(newValue)) {
-                newValue = Number(numbro(inputEl.value)
-                  .format({ mantissa: countDecimals(props.step) }));
-              }
-            }
+            const inputEl = ref.current;
+            const newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
             const updateError = displayErrorMessage(newValue);
             context.updateState({ value: newValue, ...updateError }, () => {
               if (is.fn(props.onChange)) {
@@ -100,6 +90,7 @@ const NumberInput = (props) => {
           };
 
           const handleAdjust = (e) => {
+            e.persist();
             let direction;
             if (e.currentTarget === upRef.current) {
               direction = 'up';
@@ -107,22 +98,25 @@ const NumberInput = (props) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            if (direction === 'up' && (!hasProperty(props, 'max') || inputEl.value < props.max)) {
-              if (is.empty(inputEl.value)) {
-                inputEl.value = 1;
-              } else {
-                inputEl.value = Number(numbro(inputEl.value)
-                  .add(props.step).value());
-              }
-              handleChange(e);
-            } else if (direction === 'down' && (!hasProperty(props, 'min') || inputEl.value > props.min)) {
-              if (is.empty(inputEl.value)) {
-                inputEl.value = -1;
-              } else {
-                inputEl.value = Number(numbro(inputEl.value)
-                  .subtract(props.step).value());
-              }
-              handleChange(e);
+            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
+            if (direction === 'up' && (!hasNumberProperty(props, 'max') || newValue < props.max)) {
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = newValue ? Number((newValue + props.step).toFixed(countDecimals(props.step))) : props.step;
+              const updateError = displayErrorMessage(newValue);
+              context.updateState({ value: newValue, ...updateError }, () => {
+                if (is.fn(props.onChange)) {
+                  props.onChange(e, newValue, props.id);
+                }
+              });
+            } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || newValue > props.min)) {
+              // Since to Fixed returns a string, we have to cast it back to a Number
+              newValue = newValue ? Number((newValue + props.step * -1).toFixed(countDecimals(props.step))) : (props.step * -1);
+              const updateError = displayErrorMessage(newValue);
+              context.updateState({ value: newValue, ...updateError }, () => {
+                if (is.fn(props.onChange)) {
+                  props.onChange(e, newValue, props.id);
+                }
+              });
             }
           };
 
