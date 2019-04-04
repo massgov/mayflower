@@ -98,7 +98,7 @@ const NumberInput = forwardRef((props, ref) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            let newValue = !is.number(Number(inputEl.value)) ? 0 : Number(inputEl.value);
+            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
             if (direction === 'up' && (!hasNumberProperty(props, 'max') || newValue < props.max)) {
               // Since to Fixed returns a string, we have to cast it back to a Number
               newValue = Number((newValue + props.step).toFixed(countDecimals(props.step)));
