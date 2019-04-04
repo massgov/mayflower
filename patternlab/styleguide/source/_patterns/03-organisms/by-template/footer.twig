@@ -1,11 +1,6 @@
 <footer class="ma__footer js-footer" id="footer" role="contentinfo">
   <div class="ma__footer__container">
     {% block footer %}{# for the Footer region content #}{% endblock %}
-    {% block footer_navigation %}
-      <div class="ma__footer__nav">
-        {% include "@molecules/footer-links.twig" %}
-      </div>
-    {% endblock %}
     <section class="ma__footer__info">
       <div class="ma__footer__logo">
         <a href="/" title="Mass.gov home page">
@@ -22,6 +17,11 @@
         <a href="{{ privacyPolicy | default('/privacypolicy') }}">Mass.gov Privacy Policy</a>
       </div>
     </section>
+     {% block footer_navigation %}
+      <div class="ma__footer__nav">
+        {% include "@molecules/footer-links.twig" %}
+      </div>
+    {% endblock %}
   </div>
   {% if backToTopButton %}
     <button class="ma__footer__back2top js-back2top is-hidden">

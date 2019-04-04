@@ -53,6 +53,11 @@
   &__container {
     @include ma-container;
     @include clearfix;
+
+    @media($bp-large-max) {
+      display: flex;
+      flex-direction: column;
+    } 
   }
 
   &__nav {
@@ -67,6 +72,11 @@
   }
 
   &__info {
+
+    @media($bp-large-max) {
+      order: 2;
+    }
+
     @media ($bp-large-min) {
       @include span-columns(3);
     }
