@@ -2,8 +2,6 @@
 $column: 85px;
 $gutter: 20px;
 $column-with-gutter: $column + $gutter;
-// Use @include outer-container() which sets this and centers.
-$max-width: 1320px;
 
 $header-mobile-controls-height: 40px;
 

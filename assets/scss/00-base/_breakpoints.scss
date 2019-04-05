@@ -23,14 +23,18 @@ $bp-large-extended-min: "min-width: " + $bp-l-ex;
 $bp-x-large-min: "min-width: " + $bp-xl;
 $bp-x-large-max: "max-width:" + $bp-xl;
 
-$bp-page-width-min: "min-width:" + ($max-width);
+// Use @include outer-container() which sets this and centers.
+$max-width: 82.5rem; // 1320px
+
+$bp-page-width-min: "min-width:" + $max-width;
 $bp-page-width-max: "max-width:" + $max-width;
-$bp-centered-content-width: "min-width: 1315px";
+$bp-centered-content-width: "min-width: 82.19rem";  //1315px
+
 
 // Semi Global breakpoint media variables
 // switch the header from full width to hamburger
-$bp-header-toggle-min: "min-width: 841px";
-$bp-header-toggle-max: "max-width: 840px";
+$bp-header-toggle-min: "min-width: 52.56rem"; // 841px
+$bp-header-toggle-max: "max-width: 52.5rem"; // 840px
 
 // Feedback form custom breakpoint 
-$bp-feedback-min: "min-width: 650px";
+$bp-feedback-min: "min-width: 40.63rem"; // 650px
