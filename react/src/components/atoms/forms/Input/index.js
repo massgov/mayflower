@@ -72,11 +72,11 @@ class InputProvider extends React.Component {
       formProviderContext.updateLinkedInputProviders(this.props.id);
       // Then, run the on update functions for this InputProvider.
       if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
-        this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue());
+        this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue(), this.props.id);
       }
     } else if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
       // If nothing is linked, just run the on update function for this InputProvider.
-      this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue());
+      this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue(), this.props.id);
     }
     // Finally, handle updating any InputSync components on the Form that are watching this InputProvider.
     if (is.fn(formProviderContext.checkInputSyncUpdateFunctions)) {
@@ -107,15 +107,15 @@ class InputProvider extends React.Component {
   // Sets the InputProvider's value. Used by FormContext/FormProvider.
   setOwnValue = (value, afterUpdate) => {
     if (this.state.useOwnStateValue) {
-      this.setState({ value }, afterUpdate);
+      this.setState({ value }, () => {
+        this.context.updateFormState({ [this.props.id]: value }, afterUpdate);
+      });
     } else {
       const formContext = this.context;
       const ref = formContext.getInputProviderRef(this.props.id);
       if (ref && ref.current) {
         ref.current.value = value;
-        if (is.fn(afterUpdate)) {
-          afterUpdate();
-        }
+        this.context.updateFormState({ [this.props.id]: value }, afterUpdate);
       }
     }
   };
@@ -155,6 +155,9 @@ class InputProvider extends React.Component {
       const { inputProviderStore = {} } = formContext;
       if (!Object.prototype.hasOwnProperty.call(inputProviderStore, this.props.id)) {
         inputProviderStore[this.props.id] = {};
+      }
+      if (!Object.prototype.hasOwnProperty.call(formContext, this.props.id)) {
+        formContext.updateFormState({ [this.props.id]: this.state.getOwnValue() });
       }
       // This list is only for things from this.state.
       const inputStateProperties = [

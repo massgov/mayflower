@@ -179,7 +179,7 @@ class FormProvider extends Component {
     return hasAllIds;
   };
   // Updates the component's state.
-  updateFormState = (newState) => { this.setState(newState); };
+  updateFormState = (newState, afterUpdate) => { this.setState(newState, afterUpdate); };
   render() {
     return(
       <FormContext.Provider value={this.state}>

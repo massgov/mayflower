@@ -107,19 +107,15 @@ storiesOf('atoms/forms/Form', module)
                     <InputSlider {...inputSliderOptionsWithKnobs} />
                   </div>
                   <div className="full-right">
-                    <InputSync {...inputSyncProps}>
-                      {() => (
-                        <React.Fragment>
-                          <Paragraph text="Updates whenever the InputProvider ids pointed to in InputSync.props.inputProviderIds update." />
-                          <Paragraph text="Current Values:" />
-                          {
-                            inputProviderIds.map((id, providerIndex) => (
-                              <Paragraph key={`formStory-inputSync-providerId-${providerIndex}`} text={`${id}: ${formContext.getInputProviderValue(id)}`} />
-                            ))
-                          }
-                        </React.Fragment>
-                      ) }
-                    </InputSync>
+                    <React.Fragment>
+                      <Paragraph text="Updates whenever the InputProvider ids pointed to in InputSync.props.inputProviderIds update." />
+                      <Paragraph text="Current Values:" />
+                      {
+                        inputProviderIds.map((id, providerIndex) => (
+                          <Paragraph key={`formStory-inputSync-providerId-${providerIndex}`} text={`${id}: ${formContext.getInputProviderValue(id)}`} />
+                        ))
+                      }
+                    </React.Fragment>
                   </div>
                 </React.Fragment>
               );
@@ -227,19 +223,13 @@ storiesOf('atoms/forms/Form', module)
                       <InputSlider {...inputSliderOptionsWithKnobs} />
                     </div>
                     <div className="full-right">
-                      <InputSync {...inputSyncProps}>
-                        {() => (
-                          <React.Fragment>
-                            <Paragraph text="Updates whenever the InputProvider ids pointed to in InputSync.props.inputProviderIds update." />
-                            <Paragraph text="Current Values:" />
-                            {
-                              inputProviderIds.map((id, providerIndex) => (
-                                <Paragraph key={`formStory-inputSync-providerId-${providerIndex}`} text={`${id}: ${formContext.getInputProviderValue(id)}`} />
-                              ))
-                            }
-                          </React.Fragment>
-                        ) }
-                      </InputSync>
+                      <Paragraph text="Updates whenever the InputProvider ids pointed to in InputSync.props.inputProviderIds update." />
+                      <Paragraph text="Current Values:" />
+                      {
+                        inputProviderIds.map((id, providerIndex) => (
+                          <Paragraph key={`formStory-inputSync-providerId-${providerIndex}`} text={`${id}: ${formContext.getInputProviderValue(id)}`} />
+                        ))
+                      }
                     </div>
                   </React.Fragment>
                 );
@@ -467,25 +457,22 @@ storiesOf('atoms/forms/Form', module)
               const inputSyncProps = {
                 inputProviderIds
               };
+              inputSliderOptionsWithKnobs.useOwnStateValue = true;
+              const test = formContext.getInputProviderValue('test0');
+              console.log('test: ', test);
               return(
                 <React.Fragment>
                   <div className="align-left">
                     <InputCurrency {...inputCurrencyOptionsWithKnobs} />
-                    <InputSync inputProviderIds={['currency-input', 'test0', 'test1', 'test2', 'slider']}>
-                      {
-                        () => (
-                          <Fragment>
-                            {inputs}
-                          </Fragment>
-                        )
-                      }
-                    </InputSync>
+                      <Fragment>
+                        {inputs}
+                      </Fragment>
                     <InputSlider {...inputSliderOptionsWithKnobs} />
                   </div>
                   <div className="full-right">
-                    <InputSync {...inputSyncProps}>
-                      {() => (
+
                         <React.Fragment>
+                          test: {test}
                           <Paragraph text="Updates whenever the InputProvider ids pointed to in InputSync.props.inputProviderIds update." />
                           <Paragraph text="Current Values:" />
                           {
@@ -494,8 +481,7 @@ storiesOf('atoms/forms/Form', module)
                             ))
                           }
                         </React.Fragment>
-                      ) }
-                    </InputSync>
+
                   </div>
                 </React.Fragment>
               );
