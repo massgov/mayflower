@@ -44,9 +44,6 @@ class InputProvider extends React.Component {
     this.state = {
       value: this.props.defaultValue,
       useOwnStateValue: this.props.useOwnStateValue,
-      linkedInputProviders: this.props.linkedInputProviders,
-      getOwnLinkedInputProviders: this.getOwnLinkedInputProviders,
-      setOwnLinkedInputProviders: this.setOwnLinkedInputProviders,
       getOwnValue: this.getOwnValue,
       setOwnValue: this.setOwnValue,
       updateOwnState: this.updateOwnState,
@@ -55,7 +52,6 @@ class InputProvider extends React.Component {
       disabled: this.props.disabled,
       inline: this.props.inline,
       forceOwnUpdate: this.forceOwnUpdate,
-      getOwnOverrideLinkedValueFunc: this.props.overrideLinkedValue,
       getOwnOnComponentUpdateFunc: this.props.onComponentUpdate,
       setOwnOnComponentUpdateFunc: this.setOwnOnComponentUpdateFunc,
       getOwnRef: this.getOwnRef
@@ -66,21 +62,9 @@ class InputProvider extends React.Component {
     this.checkFormContext(this.context);
   }
   componentDidUpdate() {
-    const formProviderContext = this.context;
-    if (is.fn(formProviderContext.updateLinkedInputProviders)) {
-      // Update all InputProvider components whose ids are in the linkedInputProviders array with the newly updated value.
-      formProviderContext.updateLinkedInputProviders(this.props.id);
-      // Then, run the on update functions for this InputProvider.
-      if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
-        this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue(), this.props.id);
-      }
-    } else if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
-      // If nothing is linked, just run the on update function for this InputProvider.
+    // run the on update functions for this InputProvider.
+    if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
       this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue(), this.props.id);
-    }
-    // Finally, handle updating any InputSync components on the Form that are watching this InputProvider.
-    if (is.fn(formProviderContext.checkInputSyncUpdateFunctions)) {
-      formProviderContext.checkInputSyncUpdateFunctions(this.props.id);
     }
   }
   getOwnRef = () => this.selfRef;
@@ -119,17 +103,6 @@ class InputProvider extends React.Component {
       }
     }
   };
-  // Returns the array of linkedInputProviders this component has, if any.
-  // This should not be used to determine ALL InputProvider components linked to this one.
-  // Use formContext.getLinkedInputProviders instead for that.
-  getOwnLinkedInputProviders = () => this.state.linkedInputProviders;
-  setOwnLinkedInputProviders = (ids) => {
-    if (is.array(ids) && !is.array.empty(ids)) {
-      const { linkedInputProviders = [] } = this.state;
-      const updatedIds = linkedInputProviders.concat(ids);
-      this.setState({ linkedInputProviders: updatedIds });
-    }
-  };
   setOwnOnComponentUpdateFunc = (getOwnOnComponentUpdateFunc) => {
     this.setState({ getOwnOnComponentUpdateFunc });
   };
@@ -150,8 +123,6 @@ class InputProvider extends React.Component {
   // extra re-renders are avoided when context updates.
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
-      // InputSync components could have already created an inputProviderStore entry for this.props.id.
-      // If this is true, add the remaining properties that should normally be added by this component to the inputProviderStore.
       const { inputProviderStore = {} } = formContext;
       if (!Object.prototype.hasOwnProperty.call(inputProviderStore, this.props.id)) {
         inputProviderStore[this.props.id] = {};
@@ -167,11 +138,8 @@ class InputProvider extends React.Component {
         'forceOwnUpdate',
         'useOwnStateValue',
         'setUseOwnStateValue',
-        'getOwnLinkedInputProviders',
-        'setOwnLinkedInputProviders',
         'getOwnOnComponentUpdateFunc',
-        'setOwnOnComponentUpdateFunc',
-        'getOwnOverrideLinkedValueFunc'
+        'setOwnOnComponentUpdateFunc'
       ];
       inputStateProperties.forEach((property) => {
         if (!Object.prototype.hasOwnProperty.call(inputProviderStore[this.props.id], property)) {
@@ -198,19 +166,13 @@ class InputProvider extends React.Component {
   }
 }
 InputProvider.defaultProps = {
-  linkedInputProviders: [],
   onComponentUpdate: null,
-  overrideLinkedValue: null,
   useOwnStateValue: false
 };
 
 InputProvider.propTypes = {
   /** Controls if the component's local this.state should be used to store the value for the Input. Use this when your component does not contain an input element. */
   useOwnStateValue: PropTypes.bool,
-  /** An array of InputProvider component ids. Whenever the value of any InputProvider within this array update, all InputProviders whose ids are in this array will be set to the same value. This should only be set once for any of the InputProviders that should be linked. */
-  linkedInputProviders: PropTypes.arrayOf(PropTypes.string),
-  /** An optional function that overrides the value that would be set to this InputProvider when linked together by any other InputProvider's linkedInputProviders. The value returned by this function becomes the newly overridden value. */
-  overrideLinkedValue: PropTypes.func,
   /** An optional function that is ran during the componentDidUpdate lifecycle of this component. This function is passed the current value of the InputProvider. */
   onComponentUpdate: PropTypes.func,
   /** The default value that should be used for the input. */

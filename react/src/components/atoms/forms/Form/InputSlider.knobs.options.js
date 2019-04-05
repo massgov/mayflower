@@ -2,11 +2,11 @@ import { text, boolean, number, object, select, array } from '@storybook/addon-k
 import { action } from '@storybook/addon-actions';
 
 export default {
-  labelText: () => text('InputSlider: labelText', 'Family Leave', 'InputSlider'),
+  labelText: () => text('InputSlider: labelText', 'Slider', 'InputSlider'),
   id: () => text('InputSlider: id', 'slider', 'InputSlider'),
   disabled: () => boolean('InputSlider: disabled', false, 'InputSlider'),
   required: () => boolean('InputSlider: required', true, 'InputSlider'),
-  defaultValue: () => text('InputSlider: defaultValue', '0', 'InputSlider'),
+  defaultValue: () => text('InputSlider: defaultValue', '0.00', 'InputSlider'),
   axis: () => select('InputSlider: axis', ['x', 'y'], 'x', 'InputSlider'),
   max: () => number('InputSlider: max', 1, {}, 'InputSlider'),
   min: () => number('InputSlider: min', 0, {}, 'InputSlider'),

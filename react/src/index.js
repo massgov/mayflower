@@ -31,7 +31,6 @@ export InputSlider from './components/atoms/forms/InputSlider';
 export CompoundSlider from './components/atoms/forms/CompoundSlider';
 export InputCurrency from './components/atoms/forms/InputCurrency';
 export InputCheckBox from './components/atoms/forms/InputCheckBox';
-export InputSync from './components/atoms/forms/InputSync';
 
 // Also export the context.
 export { InputContext, FormContext } from './components/atoms/forms/Input/context';
