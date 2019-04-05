@@ -1,0 +1,4 @@
+___DESCRIPTION___
+Minor
+Changed
+- (patternlab) [Breakpoints] DP-2080: Change breakpoints to rems for better accessibility at zoom levels
