@@ -1,7 +1,7 @@
 // narrow page template
-$narrow-template-bg-offset-full: calc(50% - 320px);
-$narrow-template-bg-offset-narrow: calc(50% - 125px);
-$narrow-template-max-width: 670px;
+$narrow-template-bg-offset-full: calc(50% - 20rem); // 320px
+$narrow-template-bg-offset-narrow: calc(50% - 7.813rem); // 125px
+$narrow-template-max-width: 41.88rem; // 670px
 $narrow-template-header-height: 170px;
 
 @keyframes narrow-template-bg-full-left {

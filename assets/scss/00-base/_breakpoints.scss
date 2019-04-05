@@ -36,5 +36,30 @@ $bp-centered-content-width: "min-width: 82.19rem";  //1315px
 $bp-header-toggle-min: "min-width: 52.56rem"; // 841px
 $bp-header-toggle-max: "max-width: 52.5rem"; // 840px
 
+// Custom Breakpoints
+
+// Header 
+$bp-header-search-reduce-button: "max-width: 43.75rem"; // 700px
+$bp-header-min-break: "min-width: 62.5rem"; // 1000px
+
+// Illustrated Headers 
+$bp-illustrated-header-columns-min: "min-width: 62.56rem"; // 1001px
+$bp-illustrated-header-columns-max: "max-width: 62.5rem"; // 1000px
+
 // Feedback form custom breakpoint 
 $bp-feedback-min: "min-width: 40.63rem"; // 650px
+$feedback-form-bp-min: "min-width: 46.94rem"; // 751px
+
+// Utility Panel
+$bp-utility-panel-medium-min: "min-width: 70.06rem"; // 1121px
+$bp-utility-panel-reduce-links-max: "max-width: 70rem"; //1120px
+
+// Collage header
+$collage-header-bp-min: "min-width: 43.81rem"; // 701px
+
+// Contact Rows
+$accordion-break: 45rem; // 720px
+
+// Section 3 up
+$bp-section-3up-large-min: "min-width:59.44rem"; //951px
+$bp-section-3up-large-max: "max-width: 59.38rem"; //950px
