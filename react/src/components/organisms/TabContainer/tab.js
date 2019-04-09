@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import is from 'is';
 import { TabContext } from './context';
 
 const Tab = React.forwardRef((props, ref) => (
@@ -65,6 +66,9 @@ const Tab = React.forwardRef((props, ref) => (
               }
             }
           }
+          if (is.fn(props.handleClick) && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) {
+            props.handleClick(e, tabIdent, props.children);
+          }
         };
         const { setActiveTab, activeTab } = context;
         const tabClasses = classNames({
@@ -76,9 +80,9 @@ const Tab = React.forwardRef((props, ref) => (
             e.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             if (activeTab !== tabIdent) {
               setActiveTab(tabIdent, props.children);
-              if (typeof props.handleClick === 'function') {
-                props.handleClick(e, tabIdent, props.children);
-              }
+            }
+            if (is.fn(props.handleClick)) {
+              props.handleClick(e, tabIdent, props.children);
             }
           },
           onKeyDown: handleKeyDown,
