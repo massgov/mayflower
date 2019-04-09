@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 
 import InputSlider from './index';
-import { FormProvider } from '../Form';
 import InputSliderOptions from './InputSlider.knobs.options';
 import InputSliderDocs from './InputSlider.md';
 
@@ -17,9 +16,7 @@ storiesOf('atoms/forms', module)
       Object.keys(inputTextOptionsWithKnobs.ticks).forEach((tick) => ticks.push([tick, inputTextOptionsWithKnobs.ticks[tick]]));
       inputTextOptionsWithKnobs.ticks = ticks;
       return(
-        <FormProvider>
-          <InputSlider {...inputTextOptionsWithKnobs} />
-        </FormProvider>
+        <InputSlider {...inputTextOptionsWithKnobs} />
       );
     }),
     { info: InputSliderDocs }

@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, boolean, select } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import InputCurrency from './index';
-import { FormProvider } from '../Form';
 import InputCurrencyOptions from './InputCurrency.knobs.options';
 import InputCurrencyDocs from './InputCurrency.md';
 
@@ -21,9 +20,7 @@ storiesOf('atoms/forms', module)
       languages.set('Russian', 'ru-RU');
       inputTextOptionsWithKnobs.language = languages.get(inputTextOptionsWithKnobs.language);
       return(
-        <FormProvider>
-          <InputCurrency {...inputTextOptionsWithKnobs} />
-        </FormProvider>
+        <InputCurrency {...inputTextOptionsWithKnobs} />
       );
     }),
     { info: InputCurrencyDocs }

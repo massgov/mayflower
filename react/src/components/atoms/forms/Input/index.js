@@ -59,7 +59,7 @@ class InputProvider extends React.Component {
     this.selfRef = React.createRef();
   }
   componentDidMount() {
-    this.checkFormContext(this.context);
+    this.checkFormContext();
   }
   componentDidUpdate() {
     // run the on update functions for this InputProvider.
@@ -74,9 +74,11 @@ class InputProvider extends React.Component {
       return this.state.value;
     }
     const formContext = this.context;
-    const ref = formContext.getInputProviderRef(this.props.id);
-    if (ref && ref.current) {
-      return ref.current.value;
+    if (formContext && formContext.isActive) {
+      const ref = formContext.getInputProviderRef(this.props.id);
+      if (ref && ref.current) {
+        return ref.current.value;
+      }
     }
     return this.props.defaultValue;
   };
@@ -92,14 +94,25 @@ class InputProvider extends React.Component {
   setOwnValue = (value, afterUpdate) => {
     if (this.state.useOwnStateValue) {
       this.setState({ value }, () => {
-        this.context.updateFormState({ [this.props.id]: value }, afterUpdate);
+        if (this.context && this.context.isActive) {
+          this.context.updateFormState({ [this.props.id]: value }, afterUpdate);
+        } else if (is.fn(afterUpdate)) {
+          afterUpdate();
+        }
       });
     } else {
       const formContext = this.context;
-      const ref = formContext.getInputProviderRef(this.props.id);
-      if (ref && ref.current) {
-        ref.current.value = value;
-        this.context.updateFormState({ [this.props.id]: value }, afterUpdate);
+      if (formContext && formContext.isActive) {
+        const ref = formContext.getInputProviderRef(this.props.id);
+        if (ref && ref.current) {
+          ref.current.value = value;
+          formContext.updateFormState({ [this.props.id]: value }, afterUpdate);
+        }
+      } else if (this.selfRef && this.selfRef.current) {
+        this.selfRef.current.value = value;
+        if (is.fn(afterUpdate)) {
+          afterUpdate();
+        }
       }
     }
   };
@@ -111,8 +124,10 @@ class InputProvider extends React.Component {
     this.forceUpdate();
   };
   updateOwnState = (newState, afterUpdate) => {
-    if (Object.prototype.hasOwnProperty.call(newState, 'value') && !this.state.useOwnStateValue) {
-      this.state.setOwnValue(newState.value);
+    if (Object.prototype.hasOwnProperty.call(newState, 'value')) {
+      const { value } = newState;
+      delete newState.value;
+      this.state.setOwnValue(value);
     }
     this.setState(newState, afterUpdate);
   };
@@ -121,8 +136,9 @@ class InputProvider extends React.Component {
   // If it isn't, add it now.
   // By giving the form getters and setters and not the input value,
   // extra re-renders are avoided when context updates.
-  checkFormContext = (formContext) => {
-    if (formContext.isActive) {
+  checkFormContext = () => {
+    const formContext = this.context;
+    if (formContext && formContext.isActive) {
       const { inputProviderStore = {} } = formContext;
       if (!Object.prototype.hasOwnProperty.call(inputProviderStore, this.props.id)) {
         inputProviderStore[this.props.id] = {};

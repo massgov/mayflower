@@ -1,12 +1,11 @@
-import React, { useContext, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import numbro from 'numbro';
 
 import Input from '../Input';
 import Error from '../Input/error';
-import { InputContext, FormContext } from '../Input/context';
+import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import { countDecimals } from '../Input/utility';
 import { numberCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
@@ -110,7 +109,7 @@ const NumberInput = forwardRef((props, ref) => {
               });
             } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || newValue > props.min)) {
               // Since to Fixed returns a string, we have to cast it back to a Number
-              newValue = newValue ? Number((newValue + props.step * -1).toFixed(countDecimals(props.step))) : (props.step * -1);
+              newValue = newValue ? Number((newValue + (props.step * -1)).toFixed(countDecimals(props.step))) : (props.step * -1);
               const updateError = displayErrorMessage(newValue);
               context.updateOwnState({ value: newValue, ...updateError }, () => {
                 if (is.fn(props.onChange)) {
