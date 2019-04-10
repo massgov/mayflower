@@ -30,7 +30,7 @@ class TabContainer extends React.Component {
       this.setState(state);
       tabRefs[tabId].current.focus();
       if (is.fn(this.props.onTabChange)) {
-        this.props.onTabChange(tabId, content);
+        this.props.onTabChange(tabRefs[tabId], tabId, content);
       }
     };
     this.focusOnTabBody = () => {
