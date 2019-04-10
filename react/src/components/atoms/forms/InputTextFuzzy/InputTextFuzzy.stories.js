@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, object, select, boolean, array } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 import InputTextFuzzy from './index';
 import InputTextFuzzyDocs from './InputTextFuzzy.md';
@@ -30,10 +31,11 @@ storiesOf('atoms/forms', module)
           includeMatches: true,
           threshold: 0.3,
           minMatchCharLength: 1
-        })
+        }),
+        onChange: action('fuzzy input onChange'),
+        onSuggestionClick: action('fuzzy suggestion onClick')
       };
       return(<InputTextFuzzy {...props} />);
     }),
     { info: InputTextFuzzyDocs }
   );
-

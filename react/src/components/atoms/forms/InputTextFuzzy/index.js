@@ -127,13 +127,6 @@ class InputTextFuzzy extends React.Component {
               });
               break;
             default:
-              if (typeof this.props.onSuggestionClick === 'function') {
-                this.props.onSuggestionClick(event, {
-                  suggestion: {
-                    item: { text: this.state.value }
-                  }
-                });
-              }
           }
         }
       },
