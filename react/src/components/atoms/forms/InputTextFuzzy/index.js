@@ -4,6 +4,7 @@ import Fuse from 'fuse.js';
 import Autowhatever from 'react-autowhatever';
 import parse from 'autosuggest-highlight/parse';
 import classNames from 'classnames';
+import is from 'is';
 
 import './style.css';
 
