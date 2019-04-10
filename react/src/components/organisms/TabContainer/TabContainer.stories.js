@@ -19,9 +19,9 @@ storiesOf('organisms/TabContainer', module)
     };
 
     return(
-      <TabContainer>
+      <TabContainer onTabChange={action('Tab change')}>
         <Tab title="Tab 1" {...tabProps}>
-          <TabContainer {...props}>
+          <TabContainer {...props} onTabChange={action('Tab change')}>
             <Tab title="Nested Tab Here" {...tabProps}>This should support nesting like this.</Tab>
             <Tab title="Another Nested Tab" {...tabProps}>Tabs have unique ids that are tracked locally without state.</Tab>
           </TabContainer>

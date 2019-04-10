@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shortid from 'shortid';
+import is from 'is';
 import './style.css';
 import { TabContext } from './context';
 
@@ -15,31 +16,33 @@ class TabContainer extends React.Component {
     this.defaultContent = null;
     this.useDefault = true;
     const tabIds = new Map();
+    const tabContents = {};
     // This only works for class components because it is not re-generated on every render.
     this.spanId = shortid.generate();
-    this.setActiveTab = (tab, content = null) => {
+    this.setActiveTab = (tabId, content = null) => {
       const state = {
-        activeTab: tab
+        activeTab: tabId
       };
       if (content) {
         this.defaultContent = null;
         state.activeContent = content;
       }
       this.setState(state);
+      tabRefs[tabId].current.focus();
+      if (is.fn(this.props.onTabChange)) {
+        this.props.onTabChange(tabId, content);
+      }
     };
     this.focusOnTabBody = () => {
       this.tabBodyRef.current.setAttribute('tabindex', '0');
       this.tabBodyRef.current.focus();
     };
-    this.focusTab = (tabId) => {
-      if (this.tabRefs[tabId] && this.tabRefs[tabId].current) {
-        this.tabRefs[tabId].current.focus();
-      }
-    };
     const tabRefs = {};
     let activeContent = null;
     React.Children.forEach(props.children, (child, index) => {
-      tabIds.set(index, shortid.generate());
+      const id = shortid.generate();
+      tabIds.set(index, id);
+      tabContents[id] = child.props.children;
       tabRefs[tabIds.get(index)] = React.createRef();
       if (index === props.defaultTab) {
         activeContent = child.props.children;
@@ -52,15 +55,13 @@ class TabContainer extends React.Component {
       setActiveTab: this.setActiveTab,
       // eslint-disable-next-line react/no-unused-state
       focusOnTabBody: this.focusOnTabBody,
-      // eslint-disable-next-line react/no-unused-state
-      focusTab: this.focusTab,
       tabIds,
+      tabContents,
       tabRefs,
       tabContainerId: shortid.generate(),
       tabContainerBodyId: shortid.generate()
     };
   }
-
   render() {
     const classes = classNames({
       'ma__tab-container': true,
@@ -204,7 +205,9 @@ TabContainer.propTypes = {
   // When true, the styles of the container changes to drop borders around each tab.
   nested: PropTypes.bool,
   // The numerical index of which tab should default to be open, starting at 0.
-  defaultTab: PropTypes.number
+  defaultTab: PropTypes.number,
+  // A callback function for a tab change, receives the tab's id and children
+  onTabChange: PropTypes.func
 };
 
 export default TabContainer;
