@@ -23,9 +23,6 @@ const Tab = React.forwardRef((props, ref) => (
             if (context.tabRefs[nextIdent]) {
               e.currentTarget.setAttribute('tabindex', '-1');
               context.tabRefs[nextIdent].current.focus();
-              if (is.fn(props.handleClick)) {
-                props.handleClick(e, nextIdent, props.children);
-              }
             } else {
               // If no TabContainer children.
               if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
@@ -50,9 +47,6 @@ const Tab = React.forwardRef((props, ref) => (
             if (context.tabRefs[previousIdent]) {
               e.currentTarget.setAttribute('tabindex', '-1');
               context.tabRefs[previousIdent].current.focus();
-              if (is.fn(props.handleClick)) {
-                props.handleClick(e, previousIdent, props.children);
-              }
             } else {
               // If no TabContainer children.
               if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
