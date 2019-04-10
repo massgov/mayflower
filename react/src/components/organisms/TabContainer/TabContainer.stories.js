@@ -43,11 +43,11 @@ storiesOf('organisms/TabContainer', module)
     };
     if (TabContainerData.budgetTabs) {
       return(
-        <TabContainer>
+        <TabContainer onTabChange={action('Tab change')}>
           { TabContainerData.budgetTabs.map((tab, index) => (
             <Tab key={`tab${index}`} title={tab.tab} {...tabProps}>
               { tab.subTabs && (
-                <TabContainer {...props}>
+                <TabContainer {...props} onTabChange={action('Tab change')}>
                   {tab.subTabs.map((tab, index) => (
                     <Tab key={`subTab${index}`} title={tab.tab} {...tabProps}>{tab.content}</Tab>
                   ))}
