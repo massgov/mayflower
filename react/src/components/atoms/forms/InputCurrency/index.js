@@ -24,7 +24,6 @@ const Currency = (props) => {
             'ma__input-currency__control': true,
             'js-is-required': props.required
           });
-          const errorMsg = '';
           const toCurrency = (number, decimal) => {
             if (is.number(number)) {
               if (props.language) {
