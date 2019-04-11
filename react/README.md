@@ -23,7 +23,7 @@ For a guide and information on the components included in mayflower-react and th
 * `npm start`: This will run the demo application.
 
 Please note that we are currently relying on symlink for pulling in shared assets into react source code. For Windows users, you need to manually create the symlink before running `npm start`.
-e.g. In bash:
+e.g. In cmd prompt:
 - $ `cd src` - make sure you are in the `src` folder in `mayflower/react`
 - $ `rm assets`
 - $ `ln -s ../../assets assets`
