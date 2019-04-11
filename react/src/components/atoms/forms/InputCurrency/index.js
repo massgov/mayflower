@@ -24,7 +24,6 @@ const Currency = (props) => {
             'ma__input-currency__control': true,
             'js-is-required': props.required
           });
-          let errorMsg = '';
           const toCurrency = (number, decimal) => {
             if (is.number(number)) {
               if (props.language) {
@@ -146,17 +145,14 @@ const Currency = (props) => {
               inputEl.setAttribute('placeholder', props.placeholder);
             }
             let newValue = isNotNumber ? '' : Number(numbro.unformat(stringValue));
-            if (props.required && is.empty(stringValue)) {
-              errorMsg = 'Please enter a value.';
-              context.updateState({ showError: true, errorMsg });
-            } else if (!is.empty(stringValue)) {
-              if (!hasNumberProperty(props, 'max') || newValue > props.max) {
+            if (!is.empty(newValue)) {
+              if (hasNumberProperty(props, 'max') && newValue > props.max) {
                 newValue = props.max;
               }
-              if (!hasNumberProperty(props, 'min') || newValue < props.min) {
+              if (hasNumberProperty(props, 'min') && newValue < props.min) {
                 newValue = props.min;
               }
-              const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
+              const updateError = displayErrorMessage(newValue);
               context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
                   props.onBlur(newValue);

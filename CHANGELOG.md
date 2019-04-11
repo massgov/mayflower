@@ -13,6 +13,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.4.2 (04/10/2019)
+
+### Fixed
+- (React) [InputCurrency] DP-13450: Fixed bug relating to error handling on blur in InputCurrency. #533
+
 ## 9.4.1 (04/10/2019)
 
 ### Fixed
