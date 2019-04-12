@@ -1,6 +1,7 @@
 Minor
 Changed
 - (Patternlab) DP-6358: Change tab order in footer
+- (React) [Footer] DP-6358: Change tab order in footer
 
 
 

@@ -14,9 +14,6 @@ const Footer = ({
 }) => (
   <footer className="ma__footer js-footer" id="footer">
     <div className="ma__footer__container">
-      <div className="ma__footer__nav">
-        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
-      </div>
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
           <img src={footerLogo.src} alt={footerLogo.altText} width="120" height="120" />
@@ -30,6 +27,9 @@ const Footer = ({
           <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
         </div>
       </section>
+      <div className="ma__footer__nav">
+        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
+      </div>
     </div>
     { backToTopButton &&
     <button className="ma__footer__back2top js-back2top is-hidden">
