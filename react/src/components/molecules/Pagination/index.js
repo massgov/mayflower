@@ -1,14 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import is from 'is';
 import './style.css';
 
 const Pagination = (pagination) => {
-  const handleKeyDown = (event, handleClick) => {
-    if (event.key === ' ') {
-      event.preventDefault();
-      handleClick(event);
+  const handleClick = (event, handleAnchorClick) => {
+    event.preventDefault();
+    if (is.fn(handleClick)) {
+      handleAnchorClick(event);
     }
   };
+
+  const handleKeyDown = (event, handleAnchorClick) => {
+    if (event.key === ' ' && is.fn(handleClick)) {
+      event.preventDefault();
+      handleAnchorClick(event);
+    }
+  };
+
   return(
     <div className="ma__pagination js-pagination" role="navigation" aria-label="Pagination Navigation">
       <nav className="ma__pagination__container">
@@ -17,7 +26,8 @@ const Pagination = (pagination) => {
           <a
             className={`ma__pagination__prev ${pagination.prev.disabled && ' disabled'}`}
             role="button"
-            onClick={pagination.prev.onClick}
+            href="#"
+            onClick={(e) => handleClick(e, pagination.prev.onClick)}
             onKeyDown={(e) => handleKeyDown(e, pagination.prev.onClick)}
             aria-label={pagination.prev.ariaLabel}
             aria-disabled={pagination.prev.disabled}
@@ -35,8 +45,9 @@ const Pagination = (pagination) => {
             <a
               className={page.active ? 'ma__pagination__page is-active' : 'ma__pagination__page'}
               role="button"
+              href="#"
               data-page={page.text}
-              onClick={page.onClick}
+              onClick={(e) => handleClick(e, page.onClick)}
               onKeyDown={(e) => handleKeyDown(e, page.onClick)}
               key={key}
               aria-label={`Go to Page ${page.text}`}
@@ -52,7 +63,7 @@ const Pagination = (pagination) => {
             className={`ma__pagination__next ${pagination.next.disabled && ' disabled'}`}
             role="button"
             href="#"
-            onClick={pagination.next.onClick}
+            onClick={(e) => handleClick(e, pagination.next.onClick)}
             onKeyDown={(e) => handleKeyDown(e, pagination.next.onClick)}
             aria-label={`Go to ${pagination.next.text} page`}
             aria-disabled={pagination.next.disabled}
