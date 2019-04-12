@@ -22,7 +22,7 @@ const Footer = ({
           <SocialLinks {...socialLinks} />
         </div>
         <div className="ma__footer__copyright">
-          <p><b>&copy; {footerText.copyright}</b></p>
+          <p class="ma__footer__copyright--date">&copy; {footerText.copyright}</p>
           <p>{footerText.description}</p>
           <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
         </div>
