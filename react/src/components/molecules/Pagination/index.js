@@ -9,13 +9,13 @@ const Pagination = (pagination) => {
       handleClick(event);
     }
   };
-  return (
+  return(
     <div className="ma__pagination js-pagination" role="navigation" aria-label="Pagination Navigation">
       <nav className="ma__pagination__container">
         {!pagination.prev.hide && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a
-            className={`ma__pagination__prev ${pagination.next.disabled && ' disabled'}`}
+            className={`ma__pagination__prev ${pagination.prev.disabled && ' disabled'}`}
             role="button"
             onClick={pagination.prev.onClick}
             onKeyDown={(e) => handleKeyDown(e, pagination.prev.onClick)}
@@ -32,18 +32,18 @@ const Pagination = (pagination) => {
             <span key={key} className="ma__pagination__spacer">&hellip;</span>
           ) : (
               // eslint-disable-next-line jsx-a11y/anchor-is-valid
-              <a
-                className={page.active ? 'ma__pagination__page is-active' : 'ma__pagination__page'}
-                role="button"
-                data-page={page.text}
-                onClick={page.onClick}
-                onKeyDown={(e) => handleKeyDown(e, page.onClick)}
-                key={key}
-                aria-label={`Go to Page ${page.text}`}
-                tabIndex={0}
-              >
-                {page.text}
-              </a>
+            <a
+              className={page.active ? 'ma__pagination__page is-active' : 'ma__pagination__page'}
+              role="button"
+              data-page={page.text}
+              onClick={page.onClick}
+              onKeyDown={(e) => handleKeyDown(e, page.onClick)}
+              key={key}
+              aria-label={`Go to Page ${page.text}`}
+              tabIndex={0}
+            >
+              {page.text}
+            </a>
             );
         })}
         {!pagination.next.hide && (
@@ -56,7 +56,7 @@ const Pagination = (pagination) => {
             onKeyDown={(e) => handleKeyDown(e, pagination.next.onClick)}
             aria-label={`Go to ${pagination.next.text} page`}
             aria-disabled={pagination.next.disabled}
-            tabIndex={pagination.prev.disabled ? -1 : 0}
+            tabIndex={pagination.next.disabled ? -1 : 0}
           >
             {pagination.next.text}
           </a>
