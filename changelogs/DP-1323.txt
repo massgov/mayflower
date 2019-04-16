@@ -1,0 +1,5 @@
+___EXAMPLE___
+Patch
+Change
+- (Patternlab) [Footer] DP-1323: remove <b> tag from footer
+- (React) [Footer] DP-1323: remove <b> tag from footer
