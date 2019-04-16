@@ -56,7 +56,7 @@ const NumberInput = forwardRef((props, ref) => {
           const handleOnBlur = (e) => {
             e.persist();
             const inputEl = ref.current;
-            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
+            let newValue = inputEl.value.length ? Number(inputEl.value) : inputEl.value;
             if (hasNumberProperty(props, 'max') && newValue > props.max) {
               newValue = props.max;
             }
@@ -67,10 +67,12 @@ const NumberInput = forwardRef((props, ref) => {
               // Since to Fixed returns a string, we have to cast it back to a Number
               newValue = Number(newValue.toFixed(countDecimals(props.step)));
               const updateError = displayErrorMessage(newValue);
-              context.updateOwnState({ value: newValue, ...updateError }, () => {
-                if (is.fn(props.onBlur)) {
-                  props.onBlur(e, newValue);
-                }
+              context.setOwnValue(newValue, () => {
+                context.updateOwnState({ ...updateError }, () => {
+                  if (is.fn(props.onBlur)) {
+                    props.onBlur(e, newValue);
+                  }
+                });
               });
             }
           };
@@ -78,14 +80,25 @@ const NumberInput = forwardRef((props, ref) => {
           const handleChange = (e) => {
             e.persist();
             const inputEl = ref.current;
-            const newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
-              const updateError = displayErrorMessage(newValue);
-
-              context.updateOwnState({ value: newValue, ...updateError }, () => {
-                if (is.fn(props.onChange)) {
-                  props.onChange(e, newValue, props.id);
-                }
+            let newValue = inputEl.value.length ? Number(inputEl.value) : inputEl.value;
+            if (hasNumberProperty(props, 'max') && newValue > props.max) {
+              newValue = props.max;
+            }
+            if (hasNumberProperty(props, 'min') && newValue < props.min) {
+              newValue = props.min;
+            }
+            const updateError = displayErrorMessage(newValue);
+            if (is.number(newValue)) {
+              context.setOwnValue(newValue, () => {
+                context.updateOwnState({ ...updateError }, () => {
+                  if (is.fn(props.onChange)) {
+                    props.onChange(e, newValue, props.id);
+                  }
+                });
               });
+            } else {
+              context.updateOwnState({ ...updateError });
+            }
           };
 
           const handleAdjust = (e) => {
@@ -97,24 +110,28 @@ const NumberInput = forwardRef((props, ref) => {
               direction = 'down';
             }
             const inputEl = ref.current;
-            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
+            let newValue = inputEl.value.length ? Number(inputEl.value) : inputEl.value;
             if (direction === 'up' && (!hasNumberProperty(props, 'max') || newValue < props.max)) {
               // Since to Fixed returns a string, we have to cast it back to a Number
-              newValue = newValue ? Number((newValue + props.step).toFixed(countDecimals(props.step))) : props.step;
+              newValue = newValue ? Number((newValue + props.step).toFixed(countDecimals(props.step))) : Number(props.step);
               const updateError = displayErrorMessage(newValue);
-              context.updateOwnState({ value: newValue, ...updateError }, () => {
-                if (is.fn(props.onChange)) {
-                  props.onChange(e, newValue, props.id);
-                }
+              context.setOwnValue(newValue, () => {
+                context.updateOwnState({ ...updateError }, () => {
+                  if (is.fn(props.onChange)) {
+                    props.onChange(e, newValue, props.id);
+                  }
+                });
               });
             } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || newValue > props.min)) {
               // Since to Fixed returns a string, we have to cast it back to a Number
-              newValue = newValue ? Number((newValue + (props.step * -1)).toFixed(countDecimals(props.step))) : (props.step * -1);
+              newValue = newValue ? Number((newValue + (Number(props.step) * -1)).toFixed(countDecimals(props.step))) : (Number(props.step) * -1);
               const updateError = displayErrorMessage(newValue);
-              context.updateOwnState({ value: newValue, ...updateError }, () => {
-                if (is.fn(props.onChange)) {
-                  props.onChange(e, newValue, props.id);
-                }
+              context.setOwnValue(newValue, () => {
+                context.updateOwnState({ ...updateError }, () => {
+                  if (is.fn(props.onChange)) {
+                    props.onChange(e, newValue, props.id);
+                  }
+                });
               });
             }
           };
@@ -134,11 +151,11 @@ const NumberInput = forwardRef((props, ref) => {
             step: props.step,
             ref
           };
-          inputAttr.value = (ref && ref.current) ? ref.current.value : props.defaultValue;
-          if (is.number(props.max)) {
+          inputAttr.value = (ref && ref.current) ? ref.current.value : hasNumberProperty(props, 'defaultValue') ? props.defaultValue : '';
+          if (hasNumberProperty(props, 'max')) {
             inputAttr.max = props.max;
           }
-          if (is.number(props.min)) {
+          if (hasNumberProperty(props, 'min')) {
             inputAttr.min = props.min;
           }
           return(
@@ -206,8 +223,7 @@ const InputNumber = (props) => {
       <InputContext.Consumer>
         {
           (inputContext) => {
-            numberProps.ref = inputContext.getOwnRef();
-            return<NumberInput {...numberProps} />;
+            return<NumberInput ref={inputContext.getOwnRef()} {...numberProps} />;
           }
         }
       </InputContext.Consumer>
@@ -268,7 +284,7 @@ InputNumber.defaultProps = {
   onChange: null,
   step: 1,
   showButtons: true,
-  unit: ''
+  unit: '',
 };
 
 export default InputNumber;

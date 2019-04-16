@@ -68,17 +68,14 @@ class InputProvider extends React.Component {
     }
   }
   getOwnRef = () => this.selfRef;
+
   // Returns the InputProvider's current value. Used by FormContext/FormProvider.
   getOwnValue = () => {
     if (this.state.useOwnStateValue) {
       return this.state.value;
     }
-    const formContext = this.context;
-    if (formContext && formContext.isActive) {
-      const ref = formContext.getInputProviderRef(this.props.id);
-      if (ref && ref.current) {
-        return ref.current.value;
-      }
+    if (this.selfRef && this.selfRef.current) {
+      return this.selfRef.current.value;
     }
     return this.props.defaultValue;
   };
@@ -103,9 +100,8 @@ class InputProvider extends React.Component {
     } else {
       const formContext = this.context;
       if (formContext && formContext.isActive) {
-        const ref = formContext.getInputProviderRef(this.props.id);
-        if (ref && ref.current) {
-          ref.current.value = value;
+        if (this.selfRef && this.selfRef.current) {
+          this.selfRef.current.value = value;
           formContext.updateFormState({ [this.props.id]: value }, afterUpdate);
         }
       } else if (this.selfRef && this.selfRef.current) {
@@ -125,11 +121,17 @@ class InputProvider extends React.Component {
   };
   updateOwnState = (newState, afterUpdate) => {
     if (Object.prototype.hasOwnProperty.call(newState, 'value')) {
-      const { value } = newState;
-      delete newState.value;
-      this.state.setOwnValue(value);
+      const { value, ...remaining } = newState;
+      if (!is.empty(remaining)) {
+        this.state.setOwnValue(value, () => {
+          this.setState(remaining, afterUpdate);
+        });
+      } else {
+        this.state.setOwnValue(value, afterUpdate);
+      }
+    } else {
+      this.setState(newState, afterUpdate);
     }
-    this.setState(newState, afterUpdate);
   };
   // Checks to see if this InputProvider's FormContext is active.
   // If it is, check to see if its id has been added to FormContext's inputProviderStore.
@@ -155,17 +157,14 @@ class InputProvider extends React.Component {
         'useOwnStateValue',
         'setUseOwnStateValue',
         'getOwnOnComponentUpdateFunc',
-        'setOwnOnComponentUpdateFunc'
+        'setOwnOnComponentUpdateFunc',
+        'getOwnRef'
       ];
       inputStateProperties.forEach((property) => {
         if (!Object.prototype.hasOwnProperty.call(inputProviderStore[this.props.id], property)) {
           inputProviderStore[this.props.id][property] = this.state[property];
         }
       });
-      // Also check for selfRef.
-      if (!Object.prototype.hasOwnProperty.call(inputProviderStore[this.props.id], 'selfRef')) {
-        inputProviderStore[this.props.id].selfRef = this.selfRef;
-      }
       if (!deepEqual(inputProviderStore, formContext.inputProviderStore)) {
         formContext.updateFormState({ inputProviderStore });
       }

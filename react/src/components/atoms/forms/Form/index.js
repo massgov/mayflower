@@ -36,8 +36,8 @@ class FormProvider extends Component {
   getInputProviderRef = (inputId) => {
     if (this.state.hasInputProviderId(inputId)) {
       const inputProvider = this.state.inputProviderStore[inputId];
-      if (inputProvider.selfRef) {
-        return inputProvider.selfRef;
+      if (is.fn(inputProvider.getOwnRef)) {
+        return inputProvider.getOwnRef();
       }
     }
     return null;
