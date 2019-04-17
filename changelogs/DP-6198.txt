@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Changed
-Patch
-- patternlab / DP-6198: a11y change keyboard behavior for navigation to be tab based.
