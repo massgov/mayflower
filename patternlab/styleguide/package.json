@@ -50,7 +50,7 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "handlebars": "^4.0.5",
-    "jquery": "^3.3.0",
+    "jquery": "^3.4.0",
     "lazypipe": "^1.0.1",
     "mdn-polyfills": "^5.16.0",
     "merge-stream": "^1.0.1",
