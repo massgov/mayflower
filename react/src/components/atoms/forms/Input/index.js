@@ -145,9 +145,6 @@ class InputProvider extends React.Component {
       if (!Object.prototype.hasOwnProperty.call(inputProviderStore, this.props.id)) {
         inputProviderStore[this.props.id] = {};
       }
-      if (!Object.prototype.hasOwnProperty.call(formContext, this.props.id)) {
-        formContext.updateFormState({ [this.props.id]: this.state.getOwnValue() });
-      }
       // This list is only for things from this.state.
       const inputStateProperties = [
         'getOwnValue',
@@ -167,6 +164,9 @@ class InputProvider extends React.Component {
       });
       if (!deepEqual(inputProviderStore, formContext.inputProviderStore)) {
         formContext.updateFormState({ inputProviderStore });
+      }
+      if (!Object.prototype.hasOwnProperty.call(formContext, this.props.id)) {
+        formContext.updateFormState({ [this.props.id]: this.state.getOwnValue() });
       }
     }
   };
