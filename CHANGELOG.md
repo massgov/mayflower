@@ -13,6 +13,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.5.0 (04/17/2019)
+
+### Fixed
+- (Patternlab) [Footer] DP-1323: remove `<b>` tag from footer. #526
+- (React) [Footer] DP-1323: remove `<b>` tag from footer. #526
+
+### Changed
+- (PatternLab) [MainNav, Header] DP-6198: a11y change keyboard behavior for navigation to be tab based. #488
+- (PatternLab, React) [Pagination] DP-6354: A11y - fix pagination to use links rather than buttons and access accessibility features. #490
+- (Patternlab, React) [Footer] DP-6358: Change tab order in footer. #527
+
 ## 9.4.2 (04/10/2019)
 
 ### Fixed
