@@ -23,7 +23,6 @@ const Currency = forwardRef((props, ref) => {
             'ma__input-currency__control': true,
             'js-is-required': props.required
           });
-          let errorMsg = '';
           const toCurrency = (number, decimal) => {
             if (is.number(number)) {
               if (props.language) {
@@ -145,17 +144,14 @@ const Currency = forwardRef((props, ref) => {
               inputEl.setAttribute('placeholder', props.placeholder);
             }
             let newValue = isNotNumber ? '' : Number(numbro.unformat(stringValue));
-            if (props.required && is.empty(stringValue)) {
-              errorMsg = 'Please enter a value.';
-              context.updateOwnState({ showError: true, errorMsg });
-            } else if (!is.empty(stringValue)) {
+            if (!is.empty(newValue)) {
               if (hasNumberProperty(props, 'max') && newValue > props.max) {
                 newValue = props.max;
               }
               if (hasNumberProperty(props, 'min') && newValue < props.min) {
                 newValue = props.min;
               }
-              const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
+              const updateError = displayErrorMessage(newValue);
               context.updateOwnState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
                   props.onBlur(newValue);
