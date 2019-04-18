@@ -14,9 +14,6 @@ const Footer = ({
 }) => (
   <footer className="ma__footer js-footer" id="footer">
     <div className="ma__footer__container">
-      <div className="ma__footer__nav">
-        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
-      </div>
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
           <img src={footerLogo.src} alt={footerLogo.altText} width="120" height="120" />
@@ -25,11 +22,14 @@ const Footer = ({
           <SocialLinks {...socialLinks} />
         </div>
         <div className="ma__footer__copyright">
-          <p><b>&copy; {footerText.copyright}</b></p>
+          <p class="ma__footer__copyright--date">&copy; {footerText.copyright}</p>
           <p>{footerText.description}</p>
           <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
         </div>
       </section>
+      <div className="ma__footer__nav">
+        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
+      </div>
     </div>
     { backToTopButton &&
     <button className="ma__footer__back2top js-back2top is-hidden">

@@ -13,6 +13,45 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.5.1 (04/17/2019)
+
+### Security
+- (Patternlab) DP-13509: Update the jQuery from 3.3.0 to 3.4.0.
+
+## 9.5.0 (04/17/2019)
+
+### Fixed
+- (Patternlab) [Footer] DP-1323: remove `<b>` tag from footer. #526
+- (React) [Footer] DP-1323: remove `<b>` tag from footer. #526
+
+### Changed
+- (PatternLab) [MainNav, Header] DP-6198: a11y change keyboard behavior for navigation to be tab based. #488
+- (PatternLab, React) [Pagination] DP-6354: A11y - fix pagination to use links rather than buttons and access accessibility features. #490
+- (Patternlab, React) [Footer] DP-6358: Change tab order in footer. #527
+
+## 9.4.2 (04/10/2019)
+
+### Fixed
+- (React) [InputCurrency] DP-13450: Fixed bug relating to error handling on blur in InputCurrency. #533
+
+## 9.4.1 (04/10/2019)
+
+### Fixed
+- (React) [InputCurrency, InputNumber] DP-13167: Fixed handleAdjust logic so that min/max are not required for up/down buttons to work. #518
+- (React) [InputNumber] DP-13167: Fixed the initial steps when using up/down without a default value and decimal formatting onBlur. #518
+- (React) [Tab] DP-13409: Fixes bug causing the handleClick callback function on Tabs click to not be called. #529
+- (React) [TabContainer] DP-13409: Adds onTabChange prop to the tab container that is triggered if a tab in the container is changed. #529
+- (React) [InputTextFuzzy] DP-13425: Prevent onSuggestionClick being triggered on unexpected keyboard events. #530
+
+## 9.4.0 (03/28/2019)
+
+### Added
+- (Docs) Add an issue template for submitting Mayflower project to the implementation listing #520
+
+### Changed
+- (React) [*] DP-12932: Upgrades storybook and related add-ons to version 5.0.x. #516
+- (React) [*] DP-12932: Adds storysource and a11y add-ons. #516
+
 ## 9.3.0 (03/20/2019)
 
 ### Changed

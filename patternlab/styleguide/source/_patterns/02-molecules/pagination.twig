@@ -1,23 +1,35 @@
 <div class="ma__pagination js-pagination">
-  <div class="ma__pagination__container">
-    <button
-      class="ma__pagination__prev js-pagination-prev"
-      type="button"
-      {% if pagination.prev.disabled %}
-        disabled
-      {% endif %}>{{ pagination.prev.text }}</button>
+  <nav class="ma__pagination__container" aria-label="Pagination Navigation">
+    <a 
+      class="ma__pagination__prev js-pagination-prev {% if pagination.prev.disabled %}disabled{% endif %}"
+      role="button"
+      {% if pagination.prev.disabled %}aria-disabled="true" {% else %}
+      aria-label="Go to {{ pagination.prev.text }} page"{% endif %}
+      href="#">{{ pagination.prev.text }}</a>
+
     {% for page in pagination.pages %}
       {% if page.text == "spacer" %}
         <span class="ma__pagination__spacer">&hellip;</span>
       {% else %}
-      <button class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" type="button" data-page="{{ page.text }}">{{ page.text }}</button>
+
+      <a class="ma__pagination__page js-pagination-page {{ page.active ? 'is-active' : '' }}" 
+        href="#" 
+        role="button"
+        data-page="{{ page.text }}" 
+        {% if page.active %} aria-label="Currently on Page {{ page.text }}" 
+        {% else %}  aria-label="Go to Page {{ page.text }}" {% endif %} 
+      >
+        {{ page.text }}
+      </a>
+
       {% endif %}
     {% endfor %}
-    <button
-      class="ma__pagination__next js-pagination-next"
-      type="button"
-      {% if pagination.next.disabled %}
-        disabled
-      {% endif %}>{{ pagination.next.text }}</button>
-  </div>
+
+    <a
+      class="ma__pagination__next js-pagination-next {% if pagination.next.disabled %}disabled{% endif %}"
+      {% if pagination.next.disabled %}aria-disabled="true" {% else %}
+      aria-label="Go to {{ pagination.next.text }} page"{% endif %}
+      role="button"
+      href="#">{{ pagination.next.text }}</a>
+  </nav>
 </div>

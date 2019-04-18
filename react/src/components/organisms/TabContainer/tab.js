@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import is from 'is';
 import { TabContext } from './context';
 
 const Tab = React.forwardRef((props, ref) => (
@@ -9,19 +10,18 @@ const Tab = React.forwardRef((props, ref) => (
       (context) => {
         const { tabIdent, active } = props;
         const handleKeyDown = (e) => {
-          let nextIdent = null;
-          let previousIdent = null;
+          let nextIdent,
+prevIdent = null;
           context.tabIds.forEach((ident, key) => {
             if (context.activeTab === ident) {
               nextIdent = key === (context.tabIds.size - 1) ? context.tabIds.get(0) : context.tabIds.get(key + 1);
-              previousIdent = key === 0 ? context.tabIds.get(context.tabIds.size - 1) : context.tabIds.get(key - 1);
+              prevIdent = key === 0 ? context.tabIds.get(context.tabIds.size - 1) : context.tabIds.get(key - 1);
             }
           });
           if (e.key === 'ArrowRight') {
             const body = document.getElementById(context.tabContainerBodyId);
             if (context.tabRefs[nextIdent]) {
-              e.currentTarget.setAttribute('tabindex', '-1');
-              context.tabRefs[nextIdent].current.focus();
+              setActiveTab(nextIdent, context.tabContents[nextIdent]);
             } else {
               // If no TabContainer children.
               if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
@@ -43,9 +43,8 @@ const Tab = React.forwardRef((props, ref) => (
           }
           if (e.key === 'ArrowLeft') {
             const body = document.getElementById(context.tabContainerBodyId);
-            if (context.tabRefs[previousIdent]) {
-              e.currentTarget.setAttribute('tabindex', '-1');
-              context.tabRefs[previousIdent].current.focus();
+            if (context.tabRefs[prevIdent]) {
+              setActiveTab(prevIdent, context.tabContents[prevIdent]);
             } else {
               // If no TabContainer children.
               if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
@@ -76,9 +75,9 @@ const Tab = React.forwardRef((props, ref) => (
             e.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             if (activeTab !== tabIdent) {
               setActiveTab(tabIdent, props.children);
-              if (typeof props.handleClick === 'function') {
-                props.handleClick(e, tabIdent, props.children);
-              }
+            }
+            if (is.fn(props.handleClick)) {
+              props.handleClick(e, tabIdent, props.children);
             }
           },
           onKeyDown: handleKeyDown,
@@ -87,15 +86,8 @@ const Tab = React.forwardRef((props, ref) => (
           'aria-controls': context.tabContainerBodyId,
           role: 'tab',
           ref,
-          onFocus: () => {
-            if (activeTab !== tabIdent) {
-              setActiveTab(tabIdent, props.children);
-            }
-          }
+          tabIndex: active ? 0 : -1
         };
-        if (!active) {
-          buttonProps.tabIndex = -1;
-        }
         return(
           <li role="presentation" className={tabClasses}>
             <button {...buttonProps}>{props.title}</button>
