@@ -9,17 +9,24 @@ The goals of Mayflower are:
 
 ## Implementations
 
+[Massachusetts Digital Service](https://www.mass.gov/orgs/digital-services) has implemented Mayflower for the following projects. Use the table below to browse the projects, learn more about their technology stack, and get ideas for your Mayflower implementation.
+
 | Name | Distribution | Author/Maintainer | Notes |
 | :--- | :--- | :--- | :--- |
 | [**Mass.gov**](https://mass.gov) | Drupal | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower Patternlab |
 | [**Search.mass.gov**](https://search.mass.gov) | React + S3 | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower React |
 | [**RideShare Report**](https://www.mass.gov/rideshare) | React + S3 | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower React |
-| [**Public Water Doc Search**](https://massgov.github.io/MassDEP/brp/dwp/pws-documents-search/build/%20) | React + Github Pages | MassDEP | Mayflower artifacts |
-| [**RMV ATLAS**](https://atlas-myrmv.massdot.state.ma.us/myrmv/_/) | FAST proprietary | MassDOT | Mayflower inspired |
 | [**MassDOT Open Data Portal**](https://geo-massdot.opendata.arcgis.com) | ArcGIS | MassDOT | Mayflower inspired |
-| [**Civil Services Eligibility Lists (Entry level)**](https://www.mass.gov/service-details/civil-service-eligible-lists) | ASP.NET | ANF | Mayflower as markup |
+
+Community Projects that are inspired by Mayflower:
+| Name | Distribution | Author/Maintainer | Notes |
+| :--- | :--- | :--- | :--- |
 | [**GIS Parcel Uploader**](https://uploads.massgis.digital.mass.gov/signup.html) | AWS S3 + Lambda + API Gateway | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower as markup |
 | [**DTC  Form Release Search**](https://services.oca.state.ma.us/dtc/frmReleasedCalendar.aspx) | ASP.NET | DTC | Mayflower inspired |
+| [**Civil Services Eligibility Lists (Entry level)**](https://www.mass.gov/service-details/civil-service-eligible-lists) | ASP.NET | ANF | Mayflower as markup |
+| [**Public Water Doc Search**](https://massgov.github.io/MassDEP/brp/dwp/pws-documents-search/build/%20) | React + Github Pages |
+| [**RMV ATLAS**](https://atlas-myrmv.massdot.state.ma.us/myrmv/_/) | FAST proprietary | MassDOT | Mayflower inspired |
+| MassDEP | Mayflower artifacts |
 
 
 #### Submit your project
