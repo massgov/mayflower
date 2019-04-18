@@ -1,18 +1,26 @@
-export default (function (window,document,$,undefined) {
+export default (function (window, document, $, undefined) {
 
-  $('.js-util-nav').each(function() {
+  $('.js-util-nav').each(function () {
     let openClass = "is-open",
-        closeClass = "is-closed",
-        submenuClass = "show-utilmenu",
-        $parent = $(this),
-        waitForIt = null;
+      closeClass = "is-closed",
+      submenuClass = "show-utilmenu",
+      $parent = $(this),
+      waitForIt = null;
 
-    $('.js-close-sub-nav').on('click', function(){
-      let $openContent = $parent.find('.js-util-nav-content.' + openClass);
-      hide($openContent);
+    $('.js-close-sub-nav').on('click', function () {
+      let $openContent = $parent.find('.js-util-nav-content.is-open');
+      $openContent.addClass('is-closed').removeClass('is-open');
     });
 
-    $parent.find('.js-util-nav-toggle > a').on('click', function(e) {
+    // Close utility nav if esc key pressed.
+    $('body').keyup(function (e) {
+      if ($('.js-util-nav-content.is-open').length && e.keyCode == 27) {
+        let $openContent = $('.js-util-nav-content.' + openClass);
+        hide($openContent);
+      }
+    })
+
+    $parent.find('.js-util-nav-toggle > a').on('click', function (e) {
       e.preventdefault;
 
       let open = $(this).hasClass(openClass),
@@ -22,15 +30,15 @@ export default (function (window,document,$,undefined) {
       // hide other content
       hide($openContent);
 
-      if(open) {
+      if (open) {
         return;
       }
       // add open class to this item
       $(this).addClass(openClass);
       // add open class to the correct content based on index
-      $content.attr("aria-hidden","false");
+      $content.attr("aria-hidden", "false");
 
-      setTimeout(function(){
+      setTimeout(function () {
         $content
           .removeClass(closeClass)
           .addClass(openClass);
@@ -38,13 +46,13 @@ export default (function (window,document,$,undefined) {
       }, .1);
     });
 
-    $parent.find('.js-close-util-nav').on('click', function(e){
+    $parent.find('.js-close-util-nav').on('click', function (e) {
       e.preventDefault;
 
-      hide( $(this).closest('.js-util-nav-content') );
+      hide($(this).closest('.js-util-nav-content'));
     });
 
-    $('.js-header-menu-button, .js-close-sub-nav').on('click', function(){
+    $('.js-header-menu-button, .js-close-sub-nav').on('click', function () {
       let $openContent = $parent.find('.js-util-nav-content.' + openClass);
       hide($openContent);
     });
@@ -56,14 +64,14 @@ export default (function (window,document,$,undefined) {
         .removeClass(openClass)
         .addClass(closeClass);
 
-      if(waitForIt) {
+      if (waitForIt) {
         clearTimeout(waitForIt);
       }
-      waitForIt = setTimeout(function(){
-        $content.attr("aria-hidden","true");
+      waitForIt = setTimeout(function () {
+        $content.attr("aria-hidden", "true");
       }, 1000);
     }
 
   });
 
-})(window,document,jQuery);
+})(window, document, jQuery);

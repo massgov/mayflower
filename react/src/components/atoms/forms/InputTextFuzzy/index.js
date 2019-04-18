@@ -4,6 +4,7 @@ import Fuse from 'fuse.js';
 import Autowhatever from 'react-autowhatever';
 import parse from 'autosuggest-highlight/parse';
 import classNames from 'classnames';
+import is from 'is';
 
 import './style.css';
 
@@ -90,7 +91,7 @@ class InputTextFuzzy extends React.Component {
                   suggestions: [],
                   highlightedItemIndex: null
                 });
-                if (typeof this.props.onSuggestionClick === 'function') {
+                if (is.fn(this.props.onSuggestionClick)) {
                   // Suggestion is an object that can contain info on score, matches, etc.
                   this.props.onSuggestionClick(event, { suggestion });
                 }
@@ -110,7 +111,7 @@ class InputTextFuzzy extends React.Component {
                     suggestions: [],
                     highlightedItemIndex: null
                   });
-                  if (typeof this.props.onSuggestionClick === 'function') {
+                  if (is.fn(this.props.onSuggestionClick)) {
                     this.props.onSuggestionClick(event, {
                       suggestion: {
                         item: { text: this.state.value }
@@ -127,13 +128,6 @@ class InputTextFuzzy extends React.Component {
               });
               break;
             default:
-              if (typeof this.props.onSuggestionClick === 'function') {
-                this.props.onSuggestionClick(event, {
-                  suggestion: {
-                    item: { text: this.state.value }
-                  }
-                });
-              }
           }
         }
       },
@@ -154,7 +148,7 @@ class InputTextFuzzy extends React.Component {
             suggestions: [],
             highlightedItemIndex: null
           });
-          if (typeof this.props.onSuggestionClick === 'function') {
+          if (is.fn(this.props.onSuggestionClick)) {
             // Suggestion is an object that can contain info on score, matches, etc.
             this.props.onSuggestionClick(event, { suggestion });
           }
