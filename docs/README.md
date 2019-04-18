@@ -19,6 +19,7 @@ The goals of Mayflower are:
 | [**MassDOT Open Data Portal**](https://geo-massdot.opendata.arcgis.com) | ArcGIS | MassDOT | Mayflower inspired |
 
 Community Projects that are inspired by Mayflower:
+
 | Name | Distribution | Author/Maintainer | Notes |
 | :--- | :--- | :--- | :--- |
 | [**GIS Parcel Uploader**](https://uploads.massgis.digital.mass.gov/signup.html) | AWS S3 + Lambda + API Gateway | [EOTSS Digital Services Team](https://www.mass.gov/orgs/digital-services) | Mayflower as markup |
