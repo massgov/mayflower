@@ -42,7 +42,7 @@ If you’ve been using Mayflower to make changes to your application and want to
 * The implementation’s target language and/or framework
 * The code repository if it is in Github or equivalent (if public)
 * What type of Mayflower implementation you are using
-* What Mayflower Desyn System version you are using 
+* What Mayflower Design System version you are using 
 * Any useful caveats or other notes
 
 
