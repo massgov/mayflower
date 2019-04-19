@@ -48,7 +48,7 @@
     border-top: 1px solid;
     display: block;
     font-size: 1.25rem;
-    padding: 0 20px 20px 0;
+    padding: 5px 0;
     width: 100%;
 
     @media ($bp-x-small-max) {
@@ -148,7 +148,6 @@
     flex-basis: auto;
     flex-grow: 1;
     flex-shrink: 1;
-    padding: 10px 0 30px;
     width: 100%;
 
     @media ($bp-x-small-max) {
@@ -202,7 +201,17 @@
   }
 
   &__footer {
+    background-color: $c-overcast-gray;
     border-top-color: $c-bd-divider;
+
+    &:hover,
+    &:focus {
+      background-color: $c-very-light-gray;
+    }
+
+    .ma__decorative-link {
+      padding: 15px 0 15px 30px;
+    }
   }
 
   &__title {

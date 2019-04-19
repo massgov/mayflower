@@ -85,7 +85,7 @@
         ],
         "seeAll": {
           "href": "#",
-          "text": "More",
+          "text": "More about this service",
           "info": "learn more about the Recreation Service"
         }
       },
@@ -113,7 +113,7 @@
         ],
         "seeAll": {
           "href": "#",
-          "text": "more",
+          "text": "More about this topic",
           "info": "learn more about Active & Team Sports"
         }
       },
@@ -141,8 +141,8 @@
         ],
         "seeAll": {
           "href": "#",
-          "text": "more",
-          "info": "learn more about Nature & Outdooe Activities"
+          "text": "More about this topic",
+          "info": "learn more about Nature & Outdoor Activities"
         }
       },
       {
@@ -169,13 +169,13 @@
         ],
         "seeAll": {
           "href": "#",
-          "text": "more"
+          "text": "More about this topic"
         }
       }
     ],
     "seeAll": {
       "href": "#",
-      "text": "more",
+      "text": "More about this",
       "info": "learn more about Water Related Activities"
     }
   },
