@@ -214,4 +214,77 @@
     & + .ma__page-banner {
         margin-top: -11px;
     }
+
+    &.updated {
+      border-bottom: 0;
+      padding: 10px 0;
+
+      .ma__relationship-indicators--label {
+        @media ($bp-medium-min) {
+          padding-top: 3px;
+        }
+      }
+
+      .ma__relationship-indicators--section .wrapped-link {
+        padding: 0 5px;
+      }
+      
+      .ma__relationship-indicators--section a {
+        border-width: 0 0 2px 0;
+        padding: 0;
+        display: table-cell;
+
+        @media ($bp-small-min) {
+          display: block;
+        }
+      }
+
+      .ma__relationship-indicators--section button {
+        padding-left: 5px;
+
+        @media ($bp-medium-min) {
+          margin-top: 4px;
+        }
+      }
+
+      .ma__relationship-indicators--section.secondary {
+
+        @media ($bp-large-min) {
+          max-width: 45%;
+        }
+
+        @media ($bp-large-extended-min) {
+          max-width: 50%;
+        }
+      }
+
+      .ma__relationship-indicators--section.primary a,
+      .ma__relationship-indicators--section.primary button {
+        color: $c-primary;
+      }
+
+      .ma__relationship-indicators--section.primary a {
+        border-color: rgba($c-primary, 0.2);
+
+        &:hover,
+        &:focus {
+          border-color: rgba($c-primary, 1);
+        }
+      }
+
+      .ma__relationship-indicators--section.secondary a,
+      .ma__relationship-indicators--section.secondary button {
+        color: $c-primary-alt;
+      }
+
+      .ma__relationship-indicators--section.secondary a {
+        border-color: rgba($c-primary-alt, 0.2);
+
+        &:hover,
+        &:focus {
+          border-color: rgba($c-primary-alt, 1);
+        }
+      }
+
+    }
 }
