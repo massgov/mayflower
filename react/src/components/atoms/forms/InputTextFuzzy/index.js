@@ -13,12 +13,27 @@ class InputTextFuzzy extends React.Component {
     super(props);
     this.state = {
       value: this.props.selected || '',
-      suggestions: [],
+      suggestions: this.optionsToSuggestions(this.props.options),
       highlightedItemIndex: null
     };
     const fuseOptions = this.props.fuseOptions;
     fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
+  }
+  optionsToSuggestions = (options) => {
+    const suggestions = options.map((item) => ({
+      item: {
+        text: item.text,
+        value: item.value
+      },
+      matches: [{
+        indices: [],
+        value: item.value,
+        key: 'text',
+        arrayIndex: 0
+      }]
+    }));
+    return suggestions;
   }
   handleChange = (e) => {
     const suggestions = this.fuse.search(e.target.value);
