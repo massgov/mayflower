@@ -28,7 +28,7 @@ class InputTextFuzzy extends React.Component {
       },
       matches: [{
         indices: [],
-        value: item.value,
+        value: item.text,
         key: 'text',
         arrayIndex: 0
       }]
