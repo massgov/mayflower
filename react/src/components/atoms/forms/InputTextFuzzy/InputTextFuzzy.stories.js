@@ -25,7 +25,6 @@ storiesOf('atoms/forms', module)
           inputOptions.options.orgSelector.map((option) => option.text),
           ''
         ),
-        renderDefaultSuggestion: boolean('renderDefaultSuggestion', true),
         fuseOptions: object('fuseOptions', {
           shouldSort: true,
           findAllMatches: true,
