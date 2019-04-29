@@ -386,7 +386,14 @@ body {
 
   &__button-container {
     @media ($bp-header-toggle-max) {
-      background-color: $c-primary;
+      background: linear-gradient(to left, $c-primary 50%, $c-bg-section 50% );
+      background-size: 200% 100%;
+      background-position:right bottom;
+      transition:all 0.5s ease;
+
+      .show-menu & {
+        background-position:left bottom;
+      }
     }
   }
 
@@ -408,6 +415,10 @@ body {
     font-weight: 700;
     color: $c-font-inverse;
 
+    .show-menu & {
+      color: $c-black;
+    }
+
     span:first-child {
       opacity: 0.7;
     }
@@ -427,12 +438,12 @@ body {
 
     &:before {
       .show-menu & {
-        background-color: $c-font-inverse;
+        background-color: $c-black;
       }
     }
     &:after {
       .show-menu & {
-        background-color: $c-font-inverse;
+        background-color: $c-black;
       }
     }
   }
