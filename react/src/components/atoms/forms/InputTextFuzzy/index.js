@@ -20,6 +20,12 @@ class InputTextFuzzy extends React.Component {
     fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
+  clearSuggestions = () => {
+    this.setState({
+      suggestions: [],
+      highlightedItemIndex: null
+    });
+  }
   optionsToSuggestions = (options) => {
     const suggestions = options.map((item) => ({
       item: {
@@ -41,10 +47,18 @@ class InputTextFuzzy extends React.Component {
       value: e.target.value,
       suggestions
     });
-    if (typeof this.props.onChange === 'function') {
+    if (is.fn(this.props.onChange)) {
       this.props.onChange(e);
     }
   };
+  handleFocus = () => {
+    if (this.props.renderDefaultSuggestion) {
+      const suggestions = this.optionsToSuggestions(this.props.options);
+      this.setState({
+        suggestions
+      });
+    }
+  }
   renderItem = (suggestion) => (
     <span className="ma__suggestion-content">
       <span className="ma__suggestion-content-name">
@@ -84,14 +98,9 @@ class InputTextFuzzy extends React.Component {
         value: this.state.value,
         disabled: this.props.disabled,
         id: this.props.inputId,
-        onFocus: () => {
-          this.setState({ suggestions: this.optionsToSuggestions(this.props.options) });
-        },
+        onFocus: this.handleFocus,
         onBlur: () => {
-          this.setState({
-            suggestions: [],
-            highlightedItemIndex: null
-          });
+          this.clearSuggestions();
         },
         onKeyDown: (event, { newHighlightedItemIndex }) => {
           event.persist();
@@ -132,10 +141,7 @@ class InputTextFuzzy extends React.Component {
                   return match;
                 });
                 if (suggestion) {
-                  this.setState({
-                    suggestions: [],
-                    highlightedItemIndex: null
-                  });
+                  this.clearSuggestions();
                   if (is.fn(this.props.onSuggestionClick)) {
                     this.props.onSuggestionClick(event, {
                       suggestion: {
@@ -178,12 +184,12 @@ class InputTextFuzzy extends React.Component {
             this.props.onSuggestionClick(event, { suggestion });
           }
         },
-        onMouseEnter: (event) => {
+        onMouseEnter: () => {
           this.setState({
             highlightedItemIndex: itemIndex
           });
         },
-        onMouseLeave: (event) => {
+        onMouseLeave: () => {
           this.setState({
             highlightedItemIndex: null
           });
@@ -230,7 +236,9 @@ InputTextFuzzy.propTypes = {
   /** The default value for the select box. */
   selected: PropTypes.string,
   /** The id of the the input tag */
-  inputId: PropTypes.string
+  inputId: PropTypes.string,
+  /** By default all options will be rendered as suggestions on input focus */
+  renderDefaultSuggestion: PropTypes.bool
 };
 
 InputTextFuzzy.defaultProps = {
@@ -247,7 +255,8 @@ InputTextFuzzy.defaultProps = {
     minMatchCharLength: 1
   },
   disabled: false,
-  boxed: false
+  boxed: false,
+  renderDefaultSuggestion: true
 };
 
 export default InputTextFuzzy;
