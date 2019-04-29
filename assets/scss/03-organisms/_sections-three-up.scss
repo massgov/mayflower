@@ -13,6 +13,11 @@ $bp-section-3up-large-max: "max-width:950px";
     display: flex;
       align-items: stretch;
       flex-wrap: wrap;
+      flex-direction: column;
+
+      @media ($bp-small-min) {
+        flex-flow: row wrap;
+      }
 
     & > * {
 

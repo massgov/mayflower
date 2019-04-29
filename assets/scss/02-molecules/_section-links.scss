@@ -24,14 +24,21 @@
 
   &__content {
     height: 100%;
-    padding: 15px 20px 15px;
+    padding: 10px 20px 0 10px;
 
     @media ($bp-x-small-min) {
+      padding: 10px 20px 20px 10px;
+    }
+
+    @media ($bp-small-min) {
       display: flex;
         align-items: flex-start;
         flex-direction: column;
         flex-wrap: wrap;
-      padding: 40px 30px 0;
+      padding: 12px 30px 0;
+    }
+    @media ($bp-small-min) {
+      padding: 10px 30px 0;
     }
   }
 
@@ -155,6 +162,7 @@
 
       .is-open & {
         display: block;
+        padding-bottom: 20px;
       }
     }
   }
