@@ -102,7 +102,6 @@ class InputTextTypeAhead extends Component {
             parts.map((part, index) => {
               const className = part.highlight ? 'highlight' : null;
               const key = `suggestion_${index}`;
-              console.log(part.text);
               return(
                 <span className={className} key={key}>{part.text}</span>
               );

@@ -90,15 +90,14 @@ class InputTextFuzzy extends React.Component {
         onBlur: () => {
           this.setState({ suggestions: [] });
         },
-        onKeyDown: (event, { newHighlightedSectionIndex, newHighlightedItemIndex }) => {
+        onKeyDown: (event, { newHighlightedItemIndex }) => {
           event.persist();
-          console.log(event)
           switch (event.key) {
             case 'ArrowDown':
             case 'ArrowUp':
               event.preventDefault();
               this.setState((currentState) => {
-                if (currentState.suggestions.length > 0 && currentState.value && currentState.value.length > 0) {
+                if (currentState.suggestions.length > 0) {
                   return{
                     highlightedItemIndex: !(newHighlightedItemIndex) ? 0 : newHighlightedItemIndex
                   };
