@@ -295,19 +295,11 @@ body {
     }
   }
 
-  &__nav-search,
-  &__main-nav {
-
-    @media ($bp-header-toggle-max){
-      border-bottom: 2px solid; // $c-gray-light;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-    }
-  }
-
   &__utility-nav {
 
     &--narrow {
+      margin-top: 20px;
+      
       @media ($bp-header-toggle-min){
         display: none;
       }
@@ -315,7 +307,7 @@ body {
 
     &--wide {
       position: absolute;
-        top: 0;
+      top: 0;
       width: 100%;
 
       @media ($bp-header-toggle-max) {
@@ -445,13 +437,6 @@ body {
       .show-menu & {
         background-color: $c-black;
       }
-    }
-  }
-
-  &__nav-search,
-  &__main-nav {
-    @media ($bp-header-toggle-max) {
-      border-bottom-color: $c-bd-divider;
     }
   }
 

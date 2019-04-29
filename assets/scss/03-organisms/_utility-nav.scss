@@ -21,8 +21,11 @@ $utility-nav-height: 43px;
 
   &__item {
 
+    &.js-util-nav-toggle {
+      border-bottom: 2px solid #dcdcdc;
+    }
+
     @media ($bp-header-toggle-max) {
-      padding-right: 15px;
       position: relative;
     }
 
@@ -36,7 +39,7 @@ $utility-nav-height: 43px;
   &__link,
   &__translate {
     display: block;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.45;
 
     @media ($bp-header-toggle-min) {
@@ -56,13 +59,7 @@ $utility-nav-height: 43px;
     }
 
     @media ($bp-header-toggle-max) {
-      @include ma-chevron;
-
-      &:after {
-        position: absolute;
-          right: 20px;
-          top: 18px;
-      }
+      @include ma-accordion-icon;
     }
 
     & > svg,
@@ -77,9 +74,8 @@ $utility-nav-height: 43px;
 
       @media ($bp-header-toggle-max) {
         position: absolute;
-          top: 50%;
-          left: 20px;
-        transform: translateY(-50%);
+        top: 15px;
+        left: 20px;
       }
     }
 
@@ -177,14 +173,14 @@ $utility-nav-height: 43px;
 
   &__content {
     display: block;
-    margin-top: $header-mobile-controls-height;
-    padding-left: 20px;
-    position: fixed;
-      top: 0;
-      right: -300px;
-    text-align: left;
-    transition: visibility .5s ease, right .5s ease;
-    width: 300px;
+    // margin-top: $header-mobile-controls-height;
+    // padding-left: 20px;
+    // position: fixed;
+    // top: 0;
+    // right: -300px;
+    // text-align: left;
+    // transition: visibility .5s ease, right .5s ease;
+    // width: 300px;
     z-index: $z-dropdown;
 
     .translated-rtl &,
@@ -197,8 +193,7 @@ $utility-nav-height: 43px;
     }
 
     &.is-closed {
-      visibility: hidden;
-      right: -300px;
+      display: none;
     }
 
     @media ($bp-header-toggle-min) {
@@ -207,7 +202,7 @@ $utility-nav-height: 43px;
       overflow: visible;
       padding-left: 0;
       position: absolute;
-        left: 0;
+      left: 0;
       transition: visibility .6s, top .6s;
       visibility: visible;
       width: 100%;
@@ -241,10 +236,7 @@ $utility-nav-height: 43px;
     }
 
     @media ($bp-header-toggle-max) {
-      height: calc(100vh - #{$header-mobile-controls-height});
-      padding-left: 20px;
-      padding-right: 20px;
-
+     
       .translated-rtl &,
       .translated-ltr & {
         height: calc(100vh - #{$header-mobile-controls-height * 2});
@@ -316,15 +308,6 @@ $utility-nav-height: 43px;
   @media ($bp-header-toggle-min) {
     background-color: $c-primary;
     color: $c-font-inverse;
-  }
-
-  &__item {
-    @media ($bp-header-toggle-max) {
-      &:hover {
-        background-color: $c-white;
-        box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
-      }
-    }
   }
 
   &__link,

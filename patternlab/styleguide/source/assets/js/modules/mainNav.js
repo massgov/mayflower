@@ -13,11 +13,9 @@ if (null !== menuButton) {
     if (buttonLabel == "Menu") {
       menuButtonText.textContent = "Close";
       buttonLabel = "Close";
-      console.log('opening');
     } else {
       menuButtonText.textContent = "Menu";
       buttonLabel = "Menu";
-      console.log('closing');
     }
 
     // Hide feedback button when menu opens.
@@ -43,6 +41,12 @@ if (null !== searchForm) {
 
 
 [].forEach.call(menuItems, function (item) {
+  const itemButton = item.querySelector('.ma__main-nav__top-link');
+  const subMenu = item.querySelector('.ma__main-nav__subitems');
+
+  itemButton.addEventListener("click", function () {
+    subMenu.classList.toggle('is-closed');
+  })
 
 });
 
