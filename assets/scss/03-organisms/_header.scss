@@ -7,12 +7,12 @@ body {
   @media ($bp-header-toggle-max) {
     height: 100%;
     position: relative;
-      left: 0;
+    left: 0;
     transition: left 0.5s ease;
     width: 100%;
 
     &.show-menu {
-      left: -$header-mobile-menu-width;
+      left: $header-mobile-menu-width;
       overflow: hidden;
       position: relative;
       min-height: 100%;
@@ -133,10 +133,10 @@ body {
       height: calc(100vh - #{$header-mobile-controls-height});
       overflow-y: auto;
       position: fixed;
-        top: 0;
-        right: -$header-mobile-menu-width;
+      top: 0;
+      left: -$header-mobile-menu-width;
       margin-top: $header-mobile-controls-height;
-      transition: right 0.5s ease;
+      transition: left 0.5s ease;
       width: $header-mobile-menu-width;
       z-index: $z-dropdown;
 
@@ -146,7 +146,8 @@ body {
       }
 
       .show-menu & {
-        right: 0;
+        left: 0;
+        width: 100%;
       }
 
       .translated-rtl &,
@@ -160,9 +161,9 @@ body {
     @include ma-container;
     height: $header-mobile-controls-height;
     position: fixed;
-      top: 0;
-      left: 0;
-    text-align: right;
+    top: 0;
+    left: 0;
+    // text-align: right;
     width: 100%;
     z-index: $z-dropdown;
 

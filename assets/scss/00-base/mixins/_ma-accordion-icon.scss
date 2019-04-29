@@ -1,0 +1,21 @@
+@mixin ma-accordion-icon() {
+
+  &:after {
+    content: "+";
+    color:$c-primary-alt;
+    display: block;
+    font-size: 1.5em;
+    line-height: .75em;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: transform .5s ease;
+    transform-origin: center center;
+  }
+
+  .is-open & {
+    &:after {
+      transform: rotate(135deg);
+    }
+  }
+}

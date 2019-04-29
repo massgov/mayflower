@@ -91,27 +91,28 @@
     }
 
     .has-subnav & {
-      @include ma-chevron;
+      //@include ma-chevron;
+      @include ma-accordion-icon;
 
-      &:after {
-        cursor: pointer;
-        margin-left: 6px;
+      // &:after {
+      //   cursor: pointer;
+      //   margin-left: 6px;
 
-        @media ($bp-header-toggle-max) {
-          position: absolute;
-            right: 20px;
-            top: 15px;
-        }
-        @media ($bp-header-toggle-min) {
-          transform: translateY(-45%) rotate(45deg);
-        }
-        @media ($bp-header-toggle-min) and ($bp-x-large-max) {
-          display: none;
-        }
-      }
+      //   @media ($bp-header-toggle-max) {
+      //     position: absolute;
+      //       right: 20px;
+      //       top: 15px;
+      //   }
+      //   @media ($bp-header-toggle-min) {
+      //     transform: translateY(-45%) rotate(45deg);
+      //   }
+      //   @media ($bp-header-toggle-min) and ($bp-x-large-max) {
+      //     display: none;
+      //   }
+      // }
     }
 
-    .is-open, is-open-react & {
+    is-open-react & {
 
       &:after {
         @media ($bp-header-toggle-min) {
@@ -280,13 +281,13 @@
   &__top-link {
     font-weight: 700;
     
-    .has-subnav & {
-  // chevron
-      &:after {
-        border-right-color: $c-primary-alt;
-        border-bottom-color: $c-primary-alt;
-      }
-    }
+  //   .has-subnav & {
+  // // chevron
+  //     &:after {
+  //       border-right-color: $c-primary-alt;
+  //       border-bottom-color: $c-primary-alt;
+  //     }
+  //   }
   }
 
   &__back {
