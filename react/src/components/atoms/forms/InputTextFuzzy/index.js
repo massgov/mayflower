@@ -88,7 +88,10 @@ class InputTextFuzzy extends React.Component {
           this.setState({ suggestions: this.optionsToSuggestions(this.props.options) });
         },
         onBlur: () => {
-          this.setState({ suggestions: [] });
+          this.setState({
+            suggestions: [],
+            highlightedItemIndex: null
+          });
         },
         onKeyDown: (event, { newHighlightedItemIndex }) => {
           event.persist();
