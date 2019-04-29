@@ -44,7 +44,7 @@ class InputTextFuzzy extends React.Component {
   handleChange = (e) => {
     const { value } = e.target;
     if (is.fn(this.props.onChange)) {
-      this.props.onChange(e);
+      this.props.onChange(e, { value });
     }
     if (is.empty(value)) {
       if (this.props.renderDefaultSuggestion) {
