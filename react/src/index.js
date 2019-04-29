@@ -23,7 +23,6 @@ export InputDate from './components/atoms/forms/InputDate';
 export InputText from './components/atoms/forms/InputText';
 export SelectBox from './components/atoms/forms/SelectBox';
 export InputRadio from './components/atoms/forms/InputRadio';
-export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
 export InputTextFuzzy from './components/atoms/forms/InputTextFuzzy';
 export Input from './components/atoms/forms/Input';
 export Error from './components/atoms/forms/Input/error';
