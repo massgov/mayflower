@@ -147,7 +147,6 @@ body {
 
       .show-menu & {
         left: 0;
-        width: 100%;
       }
 
       .translated-rtl &,
@@ -245,7 +244,6 @@ body {
     display: block;
     height: 3px;
     position: absolute;
-      right: 0;
     transition: all 500ms ease-in-out;
     width: 20px;
     top: 17px;
@@ -277,6 +275,10 @@ body {
         transform: rotate(-45deg);
       }
     }
+  }
+
+  &__menu-text {
+    padding-left: 25px;
   }
 
   &__nav-search {
