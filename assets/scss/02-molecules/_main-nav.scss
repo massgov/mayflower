@@ -75,8 +75,7 @@
     @media ($bp-header-toggle-max) {
       overflow-y: auto;
       padding-left: 20px;
-      right: -300px;
-      transition: visibility .5s ease, right .5s ease;
+      transition: visibility .5s ease, height .5s ease;
 
       .translated-rtl &,
       .translated-ltr & {
@@ -84,12 +83,7 @@
         top: 40px;
       }
 
-      .show-menu & {
-        right: 0;
-      }
-
       &.is-closed, &.is-closed-react {
-        right: -300px;
         display: none !important;
       }
     }

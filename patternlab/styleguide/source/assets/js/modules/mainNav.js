@@ -57,35 +57,36 @@ if (null !== searchForm) {
 
   itemButton.addEventListener("click", function () {
     itemButton.classList.toggle('submenu-open');
-    subMenu.classList.toggle('is-closed');
+    //subMenu.classList.toggle('is-closed');
+    console.log('click');
 
     if (subMenu.classList.contains('is-closed')) {
       /** Show the subMenu. */
-      subMenu.classList.remove('is-closed')
-      subMenu.style.height = "auto"
+      console.log('classList pre', subMenu.classList);
+      subMenu.classList.remove('is-closed');
+      subMenu.style.height = "auto";
+      console.log('classList post', subMenu.classList);
 
       /** Get the computed height of the subMenu. */
-      var height = subMenu.clientHeight + "px"
-
-      /** Set the height of the content as 0px, */
+      var height = subMenu.clientHeight + "px";
+      console.log('height', height);
+      /** Set the height of the submenu as 0px, */
       /** so we can trigger the slide down animation. */
-      subMenu.style.height = "0px"
+      subMenu.style.height = "0px";
 
-      /** Do this after the 0px has applied. */
-      /** It's like a delay or something. MAGIC! */
+      /** Then */
       setTimeout(() => {
-        subMenu.style.height = height
-      }, 0)
+        console.log('timeout', height);
+        subMenu.style.height = height;
+
+      }, 0.1)
 
       /** Slide up. */
     } else {
       /** Set the height as 0px to trigger the slide up animation. */
-      subMenu.style.height = "0px"
-
-      /** Remove the `active` class when the animation ends. */
-      subMenu.addEventListener('transitionend', () => {
-        subMenu.classList.add('is-closed')
-      }, { once: true })
+      subMenu.style.height = "0px";
+      subMenu.classList.add('is-closed');
+      console.log(subMenu.classList);
     }
 
   })
