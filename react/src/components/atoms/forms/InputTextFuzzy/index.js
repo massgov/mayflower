@@ -20,10 +20,18 @@ class InputTextFuzzy extends React.Component {
     fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
-  clearSuggestions = () => {
+  clearSuggestions = (event) => {
     this.setState({
       suggestions: [],
       highlightedItemIndex: null
+    }, () => {
+      if (is.fn(this.props.onSuggestionClick)) {
+        this.props.onSuggestionClick(event, {
+          suggestion: {
+            item: { text: this.state.value }
+          }
+        });
+      }
     });
   }
   optionsToSuggestions = (options) => {
@@ -42,17 +50,23 @@ class InputTextFuzzy extends React.Component {
     return suggestions;
   }
   handleChange = (e) => {
+    e.persist();
     const { value } = e.target;
-    if (is.fn(this.props.onChange)) {
-      this.props.onChange(e, { value });
-    }
     if (is.empty(value)) {
       if (this.props.renderDefaultSuggestion) {
         const suggestions = this.optionsToSuggestions(this.props.options);
         this.setState({
           suggestions,
           value: ''
+        }, () => {
+          if (typeof this.props.onChange === 'function') {
+            this.props.onChange({ event: e, value, suggestions });
+          }
         });
+      } else {
+        if (typeof this.props.onChange === 'function') {
+          this.props.onChange({ event: e, value, suggestions });
+        }
       }
     } else {
       const suggestions = this.fuse.search(value);
@@ -110,8 +124,9 @@ class InputTextFuzzy extends React.Component {
         disabled: this.props.disabled,
         id: this.props.inputId,
         onFocus: this.handleFocus,
-        onBlur: () => {
-          this.clearSuggestions();
+        onBlur: (event) => {
+          event.persist();
+          this.clearSuggestions(event);
         },
         onKeyDown: (event, { newHighlightedItemIndex }) => {
           event.persist();
@@ -135,11 +150,12 @@ class InputTextFuzzy extends React.Component {
                   value: suggestion.item.text,
                   suggestions: [],
                   highlightedItemIndex: null
+                }, () => {
+                  if (is.fn(this.props.onSuggestionClick)) {
+                    // Suggestion is an object that can contain info on score, matches, etc.
+                    this.props.onSuggestionClick(event, { suggestion });
+                  }
                 });
-                if (is.fn(this.props.onSuggestionClick)) {
-                  // Suggestion is an object that can contain info on score, matches, etc.
-                  this.props.onSuggestionClick(event, { suggestion });
-                }
               } else {
                 // Try to see if the typed in value is in the options array.
                 const suggestion = this.props.options.find((option) => {
@@ -152,14 +168,7 @@ class InputTextFuzzy extends React.Component {
                   return match;
                 });
                 if (suggestion) {
-                  this.clearSuggestions();
-                  if (is.fn(this.props.onSuggestionClick)) {
-                    this.props.onSuggestionClick(event, {
-                      suggestion: {
-                        item: { text: this.state.value }
-                      }
-                    });
-                  }
+                  this.clearSuggestions(event);
                 }
               }
               break;
@@ -185,15 +194,17 @@ class InputTextFuzzy extends React.Component {
       return{
         'data-item-index': itemIndex,
         onMouseDown: (event) => {
+          event.persist();
           this.setState({
             value: suggestion.item.text,
             suggestions: [],
             highlightedItemIndex: null
+          }, () => {
+            if (is.fn(this.props.onSuggestionClick)) {
+              // Suggestion is an object that can contain info on score, matches, etc.
+              this.props.onSuggestionClick(event, { suggestion });
+            }
           });
-          if (is.fn(this.props.onSuggestionClick)) {
-            // Suggestion is an object that can contain info on score, matches, etc.
-            this.props.onSuggestionClick(event, { suggestion });
-          }
         },
         onMouseEnter: () => {
           this.setState({
