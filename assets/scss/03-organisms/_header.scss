@@ -129,15 +129,15 @@ body {
 
   &__nav-container {
       background-color: $c-bg-section;
-      height: calc(100vh - #{$header-mobile-controls-height});
+      height: 100vh;
       overflow-y: auto;
-      position: fixed;
+      position: absolute;
       top: 0;
       left: -$header-mobile-menu-width;
-      margin-top: $header-mobile-controls-height;
+      padding-top: $header-mobile-controls-height;
       transition: left 0.5s ease;
       width: $header-mobile-menu-width;
-      z-index: $z-dropdown;
+      z-index:$z-sticky-content;
 
       .translated-rtl &,
       .translated-ltr & {
@@ -157,7 +157,7 @@ body {
   &__button-container {
     @include ma-container;
     height: $header-mobile-controls-height;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     // text-align: right;
@@ -167,54 +167,6 @@ body {
     .translated-rtl &,
     .translated-ltr & {
       top: 40px;
-    }
-  }
-
-  &__back-button {
-    @include ma-button-reset;
-    font-size: 1.125rem;
-    height: 33px;
-    letter-spacing: $letter-spacing-large;
-    margin-left: 20px;
-    padding-left: 20px;
-    position: fixed;
-      top: 3px;
-      left: 100%; // hides the outline
-    text-transform: uppercase;
-    transition: left .5s, visibility .5s;
-    visibility: hidden;
-    z-index: $z-dropdown;
-
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 43px;
-    }
-
-    &:before {
-      border-left: 3px solid;
-      border-top: 3px solid;
-      content: "";
-      display: inline-block;
-      height: .65em;
-      margin-top: 3px;
-      margin-left: 3px;
-      position: absolute;
-        left: 0;
-        top: 6px;
-      transform: rotate(-45deg);
-      transform-origin: 75% 75%;
-      vertical-align: middle;
-      width: .65em;
-    }
-    span {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .show-menu.show-utilmenu &,
-    .show-menu.show-submenu & {
-      left: calc(100vw - 280px);
-      visibility: visible;
     }
   }
 
@@ -230,6 +182,7 @@ body {
     position: relative;
     text-transform: uppercase;
     transition: transform 0.5s ease;
+    z-index: $z-skyline;
   }
 
   &__menu-icon {
