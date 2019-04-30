@@ -2,22 +2,8 @@ $header-mobile-menu-width: 320px;
 $header-logo-width: 150px;
 $bp-header-logo-min: "min-width: 1000px";
 
-body {
-
-  @media ($bp-header-toggle-max) {
-    height: 100%;
-    position: relative;
-    left: 0;
-    transition: left 0.5s ease;
-    width: 100%;
-
-    &.show-menu {
-      left: $header-mobile-menu-width;
-      overflow: hidden;
-      position: relative;
-      min-height: 100%;
-    }
-  }
+body.show-menu {
+  overflow: hidden;
 }
 
 .menu-overlay.overlay-open {
@@ -28,7 +14,6 @@ body {
   top: 0;
   z-index: $z-high;
 }
-
 
 .ma__header {
   padding-top: 43px; // height of the util nav
@@ -169,9 +154,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    // text-align: right;
     width: 100%;
-    z-index: $z-dropdown;
+    background-color: $c-primary;
 
     .translated-rtl &,
     .translated-ltr & {
@@ -182,14 +166,12 @@ body {
   &__menu-button {
     background-color: transparent;
     border: none;
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     height: 35px;
-    letter-spacing: $letter-spacing-large;
     line-height: 35px;
     margin-top: 2px;
     padding-right: 30px;
     position: relative;
-    text-transform: uppercase;
     transition: transform 0.5s ease;
     z-index: $z-skyline;
   }
@@ -198,10 +180,10 @@ body {
     border-radius: 1px;
     cursor: pointer;
     display: block;
-    height: 3px;
+    height: 2px;
     position: absolute;
     transition: all 500ms ease-in-out;
-    width: 20px;
+    width: 15px;
     top: 17px;
 
     &:before,
@@ -209,14 +191,14 @@ body {
       cursor: pointer;
       content: '';
       display: block;
-      height: 3px;
+      height: 2px;
       position: absolute;
-        right: 0;
+      right: 0;
       transition: all 500ms ease-in-out;
-      width: 20px;
+      width: 15px;
     }
     &:before {
-      top: -8px;
+      top: -5px;
 
       .show-menu & {
         top: 0;
@@ -224,7 +206,7 @@ body {
       }
     }
     &:after {
-      bottom: -8px;
+      bottom: -5px;
 
       .show-menu & {
         top: 0;
@@ -256,7 +238,6 @@ body {
   &__utility-nav {
 
     &--narrow {
-      margin-top: 20px;
       
       @media ($bp-header-toggle-min){
         display: none;
@@ -328,39 +309,13 @@ body {
 .ma__header {
   background-color: $c-bg-section;
 
-  &__button-container {
-    @media ($bp-header-toggle-max) {
-      background: linear-gradient(to left, $c-primary 50%, $c-bg-section 50% );
-      background-size: 200% 100%;
-      background-position:right bottom;
-      transition:all 0.5s ease;
-
-      .show-menu & {
-        background-position:left bottom;
-      }
-    }
-  }
-
-  &__back-button {
-    font-weight: 700;
-    color: $c-font-inverse;
-
-    &:before {
-      border-left-color: $c-font-inverse;
-      border-top-color: $c-font-inverse;
-    }
-
-    span {
-      opacity: 0.7;
-    }
-  }
-
   &__menu-button {
     font-weight: 700;
     color: $c-font-inverse;
 
     .show-menu & {
       color: $c-black;
+      background-color: $c-gray-lightest;
     }
 
     span:first-child {

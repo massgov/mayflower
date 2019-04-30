@@ -56,7 +56,38 @@ if (null !== searchForm) {
   const subMenu = item.querySelector('.ma__main-nav__subitems');
 
   itemButton.addEventListener("click", function () {
+    itemButton.classList.toggle('submenu-open');
     subMenu.classList.toggle('is-closed');
+
+    if (subMenu.classList.contains('is-closed')) {
+      /** Show the subMenu. */
+      subMenu.classList.remove('is-closed')
+      subMenu.style.height = "auto"
+
+      /** Get the computed height of the subMenu. */
+      var height = subMenu.clientHeight + "px"
+
+      /** Set the height of the content as 0px, */
+      /** so we can trigger the slide down animation. */
+      subMenu.style.height = "0px"
+
+      /** Do this after the 0px has applied. */
+      /** It's like a delay or something. MAGIC! */
+      setTimeout(() => {
+        subMenu.style.height = height
+      }, 0)
+
+      /** Slide up. */
+    } else {
+      /** Set the height as 0px to trigger the slide up animation. */
+      subMenu.style.height = "0px"
+
+      /** Remove the `active` class when the animation ends. */
+      subMenu.addEventListener('transitionend', () => {
+        subMenu.classList.add('is-closed')
+      }, { once: true })
+    }
+
   })
 
 });
