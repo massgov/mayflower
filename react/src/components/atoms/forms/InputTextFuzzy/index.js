@@ -21,14 +21,16 @@ class InputTextFuzzy extends React.Component {
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
   handleChange = (e) => {
+    e.persist();
     const suggestions = this.fuse.search(e.target.value);
     this.setState({
       value: e.target.value,
       suggestions
+    }, () => {
+      if (typeof this.props.onChange === 'function') {
+        this.props.onChange({ event: e, value: e.target.value, suggestions });
+      }
     });
-    if (typeof this.props.onChange === 'function') {
-      this.props.onChange(e);
-    }
   };
   renderItem = (suggestion) => (
     <span className="ma__suggestion-content">
@@ -73,6 +75,7 @@ class InputTextFuzzy extends React.Component {
           switch (event.key) {
             case 'ArrowDown':
             case 'ArrowUp':
+              event.persist();
               event.preventDefault();
               this.setState((currentState) => {
                 if (currentState.suggestions.length > 0 && currentState.value && currentState.value.length > 0) {
@@ -83,6 +86,7 @@ class InputTextFuzzy extends React.Component {
               });
               break;
             case 'Enter':
+              event.persist();
               // If there are suggestions and the user chose one.
               if (this.state.suggestions.length > 0 && this.state.highlightedItemIndex !== null && this.state.highlightedItemIndex > -1) {
                 const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
@@ -90,11 +94,12 @@ class InputTextFuzzy extends React.Component {
                   value: suggestion.item.text,
                   suggestions: [],
                   highlightedItemIndex: null
+                }, () => {
+                  if (is.fn(this.props.onSuggestionClick)) {
+                    // Suggestion is an object that can contain info on score, matches, etc.
+                    this.props.onSuggestionClick(event, { suggestion });
+                  }
                 });
-                if (is.fn(this.props.onSuggestionClick)) {
-                  // Suggestion is an object that can contain info on score, matches, etc.
-                  this.props.onSuggestionClick(event, { suggestion });
-                }
               } else {
                 // Try to see if the typed in value is in the options array.
                 const suggestion = this.props.options.find((option) => {
@@ -110,14 +115,15 @@ class InputTextFuzzy extends React.Component {
                   this.setState({
                     suggestions: [],
                     highlightedItemIndex: null
+                  }, () => {
+                    if (is.fn(this.props.onSuggestionClick)) {
+                      this.props.onSuggestionClick(event, {
+                        suggestion: {
+                          item: { text: this.state.value }
+                        }
+                      });
+                    }
                   });
-                  if (is.fn(this.props.onSuggestionClick)) {
-                    this.props.onSuggestionClick(event, {
-                      suggestion: {
-                        item: { text: this.state.value }
-                      }
-                    });
-                  }
                 }
               }
               break;
@@ -143,15 +149,17 @@ class InputTextFuzzy extends React.Component {
       return{
         'data-item-index': itemIndex,
         onMouseDown: (event) => {
+          event.persist();
           this.setState({
             value: suggestion.item.text,
             suggestions: [],
             highlightedItemIndex: null
+          }, () => {
+            if (is.fn(this.props.onSuggestionClick)) {
+              // Suggestion is an object that can contain info on score, matches, etc.
+              this.props.onSuggestionClick(event, { suggestion });
+            }
           });
-          if (is.fn(this.props.onSuggestionClick)) {
-            // Suggestion is an object that can contain info on score, matches, etc.
-            this.props.onSuggestionClick(event, { suggestion });
-          }
         },
         onMouseEnter: (event) => {
           this.setState({
