@@ -23,6 +23,10 @@ $utility-nav-height: 43px;
 
     &.js-util-nav-toggle {
       border-bottom: 2px solid #dcdcdc;
+      
+      @media ($bp-header-toggle-min) {
+        border-bottom: 0;
+      }
     }
 
     @media ($bp-header-toggle-max) {

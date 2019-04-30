@@ -1,4 +1,4 @@
-$header-mobile-menu-width: 300px;
+$header-mobile-menu-width: 320px;
 $header-logo-width: 150px;
 $bp-header-logo-min: "min-width: 1000px";
 
@@ -128,8 +128,7 @@ body {
   }
 
   &__nav-container {
-
-    @media ($bp-header-toggle-max){
+      background-color: $c-bg-section;
       height: calc(100vh - #{$header-mobile-controls-height});
       overflow-y: auto;
       position: fixed;
@@ -153,7 +152,6 @@ body {
       .translated-ltr & {
         top: 40px;
       }
-    }
   }
 
   &__button-container {
@@ -169,10 +167,6 @@ body {
     .translated-rtl &,
     .translated-ltr & {
       top: 40px;
-    }
-
-    @media ($bp-header-toggle-min){
-      display: none;
     }
   }
 
@@ -371,12 +365,6 @@ body {
 //theme
 .ma__header {
   background-color: $c-bg-section;
-
-  &__nav-container {
-    @media ($bp-header-toggle-max) {
-      background-color: $c-bg-section;
-    }
-  }
 
   &__button-container {
     @media ($bp-header-toggle-max) {
