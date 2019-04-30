@@ -5,10 +5,16 @@ let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
 let menuItems = document.querySelectorAll('.js-main-nav-toggle');
 
+// create a new div element 
+var menuOverlay = document.createElement("div");
+menuOverlay.setAttribute("class", "menu-overlay");
+document.body.appendChild(menuOverlay);
+
 if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
     document.querySelector("body").classList.toggle("show-menu");
+    menuOverlay.classList.toggle('overlay-open');
 
     if (buttonLabel == "Menu") {
       menuButtonText.textContent = "Close";
@@ -22,6 +28,11 @@ if (null !== menuButton) {
     feedbackButton.classList.toggle("hide-button");
   });
 }
+
+menuOverlay.addEventListener("click", function (event) {
+  document.querySelector("body").classList.toggle("show-menu");
+  menuOverlay.classList.toggle('overlay-open');
+});
 
 // ****** Main Header Search button on mobile should open the mobile menu  ******
 const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
