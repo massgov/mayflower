@@ -111,6 +111,14 @@
   &__container {
     @include ma-reset-list;
     padding-left: 10px;
+
+    @media ($bp-medium-min) {
+      padding-left: 40px;
+    }
+
+    @media ($bp-large-min) {
+      padding-left: 50px;
+    }  
   }
 
   &__link {
@@ -151,9 +159,13 @@
   &__top-link {
     font-weight: 700;
     
-    &.submenu-open {
-
+    @media ($bp-medium-min) {
+      padding-left: 30px;
     }
+
+    @media ($bp-large-min) {
+      padding-left: 40px;
+    }  
   }
 
   &__back {

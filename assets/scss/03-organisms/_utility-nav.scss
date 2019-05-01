@@ -69,6 +69,31 @@ $utility-nav-height: 43px;
       font-size: 1.2rem;
     }
 
+    &[aria-label="State Organizations"] {
+      
+      &:after {
+        display: none;
+      }
+
+      &::before {
+        border-right: 2px solid;
+        border-bottom: 2px solid;
+        content: "";
+        display: inline-block;
+        margin-left: .3em;
+        transform-origin: 75% 75%;
+        transition: all .2s;
+        vertical-align: middle;
+        height: .45em;
+        margin-top: .175em;
+        position: absolute;
+        right: 20px;
+        transform: translateY(50%) rotate(-45deg);
+        width: .45em;
+        border-color: $c-primary-alt;
+      }
+    }
+
     & > svg,
     & > span {
       display: inline-block;
