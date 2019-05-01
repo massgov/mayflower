@@ -53,17 +53,17 @@ class InputTextFuzzy extends React.Component {
     e.persist();
     const { value } = e.target;
     if (is.empty(value)) {
+      const suggestions = this.optionsToSuggestions(this.props.options);
       if (this.props.renderDefaultSuggestion) {
-        const suggestions = this.optionsToSuggestions(this.props.options);
         this.setState({
           suggestions,
           value: ''
         }, () => {
-          if (typeof this.props.onChange === 'function') {
+          if (is.fn(this.props.onChange)) {
             this.props.onChange({ event: e, value, suggestions });
           }
         });
-      } else if (typeof this.props.onChange === 'function') {
+      } else if (is.fn(this.props.onChange)) {
         const suggestions = this.fuse.search(value);
         this.props.onChange({ event: e, value, suggestions });
       }
@@ -72,6 +72,10 @@ class InputTextFuzzy extends React.Component {
       this.setState({
         value,
         suggestions
+      }, () => {
+        if (is.fn(this.props.onChange)) {
+          this.props.onChange({ event: e, value, suggestions });
+        }
       });
     }
   };
