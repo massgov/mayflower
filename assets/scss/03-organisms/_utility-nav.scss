@@ -92,6 +92,7 @@ $utility-nav-height: 43px;
         display: block;
         font-size: 1.25rem;
         text-transform: uppercase;
+        font-weight: 700;
       }
     }
   }
@@ -375,26 +376,26 @@ $utility-nav-height: 43px;
     }
   }
 
-  &__content {
-    background-color: $c-bg-section;
-    color: $c-font-inverse;
-
-    @media ($bp-header-toggle-min) {
-      background-color: $c-primary;
-    }
-
-    a {
+    &__content {
+      background-color: $c-bg-section;
       color: $c-font-inverse;
-    }
 
-    .ma__rich-text {
-      max-width: 720px;
+      @media ($bp-header-toggle-min) {
+        background-color: $c-primary;
+      }
 
       a {
-        border-color: $c-font-inverse;
+        color: $c-font-inverse;
+      }
+
+      .ma__rich-text {
+        max-width: 720px;
+
+        a {
+          border-color: $c-font-inverse;
+        }
       }
     }
-  }
 
   &__container {
     @media ($bp-header-toggle-max) {
