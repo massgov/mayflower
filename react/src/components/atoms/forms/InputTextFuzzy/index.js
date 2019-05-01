@@ -64,7 +64,6 @@ class InputTextFuzzy extends React.Component {
           }
         });
       } else if (is.fn(this.props.onChange)) {
-        const suggestions = this.fuse.search(value);
         this.props.onChange({ event: e, value, suggestions });
       }
     } else {
