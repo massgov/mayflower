@@ -13,6 +13,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.6.0 (05/01/2019)
+
+### Added
+- (Patternlab) [SectionLinks] DP-13100: Changed topic card heading styles, and footer CTA styles #542
+- (React) [InputTextFuzzy] DP-13688: Added option to render all options as suggestions by default, via prop `renderDefaultSuggestion` #544
+- (React) [Storybook Config] DP-13688: Added storybook console addon #544
+
+### Removed
+- (Patternlab) [assets] DP-12475: Remove richText.js. #505
+- (Patternlab) [RichText] Removed js flag classes for richText.js. #505
+
+### Deprecated
+- (React) [InputTextTypeAhead] DP-13688: Deprecate InputTextTypeAhead. #544
+
 ## 9.5.1 (04/17/2019)
 
 ### Security
