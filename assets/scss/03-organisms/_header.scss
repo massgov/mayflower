@@ -36,8 +36,17 @@ body.show-menu {
 
     .navigation-wrapper-container {
       @include ma-container;
+      padding: 0;
       display: flex;
       justify-content: space-between;
+
+      .ma__header__button-container {
+        order: 1;
+      }
+
+      .ma__header__utility-nav--wide {
+        order:2;
+      }
 
       .ma__header__button-container,
       .ma__header__utility-nav--wide {
@@ -188,9 +197,14 @@ body.show-menu {
     line-height: 35px;
     margin-top: 2px;
     padding-right: 30px;
+    padding-left: 20px;
     position: relative;
     transition: transform 0.5s ease;
     z-index: $z-skyline;
+
+    @media ($bp-medium-min) {
+      padding-left: 0;
+    }
   }
 
   &__menu-icon {

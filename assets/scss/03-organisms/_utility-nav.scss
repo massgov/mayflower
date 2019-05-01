@@ -19,12 +19,15 @@ $utility-nav-height: 43px;
   }
 
   &__item {
+    display: none;
 
     &.js-util-nav-toggle {
       border-bottom: 2px solid #dcdcdc;
+      display: block;
       
       @media ($bp-header-toggle-min) {
         border-bottom: 0;
+        display: inline-block;
       }
     }
 

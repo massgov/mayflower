@@ -9,6 +9,9 @@
  
  <div class="navigation-wrapper">
   <div class="navigation-wrapper-container">
+      <div class="ma__header__utility-nav ma__header__utility-nav--wide">
+    {% include "@organisms/by-template/utility-nav.twig" %}
+  </div>
        <nav class="ma__header__nav" aria-label="main navigation" id="main-navigation" role="navigation">
     <div class="ma__header__nav-container">
       {% if not hideHeaderSearch %}
@@ -31,9 +34,7 @@
       </button>
     </div>
 
-    <div class="ma__header__utility-nav ma__header__utility-nav--wide">
-    {% include "@organisms/by-template/utility-nav.twig" %}
-  </div>
+
 
 
 
