@@ -14,6 +14,8 @@ const InputSlider = (props) => {
   sliderProps.id = id;
   sliderProps.ticks = new Map(ticks);
   sliderProps.disabled = disabled;
+  // Slider never uses input references, since compound slider doesn't have an input element.
+  inputProps.useOwnStateValue = true;
   return(
     <Input {...inputProps}>
       <CompoundSlider {...sliderProps} />
@@ -58,7 +60,6 @@ InputSlider.propTypes = {
 
 
 InputSlider.defaultProps = {
-  defaultValue: 0,
   disabled: false
 };
 

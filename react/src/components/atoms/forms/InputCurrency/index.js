@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import numbro from 'numbro';
@@ -12,8 +12,7 @@ import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import './style.css';
 
-const Currency = (props) => {
-  const ref = React.createRef();
+const Currency = forwardRef((props, ref) => {
   return(
     <InputContext.Consumer>
       {
@@ -77,7 +76,7 @@ const Currency = (props) => {
             // If the stringvalue is empty, set to empty string so the required error
             // message is rendered. Otherwise pass the number value for the min/max check.
             const updateError = displayErrorMessage(!is.empty(stringValue) ? numberValue : '');
-            context.updateState({ value: stringValue, ...updateError }, () => {
+            context.updateOwnState({ value: stringValue, ...updateError }, () => {
               if (is.fn(props.onChange)) {
                 props.onChange(numberValue, props.id, type);
               }
@@ -97,7 +96,7 @@ const Currency = (props) => {
             }
             if (greaterThanMin(newValue) && lessThanMax(newValue)) {
               const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
-              context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
+              context.updateOwnState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                 if (is.fn(props.onChange)) {
                   props.onChange(newValue, props.id, type, direction);
                 }
@@ -116,7 +115,7 @@ const Currency = (props) => {
                 newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
                 if (greaterThanMin(newValue) && lessThanMax(newValue)) {
                   const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
-                  context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
+                  context.updateOwnState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                     if (is.fn(props.onChange)) {
                       props.onChange(newValue, props.id, type, key);
                     }
@@ -126,7 +125,7 @@ const Currency = (props) => {
                 newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
                 if (greaterThanMin(newValue) && lessThanMax(newValue)) {
                   const updateError = displayErrorMessage(!is.empty(stringValue) ? newValue : '');
-                  context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
+                  context.updateOwnState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                     if (is.fn(props.onChange)) {
                       props.onChange(newValue, props.id, type, key);
                     }
@@ -140,7 +139,7 @@ const Currency = (props) => {
             const inputEl = ref.current;
             const stringValue = inputEl.value;
             // isNotNumber returns true if stringValue is null, undefined or 'NaN'
-            const isNotNumber = !stringValue || isNaN(Number(numbro.unformat(stringValue)));
+            const isNotNumber = !stringValue || Number.isNaN(Number(numbro.unformat(stringValue)));
             if (isNotNumber) {
               inputEl.setAttribute('placeholder', props.placeholder);
             }
@@ -153,7 +152,7 @@ const Currency = (props) => {
                 newValue = props.min;
               }
               const updateError = displayErrorMessage(newValue);
-              context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
+              context.updateOwnState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
                   props.onBlur(newValue);
                 }
@@ -183,7 +182,7 @@ const Currency = (props) => {
             onFocus: handleFocus,
             onKeyDown: handleKeyDown,
             required: props.required,
-            value: context.getValue(),
+            value: (ref && ref.current) ? ref.current.value : props.defaultValue,
             disabled: props.disabled
           };
 
@@ -216,7 +215,7 @@ const Currency = (props) => {
       }
     </InputContext.Consumer>
   );
-};
+});
 
 const InputCurrency = (props) => {
   const {
@@ -237,7 +236,8 @@ const InputCurrency = (props) => {
     onBlur,
     format,
     language,
-    disabled: props.disabled
+    disabled: props.disabled,
+    defaultValue: props.defaultValue
   };
   if (!is.empty(inputProps.defaultValue)) {
     const currency = numbro(inputProps.defaultValue);
@@ -245,7 +245,14 @@ const InputCurrency = (props) => {
   }
   return(
     <Input {...inputProps}>
-      <Currency {...currencyProps} />
+      <InputContext.Consumer>
+        {
+          (inputContext) => {
+            currencyProps.ref = inputContext.getOwnRef();
+            return<Currency {...currencyProps} />;
+          }
+        }
+      </InputContext.Consumer>
       <Error id={props.id} />
     </Input>
   );

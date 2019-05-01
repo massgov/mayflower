@@ -6,7 +6,7 @@ export default {
   id: () => text('id', 'text-input'),
   disabled: () => boolean('disabled', false),
   required: () => boolean('required', true),
-  defaultValue: () => text('defaultValue', '0'),
+  defaultValue: () => text('Slider-defaultValue', '0'),
   axis: () => select('axis', ['x', 'y'], 'x'),
   max: () => number('max', 1),
   min: () => number('min', 0),

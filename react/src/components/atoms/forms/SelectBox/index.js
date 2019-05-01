@@ -25,12 +25,12 @@ class SelectBox extends React.Component {
     const selectedIndex = event.nativeEvent.target.selectedIndex;
     const selected = event.target[selectedIndex].text;
     const selectedValue = event.target[selectedIndex].value;
-    this.setState({ selected });
-
-    // invokes custom function if passed in the component
-    if (typeof this.props.onChangeCallback === 'function') {
-      this.props.onChangeCallback({ selectedIndex, selected, selectedValue });
-    }
+    this.setState({ selected }, () => {
+      // invokes custom function if passed in the component
+      if (typeof this.props.onChangeCallback === 'function') {
+        this.props.onChangeCallback({ selectedIndex, selected, selectedValue });
+      }
+    });
   }
 
   render() {

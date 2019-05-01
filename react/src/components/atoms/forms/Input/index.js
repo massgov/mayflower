@@ -1,10 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import is from 'is';
+import deepEqual from 'fast-deep-equal';
+
 
 import './style.css';
 import { InputContext, FormContext } from './context';
 
 const Input = (props) => {
+  if (is.fn(props.shouldRender) && !props.shouldRender()) {
+    return null;
+  }
   const inputClasses = classNames({
     'ma__input-group': true,
     'ma__input-group--inline': props.inline
@@ -36,45 +43,136 @@ class InputProvider extends React.Component {
     super(props);
     this.state = {
       value: this.props.defaultValue,
-      getValue: this.getValue,
-      setValue: this.setValue,
-      updateState: this.updateState,
+      useOwnStateValue: this.props.useOwnStateValue,
+      getOwnValue: this.getOwnValue,
+      setOwnValue: this.setOwnValue,
+      updateOwnState: this.updateOwnState,
       showError: false,
       errorMsg: this.props.errorMsg,
       disabled: this.props.disabled,
-      inline: this.props.inline
+      inline: this.props.inline,
+      forceOwnUpdate: this.forceOwnUpdate,
+      getOwnOnComponentUpdateFunc: this.props.onComponentUpdate,
+      setOwnOnComponentUpdateFunc: this.setOwnOnComponentUpdateFunc,
+      getOwnRef: this.getOwnRef
     };
+    this.selfRef = React.createRef();
   }
-  getValue = () => this.state.value;
-  setValue = (value, afterUpdate) => {
-    this.setState({ value }, afterUpdate);
+  componentDidMount() {
+    this.checkFormContext();
+  }
+  componentDidUpdate() {
+    // run the on update functions for this InputProvider.
+    if (is.fn(this.state.getOwnOnComponentUpdateFunc)) {
+      this.state.getOwnOnComponentUpdateFunc(this.state.getOwnValue(), this.props.id);
+    }
+  }
+  getOwnRef = () => this.selfRef;
+
+  // Returns the InputProvider's current value. Used by FormContext/FormProvider.
+  getOwnValue = () => {
+    if (this.state.useOwnStateValue) {
+      return this.state.value;
+    }
+    if (this.selfRef && this.selfRef.current) {
+      return this.selfRef.current.value;
+    }
+    return this.props.defaultValue;
   };
-  updateState = (newState, afterUpdate) => {
-    this.setState(newState, afterUpdate);
+  // Sets useOwnStateValue to the passed in value.
+  // When value is true, the InputProvider will switch over to storing an input's value within this.state.value.
+  // Use this for components that don't normally have an input element.
+  setUseOwnStateValue = (value) => {
+    if (is.bool(value)) {
+      this.setState({ useOwnStateValue: value });
+    }
   };
-  checkFormContext = (formContext) => {
-    if (formContext.isActive) {
-      // By giving the form getters and setters and not the input value,
-      // extra re-renders are avoided when context updates.
-      if (!Object.prototype.hasOwnProperty.call(formContext.value, this.props.id)) {
-        const { value } = formContext;
-        value[this.props.id] = { getValue: this.getValue, setValue: this.setValue };
-        formContext.updateState({ value });
+  // Sets the InputProvider's value. Used by FormContext/FormProvider.
+  setOwnValue = (value, afterUpdate) => {
+    if (this.state.useOwnStateValue) {
+      this.setState({ value }, () => {
+        if (this.context && this.context.isActive) {
+          this.context.updateFormState({ [this.props.id]: value }, afterUpdate);
+        } else if (is.fn(afterUpdate)) {
+          afterUpdate();
+        }
+      });
+    } else {
+      const formContext = this.context;
+      if (formContext && formContext.isActive) {
+        if (this.selfRef && this.selfRef.current) {
+          this.selfRef.current.value = value;
+          formContext.updateFormState({ [this.props.id]: value }, afterUpdate);
+        }
+      } else if (this.selfRef && this.selfRef.current) {
+        this.selfRef.current.value = value;
+        if (is.fn(afterUpdate)) {
+          afterUpdate();
+        }
+      }
+    }
+  };
+  setOwnOnComponentUpdateFunc = (getOwnOnComponentUpdateFunc) => {
+    this.setState({ getOwnOnComponentUpdateFunc });
+  };
+  // Allows for forcing an update of an InputProvider through FormContext/FormProvider.
+  forceOwnUpdate = () => {
+    this.forceUpdate();
+  };
+  updateOwnState = (newState, afterUpdate) => {
+    if (Object.prototype.hasOwnProperty.call(newState, 'value')) {
+      const { value, ...remaining } = newState;
+      if (!is.empty(remaining)) {
+        this.state.setOwnValue(value, () => {
+          this.setState(remaining, afterUpdate);
+        });
+      } else {
+        this.state.setOwnValue(value, afterUpdate);
+      }
+    } else {
+      this.setState(newState, afterUpdate);
+    }
+  };
+  // Checks to see if this InputProvider's FormContext is active.
+  // If it is, check to see if its id has been added to FormContext's inputProviderStore.
+  // If it isn't, add it now.
+  // By giving the form getters and setters and not the input value,
+  // extra re-renders are avoided when context updates.
+  checkFormContext = () => {
+    const formContext = this.context;
+    if (formContext && formContext.isActive) {
+      const { inputProviderStore = {} } = formContext;
+      if (!Object.prototype.hasOwnProperty.call(inputProviderStore, this.props.id)) {
+        inputProviderStore[this.props.id] = {};
+      }
+      // This list is only for things from this.state.
+      const inputStateProperties = [
+        'getOwnValue',
+        'setOwnValue',
+        'updateOwnState',
+        'forceOwnUpdate',
+        'useOwnStateValue',
+        'setUseOwnStateValue',
+        'getOwnOnComponentUpdateFunc',
+        'setOwnOnComponentUpdateFunc',
+        'getOwnRef'
+      ];
+      inputStateProperties.forEach((property) => {
+        if (!Object.prototype.hasOwnProperty.call(inputProviderStore[this.props.id], property)) {
+          inputProviderStore[this.props.id][property] = this.state[property];
+        }
+      });
+      if (!deepEqual(inputProviderStore, formContext.inputProviderStore)) {
+        formContext.updateFormState({ inputProviderStore });
+      }
+      if (!Object.prototype.hasOwnProperty.call(formContext, this.props.id)) {
+        formContext.updateFormState({ [this.props.id]: this.state.getOwnValue() });
       }
     }
   };
   render() {
     return(
       <InputContext.Provider value={this.state}>
-        <FormContext.Consumer>
-          {
-            // Currently, this is called on every render of InputProvider.
-            // @TODO: Pull this out of here when InputProvider.contextType is supported
-            // and do this logic in componentDidUpdate.
-            // InputProvider.contextType should be set to FormContext.
-            this.checkFormContext
-          }
-        </FormContext.Consumer>
         <div className="ma__input-group-right">
           {this.props.children}
         </div>
@@ -82,8 +180,23 @@ class InputProvider extends React.Component {
     );
   }
 }
+InputProvider.defaultProps = {
+  onComponentUpdate: null,
+  useOwnStateValue: false
+};
+
+InputProvider.propTypes = {
+  /** Controls if the component's local this.state should be used to store the value for the Input. Use this when your component does not contain an input element. */
+  useOwnStateValue: PropTypes.bool,
+  /** An optional function that is ran during the componentDidUpdate lifecycle of this component. This function is passed the current value of the InputProvider. */
+  onComponentUpdate: PropTypes.func,
+  /** The default value that should be used for the input. */
+  // eslint-disable-next-line react/forbid-prop-types
+  defaultValue: PropTypes.any
+};
 
 
-Input.contextType = InputContext;
+InputProvider.contextType = FormContext;
 
 export default Input;
+
