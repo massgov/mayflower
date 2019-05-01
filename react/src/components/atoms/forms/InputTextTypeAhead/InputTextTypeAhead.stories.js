@@ -24,7 +24,8 @@ storiesOf('atoms/forms', module)
           ''
         ),
         onChange: action('InputTextTypeAhead onChange'),
-        disabled: boolean('disabled', false)
+        disabled: boolean('disabled', false),
+        onKeyDown: action('down')
       };
       return(<InputTextTypeAhead {...props} />);
     }),

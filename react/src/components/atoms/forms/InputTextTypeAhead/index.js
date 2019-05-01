@@ -21,6 +21,9 @@ class InputTextTypeAhead extends Component {
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('This component is deprecated and will be archived in v10. Use InputTextFuzzy instead.');
+    }
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.selected });
@@ -102,7 +105,6 @@ class InputTextTypeAhead extends Component {
             parts.map((part, index) => {
               const className = part.highlight ? 'highlight' : null;
               const key = `suggestion_${index}`;
-              console.log(part.text);
               return(
                 <span className={className} key={key}>{part.text}</span>
               );
