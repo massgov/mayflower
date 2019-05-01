@@ -5,7 +5,6 @@ $utility-nav-height: 43px;
 
   &__items {
     @include ma-reset-list;
-    @include ma-container;
 
     @media ($bp-header-toggle-max){
       padding-left: 0;
@@ -180,14 +179,6 @@ $utility-nav-height: 43px;
 
   &__content {
     display: block;
-    // margin-top: $header-mobile-controls-height;
-    // padding-left: 20px;
-    // position: fixed;
-    // top: 0;
-    // right: -300px;
-    // text-align: left;
-    // transition: visibility .5s ease, right .5s ease;
-    // width: 300px;
     z-index: $z-dropdown;
 
     .translated-rtl &,
@@ -313,7 +304,6 @@ $utility-nav-height: 43px;
 .ma__utility-nav {
 
   @media ($bp-header-toggle-min) {
-    background-color: $c-primary;
     color: $c-font-inverse;
   }
 

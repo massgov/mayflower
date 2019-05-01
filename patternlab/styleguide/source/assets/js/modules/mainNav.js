@@ -32,6 +32,9 @@ if (null !== menuButton) {
 menuOverlay.addEventListener("click", function (event) {
   document.querySelector("body").classList.toggle("show-menu");
   menuOverlay.classList.toggle('overlay-open');
+
+  menuButtonText.textContent = "Menu";
+  buttonLabel = "Menu";
 });
 
 // ****** Main Header Search button on mobile should open the mobile menu  ******

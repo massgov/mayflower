@@ -1,9 +1,10 @@
 .ma__main-nav {
+  border-top: 2px solid $c-gray-light;
+  margin-top: 20px;
 
   @media ($bp-header-toggle-max){
     padding-left: 0;
     padding-right: 0;
-    border-top: 2px solid $c-gray-light;
   }
 
   &__items {
@@ -109,6 +110,7 @@
 
   &__container {
     @include ma-reset-list;
+    padding-left: 10px;
   }
 
   &__link {

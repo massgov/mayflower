@@ -6,25 +6,10 @@
     </div>
   {% endif %}
   <a class="ma__header__skip-nav" href="#main-content">skip to main content</a>
-  <div class="ma__header__utility-nav ma__header__utility-nav--wide">
-    {% include "@organisms/by-template/utility-nav.twig" %}
-  </div>
-  <div class="ma__header__container">
-    <div class="ma__header__logo">
-      {% include "@atoms/09-media/site-logo.twig" %}
-    </div>
-    {% if not hideHeaderSearch %}
-      <div class="ma__header__search js-header-search-menu">
-        {% include "@molecules/header-search.twig" %}
-      </div>
-    {% endif %}
-  </div>
-  <nav class="ma__header__nav" aria-label="main navigation" id="main-navigation" role="navigation">
-    <div class="ma__header__button-container js-sticky-header">
-      <button class="ma__header__menu-button js-header-menu-button">
-        <span class="ma__header__menu-icon"></span><span class="ma__header__menu-text">Menu</span>
-      </button>
-    </div>
+ 
+ <div class="navigation-wrapper">
+  <div class="navigation-wrapper-container">
+       <nav class="ma__header__nav" aria-label="main navigation" id="main-navigation" role="navigation">
     <div class="ma__header__nav-container">
       {% if not hideHeaderSearch %}
         <div class="ma__header__nav-search">
@@ -40,5 +25,30 @@
       </div>
     </div>
   </nav>
+     <div class="ma__header__button-container js-sticky-header">
+      <button class="ma__header__menu-button js-header-menu-button">
+        <span class="ma__header__menu-icon"></span><span class="ma__header__menu-text">Menu</span>
+      </button>
+    </div>
+
+    <div class="ma__header__utility-nav ma__header__utility-nav--wide">
+    {% include "@organisms/by-template/utility-nav.twig" %}
+  </div>
+
+
+
+  </div>
+ </div>
+
+  <div class="ma__header__container">
+    <div class="ma__header__logo">
+      {% include "@atoms/09-media/site-logo.twig" %}
+    </div>
+    {% if not hideHeaderSearch %}
+      <div class="ma__header__search js-header-search-menu">
+        {% include "@molecules/header-search.twig" %}
+      </div>
+    {% endif %}
+  </div>
 </header>
 <!-- end .header -->
