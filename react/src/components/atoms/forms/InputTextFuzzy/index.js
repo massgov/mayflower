@@ -20,12 +20,12 @@ class InputTextFuzzy extends React.Component {
     fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
-  clearSuggestions = (event) => {
+  clearSuggestions = (event = null) => {
     this.setState({
       suggestions: [],
       highlightedItemIndex: null
     }, () => {
-      if (is.fn(this.props.onSuggestionClick)) {
+      if (event && is.fn(this.props.onSuggestionClick)) {
         this.props.onSuggestionClick(event, {
           suggestion: {
             item: { text: this.state.value }
@@ -63,10 +63,9 @@ class InputTextFuzzy extends React.Component {
             this.props.onChange({ event: e, value, suggestions });
           }
         });
-      } else {
-        if (typeof this.props.onChange === 'function') {
-          this.props.onChange({ event: e, value, suggestions });
-        }
+      } else if (typeof this.props.onChange === 'function') {
+        const suggestions = this.fuse.search(value);
+        this.props.onChange({ event: e, value, suggestions });
       }
     } else {
       const suggestions = this.fuse.search(value);
@@ -124,9 +123,8 @@ class InputTextFuzzy extends React.Component {
         disabled: this.props.disabled,
         id: this.props.inputId,
         onFocus: this.handleFocus,
-        onBlur: (event) => {
-          event.persist();
-          this.clearSuggestions(event);
+        onBlur: () => {
+          this.clearSuggestions();
         },
         onKeyDown: (event, { newHighlightedItemIndex }) => {
           event.persist();
