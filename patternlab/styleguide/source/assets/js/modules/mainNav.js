@@ -4,6 +4,8 @@ let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
 let menuItems = document.querySelectorAll('.js-main-nav-toggle');
+let windowWidth = window.innerWidth;
+
 
 // create a new div element 
 var menuOverlay = document.createElement("div");
@@ -37,6 +39,8 @@ menuOverlay.addEventListener("click", function (event) {
   buttonLabel = "Menu";
 });
 
+
+
 // ****** Main Header Search button on mobile should open the mobile menu  ******
 const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
 
@@ -60,26 +64,20 @@ if (null !== searchForm) {
 
   itemButton.addEventListener("click", function () {
     itemButton.classList.toggle('submenu-open');
-    //subMenu.classList.toggle('is-closed');
-    console.log('click');
 
     if (subMenu.classList.contains('is-closed')) {
       /** Show the subMenu. */
-      console.log('classList pre', subMenu.classList);
       subMenu.classList.remove('is-closed');
       subMenu.style.height = "auto";
-      console.log('classList post', subMenu.classList);
 
       /** Get the computed height of the subMenu. */
       var height = subMenu.clientHeight + "px";
-      console.log('height', height);
       /** Set the height of the submenu as 0px, */
       /** so we can trigger the slide down animation. */
       subMenu.style.height = "0px";
 
       /** Then */
       setTimeout(() => {
-        console.log('timeout', height);
         subMenu.style.height = height;
 
       }, 0.1)
@@ -89,7 +87,6 @@ if (null !== searchForm) {
       /** Set the height as 0px to trigger the slide up animation. */
       subMenu.style.height = "0px";
       subMenu.classList.add('is-closed');
-      console.log(subMenu.classList);
     }
 
   })
