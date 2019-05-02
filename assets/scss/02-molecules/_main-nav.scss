@@ -54,10 +54,12 @@
       @include ma-accordion-icon;
     }
 
-    &.submenu-open::after {
-      transform: rotate(135deg);
+    .submenu-open & {
+      &::after {
+        transform: rotate(135deg);
+      }
     }
-
+    
     is-open-react & {
 
       &:after {

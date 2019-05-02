@@ -72,8 +72,7 @@ stateOrgsButton.addEventListener("click", function (e) {
   const subMenu = item.querySelector('.ma__main-nav__subitems');
 
   itemButton.addEventListener("click", function (e) {
-
-    itemButton.classList.toggle('submenu-open');
+    item.classList.toggle('submenu-open');
 
     if (subMenu.classList.contains('is-closed')) {
       /** Show the subMenu. */
@@ -98,6 +97,7 @@ stateOrgsButton.addEventListener("click", function (e) {
       subMenu.style.height = "0px";
       subMenu.classList.add('is-closed');
     }
+
   })
 
 });
