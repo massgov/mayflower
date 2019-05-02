@@ -24,6 +24,7 @@ export default {
     thousandSeparated: true,
     negative: 'parenthesis'
   }),
+  showButtons: () => boolean('showButtons', true),
   onChange: () => action('onChange'),
   language: () => select('language', ['English', 'Chinese', 'French', 'Russian'], 'English')
 };
