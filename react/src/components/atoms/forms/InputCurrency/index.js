@@ -22,7 +22,8 @@ const Currency = (props) => {
           const downRef = React.createRef();
           const inputClasses = classNames({
             'ma__input-currency__control': true,
-            'js-is-required': props.required
+            'js-is-required': props.required,
+            'ma__input-currency__control--showButtons': props.showButtons
           });
           const toCurrency = (number, decimal) => {
             if (is.number(number)) {
@@ -190,26 +191,29 @@ const Currency = (props) => {
           return(
             <div className="ma__input-currency">
               <input {...inputAttr} />
-              <div className="ma__input-number__control-buttons">
-                <button
-                  type="button"
-                  aria-label="increase value"
-                  className="ma__input-currency__control-plus"
-                  onClick={handleAdjust}
-                  disabled={props.disabled}
-                  tabIndex={-1}
-                  ref={upRef}
-                />
-                <button
-                  type="button"
-                  aria-label="decrease value"
-                  className="ma__input-currency__control-minus"
-                  onClick={handleAdjust}
-                  disabled={props.disabled}
-                  tabIndex={-1}
-                  ref={downRef}
-                />
-              </div>
+              {
+                props.showButtons && (
+                  <div className="ma__input-number__control-buttons">
+                    <button
+                      type="button"
+                      aria-label="increase value"
+                      className="ma__input-currency__control-plus"
+                      onClick={handleAdjust}
+                      disabled={props.disabled}
+                      tabIndex={-1}
+                      ref={upRef}
+                    />
+                    <button
+                      type="button"
+                      aria-label="decrease value"
+                      className="ma__input-currency__control-minus"
+                      onClick={handleAdjust}
+                      disabled={props.disabled}
+                      tabIndex={-1}
+                      ref={downRef}
+                    />
+                  </div>
+              )}
             </div>
           );
         }
@@ -220,7 +224,7 @@ const Currency = (props) => {
 
 const InputCurrency = (props) => {
   const {
-    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, format, language, ...inputProps
+    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, format, language, showButtons, ...inputProps
   } = props;
   // Input and Currency share the props.required and props.id values.
   const currencyProps = {
@@ -237,7 +241,8 @@ const InputCurrency = (props) => {
     onBlur,
     format,
     language,
-    disabled: props.disabled
+    disabled: props.disabled,
+    showButtons
   };
   if (!is.empty(inputProps.defaultValue)) {
     const currency = numbro(inputProps.defaultValue);
@@ -294,7 +299,9 @@ InputCurrency.propTypes = {
   /** Numbro Formatting options for displaying the currency. See https://numbrojs.com/format.html */
   format: PropTypes.object,
   /** Inline label and input field */
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+  /** Whether to render up/down buttons */
+  showButtons: PropTypes.bool
 };
 InputCurrency.defaultProps = {
   hiddenLabel: false,
@@ -308,7 +315,8 @@ InputCurrency.defaultProps = {
     thousandSeparated: true,
     negative: 'parenthesis'
   },
-  step: 0.01
+  step: 0.01,
+  showButtons: true
 };
 
 export default InputCurrency;
