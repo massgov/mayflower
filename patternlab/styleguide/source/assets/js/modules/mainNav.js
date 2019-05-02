@@ -62,7 +62,8 @@ if (null !== searchForm) {
   const itemButton = item.querySelector('.ma__main-nav__top-link');
   const subMenu = item.querySelector('.ma__main-nav__subitems');
 
-  itemButton.addEventListener("click", function () {
+  itemButton.addEventListener("click", function (e) {
+
     itemButton.classList.toggle('submenu-open');
 
     if (subMenu.classList.contains('is-closed')) {

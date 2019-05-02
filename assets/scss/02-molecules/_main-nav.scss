@@ -1,6 +1,6 @@
 .ma__main-nav {
   border-top: 2px solid $c-gray-light;
-  margin-top: 20px;
+  margin-top: 10px;
 
   @media ($bp-header-toggle-max){
     padding-left: 0;
@@ -42,8 +42,7 @@
   &__top-link {
     @include ma-button-reset;
     display: block;
-    font-size: 1.25rem;
-    letter-spacing: $letter-spacing-large;
+    font-size: 20px;
     line-height: 1.45;
     padding: 15px 20px;
     text-transform: uppercase;
