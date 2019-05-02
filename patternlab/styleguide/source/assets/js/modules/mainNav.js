@@ -83,7 +83,7 @@ stateOrgsButton.addEventListener("click", function (e) {
       var height = subMenu.clientHeight + "px";
       /** Set the height of the submenu as 0px, */
       /** so we can trigger the slide down animation. */
-      subMenu.style.height = "0px";
+      subMenu.style.height = "0";
 
       /** Then */
       setTimeout(() => {
@@ -94,11 +94,25 @@ stateOrgsButton.addEventListener("click", function (e) {
       /** Slide up. */
     } else {
       /** Set the height as 0px to trigger the slide up animation. */
-      subMenu.style.height = "0px";
+      subMenu.style.height = "0";
       subMenu.classList.add('is-closed');
     }
+
+    hide(item);
 
   })
 
 });
+
+function hide(thisItem) {
+
+  for (let i = 0; i < menuItems.length; i++) {
+
+    if (thisItem != menuItems[i]) {
+      menuItems[i].classList.remove('submenu-open');
+      menuItems[i].querySelector('.ma__main-nav__subitems').classList.add('is-closed');
+    }
+  }
+}
+
 
