@@ -4,6 +4,8 @@ let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
 let menuItems = document.querySelectorAll('.js-main-nav-toggle');
+let mobileUtilityItems = document.querySelector('.ma__header__utility-nav--narrow');
+const stateOrgsButton = mobileUtilityItems.getElementsByClassName('js-util-nav-toggle')[0];
 let windowWidth = window.innerWidth;
 
 
@@ -12,6 +14,7 @@ var menuOverlay = document.createElement("div");
 menuOverlay.setAttribute("class", "menu-overlay");
 document.body.appendChild(menuOverlay);
 
+// Open and close the menu
 if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -31,6 +34,7 @@ if (null !== menuButton) {
   });
 }
 
+// Close and reset menu on overlay click
 menuOverlay.addEventListener("click", function (event) {
   document.querySelector("body").classList.toggle("show-menu");
   menuOverlay.classList.toggle('overlay-open');
@@ -56,8 +60,13 @@ if (null !== searchForm) {
   });
 }
 
+// On mobile, turn govt button into link
+stateOrgsButton.addEventListener("click", function (e) {
+  stateOrgsButton.querySelector('.ma__utility-nav__content').remove();
+  window.location.pathname = 'https://www.mass.gov/state-a-to-z';
+});
 
-
+// Slide submenus open
 [].forEach.call(menuItems, function (item) {
   const itemButton = item.querySelector('.ma__main-nav__top-link');
   const subMenu = item.querySelector('.ma__main-nav__subitems');
@@ -89,7 +98,6 @@ if (null !== searchForm) {
       subMenu.style.height = "0px";
       subMenu.classList.add('is-closed');
     }
-
   })
 
 });
