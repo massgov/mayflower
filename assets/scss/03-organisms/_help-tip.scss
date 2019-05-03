@@ -147,6 +147,7 @@ $border-width: 1px;
 
   #{$helpTipBaseClass}__container {
     &--c-primary {
+      background-color: $c-primary-lightest;
       #{$helpTipBaseClass}__close-desktop {
         svg {
           fill: $c-primary;
@@ -154,6 +155,7 @@ $border-width: 1px;
       }
     }
     &--c-primary-alt {
+      background-color: $c-primary-alt-lightest;
       #{$helpTipBaseClass}__close-desktop {
         svg {
           fill: $c-primary-alt;
@@ -161,6 +163,7 @@ $border-width: 1px;
       }
     }
     &--c-highlight {
+      background-color: $c-highlight-lightest;
       #{$helpTipBaseClass}__close-desktop {
         svg {
           fill: $c-gray-dark;
@@ -168,6 +171,7 @@ $border-width: 1px;
       }
     }
     &--c-gray-dark {
+      background-color: $c-gray-lightest;
       #{$helpTipBaseClass}__close-desktop {
         svg {
           fill: $c-gray-dark;
@@ -175,6 +179,7 @@ $border-width: 1px;
       }
     }
      &--c-error-red {
+      background-color: $c-error-red-lightest;
       #{$helpTipBaseClass}__close-desktop {
         svg {
           fill: $c-error-red;
