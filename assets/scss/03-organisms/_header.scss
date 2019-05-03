@@ -11,7 +11,7 @@ body.show-menu {
   width: 100%;
   height: 100vh;
   background-color: rgba(20,20,20, 0.4);
-  top: 0;
+  top: 43px;
   z-index: $z-high;
 }
 
@@ -155,10 +155,8 @@ body.show-menu {
     height: 100vh;
     overflow-y: auto;
     position: absolute;
-    top: 0;
     left: -$header-mobile-menu-width;
     visibility: hidden;
-    padding-top: $header-mobile-controls-height;
     transition: left 0.3s ease, visibility 0.3s;
     width: $header-mobile-menu-width;
     z-index:$z-sticky-content;
@@ -172,14 +170,6 @@ body.show-menu {
       left: 0;
       visibility: visible;
       transition: left 0.6s ease, visibility 0.8s;
-
-      @media ($bp-medium-min) {
-        left: -30px;
-      }
-
-      @media ($bp-large-min) {
-        left: -40px;
-      }
     }
 
     .translated-rtl &,
@@ -349,11 +339,6 @@ body.show-menu {
     font-weight: 700;
     color: $c-font-inverse;
 
-    .show-menu & {
-      color: $c-black;
-      background-color: $c-gray-lightest;
-    }
-
     span:first-child {
       opacity: 0.7;
     }
@@ -369,17 +354,6 @@ body.show-menu {
 
     .show-menu & {
       background-color: transparent;
-    }
-
-    &:before {
-      .show-menu & {
-        background-color: $c-black;
-      }
-    }
-    &:after {
-      .show-menu & {
-        background-color: $c-black;
-      }
     }
   }
 
