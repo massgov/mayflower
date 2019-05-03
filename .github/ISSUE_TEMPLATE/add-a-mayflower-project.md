@@ -14,8 +14,14 @@ Before opening an issue:
 
 When submitting your request, include:
 
+* A link to the application
+* Your name or alias and contact URL or email address
 * The implementation’s target language and/or framework
-* The code repository if it is in Github or it is public
-* The author’s name or alias and contact URL or email address
-* The most recent version of the Mayflower Design System that the project targets
+* The code repository if it is in Github or equivalent (if public)
+* What type of Mayflower implementation you are using
+  - Mayflower Patternlab
+  - Mayflower React
+  - Mayflower as Markup
+  - Mayflower as Branding
+* What Mayflower Design System version you are using 
 * Any useful caveats or other notes
