@@ -13,6 +13,10 @@ let windowWidth = window.innerWidth;
 var menuOverlay = document.createElement("div");
 menuOverlay.setAttribute("class", "menu-overlay");
 document.body.appendChild(menuOverlay);
+// Close and reset menu on overlay click
+menuOverlay.addEventListener("click", function () {
+  close();
+});
 
 // Open and close the menu
 if (null !== menuButton) {
@@ -29,26 +33,8 @@ if (null !== menuButton) {
       menuButtonText.textContent = "Menu";
       buttonLabel = "Menu";
     }
-
-    // Hide feedback button when menu opens.
-    feedbackButton.classList.toggle("hide-button");
   });
 }
-
-// Close and reset menu on overlay click
-menuOverlay.addEventListener("click", function (event) {
-  document.querySelector("body").classList.toggle("show-menu");
-  menuOverlay.classList.toggle('overlay-open');
-
-  menuButtonText.textContent = "Menu";
-  buttonLabel = "Menu";
-});
-
-// document.addEventListener('keydown', function (event) {
-//   if () {
-
-//   }
-// });
 
 // ****** Main Header Search button on mobile should open the mobile menu  ******
 const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
@@ -122,4 +108,11 @@ function hide(thisItem) {
   }
 }
 
+function close() {
+  document.querySelector("body").classList.toggle("show-menu");
+  menuOverlay.classList.toggle('overlay-open');
+
+  menuButtonText.textContent = "Menu";
+  buttonLabel = "Menu";
+}
 
