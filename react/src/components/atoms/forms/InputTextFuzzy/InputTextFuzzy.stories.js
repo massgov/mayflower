@@ -33,7 +33,8 @@ storiesOf('atoms/forms', module)
           minMatchCharLength: 1
         }),
         onChange: action('fuzzy input onChange'),
-        onSuggestionClick: action('fuzzy suggestion onClick')
+        onSuggestionClick: action('fuzzy suggestion onClick'),
+        renderDefaultSuggestion: boolean('fuzzy renderDefaultSuggestion', true)
       };
       return(<InputTextFuzzy {...props} />);
     }),

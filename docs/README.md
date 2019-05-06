@@ -13,11 +13,11 @@ The goals of Mayflower are:
 
 | Name | Distribution | Author/Maintainer | Notes |
 | :--- | :--- | :--- | :--- |
-| [**Mass.gov**](https://mass.gov) | Drupal | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower Patternlab](/getting-started#mayflower-as-component-libraries) |
-| [**Search.mass.gov**](https://search.mass.gov) | React + S3 | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower React](/getting-started#mayflower-as-component-libraries) |
-| [**RideShare Report**](https://www.mass.gov/rideshare) | React + S3 | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower React](/getting-started#mayflower-as-component-libraries) |
-| [**PFML Contribution Calculator**](https://calculator.digital.mass.gov/pfml/contribution/), [**PFML Benefits Calculator**](https://calculator.digital.mass.gov/pfml/yourbenefits) | React + S3 | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower React](/getting-started#mayflower-as-component-libraries) |
-| [**GIS Parcel Uploader**](https://uploads.massgis.digital.mass.gov/signup.html) | AWS S3 + Lambda + API Gateway | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower as markup](/getting-started#mayflower-as-markup) |
+| [**Mass.gov**](https://mass.gov) | Drupal | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower Patternlab](https://massgovdigital.gitbook.io/mayflower/getting-started#mayflower-as-component-libraries) |
+| [**Search.mass.gov**](https://search.mass.gov) | React + S3 | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower React](https://massgovdigital.gitbook.io/mayflower/getting-started#mayflower-as-component-libraries) |
+| [**RideShare Report**](https://www.mass.gov/rideshare) | React + S3 | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower React](https://massgovdigital.gitbook.io/mayflower/getting-started#mayflower-as-component-libraries) |
+| [**PFML Contribution Calculator**](https://calculator.digital.mass.gov/pfml/contribution/), [**PFML Benefits Calculator**](https://calculator.digital.mass.gov/pfml/yourbenefits) | React + S3 | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower React](https://massgovdigital.gitbook.io/mayflower/getting-started#mayflower-as-component-libraries) |
+| [**GIS Parcel Uploader**](https://uploads.massgis.digital.mass.gov/signup.html) | AWS S3 + Lambda + API Gateway | [EOTSS Digital Service](https://www.mass.gov/orgs/ma-digital-service) | [Mayflower as markup](https://massgovdigital.gitbook.io/mayflower/getting-started#mayflower-as-markup) |
 
 
 ## Become part of the community
@@ -46,4 +46,4 @@ If you’ve been using Mayflower to make changes to your application and want to
 * Any useful caveats or other notes
 
 
-We've looked around and have found [7 community projects](community-projects.md) that have used Mayflower inspiration for the design elements. 
+We've looked around and have found [6 community projects](community-projects.md) that have used Mayflower inspiration for the design elements. 

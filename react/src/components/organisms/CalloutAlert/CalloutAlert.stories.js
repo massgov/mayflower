@@ -14,7 +14,8 @@ const themeOptions = {
   'c-primary': 'c-primary',
   'c-primary-alt': 'c-primary-alt',
   'c-gray-dark': 'c-gray-dark',
-  'c-error-red': 'c-error-red'
+  'c-error-red': 'c-error-red',
+  'c-white': 'c-white'
 };
 
 storiesOf('organisms/CalloutAlert', module)
