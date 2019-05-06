@@ -140,4 +140,15 @@
     fill: $c-error-red;
   }
 
+  //c-white
+  &--c-white &__content {
+    background-color: tint($c-white, 90%);
+    border-color: tint($c-gray-dark, 50%);
+    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  }
+
+  &--c-white &__icon svg {
+    fill: $c-white;
+  }
+
 }
