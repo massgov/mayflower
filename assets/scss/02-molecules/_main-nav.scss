@@ -75,7 +75,6 @@
     @media ($bp-header-toggle-max) {
       overflow-y: auto;
       padding-left: 20px;
-      transition: visibility .5s ease, height .5s ease;
 
       .translated-rtl &,
       .translated-ltr & {
@@ -110,6 +109,7 @@
   &__container {
     @include ma-reset-list;
     padding-left: 10px;
+    transition: opacity 1s;
 
     @media ($bp-medium-min) {
       padding-left: 40px;
@@ -177,6 +177,16 @@
 
     span {
       opacity: 0.7;
+    }
+  }
+
+  &__subitem {
+    opacity: 1;
+    transition: opacity 3s;
+
+    .is-closed & {
+      opacity: 0;
+      transition: opacity 10s;
     }
   }
 

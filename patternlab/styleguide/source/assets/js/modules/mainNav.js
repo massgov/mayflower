@@ -44,7 +44,11 @@ menuOverlay.addEventListener("click", function (event) {
   buttonLabel = "Menu";
 });
 
+// document.addEventListener('keydown', function (event) {
+//   if () {
 
+//   }
+// });
 
 // ****** Main Header Search button on mobile should open the mobile menu  ******
 const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
@@ -71,6 +75,9 @@ stateOrgsButton.addEventListener("click", function (e) {
 [].forEach.call(menuItems, function (item) {
   const itemButton = item.querySelector('.ma__main-nav__top-link');
   const subMenu = item.querySelector('.ma__main-nav__subitems');
+  const subItems = subMenu.querySelector('.ma__main-nav__container');
+
+  subItems.style.opacity = "0";
 
   itemButton.addEventListener("click", function (e) {
     item.classList.toggle('submenu-open');
@@ -86,16 +93,15 @@ stateOrgsButton.addEventListener("click", function (e) {
       /** so we can trigger the slide down animation. */
       subMenu.style.height = "0";
 
-      /** Then */
-      setTimeout(() => {
-        subMenu.style.height = height;
+      subMenu.style.height = height;
+      subItems.style.opacity = "1";
 
-      }, 0.1)
 
       /** Slide up. */
     } else {
       /** Set the height as 0px to trigger the slide up animation. */
       subMenu.style.height = "0";
+      subItems.style.opacity = "0";
       subMenu.classList.add('is-closed');
     }
 
@@ -106,7 +112,7 @@ stateOrgsButton.addEventListener("click", function (e) {
 });
 
 function hide(thisItem) {
-
+  // For closing all non-active open items
   for (let i = 0; i < menuItems.length; i++) {
 
     if (thisItem != menuItems[i]) {
