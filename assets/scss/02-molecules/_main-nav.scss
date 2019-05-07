@@ -3,6 +3,7 @@
   @media ($bp-header-toggle-max){
     padding-left: 0;
     padding-right: 0;
+    border-top: 2px solid $c-gray-light;
   }
 
   &__items {
@@ -44,6 +45,7 @@
     line-height: 1.45;
     padding: 15px 20px;
     text-transform: uppercase;
+    letter-spacing: 1px;
     transition: all 0.4s ease;
     width: 100%;
     text-align: left;
@@ -142,6 +144,14 @@
     font-size: 1.125rem;
     letter-spacing: letter-spacing-medium;
     text-transform: uppercase;
+
+    &:hover {
+      text-decoration: none;
+
+      & >span {
+        text-decoration: underline;
+      }
+    }
   }
 }
 

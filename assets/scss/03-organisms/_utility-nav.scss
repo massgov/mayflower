@@ -67,7 +67,8 @@ $utility-nav-height: 43px;
     @media ($bp-header-toggle-max) {
       @include ma-accordion-icon;
       font-size: 20px;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     &[aria-label="State Organizations"] {
@@ -366,8 +367,11 @@ $utility-nav-height: 43px;
     }
     
     span {
-      font-family: "Texta", "Helvetica", "Arial", "sans-serif";
-      font-weight: 500;
+
+      @media ($bp-header-toggle-min) {
+        font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+        font-weight: 500;
+      }
     }
   }
 

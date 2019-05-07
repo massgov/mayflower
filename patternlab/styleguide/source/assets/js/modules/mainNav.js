@@ -24,7 +24,7 @@ if (null !== menuButton) {
     event.preventDefault();
     document.querySelector("body").classList.toggle("show-menu");
     menuOverlay.classList.toggle('overlay-open');
-    feedbackButton.classList.toggle("hide-button");
+    feedbackButton.style.zIndex = "0";
 
     if (buttonLabel == "Menu") {
       menuButtonText.textContent = "Close";
