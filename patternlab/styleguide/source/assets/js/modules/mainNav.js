@@ -48,6 +48,16 @@ if (null !== searchForm) {
     document.querySelector("body").classList.toggle("show-menu");
     document.querySelector('.ma__header__nav-search .ma__header-search__input').focus();
     feedbackButton.classList.toggle("hide-button");
+
+    if (buttonLabel == "Menu") {
+      menuButtonText.textContent = "Close";
+      buttonLabel = "Close";
+    } else {
+      menuButtonText.textContent = "Menu";
+      buttonLabel = "Menu";
+    }
+
+    menuOverlay.classList.toggle('overlay-open');
   });
 }
 
