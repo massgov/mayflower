@@ -3,6 +3,7 @@ const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
+const mobileSearch = document.getElementById('nav-search');
 let menuItems = document.querySelectorAll('.js-main-nav-toggle');
 let mobileUtilityItems = document.querySelector('.ma__header__utility-nav--narrow');
 const stateOrgsButton = mobileUtilityItems.getElementsByClassName('js-util-nav-toggle')[0];
@@ -46,7 +47,7 @@ if (null !== searchForm) {
     }
     event.preventDefault();
     document.querySelector("body").classList.toggle("show-menu");
-    document.querySelector('.ma__header__nav-search .ma__header-search__input').focus();
+
     feedbackButton.classList.toggle("hide-button");
 
     if (buttonLabel == "Menu") {
@@ -58,6 +59,7 @@ if (null !== searchForm) {
     }
 
     menuOverlay.classList.toggle('overlay-open');
+    mobileSearch.focus();
   });
 }
 
