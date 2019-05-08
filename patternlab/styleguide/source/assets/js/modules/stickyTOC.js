@@ -12,12 +12,21 @@ export default (function (window, document) {
     };
     // The number of sections / links.
     let tocSectionCount = tocSections.headings.length;
-    // Another wroapper around the links, probably originally to put the links in two columns.
+    var i;
+    var totalSections = tocSectionCount;
+    // Remove Related and Contact sections from total amount of sections.
+    for (i = 0; i < tocSectionCount; i++) {
+      if (tocSections.headings[i].innerText.toLowerCase() == "related" || tocSections.headings[i].innerText.toLowerCase() == "contact") {
+        totalSections--;
+      }
+    };
+    tocSectionCount = totalSections;
+    // Another wrapper around the links, probably originally to put the links in two columns.
     const tocColumn = toc.querySelector(".ma__sticky-toc__column");
     // Container in the sticky header to hold the current sections header.
     const stickyToc = toc.querySelector(".ma__sticky-toc__current-section");
     // The minimum number of sections required on the page to display the table of contents.
-    const minSectionsToShow = toc.dataset["min-to-show"] ? toc.dataset["min-to-show"] : 2;
+    const minSectionsToShow = toc.dataset["min-to-show"] ? toc.dataset["min-to-show"] : 3;
     // The overlay div that shows when the stuck menu is shown.
     const stuckOverlay = toc.querySelector(".ma__sticky-toc__overlay");
     // The stuck header.
@@ -25,7 +34,7 @@ export default (function (window, document) {
     // The menu that slides out after the sticky menu is clicked.
     let stuckMenu;
     let pauseScroll = false;
-    
+
     // Initialize the TOC by creating links and target spans.
     function initializeToc() {
       // Add a class to the parent to help with consistent handling across applications.
@@ -64,7 +73,10 @@ export default (function (window, document) {
         const isVisible = heading.offsetHeight * heading.offsetWidth;
         if (isVisible) {
           tocSections.links[index].style.display = "";
-          tocSectionCount++;
+          // If the section is the related or contact sections we don't want to count those.
+          if ((heading.innerText.toLowerCase() != 'related') && (heading.innerText.toLowerCase() != 'contact')) {
+            tocSectionCount++;
+          }
         }
         else {
           tocSections.links[index].style.display = "none";
