@@ -1,5 +1,5 @@
 
-const menuButton = document.querySelector(".js-header-menu-button");
+const menuButton = document.querySelector(".ma__header__button-container");
 let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
@@ -108,6 +108,13 @@ stateOrgsButton.addEventListener("click", function (e) {
   })
 
 });
+
+document.querySelector('.ma__header__utility-nav--wide').addEventListener('click', function () {
+
+  if (document.querySelector("body").classList.contains("show-menu")) {
+    close();
+  }
+})
 
 function hide(thisItem) {
   // For closing all non-active open items

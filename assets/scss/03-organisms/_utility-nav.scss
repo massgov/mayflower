@@ -233,7 +233,6 @@ $utility-nav-height: 43px;
     }
 
     @media ($bp-header-toggle-min) {
-      height: 145px;
       margin-top: 0;
       overflow: visible;
       padding-left: 0;
@@ -331,7 +330,7 @@ $utility-nav-height: 43px;
   &__content-body {
 
     @media ($bp-header-toggle-min) {
-      height: 88px;
+      height: 115px;
     }
   }
 }
