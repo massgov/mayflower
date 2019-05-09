@@ -83,6 +83,8 @@ stateOrgsButton.addEventListener("click", function (e) {
   subItems.style.opacity = "0";
 
   itemButton.addEventListener("click", function (e) {
+    hide(item);
+
     item.classList.toggle('submenu-open');
 
     if (itemButton.getAttribute('aria-expanded') == "false") {
@@ -121,7 +123,7 @@ stateOrgsButton.addEventListener("click", function (e) {
       }, 500);
     }
 
-    hide(item);
+
 
   })
 
@@ -134,15 +136,21 @@ document.querySelector('.ma__header__utility-nav--wide').addEventListener('click
   }
 })
 
-function hide(thisItem) {
-  // For closing all non-active open items
+function hide(item) {
+
   for (let i = 0; i < menuItems.length; i++) {
 
-    if (thisItem != menuItems[i]) {
-      menuItems[i].classList.remove('submenu-open');
-      menuItems[i].querySelector('.ma__main-nav__subitems').classList.add('is-closed');
+    if (item != menuItems[i]) {
+
+      if (menuItems[i].classList.contains('submenu-open')) {
+        menuItems[i].querySelector('.ma__main-nav__subitems').style.height = "0";
+        menuItems[i].querySelector('.ma__main-nav__container').style.opacity = "0";
+        menuItems[i].classList.remove('submenu-open');
+      }
+
     }
   }
+
 }
 
 function close() {
