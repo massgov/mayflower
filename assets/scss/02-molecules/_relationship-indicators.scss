@@ -138,7 +138,7 @@
             display: block;
             border: 2px solid;
             padding: 1px 5px;
-            line-height: 1.2;
+            line-height: 1.5;
             width: 100%;
         
             @media ($bp-x-small-min) {
@@ -160,14 +160,9 @@
             font-weight: 600;
             white-space: nowrap;
             display: none;
-            
+
             @media ($bp-small-min) {
-                margin-top: 3px;
-            }
-            
-            @media ($bp-medium-min) {
-                align-self: baseline;
-                margin-top: 8px;
+              margin-top: 3px;
             }
             
             .tag-state {
@@ -204,7 +199,6 @@
         width: auto;
 
         @media ($bp-medium-min) {
-            margin-top: 5px;
             margin-bottom: 0;
         }
     }
@@ -221,7 +215,7 @@
 
       .ma__relationship-indicators--label {
         @media ($bp-medium-min) {
-          padding-top: 3px;
+          padding-top: 0;
         }
       }
 
@@ -230,7 +224,7 @@
       }
       
       .ma__relationship-indicators--section a {
-        border-width: 0 0 2px 0;
+        border-width: 0 0 1px 0;
         padding: 0;
         display: table-cell;
 
@@ -241,10 +235,6 @@
 
       .ma__relationship-indicators--section button {
         padding-left: 5px;
-
-        @media ($bp-medium-min) {
-          margin-top: 4px;
-        }
       }
 
       .ma__relationship-indicators--section.secondary {
@@ -264,7 +254,7 @@
       }
 
       .ma__relationship-indicators--section.primary a {
-        border-color: rgba($c-primary, 0.2);
+        border-color: rgba($c-primary, 0.6);
 
         &:hover,
         &:focus {
@@ -278,7 +268,7 @@
       }
 
       .ma__relationship-indicators--section.secondary a {
-        border-color: rgba($c-primary-alt, 0.2);
+        border-color: rgba($c-primary-alt, 0.6);
 
         &:hover,
         &:focus {
