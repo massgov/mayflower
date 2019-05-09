@@ -22,7 +22,7 @@
   <nav class="ma__header__nav" aria-label="main navigation" id="main-navigation" role="navigation">
     <div class="ma__header__nav-container">
       {% if not hideHeaderSearch %}
-        <div class="ma__header__nav-search">
+        <div class="ma__header__nav-search nav-search-mobile">
           {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
           {% include "@molecules/header-search.twig" %}
         </div>

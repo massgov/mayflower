@@ -59,7 +59,12 @@ if (null !== searchForm) {
     }
 
     menuOverlay.classList.toggle('overlay-open');
-    mobileSearch.focus();
+
+    setTimeout(function timeoutFunction() {
+      document.querySelector('.nav-search-mobile input').focus();
+    }, 500);
+
+
   });
 }
 
