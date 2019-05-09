@@ -1,5 +1,5 @@
 
-const menuButton = document.querySelector(".ma__header__button-container");
+const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
@@ -14,6 +14,7 @@ let windowWidth = window.innerWidth;
 var menuOverlay = document.createElement("div");
 menuOverlay.setAttribute("class", "menu-overlay");
 document.body.appendChild(menuOverlay);
+
 // Close and reset menu on overlay click
 menuOverlay.addEventListener("click", function () {
   close();
@@ -33,6 +34,13 @@ if (null !== menuButton) {
     } else {
       menuButtonText.textContent = "Menu";
       buttonLabel = "Menu";
+    }
+
+    if (menuButton.getAttribute('aria-pressed') == "false") {
+      menuButton.setAttribute('aria-pressed', 'true');
+    }
+    else {
+      menuButton.setAttribute('aria-pressed', 'false');
     }
   });
 }
@@ -122,10 +130,7 @@ stateOrgsButton.addEventListener("click", function (e) {
 
       }, 500);
     }
-
-
-
-  })
+  });
 
 });
 
@@ -139,15 +144,12 @@ document.querySelector('.ma__header__utility-nav--wide').addEventListener('click
 function hide(item) {
 
   for (let i = 0; i < menuItems.length; i++) {
-
     if (item != menuItems[i]) {
-
       if (menuItems[i].classList.contains('submenu-open')) {
         menuItems[i].querySelector('.ma__main-nav__subitems').style.height = "0";
         menuItems[i].querySelector('.ma__main-nav__container').style.opacity = "0";
         menuItems[i].classList.remove('submenu-open');
       }
-
     }
   }
 
