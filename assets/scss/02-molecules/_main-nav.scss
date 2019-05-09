@@ -73,6 +73,7 @@
 
   &__subitems {
     z-index: $z-dropdown;
+    transition: height 0.6s;
 
     @media ($bp-header-toggle-max) {
       overflow-y: auto;
@@ -86,6 +87,7 @@
 
       &.is-closed, &.is-closed-react {
         display: none !important;
+        transition: height 0.6s;
       }
     }
 

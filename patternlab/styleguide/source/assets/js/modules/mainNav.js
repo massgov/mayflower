@@ -96,16 +96,22 @@ stateOrgsButton.addEventListener("click", function (e) {
       /** so we can trigger the slide down animation. */
       subMenu.style.height = "0";
 
-      subMenu.style.height = height;
-      subItems.style.opacity = "1";
-
+      setTimeout(function timeoutFunction() {
+        subMenu.style.height = height;
+        subItems.style.opacity = "1";
+      }, 50);
 
       /** Slide up. */
     } else {
       /** Set the height as 0px to trigger the slide up animation. */
-      subMenu.style.height = "0";
+
       subItems.style.opacity = "0";
-      subMenu.classList.add('is-closed');
+      subMenu.style.height = "0";
+
+      setTimeout(function timeoutFunction() {
+        subMenu.classList.add('is-closed');
+
+      }, 500);
     }
 
     hide(item);
