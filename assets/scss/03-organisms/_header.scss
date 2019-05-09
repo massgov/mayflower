@@ -159,7 +159,7 @@ body.show-menu {
     visibility: hidden;
     transition: left 0.3s ease, visibility 0.3s;
     width: $header-mobile-menu-width;
-    z-index:$z-sticky-content;
+    z-index: $z-dropdown;
 
     .translated-rtl &,
     .translated-ltr & {
@@ -198,7 +198,6 @@ body.show-menu {
     padding-left: 20px;
     position: relative;
     transition: transform 0.5s ease;
-    z-index: $z-skyline;
 
     @media ($bp-medium-min) {
       padding-left: 0;
