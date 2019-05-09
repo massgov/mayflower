@@ -85,6 +85,13 @@ stateOrgsButton.addEventListener("click", function (e) {
   itemButton.addEventListener("click", function (e) {
     item.classList.toggle('submenu-open');
 
+    if (itemButton.getAttribute('aria-expanded') == "false") {
+      itemButton.setAttribute('aria-expanded', 'true');
+    }
+    else {
+      itemButton.setAttribute('aria-expanded', 'false');
+    }
+
     if (subMenu.classList.contains('is-closed')) {
       /** Show the subMenu. */
       subMenu.classList.remove('is-closed');
