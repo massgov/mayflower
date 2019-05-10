@@ -65,7 +65,8 @@ Button.defaultProps = {
   size: '',
   theme: '',
   usage: '',
-  disabled: false
+  disabled: false,
+  classes: ['']
 };
 
 export default Button;
