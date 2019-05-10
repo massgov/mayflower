@@ -22,7 +22,8 @@ export const assets = {
   pdf: 'pdf',
   generic: 'generic',
   zoomIn: 'zoomIn',
-  zoomOut: 'zoomOut'
+  zoomOut: 'zoomOut',
+  refresh: 'refresh'
 };
 
 export const svgOptions = {
