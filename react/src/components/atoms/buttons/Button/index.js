@@ -4,7 +4,9 @@ import classNames from 'classnames';
 import './style.css';
 
 const Button = (button) => {
-  const buttonClasses = classNames({
+  // concat a space at the end of custom classes
+  let buttonClasses = button.classes ? `${button.classes.join(' ')} ` : '';
+  buttonClasses += classNames({
     ma__button: true,
     [`ma__button--${button.usage}`]: button.usage,
     [`ma__button--${button.size}`]: button.size,
@@ -52,7 +54,9 @@ Button.propTypes = {
   /** Button usage */
   usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary']),
   /** Set button to disabled */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** Custom classnames appending to the button */
+  classes: PropTypes.arrayOf(PropTypes.string)
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.
