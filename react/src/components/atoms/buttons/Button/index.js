@@ -4,14 +4,13 @@ import classNames from 'classnames';
 import './style.css';
 
 const Button = (button) => {
-  // concat a space at the end of custom classes
-  let buttonClasses = button.classes ? `${button.classes.join(' ')} ` : '';
-  buttonClasses += classNames({
+  const buttonClasses = classNames({
     ma__button: true,
     [`ma__button--${button.usage}`]: button.usage,
     [`ma__button--${button.size}`]: button.size,
     [`ma__button--${button.theme}`]: button.theme,
-    'ma__button--disabled': button.disabled
+    'ma__button--disabled': button.disabled,
+    [button.classes.join(' ')]: button.classes
   });
   const Element = button.href ? 'a' : 'button';
   const onClickCallback = (e) => {
