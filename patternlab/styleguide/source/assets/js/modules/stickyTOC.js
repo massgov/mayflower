@@ -12,6 +12,7 @@ export default (function (window, document) {
     };
     // The number of sections / links.
     let tocSectionCount = tocSections.headings.length;
+    var additionalCount = 0;
     var i;
     var totalSections = tocSectionCount;
     // Remove Related and Contact sections from total amount of sections.
@@ -26,7 +27,7 @@ export default (function (window, document) {
     // Container in the sticky header to hold the current sections header.
     const stickyToc = toc.querySelector(".ma__sticky-toc__current-section");
     // The minimum number of sections required on the page to display the table of contents.
-    const minSectionsToShow = toc.dataset["min-to-show"] ? toc.dataset["min-to-show"] : 3;
+    const minSectionsToShow = toc.dataset["min-to-show"] ? toc.dataset["min-to-show"] : 2;
     // The overlay div that shows when the stuck menu is shown.
     const stuckOverlay = toc.querySelector(".ma__sticky-toc__overlay");
     // The stuck header.
@@ -68,6 +69,7 @@ export default (function (window, document) {
     // Set the various visibility rules.
     function handleResize() {
       tocSectionCount = 0;
+      additionalCount = 0;
       Array.from(tocSections.headings).forEach((heading, index) => {
         // If the section isn't visible, set the link not to display.
         const isVisible = heading.offsetHeight * heading.offsetWidth;
@@ -77,11 +79,21 @@ export default (function (window, document) {
           if ((heading.innerText.toLowerCase() != 'related') && (heading.innerText.toLowerCase() != 'contact')) {
             tocSectionCount++;
           }
+          else if (heading.innerText.toLowerCase() == 'contact') {
+            additionalCount++;
+          }
         }
         else {
           tocSections.links[index].style.display = "none";
         }
       });
+
+      console.log('tocSectionCount: ' + tocSectionCount);
+      console.log('additionalCount: ' + additionalCount);
+      // Get the final count of sections we'll use to determine if we display.
+      if ((tocSectionCount >= 1) && (additionalCount >= 1)) {
+        tocSectionCount = tocSectionCount + additionalCount;
+      }
 
       // Remove wrapper if not enough links.
       if (tocSectionCount < minSectionsToShow) {
