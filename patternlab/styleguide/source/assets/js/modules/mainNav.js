@@ -87,10 +87,11 @@ stateOrgsButton.addEventListener("click", function (e) {
   const itemButton = item.querySelector('.ma__main-nav__top-link');
   const subMenu = item.querySelector('.ma__main-nav__subitems');
   const subItems = subMenu.querySelector('.ma__main-nav__container');
+  let subMenuItems = subMenu.querySelectorAll('.ma__main-nav__subitem');
 
   subItems.style.opacity = "0";
 
-  itemButton.addEventListener("click", function (e) {
+  itemButton.addEventListener('click', function (e) {
     hide(item);
 
     item.classList.toggle('submenu-open');
@@ -132,6 +133,37 @@ stateOrgsButton.addEventListener("click", function (e) {
     }
   });
 
+  [].forEach.call(subMenuItems, function (subItem) {
+    const prevSib = subItem.previousElementSibling;
+    const nextSib = subItem.nextElementSibling;
+
+    subItem.addEventListener('keydown', function (e) {
+      switch (e.key) {
+        case 'ArrowUp':
+        case 'ArrowLeft':
+          if (subItem = prevSib) {
+            console.log(prevSib);
+          }
+          else console.log('first');
+
+          break;
+        case 'ArrowDown':
+        case 'ArrowRight':
+          if (subItem = nextSib) {
+            console.log(nextSib);
+          }
+          else console.log('last');
+          break;
+
+        case 'Escape':
+          close();
+          break;
+      }
+    });
+  });
+
+
+
 });
 
 document.querySelector('.ma__header__utility-nav--wide').addEventListener('click', function () {
@@ -139,7 +171,7 @@ document.querySelector('.ma__header__utility-nav--wide').addEventListener('click
   if (document.querySelector("body").classList.contains("show-menu")) {
     close();
   }
-})
+});
 
 function hide(item) {
 
