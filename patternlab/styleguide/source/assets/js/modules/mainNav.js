@@ -155,6 +155,17 @@ stateOrgsButton.addEventListener("click", function (e) {
       let first = subItems.getElementsByTagName("li")[0];
       first.querySelector('.ma__main-nav__link').focus()
     }
+
+    if (e.key == 'Escape') {
+      subItems.style.opacity = "0";
+      subMenu.style.height = "0";
+      item.classList.remove('submenu-open');
+
+      setTimeout(function timeoutFunction() {
+        subMenu.classList.add('is-closed');
+
+      }, 500);
+    }
   });
 
 
@@ -179,6 +190,13 @@ stateOrgsButton.addEventListener("click", function (e) {
           }
           break;
         case 'Escape':
+          subItems.style.opacity = "0";
+          subMenu.style.height = "0";
+
+          setTimeout(function timeoutFunction() {
+            subMenu.classList.add('is-closed');
+
+          }, 500);
           break;
       }
     });
