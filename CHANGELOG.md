@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 - (React) [HelpTip] DP-13672: Fix css for bypassMobileStyle. #551
+- (Docs) Update Mayflower project issue template and fixed links on homepage. #555
 
 ### Added
 - (React) [InputCurrency] DP-13672: Add `showButtons` prop to control whether the up/down buttons are shown. #550
@@ -39,7 +40,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Deprecated
 - (React) [InputTextTypeAhead] DP-13688: Deprecate InputTextTypeAhead. #544
 
-### FIXED
+### Fixed
 - (React) [FilterBox] Fixed warning caused by using `start` instead of `flex-start` within stying. #543
 
 ## 9.5.1 (04/17/2019)
