@@ -43,6 +43,21 @@ if (null !== menuButton) {
       menuButton.setAttribute('aria-pressed', 'false');
     }
   });
+
+  menuButton.addEventListener('keydown', function (e) {
+
+    if (e.key == 'ArrowDown') {
+      event.preventDefault();
+      document.querySelector("body").classList.toggle("show-menu");
+      menuOverlay.classList.toggle('overlay-open');
+      feedbackButton.style.zIndex = "0";
+
+      menuButtonText.textContent = "Close";
+      buttonLabel = "Close";
+
+      menuButton.setAttribute('aria-pressed', 'true');
+    }
+  });
 }
 
 // ****** Main Header Search button on mobile should open the mobile menu  ******
@@ -133,6 +148,17 @@ stateOrgsButton.addEventListener("click", function (e) {
     }
   });
 
+
+  itemButton.addEventListener('keydown', function (e) {
+
+    if (e.key == 'ArrowDown') {
+      let first = subItems.getElementsByTagName("li")[0];
+      first.querySelector('.ma__main-nav__link').focus()
+    }
+  });
+
+
+
   [].forEach.call(subMenuItems, function (subItem) {
     const prevSib = subItem.previousElementSibling;
     const nextSib = subItem.nextElementSibling;
@@ -153,13 +179,10 @@ stateOrgsButton.addEventListener("click", function (e) {
           }
           break;
         case 'Escape':
-          console.log('escape!');
           break;
       }
     });
   });
-
-
 
 });
 
