@@ -138,25 +138,22 @@ stateOrgsButton.addEventListener("click", function (e) {
     const nextSib = subItem.nextElementSibling;
 
     subItem.addEventListener('keydown', function (e) {
+
       switch (e.key) {
         case 'ArrowUp':
         case 'ArrowLeft':
           if (subItem = prevSib) {
-            console.log(prevSib);
+            prevSib.querySelector('.ma__main-nav__link').focus();
           }
-          else console.log('first');
-
           break;
         case 'ArrowDown':
         case 'ArrowRight':
           if (subItem = nextSib) {
-            console.log(nextSib);
+            nextSib.querySelector('.ma__main-nav__link').focus();
           }
-          else console.log('last');
           break;
-
         case 'Escape':
-          close();
+          console.log('escape!');
           break;
       }
     });
