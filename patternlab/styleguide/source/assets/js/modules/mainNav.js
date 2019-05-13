@@ -168,8 +168,6 @@ stateOrgsButton.addEventListener("click", function (e) {
     }
   });
 
-
-
   [].forEach.call(subMenuItems, function (subItem) {
     const prevSib = subItem.previousElementSibling;
     const nextSib = subItem.nextElementSibling;
@@ -205,14 +203,10 @@ stateOrgsButton.addEventListener("click", function (e) {
 });
 
 document.querySelector('.ma__header__utility-nav--wide').addEventListener('click', function () {
-
-  if (document.querySelector("body").classList.contains("show-menu")) {
-    close();
-  }
+  close();
 });
 
 function hide(item) {
-
   for (let i = 0; i < menuItems.length; i++) {
     if (item != menuItems[i]) {
       if (menuItems[i].classList.contains('submenu-open')) {
@@ -222,14 +216,14 @@ function hide(item) {
       }
     }
   }
-
 }
 
 function close() {
-  document.querySelector("body").classList.toggle("show-menu");
-  menuOverlay.classList.toggle('overlay-open');
-
-  menuButtonText.textContent = "Menu";
-  buttonLabel = "Menu";
+  if (document.querySelector("body").classList.contains("show-menu")) {
+    document.querySelector("body").classList.toggle("show-menu");
+    menuOverlay.classList.toggle('overlay-open');
+    menuButtonText.textContent = "Menu";
+    buttonLabel = "Menu";
+  }
 }
 
