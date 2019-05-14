@@ -4,9 +4,10 @@ Follow the link of the element to see what to check for web accessibility.
 
 In the component you're working on, do you have:
 
-## Sections `<section>`
+## [Sections](sections.md) `<section>`
 
-## Headings `<h#>`
+## [Headings](headings.md) `<h#>`
 
-## Links `<a>`
-## Buttons `<button>`
+## [Links](links.md) `<a>`
+
+## [Buttons](buttons.md) `<button>`
