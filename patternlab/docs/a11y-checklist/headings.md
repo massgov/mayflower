@@ -1,3 +1,5 @@
+[⬅️ a11y Checklist](ally-checklist.md)
+
 # Headings `<h#>`
 
 ## Heading level

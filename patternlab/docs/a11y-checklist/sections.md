@@ -1,3 +1,5 @@
+[⬅️ a11y Checklist](ally-checklist.md)
+
 # Sections `<section>`
 
 ## ➤ Does the section have a [heading](headings.md) for it?
