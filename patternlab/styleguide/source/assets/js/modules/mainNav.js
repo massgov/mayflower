@@ -1,4 +1,5 @@
 
+const body = document.querySelector("body");
 const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
@@ -24,7 +25,7 @@ menuOverlay.addEventListener("click", function () {
 if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
-    document.querySelector("body").classList.toggle("show-menu");
+    body.classList.toggle("show-menu");
     menuOverlay.classList.toggle('overlay-open');
     feedbackButton.style.zIndex = "0";
 
@@ -48,7 +49,7 @@ if (null !== menuButton) {
 
     if (e.key == 'ArrowDown') {
       event.preventDefault();
-      document.querySelector("body").classList.toggle("show-menu");
+      body.classList.toggle("show-menu");
       menuOverlay.classList.toggle('overlay-open');
       feedbackButton.style.zIndex = "0";
 
@@ -69,7 +70,7 @@ if (null !== searchForm) {
       return;
     }
     event.preventDefault();
-    document.querySelector("body").classList.toggle("show-menu");
+    body.classList.toggle("show-menu");
 
     feedbackButton.classList.toggle("hide-button");
 
@@ -202,6 +203,12 @@ stateOrgsButton.addEventListener("click", function (e) {
 
 });
 
+body.addEventListener('keydown', function (e) {
+
+
+
+});
+
 document.querySelector('.ma__header__utility-nav--wide').addEventListener('click', function () {
   close();
 });
@@ -219,8 +226,8 @@ function hide(item) {
 }
 
 function close() {
-  if (document.querySelector("body").classList.contains("show-menu")) {
-    document.querySelector("body").classList.toggle("show-menu");
+  if (body.classList.contains("show-menu")) {
+    body.classList.toggle("show-menu");
     menuOverlay.classList.toggle('overlay-open');
     menuButtonText.textContent = "Menu";
     buttonLabel = "Menu";
