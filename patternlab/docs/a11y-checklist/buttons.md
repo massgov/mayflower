@@ -1,3 +1,3 @@
-[⬅️ a11y Checklist](ally-checklist.md)
+[⬅️ a11y Checklist](a11y-checklist.md)
 
 # Buttons `<button>`
