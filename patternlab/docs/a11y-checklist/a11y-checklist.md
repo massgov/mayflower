@@ -2,12 +2,14 @@
 
 Follow the link of the element to see what to check for web accessibility.
 
-In the component you're working on, do you have:
+Once you finish the check list, validate your component as markup (not as a twig template) with the [markup validator](https://validator.w3.org/). Valid markup is a great foundation for accessible website.
 
-## [Sections](sections.md) `<section>`
+In the component you're working on, you have:
 
-## [Headings](headings.md) `<h#>`
+## ☞ [Sections](sections.md) `<section>`
 
-## [Links](links.md) `<a>`
+## ☞ [Headings](headings.md) `<h#>`
 
-## [Buttons](buttons.md) `<button>`
+## ☞ [Links](links.md) `<a>`
+
+## ☞ [Buttons](buttons.md) `<button>`
