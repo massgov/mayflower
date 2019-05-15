@@ -77,7 +77,7 @@ Some label
 > 
 > Downloads`<span class=”ma--visually-hidden”> for the marine fishing license</span>`
 
-**➢ No:** The label is unique. Then, move to the next question.⬇️
+**➢ No:** The label is unique. Then, move to the follwoing question.⬇️
 
 ### ➤ Does the label have enough context to describe the section content?
 

@@ -10,7 +10,7 @@
 
 **➢ No:**
 `<section>` requires `<h#>`. 
-Move to the next question to find out more. ⬇️
+Move to the following question to find out more. ⬇️
 
 ## ➤ Does the section have a heading label content in other HTML tag to describe the section?
 
@@ -25,7 +25,7 @@ Move to the next question to find out more. ⬇️
 1. [Then, go to the Headings section to check your heading. ➡️](headings.md)
 
 **➢ No:**
-Move to the next question. ⬇️
+Move to the following question. ⬇️
 
 ## ➤ Does the section need a heading? 
 
