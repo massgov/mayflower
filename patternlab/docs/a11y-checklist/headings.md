@@ -52,6 +52,7 @@ Below info. gives you some idea of what needs to be done.
 > The heading level value is passed from its parent tempalte as `compHeading.level`, and assgined to `headingLevel`.
 >
 > Here the default value is set to `2`.
+> 
 > ```{% set headingLevel = compHeading.level ? : 2 %}```
 >
 > The heading level value is ready to render.

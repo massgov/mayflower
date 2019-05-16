@@ -16,13 +16,12 @@ Move to the following question to find out more. ⬇️
 
 📋 You can consider the heading level content as a title for the section. It's generally placed before its main content.
 
-**➣ Yes:** Follow below steps to set up the heading, [then check it in the Headings section.➡️](headings.md)
-
+**➣ Yes:** Follow below steps to set up the heading.
 > 1. Replace the tag with `<h#>`.
 > 
 > 1. Position the heading right below the `<section>` as its first child element.
 > 
-> 1. [Then, go to the Headings section to check your heading. ➡️](headings.md)
+> 1. [Go to the Headings section to check your heading. ➡️](headings.md)
 
 **➢ No:**
 Move to the following question. ⬇️
