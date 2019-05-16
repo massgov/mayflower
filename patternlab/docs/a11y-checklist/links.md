@@ -188,10 +188,11 @@ When the `alt` value is empty, screen readers know it's *purposely* empty, and d
 > - Leave the `alt` value blank.
 > - Hide the image from screen readers with `aria-hidden=”true”`.
 > 
-> 	```
-> 	<img src="icon.png" alt="" aria-hidden="true" />
->	```
-<!-- TODO:  Add more info for aria-hidden use cases. -->
+<!-- 
+ 	```
+ 	<img src="icon.png" alt="" aria-hidden="true" />
+	```
+TODO:  Add more info for aria-hidden.  Need some  use cases. -->
 
 ---
 [⬅️ a11y Checklist](a11y-checklist.md)
