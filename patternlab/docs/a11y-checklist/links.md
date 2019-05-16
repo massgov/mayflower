@@ -16,21 +16,20 @@ Their roles are different. Browsers recognize and implement them *differently* w
 
 ## ➤➤ Does your link’s functionality fit this definition?
 
-**➣ Yes:** [Move onto the link label.⬇️](#link-label) 
+**➣ Yes:** [Move onto the link label. ⬇️](#link-label) 
 
-**➢ No:** Don't use `<a>`. Use `<button>` instead. Check your markup at the [Button section](buttons.md).➡️
-
+**➢ No:** Don't use `<a>`. Use `<button>` instead. Check your markup at the [Button section](buttons.md). ➡️
 
 <a name="link-label"></a>
 ## Link label
 
 ### ➤➤ Is the link label text?
 
-**➣ Yes:** Text [Go to the following question.⬇️](#text)
+**➣ Yes:** Text [Go to the following question. ⬇️](#text)
 
-**➢ No:** Image [Go to the next question.⬇️](#image)
+**➢ No:** Image [Go to the next question. ⬇️](#image)
 
-**➤ Yes/No:** Text + Image [Go to the next question.⬇️](#text-image)
+**➤ Yes/No:** Text + Image [Go to the next question. ⬇️](#text-image)
 
  
 <a name="text"></a>
@@ -47,7 +46,7 @@ sample link label in the comp if the link takes you to a content page created by
 
 **➣ Yes:**  You are all set. [Move on to next element](ally-checklist.md). ➡️
 
-**➢ No:**  It's defined in the template. [Go to the following question.⬇️](#link-context)
+**➢ No:**  It's defined in the template. [Go to the following question. ⬇️](#link-context)
 
 <a name="link-context"></a> 
 ### ➤➤ Is the label text descriptive enough to see where it takes you without the *visual presentation* around the link? Is it clear enough to screen reader users?
@@ -109,12 +108,12 @@ The label doesn't make sense by itself.
 
 #### ➤➤ Does the image have `alt` attibute?
 
-**➣ Yes:** [Go to the following question. ➡️](#alt)
+**➣ Yes:** [Go to the following question. ⬇️](#alt)
 
-**➢ No:**  Add `alt` attibute. [Go to the following question.➡️](#alt)
+**➢ No:**  Add `alt` attibute. [Go to the following question. ⬇️](#alt)
 
 <a name="alt"></a>
-#### ➤➤ Does the `alt` attibute provides enough information as the link label?
+#### ➤➤ Does the `alt` attibute clearly tell where it takes you as the link label?
 
 **➣ Yes:** You are all set. [Move on to next element. ➡️](a11y-checklist.md)
 
@@ -144,22 +143,54 @@ The label doesn't make sense by itself.
 
 📋 If `<img>` doesn't have `alt` attribute, screen readers try to provide any other available infomration for the image and announce `src` value, which is not only not helpful, but also unpleasent to screen reader users.
 
-**➢ No:** The text and the image provide unique information.
+When the `alt` value is empty, screen readers know it's *purposely* empty, and don't try to deliver any other information.
 
-> - Add `alt` value to provide the information the image delivers. (ex. What an icon signifies such as PDF as a file format.)
+**➢ No [Case 1]:** The text and the image provide unique information.
+
+> - Add `alt` value to provide the information the image delivers. For example, if the image is an icon, what an icon signifies such as PDF as a file format.
 > 
-> - As a link label, make sure the flow of both information makes sense to screen reader users. (= “Img alt value + label text”, or “label text + img alt value” flows naturally.)
+> - As a link label, make sure the flow of *both information together* makes sense to screen reader users:
+> 		- “Img alt value + label text”, or 
+> 		- “label text + img alt value” 
+> 
+> 	flows natually.
 > 
 > - If they don't flow well together, 
 >     - add contextual text info as visually hidden text, or
->     - override them with `aria-label`.
+> 
+>		```
+> 		<a href="loginpage.html">
+> 			<img src="icon_pdf.png" alt="PDF" />
+> 			<span class="ma--visually-hidden"> format of </span>
+>  			Camp site resevation request form
+> 		</a>
+>		```
+>		"PDF format of Campsite resevation requiest form"
+
+> 
+>     - override them with `aria-label`, empty the `alt` value for cleaner markup.
+> 
+> 		```
+> 		<a href="loginpage.html" aria-label="Screen readers accounce this.">
+> 			Screen readers ignore anything goes here.
+> 			<img src="image.png" alt="this is ignored, but empty out for cleaner markup." />
+> 		</a>
+> 		```
+> 		"Screen readers accounce this."
+> 
+> 📋 When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.
     
-**➤ N/A:** Text has the information for the label. Image has no infomration to deliver.
+**➢ No [Case 2]:** Text has enough information as the label. Image has no infomration to deliver.
 
 - decorative icons
+- decorative images
 
 > - Leave the `alt` value blank.
 > - Hide the image from screen readers with `aria-hidden=”true”`.
+> 
+> 	```
+> 	<img src="icon.png" alt="" aria-hidden="true" />
+>	```
 <!-- TODO:  Add more info for aria-hidden use cases. -->
 
 ---
