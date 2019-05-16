@@ -15,6 +15,7 @@ storiesOf('organisms', module)
         bgInfo: text('bgInfo', defaultProps.bgInfo),
         bgImage: text('bgImage', defaultProps.bgImage),
         category: text('category', defaultProps.category),
+        categoryAriaHidden: boolean('categoryAriaHidden'),
         inverted: boolean('inverted', defaultProps.inverted),
         publishState: {
           text: text('publishState', defaultProps.publishState.text)

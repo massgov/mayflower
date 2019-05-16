@@ -9,7 +9,7 @@ import './style.css';
 
 const IllustratedHeader = (illustratedHeader) => {
   const {
-    bgInfo, bgImage, inverted, category, pageHeader, publishState, children
+    bgInfo, bgImage, inverted, category, pageHeader, publishState, children, categoryAriaHidden
   } = illustratedHeader;
   const imageAlt = bgInfo || '';
   const pageHeaderProps = pageHeader;
@@ -23,7 +23,7 @@ const IllustratedHeader = (illustratedHeader) => {
               <PublishState {...publishState} />
             </div>
           )}
-          <div className="ma__illustrated-header__category" aria-hidden="true">
+          <div className="ma__illustrated-header__category" aria-hidden={categoryAriaHidden}>
             {category}
           </div>
           <PageHeader {...pageHeaderProps} />
@@ -58,7 +58,13 @@ IllustratedHeader.propTypes = {
   /** category prefix text rendered in all caps above the page header title */
   category: PropTypes.string,
   /** render PageHeader component @organisms/PageHeader */
-  pageHeader: PropTypes.shape(PageHeader.propTypes)
+  pageHeader: PropTypes.shape(PageHeader.propTypes),
+  /** hide category in screen reader and print */
+  categoryAriaHidden: PropTypes.bool
+};
+
+IllustratedHeader.defaultProps = {
+  categoryAriaHidden: true
 };
 
 export default IllustratedHeader;
