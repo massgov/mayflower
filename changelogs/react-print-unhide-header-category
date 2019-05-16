@@ -1,0 +1,3 @@
+Minor
+Added
+- (React) [IllustratedHeader] Add `categoryAriaHidden` prop to allow category text for SR and print #560
