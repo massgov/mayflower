@@ -10,15 +10,15 @@ HTML5 allows you to start with `<h1>` in every `<section>`. That is valid as HTM
 
 ### ➤➤ Is the heading level number flexible?
 
-- [ ] It can receive and consume the level number value from the parent component.
+☑️ It can receive and consume the level number value from the parent component.
 
-- [ ] It can have proper level number depending on where the component is placed in a page in the sequential manner from small to large. (If its parent component has *h3*, this component starts with *h4*.)
+☑️ It can have proper level number depending on where the component is placed in a page in the sequential manner from small to large. (If its parent component has *h3*, this component starts with *h4*.)
 
 The *sequential manner* means:
 
-- [ ] No skipping - Some inbetween number(s) is(are) NOT missing.
+☑️ No skipping - Some inbetween number(s) is(are) NOT missing.
 
-- [ ] No jumping - NOT putting heading level numbers randomely.
+☑️ No jumping - NOT putting heading level numbers randomely.
 
 <!--
 - [ ] No backword - Numbers does NOT go down from large to small.
