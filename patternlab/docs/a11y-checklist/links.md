@@ -6,7 +6,7 @@
 
 **Links** let us navigate to *pages* or *locations within a page*. Either way, they’re typically underlined to stand out amongst prose content. Or they might reside in a special place like a header to help cognition.
 
-**Call to action buttons** are considered LINKS.
+**Call to action buttons** are considered LINKS since they take you to another pages or locations within a page.
 
 **🛑 Be careful for a use of a *link* vs. a *button*.**
 
@@ -14,28 +14,31 @@
   
 Their roles are different. Browsers recognize and implement them *differently* with their unique characters.
 
-## ➤ Does your link’s functionality fit this definition?
+## ➤➤ Does your link’s functionality fit this definition?
 
 **➣ Yes:** [Move onto the link label.⬇️](#link-label) 
 
-**➢ No:** Use `<button>` instead. Check your markup at the [Button section](buttons.md). ➡️
+**➢ No:** Don't use `<a>`. Use `<button>` instead. Check your markup at the [Button section](buttons.md).➡️
 
 
 <a name="link-label"></a>
 ## Link label
 
-### ➤ Is the link label text?
+### ➤➤ Is the link label text?
 
-**➣ Yes:** [Go to the following question.⬇️](#user-input)
+**➣ Yes:** Text [Go to the following question.⬇️](#text)
 
-**➢ No:** Image [Go to the next question.⬇️]()
+**➢ No:** Image [Go to the next question.⬇️](#image)
 
-**Yes/No:** Text + Image [Go to the next question.⬇️]()
+**➤ Yes/No:** Text + Image [Go to the next question.⬇️](#text-image)
 
  
-<a name="user-input"></a>
-### ➤ Is the label passed from field data such as node title or user input label?
+<a name="text"></a>
+### Text 
 
+#### ➤➤ Is the label passed from field data such as node title or user input label?
+
+<!-- TODO: Need more info as actionable items. -->
 Not sure? Check the spec.
 
 <!-- 
@@ -47,39 +50,117 @@ sample link label in the comp if the link takes you to a content page created by
 **➢ No:**  It's defined in the template. [Go to the following question.⬇️](#link-context)
 
 <a name="link-context"></a> 
-### ➤ Is the label text descriptive enough to see where it takes you without the *visual presentation* around the link? Is it clear enough to screen reader users?
+### ➤➤ Is the label text descriptive enough to see where it takes you without the *visual presentation* around the link? Is it clear enough to screen reader users?
 
 📋 A visual presentation such as a layout can provide non-verbal context to sighted users, which screen reader users cannot take advantage of. We fill the gap by providing such context info as text.
 
 **➣ Yes:** [Move on to next element. ➡️](a11y-checklist.md)
 
-**➢ No:**  It’s not descriptive enough. 
+**➢ No:**  It’s not descriptive enough: 
 
+🤔 "The *label text* of WHAT?" If you don't see the answer of the question in the label text(This sounds funny, but if you see below samples, it should make sense.), context info. is necesssary.
 
+##### Case 1: Need supplemental information.
 
-##### Case 1
+It makes sense when you can see the entire section, but doesn't when you see just the label itself:
 
-- More 
+- More
 - See all
 - List all
 - Show more
 - Show less
 
-[Option 1] 
-
-- Use visually hidden text to add contextual info.
-
-##### Case 2
-
-- Log into...
-
-📋 Screen readers announce "...", ":", ";". Users hear "log into dot dot dot".
-
-[Option 2]
-
-- Use `aria-label` to override the existing link label. (When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.)
-
-- Add any necessary context info as well. With above sample, the label could be "log in to *your account*" 
+> We need to provide the WHAT as context information. Use visually hidden text to add contextual info.
+> 
+> ##### Examples
+> More`<span class=”ma--visually-hidden”>` contact information for the Department of Health office`</span>`
+> 
+> List all`<span class=”ma--visually-hidden”>` upcoming events at the Great Brook Farm State Park.`</span>`
+> 
+> Show more`<span class=”ma--visually-hidden”>` VA facilities in Essex county.`</span>`
 
 
+##### Case 2: Adding contextual info as visually hidden text doesn't help:
 
+It needs supplemental information, but it doesn't make sense to add it as visually hidden text.
+
+The label doesn't make sense by itself. 
+
+"..." gets in a way in below sample since you cannot break it down to "Log in to" and "...". 
+
+- Log in to...
+
+📋 Screen readers announce "...", ":", ";". Screen reader users hear the sample as "log in to dot dot dot".
+
+
+> - Use `aria-label` to override the existing link label. 
+> 
+> - Add any necessary context info as well. With above sample, the label could be "log in to *your account*". 
+> 
+> ```
+> <a href="loginpage.html" aria-label="log in to your account.">Log in to...</a>
+> ```
+> 
+> 📋 When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.
+
+
+<a name="image"></a>
+### Image
+
+#### ➤➤ Does the image have `alt` attibute?
+
+**➣ Yes:** [Go to the following question. ➡️](#alt)
+
+**➢ No:**  Add `alt` attibute. [Go to the following question.➡️](#alt)
+
+<a name="alt"></a>
+#### ➤➤ Does the `alt` attibute provides enough information as the link label?
+
+**➣ Yes:** You are all set. [Move on to next element. ➡️](a11y-checklist.md)
+
+**➢ No:** The value is empty, or isn't descriptive enough. 
+
+**🛑 In this case, `alt` shouldn't be empty.**
+
+> - Add descriptive `alt` value as the link label.
+> 
+> - Add any necessary context info as well.
+> 
+> 📋 You might need to confirm with the UX or content team what would be proper for the label.
+
+<a name="text-image"></a>
+### Text and Image
+
+#### ➤➤ Do the text and the image both describe the same thing(= they have duplicate information)?
+
+**➣ Yes:** Both information is same.
+
+> Respect the text over the image. Empty the image’s `alt` value.
+> The image is presented as a decorative purpose.
+
+**🛑 Keep `alt` attribute even its value is empty.**
+
+```<img src="image.jpg" alt="" />```
+
+📋 If `<img>` doesn't have `alt` attribute, screen readers try to provide any other available infomration for the image and announce `src` value, which is not only not helpful, but also unpleasent to screen reader users.
+
+**➢ No:** The text and the image provide unique information.
+
+> - Add `alt` value to provide the information the image delivers. (ex. What an icon signifies such as PDF as a file format.)
+> 
+> - As a link label, make sure the flow of both information makes sense to screen reader users. (= “Img alt value + label text”, or “label text + img alt value” flows naturally.)
+> 
+> - If they don't flow well together, 
+>     - add contextual text info as visually hidden text, or
+>     - override them with `aria-label`.
+    
+**➤ N/A:** Text has the information for the label. Image has no infomration to deliver.
+
+- decorative icons
+
+> - Leave the `alt` value blank.
+> - Hide the image from screen readers with `aria-hidden=”true”`.
+<!-- TODO:  Add more info for aria-hidden use cases. -->
+
+---
+[⬅️ a11y Checklist](a11y-checklist.md)
