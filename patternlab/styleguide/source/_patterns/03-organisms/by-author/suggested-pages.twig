@@ -5,10 +5,10 @@
     <div class="ma__suggested-pages__items">
       {% if suggestedPages.view == "guide" %}
         {% for page in suggestedPages.pages %}
-          {% set illustratedLink = { 
-            "href": page.link.href, 
-            "text": page.link.text, 
-            "info": page.link.info, 
+          {% set illustratedLink = {
+            "href": page.link.href,
+            "text": page.link.text,
+            "info": page.link.info,
             "image": page.image.src ? : page.image } %}
           <div class="ma__suggested-pages__item ma__suggested-pages__item--guide">
             {% include "@molecules/illustrated-link.twig" %}
@@ -27,6 +27,10 @@
         {% endfor %}
       {% endif %}
     </div>
+    {% if suggestedPages.moreLinks %}
+      {% set linkList = suggestedPages.moreLinks %}
+      {% include "@organisms/by-author/link-list.twig" %}
+    {% endif %}
     {% if suggestedPages.more %}
       <div class="ma__suggested-pages__more">
         {% set link = suggestedPages.more %}
