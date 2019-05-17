@@ -33,9 +33,11 @@ if (null !== menuButton) {
     if (buttonLabel == "Menu") {
       menuButtonText.textContent = "Close";
       buttonLabel = "Close";
+      menuButton.setAttribute('aria-label', 'Close the main menu for mass.gov');
     } else {
       menuButtonText.textContent = "Menu";
       buttonLabel = "Menu";
+      menuButton.setAttribute('aria-label', 'Open the main menu for mass.gov');
     }
 
     if (menuButton.getAttribute('aria-pressed') == "false") {
