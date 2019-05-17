@@ -101,8 +101,15 @@
 
   &__container {
     @include ma-reset-list;
-    padding-left: 10px;
     transition: opacity 0.6s;
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+    font-size: 1.25rem;
+    line-height: 1.33;
+    padding: 10px 20px 10px 10px;
 
     @media ($bp-medium-min) {
       padding-left: 40px;
@@ -111,14 +118,6 @@
     @media ($bp-large-min) {
       padding-left: 50px;
     }  
-  }
-
-  &__link {
-    display: block;
-    position: relative;
-    font-size: 1.25rem;
-    line-height: 1.33;
-    padding: 10px 20px 10px 0;
 
     &:hover {
       text-decoration: underline;
