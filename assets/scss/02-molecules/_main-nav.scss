@@ -15,17 +15,6 @@
     transition: background-color .4s;
     border-bottom: 2px solid $c-gray-light;
 
-    &.is-active::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 3px;
-      height: 100%;
-     background-color: $c-primary-alt;
-    }
-
-
     @media ($bp-header-toggle-max) {
       font-size: 1rem;
     }
