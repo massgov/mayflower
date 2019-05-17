@@ -7,6 +7,7 @@ const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
 const mobileSearch = document.getElementById('nav-search');
 const mainMenu = document.querySelector('.js-main-nav');
 let menuItems = document.querySelectorAll('.js-main-nav-toggle');
+const siteLogo = document.getElementById('ma__site-logo-link');
 let mobileUtilityItems = document.querySelector('.ma__header__utility-nav--narrow');
 const stateOrgsButton = mobileUtilityItems.getElementsByClassName('js-util-nav-toggle')[0];
 let windowWidth = window.innerWidth;
@@ -218,6 +219,10 @@ stateOrgsButton.addEventListener("click", function (e) {
     });
   });
 
+});
+
+siteLogo.addEventListener('focus', function () {
+  close();
 });
 
 document.querySelector('.ma__header__utility-nav--wide').addEventListener('click', function () {
