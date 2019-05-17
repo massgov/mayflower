@@ -176,6 +176,7 @@ stateOrgsButton.addEventListener("click", function (e) {
     }
 
     if (e.shiftKey && e.key == 'Tab') {
+      console.log('click');
       subItems.style.opacity = "0";
       subMenu.style.height = "0";
       item.classList.remove('submenu-open');
