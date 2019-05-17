@@ -5,11 +5,11 @@ let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
 const mobileSearch = document.getElementById('nav-search');
+const mainMenu = document.querySelector('.js-main-nav');
 let menuItems = document.querySelectorAll('.js-main-nav-toggle');
 let mobileUtilityItems = document.querySelector('.ma__header__utility-nav--narrow');
 const stateOrgsButton = mobileUtilityItems.getElementsByClassName('js-util-nav-toggle')[0];
 let windowWidth = window.innerWidth;
-
 
 // create a new div element 
 var menuOverlay = document.createElement("div");
@@ -57,6 +57,10 @@ if (null !== menuButton) {
       buttonLabel = "Close";
 
       menuButton.setAttribute('aria-pressed', 'true');
+    }
+
+    if (e.shiftKey && e.key == 'Tab') {
+      close();
     }
   });
 }
@@ -151,7 +155,7 @@ stateOrgsButton.addEventListener("click", function (e) {
 
 
   itemButton.addEventListener('keydown', function (e) {
-    console.log(e.key);
+
     if (e.key == 'ArrowDown') {
       let first = subItems.getElementsByTagName("li")[0];
       first.querySelector('.ma__main-nav__link').focus()
@@ -179,6 +183,8 @@ stateOrgsButton.addEventListener("click", function (e) {
       }, 500);
     }
   });
+
+
 
   [].forEach.call(subMenuItems, function (subItem) {
     const prevSib = subItem.previousElementSibling;
@@ -211,12 +217,6 @@ stateOrgsButton.addEventListener("click", function (e) {
       }
     });
   });
-
-});
-
-body.addEventListener('keydown', function (e) {
-
-
 
 });
 
