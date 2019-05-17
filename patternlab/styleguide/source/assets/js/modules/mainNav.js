@@ -151,13 +151,24 @@ stateOrgsButton.addEventListener("click", function (e) {
 
 
   itemButton.addEventListener('keydown', function (e) {
-
+    console.log(e.key);
     if (e.key == 'ArrowDown') {
       let first = subItems.getElementsByTagName("li")[0];
       first.querySelector('.ma__main-nav__link').focus()
     }
 
     if (e.key == 'Escape') {
+      subItems.style.opacity = "0";
+      subMenu.style.height = "0";
+      item.classList.remove('submenu-open');
+
+      setTimeout(function timeoutFunction() {
+        subMenu.classList.add('is-closed');
+
+      }, 500);
+    }
+
+    if (e.shiftKey && e.key == 'Tab') {
       subItems.style.opacity = "0";
       subMenu.style.height = "0";
       item.classList.remove('submenu-open');
