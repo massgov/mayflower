@@ -50,13 +50,13 @@
     width: 100%;
     text-align: left;
 
-    .has-subnav & {
+    .toggle-indicator  {
       @include ma-accordion-icon;
-    }
 
-    .submenu-open & {
-      &::after {
-        transform: rotate(135deg);
+      .submenu-open & {
+        &::after {
+          transform: rotate(135deg);
+        }
       }
     }
     
