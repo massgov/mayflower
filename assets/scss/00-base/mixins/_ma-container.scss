@@ -1,4 +1,4 @@
-// Mixin also accpets a reduced width version 
+// Mixin also accpets a reduced width version
 // to limit the number of characters per line
 // @include ma-container('restricted')
 
@@ -30,7 +30,14 @@
     @media ($bp-page-width-min) {
       margin-left: auto;
       margin-right: auto;
-      padding-right: $max-width - $l-max-content-width;
+      max-width: 1200px;
+      //padding-right: $max-width - $l-max-content-width;
+    }
+
+    @media ($bp-page-width-min) {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 1200px;
     }
 
   }

@@ -3,9 +3,11 @@
 $bp-xs: 480px;
 $bp-s: 620px;
 $bp-m: 780px;
+$bp-ml: 840px;
 $bp-l: 910px;
 $bp-l-ex: 1050px;
 $bp-xl: 1200px;
+$bp-xxl: 1315px;
 
 
 // Global breakpoint media variables.
@@ -28,8 +30,8 @@ $bp-centered-content-width: "min-width: 1315px";
 
 // Semi Global breakpoint media variables
 // switch the header from full width to hamburger
-$bp-header-toggle-min: "min-width: 841px";
-$bp-header-toggle-max: "max-width: 840px";
+$bp-header-toggle-min: "min-width:" + ($bp-ml + 1);
+$bp-header-toggle-max: "max-width:" + $bp-ml;
 
-// Feedback form custom breakpoint 
+// Feedback form custom breakpoint
 $bp-feedback-min: "min-width: 650px";
