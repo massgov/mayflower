@@ -53,6 +53,7 @@ if (null !== menuButton) {
     if (e.key == 'ArrowDown') {
       event.preventDefault();
       body.classList.toggle("show-menu");
+
       menuOverlay.classList.toggle('overlay-open');
       feedbackButton.style.zIndex = "0";
 
@@ -119,6 +120,7 @@ stateOrgsButton.addEventListener("click", function (e) {
 
     item.classList.toggle('submenu-open');
 
+
     if (itemButton.getAttribute('aria-expanded') == "false") {
       itemButton.setAttribute('aria-expanded', 'true');
     }
@@ -128,6 +130,7 @@ stateOrgsButton.addEventListener("click", function (e) {
 
     if (subMenu.classList.contains('is-closed')) {
       /** Show the subMenu. */
+
       subMenu.classList.remove('is-closed');
       subMenu.style.height = "auto";
 
@@ -176,7 +179,6 @@ stateOrgsButton.addEventListener("click", function (e) {
     }
 
     if (e.shiftKey && e.key == 'Tab') {
-      console.log('click');
       subItems.style.opacity = "0";
       subMenu.style.height = "0";
       item.classList.remove('submenu-open');
