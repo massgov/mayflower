@@ -165,6 +165,7 @@ When the `alt` value is empty, screen readers know it's *purposely* empty, and d
 >  			Camp site resevation request form
 > 		</a>
 >		```
+>
 >		"PDF format of Campsite resevation requiest form"
 
 > 
@@ -176,6 +177,7 @@ When the `alt` value is empty, screen readers know it's *purposely* empty, and d
 > 			<img src="image.png" alt="this is ignored, but empty out for cleaner markup." />
 > 		</a>
 > 		```
+> 
 > 		"Screen readers accounce this."
 > 
 > 📋 When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.
