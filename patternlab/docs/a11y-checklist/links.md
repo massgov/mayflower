@@ -167,17 +167,15 @@ When the `alt` value is empty, screen readers know it's *purposely* empty, and d
 >		```
 >
 >		"PDF format of Campsite resevation requiest form"
-
-> 
 >     - override them with `aria-label`, empty the `alt` value for cleaner markup.
 > 
-> 		```
+>		```
 > 		<a href="loginpage.html" aria-label="Screen readers accounce this.">
 > 			Screen readers ignore anything goes here.
 > 			<img src="image.png" alt="this is ignored, but empty out for cleaner markup." />
 > 		</a>
-> 		```
-> 
+>		```
+>
 > 		"Screen readers accounce this."
 > 
 > 📋 When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.
