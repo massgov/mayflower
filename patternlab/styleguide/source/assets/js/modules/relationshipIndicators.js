@@ -3,13 +3,14 @@ let wrappers = document.querySelectorAll('.ma__relationship-indicators--terms');
 
 [].forEach.call(wrappers, function (terms) {
 
-  let button = terms.querySelector('.js-relationship-indicator-button');
-  let buttonCounter = button.querySelector('.tag-count');
-  let tagState = button.querySelector('.tag-state');
-  let tagText = tagState.textContent;
+  const button = terms.querySelector('.js-relationship-indicator-button');
+  const buttonCounter = button.querySelector('.tag-count');
+  const buttonState = button.querySelector('.tag-state');
   let term = terms.querySelectorAll('.ma__relationship-indicators--term');
   let tagCount = term.length;
 
+  // Not included with optimize code.
+  // tag count udpates still coming from 'headerTags.js'
   if (tagCount > 1) {
     button.style.display = 'block';
     buttonCounter.innerHTML += tagCount - 1;
@@ -28,16 +29,20 @@ let wrappers = document.querySelectorAll('.ma__relationship-indicators--terms');
         return;
       }
     });
-
-    if (tagText == "more") {
-      tagText = "fewer";
-    } else {
-      tagText = "more";
-    }
   }
 
 
   button.addEventListener("click", function () {
+    let state = buttonState.innerHTML;
+
+    if (state == "more") {
+      state = "fewer"
+    }
+    else {
+      state = "more";
+    }
+    buttonState.innerHTML = state;
+
     this.classList.toggle('is-open');
     showHideTags();
   })
