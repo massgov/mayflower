@@ -4,7 +4,7 @@
 
 ## 📖 Definition
 
-**Buttons** (that have type="button") are not submit buttons. **Buttons** are used to *create features that rely on Javascript*. Behaviours such as revealing a menu or showing a date picker.
+**Buttons** (that have type="button") are not submit buttons. **Buttons** are used to *create features that rely on Javascript*. Behaviors such as revealing a menu or showing a date picker.
 
 **🛑 Set type attribute**
 

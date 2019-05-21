@@ -6,7 +6,7 @@
 
 A heading needs its **proper level number** to represent the hierarchy of the content in the relationship of the parent and child components.
 
-HTML5 allows you to start with `<h1>` in every `<section>`. That is valid as HTML5, but it doesn't help assistive technology users to grasp the content hierachy in the page.
+HTML5 allows you to start with `<h1>` in every `<section>`. That is valid as HTML5, but it doesn't help assistive technology users to grasp the content hierarchy in the page.
 
 ### ➤➤ Is the heading level number flexible?
 
@@ -16,12 +16,12 @@ HTML5 allows you to start with `<h1>` in every `<section>`. That is valid as HTM
 
 The *sequential manner* means:
 
-☑️ No skipping - Some inbetween number(s) is(are) NOT missing.
+☑️ No skipping - Some in-between number(s) is(are) NOT missing.
 
-☑️ No jumping - NOT putting heading level numbers randomely.
+☑️ No jumping - NOT putting heading level numbers randomly.
 
 <!--
-- [ ] No backword - Numbers does NOT go down from large to small.
+- [ ] No backward - Numbers does NOT go down from large to small.
 -->
 
 **➣ Yes:** The heading level number is set dynamically, and meets these conditions.
@@ -41,7 +41,7 @@ Below info. gives you some idea of what needs to be done.
 >
 > Only the page title can have `<h1>`.
 >
-> In page templates, the initial heading level is set. Then, before the level changes, the heading level value is ajdusted to reflect the content hierachy in templates.
+> In page templates, the initial heading level is set. Then, before the level changes, the heading level value is adjusted to reflect the content hierarchy in templates.
 >
 > 📋 As of May, 2019, this is managed in Drupal theming, not in Mayflower.  In Mayflower, the heading level value can be passed on.
 >
@@ -49,7 +49,7 @@ Below info. gives you some idea of what needs to be done.
 >
 > 📄 */patternlab/source/_pattern/01-atoms/04-headings/comp-heading.twig*
 >
-> The heading level value is passed from its parent tempalte as `compHeading.level`, and assgined to `headingLevel`.
+> The heading level value is passed from its parent template as `compHeading.level`, and assigned to `headingLevel`.
 >
 > Here the default value is set to `2`.
 > 
@@ -80,7 +80,7 @@ Below info. gives you some idea of what needs to be done.
 >
 > Downloads`<span class=”ma--visually-hidden”>`	 for the marine fishing license`</span>`
 
-**➢ No:** The label is unique. Then, move to the follwoing question.⬇️
+**➢ No:** The label is unique. Then, move to the following question.⬇️
 
 ### ➤➤ Does the label have enough context to describe the section content?
 

@@ -57,7 +57,7 @@ sample link label in the comp if the link takes you to a content page created by
 
 **➢ No:**  It’s not descriptive enough: 
 
-🤔 "The *label text* of WHAT?" If you don't see the answer of the question in the label text(This sounds funny, but if you see below samples, it should make sense.), context info. is necesssary.
+🤔 "The *label text* of WHAT?" If you don't see the answer of the question in the label text(This sounds funny, but if you see below samples, it should make sense.), context info. is necessary.
 
 ##### Case 1: Need supplemental information.
 
@@ -106,14 +106,14 @@ The label doesn't make sense by itself.
 <a name="image"></a>
 ### Image
 
-#### ➤➤ Does the image have `alt` attibute?
+#### ➤➤ Does the image have `alt` attribute?
 
 **➣ Yes:** [Go to the following question. ⬇️](#alt)
 
-**➢ No:**  Add `alt` attibute. [Go to the following question. ⬇️](#alt)
+**➢ No:**  Add `alt` attribute. [Go to the following question. ⬇️](#alt)
 
 <a name="alt"></a>
-#### ➤➤ Does the `alt` attibute clearly tell where it takes you as the link label?
+#### ➤➤ Does the `alt` attribute clearly tell where it takes you as the link label?
 
 **➣ Yes:** You are all set. [Move on to next element. ➡️](a11y-checklist.md)
 
@@ -141,9 +141,9 @@ The label doesn't make sense by itself.
 
 ```<img src="image.jpg" alt="" />```
 
-📋 If `<img>` doesn't have `alt` attribute, screen readers try to provide any other available infomration for the image and announce `src` value, which is not only not helpful, but also unpleasent to screen reader users.
+📋 If `<img>` doesn't have `alt` attribute, screen readers try to provide any other available information for the image and announce `src` value, which is not only not helpful, but also unpleasant to screen reader users.
 
-When the `alt` value is empty, screen readers know it's *purposely* empty, and don't try to deliver any other information.
+When the `alt` value is empty, screen readers know it is *purposely* empty, and don't try to deliver any other information.
 
 **➢ No [Case 1]:** The text and the image provide unique information.
 
@@ -153,7 +153,7 @@ When the `alt` value is empty, screen readers know it's *purposely* empty, and d
 > 		- “Img alt value + label text”, or 
 > 		- “label text + img alt value” 
 > 
-> 	flows natually.
+> 	flows naturally.
 > 
 > - If they don't flow well together, 
 >     - add contextual text info as visually hidden text, or
@@ -166,21 +166,21 @@ When the `alt` value is empty, screen readers know it's *purposely* empty, and d
 > 		</a>
 >		```
 >
->		"PDF format of Campsite resevation requiest form"
+>		"PDF format of Campsite reservation request form"
 >     - override them with `aria-label`, empty the `alt` value for cleaner markup.
 > 
 >		```
-> 		<a href="loginpage.html" aria-label="Screen readers accounce this.">
+> 		<a href="loginpage.html" aria-label="Screen readers announce this.">
 > 			Screen readers ignore anything goes here.
 > 			<img src="image.png" alt="this is ignored, but empty out for cleaner markup." />
 > 		</a>
 >		```
 >
-> 		"Screen readers accounce this."
+> 		"Screen readers announce this."
 > 
 > 📋 When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.
     
-**➢ No [Case 2]:** Text has enough information as the label. Image has no infomration to deliver.
+**➢ No [Case 2]:** Text has enough information as the label. Image has no information to deliver.
 
 - decorative icons
 - decorative images
