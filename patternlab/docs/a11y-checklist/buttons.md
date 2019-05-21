@@ -70,7 +70,7 @@ It needs supplemental information, but it doesn't make sense to add it as visual
 
 The label doesn't make sense by itself.
 
-- The button label is a symbol.
+- The button label is a symbol. Screen readers announce the symbol.
 
 ```
 <button 
