@@ -19,7 +19,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 
 ## ➤➤ Does your buton’s functionality fit this definition?
 
-**➣ Yes:** [Move onto the link label. ⬇️](#button-label) 
+**➣ Yes:** [Move onto the button label. ⬇️](#button-label) 
 
 **➢ No:** Don't use `<button>`. Use `<a>` instead. Check your markup at the [Link section](links.md). ➡️
 
