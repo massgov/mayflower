@@ -79,7 +79,7 @@ The label doesn't make sense by itself:
   aria-controls="toc-overlay">+</button>
 ```
 
-> - Use `aria-label` to override the existing link label. 
+> - Use `aria-label` to override the existing button label. 
 > 
 > - Add any necessary context info to the  `aria-label` as well. With above sample, the label could be "click to show the table of contents". 
 > 
