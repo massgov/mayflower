@@ -150,10 +150,10 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 > - Add `alt` value to provide the information the image delivers. For example, if the image is an icon, what the icon signifies such as PDF as a file format.
 > 
 > - As a link label, make sure the flow of *both information together* makes sense to screen reader users:
-> 
-> 		- “Img alt value + label text”, or 
-> 		- “label text + img alt value” 
-> 
+> 		
+>    - “Img alt value + label text”, or 
+> 	  - “label text + img alt value” 
+>  
 > 	flows naturally.
 > 
 > - If they don't flow well together, 
