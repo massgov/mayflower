@@ -56,7 +56,6 @@ It makes sense when you can see the entire section, but doesn't when you see jus
 - show more
 - show less
 
-TO DO: CHECK FOR THE SAMPLES.
 > We need to provide the WHAT as context information. Use visually hidden text to add contextual info.
 > 
 > ##### Examples
