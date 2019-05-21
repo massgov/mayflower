@@ -68,7 +68,7 @@ It makes sense when you can see the entire section, but doesn't when you see jus
 
 It needs supplemental information, but it doesn't make sense to add it as visually hidden text.
 
-The label doesn't make sense by itself.
+The label doesn't make sense by itself:
 
 - The button label is a symbol. Screen readers announce the symbol.
 
