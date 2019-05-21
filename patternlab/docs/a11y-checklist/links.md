@@ -162,7 +162,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 > 		<a href="loginpage.html">
 > 			<img src="icon_pdf.png" alt="PDF" />
 > 			<span class="ma--visually-hidden"> format of </span>
->  			Camp site resevation request form
+>  			Camp site reservation request form
 > 		</a>
 >		```
 >
@@ -178,7 +178,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 >
 > 		"Screen readers announce this."
 > 
-> 📋 When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.
+> 📋 When `aria-label` is used, screen readers ignore the content between `<a>` and `</a> `and announce `aria-label` value.
     
 **➢ No [Case 2]:** Text has enough information as the label. Image has no information to deliver.
 
