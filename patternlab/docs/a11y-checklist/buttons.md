@@ -92,7 +92,7 @@ The label doesn't make sense by itself:
 >   aria-controls="toc-overlay">+</button>
 > ```
 > 
-> 📋 When `aria-label` is used, screen readers ignores the content between `<button>` and `</button> `and announce `aria-label` value.
+> 📋 When `aria-label` is used, screen readers ignore the content between `<button>` and `</button> `and announce `aria-label` value.
 
 
 <a name="image"></a>
