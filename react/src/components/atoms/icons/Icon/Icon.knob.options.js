@@ -20,7 +20,10 @@ export const assets = {
   xlxs: 'xlxs',
   docx: 'docx',
   pdf: 'pdf',
-  generic: 'generic'
+  generic: 'generic',
+  zoomIn: 'zoomIn',
+  zoomOut: 'zoomOut',
+  refresh: 'refresh'
 };
 
 export const svgOptions = {
