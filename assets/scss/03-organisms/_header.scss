@@ -39,35 +39,39 @@ body.show-menu {
     }
   }
 
-  .navigation-wrapper {
-    width: 100%;
-    background-color: $c-primary;
-
-    .navigation-wrapper-container {
-      @include ma-container;
-      padding: 0;
-      display: flex;
-      justify-content: space-between;
-
-      .ma__header__button-container {
-        order: 1;
-      }
-
-      .ma__header__utility-nav--wide {
-        order:2;
-      }
-
-      .ma__header__button-container,
-      .ma__header__utility-nav--wide {
-        flex: 1 1 auto;
-      }
-
-      .ma__header__nav {
-        position: relative;
-        flex: 0;
-      }
-    }
+  &-wrapper {
+    @include ma-container;
   }
+
+  // .navigation-wrapper {
+  //   width: 100%;
+  //   background-color: $c-primary;
+
+  //   .navigation-wrapper-container {
+  //     @include ma-container;
+  //     padding: 0;
+  //     display: flex;
+  //     justify-content: space-between;
+
+  //     .ma__header__button-container {
+  //       order: 1;
+  //     }
+
+  //     .ma__header__utility-nav--wide {
+  //       order:2;
+  //     }
+
+  //     .ma__header__button-container,
+  //     .ma__header__utility-nav--wide {
+  //       flex: 1 1 auto;
+  //     }
+
+  //     .ma__header__nav {
+  //       position: relative;
+  //       flex: 0;
+  //     }
+  //   }
+  // }
 
   &__container {
     @include ma-valign-block;
@@ -188,7 +192,7 @@ body.show-menu {
   }
 
   &__button-container {
-    height: $header-mobile-controls-height;
+    //height: $header-mobile-controls-height;
     
     .translated-rtl &,
     .translated-ltr & {
@@ -198,6 +202,8 @@ body.show-menu {
 
   &__menu-button {
     background-color: transparent;
+    position: absolute;
+    top: 0;
     text-align: left;
     width: 100%;
     border: none;
@@ -207,11 +213,11 @@ body.show-menu {
     margin-top: 2px;
     padding-right: 30px;
     padding-left: 20px;
-    position: relative;
     transition: transform 0.5s ease;
 
     @media ($bp-medium-min) {
       padding-left: 0;
+      width: 25%;
     }
   }
 
@@ -285,6 +291,16 @@ body.show-menu {
 
     &--wide {
 
+      &::after {
+        content: '';
+      width: 100%;
+      height: 43px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $c-primary;
+      }
+
       @media ($bp-header-toggle-max) {
         display: none;
       }
@@ -348,6 +364,7 @@ body.show-menu {
   &__menu-button {
     font-weight: 700;
     color: $c-font-inverse;
+    z-index: $z-high;
 
     span:first-child {
       opacity: 0.7;

@@ -2,6 +2,7 @@ $utility-nav-height: 43px;
 
 .ma__utility-nav {
   position: relative;
+  z-index: $z-high;
 
   &__items {
     @include ma-reset-list;
