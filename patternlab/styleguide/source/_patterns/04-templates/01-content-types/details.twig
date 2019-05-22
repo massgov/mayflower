@@ -38,8 +38,17 @@
 
     <aside class="sidebar sidebar--colored">
       {% if sidebar.contactList %}
-        {% set contactList = sidebar.contactList %}
-        {% include "@organisms/by-author/contact-list.twig" %}
+        {% set displayContactList = true %}
+        {% set contactListGroups = sidebar.contactList.contacts[0].groups %}
+        {# if there is only one item in the contacts list that is named Address, 
+        then don't display the contact list in the sidebar #}
+        {% if contactListGroups|length == 1 and contactListGroups[0].name == 'Address' %}
+          {% set displayContactList = false %}
+        {% endif %}
+        {% if displayContactList %}
+          {% set contactList = sidebar.contactList %}
+          {% include "@organisms/by-author/contact-list.twig" %}
+        {% endif %}
       {% endif %}
       {% if sidebar %}
         {% block sidebar %}
