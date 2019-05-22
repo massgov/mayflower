@@ -10,11 +10,16 @@ export default (function (window, document) {
       headings: tocParent.querySelectorAll(toc.dataset.sections + ":not(.ma__sticky-toc__title)"),
       links: []
     };
-    // The number of sections / links.
+    // Curated lists don't have a header for sections so we need another way to grab those.
+    let tocCuratedLists = tocParent.querySelectorAll(".ma__form-downloads");
+    let tocCuratedListsCount = tocCuratedLists.length;
     let tocSectionCount = tocSections.headings.length;
     var additionalCount = 0;
     var i;
     var totalSections = tocSectionCount;
+    if (tocCuratedListsCount > 0) {
+      totalSections = totalSections + tocSectionCount;
+    }
     // Remove Related and Contact sections from total amount of sections.
     for (i = 0; i < tocSectionCount; i++) {
       if (tocSections.headings[i].innerText.toLowerCase() == "related" || tocSections.headings[i].innerText.toLowerCase() == "contact") {
@@ -88,8 +93,10 @@ export default (function (window, document) {
         }
       });
 
-      console.log('tocSectionCount: ' + tocSectionCount);
-      console.log('additionalCount: ' + additionalCount);
+      if (tocCuratedListsCount > 0) {
+        tocSectionCount = tocSectionCount + tocCuratedListsCount;
+      }
+
       // Get the final count of sections we'll use to determine if we display.
       if ((tocSectionCount >= 1) && (additionalCount >= 1)) {
         tocSectionCount = tocSectionCount + additionalCount;
