@@ -13,3 +13,5 @@ In the component you're working on, you have:
 ## ☞ [Links](links.md) `<a>`
 
 ## ☞ [Buttons](buttons.md) `<button>`
+
+## ☞ [Images](images.md) `<img>` `<CONTAINER role="img">` `<CONTAINER style="background-image: url();">` `<svg>`

@@ -39,7 +39,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 ### Text 
 
 <a name="link-context"></a> 
-### ➤➤ Is the label text descriptive enough to see what the button does? Is it clear enough to screen reader users?
+#### ➤➤ Is the label text descriptive enough to see what the button does? Is it clear enough to screen reader users?
 
 **➣ Yes:** [Move on to next element. ➡️](a11y-checklist.md)
 
@@ -58,7 +58,7 @@ It makes sense when you can see the entire section, but doesn't when you see jus
 
 > We need to provide the WHAT as context information. Use visually hidden text to add contextual info.
 > 
-> ##### Examples
+> ###### Examples
 > Expand`<span class=”ma--visually-hidden”>` the Table of Content`</span>`
 > 
 > Show more`<span class=”ma--visually-hidden”>` related pages to this page, page title.`</span>`
