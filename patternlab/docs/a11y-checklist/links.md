@@ -14,7 +14,9 @@
   
 Their roles are different. Browsers recognize and implement them *differently* with their unique characters.
 
-## ➤➤ Does your link’s functionality fit this definition?
+---
+
+## ➤➤ Does your link’s functionality fit above definition?
 
 **➣ Yes:** [Move onto the link label. ⬇️](#link-label) 
 
@@ -102,6 +104,8 @@ The label doesn't make sense by itself.
 > 
 > 📋 When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.
 
+[Move on to next element. ➡️](a11y-checklist.md)
+
 
 <a name="image"></a>
 ### Image
@@ -127,6 +131,9 @@ The label doesn't make sense by itself.
 > 
 > 📋 You might need to confirm with the UX or content team what would be proper for the label.
 
+[Move on to next element. ➡️](a11y-checklist.md)
+
+
 <a name="text-image"></a>
 ### Text and Image
 
@@ -144,6 +151,8 @@ The label doesn't make sense by itself.
 📋 If `<img>` doesn't have `alt` attribute, screen readers try to provide any other available information for the image and announce `src` value, which is not only not helpful, but also unpleasant to screen reader users.
 
 When the `alt` value is empty, screen readers know it is *purposely* empty, and don't try to deliver any other information.
+
+[Move on to next element. ➡️](a11y-checklist.md)
 
 **➢ No [Case 1]:** The text and the image provide unique information.
 
@@ -194,6 +203,8 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
  	<img src="icon.png" alt="" aria-hidden="true" />
 	```
 TODO:  Add more info for aria-hidden.  Need some  use cases. -->
+
+[Move on to next element. ➡️](a11y-checklist.md)
 
 ---
 [⬅️ a11y Checklist](a11y-checklist.md)
