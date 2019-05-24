@@ -1,13 +1,8 @@
-# [DRAFT] a11y Checklist
+# [DRAFT] a11y Markup Checklist
 
-Follow the links of the elements to see what to check for web accessibility.
+Follow the links of the elements to see what to check for accessible markup.
 
-
-## Ensure your markup is valid 
-
-Once you finish the check list below, validate your component as markup (not as a *twig template*) with the [markup validator](https://validator.w3.org/). Valid markup is a great foundation for accessible website.
-
-## In the component you're working on, you have:
+##  In the component you're working on, you have:
 
 ### ☞ [Sections](sections.md) `<section>`
 
@@ -18,6 +13,10 @@ Once you finish the check list below, validate your component as markup (not as 
 ### ☞ [Buttons](buttons.md) `<button>`
 
 ### ☞ [Images](images.md) `<img>` `<CONTAINER role="img">` `<CONTAINER style="background-image: url();">` `<svg>`
+
+## ❇️ Ensure your markup is valid 
+
+Once you finish the check list below, validate your component as markup (not as a *twig template*) with the [markup validator](https://validator.w3.org/). Valid markup is a great foundation for accessible website.
 
 ---
 More elements will be added soon...
