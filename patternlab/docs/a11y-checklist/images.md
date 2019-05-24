@@ -2,9 +2,9 @@
 
 # Images 
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<img>` 
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<CONTAINER role="img">`
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<CONTAINER style="background-image: url();">` 
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<svg>`
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<CONTAINER role="img">`
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<CONTAINER style="background-image: url();">` 
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<svg>`
 
 📋 For a **linked image** and a **button label image**, see the [Links](links.md) and the [Buttons](buttons.md) pages respectively for their specific details.
 
