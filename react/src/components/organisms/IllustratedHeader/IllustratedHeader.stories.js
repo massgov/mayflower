@@ -15,10 +15,10 @@ storiesOf('organisms', module)
         bgInfo: text('bgInfo', defaultProps.bgInfo),
         bgImage: text('bgImage', defaultProps.bgImage),
         inverted: boolean('inverted', defaultProps.inverted),
-        publishState: {
-          text: text('publishState', defaultProps.publishState.text)
-        },
         pageHeader: {
+          publishState: {
+            text: text('publishState', defaultProps.pageHeader.publishState.text)
+          },
           category: text('IllustratedHeader pageHeader: category', defaultProps.pageHeader.category, 'Category'),
           title: text('IllustratedHeader pageHeader: title', defaultProps.pageHeader.title, 'PageHeader'),
           subTitle: text('IllustratedHeader pageHeader: subtitle', defaultProps.pageHeader.subTitle, 'PageHeader'),

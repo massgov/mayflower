@@ -18,14 +18,6 @@ const IllustratedHeader = (illustratedHeader) => {
     <section className={`ma__illustrated-header ${illustratedHeaderClass}`}>
       <div className="ma__illustrated-header__container">
         <div className="ma__illustrated-header__content">
-          { publishState.text && (
-            <div className="ma__page-header__publish-state">
-              <PublishState {...publishState} />
-            </div>
-          )}
-          <div className="ma__illustrated-header__category">
-            {category}
-          </div>
           <PageHeader {...pageHeaderProps} />
           {
             // Allows IllustratedHeader to render custom children component (this feature is used in rideshare report and it's not in Mayflower PatternLab)
