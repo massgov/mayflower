@@ -175,6 +175,8 @@ $page-header-widget-width: 350px;
 
   &__category {
     font-size: 1.375rem;
+    padding-bottom: 1rem;
+    line-height: 1.1;
     font-weight: 700;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
