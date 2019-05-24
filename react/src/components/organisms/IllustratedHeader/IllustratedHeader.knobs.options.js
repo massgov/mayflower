@@ -8,6 +8,7 @@ export default {
       text: 'publish state'
     },
     pageHeader: {
+      category: 'Guide',
       title: 'Moving to Massachusetts',
       subTitle: '',
       optionalContents: [{
