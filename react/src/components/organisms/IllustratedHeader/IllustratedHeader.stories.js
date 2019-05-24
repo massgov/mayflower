@@ -17,9 +17,9 @@ storiesOf('organisms', module)
         inverted: boolean('inverted', defaultProps.inverted),
         pageHeader: {
           publishState: {
-            text: text('publishState', defaultProps.pageHeader.publishState.text)
+            text: text('IllustratedHeader pageHeader: publishState', defaultProps.pageHeader.publishState.text, 'PageHeader')
           },
-          category: text('IllustratedHeader pageHeader: category', defaultProps.pageHeader.category, 'Category'),
+          category: text('IllustratedHeader pageHeader: category', defaultProps.pageHeader.category, 'PageHeader'),
           title: text('IllustratedHeader pageHeader: title', defaultProps.pageHeader.title, 'PageHeader'),
           subTitle: text('IllustratedHeader pageHeader: subtitle', defaultProps.pageHeader.subTitle, 'PageHeader'),
           optionalContents: [{
