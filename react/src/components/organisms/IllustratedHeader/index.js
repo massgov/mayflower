@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 
 // import child components
 import PageHeader from '../PageHeader';
-import PublishState from '../../atoms/text/PublishState';
 
 import './style.css';
 
 const IllustratedHeader = (illustratedHeader) => {
   const {
-    bgInfo, bgImage, inverted, category, pageHeader, publishState, children
+    bgInfo, bgImage, inverted, pageHeader, children
   } = illustratedHeader;
   const imageAlt = bgInfo || '';
   const pageHeaderProps = pageHeader;
@@ -48,11 +47,7 @@ IllustratedHeader.propTypes = {
   /** invert to change style */
   inverted: PropTypes.bool,
   /** render PageHeader component @organisms/PageHeader */
-  pageHeader: PropTypes.shape(PageHeader.propTypes),
-};
-
-IllustratedHeader.defaultProps = {
-  categoryAriaHidden: true
+  pageHeader: PropTypes.shape(PageHeader.propTypes)
 };
 
 export default IllustratedHeader;
