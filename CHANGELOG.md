@@ -13,6 +13,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.7.0 (05/13/2019)
+
+### Fixed
+- (React) [HelpTip] DP-13672: Fix css for bypassMobileStyle. #551
+- (Docs) Update Mayflower project issue template and fixed links on homepage. #549
+
+### Added
+- (React) [InputCurrency] DP-13672: Add `showButtons` prop to control whether the up/down buttons are shown. #550
+- (React) [HelpTip, CalloutAlert] DP-13672: Add white theme option styles. #552
+- (React) [Button] Add `classes` prop to button to allow appending custom classnames #554
+- (React) [Icon] Add `zoom-in` `zoom-out` `refresh` icons #554
+
+
 ## 9.6.0 (05/01/2019)
 
 ### Added
@@ -27,7 +40,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Deprecated
 - (React) [InputTextTypeAhead] DP-13688: Deprecate InputTextTypeAhead. #544
 
-### FIXED
+### Fixed
 - (React) [FilterBox] Fixed warning caused by using `start` instead of `flex-start` within stying. #543
 
 ## 9.5.1 (04/17/2019)

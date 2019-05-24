@@ -31,7 +31,8 @@
   font-size: 14px;
   font-weight: 700;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $color;
     @if $color==$c-white {
       border-color: $c-bd-input !important;

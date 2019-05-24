@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean, array } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import Button from './index';
@@ -21,7 +21,8 @@ storiesOf('atoms/buttons', module)
         disabled: boolean('disabled', false),
         text: text('text', 'Button'),
         href: text('href', ''),
-        onClick: action('button clicked')
+        onClick: action('button clicked'),
+        classes: array('classes', [])
       };
       return(
         <Button {...props} />
