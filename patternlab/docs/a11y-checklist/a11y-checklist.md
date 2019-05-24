@@ -1,6 +1,5 @@
 # [DRAFT] a11y Checklist
 
-Follow the links of the elements to see what to check for accessible markup.
 
 ##  Markup Check
 
