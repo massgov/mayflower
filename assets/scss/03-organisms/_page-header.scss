@@ -175,8 +175,6 @@ $page-header-widget-width: 350px;
 
   &__category {
     font-size: 1.375rem;
-    padding-bottom: 1rem;
-    line-height: 1.1;
     font-weight: 700;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
@@ -210,7 +208,7 @@ $page-header-widget-width: 350px;
   }
 
   // Control font size and line height
-  // regardless of it's added to page 
+  // regardless of it's added to page
   &__sub-title,
   &__sub-title * {
     font-size: 1.625rem !important;
