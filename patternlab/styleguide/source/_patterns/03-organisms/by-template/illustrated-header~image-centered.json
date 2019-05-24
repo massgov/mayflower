@@ -4,8 +4,8 @@
     "bgImage": "../../assets/images/placeholder/800x400.png",
     "retinaBgImage": "../../assets/images/placeholder/1600x800.png",
     "bgCentered": true,
-    "category": "Guide",
     "pageHeader": {
+      "category": "Guide",
       "title": "Moving to Massachusetts",
       "subTitle": "",
       "optionalContents": [{
