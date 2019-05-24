@@ -170,6 +170,12 @@ class InputTextFuzzy extends React.Component {
                 });
                 if (suggestion) {
                   this.clearSuggestions(event);
+                } else {
+                  // This prevents the input from potentially triggering a form submit
+                  // when there is no matching suggestion.
+                  if (this.props.onKeyDownPreventDefault) {
+                    event.preventDefault();
+                  }
                 }
               }
               break;
@@ -261,7 +267,9 @@ InputTextFuzzy.propTypes = {
   /** The id of the the input tag */
   inputId: PropTypes.string,
   /** By default all options will be rendered as suggestions on input focus */
-  renderDefaultSuggestion: PropTypes.bool
+  renderDefaultSuggestion: PropTypes.bool,
+  /** When true, calls preventDefault on the onKeyDown SyntheticEvent for the input element. */
+  onKeyDownPreventDefault: PropTypes.bool
 };
 
 InputTextFuzzy.defaultProps = {
@@ -279,7 +287,8 @@ InputTextFuzzy.defaultProps = {
   },
   disabled: false,
   boxed: false,
-  renderDefaultSuggestion: true
+  renderDefaultSuggestion: true,
+  onKeyDownPreventDefault: false
 };
 
 export default InputTextFuzzy;
