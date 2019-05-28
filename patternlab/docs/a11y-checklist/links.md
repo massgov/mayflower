@@ -53,7 +53,7 @@ sample link label in the comp if the link takes you to a content page created by
 <a name="link-context"></a> 
 ### ➤➤ Is the label text descriptive enough to see where it takes you without the *visual presentation* around the link? Is it clear enough to screen reader users?
 
-📋 A visual presentation such as a layout can provide non-verbal context to sighted users, which screen reader users cannot take advantage of. We fill the gap by providing such context info as text.
+📋 A visual presentation such as a layout can provide non-verbal context to sighted users, which screen reader users cannot take advantage of. We fill the gap by providing context info as text.
 
 **➣ Yes:** [Move on to next element. ➡️](a11y-checklist.md)
 
