@@ -1,9 +1,9 @@
 [⬅️ a11y Checklist](a11y-checklist.md)
 
-# Images 
-# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<img>` 
+# Images
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<img>`
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<CONTAINER role="img">`
-# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<CONTAINER style="background-image: url();">` 
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<CONTAINER style="background-image: url();">`
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<svg>`
 
 📋 For a **linked image** and a **button label image**, see the [Links](links.md) and the [Buttons](buttons.md) pages respectively for their specific details.
@@ -23,12 +23,12 @@ This is always the first choice for images unless using a **svg** format.
 
 **🛑 Do not add an image with `role="img"` unless it's ABSOLUTELY necessary.**
 
-`role` overrides the original HTML element to `<img>`. It sets the element **focusable** for assistive technology. 
+`role` overrides the original HTML element to `<img>`. It sets the element **focusable** for assistive technology.
 
 This means screen readers get focus on the element whether its image is decorative or not, meanwhile other users don't.
 
 [See more about `role="img"`. ⬇️](#role-img)
- 
+
 ### `<CONTAINER style="background-image: url();">`
 
 When the image is fully decorative and not providing any information, adding an image as a CSS background with this technique is a good method.
@@ -58,7 +58,7 @@ Our icons are found at *assets/images/svg-icons/*.
 
 **➣ Yes:** [Go to the following question. ⬇️](#alt)
 
-**➢ No:** `<img>` always needs `alt`. 
+**➢ No:** `<img>` always needs `alt`.
 
 > Let's add one now.
 >
@@ -72,18 +72,18 @@ Our icons are found at *assets/images/svg-icons/*.
 
 **➣ Yes:** The image has its unique information which is necessary to understand the page/section content.
 
-> Make sure the template can receive the `alt` value as a part of the image data set. 
->  
+> Make sure the template can receive the `alt` value as a part of the image data set.
+>
 > **🛑 Do NOT leave the `alt` value *empty*.**
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
-**➢ No:** The image is for a decorative purpose. 
+**➢ No:** The image is for a decorative purpose.
 
 > Empty the `alt` value.
-> 
-> ```<img alt="" />``` 
-> 
+>
+> ```<img alt="" />```
+>
 > **🛑 Keep `alt` attribute even its value is empty.**
 
 ```<img src="image.jpg" alt="" />```
@@ -94,10 +94,10 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
-**➤ Yes/No(Not sure):** It's possible...  
+**➤ Yes/No(Not sure):** It's possible...
 
 > Make sure the template can receive the `alt` value when it's available. Otherwise, leave it blank.
-> 
+>
 > **🛑 Keep `alt` attribute even its value is empty.**
 
 See above 📋.
@@ -120,29 +120,29 @@ See above 📋.
 **➣ Yes:** The image has its unique information to deliver.
 
 > - Use `aria-label`, which is equivalent to `alt` with `<img>` in this case, to add text alternative information.
-> 
+>
 >   ```
 >   <CONTAINER role="img" aria-label="text alternative info for the image here"></CONTAINER>
 >   ```
-> 
+>
 > - Make sure the template can receive data for `aria-label` value.
-> 
+>
 > **🛑 Do not leave the `aria-label` value *empty*.**
 
 
-<!-- Add aria-labelledby with use cases. 
+<!-- Add aria-labelledby with use cases.
 	  Most likely, no use case with general templates. -->
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
-**➢ No:** The image is for a decorative purpose. 
+**➢ No:** The image is for a decorative purpose.
 
 `<CONTAINER role="img">` is not appropreate for this case.
 Instead use:
 
-1. [`<img>`](#img)⬆️, or 
+1. [`<img>`](#img)⬆️, or
 
-1. [`<CONTAINER style="background-image: url();">`](#background.)⬇️. 
+1. [`<CONTAINER style="background-image: url();">`](#background.)⬇️.
 
 ---
 
@@ -154,7 +154,7 @@ This method is for a fully decorative image, which doesn't convey any content, s
 It's not recommended to use this method to present content such as a *linked image + text* unit unless it's absolutely certain the image never deliver its unique information. That is hard to be certain with templates in CMS to optimize use of templates.
 
 > Method 1: Separate the style from the markup. If the background image is static, the `<style>` content belongs to CSS file.
-> 
+>
 > ```
 > <style>
 >   .bg_container {
@@ -163,9 +163,9 @@ It's not recommended to use this method to present content such as a *linked ima
 > </style>
 > <CONTAINER class="bg_container"></CONTAINER>
 > ```
-> 
+>
 > Method 2: Inline style is not ideal, but there might be a case this method is necessary.
-> 
+>
 > ```
 > <CONTAINER style="background-image: url(background.jpg);"></CONTAINER>
 > ```
@@ -175,24 +175,24 @@ It's not recommended to use this method to present content such as a *linked ima
 <a name="svg"></a>
 ## `<svg>`
 
-Make sure the file is compressed well, not contain any style data in it.
+Make sure the file is compressed well, does not contain any style data in it.
 
 Styles (size, color, etc.) are set via CSS to optimize the use of the file. Such data is not in the svg file itself.
 
 In Patternlab, all icons are treated as decorative. All svg files contains `aria-hidden="true"` to ensure its visibility setting in the files.
 
 ```
-<svg aria-hidden="true" ...>...</svg> 
+<svg aria-hidden="true" ...>...</svg>
 ```
 
 <!-- For future use...
 ### ➤➤ Does the image have information to deliver?
 
-**➣ Yes:** 
+**➣ Yes:**
 
-**➢ No:** 
+**➢ No:**
 
-**➤ Yes/No:** 
+**➤ Yes/No:**
 -->
 
 
