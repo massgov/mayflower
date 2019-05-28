@@ -471,9 +471,11 @@
             "path": "@organisms/by-author/link-list.twig",
             "data": {
               "linkList": {
-                "sidebarHeading": {
+                "compHeading": {
                   "title": "Related Services",
-                  "titleContext": "to Unemployment Benefits"
+                  "titleContext": "to Unemployment Benefits",
+                  "sub": true,
+                  "sidebar": true
                 },
                 "stacked": true,
                 "links": [
@@ -519,9 +521,11 @@
             "path": "@organisms/by-author/form-downloads.twig",
             "data": {
               "formDownloads": {
-                "sidebarHeading": {
+                "compHeading": {
                   "title": "Additional Resources",
-                  "titleContext": "for Unemployment Benefits"
+                  "titleContext": "for Unemployment Benefits",
+                  "sub": true,
+                  "sidebar": true
                 },
                 "downloadLinks": [
                   {

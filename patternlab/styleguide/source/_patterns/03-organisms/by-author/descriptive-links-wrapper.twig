@@ -1,0 +1,13 @@
+<section class="ma__descriptive-links">
+    {% set compHeading = descriptiveLinks.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+
+    {% block descriptiveLinks %}
+      {% for link in descriptiveLinks.links %}
+        {% include "@molecules/descriptive-link.twig" with {
+          richText: link.richText,
+          link: link.link
+        } %}
+      {% endfor %}
+    {% endblock %}
+</section>

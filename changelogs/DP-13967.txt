@@ -1,0 +1,3 @@
+Minor
+Fixed
+- (Patternlab) DP-13967: Fix the heading size for the Related Services and Additional Resources heading from h3 to h2.

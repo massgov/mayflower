@@ -1,19 +1,15 @@
 ### Description
-A wrapper for sets of descriptive Links
+A block of text and decorative link
 
 ### Status
 * Stable as of 5.0.0
 
 ### Pattern Contains
-descriptive-link
-comp heading
+wysiwyg block
+decorative link
 
 ### Variables
 ~~~
-heading: {
-  content:
-  type: string /required
-}
 links: {
   content:
     type: richtext /required
