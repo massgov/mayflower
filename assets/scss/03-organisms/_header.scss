@@ -14,7 +14,7 @@ body.show-menu {
   opacity: 0;
   transition: visibility 0s 0.6s, opacity 0.6s linear;
   background-color: rgba(20,20,20, 0.4);
-  top: 43px;
+  top: 37px;
   z-index: $z-high;
 
   &.overlay-open {
@@ -26,6 +26,7 @@ body.show-menu {
 
 .ma__header {
   position: relative;
+  padding-top: 37px;
 
   &__skip-nav {
     display: block;
@@ -166,6 +167,7 @@ body.show-menu {
   &__nav-container {
     background-color: $c-bg-section;
     height: 100vh;
+    top: 37px;
     overflow-y: auto;
     position: absolute;
     left: -$header-mobile-menu-width;
@@ -201,7 +203,7 @@ body.show-menu {
   }
 
   &__menu-button {
-    background-color: transparent;
+    background-color: $c-primary;
     position: absolute;
     top: 0;
     text-align: left;
