@@ -1,5 +1,6 @@
 
 const body = document.querySelector("body");
+const headerNav = document.querySelector('.ma__header__nav');
 const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
@@ -16,6 +17,16 @@ let windowWidth = window.innerWidth;
 var menuOverlay = document.createElement("div");
 menuOverlay.setAttribute("class", "menu-overlay");
 document.body.appendChild(menuOverlay);
+
+const headerWrapper = document.createElement("div");
+headerWrapper.setAttribute("class", "ma__header-wrapper");
+headerNav.prepend(headerWrapper);
+
+headerWrapper.appendChild(document.querySelector('.ma__header__utility-nav--wide'));
+headerWrapper.appendChild(document.querySelector('.ma__header__button-container'));
+
+document.getElementById('header').classList.add('optimized-menu');
+
 
 // Close and reset menu on overlay click
 menuOverlay.addEventListener("click", function () {
