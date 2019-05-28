@@ -26,6 +26,13 @@ module.exports = ({ config }) => {
   config.module.rules.push({
     test: /\.stories\.js?$/,
     loader: require.resolve('@storybook/addon-storysource/loader'),
+    options: {
+      presets: ['@babel/env', '@babel/react'],
+      plugins: ['@babel/proposal-export-default-from'],
+      prettierConfig: {
+          parser: 'babel' // needed for async/await in stories
+      }
+    },
     enforce: 'pre',
   });
   config.resolve = {

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 
-import InputNumber from './index';
+// import InputNumber from './index';
 import InputNumberOptions from './InputNumber.knobs.options';
 import InputNumberDocs from './InputNumber.md';
 
@@ -12,11 +12,11 @@ storiesOf('atoms/forms', module)
   }))
   .add(
     'InputNumber', (() => {
+      const InputNumber = lazy(() => import('./index'));
       const inputTextOptionsWithKnobs = {};
       Object.getOwnPropertyNames(InputNumberOptions).forEach((key) => {
         inputTextOptionsWithKnobs[key] = InputNumberOptions[key]();
       });
-      console.table(inputTextOptionsWithKnobs);
       // inputTextOptionsWithKnobs.hiddenLabel = boolean('InputNumber.blah2.hiddenLabel', false);
 
       // const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => {
@@ -30,9 +30,11 @@ storiesOf('atoms/forms', module)
         storyProps.style = { width: `${inputTextOptionsWithKnobs.width}px` };
       }
       return(
-        <div {...storyProps}>
-          <InputNumber {...inputTextOptionsWithKnobs} />
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <div {...storyProps}>
+            <InputNumber {...inputTextOptionsWithKnobs} />
+          </div>
+        </Suspense>
       );
     }),
     {

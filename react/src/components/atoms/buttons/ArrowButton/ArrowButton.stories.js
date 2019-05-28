@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import ArrowButton from './index';
 import ArrowButtonDocs from './ArrowButton.md';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ArrowButton', (() => {
+      const ArrowButton = lazy(() => import('./index'));
       const props = {
         direction: select('direction', ['left', 'right']),
         href: text('href', ''),
@@ -18,7 +18,9 @@ storiesOf('atoms/buttons', module)
         onClick: action('Button Clicked')
       };
       return(
-        <ArrowButton {...props} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ArrowButton {...props} />
+        </Suspense>
       );
     }),
     { info: ArrowButtonDocs }

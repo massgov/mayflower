@@ -1,14 +1,17 @@
-import React from 'react';
-
+import React, { lazy, Suspense } from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Divider from './index';
 import DividerDocs from './Divider.md';
 
 storiesOf('atoms', module)
   .add(
-    'Divider', (() => (
-      <Divider />
-    )),
+    'Divider', () => {
+      const Divider = lazy(() => import('./index'));
+      return(
+        <Suspense fallback={<div>Loading...</div>}>
+          <Divider />
+        </Suspense>
+      );
+    },
     { info: DividerDocs }
   );
