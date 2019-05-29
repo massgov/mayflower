@@ -1,32 +1,24 @@
 // normalize the css across browsers added in npm
 @import "normalize";
-
 // Sass frameworks added in npm
 @import "bourbon";
-
 // some variables adjust the settings in Neat
 @import "00-base/variables";
 @import "neat";
-
 // Bower vendors
 @import "pikaday";
-
 // Assets path variable
 @import "00-base/paths";
-
 // Base variables
 @import "00-base/breakpoints";
 @import "00-base/mixins";
 @import "00-base/z-index";
-
 // Base theme variables
 @import "00-base/colors";
 @import "00-base/fonts";
 @import "00-base/pikaday";
-
 // Print styles
 @import "08-print/print";
-
 // Atoms - reusable styles
 @import "01-atoms/global/elements";
 @import "01-atoms/arrow-button";
@@ -67,7 +59,6 @@
 @import "01-atoms/table";
 @import "01-atoms/table-responsive";
 @import "01-atoms/video";
-
 // Molecules - chunks of code that are used in Organisms/Components
 @import "02-molecules/action-event";
 @import "02-molecules/action-gallery";
@@ -127,12 +118,10 @@
 @import "02-molecules/tooltip-popup";
 @import "02-molecules/tooltip";
 @import "02-molecules/wait-time";
-
 // Organisms - components
 @import "03-organisms/about-section";
 @import "03-organisms/ajax-pattern";
 @import "03-organisms/action-card";
-@import "03-organisms/account-manager";
 @import "03-organisms/action-details";
 @import "03-organisms/action-finder";
 @import "03-organisms/banner-carousel";
@@ -148,6 +137,7 @@
 @import "03-organisms/contact-list";
 @import "03-organisms/content-eyebrow";
 @import "03-organisms/curated-person";
+@import "03-organisms/descriptive-links";
 @import "03-organisms/emergency-alerts";
 @import "03-organisms/error-page";
 @import "03-organisms/event-listing";
@@ -213,7 +203,6 @@
 @import "03-organisms/transition-page";
 @import "03-organisms/utility-nav";
 @import "03-organisms/utility-panel";
-
 // Templates - page content types
 @import "04-templates/binder-page";
 @import "04-templates/bio";
