@@ -8,8 +8,6 @@ references:
     run: {name: 'Prepare Git', command: 'git config --global user.email "ci.bot@mass.gov" && git config --global user.name "MassGov Bot"'}
   no_host_check: &no_host_check
     run: {name: 'Disable StrictHostKeyChecking', command: 'mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config'}
-  install_aws: &install_aws
-    run: {name: 'Install AWS CLI', command: 'sudo apt-get -y -qq install awscli'}
 
 react_defaults: &react_defaults
   working_directory: ~/repo
@@ -207,8 +205,7 @@ jobs:
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            sudo apt-get install python-dev python-pip
-            sudo pip install awscli
+            sudo apt-get update && sudo apt-get -y -qq install awscli
           fi
       - run: |
           # Only sync to S3 for stable tags.

@@ -1,4 +1,0 @@
-___EXAMPLE___
-Patch
-Added
-- (Patternlab) DP-1379: Set focus state for elements on Topic pages

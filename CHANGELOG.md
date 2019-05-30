@@ -13,6 +13,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.8.0 (05/29/2019)
+
+### Added
+Added
+- (Patternlab) DP-1379: Set focus state for elements on Topic pages
+- (Patternlab) [Descriptive link wrapper] DP-14006: Add new "Descriptive links wrapper" organism and associated "Descriptive link" molecule to handle when a brief description and an associated link are needed.
+
+### Changed
+- (Patternlab) DP-11737: Downgrades font size from 800 to 700 for event-teaser and publish-state
+- (Patternlab) DP-13088: Change sticky TOC to appear only if there are 3 or more sections not including related and contacts
+- (Patternlab) DP-13967: Fix the heading size for the Related Services and Additional Resources heading from h3 to h2.
+
+
+### Fixed
+
 ## 9.7.0 (05/13/2019)
 
 ### Fixed
