@@ -101,8 +101,7 @@
 
   &__container {
     @include ma-reset-list;
-    transition-delay: 2s;
-    transition: opacity 0.4s;
+    transition: opacity 0.6s;
   }
 
   &__link {
