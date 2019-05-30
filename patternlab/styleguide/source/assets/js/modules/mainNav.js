@@ -233,6 +233,7 @@ stateOrgsButton.addEventListener("click", function (e) {
       subItems.style.opacity = "0";
       subMenu.style.height = "0";
       item.classList.remove('submenu-open');
+      itemButton.setAttribute('aria-expanded', 'false');
 
       setTimeout(function timeoutFunction() {
         subMenu.classList.add('is-closed');
@@ -271,6 +272,17 @@ stateOrgsButton.addEventListener("click", function (e) {
 
           }, 500);
           break;
+      }
+
+      if (nextSib === null && e.key == 'Tab') {
+        subItems.style.opacity = "0";
+        subMenu.style.height = "0";
+        item.classList.remove('submenu-open');
+
+        setTimeout(function timeoutFunction() {
+          subMenu.classList.add('is-closed');
+
+        }, 500);
       }
     });
   });

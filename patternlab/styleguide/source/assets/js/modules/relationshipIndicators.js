@@ -21,6 +21,7 @@ let wrappers = document.querySelectorAll('.ma__relationship-indicators--terms');
       if (term.offsetParent === null) {
         term.classList.add('open');
         term.style.display = 'block';
+        terms.querySelector('.wrapped-link a').focus();
         return;
       }
 
@@ -45,6 +46,7 @@ let wrappers = document.querySelectorAll('.ma__relationship-indicators--terms');
 
     this.classList.toggle('is-open');
     showHideTags();
+
   })
 
 });
