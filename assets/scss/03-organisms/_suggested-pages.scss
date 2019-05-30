@@ -1,11 +1,12 @@
 .ma__suggested-pages {
 
-  text-align: center;
-
   &__container {
     @include ma-container;
     border-bottom: 2px solid;
     padding-bottom: 50px;
+    @media ($bp-x-large-min){
+      width: calc(100% - 210px);
+    }
   }
 
   &__title {
@@ -13,11 +14,16 @@
     margin-bottom: 45px;
     padding-top: 60px;
     padding-bottom: 16px;
-    text-align: center;
-
+    display: inline-block;
     &:after {
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0.075em;
+    }
+  }
+
+  h3.ma__comp-heading {
+    margin-bottom: 0;
+    &:after {
+      content: none;
     }
   }
 
@@ -25,7 +31,6 @@
     @include clearfix;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
   }
 
   &__item {
@@ -73,10 +78,13 @@
     }
 
     @media ($bp-large-min) {
-      padding: 0 45px;
       width: 25%;
-      & + & {
-        border-left: 1px solid;
+      padding: 0 70px 0 0;
+      margin-right: 70px;
+      border-right: 1px solid $c-bd-divider;
+      &:nth-last-child(1) {
+        margin-right: 0;
+        border-right: none;
       }
     }
   }
