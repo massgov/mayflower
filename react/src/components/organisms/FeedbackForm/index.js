@@ -29,8 +29,6 @@ export default class FeedbackForm extends Component {
     yesFeedbackId: 52940022,
     noFeedbackId: 47054414,
     refererId: 47056299,
-    yesDisclaimer: this.defaultDisclaimer,
-    noDisclaimer: this.defaultDisclaimer
   };
   static propTypes = {
     /** A ref object as created by React.createRef(). Will be applied to the form element. */
@@ -309,7 +307,7 @@ export default class FeedbackForm extends Component {
                 />
               </CharacterCounter>
               <input type="hidden" id={yesId} name={yesId} value="" />
-              {noDisclaimer && is.fn(noDisclaimer) && noDisclaimer()}
+              {(is.fn(noDisclaimer)) ? noDisclaimer() : this.defaultDisclaimer()}
             </fieldset>
           )}
           {(feedbackChoice === true) && (
@@ -327,7 +325,7 @@ export default class FeedbackForm extends Component {
                 />
               </CharacterCounter>
               <input type="hidden" id={noId} name={noId} value="" />
-              {yesDisclaimer && is.fn(yesDisclaimer) && yesDisclaimer()}
+              {is.fn(yesDisclaimer) ? yesDisclaimer() : this.defaultDisclaimer()}
             </fieldset>
           )}
           <fieldset>
