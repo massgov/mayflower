@@ -27,7 +27,8 @@
     "test:watch": "nwb test-react --server",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "react-devtools": "react-devtools"
   },
   "pre-push": [
     "lint"
@@ -88,6 +89,7 @@
     "pre-push": "^0.1.1",
     "prop-types": "^15.7.1",
     "react": "^16.8.1",
+    "react-devtools": "^3.6.1",
     "react-dom": "^16.8.1"
   },
   "homepage": "",
