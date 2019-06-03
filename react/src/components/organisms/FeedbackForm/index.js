@@ -28,7 +28,7 @@ export default class FeedbackForm extends Component {
     radioId: 47054416,
     yesFeedbackId: 52940022,
     noFeedbackId: 47054414,
-    refererId: 47056299,
+    refererId: 47056299
   };
   static propTypes = {
     /** A ref object as created by React.createRef(). Will be applied to the form element. */
@@ -181,7 +181,9 @@ export default class FeedbackForm extends Component {
     const {
       yesFeedbackId, yesDisclaimer, noFeedbackId, noDisclaimer, refererId, formId, formRef, radioId, nodeId, successMessage
     } = this.props;
-    const { hasError, success, feedbackChoice, formSubmitted, noText, yesText, errorMessage } = this.state;
+    const {
+      hasError, success, feedbackChoice, formSubmitted, noText, yesText, errorMessage
+    } = this.state;
     const yesId = this.prefixField(yesFeedbackId);
     const noId = this.prefixField(noFeedbackId);
     const formProps = {
@@ -209,6 +211,10 @@ export default class FeedbackForm extends Component {
     });
     const noFieldSetClassNames = classNames({
       'radio-no': true,
+      error: (hasError.includes(noFeedbackId))
+    });
+    const noTextAreaClassNames = classNames({
+      'fsField required': true,
       error: (hasError.includes(noFeedbackId))
     });
     const radiosClassNames = (hasError.includes(radioId)) ? 'error' : null;
@@ -293,19 +299,21 @@ export default class FeedbackForm extends Component {
           (
             <fieldset className={noFieldSetClassNames}>
               <label htmlFor={noId}>If &#34;No,&#34; please tell us what you were looking for:<span> * <span className="visually-hidden">required</span></span></label>
-              <CharacterCounter value={noText} {...characterCounterProps}>
-                <textarea
-                  id={noId}
-                  ref={this.noTextArea}
-                  onChange={this.handleChange}
-                  className="fsField required"
-                  name={noId}
-                  aria-required="true"
-                  maxLength="10000"
-                  disabled={feedbackChoice === false ? null : 'disabled'}
-                  aria-describedby="feedback-note"
-                />
-              </CharacterCounter>
+              <div className="ma__textarea__wrapper">
+                <CharacterCounter value={noText} {...characterCounterProps}>
+                  <textarea
+                    id={noId}
+                    ref={this.noTextArea}
+                    onChange={this.handleChange}
+                    className={noTextAreaClassNames}
+                    name={noId}
+                    aria-required="true"
+                    maxLength="10000"
+                    disabled={feedbackChoice === false ? null : 'disabled'}
+                    aria-describedby="feedback-note"
+                  />
+                </CharacterCounter>
+              </div>
               <input type="hidden" id={yesId} name={yesId} value="" />
               {(is.fn(noDisclaimer)) ? noDisclaimer() : this.defaultDisclaimer()}
             </fieldset>
@@ -313,22 +321,24 @@ export default class FeedbackForm extends Component {
           {(feedbackChoice === true) && (
             <fieldset className={yesFieldSetClassNames}>
               <label htmlFor={yesId}>Is there anything else you would like to tell us?</label>
-              <CharacterCounter value={yesText} {...characterCounterProps}>
-                <textarea
-                  ref={this.yesTextArea}
-                  onChange={this.handleChange}
-                  id={yesId}
-                  name={yesId}
-                  maxLength="10000"
-                  disabled={feedbackChoice === true ? null : 'disabled'}
-                  aria-describedby="feedback-note2"
-                />
-              </CharacterCounter>
+              <div className="ma__textarea__wrapper">
+                <CharacterCounter value={yesText} {...characterCounterProps}>
+                  <textarea
+                    ref={this.yesTextArea}
+                    onChange={this.handleChange}
+                    id={yesId}
+                    name={yesId}
+                    maxLength="10000"
+                    disabled={feedbackChoice === true ? null : 'disabled'}
+                    aria-describedby="feedback-note2"
+                  />
+                </CharacterCounter>
+              </div>
               <input type="hidden" id={noId} name={noId} value="" />
               {is.fn(yesDisclaimer) ? yesDisclaimer() : this.defaultDisclaimer()}
             </fieldset>
           )}
-          <fieldset>
+          <fieldset className="ma_feedback-fieldset ma__mass-feedback-form__form--submit-wrapper">
             <div className={messsageClassNames} style={messageStyle}>
               {success === false && errorMessage}
             </div>
