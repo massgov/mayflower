@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import is from 'is';
 import './style.css';
 
-const Pagination = (pagination) => {
+const Pagination = (props) => {
+  const { prev, next, pages } = props;
+
   const handleClick = (event, handleAnchorClick) => {
     event.preventDefault();
     if (is.fn(handleClick)) {
@@ -21,22 +23,22 @@ const Pagination = (pagination) => {
   return(
     <div className="ma__pagination js-pagination" role="navigation" aria-label="Pagination Navigation">
       <nav className="ma__pagination__container">
-        {!pagination.prev.hide && (
+        {!prev.hide && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a
-            className={`ma__pagination__prev ${pagination.prev.disabled && ' disabled'}`}
+            className={`ma__pagination__prev ${prev.disabled && ' disabled'}`}
             role="button"
             href="#"
-            onClick={(e) => handleClick(e, pagination.prev.onClick)}
-            onKeyDown={(e) => handleKeyDown(e, pagination.prev.onClick)}
-            aria-label={pagination.prev.ariaLabel}
-            aria-disabled={pagination.prev.disabled}
-            tabIndex={pagination.prev.disabled ? -1 : 0}
+            onClick={(e) => handleClick(e, prev.onClick)}
+            onKeyDown={(e) => handleKeyDown(e, prev.onClick)}
+            aria-label={prev.ariaLabel}
+            aria-disabled={prev.disabled}
+            tabIndex={prev.disabled ? -1 : 0}
           >
-            {pagination.prev.text}
+            {prev.text}
           </a>
         )}
-        {pagination.pages.map((page, pageIndex) => {
+        {pages.map((page, pageIndex) => {
           const key = `pagination.item.${pageIndex}`;
           return page.text === 'spacer' ? (
             <span key={key} className="ma__pagination__spacer">&hellip;</span>
@@ -57,19 +59,19 @@ const Pagination = (pagination) => {
             </a>
             );
         })}
-        {!pagination.next.hide && (
+        {!next.hide && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid
           <a
-            className={`ma__pagination__next ${pagination.next.disabled && ' disabled'}`}
+            className={`ma__pagination__next ${next.disabled && ' disabled'}`}
             role="button"
             href="#"
-            onClick={(e) => handleClick(e, pagination.next.onClick)}
-            onKeyDown={(e) => handleKeyDown(e, pagination.next.onClick)}
-            aria-label={`Go to ${pagination.next.text} page`}
-            aria-disabled={pagination.next.disabled}
-            tabIndex={pagination.next.disabled ? -1 : 0}
+            onClick={(e) => handleClick(e, next.onClick)}
+            onKeyDown={(e) => handleKeyDown(e, next.onClick)}
+            aria-label={`Go to ${next.text} page`}
+            aria-disabled={next.disabled}
+            tabIndex={next.disabled ? -1 : 0}
           >
-            {pagination.next.text}
+            {next.text}
           </a>
         )}
       </nav>
