@@ -28,12 +28,9 @@ class TabContainer extends React.Component {
         state.activeContent = content;
       }
       this.setState(state);
-      // if tabIndex is passed instead of tabId, find tabId using tabIndex
-      const tabRef = tabRefs[tabId] || tabRefs[tabIds.get(tabId)];
-      tabRef.current.focus();
-
+      tabRefs[tabId].current.focus();
       if (is.fn(this.props.onTabChange)) {
-        this.props.onTabChange(tabRef, tabId, content);
+        this.props.onTabChange(tabRefs[tabId], tabId, content);
       }
     };
     this.focusOnTabBody = () => {
