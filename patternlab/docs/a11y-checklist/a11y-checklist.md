@@ -1,7 +1,7 @@
 # [DRAFT] a11y Checklist
 
 
-##  Markup Check
+##  Markup Checklist
 
 In the component you're working on, you have:
 
