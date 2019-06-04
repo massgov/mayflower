@@ -2,9 +2,9 @@
   "illustratedHeader": {
     "bgInfo": "Forest of the Berkshires",
     "bgImage": "../../assets/images/placeholder/600x450.png",
-    "category": "Law Library",
     "inverted": true,
     "pageHeader": {
+      "category": "Law Library",
       "title": "Rules of Criminal Procedure",
       "subTitle": "",
       "optionalContents": [{

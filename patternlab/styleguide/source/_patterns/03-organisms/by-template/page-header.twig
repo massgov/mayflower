@@ -22,11 +22,6 @@
         {% include "@atoms/11-text/publish-state.twig" %}
       </div>
     {% endif %}
-    {% if pageHeader.category %}
-      <div class="ma__page-header__category">
-        {{ pageHeader.category }}
-      </div>
-    {% endif %}
 
     {% if pageHeader.subCategory %}
       <div class="ma__page-header__subCategory">
@@ -36,7 +31,12 @@
       </div>
     {% endif %}
 
-    <h1 class="ma__page-header__title">{% if prefix %}<span class="visually-hidden">{{ prefix }}&nbsp;</span>{% endif %}{{pageHeader.title}}</h1>
+    <h1 class="ma__page-header__title">
+      {% if prefix %}
+        <div class="ma__page-header__category">{{ prefix }}</div>
+      {% endif %}
+      {{pageHeader.title}}
+    </h1>
     {% if pageHeader.subTitle %}
       <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
     {% endif %}

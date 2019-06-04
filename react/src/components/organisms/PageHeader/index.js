@@ -19,15 +19,11 @@ const PageHeader = (pageHeader) => {
             <PublishState {...publishState} />
           </div>
         )}
-        { category && (
-          <div className="ma__page-header__category">
-            { category }
-          </div>
-        )}
         <h1 className="ma__page-header__title">
           { category && (
-          <span className="visually-hidden">{ category }&nbsp;</span>
-        )}{title}
+          <div className="ma__page-header__category">{ category }</div>
+          )}
+          {title}
         </h1>
         { subTitle && (
           <div className="ma__page-header__sub-title">{subTitle}</div>

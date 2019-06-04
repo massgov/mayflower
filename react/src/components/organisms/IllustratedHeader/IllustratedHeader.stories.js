@@ -14,12 +14,12 @@ storiesOf('organisms', module)
       const props = {
         bgInfo: text('bgInfo', defaultProps.bgInfo),
         bgImage: text('bgImage', defaultProps.bgImage),
-        category: text('category', defaultProps.category),
         inverted: boolean('inverted', defaultProps.inverted),
-        publishState: {
-          text: text('publishState', defaultProps.publishState.text)
-        },
         pageHeader: {
+          publishState: {
+            text: text('IllustratedHeader pageHeader: publishState', defaultProps.pageHeader.publishState.text, 'PageHeader')
+          },
+          category: text('IllustratedHeader pageHeader: category', defaultProps.pageHeader.category, 'PageHeader'),
           title: text('IllustratedHeader pageHeader: title', defaultProps.pageHeader.title, 'PageHeader'),
           subTitle: text('IllustratedHeader pageHeader: subtitle', defaultProps.pageHeader.subTitle, 'PageHeader'),
           optionalContents: [{

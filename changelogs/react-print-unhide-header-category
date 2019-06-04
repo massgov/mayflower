@@ -1,0 +1,6 @@
+Minor
+Fixed
+- (Patternlab, React) [IllustratedHeader, PageHeader] Remove duplicated markup for category text in PageHeader and IllustratedHeader. #560
+
+Removed
+- (Patternlab, React) [Print styles] Allow aria-hidden tags to display for print. #560

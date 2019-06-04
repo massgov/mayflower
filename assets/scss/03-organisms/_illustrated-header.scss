@@ -76,14 +76,6 @@ $bp-illustrated-header-image-width: 360px;
 
   }
 
-  &__category {
-    font-size: 1.375rem;
-    font-weight: 700;
-    color: $c-font-detail;
-    letter-spacing: $letter-spacing-large;
-    text-transform: uppercase;
-  }
-
   .ma__page-header {
     padding: 0;
 
@@ -138,9 +130,6 @@ $bp-illustrated-header-image-width: 360px;
     }
   }
 
-  &__category {
-    font-weight: 700;
-  }
 
   .ma__page-header {
 
@@ -150,9 +139,9 @@ $bp-illustrated-header-image-width: 360px;
 }
 
 .ma__illustrated-header--inverted {
-  &, 
+  &,
   .ma__page-header__title,
-  .ma__illustrated-header__category {
+  .ma__page-header__category {
     color: $c-white;
   }
   &,
