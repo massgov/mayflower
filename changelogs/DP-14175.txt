@@ -1,3 +1,0 @@
-Minor
-Changed
-- (Patternlab) [Stacked Row Section] DP-14175: Updated section twig container and header classes to be less specific.

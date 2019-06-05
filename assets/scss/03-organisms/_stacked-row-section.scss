@@ -22,19 +22,16 @@
     @include ma-container('restricted');
   }
 
-  & ~ & {
-    border-color: $c-bd-divider;
-    &__container:before {
-      border-color: $c-bd-divider;
-      display: block;
-      content: "";
-      padding-top: 45px;
 
-      @media ($bp-large-min) {
-        border-top-width: 1px;
-        border-top-style: solid;
-        padding-top: 90px;
-      }
+  & ~ & &__container:before {
+    display: block;
+    content: "";
+    padding-top: 45px;
+
+    @media ($bp-large-min) {
+      border-top-width: 1px;
+      border-top-style: solid;
+      padding-top: 90px;
     }
   }
 
@@ -56,6 +53,18 @@
 
     .page-content > * {
       @include ma-component-spacing;
+    }
+  }
+}
+
+//theme
+.ma__stacked-row-section {
+
+  & ~ & {
+    border-color: $c-bd-divider;
+
+    &__container:before {
+      border-color: $c-bd-divider;
     }
   }
 }
