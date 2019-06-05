@@ -30,7 +30,8 @@ storiesOf('atoms/forms', module)
           findAllMatches: true,
           includeMatches: true,
           threshold: 0.3,
-          minMatchCharLength: 1
+          minMatchCharLength: 1,
+          maxPatternLength: 300
         }),
         onChange: action('fuzzy input onChange'),
         onSuggestionClick: action('fuzzy suggestion onClick'),
