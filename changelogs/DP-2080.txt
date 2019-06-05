@@ -1,4 +1,0 @@
-___EXAMPLE___
-Minor
-Changed
-- (Patternlab) [Breakpoints] DP-2080: Investigate Action Nav Details Div overlapping body content when OS settings are zoomed
