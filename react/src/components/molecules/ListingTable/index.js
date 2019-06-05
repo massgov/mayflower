@@ -93,7 +93,7 @@ ListingTable.propTypes = {
     /** Less Label for when items need hiding. Defaults to "Less" */
     lessLabel: PropTypes.string,
     /** Items in the table. */
-    items: PropTypes.arrayOf(PropTypes.oneOf(PropTypes.string, PropTypes.object))
+    items: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object]))
   }))
 };
 

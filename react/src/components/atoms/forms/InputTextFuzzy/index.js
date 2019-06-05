@@ -94,31 +94,38 @@ class InputTextFuzzy extends React.Component {
   shouldRenderSuggestions = (value) => {
     return(this.props.renderDefaultSuggestion === true) ? (value.trim().length >= 0) : (value.trim().length > 0);
   }
-  renderItem = (suggestion) => (
-    <span className="ma__suggestion-content">
-      <span className="ma__suggestion-content-name">
-        {
-          suggestion.matches.map((match) => {
-            if (this.props.keys.indexOf(match.key) > -1) {
-              // Add one to each range to get a proper highlight match.
-              const ranges = match.indices.map((range) => [
-                  range[0],
-                  range[1] + 1
-                ]);
-              const parts = parse(match.value, ranges);
-              return parts.filter((part) => part.text.length > 0).map((part, index) => {
-                const className = part.highlight ? 'highlight' : null;
-                const key = `${match.key}.suggestion_${index}`;
-                return(
-                  <span className={className} key={key}>{part.text}</span>
-                );
-              });
-            }
-          })
+  renderItem = (suggestion) => {
+    const { item, matches } = suggestion;
+    let renderItems = [];
+    if (is.empty(this.state.value)) {
+      renderItems = this.props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
+    } else {
+      matches.forEach((match) => {
+        if (this.props.keys.indexOf(match.key) > -1) {
+          // Add one to each range to get a proper highlight match.
+          const ranges = match.indices.map((range) => {
+            const [start, end] = range;
+            return[
+              start, Number(end) + 1
+            ];
+          });
+          const parts = parse(match.value, ranges);
+          renderItems = parts.filter((part) => part.text.length > 0).map((part, index) => {
+            const className = part.highlight === true ? 'highlight' : null;
+            const key = `${match.key}.suggestion_${index}`;
+            return(<span className={className} key={key}>{part.text}</span>);
+          });
         }
+      });
+    }
+    return(
+      <span className="ma__suggestion-content">
+        <span className="ma__suggestion-content-name">
+          {renderItems}
+        </span>
       </span>
-    </span>
-  );
+    );
+  }
 
   renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
 
@@ -208,7 +215,9 @@ InputTextFuzzy.defaultProps = {
     /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches. */
     threshold: 0.3,
     /** Prevents matches against empty strings. */
-    minMatchCharLength: 1
+    minMatchCharLength: 1,
+    /** Allows more characters for long queries. */
+    maxPatternLength: 300
   },
   autoFocusInput: false,
   disabled: false,

@@ -122,7 +122,7 @@
         "info": ""
       },
       {
-        "href": "manage-account",
+        "href": "manage-your-account",
         "text": "Manage your account",
         "info": ""
       },
@@ -503,50 +503,80 @@
         }
       ]
     },
-    "accountManagementSections": [
-      {
-        "richText": {
-          "rteElements": [
-            {
-              "path": "@atoms/11-text/paragraph.twig",
-              "data": {
-                "paragraph": {
-                  "text": "This is a link for users who have already created an account and would like to check status, download paperwork, etc"
-                }
-              }
-            }
-          ]
-        },
-        "link": {
-          "href": "#",
-          "text": "Log in to your UI Online account",
-          "context": "",
-          "button": false,
-          "info": ""
-        }
+    "descriptiveLinks": {
+      "compHeading": {
+        "title": "Manage Your Account",
+        "sub": "true",
+        "color": "",
+        "id": "manage-your-account",
+        "centered": ""
       },
-      {
-        "richText": {
-          "rteElements": [
-            {
-              "path": "@atoms/11-text/paragraph.twig",
-              "data": {
-                "paragraph": {
-                  "text": "Optional second section for account management. Limit to 3 sections."
+      "links": [
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
                 }
               }
-            }
-          ]
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Check your status",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
         },
-        "link": {
-          "href": "#",
-          "text": "Log in to another kind of account",
-          "context": "",
-          "button": false,
-          "info": ""
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Log in to your account",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
+        },
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Lorem ipsum dolor sit amet.",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
         }
-      }
-    ],
+      ]
+    },
     "formDownloads": {
       "compHeading": {
         "title": "Downloads",

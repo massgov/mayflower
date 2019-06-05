@@ -30,7 +30,8 @@ storiesOf('atoms/forms', module)
           findAllMatches: true,
           includeMatches: true,
           threshold: 0.3,
-          minMatchCharLength: 1
+          minMatchCharLength: 1,
+          maxPatternLength: 300
         }),
         onKeyDown: action('onKeyDown event'),
         onKeyUp: action('onKeyUp event'),
