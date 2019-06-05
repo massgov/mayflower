@@ -10,15 +10,16 @@ import buttonWithIconOptions from './ButtonWithIcon.knob.options';
 
 import Icon from '../../icons/Icon';
 
-const icons = {
-  chevron: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
-  search: <Icon name="search" svgHeight={20} svgWidth={20} />
-};
+
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ButtonWithIcon', (() => {
+      const icons = {
+        chevron: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
+        search: <Icon name="search" svgHeight={20} svgWidth={20} />
+      };
       const props = {
         onClick: action('ButtonWithIcon clicked'),
         text: text('text', 'Button With Icon'),
@@ -44,6 +45,10 @@ storiesOf('atoms/buttons', module)
   )
   .add(
     'ButtonSearch', (() => {
+      const icons = {
+        chevron: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
+        search: <Icon name="search" svgHeight={20} svgWidth={20} />
+      };
       const props = {
         onClick: action('ButtonWithIcon clicked'),
         usage: select('usage', buttonWithIconOptions.usage, '')
