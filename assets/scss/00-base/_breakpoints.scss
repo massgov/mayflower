@@ -8,22 +8,19 @@ $bp-l-ex: 1050px;
 $bp-xl: 1200px;
 
 
-// use of rem values for better responsive layouts 
-// and better accessibility at zoom levels
-
 // Global breakpoint media variables.
-$bp-x-small-min: "min-width: 30.06rem"; // 481px
-$bp-x-small-max: "max-width: 30rem"; // 480px
-$bp-small-min: "min-width: 38.81rem"; // 621px
-$bp-small-max: "max-width: 38.75rem"; // 620px
-$bp-medium-min: "min-width: 48.81rem"; // 781px
-$bp-medium-max: "max-width: 48.75rem"; // 780px
-$bp-large-min: "min-width: 56.94rem"; // 911px
-$bp-large-max: "max-width: 56.88rem"; // 910px
-$bp-large-extended: "max-width: 65.69rem"; // 1051px
-$bp-large-extended-min: "min-width: $bp-l-ex"; // 1050px
-$bp-x-large-min: "min-width: 75.06rem"; // 1201px
-$bp-x-large-max: "max-width: 75rem"; // 1200px
+$bp-x-small-min: "min-width: " + ($bp-xs + 1);
+$bp-x-small-max: "max-width:" + $bp-xs;
+$bp-small-min: "min-width: " + ($bp-s + 1);
+$bp-small-max: "max-width:" + $bp-s;
+$bp-medium-min: "min-width: " + ($bp-m + 1);
+$bp-medium-max: "max-width:" + $bp-m;
+$bp-large-min: "min-width: " + ($bp-l + 1);
+$bp-large-max: "max-width:" + $bp-l;
+$bp-large-extended: "max-width:" + $bp-l-ex;
+$bp-large-extended-min: "min-width: " + ($bp-l-ex + 1);
+$bp-x-large-min: "min-width: " + ($bp-xl + 1);
+$bp-x-large-max: "max-width:" + $bp-xl;
 
 $bp-page-width-min: "min-width:" + ($max-width + 1);
 $bp-page-width-max: "max-width:" + $max-width;
