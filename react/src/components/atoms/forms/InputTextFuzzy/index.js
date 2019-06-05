@@ -16,9 +16,17 @@ class InputTextFuzzy extends React.Component {
       suggestions: [],
       highlightedItemIndex: null
     };
-    const fuseOptions = this.props.fuseOptions;
-    fuseOptions.keys = this.props.keys;
-    this.fuse = new Fuse(this.props.options, fuseOptions);
+    const { fuseOptions, keys, options } = this.props;
+    fuseOptions.keys = [...keys];
+    const defaultOptions = JSON.parse(JSON.stringify(options));
+    let allResultsOptions = JSON.parse(JSON.stringify(options));
+    // Default Fuse object.
+    this.fuse = new Fuse(defaultOptions, fuseOptions);
+    allResultsOptions = allResultsOptions.map((option, optionIndex) => ({ ...JSON.parse(JSON.stringify(option)), optionIndex, inputTextFuzzyAllResults: '' }));
+    const allResultsFuseOptions = { ...fuseOptions, threshold: 1.0 };
+    allResultsFuseOptions.keys = [...keys, 'inputTextFuzzyAllResults'];
+    // A fuse object that always returns all results.
+    this.allResultsFuse = new Fuse(allResultsOptions, allResultsFuseOptions);
   }
   clearSuggestions = (event = null) => {
     this.setState({
@@ -33,85 +41,150 @@ class InputTextFuzzy extends React.Component {
         });
       }
     });
-  }
-  optionsToSuggestions = (options) => {
-    const suggestions = options.map((item) => ({
-      item: {
-        text: item.text,
-        value: item.value
-      },
-      matches: [{
-        indices: [],
-        value: item.text,
-        key: 'text',
-        arrayIndex: 0
-      }]
-    }));
-    return suggestions;
-  }
+  };
   handleChange = (e) => {
     e.persist();
     const { value } = e.target;
-    if (is.empty(value)) {
-      const suggestions = this.optionsToSuggestions(this.props.options);
-      if (this.props.renderDefaultSuggestion) {
-        this.setState({
-          suggestions,
-          value: ''
-        }, () => {
-          if (is.fn(this.props.onChange)) {
-            this.props.onChange({ event: e, value, suggestions });
-          }
-        });
-      } else if (is.fn(this.props.onChange)) {
-        this.props.onChange({ event: e, value, suggestions });
-      }
-    } else {
-      const suggestions = this.fuse.search(value);
-      this.setState({
-        value,
-        suggestions
-      }, () => {
-        if (is.fn(this.props.onChange)) {
-          this.props.onChange({ event: e, value, suggestions });
+    const suggestions = (is.empty(value)) ? this.allResultsFuse.search(value) : this.fuse.search(value);
+    const newState = {
+      value, suggestions
+    };
+    if (suggestions && suggestions.matches) {
+      suggestions.matches.forEach((match) => {
+        if (this.props.keys.indexOf(match.key) > -1 && match.value === value) {
+          newState.highlightedItemIndex = match.arrayIndex;
         }
       });
     }
+    this.setState(newState, () => {
+      if (is.fn(this.props.onChange)) {
+        this.props.onChange({ event: e, value, suggestions });
+      }
+    });
   };
   handleFocus = () => {
-    if (this.props.renderDefaultSuggestion) {
-      const suggestions = this.optionsToSuggestions(this.props.options);
-      this.setState({
-        suggestions
+    const { value } = this.state;
+    const suggestions = (is.empty(value)) ? this.allResultsFuse.search(value) : this.fuse.search(value);
+    this.setState({
+      suggestions
+    });
+  };
+  inputPropsOnBlur = () => this.clearSuggestions();
+  inputPropsOnKeyDown = (event, { newHighlightedItemIndex }) => {
+    event.persist();
+    switch (event.key) {
+      case 'ArrowDown':
+      case 'ArrowUp':
+        event.preventDefault();
+        this.setState((currentState) => {
+          if (currentState.suggestions.length > 0) {
+            return{
+              highlightedItemIndex: !(newHighlightedItemIndex) ? 0 : newHighlightedItemIndex
+            };
+          }
+        });
+        break;
+      case 'Enter':
+        // If there are suggestions and the user chose one.
+        if (this.state.suggestions.length > 0 && this.state.highlightedItemIndex !== null && this.state.highlightedItemIndex > -1) {
+          const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
+          this.setState({
+            value: suggestion.item.text,
+            suggestions: [],
+            highlightedItemIndex: null
+          }, () => {
+            if (is.fn(this.props.onSuggestionClick)) {
+              // Suggestion is an object that can contain info on score, matches, etc.
+              this.props.onSuggestionClick(event, { suggestion });
+            }
+          });
+        } else {
+          // Try to see if the typed in value is in the options array.
+          const suggestion = this.props.options.find((option) => {
+            let match = false;
+            this.props.keys.forEach((key) => {
+              if (option[key] && option[key] === this.state.value) {
+                match = true;
+              }
+            });
+            return match;
+          });
+          if (suggestion) {
+            this.clearSuggestions(event);
+          }
+        }
+        break;
+      case 'Escape':
+        this.setState({
+          suggestions: [],
+          highlightedItemIndex: null
+        });
+        break;
+      default:
+    }
+  };
+  itemProps = (props) => {
+    const { itemIndex } = props;
+    const suggestion = this.state.suggestions[itemIndex];
+    return{
+      'data-item-index': itemIndex,
+      onMouseDown: (event) => {
+        event.persist();
+        this.setState({
+          value: suggestion.item.text,
+          suggestions: []
+        }, () => {
+          if (is.fn(this.props.onSuggestionClick)) {
+            // Suggestion is an object that can contain info on score, matches, etc.
+            this.props.onSuggestionClick(event, { suggestion });
+          }
+        });
+      },
+      onMouseEnter: () => {
+        this.setState({
+          highlightedItemIndex: itemIndex
+        });
+      },
+      onMouseLeave: () => {
+        this.setState({
+          highlightedItemIndex: null
+        });
+      }
+    };
+  };
+  renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
+  renderItem = (suggestion) => {
+    const { item, matches } = suggestion;
+    let renderItems = [];
+    if (is.empty(this.state.value)) {
+      renderItems = this.props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
+    } else {
+      matches.forEach((match) => {
+        if (this.props.keys.indexOf(match.key) > -1) {
+          // Add one to each range to get a proper highlight match.
+          const ranges = match.indices.map((range) => {
+            const [start, end] = range;
+            return[
+              start, Number(end) + 1
+            ];
+          });
+          const parts = parse(match.value, ranges);
+          renderItems = parts.filter((part) => part.text.length > 0).map((part, index) => {
+            const className = part.highlight === true ? 'highlight' : null;
+            const key = `${match.key}.suggestion_${index}`;
+            return(<span className={className} key={key}>{part.text}</span>);
+          });
+        }
       });
     }
-  }
-  renderItem = (suggestion) => (
-    <span className="ma__suggestion-content">
-      <span className="ma__suggestion-content-name">
-        {
-              suggestion.matches.map((match) => {
-                if (this.props.keys.indexOf(match.key) > -1) {
-                  // Add one to each range to get a proper highlight match.
-                  const ranges = match.indices.map((range) => [
-                      range[0],
-                      range[1] + 1
-                    ]);
-                  const parts = parse(match.value, ranges);
-                  return parts.filter((part) => part.text.length > 0).map((part, index) => {
-                    const className = part.highlight ? 'highlight' : null;
-                    const key = `${match.key}.suggestion_${index}`;
-                    return(
-                      <span className={className} key={key}>{part.text}</span>
-                    );
-                  });
-                }
-              })
-            }
+    return(
+      <span className="ma__suggestion-content">
+        <span className="ma__suggestion-content-name">
+          {renderItems}
+        </span>
       </span>
-    </span>
-  );
-  renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
+    );
+  }
   render() {
     const autoProps = {
       items: this.state.suggestions,
@@ -126,62 +199,8 @@ class InputTextFuzzy extends React.Component {
         disabled: this.props.disabled,
         id: this.props.inputId,
         onFocus: this.handleFocus,
-        onBlur: () => {
-          this.clearSuggestions();
-        },
-        onKeyDown: (event, { newHighlightedItemIndex }) => {
-          event.persist();
-          switch (event.key) {
-            case 'ArrowDown':
-            case 'ArrowUp':
-              event.preventDefault();
-              this.setState((currentState) => {
-                if (currentState.suggestions.length > 0) {
-                  return{
-                    highlightedItemIndex: !(newHighlightedItemIndex) ? 0 : newHighlightedItemIndex
-                  };
-                }
-              });
-              break;
-            case 'Enter':
-              // If there are suggestions and the user chose one.
-              if (this.state.suggestions.length > 0 && this.state.highlightedItemIndex !== null && this.state.highlightedItemIndex > -1) {
-                const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
-                this.setState({
-                  value: suggestion.item.text,
-                  suggestions: [],
-                  highlightedItemIndex: null
-                }, () => {
-                  if (is.fn(this.props.onSuggestionClick)) {
-                    // Suggestion is an object that can contain info on score, matches, etc.
-                    this.props.onSuggestionClick(event, { suggestion });
-                  }
-                });
-              } else {
-                // Try to see if the typed in value is in the options array.
-                const suggestion = this.props.options.find((option) => {
-                  let match = false;
-                  this.props.keys.forEach((key) => {
-                    if (option[key] && option[key] === this.state.value) {
-                      match = true;
-                    }
-                  });
-                  return match;
-                });
-                if (suggestion) {
-                  this.clearSuggestions(event);
-                }
-              }
-              break;
-            case 'Escape':
-              this.setState({
-                suggestions: [],
-                highlightedItemIndex: null
-              });
-              break;
-            default:
-          }
-        }
+        onBlur: this.inputPropsOnBlur,
+        onKeyDown: this.inputPropsOnKeyDown
       },
       id: this.props.id
     };
@@ -189,36 +208,7 @@ class InputTextFuzzy extends React.Component {
       autoProps.highlightedItemIndex = this.state.highlightedItemIndex;
     }
 
-    autoProps.itemProps = (props) => {
-      const { itemIndex } = props;
-      const suggestion = this.state.suggestions[itemIndex];
-      return{
-        'data-item-index': itemIndex,
-        onMouseDown: (event) => {
-          event.persist();
-          this.setState({
-            value: suggestion.item.text,
-            suggestions: [],
-            highlightedItemIndex: null
-          }, () => {
-            if (is.fn(this.props.onSuggestionClick)) {
-              // Suggestion is an object that can contain info on score, matches, etc.
-              this.props.onSuggestionClick(event, { suggestion });
-            }
-          });
-        },
-        onMouseEnter: () => {
-          this.setState({
-            highlightedItemIndex: itemIndex
-          });
-        },
-        onMouseLeave: () => {
-          this.setState({
-            highlightedItemIndex: null
-          });
-        }
-      };
-    };
+    autoProps.itemProps = this.itemProps;
     const inputTextTypeAheadClasses = classNames({
       'ma__input-typeahead': true,
       'ma__input-typeahead--disabled': this.props.disabled,
@@ -275,7 +265,9 @@ InputTextFuzzy.defaultProps = {
     /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches. */
     threshold: 0.3,
     /** Prevents matches against empty strings. */
-    minMatchCharLength: 1
+    minMatchCharLength: 1,
+    /** Allows more characters for long queries. */
+    maxPatternLength: 300
   },
   disabled: false,
   boxed: false,

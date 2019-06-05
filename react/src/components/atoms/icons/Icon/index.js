@@ -1,61 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import './style.css';
 
-// Loads all SVGs within the assets directory
-const req = require.context('!svg-sprite-loader!./assets', true, /.svg$/);
-function loadAssets(asset) {
-  let file;
-  req
-    .keys()
-    .filter((filename) => filename.indexOf(asset) > -1)
-    .forEach((filename) => {
-      file = req(filename);
-    });
-  return file;
-}
-
-const Icon = (props) => {
-  const {
-    svgWidth,
-    svgHeight,
-    title,
-    name,
-    classes,
-    ariaHidden,
-    ...rest
-  } = props;
-  const SVG = loadAssets(name);
-  if (SVG) {
-    const attr = {
-      width: svgWidth || null,
-      height: svgHeight || null,
-      className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
-      'aria-hidden': ariaHidden || null
-    };
-    return(
-      <svg {...attr} {...rest} >
-        {title && <title>{title}</title>}
-        <use xlinkHref={`#${name}`} />
-      </svg>
-    );
+export default class Icon extends React.Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    svgWidth: PropTypes.number,
+    svgHeight: PropTypes.number,
+    classes: PropTypes.arrayOf(PropTypes.string),
+    ariaHidden: PropTypes.bool
+  };
+  static defaultProps = {
+    title: null,
+    classes: []
   }
-  return null;
-};
+  state = {
+    content: null,
+    loaded: null
+  };
 
-Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-  title: PropTypes.string,
-  svgWidth: PropTypes.number,
-  svgHeight: PropTypes.number,
-  classes: PropTypes.arrayOf(PropTypes.string),
-  ariaHidden: PropTypes.bool
-};
+  loadAssets = (asset) => import(/* webpackChunkName: "svg-icons" */ /* webpackMode: "lazy-once" */`!svg-sprite-loader!./assets/${asset}.svg`);
 
-Icon.defaultProps = {
-  title: null,
-  classes: []
-};
-
-export default Icon;
+  render() {
+    const {
+      svgWidth,
+      svgHeight,
+      title,
+      name,
+      classes,
+      ariaHidden,
+      ...rest
+    } = this.props;
+    // The promise will not be resolved until after render,
+    // so re-render once the promise is finished by using state.
+    this.loadAssets(name)
+      .then(({ default: SVG }) => {
+        if (SVG && SVG.content) {
+          const attr = {
+            width: svgWidth || null,
+            height: svgHeight || null,
+            className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
+            'aria-hidden': ariaHidden || null
+          };
+          const content = (
+            <svg {...attr} {...rest} >
+              {title && <title>{title}</title>}
+              <use xlinkHref={`#${name}`} />
+            </svg>
+          );
+          if (this.state.loaded !== name) {
+            this.setState({ loaded: name, content });
+          }
+        }
+      });
+    return this.state.content;
+  }
+}
