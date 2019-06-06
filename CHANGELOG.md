@@ -13,6 +13,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.10.0 (06/06/2019)
+
+### Fixed
+- (React) [InputTextFuzzy] DP-13924: Fixes bugs caused by either options with a large amount of characters or queries with a large amount of characters. #559
+- (React) [FeedbackForm] DP-14273: Fixes a bug when the FeedbackForm is used with server side rendering caused by b-jsonp not checking for window. #610
+
 ## 9.9.1 (06/03/2019)
 
 ### Fixed
