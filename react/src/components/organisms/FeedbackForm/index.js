@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import CharacterCounter from 'react-character-counter';
 import classNames from 'classnames';
 import is from 'is';
-import jsonp from 'b-jsonp';
 import Paragraph from '../../atoms/text/Paragraph';
 import './style.css';
 
@@ -161,19 +160,22 @@ export default class FeedbackForm extends Component {
       // If no remaining errors, submit form.
       // Since we have to use jsonp and this component could be used with server side rendering, ensure that window exists.
       if (window && is.array.empty(errors)) {
-        const form = document.getElementById(`fsForm${this.props.formId}`);
-        const data = new FormData(form);
-        const body = {};
-        new Map(data.entries()).forEach((value, key) => {
-          body[key] = value;
+        import('b-jsonp').then((module) => {
+          const jsonp = module.default;
+          const form = document.getElementById(`fsForm${this.props.formId}`);
+          const data = new FormData(form);
+          const body = {};
+          new Map(data.entries()).forEach((value, key) => {
+            body[key] = value;
+          });
+          // This library leaves behind the script added by formstack in the head of the document.
+          // Any errors are handled by onSubmitError and the response is handled through onPostSubmit.
+          // jsonp requires you to pass a function for the last param though.
+          jsonp('https://www.formstack.com/forms/index.php', body, {
+            prefix: `form${this.props.formId}`,
+            name: 'onPostSubmit'
+          }, () => {});
         });
-        // This library leaves behind the script added by formstack in the head of the document.
-        // Any errors are handled by onSubmitError and the response is handled through onPostSubmit.
-        // jsonp requires you to pass a function for the last param though.
-        jsonp('https://www.formstack.com/forms/index.php', body, {
-          prefix: `form${this.props.formId}`,
-          name: 'onPostSubmit'
-        }, () => {});
       }
     });
   };
