@@ -113,7 +113,7 @@ export AccordionWrapper from './components/organisms/AccordionWrapper';
 export TableofContents from './components/organisms/TableofContents';
 export Tab from './components/organisms/TabContainer/tab';
 export TabContainer from './components/organisms/TabContainer';
-export TabContext from './components/organisms/TabContainer/context';
+export { TabContext } from './components/organisms/TabContainer/context';
 export TeaserListing from './components/organisms/TeaserListing';
 export CalloutAlert from './components/organisms/CalloutAlert';
 export HelpTip from './components/organisms/HelpTip';
