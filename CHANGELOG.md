@@ -13,6 +13,48 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.10.0 (06/06/2019)
+
+### Fixed
+- (React) [InputTextFuzzy] DP-13924: Fixes bugs caused by either options with a large amount of characters or queries with a large amount of characters. #559
+- (React) [FeedbackForm] DP-14273: Fixes a bug when the FeedbackForm is used with server side rendering caused by b-jsonp not checking for window. #610
+
+## 9.9.1 (06/03/2019)
+
+### Fixed
+- (React) hotfix: Install `airbnb-prop-types` package as direct instead of dev package dependency in Mayflower-React.
+
+## 9.9.0 (06/03/2019)
+
+### Added
+- (React) [FeedbackForm] DP-14085: Added the FeedbackForm component for submissions to Formstack. #599
+- (Patternlab) Added `.nvmrc` file #600
+
+### Changed
+- (React) [Paragraph] DP-14085: Added support for using props.children with the Paragraph component instead of props.text. #599
+- (React) Removed `yarn.lock` file #600
+
+### Fixed
+- (React) [Icon] DP-13970: Removed usage of webpack's require.context in favor of dynamic ES6 imports. #564
+- (React) [DecorativeLink] DP-13970: Fixes warnings appearing related to the title prop when it's not set or passed. #564
+- (React) [Pagination] DP-13970: Reworked props to use destructoring. #564
+- (React) [ListingTable] DP-13970: Fixes the prop type definition for items to remove console warnings. #564
+- (React) [HeaderSearch] DP-13970: Fixed console warning from using postInputFilter when it's not passed. #564
+- (React) [ButtonWithIcon] DP-13970: Changed the storybook story to create Icons within each story instead of outside of them. #564
+
+## 9.8.0 (05/29/2019)
+
+### Added
+- (Patternlab) DP-1379: Set focus state for elements on Topic pages
+- (Patternlab) [Descriptive link wrapper] DP-14006: Add new "Descriptive links wrapper" organism and associated "Descriptive link" molecule to handle when a brief description and an associated link are needed.
+
+### Changed
+- (Patternlab) DP-11737: Downgrades font size from 800 to 700 for event-teaser and publish-state
+- (Patternlab) DP-13088: Change sticky TOC to appear only if there are 3 or more sections not including related and contacts
+- (Patternlab) DP-13967: Fix the heading size for the Related Services and Additional Resources heading from h3 to h2.
+
+### Fixed
+
 ## 9.7.0 (05/13/2019)
 
 ### Fixed

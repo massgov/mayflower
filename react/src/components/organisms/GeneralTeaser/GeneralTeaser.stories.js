@@ -30,7 +30,7 @@ storiesOf('organisms', module)
         date: text('GeneralTeaser date', defaultDate.toDateString()),
         org: text('GeneralTeaser org', 'Massachusetts Department Of Environmental Protection'),
         description: {
-          text: text('GeneralTeaser description: text', Paragraph.defaultProps.text)
+          text: text('GeneralTeaser description: text', 'A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.')
         },
         primaryInfo: {
           icon: select('GeneralTeaser primaryInfo: icon', {
@@ -151,7 +151,7 @@ storiesOf('organisms', module)
               label: `Primary Info Label ${index}`,
               address: '123 Imaginary Lane',
               link: { ...props.title, text: `PrimaryInfo Item Link ${index}` },
-              details: Paragraph.defaultProps.text
+              details: 'A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.'
             };
             switch (value) {
               case 'phone':

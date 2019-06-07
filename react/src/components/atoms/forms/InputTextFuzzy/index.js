@@ -1,7 +1,7 @@
 import React from 'react';
+import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
 import Fuse from 'fuse.js';
-import Autowhatever from 'react-autowhatever';
 import parse from 'autosuggest-highlight/parse';
 import classNames from 'classnames';
 import is from 'is';
@@ -13,26 +13,68 @@ class InputTextFuzzy extends React.Component {
     super(props);
     this.state = {
       value: this.props.selected || '',
-      suggestions: [],
-      highlightedItemIndex: null
+      suggestions: []
     };
     const fuseOptions = this.props.fuseOptions;
     fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
-  clearSuggestions = (event = null) => {
+  onSuggestionsFetchRequested = ({ value }) => {
+    const suggestions = is.empty(value) ? this.optionsToSuggestions(this.props.options) : this.fuse.search(value);
     this.setState({
-      suggestions: [],
-      highlightedItemIndex: null
+      suggestions
+    });
+  };
+  onSuggestionsClearRequested = () => {
+    this.setState({
+      suggestions: []
+    });
+  };
+  onSuggestionSelected = (event, { suggestion, method }) => {
+    // invokes custom function if passed in the component
+    if (is.fn(this.props.onSuggestionClick)) {
+      event.persist();
+      // Suggestion is an object that can contain info on score, matches, etc.
+      this.props.onSuggestionClick(event, { suggestion, method });
+    }
+  }
+  getSuggestionValue = (suggestion) => suggestion.item.text;
+  handleChange = (event, { newValue, method }) => {
+    event.persist();
+    const value = newValue;
+    this.setState({
+      value
     }, () => {
-      if (event && is.fn(this.props.onSuggestionClick)) {
-        this.props.onSuggestionClick(event, {
-          suggestion: {
-            item: { text: this.state.value }
-          }
+      if (is.fn(this.props.onChange)) {
+        this.props.onChange({
+          event, method, value, suggestions: this.state.suggestions
         });
       }
     });
+  };
+  handleBlur = (event) => {
+    if (is.fn(this.props.onBlur)) {
+      event.persist();
+      this.props.onBlur({ event, value: this.state.value, suggestions: this.state.suggestions });
+    }
+  }
+  // handleChange and onSuggestionSelected both do not fire when enter is hit.
+  // This is a workaround for that. Use handleChange for keyboard presses.
+  handleKeyPress = (event) => {
+    const { value } = this.state;
+    if (event.key === 'Enter') {
+      event.persist();
+      event.preventDefault();
+      if (is.fn(this.props.onSuggestionClick)) {
+        this.props.onSuggestionClick(event, { method: 'enter', suggestion: { item: { text: value } } });
+      }
+    }
+  }
+  handleFocus = (event) => {
+    if (is.fn(this.props.onFocus)) {
+      event.persist();
+      this.props.onFocus({ event, value: this.state.value, suggestions: this.state.suggestions });
+    }
   }
   optionsToSuggestions = (options) => {
     const suggestions = options.map((item) => ({
@@ -49,75 +91,55 @@ class InputTextFuzzy extends React.Component {
     }));
     return suggestions;
   }
-  handleChange = (e) => {
-    e.persist();
-    const { value } = e.target;
-    if (is.empty(value)) {
-      const suggestions = this.optionsToSuggestions(this.props.options);
-      if (this.props.renderDefaultSuggestion) {
-        this.setState({
-          suggestions,
-          value: ''
-        }, () => {
-          if (is.fn(this.props.onChange)) {
-            this.props.onChange({ event: e, value, suggestions });
-          }
-        });
-      } else if (is.fn(this.props.onChange)) {
-        this.props.onChange({ event: e, value, suggestions });
-      }
+  shouldRenderSuggestions = (value) => {
+    return(this.props.renderDefaultSuggestion === true) ? (value.trim().length >= 0) : (value.trim().length > 0);
+  }
+  renderItem = (suggestion) => {
+    const { item, matches } = suggestion;
+    let renderItems = [];
+    if (is.empty(this.state.value)) {
+      renderItems = this.props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
     } else {
-      const suggestions = this.fuse.search(value);
-      this.setState({
-        value,
-        suggestions
-      }, () => {
-        if (is.fn(this.props.onChange)) {
-          this.props.onChange({ event: e, value, suggestions });
+      matches.forEach((match) => {
+        if (this.props.keys.indexOf(match.key) > -1) {
+          // Add one to each range to get a proper highlight match.
+          const ranges = match.indices.map((range) => {
+            const [start, end] = range;
+            return[
+              start, Number(end) + 1
+            ];
+          });
+          const parts = parse(match.value, ranges);
+          renderItems = parts.filter((part) => part.text.length > 0).map((part, index) => {
+            const className = part.highlight === true ? 'highlight' : null;
+            const key = `${match.key}.suggestion_${index}`;
+            return(<span className={className} key={key}>{part.text}</span>);
+          });
         }
       });
     }
-  };
-  handleFocus = () => {
-    if (this.props.renderDefaultSuggestion) {
-      const suggestions = this.optionsToSuggestions(this.props.options);
-      this.setState({
-        suggestions
-      });
-    }
-  }
-  renderItem = (suggestion) => (
-    <span className="ma__suggestion-content">
-      <span className="ma__suggestion-content-name">
-        {
-              suggestion.matches.map((match) => {
-                if (this.props.keys.indexOf(match.key) > -1) {
-                  // Add one to each range to get a proper highlight match.
-                  const ranges = match.indices.map((range) => [
-                      range[0],
-                      range[1] + 1
-                    ]);
-                  const parts = parse(match.value, ranges);
-                  return parts.filter((part) => part.text.length > 0).map((part, index) => {
-                    const className = part.highlight ? 'highlight' : null;
-                    const key = `${match.key}.suggestion_${index}`;
-                    return(
-                      <span className={className} key={key}>{part.text}</span>
-                    );
-                  });
-                }
-              })
-            }
+    return(
+      <span className="ma__suggestion-content">
+        <span className="ma__suggestion-content-name">
+          {renderItems}
+        </span>
       </span>
-    </span>
-  );
+    );
+  }
+
   renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
+
   render() {
     const autoProps = {
-      items: this.state.suggestions,
-      renderItemsContainer: this.renderItemsContainer,
-      renderItem: this.renderItem,
-      renderItemData: { value: this.state.value },
+      suggestions: this.state.suggestions,
+      renderSuggestionsContainer: this.renderItemsContainer,
+      renderSuggestion: this.renderItem,
+      onSuggestionsFetchRequested: this.onSuggestionsFetchRequested,
+      onSuggestionsClearRequested: this.onSuggestionsClearRequested,
+      getSuggestionValue: this.getSuggestionValue,
+      shouldRenderSuggestions: this.shouldRenderSuggestions,
+      onSuggestionSelected: this.onSuggestionSelected,
+      focusInputOnSuggestionClick: false,
       inputProps: {
         type: 'search',
         placeholder: this.props.placeholder,
@@ -126,99 +148,13 @@ class InputTextFuzzy extends React.Component {
         disabled: this.props.disabled,
         id: this.props.inputId,
         onFocus: this.handleFocus,
-        onBlur: () => {
-          this.clearSuggestions();
-        },
-        onKeyDown: (event, { newHighlightedItemIndex }) => {
-          event.persist();
-          switch (event.key) {
-            case 'ArrowDown':
-            case 'ArrowUp':
-              event.preventDefault();
-              this.setState((currentState) => {
-                if (currentState.suggestions.length > 0) {
-                  return{
-                    highlightedItemIndex: !(newHighlightedItemIndex) ? 0 : newHighlightedItemIndex
-                  };
-                }
-              });
-              break;
-            case 'Enter':
-              // If there are suggestions and the user chose one.
-              if (this.state.suggestions.length > 0 && this.state.highlightedItemIndex !== null && this.state.highlightedItemIndex > -1) {
-                const suggestion = this.state.suggestions[this.state.highlightedItemIndex];
-                this.setState({
-                  value: suggestion.item.text,
-                  suggestions: [],
-                  highlightedItemIndex: null
-                }, () => {
-                  if (is.fn(this.props.onSuggestionClick)) {
-                    // Suggestion is an object that can contain info on score, matches, etc.
-                    this.props.onSuggestionClick(event, { suggestion });
-                  }
-                });
-              } else {
-                // Try to see if the typed in value is in the options array.
-                const suggestion = this.props.options.find((option) => {
-                  let match = false;
-                  this.props.keys.forEach((key) => {
-                    if (option[key] && option[key] === this.state.value) {
-                      match = true;
-                    }
-                  });
-                  return match;
-                });
-                if (suggestion) {
-                  this.clearSuggestions(event);
-                }
-              }
-              break;
-            case 'Escape':
-              this.setState({
-                suggestions: [],
-                highlightedItemIndex: null
-              });
-              break;
-            default:
-          }
-        }
+        autoFocus: this.props.autoFocusInput,
+        onBlur: this.handleBlur,
+        onKeyPress: this.handleKeyPress
       },
       id: this.props.id
     };
-    if (this.state.highlightedItemIndex !== null) {
-      autoProps.highlightedItemIndex = this.state.highlightedItemIndex;
-    }
 
-    autoProps.itemProps = (props) => {
-      const { itemIndex } = props;
-      const suggestion = this.state.suggestions[itemIndex];
-      return{
-        'data-item-index': itemIndex,
-        onMouseDown: (event) => {
-          event.persist();
-          this.setState({
-            value: suggestion.item.text,
-            suggestions: [],
-            highlightedItemIndex: null
-          }, () => {
-            if (is.fn(this.props.onSuggestionClick)) {
-              // Suggestion is an object that can contain info on score, matches, etc.
-              this.props.onSuggestionClick(event, { suggestion });
-            }
-          });
-        },
-        onMouseEnter: () => {
-          this.setState({
-            highlightedItemIndex: itemIndex
-          });
-        },
-        onMouseLeave: () => {
-          this.setState({
-            highlightedItemIndex: null
-          });
-        }
-      };
-    };
     const inputTextTypeAheadClasses = classNames({
       'ma__input-typeahead': true,
       'ma__input-typeahead--disabled': this.props.disabled,
@@ -228,7 +164,7 @@ class InputTextFuzzy extends React.Component {
       <React.Fragment>
         {this.props.label && (<label htmlFor={this.props.inputId} className="ma__label">{this.props.label}</label>)}
         <div className={inputTextTypeAheadClasses}>
-          <Autowhatever {...autoProps} />
+          <Autosuggest {...autoProps} />
         </div>
       </React.Fragment>
     );
@@ -254,6 +190,8 @@ InputTextFuzzy.propTypes = {
   disabled: PropTypes.bool,
   /** Function that runs after changes to the input happen. */
   onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
   /** Function that runs after a suggestion has been clicked. */
   onSuggestionClick: PropTypes.func,
   /** The default value for the select box. */
@@ -261,7 +199,9 @@ InputTextFuzzy.propTypes = {
   /** The id of the the input tag */
   inputId: PropTypes.string,
   /** By default all options will be rendered as suggestions on input focus */
-  renderDefaultSuggestion: PropTypes.bool
+  renderDefaultSuggestion: PropTypes.bool,
+  /** Focus on typeahead input */
+  autoFocusInput: PropTypes.bool
 };
 
 InputTextFuzzy.defaultProps = {
@@ -275,8 +215,11 @@ InputTextFuzzy.defaultProps = {
     /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches. */
     threshold: 0.3,
     /** Prevents matches against empty strings. */
-    minMatchCharLength: 1
+    minMatchCharLength: 1,
+    /** Allows more characters for long queries. */
+    maxPatternLength: 300
   },
+  autoFocusInput: false,
   disabled: false,
   boxed: false,
   renderDefaultSuggestion: true
