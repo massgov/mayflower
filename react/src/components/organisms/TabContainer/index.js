@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import shortid from 'shortid';
 import is from 'is';
 import './style.css';
-import { TabContext } from './context';
+import TabContext from './context';
 
 class TabContainer extends React.Component {
   constructor(props) {
