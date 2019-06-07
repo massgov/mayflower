@@ -149,10 +149,14 @@ Instead use:
 <a name="background"></a>
 ## `<CONTAINER style="background-image: url();">`
 
-This method is for a fully decorative image, which doesn't convey any content, such as a banner image in a page or section.
+This method is for a fully decorative image, which doesn't convey any content, such as a banner image in a page or section. 
+
+📋 No attributes to override its original role, `role="img"`, and/or deliver text alternative information, `aria-label` or `alt`.
 
 It's not recommended to use this method to present content such as a *linked image + text* unit unless it's absolutely certain the image never deliver its unique information. That is hard to be certain with templates in CMS to optimize use of templates.
 
+There are 2 ways to add an image as background: 
+<a name="bg-markup"></a>
 > Method 1: Separate the style from the markup. If the background image is static, the `<style>` content belongs to CSS file.
 >
 > ```
@@ -169,6 +173,36 @@ It's not recommended to use this method to present content such as a *linked ima
 > ```
 > <CONTAINER style="background-image: url(background.jpg);"></CONTAINER>
 > ```
+
+### ➤➤ Does the image have a role to convey content in the component?
+
+**➣ Yes:** The image has its unique information to deliver. [Use `<img>` instead](#img)⬆️.
+
+**➢ No:** The image is for a decorative purpose.
+[Go to the following question. ⬇️](#role)
+
+<a name="role"></a>
+### ➤➤ Does the image container have `role="img"`?
+
+**➣ Yes:** 
+
+> Remove the `role="img"`.
+> 
+> `role="img"` makes the element focusable, which is not necessary in this case because the image is for decoration.
+
+**➢ No:** [Go to the following question. ⬇️](#alt2)
+
+<a name="alt2"></a>
+### ➤➤ Does the image container have `aria-label` or `alt`?
+
+**➣ Yes:** The image doesn't need either `aria-label` or `alt`.
+
+> Remove it entirely.
+> The markup should look like [Method 1 or Method 2 above](#bg-markup).
+
+[Move on to next element. ➡️](a11y-checklist.md)
+
+**➢ No:** The image is marked up for a decorative purpose. 
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
