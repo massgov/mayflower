@@ -13,6 +13,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.11.1 (06/07/2019)
+
+### Fixed
+- (React) [TabContext] hotfix: Fixes export of TabContext in react package build. #616
+
+## 9.11.0 (06/07/2019)
+
+### Added
+- (React) [InputTextFuzzy] DP-13800: Adds prop onKeyDownPreventDefault. When set to true, hitting enter without a valid suggestion will trigger event.preventDefault(). #566
+- (React) [TabContext]: Adds TabContainers/Tabs context to expost as TabContext so accessible to external consumers. #608
+
+### Fixed
+- (React) [InputDate] DP-14234: Fixes a bug where the numeric date would be hidden if the current date was today and the date was selected. #613
+
 ## 9.10.0 (06/06/2019)
 
 ### Fixed
