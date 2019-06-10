@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import { TabContext } from './context';
+import TabContext from './context';
 
 const Tab = React.forwardRef((props, ref) => (
   <TabContext.Consumer>
