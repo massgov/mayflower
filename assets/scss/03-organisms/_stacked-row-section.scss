@@ -1,5 +1,10 @@
 .ma__stacked-row-section {
 
+  &__title .ma__comp-heading {
+    margin-top: 15px;
+  }
+
+
   @media ($bp-large-max) {
     padding-bottom: 45px;
 
@@ -22,20 +27,18 @@
     @include ma-container('restricted');
   }
 
-
   & ~ & &__container:before {
-    display: block;
+    border-color: $c-bd-divider;
     content: "";
-    padding-top: 45px;
+    display: block;
 
     @media ($bp-large-min) {
       border-top-width: 1px;
       border-top-style: solid;
-      padding-top: 90px;
     }
   }
 
-  & ~ &--borderless &__container:before {
+  &--borderless ~ &--borderless &__container:before {
     @media ($bp-large-min) {
       border-top-width: 0;
     }
@@ -53,18 +56,6 @@
 
     .page-content > * {
       @include ma-component-spacing;
-    }
-  }
-}
-
-//theme
-.ma__stacked-row-section {
-
-  & ~ & {
-    border-color: $c-bd-divider;
-
-    &__container:before {
-      border-color: $c-bd-divider;
     }
   }
 }
