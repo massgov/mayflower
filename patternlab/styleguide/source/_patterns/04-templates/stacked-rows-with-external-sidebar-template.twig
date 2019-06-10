@@ -16,29 +16,10 @@
     <div class="ma__stacked-row stacked-row-column">
       {% block stackedRowContent %}
         {% for stackedRow in stackedRows %}
-          <section class="ma__stacked-row__section ma__stacked-row__section--borderless">
-            {% if stackedRow.title %}
-              <div class="ma__stacked-row__container">
-                <div class="ma__stacked-row__title">
-                  {% set compHeading = {
-                      "title": stackedRow.title,
-                      "sub": "",
-                      "color": "",
-                      "id": stackedRow.id
-                    }
-                  %}
-                  {% include "@atoms/04-headings/comp-heading.twig" %}
-                </div>
-              </div>
-            {% endif %}
-            <div class="main-content">
-              <div class="page-content">
-                {% for content in stackedRow.pageContent %}
-                  {% include content.path with content.data %}
-                {% endfor %}
-              </div>
-            </div>
-          </section>
+          {% include "@organisms/by-author/stacked-row-section.twig" with {
+            "stackedRowSection": stackedRow,
+            "stackedRow": stackedRow
+          } %}
         {% endfor %}
       {% endblock %}
     </div>
