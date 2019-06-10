@@ -176,7 +176,7 @@ There are 2 ways to add an image as background:
 
 ### ➤➤ Does the image have a role to convey content in the component?
 
-**➣ Yes:** The image has its unique information to deliver. [Use `<img>` instead](#img)⬆️.
+**➣ Yes:** The image has its unique information to deliver. [Use `<img>` instead ⬆️.](#img)
 
 **➢ No:** The image is for a decorative purpose.
 [Go to the following question. ⬇️](#role)
@@ -189,6 +189,8 @@ There are 2 ways to add an image as background:
 > Remove the `role="img"`.
 > 
 > `role="img"` makes the element focusable, which is not necessary in this case because the image is for decoration.
+
+[Go to the following question. ⬇️](#alt2)
 
 **➢ No:** [Go to the following question. ⬇️](#alt2)
 
