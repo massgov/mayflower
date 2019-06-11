@@ -26,6 +26,7 @@ const EmergencyAlert = (props) => {
 };
 
 EmergencyAlert.propTypes = {
+  /** A string that controls different color themes for the component. */
   theme: PropTypes.oneOf(['', 'c-primary-alt', 'c-warning', 'c-gray-dark']),
   /** A message describing the event. */
   message: PropTypes.string.isRequired,
