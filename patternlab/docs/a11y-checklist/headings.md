@@ -8,11 +8,15 @@ A heading needs its **proper level number** to represent the hierarchy of the co
 
 HTML5 allows you to start with `<h1>` in every `<section>`. That is valid as HTML5, but it doesn't help assistive technology users to grasp the content hierarchy in the page.
 
+`<h1>` is reserved for a page title.
+
 ### ➤➤ Is the heading level number flexible?
 
 ☑️ It can receive and consume the level number value from the parent component.
 
-☑️ It can have proper level number depending on where the component is placed in a page in the sequential manner from small to large. (If its parent component has *h3*, this component starts with *h4*.)
+☑️ It can have proper level number depending on where the component is placed in a page in the *sequential manner* from small to large. (If its parent component has *h3*, this component starts with *h4*.)
+
+📋 The template can have a *default value* for the heading level. The *default value* is only used when it’s unable to get the heading level value from a parent tempalte. This is the case the second condition might be omitted.
 
 The *sequential manner* means:
 
@@ -20,16 +24,12 @@ The *sequential manner* means:
 
 ☑️ No jumping - NOT putting heading level numbers randomly.
 
-<!--
-- [ ] No backward - Numbers does NOT go down from large to small.
--->
+☑️ The level number increases by 1 from a parent component to a child one.
+
+**🛑 Watch out when your template contains multiple headings.** The heading levels could change in the template for multiple headings in it. You might need to adjust the level in the template based on its content structure.
+
 
 **➣ Yes:** The heading level number is set dynamically, and meets these conditions.
-
-**🛑 Watch out when your template contains multiple headings.** The heading levels could change in the template. You might need to adjust the level in the template.
-
-
-📋 The template can have a *default value* for the heading level. The *default value* is only used when it’s unable to get the parent’s heading level value. This is the case the second condition might be omitted.
 
 [Let's check the heading label next.⬇️](#heading-label)
 
@@ -53,13 +53,38 @@ Below info. gives you some idea of what needs to be done.
 >
 > Here the default value is set to `2`.
 > 
-> ```{% set headingLevel = compHeading.level ? : 2 %}```
+> ```
+> {% set headingLevel = compHeading.level ? : 2 %}
+> ```
 >
 > The heading level value is ready to render.
 >
 > ```<h{{ headingLevel }}```
 >
 
+Once you see template's heading level can be flexible to fit the content structure where the template is used, [let's check the heading label next.⬇️](#heading-label)
+
+**➤ Yes/No:** The heading level is set flexible to receive the value from a parent template, but the value appears to be incorrect.
+
+> 1. Check its ancestor templates to identify where starts passing an incorrect value for the heading level value.
+> 
+> 1. When the ancestor template contains multiple child components to share the same heading level in it, adjust/define the value for the child components right after the heading level value for the template is used to make sure to cover all child components' heading levels. 
+> 
+>   To adjust/define the value, use the template's heading level variable. For example, something like below can be placed right after the heading template call for the template:
+>   ```
+>   {% set childHeadingLevel = headingLevel + 1 %}
+>   ```
+> 
+>   `headingLevel` contains the heading level value received from its parent template. 
+> 
+>   For the child components, the value is increased by 1.
+> 
+> 1. Test the adjusted/defined value is passed on to its descendant templates, to the heading template you need to see the correct heading level.
+> 
+> 📋 The Step 2 might also need to happen a template(s) in between if the test fails at the Step 3.
+> 
+
+Once you see the heading level is properly propagated with the correct value, [let's check the heading label next.⬇️](#heading-label)
 
 <a name="heading-label"></a>
 ## Heading label

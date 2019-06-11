@@ -26,12 +26,28 @@ Move to the following question to find out more. ⬇️
 **➢ No:**
 Move to the following question. ⬇️
 
+## ➤➤ Does the section contain a page title?
+
+**➣ Yes:** A page title markup is inside the `<section>`.
+
+**🛑 A page title component, which contains `<h1>` for a page title shouldn't be inside `<section>` unless the entire page content portion is wrapped with `<section>`.**
+
+In Mass.gov, `<h1>` is reserved for a page title.
+
+Headings in `<section>`s are meant for a label for the `<section>` it resides in. 
+
+When `<h1>` for a page title is inside a `<section>` and the `<section>` is NOT wrapping the *entire* page content, the `<h1>` is semantically NOT representing the page title.
+
+> Don't use `<section>`. Replace `<section>` with `<div>` or other proper semantic container element.
+
+**➢ No:** It doesn't contain a page title. Move to the following question. ⬇️
+
 ## ➤➤ Does the section need a heading? 
 
 📋 You might need to confirm with the UX or content team:
 
 1. whether it needs a heading or not,
-1. what the heading label would be.
+1. what would be the heading label.
 
 **➣ Yes:** Let's add a heading!
 
