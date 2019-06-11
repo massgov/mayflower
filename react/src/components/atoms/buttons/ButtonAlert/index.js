@@ -5,9 +5,9 @@ import Icon from '../../icons/Icon';
 
 
 const ButtonAlert = ({
-  text, onClick, expanded, hideText, showText
+  text, onClick, hideText, showText
 }) => (
-  <button className="ma__button-alert" onClick={onClick} expanded={expanded}>
+  <button className="ma__button-alert" onClick={onClick}>
     <span className="ma__button-alert__show">{showText}</span>
     <span className="ma__button-alert__hide">{hideText}</span>
     <Icon />

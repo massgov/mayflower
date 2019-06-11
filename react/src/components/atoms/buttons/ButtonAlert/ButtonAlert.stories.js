@@ -14,23 +14,12 @@ storiesOf('atoms/buttons', module)
   .add(
     'ButtonAlert', (() => {
       const props = {
-        onClick: action('ButtonWithIcon clicked'),
-        text: text('text', 'Button With Icon'),
-        type: select('type', ButtonAlertOptions.type, 'submit'),
-        classes: array('classes', []),
-        iconSize: select('iconSize', ButtonAlertOptions.size, ''),
-        iconColor: select('iconColor', ButtonAlertOptions.color),
-        canExpand: boolean('canExpand', true),
-        expanded: boolean('expanded', true),
-        capitalized: boolean('capitalized', true),
-        ariaLabel: text('arialLabel', '')
+        onClick: action('ButtonAlert clicked'),
+        text: text('text', 'ButtonAlert')
       };
       return(
         <ButtonAlert
           {...props}
-          text="Test"
-          onClick={action('Button Clicked')}
-          expanded="true"
         />
       );
     }),
