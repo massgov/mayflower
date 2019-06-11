@@ -1,3 +1,14 @@
 @import "global";
+@import '00-base/mixins';
 @import '02-molecules/emergency-alert';
 @import '02-molecules/emergency-header';
+
+.ma__emergency-alert--c-primary-alt {
+  @include ma-button("normal","solid",$c-primary-alt);
+}
+.ma__emergency-alert--c-warning {
+  @include ma-button("normal","solid",$c-warning);
+}
+.ma__emergency-alert--c-gray-dark {
+  @include ma-button("normal","solid",$c-gray-dark);
+}
