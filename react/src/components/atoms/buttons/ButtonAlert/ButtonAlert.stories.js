@@ -30,6 +30,7 @@ storiesOf('atoms/buttons', module)
           {...props}
           text="Test"
           onClick={action('Button Clicked')}
+          expanded="true"
         />
       );
     }),

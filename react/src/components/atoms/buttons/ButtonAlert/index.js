@@ -5,14 +5,11 @@ import Icon from '../../icons/Icon';
 
 
 const ButtonAlert = ({
-  text, onClick, expanded
+  text, onClick, expanded, hideText, showText
 }) => (
   <button className="ma__button-alert" onClick={onClick} expanded={expanded}>
-    {expanded ? (
-      <span className="ma__button-alert__show">Show</span>
-    ) : (
-      <span className="ma__button-alert__hide">Hide</span>
-    )}
+    <span className="ma__button-alert__show">{showText}</span>
+    <span className="ma__button-alert__hide">{hideText}</span>
     <Icon />
     {text}
   </button>
@@ -21,7 +18,9 @@ const ButtonAlert = ({
 ButtonAlert.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
-  expanded: PropTypes.bool
+  expanded: PropTypes.bool,
+  showText: PropTypes.string,
+  hideText: PropTypes.string
 };
 
 export default ButtonAlert;
