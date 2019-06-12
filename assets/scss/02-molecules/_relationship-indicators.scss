@@ -2,10 +2,9 @@
     @include clearfix;
     display: flex;
     flex-direction: column;
-    padding: 18px 0;
+    padding: 10px 0px;
     font-weight: 600;
     font-size: 16px;
-    border-bottom: 1px solid $c-bd-divider;
     margin: 0 20px 10px;
 
     @media ($bp-medium-min) {
@@ -34,10 +33,20 @@
         letter-spacing: $letter-spacing-large;
         margin-right: 10px;
         white-space: nowrap;
+    }
 
-        @media ($bp-medium-min) {
-            padding-top: 6px;
-        }
+    .wrapped-link {
+      padding-right: 5px;
+      margin-bottom: 5px;
+
+      @media($bp-x-small-min) {
+        padding: 0 5px;
+        margin-top: -1px;
+      }
+
+      @media ($bp-medium-min) {
+        margin-top: 0;
+      }
     }
 
     &--section {
@@ -48,6 +57,18 @@
 
         @media ($bp-x-small-min) {
             flex-flow: row nowrap;
+        }
+
+        @media($bp-small-min) {
+          padding: 1px 5px;
+        }
+
+        @media($bp-large-min) {
+          padding-top: 15px;
+        }
+
+        &:first-child {
+          padding: 15px 0;
         }
 
         &.primary {
@@ -84,10 +105,10 @@
 
             a {
                 color: $c-primary-alt;
-                border-color: rgba($c-primary-alt, 0.2);
+                box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary-alt, 0.4);
 
                 &:hover {
-                    border-color: $c-primary-alt;
+                  box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary-alt, 0.7);
                 }
             }
 
@@ -110,10 +131,6 @@
         &.secondary {
             padding-top: 15px;
 
-            @media ($bp-large-min) {
-                padding-top: 0;
-            }
-
             .ma__relationship-indicators--term {
 
                 &:nth-child(n+2) {
@@ -122,11 +139,11 @@
             }
 
             a {
-                border-color: rgba($c-primary, 0.2);
+              box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
 
-                &:hover {
-                    border-color: $c-primary;
-                }
+              &:hover {
+                box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary, 0.7);
+            }
             }
 
             button {
@@ -135,10 +152,7 @@
         }
 
         a {
-            display: block;
-            border: 2px solid;
-            padding: 1px 5px;
-            line-height: 1.2;
+            line-height: 22px;
             width: 100%;
         
             @media ($bp-x-small-min) {
@@ -160,14 +174,14 @@
             font-weight: 600;
             white-space: nowrap;
             display: none;
-            
-            @media ($bp-small-min) {
-                margin-top: 3px;
+
+            @media($bp-x-small-min) {
+              margin-left: 10px;
             }
             
             @media ($bp-medium-min) {
                 align-self: baseline;
-                margin-top: 8px;
+                margin-top: 3px;
             }
             
             .tag-state {
@@ -196,16 +210,6 @@
 
         @media ($bp-x-small-min) {
             flex-flow: row wrap;
-        }
-    }
-
-    &--term {
-        margin: 0 5px 5px 0;
-        width: auto;
-
-        @media ($bp-medium-min) {
-            margin-top: 5px;
-            margin-bottom: 0;
         }
     }
 
