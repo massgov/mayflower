@@ -7,19 +7,18 @@ const ButtonAlert = ({
   text, onClick, hideText, showText, classes
 }) => {
   const buttonProps = {
-    className: buttonClasses
+    className: 'ma__button-alert'
   };
 
-  let buttonClasses = 'ma__button-alert';
   if (classes && classes.length > 0) {
-    buttonClasses += ` ${classes}`;
+    buttonProps.className += ` ${classes}`;
   }
 
   if (is.fn(onClick)) {
     buttonProps.onClick = onClick;
   }
   return(
-    <button {...buttonProps} className={buttonClasses} onClick={onClick}>
+    <button {...buttonProps}>
       <span className="ma__button-alert__hide">{hideText}</span>
       <span className="ma__button-alert__show">{showText}</span>
       {text}

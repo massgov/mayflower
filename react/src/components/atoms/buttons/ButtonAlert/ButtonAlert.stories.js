@@ -13,7 +13,8 @@ storiesOf('atoms/buttons', module)
         onClick: action('ButtonAlert clicked'),
         text: text('text', ' Updates'),
         showText: text('showText', 'Show'),
-        hideText: text('hideText', 'Hide')
+        hideText: text('hideText', 'Hide'),
+        classes: text('classes', '')
       };
       return(
         <ButtonAlert
