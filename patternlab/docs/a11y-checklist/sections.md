@@ -19,7 +19,9 @@ Move to the following question to find out more. ⬇️
 **➣ Yes:** Follow below steps to set up the heading.
 > 1. Replace the tag with `<h#>`.
 > 
-> 1. Position the heading right below the `<section>` as its first child element.
+> 1. Position the heading close to the `<section>` if possible. 
+> 
+>   It might need to be wrapped with container elements for styling, but a closer placement to the `<section>` is better.
 > 
 > 1. [Go to the Headings section to check your heading. ➡️](headings.md)
 
@@ -53,13 +55,17 @@ When `<h1>` for a page title is inside a `<section>` and the `<section>` is NOT 
 
 > 1. Place the heading label with `<h#>`.
 > 
-> 1. Position the heading right below the `<section>` as its first child element.
+> 1. Position the heading close to the `<section>`. 
+> 
+>   It might need to be wrapped with container elements for styling, but a closer placement to the `<section>` is better.
 > 
 > 1. [Then, go to the Headings section to check your heading. ➡️](headings.md)
 
 **➢ No:** Don't use `<section>`.
 
 > Replace `<section>` with `<div>` or other proper semantic container element.
+
+[Move on to next element. ➡️](a11y-checklist.md)
 
 ---
 [⬅️ a11y Checklist](a11y-checklist.md)
