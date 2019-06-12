@@ -12,6 +12,7 @@ storiesOf('molecules', module)
         theme: select('theme', {
           'c-warning (default)': 'c-warning',
           'no theme': '',
+          'c-primary': 'c-primary',
           'c-primary-alt': 'c-primary-alt',
           'c-gray-dark': 'c-gray-dark'
         }, 'c-warning'),

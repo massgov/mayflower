@@ -3,12 +3,40 @@
 @import '02-molecules/emergency-alert';
 @import '02-molecules/emergency-header';
 
+
+.ma__emergency-alert--c-primary {
+  @include ma-button("normal","solid",$c-primary);
+  &:hover {
+    background-color: $c-primary;
+  }
+  .ma__emergency-alert__link a, svg {
+    color: $c-font-inverse;
+  }
+}
 .ma__emergency-alert--c-primary-alt {
   @include ma-button("normal","solid",$c-primary-alt);
+  .ma__emergency-alert__link a, svg {
+    color: $c-font-inverse;
+  }
+  &:hover {
+    background-color: $c-primary-alt;
+  }
 }
 .ma__emergency-alert--c-warning {
   @include ma-button("normal","solid",$c-warning);
+  .ma__emergency-alert__link a, svg {
+    color: $c-font-inverse;
+  }
+  &:hover {
+    background-color: $c-warning;
+  }
 }
 .ma__emergency-alert--c-gray-dark {
   @include ma-button("normal","solid",$c-gray-dark);
+  .ma__emergency-alert__link a, svg {
+    color: $c-font-inverse;
+  }
+  &:hover {
+    background-color: $c-gray-dark;
+  }
 }
