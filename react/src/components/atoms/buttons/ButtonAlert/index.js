@@ -19,8 +19,8 @@ ButtonAlert.propTypes = {
   text: PropTypes.string,
   class: PropTypes.string,
   onClick: PropTypes.func,
-  showText: PropTypes.string,
-  hideText: PropTypes.string
+  showText: PropTypes.string.isRequired,
+  hideText: PropTypes.string.isRequired
 };
 
 export default ButtonAlert;
