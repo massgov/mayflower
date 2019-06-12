@@ -12,8 +12,8 @@ storiesOf('atoms/buttons', module)
       const props = {
         onClick: action('ButtonAlert clicked'),
         text: text('text', ' Updates'),
-        showText: 'Show',
-        hideText: 'Hide'
+        showText: text('showText', 'Show'),
+        hideText: text('hideText', 'Hide')
       };
       return(
         <ButtonAlert
