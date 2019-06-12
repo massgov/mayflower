@@ -19,13 +19,7 @@
         <span class="ma__header__menu-text">Menu</span>
         </button>
       </div>
-
-       <div class="ma__header__utility-nav ma__header__utility-nav--wide">
-        {% include "@organisms/by-template/utility-nav.twig" %}
-      </div>
-    </div>
-
-    <div class="ma__header__nav-container">
+      <div class="ma__header__nav-container">
       {% if not hideHeaderSearch %}
         <div class="ma__header__nav-search">
           {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
@@ -39,6 +33,12 @@
         {% include "@organisms/by-template/utility-nav.twig" %}
       </div>
     </div>
+       <div class="ma__header__utility-nav ma__header__utility-nav--wide">
+        {% include "@organisms/by-template/utility-nav.twig" %}
+       </div>
+    </div>
+
+    
   </nav>
 
   <div class="ma__header__container">
