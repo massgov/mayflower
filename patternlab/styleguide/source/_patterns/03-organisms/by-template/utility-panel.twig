@@ -1,13 +1,32 @@
-<div class="ma__utility-panel">
-  <div class="ma__utility-panel__description {{ utilityPanel.links ? '' : 'ma__utility-panel__description--full' }}">
-    {% set richText = item.description.richText %}
-    {% include "@organisms/by-author/rich-text.twig" %}
+{% for item in utilityNav.items %}
+  {% set counter = ( counter | default(0) ) + 1 %}
+    <div aria-hidden="true" id="utilityNav__section-{{counter}}" class="ma__utility-nav__content js-util-nav-content is-closed">
+    <div class="ma__utility-nav__container">
+      <div class="ma__utility-nav__content-title">
+        <button class="ma__utility-nav__close js-close-util-nav"><span>{{ item.closeText }}</span><span class="ma__utility-nav__close-icon" aria-hidden="true">+</span></button>
+        {{ icon(item.icon) }}
+        <span>{{ item.text }}</span>
+      </div>
+      
+      <div class="ma__utility-nav__content-body">
+        {% for item in item.panels %}
+        <div class="ma__utility-panel">
+          
+          <div class="ma__utility-panel__description {{ utilityPanel.links ? '' : 'ma__utility-panel__description--full' }}">
+            {% set richText = item.description.richText %}
+            {% include "@organisms/by-author/rich-text.twig" %}
+          </div>
+          
+          <ul class="ma__utility-panel__items">
+            {% for decorativeLink in item.links %}
+            <li class="ma__utility-panel__item js-clickable">
+              {% include "@atoms/decorative-link.twig" %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
-  <ul class="ma__utility-panel__items">
-    {% for decorativeLink in item.links %}
-      <li class="ma__utility-panel__item js-clickable">
-        {% include "@atoms/decorative-link.twig" %}
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+{% endfor %}
