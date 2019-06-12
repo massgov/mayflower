@@ -10,15 +10,16 @@ storiesOf('molecules', module)
     'EmergencyAlert', (() => {
       const props = {
         theme: select('theme', {
-          'c-warning (default)': 'c-warning',
+          'c-highlight (default)': 'c-highlight',
           'no theme': '',
           'c-primary': 'c-primary',
           'c-primary-alt': 'c-primary-alt',
-          'c-gray-dark': 'c-gray-dark'
-        }, 'c-warning'),
+          'c-error': 'c-error',
+          'c-gray': 'c-gray'
+        }, 'c-highlight'),
         message: text('message', 'MassPort is operating with limited flights due to road closures.'),
         timeStamp: text('timeStamp', '02.15.16, 5:00 p.m'),
-        link: ({ theme, linkClasses, TextElement }) => <Link icon={null} classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
+        link: ({ theme, linkClasses, TextElement }) => <Link classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
       };
       return(
         <EmergencyAlert {...props} />

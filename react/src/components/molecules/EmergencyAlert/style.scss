@@ -1,82 +1,46 @@
 @import "global";
 @import '00-base/mixins';
 @import '02-molecules/emergency-alert';
-@import '02-molecules/emergency-header';
 
-
-.ma__emergency-alert--c-primary {
-  @include ma-button("normal","solid",$c-primary);
-  &:hover {
-    background-color: $c-primary;
-  }
-  .ma__emergency-alert__link a, svg {
-    color: $c-font-inverse;
-    span {
-      border-bottom-color: rgba($c-font-inverse, .5);
-      color: $c-font-inverse;
+@mixin ma-emergency-alert ($color) {
+  color: $c-font-base;
+  background-color: tint($color, 90%);
+  border-color: tint($color, 50%);
+  box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  .ma__emergency-alert__link {
+    font-weight: bold;
+    &:hover {
+      border-bottom-color: transparent;
+    }
+    .ma__content-link {
+      span {
+        display: inline;
+        border-bottom: 1px solid rgba($c-font-base, .5);
+        &:hover {
+          border-bottom: 3px solid rgba($c-font-base, .75);
+        }
+      }
+      svg {
+        fill: tint($c-font-base, 50%);
+      }
       &:hover {
-        border-bottom-color: rgba($c-font-inverse, .5);
+        border-bottom-color: transparent;
       }
     }
-    &:after {
-      border-color: rgba($c-font-inverse, .5);
-    }
   }
+}
+.ma__emergency-alert--c-highlight {
+  @include ma-emergency-alert($c-highlight);
+}
+.ma__emergency-alert--c-primary {
+  @include ma-emergency-alert($c-primary);
 }
 .ma__emergency-alert--c-primary-alt {
-  @include ma-button("normal","solid",$c-primary-alt);
-  &:hover {
-    background-color: $c-primary-alt;
-  }
-  .ma__emergency-alert__link a, svg {
-    color: $c-font-inverse;
-    span {
-      border-bottom-color: rgba($c-font-inverse, .5);
-      color: $c-font-inverse;
-      &:hover {
-        border-bottom-color: rgba($c-font-inverse, .5);
-      }
-    }
-    &:after {
-      border-color: rgba($c-font-inverse, .5);
-    }
-  }
+  @include ma-emergency-alert($c-primary-alt);
 }
-.ma__emergency-alert--c-warning {
-  @include ma-button("normal","solid",$c-warning);
-  color: $c-font-base;
-  &:hover {
-    background-color: $c-warning;
-  }
-  .ma__emergency-alert__link a, svg {
-    color: $c-font-base;
-    span {
-      border-bottom-color: rgba($c-font-base, .5);
-      color: $c-font-base;
-      &:hover {
-        border-bottom-color: rgba($c-font-base, .5);
-      }
-    }
-    &:after {
-      border-color: rgba($c-font-base, .5);
-    }
-  }
+.ma__emergency-alert--c-error {
+  @include ma-emergency-alert($c-error);
 }
-.ma__emergency-alert--c-gray-dark {
-  @include ma-button("normal","solid",$c-gray-dark);
-  &:hover {
-    background-color: $c-gray-dark;
-  }
-  .ma__emergency-alert__link a, svg {
-    span {
-      color: $c-font-inverse;
-      border-bottom-color: rgba($c-font-inverse, .5);
-      &:hover {
-        border-bottom-color: rgba($c-font-inverse, .5);
-      }
-    }
-    &:after {
-      border-color: rgba($c-font-inverse, .5);
-    }
-  }
+.ma__emergency-alert--c-gray {
+  @include ma-emergency-alert($c-gray);
 }

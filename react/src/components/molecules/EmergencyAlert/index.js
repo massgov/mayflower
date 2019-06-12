@@ -1,22 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import is from 'is';
 import './style.css';
 
 const EmergencyAlert = (props) => {
-  const { message, timeStamp, link, theme } = props;
-  const paragraphClasses = classNames({
-    'ma__emergency-alert': true,
-    [`ma__emergency-alert--${theme}`]: theme && theme.length > 0
-  });
+  const { message, timeStamp, link } = props;
+  const theme = props.theme.length === 0 ? 'c-highlight' : props.theme;
   const linkArgs = {
     theme,
-    linkClasses: 'ma__content-link ma__content-link--chevron',
+    linkClasses: 'ma__content-link',
     TextElement: 'span'
   };
   return(
-    <p className={paragraphClasses}>
+    <p className={`ma__emergency-alert ma__emergency-alert--${theme}`}>
       <span className="ma__emergency-alert__message">
         {message}
         {(timeStamp) && (<span className="ma__emergency-alert__time-stamp">&nbsp;{timeStamp}</span>)}
@@ -32,7 +28,7 @@ const EmergencyAlert = (props) => {
 
 EmergencyAlert.propTypes = {
   /** A string that controls different color themes for the component. */
-  theme: PropTypes.oneOf(['', 'c-primary-alt', 'c-warning', 'c-gray-dark']),
+  theme: PropTypes.oneOf(['', 'c-highlight', 'c-primary-alt', 'c-primary', 'c-gray', 'c-error']),
   /** A message describing the event. */
   message: PropTypes.string.isRequired,
   /** A string representing the time of the event. */
@@ -42,7 +38,7 @@ EmergencyAlert.propTypes = {
 };
 
 EmergencyAlert.defaultProps = {
-  theme: 'c-warning'
+  theme: 'c-highlight'
 };
 
 export default EmergencyAlert;
