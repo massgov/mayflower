@@ -3,6 +3,8 @@
     {% set compHeading = about.title %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
   </div>
+  {# Increase the heading level number by 1 for child components. #}
+  {# {% set headingLevel = compHeading.level + 1 %} #}
   <div class="ma__about-section__content">
     <div class="ma__about-section__content-container">
       <div class="ma__about-section__content-text">
@@ -17,6 +19,18 @@
       <div class="ma__about-section__person">
         {% block primaryPersonCard %}
           {% set person = about.person %}
+{#           {% set person = person|merge({
+                      'name': {
+                        'title': person.name.title,
+                        'level': headingLevel,
+                        'color': person.name.color,
+                        'centered': person.name.centered
+                      },
+                      'title': {
+                        'text': person.title.text,
+                        'level': headingLevel + 1
+                      }
+          }) %} #}
           {% include "@organisms/by-author/person-card.twig" %}
         {% endblock %}
       </div>
@@ -26,10 +40,18 @@
   <div class="ma__about-section__social">
     {% block socialLinks %}
       {% set iconLinks = about.social %}
+{#       {% set iconLinks = iconLinks|merge({
+              'compHeading': {
+                'title': iconLinks.compHeading.title,
+                'level': headingLevel,
+                'sub': '',
+                'color': iconLinks.compHeading.color,
+                'id': '',
+                'centered': ''
+      }}) %} #}
       {% include "@molecules/icon-links.twig" %}
     {% endblock %}
   </div>
-
   {% if about.secondary_person %}
     <div class="ma__about-section__people">
       <div class="ma__about-section-person primary">
@@ -38,6 +60,18 @@
       <div class="ma__about-section-person secondary">
         {% block secondaryPersonCard %}
           {% set person = about.secondary_person %}
+{#           {% set person = person|merge({
+                      'name': {
+                        'title': person.name.title,
+                        'level': headingLevel,
+                        'color': person.name.color,
+                        'centered': person.name.centered
+                      },
+                      'title': {
+                        'text': person.title.text,
+                        'level': headingLevel + 1
+                      }
+          }) %} #}
           {% include "@organisms/by-author/person-card.twig" %}
         {% endblock %}
       </div>
