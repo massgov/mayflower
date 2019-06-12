@@ -18,7 +18,7 @@ storiesOf('molecules', module)
         }, 'c-warning'),
         message: text('message', 'MassPort is operating with limited flights due to road closures.'),
         timeStamp: text('timeStamp', '02.15.16, 5:00 p.m'),
-        link: ({ theme }) => <Link href="https://www.mass.gov">Read full alert</Link>
+        link: ({ theme, linkClasses, TextElement }) => <Link icon={null} classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
       };
       return(
         <EmergencyAlert {...props} />

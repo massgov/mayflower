@@ -10,6 +10,11 @@ const EmergencyAlert = (props) => {
     'ma__emergency-alert': true,
     [`ma__emergency-alert--${theme}`]: theme && theme.length > 0
   });
+  const linkArgs = {
+    theme,
+    linkClasses: 'ma__content-link ma__content-link--chevron',
+    TextElement: 'span'
+  };
   return(
     <p className={paragraphClasses}>
       <span className="ma__emergency-alert__message">
@@ -18,7 +23,7 @@ const EmergencyAlert = (props) => {
       </span>
       {is.fn(link) && (
         <span className="ma__emergency-alert__link">
-          &nbsp;{link({ theme })}
+          &nbsp;{link({ ...linkArgs })}
         </span>
       )}
     </p>
