@@ -3,7 +3,6 @@
   .page-content--intro {
 
     @media ($bp-large-min) {
-      
       & > .ma__image:first-child {
         display: none;
       }
@@ -24,15 +23,20 @@
     }
   }
 
-  .ma__split-columns {
+  .ma__stacked-row-section {
+    .ma__split-columns {
 
-    .ma__comp-heading,
-    .ma__sidebar-heading {
-      @include ma-h3;
-      border: 0;
-      margin-bottom: 0 !important;
-      text-transform: none;
-      letter-spacing: normal;
+      margin-top: 15px;
+
+      .ma__comp-heading,
+      .ma__sidebar-heading {
+        @include ma-h3;
+        border: 0;
+        margin-bottom: 0 !important;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+
     }
   }
 
