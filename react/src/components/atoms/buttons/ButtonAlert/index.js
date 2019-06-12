@@ -17,8 +17,8 @@ const ButtonAlert = ({
 
 ButtonAlert.propTypes = {
   text: PropTypes.string,
+  class: PropTypes.string,
   onClick: PropTypes.func,
-  expanded: PropTypes.bool,
   showText: PropTypes.string,
   hideText: PropTypes.string
 };
