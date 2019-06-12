@@ -12,15 +12,15 @@
     {% endif %}
     {% for item in utilityNav.items %}
      {% set counter = ( counter | default(0) ) + 1 %}
-      <li class="ma__utility-nav__item js-util-nav-toggle">
-        <a class="ma__utility-nav__link"
-          href="#utilityNav__section-{{counter}}"
+      <li class="ma__utility-nav__item">
+        <button class="ma__utility-nav__link js-util-nav-toggle"
+          data-panel="utilityNav__section-{{counter}}"
           aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
           {{ icon(item.icon) }}
           <span>
             {{ item.text }}
           </span>
-        </a>
+        </button>
       </li>
     {% endfor %}
   </ul>
