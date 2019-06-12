@@ -306,6 +306,7 @@ $utility-nav-height: 43px;
       text-align: left;
       background-color: $c-primary;
       color: $c-font-inverse;
+      height: 145px;
 
       a {
         color: $c-font-inverse;
@@ -410,12 +411,6 @@ $utility-nav-height: 43px;
       &.svg-login {
         width: 25px;
       }
-    }
-  }
-  
-  &__content-body {
-    @media ($bp-header-toggle-min) {
-      height: 115px;
     }
   }
 }
