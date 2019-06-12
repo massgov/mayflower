@@ -23,11 +23,16 @@
     }
   }
 
+  &.ma__services-flexible-link-groups {
+    .ma__stacked-row-section {
+      .ma__split-columns {
+        margin-top: 15px;
+      }
+    }
+  }
+
   .ma__stacked-row-section {
     .ma__split-columns {
-
-      margin-top: 15px;
-
       .ma__comp-heading,
       .ma__sidebar-heading {
         @include ma-h3;
