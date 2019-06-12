@@ -165,7 +165,7 @@ if (null !== searchForm) {
   itemButton.addEventListener('keydown', function (e) {
 
     if (e.code == 'ArrowDown') {
-      let first = subItems.getElementsByTagName("li")[1];
+      let first = subItems.getElementsByTagName("li")[0];
       first.querySelector('.ma__main-nav__link').focus()
     }
 
@@ -190,6 +190,10 @@ if (null !== searchForm) {
       setTimeout(function timeoutFunction() {
         subMenu.classList.add('is-closed');
       }, 500);
+    }
+
+    if (e.key == 'Tab' && !itemButton.parentElement.nextElementSibling) {
+      closeMenu();
     }
   });
 
@@ -258,17 +262,12 @@ function openMenu() {
   feedbackButton.classList.add('hide-button');
 }
 
-
+// Close menu when utility nav is clicked
 document.querySelector('.ma__header__utility-nav--wide').addEventListener('click', function () {
   closeMenu();
 });
 
 // Close and reset menu on overlay click
 menuOverlay.addEventListener("click", function () {
-  closeMenu();
-});
-
-
-document.querySelector('.ma__site-logo a').addEventListener('focus', function () {
   closeMenu();
 });
