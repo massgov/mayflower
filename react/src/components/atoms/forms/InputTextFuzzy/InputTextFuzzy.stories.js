@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, object, select, boolean, array } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import InputTextFuzzy from './index';
 import InputTextFuzzyDocs from './InputTextFuzzy.md';
 import inputOptions from './InputTextFuzzy.knobs.options';
 
@@ -11,6 +11,7 @@ storiesOf('atoms/forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputTextFuzzy', (() => {
+      const InputTextFuzzy = lazy(() => import('./index'));
       const props = {
         boxed: boolean('boxed', false),
         disabled: boolean('disabled', false),
@@ -36,7 +37,11 @@ storiesOf('atoms/forms', module)
         onSuggestionClick: action('fuzzy suggestion onClick'),
         renderDefaultSuggestion: boolean('fuzzy renderDefaultSuggestion', true)
       };
-      return(<InputTextFuzzy {...props} />);
+      return(
+        <Suspense fallback={<div>Loading...</div>}>
+          <InputTextFuzzy {...props} />
+        </Suspense>
+      );
     }),
     { info: InputTextFuzzyDocs }
   );

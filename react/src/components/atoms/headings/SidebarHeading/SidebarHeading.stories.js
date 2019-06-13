@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { text, select, withKnobs } from '@storybook/addon-knobs';
 
 import SidebarHeadingDocs from './SidebarHeading.md';
-import SidebarHeading from './index';
 
 storiesOf('atoms/headings', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SidebarHeading', (() => {
+      const SidebarHeading = lazy(() => import('./index'));
       const levelOptions = {
         1: 1,
         2: 2,
@@ -20,7 +20,11 @@ storiesOf('atoms/headings', module)
       };
       const title = text('title', 'Key Agencies');
       const level = select('level', levelOptions, levelOptions[2]);
-      return(<SidebarHeading title={title} level={level} />);
+      return(
+        <Suspense fallback={<div>Loading...</div>}>
+          <SidebarHeading title={title} level={level} />
+        </Suspense>
+      );
     }),
     { info: SidebarHeadingDocs }
   );

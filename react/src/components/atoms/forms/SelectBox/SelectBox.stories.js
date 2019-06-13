@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import SelectBox from './index';
 import selectOptions from './SelectBox.knobs.options';
 import SelectBoxDocs from './SelectBox.md';
 
@@ -12,6 +12,7 @@ storiesOf('atoms/forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SelectBox', (() => {
+      const SelectBox = lazy(() => import('./index'));
       const props = {
         label: text('label', 'Color Scheme:'),
         stackLabel: boolean('stackLabel', false),
@@ -22,7 +23,11 @@ storiesOf('atoms/forms', module)
         onChangeCallback: action('SelectBox onChangeCallback')
       };
       props.className = text('className', !props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown');
-      return(<SelectBox {...props} />);
+      return(
+        <Suspense fallback={<div>Loading...</div>}>
+          <SelectBox {...props} />
+        </Suspense>
+      );
     }),
     { info: SelectBoxDocs }
   );

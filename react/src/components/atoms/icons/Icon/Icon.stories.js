@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, array, boolean } from '@storybook/addon-knobs';
 import { assets, svgOptions } from './Icon.knob.options';

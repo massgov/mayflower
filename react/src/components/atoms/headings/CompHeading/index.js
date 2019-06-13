@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
+console.log('In CompHeading');
 const CompHeading = (props) => {
   const compHeading = props;
   const Element = `h${compHeading.sub ? 3 : compHeading.level}`;

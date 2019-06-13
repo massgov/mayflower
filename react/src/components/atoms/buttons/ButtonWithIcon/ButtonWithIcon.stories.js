@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, array, select, boolean } from '@storybook/addon-knobs';
 
-import ButtonWithIcon from '.';
 import ButtonWithIconDocs from './ButtonWithIcon.md';
 import buttonWithIconOptions from './ButtonWithIcon.knob.options';
-
-import Icon from '../../icons/Icon';
-
-
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ButtonWithIcon', (() => {
+      const ButtonWithIcon = lazy(() => import('./index'));
+      const Icon = lazy(() => import('../../icons/Icon'));
       const icons = {
         chevron: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
         search: <Icon name="search" svgHeight={20} svgWidth={20} />
@@ -38,13 +35,17 @@ storiesOf('atoms/buttons', module)
       props.icon = icons[props.icon];
 
       return(
-        <ButtonWithIcon {...props} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ButtonWithIcon {...props} />
+        </Suspense>
       );
     }),
     { info: ButtonWithIconDocs }
   )
   .add(
     'ButtonSearch', (() => {
+      const ButtonWithIcon = lazy(() => import('./index'));
+      const Icon = lazy(() => import('../../icons/Icon'));
       const icons = {
         chevron: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
         search: <Icon name="search" svgHeight={20} svgWidth={20} />
@@ -58,7 +59,9 @@ storiesOf('atoms/buttons', module)
       props.icon = icons[props.icon];
 
       return(
-        <ButtonWithIcon {...props} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ButtonWithIcon {...props} />
+        </Suspense>
       );
     }),
     { info: ButtonWithIconDocs }

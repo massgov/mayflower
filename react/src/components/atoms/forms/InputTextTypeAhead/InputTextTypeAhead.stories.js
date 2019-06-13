@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import InputTextTypeAhead from './index';
 import inputOptions from './InputTextTypeAhead.knobs.options';
 import InputTextTypeAheadDocs from './InputTextTypeAhead.md';
 
@@ -12,6 +11,7 @@ storiesOf('atoms/forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputTextTypeAhead', (() => {
+      const InputTextTypeAhead = lazy(() => import('./index'));
       const props = {
         boxed: boolean('boxed', true),
         label: text('label', 'State Organization'),
@@ -27,7 +27,11 @@ storiesOf('atoms/forms', module)
         disabled: boolean('disabled', false),
         onKeyDown: action('down')
       };
-      return(<InputTextTypeAhead {...props} />);
+      return(
+        <Suspense fallback={<div>Loading...</div>}>
+          <InputTextTypeAhead {...props} />
+        </Suspense>
+      );
     }),
     { info: InputTextTypeAheadDocs }
   );

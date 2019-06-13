@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import InputRadio from './index';
 import InputRadioDocs from './InputRadio.md';
 
 storiesOf('atoms/forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputRadio', (() => {
+      const InputRadio = lazy(() => import('./index'));
       const props = {
         name: text('name', 'plant'),
         id: text('id', 'fern123'),
@@ -20,10 +21,13 @@ storiesOf('atoms/forms', module)
         outline: boolean('outline', true),
         checked: boolean('checked', null),
         disabled: boolean('disabled', false),
-        error: boolean('error', false)
+        error: boolean('error', false),
+        onChange: action('onChange')
       };
       return(
-        <InputRadio {...props} onChange={action('onChange')} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <InputRadio {...props} />
+        </Suspense>
       );
     }),
     { info: InputRadioDocs }

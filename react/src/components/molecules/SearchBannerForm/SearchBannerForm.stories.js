@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+
 import { storiesOf } from '@storybook/react';
 import { withKnobs, array, text, boolean, select, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
