@@ -55,7 +55,7 @@ storiesOf('atoms/buttons', module)
       };
 
       // Set the icon prop to the actual element based on knob selection.
-      props.icon = icons[props.icon];
+      props.icon = icons.search;
 
       return(
         <ButtonWithIcon {...props} />
