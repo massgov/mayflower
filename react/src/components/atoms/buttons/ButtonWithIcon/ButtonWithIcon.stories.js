@@ -10,8 +10,6 @@ import buttonWithIconOptions from './ButtonWithIcon.knob.options';
 
 import Icon from '../../icons/Icon';
 
-
-
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(

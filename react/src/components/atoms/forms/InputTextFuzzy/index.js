@@ -91,9 +91,7 @@ class InputTextFuzzy extends React.Component {
     }));
     return suggestions;
   }
-  shouldRenderSuggestions = (value) => {
-    return(this.props.renderDefaultSuggestion === true) ? (value.trim().length >= 0) : (value.trim().length > 0);
-  }
+  shouldRenderSuggestions = (value) => ((this.props.renderDefaultSuggestion === true) ? (value.trim().length >= 0) : (value.trim().length > 0))
   renderItem = (suggestion) => {
     const { item, matches } = suggestion;
     let renderItems = [];
