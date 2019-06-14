@@ -1,3 +1,5 @@
+import FeedbackForm from './components/organisms/FeedbackForm';
+
 /*
   Since we are package a library of UI components, export each component here
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
@@ -89,6 +91,7 @@ export Breadcrumb from './components/molecules/Breadcrumb';
 export BreadcrumbItem from './components/molecules/Breadcrumb/item';
 
 // @organisms
+export FeedbackForm from './components/organisms/FeedbackForm';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Teaser from './components/organisms/Teaser';
 export Footer from './components/organisms/Footer';
@@ -108,8 +111,9 @@ export FilterBox from './components/organisms/FilterBox';
 export SearchBanner from './components/organisms/SearchBanner';
 export AccordionWrapper from './components/organisms/AccordionWrapper';
 export TableofContents from './components/organisms/TableofContents';
-export TabContainer from './components/organisms/TabContainer';
 export Tab from './components/organisms/TabContainer/tab';
+export TabContainer from './components/organisms/TabContainer';
+export TabContext from './components/organisms/TabContainer/context';
 export TeaserListing from './components/organisms/TeaserListing';
 export CalloutAlert from './components/organisms/CalloutAlert';
 export HelpTip from './components/organisms/HelpTip';
