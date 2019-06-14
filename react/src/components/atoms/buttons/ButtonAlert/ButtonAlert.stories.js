@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import ButtonAlert from './index';
 import ButtonAlertDocs from './ButtonAlert.md';
 
@@ -14,7 +14,8 @@ storiesOf('atoms/buttons', module)
         text: text('text', ' Updates'),
         showText: text('showText', 'Show'),
         hideText: text('hideText', 'Hide'),
-        classes: text('classes', '')
+        classes: text('classes', ''),
+        isOpen: boolean('isOpen', false)
       };
       return(
         <ButtonAlert
