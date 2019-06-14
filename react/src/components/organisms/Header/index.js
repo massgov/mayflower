@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import is from 'is';
 import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
@@ -15,15 +15,33 @@ class Header extends Component {
       utilNavOpen: false
     };
   }
-  menuButtonClicked() {
-    const bodyClass = document.querySelector('body').classList;
-    bodyClass.toggle('show-menu');
-    if (bodyClass.value.length > 0) {
+  menuButtonClicked = () => {
+    // eslint-disable-next-line no-undef
+    const body = document.querySelector('body');
+    let bodyClass;
+    if (body.hasAttribute('class')) {
+      bodyClass = body.getAttribute('class');
+      if (bodyClass) {
+        if (bodyClass.indexOf('show-menu')) {
+          bodyClass = bodyClass.split(' ').filter((val) => val !== 'show-menu').join(' ');
+        } else {
+          bodyClass += ' show-menu';
+        }
+        body.setAttribute('class', bodyClass);
+      } else {
+        bodyClass = 'show-menu';
+        body.setAttribute('class', 'show-menu');
+      }
+    } else {
+      bodyClass = 'show-menu';
+      body.setAttribute('class', 'show-menu');
+    }
+    if (bodyClass) {
       this.setState({ utilNavOpen: false });
     } else {
       this.setState({ utilNavOpen: true });
     }
-  }
+  };
   render() {
     const header = this.props;
     const utilNavOpen = { isOpen: this.state.utilNavOpen };
@@ -46,7 +64,7 @@ class Header extends Component {
           </div>
           {!header.hideHeaderSearch &&
           <div className="ma__header__search js-header-search-menu">
-            <HeaderSearch {...header.headerSearch} />
+            {is.fn(header.headerSearch) ? header.headerSearch() : <HeaderSearch {...header.headerSearch} />}
           </div>
           }
         </div>
@@ -58,7 +76,7 @@ class Header extends Component {
             </button>
             <button
               className="ma__header__menu-button js-header-menu-button"
-              onClick={() => this.menuButtonClicked()}
+              onClick={this.menuButtonClicked}
             >
               <span>Menu</span><span className="ma__header__menu-icon" />
             </button>
@@ -66,9 +84,8 @@ class Header extends Component {
           <div className="ma__header__nav-container">
             {!header.hideHeaderSearch &&
             <div className="ma__header__nav-search">
-              {!header.hideHeaderSearch &&
-                <HeaderSearch id="nav-search" />
-              }
+              {!header.hideHeaderSearch && is.fn(header.headerSearch) && header.headerSearch()}
+              {!header.hideHeaderSearch && !is.fn(header.headerSearch) && <HeaderSearch {...header.headerSearch} id="nav-search" />}
             </div>
             }
             <div className="ma__header__main-nav">
@@ -88,7 +105,7 @@ Header.propTypes = {
   /** imports the utilityNav component */
   utilityNav: PropTypes.shape(UtilityNav.propTypes).isRequired,
   /** imports the headersearch component */
-  headerSearch: PropTypes.shape(HeaderSearch.propTypes).isRequired,
+  headerSearch: PropTypes.oneOfType([PropTypes.shape(HeaderSearch.propTypes), PropTypes.func]).isRequired,
   /** imports the mainnav component */
   mainNav: PropTypes.shape(MainNav.propTypes).isRequired,
   /** Adds a prop to hide header search in the header */

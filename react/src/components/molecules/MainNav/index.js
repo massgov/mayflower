@@ -75,8 +75,8 @@ class MainNav extends Component {
               });
               itemBody.push((
                 <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>
-                  <ul role="menu" aria-labelledby={buttonId} className="ma__main-nav__container" tabIndex={!isExpanded ? -1 : null}>
-                    <li role="presentation" className="ma__main-nav__subitem">
+                  <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
+                    <li role="menuitem" className="ma__main-nav__subitem">
                       <a href={item.href} role="menuitem" className="ma__main-nav__link" tabIndex={!isExpanded ? -1 : null}>{item.text}</a>
                     </li>
                     {item.subNav.map((subItem, subItemIndex) => (
