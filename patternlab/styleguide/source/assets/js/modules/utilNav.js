@@ -27,7 +27,15 @@ export default (function (window, document, $, undefined) {
       $thisPanel.removeClass('is-closed');
       $thisPanel.removeAttr('style');
       $thisPanel.attr("aria-hidden", "false");
+
+      $('body').addClass('show-submenu');
     });
+  });
+
+  $('.js-close-sub-nav').on('click', function () {
+    $('.js-util-nav-content').addClass('is-closed');
+    $('.js-util-nav-content').removeAttr('style');
+    $('body').removeClass('show-submenu');
   });
 
 })(window, document, jQuery);
