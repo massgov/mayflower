@@ -1,5 +1,4 @@
 import FeedbackForm from './components/organisms/FeedbackForm';
-import EmergencyAlert from './components/molecules/EmergencyAlert';
 
 /*
   Since we are package a library of UI components, export each component here

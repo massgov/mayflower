@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import is from 'is';
 import './style.css';
 
 const EmergencyAlert = (props) => {
-  const { message, timeStamp, link } = props;
-  const theme = props.theme.length === 0 ? 'c-highlight' : props.theme;
+  const { message, timeStamp, link, theme } = props;
   const linkArgs = {
     theme,
     linkClasses: 'ma__content-link',
     TextElement: 'span'
   };
+  const pClasses = classNames({
+    'ma__emergency-alert': true,
+    [`ma__emergency-alert--${theme}`]: theme
+  });
   return(
-    <p className={`ma__emergency-alert ma__emergency-alert--${theme}`}>
+    <p className={pClasses}>
       <span className="ma__emergency-alert__message">
         {message}
         {(timeStamp) && (<span className="ma__emergency-alert__time-stamp">&nbsp;{timeStamp}</span>)}
