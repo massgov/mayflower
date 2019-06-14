@@ -30,6 +30,7 @@
     }
   }
 
+  // This is used in mayflower-react specifically, `is-open` class is moved down a level from patternlab
   &.is-open {
     &:after {
       transform: translateY(-50%) rotate(-135deg);
