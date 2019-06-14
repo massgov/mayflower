@@ -31,7 +31,7 @@ const ButtonAlert = ({
 ButtonAlert.propTypes = {
   /** The text that will display on the button alert. */
   text: PropTypes.string,
-  /** An optional class to pass to the button alert */
+  /** Optional class(es) to pass to the button alert */
   classes: PropTypes.string,
   /** An optional onClick function */
   onClick: PropTypes.func,
