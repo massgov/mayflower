@@ -5,7 +5,9 @@
 @mixin ma-emergency-alert ($color) {
   color: $c-font-base;
   background-color: tint($color, 90%);
-  border-color: tint($color, 50%);
+    & + & {
+    border-top-color: $color;
+  }
   box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   .ma__emergency-alert__link {
     font-weight: bold;
