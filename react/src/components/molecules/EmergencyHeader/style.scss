@@ -1,5 +1,4 @@
 @import 'global';
-@import '00-base/mixins';
 @import '02-molecules/emergency-header';
 
 @mixin ma-emergency-header ($color: $c-highlight) {
