@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
+import styles from './style.module.css';
 
 const ButtonFixedFeedback = (props) => (
   <div
-    className="ma__fixed-feedback-button"
+    className={styles['ma__fixed-feedback-button']}
   >
     <a href={props.href}>{props.text}</a>
   </div>

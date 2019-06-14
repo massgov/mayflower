@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classNamesBind from 'classnames/bind';
 import Icon from '../../icons/Icon';
-import './style.css';
+import styles from './style.module.css';
+
+const classNames = classNamesBind.bind(styles);
 
 class ButtonWithIcon extends React.Component {
   constructor(props) {

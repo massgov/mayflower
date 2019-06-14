@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNamesBind from 'classnames/bind';
+import styles from './style.module.css';
 
-import './style.css';
+const classNames = classNamesBind.bind(styles);
 
 const ButtonSort = (buttonSort) => {
-  const buttonSortClass = buttonSort.direction ? ` ma__button-sort--${buttonSort.direction}` : '';
-  const classNames = `ma__button-sort js-button-sort${buttonSortClass}`;
+  const buttonClasses = classNames({
+    'ma__button-sort': true,
+    'js-button-sort': true,
+    [`ma__button-sort--${buttonSort.direction}`]: buttonSort.direction
+  });
 
   return(
-    <button type="button" className={classNames}>{buttonSort.text}</button>
+    <button type="button" className={buttonClasses}>{buttonSort.text}</button>
   );
 };
 
