@@ -4,7 +4,6 @@ import { withKnobs, text, select, object, boolean, number } from '@storybook/add
 import { action } from '@storybook/addon-actions';
 
 import Header from './index';
-import HeaderSearch from '../../molecules/HeaderSearch';
 import HeaderDocs from './Header.md';
 import MainNavData from '../../molecules/MainNav/MainNav.knob.options';
 import UtilityNavData from '../UtilityNav/UtilityNav.knob.options';
