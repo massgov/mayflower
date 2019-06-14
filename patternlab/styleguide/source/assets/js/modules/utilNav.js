@@ -1,76 +1,40 @@
 export default (function (window, document, $, undefined) {
+  let $panels = $('.js-util-nav-content');
+  let $utilityButtons = $('.js-util-nav-toggle');
 
-  $('.js-util-nav').each(function () {
-    let openClass = "is-open",
-      closeClass = "is-closed",
-      submenuClass = "show-utilmenu",
-      $parent = $(this),
-      waitForIt = null;
+  $panels.each(function () {
+    const $panel = $(this);
+    const height = $panel.height();
+    const $closeButton = $panel.find('.js-close-util-nav');
+
+    $panel.css('top', '-' + height + 'px');
+
+    $closeButton.on('click', function () {
+      $panel.css('top', '-' + height + 'px');
+      $panel.toggleClass('is-closed');
+    });
 
     $('.js-close-sub-nav').on('click', function () {
-      let $openContent = $parent.find('.js-util-nav-content.is-open');
-      $openContent.addClass('is-closed').removeClass('is-open');
+      $panel.toggleClass('is-closed');
+      $panel.css('top', '-' + height + 'px');
     });
 
-    // Close utility nav if esc key pressed.
-    $('body').keyup(function (e) {
-      if ($('.js-util-nav-content.is-open').length && e.keyCode == 27) {
-        let $openContent = $('.js-util-nav-content.' + openClass);
-        hide($openContent);
-      }
-    })
+  });
 
-    $parent.find('.js-util-nav-toggle > a').on('click', function (e) {
-      e.preventdefault;
+  $utilityButtons.each(function () {
+    const $thisButton = $(this);
+    const $thisButtonId = $(this).data("panel");
+    const $thisPanel = $('.js-util-nav-content[data-panel=' + $thisButtonId + ']');
+    $('body').toggleClass('show-submenu');
 
-      let open = $(this).hasClass(openClass),
-        $content = $(this).next('.js-util-nav-content'),
-        $openContent = $parent.find('.js-util-nav-content.' + openClass);
-
-      // hide other content
-      hide($openContent);
-
-      if (open) {
-        return;
-      }
-      // add open class to this item
-      $(this).addClass(openClass);
-      // add open class to the correct content based on index
-      $content.attr("aria-hidden", "false");
-
-      setTimeout(function () {
-        $content
-          .removeClass(closeClass)
-          .addClass(openClass);
-        $('body').addClass(submenuClass)
-      }, .1);
+    $thisButton.on('click', function () {
+      $thisPanel.removeClass('is-closed');
+      $thisPanel.removeAttr('style');
+      $('body').toggleClass('show-submenu');
     });
+  });
 
-    $parent.find('.js-close-util-nav').on('click', function (e) {
-      e.preventDefault;
-
-      hide($(this).closest('.js-util-nav-content'));
-    });
-
-    $('.js-header-menu-button, .js-close-sub-nav').on('click', function () {
-      let $openContent = $parent.find('.js-util-nav-content.' + openClass);
-      hide($openContent);
-    });
-
-    function hide($content) {
-      $('body').removeClass(submenuClass)
-      $parent.find("." + openClass).removeClass(openClass);
-      $content
-        .removeClass(openClass)
-        .addClass(closeClass);
-
-      if (waitForIt) {
-        clearTimeout(waitForIt);
-      }
-      waitForIt = setTimeout(function () {
-        $content.attr("aria-hidden", "true");
-      }, 1000);
-    }
+  $('.js-close-sub-nav').on('click', function () {
 
   });
 
