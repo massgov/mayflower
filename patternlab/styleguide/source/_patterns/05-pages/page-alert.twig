@@ -4,6 +4,10 @@
   {% include "@organisms/by-template/header.twig" %}
 {% endblock %}
 
+{% block preContent %}
+  {% include "@organisms/by-template/utility-panel.twig" %}
+{% endblock %}
+
 {% block sidebar %}
   {% if sidebar.contactList %}
     {% set contactList = sidebar.contactList %}

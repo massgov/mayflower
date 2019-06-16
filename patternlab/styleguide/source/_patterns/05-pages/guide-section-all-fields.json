@@ -1,8 +1,7 @@
 {
   "urlPath": "/?p=pages-GUIDE-section-example",
-
   "emergencyAlerts": {
-    "id":"GUID18378923w38789",
+    "id": "GUID18378923w38789",
     "buttonAlert": {
       "hideText": "Hide",
       "showText": "Show",
@@ -11,36 +10,162 @@
     "emergencyHeader": {
       "title": "The State is experiencing severe weather due to the winter storm Paula."
     },
-    "alerts": [{
-      "message": "MassPort is operating with limited flights due to road closures.",
-      "timeStamp": "02.15.16, 5:00 p.m.",
-      "link": {
-        "href": "#",
-        "text":"Read full alert",
-        "chevron": "true"
+    "alerts": [
+      {
+        "message": "MassPort is operating with limited flights due to road closures.",
+        "timeStamp": "02.15.16, 5:00 p.m.",
+        "link": {
+          "href": "#",
+          "text": "Read full alert",
+          "chevron": "true"
+        }
+      },
+      {
+        "message": "The MTBA is operating at a lighter service level, and experiencing delays.",
+        "timeStamp": "02.15.16, 3:00 p.m.",
+        "link": {
+          "href": "#",
+          "text": "Read full alert",
+          "chevron": "true"
+        }
+      },
+      {
+        "message": "The Governor directs non-emergency executive branch state employees to not come in to work.",
+        "timeStamp": "02.13.16, 10:00 a.m.",
+        "link": {
+          "href": "#",
+          "text": "Read full alert",
+          "chevron": "true"
+        }
       }
-    },{
-      "message": "The MTBA is operating at a lighter service level, and experiencing delays.",
-      "timeStamp": "02.15.16, 3:00 p.m.",
-      "link": {
-        "href": "#",
-        "text":"Read full alert",
-        "chevron": "true"
-      }
-    },{
-      "message": "The Governor directs non-emergency executive branch state employees to not come in to work.",
-      "timeStamp": "02.13.16, 10:00 a.m.",
-      "link": {
-        "href": "#",
-        "text":"Read full alert",
-        "chevron": "true"
-      }
-    }]
+    ]
   },
-
-
-  "COMMENT":"****PRECONTENT COMPONENTS****",
-
+  "utilityNav": {
+    "items": [
+      {
+        "id": "stateOrgs",
+        "text": "State Organizations",
+        "ariaLabelText": "",
+        "icon": "@atoms/05-icons/svg-building.twig",
+        "closeText": "Close",
+        "panels": [
+          {
+            "description": {
+              "richText": {
+                "rteElements": [
+                  {
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph": {
+                        "text": "The <a href=\"#\">A-Z Organizations page</a> provides an alphabetical listing of government organizations, including commissions, departments, and bureaus."
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "links": ""
+          }
+        ]
+      },
+      {
+        "id": "logInTo",
+        "text": "Log in to...",
+        "ariaLabelText": "Log in links for this page",
+        "icon": "@atoms/05-icons/svg-login.twig",
+        "closeText": "Close",
+        "panels": [
+          {
+            "description": {
+              "richText": {
+                "rteElements": [
+                  {
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph": {
+                        "text": "Login links for this page"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "links": [
+              {
+                "text": "Contextual Login 1",
+                "href": "#",
+                "type": "external"
+              },
+              {
+                "text": "Contextual Login 2",
+                "href": "",
+                "type": "external"
+              }
+            ]
+          },
+          {
+            "description": {
+              "richText": {
+                "rteElements": [
+                  {
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph": {
+                        "text": "These are the top requested sites you can log in to access state provided services"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "links": [
+              {
+                "text": "Unemployment Online",
+                "href": "https://uionline.detma.org/Claimant/Core/Login.ASPX",
+                "type": "external"
+              },
+              {
+                "text": "Virtual Gateway (SNAP)",
+                "href": "https://sso.hhs.state.ma.us/oam/server/obrareq.cgi?encquery%3DA2%2Fmo5AkZreDycpyP0JZAEOYGvW2hviyNhH9Sht2xPp0V1%2BBtWfHnmRGr6zNHOqOlcjphPk7p6bpHHRyNzzk9IYQ%2FcN%2B%2FIcqL2ThnI217OsIKZepptTpGBx83SI0NWjsE7vDi72caItXWlelbGQT7ePanlrVUUy2%2Fj1UEUaXi5G7m47KO9djBnoetZRCtp9G2ZTNFf6zvCGU7Cs02AXYUj2JMH4aqol%2Bh3OK6uhJNNkFvwQ1MFRUa4gR1az4iaW9u83ExKb2a9eDv8ZIUqhlq3%2BNVGTqZHAsHX4KOONSGQRBwCtLNPWwruacjdd9CaEqeIJ2tnP45KrM93edZ6zU1yoWGbAp%2BUWWMqk4HyrtuA8%3D%20agentid%3Dwebgate1%20ver%3D1%20crmethod%3D2",
+                "type": "external"
+              },
+              {
+                "text": "Child Support Enforcement",
+                "href": "https://ecse.cse.state.ma.us/ECSE/Login/login.asp",
+                "type": "external"
+              },
+              {
+                "text": "MassTaxConnect",
+                "href": "https://mtc.dor.state.ma.us/mtc/_/",
+                "type": "external"
+              },
+              {
+                "text": "myRmv",
+                "href": "https://atlas-myrmv.massdot.state.ma.us/myrmv/",
+                "type": "external"
+              },
+              {
+                "text": "Massachusetts Health Connector",
+                "href": "https://www.mahealthconnector.org/",
+                "type": "external"
+              },
+              {
+                "text": "Massachusetts Juror Service Website",
+                "href": "https://juryduty.majury.gov/ojcweb/public/start.aspx",
+                "type": "external"
+              },
+              {
+                "text": "Find a Commonwealth Job ",
+                "href": "https://massanf.taleo.net/careersection/ex/jobsearch.ftl",
+                "type": "external"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "COMMENT": "****PRECONTENT COMPONENTS****",
   "illustratedHeader": {
     "bgTitle": "Forest of the Berkshires",
     "bgImage": "../../assets/images/placeholder/800x450.png",
@@ -50,36 +175,40 @@
       "title": "Moving to Massachusetts: Planning Your Move",
       "subTitle": "",
       "headerTags": null,
-      "optionalContents": [{
-        "path": "@organisms/by-author/rich-text.twig",
-        "data": {
-          "richText": {
-            "rteElements": [{
-              "path": "atoms-paragraph",
-              "data": {
-                "paragraph" : {
-                  "text": "The Commonwealth of Massachusetts welcomes new residents to enjoy all the state has to offer. To help make your move to the Bay State as smooth as possible, this guide provides instructions for changing your license, tips for settling in, and other useful information."
+      "optionalContents": [
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [
+                {
+                  "path": "atoms-paragraph",
+                  "data": {
+                    "paragraph": {
+                      "text": "The Commonwealth of Massachusetts welcomes new residents to enjoy all the state has to offer. To help make your move to the Bay State as smooth as possible, this guide provides instructions for changing your license, tips for settling in, and other useful information."
+                    }
+                  }
                 }
-              }
-            }]
+              ]
+            }
           }
         }
-      }],
+      ],
       "widgets": null
     }
   },
-
-  "COMMENT":"****PAGE CONTENT COMPONENTS****",
-
+  "COMMENT": "****PAGE CONTENT COMPONENTS****",
   "jumpLinks": {
     "title": "In this guide",
-    "links": [{
-      "text": "Section with Everything",
-      "href": "section-with-everything"
-    }]
+    "links": [
+      {
+        "text": "Section with Everything",
+        "href": "section-with-everything"
+      }
+    ]
   },
-
-  "stackedRows": [{
+  "stackedRows": [
+    {
       "title": "Section with Everything",
       "id": "another-section-name6",
       "pageContent": [
@@ -96,43 +225,47 @@
           "path": "@organisms/by-author/rich-text.twig",
           "data": {
             "richText": {
-              "rteElements": [{
-                "path": "@molecules/callout-stats.twig",
-                "data": {
-                  "statsCallout": {
-                    "pull": "right",
-                    "stat": "$75+",
-                    "content": "this includes a title and registration fee"
+              "rteElements": [
+                {
+                  "path": "@molecules/callout-stats.twig",
+                  "data": {
+                    "statsCallout": {
+                      "pull": "right",
+                      "stat": "$75+",
+                      "content": "this includes a title and registration fee"
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph": {
+                      "text": "Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing</a> elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
+                    }
+                  }
+                },
+                {
+                  "path": "@atoms/09-media/figure.twig",
+                  "data": {
+                    "figure": {
+                      "align": "",
+                      "image": {
+                        "alt": "alt text",
+                        "src": "../../assets/images/placeholder/800x400.png",
+                        "height": "",
+                        "width": ""
+                      },
+                      "caption": ""
+                    }
                   }
                 }
-              },{
-                "path": "@atoms/11-text/paragraph.twig",
-                "data": {
-                  "paragraph" : {
-                    "text": "Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing</a> elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
-                  }
-                }
-              },{
-                "path": "@atoms/09-media/figure.twig",
-                "data": {
-                  "figure": {
-                    "align": "",
-                    "image": {
-                      "alt": "alt text",
-                      "src": "../../assets/images/placeholder/800x400.png",
-                      "height": "",
-                      "width": ""
-                    },
-                    "caption": ""
-                  }
-                }
-              }]
+              ]
             }
           }
         },
         {
-          "path":"@organisms/by-author/callout-alert.twig",
-          "data":{
+          "path": "@organisms/by-author/callout-alert.twig",
+          "data": {
             "calloutAlert": {
               "href": "",
               "text": "Massachusetts requires you to license your dog"
@@ -140,205 +273,224 @@
           }
         },
         {
-          "path":"@organisms/by-author/key-actions.twig",
-          "data":{
+          "path": "@organisms/by-author/key-actions.twig",
+          "data": {
             "keyActions": {
               "compHeading": {
                 "title": "Key Actions",
-                "sub":true,
+                "sub": true,
                 "titleContext": "for Section with Everything"
               },
-              "links":[{
-                "text": "Related Action to important Page Name",
-                "type": "",
-                "href": "#"
-              }]
+              "links": [
+                {
+                  "text": "Related Action to important Page Name",
+                  "type": "",
+                  "href": "#"
+                }
+              ]
             }
           }
         },
         {
-          "path":"@organisms/by-author/form-downloads.twig",
-          "data":{
+          "path": "@organisms/by-author/form-downloads.twig",
+          "data": {
             "formDownloads": {
               "compHeading": {
                 "title": "Downloads & Links",
                 "sub": true,
                 "titleContext": "for Section with Everything"
               },
-              "downloadLinks": [{
-                "downloadLink": {
-                  "iconSize": "",
-                  "icon": "laptop",
-                  "decorativeLink": {
-                    "text": "Online Form: Out-of-Country Driver's License Conversion",
-                    "href": "#",
-                    "info": "",
-                    "property": ""
-                  },
-                  "size": "",
-                  "format": "form"
+              "downloadLinks": [
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "laptop",
+                    "decorativeLink": {
+                      "text": "Online Form: Out-of-Country Driver's License Conversion",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "laptop",
+                    "decorativeLink": {
+                      "text": "Online Form: External link",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-docx",
+                    "decorativeLink": {
+                      "text": "Word download item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "40kb",
+                    "format": "DOCX"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-generic",
+                    "decorativeLink": {
+                      "text": "Generic download item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "120kb",
+                    "format": "CSV"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-pdf",
+                    "decorativeLink": {
+                      "text": "RMV-1 Form",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "259KB",
+                    "format": "PDF"
+                  }
                 }
-              },{
-                "downloadLink": {
-                  "iconSize": "",
-                  "icon": "laptop",
-                  "decorativeLink": {
-                    "text": "Online Form: External link",
-                    "href": "#",
-                    "info": "",
-                    "property": ""
-                  },
-                  "size": "",
-                  "format": "form"
-                }
-              },{
-                "downloadLink": {
-                  "iconSize": "",
-                  "icon": "doc-docx",
-                  "decorativeLink": {
-                    "text": "Word download item",
-                    "href": "#",
-                    "info": "",
-                    "property": ""
-                  },
-                  "size": "40kb",
-                  "format": "DOCX"
-                }
-              },{
-                "downloadLink": {
-                  "iconSize": "",
-                  "icon": "doc-generic",
-                  "decorativeLink": {
-                    "text": "Generic download item",
-                    "href": "#",
-                    "info": "",
-                    "property": ""
-                  },
-                  "size": "120kb",
-                  "format": "CSV"
-                }
-              },{
-                "downloadLink": {
-                  "iconSize": "",
-                  "icon": "doc-pdf",
-                  "decorativeLink": {
-                    "text": "RMV-1 Form",
-                    "href": "#",
-                    "info": "",
-                    "property": ""
-                  },
-                  "size": "259KB",
-                  "format": "PDF"
-                }
-              }]
+              ]
             }
           }
         }
       ],
-
-      "sideBar": [{
-      "path": "@organisms/by-author/contact-list.twig",
-      "data": {
-        "contactList": {
-          "viewSpecific": false,
-          "sidebarHeading": {
-            "title": "Key Agencies",
-            "titleContext": "for Section with Everything"
-          },
-          "contacts": [{
-            "accordion": false,
-            "isExpanded": false,
-            "subTitle": {
-              "href":"#",
-              "text": "Massachusetts Registry of Motor Vehicles (RMV)",
-              "chevron":""
-            },
-            "groups": [{
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": "",
-                  "property": ""
-                },
-                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
-              }]
-            },{
-              "icon": "laptop",
-              "name": "Online",
-              "items": [{
-                "type": "online",
-                "label":"",
-                "link": {
-                  "href": "#",
-                  "text": "Contact Form",
-                  "info": "",
-                  "property": ""
-                },
-                "details":""
-              }]
-            }]
-          }]
+      "sideBar": [
+        {
+          "path": "@organisms/by-author/contact-list.twig",
+          "data": {
+            "contactList": {
+              "viewSpecific": false,
+              "sidebarHeading": {
+                "title": "Key Agencies",
+                "titleContext": "for Section with Everything"
+              },
+              "contacts": [
+                {
+                  "accordion": false,
+                  "isExpanded": false,
+                  "subTitle": {
+                    "href": "#",
+                    "text": "Massachusetts Registry of Motor Vehicles (RMV)",
+                    "chevron": ""
+                  },
+                  "groups": [
+                    {
+                      "icon": "phone",
+                      "name": "Phone",
+                      "items": [
+                        {
+                          "type": "phone",
+                          "label": "Main:",
+                          "link": {
+                            "href": "+14134994262",
+                            "text": "(413) 499-4262",
+                            "info": "",
+                            "property": ""
+                          },
+                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                        }
+                      ]
+                    },
+                    {
+                      "icon": "laptop",
+                      "name": "Online",
+                      "items": [
+                        {
+                          "type": "online",
+                          "label": "",
+                          "link": {
+                            "href": "#",
+                            "text": "Contact Form",
+                            "info": "",
+                            "property": ""
+                          },
+                          "details": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
         }
-      }
-    }]
+      ]
     }
   ],
-
-  "COMMENT":"****POSTCONTENT COMPONENTS****",
-
+  "COMMENT": "****POSTCONTENT COMPONENTS****",
   "suggestedPages": {
     "title": "Related Guides",
     "titleContext": "to Moving to Massachusetts: Planning Your Move",
-    "view":"guide",
-    "buttonMinor" : {
+    "view": "guide",
+    "buttonMinor": {
       "href": "#",
       "text": "See All Guides"
     },
-    "pages": [{
-      "image": {
-        "alt": "Place Holder Image",
-        "src": "../../assets/images/placeholder/130x160.png",
-        "height": "160",
-        "width": "130"
+    "pages": [
+      {
+        "image": {
+          "alt": "Place Holder Image",
+          "src": "../../assets/images/placeholder/130x160.png",
+          "height": "160",
+          "width": "130"
+        },
+        "link": {
+          "type": "",
+          "href": "#",
+          "text": "Buying Your First Home",
+          "label": "Guide:"
+        }
       },
-      "link": {
-        "type": "",
-        "href": "#",
-        "text": "Buying Your First Home",
-        "label": "Guide:"
-      }
-    },{
-      "image": {
-        "alt": "Place Holder Image",
-        "src": "../../assets/images/placeholder/130x160.png",
-        "height": "160",
-        "width": "130"
+      {
+        "image": {
+          "alt": "Place Holder Image",
+          "src": "../../assets/images/placeholder/130x160.png",
+          "height": "160",
+          "width": "130"
+        },
+        "link": {
+          "type": "",
+          "href": "#",
+          "text": "Shopping for Auto Insurance",
+          "label": "Guide:"
+        }
       },
-      "link": {
-        "type": "",
-        "href": "#",
-        "text": "Shopping for Auto Insurance",
-        "label": "Guide:"
+      {
+        "image": {
+          "alt": "Place Holder Image",
+          "src": "../../assets/images/placeholder/130x160.png",
+          "height": "160",
+          "width": "130"
+        },
+        "link": {
+          "type": "",
+          "href": "#",
+          "text": "Education in Massachusetts",
+          "label": "Guide:"
+        }
       }
-    },{
-      "image": {
-        "alt": "Place Holder Image",
-        "src": "../../assets/images/placeholder/130x160.png",
-        "height": "160",
-        "width": "130"
-      },
-      "link": {
-        "type": "",
-        "href": "#",
-        "text": "Education in Massachusetts",
-        "label": "Guide:"
-      }
-    }]
+    ]
   }
-
 }
