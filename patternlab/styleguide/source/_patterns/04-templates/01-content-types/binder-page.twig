@@ -4,8 +4,9 @@
 <main id="main-content" class="ma__binder-page" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
+     {% include "@organisms/by-template/utility-panel.twig" %}
       {% include "@molecules/relationship-indicators.twig" %}
-      {% include "@organisms/by-template/utility-panel.twig" %}
+     
       {% if illustratedHeader %}
         {% include "@organisms/by-template/illustrated-header.twig" %}
       {% endif %}

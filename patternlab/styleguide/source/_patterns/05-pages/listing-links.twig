@@ -1,9 +1,10 @@
 {% extends '@templates/stacked-rows-with-external-sidebar-template.twig' %}
 
 {% block preContent %}
+ {% include "@organisms/by-template/utility-panel.twig" %}
   {% include "@molecules/relationship-indicators.twig" %}
   {% include "@organisms/by-template/page-header.twig" %}
-  {% include "@organisms/by-template/utility-panel.twig" %}
+ 
   {% if stickyTOC %}
     {% include "@organisms/by-template/sticky-toc.twig" %}
   {% endif %}

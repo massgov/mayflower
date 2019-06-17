@@ -1,9 +1,9 @@
 {% extends '@templates/single-column.twig' %}
 
 {% block preContent %}
+ {% include "@organisms/by-template/utility-panel.twig" %}
   {% include "@molecules/relationship-indicators.twig" %}
   {% include "@organisms/by-template/page-header.twig" %}
-  {% include "@organisms/by-template/utility-panel.twig" %}
 {% endblock %}
 {% block pageContent %}
   {% set eventListingInteractive = mainContent.eventListingInteractive %}
