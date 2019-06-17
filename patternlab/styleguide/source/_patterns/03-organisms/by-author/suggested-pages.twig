@@ -1,5 +1,9 @@
+{% set pageType = '' %}
+{% if suggestedPages.view == 'guide' %}
+  {% set pageType = 'guide' %}
+{% endif %}
 
-<section class="ma__suggested-pages">
+<section class="ma__suggested-pages {{ pageType }}">
   <div class="ma__suggested-pages__container">
     <div class="ma__suggested-pages__inner-container">
       <h2 class="ma__suggested-pages__title">{{ suggestedPages.title }}{% if suggestedPages.titleContext %}<span class="visually-hidden"> {{suggestedPages.titleContext}}</span>{% endif %}</h2>
