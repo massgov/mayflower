@@ -2,7 +2,7 @@
 
 # Sections `<section>`
 
-## ➤➤ Does the section have a [heading](headings.md) for it?
+## ➤➤ Does the section have a [heading](headings.md)?
 
 
 **➣ Yes:** 
