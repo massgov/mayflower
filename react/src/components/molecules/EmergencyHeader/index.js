@@ -19,10 +19,14 @@ const EmergencyHeader = (props) => {
   });
   return(
     <h2 className={h2Classes}>
-      <span className="ma__emergency-header__label">
-        {icon}
-        <span>{prefix}</span>
-      </span>
+      {
+        (icon || prefix) && (
+          <span className="ma__emergency-header__label">
+            {icon}
+            <span>{prefix}</span>
+          </span>
+        )
+      }
       <span className="ma__emergency-header__title">{ is.fn(title) ? title({ ...linkArgs }) : title}</span>
     </h2>
   );
