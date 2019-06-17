@@ -49,6 +49,10 @@
                 {% set iconLinks = introSidebar.social.iconLinks %}
                 {% include "@molecules/icon-links.twig" %}
               {% endif %}
+              {% if introSidebar.imageLinkList %}
+                {% set imageLinkList = introSidebar.imageLinkList %}
+                {% include "@organisms/by-author/image-link-list.twig" %}
+              {% endif %}
             {% endblock %}
           </aside>
         {% endif %}
