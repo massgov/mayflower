@@ -3,7 +3,7 @@
 
 ##  Markup Check
 
-In the component you're working on, you have:
+In the component you're working on, do you have:
 
 ### ☞ [Sections](sections.md) `<section>`
 
