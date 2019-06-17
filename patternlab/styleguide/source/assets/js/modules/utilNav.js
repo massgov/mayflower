@@ -6,6 +6,16 @@ $panels.each(function () {
   const $panel = $(this);
   const height = $panel.height();
   const $closeButton = $panel.find('.js-close-util-nav');
+  let $tabSkip;
+
+  if ($panel.find('.ma__utility-panel__description a:last-child').length) {
+    $tabSkip = $panel.find('.ma__utility-panel__description a:last-child')
+  }
+  else {
+    $tabSkip = $('.ma__utility-panel:last-child .ma__utility-panel__items li:last-child a');
+  }
+
+  console.log($tabSkip);
   $panel.css('top', '-' + height + 'px');
 
   $(window).on('resized', function () {
@@ -17,11 +27,19 @@ $panels.each(function () {
     }
   });
 
-
   $closeButton.on('click', function () {
     $panel.css('top', '-' + height + 'px');
     $panel.toggleClass('is-closed');
     $panel.attr("aria-hidden", "true");
+  });
+
+  $tabSkip.on('keydown', function (e) {
+    if (e.keyCode === 9) {
+      console.log('tab');
+      $panel.css('top', '-' + height + 'px');
+      $panel.toggleClass('is-closed');
+      $panel.attr("aria-hidden", "true");
+    }
   });
 
 });
@@ -30,9 +48,7 @@ $utilityButtons.each(function () {
   const $thisButton = $(this);
   const $thisButtonId = $(this).data("panel");
   const $thisPanel = $('.js-util-nav-content[data-panel=' + $thisButtonId + ']');
-  const $tabSet = $thisPanel.find('.ma__utility-panel').first().find('.js-clickable-link').first();
-
-  console.log($tabSet);
+  const $closePanel = $thisPanel.find('.js-close-util-nav');
 
   $thisButton.on('click', function () {
     $thisPanel.removeClass('is-closed');
@@ -40,6 +56,11 @@ $utilityButtons.each(function () {
     $thisPanel.attr("aria-hidden", "false");
 
     $('body').addClass('show-submenu');
+
+    setTimeout(function () {
+      $closePanel.focus();
+    }, 250);
+
   });
 });
 
