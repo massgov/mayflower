@@ -240,7 +240,7 @@ $utility-nav-height: 43px;
     text-align: left;
     transition: visibility .5s ease, right .5s ease;
     width: 300px;
-    z-index: $z-dropdown;
+    z-index: $z-modal;
     color: $c-font-inverse;
 
     .translated-rtl &,
