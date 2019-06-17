@@ -15,7 +15,6 @@ $panels.each(function () {
     $tabSkip = $('.ma__utility-panel:last-child .ma__utility-panel__items li:last-child a');
   }
 
-  console.log($tabSkip);
   $panel.css('top', '-' + height + 'px');
 
   $(window).on('resized', function () {
@@ -35,7 +34,6 @@ $panels.each(function () {
 
   $tabSkip.on('keydown', function (e) {
     if (e.keyCode === 9) {
-      console.log('tab');
       $panel.css('top', '-' + height + 'px');
       $panel.toggleClass('is-closed');
       $panel.attr("aria-hidden", "true");
