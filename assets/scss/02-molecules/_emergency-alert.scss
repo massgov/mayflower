@@ -70,3 +70,15 @@
 
   }
 }
+$colors: (
+  "c-highlight": $c-highlight,
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-error": $c-error,
+  "c-gray": $c-gray
+);
+@each $class, $c in $colors {
+  .ma__emergency-alert--#{$class} {
+    @include ma-emergency-alert($c);
+  }
+}
