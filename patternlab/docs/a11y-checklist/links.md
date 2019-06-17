@@ -195,7 +195,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 - decorative icons
 - decorative images
 
-> - Leave the `alt` value blank.
+> - Use an empty `alt` value.
 > - Hide the image from screen readers with `aria-hidden=”true”`.
 > 
 <!-- 
