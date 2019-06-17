@@ -114,7 +114,7 @@ export default (function (window, document) {
     function setEventListeners() {
       // Update the sticky header text when a link is clicked, even if another header is visible.
       tocParent.addEventListener("click", (e) => {
-        if (e.target.matches(".ma__sticky-toc__link a")) {
+        if (e.target.matches(".ma__sticky-toc__link a").textContent) {
           pauseScroll = true;
           setTimeout(() => { pauseScroll = false; }, 20);
           stickyToc.innerHTML = e.target.innerHTML;
