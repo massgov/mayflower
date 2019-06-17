@@ -18,7 +18,8 @@
         {% for stackedRow in stackedRows %}
           {% include "@organisms/by-author/stacked-row-section.twig" with {
             "stackedRowSection": stackedRow,
-            "stackedRow": stackedRow
+            "stackedRow": stackedRow,
+            "externalSidebar": true
           } %}
         {% endfor %}
       {% endblock %}

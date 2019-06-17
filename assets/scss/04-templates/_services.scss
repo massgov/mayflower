@@ -3,7 +3,7 @@
   .page-content--intro {
 
     @media ($bp-large-min) {
-      
+
       & > .ma__image:first-child {
         display: none;
       }
@@ -17,6 +17,7 @@
 
   .more-info-header {
     @include ma-container;
+    @include ma-component-spacing;
     @include clearfix;
 
     .ma__comp-heading {
@@ -25,6 +26,7 @@
   }
 
   .ma__split-columns {
+    @include ma-component-spacing;
 
     .ma__comp-heading,
     .ma__sidebar-heading {
@@ -33,6 +35,14 @@
       margin-bottom: 0 !important;
       text-transform: none;
       letter-spacing: normal;
+    }
+  }
+
+  .ma__stacked-row__section .main-content .page-content {
+    .ma__action-finder,
+    .ma__mapped-locations,
+    .ma__event-listing {
+      @include ma-component-spacing;
     }
   }
 

@@ -11,6 +11,10 @@ $event-listing-bp-show-grid: $bp-medium-min;
     }
   }
 
+  .ma__stacked-row__section .main-content .page-content > & {
+    @include ma-component-spacing('large');
+  }
+
   .main-content--full .page-content > .ma__results-heading + & {
     @include ma-component-spacing;
   }
@@ -261,7 +265,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
 }
 
 .ma__event-filters {
-  
+
   legend, label {
     color: $c-font-detail;
   }

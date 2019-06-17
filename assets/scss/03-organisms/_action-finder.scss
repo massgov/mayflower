@@ -184,6 +184,10 @@ $action-finder-bp: 900px;
     padding-bottom: 48px;
     text-align: left;
   }
+
+  .ma__stacked-row__section .main-content .page-content > & {
+    @include ma-component-spacing('large');
+  }
 }
 
 //theme

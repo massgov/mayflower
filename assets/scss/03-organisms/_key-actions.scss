@@ -1,6 +1,10 @@
 .ma__key-actions {
   clear: both;
 
+  .main-content.main-content--full .page-content > & {
+    @include ma-component-spacing('large');
+  }
+
   .pre-content > & &__container,
   .post-content > & &__container,
   .main-content--full .page-content > & &__container {
@@ -36,7 +40,7 @@
     width: 100%;
 
     @media ($bp-medium-max) {
-      &:last-child { 
+      &:last-child {
         margin-bottom: 0;
       }
     }
@@ -56,7 +60,7 @@
     @media ($bp-x-large-min) {
       //@include span-columns(4 of 12);
       margin-left: 1.6129%;
-      width: 33.3333% - 1.6129%;    
+      width: 33.3333% - 1.6129%;
     }
 
     .main-content--two & {
@@ -68,7 +72,7 @@
 
       // stacked (two column was too narrow)
       @media ($bp-large-min) and ($bp-x-large-max) {
-        width: 100% - 2.43902%; 
+        width: 100% - 2.43902%;
       }
     }
   }

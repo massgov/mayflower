@@ -1,32 +1,40 @@
-.ma__stacked-row-section {
+.ma__stacked-row {
+  position: relative;
 
-  &__title .ma__comp-heading {
-    margin-top: 15px;
-  }
-
-  @media ($bp-large-max) {
-    padding-bottom: 45px;
+  &__section {
 
     & ~ & {
-      border-top-width: 1px;
-      border-top-style: solid;
+      border-color: $c-bd-divider;
+
+      @media ($bp-large-max) {
+        border-top-width: 1px;
+        border-top-style: solid;
+      }
+
+      .ma__stacked-row__title .ma__comp-heading {
+        margin-top: 15px;
+      }
     }
 
     & ~ &--borderless {
-      border-top-width: 0;
+
+      @media ($bp-large-max) {
+        border-top-width: 0;
+      }
     }
+
   }
 
   &__container {
-    @include ma-container();
+    @include ma-container;
   }
 
   // reduce the width of the title and border
-  &--restricted + &--restricted &__container {
+  &__section--restricted + &__section--restricted &__container {
     @include ma-container('restricted');
   }
 
-  & ~ & &__container:before {
+  &__section ~ &__section &__container:before {
     border-color: $c-bd-divider;
     content: "";
     display: block;
@@ -37,24 +45,13 @@
     }
   }
 
-  &--borderless ~ &--borderless &__container:before {
+  &__section ~ &__section--borderless &__container:before {
     @media ($bp-large-min) {
       border-top-width: 0;
     }
   }
 
-  &--restricted &__title {
+  &__section--restricted &__title {
     max-width: 820px;
-  }
-
-  .main-content {
-
-    @media ($bp-large-max) {
-      margin-bottom: 0;
-    }
-
-    .page-content > * {
-      @include ma-component-spacing;
-    }
   }
 }

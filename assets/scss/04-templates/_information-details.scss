@@ -1,15 +1,5 @@
 .ma__information-details {
 
-  &__content {
-
-    & > * {
-      @include ma-component-spacing;
-    }
-  }
-}
-//theme
-.ma__information-details {
-
   &__content,
   &__post-content {
 

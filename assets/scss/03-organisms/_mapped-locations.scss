@@ -56,4 +56,9 @@
   &__info {
     margin-top: -0.5rem;
   }
+
+  .ma__stacked-row__section .main-content .page-content > & {
+    @include ma-component-spacing('large');
+  }
+
 }
