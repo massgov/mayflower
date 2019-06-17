@@ -9,22 +9,23 @@
   border-color: rgba($color, 1);
   .ma__emergency-header__label {
     @if $color == $c-highlight {
-      color: $c-font-base;
+      color: rgba($c-font-base, .8);
+      border-right-color: rgba($c-font-base,.3);
       svg {
         fill: $c-font-base;
       }
     } @else {
       color: $c-font-inverse;
+      border-right-color: rgba($c-font-inverse,.3);
       svg {
         fill: $c-font-inverse;
       }
     }
-    
+
   }
   .ma__emergency-header__title {
     font-weight: bold;
     @if $color == $c-highlight {
-      border-left-color: rgba($c-font-base, 0.3);
       .ma__content-link {
         color: $c-font-base;
         border-bottom: 1px solid rgba($c-font-base, .5);
@@ -33,7 +34,6 @@
         }
       }
     } @else {
-      border-left-color: rgba($c-font-inverse, 0.3);
       .ma__content-link {
         color: $c-font-inverse;
         border-bottom: 1px solid rgba($c-font-inverse, .5);
@@ -41,6 +41,6 @@
           border-bottom: 3px solid rgba($c-font-inverse, .75);
         }
       }
-    }  
+    }
   }
 }

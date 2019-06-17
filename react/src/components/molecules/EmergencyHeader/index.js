@@ -8,7 +8,9 @@ import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
 const EmergencyHeader = (props) => {
-  const { title, icon, prefix, theme } = props;
+  const {
+    title, icon, prefix, theme
+  } = props;
   const linkArgs = {
     theme,
     linkClasses: 'ma__content-link'
