@@ -15,7 +15,6 @@ storiesOf('molecules', module)
       title: ({ theme, linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">{titleText}</a>,
       theme: select('theme', {
         'c-highlight (default)': 'c-highlight',
-        'no theme': '',
         'c-primary': 'c-primary',
         'c-primary-alt': 'c-primary-alt',
         'c-error': 'c-error',
