@@ -30,9 +30,23 @@
       }
     }
 
-    .ma__download-link__icon {
-      width: 45px;
+    .ma__link-list__item {
+      line-height: 1.3;
     }
+
+    .ma__download-link__icon {
+      width: 35px;
+      height: 25px;
+      position: relative;
+      top: 4px;
+      left: -6px;
+
+      &>svg {
+        height: 25px;
+      }
+    }
+
+
   }
 
   .ma__stacked-row-section {
