@@ -86,14 +86,18 @@
   .sidebar &__item + &__item {
     border-color: $c-bd-divider;
   }
-}
 
-.ma__link-list--no-line {
-  .ma__link-list__description {
-    margin-bottom: 0;
-  }
+  &--no-line {
+    .ma__comp-heading--no-line {
+      margin-bottom: 5px;
+    }
 
-  .ma__link-list__items {
-    margin-bottom: 2rem;
+    .ma__link-list__description {
+      margin-bottom: 0;
+    }
+
+    .ma__link-list__items {
+      margin-bottom: 2rem;
+    }
   }
 }
