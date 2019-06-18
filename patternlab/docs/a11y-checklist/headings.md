@@ -33,7 +33,7 @@ The *sequential manner* means:
 
 [Let's check the heading label next.⬇️](#heading-label)
 
-**➢ No:** If your heading level number is static or doesn't meet above conditions, you have some work to do💪
+**➢ No:** If your heading level number is static or doesn't meet these conditions, you have some work to do💪
 
 Here are some ideas about what you may need to do:
 
