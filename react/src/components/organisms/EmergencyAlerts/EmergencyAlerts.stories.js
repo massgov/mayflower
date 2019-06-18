@@ -7,7 +7,7 @@ import Icon from '../../atoms/icons/Icon';
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 
 const themeOptions = {
-  'c-highlight (default)': 'c-highlight',
+  'c-warning (default)': 'c-warning',
   'c-primary': 'c-primary',
   'c-primary-alt': 'c-primary-alt',
   'c-gray-dark': 'c-gray-dark',
@@ -21,12 +21,8 @@ storiesOf('organisms/EmergencyAlerts', module)
     const props = {
       id: text('id', 'GUID18378923w38789'),
       theme: select('theme', {
-        'c-highlight (default)': 'c-highlight',
-        'c-primary': 'c-primary',
-        'c-primary-alt': 'c-primary-alt',
-        'c-error': 'c-error',
-        'c-gray': 'c-gray'
-      }, 'c-highlight'),
+        themeOptions
+      }, 'c-warning'),
       buttonAlert: object('buttonAlert', {
         hideText: 'Hide ',
         showText: 'Show ',
@@ -69,11 +65,7 @@ storiesOf('organisms/EmergencyAlerts', module)
     const props = {
       id: text('id', 'GUID18378923w38789'),
       theme: select('theme', {
-        'c-highlight (default)': 'c-highlight',
-        'c-primary': 'c-primary',
-        'c-primary-alt': 'c-primary-alt',
-        'c-error': 'c-error',
-        'c-gray': 'c-gray'
+        themeOptions
       }, 'c-primary-alt'),
       emergencyHeader: object('emergencyHeader', {
         prefix: 'Updates',

@@ -80,7 +80,7 @@ EmergencyAlerts.propTypes = {
   /** The data-id of the organism */
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   /** A string that controls different color themes for the component. */
-  theme: PropTypes.oneOf(['c-highlight', 'c-primary-alt', 'c-primary', 'c-gray', 'c-error']),
+  theme: PropTypes.oneOf(['c-warning', 'c-primary-alt', 'c-primary', 'c-gray', 'c-error']),
   /** An on button alert click callback function */
   onButtonClick: PropTypes.func,
   /** The emergency header props */
@@ -99,7 +99,7 @@ EmergencyAlerts.propTypes = {
 };
 
 EmergencyAlerts.defaultProps = {
-  theme: 'c-highlight'
+  theme: 'c-warning'
 };
 
 export default EmergencyAlerts;
