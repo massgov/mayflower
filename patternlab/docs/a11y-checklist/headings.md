@@ -66,7 +66,7 @@ Here are some ideas about what you may need to do:
 
 ### ➤➤ Is the label generic like “Contacts” or “Downloads”?
 
-🤔 "The label text of/for/about WHAT?" If you don't see the answer for the question, context info is necessary.
+🤔 If the heading label does not answer the question "of/for/about WHAT?" , context information is necessary.
 
 <a name="context"></a>
 **➣ Yes:** Add context info as visually hidden text for screen reader users.
