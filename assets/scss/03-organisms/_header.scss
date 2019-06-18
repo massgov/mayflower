@@ -26,8 +26,8 @@ body.show-menu {
       transition: opacity 0.6s linear;
   }
   
-  @media ($bp-medium-min) {
-      top: 43px;
+  @media($bp-header-toggle-min) {
+    top: 43px;
   }
 }
 
@@ -159,7 +159,7 @@ body.show-menu {
   &__nav-container {
     background-color: #F2F2F2;
     height: 100vh;
-    top: 40px;
+    top: 37px;
     overflow-y: auto;
     position: absolute;
     left: -320px;
@@ -168,6 +168,10 @@ body.show-menu {
     transition: left 0.3s ease, visibility 0.3s;
     width: 320px;
     z-index: 90;
+
+    @media($bp-header-toggle-min) {
+      top: 43px;
+    }
 
     .show-menu & {
       left: 0;
