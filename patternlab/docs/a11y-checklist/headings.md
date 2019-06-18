@@ -71,7 +71,7 @@ Here are some ideas about what you may need to do:
 <a name="context"></a>
 **➣ Yes:** Add context info as visually hidden text for screen reader users.
 
-📋 Sighted users can get certain context from the page layout, but screen reader users are usually unable to take advantage of it and don't have the same context. So, we fill the gap by providing the context information as text.
+📋 Sighted users can get certain context from the page layout, but screen reader users don't have the same context. Context info fills the gap for those users.
 
 > Some pages could have multiple **Contacts** and **Dowloads** headings in a page. Make sure each one of them is *uniquely* identifiable.
 > 
