@@ -35,7 +35,7 @@ Move to the following question. ⬇️
 
 **➣ Yes:** Let's add a heading!
 
-> 1. Place the heading label with `<h#>`.
+> 1. Add a heading using `<h#>`.
 > 
 > 1. Position the heading right below the `<section>` as its first child element.
 > 
