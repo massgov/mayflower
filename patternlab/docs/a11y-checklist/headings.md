@@ -64,7 +64,7 @@ Here are some ideas about what you may need to do:
 <a name="heading-label"></a>
 ## Heading label
 
-### ➤➤ Is the label generic like “Contacts” and “Downloads”?
+### ➤➤ Is the label generic like “Contacts” or “Downloads”?
 
 🤔 "The label text of/for/about WHAT?" If you don't see the answer for the question, context info is necessary.
 
