@@ -29,7 +29,7 @@ The *sequential manner* means:
 **🛑 Watch out when your template contains multiple headings.** The heading levels could change in the template. You might need to adjust the level in the template.
 
 
-📋 The template can have a *default value* for the heading level. The *default value* is only used when it’s unable to get the parent’s heading level value. This is the case the second condition might be omitted.
+📋 The template can have a *default value* for the heading level. The *default value* is only used when no heading level value for the parent is present. In this case, the second condition may be omitted.
 
 [Let's check the heading label next.⬇️](#heading-label)
 
