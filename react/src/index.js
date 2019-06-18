@@ -1,3 +1,5 @@
+import FeedbackForm from './components/organisms/FeedbackForm';
+
 /*
   Since we are package a library of UI components, export each component here
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
@@ -15,6 +17,7 @@ export ButtonSort from './components/atoms/buttons/ButtonSort';
 export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 export ButtonFixedFeedback from './components/atoms/buttons/ButtonFixedFeedback';
+export ButtonAlert from './components/atoms/buttons/ButtonAlert';
 // @atoms/@forms
 export Form, { FormProvider } from './components/atoms/forms/Form';
 export HelperText from './components/atoms/forms/HelperText';
@@ -87,8 +90,10 @@ export AccordionItem from './components/molecules/AccordionItem';
 export ListingTable from './components/molecules/ListingTable';
 export Breadcrumb from './components/molecules/Breadcrumb';
 export BreadcrumbItem from './components/molecules/Breadcrumb/item';
+export EmergencyAlert from './components/molecules/EmergencyAlert';
 
 // @organisms
+export FeedbackForm from './components/organisms/FeedbackForm';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Teaser from './components/organisms/Teaser';
 export Footer from './components/organisms/Footer';
@@ -108,8 +113,9 @@ export FilterBox from './components/organisms/FilterBox';
 export SearchBanner from './components/organisms/SearchBanner';
 export AccordionWrapper from './components/organisms/AccordionWrapper';
 export TableofContents from './components/organisms/TableofContents';
-export TabContainer from './components/organisms/TabContainer';
 export Tab from './components/organisms/TabContainer/tab';
+export TabContainer from './components/organisms/TabContainer';
+export TabContext from './components/organisms/TabContainer/context';
 export TeaserListing from './components/organisms/TeaserListing';
 export CalloutAlert from './components/organisms/CalloutAlert';
 export HelpTip from './components/organisms/HelpTip';

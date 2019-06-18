@@ -5,7 +5,9 @@ import { withInfo } from '@storybook/addon-info';
 // automatically import all files ending in *.stories.js
 const req = require.context('../src', true, /.stories.js$/);
 function loadStories() {
-  req.keys().forEach((filename) => req(filename));
+  req.keys().forEach((filename) => {
+    req(filename);
+  });
   addDecorator(
     withInfo({
       styles: {
@@ -35,4 +37,3 @@ function loadStories() {
   addDecorator(withA11y);
 }
 configure(loadStories, module);
-

@@ -10,9 +10,20 @@ export default (function (window, document) {
       headings: tocParent.querySelectorAll(toc.dataset.sections + ":not(.ma__sticky-toc__title)"),
       links: []
     };
-    // The number of sections / links.
+
     let tocSectionCount = tocSections.headings.length;
-    // Another wroapper around the links, probably originally to put the links in two columns.
+    var additionalCount = 0;
+    var i;
+    var totalSections = tocSectionCount;
+
+    // Remove Related and Contact sections from total amount of sections.
+    for (i = 0; i < tocSectionCount; i++) {
+      if (tocSections.headings[i].innerText.toLowerCase() == "related" || tocSections.headings[i].innerText.toLowerCase() == "contact") {
+        totalSections--;
+      }
+    };
+    tocSectionCount = totalSections;
+    // Another wrapper around the links, probably originally to put the links in two columns.
     const tocColumn = toc.querySelector(".ma__sticky-toc__column");
     // Container in the sticky header to hold the current sections header.
     const stickyToc = toc.querySelector(".ma__sticky-toc__current-section");
@@ -25,7 +36,7 @@ export default (function (window, document) {
     // The menu that slides out after the sticky menu is clicked.
     let stuckMenu;
     let pauseScroll = false;
-    
+
     // Initialize the TOC by creating links and target spans.
     function initializeToc() {
       // Add a class to the parent to help with consistent handling across applications.
@@ -59,17 +70,29 @@ export default (function (window, document) {
     // Set the various visibility rules.
     function handleResize() {
       tocSectionCount = 0;
+      additionalCount = 0;
       Array.from(tocSections.headings).forEach((heading, index) => {
         // If the section isn't visible, set the link not to display.
         const isVisible = heading.offsetHeight * heading.offsetWidth;
         if (isVisible) {
           tocSections.links[index].style.display = "";
-          tocSectionCount++;
+          // If the section is the related or contact sections we don't want to count those.
+          if ((heading.innerText.toLowerCase() != 'related') && (heading.innerText.toLowerCase() != 'contact')) {
+            tocSectionCount++;
+          }
+          else if (heading.innerText.toLowerCase() == 'contact') {
+            additionalCount++;
+          }
         }
         else {
           tocSections.links[index].style.display = "none";
         }
       });
+
+      // Get the final count of sections we'll use to determine if we display.
+      if ((tocSectionCount >= 1) && (additionalCount >= 1)) {
+        tocSectionCount = tocSectionCount + additionalCount;
+      }
 
       // Remove wrapper if not enough links.
       if (tocSectionCount < minSectionsToShow) {

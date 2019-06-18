@@ -13,6 +13,92 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.11.1 (06/07/2019)
+
+### Fixed
+- (React) [TabContext] hotfix: Fixes export of TabContext in react package build. #616
+
+## 9.11.0 (06/07/2019)
+
+### Added
+- (React) [InputTextFuzzy] DP-13800: Adds prop onKeyDownPreventDefault. When set to true, hitting enter without a valid suggestion will trigger event.preventDefault(). #566
+- (React) [TabContext]: Adds TabContainers/Tabs context to expost as TabContext so accessible to external consumers. #608
+
+### Fixed
+- (React) [InputDate] DP-14234: Fixes a bug where the numeric date would be hidden if the current date was today and the date was selected. #613
+
+## 9.10.0 (06/06/2019)
+
+### Fixed
+- (React) [InputTextFuzzy] DP-13924: Fixes bugs caused by either options with a large amount of characters or queries with a large amount of characters. #559
+- (React) [FeedbackForm] DP-14273: Fixes a bug when the FeedbackForm is used with server side rendering caused by b-jsonp not checking for window. #610
+
+## 9.9.1 (06/03/2019)
+
+### Fixed
+- (React) hotfix: Install `airbnb-prop-types` package as direct instead of dev package dependency in Mayflower-React.
+
+## 9.9.0 (06/03/2019)
+
+### Added
+- (React) [FeedbackForm] DP-14085: Added the FeedbackForm component for submissions to Formstack. #599
+- (Patternlab) Added `.nvmrc` file #600
+
+### Changed
+- (React) [Paragraph] DP-14085: Added support for using props.children with the Paragraph component instead of props.text. #599
+- (React) Removed `yarn.lock` file #600
+
+### Fixed
+- (React) [Icon] DP-13970: Removed usage of webpack's require.context in favor of dynamic ES6 imports. #564
+- (React) [DecorativeLink] DP-13970: Fixes warnings appearing related to the title prop when it's not set or passed. #564
+- (React) [Pagination] DP-13970: Reworked props to use destructoring. #564
+- (React) [ListingTable] DP-13970: Fixes the prop type definition for items to remove console warnings. #564
+- (React) [HeaderSearch] DP-13970: Fixed console warning from using postInputFilter when it's not passed. #564
+- (React) [ButtonWithIcon] DP-13970: Changed the storybook story to create Icons within each story instead of outside of them. #564
+
+## 9.8.0 (05/29/2019)
+
+### Added
+- (Patternlab) DP-1379: Set focus state for elements on Topic pages
+- (Patternlab) [Descriptive link wrapper] DP-14006: Add new "Descriptive links wrapper" organism and associated "Descriptive link" molecule to handle when a brief description and an associated link are needed.
+
+### Changed
+- (Patternlab) DP-11737: Downgrades font size from 800 to 700 for event-teaser and publish-state
+- (Patternlab) DP-13088: Change sticky TOC to appear only if there are 3 or more sections not including related and contacts
+- (Patternlab) DP-13967: Fix the heading size for the Related Services and Additional Resources heading from h3 to h2.
+
+### Fixed
+
+## 9.7.0 (05/13/2019)
+
+### Fixed
+- (React) [HelpTip] DP-13672: Fix css for bypassMobileStyle. #551
+- (Docs) Update Mayflower project issue template and fixed links on homepage. #549
+
+### Added
+- (React) [InputCurrency] DP-13672: Add `showButtons` prop to control whether the up/down buttons are shown. #550
+- (React) [HelpTip, CalloutAlert] DP-13672: Add white theme option styles. #552
+- (React) [Button] Add `classes` prop to button to allow appending custom classnames #554
+- (React) [Icon] Add `zoom-in` `zoom-out` `refresh` icons #554
+
+
+## 9.6.0 (05/01/2019)
+
+### Added
+- (Patternlab) [SectionLinks] DP-13100: Changed topic card heading styles, and footer CTA styles #542
+- (React) [InputTextFuzzy] DP-13688: Added option to render all options as suggestions by default, via prop `renderDefaultSuggestion` #544
+- (React) [Storybook Config] DP-13688: Added storybook console addon #544
+
+### Removed
+- (Patternlab) [assets] DP-12475: Remove richText.js. #505
+- (Patternlab) [RichText] Removed js flag classes for richText.js. #505
+
+### Deprecated
+- (React) [InputTextTypeAhead] DP-13688: Deprecate InputTextTypeAhead. #544
+
+### Fixed
+- (React) [FilterBox] Fixed warning caused by using `start` instead of `flex-start` within stying. #543
+
 ## 9.5.1 (04/17/2019)
 
 ### Security

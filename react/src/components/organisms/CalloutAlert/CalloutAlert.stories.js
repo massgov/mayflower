@@ -14,7 +14,8 @@ const themeOptions = {
   'c-primary': 'c-primary',
   'c-primary-alt': 'c-primary-alt',
   'c-gray-dark': 'c-gray-dark',
-  'c-error-red': 'c-error-red'
+  'c-error-red': 'c-error-red',
+  'c-white': 'c-white'
 };
 
 storiesOf('organisms/CalloutAlert', module)
@@ -29,7 +30,7 @@ storiesOf('organisms/CalloutAlert', module)
       };
       return(
         <CalloutAlert {...calloutAlertProps}>
-          <Paragraph />
+          <Paragraph>A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</Paragraph>
           <OrderedList />
           <DecorativeLink />
         </CalloutAlert>

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
+import { componentWithName } from 'airbnb-prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
-import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 class HeaderSearch extends React.Component {
@@ -69,9 +69,11 @@ class HeaderSearch extends React.Component {
               value={this.state.value}
             />
             {this.props.suggestions && this.props.suggestions}
-            <div className="ma__header-search__post-filter">
-              {this.props.postInputFilter}
-            </div>
+            {this.props.postInputFilter && (
+              <div className="ma__header-search__post-filter">
+                {this.props.postInputFilter}
+              </div>
+            )}
             <ButtonWithIcon
               onClick={(e) => this.handleClick(e)}
               {...buttonSearchRest}
@@ -103,7 +105,7 @@ HeaderSearch.propTypes = {
   /** @molecules/TypeAheadDropdown */
   orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
   /** postInputFilter passable component */
-  postInputFilter: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'SelectBox')
+  postInputFilter: componentWithName('SelectBox')
 };
 
 HeaderSearch.defaultProps = {
