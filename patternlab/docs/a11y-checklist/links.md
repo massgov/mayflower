@@ -182,7 +182,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 >		```
 > 		<a href="loginpage.html" aria-label="Screen readers announce this.">
 > 			Screen readers ignore anything goes here.
-> 			<img src="image.png" alt="this is ignored, but empty out for cleaner markup." />
+> 			<img src="image.png" alt="this is ignored, but leave empty for cleaner markup." />
 > 		</a>
 >		```
 >
