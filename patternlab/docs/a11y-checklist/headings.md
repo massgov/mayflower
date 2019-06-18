@@ -18,7 +18,7 @@ The *sequential manner* means:
 
 ☑️ No skipping - no in-between number(s) is(are) missing.
 
-☑️ No jumping - NOT putting heading level numbers randomly.
+☑️ No jumping - heading level numbers always go from small to large (never large to small).
 
 <!--
 - [ ] No backward - Numbers does NOT go down from large to small.
