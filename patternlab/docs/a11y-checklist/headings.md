@@ -35,7 +35,7 @@ The *sequential manner* means:
 
 **➢ No:** If your heading level number is static or doesn't meet above conditions, you have some work to do💪
 
-Below info. gives you some idea of what needs to be done.
+Here are some ideas about what you may need to do:
 
 > #### Overview
 >
