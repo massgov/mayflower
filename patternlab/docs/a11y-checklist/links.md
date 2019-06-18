@@ -188,7 +188,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 >
 > 		"Screen readers announce this."
 > 
-> 📋 When `aria-label` is used, screen readers ignore the content between `<a>` and `</a> `and announce `aria-label` value.
+> 📋 When `aria-label` is used, screen readers ignore the content between `<a>` and `</a> `and announce the `aria-label` value.
     
 **➢ No [Case 2]:** Text is sufficient as the label. Image has no additional information.
 
