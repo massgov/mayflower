@@ -9,7 +9,7 @@
 [Move to the Headings section. ➡️](headings.md)
 
 **➢ No:**
-`<section>` requires `<h#>`. Missing `<h#>` is invalid as HTML5.
+A `<section>` element requires an `<h#>`. A  `<section>` without a heading is invalid HTML5.
 Move to the following question to find out more. ⬇️
 
 ## ➤➤ Does the section have a heading label content in other HTML tag to describe the section?
