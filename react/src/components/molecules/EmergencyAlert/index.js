@@ -5,7 +5,9 @@ import is from 'is';
 import './style.css';
 
 const EmergencyAlert = (props) => {
-  const { message, timeStamp, link, theme } = props;
+  const {
+    message, timeStamp, link, theme
+  } = props;
   const linkArgs = {
     theme,
     linkClasses: 'ma__content-link',

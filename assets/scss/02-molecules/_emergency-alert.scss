@@ -28,7 +28,7 @@
 
 //theme
 .ma__emergency-alert {
-  background-color: lighten($c-warning,34%);
+  background-color: tint($c-warning,90%);
 
   & + & {
     border-top-color: $c-warning;
