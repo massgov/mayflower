@@ -4,6 +4,7 @@
   padding: 12px;
   font-size: inherit;
   line-height: inherit;
+  background-color: $c-warning;
 
   @media ($bp-small-max) {
     text-align: center;
@@ -69,11 +70,6 @@
       padding-left: 18px;
     }
   }
-}
-
-//theme
-.ma__emergency-header {
-  background-color: $c-warning;
 }
 
 $colors: (
