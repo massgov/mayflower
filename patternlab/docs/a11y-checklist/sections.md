@@ -42,6 +42,8 @@ When `<h1>` for a page title is inside a `<section>` and the `<section>` is NOT 
 
 > Don't use `<section>`. Replace `<section>` with `<div>` or other proper semantic container element.
 
+[Move on to next element. ➡️](a11y-checklist.md)
+
 **➢ No:** It doesn't contain a page title. Move to the following question. ⬇️
 
 ## ➤➤ Does the section need a heading? 
