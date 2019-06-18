@@ -14,7 +14,7 @@ Move to the following question to find out more. ⬇️
 
 ## ➤➤ Does the section have a heading label content in other HTML tag to describe the section?
 
-📋 You can consider the heading level content as a title for the section. It's generally placed before its main content.
+📋 Consider using that content as a heading for the section, and place it before the main content.
 
 **➣ Yes:** Follow the steps below to set up the heading.
 > 1. Replace the tag with `<h#>`.
