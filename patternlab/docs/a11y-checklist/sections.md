@@ -6,7 +6,10 @@
 
 
 **➣ Yes:** 
-[Move to the Headings section. ➡️](headings.md)
+
+It has `<h1>` as a page title. [Move to the next question. ⬇️](#page_title)
+
+It has other heading.[Move to the Headings section. ➡️](headings.md)
 
 **➢ No:**
 `<section>` requires `<h#>`. Missing `<h#>` is invalid as HTML5.
@@ -28,6 +31,7 @@ Move to the following question to find out more. ⬇️
 **➢ No:**
 Move to the following question. ⬇️
 
+<a name="page_title"></a>
 ## ➤➤ Does the section contain a page title?
 
 **➣ Yes:** A page title markup is inside the `<section>`.
