@@ -21,7 +21,7 @@ storiesOf('organisms/EmergencyAlerts', module)
     const props = {
       id: text('id', 'GUID18378923w38789'),
       theme: select('theme', {
-        themeOptions
+        ...themeOptions
       }, 'c-warning'),
       buttonAlert: object('buttonAlert', {
         hideText: 'Hide ',
@@ -65,7 +65,7 @@ storiesOf('organisms/EmergencyAlerts', module)
     const props = {
       id: text('id', 'GUID18378923w38789'),
       theme: select('theme', {
-        themeOptions
+        ...themeOptions
       }, 'c-primary-alt'),
       emergencyHeader: object('emergencyHeader', {
         prefix: 'Updates',
