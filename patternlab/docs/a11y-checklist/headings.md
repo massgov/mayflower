@@ -39,7 +39,7 @@ Here are some ideas about what you may need to do:
 
 > #### Overview
 >
-> Only the page title can have `<h1>`.
+> Only the page title should use `<h1>`.
 >
 > In page templates, the initial heading level is set. Then, before the level changes, the heading level value is adjusted to reflect the content hierarchy in templates.
 >
