@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import is from 'is';
 import { componentWithName } from 'airbnb-prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
@@ -16,12 +17,28 @@ class HeaderSearch extends React.Component {
     this.setState({ value: nextProps.defaultText });
   }
 
-  handleChange(event) {
-    const query = event.target.value;
+  handleChange(e) {
+    const query = e.target.value;
     this.setState({ value: query });
-    // invokes custom function if passed in the component
-    if (typeof this.props.onChange === 'function') {
+    /**
+       * Invokes a custom onChange function if passed.
+       * @param {string} query - The current query string of the input.
+    */
+    if (this.props.onChange && is.fn(this.props.onChange)) {
       this.props.onChange(query);
+    }
+  }
+  handleClick(e) {
+    const event = e;
+    if (this.props.buttonSearch && is.fn(this.props.buttonSearch.onClick)) {
+      /**
+       * Invokes a custom onClick function if passed to the buttonSearch component.
+       * @param {object} event - The click event.
+       * @param {string} query - The current query string input.
+      */
+      this.props.buttonSearch.onClick({ event, query: this.state.value });
+    } else if (this.state.value && this.state.value.length > 0) {
+      window.location.assign(`https://search.mass.gov/?q=${this.state.value}`);
     }
   }
 
@@ -29,6 +46,7 @@ class HeaderSearch extends React.Component {
     const headerSearch = this.props;
     const orgDropdown = headerSearch.orgDropdown;
     const shouldShowTypeAhead = (orgDropdown && orgDropdown.dropdownButton && orgDropdown.inputText);
+    const { onClick, ...buttonSearchRest } = headerSearch.buttonSearch;
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
         {shouldShowTypeAhead &&
@@ -57,7 +75,10 @@ class HeaderSearch extends React.Component {
                 {this.props.postInputFilter}
               </div>
             )}
-            <ButtonWithIcon {...headerSearch.buttonSearch} />
+            <ButtonWithIcon
+              onClick={(e) => this.handleClick(e)}
+              {...buttonSearchRest}
+            />
           </form>
         </div>
       </div>
