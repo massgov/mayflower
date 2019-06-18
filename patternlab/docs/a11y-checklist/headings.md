@@ -16,7 +16,7 @@ HTML5 allows you to start with `<h1>` in every `<section>`. That is valid as HTM
 
 The *sequential manner* means:
 
-☑️ No skipping - Some in-between number(s) is(are) NOT missing.
+☑️ No skipping - no in-between number(s) is(are) missing.
 
 ☑️ No jumping - NOT putting heading level numbers randomly.
 
