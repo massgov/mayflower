@@ -4,7 +4,7 @@
 
 ## Heading level
 
-A heading needs its **proper level number** to represent the hierarchy of the content in the relationship of the parent and child components.
+A heading's level number must accurately represent the hierarchy of the content in the relationship of the parent and child components.
 
 HTML5 allows you to start with `<h1>` in every `<section>`. That is valid as HTML5, but it doesn't help assistive technology users to grasp the content hierarchy in the page.
 
