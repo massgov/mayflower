@@ -17,25 +17,26 @@ class HeaderSearch extends React.Component {
     this.setState({ value: nextProps.defaultText });
   }
 
-  handleChange(event) {
-    const query = event.target.value;
+  handleChange(e) {
+    const query = e.target.value;
     this.setState({ value: query });
     /**
        * Invokes a custom onChange function if passed.
        * @param {string} query - The current query string of the input.
     */
-    if (typeof this.props.onChange === 'function') {
+    if (this.props.onChange && is.fn(this.props.onChange)) {
       this.props.onChange(query);
     }
   }
   handleClick(e) {
+    const event = e;
     if (this.props.buttonSearch && is.fn(this.props.buttonSearch.onClick)) {
       /**
        * Invokes a custom onClick function if passed to the buttonSearch component.
        * @param {object} event - The click event.
        * @param {string} query - The current query string input.
       */
-      this.props.buttonSearch.onClick({ event: e, query: this.state.value });
+      this.props.buttonSearch.onClick({ event, query: this.state.value });
     } else if (this.state.value && this.state.value.length > 0) {
       window.location.assign(`https://search.mass.gov/?q=${this.state.value}`);
     }
