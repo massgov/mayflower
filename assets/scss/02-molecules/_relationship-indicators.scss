@@ -37,7 +37,8 @@
 
     .wrapped-link {
       padding-right: 5px;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      line-height: 1;
 
       @media($bp-x-small-min) {
         padding: 0 5px;
@@ -59,7 +60,7 @@
             flex-flow: row nowrap;
         }
 
-        @media($bp-small-min) {
+        @media($bp-large-min) {
           padding: 1px 5px;
         }
 
@@ -158,7 +159,6 @@
         
             @media ($bp-x-small-min) {
                 width: auto;
-                display: inline-block;
             }
         }
 

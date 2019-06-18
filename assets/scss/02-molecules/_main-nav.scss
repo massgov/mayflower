@@ -110,12 +110,16 @@
       height: 20px;
       width: 20px;
     }
+
+    &>span {
+      border-bottom: 2px solid transparent;
+    }
     
     &:hover {
       text-decoration: none;
     
       &>span {
-          text-decoration: underline;
+          border-bottom: 2px solid $c-black;
       }
     }
   }
