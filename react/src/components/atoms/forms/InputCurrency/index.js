@@ -157,7 +157,7 @@ const Currency = (props) => {
               const updateError = displayErrorMessage(newValue);
               context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
-                  props.onBlur(newValue, { id: props.id, type });
+                  props.onBlur({value: newValue, id: props.id, type });
                 }
               });
             }
