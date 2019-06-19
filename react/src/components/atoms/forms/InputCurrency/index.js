@@ -137,7 +137,8 @@ const Currency = (props) => {
             }
           };
 
-          const handleBlur = () => {
+          const handleBlur = (e) => {
+            const { type } = e;
             const inputEl = ref.current;
             const stringValue = inputEl.value;
             // isNotNumber returns true if stringValue is null, undefined or 'NaN'
@@ -156,7 +157,7 @@ const Currency = (props) => {
               const updateError = displayErrorMessage(newValue);
               context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
-                  props.onBlur(newValue);
+                  props.onBlur(newValue, { id: props.id, type });
                 }
               });
             }
