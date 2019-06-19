@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, object } from '@storybook/addon-knobs/react';
+import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs/react';
 
 import EmergencyAlerts from './index';
 import Icon from '../../atoms/icons/Icon';
@@ -59,7 +59,8 @@ storiesOf('organisms/EmergencyAlerts', module)
         prefix: 'Updates',
         icon: (!iconName) ? null : <Icon name={iconName} />,
         title: ({ theme, linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">{titleText}</a>
-      })
+      }),
+      buttonClose: boolean('buttonClose', true)
     };
     return(<EmergencyAlerts {...props} />);
   }));

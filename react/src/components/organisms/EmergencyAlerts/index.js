@@ -36,7 +36,7 @@ class EmergencyAlerts extends React.Component {
   }
   render() {
     const {
-      id, emergencyHeader, buttonAlert, alerts, theme
+      id, emergencyHeader, buttonAlert, alerts, theme, buttonClose
     } = this.props;
     const sectionClasses = classNames({
       'ma__emergency-alerts': true,
@@ -73,15 +73,16 @@ class EmergencyAlerts extends React.Component {
                 <div className="ma__emergency-alerts__header-interface js-accordion-link">
                   {buttonAlert && <ButtonAlert {...buttonAlert} onClick={this.handleClick} isOpen={this.state.open} />}
                 </div>
-              ) : (
-                <button
-                  className={hideButtonClasses}
-                  title="hide alert"
-                  aria-label="hide alert"
-                  onClick={this.handleClose}
-                >
-                  +
-                </button>
+              ) : ( buttonClose && (
+                  <button
+                    className={hideButtonClasses}
+                    title="hide alert"
+                    aria-label="hide alert"
+                    onClick={this.handleClose}
+                  >
+                    +
+                  </button>
+                )
               )}
             </div>
           </div>
@@ -126,11 +127,14 @@ EmergencyAlerts.propTypes = {
     timeStamp: PropTypes.string,
     /** An optional function whose return value is a link to take the user to page with more information. */
     link: PropTypes.func
-  }))
+  })),
+  /** Whether or not to render a close button if not alerts are provided */
+  buttonClose: PropTypes.bool
 };
 
 EmergencyAlerts.defaultProps = {
-  theme: 'c-warning'
+  theme: 'c-warning',
+  buttonClose: true
 };
 
 export default EmergencyAlerts;
