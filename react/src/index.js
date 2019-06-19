@@ -91,6 +91,7 @@ export ListingTable from './components/molecules/ListingTable';
 export Breadcrumb from './components/molecules/Breadcrumb';
 export BreadcrumbItem from './components/molecules/Breadcrumb/item';
 export EmergencyAlert from './components/molecules/EmergencyAlert';
+export EmergencyHeader from './components/molecules/EmergencyHeader';
 
 // @organisms
 export FeedbackForm from './components/organisms/FeedbackForm';
