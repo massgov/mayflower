@@ -112,7 +112,7 @@ $colors: (
       transition: background-color .5s;
       
       .is-open & {
-        background-color: tint($c-warning, 34%);
+        background-color: tint($c-warning, 90%);
       }
 
       .ma__button-alert {
