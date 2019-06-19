@@ -10,9 +10,8 @@ const themeOptions = {
   'c-warning (default)': 'c-warning',
   'c-primary': 'c-primary',
   'c-primary-alt': 'c-primary-alt',
-  'c-gray-dark': 'c-gray-dark',
-  'c-error-red': 'c-error-red',
-  'c-white': 'c-white'
+  'c-gray': 'c-gray',
+  'c-error': 'c-error'
 };
 
 storiesOf('organisms/EmergencyAlerts', module)
