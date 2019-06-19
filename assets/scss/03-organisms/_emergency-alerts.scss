@@ -22,6 +22,29 @@ $colors: (
     // z-index:1;
   }
 
+  &.collapsed {
+      visibility: hidden;
+      height: 0px;
+    }
+
+  &.collapsing, &.expanding {
+    position: relative;
+    overflow: hidden;
+    visibility: visible;
+    -webkit-transition-property: height, visibility;
+    transition-property: height, visibility;
+    transition-duration: 0.35s;
+    -webkit-transition-duration: 0.35s;
+    transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+  }
+
+  &.expanded {
+     height: auto;
+     visibility: visible;
+     display: block;
+  }
+
   &__header {
     background-color: $c-warning;
     .ma__emergency-header {
@@ -30,6 +53,17 @@ $colors: (
       padding-left: 0;
       padding-right: 0;
     }
+  }
+
+  &__hide {
+    @include ma-button-reset;
+    font-size: 3rem;
+    line-height: .65;
+    overflow: hidden;
+    position: absolute;
+      top: 50%;
+      right: 10px;
+    transform: translateY(-50%) rotate(45deg);
   }
 
   &__header-interface {
@@ -124,6 +158,14 @@ $colors: (
 
 @each $class, $c in $colors {
   .ma__emergency-alerts {
+    &__hide--#{$class} {
+      @if $c == $c-warning {
+        color: $c-font-base;
+
+      } @else {
+        color: $c-font-inverse;
+      }
+    }
     &__content--#{$class} {
       background-color: tint($c, 90%);
     }

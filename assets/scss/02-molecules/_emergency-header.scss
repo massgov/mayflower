@@ -33,6 +33,7 @@
       border-right-style: solid;
       border-right-color: rgba($c-font-base,.3);
       padding-right: 18px;
+      margin-right: 18px;
     }
 
     // icon
@@ -65,10 +66,6 @@
     line-height: 1.4;
     margin-bottom: 0;
     font-weight: 700;
-
-    @media ($bp-large-min) {
-      padding-left: 18px;
-    }
   }
 }
 
