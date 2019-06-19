@@ -119,6 +119,7 @@ export TabContext from './components/organisms/TabContainer/context';
 export TeaserListing from './components/organisms/TeaserListing';
 export CalloutAlert from './components/organisms/CalloutAlert';
 export HelpTip from './components/organisms/HelpTip';
+export EmergencyAlerts from './components/organisms/EmergencyAlerts';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';

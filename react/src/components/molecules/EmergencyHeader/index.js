@@ -38,14 +38,14 @@ EmergencyHeader.propTypes = {
   /** A function whose return value is displayed in the text to the right of the divider bar. */
   title: PropTypes.oneOfType([PropTypes.func, PropTypes.string]).isRequired,
   /** A string that controls different color themes for the component. */
-  theme: PropTypes.oneOf(['c-highlight', 'c-primary-alt', 'c-primary', 'c-gray', 'c-error']),
+  theme: PropTypes.oneOf(['c-warning', 'c-primary-alt', 'c-primary', 'c-gray', 'c-error']),
   /** A SVG icon to display to the left of the prefix text. */
   icon: componentWithName('Icon'),
   /** An optional string displayed to the left of the divider bar. */
   prefix: PropTypes.string
 };
 EmergencyHeader.defaultProps = {
-  theme: 'c-highlight',
+  theme: 'c-warning',
   prefix: 'Emergency Alerts',
   icon: <Icon name="alert" />
 };
