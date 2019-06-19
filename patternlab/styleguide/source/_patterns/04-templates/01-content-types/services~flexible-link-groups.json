@@ -328,6 +328,7 @@
           "compHeading": {
             "title": "Link List 2",
             "sub": "",
+            "level": 3,
             "color": "",
             "id": "",
             "centered": false,
@@ -403,6 +404,7 @@
           "compHeading": {
             "title": "Link List 3",
             "sub": "",
+            "level": 3,
             "color": "",
             "id": "",
             "centered": false,
