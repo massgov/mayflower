@@ -5,6 +5,7 @@ import { withKnobs, text, select, object } from '@storybook/addon-knobs/react';
 import EmergencyAlerts from './index';
 import Icon from '../../atoms/icons/Icon';
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
+import Link from '../../molecules/Link';
 
 const themeOptions = {
   'c-warning (default)': 'c-warning',
@@ -33,27 +34,15 @@ storiesOf('organisms/EmergencyAlerts', module)
       alerts: object('alerts', [{
         message: 'MassPort is operating with limited flights due to road closures.',
         timeStamp: '02.15.16, 5:00 p.m.',
-        link: {
-          href: '#',
-          text: 'Read full alert',
-          chevron: true
-        }
+        link: ({ theme, linkClasses, TextElement }) => <Link classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
       }, {
         message: 'The MTBA is operating at a lighter service level, and experiencing delays.',
         timeStamp: '02.15.16, 3:00 p.m.',
-        link: {
-          href: '#',
-          text: 'Read full alert',
-          chevron: true
-        }
+        link: ({ theme, linkClasses, TextElement }) => <Link classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
       }, {
         message: 'The Governor directs non-emergency executive branch state employees to not come in to work.',
         timeStamp: '02.13.16, 10:00 a.m.',
-        link: {
-          href: '#',
-          text: 'Read full alert',
-          chevron: true
-        }
+        link: ({ theme, linkClasses, TextElement }) => <Link classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
       }])
     };
     return(<EmergencyAlerts {...props} />);
