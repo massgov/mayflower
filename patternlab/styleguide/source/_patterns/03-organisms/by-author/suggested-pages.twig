@@ -21,14 +21,16 @@
           {% endfor %}
         {% else %}
           {% for page in suggestedPages.pages|slice(0,3) %}
-            <figure class="ma__suggested-pages__item ma__suggested-pages__item--figure">
-              <a href="{{ page.link.href }}" title="{{ page.link.info }}">
-                {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
-                {% include "@atoms/09-media/image.twig" %}
-              </a>
-              {% set decorativeLink = page.link %}
-              {% include "@atoms/decorative-link.twig" %}
-            </figure>
+            <div class="ma__suggested-pages__item">
+              <figure class="ma__suggested-pages__item--figure">
+                <a href="{{ page.link.href }}" title="{{ page.link.info }}">
+                  {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
+                  {% include "@atoms/09-media/image.twig" %}
+                </a>
+                {% set decorativeLink = page.link %}
+                {% include "@atoms/decorative-link.twig" %}
+              </figure>
+            </div>
           {% endfor %}
         {% endif %}
       </div>
