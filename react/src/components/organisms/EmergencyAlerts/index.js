@@ -14,15 +14,14 @@ class EmergencyAlerts extends React.Component {
     this.state = {
       open: false
     };
-    this.handleClick = this.handleClick.bind(this);
   }
-  handleClick(e) {
-    const { target } = e;
+  handleClick = (e) => {
+    const { currentTarget } = e;
     this.setState({
       open: !this.state.open
     });
     if (is.fn(this.props.onButtonClick)) {
-      this.props.onButtonClick({ open: !this.state.open, target });
+      this.props.onButtonClick({ open: !this.state.open, currentTarget });
     }
   }
   render() {
