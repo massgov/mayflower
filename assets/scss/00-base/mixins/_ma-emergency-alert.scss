@@ -2,7 +2,7 @@
   color: $c-font-base;
   background-color: tint($color, 90%);
     & + & {
-    border-top-color: $color;
+    border-top-color: tint($color, 50%);
   }
   .ma__emergency-alert__link {
     font-weight: bold;
