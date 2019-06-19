@@ -24,6 +24,11 @@
   }
 
   &.ma__services-flexible-link-groups {
+
+    .ma__action-finder h3.ma__action-finder__category {
+      margin-bottom: .4em;
+    }
+
     .ma__stacked-row-section {
       .ma__split-columns {
         margin-top: 15px;
@@ -31,7 +36,12 @@
     }
 
     .ma__link-list {
-      max-width: 780px;
+      max-width: inherit;
+      width: 100%;
+
+      @media ($bp-large-min) {
+        max-width: 820px;
+      }
     }
 
     .ma__link-list__item {
