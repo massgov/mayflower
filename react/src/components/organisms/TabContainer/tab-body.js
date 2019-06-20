@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { Portal } from 'react-portal';
 
 class TabBody extends React.Component {
@@ -10,14 +10,15 @@ class TabBody extends React.Component {
     };
     if (global.MutationObserver) {
       this.observer = new MutationObserver((mutations) => {
+        const tabContainer = document.getElementById(this.props.tabContainerBodyId);
         mutations.forEach((mutation) => {
           if (!mutation.target) {
             return;
           }
-          if (this.props.active && mutation.target.contains(document.getElementById(this.props.tabContainerBodyId))) {
-            this.setState({ nodeList: [document.getElementById(this.props.tabContainerBodyId)] });
-          } else if (!this.props.active && mutation.target.contains(document.getElementById(this.props.tabContainerBodyId))) {
-            this.setState({ nodeList: [] })
+          if (this.props.active && mutation.target.contains(tabContainer)) {
+            this.setState({ nodeList: [tabContainer] });
+          } else if (!this.props.active && mutation.target.contains(tabContainer)) {
+            this.setState({ nodeList: [] });
           }
         });
       });
@@ -26,6 +27,7 @@ class TabBody extends React.Component {
   componentDidMount() {
     const nodeList = document.getElementById(this.props.tabContainerBodyId);
     if (nodeList) {
+      // eslint-disable-next-line react/no-did-mount-set-state
       this.setState({ nodeList: [nodeList] });
     }
     if (global.MutationObserver) {
@@ -48,5 +50,12 @@ class TabBody extends React.Component {
     return null;
   }
 }
+
+TabBody.propTypes = {
+  /** The tab container body to render Tab children into. */
+  tabContainerBodyId: PropTypes.string.isRequired,
+  /** Sets if the tab is the currently active tab or not. */
+  active: PropTypes.bool
+};
 
 export default TabBody;

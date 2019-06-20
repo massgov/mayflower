@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
@@ -73,6 +72,7 @@ class Tab extends React.Component {
     const buttonProps = {
       onClick: (e) => {
         e.target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        e.persist();
         if (activeTab !== tabIdent) {
           setActiveTab(tabIdent);
         }
@@ -93,10 +93,11 @@ class Tab extends React.Component {
         <li role="presentation" className={tabClasses}>
           <button {...buttonProps}>{this.props.title}</button>
         </li>
-        {global.window &&
-        <TabBody tabId={tabIdent} active={activeTab === tabIdent} tabContainerId={this.context.tabContainerId} tabContainerBodyId={this.context.tabContainerBodyId}>
-          {this.props.children}
-        </TabBody>}
+        {global.window && (
+          <TabBody active={activeTab === tabIdent} tabContainerBodyId={this.context.tabContainerBodyId}>
+            {this.props.children}
+          </TabBody>
+        )}
       </React.Fragment>
     );
   }
@@ -105,13 +106,10 @@ Tab.contextType = TabContext;
 
 
 Tab.defaultProps = {
-  default: false,
   active: false
 };
 
 Tab.propTypes = {
-  /** When true, the tab will be open by default when used with TabContainer. */
-  default: PropTypes.bool,
   /** The text of the tab. */
   title: PropTypes.string.isRequired,
   /** A callback function ran after the tab has been clicked. */

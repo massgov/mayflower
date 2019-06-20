@@ -40,16 +40,17 @@ class TabContainer extends React.Component {
       tabRefs,
       tabContainerId: shortid.generate(),
       tabContainerBodyId: shortid.generate(),
+      // eslint-disable-next-line react/no-unused-state
       tabBodyRef: this.tabBodyRef
     };
   }
-  setActiveTab = (tabId, content = null) => {
+  setActiveTab = (tabId) => {
     const state = {
       activeTab: tabId
     };
     this.setState(state, () => {
       if (is.fn(this.props.onTabChange)) {
-        this.props.onTabChange(this.state.tabRefs[tabId], tabId, content);
+        this.props.onTabChange(this.state.tabRefs[tabId], tabId);
       }
     });
     if (this.state.tabRefs[tabId].current.focus) {
@@ -67,17 +68,17 @@ class TabContainer extends React.Component {
       } else if (this.props.nested) {
         // If the tab container is nested and active focus is not on the body,
         // set focus to the parent tab container.
-          const tab = e.currentTarget
-            .parentElement
-            .closest('div.ma__tab-container')
-            .getElementsByClassName('ma__tab-title--active')[0]
-            .getElementsByTagName('button')[0];
-          tab.removeAttribute('tabindex');
-          tab.focus();
-          this.preventBodyKeyDown = true;
-        } else {
-          this.preventBodyKeyDown = false;
-        }
+        const tab = e.currentTarget
+          .parentElement
+          .closest('div.ma__tab-container')
+          .getElementsByClassName('ma__tab-title--active')[0]
+          .getElementsByTagName('button')[0];
+        tab.removeAttribute('tabindex');
+        tab.focus();
+        this.preventBodyKeyDown = true;
+      } else {
+        this.preventBodyKeyDown = false;
+      }
     }
     if (e.key === 'ArrowDown') {
       // If the tab container is not nested and has no nested tab container children...
