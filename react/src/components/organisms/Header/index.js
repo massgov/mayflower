@@ -22,7 +22,7 @@ class Header extends Component {
     if (body.hasAttribute('class')) {
       bodyClass = body.getAttribute('class');
       if (bodyClass) {
-        if (bodyClass.indexOf('show-menu')) {
+        if (bodyClass.indexOf('show-menu')  !== -1) {
           bodyClass = bodyClass.split(' ').filter((val) => val !== 'show-menu').join(' ');
         } else {
           bodyClass += ' show-menu';
