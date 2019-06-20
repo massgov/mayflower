@@ -14,12 +14,12 @@ storiesOf('molecules', module)
     const props = {
       title: ({ theme, linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">{titleText}</a>,
       theme: select('theme', {
-        'c-highlight (default)': 'c-highlight',
+        'c-warning (default)': 'c-warning',
         'c-primary': 'c-primary',
         'c-primary-alt': 'c-primary-alt',
         'c-error': 'c-error',
         'c-gray': 'c-gray'
-      }, 'c-highlight'),
+      }, 'c-warning'),
       prefix: text('prefix', 'Emergency Alerts'),
       icon: (!iconName) ? null : <Icon name={iconName} />
     };

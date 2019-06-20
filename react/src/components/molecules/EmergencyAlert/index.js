@@ -5,7 +5,9 @@ import is from 'is';
 import './style.css';
 
 const EmergencyAlert = (props) => {
-  const { message, timeStamp, link, theme } = props;
+  const {
+    message, timeStamp, link, theme
+  } = props;
   const linkArgs = {
     theme,
     linkClasses: 'ma__content-link',
@@ -32,7 +34,7 @@ const EmergencyAlert = (props) => {
 
 EmergencyAlert.propTypes = {
   /** A string that controls different color themes for the component. */
-  theme: PropTypes.oneOf(['c-highlight', 'c-primary-alt', 'c-primary', 'c-gray', 'c-error']),
+  theme: PropTypes.oneOf(['c-warning', 'c-primary-alt', 'c-primary', 'c-gray', 'c-error']),
   /** A message describing the event. */
   message: PropTypes.string.isRequired,
   /** A string representing the time of the event. */
@@ -42,7 +44,7 @@ EmergencyAlert.propTypes = {
 };
 
 EmergencyAlert.defaultProps = {
-  theme: 'c-highlight'
+  theme: 'c-warning'
 };
 
 export default EmergencyAlert;
