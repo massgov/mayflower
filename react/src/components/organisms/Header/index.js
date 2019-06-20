@@ -22,7 +22,7 @@ class Header extends Component {
     if (body.hasAttribute('class')) {
       bodyClass = body.getAttribute('class');
       if (bodyClass) {
-        if (bodyClass.indexOf('show-menu')) {
+        if (bodyClass.indexOf('show-menu') !== -1) {
           bodyClass = bodyClass.split(' ').filter((val) => val !== 'show-menu').join(' ');
         } else {
           bodyClass += ' show-menu';
@@ -45,8 +45,8 @@ class Header extends Component {
   render() {
     const header = this.props;
     const utilNavOpen = { isOpen: this.state.utilNavOpen };
-    const HeaderUtilityNavProps = Object.assign({}, header.utilityNav, utilNavOpen);
-    const HeaderUtilityNav = <UtilityNav {...HeaderUtilityNavProps} />;
+    const headerUtilityNavProps = Object.assign({}, header.utilityNav, utilNavOpen);
+    const HeaderUtilityNav = <UtilityNav {...this.props.utilityNav} isOpen={this.state.utilNavOpen} />;
 
     return(
       <header className="ma__header" id="header">
