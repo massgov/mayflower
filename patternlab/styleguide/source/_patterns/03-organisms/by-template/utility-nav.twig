@@ -28,7 +28,9 @@
             </div>
             <div class="ma__utility-nav__content-body">
               {% set utilityPanel = item.panel %}
+              {% for item in item.panels %}
               {% include "@organisms/by-template/utility-panel.twig" %}
+              {% endfor %}
             </div>
           </div>
         </div>
