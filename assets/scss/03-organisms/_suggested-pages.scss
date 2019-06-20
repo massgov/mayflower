@@ -93,13 +93,13 @@
           margin-right: 0;
         }
         &:nth-child(1) {
-          .ma__suggested-pages__item--figure {
+          .ma__suggested-pages__item--suggested-figure {
             margin-left: 0;
           }
         }
         &:nth-last-child(3n+1) {
           border-right: 0;
-          .ma__suggested-pages__item--figure {
+          .ma__suggested-pages__item--suggested-figure {
             margin-right: 0;
           }
         }
