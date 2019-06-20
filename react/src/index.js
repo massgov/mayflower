@@ -91,6 +91,7 @@ export ListingTable from './components/molecules/ListingTable';
 export Breadcrumb from './components/molecules/Breadcrumb';
 export BreadcrumbItem from './components/molecules/Breadcrumb/item';
 export EmergencyAlert from './components/molecules/EmergencyAlert';
+export EmergencyHeader from './components/molecules/EmergencyHeader';
 
 // @organisms
 export FeedbackForm from './components/organisms/FeedbackForm';
@@ -119,6 +120,7 @@ export TabContext from './components/organisms/TabContainer/context';
 export TeaserListing from './components/organisms/TeaserListing';
 export CalloutAlert from './components/organisms/CalloutAlert';
 export HelpTip from './components/organisms/HelpTip';
+export EmergencyAlerts from './components/organisms/EmergencyAlerts';
 
 //@templates
 export NarrowTemplate from './components/templates/NarrowTemplate';

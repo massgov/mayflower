@@ -14,7 +14,7 @@ const ButtonAlert = ({
   });
   const buttonProps = {
     className: buttonClasses,
-    type: type
+    type
   };
   if (is.fn(onClick)) {
     buttonProps.onClick = onClick;
