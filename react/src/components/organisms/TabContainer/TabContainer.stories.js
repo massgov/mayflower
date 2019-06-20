@@ -19,7 +19,7 @@ storiesOf('organisms/TabContainer', module)
     };
 
     return(
-      <TabContainer defaultTab={3} onTabChange={action('Tab change')}>
+      <TabContainer onTabChange={action('Tab change')}>
         <Tab title="Tab 1" {...tabProps}>
           <TabContainer {...props} onTabChange={action('Tab change')}>
             <Tab title="Nested Tab Here" {...tabProps}>This should support nesting like this.</Tab>
@@ -43,7 +43,7 @@ storiesOf('organisms/TabContainer', module)
     };
     if (TabContainerData.budgetTabs) {
       return(
-        <TabContainer defaultTab={2} onTabChange={action('Tab change')}>
+        <TabContainer onTabChange={action('Tab change')}>
           { TabContainerData.budgetTabs.map((tab, index) => (
             <Tab key={`tab${index}`} title={tab.tab} {...tabProps}>
               { tab.subTabs && (
