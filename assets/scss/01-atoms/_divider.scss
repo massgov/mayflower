@@ -2,10 +2,6 @@
   @include ma-container;
   border: none;
 
-  .ma__stacked-row__section .main-content .page-content > & {
-    @include ma-component-spacing('large');
-  }
-
   &:last-child {
     margin-bottom: 0;
   }

@@ -1,10 +1,6 @@
 .ma__key-actions {
   clear: both;
 
-  .main-content.main-content--full .page-content > & {
-    @include ma-component-spacing('large');
-  }
-
   .pre-content > & &__container,
   .post-content > & &__container,
   .main-content--full .page-content > & &__container {

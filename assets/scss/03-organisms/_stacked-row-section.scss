@@ -23,6 +23,19 @@
       }
     }
 
+    & .main-content .page-content {
+      > .ma__action-finder,
+      > .ma__divider,
+      > .ma__event-listing,
+      > .ma__mapped-locations {
+        @include ma-component-spacing('large');
+      }
+    }
+
+    & .main-content.main-content--full .page-content > .ma__key-actions {
+      @include ma-component-spacing('large');
+    }
+
   }
 
   &__container {
