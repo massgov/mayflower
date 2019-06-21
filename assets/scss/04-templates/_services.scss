@@ -41,7 +41,8 @@
   .ma__stacked-row__section .main-content .page-content {
     .ma__action-finder,
     .ma__mapped-locations,
-    .ma__event-listing {
+    .ma__event-listing,
+    .ma__image-credit {
       @include ma-component-spacing;
     }
   }
