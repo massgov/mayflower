@@ -178,7 +178,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 > 		</button>
 >		```
 >
-> 		"Show the office hours."
+> 		This label will now read: "Show the office hours."
 >
 > 📋 When `aria-label` is used, screen readers ignore the content between `<button>` and `</button>` and announce `aria-label` value.
 > 
