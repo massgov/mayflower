@@ -83,7 +83,7 @@ Some labels don't make sense by themselves:
 
 > - In these cases, use `aria-label` to override the existing button label. 
 > 
-> - Add any necessary context info to the  `aria-label` as well. With above sample, the label could be "click to show the table of contents". 
+> - Add any necessary context info to the  `aria-label` as well. In the example above, the label could be "click to show the table of contents". 
 > 
 > 
 > ```
