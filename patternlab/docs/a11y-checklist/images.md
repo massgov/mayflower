@@ -68,7 +68,7 @@ Mayflower icons are found at *assets/images/svg-icons/*.
 
 
 <a name="alt"></a>
-### ➤➤ Does the image have a role to convey content in the component?
+### ➤➤ In this component, does the image convey information (in other words, is it more than decorative)?
 
 **➣ Yes:** The image has its unique information which is necessary to understand the page/section content.
 
