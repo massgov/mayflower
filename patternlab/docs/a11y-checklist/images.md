@@ -70,7 +70,7 @@ Mayflower icons are found at *assets/images/svg-icons/*.
 <a name="alt"></a>
 ### ➤➤ In this component, does the image convey information (in other words, is it more than decorative)?
 
-**➣ Yes:** The image has its unique information which is necessary to understand the page/section content.
+**➣ Yes:** The image has information that is necessary to fully understand the page/section content.
 
 > Make sure the template can receive the `alt` value as a part of the image data set.
 >
