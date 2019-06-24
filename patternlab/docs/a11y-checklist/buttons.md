@@ -61,7 +61,7 @@ Some labels make sense when you can see the entire section, but don't when you s
 > We need to provide the WHAT as context information. Use visually hidden text to add contextual info.
 > 
 > ###### Examples
-> Expand`<span class=”ma--visually-hidden”>` the Table of Content`</span>`
+> Expand`<span class=”ma--visually-hidden”>` the Table of Contents`</span>`
 > 
 > Show more`<span class=”ma--visually-hidden”>` related pages to this page, page title.`</span>`
 
