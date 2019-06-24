@@ -87,6 +87,8 @@ $utility-nav-height: 43px;
 
     @media ($bp-header-toggle-max) {
       padding: 11px 20px 9px 45px;
+      width: 100%;
+      text-align: left;
     }
 
     @media ($bp-header-toggle-max) {
