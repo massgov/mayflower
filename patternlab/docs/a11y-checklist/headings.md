@@ -14,7 +14,7 @@ HTML5 allows you to start with `<h1>` in every `<section>`. That is valid as HTM
 
 ☑️ The component's heading level number should adjust according to the component's placement on a page. For example, if its parent component starts with an *h3*, this component starts with *h4*.
 
-The *sequential manner* means:
+Proper heading level number means:
 
 ☑️ No skipping - no in-between number(s) is(are) missing.
 
