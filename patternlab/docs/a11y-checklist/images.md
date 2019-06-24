@@ -88,7 +88,7 @@ Mayflower icons are found at *assets/images/svg-icons/*.
 
 ```<img src="image.jpg" alt="" />```
 
-📋 If `<img>` doesn't have `alt` attribute, screen readers try to provide any other available information for the image and announce `src` value, which is not only not helpful, but also unpleasant to screen reader users.
+📋 If `<img>` doesn't have an `alt` attribute, screen readers will provide whatever other information is available. Without an `alt` attribute, they will usually announce the `src` value, which is not only not helpful, but also unpleasant for screen reader users.
 
 When the `alt` value is empty, screen readers know it is *purposely* empty, and don't try to deliver any other information.
 
