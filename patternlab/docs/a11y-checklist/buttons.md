@@ -94,7 +94,7 @@ Some labels don't make sense by themselves:
 >   aria-controls="toc-overlay">+</button>
 > ```
 > 
-> 📋 When `aria-label` is used, screen readers ignore the content between `<button>` and `</button> `and announce `aria-label` value.
+> 📋 When `aria-label` is used, screen readers ignore the content between `<button>` and `</button> `and announce the `aria-label` value.
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
