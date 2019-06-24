@@ -157,7 +157,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 > 
 > 
 > - If they don't flow well together, 
->     - add contextual text info as visually hidden text, or
+>     - add contextual text info as visually hidden text, like this:
 > 
 >		```
 > 		<button type="button">
