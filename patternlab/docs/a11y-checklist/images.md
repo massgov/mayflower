@@ -43,7 +43,7 @@ When the image is fully decorative and does not provide any information, adding 
 
 ### `<svg>`
 
-`<svg>` is generally used to insert icons in Mayflower.
+Icons in Mayflower are generally `<svg>` files.
 
 Our icons are found at *assets/images/svg-icons/*.
 
