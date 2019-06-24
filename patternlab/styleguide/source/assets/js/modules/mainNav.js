@@ -8,23 +8,24 @@ let menuItems = document.querySelectorAll('.js-main-nav-toggle');
 const menuOverlay = document.querySelector('.menu-overlay');
 const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
 
+console.log('start');
+
 // Updates to utility nav buttons. Will most likely pull mobile utility nav into seperate 
 // pattern after work on contextual login links 
 let mobileUtilityItems = document.querySelector('.ma__header__utility-nav--narrow');
 const mobileLanguageSelect = mobileUtilityItems.getElementsByClassName('ma__utility-nav__item')[0];
 const stateOrgsButton = mobileUtilityItems.getElementsByClassName('js-util-nav-toggle')[0];
 stateOrgsButton.addEventListener("click", function (e) {
-  console.log('click');
   stateOrgsButton.querySelector('.ma__utility-nav__content').remove();
   window.location.pathname = 'state-a-to-z';
 });
-mobileLanguageSelect.remove();
+
+mobileLanguageSelect.parentNode.removeChild(mobileLanguageSelect);
 // ******** //
 
 // Open and close the menu
 if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
-
     event.preventDefault();
 
     if (body.classList.contains("show-menu")) {
