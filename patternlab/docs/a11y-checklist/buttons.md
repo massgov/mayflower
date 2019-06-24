@@ -63,7 +63,7 @@ Some labels make sense when you can see the entire section, but don't when you s
 > ###### Examples
 > Expand`<span class=”ma--visually-hidden”>` the Table of Contents`</span>`
 > 
-> Show more`<span class=”ma--visually-hidden”>` related pages to this page, page title.`</span>`
+> Show more`<span class=”ma--visually-hidden”>` pages related to this page, [page title].`</span>`
 
 
 ##### Case 2: Adding contextual info as visually hidden text doesn't help:
