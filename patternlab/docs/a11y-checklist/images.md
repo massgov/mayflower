@@ -6,7 +6,7 @@
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<CONTAINER style="background-image: url();">`
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`<svg>`
 
-📋 For a **linked image** and a **button label image**, see the [Links](links.md) and the [Buttons](buttons.md) pages respectively for their specific details.
+📋 For a **linked image** or a **button with an image label**, see the [Links](links.md) and the [Buttons](buttons.md) pages respectively for their specific details.
 
 ## 📖 Types of image markup
 
