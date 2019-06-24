@@ -134,7 +134,7 @@ Some labels don't make sense by themselves:
 **➣ Yes:** 
 
 > Respect the text over the image. Empty the image’s `alt` value.
-> The image is presented as a decorative purpose.
+> In this case, the purpose of the image is decorative.
 
 **🛑 Keep `alt` attribute even its value is empty.**
 
