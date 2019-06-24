@@ -38,6 +38,7 @@ if (null !== menuButton) {
     if (body.classList.contains("show-menu")) {
       closeMenu();
     } else {
+      menuButton.focus();
       openMenu();
     }
   });
@@ -63,7 +64,7 @@ if (null !== menuButton) {
       closeMenu();
     }
 
-    if (e.code == 'Escape') {
+    if (e.code == 'Escape' || e.which == '27') {
       closeMenu();
     }
   });
@@ -181,7 +182,7 @@ if (null !== searchForm) {
       first.querySelector('.ma__main-nav__link').focus()
     }
 
-    if (e.code == 'Escape') {
+    if (e.code == 'Escape' || e.which == '27') {
       if (item.classList.contains('submenu-open')) {
         subItems.style.opacity = "0";
         subMenu.style.height = "0";
@@ -296,6 +297,5 @@ window.onresize = function () {
   clearTimeout(debouncer);
   debouncer = setTimeout(function () {
     width = body.clientWidth;
-    console.log(width);
   }, 100);
 };
