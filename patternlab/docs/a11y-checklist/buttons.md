@@ -70,7 +70,7 @@ Some labels make sense when you can see the entire section, but don't when you s
 
 It needs supplemental information, but it doesn't make sense to add it as visually hidden text.
 
-The label doesn't make sense by itself:
+Some labels don't make sense by themselves:
 
 - For example, if the button label is a symbol, screen readers announce the symbol.
 
