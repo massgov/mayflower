@@ -8,7 +8,7 @@
 
 **🛑 Set type attribute**
 
-If your buttons are not to submit form data to a server, be sure to set their type attribute to button. Otherwise they will try to submit form data and to load the (nonexistent) response, possibly destroying the current state of the document.
+If your button does not submit form data to a server, be sure to set the type attribute to button. Otherwise, it will try to submit form data and to load the (nonexistent) response, possibly destroying the current state of the document.
 
 **🛑 Be careful for a use of a *link* vs. a *button*.**
 
