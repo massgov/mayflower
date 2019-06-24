@@ -109,7 +109,7 @@ Some labels don't make sense by themselves:
 **➢ No:**  Add an `alt` attribute. [Go to the following question. ⬇️](#alt)
 
 <a name="alt"></a>
-#### ➤➤ Does the `alt` attribute clearly tell what the button does as the button label?
+#### ➤➤ Does the `alt` attribute work as a button label, and clearly tell what the button does?
 
 **➣ Yes:** You are all set. [Move on to next element. ➡️](a11y-checklist.md)
 
