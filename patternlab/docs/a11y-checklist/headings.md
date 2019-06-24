@@ -84,7 +84,7 @@ Here are some ideas about what you may need to do:
 
 ### ➤➤ Does the label have enough context to describe the section content?
 
-🤔 Check if the label itself would tell what the following content is about. If it doesn't, context info is necessary.
+🤔 Check if the label itself describes the content. If it doesn't, context info is necessary.
 
 **➣ Yes:** You are all set with the heading. [Move onto next element.➡️](a11y-checklist.md)
 
