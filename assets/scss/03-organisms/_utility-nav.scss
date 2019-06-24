@@ -354,11 +354,16 @@ $utility-nav-height: 43px;
   }
 
   &__content-title {
-    font-size: 1.625rem;
-    line-height: 1.45;
-    padding-bottom: 20px;
-    position: relative;
-    font-weight: 500;
+    
+    h2 {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.625rem;
+      line-height: 1.45;
+      font-weight: 500;
+      margin-bottom: 0;
+      color:$c-white;
+    }
 
     @media ($bp-header-toggle-min) {
       padding-bottom: 5px;
