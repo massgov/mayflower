@@ -47,7 +47,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 
 **➢ No:**  It’s not descriptive enough: 
 
-🤔 "The *label text* of WHAT?" If you don't see the answer of the question in the label text(This sounds funny, but if you see below samples, it should make sense.), context info. is necessary.
+🤔 "Does the *label text* answer of/for/about WHAT?" If it doesn't, context info is necessary.
 
 ##### Case 1: Need supplemental information.
 
