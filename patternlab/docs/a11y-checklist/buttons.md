@@ -140,7 +140,7 @@ Some labels don't make sense by themselves:
 
 ```<img src="image.jpg" alt="" />```
 
-📋 If `<img>` doesn't have `alt` attribute, screen readers try to provide any other available information for the image and announce `src` value, which is not only not helpful, but also unpleasant to screen reader users.
+📋 If an `<img>` doesn't have an `alt` attribute, screen readers try to provide any other available information for the image and announce the `src` value, which is not only not helpful, but actually annoying for screen reader users.
 
 When the `alt` value is empty, screen readers know it is *purposely* empty, and don't try to deliver any other information.
 
