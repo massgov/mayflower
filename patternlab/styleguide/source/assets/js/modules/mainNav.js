@@ -62,6 +62,10 @@ if (null !== menuButton) {
     if (e.shiftKey && e.code == 'Tab') {
       closeMenu();
     }
+
+    if (e.code == 'Escape') {
+      closeMenu();
+    }
   });
 }
 
@@ -178,15 +182,20 @@ if (null !== searchForm) {
     }
 
     if (e.code == 'Escape') {
-      subItems.style.opacity = "0";
-      subMenu.style.height = "0";
-      item.classList.remove('submenu-open');
-      itemButton.setAttribute('aria-expanded', 'false');
+      if (item.classList.contains('submenu-open')) {
+        subItems.style.opacity = "0";
+        subMenu.style.height = "0";
+        item.classList.remove('submenu-open');
+        itemButton.setAttribute('aria-expanded', 'false');
 
-      setTimeout(function timeoutFunction() {
-        subMenu.classList.add('is-closed');
+        setTimeout(function timeoutFunction() {
+          subMenu.classList.add('is-closed');
 
-      }, 500);
+        }, 500);
+      }
+      else {
+        closeMenu();
+      }
     }
 
     if (e.shiftKey && e.code == 'Tab') {
