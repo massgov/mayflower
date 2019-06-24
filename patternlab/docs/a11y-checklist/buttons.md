@@ -102,7 +102,7 @@ Some labels don't make sense by themselves:
 <a name="image"></a>
 ### Image
 
-#### ➤➤ Does the image have `alt` attribute?
+#### ➤➤ Does the image have an `alt` attribute?
 
 **➣ Yes:** [Go to the following question. ⬇️](#alt)
 
