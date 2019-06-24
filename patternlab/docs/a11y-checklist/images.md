@@ -54,7 +54,7 @@ Mayflower icons are found at *assets/images/svg-icons/*.
 <a name="img"></a>
 ## `<img>`
 
-### ➤➤ Does the image have `alt` attribute?
+### ➤➤ Does the image have an `alt` attribute?
 
 **➣ Yes:** [Go to the following question. ⬇️](#alt)
 
