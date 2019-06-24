@@ -23,7 +23,7 @@ This is always the first choice for images unless using a **svg** format.
 
 **🛑 Do not add an image with `role="img"` unless it's ABSOLUTELY necessary.**
 
-`role` overrides the original HTML element to `<img>`. It sets the element **focusable** for assistive technology.
+`role` overrides the original HTML element, setting it to `<img>`. This makes the element **focusable** for assistive technology.
 
 This means screen readers get focus on the element whether its image is decorative or not, meanwhile other users don't.
 
