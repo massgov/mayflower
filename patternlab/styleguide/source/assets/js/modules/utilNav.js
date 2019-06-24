@@ -23,6 +23,14 @@ export default (function (window, document, $, undefined) {
       $panel.toggleClass('is-closed');
       $panel.attr("aria-hidden", "true");
     });
+
+    $panel.on('keydown', function (e) {
+      if (e.key == "Escape") {
+        $panel.css('top', '-' + height + 'px');
+        $panel.toggleClass('is-closed');
+        $panel.attr("aria-hidden", "true");
+      }
+    });
   });
 
   $utilityButtons.each(function () {
@@ -57,6 +65,6 @@ export default (function (window, document, $, undefined) {
 
     resize_timeout = setTimeout(function () {
       $(window).trigger('resized');
-    }, 250);
+    }, 150);
   });
 })(window, document, jQuery);
