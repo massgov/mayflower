@@ -10,7 +10,7 @@
 
 If your button does not submit form data to a server, be sure to set the type attribute to button. Otherwise, it will try to submit form data and to load the (nonexistent) response, possibly destroying the current state of the document.
 
-**🛑 Be careful for a use of a *link* vs. a *button*.**
+**🛑 Should you use a *link* or a *button*?**
 
 **Link** has a *hand cursor*.  **[Button](buttons.md)** has a pointer.
   
