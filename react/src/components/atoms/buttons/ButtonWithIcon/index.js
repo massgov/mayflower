@@ -18,6 +18,7 @@ class ButtonWithIcon extends React.Component {
   handleClick(e) {
     e.preventDefault();
     if (typeof this.props.onClick === 'function') {
+      e.persist();
       this.props.onClick(e);
     }
   }

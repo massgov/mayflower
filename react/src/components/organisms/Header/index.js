@@ -15,14 +15,14 @@ class Header extends Component {
       utilNavOpen: false
     };
   }
-  menuButtonClicked = () => {
+  menuButtonClicked = (afterButtonSearch = null) => {
     // eslint-disable-next-line no-undef
     const body = document.querySelector('body');
     let bodyClass;
     if (body.hasAttribute('class')) {
       bodyClass = body.getAttribute('class');
       if (bodyClass) {
-        if (bodyClass.indexOf('show-menu')  !== -1) {
+        if (bodyClass.indexOf('show-menu') !== -1) {
           bodyClass = bodyClass.split(' ').filter((val) => val !== 'show-menu').join(' ');
         } else {
           bodyClass += ' show-menu';
@@ -36,18 +36,26 @@ class Header extends Component {
       bodyClass = 'show-menu';
       body.setAttribute('class', 'show-menu');
     }
-    if (bodyClass) {
-      this.setState({ utilNavOpen: false });
+    const newState = (bodyClass) ? { utilNavOpen: false } : { utilNavOpen: true };
+    if (is.fn(afterButtonSearch)) {
+      this.setState(newState, afterButtonSearch);
     } else {
-      this.setState({ utilNavOpen: true });
+      this.setState(newState);
     }
   };
+  defaultButtonSearchOnClick = (e) => {
+    this.menuButtonClicked(() => {
+      if (is.fn(this.props.headerSearch.buttonSearch.onClick)) {
+        document.getElementById(this.props.headerSearch.id || 'nav-search').focus();
+        this.props.headerSearch.buttonSearch.onClick(e);
+      }
+    });
+  }
   render() {
     const header = this.props;
-    const utilNavOpen = { isOpen: this.state.utilNavOpen };
-    const headerUtilityNavProps = Object.assign({}, header.utilityNav, utilNavOpen);
     const HeaderUtilityNav = <UtilityNav {...this.props.utilityNav} isOpen={this.state.utilNavOpen} />;
-
+    const headerSearchProps = JSON.parse(JSON.stringify(this.props.headerSearch));
+    headerSearchProps.buttonSearch.onClick = this.defaultButtonSearchOnClick;
     return(
       <header className="ma__header" id="header">
         {!header.hideBackTo && (
@@ -64,7 +72,7 @@ class Header extends Component {
           </div>
           {!header.hideHeaderSearch &&
           <div className="ma__header__search js-header-search-menu">
-            {is.fn(header.headerSearch) ? header.headerSearch() : <HeaderSearch {...header.headerSearch} />}
+            {is.fn(header.headerSearch) ? header.headerSearch() : <HeaderSearch {...headerSearchProps} />}
           </div>
           }
         </div>
@@ -76,7 +84,7 @@ class Header extends Component {
             </button>
             <button
               className="ma__header__menu-button js-header-menu-button"
-              onClick={this.menuButtonClicked}
+              onClick={() => this.menuButtonClicked()}
             >
               <span>Menu</span><span className="ma__header__menu-icon" />
             </button>
@@ -84,8 +92,7 @@ class Header extends Component {
           <div className="ma__header__nav-container">
             {!header.hideHeaderSearch &&
             <div className="ma__header__nav-search">
-              {!header.hideHeaderSearch && is.fn(header.headerSearch) && header.headerSearch()}
-              {!header.hideHeaderSearch && !is.fn(header.headerSearch) && <HeaderSearch {...header.headerSearch} id="nav-search" />}
+              {!header.hideHeaderSearch && (is.fn(header.headerSearch) ? header.headerSearch() : <HeaderSearch {...headerSearchProps} id="nav-search" />)}
             </div>
             }
             <div className="ma__header__main-nav">
