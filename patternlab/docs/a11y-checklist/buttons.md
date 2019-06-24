@@ -41,7 +41,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 ### Text 
 
 <a name="link-context"></a> 
-#### ➤➤ Is the label text descriptive enough to see what the button does? Is it clear enough to screen reader users?
+#### ➤➤ Is the text descriptive enough to explain what the button does to screen reader users?
 
 **➣ Yes:** [Move on to next element. ➡️](a11y-checklist.md)
 
