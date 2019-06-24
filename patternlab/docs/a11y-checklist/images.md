@@ -96,7 +96,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 
 **➤ Yes/No(Not sure):** It's possible...
 
-> Make sure the template can receive the `alt` value when it's available. Otherwise, leave it blank.
+> Make sure the template can receive the `alt` value when it's available. Otherwise, leave it empty.
 >
 > **🛑 Keep `alt` attribute even its value is empty.**
 
