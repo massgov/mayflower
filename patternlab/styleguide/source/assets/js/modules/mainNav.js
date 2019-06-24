@@ -1,4 +1,5 @@
 const body = document.querySelector("body");
+let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
 let buttonLabel = menuButtonText.textContent;
@@ -8,16 +9,22 @@ let menuItems = document.querySelectorAll('.js-main-nav-toggle');
 const menuOverlay = document.querySelector('.menu-overlay');
 const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
 
-console.log('start');
-
 // Updates to utility nav buttons. Will most likely pull mobile utility nav into seperate 
 // pattern after work on contextual login links 
 let mobileUtilityItems = document.querySelector('.ma__header__utility-nav--narrow');
 const mobileLanguageSelect = mobileUtilityItems.getElementsByClassName('ma__utility-nav__item')[0];
 const stateOrgsButton = mobileUtilityItems.getElementsByClassName('js-util-nav-toggle')[0];
+const logInTo = mobileUtilityItems.getElementsByClassName('js-util-nav-toggle')[1];
+
 stateOrgsButton.addEventListener("click", function (e) {
   stateOrgsButton.querySelector('.ma__utility-nav__content').remove();
   window.location.pathname = 'state-a-to-z';
+});
+
+logInTo.addEventListener("keydown", function (e) {
+  if (e.key == 'Tab') {
+    closeMenu();
+  }
 });
 
 mobileLanguageSelect.parentNode.removeChild(mobileLanguageSelect);
@@ -193,8 +200,10 @@ if (null !== searchForm) {
       }, 500);
     }
 
-    if (e.key == 'Tab' && !itemButton.parentElement.nextElementSibling) {
-      closeMenu();
+    if (width > 840 && e.key == 'Tab') {
+      if (!itemButton.parentElement.nextElementSibling) {
+        closeMenu();
+      }
     }
   });
 
@@ -272,3 +281,4 @@ document.querySelector('.ma__header__utility-nav--wide').addEventListener('click
 menuOverlay.addEventListener("click", function () {
   closeMenu();
 });
+
