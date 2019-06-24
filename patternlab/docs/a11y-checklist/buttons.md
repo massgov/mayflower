@@ -155,7 +155,6 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 >    - “Img alt value + label text”, or 
 > 	  - “label text + img alt value” 
 > 
-> 	flows naturally.
 > 
 > - If they don't flow well together, 
 >     - add contextual text info as visually hidden text, or
