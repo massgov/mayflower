@@ -51,7 +51,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 
 ##### Case 1: Need supplemental information.
 
-It makes sense when you can see the entire section, but doesn't when you see just the label itself:
+Some labels make sense when you can see the entire section, but don't when you see just the label itself. For example:
 
 - open/expand
 - close
