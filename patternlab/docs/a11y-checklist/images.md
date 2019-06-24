@@ -84,7 +84,7 @@ Mayflower icons are found at *assets/images/svg-icons/*.
 >
 > ```<img alt="" />```
 >
-> **🛑 Keep `alt` attribute even its value is empty.**
+> **🛑 Keep `alt` attribute even when its value is empty.**
 
 ```<img src="image.jpg" alt="" />```
 
