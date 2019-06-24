@@ -18,10 +18,14 @@
   {% set centered = "ma__comp-heading--centered" %}
 {% endif %}
 
+{% if compHeading.hideLine == 'true' or compHeading.hideLine == 1 %}
+  {% set hideLine = "ma__comp-heading--no-line" %}
+{% endif %}
+
 {% set sidebar = compHeading.sidebar ? 'ma__comp-heading--sidebar' : '' %}
 
 <h{{ headingLevel }}
-  class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }}"
+  class="ma__comp-heading {{ colored }} {{ centered }} {{sidebar }} {{ hideLine }}"
   {% if compHeading.id %}
     id="{{compHeading.id}}"
   {% endif %}
