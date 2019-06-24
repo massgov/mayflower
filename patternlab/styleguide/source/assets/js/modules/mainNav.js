@@ -282,3 +282,11 @@ menuOverlay.addEventListener("click", function () {
   closeMenu();
 });
 
+let debouncer;
+window.onresize = function () {
+  clearTimeout(debouncer);
+  debouncer = setTimeout(function () {
+    width = body.clientWidth;
+    console.log(width);
+  }, 100);
+};
