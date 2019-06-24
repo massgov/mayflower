@@ -115,7 +115,7 @@ See above 📋.
 **➢ No:** [Go to the following question. ⬇️](#role-alt)
 
 <a name="role-alt"></a>
-### ➤➤ Does the image have a role to convey content in the component?
+### ➤➤ In this component, does the image convey information (in other words, is it more than decorative)?
 
 **➣ Yes:** The image has its unique information to deliver.
 
