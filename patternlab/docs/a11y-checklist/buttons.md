@@ -28,7 +28,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 <a name="button-label"></a>
 ## Button label
 
-### ➤➤ Is the buton label text?
+### ➤➤ Is the button label text (that is, not an image)?
 
 **➣ Yes:** Text [Go to the following question. ⬇️](#text)
 
