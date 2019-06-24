@@ -167,7 +167,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 > 		</button>
 >		```
 >
->		"Sort by dates."
+>		This label will now read "Sort by dates."
 >     - override them with `aria-label`, empty the `alt` value for cleaner markup.
 > 
 >		```
