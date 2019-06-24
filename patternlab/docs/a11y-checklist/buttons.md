@@ -34,7 +34,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 
 **➢ No:** Is it an image? [Go to the Image section below. ⬇️](#image)
 
-**➤ Yes/No:** Text + Image [Go to the next question. ⬇️](#text-image)
+**➤ Yes/No:** Is it text plus an image? [See the Text + Image section below. ⬇️](#text-image)
 
  
 <a name="text"></a>
