@@ -106,7 +106,7 @@ Some labels don't make sense by themselves:
 
 **➣ Yes:** [Go to the following question. ⬇️](#alt)
 
-**➢ No:**  Add `alt` attribute. [Go to the following question. ⬇️](#alt)
+**➢ No:**  Add an `alt` attribute. [Go to the following question. ⬇️](#alt)
 
 <a name="alt"></a>
 #### ➤➤ Does the `alt` attribute clearly tell what the button does as the button label?
