@@ -136,7 +136,7 @@ Some labels don't make sense by themselves:
 > Respect the text over the image. Empty the image’s `alt` value.
 > In this case, the purpose of the image is decorative.
 
-**🛑 Keep `alt` attribute even its value is empty.**
+**🛑 Keep an `alt` attribute even its value is empty.**
 
 ```<img src="image.jpg" alt="" />```
 
