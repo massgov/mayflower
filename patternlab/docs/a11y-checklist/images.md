@@ -119,7 +119,7 @@ See above 📋.
 
 **➣ Yes:** The image has its unique information to deliver.
 
-> - Use `aria-label`, which is equivalent to `alt` with `<img>` in this case, to add text alternative information.
+> - Use `aria-label`, which is equivalent to `alt` with `<img>` in this case, to add alternative information.
 >
 >   ```
 >   <CONTAINER role="img" aria-label="text alternative info for the image here"></CONTAINER>
