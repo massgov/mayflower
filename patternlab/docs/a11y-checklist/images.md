@@ -37,7 +37,7 @@ When the image is fully decorative and does not provide any information, adding 
 - banner image
 - background image for a container (content is displayed over the background.)
 
-**🛑 If the image possibly provide any information in some cases, use `<img>` instead.**
+**🛑 If the image could possibly provide information in some cases, use `<img>` instead.**
 
 [See more about `style="background-image: url();`. ⬇️](#background)
 
