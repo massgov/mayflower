@@ -88,7 +88,7 @@ Here are some ideas about what you may need to do:
 
 **➣ Yes:** You are all set with the heading. [Move onto next element.➡️](a11y-checklist.md)
 
-**➢ No:** Use [above technique](#context) to provide context. ⬆️
+**➢ No:** Use [the techniques above](#context) to provide context. ⬆️
 
 ---
 [⬅️ a11y Checklist](a11y-checklist.md)
