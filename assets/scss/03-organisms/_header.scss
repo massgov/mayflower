@@ -194,6 +194,7 @@ body.show-menu {
     background-color: $c-primary;
     position: absolute;
     top: 0;
+    left: 0;
     text-align: left;
     width: 100%;
     border: none;
@@ -211,9 +212,19 @@ body.show-menu {
       opacity: 0.7;
     }
 
-    @media ($bp-medium-min) {
+    @media ($bp-header-toggle-min) {
       position: relative;
       padding-left: 0;
+      left: auto;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100%;
+        left: -500px;
+        width: 1000px;
+      }
     }
   }
     
