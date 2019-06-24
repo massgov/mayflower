@@ -131,7 +131,7 @@ Some labels don't make sense by themselves:
 
 #### ➤➤ Do the text and the image both describe the same thing (in other words, do they provide duplicate information)?
 
-**➣ Yes:** Both information is same.
+**➣ Yes:** 
 
 > Respect the text over the image. Empty the image’s `alt` value.
 > The image is presented as a decorative purpose.
