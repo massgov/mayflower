@@ -31,7 +31,7 @@ This means screen readers get focus on the element whether its image is decorati
 
 ### `<CONTAINER style="background-image: url();">`
 
-When the image is fully decorative and not providing any information, adding an image as a CSS background with this technique is a good method.
+When the image is fully decorative and does not provide any information, adding an image as a CSS background with this technique is a good method.
 
 #### Use cases:
 - banner image
