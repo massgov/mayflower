@@ -182,7 +182,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 >
 > 📋 When `aria-label` is used, screen readers ignore the content between `<button>` and `</button>` and announce `aria-label` value.
 > 
-> **🛑  When the image indicates the state of what the button triggers, make sure the text information also gets updated as the state changes.**
+> **🛑  When the image describes the state that the button triggers, make sure the text information also gets updated as the state changes.**
     
 **➢ No [Case 2]:** Text has enough information as the label. Image has no information to deliver.
 
