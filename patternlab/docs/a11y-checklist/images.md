@@ -45,7 +45,7 @@ When the image is fully decorative and does not provide any information, adding 
 
 Icons in Mayflower are generally `<svg>` files.
 
-Our icons are found at *assets/images/svg-icons/*.
+Mayflower icons are found at *assets/images/svg-icons/*.
 
 [See more about `<svg>`. ⬇️](#svg)
 
