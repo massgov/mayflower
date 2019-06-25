@@ -51,7 +51,7 @@ sample link label in the comp if the link takes you to a content page created by
 **➢ No:**  Is it defined in the template? [Go to the following question. ⬇️](#link-context)
 
 <a name="link-context"></a> 
-### ➤➤ Is the label text descriptive enough to see where it takes you without the *visual presentation* around the link? Is it clear enough to screen reader users?
+### ➤➤ Is the label text descriptive enough to explain where it takes you without the *visual presentation* around the link? Is it clear enough to screen reader users?
 
 📋 A visual presentation such as a layout can provide non-verbal context to sighted users, which screen reader users cannot take advantage of. We fill the gap by providing context info as text.
 
