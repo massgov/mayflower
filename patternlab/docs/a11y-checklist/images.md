@@ -149,7 +149,7 @@ Instead use:
 <a name="background"></a>
 ## `<CONTAINER style="background-image: url();">`
 
-This method is for a fully decorative image, which doesn't convey any content, such as a banner image in a page or section. 
+This method is only appropriate for a fully decorative image that doesn't convey any content, such as a banner image in a page or section. 
 
 📋 No attributes to override its original role, `role="img"`, and/or deliver text alternative information, `aria-label` or `alt`.
 
