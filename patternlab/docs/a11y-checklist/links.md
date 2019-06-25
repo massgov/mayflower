@@ -13,6 +13,7 @@
   
 Their roles are different. Browsers recognize and implement them *differently* with their unique characters.
 
+**Links** use a *hand cursor*.  **[Buttons](buttons.md)** use a pointer.
 ---
 
 ## ➤➤ Does your link’s functionality fit above definition?
