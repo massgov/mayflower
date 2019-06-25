@@ -137,7 +137,7 @@ See above 📋.
 
 **➢ No:** The image is only decorative.
 
-`<CONTAINER role="img">` is not appropreate for this case.
+`<CONTAINER role="img">` is not appropriate for this case.
 Instead use:
 
 1. [`<img>`](#img)⬆️, or
