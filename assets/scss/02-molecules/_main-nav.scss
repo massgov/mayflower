@@ -27,7 +27,7 @@
     text-transform: uppercase;
     transition: all 0.4s ease;
     text-align: left;
-    background-color: transparent;
+    background-color: $c-gray-lightest;
     width: 100%;
     
     .toggle-indicator {
@@ -50,11 +50,12 @@
     width: 300px;
     z-index: $z-dropdown;
     background-color: $c-bg-section;
-    transition: height 0.6s;
+    transition: height 0.4s;
   
     &.is-closed {
       @include ma-visually-hidden;
       display: none !important;
+      transition: height 0.6s;
     }
   
     &.is-closed-react {
@@ -69,7 +70,11 @@
   
   &__container {
     @include ma-reset-list;
-    transition: opacity 0.6s;
+    transition: opacity 0.2s;
+
+    .is-closed & {
+      transition: opacity 0.2s;
+    }
   }
  
   &__link {
