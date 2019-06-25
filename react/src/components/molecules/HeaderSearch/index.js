@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import is from 'is';
 import { componentWithName } from 'airbnb-prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
@@ -9,14 +10,9 @@ class HeaderSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: this.props.defaultText };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.defaultText });
-  }
-
-  handleChange(event) {
+  handleChange = (event) => {
     const query = event.target.value;
     this.setState({ value: query });
     // invokes custom function if passed in the component
@@ -24,11 +20,27 @@ class HeaderSearch extends React.Component {
       this.props.onChange(query);
     }
   }
+  handleSubmit = (event) => {
+    if (is.fn(this.props.onSubmit)) {
+      this.props.onSubmit(event);
+    }
+  };
 
   render() {
     const headerSearch = this.props;
     const orgDropdown = headerSearch.orgDropdown;
     const shouldShowTypeAhead = (orgDropdown && orgDropdown.dropdownButton && orgDropdown.inputText);
+    const inputProps = {
+      id: headerSearch.id,
+      className: 'ma__header-search__input',
+      placeholder: headerSearch.placeholder,
+      onChange: this.handleChange,
+      type: 'search',
+      value: this.state.value
+    };
+    if (this.props.inputRef) {
+      inputProps.ref = this.props.inputRef;
+    }
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
         {shouldShowTypeAhead &&
@@ -37,20 +49,13 @@ class HeaderSearch extends React.Component {
           </div>
         }
         <div className="ma__header-search">
-          <form action="#" className="ma__form" onSubmit={headerSearch.onSubmit} role="search">
+          <form action="#" className="ma__form" onSubmit={this.handleSubmit} role="search">
             <label
               htmlFor={headerSearch.id}
               className="ma__header-search__label"
             >{headerSearch.label}
             </label>
-            <input
-              id={headerSearch.id}
-              className="ma__header-search__input"
-              placeholder={headerSearch.placeholder}
-              onChange={this.handleChange}
-              type="search"
-              value={this.state.value}
-            />
+            <input {...inputProps} />
             {this.props.suggestions && this.props.suggestions}
             {this.props.postInputFilter && (
               <div className="ma__header-search__post-filter">

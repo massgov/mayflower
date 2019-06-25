@@ -1,21 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { ref } from 'airbnb-prop-types';
 import Icon from '../../icons/Icon';
 import './style.css';
 
 class ButtonWithIcon extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setButtonRef = this.setButtonRef.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-  setButtonRef(node) {
-    if (typeof this.props.setButtonRef === 'function') {
-      this.props.setButtonRef(node);
-    }
-  }
-  handleClick(e) {
+  handleClick = (e) => {
     e.preventDefault();
     if (typeof this.props.onClick === 'function') {
       e.persist();
@@ -45,7 +36,7 @@ class ButtonWithIcon extends React.Component {
     };
     if (ariaLabel && ariaLabel !== '') { buttonProps['aria-label'] = ariaLabel; }
     return(
-      <button {...buttonProps} ref={this.setButtonRef} >
+      <button {...buttonProps} ref={this.props.setButtonRef} >
         <span>{this.props.text}</span>
         {this.props.icon}
       </button>
@@ -57,7 +48,7 @@ ButtonWithIcon.propTypes = {
   // Function to run on click of the button.
   onClick: PropTypes.func,
   // Sets a reference to the button onto the passed node.
-  setButtonRef: PropTypes.func,
+  setButtonRef: ref(),
   // Button text.
   text: PropTypes.string,
   /** HTML <button> 'type' attribute  */
