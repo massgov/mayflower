@@ -153,7 +153,7 @@ This method is only appropriate for a fully decorative image that doesn't convey
 
 📋 This methods offers no attributes to override its original role, such as `role="img"`, or any other way to deliver alternative information, such as `aria-label` or `alt`.
 
-It's not recommended to use this method to present content such as a *linked image + text* unit unless it's absolutely certain the image never deliver its unique information. That is hard to be certain with templates in CMS to optimize use of templates.
+Don't use this method to present content such as a *linked image + text* unit unless it's absolutely certain the image will never contain information. That is something that's very hard to be certain about when building templates in a CMS, so use this method sparingly.
 
 There are 2 ways to add an image as background: 
 <a name="bg-markup"></a>
