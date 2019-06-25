@@ -122,7 +122,7 @@ See above 📋.
 > - Use `aria-label`, which is equivalent to `alt` with `<img>` in this case, to add alternative information.
 >
 >   ```
->   <CONTAINER role="img" aria-label="text alternative info for the image here"></CONTAINER>
+>   <CONTAINER role="img" aria-label="text that provides alternative info for the image here"></CONTAINER>
 >   ```
 >
 > - Make sure the template can receive data for `aria-label` value.
