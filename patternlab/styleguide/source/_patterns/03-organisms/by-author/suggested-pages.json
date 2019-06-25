@@ -9,7 +9,7 @@
     },
     "pages": [{
       "image": {
-        "alt": "Place Holder Image", 
+        "alt": "Place Holder Image",
         "src": "../../assets/images/placeholder/230x130.png",
         "height": "130",
         "width": "230"
@@ -21,7 +21,7 @@
       }
     },{
       "image": {
-        "alt": "Place Holder Image", 
+        "alt": "Place Holder Image",
         "src": "../../assets/images/placeholder/230x130.png",
         "height": "130",
         "width": "230"
@@ -33,7 +33,7 @@
       }
     },{
       "image": {
-        "alt": "Place Holder Image", 
+        "alt": "Place Holder Image",
         "src": "../../assets/images/placeholder/230x130.png",
         "height": "130",
         "width": "230"
@@ -45,7 +45,7 @@
       }
     },{
       "image": {
-        "alt": "Place Holder Image", 
+        "alt": "Place Holder Image",
         "src": "../../assets/images/placeholder/230x130.png",
         "height": "130",
         "width": "230"
@@ -56,6 +56,22 @@
         "info": ""
       }
     }],
+    "moreLinks":{
+      "compHeading": {
+        "title": "More Locations",
+        "titleContext": "",
+        "sub": 7
+      },
+      "links": [{
+          "href": "#",
+          "text": "More link 1",
+          "info": ""
+        },{
+          "href": "#",
+          "text": "More link 2",
+          "info": ""
+      }]
+    },
     "more":{
       "href": "#",
       "text": "See all related pages",

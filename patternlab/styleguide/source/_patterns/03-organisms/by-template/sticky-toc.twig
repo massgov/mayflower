@@ -13,8 +13,6 @@
           <div class="ma__sticky-toc__secondary-label">{{ stickyTOC.title }} <span class="secondary-label-close"></span></div>
           {% for link in stickyTOC.links %}
           <div class="ma__sticky-toc__link">
-            {{ icon('circle-chevron') }}
-            </svg>
             <a href="#{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
           </div>
           {% endfor %}
