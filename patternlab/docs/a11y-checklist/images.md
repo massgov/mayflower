@@ -211,7 +211,7 @@ There are 2 ways to add an image as background:
 <a name="svg"></a>
 ## `<svg>`
 
-Make sure the file is compressed well, does not contain any style data in it.
+Make sure the file is compressed well and does not contain any style data.
 
 Styles (size, color, etc.) should always be set via CSS to optimize the use of the file. Do not include style data in the svg file itself.
 
