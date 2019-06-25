@@ -35,15 +35,6 @@
         white-space: nowrap;
     }
 
-    .wrapped-link {
-      padding-right: 5px;
-
-      a {
-        font-size: 1rem;
-      }
-      
-    }
-
     &--section {
         width: 100%;
         min-width: 50%;
@@ -147,8 +138,15 @@
             }
         }
 
+        .ma__relationship-indicators--term {
+          margin-bottom: 12px;
+          margin-right: 10px;
+        }
+
         a {
             line-height: 22px;
+            font-size: 1rem;
+            padding-right: 5px;
             width: 100%;
         
             @media ($bp-x-small-min) {
@@ -161,16 +159,13 @@
             @include ma-link-underline;
             @include ma-chevron;
             text-transform: capitalize;
-            align-self: flex-end;
+            align-self: flex-start;
             padding: 0;
+            line-height: 22px;
             font-size: 1rem;
             font-weight: 600;
             white-space: nowrap;
             display: none;
-
-            @media($bp-x-small-min) {
-              margin-left: 10px;
-            }
             
             .tag-state {
                 text-transform: none;
