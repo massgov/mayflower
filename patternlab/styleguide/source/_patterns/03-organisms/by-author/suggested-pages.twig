@@ -1,37 +1,49 @@
+{% set pageType = '' %}
+{% if suggestedPages.view == 'guide' %}
+  {% set pageType = 'guide' %}
+{% endif %}
 
-<section class="ma__suggested-pages">
+<section class="ma__suggested-pages {{ pageType }}">
   <div class="ma__suggested-pages__container">
-    <h2 class="ma__suggested-pages__title">{{ suggestedPages.title }}{% if suggestedPages.titleContext %}<span class="visually-hidden"> {{suggestedPages.titleContext}}</span>{% endif %}</h2>
-    <div class="ma__suggested-pages__items">
-      {% if suggestedPages.view == "guide" %}
-        {% for page in suggestedPages.pages %}
-          {% set illustratedLink = { 
-            "href": page.link.href, 
-            "text": page.link.text, 
-            "info": page.link.info, 
-            "image": page.image.src ? : page.image } %}
-          <div class="ma__suggested-pages__item ma__suggested-pages__item--guide">
-            {% include "@molecules/illustrated-link.twig" %}
-          </div>
-        {% endfor %}
-      {% else %}
-        {% for page in suggestedPages.pages %}
-          <figure class="ma__suggested-pages__item ma__suggested-pages__item--figure">
-            <a href="{{ page.link.href }}" title="{{ page.link.info }}">
-              {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
-              {% include "@atoms/09-media/image.twig" %}
-            </a>
-            {% set decorativeLink = page.link %}
-            {% include "@atoms/decorative-link.twig" %}
-          </figure>
-        {% endfor %}
+    <div class="ma__suggested-pages__inner-container">
+      <h2 class="ma__suggested-pages__title">{{ suggestedPages.title }}{% if suggestedPages.titleContext %}<span class="visually-hidden"> {{suggestedPages.titleContext}}</span>{% endif %}</h2>
+      <div class="ma__suggested-pages__items">
+        {% if suggestedPages.view == "guide" %}
+          {% for page in suggestedPages.pages %}
+            {% set illustratedLink = {
+              "href": page.link.href,
+              "text": page.link.text,
+              "info": page.link.info,
+              "image": page.image.src ? : page.image } %}
+            <div class="ma__suggested-pages__item ma__suggested-pages__item--guide">
+              {% include "@molecules/illustrated-link.twig" %}
+            </div>
+          {% endfor %}
+        {% else %}
+          {% for page in suggestedPages.pages|slice(0,3) %}
+            <div class="ma__suggested-pages__item ma__suggested-pages__item--suggested">
+              <figure class="ma__suggested-pages__item--suggested-figure">
+                <a href="{{ page.link.href }}" title="{{ page.link.info }}">
+                  {% set image = page.image.src ? page.image : { "alt": page.altTag, "src": page.image } %}
+                  {% include "@atoms/09-media/image.twig" %}
+                </a>
+                {% set decorativeLink = page.link %}
+                {% include "@atoms/decorative-link.twig" %}
+              </figure>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      {% if suggestedPages.moreLinks %}
+        {% set linkList = suggestedPages.moreLinks %}
+        {% include "@organisms/by-author/link-list.twig" %}
+      {% endif %}
+      {% if suggestedPages.more %}
+        <div class="ma__suggested-pages__more">
+          {% set link = suggestedPages.more %}
+          {% include "@atoms/11-text/link.twig" %}
+        </div>
       {% endif %}
     </div>
-    {% if suggestedPages.more %}
-      <div class="ma__suggested-pages__more">
-        {% set link = suggestedPages.more %}
-        {% include "@atoms/11-text/link.twig" %}
-      </div>
-    {% endif %}
   </div>
 </section>
