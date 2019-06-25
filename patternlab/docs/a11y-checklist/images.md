@@ -213,7 +213,7 @@ There are 2 ways to add an image as background:
 
 Make sure the file is compressed well, does not contain any style data in it.
 
-Styles (size, color, etc.) are set via CSS to optimize the use of the file. Such data is not in the svg file itself.
+Styles (size, color, etc.) should always be set via CSS to optimize the use of the file. Do not include style data in the svg file itself.
 
 In Patternlab, all icons are treated as decorative. All svg files contains `aria-hidden="true"` to ensure its visibility setting in the files.
 
