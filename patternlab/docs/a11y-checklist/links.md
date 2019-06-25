@@ -27,7 +27,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 
 ### ➤➤ Is the link label text (not an image)?
 
-**➣ Yes:** Text [Go to the following question. ⬇️](#text)
+**➣ Yes:** Text [See the Text section below. ⬇️](#text)
 
 **➢ No:** Image [See the Image section below. ⬇️](#image)
 
