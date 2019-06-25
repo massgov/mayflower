@@ -33,6 +33,7 @@
         letter-spacing: $letter-spacing-large;
         margin-right: 10px;
         white-space: nowrap;
+        margin-top: -1px;
     }
 
     &--section {
@@ -60,7 +61,7 @@
         &.primary {
         
             @media ($bp-medium-min) {
-                padding-right: 2rem;
+                padding-right: 1.5rem;
             }
 
             .ma__relationship-indicators--term {
@@ -115,7 +116,6 @@
         }
 
         &.secondary {
-            padding-top: 15px;
 
             .ma__relationship-indicators--term {
 
@@ -141,17 +141,17 @@
         .ma__relationship-indicators--term {
           margin-bottom: 12px;
           margin-right: 10px;
+          line-height: 22px;
+          font-size: 16px;
+          padding-right: 5px;
         }
 
         a {
-            line-height: 22px;
-            font-size: 1rem;
-            padding-right: 5px;
-            width: 100%;
-        
-            @media ($bp-x-small-min) {
-                width: auto;
-            }
+          width: 100%;
+      
+          @media ($bp-x-small-min) {
+           width: auto;
+          }
         }
 
         button {
@@ -162,7 +162,7 @@
             align-self: flex-start;
             padding: 0;
             line-height: 22px;
-            font-size: 1rem;
+            font-size: 16px;
             font-weight: 600;
             white-space: nowrap;
             display: none;
