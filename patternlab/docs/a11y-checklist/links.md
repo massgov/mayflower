@@ -63,7 +63,7 @@ sample link label in the comp if the link takes you to a content page created by
 
 ##### Case 1: Need supplemental information.
 
-It makes sense when you can see the entire section, but doesn't when you see just the label itself:
+These labels may make sense when you can see the entire section, but they don't when you read just the label itself:
 
 - More
 - See all
