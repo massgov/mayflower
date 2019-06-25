@@ -178,7 +178,7 @@ There are 2 ways to add an image as background:
 
 **➣ Yes:** The image has unique information to deliver. [Use `<img>` instead ⬆️.](#img)
 
-**➢ No:** The image is for a decorative purpose.
+**➢ No:** The image is only decorative.
 [Go to the following question. ⬇️](#role)
 
 <a name="role"></a>
