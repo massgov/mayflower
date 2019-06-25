@@ -20,7 +20,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 
 **➣ Yes:** [Move onto the link label. ⬇️](#link-label) 
 
-**➢ No:** Don't use `<a>`. Use `<button>` instead. Check your markup at the [Button section](buttons.md). ➡️
+**➢ No:** Don't use `<a>`. Use `<button>` instead. Check your markup in the [Button section](buttons.md). ➡️
 
 <a name="link-label"></a>
 ## Link label
