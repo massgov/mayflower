@@ -8,7 +8,7 @@
 
 **Call to action buttons** are considered LINKS since they take you to another page or location within a page.
 
-**🛑 Be careful for a use of a *link* vs. a *button*.**
+**🛑 It's important to distinguish between a *link* and a *button*.**
 
 **Link** has a *hand cursor*.  **[Button](buttons.md)** has a pointer.
   
