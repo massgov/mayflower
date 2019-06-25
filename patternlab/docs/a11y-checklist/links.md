@@ -4,7 +4,7 @@
 
 ## 📖 Definition
 
-**Links** let us navigate to *pages* or *locations within a page*. Either way, they’re typically underlined to stand out amongst prose content. Or they might reside in a special place like a header to help cognition.
+**Links** let us navigate to *pages* or *locations within a page*. They’re typically underlined to stand out from the surrounding content. Or they might reside in a special place like a header to help cognition.
 
 **Call to action buttons** are considered LINKS since they take you to another pages or locations within a page.
 
