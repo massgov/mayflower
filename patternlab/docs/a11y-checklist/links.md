@@ -25,7 +25,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 <a name="link-label"></a>
 ## Link label
 
-### ➤➤ Is the link label text?
+### ➤➤ Is the link label text (not an image)?
 
 **➣ Yes:** Text [Go to the following question. ⬇️](#text)
 
