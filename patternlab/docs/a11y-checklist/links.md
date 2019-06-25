@@ -83,7 +83,7 @@ These labels may make sense when you can see the entire section, but they don't 
 
 ##### Case 2: Adding contextual info as visually hidden text doesn't help:
 
-It needs supplemental information, but it doesn't make sense to add it as visually hidden text.
+Sometimes it doesn't make sense to add contextual information as visually hidden text.
 
 The label doesn't make sense by itself. 
 
