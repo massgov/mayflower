@@ -157,7 +157,7 @@ Don't use this method to present content such as a *linked image + text* unit un
 
 There are 2 ways to add an image as background: 
 <a name="bg-markup"></a>
-> Method 1: Separate the style from the markup. If the background image is static, the `<style>` content belongs to CSS file.
+> Method 1: Separate the style from the markup. If the background image is static, the `<style>` content belongs in a CSS file.
 >
 > ```
 > <style>
