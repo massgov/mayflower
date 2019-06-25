@@ -8,6 +8,7 @@ import ArrowButton from './index';
 import ArrowButtonDocs from './ArrowButton.md';
 
 storiesOf('atoms/buttons', module)
+  .addParameters({ jest: ['ArrowButton'] })
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ArrowButton', (() => {
