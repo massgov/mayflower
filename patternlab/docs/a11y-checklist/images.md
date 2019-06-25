@@ -151,7 +151,7 @@ Instead use:
 
 This method is only appropriate for a fully decorative image that doesn't convey any content, such as a banner image in a page or section. 
 
-📋 No attributes to override its original role, `role="img"`, and/or deliver text alternative information, `aria-label` or `alt`.
+📋 This methods offers no attributes to override its original role, such as `role="img"`, or any other way to deliver alternative information, such as `aria-label` or `alt`.
 
 It's not recommended to use this method to present content such as a *linked image + text* unit unless it's absolutely certain the image never deliver its unique information. That is hard to be certain with templates in CMS to optimize use of templates.
 
