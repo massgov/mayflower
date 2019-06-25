@@ -188,7 +188,7 @@ There are 2 ways to add an image as background:
 
 > Remove the `role="img"`.
 > 
-> `role="img"` makes the element focusable, which is not necessary in this case because the image is for decoration.
+> `role="img"` makes the element focusable, which is not necessary in this case because the image is decorative.
 
 [Go to the following question. ⬇️](#alt2)
 
