@@ -37,17 +37,11 @@
 
     .wrapped-link {
       padding-right: 5px;
-      margin-bottom: 8px;
-      line-height: 1;
 
-      @media($bp-x-small-min) {
-        padding: 0 5px;
-        margin-top: -1px;
+      a {
+        font-size: 1rem;
       }
-
-      @media ($bp-medium-min) {
-        margin-top: 0;
-      }
+      
     }
 
     &--section {
@@ -167,10 +161,8 @@
             @include ma-link-underline;
             @include ma-chevron;
             text-transform: capitalize;
-            align-self: flex-start;
-            margin-top: 5px;
-            padding-top: 0;
-            padding-left: 0;
+            align-self: flex-end;
+            padding: 0;
             font-size: 1rem;
             font-weight: 600;
             white-space: nowrap;
@@ -178,11 +170,6 @@
 
             @media($bp-x-small-min) {
               margin-left: 10px;
-            }
-            
-            @media ($bp-medium-min) {
-                align-self: baseline;
-                margin-top: 3px;
             }
             
             .tag-state {
