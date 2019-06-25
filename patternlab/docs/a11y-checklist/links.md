@@ -16,7 +16,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 **Links** use a *hand cursor*.  **[Buttons](buttons.md)** use a pointer.
 ---
 
-## ➤➤ Does your link’s functionality fit above definition?
+## ➤➤ Have you confirmed your link should be a link and not a button?
 
 **➣ Yes:** [Move onto the link label. ⬇️](#link-label) 
 
