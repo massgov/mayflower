@@ -41,28 +41,30 @@ storiesOf('molecules/ImagePromo', module)
   .add(
     'ImagePromo as orgInfo', (() => {
     // Override some props/knobs for "with map link" variation example.
-      const commonProps = getCommonPropsWithKnobsImagePromo();
-      const props = Object.assign(commonProps, {
+      const props = {
         title: {
           href: text('ImagePromo: title href', '#', 'Title'),
           text: text('ImagePromo: title text', 'Maura Healey', 'Title')
         },
+        tags: null,
+        stacked: boolean('ImagePromo: stacked', true),
+        small: boolean('ImagePromo: small', true),
         image: {
           src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png', 'Image'),
           alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
           width: number('ImagePromo: image width', 100, 'Image'),
           height: number('ImagePromo: image height', 100, 'Image')
         },
-        stacked: boolean('ImagePromo: stacked', true),
-        small: boolean('ImagePromo: small', true),
         subTitle: text('ImagePromo: subTitle', 'Attorney General'),
         description: text('ImagePromo: description', 'The Attorney General is the chief lawyer and law enforcement officer of the Commonwealth of Massachusetts. In addition, her office is an advocate and resource for the Commonwealth and its residents.'),
         link: {
           text: text('ImagePromo: link text', 'more information', 'Link'),
           href: text('ImagePromo: link href', '#', 'Link'),
           info: text('ImagePromo: link info', 'learn more about Attorney General Maura Healey', 'Link')
-        }
-      });
+        },
+        location: null,
+        phone: null
+      };
       return(<ImagePromo {...props} />);
     }),
     { info: ImagePromoDocs }
@@ -70,8 +72,11 @@ storiesOf('molecules/ImagePromo', module)
   .add(
     'ImagePromo with map link', (() => {
     // Override some props/knobs for "with map link" variation example.
-      const commonProps = getCommonPropsWithKnobsImagePromo();
-      const props = Object.assign(commonProps, {
+      const props = {
+        title: {
+          href: text('ImagePromo: title href', '#', 'Title'),
+          text: text('ImagePromo: title text', 'Activity Title', 'Title')
+        },
         tags: [{
           id: 123,
           label: 'handicapped accessible',
@@ -81,10 +86,16 @@ storiesOf('molecules/ImagePromo', module)
           label: 'open now',
           icon: <Icon name="opennow" />
         }],
+        stacked: boolean('ImagePromo: stacked', false),
+        small: boolean('ImagePromo: small', false),
         image: {
-          ...commonProps.image,
-          width: undefined
+          src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/190x107.png', 'Image'),
+          alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
+          width: undefined,
+          height: number('ImagePromo: image height', 107, 'Image')
         },
+        subTitle: text('ImagePromo: subTitle', 'subtitle'),
+        description: text('ImagePromo: description', 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.'),
         link: {
           text: text('ImagePromo: link text', 'Directions', 'Link'),
           href: text('ImagePromo: link href', '#', 'Link'),
@@ -98,7 +109,7 @@ storiesOf('molecules/ImagePromo', module)
           text: text('ImagePromo: phone text', '(781) 322-7500', 'Phone'),
           href: text('ImagePromo: phone href', '17813227500', 'Phone')
         }
-      });
+      };
 
       return(<ImagePromo {...props} />);
     }),
