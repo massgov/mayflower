@@ -10,7 +10,6 @@
 
 **🛑 It's important to distinguish between a *link* and a *button*.**
 
-**Link** has a *hand cursor*.  **[Button](buttons.md)** has a pointer.
   
 Their roles are different. Browsers recognize and implement them *differently* with their unique characters.
 
