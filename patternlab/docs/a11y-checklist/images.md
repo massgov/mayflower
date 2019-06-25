@@ -168,7 +168,7 @@ There are 2 ways to add an image as background:
 > <CONTAINER class="bg_container"></CONTAINER>
 > ```
 >
-> Method 2: Inline style is not ideal, but there might be a case this method is necessary.
+> Method 2: Inline styles are not ideal, but there can be cases where this method is necessary.
 >
 > ```
 > <CONTAINER style="background-image: url(background.jpg);"></CONTAINER>
