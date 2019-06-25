@@ -37,7 +37,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 <a name="text"></a>
 ### Text 
 
-#### ➤➤ Is the label passed from field data such as node title or user input label?
+#### ➤➤ Is the label passed from field data such as the node title or a user input label?
 
 <!-- TODO: Need more info as actionable items. -->
 Not sure? Check the spec.
