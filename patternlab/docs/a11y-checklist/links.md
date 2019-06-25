@@ -87,7 +87,7 @@ Sometimes it doesn't make sense to add contextual information as visually hidden
 
 The label doesn't make sense by itself. 
 
-"..." gets in a way in below sample since you cannot break it down to "Log in to" and "...". 
+For example, in the label below, the ellipsis ("...") gets in the way. 
 
 - Log in to...
 
