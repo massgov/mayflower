@@ -48,7 +48,7 @@ sample link label in the comp if the link takes you to a content page created by
 
 **➣ Yes:**  You are all set. [Move on to next element](ally-checklist.md). ➡️
 
-**➢ No:**  It's defined in the template. [Go to the following question. ⬇️](#link-context)
+**➢ No:**  Is it defined in the template? [Go to the following question. ⬇️](#link-context)
 
 <a name="link-context"></a> 
 ### ➤➤ Is the label text descriptive enough to see where it takes you without the *visual presentation* around the link? Is it clear enough to screen reader users?
