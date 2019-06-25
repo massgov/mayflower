@@ -215,7 +215,7 @@ Make sure the file is compressed well, does not contain any style data in it.
 
 Styles (size, color, etc.) should always be set via CSS to optimize the use of the file. Do not include style data in the svg file itself.
 
-In Patternlab, all icons are treated as decorative. All svg files contains `aria-hidden="true"` to ensure its visibility setting in the files.
+In Mayflower Patternlab, all icons are treated as decorative. All svg files contain `aria-hidden="true"` in the file to ensure their visibility setting is correct.
 
 ```
 <svg aria-hidden="true" ...>...</svg>
