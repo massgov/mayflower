@@ -135,7 +135,7 @@ See above 📋.
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
-**➢ No:** The image is for a decorative purpose.
+**➢ No:** The image is only decorative.
 
 `<CONTAINER role="img">` is not appropreate for this case.
 Instead use:
