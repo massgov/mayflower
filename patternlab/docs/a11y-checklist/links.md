@@ -29,7 +29,7 @@ Their roles are different. Browsers recognize and implement them *differently* w
 
 **➣ Yes:** Text [Go to the following question. ⬇️](#text)
 
-**➢ No:** Image [Go to the next question. ⬇️](#image)
+**➢ No:** Image [See the Image section below. ⬇️](#image)
 
 **➤ Yes/No:** Text + Image [Go to the next question. ⬇️](#text-image)
 
