@@ -176,7 +176,7 @@ There are 2 ways to add an image as background:
 
 ### ➤➤ In this component, does the image convey information (in other words, is it more than decorative)?
 
-**➣ Yes:** The image has its unique information to deliver. [Use `<img>` instead ⬆️.](#img)
+**➣ Yes:** The image has unique information to deliver. [Use `<img>` instead ⬆️.](#img)
 
 **➢ No:** The image is for a decorative purpose.
 [Go to the following question. ⬇️](#role)
