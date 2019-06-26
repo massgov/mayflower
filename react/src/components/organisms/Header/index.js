@@ -64,7 +64,13 @@ class Header extends Component {
       if (this.state.shouldNavigateTop) {
         const query = this.searchInputTop.current.value;
         if (query.length > 0) {
-          window.location.href = `https://search.mass.gov/?q=${query}`;
+          const { baseUrl, queryParam } = this.props.searchRedirect;
+          // If in an iframe, change parent window location.
+          if (window.location !== window.parent.location) {
+            window.parent.location.assign(`${baseUrl}?${queryParam}=${query}`);
+          } else {
+            window.location.assign(`${baseUrl}?${queryParam}=${query}`);
+          }
         }
       } else {
         // Only toggle the menu for the top input if it's hidden (on mobile).
@@ -79,7 +85,13 @@ class Header extends Component {
         const query = this.searchInputBottom.current.value;
         if (query.length > 0) {
           // @todo - this does not work in iFrame tags. Change this to something that does.
-          window.location.href = `https://search.mass.gov/?q=${query}`;
+          const { baseUrl, queryParam } = this.props.searchRedirect;
+          // If in an iframe, change parent window location.
+          if (window.location !== window.parent.location) {
+            window.parent.location.assign(`${baseUrl}?${queryParam}=${query}`);
+          } else {
+            window.location.assign(`${baseUrl}?${queryParam}=${query}`);
+          }
         }
       } else {
         this.menuButtonClicked(false);
@@ -171,6 +183,12 @@ Header.propTypes = {
   utilityNav: PropTypes.shape(UtilityNav.propTypes).isRequired,
   /** imports the headersearch component */
   headerSearch: PropTypes.oneOfType([PropTypes.shape(HeaderSearch.propTypes), PropTypes.func]).isRequired,
+  searchRedirect: PropTypes.shape({
+    /** The base url that the user is redirected to when submitting a non-empty search value. */
+    baseUrl: PropTypes.string,
+    /** The URL query parameter that will be set to the value of the search input element. */
+    queryParam: PropTypes.string
+  }),
   /** imports the mainnav component */
   mainNav: PropTypes.shape(MainNav.propTypes).isRequired,
   /** Adds a prop to hide header search in the header */
@@ -196,6 +214,10 @@ Header.defaultProps = {
     },
     siteName: 'Mass.gov',
     title: 'Mass.gov homepage'
+  },
+  searchRedirect: {
+    baseUrl: 'https://search.mass.gov',
+    queryParam: 'q'
   }
 };
 
