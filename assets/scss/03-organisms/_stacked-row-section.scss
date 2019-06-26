@@ -75,7 +75,7 @@
     & ~ & {
       border-color: $c-bd-divider;
 
-      &__container:before {
+      .ma__stacked-row__container:before {
         border-color: $c-bd-divider;
       }
     }
