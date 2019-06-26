@@ -1,3 +1,7 @@
+{% if mainContentClass is not defined %}
+  {% set mainContentClass = 'ma__main-content' %}
+{% endif %}
+
 {% block header %}
   {% if ajaxEmergencyAlerts %}
     {% set ajaxPattern = ajaxEmergencyAlerts %}
@@ -6,7 +10,7 @@
   {% include "@organisms/by-template/header.twig" %}
 {% endblock %}
 
-<main id="main-content" tabindex="-1">
+<main id="main-content" class="{{ mainContentClass }}" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
       {% include "@base/placeholder.twig" with {'placeholder':{'text':'Pre Content'}} %}
