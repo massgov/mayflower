@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Icon from '../../icons/Icon';
 import './style.css';
 
 const DecorativeLink = (props) => {
-  const classes = ['ma__decorative-link'];
+  const classes = classNames({
+    'ma__decorative-link': true,
+    'ma__download-link': props.showFileIcon
+  });
   let decIcon = null;
   let title;
   if (props.showFileIcon) {
-    classes.push('ma__download-link');
     // eslint-disable-next-line no-bitwise
     const getFileExtension = (filename) => filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2);
     let ext = getFileExtension(props.href);
@@ -34,7 +37,7 @@ const DecorativeLink = (props) => {
     }
   }
   return(
-    <span className={classes.join(' ')}>
+    <span className={classes}>
       <a
         href={props.href}
         title={props.info || null}
