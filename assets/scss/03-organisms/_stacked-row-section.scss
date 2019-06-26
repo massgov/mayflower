@@ -31,6 +31,12 @@
       }
     }
 
+    & .main-content .page-content {
+      > .ma__split-columns {
+        @include ma-component-spacing;
+      }
+    }
+
     & .main-content.main-content--full .page-content > .ma__key-actions {
       @include ma-component-spacing('large');
     }
