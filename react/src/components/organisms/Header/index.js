@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import rfdc from 'rfdc';
+import airbnbPropTypes from 'airbnb-prop-types';
 import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
@@ -64,12 +65,13 @@ class Header extends Component {
       if (this.state.shouldNavigateTop) {
         const query = this.searchInputTop.current.value;
         if (query.length > 0) {
-          const { baseUrl, queryParam } = this.props.searchRedirect;
+          const { baseUrl, searchTermParam, queryParams = {} } = this.props.searchRedirect;
+          const searchQuery = new URLSearchParams({ [searchTermParam]: query, ...queryParams });
           // If in an iframe, change parent window location.
           if (window.location !== window.parent.location) {
-            window.parent.location.assign(`${baseUrl}?${queryParam}=${query}`);
+            window.parent.location.assign(`${baseUrl}?${searchQuery.toString()}`);
           } else {
-            window.location.assign(`${baseUrl}?${queryParam}=${query}`);
+            window.location.assign(`${baseUrl}?${searchQuery.toString()}`);
           }
         }
       } else {
@@ -84,13 +86,13 @@ class Header extends Component {
       if (this.state.shouldNavigateBottom) {
         const query = this.searchInputBottom.current.value;
         if (query.length > 0) {
-          // @todo - this does not work in iFrame tags. Change this to something that does.
-          const { baseUrl, queryParam } = this.props.searchRedirect;
+          const { baseUrl, searchTermParam, queryParams = {} } = this.props.searchRedirect;
+          const searchQuery = new URLSearchParams({ [searchTermParam]: query, ...queryParams });
           // If in an iframe, change parent window location.
           if (window.location !== window.parent.location) {
-            window.parent.location.assign(`${baseUrl}?${queryParam}=${query}`);
+            window.parent.location.assign(`${baseUrl}?${searchQuery.toString()}`);
           } else {
-            window.location.assign(`${baseUrl}?${queryParam}=${query}`);
+            window.location.assign(`${baseUrl}?${searchQuery.toString()}`);
           }
         }
       } else {
@@ -187,7 +189,9 @@ Header.propTypes = {
     /** The base url that the user is redirected to when submitting a non-empty search value. */
     baseUrl: PropTypes.string,
     /** The URL query parameter that will be set to the value of the search input element. */
-    queryParam: PropTypes.string
+    searchTermParam: PropTypes.string,
+    /** Optional extra query parameters to add to the redirect baseUrl. */
+    queryParams: airbnbPropTypes.object
   }),
   /** imports the mainnav component */
   mainNav: PropTypes.shape(MainNav.propTypes).isRequired,
@@ -217,7 +221,7 @@ Header.defaultProps = {
   },
   searchRedirect: {
     baseUrl: 'https://search.mass.gov',
-    queryParam: 'q'
+    searchTermParam: 'q'
   }
 };
 

@@ -77,11 +77,16 @@ storiesOf('organisms', module)
       };
       const headerProps = {
         utilityNav: utilityProps,
-        headerSearch: {...headerSearchProps },
+        headerSearch: { ...headerSearchProps },
         mainNav: mainNavProps,
         hideHeaderSearch: boolean('hideHeaderSearch', false),
         hideBackTo: boolean('hideBackTo', true),
-        siteLogo: siteLogoProps
+        siteLogo: siteLogoProps,
+        searchRedirect: {
+          baseUrl: text('Header searchRedirect: baseUrl', 'https://search.mass.gov'),
+          searchTermParam: text('Header searchRedirect: searchTermParam', 'q'),
+          queryParams: object('Header searchRedirect: queryParams', { page: '1' })
+        }
       };
       return(<Header {...headerProps} />);
     }),
