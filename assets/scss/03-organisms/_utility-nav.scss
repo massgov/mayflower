@@ -325,7 +325,7 @@ $utility-nav-height: 43px;
     font-weight: 700;
     position: absolute;
     top: 0;
-    right: 0;
+    right: 35px;;
 
     @media ($bp-header-toggle-max) {
       display: none;
