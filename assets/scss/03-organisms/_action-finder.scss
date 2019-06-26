@@ -79,6 +79,10 @@ $action-finder-bp: 900px;
     @include ma-h5;
   }
 
+  h3.ma__action-finder__category {
+    @include ma-h3;
+  }
+
   &__search {
 
     @media ($bp-large-min) {
