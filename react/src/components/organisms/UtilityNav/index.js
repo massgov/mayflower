@@ -30,7 +30,7 @@ class UtilityNav extends Component {
   render() {
     const { navSelected } = this.state;
     const { googleLanguages, items } = this.props;
-    return((
+    return ((
       <div className="ma__utility-nav js-util-nav">
         <ul className="ma__utility-nav__items">
           {googleLanguages && <GoogleLanguages />}
@@ -40,11 +40,11 @@ class UtilityNav extends Component {
             // Use utility nav ident to make unique item ids.
             newItem.navIdent = this.ident;
             const { isOpen } = this.state;
-            return(
+            return (
               (item.panel) ?
                 <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} /> :
                 <NavItemLink key={`navItem.${itemIndex}`} data={item} />
-              );
+            );
           })}
         </ul>
       </div>
@@ -74,21 +74,21 @@ const NavItem = (obj) => {
     'aria-hidden': isExpanded ? 'false' : 'true',
     id: divId
   };
-  return(
+  return (
     <li className="ma__utility-nav__item js-util-nav-toggle">
-      <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
+      <button onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
         <Icon name={item.icon} />
         <span>{item.text}</span>
-      </a>
+      </button>
       <div {...divProps}>
         <div className="ma__utility-nav__container">
           <div className="ma__utility-nav__content-title">
             <button onClick={(e) => obj.handleClick(divId, e)} className="ma__utility-nav__close js-close-util-nav">
-              <span>{ item.closeText }</span>
+              <span>{item.closeText}</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>
             <Icon name={item.icon} />
-            <span>{ item.text }</span>
+            <span>{item.text}</span>
           </div>
           <div className="ma__utility-nav__content-body">
             <UtilityPanel {...item.panel} />
@@ -101,7 +101,7 @@ const NavItem = (obj) => {
 
 const NavItemLink = (obj) => {
   const item = obj.data;
-  return(
+  return (
     <li className="ma__utility-nav__item js-util-nav-toggle">
       <a className="ma__utility-nav__link" href={item.href} aria-label={item.ariaLabelText || item.text}>
         <Icon name={item.icon} />
