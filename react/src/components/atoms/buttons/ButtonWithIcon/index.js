@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classNamesBind from 'classnames/bind';
 import Icon from '../../icons/Icon';
-import './style.css';
+import styles from './style.module.css';
+
+const classNames = classNamesBind.bind(styles);
 
 class ButtonWithIcon extends React.Component {
   constructor(props) {
@@ -25,6 +27,8 @@ class ButtonWithIcon extends React.Component {
     const {
       classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage, ariaLabel
     } = this.props;
+    const customClasses = {};
+    classes.forEach((customClass) => { customClasses[customClass] = true; });
     const buttonClasses = classNames({
       'ma__button-icon': true,
       'ma__button-icon--expandable': canExpand,
@@ -34,7 +38,7 @@ class ButtonWithIcon extends React.Component {
       'ma__icon-green': iconColor,
       'ma__button-search': icon.props.name === 'search',
       'ma__button-search--secondary': icon.props.name === 'search' && usage === 'secondary',
-      [classes.join(' ')]: classes
+      ...customClasses
     });
     const buttonProps = {
       type,

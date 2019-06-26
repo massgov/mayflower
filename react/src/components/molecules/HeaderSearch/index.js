@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { componentWithName } from 'airbnb-prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
-import './style.css';
+import styles from './style.module.css';
 
 class HeaderSearch extends React.Component {
   constructor(props) {

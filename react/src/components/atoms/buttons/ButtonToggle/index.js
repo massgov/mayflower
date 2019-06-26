@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
+import styles from './style.module.css';
 
 class ButtonToggle extends Component {
   constructor(props) {
@@ -26,9 +26,9 @@ class ButtonToggle extends Component {
     const { selected } = this.state;
     return(
       <span>
-        <label htmlFor={id} className="ma__label--inline ma__label--small">{ labelText }</label>
-        <button onClick={(e) => this.onToggleClick(e)} value={option1.value} type="button" className={`ma__button-toggle ${(option1.value === selected) && 'ma__button-toggle--selected'}`}>{ option1.text }</button> |
-        <button onClick={(e) => this.onToggleClick(e)} value={option2.value} type="button" className={`ma__button-toggle ${(option2.value === selected) && 'ma__button-toggle--selected'}`}>{ option2.text }</button>
+        <label htmlFor={id} className={`${styles['ma__label--inline']} ${styles['ma__label--small']}`}>{ labelText }</label>
+        <button onClick={(e) => this.onToggleClick(e)} value={option1.value} type="button" className={`${styles['ma__button-toggle']} ${(option1.value === selected) && styles['ma__button-toggle--selected']}`}>{ option1.text }</button> |
+        <button onClick={(e) => this.onToggleClick(e)} value={option2.value} type="button" className={`${styles['ma__button-toggle']} ${(option2.value === selected) && styles['ma__button-toggle--selected']}}`}>{ option2.text }</button>
       </span>
     );
   }

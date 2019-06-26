@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import './style.css';
+import classNamesBind from 'classnames/bind';
+import styles from './style.module.css';
+
+const classNames = classNamesBind.bind(styles);
 
 const Button = (button) => {
   const buttonClasses = classNames({
