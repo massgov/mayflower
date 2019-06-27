@@ -11,7 +11,7 @@
     "lib"
   ],
   "scripts": {
-    "backstop:test": "docker-compose run backstop test",
+    "backstop:test": "docker-compose run backstop test --rm",
     "backstop": "npm-run-all build-storybook backstop:test",
     "backstop:approve": "docker-compose run backstop approve",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/",
