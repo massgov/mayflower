@@ -150,7 +150,7 @@ When the `alt` value is empty, screen readers know it is *purposely* empty, and 
 
 > - Add an `alt` value to provide the information the image delivers. For example, if the image is an icon, the `alt` value should describe what the icon signifies, such as "open" or "close".
 > 
-> - As a button label, make sure the flow of *both information together* makes sense to screen reader users:
+> - When a button's label contains both text and an image, make sure the flow of *both together* makes sense to screen reader users and flow naturally together:
 > 		
 >    - “Img alt value + label text”, or 
 > 	  - “label text + img alt value” 
