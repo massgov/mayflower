@@ -149,7 +149,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 
 📋 If `<img>` doesn't have `alt` attribute, screen readers often announce the `src` value, which is not only not helpful, but also unpleasant to screen reader users. An empty alt tag prevents this.
 
-When the `alt` value is empty, screen readers know it is *purposely* empty, and don't try to deliver any other information.
+When the `alt` value is empty, screen readers know it is *deliberately* empty, and don't try to deliver any other information.
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
