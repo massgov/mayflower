@@ -124,7 +124,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 
 **🛑 In this case, `alt` shouldn't be empty.**
 
-> - Add descriptive `alt` value as the link label.
+> - Add a descriptive `alt` value as the link label.
 > 
 > - Add any necessary context info as well.
 > 
