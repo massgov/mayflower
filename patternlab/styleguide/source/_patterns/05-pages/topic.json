@@ -2,7 +2,7 @@
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
-      "label": "Part of",
+      "label": "part of",
       "tags": [
         {
           "class": "ma__relationship-indicators--term",
@@ -18,7 +18,7 @@
     },
     "secondary": {
       "position": "",
-      "label": "offered by",
+      "label": "related to",
       "tags": [
         {
           "class": "ma__relationship-indicators--term",

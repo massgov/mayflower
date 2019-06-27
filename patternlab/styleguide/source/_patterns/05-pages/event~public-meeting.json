@@ -145,7 +145,7 @@
     },
     "secondary": {
       "position": "",
-      "label": "offered by",
+      "label": "related to",
       "tags": [
         {
           "class": "ma__relationship-indicators--term",
