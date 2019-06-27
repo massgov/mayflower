@@ -141,7 +141,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 **➣ Yes:** Information is the same.
 
 > Respect the text over the image. Empty the image’s `alt` value.
-> The image is presented as a decorative purpose.
+> The image serves a decorative purpose.
 
 **🛑 Keep `alt` attribute even its value is empty.**
 
