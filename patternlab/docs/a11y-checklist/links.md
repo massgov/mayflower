@@ -147,7 +147,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 
 ```<img src="image.jpg" alt="" />```
 
-📋 If `<img>` doesn't have `alt` attribute, screen readers try to provide any other available information for the image and announce `src` value, which is not only not helpful, but also unpleasant to screen reader users.
+📋 If `<img>` doesn't have `alt` attribute, screen readers often announce the `src` value, which is not only not helpful, but also unpleasant to screen reader users. An empty alt tag prevents this.
 
 When the `alt` value is empty, screen readers know it is *purposely* empty, and don't try to deliver any other information.
 
