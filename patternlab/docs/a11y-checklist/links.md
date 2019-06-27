@@ -136,7 +136,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 <a name="text-image"></a>
 ### Text and Image
 
-#### ➤➤ Do the text and the image both describe the same thing(= they have duplicate information)?
+#### ➤➤ Do the text and the image both convey the same information?
 
 **➣ Yes:** Both information is same.
 
