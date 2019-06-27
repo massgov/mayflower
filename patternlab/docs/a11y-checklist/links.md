@@ -175,7 +175,7 @@ When the `alt` value is empty, screen readers know it is *deliberately* empty, a
 >		```
 >
 >		"PDF format of Campsite reservation request form"
->     - override them with `aria-label`, empty the `alt` value for cleaner markup.
+>     - or override them with `aria-label`, and empty the `alt` value for cleaner markup.
 > 
 >		```
 > 		<a href="loginpage.html" aria-label="Screen readers announce this.">
