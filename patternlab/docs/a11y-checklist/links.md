@@ -91,7 +91,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 
 - Log in to...
 
-📋 Screen readers announce "...", ":", ";". Screen reader users hear the sample as "log in to dot dot dot".
+📋 Screen readers announce the "..." as "dot dot dot".
 
 
 > - Use `aria-label` to override the existing link label. 
