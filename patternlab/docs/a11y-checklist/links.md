@@ -153,7 +153,7 @@ When the `alt` value is empty, screen readers know it is *deliberately* empty, a
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
-**➢ No [Case 1]:** The text and the image provide unique information.
+**➢ No [Case 1]:** The text and the image provide different information.
 
 > - Add `alt` value to provide the information the image delivers. For example, if the image is an icon, what the icon signifies such as PDF as a file format.
 > 
