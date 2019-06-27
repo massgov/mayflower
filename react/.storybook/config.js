@@ -3,7 +3,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import { withTests } from '@storybook/addon-jest';
 
-import results from '../.jest-test-results.json';
+import results from '../tests/jest-test-results.json';
 
 // automatically import all files ending in *.stories.js
 const req = require.context('../src', true, /.stories.js$/);
