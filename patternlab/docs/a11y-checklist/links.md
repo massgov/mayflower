@@ -101,7 +101,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 > <a href="loginpage.html" aria-label="log in to your account.">Log in to...</a>
 > ```
 > 
-> 📋 When `aria-label` is used, screen readers ignores the content between `<a>` and `</a> `and announce `aria-label` value.
+> 📋 When `aria-label` is used, screen readers ignore the content between `<a>` and `</a> `and announce the `aria-label` value instead.
 
 [Move on to next element. ➡️](a11y-checklist.md)
 
