@@ -113,7 +113,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 
 **➣ Yes:** [Go to the following question. ⬇️](#alt)
 
-**➢ No:**  Add `alt` attribute. [Go to the following question. ⬇️](#alt)
+**➢ No:**  Add an `alt` attribute. [Go to the following question. ⬇️](#alt)
 
 <a name="alt"></a>
 #### ➤➤ Does the `alt` attribute clearly tell where it takes you as the link label?
