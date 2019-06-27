@@ -147,12 +147,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package.json" }}-0
+            - mfr-dependencies-{{ checksum "react/package-lock.json" }}
       - run: cd react && npm install
       - save_cache:
           paths:
             - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package.json" }}-0
+          key: mfr-dependencies-{{ checksum "react/package-lock.json" }}
       - run:
           name: Mayflower React Build
           command: cd react && npm run build
