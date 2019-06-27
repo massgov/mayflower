@@ -138,7 +138,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 
 #### ➤➤ Do the text and the image both convey the same information?
 
-**➣ Yes:** Both information is same.
+**➣ Yes:** Information is the same.
 
 > Respect the text over the image. Empty the image’s `alt` value.
 > The image is presented as a decorative purpose.
