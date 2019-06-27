@@ -116,6 +116,7 @@ export AccordionWrapper from './components/organisms/AccordionWrapper';
 export TableofContents from './components/organisms/TableofContents';
 export Tab from './components/organisms/TabContainer/tab';
 export TabContainer from './components/organisms/TabContainer';
+export TabBody from './components/organisms/TabContainer/tab-body';
 export TabContext from './components/organisms/TabContainer/context';
 export TeaserListing from './components/organisms/TeaserListing';
 export CalloutAlert from './components/organisms/CalloutAlert';
