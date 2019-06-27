@@ -8,13 +8,12 @@ import { Icon } from '../../../index';
 const Link = (props) => {
   const icon = props.icon ? (<Icon name={props.icon} svgWidth={13.2} svgHeight={13.2} />) : '';
   const classes = classNames({
-    'js-clickable-link': true,
     [props.classes]: props.classes
   });
   return(
     <a
       href={props.href}
-      className={classes}
+      className={classes || null}
       title={props.info}
     >{ (props.children) ? props.children : props.text }&nbsp;{ icon }
     </a>
