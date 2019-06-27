@@ -95,7 +95,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 
 > - Use `aria-label` to override the existing link label. 
 > 
-> - Add any necessary context info as well. With above sample, the label could be "log in to *your account*". 
+> - Add any necessary context info as well. In the example above, the label could be "log in to *your account*". 
 > 
 > ```
 > <a href="loginpage.html" aria-label="log in to your account.">Log in to...</a>
