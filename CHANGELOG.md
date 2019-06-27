@@ -13,6 +13,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.14.0 (06/27/2019)
+
+### Fixed
+- (Patternlab) [location-banner] DP-12216: Update banner image scss to avoid background repeating. #634
+
+### Changed
+- (React) [Link, DecorativeLink] DP-12128: Remove unused default class. #645
+- (React) [TabContainer] DP-14424: Got rid of the need to track Tab children in state. Refactored TabContainer organism to use React Portals for rendering its children. #637
+- (React) [Tab] DP-14424: Added TabBody component for rendering Tab children directly into TabContainer organism. Removed unused default prop. Converted component to be a class from a function and removed the need for React.forwardRef. #637
+
+## 9.13.0 (06/26/2019)
+
+### Added
+- (Patternlab) [Sticky TOC] DP-13864: Moved arrow icon into the a tag to make clickable within the stickyTOC.js file, styled accordingly in the `_sticky-toc.scss` file #619
+- (Patternlab) [SuggestedPages] DP-13951: Add option for link list instead of more link to suggested pages. #562
+- (Patternlab) [ServicesFlexibleLinkGroups] DP-14173: Service page redesign with grouped links #625
+
 ## 9.12.0 (06/19/2019)
 
 ### Added

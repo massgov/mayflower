@@ -13,6 +13,7 @@
 
   &__image {
     background-position: center top;
+    background-repeat: no-repeat;
     height: 400px;
 
     @media ($bp-large-min) {
@@ -39,13 +40,13 @@
 
     .ma__google-map {
       padding: 0;
-      
+
       &__map {
         height: 400px;
 
         &.static-image {
-          height: auto; 
-          
+          height: auto;
+
           @media ($bp-large-min) {
             position: relative;
             height: 400px;
