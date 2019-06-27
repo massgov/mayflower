@@ -164,7 +164,7 @@ When the `alt` value is empty, screen readers know it is *deliberately* empty, a
 >  
 > 
 > - If they don't flow well together, 
->     - add contextual text info as visually hidden text, or
+>     - add contextual text info as visually hidden text:
 > 
 >		```
 > 		<a href="loginpage.html">
