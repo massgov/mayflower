@@ -85,7 +85,6 @@ These labels may make sense when you can see the entire section, but they don't 
 
 Sometimes it doesn't make sense to add contextual information as visually hidden text.
 
-The label doesn't make sense by itself. 
 
 For example, in the label below, the ellipsis ("...") gets in the way. 
 
