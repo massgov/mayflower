@@ -116,7 +116,7 @@ For example, in the label below, the ellipsis ("...") gets in the way.
 **➢ No:**  Add an `alt` attribute. [Go to the following question. ⬇️](#alt)
 
 <a name="alt"></a>
-#### ➤➤ Does the `alt` attribute clearly tell where it takes you as the link label?
+#### ➤➤ Does the `alt` attribute clearly explain where the link takes you?
 
 **➣ Yes:** You are all set. [Move on to next element. ➡️](a11y-checklist.md)
 
