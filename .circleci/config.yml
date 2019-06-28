@@ -152,12 +152,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package-lock.json" }}
+            - mfr-dependencies-{{ checksum "react/package-lock.json" }}-0
       - run: cd react && npm install
       - save_cache:
           paths:
             - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package-lock.json" }}
+          key: mfr-dependencies-{{ checksum "react/package-lock.json" }}-0
       - run:
           name: Mayflower React Build
           command: cd react && npm run build
@@ -173,7 +173,6 @@ jobs:
     steps:
       - attach_workspace: {at: ~/repo}
       - setup_remote_docker
-      - run: cd react && npm install
       - run: |
           cd react
           npm run jest -- --no-watch
