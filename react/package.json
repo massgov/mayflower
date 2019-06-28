@@ -19,7 +19,7 @@
     "build-nwb": "nwb build-react-component --copy-files",
     "build": "npm-run-all build-css build-nwb",
     "clean": "nwb clean-module",
-    "start": "npm run jest:watch-and-generate && npm-run-all -p watch-css storybook ",
+    "start": "npm-run-all -p jest:watch-and-generate watch-css storybook ",
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint --fix .; exit 0",
     "jest": "cross-env-shell SKIP_PREFLIGHT_CHECK=true react-scripts test --setupTestFrameworkScriptFile=./tests/setupTests.js",

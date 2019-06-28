@@ -173,6 +173,7 @@ jobs:
     steps:
       - attach_workspace: {at: ~/repo}
       - setup_remote_docker
+      - run: cd react && npm install
       - run: |
           cd react
           npm run jest -- --no-watch
