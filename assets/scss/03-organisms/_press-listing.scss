@@ -163,3 +163,35 @@
     }
   }
 }
+
+@media($bp-medium-min) {
+  _:-ms-fullscreen, :root .ma__press-listing__secondary-items {
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  _:-ms-fullscreen, :root .ma__press-listing__secondary-item {
+    flex-basis: 45%;
+    padding: 0;
+    border-right-width: 0; 
+    position: relative;
+  }
+
+  _:-ms-fullscreen, :root .ma__press-teaser::after
+   {
+    content: "";
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    background-color: $c-bd-divider;
+    top: 0;
+    right: -30px;
+  }
+}
+
+@media($bp-large-min) {
+  _:-ms-fullscreen, :root .ma__press-listing__secondary-item {
+    flex-basis: 30%;
+    padding: 0;
+  }
+}
