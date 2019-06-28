@@ -13,7 +13,7 @@ function loadStories() {
   });
   addDecorator(
     withTests({
-      results,
+      results
     })
   )
   addDecorator(
