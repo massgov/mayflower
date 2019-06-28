@@ -15,4 +15,4 @@ backstop/data/*report/
 .DS_Store
 **/.DS_Store
 
-tests/jest-test-results.json
+.storybook/jest-test-results.json
