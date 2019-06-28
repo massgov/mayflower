@@ -9,6 +9,7 @@ import ButtonDocs from './Button.md';
 import buttonOptions from './Button.knobs.options';
 
 storiesOf('atoms/buttons', module)
+  .addParameters({ jest: ['Button.test.js'] })
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Button', (() => {

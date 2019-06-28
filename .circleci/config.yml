@@ -147,12 +147,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package.json" }}
+            - mfr-dependencies-{{ checksum "react/package-lock.json" }}
       - run: cd react && npm install
       - save_cache:
           paths:
             - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package.json" }}
+          key: mfr-dependencies-{{ checksum "react/package-lock.json" }}
       - run:
           name: Mayflower React Build
           command: cd react && npm run build
@@ -164,10 +164,13 @@ jobs:
           paths: ["*"]
 
   react_test:
-    <<: *backstop_defaults
+    <<: *react_defaults
     steps:
-      - attach_workspace: {at: /home/circleci}
+      - attach_workspace: {at: ~/repo}
       - setup_remote_docker
+      - run: |
+          cd react
+          npm run jest -- --no-watch
       - run: |
           cd react
           docker-compose up --no-start web backstop
