@@ -158,7 +158,7 @@ jobs:
           command: cd react && npm run build
       - run:
           name: Mayflower React Generate Jest Results
-          command: cd react && npm run jest -- --outputFile=./tests/jest-test-results.json
+          command: cd react && npm run jest -- --json --outputFile=./tests/jest-test-results.json
       - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
