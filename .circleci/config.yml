@@ -24,6 +24,11 @@ backstop_defaults: &backstop_defaults
   docker:
     - image: circleci/python:2.7.14
 
+backstop_node_defaults: &backstop_node_defaults
+  working_directory: /home/circleci
+  docker:
+    - image: circleci/python:2.7.14-node
+
 jobs:
   patternlab_build:
     <<: *patternlab_defaults
@@ -157,9 +162,6 @@ jobs:
           name: Mayflower React Build
           command: cd react && npm run build
       - run:
-          name: Mayflower React Generate Jest Results
-          command: cd react && npm run jest -- --json --outputFile=./tests/jest-test-results.json
-      - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
       - persist_to_workspace:
@@ -167,7 +169,7 @@ jobs:
           paths: ["*"]
 
   react_test:
-    <<: *backstop_defaults
+    <<: *backstop_node_defaults
     steps:
       - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
