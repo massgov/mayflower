@@ -12,7 +12,7 @@ references:
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:10.16.0-stretch
+    - image: circleci/node:10.15.1
 
 patternlab_defaults: &patternlab_defaults
   working_directory: /var/www/code
@@ -23,11 +23,6 @@ backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
     - image: circleci/python:2.7.14
-
-backstop_node_defaults: &backstop_node_defaults
-  working_directory: /home/circleci
-  docker:
-    - image: circleci/python:2.7.14-node
 
 jobs:
   patternlab_build:
@@ -152,12 +147,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package-lock.json" }}-0
+            - mfr-dependencies-{{ checksum "react/package-lock.json" }}
       - run: cd react && npm install
       - save_cache:
           paths:
             - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package-lock.json" }}-0
+          key: mfr-dependencies-{{ checksum "react/package-lock.json" }}
       - run:
           name: Mayflower React Build
           command: cd react && npm run build
