@@ -7,6 +7,7 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
+    
 
     @media ($bp-small-max) {
       width: 150px;// total: 150 x 42
@@ -15,6 +16,7 @@
     img {
       width: 45px;
       height: 45px;
+      -ms-interpolation-mode: bicubic;
 
       @media ($bp-small-max) {
         width: 42px;
