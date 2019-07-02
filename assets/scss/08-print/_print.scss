@@ -457,8 +457,12 @@
     display: none;
   }
 
+  .ma__details__stick-nav {
+    display: none;
+  }
+
   .ma__details__content {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 
   .ma__callout-time__text {
