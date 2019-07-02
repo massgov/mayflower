@@ -26,5 +26,6 @@ export default {
   }),
   showButtons: () => boolean('showButtons', true),
   onChange: () => action('onChange'),
+  onBlur: () => action('onBlur'),
   language: () => select('language', ['English', 'Chinese', 'French', 'Russian'], 'English')
 };

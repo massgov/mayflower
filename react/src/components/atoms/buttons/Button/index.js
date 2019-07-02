@@ -30,7 +30,7 @@ const Button = (button) => {
       onClick={(e) => onClickCallback(e)}
       disabled={button.disabled}
     >
-      {button.text}
+      {button.children ? button.children : button.text}
     </Element>
   );
 };
