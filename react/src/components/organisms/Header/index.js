@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
-import rfdc from 'rfdc';
 import airbnbPropTypes from 'airbnb-prop-types';
 import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
@@ -10,7 +9,6 @@ import SiteLogo from '../../atoms/media/SiteLogo';
 import logo from '../../../assets/images/stateseal.png';
 import './styles.css';
 
-const clone = rfdc();
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -109,20 +107,28 @@ class Header extends Component {
     this.setState({ shouldNavigateBottom });
   }
   topHeaderSearch = () => {
-    const headerSearchProps = clone(this.props.headerSearch);
-    headerSearchProps.buttonSearch.setButtonRef = this.buttonRefTop;
-    headerSearchProps.buttonSearch.onClick = this.defaultButtonSearchOnClick;
-    headerSearchProps.inputRef = this.searchInputTop;
-    headerSearchProps.onChange = this.handleChangeSearchTop;
+    const headerSearchProps = {
+      ...this.props.headerSearch,
+      buttonSearch: {
+        setButtonRef: this.buttonRefTop,
+        onClick: this.defaultButtonSearchOnClick
+      },
+      inputRef: this.searchInputTop,
+      onChange: this.handleChangeSearchTop
+    };
     return(<HeaderSearch {...headerSearchProps} />);
   };
   bottomHeaderSearch = () => {
-    const headerSearchProps = clone(this.props.headerSearch);
-    headerSearchProps.buttonSearch.setButtonRef = this.buttonRefBottom;
-    headerSearchProps.buttonSearch.onClick = this.defaultButtonSearchOnClick;
-    headerSearchProps.inputRef = this.searchInputBottom;
-    headerSearchProps.onChange = this.handleChangeSearchBottom;
-    headerSearchProps.id = 'nav-search';
+    const headerSearchProps = {
+      ...this.props.headerSearch,
+      buttonSearch: {
+        setButtonRef: this.buttonRefBottom,
+        onClick: this.defaultButtonSearchOnClick
+      },
+      inputRef: this.searchInputBottom,
+      onChange: this.handleChangeSearchBottom,
+      id: 'nav-search'
+    };
     return(<HeaderSearch {...headerSearchProps} />);
   };
   render() {
