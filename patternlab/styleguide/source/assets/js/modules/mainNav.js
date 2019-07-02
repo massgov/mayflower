@@ -188,6 +188,8 @@ export default (function (window, document, $, undefined) {
     $('.js-header-menu-button').click(function () {
       let $openContent = $parent.find('.js-main-nav-content.' + openClass);
       hide($openContent);
+
+      $('.ma__utility-nav__content').addClass('is-closed');
     });
 
     function hide($content) {

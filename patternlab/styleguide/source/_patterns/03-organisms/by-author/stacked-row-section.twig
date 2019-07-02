@@ -1,11 +1,18 @@
-{% set stackRowRestriction = stackedRowSection.sideBar|length ? '' : ' ma__stacked-row-section--restricted' %}
-{% set stackRowBorderless = stackedRow.borderless ? ' ma__stacked-row__section--borderless' : ''  %}
+{% set stackedRowRestriction = stackedRowSection.sideBar|length ? '' : ' ma__stacked-row--restricted' %}
+{% set stackedRowBorderless = stackedRow.borderless ? ' ma__stacked-row__section--borderless' : ''  %}
 
-<section class="ma__stacked-row__section{{ stackRowBorderless }}{{ stackRowRestriction }}">
+{# Allow overriding the content container classes as needed. #}
+{% if externalSidebar is defined and externalSidebar == true %}
+  {% set mainContentClass = '' %}
+{% else %}
+  {% set mainContentClass = stackedRowSection.sideBar|length ? ' main-content--two' : ' main-content--full' %}
+{% endif %}
+
+<section class="ma__stacked-row__section {{ stackedRowBorderless }}{{ stackedRowRestriction }}">
   {% block stackRowTitle %}
     {% if stackedRowSection.title %}
-      <div class="ma__stacked-row-section__container">
-        <div class="ma__stacked-row-section__title">
+      <div class="ma__stacked-row__container">
+        <div class="ma__stacked-row__title">
           {% set compHeading = {
               "title": stackedRowSection.title,
               "sub": "",
@@ -18,7 +25,7 @@
       </div>
     {% endif %}
   {% endblock %}
-  <div class="main-content {{ stackedRowSection.sideBar|length ? 'main-content--two' : 'main-content--full' }}">
+  <div class="main-content{{ mainContentClass }}">
     <div class="page-content">
       {% block stackedRowContentOverride %}
         {% for content in stackedRowSection.pageContent %}
