@@ -16,7 +16,6 @@
     img {
       width: 45px;
       height: 45px;
-      -ms-interpolation-mode: bicubic;
 
       @media ($bp-small-max) {
         width: 42px;
