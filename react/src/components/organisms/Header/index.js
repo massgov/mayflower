@@ -110,6 +110,7 @@ class Header extends Component {
     const headerSearchProps = {
       ...this.props.headerSearch,
       buttonSearch: {
+        ...this.props.headerSearch.buttonSearch,
         setButtonRef: this.buttonRefTop,
         onClick: this.defaultButtonSearchOnClick
       },
@@ -122,6 +123,7 @@ class Header extends Component {
     const headerSearchProps = {
       ...this.props.headerSearch,
       buttonSearch: {
+        ...this.props.headerSearch.buttonSearch,
         setButtonRef: this.buttonRefBottom,
         onClick: this.defaultButtonSearchOnClick
       },
