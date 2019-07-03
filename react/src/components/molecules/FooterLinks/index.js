@@ -7,6 +7,7 @@ const FooterLinks = (footerLinks) => (
   <section className="ma__footer-links">
     {
       footerLinks.items.map((footerLinksNav, i) => (
+        /* eslint-disable-next-line react/no-array-index-key */
         <FooterLinksNav {...footerLinksNav} showNavHeading={footerLinks.showNavHeading} key={`footerLinksNav_${i}`} index={i} />
       ))
     }
@@ -22,6 +23,7 @@ const FooterLinksNav = (footerLinksNav) => (
     <ul>
       {
         footerLinksNav.links.map((link, i) => (
+          /* eslint-disable-next-line react/no-array-index-key */
           <FooterLink {...link} key={`footerLink_${i}`} />
         ))
       }

@@ -9,6 +9,7 @@ const SocialLinks = (socialLinks) => (
     <ul className="ma__social-links__items">
       {
         socialLinks.items.map((socialLink, i) => (
+          /* eslint-disable-next-line react/no-array-index-key */
           <SocialLink {...socialLink} key={`socialLink_${i}`} index={i} />
         ))
       }
