@@ -75,17 +75,17 @@ Below is a summary of how each metatag is used in [search.mass.gov](https://sear
 
 | **Metatag** | **Sort Functionality** | **Example** |
 | :--- | :--- | :--- |
-| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](https://github.com/massgov/edit-mayflower-docs/tree/2ebf90829554ce8935dcf605d3b3d2c5ae3d1bc7/docs/assets/mg_date.png.png) |
+| mg\_date | Used when sorting by date on the "news" and "laws-regulations" tabs. | ![Example Screenshot of Sort by Date Functionality](../.gitbook/assets/mg_date.png) |
 
 #### Search Result Teasers
 
 | **Metatag** | **Teaser Functionality** | **Example** |
 | :--- | :--- | :--- |
 | mg\_organization | Rendered for content in the category news and laws-regulations. | ![Example Results Teaser with Organization Details Rendered in Emphasized Text](../.gitbook/assets/mg_organization.png) |
-| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](https://github.com/massgov/mayflower/tree/d5c62d1869ae8e804c5fb9a7e5f986a27a7c099e/docs/.gitbook/assets/mg_organization-10.png) |
+| mg\_date | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Date Rendered in Emphasized Text](../.gitbook/assets/mg_organization.png) |
 | mg\_type | Rendered for content categorized as "laws-regulations"  and "news". | ![Example Results Teaser with Type Rendered in the Eyebrow](../.gitbook/assets/mg_organization%20%281%29.png) |
-| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](https://github.com/massgov/mayflower/tree/d5c62d1869ae8e804c5fb9a7e5f986a27a7c099e/docs/.gitbook/assets/mg_phone_number-13.png) |
-| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/mg_phone_number%20%282%29.png) |
+| mg\_phone\_number | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Phone Number Rendered in the Contact Section](../.gitbook/assets/mg_phone_number.png) |
+| mg\_contact\_details | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with Contact Details Rendered in the Contact Section](../.gitbook/assets/mg_phone_number.png) |
 | mg\_location\_listing\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Location Listing Rendered](../.gitbook/assets/mg_phone_number.png) |
 | mg\_online\_contact\_url | Rendered in teaser for content categorized as "state-organizations" | ![Example Results Teaser with the Online Contacts Rendered](../.gitbook/assets/mg_phone_number%20%281%29.png) |
 | mg\_key\_actions | Rendered in teaser for content categorized as "state-organizations" or "services" | ![Example Results Teaser with Key Actions Rendered](../.gitbook/assets/mg_key_actions.png) |
@@ -184,6 +184,7 @@ Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov inde
 | CommonWiki | wiki.state.ma.us | [wiki.state.ma.us/confluence/display/data/](https://wiki.state.ma.us/confluence/display/data/) |
 | Community Economic Development Assistance Corporation | cedac.org | [www.cedac.org](https://cedac.org/) |
 | Dukes County | dukescounty.org | [www.dukescounty.org](http://www.dukescounty.org/Pages/index) |
+| Massachusetts Empowering Small Business | empoweringsmallbusiness.org | [www.empoweringsmallbusiness.org](https://www.empoweringsmallbusiness.org/) |
 | Franklin County Sheriff's Department | fcso-ma.us | [www.fcso-ma.us](https://www.fcso-ma.us/) |
 | Hampden County Sheriff's Department | hcsdmass.org | [www.hcsdmass.org](http://www.hcsdmass.org/) |
 | Hampden District Attorney | hampdenda.com | [www.hampdenda.com](http://hampdenda.com/) |
@@ -193,6 +194,7 @@ Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov inde
 | Mass.Gov Blog | blog.mass.gov | [blog.mass.gov](http://blog.mass.gov/) |
 | Massachusetts Board of Library Commissioners | mblc.state.ma.us | [mblc.state.ma.us](http://mblc.state.ma.us/) |
 | Massachusetts Cases | masscases.com | [masscases.com](http://masscases.com/) |
+| Massachusetts Compare Care | masscomparecare.gov | [www.masscomparecare.gov](https://www.masscomparecare.gov/) |
 | Massachusetts Comptroller | macomptroller.org | [www.macomptroller.org](https://www.macomptroller.org/) |
 | Massachusetts Cultural Council | massculturalcouncil.org | [massculturalcouncil.org](https://massculturalcouncil.org/) |
 | Massachusetts Department of Early and Secondary Education | doe.mass.edu | [www.doe.mass.edu](http://www.doe.mass.edu/) |
@@ -211,7 +213,7 @@ Currently, the Google Custom Search Engine \(CSE\) powering search.mass.gov inde
 | Massachusetts State Lottery | masslottery.com | [www.masslottery.com](https://github.com/massgov/mayflower/tree/4edb7b87fc1e89ff83f22c9bb2a3c636ec76c94c/docs/guidelines/www.masslottery.com) |
 | Massachusetts Technology Collaborative | masstech.org | [www.masstech.org](https://www.masslottery.com/) |
 | Massachusetts Vacation and Tourism | massvacation.com | [www.massvacation.com](https://www.massvacation.com/) |
-| Massachusetts Vehicle Check | www.mavehiclecheck.com | [www.mavehiclecheck.com](https://www.mavehiclecheck.com/) |
+| Massachusetts Vehicle Check | mavehiclecheck.com | [www.mavehiclecheck.com](https://www.mavehiclecheck.com/) |
 | Massachusetts Water Resources Authority | mwra.state.ma.us | [www.mwra.state.ma.us](http://www.mwra.state.ma.us/) |
 | MassDevelopment | massdevelopment.com | [www.massdevelopment.com](https://www.massdevelopment.com/) |
 | MassHousing | masshousing.com | [www.masshousing.com](https://www.masshousing.com/) |
