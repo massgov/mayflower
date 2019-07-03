@@ -6,41 +6,41 @@ import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
 import Icon from '../../atoms/icons/Icon';
 
-const getCommonPropsWithKnobsImagePromo = () => ({
-  title: {
-    href: text('ImagePromo: title href', '#', 'Title'),
-    text: text('ImagePromo: title text', 'Activity Title', 'Title')
-  },
-  tags: null,
-  stacked: boolean('ImagePromo: stacked', false),
-  small: boolean('ImagePromo: small', false),
-  image: {
-    src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/190x107.png', 'Image'),
-    alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
-    width: number('ImagePromo: image width', 190, 'Image'),
-    height: number('ImagePromo: image height', 107, 'Image')
-  },
-  subTitle: text('ImagePromo: subTitle', 'subtitle'),
-  description: text('ImagePromo: description', 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.'),
-  link: {
-    text: text('ImagePromo: link text', 'Read More', 'Link'),
-    href: text('ImagePromo: link href', '#', 'Link'),
-    info: text('ImagePromo: link info', 'Read More about Activity Title', 'Link')
-  },
-  location: null,
-  phone: null
-});
 
 storiesOf('molecules/ImagePromo', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('ImagePromo', (() => {
-    const props = getCommonPropsWithKnobsImagePromo();
-
-    return(<ImagePromo {...props} />);
-  }))
+  .add(
+    'ImagePromo', (() => {
+      const props = {
+        title: {
+          href: text('ImagePromo: title href', '#', 'Title'),
+          text: text('ImagePromo: title text', 'Activity Title', 'Title')
+        },
+        tags: null,
+        stacked: boolean('ImagePromo: stacked', false),
+        small: boolean('ImagePromo: small', false),
+        image: {
+          src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/190x107.png', 'Image'),
+          alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
+          width: number('ImagePromo: image width', 190, 'Image'),
+          height: number('ImagePromo: image height', 107, 'Image')
+        },
+        subTitle: text('ImagePromo: subTitle', 'subtitle'),
+        description: text('ImagePromo: description', 'Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente.'),
+        link: {
+          text: text('ImagePromo: link text', 'Read More', 'Link'),
+          href: text('ImagePromo: link href', '#', 'Link'),
+          info: text('ImagePromo: link info', 'Read More about Activity Title', 'Link')
+        },
+        location: null,
+        phone: null
+      };
+      return(<ImagePromo {...props} />);
+    }),
+    { info: ImagePromoDocs }
+  )
   .add(
     'ImagePromo as orgInfo', (() => {
-    // Override some props/knobs for "with map link" variation example.
       const props = {
         title: {
           href: text('ImagePromo: title href', '#', 'Title'),
@@ -71,7 +71,6 @@ storiesOf('molecules/ImagePromo', module)
   )
   .add(
     'ImagePromo with map link', (() => {
-    // Override some props/knobs for "with map link" variation example.
       const props = {
         title: {
           href: text('ImagePromo: title href', '#', 'Title'),
