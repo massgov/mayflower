@@ -16,7 +16,7 @@ storiesOf('organisms/Footer', module)
     'Footer', (() => {
       const props = {
         footerLinks: object('footerLinks', FooterLinksData),
-        showNavHeading: boolean('howNavHeading', true),
+        showNavHeading: boolean('showNavHeading', true),
         socialLinks: object('socialLinksData', SocialLinksData),
         footerLogo: object('footerLogo', {
           src: stateSeal,
