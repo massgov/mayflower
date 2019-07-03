@@ -41,7 +41,7 @@ InputSlider.propTypes = {
   /** This controls how much sliding the handle increments/decrements the value of the slider. */
   step: PropTypes.number,
   /** An array where each entry is an array of [key,value] pairs. The key (number inclusively between min and max) and value (label to display at the key) are used for displaying tick marks. */
-  ticks: PropTypes.array,
+  ticks: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   /** The direction for the slider, where x is horizontal and y is vertical. */
   axis: PropTypes.oneOf(['x', 'y']),
   /** Disables the slider if true. */
