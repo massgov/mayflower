@@ -88,7 +88,6 @@ storiesOf('organisms/TableofContents', module)
   .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'TableofContents with ColoredHeading', (() => {
     'TableofContents with ColoredHeading', () => {
       const props = {
         heading: getColoredHeading()
@@ -101,11 +100,11 @@ storiesOf('organisms/TableofContents', module)
           {getDecorativeLink(3)}
         </TableofContents>
       );
-    }),
+    },
     { info: TableofContentsDocs }
   )
   .add(
-    'TableofContents with SidebarHeading', (() => {
+    'TableofContents with SidebarHeading', () => {
       const props = {
         heading: getSidebarHeading()
       };
