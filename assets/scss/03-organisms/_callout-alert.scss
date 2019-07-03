@@ -2,8 +2,9 @@
 
   .pre-content > &,
   .post-content > &,
-  .main-content--full .page-content > & {
+  .main-content.main-content--full .page-content > & {
     @include ma-container('restricted');
+    @include ma-component-spacing('large');
   }
 
   .rich-text & {
