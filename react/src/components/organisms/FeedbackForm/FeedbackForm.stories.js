@@ -6,7 +6,7 @@ import FeedbackForm from '.';
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('FeedbackForm', (() => {
+  .add('FeedbackForm', () => {
     const props = {
       formId: number('formId', 2521317),
       radioId: number('radioId', 47054416),
@@ -17,4 +17,4 @@ storiesOf('organisms', module)
       successMessage: () => <p>This is a custom success messasge! You can put HTML in here or use a component.</p>
     };
     return(<FeedbackForm {...props} />);
-  }));
+  });

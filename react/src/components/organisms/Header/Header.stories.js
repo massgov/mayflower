@@ -12,7 +12,7 @@ import logo from '../../../assets/images/stateseal.png';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'Header', (() => {
+    'Header', () => {
       const mainNavProps = {
         mainNav: []
       };
@@ -85,6 +85,6 @@ storiesOf('organisms', module)
         siteLogo: siteLogoProps
       };
       return(<Header {...headerProps} />);
-    }),
+    },
     { info: HeaderDocs }
   );

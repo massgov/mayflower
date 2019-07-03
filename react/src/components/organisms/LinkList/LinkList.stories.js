@@ -8,7 +8,7 @@ import LinkListDocs from './LinkList.md';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'LinkList', (() => {
+    'LinkList', () => {
       const levelOptions = [1, 2, 3, 4, 5, 6];
       const props = {
         compHeading: {
@@ -53,6 +53,6 @@ storiesOf('organisms', module)
         }
       };
       return(<LinkList {...props} />);
-    }),
+    },
     { info: LinkListDocs }
   );

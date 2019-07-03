@@ -10,7 +10,7 @@ import { SiteLogo } from '../../../index';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'FooterSlim', (() => {
+    'FooterSlim', () => {
       const siteLogoProps = {
         url: {
           domain: text('FooterSlim siteLogo: url domain', 'https://www.mass.gov/', 'SiteLogo')
@@ -42,6 +42,6 @@ storiesOf('organisms', module)
         siteLogo: <SiteLogo {...siteLogoProps} />
       };
       return(<FooterSlim {...props} />);
-    }),
+    },
     { info: FooterSlimDocs }
   );
