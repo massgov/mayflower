@@ -5,9 +5,16 @@ $utility-nav-height: 43px;
   z-index: $z-high;
 
   @media ($bp-header-toggle-min) {
+<<<<<<< HEAD
     color: $c-font-inverse;
   }
   
+=======
+    background-color: $c-primary;
+    color: $c-font-inverse;
+  }
+
+>>>>>>> origin/develop
   &__items {
     @include ma-reset-list;
     
@@ -38,6 +45,11 @@ $utility-nav-height: 43px;
     
     @media ($bp-header-toggle-max) {
       position: relative;
+
+      &:hover {
+        background-color: $c-white;
+        box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+      }
     }
     
     @media ($bp-header-toggle-min) {
@@ -53,12 +65,20 @@ $utility-nav-height: 43px;
     font-size: 1.125rem;
     line-height: 1.45;
     color: $c-font-base;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> origin/develop
     @media ($bp-header-toggle-min) {
       line-height: 2;
       transition: opacity .4s ease;
       color: $c-font-inverse;
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> origin/develop
       &:hover {
           opacity: .7;
       }
@@ -77,8 +97,36 @@ $utility-nav-height: 43px;
         stroke: transparent;
       }
     }
+<<<<<<< HEAD
 
     span {
+=======
+
+    &:after {
+      border-right-color: $c-primary-alt;
+      border-bottom-color: $c-primary-alt;
+    }
+
+    svg {
+      fill: $c-primary;
+
+      @media ($bp-header-toggle-min) {
+        fill: $c-font-inverse;
+        opacity: .7;
+        stroke: transparent;
+      }
+    }
+    
+    span {
+      font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+      font-weight: 500;
+    }
+  }
+
+  &__link {
+    border: 0;
+    background-color: transparent;
+>>>>>>> origin/develop
 
       @media ($bp-header-toggle-min) {
         font-family: "Texta", "Helvetica", "Arial", "sans-serif";
@@ -90,7 +138,13 @@ $utility-nav-height: 43px;
   &__link {
       
     @media ($bp-header-toggle-max) {
+<<<<<<< HEAD
       padding: 15px 20px 15px 45px;
+=======
+      padding: 11px 20px 9px 45px;
+      width: 100%;
+      text-align: left;
+>>>>>>> origin/develop
     }
       
     @media ($bp-header-toggle-max) {
@@ -107,6 +161,7 @@ $utility-nav-height: 43px;
     &[aria-label="State Organizations"] {
       
       &:after {
+<<<<<<< HEAD
         display: none;
       }
     
@@ -129,6 +184,13 @@ $utility-nav-height: 43px;
           width: .45em;
           border-color: $c-primary-alt;
         }
+=======
+        position: absolute;
+        right: 20px;
+        top: 18px;
+        border-right-color: $c-primary-alt;
+      border-bottom-color: $c-primary-alt;
+>>>>>>> origin/develop
       }
     }
       
@@ -177,7 +239,11 @@ $utility-nav-height: 43px;
       background-color: transparent;
       border: none;
       font-weight: 500;
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> origin/develop
       @media ($bp-header-toggle-max) {
         padding: 11px 0 9px 45px;
         width: 100%;
@@ -203,7 +269,19 @@ $utility-nav-height: 43px;
     .goog-te-gadget-simple .goog-te-menu-value {
       @include ma-chevron;
       color: $c-font-base;
+<<<<<<< HEAD
     
+=======
+
+      @media ($bp-header-toggle-min) {
+        color: $c-font-inverse;
+
+        &:after {
+          opacity: .7;
+        }
+      }
+
+>>>>>>> origin/develop
       @media ($bp-header-toggle-max) {
         display: block;
         width: 100%;
@@ -269,9 +347,23 @@ $utility-nav-height: 43px;
 
   &__content {
     display: block;
+<<<<<<< HEAD
     z-index: $z-dropdown;
     background-color: $c-bg-section;
     
+=======
+    margin-top: $header-mobile-controls-height;
+    padding-left: 20px;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    text-align: left;
+    transition: visibility .5s ease, right .5s ease;
+    width: 300px;
+    z-index: $z-modal;
+    color: $c-font-inverse;
+
+>>>>>>> origin/develop
     .translated-rtl &,
     .translated-ltr & {
       top: 40px;
@@ -285,6 +377,13 @@ $utility-nav-height: 43px;
       display: none;
     }
 
+<<<<<<< HEAD
+=======
+    a {
+      color: $c-font-inverse;
+    }
+
+>>>>>>> origin/develop
     .ma__rich-text {
       max-width: 720px;
 
@@ -292,14 +391,25 @@ $utility-nav-height: 43px;
         border-color: $c-font-inverse;
       }
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> origin/develop
     @media ($bp-header-toggle-min) {
       margin-top: 0;
       overflow: visible;
+      background-color: $c-primary;
       padding-left: 0;
+<<<<<<< HEAD
       position: fixed;
       top: 0;
       left: 0;
+=======
+      position: absolute;
+      left: 0;
+      top: 0;
+>>>>>>> origin/develop
       transition: visibility .6s, top .6s;
       visibility: visible;
       width: 100vw;
@@ -314,13 +424,15 @@ $utility-nav-height: 43px;
     
       &.is-closed {
         right: 0;
-        top: -145px;
         transition: visibility .3s, top .3s;
       }
+<<<<<<< HEAD
 
       &[aria-hidden="true"] {
         display: none;
       }
+=======
+>>>>>>> origin/develop
     }
   }
 
@@ -337,6 +449,14 @@ $utility-nav-height: 43px;
     }
   
     @media ($bp-header-toggle-max) {
+<<<<<<< HEAD
+=======
+      height: calc(100vh - #{$header-mobile-controls-height});
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: $c-primary;
+
+>>>>>>> origin/develop
       .translated-rtl &,
       .translated-ltr & {
           height: calc(100vh - #{$header-mobile-controls-height * 2});
@@ -351,7 +471,15 @@ $utility-nav-height: 43px;
     font-weight: 700;
     position: absolute;
     top: 0;
+<<<<<<< HEAD
     right: 0;
+=======
+    right: 35px;;
+
+    @media ($bp-header-toggle-max) {
+      display: none;
+    }
+>>>>>>> origin/develop
 
     @media ($bp-header-toggle-max) {
       display: none;
@@ -364,6 +492,12 @@ $utility-nav-height: 43px;
       color: $c-white;
       opacity: 0.7;
       letter-spacing: $letter-spacing-large;
+      color: $c-white;
+      opacity: 0.7;
+    }
+
+    &:hover span {
+      opacity: 1;
     }
       
     &:hover span {
@@ -377,20 +511,36 @@ $utility-nav-height: 43px;
     line-height: .5em;
     margin-left: .2em;
     transform: rotate(45deg);
+    font-weight: 400;
   }
 
   &__content-title {
+<<<<<<< HEAD
     display: none;
     font-size: 1.625rem;
     line-height: 1.45;
     padding-bottom: 20px;
     position: relative;
     
+=======
+    
+    h2 {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.625rem;
+      line-height: 1.45;
+      font-weight: 500;
+      margin-bottom: 0;
+      color: $c-white;
+    }
+
+>>>>>>> origin/develop
     @media ($bp-header-toggle-min) {
       padding-bottom: 5px;
       font-weight: 500;
       display: block;
 
+<<<<<<< HEAD
       svg {
         opacity: 0.7;
         fill: $c-white;
@@ -399,6 +549,15 @@ $utility-nav-height: 43px;
     
     &>span,
     &>svg {
+=======
+    svg {
+      opacity: 0.7;
+      fill: $c-white;
+    }
+
+    & > span,
+    & > svg {
+>>>>>>> origin/develop
       display: inline-block;
       vertical-align: middle;
     }

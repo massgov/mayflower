@@ -3,6 +3,7 @@
   .page-content--intro {
 
     @media ($bp-large-min) {
+
       & > .ma__image:first-child {
         display: none;
       }
@@ -16,6 +17,7 @@
 
   .more-info-header {
     @include ma-container;
+    @include ma-component-spacing;
     @include clearfix;
 
     .ma__comp-heading {
@@ -29,7 +31,7 @@
       margin-bottom: .4em;
     }
 
-    .ma__stacked-row-section {
+    .ma__stacked-row__section {
       .ma__split-columns {
         margin-top: 15px;
       }
@@ -64,7 +66,7 @@
 
   }
 
-  .ma__stacked-row-section {
+  .ma__stacked-row__section {
     .ma__split-columns {
       .ma__comp-heading,
       .ma__sidebar-heading {
@@ -75,6 +77,15 @@
         letter-spacing: normal;
       }
 
+    }
+  }
+
+  .ma__stacked-row__section .main-content .page-content {
+    .ma__action-finder,
+    .ma__mapped-locations,
+    .ma__event-listing,
+    .ma__image-credit {
+      @include ma-component-spacing;
     }
   }
 

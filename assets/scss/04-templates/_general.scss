@@ -42,7 +42,7 @@
   }
 
   .main-content--full & > * {
-    @include ma-component-spacing(large);
+    @include ma-component-spacing('large');
   }
 
   // Almost works, but needs to only apply while the item is floated

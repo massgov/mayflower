@@ -2,6 +2,7 @@ $bp-utility-panel-medium-min: "min-width:1121px";
 $bp-utility-panel-reduce-links-max: "max-width:1120px";
 
 .ma__utility-panel {
+<<<<<<< HEAD
   @media ($bp-header-toggle-min) {
     display: flex;
     justify-content: space-between;
@@ -11,10 +12,20 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
     
     .no-flex & {
       display: table;
+=======
+  background-color: $c-primary; 
+  color: $c-font-inverse;
+
+  @media ($bp-header-toggle-min) {
+    &:nth-child(2) {
+      padding-top: 20px;
+      border-top: 2px solid rgba($c-white, 0.4);
+>>>>>>> origin/develop
     }
   }
   
   &__description {
+<<<<<<< HEAD
     display: none;
     font-weight: 300;
     
@@ -41,6 +52,13 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
     &--full {
       flex-basis: 850px;
     }
+=======
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-right: 2%;
+>>>>>>> origin/develop
   }
 
   &__items {
@@ -50,6 +68,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
   
     @media ($bp-header-toggle-min) {
       display: flex;
+<<<<<<< HEAD
       align-items: stretch;
       flex-wrap: nowrap;
       flex-shrink: 2;
@@ -58,20 +77,29 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       padding-left: 0;
       flex-basis: calc(100% - 250px); // width of description
     
+=======
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+
+>>>>>>> origin/develop
       .no-flex & {
         display: table-cell;
         vertical-align: middle;
       }
     }
+<<<<<<< HEAD
   
     @media ($bp-utility-panel-medium-min) {
       flex-basis: calc(100% - 350px); // width of description
     }
+=======
+>>>>>>> origin/develop
   }
   
   &__item {
     cursor: pointer;
     font-size: 0;
+<<<<<<< HEAD
     margin-bottom: 12px;
     
     @media ($bp-header-toggle-min) {
@@ -82,10 +110,26 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       flex-shrink: 1;
       margin: 0 1%;
       background-color: rgba($c-white, 0.2);
+=======
+    margin-bottom: 1.5%;
+    background-color: rgba($c-white, 0.2);
+    display: flex;
+    align-items: center;
+
+    &:nth-child(4n+4) {
+      margin-right: 0;
+    }
+
+    @media ($bp-header-toggle-min) {
+      width: 23%;
+      margin-right: 2.5%;
+      min-height: 70px;
+>>>>>>> origin/develop
       
       .no-flex & {
         display: table-cell;
       }
+<<<<<<< HEAD
       
       &:first-child {
         margin-left: 0;
@@ -94,16 +138,22 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       &:last-child {
         margin-right: 0;
       }
+=======
+>>>>>>> origin/develop
     }
     
     &:hover {
       opacity: .8;
     }
+<<<<<<< HEAD
     
     @media ($bp-utility-panel-medium-min) {
       margin: 0 2%;
     }
   
+=======
+
+>>>>>>> origin/develop
     .ma__decorative-link {
       line-height: 1.125;
       padding: 10px;
@@ -123,6 +173,8 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       font-size: 1.25rem;
       margin: 0;
       text-align: left;
+      color: $c-font-inverse;
+      font-weight: 500;
 
       @media ($bp-header-toggle-min) {
         color: $c-white;
@@ -141,5 +193,12 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
         border: none;
       }
     }
+<<<<<<< HEAD
+=======
+
+    svg {
+      fill: $c-font-inverse;
+    }
+>>>>>>> origin/develop
   }
 }
