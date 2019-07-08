@@ -6,13 +6,14 @@ import EmergencyHeader from '.';
 import Icon from '../../atoms/icons/Icon';
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 
+/* eslint-disable react/prop-types */
 storiesOf('molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('EmergencyHeader', (() => {
     const iconName = select('Icon: name', svgOptions, 'alert');
     const titleText = text('title', 'The State is experiencing severe weather due to the winter storm Paula.');
     const props = {
-      title: ({ theme, linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">{titleText}</a>,
+      title: ({ linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">{titleText}</a>,
       theme: select('theme', {
         'c-warning (default)': 'c-warning',
         'c-primary': 'c-primary',

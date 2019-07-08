@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, object, select, boolean, optionsKnob as options } from '@storybook/addon-knobs';
+import { withKnobs, text, object, boolean, optionsKnob as options } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import OrgSelector from './index';
