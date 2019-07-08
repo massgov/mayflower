@@ -154,6 +154,9 @@ jobs:
             - react/node_modules
           key: mfr-dependencies-{{ checksum "react/package.json" }}
       - run:
+          name: Mayflower React Linter
+          command: cd react && npm run lint
+      - run:
           name: Mayflower React Build
           command: cd react && npm run build
       - run:
