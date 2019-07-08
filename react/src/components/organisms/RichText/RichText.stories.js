@@ -20,7 +20,7 @@ import RichTextDocs from './RichText.md';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'RichText', (() => {
+    'RichText', () => {
       const decoreOptionsWithKnobs = Object.assign(...Object.entries(decorativeLinkOptions).map(([k, v]) => (
         { [k]: v(DecorativeLink.defaultProps[k]) })));
       const compOptionsWithKnobs = Object.assign(...Object.entries(compHeadingOptions).map(([k, v]) => (
@@ -71,6 +71,6 @@ storiesOf('organisms', module)
           <UnorderedList {...orderedOptionsWithKnobs} />
           <DecorativeLink {...decoreOptionsWithKnobs} />
         </RichText>);
-    }),
+    },
     { info: RichTextDocs }
   );

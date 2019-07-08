@@ -74,15 +74,15 @@ class EmergencyAlerts extends React.Component {
                   {buttonAlert && <ButtonAlert {...buttonAlert} onClick={this.handleClick} isOpen={this.state.open} />}
                 </div>
               ) : (buttonClose && (
-              <button
-                className={hideButtonClasses}
-                title="hide alert"
-                aria-label="hide alert"
-                onClick={this.handleClose}
-              >
+                <button
+                  className={hideButtonClasses}
+                  title="hide alert"
+                  aria-label="hide alert"
+                  onClick={this.handleClose}
+                >
                     +
-              </button>
-                )
+                </button>
+              )
               )}
             </div>
           </div>
@@ -91,7 +91,10 @@ class EmergencyAlerts extends React.Component {
               <Collapse in={this.state.open} dimension="height">
                 <div className={alertsWrapperClasses}>
                   <div className="ma__emergency-alerts__container">
-                    {alerts.map((alert, i) => <EmergencyAlert {...alert} theme={theme} key={`alert-nested--${i}`} />)}
+                    {
+                      /* eslint-disable-next-line react/no-array-index-key */
+                      alerts.map((alert, i) => <EmergencyAlert {...alert} theme={theme} key={`alert-nested--${i}`} />)
+                    }
                   </div>
                 </div>
               </Collapse>

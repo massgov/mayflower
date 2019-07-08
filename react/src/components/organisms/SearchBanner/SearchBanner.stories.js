@@ -14,7 +14,7 @@ import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.option
 
 storiesOf('organisms/SearchBanner', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('SearchBanner', (() => {
+  .add('SearchBanner', () => {
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('withOrgDropdown', true);
     const withFilterBox = boolean('withFilterBox', true);
@@ -144,9 +144,9 @@ storiesOf('organisms/SearchBanner', module)
       }
     }
     return(<SearchBanner {...props} />);
-  }))
+  })
   // second story
-  .add('SearchBanner with postInputFilter', (() => {
+  .add('SearchBanner with postInputFilter', () => {
     const options = inputOptions.options.orgSelector;
     const withOrgDropdown = boolean('withOrgDropdown', false);
     const withFilterBox = boolean('withFilterBox', true);
@@ -265,4 +265,4 @@ storiesOf('organisms/SearchBanner', module)
       }
     }
     return(<SearchBanner {...props} />);
-  }));
+  });

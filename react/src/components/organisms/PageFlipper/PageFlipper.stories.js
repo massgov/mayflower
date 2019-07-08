@@ -10,7 +10,7 @@ import PageFlipperDocs from './PageFlipper.md';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'PageFlipper', (() => {
+    'PageFlipper', () => {
       const decorativeLinkProps = {
         href: text('PageFlipper intro, introDecorativeLink: href', '#', 'DecorativeLink'),
         info: text('PageFlipper intro, introDecorativeLink: info', 'info', 'DecorativeLink'),
@@ -44,6 +44,6 @@ storiesOf('organisms', module)
         previousLink: <ArrowNav {...prevProps} />
       };
       return(<PageFlipper {...props} />);
-    }),
+    },
     { info: PageFlipperDocs }
   );
