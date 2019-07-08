@@ -3,13 +3,17 @@ export default (function (window, document, $, undefined) {
   let $utilityButtons = $('.js-util-nav-toggle');
   const $mobileUtilityNav = $('.ma__header__utility-nav--narrow');
   const $mobileLanguageSelect = $mobileUtilityNav.find('.ma__utility-nav__item').first();
-  const $stateOrgs = $mobileUtilityNav.find('.js-util-nav-toggle').first();
+  const $stateOrgs = $mobileUtilityNav.find('#stateOrgs');
+  const $logInto = $mobileUtilityNav.find('#logInTo');
 
   $mobileLanguageSelect.remove();
+  $stateOrgs.find('.js-util-nav-content').remove();
+
   $stateOrgs.on('click', function() {
-    $stateOrgs.find('.ma__utility-nav__content').remove();
     window.location.pathname = 'state-a-to-z';
   });
+
+  
 
   $panels.each(function () {
     const $panel = $(this);
