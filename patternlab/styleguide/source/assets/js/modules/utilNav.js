@@ -1,6 +1,15 @@
 export default (function (window, document, $, undefined) {
   let $panels = $('.js-util-nav-content');
   let $utilityButtons = $('.js-util-nav-toggle');
+  const $mobileUtilityNav = $('.ma__header__utility-nav--narrow');
+  const $mobileLanguageSelect = $mobileUtilityNav.find('.ma__utility-nav__item').first();
+  const $stateOrgs = $mobileUtilityNav.find('.js-util-nav-toggle').first();
+
+  $mobileLanguageSelect.remove();
+  $stateOrgs.on('click', function() {
+    $stateOrgs.find('.ma__utility-nav__content').remove();
+    window.location.pathname = 'state-a-to-z';
+  });
 
   $panels.each(function () {
     const $panel = $(this);
