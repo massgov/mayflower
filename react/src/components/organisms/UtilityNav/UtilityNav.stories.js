@@ -9,7 +9,7 @@ import UtilityNavData from './UtilityNav.knob.options';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'UtilityNav', (() => {
+    'UtilityNav', () => {
       const googleLanguages = boolean('UtilityNav googleLanguages', false);
       const newProps = {
         items: [],
@@ -31,6 +31,6 @@ storiesOf('organisms', module)
         return(storyProps);
       });
       return(<UtilityNav {...newProps} />);
-    }),
+    },
     { info: UtilityNavDocs }
   );

@@ -31,7 +31,7 @@ const Pagination = (props) => {
             href="#"
             onClick={(e) => handleClick(e, prev.onClick)}
             onKeyDown={(e) => handleKeyDown(e, prev.onClick)}
-            aria-label={prev.ariaLabel}
+            aria-label={`Go to ${prev.text} page`}
             aria-disabled={prev.disabled}
             tabIndex={prev.disabled ? -1 : 0}
           >
@@ -93,6 +93,7 @@ Pagination.propTypes = {
   prev: PropTypes.shape({
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired,
+    hide: PropTypes.bool,
     onClick: PropTypes.func
   }),
   /** Pages is an array that defines what page numbers users are able to paginate through.

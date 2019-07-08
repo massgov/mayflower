@@ -48,6 +48,7 @@ class InputRadioGroup extends React.Component {
               const isChecked = radioButton.value === this.state.selected;
               const buttonId = radioButton.id || radioButton.value;
               return(
+                /* eslint-disable-next-line react/no-array-index-key */
                 <div className={`ma__input-group__item item-${this.props.radioButtons.length} ${radioButton.class}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
                   <InputRadio
                     {...radioButton}
@@ -58,7 +59,7 @@ class InputRadioGroup extends React.Component {
                     outline={this.props.outline}
                     error={this.props.error}
                     disabled={this.props.disabled}
-                    // eslint-disable-next-line react/no-array-index-key
+                    /* eslint-disable-next-line react/no-array-index-key */
                     key={`InputRadioGroup-${buttonId}-${index}`}
                   />
                 </div>

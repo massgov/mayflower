@@ -17,7 +17,7 @@ const getDecorativeLink = (index) => {
   return<DecorativeLink {...props} />;
 };
 
-const getAccordionItem = (name = 'laptop', index) => {
+const getAccordionItem = (index) => {
   const props = {
     title: 'Collapsible Header Two',
     info: 'Collapsible Header Two',
@@ -88,7 +88,7 @@ storiesOf('organisms/TableofContents', module)
   .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'TableofContents with ColoredHeading', (() => {
+    'TableofContents with ColoredHeading', () => {
       const props = {
         heading: getColoredHeading()
       };
@@ -100,11 +100,11 @@ storiesOf('organisms/TableofContents', module)
           {getDecorativeLink(3)}
         </TableofContents>
       );
-    }),
+    },
     { info: TableofContentsDocs }
   )
   .add(
-    'TableofContents with SidebarHeading', (() => {
+    'TableofContents with SidebarHeading', () => {
       const props = {
         heading: getSidebarHeading()
       };
@@ -116,6 +116,6 @@ storiesOf('organisms/TableofContents', module)
           {getDecorativeLink(3)}
         </TableofContents>
       );
-    }),
+    },
     { info: TableofContentsDocs }
   );

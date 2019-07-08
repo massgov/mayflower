@@ -41,9 +41,10 @@ class UtilityNav extends Component {
             newItem.navIdent = this.ident;
             const { isOpen } = this.state;
             return(
-              (item.panel) ?
-                <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} /> :
-                <NavItemLink key={`navItem.${itemIndex}`} data={item} />
+              (item.panel)
+                /* eslint-disable react/no-array-index-key */
+                ? <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />
+                : <NavItemLink key={`navItem.${itemIndex}`} data={item} />
             );
           })}
         </ul>
@@ -110,7 +111,6 @@ const NavItemLink = (obj) => {
     </li>
   );
 };
-
 
 UtilityNav.propTypes = {
   /** Boolean that controls when to show the google language dom. */

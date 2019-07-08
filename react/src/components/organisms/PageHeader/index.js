@@ -26,8 +26,8 @@ const PageHeader = (pageHeader) => {
         )}
         <h1 className="ma__page-header__title">
           { category && (
-          <span className="visually-hidden">{ category }&nbsp;</span>
-        )}{title}
+            <span className="visually-hidden">{ category }&nbsp;</span>
+          )}{title}
         </h1>
         { subTitle && (
           <div className="ma__page-header__sub-title">{subTitle}</div>
@@ -36,7 +36,9 @@ const PageHeader = (pageHeader) => {
           <div className="ma__page-header__optional-content">
             <div className="main-content main-content--two">
               <div className="page-content">
-                { optionalContents.map((p, index) => (<Paragraph key={`page-header-optional-content${index}`}{...p.paragraph} />))
+                {
+                  /* eslint-disable react/no-array-index-key */
+                  optionalContents.map((p, index) => (<Paragraph key={`page-header-optional-content${index}`}{...p.paragraph} />))
                 }
               </div>
             </div>

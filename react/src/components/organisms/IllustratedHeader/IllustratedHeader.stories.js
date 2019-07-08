@@ -9,7 +9,7 @@ import IllustratedHeaderData from './IllustratedHeader.knobs.options';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'IllustratedHeader', (() => {
+    'IllustratedHeader', () => {
       const defaultProps = IllustratedHeaderData.illustratedHeader;
       const props = {
         bgInfo: text('bgInfo', defaultProps.bgInfo),
@@ -35,6 +35,6 @@ storiesOf('organisms', module)
           <hr />
           <p>Additional Information</p>
         </IllustratedHeader>);
-    }),
+    },
     { info: IllustratedHeaderDocs }
   );
