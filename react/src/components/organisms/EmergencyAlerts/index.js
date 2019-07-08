@@ -73,15 +73,15 @@ class EmergencyAlerts extends React.Component {
                 <div className="ma__emergency-alerts__header-interface js-accordion-link">
                   {buttonAlert && <ButtonAlert {...buttonAlert} onClick={this.handleClick} isOpen={this.state.open} />}
                 </div>
-              ) : ( buttonClose && (
-                  <button
-                    className={hideButtonClasses}
-                    title="hide alert"
-                    aria-label="hide alert"
-                    onClick={this.handleClose}
-                  >
+              ) : (buttonClose && (
+              <button
+                className={hideButtonClasses}
+                title="hide alert"
+                aria-label="hide alert"
+                onClick={this.handleClose}
+              >
                     +
-                  </button>
+              </button>
                 )
               )}
             </div>
