@@ -15,11 +15,14 @@ $colors: (
 
 .ma__emergency-alerts {
   position: relative;
-  z-index: $z-dropdown + 1;
+  z-index: $z-dropdown - 1;
 
-  @media($bp-header-toggle-max) {
-    top: 40px;
-    // z-index:1;
+
+  // top positioning on mobile for utility nav space
+  .ma__ajax-pattern > & {
+    @media($bp-header-toggle-max) {
+      top: 40px;
+    }
   }
 
   &__header {
@@ -50,7 +53,7 @@ $colors: (
     @media ($bp-small-max) {
       display: none;
     }
-  
+
     @media ($bp-small-min) and ($bp-large-max) {
       @include ma-container;
       margin: 0;
@@ -94,7 +97,7 @@ $colors: (
 
   &__container {
     @include ma-container;
-    
+
     @media ($bp-small-max) {
       padding-bottom: 10px;
     }
@@ -121,7 +124,7 @@ $colors: (
       padding: 20px;
       padding-top: 0;
       transition: background-color .5s;
-      
+
       .is-open & {
         background-color: tint($c-warning, 90%);
       }
