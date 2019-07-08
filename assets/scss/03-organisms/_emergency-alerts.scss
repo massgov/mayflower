@@ -17,9 +17,11 @@ $colors: (
   position: relative;
   z-index: $z-dropdown - 1;
 
-  @media($bp-header-toggle-max) {
-    top: 40px;
-    // z-index:1;
+
+  .ma__ajax-pattern > & {
+    @media($bp-header-toggle-max) {
+      top: 40px;
+    }
   }
 
   &__header {
