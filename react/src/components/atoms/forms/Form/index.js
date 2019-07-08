@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormContext } from '../Input/context';
 
+/* eslint-disable react/no-unused-state */
+
 const Form = (props) => (
   <FormContext.Consumer>
     {
@@ -13,6 +15,10 @@ const Form = (props) => (
       }
   </FormContext.Consumer>
 );
+
+Form.propTypes = {
+  children: PropTypes.node
+};
 
 class FormProvider extends Component {
   constructor(props) {
@@ -62,7 +68,8 @@ FormProvider.defaultProps = {
 
 FormProvider.propTypes = {
   /** Controls if child Input components should hook into FormContext or not */
-  isActive: PropTypes.bool
+  isActive: PropTypes.bool,
+  children: PropTypes.node
 };
 
 FormProvider.contextType = FormContext;

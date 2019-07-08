@@ -93,8 +93,6 @@ InputText.propTypes = {
   /** The message to be displayed in the event of an error */
   errorMsg: PropTypes.string,
   /** Custom change function */
-  errorMsg: PropTypes.string,
-  /** Custom change function */
   onChange: PropTypes.func,
   /** Default input text value */
   defaultText: PropTypes.string

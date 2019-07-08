@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './style.css';
 import { InputContext } from './context';
 import ErrorMessage from '../ErrorMessage';
@@ -25,6 +25,10 @@ class Error extends React.Component {
     );
   }
 }
+
+Error.propTypes = {
+  id: PropTypes.string
+};
 
 Error.contextType = InputContext;
 

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import numbro from 'numbro';
 
 import Input from '../Input';
 import Error from '../Input/error';
@@ -110,7 +109,7 @@ const NumberInput = (props) => {
               });
             } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || newValue > props.min)) {
               // Since to Fixed returns a string, we have to cast it back to a Number
-              newValue = newValue ? Number((newValue + props.step * -1).toFixed(countDecimals(props.step))) : (props.step * -1);
+              newValue = newValue ? Number((newValue + (props.step * -1)).toFixed(countDecimals(props.step))) : (props.step * -1);
               const updateError = displayErrorMessage(newValue);
               context.updateState({ value: newValue, ...updateError }, () => {
                 if (is.fn(props.onChange)) {
@@ -178,6 +177,23 @@ const NumberInput = (props) => {
       }
     </InputContext.Consumer>
   );
+};
+
+NumberInput.propTypes = {
+  required: PropTypes.bool,
+  showButtons: PropTypes.bool,
+  unit: PropTypes.string,
+  disabled: PropTypes.bool,
+  min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  step: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  maxlength: PropTypes.number,
+  placeholder: PropTypes.string,
+  width: PropTypes.number
 };
 
 const InputNumber = (props) => {

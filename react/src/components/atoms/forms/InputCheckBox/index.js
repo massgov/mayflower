@@ -55,6 +55,15 @@ const CheckBox = (props) => (
   </React.Fragment>
 );
 
+CheckBox.propTypes = {
+  icon: PropTypes.shape(Icon.propTypes),
+  label: PropTypes.string,
+  disabled: PropTypes.bool,
+  required: PropTypes.bool,
+  id: PropTypes.string,
+  onChange: PropTypes.func
+};
+
 const InputCheckBox = (props) => {
   const {
     icon, label, onChange, ...inputProps
