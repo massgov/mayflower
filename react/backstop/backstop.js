@@ -30,7 +30,8 @@ scenarios = scenarios.map((item) => {
   const delays = [
     'Error',
     'NarrowTemplate',
-    'GeneralTeaser'
+    'GeneralTeaser',
+    'Image'
   ];
   // eslint-disable-next-line prefer-const
   let result = { ...item };

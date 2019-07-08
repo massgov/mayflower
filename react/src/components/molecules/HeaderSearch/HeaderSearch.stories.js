@@ -12,7 +12,7 @@ import HeaderSearchDocs from './HeaderSearch.md';
 storiesOf('molecules/HeaderSearch', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'HeaderSearch', (() => {
+    'HeaderSearch', () => {
       const options = inputOptions.options.orgSelector;
       const withOrgDropdown = boolean('withOrgDropdown (shows OrgDropdown knobs when true)', true);
       const props = {
@@ -50,7 +50,7 @@ storiesOf('molecules/HeaderSearch', module)
       return(
         <HeaderSearch {...props} />
       );
-    }),
+    },
     { info: HeaderSearchDocs }
   )
   .add(

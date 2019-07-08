@@ -183,6 +183,7 @@ InputTextFuzzy.propTypes = {
   /** An array of objects representing all searchable values. */
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
   /** Any Fusejs options to override the default options set in this component. */
+  /* eslint-disable-next-line  react/forbid-prop-types */
   fuseOptions: PropTypes.object,
   /** Disables input. */
   disabled: PropTypes.bool,
