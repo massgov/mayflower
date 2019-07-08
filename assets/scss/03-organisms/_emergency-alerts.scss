@@ -18,6 +18,7 @@ $colors: (
   z-index: $z-dropdown - 1;
 
 
+  // top positioning on mobile for utility nav space
   .ma__ajax-pattern > & {
     @media($bp-header-toggle-max) {
       top: 40px;
