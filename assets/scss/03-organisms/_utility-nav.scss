@@ -2,48 +2,32 @@ $utility-nav-height: 43px;
 
 .ma__utility-nav {
   position: relative;
-  z-index: $z-high;
 
   @media ($bp-header-toggle-min) {
-<<<<<<< HEAD
-    color: $c-font-inverse;
-  }
-  
-=======
     background-color: $c-primary;
     color: $c-font-inverse;
   }
 
->>>>>>> origin/develop
   &__items {
     @include ma-reset-list;
-    
-    @media ($bp-header-toggle-max) {
+    @include ma-container;
+
+    @media ($bp-header-toggle-max){
       padding-left: 0;
       padding-right: 0;
     }
-    
-    @media ($bp-header-toggle-min) {
+
+    @media ($bp-header-toggle-min){
       @include ma-valign-block;
       height: $utility-nav-height;
       text-align: right;
     }
   }
-  
-  &__item {
-    display: none;
-    
-    &.js-util-nav-toggle {
-      border-bottom: 2px solid #dcdcdc;
-      display: block;
 
-      @media ($bp-header-toggle-min) {
-        border-bottom: 0;
-        display: inline-block;
-      }
-    }
-    
+  &__item {
+
     @media ($bp-header-toggle-max) {
+      padding-right: 15px;
       position: relative;
 
       &:hover {
@@ -51,7 +35,7 @@ $utility-nav-height: 43px;
         box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
       }
     }
-    
+
     @media ($bp-header-toggle-min) {
       display: inline-block;
       padding-left: 30px;
@@ -62,45 +46,19 @@ $utility-nav-height: 43px;
   &__link,
   &__translate {
     display: block;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.45;
     color: $c-font-base;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> origin/develop
     @media ($bp-header-toggle-min) {
       line-height: 2;
       transition: opacity .4s ease;
       color: $c-font-inverse;
-<<<<<<< HEAD
-      
-=======
 
->>>>>>> origin/develop
       &:hover {
-          opacity: .7;
-      }
-    }
-
-    &:after {
-      border-right-color: $c-primary-alt;
-      border-bottom-color: $c-primary-alt;
-    }
-
-    svg {
-      fill: rgba($c-primary, 0.5);
-      @media ($bp-header-toggle-min) {
-        fill: $c-font-inverse;
         opacity: .7;
-        stroke: transparent;
       }
     }
-<<<<<<< HEAD
-
-    span {
-=======
 
     &:after {
       border-right-color: $c-primary-alt;
@@ -126,130 +84,71 @@ $utility-nav-height: 43px;
   &__link {
     border: 0;
     background-color: transparent;
->>>>>>> origin/develop
 
-      @media ($bp-header-toggle-min) {
-        font-family: "Texta", "Helvetica", "Arial", "sans-serif";
-        font-weight: 500;
-      }
-    }
-  }
-  
-  &__link {
-      
     @media ($bp-header-toggle-max) {
-<<<<<<< HEAD
-      padding: 15px 20px 15px 45px;
-=======
       padding: 11px 20px 9px 45px;
       width: 100%;
       text-align: left;
->>>>>>> origin/develop
     }
-      
-    @media ($bp-header-toggle-max) {
-      @include ma-accordion-icon;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 1px;
 
-      &:focus {
-        background-color: $c-bd-divider;
-      }
-    }
-    
-    &[aria-label="State Organizations"] {
-      
+    @media ($bp-header-toggle-max) {
+      @include ma-chevron;
+
       &:after {
-<<<<<<< HEAD
-        display: none;
-      }
-    
-      @media ($bp-header-toggle-max) {
-        
-        &::before {
-          border-right: 2px solid;
-          border-bottom: 2px solid;
-          content: "";
-          display: inline-block;
-          margin-left: .3em;
-          transform-origin: 75% 75%;
-          transition: all .2s;
-          vertical-align: middle;
-          height: .45em;
-          margin-top: .175em;
-          position: absolute;
-          right: 20px;
-          transform: translateY(50%) rotate(-45deg);
-          width: .45em;
-          border-color: $c-primary-alt;
-        }
-=======
         position: absolute;
         right: 20px;
         top: 18px;
         border-right-color: $c-primary-alt;
       border-bottom-color: $c-primary-alt;
->>>>>>> origin/develop
       }
     }
-      
-    &>svg,
-    &>span {
+
+    & > svg,
+    & > span {
       display: inline-block;
       vertical-align: middle;
     }
-  
-    &>svg {
-      height: 20px;
+
+    & > svg {
+      height: 16px;
       width: 20px;
-      
+
       @media ($bp-header-toggle-max) {
         position: absolute;
-        top: 18px;
-        left: 20px;
+          top: 50%;
+          left: 20px;
+        transform: translateY(-50%);
       }
     }
+
+    & > span {
       
-    &>span {
-        
       @media ($bp-header-toggle-max) {
-          display: block;
-          font-size: 20px;
-          text-transform: uppercase;
-          font-weight: 700;
-        }
-    }
-    
-    &.is-open::after {
-      transform: rotate(135deg);
+        display: block;
+      }
     }
   }
-  
+
   &__translate {
     position: relative;
-  
+
     .goog-te-gadget {
       font-size: 1.25rem;
       font-weight: 400;
     }
-  
+
     .goog-te-gadget-simple {
       font-size: 1.25rem;
       background-color: transparent;
       border: none;
       font-weight: 500;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> origin/develop
       @media ($bp-header-toggle-max) {
         padding: 11px 0 9px 45px;
         width: 100%;
       }
-    
-      &>img {
+
+      & > img {
         margin-right: 15px;
         margin-bottom: 0;
         opacity: .7;
@@ -259,8 +158,8 @@ $utility-nav-height: 43px;
           margin-bottom: 2px;
         }
       }
-    
-      &>span {
+
+      & > span {
         display: inline-block;
         width: calc(100% - 20px); // width of the image
       }
@@ -269,9 +168,6 @@ $utility-nav-height: 43px;
     .goog-te-gadget-simple .goog-te-menu-value {
       @include ma-chevron;
       color: $c-font-base;
-<<<<<<< HEAD
-    
-=======
 
       @media ($bp-header-toggle-min) {
         color: $c-font-inverse;
@@ -281,7 +177,6 @@ $utility-nav-height: 43px;
         }
       }
 
->>>>>>> origin/develop
       @media ($bp-header-toggle-max) {
         display: block;
         width: 100%;
@@ -292,66 +187,53 @@ $utility-nav-height: 43px;
         }
       }
 
-      @media ($bp-header-toggle-min) {
-        color: $c-font-inverse;
-        
-        &:after {
-            opacity: .7;
-        }
-      }
-      
-      &>* {
+      & > * {
         display: none;
       }
-      
-      &> :first-child {
+
+      & > :first-child {
         display: inline;
       }
-    
+
       &:after {
         margin-left: .25em;
-        transform: rotate(45deg) translateY(-45%);
-        
+        transform: rotate(45deg) translateY(-45%); 
+
         @media ($bp-header-toggle-max) {
           position: absolute;
-          top: 45%;
-          right: 10px;
-        }
+            top: 45%;
+            right: 10px;
+        }     
       }
     }
   }
-  
+
   &__translate-icon {
     line-height: 1em;
     opacity: 0;
     position: absolute;
-    left: 30px;
-    top: 54%;
+      left: 30px;
+      top: 54%;
     transform: translateY(-50%);
     transition: opacity .001s;
     transition-delay: .5s;
-    
+
     @media ($bp-header-toggle-max) {
-      left: 20px;
+      left: 20px;    
     }
-    
-    &>svg {
+
+    & > svg {
       height: 18px;
-      width: 20px;
+      width: 20px;    
     }
   }
 
-  .has-rendered+&__translate-icon {
+  .has-rendered + &__translate-icon {
     opacity: 1;
   }
 
   &__content {
     display: block;
-<<<<<<< HEAD
-    z-index: $z-dropdown;
-    background-color: $c-bg-section;
-    
-=======
     margin-top: $header-mobile-controls-height;
     padding-left: 20px;
     position: fixed;
@@ -363,27 +245,24 @@ $utility-nav-height: 43px;
     z-index: $z-modal;
     color: $c-font-inverse;
 
->>>>>>> origin/develop
     .translated-rtl &,
     .translated-ltr & {
       top: 40px;
     }
-      
+
     .show-menu & {
       right: 0;
     }
-  
+
     &.is-closed {
-      display: none;
+      visibility: hidden;
+      right: -300px;
     }
 
-<<<<<<< HEAD
-=======
     a {
       color: $c-font-inverse;
     }
 
->>>>>>> origin/develop
     .ma__rich-text {
       max-width: 720px;
 
@@ -391,79 +270,54 @@ $utility-nav-height: 43px;
         border-color: $c-font-inverse;
       }
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> origin/develop
     @media ($bp-header-toggle-min) {
       margin-top: 0;
       overflow: visible;
       background-color: $c-primary;
       padding-left: 0;
-<<<<<<< HEAD
-      position: fixed;
-      top: 0;
-      left: 0;
-=======
       position: absolute;
       left: 0;
       top: 0;
->>>>>>> origin/develop
       transition: visibility .6s, top .6s;
       visibility: visible;
-      width: 100vw;
-      text-align: left;
-      background-color: $c-primary;
-      color: $c-font-inverse;
-      height: 145px;
+      width: 100%;
 
-      a {
-        color: $c-font-inverse;
-      }
-    
       &.is-closed {
         right: 0;
         transition: visibility .3s, top .3s;
       }
-<<<<<<< HEAD
-
-      &[aria-hidden="true"] {
-        display: none;
-      }
-=======
->>>>>>> origin/develop
     }
   }
 
   &__container {
+    @include ma-container;
     overflow-y: auto;
+    padding-bottom: 20px;
+    padding-top: 15px;
     position: relative;
     z-index: $z-dropdown;
-  
+    
     @media ($bp-header-toggle-min) {
-      @include ma-container;
       height: auto;
+      padding-bottom: 0;
+      padding-top: 0;
       margin-top: 10px;
-      background-color: $c-primary;
     }
-  
+
     @media ($bp-header-toggle-max) {
-<<<<<<< HEAD
-=======
       height: calc(100vh - #{$header-mobile-controls-height});
       padding-left: 20px;
       padding-right: 20px;
       background-color: $c-primary;
 
->>>>>>> origin/develop
       .translated-rtl &,
       .translated-ltr & {
-          height: calc(100vh - #{$header-mobile-controls-height * 2});
+        height: calc(100vh - #{$header-mobile-controls-height * 2});
       }
     }
   }
-  
+
   &__close {
     @include ma-button-reset;
     cursor: pointer;
@@ -471,26 +325,16 @@ $utility-nav-height: 43px;
     font-weight: 700;
     position: absolute;
     top: 0;
-<<<<<<< HEAD
-    right: 0;
-=======
     right: 35px;;
 
     @media ($bp-header-toggle-max) {
       display: none;
     }
->>>>>>> origin/develop
 
-    @media ($bp-header-toggle-max) {
-      display: none;
-    }
-  
     span {
       display: inline-block;
       text-transform: uppercase;
       vertical-align: middle;
-      color: $c-white;
-      opacity: 0.7;
       letter-spacing: $letter-spacing-large;
       color: $c-white;
       opacity: 0.7;
@@ -499,15 +343,10 @@ $utility-nav-height: 43px;
     &:hover span {
       opacity: 1;
     }
-      
-    &:hover span {
-      opacity: 1;
-    }
   }
-  
+
   &__close-icon {
     font-size: 2.5rem;
-    font-weight: 400;
     line-height: .5em;
     margin-left: .2em;
     transform: rotate(45deg);
@@ -515,14 +354,6 @@ $utility-nav-height: 43px;
   }
 
   &__content-title {
-<<<<<<< HEAD
-    display: none;
-    font-size: 1.625rem;
-    line-height: 1.45;
-    padding-bottom: 20px;
-    position: relative;
-    
-=======
     
     h2 {
       display: inline-block;
@@ -534,22 +365,10 @@ $utility-nav-height: 43px;
       color: $c-white;
     }
 
->>>>>>> origin/develop
     @media ($bp-header-toggle-min) {
       padding-bottom: 5px;
-      font-weight: 500;
-      display: block;
-
-<<<<<<< HEAD
-      svg {
-        opacity: 0.7;
-        fill: $c-white;
-      }
     }
-    
-    &>span,
-    &>svg {
-=======
+
     svg {
       opacity: 0.7;
       fill: $c-white;
@@ -557,12 +376,11 @@ $utility-nav-height: 43px;
 
     & > span,
     & > svg {
->>>>>>> origin/develop
       display: inline-block;
       vertical-align: middle;
     }
-  
-    &>svg {
+
+    & > svg {
       height: 20px;
       margin-right: 10px;
       width: 20px;
