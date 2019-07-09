@@ -172,7 +172,7 @@ class Header extends Component {
           <div className="ma__header__nav-container">
             {!header.hideHeaderSearch &&
             <div className="ma__header__nav-search">
-              {is.fn(header.headerSearch) ? header.headerSearch() : this.bottomHeaderSearch())}
+              {is.fn(header.headerSearch) ? header.headerSearch() : this.bottomHeaderSearch()}
             </div>
             }
             <div className="ma__header__main-nav">
