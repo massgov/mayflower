@@ -1,7 +1,7 @@
 export default (function (window, document, $, undefined) {
   const $menuButton = $('.js-header-menu-button');
-  let $panels = $('.js-util-nav-content');
-  let $utilityButtons = $('.js-util-nav-toggle');
+  let $panels = $('.js-utility-nav--wide .js-util-nav-content');
+  let $utilityButtons = $('.js-utility-nav--wide .js-util-nav-toggle');
   const $mobileUtilityNav = $('.js-utility-nav--narrow');
   const $mobileLanguageSelect = $mobileUtilityNav.find('.ma__utility-nav__item').first();
   const $stateOrgs = $mobileUtilityNav.find('#stateOrgs');
@@ -40,6 +40,11 @@ export default (function (window, document, $, undefined) {
 
   $('#ma__site-logo-link').on('focus', function() {
     closeMenu();
+    $('.js-util-nav-content').each(function() {
+        $(this).css('top', '-' + $(this).height() + 'px');
+        $(this).toggleClass('is-closed');
+        $(this).attr("aria-hidden", "true");
+    });
   });
 
   $panels.each(function () {
@@ -60,7 +65,7 @@ export default (function (window, document, $, undefined) {
 
     $closeButton.on('click', function () {
       $panel.css('top', '-' + height + 'px');
-      $panel.toggleClass('is-closed');
+      $panel.toggleClass('is-closed');  
       $panel.attr("aria-hidden", "true");
     });
 
@@ -70,6 +75,10 @@ export default (function (window, document, $, undefined) {
         $panel.toggleClass('is-closed');
         $panel.attr("aria-hidden", "true");
       }
+    });
+
+    $panel.on('blur', function() {
+      console.log('gone');
     });
   });
 
@@ -89,6 +98,14 @@ export default (function (window, document, $, undefined) {
         $closePanel.focus();
       }, 250);
 
+    });
+
+    $thisButton.on('focus', function() {
+      $('.js-util-nav-content').each(function() {
+        $(this).css('top', '-' + $(this).height() + 'px');
+        $(this).toggleClass('is-closed');
+        $(this).attr("aria-hidden", "true");
+    });
     });
   });
 

@@ -199,7 +199,8 @@ if (null !== searchForm) {
     }
 
     if (width > 840 && e.key == 'Tab') {
-      if (!itemButton.parentElement.nextElementSibling) {
+      if (!itemButton.parentElement.nextElementSibling 
+      && !itemButton.parentElement.classList.contains('submenu-open')) {
         closeMenu();
       }
     }
