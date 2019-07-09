@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
-let menuButtonText = menuButton.querySelector('.ma__header__menu-text');
+let menuButtonText = menuButton.querySelector('.js-header__menu-text');
 let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
 const mainMenu = document.querySelector('.js-main-nav');
@@ -30,11 +30,11 @@ if (null !== menuButton) {
 
       if (window.innerWidth > 620) {
         setTimeout(function timeoutFunction() {
-          menuItems[0].querySelector(".ma__main-nav__top-link").focus();
+          menuItems[0].querySelector(".js-main-nav__top-link").focus();
         }, 500);
       } else {
         setTimeout(function timeoutFunction() {
-          document.querySelector('.ma__header__nav-search input').focus();
+          document.querySelector('.js-header__nav-search input').focus();
         }, 500);
       }
     }
@@ -60,7 +60,7 @@ if (null !== searchForm) {
 
     setTimeout(function timeoutFunction() {
 
-      document.querySelector('.ma__header__nav-search input').focus();
+      document.querySelector('.js-header__nav-search input').focus();
 
     }, 500);
   });
@@ -68,10 +68,10 @@ if (null !== searchForm) {
 
 [].forEach.call(menuItems, function (item) {
 
-  const itemButton = item.querySelector('.ma__main-nav__top-link');
-  const subMenu = item.querySelector('.ma__main-nav__subitems');
-  const subItems = subMenu.querySelector('.ma__main-nav__container');
-  let subMenuItems = subMenu.querySelectorAll('.ma__main-nav__subitem');
+  const itemButton = item.querySelector('.js-main-nav__top-link');
+  const subMenu = item.querySelector('.js-main-nav-content');
+  const subItems = subMenu.querySelector('.js-main-nav__container');
+  let subMenuItems = subMenu.querySelectorAll('.js-main-nav__subitem');
 
   subItems.style.opacity = "0";
 
@@ -91,11 +91,11 @@ if (null !== searchForm) {
       if (siblings[i].classList.contains('submenu-open')) {
 
         setTimeout(function timeoutFunction() {
-          siblings[i].querySelector('.ma__main-nav__subitems').style.height = "0";
-          siblings[i].querySelector('.ma__main-nav__subitems').classList.add('is-closed');
-          siblings[i].querySelector('.ma__main-nav__container').style.opacity = "0";
+          siblings[i].querySelector('.js-main-nav-content').style.height = "0";
+          siblings[i].querySelector('.js-main-nav-content').classList.add('is-closed');
+          siblings[i].querySelector('.js-main-nav__container').style.opacity = "0";
           siblings[i].classList.remove('submenu-open');
-          siblings[i].querySelector('.ma__main-nav__top-link').setAttribute('aria-expanded', 'false');
+          siblings[i].querySelector('.js-main-nav__top-link').setAttribute('aria-expanded', 'false');
         }, 50);
 
       }
@@ -167,7 +167,7 @@ if (null !== searchForm) {
 
     if (e.code == 'ArrowDown') {
       let first = subItems.getElementsByTagName("li")[0];
-      first.querySelector('.ma__main-nav__link').focus()
+      first.querySelector('.js-main-nav__link').focus()
     }
 
     if (e.code == 'Escape' || e.which == '27') {
@@ -215,13 +215,13 @@ if (null !== searchForm) {
         case 'ArrowUp':
         case 'ArrowLeft':
           if (subItem = prevSib) {
-            prevSib.querySelector('.ma__main-nav__link').focus();
+            prevSib.querySelector('.js-main-nav__link').focus();
           }
           break;
         case 'ArrowDown':
         case 'ArrowRight':
           if (subItem = nextSib) {
-            nextSib.querySelector('.ma__main-nav__link').focus();
+            nextSib.querySelector('.js-main-nav__link').focus();
           }
           break;
         case 'Escape':
@@ -271,7 +271,7 @@ function openMenu() {
 }
 
 // Close menu when utility nav is clicked
-document.querySelector('.ma__header__utility-nav--wide').addEventListener('click', function () {
+document.querySelector('.js-utility-nav--wide').addEventListener('click', function () {
   closeMenu();
 });
 

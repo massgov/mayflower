@@ -2,7 +2,7 @@ export default (function (window, document, $, undefined) {
   const $menuButton = $('.js-header-menu-button');
   let $panels = $('.js-util-nav-content');
   let $utilityButtons = $('.js-util-nav-toggle');
-  const $mobileUtilityNav = $('.ma__header__utility-nav--narrow');
+  const $mobileUtilityNav = $('.js-utility-nav--narrow');
   const $mobileLanguageSelect = $mobileUtilityNav.find('.ma__utility-nav__item').first();
   const $stateOrgs = $mobileUtilityNav.find('#stateOrgs');
   const $logInto = $mobileUtilityNav.find('#logInTo');
