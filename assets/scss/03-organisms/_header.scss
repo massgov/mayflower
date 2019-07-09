@@ -45,6 +45,14 @@ body {
     padding-top: 8px;
     padding-bottom: 8px;
 
+    & .ma__header-search__wrapper {
+      float: right;
+      @media ($bp-small-min) {
+        justify-content: flex-end;
+        float: none;
+      }
+    }
+
     @media ($bp-header-toggle-min) {
       padding-top: 20px;
     }
@@ -83,6 +91,8 @@ body {
     text-align: right;
     vertical-align: middle;
     width: calc(100% - #{$header-logo-width});
+
+
 
     @media ($bp-small-min) {
       width: 66.12903%; //@include span-columns(8);
