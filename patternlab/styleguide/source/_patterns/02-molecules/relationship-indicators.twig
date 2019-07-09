@@ -1,9 +1,9 @@
 <div class="ma__relationship-indicators">
   <div class="ma__relationship-indicators--section primary{% if relationshipIndicators.secondary is empty %} single{% endif %}">
-    <span class="ma__relationship-indicators--label">
+    <span class="ma__relationship-indicators--label" id="label1">
       {{ relationshipIndicators.primary.label }}
     </span>
-    <div class="ma__relationship-indicators--terms">
+    <ul class="ma__relationship-indicators--terms" aria-labelledby="label1">
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
      
@@ -15,16 +15,16 @@
     <button type="button" class="js-relationship-indicator-button">
       show <span class="tag-count"></span> <span class="tag-state">more</span
     </button>
-    </div>
+    </ul>
   </div>
 
   {% if relationshipIndicators.secondary is not empty %}
     <div class="ma__relationship-indicators--section secondary">
-      <span class="ma__relationship-indicators--label">
+      <span class="ma__relationship-indicators--label" id="label2">
         {{ relationshipIndicators.secondary.label }}
       </span>
       </span>
-      <div class="ma__relationship-indicators--terms">
+      <ul class="ma__relationship-indicators--terms" aria-labelledby="label2">
       {% block secondaryRelationship %}
       {% for item in relationshipIndicators.secondary.tags %}
       
@@ -36,7 +36,7 @@
       <button type="button" class="js-relationship-indicator-button">
         show <span class="tag-count"></span> <span class="tag-state">more</span>
       </button>
-      </div>
+      </ul>
     </div>
   {% endif %}
 </div>
