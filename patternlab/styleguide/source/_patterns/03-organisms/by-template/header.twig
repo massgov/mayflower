@@ -16,12 +16,12 @@
       <div class="ma__header__button-container js-sticky-header">
         <button class="ma__header__menu-button js-header-menu-button">
         <span class="ma__header__menu-icon"></span>
-        <span class="ma__header__menu-text">Menu</span>
+        <span class="ma__header__menu-text js-header__menu-text">Menu</span>
         </button>
       </div>
       <div class="ma__header__nav-container">
       {% if not hideHeaderSearch %}
-        <div class="ma__header__nav-search">
+        <div class="ma__header__nav-search js-header__nav-search">
           {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
           {% include "@molecules/header-search.twig" %}
         </div>
@@ -29,11 +29,11 @@
       <div class="ma__header__main-nav">
         {% include "@molecules/main-nav.twig" %}
       </div>
-      <div class="ma__header__utility-nav ma__header__utility-nav--narrow">
+      <div class="ma__header__utility-nav ma__header__utility-nav--narrow js-utility-nav--narrow">
         {% include "@organisms/by-template/utility-nav.twig" %}
       </div>
     </div>
-       <div class="ma__header__utility-nav ma__header__utility-nav--wide">
+       <div class="ma__header__utility-nav ma__header__utility-nav--wide js-utility-nav--wide">
         {% include "@organisms/by-template/utility-nav.twig" %}
        </div>
     </div>
