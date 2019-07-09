@@ -1,4 +1,5 @@
 export default (function (window, document, $, undefined) {
+  const $menuButton = $('.js-header-menu-button');
   let $panels = $('.js-util-nav-content');
   let $utilityButtons = $('.js-util-nav-toggle');
   const $mobileUtilityNav = $('.ma__header__utility-nav--narrow');
@@ -13,7 +14,33 @@ export default (function (window, document, $, undefined) {
     window.location.pathname = 'state-a-to-z';
   });
 
-  
+  $logInto.on('click', function() {
+    $(this).toggleClass('submenu-open');
+  });
+
+  function closeMenu() {
+    $('body').removeClass('show-menu');
+    $('.menu-overlay').removeClass('overlay-open');
+    $('.ma__header__menu-text').text('Menu');
+    $menuButton.attr('aria-pressed', 'false');
+    $menuButton.attr('aria-label', 'Open the main menu for mass.gov');
+    $('.feedback-button').removeClass('hide-button');
+  }
+
+  $logInto.find('button').on('keydown', function (e) {
+    if ($(this).parent().hasClass('submenu-open')) {
+      return;
+    }
+    else {
+      if (e.key == "Tab") {
+        closeMenu();
+      }
+    }
+  });
+
+  $('#ma__site-logo-link').on('focus', function() {
+    closeMenu();
+  });
 
   $panels.each(function () {
     const $panel = $(this);

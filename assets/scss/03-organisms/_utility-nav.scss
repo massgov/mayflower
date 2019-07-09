@@ -91,6 +91,10 @@
       &::after {
         display: none;
       }
+
+      &:focus {
+        background-color: $c-bd-divider;
+      }
     }
 
     & > svg,
