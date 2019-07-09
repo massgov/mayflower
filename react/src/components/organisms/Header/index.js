@@ -148,7 +148,9 @@ class Header extends Component {
         </div>
         <div className="ma__header__container">
           <div className="ma__header__logo">
-            <SiteLogo {...header.siteLogo} />
+            {
+              is.fn(header.siteLogo) ? header.siteLogo() : <SiteLogo {...header.siteLogo} />
+            }
           </div>
           {!header.hideHeaderSearch &&
           <div className="ma__header__search js-header-search-menu">
@@ -207,8 +209,8 @@ Header.propTypes = {
   hideHeaderSearch: PropTypes.bool,
   /** Adds a prop to not display go back to classic.mass.gov */
   hideBackTo: PropTypes.bool,
-  /** imports the SiteLogo component */
-  siteLogo: PropTypes.shape(SiteLogo.propTypes)
+  /** siteLogo can be either a render prop or the SiteLogo component */
+  siteLogo: PropTypes.oneOfType([PropTypes.shape(SiteLogo.propTypes), PropTypes.func])
 };
 
 Header.defaultProps = {
