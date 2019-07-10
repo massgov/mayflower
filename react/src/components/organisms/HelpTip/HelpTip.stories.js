@@ -17,7 +17,7 @@ const themeOptions = {
 
 storiesOf('organisms/HelpTip', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('HelpTip with HelpText', (() => {
+  .add('HelpTip with HelpText', () => {
     const props = {
       text: text('text', 'I am a complete sentence with a help tip in it and another help tip here.'),
       triggerText: array('triggerText', ['a help tip', 'another help tip']),
@@ -30,8 +30,8 @@ storiesOf('organisms/HelpTip', module)
     };
 
     return(<HelpTip {...props} />);
-  }))
-  .add('HelpTip with Children', (() => {
+  })
+  .add('HelpTip with Children', () => {
     const props = {
       text: text('text', 'I am a complete sentence with a help tip in it and another help tip here.'),
       triggerText: array('triggerText', ['a help tip', 'another help tip']),
@@ -54,4 +54,4 @@ storiesOf('organisms/HelpTip', module)
         </CalloutAlert>
       </HelpTip>
     );
-  }));
+  });

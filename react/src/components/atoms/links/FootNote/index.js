@@ -15,6 +15,7 @@ class FootNote extends React.Component {
           id={`footnotemsg${index}`}
           onClick={() => this.handleScroll()}
         >
+          {/* eslint-disable-next-line react/no-danger */}
           <span className="ma__footnote-item-content" dangerouslySetInnerHTML={{ __html: `${index}. ${children}` }} />
         </button>
       </div>
@@ -26,7 +27,8 @@ FootNote.propTypes = {
   /** Pair the FootNote molecule with the FootNoteLink. */
   /** The number/index of the footnote item. */
   /** If this is the second footnote on the page, `i` would be 2. */
-  index: PropTypes.string
+  index: PropTypes.string,
+  children: PropTypes.node
 };
 
 export default FootNote;

@@ -19,22 +19,20 @@ class Tab extends React.Component {
       const body = document.getElementById(this.context.tabContainerBodyId);
       if (this.context.tabRefs[nextIdent]) {
         this.context.setActiveTab(nextIdent);
-      } else {
-        // If no TabContainer children.
-        if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
-          // If the TabContainer has a parent TabContainer, and that container has a next selectable sibling.
-          if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
-            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
-            const nextTab = e.currentTarget
-              .closest('div.ma__tab-container')
-              .parentElement
-              .closest('div.ma__tab-container')
-              .getElementsByClassName('ma__tab-title--active')[0]
-              .nextElementSibling
-              .getElementsByTagName('button')[0];
-            nextTab.removeAttribute('tabindex');
-            nextTab.focus();
-          }
+      } else if (!body.getElementsByClassName('ma__tab-container--nested')[0] && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
+            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
+        // If the TabContainer has a parent TabContainer, and that container has a next selectable sibling.
+        if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
+            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
+          const nextTab = e.currentTarget
+            .closest('div.ma__tab-container')
+            .parentElement
+            .closest('div.ma__tab-container')
+            .getElementsByClassName('ma__tab-title--active')[0]
+            .nextElementSibling
+            .getElementsByTagName('button')[0];
+          nextTab.removeAttribute('tabindex');
+          nextTab.focus();
         }
       }
     }
@@ -42,22 +40,19 @@ class Tab extends React.Component {
       const body = document.getElementById(this.context.tabContainerBodyId);
       if (this.context.tabRefs[prevIdent]) {
         this.context.setActiveTab(prevIdent);
-      } else {
-        // If no TabContainer children.
-        if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
-          // If the TabContainer has a parent TabContainer, and that container has a previous selectable sibling.
-          if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
-            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].previousElementSibling) {
-            const prevTab = e.currentTarget
-              .closest('div.ma__tab-container')
-              .parentElement
-              .closest('div.ma__tab-container')
-              .getElementsByClassName('ma__tab-title--active')[0]
-              .previousElementSibling
-              .getElementsByTagName('button')[0];
-            prevTab.removeAttribute('tabindex');
-            prevTab.focus();
-          }
+      } else if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
+        // If the TabContainer has a parent TabContainer, and that container has a previous selectable sibling.
+        if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
+            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].previousElementSibling) {
+          const prevTab = e.currentTarget
+            .closest('div.ma__tab-container')
+            .parentElement
+            .closest('div.ma__tab-container')
+            .getElementsByClassName('ma__tab-title--active')[0]
+            .previousElementSibling
+            .getElementsByTagName('button')[0];
+          prevTab.removeAttribute('tabindex');
+          prevTab.focus();
         }
       }
     }
@@ -104,7 +99,6 @@ class Tab extends React.Component {
 }
 Tab.contextType = TabContext;
 
-
 Tab.defaultProps = {
   active: false
 };
@@ -117,7 +111,11 @@ Tab.propTypes = {
   /** Sets if the tab is the currently active tab or not. */
   active: PropTypes.bool,
   /** The unique identifier set by TabContainer. */
-  tabIdent: PropTypes.string
+  tabIdent: PropTypes.string,
+  /** Children passed to tab container (tab content) */
+  children: PropTypes.node,
+  /** The tabs ref */
+  tabRef: PropTypes.oneOfType([PropTypes.func, PropTypes.instanceOf(Element)])
 };
 
 export default Tab;
