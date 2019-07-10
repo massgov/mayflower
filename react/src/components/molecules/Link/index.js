@@ -25,7 +25,8 @@ Link.propTypes = {
   info: PropTypes.string,
   text: PropTypes.string,
   icon: PropTypes.string,
-  classes: PropTypes.string
+  classes: PropTypes.string,
+  children: PropTypes.node
 };
 
 Link.defaultProps = {

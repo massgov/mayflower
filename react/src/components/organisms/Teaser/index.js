@@ -55,6 +55,7 @@ class Teaser extends React.Component {
               {this.props.left && (
                 <div className="ma__general-teaser__primary">
                   {this.props.left.map((info, infoKey) => (
+                    /* eslint-disable-next-line react/no-array-index-key */
                     <div key={infoKey} className={primaryInfoClass}>
                       {info}
                     </div>
@@ -65,6 +66,7 @@ class Teaser extends React.Component {
                 <div className={secondaryInfoClass}>
                   {this.props.right.map((info, infoKey) => (
                     <div
+                      /* eslint-disable-next-line react/no-array-index-key */
                       key={infoKey}
                       className="ma__general-teaser__secondaryinfo"
                     >
@@ -100,6 +102,7 @@ Teaser.propTypes = {
         'ContactGroup'
       ]);
     }
+    return new Error('Invalid component.');
   },
   /** An array of components to be displayed under the title, on the right.
       If left is not set, this will display on the left side under the title instead.
@@ -112,6 +115,7 @@ Teaser.propTypes = {
         'IconLink'
       ]);
     }
+    return new Error('Invalid component.');
   }
 };
 

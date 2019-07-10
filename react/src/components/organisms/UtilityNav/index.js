@@ -41,10 +41,11 @@ class UtilityNav extends Component {
             newItem.navIdent = this.ident;
             const { isOpen } = this.state;
             return(
-              (item.panel) ?
-                <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} /> :
-                <NavItemLink key={`navItem.${itemIndex}`} data={item} />
-              );
+              (item.panel)
+                /* eslint-disable react/no-array-index-key */
+                ? <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />
+                : <NavItemLink key={`navItem.${itemIndex}`} data={item} />
+            );
           })}
         </ul>
       </div>
@@ -76,19 +77,19 @@ const NavItem = (obj) => {
   };
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
-      <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
+      <button onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
         <Icon name={item.icon} />
         <span>{item.text}</span>
-      </a>
+      </button>
       <div {...divProps}>
         <div className="ma__utility-nav__container">
           <div className="ma__utility-nav__content-title">
             <button onClick={(e) => obj.handleClick(divId, e)} className="ma__utility-nav__close js-close-util-nav">
-              <span>{ item.closeText }</span>
+              <span>{item.closeText}</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>
             <Icon name={item.icon} />
-            <span>{ item.text }</span>
+            <span>{item.text}</span>
           </div>
           <div className="ma__utility-nav__content-body">
             <UtilityPanel {...item.panel} />
@@ -110,7 +111,6 @@ const NavItemLink = (obj) => {
     </li>
   );
 };
-
 
 UtilityNav.propTypes = {
   /** Boolean that controls when to show the google language dom. */

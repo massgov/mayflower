@@ -31,6 +31,7 @@ const FilterBox = (props) => {
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
               { fields.map((field, i) => (
+                /* eslint-disable-next-line react/no-array-index-key */
                 <div className={field.class} key={`filterbox-field-${i}`}>
                   { field.component }
                 </div>
@@ -45,12 +46,12 @@ const FilterBox = (props) => {
                     </div>
                   )}
                   {clearButton && (
-                  <React.Fragment>
-                    <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
-                      {clearButton.text}
-                    </button>
-                  </React.Fragment>
-                )}
+                    <React.Fragment>
+                      <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
+                        {clearButton.text}
+                      </button>
+                    </React.Fragment>
+                  )}
                 </div>
               )
             }

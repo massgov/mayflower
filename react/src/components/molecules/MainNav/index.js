@@ -74,12 +74,14 @@ class MainNav extends Component {
                 'is-closed-react': !isExpanded
               });
               itemBody.push((
+                /* eslint-disable-next-line react/no-array-index-key */
                 <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>
-                  <ul role="menu" aria-labelledby={buttonId} className="ma__main-nav__container" tabIndex={!isExpanded ? -1 : null}>
+                  <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
                     <li role="presentation" className="ma__main-nav__subitem">
                       <a href={item.href} role="menuitem" className="ma__main-nav__link" tabIndex={!isExpanded ? -1 : null}>{item.text}</a>
                     </li>
                     {item.subNav.map((subItem, subItemIndex) => (
+                      /* eslint-disable-next-line react/no-array-index-key */
                       <li role="menuitem" className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`}>
                         <a href={subItem.href} role="menuitem" className="ma__main-nav__link">{subItem.text}</a>
                       </li>
@@ -110,6 +112,7 @@ class MainNav extends Component {
             return(
               <li
                 className={topItemClasses}
+                /* eslint-disable-next-line react/no-array-index-key */
                 key={`liClasses${index}`}
                 id={liId}
                 role="presentation"

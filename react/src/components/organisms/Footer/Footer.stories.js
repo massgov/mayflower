@@ -13,10 +13,10 @@ import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.jso
 storiesOf('organisms/Footer', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'Footer', (() => {
+    'Footer', () => {
       const props = {
         footerLinks: object('footerLinks', FooterLinksData),
-        showNavHeading: boolean('howNavHeading', true),
+        showNavHeading: boolean('showNavHeading', true),
         socialLinks: object('socialLinksData', SocialLinksData),
         footerLogo: object('footerLogo', {
           src: stateSeal,
@@ -32,11 +32,11 @@ storiesOf('organisms/Footer', module)
         })
       };
       return(<Footer {...props} />);
-    }),
+    },
     { info: FooterDocs }
   )
   .add(
-    'Footer with live JSON', (() => {
+    'Footer with live JSON', () => {
       const props = {
         footerLinks: object('footerLinks', FooterLinksLiveData),
         showNavHeading: boolean('showNavHeading', false),
@@ -51,6 +51,6 @@ storiesOf('organisms/Footer', module)
         })
       };
       return(<Footer {...props} />);
-    }),
+    },
     { info: FooterDocs }
   );

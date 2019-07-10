@@ -6,7 +6,6 @@ import Icon from '../../atoms/icons/Icon';
 
 import './style.css';
 
-
 const FooterSlim = (props) => (
   <footer className="ma__footer_slim" id="footer">
     <div className="ma__footer_slim--container ma__container">
@@ -23,6 +22,7 @@ const FooterSlim = (props) => (
           {props.links &&
             <div className="ma__footer_slim--links">
               {props.links.map((link, linkIndex) => (
+                /* eslint-disable-next-line react/no-array-index-key */
                 <a href={link.href} key={`footslimlinks-${linkIndex}`}>{link.title}</a>
               ))}
             </div>
