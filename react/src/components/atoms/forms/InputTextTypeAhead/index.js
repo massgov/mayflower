@@ -21,6 +21,10 @@ class InputTextTypeAhead extends Component {
     this.onSuggestionSelected = this.onSuggestionSelected.bind(this);
     this.getSuggestions = this.getSuggestions.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
+    if (process.env.NODE_ENV === 'development') {
+      /* eslint-disable-next-line no-console */
+      console.warn('This component is deprecated and will be archived in v10. Use InputTextFuzzy instead.');
+    }
   }
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.selected });

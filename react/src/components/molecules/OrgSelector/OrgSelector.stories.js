@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object, boolean, optionsKnob as options } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import OrgSelector from './index';
@@ -10,37 +8,51 @@ import OrgSelectorDocs from './OrgSelector.md';
 import orgSelectorOptions from './OrgSelector.knobs.options';
 import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
-storiesOf('molecules', module).addDecorator(withKnobs)
+storiesOf('molecules/OrgSelector', module)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'OrgSelector',
-    withInfo(`<div>${OrgSelectorDocs}</div>`)(() => {
-      const input = select('orgSelector.inputType', { '': 'Choose', selectbox: 'SelectBox', typeahead: 'TypeAhead' }, 'typeahead');
+    'OrgSelector with SelectBox', (() => {
       const props = {
-        organizations: object('orgSelector.organizations', orgSelectorOptions.organizations),
+        organizations: object('organizations', orgSelectorOptions.organizations, 'Organizations'),
         onChangeOrgCallback: action('OrgSelector onChangeOrgCallback')
       };
-      if (input === 'selectbox') {
-        props.selectBox = {
-          label: text('orgSelector.selectBox.label', 'State Organization'),
-          stackLabel: boolean('orgSelector.selectBox.stackLabel', true),
-          id: text('orgSelector.selectBox.id', 'state-organization'),
-          options: object('orgSelector.selectBox.options', inputOptions.options.orgSelector),
-          selected: select('orgSelector.selectBox.defaultSelected', inputOptions.options.orgSelector.map((option) => option.text), inputOptions.options.orgSelector[0].text)
-        };
-      } else {
-        props.typeAhead = {
-          label: text('orgSelector.typeAhead.label', 'State Organization'),
-          id: text('orgSelector.typeAhead.id', 'state-organization'),
-          options: object('orgSelector.typeAhead.options', inputOptions.options.orgSelector),
-          selected: select(
-            'orgSelector.typeAhead.defaultSelected',
-            inputOptions.options.orgSelector.map((option) => option.text),
-            ''
-          ),
-          placeholder: text('orgSelector.typeAhead.placeholder', 'All Organizations')
-        };
-      }
+      const selected = inputOptions.options.orgSelector[0].text;
+      const selectedList = inputOptions.options.orgSelector.map((option) => {
+        const opt = {};
+        opt[option.text] = option.text;
+        return opt;
+      });
+      props.selectBox = {
+        label: text('label', 'State Organization'),
+        stackLabel: boolean('stackLabel', true),
+        id: text('id', 'state-organization'),
+        options: object('options', inputOptions.options.orgSelector, 'Options'),
+        selected: options('defaultSelected', Object.assign({}, ...selectedList.values()), selected, { display: 'select' })
+      };
+      return(<OrgSelector {...props} />);
+    }),
+    { info: OrgSelectorDocs }
+  )
+  .add(
+    'OrgSelector with TypeAhead', (() => {
+      const props = {
+        organizations: object('organizations', orgSelectorOptions.organizations, 'Organizations'),
+        onChangeOrgCallback: action('OrgSelector onChangeOrgCallback')
+      };
+      const selectedList = inputOptions.options.orgSelector.map((option) => {
+        const opt = {};
+        opt[option.text] = option.text;
+        return opt;
+      });
+      props.typeAhead = {
+        label: text('label', 'State Organization'),
+        id: text('id', 'state-organization'),
+        options: object('options', inputOptions.options.orgSelector, 'Options'),
+        selected: options('defaultSelected', Object.assign({}, ...selectedList.values()), '', { display: 'select' }),
+        placeholder: text('placeholder', 'All Organizations')
+      };
 
       return(<OrgSelector {...props} />);
-    })
+    }),
+    { info: OrgSelectorDocs }
   );

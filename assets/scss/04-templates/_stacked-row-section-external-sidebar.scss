@@ -9,8 +9,11 @@
     }
   }
 
+  // If this is being called, then it needs to
+  // take precedence over all other stacked row
+  // container padding styles.
   .ma__stacked-row__container {
-    padding: 0;
+    padding: 0 !important;
   }
 }
 

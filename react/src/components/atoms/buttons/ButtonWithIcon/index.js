@@ -1,23 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { ref } from 'airbnb-prop-types';
 import Icon from '../../icons/Icon';
 import './style.css';
 
 class ButtonWithIcon extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setButtonRef = this.setButtonRef.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-  setButtonRef(node) {
-    if (typeof this.props.setButtonRef === 'function') {
-      this.props.setButtonRef(node);
-    }
-  }
-  handleClick(e) {
+  handleClick = (e) => {
     e.preventDefault();
     if (typeof this.props.onClick === 'function') {
+      e.persist();
       this.props.onClick(e);
     }
   }
@@ -25,9 +17,7 @@ class ButtonWithIcon extends React.Component {
     const {
       classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage, ariaLabel
     } = this.props;
-    // concat a space at the end of custom classes
-    let buttonClasses = classes ? `${classes.join(' ')} ` : '';
-    buttonClasses += classNames({
+    const buttonClasses = classNames({
       'ma__button-icon': true,
       'ma__button-icon--expandable': canExpand,
       'ma__button-icon--expanded': canExpand && expanded,
@@ -35,7 +25,8 @@ class ButtonWithIcon extends React.Component {
       'ma__icon-small': iconSize === 'small' || icon.props.name === 'chevron',
       'ma__icon-green': iconColor,
       'ma__button-search': icon.props.name === 'search',
-      'ma__button-search--secondary': icon.props.name === 'search' && usage === 'secondary'
+      'ma__button-search--secondary': icon.props.name === 'search' && usage === 'secondary',
+      [classes.join(' ')]: classes
     });
     const buttonProps = {
       type,
@@ -45,7 +36,7 @@ class ButtonWithIcon extends React.Component {
     };
     if (ariaLabel && ariaLabel !== '') { buttonProps['aria-label'] = ariaLabel; }
     return(
-      <button {...buttonProps} ref={this.setButtonRef} >
+      <button {...buttonProps} ref={this.props.setButtonRef} >
         <span>{this.props.text}</span>
         {this.props.icon}
       </button>
@@ -57,7 +48,7 @@ ButtonWithIcon.propTypes = {
   // Function to run on click of the button.
   onClick: PropTypes.func,
   // Sets a reference to the button onto the passed node.
-  setButtonRef: PropTypes.func,
+  setButtonRef: ref(),
   // Button text.
   text: PropTypes.string,
   /** HTML <button> 'type' attribute  */

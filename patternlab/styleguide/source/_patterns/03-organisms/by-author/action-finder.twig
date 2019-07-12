@@ -57,6 +57,9 @@
             {% if link.image %}
               {% set illustratedLink = link %}
               {% include "@molecules/illustrated-link.twig" %}
+            {% elseif link.icon %}
+              {% set downloadLink = link %}
+              {% include "@molecules/download-link.twig" %}
             {% else %}
               {% set calloutLink = link %}
               {% include "@molecules/callout-link.twig" %}
@@ -64,6 +67,11 @@
           {% endfor %}
         {% endblock %}
       </div>
+    {% endif %}
+    {% if actionFinder.linkLists %}
+      {% for linkList in actionFinder.linkLists %}
+        {% include "@organisms/by-author/link-list.twig" %}
+      {% endfor %}
     {% endif %}
   </div>
   {% if actionFinder.seeAll %}

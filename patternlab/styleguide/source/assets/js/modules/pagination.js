@@ -79,11 +79,14 @@ export default (function (window, document, $, undefined) {
         // Render the pagination Twig async.
         return template.renderAsync({ pagination: pagination });
       })
-      .then(markup => args.$el.html(markup));
-
-    // Create new markup using handlebars template, helper.
-    let markup = compiledTemplate(args.data);
-    args.$el.html(markup);
+      .then(markup => {
+        // twiggy is appending the entire pagiantion.twig template
+        // to itself, causing a double .ma__pagination wrapper
+        // unwrappedMarkup is the markup unwrapped and still contains the 
+        // original handlers 
+        const unwrapperMarkup = $($.parseHTML(markup)).html();
+        args.$el.html(unwrapperMarkup);
+      });
   }
 
   /**

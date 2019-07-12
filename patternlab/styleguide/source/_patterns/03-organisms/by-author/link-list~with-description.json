@@ -19,6 +19,7 @@
     },
     "stacked": false,
     "hideBullets": false,
+    "hideLine": false,
     "links" : [{
       "href":"#",
       "text":"Lorem ipsum dolor sit amet.",

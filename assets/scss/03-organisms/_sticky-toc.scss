@@ -111,20 +111,20 @@
     padding-left: 35px;
     position: relative;
 
-    & > svg {
-      height: 22px;
-      position: absolute;
-      left: 0;
-      top: 4px;
-      transform: rotate(90deg);
-      width: 22px;
-    }
-
     a {
       @include ma-link-underline;
 
       @media ($bp-x-small-min) {
         line-height: 1.5;
+      }
+
+      svg {
+        height: 22px;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        transform: rotate(90deg);
+        width: 22px;
       }
     }
 
@@ -178,14 +178,18 @@
   }
 
   &__link {
-
+    a {
     & > svg {
       fill: $c-primary-alt;
 
       @media ($bp-x-small-max) {
         display: none;
       }
+      :hover {
+        border-bottom: none;
+      }
     }
+  }
 
     &:hover a {
       border-bottom-color: rgba($c-font-link,.5);
@@ -390,13 +394,13 @@
     }
 
     &::after {
-      content: '\00d7';
+      content: $close-icon;
       font-size: 2.1rem;
       font-weight: 200;
+      left: 50%;
       line-height: 0;
       position: absolute;
       top: 50%;
-      left: 50%;
       transform: translate(-50%, -50%);
     }
   }
@@ -473,14 +477,15 @@
     a {
       font-weight: 700;
       font-size: 1.375rem;
-    }
+      display: flex;
 
-    &> svg {
-      display: block;
-      margin-top: 7px;
-
-      @media ($bp-x-small-min) {
-        margin: 0;
+      svg {
+        display: block;
+        margin-top: 7px;
+  
+        @media ($bp-x-small-min) {
+          margin: 0;
+        }
       }
     }
   }

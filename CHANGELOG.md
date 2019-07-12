@@ -13,6 +13,351 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.15.0 (07/03/2019)
+
+### Added
+- (Docs) [patternlab/docs] DP-13704: Add accessibility checklist for markup. #558
+- (Docs) DP-14372: Adds masscultural council to list of sites we search. #658
+
+### Changed
+- (Patternlab) [Utility Navigation] DP-13939: Add second panel to utility nav for contextual login links and vanilla js functionality. #639
+- (Patternlab) [Stacked Row Section] DP-14175: Update styles and templates for the Stacked Row Section to resolve inconsistent applications of padding and spacing in parent templates. #630
+- (React) [All] DP-14436: Upgrades storybook to version 5.1.8. #640
+- (React) [ImagePromo] DP-14436: Fixes bug with storybook story caused by repeatedly called knobs. #640
+
+## 9.14.0 (06/27/2019)
+
+### Fixed
+- (Patternlab) [location-banner] DP-12216: Update banner image scss to avoid background repeating. #634
+
+### Changed
+- (React) [Link, DecorativeLink] DP-12128: Remove unused default class. #645
+- (React) [TabContainer] DP-14424: Got rid of the need to track Tab children in state. Refactored TabContainer organism to use React Portals for rendering its children. #637
+- (React) [Tab] DP-14424: Added TabBody component for rendering Tab children directly into TabContainer organism. Removed unused default prop. Converted component to be a class from a function and removed the need for React.forwardRef. #637
+
+## 9.13.0 (06/26/2019)
+
+### Added
+- (Patternlab) [Sticky TOC] DP-13864: Moved arrow icon into the a tag to make clickable within the stickyTOC.js file, styled accordingly in the `_sticky-toc.scss` file #619
+- (Patternlab) [SuggestedPages] DP-13951: Add option for link list instead of more link to suggested pages. #562
+- (Patternlab) [ServicesFlexibleLinkGroups] DP-14173: Service page redesign with grouped links #625
+
+## 9.12.0 (06/19/2019)
+
+### Added
+- (React) [InputCurrency] DP-14078: Pass input id and event type to InputCurrency onBlur callback #629
+- (React) [ButtonAlert] DP-14335: Created ButtonAlert component in Storybook to match button-alert molecule in PatternLab. #622
+- (React) [EmergencyHeader] DP-14339: Adds the EmergencyHeader component. #626
+- (React) [EmergencyAlert] DP-14340: Adds the EmergencyAlert molecule from pattern lab. #621
+- (React) [Link] DP-14340: Adds support for using props.children with Link. #621
+- (React) [Link] DP-14340: Adds support for passing custom classes to Link component. #621
+- (React) [Link] DP-14340: Sets default text to empty string. #621
+- (React) [EmergencyAlerts] DP-14341: Added EmergencyAlerts organism. #631
+
+### Changed
+- (React, PatternLab) [EmergencyAlerts, EmergencyAlert] DP-14341: Updated the emergency alerts organism scss and the emergency alert molecule scss to use tint instead of lighten for background colour. #631
+
+## 9.11.1 (06/07/2019)
+
+### Fixed
+- (React) [TabContext] hotfix: Fixes export of TabContext in react package build. #616
+
+## 9.11.0 (06/07/2019)
+
+### Added
+- (React) [InputTextFuzzy] DP-13800: Adds prop onKeyDownPreventDefault. When set to true, hitting enter without a valid suggestion will trigger event.preventDefault(). #566
+- (React) [TabContext]: Adds TabContainers/Tabs context to expost as TabContext so accessible to external consumers. #608
+
+### Fixed
+- (React) [InputDate] DP-14234: Fixes a bug where the numeric date would be hidden if the current date was today and the date was selected. #613
+
+## 9.10.0 (06/06/2019)
+
+### Fixed
+- (React) [InputTextFuzzy] DP-13924: Fixes bugs caused by either options with a large amount of characters or queries with a large amount of characters. #559
+- (React) [FeedbackForm] DP-14273: Fixes a bug when the FeedbackForm is used with server side rendering caused by b-jsonp not checking for window. #610
+
+## 9.9.1 (06/03/2019)
+
+### Fixed
+- (React) hotfix: Install `airbnb-prop-types` package as direct instead of dev package dependency in Mayflower-React.
+
+## 9.9.0 (06/03/2019)
+
+### Added
+- (React) [FeedbackForm] DP-14085: Added the FeedbackForm component for submissions to Formstack. #599
+- (Patternlab) Added `.nvmrc` file #600
+
+### Changed
+- (React) [Paragraph] DP-14085: Added support for using props.children with the Paragraph component instead of props.text. #599
+- (React) Removed `yarn.lock` file #600
+
+### Fixed
+- (React) [Icon] DP-13970: Removed usage of webpack's require.context in favor of dynamic ES6 imports. #564
+- (React) [DecorativeLink] DP-13970: Fixes warnings appearing related to the title prop when it's not set or passed. #564
+- (React) [Pagination] DP-13970: Reworked props to use destructoring. #564
+- (React) [ListingTable] DP-13970: Fixes the prop type definition for items to remove console warnings. #564
+- (React) [HeaderSearch] DP-13970: Fixed console warning from using postInputFilter when it's not passed. #564
+- (React) [ButtonWithIcon] DP-13970: Changed the storybook story to create Icons within each story instead of outside of them. #564
+
+## 9.8.0 (05/29/2019)
+
+### Added
+- (Patternlab) DP-1379: Set focus state for elements on Topic pages
+- (Patternlab) [Descriptive link wrapper] DP-14006: Add new "Descriptive links wrapper" organism and associated "Descriptive link" molecule to handle when a brief description and an associated link are needed.
+
+### Changed
+- (Patternlab) DP-11737: Downgrades font size from 800 to 700 for event-teaser and publish-state
+- (Patternlab) DP-13088: Change sticky TOC to appear only if there are 3 or more sections not including related and contacts
+- (Patternlab) DP-13967: Fix the heading size for the Related Services and Additional Resources heading from h3 to h2.
+
+### Fixed
+
+## 9.7.0 (05/13/2019)
+
+### Fixed
+- (React) [HelpTip] DP-13672: Fix css for bypassMobileStyle. #551
+- (Docs) Update Mayflower project issue template and fixed links on homepage. #549
+
+### Added
+- (React) [InputCurrency] DP-13672: Add `showButtons` prop to control whether the up/down buttons are shown. #550
+- (React) [HelpTip, CalloutAlert] DP-13672: Add white theme option styles. #552
+- (React) [Button] Add `classes` prop to button to allow appending custom classnames #554
+- (React) [Icon] Add `zoom-in` `zoom-out` `refresh` icons #554
+
+
+## 9.6.0 (05/01/2019)
+
+### Added
+- (Patternlab) [SectionLinks] DP-13100: Changed topic card heading styles, and footer CTA styles #542
+- (React) [InputTextFuzzy] DP-13688: Added option to render all options as suggestions by default, via prop `renderDefaultSuggestion` #544
+- (React) [Storybook Config] DP-13688: Added storybook console addon #544
+
+### Removed
+- (Patternlab) [assets] DP-12475: Remove richText.js. #505
+- (Patternlab) [RichText] Removed js flag classes for richText.js. #505
+
+### Deprecated
+- (React) [InputTextTypeAhead] DP-13688: Deprecate InputTextTypeAhead. #544
+
+### Fixed
+- (React) [FilterBox] Fixed warning caused by using `start` instead of `flex-start` within stying. #543
+
+## 9.5.1 (04/17/2019)
+
+### Security
+- (Patternlab) DP-13509: Update the jQuery from 3.3.0 to 3.4.0.
+
+## 9.5.0 (04/17/2019)
+
+### Fixed
+- (Patternlab) [Footer] DP-1323: remove `<b>` tag from footer. #526
+- (React) [Footer] DP-1323: remove `<b>` tag from footer. #526
+
+### Changed
+- (PatternLab) [MainNav, Header] DP-6198: a11y change keyboard behavior for navigation to be tab based. #488
+- (PatternLab, React) [Pagination] DP-6354: A11y - fix pagination to use links rather than buttons and access accessibility features. #490
+- (Patternlab, React) [Footer] DP-6358: Change tab order in footer. #527
+
+## 9.4.2 (04/10/2019)
+
+### Fixed
+- (React) [InputCurrency] DP-13450: Fixed bug relating to error handling on blur in InputCurrency. #533
+
+## 9.4.1 (04/10/2019)
+
+### Fixed
+- (React) [InputCurrency, InputNumber] DP-13167: Fixed handleAdjust logic so that min/max are not required for up/down buttons to work. #518
+- (React) [InputNumber] DP-13167: Fixed the initial steps when using up/down without a default value and decimal formatting onBlur. #518
+- (React) [Tab] DP-13409: Fixes bug causing the handleClick callback function on Tabs click to not be called. #529
+- (React) [TabContainer] DP-13409: Adds onTabChange prop to the tab container that is triggered if a tab in the container is changed. #529
+- (React) [InputTextFuzzy] DP-13425: Prevent onSuggestionClick being triggered on unexpected keyboard events. #530
+
+## 9.4.0 (03/28/2019)
+
+### Added
+- (Docs) Add an issue template for submitting Mayflower project to the implementation listing #520
+
+### Changed
+- (React) [*] DP-12932: Upgrades storybook and related add-ons to version 5.0.x. #516
+- (React) [*] DP-12932: Adds storysource and a11y add-ons. #516
+
+## 9.3.0 (03/20/2019)
+
+### Changed
+- (Patternlab) DP-8334: Use NPM instead of Bower to pull in front end dependencies #502
+- (Patternlab) [RelatedLocations] DP-12843: Changes to location page to show link to all locations #496
+- (Patternlab) DP-12682: Changes to the details.twig to use the class `sidebar sidebar--colored` in sidebar. #485
+- (React) [InputNumber] DP-12921: Limits the component from changing value between the min and max passed. #503
+- (React) [InputCurrency] DP-12921: Limits the component from changing value between the min and max passed. #503
+- (React) [InputCurrency] DP-12734: Removes placeholder on focus if no value in input. Puts placeholder back if no value in input. #503
+
+### Removed
+- (Patternlab) DP-12682: Removed the social media links on the Howto page. #485
+
+### Added
+- (Patternlab) [TabularData] DP-12682: Added a block to the tabular-data.twig for template mapping. #485
+
+### Fixed
+- (Docs) [Readme] DP-12921: Fixed broken link in Mayflower readme #501
+
+## 9.2.1 (03/13/2019)
+
+### Fixed
+- (React) [TabContainer] DP-10868: Adds a11y support to Tab and TabContainer components.#497
+
+### Added
+- (Patternlab) [OrganizationNavigation] DP-12928: Add link list specific classes: `ma__org-nav-i-want-to__findService`, `ma__org-nav-i-want-to__learnAbout`,`ma__org-nav-i-want-to__login` to sections for GTM. #504
+
+## 9.2.0 (03/05/2019)
+
+### Added
+- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module. #473
+- (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
+
+### Fixed
+- (React) [InputSlider] DP-12732: Allows slider callback and updates form context on handler drag (Added onUpdate prop) #495
+- (React) [InputSlider] DP-12732: Allows keyboard actions and slider track click to update value (Changed handleChange from using onSlideEnd to onChange) #495
+- (React) [InputCurrency] DP-12807: Prevent InputCurrency returning NaN when default value is set to null #484
+- (React) [ErrorMessage] DP-12806: Fix error message inline styling #484
+- (React) [InputSlider] DP-12875: Disable handle button when InputSlider is disabled. #494
+- (React) [InputCurrency] DP-12890: Fix `NaN` value when defaultValue is null using up/down buttons. #498
+
+### Changed
+- (Patternlab) [SectionLinks] DP-9249: Topic card more links #472
+- (React) [InputCurrency] DP-12890: Pass event type to callback #498
+
+
+## 9.1.1 (02/19/2019)
+
+### Fixed
+- (React) DP-12776: Hotfix value delay in InputNumber callback and event returning all null values. #482
+
+## 9.1.0 (02/15/2019)
+
+### Added
+- (Patternlab) DP-9494: MF Add related orgs/topics to topic page. #429
+- (React) DP-12560: Add input checkbox. #468
+
+### Changed
+- (React) DP-12561: Updates the help tip organism so users can pass multiple help tips in a single span of text. #469
+- (React) DP-12749: Style helptip trigger and add highlight color. #478
+
+### Fixed
+- (React) DP-12724: Fix helptip mobile tray z-index. #474
+- (React) DP-12728: Allow input currency defaultValue to be null. #477
+- (React) DP-12733: Fixed error message responsive styling. #475
+- (React) DP-12733: Fixed icon classes bug. #475
+
+## 9.0.0 (02/13/2019)
+
+### Changed
+- (React) DP-12665: Upgrades react to version 16.8.1 and node to version 10.15.1. #467
+- (React) DP-12458: Updates storybook to version 4.1.1 & related updates to component stories for the withInfo and withKnobs addons. Adds related babel package dependencies as storybook 4 upgrades to Babel 7. Updates storybook webpack config per upgrade to Babel 7. #464
+- (React) DP-12458: Updates nwb to version 0.23.x. #464
+- (React) DP-12458: Updates backstop to version 3.9.2. #464
+- (Patternlab) DP-11507: Remove ll.8-29 where add hooks to table richtext.js. #450
+
+## 8.26.0 (02/07/2019)
+
+### Changed
+- (Patternlab/React) DP-11666: Replace `<section>` with `<div>` for `.ma__header-search`  #417
+- (React) DP-12414: Modifies Table component to make it responsive, using the Table Responsive pattern from pattern lab. #459
+- (React) Refactors Input, InputNumber, InputSlider, InputCurrency to use Form Context and added story Form. #460
+
+## 8.25.0 (02/06/2019)
+
+### Added
+- (PatternLab) DP-11135: Create Mayflower for new feedback form - Option 2a (contact link) #352
+- (PatternLab) DP-11301:  Feedback integration updates and merging to develop #434
+- (PatternLab) DP-12404: Added a formDownloads block to the following twig templates: court-rules.twig, policy-advisory.twig, & executive-order.twig. #440
+- (PatternLab) DP-12464: Added a block to the action-steps.twig for decorativeLink. #451
+- (React) Added options to render value above the InputSlider handle #455
+
+### Fixed
+- (React): DP-12519: Fixed button height for overflow content and added class prop to radioButtons to allow override default breakpoints to stack at medium or large breakpoints. #461
+- (Patternlab) DP-9204: Add a label to the video container. Change the reading order to 1. label, 2. transcript link, 3. video for screenreader users. #433
+
+## 8.24.1 (01/31/2019)
+
+### Fixed
+- (React): Remove will receive props from input component. #454
+- (React) add onBlur to InputNumber and consolidate countDecimal util function and add a default unit prop to InputNumber. #456
+
+## 8.24.0 (01/31/2019)
+
+### Changed
+- (Patternlab) DP-9200: Add labelContext to decorative link #425
+
+### Fixed
+- (React) #449
+  - allow InputNumber to update on defaultValue prop change
+  - fix disabled styling of InputNumber with unit on disabled
+  - make up/down buttons optional
+  - add option to skip the slider
+
+## 8.23.3 (01/30/2019)
+
+### Fixed
+- (React) hotfix: change input buttons positioning from absolute to using flexbox.
+
+## 8.23.2 (01/30/2019)
+
+### Fixed
+- (React) hotfix: preventDefault inputSlider handle onClick.
+
+## 8.23.1 (01/30/2019)
+
+### Fixed
+- (React) hotfix: fix proptype check function name.
+
+## 8.23.0 (01/30/2019)
+
+### Added
+- (React) DP-12303: Adds CompoundSlider, InputSlider, Error components and adds the react-compound-slider package. #431
+- (React) DP-12303: Adds FormContext support, changes the way Input renders to reduce re-renders on context changes. #431
+- (React) DP-12413: Add unit option in InputNumber for rendering percentage. #436
+- (React) DP-12451: Added an inline option for Input and fixed responsiveness. Allow Input labelText to render elements other than a string. #441
+
+### Fixed
+- (React) bugfix: Allow InputNumber up/down button onClick callback to access value from input. #439
+
+## 8.22.0 (01/29/2019)
+
+### Added
+- (React) DP-12338: Added a help tip organism. #432
+- (React) DP-12338: Added a close icon. #432
+- (React) DP-12379: Added InputNumber component. #430
+- (React) DP-12379: Added disabled state to InputCurrency and allow passing custom onChange callback. #430
+- (Patternlab) DP-12387: Added a block to the steps-ordered.twig and action-step.twig to use a view mode on the Drupal twig. #428
+
+### Fixed
+- (React) DP-12428: Fix missing key on the radio button group and id prop issue. #435
+
+## 8.21.0 (01/24/2019)
+
+### Added
+- (React) DP-12318: Adds the form components input radio button (atom) and input radio button group (molecule) to mayflower-react. #424
+- (PatternLab/React) DP-12318: Adds a primary lighter color and error color to scss variables. #424
+- (React) DP-12293: Adds Input, InputCurrency components and InputContext context. Uses Numbro.js library. #419
+- (React) DP-12320: Added Callout Alert pattern and added themes and icon options. #418
+
+### Changed
+- (React) DP-12318: Updates the eslint settings for better handling of jsx syntax. #424
+
+## 8.20.0 (01/23/2019)
+
+### Changed
+- (Patternlab/React) DP-11662: Replace the markup validation flagged elements `<section>` with `<div>` for `.ma__utility-nav` and `.ma__utility-panel`. #415
+- (React/Patternlab) DP-11668: Change to a valid container for `.ma__main-nav`. #416
+- (React/Patternlab) DP-12120: Hide feedback wrapper in print #406
+
+## 8.19.1 (01/17/2019)
+
+### Fixed
+- (Patternlab) DP-12234: Fix the spacing issue after the conditional content for phone in contact item. #410
+- (React) DP-12080: Add capacity to pass an id to the input tag of the InputTextFuzzy atom. #412
+
 ## 8.19.0 (01/16/2019)
 
 ### Added
@@ -57,7 +402,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Changed
 - (Patternlab) DP-5859: Checkboxes missing from What You Need section on print style for How To Pages #369
 
-### Fixed 
+### Fixed
 - (Patternlab) DP-10231: bug fix for location pagination #362
 
 ## 8.15.0 (12/12/2018)

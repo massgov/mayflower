@@ -1,28 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import componentPropTypeCheck, { componentArrayPropTypeCheck } from "../../utilities/componentPropTypeCheck";
+import componentPropTypeCheck, { componentArrayPropTypeCheck } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 class Teaser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: false,
+      isActive: false
     };
   }
 
   handleMouseEnter = () => {
     this.setState({ isActive: true });
     if (typeof this.props.setActiveHover === 'function') {
-      this.props.setActiveHover(this.props.id)
+      this.props.setActiveHover(this.props.id);
     }
   };
 
   handleMouseLeave = () => {
     this.setState({ isActive: false });
     if (typeof this.props.clearActiveHover === 'function') {
-      this.props.clearActiveHover()
+      this.props.clearActiveHover();
     }
   };
 
@@ -44,7 +44,7 @@ class Teaser extends React.Component {
       onMouseEnter: () => this.handleMouseEnter(),
       onMouseLeave: () => this.handleMouseLeave()
     };
-    return (
+    return(
       <section {...sectionProps}>
         <div className="ma__general-teaser__details">
           {this.props.title && (
@@ -55,6 +55,7 @@ class Teaser extends React.Component {
               {this.props.left && (
                 <div className="ma__general-teaser__primary">
                   {this.props.left.map((info, infoKey) => (
+                    /* eslint-disable-next-line react/no-array-index-key */
                     <div key={infoKey} className={primaryInfoClass}>
                       {info}
                     </div>
@@ -65,6 +66,7 @@ class Teaser extends React.Component {
                 <div className={secondaryInfoClass}>
                   {this.props.right.map((info, infoKey) => (
                     <div
+                      /* eslint-disable-next-line react/no-array-index-key */
                       key={infoKey}
                       className="ma__general-teaser__secondaryinfo"
                     >
@@ -100,6 +102,7 @@ Teaser.propTypes = {
         'ContactGroup'
       ]);
     }
+    return new Error('Invalid component.');
   },
   /** An array of components to be displayed under the title, on the right.
       If left is not set, this will display on the left side under the title instead.
@@ -112,7 +115,8 @@ Teaser.propTypes = {
         'IconLink'
       ]);
     }
-  },
+    return new Error('Invalid component.');
+  }
 };
 
 export default Teaser;

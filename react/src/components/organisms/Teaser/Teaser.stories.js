@@ -1,12 +1,11 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
+
 import storyUtils from './storyutils';
 import Teaser from '.';
 
 storiesOf('organisms/Teaser', module)
-  .add('Teaser: Title Only', withInfo('<div></div>')(() => {
+  .add('Teaser: Title Only', () => {
     const { getDecorativeLink } = storyUtils;
     const props = {
       title: getDecorativeLink()
@@ -14,8 +13,8 @@ storiesOf('organisms/Teaser', module)
     return(
       <Teaser {...props} />
     );
-  }))
-  .add('Teaser: Left Side Only', withInfo('<div></div>')(() => {
+  })
+  .add('Teaser: Left Side Only', () => {
     const { leftSideProps } = storyUtils;
     const props = {
       left: leftSideProps()
@@ -23,8 +22,8 @@ storiesOf('organisms/Teaser', module)
     return(
       <Teaser {...props} />
     );
-  }))
-  .add('Teaser: Right Side Only', withInfo('<div></div>')(() => {
+  })
+  .add('Teaser: Right Side Only', () => {
     const { rightSideProps } = storyUtils;
     const props = {
       right: rightSideProps()
@@ -32,8 +31,8 @@ storiesOf('organisms/Teaser', module)
     return(
       <Teaser {...props} />
     );
-  }))
-  .add('Teaser: Left and Right Sides', withInfo('<div></div>')(() => {
+  })
+  .add('Teaser: Left and Right Sides', () => {
     const { leftSideProps, rightSideProps, getDecorativeLink } = storyUtils;
     const props = {
       title: getDecorativeLink(),
@@ -43,8 +42,8 @@ storiesOf('organisms/Teaser', module)
     return(
       <Teaser {...props} />
     );
-  }))
-  .add('Teaser: Contact Group Only', withInfo('<div></div>')(() => {
+  })
+  .add('Teaser: Contact Group Only', () => {
     const { getContactGroup } = storyUtils;
     const props = {
       left: [getContactGroup()]
@@ -52,4 +51,4 @@ storiesOf('organisms/Teaser', module)
     return(
       <Teaser {...props} />
     );
-  }));
+  });

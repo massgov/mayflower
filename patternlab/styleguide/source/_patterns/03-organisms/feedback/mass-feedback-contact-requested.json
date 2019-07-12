@@ -1,0 +1,132 @@
+{
+  "formAction": "#",
+  "title": "Did you find what you were looking for on this webpage?",
+  "org": "the Registry of Motor Vehicles",
+  "queryAffirmative": "Do you have anything else to tell us?",
+  "queryNegative": "Please tell us what you were looking for.",
+  "queryDescription": "We will use this information to improve the site.",
+  "inputGroup": {
+    "required": true,
+    "inline": true,
+    "title": "",
+    "type": "radio",
+    "items": [
+      {
+        "name": "foundIndicator",
+        "value": "Yes",
+        "id": "field1",
+        "label": "Yes",
+        "checked": false
+      },
+      {
+        "name": "foundIndicator",
+        "value": "No",
+        "id": "field2",
+        "label": "No",
+        "checked": false
+      }
+    ]
+  },
+  "affirmativeTextarea": {
+    "labelText": "Text Area",
+    "hiddenLabel": true,
+    "required": false,
+    "maxlength": 1000,
+    "id": "affirmative-textarea",
+    "name": "affirmative-textarea"
+  },
+  "negativeTextarea": {
+    "labelText": "Text Area",
+    "hiddenLabel": true,
+    "required": false,
+    "maxlength": 1000,
+    "id": "negative-textarea",
+    "name": "negative-textarea"
+  },
+  "helperText": {
+    "inputId": "GUID2738572489",
+    "message": "Do not include sensitive information, such as Social Security or bank account numbers."
+  },
+  "Response": "Would you like a response from",
+  "responseRequired": {
+    "responseDescription": "Responses may take 1 to 3 days",
+    "inputGroup": {
+      "required": true,
+      "inline": true,
+      "title": "",
+      "type": "radio",
+      "items": [
+        {
+          "name": "contactGroups",
+          "value": "Yes",
+          "id": "field3",
+          "label": "Yes",
+          "checked": false
+        },
+        {
+          "name": "contactGroups",
+          "value": "No",
+          "id": "field4",
+          "label": "No",
+          "checked": false
+        }
+      ]
+    }
+  },
+  "contactInputs": [
+    {
+      "hiddenLabel": false,
+      "labelText": "First Name",
+      "required": true,
+      "id": "text-input1",
+      "name": "text-input1",
+      "type": "text"
+    },
+    {
+      "hiddenLabel": false,
+      "labelText": "Last Name",
+      "required": true,
+      "id": "text-input2",
+      "name": "text-input2",
+      "type": "text"
+    },
+    {
+      "hiddenLabel": false,
+      "labelText": "Phone",
+      "required": false,
+      "id": "text-input3",
+      "name": "text-input3",
+      "type": "tel"
+    },
+    {
+      "hiddenLabel": false,
+      "labelText": "Email",
+      "required": true,
+      "id": "text-input4",
+      "name": "text-input4",
+      "type": "email"
+    }
+  ],
+  "hiddenElements": [
+    {
+      "id": "example1",
+      "name": "example1",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example2",
+      "name": "example2",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example3",
+      "name": "example3",
+      "value": "https://mass.gov"
+    },
+    {
+      "id": "example4",
+      "name": "example4",
+      "value": "https://mass.gov"
+    }
+  ]
+}

@@ -1,4 +1,2 @@
 # For Developers
 
-
-

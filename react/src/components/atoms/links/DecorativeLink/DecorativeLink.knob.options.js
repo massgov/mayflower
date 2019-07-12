@@ -1,8 +1,8 @@
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { text, boolean } from '@storybook/addon-knobs';
 
 export default {
-  info: (value) => text('info', value),
-  text: (value) => text('linkText', value),
-  href: (value) => text('href', value),
-  showFileIcon: (value) => boolean('showFileIcon', value)
+  info: (value) => text('DecorativeLink: info', value, 'DecorativeLink'),
+  text: (value) => text('DecorativeLink: linkText', value, 'DecorativeLink'),
+  href: (value) => text('DecorativeLink: href', value, 'DecorativeLink'),
+  showFileIcon: (value) => boolean('DecorativeLink: showFileIcon', value, 'DecorativeLink')
 };

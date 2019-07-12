@@ -10,9 +10,20 @@ export default (function (window, document) {
       headings: tocParent.querySelectorAll(toc.dataset.sections + ":not(.ma__sticky-toc__title)"),
       links: []
     };
-    // The number of sections / links.
+
     let tocSectionCount = tocSections.headings.length;
-    // Another wroapper around the links, probably originally to put the links in two columns.
+    var additionalCount = 0;
+    var i;
+    var totalSections = tocSectionCount;
+
+    // Remove Related and Contact sections from total amount of sections.
+    for (i = 0; i < tocSectionCount; i++) {
+      if (tocSections.headings[i].innerText.toLowerCase() == "related" || tocSections.headings[i].innerText.toLowerCase() == "contact") {
+        totalSections--;
+      }
+    };
+    tocSectionCount = totalSections;
+    // Another wrapper around the links, probably originally to put the links in two columns.
     const tocColumn = toc.querySelector(".ma__sticky-toc__column");
     // Container in the sticky header to hold the current sections header.
     const stickyToc = toc.querySelector(".ma__sticky-toc__current-section");
@@ -25,7 +36,7 @@ export default (function (window, document) {
     // The menu that slides out after the sticky menu is clicked.
     let stuckMenu;
     let pauseScroll = false;
-    
+
     // Initialize the TOC by creating links and target spans.
     function initializeToc() {
       // Add a class to the parent to help with consistent handling across applications.
@@ -41,7 +52,7 @@ export default (function (window, document) {
         // Create a link for the sticky TOC.
         const tocLink = document.createElement("div");
         tocLink.className = "ma__sticky-toc__link";
-        tocLink.innerHTML = `<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg><a href="#${sectionId}" >${sectionTitle}</a>`;
+        tocLink.innerHTML = `<a href="#${sectionId}"><svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg>${sectionTitle}</a>`;
         tocColumn.appendChild(tocLink);
         tocSections.links.push(tocLink);
 
@@ -59,17 +70,29 @@ export default (function (window, document) {
     // Set the various visibility rules.
     function handleResize() {
       tocSectionCount = 0;
+      additionalCount = 0;
       Array.from(tocSections.headings).forEach((heading, index) => {
         // If the section isn't visible, set the link not to display.
         const isVisible = heading.offsetHeight * heading.offsetWidth;
         if (isVisible) {
           tocSections.links[index].style.display = "";
-          tocSectionCount++;
+          // If the section is the related or contact sections we don't want to count those.
+          if ((heading.innerText.toLowerCase() != 'related') && (heading.innerText.toLowerCase() != 'contact')) {
+            tocSectionCount++;
+          }
+          else if (heading.innerText.toLowerCase() == 'contact') {
+            additionalCount++;
+          }
         }
         else {
           tocSections.links[index].style.display = "none";
         }
       });
+
+      // Get the final count of sections we'll use to determine if we display.
+      if ((tocSectionCount >= 1) && (additionalCount >= 1)) {
+        tocSectionCount = tocSectionCount + additionalCount;
+      }
 
       // Remove wrapper if not enough links.
       if (tocSectionCount < minSectionsToShow) {
@@ -91,7 +114,7 @@ export default (function (window, document) {
     function setEventListeners() {
       // Update the sticky header text when a link is clicked, even if another header is visible.
       tocParent.addEventListener("click", (e) => {
-        if (e.target.matches(".ma__sticky-toc__link a")) {
+        if (e.target.matches(".ma__sticky-toc__link a").textContent) {
           pauseScroll = true;
           setTimeout(() => { pauseScroll = false; }, 20);
           stickyToc.innerHTML = e.target.innerHTML;

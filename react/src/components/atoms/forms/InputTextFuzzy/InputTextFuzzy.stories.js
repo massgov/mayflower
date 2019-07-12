@@ -1,38 +1,47 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text, object, select, boolean, array } from '@storybook/addon-knobs/react';
+import { withKnobs, text, object, select, boolean, array } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 import InputTextFuzzy from './index';
-import markdown from './InputTextFuzzy.md';
+import InputTextFuzzyDocs from './InputTextFuzzy.md';
 import inputOptions from './InputTextFuzzy.knobs.options';
 
-storiesOf('atoms/forms', module).addDecorator(withKnobs)
+storiesOf('atoms/forms', module)
+  .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'InputTextFuzzy',
-    withInfo(`<div>${markdown}</div>`)(() => {
+    'InputTextFuzzy', (() => {
       const props = {
-        boxed: boolean('InputTextFuzzy.boxed', false),
-        disabled: boolean('InputTextFuzzy.disabled', false),
-        label: text('InputTextFuzzy.label', 'State Organization'),
-        keys: array('InputTextFuzzy.keys', ['text']),
+        boxed: boolean('boxed', false),
+        disabled: boolean('disabled', false),
+        label: text('label', 'State Organization'),
+        keys: array('keys', ['text']),
         options: inputOptions.options.orgSelector.filter((option) => option.text !== ''),
-        placeholder: text('InputTextFuzzy.placeholder', 'All Organizations'),
-        id: text('InputTextFuzzy.id', 'org-typeahead'),
+        placeholder: text('placeholder', 'All Organizations'),
+        id: text('id', 'org-typeahead'),
+        inputId: text('inputId', 'input-org-typeahead'),
         selected: select(
-          'InputTextFuzzy.selected',
+          'selected',
           inputOptions.options.orgSelector.map((option) => option.text),
           ''
         ),
-        fuseOptions: object('InputTextFuzzy.fuseOptions', {
+        fuseOptions: object('fuseOptions', {
           shouldSort: true,
           findAllMatches: true,
           includeMatches: true,
           threshold: 0.3,
-          minMatchCharLength: 1
-        })
+          minMatchCharLength: 1,
+          maxPatternLength: 300
+        }),
+        onKeyDown: action('onKeyDown event'),
+        onKeyUp: action('onKeyUp event'),
+        onChange: action('onChange event'),
+        onFocus: action('onFocus event'),
+        onBlur: action('onBlur event'),
+        onSuggestionClick: action('onSuggestionClick called'),
+        renderDefaultSuggestion: boolean('fuzzy renderDefaultSuggestion', true)
       };
       return(<InputTextFuzzy {...props} />);
-    })
+    }),
+    { info: InputTextFuzzyDocs }
   );
-

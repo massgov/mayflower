@@ -8,13 +8,11 @@ references:
     run: {name: 'Prepare Git', command: 'git config --global user.email "ci.bot@mass.gov" && git config --global user.name "MassGov Bot"'}
   no_host_check: &no_host_check
     run: {name: 'Disable StrictHostKeyChecking', command: 'mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config'}
-  install_aws: &install_aws
-    run: {name: 'Install AWS CLI', command: 'sudo apt-get -y -qq install awscli'}
 
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:8.9.4
+    - image: circleci/node:10.15.1
 
 patternlab_defaults: &patternlab_defaults
   working_directory: /var/www/code
@@ -159,6 +157,9 @@ jobs:
           name: Mayflower React Build
           command: cd react && npm run build
       - run:
+          name: Mayflower React Linter
+          command: cd react && npm run lint
+      - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
       - persist_to_workspace:
@@ -207,8 +208,7 @@ jobs:
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            sudo apt-get install python-dev python-pip
-            sudo pip install awscli
+            sudo apt-get update && sudo apt-get -y -qq install awscli
           fi
       - run: |
           # Only sync to S3 for stable tags.
