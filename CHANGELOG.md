@@ -13,6 +13,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.17.0 (07/17/2019)
+
+### Added
+- (Patternlab) [PageHeader] DP-13965: MF Change title and H1 on news overflow pages #646
+
+### Removed
+- (Patternlab) [Guide Page, Binder Page] DP-9211: Remove the text alternative for the banner image in Guide and Binder pages #162
+
+### Changed
+- (Patternlab) [How-To Page] DP-11891: Fixed How-to pages printer style being incorrectly indented. #654
+- (Patternlab) [ActionFinder] DP-14173: Add a block for overriding link list loop. #661
+- (Patternlab) [SplitColumns] DP-14173: Add a block for overriding columns. #661
+
 ## 9.16.0 (07/10/2019)
 
 ### Added
