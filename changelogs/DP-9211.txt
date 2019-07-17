@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Patch
-Removed
-- Patternlab DP-9211: Remove the text alternative for the banner image in Guide and Binder pages #162#
