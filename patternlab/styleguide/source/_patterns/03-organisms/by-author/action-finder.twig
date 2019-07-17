@@ -69,9 +69,11 @@
       </div>
     {% endif %}
     {% if actionFinder.linkLists %}
-      {% for linkList in actionFinder.linkLists %}
-        {% include "@organisms/by-author/link-list.twig" %}
-      {% endfor %}
+      {% block linkLists %}
+        {% for linkList in actionFinder.linkLists %}
+          {% include "@organisms/by-author/link-list.twig" %}
+        {% endfor %}
+      {% endblock %}
     {% endif %}
   </div>
   {% if actionFinder.seeAll %}
