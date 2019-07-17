@@ -76,7 +76,7 @@ class MainNav extends Component {
               itemBody.push((
                 /* eslint-disable-next-line react/no-array-index-key */
                 <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>
-                  <ul role="menu" aria-labelledby={buttonId} className="ma__main-nav__container" tabIndex={!isExpanded ? -1 : null}>
+                  <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
                     <li role="presentation" className="ma__main-nav__subitem">
                       <a href={item.href} role="menuitem" className="ma__main-nav__link" tabIndex={!isExpanded ? -1 : null}>{item.text}</a>
                     </li>

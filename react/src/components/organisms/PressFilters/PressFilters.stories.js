@@ -16,7 +16,7 @@ import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.op
 storiesOf('organisms/PressFilters', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'SelectBox Only', (() => {
+    'SelectBox Only', () => {
       const defaultHeadingLevel = '2';
       const pressFiltersStartDate = {
         labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'm/dd/yyyy', restrict: 'max'
@@ -77,11 +77,11 @@ storiesOf('organisms/PressFilters', module)
         required: boolean('PressFilters pressType: required', true, 'PressType')
       };
       return(<PressFilters {...props} />);
-    }),
+    },
     { info: PressFiltersDocs }
   )
   .add(
-    'TypeAhead Only', (() => {
+    'TypeAhead Only', () => {
       const defaultHeadingLevel = '2';
       const pressFiltersStartDate = {
         labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'm/dd/yyyy', restrict: 'max'
@@ -157,11 +157,11 @@ storiesOf('organisms/PressFilters', module)
         onChange: action('PressFilters pressType typeahead onChange')
       };
       return(<PressFilters {...props} />);
-    }),
+    },
     { info: PressFiltersDocs }
   )
   .add(
-    'OrgSelector using TypeAhead and PressType using SelectBox', (() => {
+    'OrgSelector using TypeAhead and PressType using SelectBox', () => {
       const defaultHeadingLevel = '2';
       const pressFiltersStartDate = {
         labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'm/dd/yyyy', restrict: 'max'
@@ -229,11 +229,11 @@ storiesOf('organisms/PressFilters', module)
         required: boolean('PressFilters pressType: required', true, 'PressType')
       };
       return(<PressFilters {...props} />);
-    }),
+    },
     { info: PressFiltersDocs }
   )
   .add(
-    'OrgSelector using SelectBox and PressType using TypeAhead', (() => {
+    'OrgSelector using SelectBox and PressType using TypeAhead', () => {
       const defaultHeadingLevel = '2';
       const pressFiltersStartDate = {
         labelText: 'Select a start date', required: false, id: 'start-date', name: 'start-date', placeholder: 'm/dd/yyyy', restrict: 'max'
@@ -300,6 +300,6 @@ storiesOf('organisms/PressFilters', module)
         onChange: action('PressFilters pressType typeahead onChange')
       };
       return(<PressFilters {...props} />);
-    }),
+    },
     { info: PressFiltersDocs }
   );

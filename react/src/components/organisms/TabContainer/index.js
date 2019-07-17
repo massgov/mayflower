@@ -70,6 +70,7 @@ class TabContainer extends React.Component {
         // set focus to the parent tab container.
         const tab = e.currentTarget
           .parentElement
+          .parentElement
           .closest('div.ma__tab-container')
           .getElementsByClassName('ma__tab-title--active')[0]
           .getElementsByTagName('button')[0];
@@ -143,13 +144,9 @@ class TabContainer extends React.Component {
     });
     return(
       <TabContext.Provider value={this.state}>
-        <div
-          id={this.state.tabContainerId}
-          className={classes}
-          onKeyDown={this.handleKeyDown}
-        >
-          <span id={this.spanId} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
-          <ul className={ulClasses} role="tablist">
+        <div className={classes}>
+          <ul className={ulClasses} id={this.state.tabContainerId} onKeyDown={this.handleKeyDown} role="tablist">
+            <span id={this.spanId} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
             {childrenWithProps}
           </ul>
           {
@@ -176,12 +173,14 @@ TabContainer.defaultProps = {
 };
 
 TabContainer.propTypes = {
-  // When true, the styles of the container changes to drop borders around each tab.
+  /** When true, the styles of the container changes to drop borders around each tab. */
   nested: PropTypes.bool,
-  // The numerical index of which tab should default to be open, starting at 0.
+  /** The numerical index of which tab should default to be open, starting at 0. */
   defaultTab: PropTypes.number,
-  // A callback function for a tab change, receives the tab's id and children
-  onTabChange: PropTypes.func
+  /** A callback function for a tab change, receives the tab's id and children */
+  onTabChange: PropTypes.func,
+  /** Children passed to tab container.  */
+  children: PropTypes.node
 };
 
 export default TabContainer;

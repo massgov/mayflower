@@ -14,7 +14,7 @@ const PageFlipper = (props) => {
           { props.intro.label && <span className="ma__page-flipper__context-label">{props.intro.label}</span> }
           { (props.intro.introDecorativeLink && props.intro.introDecorativeLink.props.text) && props.intro.introDecorativeLink }
         </div>
-        )
+      )
       }
       <div className="ma__page-flipper">
         <div className="ma__page-flipper__container">

@@ -9,7 +9,7 @@ import PageHeaderData from './PageHeader.knobs.options';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'PageHeader', (() => {
+    'PageHeader', () => {
       const defaultProps = PageHeaderData.pageHeader;
       const props = {
         category: text('category', defaultProps.category),
@@ -26,6 +26,6 @@ storiesOf('organisms', module)
         headerTags: null
       };
       return(<PageHeader {...props} />);
-    }),
+    },
     { info: PageHeaderDocs }
   );

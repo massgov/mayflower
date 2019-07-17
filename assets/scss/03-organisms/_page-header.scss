@@ -188,6 +188,10 @@ $page-header-widget-width: 350px;
     &:last-child {
       margin-bottom: 0;
     }
+
+    .ma__page-header__sub-title {
+      margin-top: .8em;
+    }
   }
 
   .ma__page-banner ~ & &__title {
@@ -210,7 +214,7 @@ $page-header-widget-width: 350px;
   }
 
   // Control font size and line height
-  // regardless of it's added to page 
+  // regardless of it's added to page
   &__sub-title,
   &__sub-title * {
     font-size: 1.625rem !important;

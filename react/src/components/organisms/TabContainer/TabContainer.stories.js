@@ -13,7 +13,7 @@ const tabProps = {
 
 storiesOf('organisms/TabContainer', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('TabContainer', (() => {
+  .add('TabContainer', () => {
     const props = {
       nested: boolean('nested', true)
     };
@@ -36,8 +36,8 @@ storiesOf('organisms/TabContainer', module)
         <Tab title="Tab" {...tabProps}>Tab Content</Tab>
       </TabContainer>
     );
-  }))
-  .add('TabContainer with real data', (() => {
+  })
+  .add('TabContainer with real data', () => {
     const props = {
       nested: boolean('nested', true)
     };
@@ -45,21 +45,23 @@ storiesOf('organisms/TabContainer', module)
       return(
         <TabContainer onTabChange={action('Tab change')}>
           { TabContainerData.budgetTabs.map((tab, index) => (
+            /* eslint-disable-next-line react/no-array-index-key */
             <Tab key={`tab${index}`} title={tab.tab} {...tabProps}>
               { tab.subTabs && (
                 <TabContainer {...props} onTabChange={action('Tab change')}>
-                  {tab.subTabs.map((tab, index) => (
-                    <Tab key={`subTab${index}`} title={tab.tab} {...tabProps}>{tab.content}</Tab>
+                  {tab.subTabs.map((item, i) => (
+                    /* eslint-disable-next-line react/no-array-index-key */
+                    <Tab key={`subTab${i}`} title={item.tab} {...tabProps}>{item.content}</Tab>
                   ))}
                 </TabContainer>
               )
               }
               {tab.content}
             </Tab>
-            ))
-            }
+          ))
+          }
         </TabContainer>
       );
     }
     return null;
-  }));
+  });

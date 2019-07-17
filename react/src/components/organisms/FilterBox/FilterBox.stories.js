@@ -13,7 +13,7 @@ import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhea
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('FilterBox', (() => {
+  .add('FilterBox', () => {
     const organization = {
       label: text('Filterbox organization: label', 'State organization', 'Organization'),
       id: text('Filterbox organization: id', 'state-organization', 'Organization'),
@@ -98,4 +98,4 @@ storiesOf('organisms', module)
       ]
     };
     return(<FilterBox {...props} />);
-  }));
+  });
