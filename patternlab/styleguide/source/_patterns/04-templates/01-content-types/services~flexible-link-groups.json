@@ -247,8 +247,8 @@
           "href": "#"
         }
       ],
-      "linkLists": {
-        "linkList1": {
+      "linkLists": [
+        {
           "compHeading": {
             "title": "Link List 1",
             "sub": "",
@@ -324,7 +324,7 @@
             }
           ]
         },
-        "linkList2": {
+        {
           "compHeading": {
             "title": "Link List 2",
             "sub": "",
@@ -400,7 +400,7 @@
             }
           ]
         },
-        "linkList3": {
+        {
           "compHeading": {
             "title": "Link List 3",
             "sub": "",
@@ -481,7 +481,7 @@
             }
           ]
         }
-      }
+      ]
     }
   },
   "contactList": {

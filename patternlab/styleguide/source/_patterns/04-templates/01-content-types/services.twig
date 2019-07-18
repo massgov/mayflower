@@ -73,51 +73,51 @@
       </div>
     </section>
 
-    <section class="ma__stacked-row__section">
-      <div class="main-content main-content--full">
-        <div class="page-content">
-          {% block pageContent %}
-            {% if doActionFinder %}
-              {% set actionFinder = doActionFinder.actionFinder %}
-              {% include "@organisms/by-author/action-finder.twig" %}
-            {% endif %}
-            {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
-              {% if learnActionFinder %}
-                {% set actionFinder = learnActionFinder.actionFinder %}
+      <section class="ma__stacked-row__section">
+        <div class="main-content main-content--full">
+          <div class="page-content">
+            {% block pageContent %}
+              {% if doActionFinder %}
+                {% set actionFinder = doActionFinder.actionFinder %}
                 {% include "@organisms/by-author/action-finder.twig" %}
               {% endif %}
-            {% endif %}
-            {% if contactList %}
-              {% include "@organisms/by-author/contact-list.twig" %}
-            {% endif %}
-            {% if mappedLocations %}
-              {% include "@organisms/by-author/mapped-locations.twig" %}
-            {% endif %}
-            {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
-              {% if eventListing %}
-                {% include "@organisms/by-author/event-listing.twig" %}
+              {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
+                {% if learnActionFinder %}
+                  {% set actionFinder = learnActionFinder.actionFinder %}
+                  {% include "@organisms/by-author/action-finder.twig" %}
+                {% endif %}
               {% endif %}
-            {% endif %}
-            {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
-              {% if splitColumns %}
-                <div class="more-info-header">
-                  <h2 class="ma__comp-heading">More Information</h2>
-                </div>
-                {% include "@organisms/by-author/split-columns.twig" %}
+              {% if contactList %}
+                {% include "@organisms/by-author/contact-list.twig" %}
               {% endif %}
-            {% endif %}
-          {% endblock %}
-          {% if flexibleLinkGroup %}
-            {% if splitColumns %}
-              <div class="more-info-header">
-                <h2 class="ma__comp-heading">Related Services</h2>
-              </div>
-              {% include "@organisms/by-author/split-columns.twig" %}
-            {% endif %}
-          {% endif %}
+              {% if mappedLocations %}
+                {% include "@organisms/by-author/mapped-locations.twig" %}
+              {% endif %}
+              {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
+                {% if eventListing %}
+                  {% include "@organisms/by-author/event-listing.twig" %}
+                {% endif %}
+              {% endif %}
+              {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
+                {% if splitColumns %}
+                  <div class="more-info-header">
+                    <h2 class="ma__comp-heading">More Information</h2>
+                  </div>
+                  {% include "@organisms/by-author/split-columns.twig" %}
+                {% endif %}
+              {% endif %}
+              {% if flexibleLinkGroup %}
+                {% if splitColumns %}
+                  <div class="more-info-header">
+                    <h2 class="ma__comp-heading">Related Services</h2>
+                  </div>
+                  {% include "@organisms/by-author/split-columns.twig" %}
+                {% endif %}
+              {% endif %}
+            {% endblock %}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
   </div>
   {% block schemaContent %}
