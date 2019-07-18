@@ -28,10 +28,7 @@ export default (function (window, document, $, undefined) {
   }
 
   $logInto.find('button').on('keydown', function (e) {
-    if ($(this).parent().hasClass('submenu-open')) {
-      return;
-    }
-    else {
+    if (!$(this).parent().hasClass('submenu-open')) {
       if (e.key == "Tab") {
         closeMenu();
       }
@@ -40,6 +37,7 @@ export default (function (window, document, $, undefined) {
 
   $('#ma__site-logo-link').on('focus', function() {
     closeMenu();
+    
     $('.js-util-nav-content').each(function() {
         $(this).css('top', '-' + $(this).height() + 'px');
         $(this).toggleClass('is-closed');
@@ -51,6 +49,7 @@ export default (function (window, document, $, undefined) {
     const $panel = $(this);
     const height = $panel.height();
     const $closeButton = $panel.find('.js-close-util-nav');
+    const $loopStart = $panel.find('a:first');
 
     $panel.css('top', '-' + height + 'px');
 
@@ -67,6 +66,14 @@ export default (function (window, document, $, undefined) {
       $panel.css('top', '-' + height + 'px');
       $panel.toggleClass('is-closed');  
       $panel.attr("aria-hidden", "true");
+
+    });
+
+    $closeButton.on('keydown', function(e) {
+      if (e.key == "Tab") {
+        $loopStart.focus();
+        e.preventDefault();
+      }
     });
 
     $panel.on('keydown', function (e) {
@@ -76,16 +83,11 @@ export default (function (window, document, $, undefined) {
         $panel.attr("aria-hidden", "true");
       }
     });
-
-    $panel.on('blur', function() {
-      console.log('gone');
-    });
   });
 
   $utilityButtons.each(function () {
     const $thisButton = $(this);
     const $thisPanel = $thisButton.next('.js-util-nav-content');
-    const $closePanel = $thisPanel.find('.js-close-util-nav');
 
     $thisButton.on('click', function () {
       $thisPanel.removeClass('is-closed');
@@ -94,10 +96,6 @@ export default (function (window, document, $, undefined) {
 
       $('body').addClass('show-submenu');
 
-      setTimeout(function () {
-        $closePanel.focus();
-      }, 250);
-
     });
 
     $thisButton.on('focus', function() {
@@ -105,7 +103,7 @@ export default (function (window, document, $, undefined) {
         $(this).css('top', '-' + $(this).height() + 'px');
         $(this).toggleClass('is-closed');
         $(this).attr("aria-hidden", "true");
-    });
+      });
     });
   });
 

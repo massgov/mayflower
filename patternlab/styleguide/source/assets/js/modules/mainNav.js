@@ -107,15 +107,6 @@ if (null !== searchForm) {
       item.classList.remove("submenu-open");
       itemButton.setAttribute('aria-expanded', 'false');
 
-    // Hide any open submenu content when the sidebar menu is closed
-    $('.js-header-menu-button').click(function () {
-      let $openContent = $parent.find('.js-main-nav-content.' + openClass);
-      hide($openContent);
-
-      $('.ma__utility-nav__content').addClass('is-closed');
-    });
-
-
       item.style.pointerEvents = "none";
 
       setTimeout(function timeoutFunction() {
