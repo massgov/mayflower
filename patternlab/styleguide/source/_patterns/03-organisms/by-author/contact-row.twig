@@ -17,31 +17,39 @@
   <div class="ma__contact-row__columns">
     {% block additionalContacts %}
 
-    {% if  contactRow.addressContactGroup %}
+    {% if contactRow.addressContactGroup %}
       <div class="ma__contact-row--address ma__contact-set">
-        {% set contactGroup = contactRow.addressContactGroup %}
-        {% include "@molecules/contact-group.twig" %}
+        {% block addressContactGroup %}
+          {% set contactGroup = contactRow.addressContactGroup %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endblock %}
       </div>
     {% endif %}
 
     {% if contactRow.phoneContactGroup %}
       <div class="ma__contact-row--phone ma__contact-set">
-        {% set contactGroup = contactRow.phoneContactGroup %}
-        {% include "@molecules/contact-group.twig" %}
+        {% block phoneContactGroup %}
+          {% set contactGroup = contactRow.phoneContactGroup %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endblock %}
       </div>
     {% endif %}
 
-    {% if  contactRow.onlineContactGroup %}
+    {% if contactRow.onlineContactGroup %}
       <div class="ma__contact-row--online ma__contact-set">
-        {% set contactGroup = contactRow.onlineContactGroup %}
-        {% include "@molecules/contact-group.twig" %}
+        {% block onlineContactGroup %}
+          {% set contactGroup = contactRow.onlineContactGroup %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endblock %}
       </div>
     {% endif %}
 
     {% if contactRow.faxContactGroup %}
       <div class="ma__contact-row--fax ma__contact-set">
-        {% set contactGroup = contactRow.faxContactGroup %}
-        {% include "@molecules/contact-group.twig" %}
+        {% block faxContactGroup %}
+          {% set contactGroup = contactRow.faxContactGroup %}
+          {% include "@molecules/contact-group.twig" %}
+        {% endblock %}
       </div>
     {% endif %}
 
