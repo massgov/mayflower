@@ -8,7 +8,7 @@ import { SiteLogo } from '../../../index';
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('HeaderSlim', (() => {
+  .add('HeaderSlim', () => {
     const siteLogoProps = {
       url: {
         domain: text('HeaderSlim siteLogo: url domain', 'https://www.mass.gov/')
@@ -26,4 +26,4 @@ storiesOf('organisms', module)
       siteLogo: <SiteLogo {...siteLogoProps} />
     };
     return(<HeaderSlim {...headerProps} />);
-  }));
+  });

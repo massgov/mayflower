@@ -35,15 +35,30 @@ const Handle = (props) => {
   }
   return(
     <button className="ma__slider-handle" {...divProps}>
-      { props.displayValueFormat && (
+      { displayValueFormat && (
         <div className="ma__slider-handle-value">
-          { props.displayValueFormat === 'percentage' ? numbro(value).format({ output: 'percent', mantissa: 0 }) : roundedValue }
+          { displayValueFormat === 'percentage' ? numbro(value).format({ output: 'percent', mantissa: 0 }) : roundedValue }
         </div>
       )
       }
 
     </button>
   );
+};
+
+Handle.propTypes = {
+  handle: {
+    id: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    percent: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  },
+  getHandleProps: PropTypes.func,
+  axis: PropTypes.string,
+  min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  step: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  displayValueFormat: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 const Track = (props) => {
@@ -68,6 +83,18 @@ const Track = (props) => {
     <div className="ma__slider-track" {...divProps} />
   );
 };
+
+Track.propTypes = {
+  source: {
+    percent: PropTypes.string
+  },
+  target: {
+    percent: PropTypes.string
+  },
+  getTrackProps: PropTypes.func,
+  axis: PropTypes.string
+};
+
 const Tick = (props) => {
   const {
     tick, count, axis, id
@@ -99,6 +126,16 @@ const Tick = (props) => {
   );
 };
 
+Tick.propTypes = {
+  tick: {
+    percent: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  },
+  count: PropTypes.number,
+  getTrackProps: PropTypes.func,
+  id: PropTypes.string,
+  axis: PropTypes.string
+};
 
 class CompoundSlider extends Component {
   render() {

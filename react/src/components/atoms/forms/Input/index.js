@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './style.css';
 import { InputContext, FormContext } from './context';
+
+/* eslint-disable react/no-unused-state */
 
 const Input = (props) => {
   const inputClasses = classNames({
@@ -25,6 +28,15 @@ const Input = (props) => {
       </div>
     </React.Fragment>
   );
+};
+
+Input.propTypes = {
+  id: PropTypes.string,
+  labelText: PropTypes.string,
+  hiddenLabel: PropTypes.bool,
+  required: PropTypes.bool,
+  inline: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 // Anything within a provider always re-renders when state changes.
@@ -83,7 +95,15 @@ class InputProvider extends React.Component {
   }
 }
 
-
 Input.contextType = InputContext;
+
+InputProvider.propTypes = {
+  inline: PropTypes.bool,
+  id: PropTypes.string,
+  children: PropTypes.node,
+  disabled: PropTypes.bool,
+  errorMsg: PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
+};
 
 export default Input;

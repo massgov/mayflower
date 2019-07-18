@@ -10,7 +10,7 @@ import TeaserListingData from './TeaserListing.knob.options';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'TeaserListing', (() => {
+    'TeaserListing', () => {
       const featuredOptions = TeaserListingData.teaserListing.featuredItems.map((item, index) => {
         const newItem = Object.assign({}, item);
         const title = object(`TeaserListing featuredItem${index}: title`, { ...newItem.title }, `Featured Item ${index}`);
@@ -51,6 +51,6 @@ storiesOf('organisms', module)
         more: object('TeaserListing more', TeaserListingData.teaserListing.more)
       };
       return(<TeaserListing {...props} />);
-    }),
+    },
     { info: TeaserListingDocs }
   );

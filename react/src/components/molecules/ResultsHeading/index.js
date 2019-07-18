@@ -36,6 +36,7 @@ class Tags extends Component {
             className="ma__results-heading__tag js-results-heading-tag"
             data-ma-filter-type={tag.type}
             data-ma-filter-value={tag.value}
+            /* eslint-disable-next-line react/no-array-index-key */
             key={`resultsHeading.tag.${tagIndex}`}
             onClick={(e) => this.handleClearThis(e)}
           >

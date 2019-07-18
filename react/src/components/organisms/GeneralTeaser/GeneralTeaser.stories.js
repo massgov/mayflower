@@ -13,7 +13,7 @@ const defaultDate = new Date('2018-02-02');
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'GeneralTeaser', (() => {
+    'GeneralTeaser', () => {
       const props = {
         image: {
           src: text('GeneralTeaser image: src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png', 'Image'),
@@ -221,6 +221,6 @@ storiesOf('organisms', module)
       return(
         <GeneralTeaser {...props} />
       );
-    }),
+    },
     { info: GeneralTeaserDocs }
   );

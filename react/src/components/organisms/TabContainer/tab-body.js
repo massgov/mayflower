@@ -55,7 +55,9 @@ TabBody.propTypes = {
   /** The tab container body to render Tab children into. */
   tabContainerBodyId: PropTypes.string.isRequired,
   /** Sets if the tab is the currently active tab or not. */
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  /** Children passed to tab body (tab content) */
+  children: PropTypes.node
 };
 
 export default TabBody;

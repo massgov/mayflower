@@ -13,6 +13,41 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.16.0 (07/10/2019)
+
+### Added
+- (React) [circleCI] DP-14731: Add eslint to mayflower react circle test. #664
+
+### Changed
+- (React) [Header] DP-14439: Adds support for headerSearch prop to optionally be a function. #627
+- (React) [Header] DP-14439: Ports code from Budget sites that fixes bugs related to missing classList functionality and browsers. #627
+- (React) [Header] DP-14439: Allow Header SiteLogo to be overwritten by render prop. #665
+- (React) [MainNav] DP-12214: Updates markup to better handle keyboard/focus events. Also updates roles for a11y functionality. #627
+- (Patternlab, React) [EmergencyAlerts] DP-14741: Allow EmergencyAlerts to render everywhere not just right below header, specify mobile top positioning with `.ma__ajax-pattern` wrapper and fix z-index to not overlay main nav dropdown.  #662
+
+### Fixed
+- (React) [All Organisms] DP-14717: Fixes all lint errors/warnings on organisms in React. #656
+  - Specific organisms impacted [AccordionWrapper, CalloutAlert, EmergencyAlerts, ErrorPage, FeedbackForm, FilterBox, Footer, FooterSlim, GeneralTeaser, Header, HeaderSlim, HelpTip, IllustratedHeader, LinkList, PageFlipper, PageHeader, PressFilters, RichText, SearchBanner, TabContainer, TableofContents, Teaser, TeaserListing, UtilityNav, UtilityPanel]
+
+- (React) [All Molecules] DP-14720: Fixes all lint errors/warnings on molecules in React. #656
+  - Specific molecules impacted [ContactGroup, EmergencyAlert, EmergencyHeader, FooterLinks, InputRadioGroup, Link, ListingTable, MainNav, OrgSelector, Pagination, ResultsHeading, SocialLinks, TypeAheadDropdown]
+
+- (React) [All Atoms, DataViz] DP-14730: Fixes all lint errors/warnings on atoms and dataviz components in React. #657
+  - Specific atoms impacted [CompoundSlider, Form, Input, InputCheckbox, InputCurrency, InputNumber, InputSlider, InputText, InputTextFuzzy, InputTextTypeAhead, Footnote, OrderedList, UnorderedList, Paragrag]
+  - Specific dataviz impacted [DataTable]
+
+## 9.15.0 (07/03/2019)
+
+### Added
+- (Docs) [patternlab/docs] DP-13704: Add accessibility checklist for markup. #558
+- (Docs) DP-14372: Adds masscultural council to list of sites we search. #658
+
+### Changed
+- (Patternlab) [Utility Navigation] DP-13939: Add second panel to utility nav for contextual login links and vanilla js functionality. #639
+- (Patternlab) [Stacked Row Section] DP-14175: Update styles and templates for the Stacked Row Section to resolve inconsistent applications of padding and spacing in parent templates. #630
+- (React) [All] DP-14436: Upgrades storybook to version 5.1.8. #640
+- (React) [ImagePromo] DP-14436: Fixes bug with storybook story caused by repeatedly called knobs. #640
+
 ## 9.14.0 (06/27/2019)
 
 ### Fixed

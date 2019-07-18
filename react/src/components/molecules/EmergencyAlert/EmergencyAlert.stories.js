@@ -4,6 +4,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import EmergencyAlert from './index';
 import Link from '../Link';
 
+/* eslint-disable react/prop-types */
 storiesOf('molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
@@ -18,7 +19,7 @@ storiesOf('molecules', module)
         }, 'c-warning'),
         message: text('message', 'MassPort is operating with limited flights due to road closures.'),
         timeStamp: text('timeStamp', '02.15.16, 5:00 p.m'),
-        link: ({ theme, linkClasses, TextElement }) => <Link classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
+        link: ({ linkClasses, TextElement }) => <Link classes={linkClasses} href="https://www.mass.gov"><TextElement>Read full alert</TextElement></Link>
       };
       return(
         <EmergencyAlert {...props} />
