@@ -59,6 +59,9 @@ export default (function (window,document,$,undefined) {
 
       // Change button text.
       $tagState.text($tagStateText === 'fewer' ? 'more' : 'fewer');
+
+      $button.attr('aria-pressed', function(_, attr) { return !(attr == 'true') });
+
     });
 
     $(window).resize(function () {
