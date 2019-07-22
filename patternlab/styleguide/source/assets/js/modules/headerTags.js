@@ -37,7 +37,8 @@ export default (function (window,document,$,undefined) {
     let $tagWrapper = $(this);
     let $button = $tagWrapper.find('.js-relationship-indicator-button');
     let $buttonCounter = $button.find('.tag-count');
-    let $hiddenTag = $tagWrapper.find('.ma__relationship-indicators--term:hidden');
+    let $hiddenTag = $tagWrapper.find('.js-wrapped-link:hidden');
+    let $focusTag = $hiddenTag.first().find('a');
     let tagCount = $hiddenTag.length;
     let $tagState = $button.find('.tag-state');
 
@@ -61,6 +62,15 @@ export default (function (window,document,$,undefined) {
       $tagState.text($tagStateText === 'fewer' ? 'more' : 'fewer');
 
       $button.attr('aria-pressed', function(_, attr) { return !(attr == 'true') });
+
+      setTimeout(function(){
+        if($tagWrapper.hasClass('tags-open')) {
+         $button.focus()
+        }
+        else {
+          $focusTag.focus();
+        }
+      }, 100);
 
     });
 
