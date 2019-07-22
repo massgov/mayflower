@@ -11,18 +11,19 @@
       </li>
     {% endif %}
     {% for item in utilityNav.items %}
-      <li class="ma__utility-nav__item js-util-nav-toggle">
-      <button class="ma__utility-nav__link js-util-nav-toggle"
+      <li id="{{ item.id }}" class="ma__utility-nav__item js-util-nav-toggle">
+      <button 
+          class="ma__utility-nav__link js-util-nav-toggle"
           aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
           {{ icon(item.icon) }}
           <span>
             {{ item.text }}
           </span>
+          <span class="aria-hidden toggle-indicator"></span>
         </button>
         <div aria-hidden="true" class="ma__utility-nav__content js-util-nav-content is-closed">
           <div class="ma__utility-nav__container">
             <div class="ma__utility-nav__content-title">
-              <button class="ma__utility-nav__close js-close-util-nav"><span>{{ item.closeText }}</span><span class="ma__utility-nav__close-icon" aria-hidden="true">+</span></button>
               {{ icon(item.icon) }}
               <h2>{{ item.text }}</h2>
             </div>
@@ -32,6 +33,7 @@
               {% include "@organisms/by-template/utility-panel.twig" %}
               {% endfor %}
             </div>
+            <button class="ma__utility-nav__close js-close-util-nav"><span>{{ item.closeText }}</span><span class="ma__utility-nav__close-icon" aria-hidden="true">+</span></button>
           </div>
         </div>
       </li>
