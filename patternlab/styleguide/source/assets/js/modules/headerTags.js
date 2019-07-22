@@ -6,6 +6,7 @@ export default (function (window,document,$,undefined) {
     let $el = $(this),
         $showHideButton = $('.js-header-tag-button', $el),
         $dynamicItems = $('a:nth-child(n+4)', $el),
+        $focusItem = $('a:nth-child(4)', $el),
         id = $el.attr('id') || 'headerTags' + (index + 1),
         open = $el.hasClass('is-open');
 
@@ -25,6 +26,7 @@ export default (function (window,document,$,undefined) {
         if ($el.hasClass('is-open')) {
           $showHideButton.attr('aria-expanded', 'true');
           $dynamicItems.show();
+          $focusItem.focus();
         }
         else {
           $showHideButton.attr('aria-expanded', 'false');
