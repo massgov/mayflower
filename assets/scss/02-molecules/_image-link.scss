@@ -35,6 +35,14 @@
 .ma__image-link--block {
     background: $c-gray-lightest;
 
+    &:hover,
+    &:active,
+    &:focus {
+        .ma__image-link__text {
+            text-decoration: underline;
+        }
+    }
+
     .ma__image-link__text {
         color: $c-gray-dark;
     }
