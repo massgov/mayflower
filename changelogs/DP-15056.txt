@@ -1,0 +1,3 @@
+Minor
+Added
+- (Patternlab) [contact-row] DP-15056: Added blocks around contact groups to allow overriding on a field-by-field basis.
