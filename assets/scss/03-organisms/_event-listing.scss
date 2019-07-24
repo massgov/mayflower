@@ -266,3 +266,34 @@ $event-listing-bp-show-grid: $bp-medium-min;
     color: $c-font-detail;
   }
 }
+
+// IE11 spacing hacks
+
+@media ($bp-medium-min) {
+
+  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(odd) {
+    padding-right: 0;
+    flex-basis: 50%;
+  }
+
+  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(even){
+    padding-left: 30px;
+    flex-basis: 45%;
+  }
+}
+
+@media ($bp-large-extended-min) {
+
+  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(odd) {
+    padding-right: 0px;
+  }
+
+  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(even){
+    padding-left: 40px;
+  }
+  
+  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(odd) .ma__event-teaser {
+    padding-right: 20px;
+  }
+
+}
