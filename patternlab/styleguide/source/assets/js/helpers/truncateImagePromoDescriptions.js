@@ -60,7 +60,7 @@ export default (function (window,document,$,undefined) {
         // Neither the whole paragraph nor the visible part is tiny.
         // So, wrap the two parts in spans.
         const hiddenText = paragraphText.slice(allowedText.length + 1);
-        $paragraph.html(`<span class="ma__image-promo__truncated">${allowedText}</span> <span class="ma__visually-hidden">${hiddenText}</span>`);
+        $paragraph.html(`<span class="ma__image-promo__truncated">${allowedText}</span><span class="ma__visually-hidden"> ${hiddenText}</span>`);
 
         anythingIsHidden = true;
       }

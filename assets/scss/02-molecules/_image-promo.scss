@@ -77,6 +77,25 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
     @include ma-button-reset;
     @include ma-link-underline;
     @include ma-chevron;
+    color: $c-bay-blue;
+    font-weight: 700;
+    margin-left: 10px;
+    
+    &::after {
+      border-width: 3px;
+      opacity: 0.5;
+      height: 8px;
+      width: 8px;
+    }
+  }
+
+  &__more-button::after {
+    transform: none;
+    transform: translateY(-30%) translateX(-25%) rotate(45deg);
+  }
+
+  &__less-button::after {
+    transform: translateY(-50%) translateX(-25%) rotate(-135deg);
   }
 
   &__description {
