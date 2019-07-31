@@ -998,7 +998,7 @@
                 "href": "#",
                 "text": "See all news and announcements",
                 "chevron": true,
-                "label": "See all news and announcements for the Executive Office of Health and Human Services"
+                "labelContext": "for the Executive Office of Health and Human Services"
               }
             }
           }

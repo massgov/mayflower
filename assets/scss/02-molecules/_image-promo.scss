@@ -72,6 +72,48 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
     margin-top: 10px;
   }
 
+  &__more-button,
+  &__less-button {
+    @include ma-button-reset;
+    @include ma-link-underline;
+    @include ma-chevron;
+  }
+
+  &__description {
+    .ma__image-promo__more-button {
+      display: none;
+    }
+
+    .ma__image-promo__less-button {
+      display: inline-block;
+    }
+
+    &:not(.ma__collapsed) {
+      .ma__visually-hidden {
+        position: static;
+        overflow: visible;
+        clip: auto;
+        height: auto;
+        width: auto;
+        margin: auto;
+      }
+    }
+
+    &.ma__collapsed {
+      .ma__image-promo__truncated::after {
+        content: '…';
+      }
+
+      .ma__image-promo__more-button {
+        display: inline-block;
+      }
+
+      .ma__image-promo__less-button {
+        display: none;
+      }
+    }
+  }
+
   &__location {
     font-size: 18px;
     padding-bottom: 5px;
