@@ -2,7 +2,6 @@ import truncateImagePromoDescriptions from "../helpers/truncateImagePromoDescrip
 
 export default (function (window,document,$,undefined) {
     "use strict";
-    
+
     truncateImagePromoDescriptions();
 })(window,document,jQuery);
-  
