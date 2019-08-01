@@ -45,7 +45,7 @@ export default (function (window,document,$,undefined) {
         return;
       }
 
-      const paragraphText = $paragraph.text()
+      const paragraphText = $paragraph.text().trim();
       let currentCharacters = paragraphText.length;
 
       cumulativeCharacters += currentCharacters;
@@ -55,13 +55,12 @@ export default (function (window,document,$,undefined) {
         // nothing after this should be.
         allRemainingParagraphsHidden = true;
         let currentAllowedCharacters = totalAllowedCharacters - previousCharacters;
-        console.log(currentAllowedCharacters);
         let allowedText = paragraphText.slice(0, currentAllowedCharacters).split(' ').slice(0, -1).join(' ');
 
         // Don't hide a tiny paragraph or a tiny part of one.
         if (
           paragraphText.length < characterThreshold ||
-          paragraphText.length - currentAllowedCharacters < characterThreshold
+          paragraphText.length - allowedText.length < characterThreshold
         ) {
           return;
         }
