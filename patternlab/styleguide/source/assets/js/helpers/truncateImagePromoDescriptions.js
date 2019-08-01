@@ -45,25 +45,23 @@ export default (function (window,document,$,undefined) {
         return;
       }
 
-      const paragraphText = $(paragraph).text()
+      const paragraphText = $paragraph.text()
       let currentCharacters = paragraphText.length;
 
       cumulativeCharacters += currentCharacters;
-
+      
       if (cumulativeCharacters > totalAllowedCharacters) {
         // Even if this paragraph is completely visible when collapsed,
         // nothing after this should be.
         allRemainingParagraphsHidden = true;
         let currentAllowedCharacters = totalAllowedCharacters - previousCharacters;
+        console.log(currentAllowedCharacters);
         let allowedText = paragraphText.slice(0, currentAllowedCharacters).split(' ').slice(0, -1).join(' ');
-
-        // previousCharacters should not be used beyond this point.
-        previousCharacters += currentCharacters;
 
         // Don't hide a tiny paragraph or a tiny part of one.
         if (
           paragraphText.length < characterThreshold ||
-          paragraphText.length - allowedText.length < characterThreshold
+          paragraphText.length - currentAllowedCharacters < characterThreshold
         ) {
           return;
         }
@@ -84,6 +82,8 @@ export default (function (window,document,$,undefined) {
 
         anythingIsHidden = true;
       }
+
+      previousCharacters += currentCharacters;
     });
 
     if (anythingIsHidden) {

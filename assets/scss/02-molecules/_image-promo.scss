@@ -116,6 +116,10 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
         width: auto;
         margin: auto;
       }
+
+      p.ma__visually-hidden {
+        margin: auto auto 1.75rem;
+      }
     }
 
     &.ma__collapsed {
