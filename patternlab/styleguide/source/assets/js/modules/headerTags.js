@@ -65,15 +65,13 @@ export default (function (window,document,$,undefined) {
 
       $button.attr('aria-pressed', function(_, attr) { return !(attr == 'true') });
 
-      setTimeout(function(){
-        if($tagWrapper.hasClass('tags-open')) {
-         $button.focus()
-        }
-        else {
-          $focusTag.focus();
-        }
-      }, 100);
+    });
 
+    $button.on('keydown', function(e) {
+      if (e.keyCode === 9 && $tagWrapper.parent().hasClass('tags-open')) { 
+        $focusTag.focus();
+        e.preventDefault(); 
+      }
     });
 
     $(window).resize(function () {

@@ -36,6 +36,10 @@
         margin-top: -1px;
     }
 
+    &__expand-indicators {
+      list-style: none;
+    }
+
     &--section {
         width: 100%;
         min-width: 50%;
