@@ -72,7 +72,6 @@ if (null !== searchForm) {
   const subMenu = item.querySelector('.js-main-nav-content');
   const subItems = subMenu.querySelector('.js-main-nav__container');
   let subMenuItems = subMenu.querySelectorAll('.js-main-nav__subitem');
-  const firstSib = subMenuItems[0];
 
   subItems.style.opacity = "0";
 
@@ -218,19 +217,9 @@ if (null !== searchForm) {
           }
           break;
         case 'Escape':
-          subItems.style.opacity = "0";
-          subMenu.style.height = "0";
+          itemButton.focus();
 
-          setTimeout(function timeoutFunction() {
-            subMenu.classList.add('is-closed');
-
-          }, 500);
-          break;
-      }
-
-      if (nextSib === null && e.key == 'Tab') {
-        firstSib.querySelector('.js-main-nav__link').focus();
-        e.preventDefault();
+           break;
       }
     });
   });
