@@ -13,6 +13,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.18.0 (07/24/2019)
+
+### Added
+- (Patternlab) [ContactRow] DP-15056: Added blocks around contact groups to allow overriding on a field-by-field basis. #684
+
+### Removed
+- (Patternlab) [Template] DP-13005: Remove unused/broken template from Mayflower #653
+
+### Changed
+- (Patternlab) [ImageLink] DP-9262: Add underline to `:hover` and `:focus` states of image links #678
+
+### Security Updates
+- (React) [Security] Bump `lodash-es` from 4.17.11 to 4.17.14 #668
+- (React) [Security] Bump `extend` from 3.0.1 to 3.0.2 #580
+
+
 ## 9.17.0 (07/17/2019)
 
 ### Added
