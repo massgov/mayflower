@@ -47,7 +47,6 @@
   
   &__subitems {
     text-align: left;
-    width: 300px;
     z-index: $z-dropdown;
     background-color: $c-bg-section;
     transition: height 0.4s;
@@ -85,14 +84,6 @@
     line-height: 1.33;
     padding: 10px 20px 10px 30px;
     color: $c-black;
-    
-    @media ($bp-medium-min) {
-      padding-left: 40px;
-    }
-    
-    @media ($bp-large-min) {
-      padding-left: 50px;
-    }
     
     &:hover {
       text-decoration: underline;

@@ -166,13 +166,13 @@ if (null !== searchForm) {
       if (item.classList.contains('submenu-open')) {
         subItems.style.opacity = "0";
         subMenu.style.height = "0";
-        item.classList.remove('submenu-open');
+        itemButton.parentElement.classList.remove('submenu-open');
         itemButton.setAttribute('aria-expanded', 'false');
 
         setTimeout(function timeoutFunction() {
           subMenu.classList.add('is-closed');
-
         }, 500);
+        
       }
       else {
         closeMenu();
