@@ -75,31 +75,13 @@ if (null !== searchForm) {
 
   subItems.style.opacity = "0";
 
+  itemButton.addEventListener('focus', function(e){
+    closeSubMenus(item);
+  });
+
   itemButton.addEventListener('click', function (e) {
 
-    //Close other open submenus
-    let siblings = [];
-    let thisSibling = item.parentNode.firstChild;
-
-    while (thisSibling) {
-      if (thisSibling !== item && thisSibling.nodeType === Node.ELEMENT_NODE)
-        siblings.push(thisSibling);
-      thisSibling = thisSibling.nextElementSibling || thisSibling.nextSibling;
-    }
-
-    for (let i = 0; i < siblings.length; i++) {
-      if (siblings[i].classList.contains('submenu-open')) {
-
-        setTimeout(function timeoutFunction() {
-          siblings[i].querySelector('.js-main-nav-content').style.height = "0";
-          siblings[i].querySelector('.js-main-nav-content').classList.add('is-closed');
-          siblings[i].querySelector('.js-main-nav__container').style.opacity = "0";
-          siblings[i].classList.remove('submenu-open');
-          siblings[i].querySelector('.js-main-nav__top-link').setAttribute('aria-expanded', 'false');
-        }, 50);
-
-      }
-    }
+    closeSubMenus(item);
 
 
     if (item.classList.contains("submenu-open")) {
@@ -243,6 +225,32 @@ function openMenu() {
   menuButton.setAttribute('aria-pressed', 'true');
   menuButton.setAttribute('aria-label', 'Close the main menu for mass.gov');
   feedbackButton.classList.add('hide-button');
+}
+
+function closeSubMenus(item) {
+  //Close other open submenus
+  let siblings = [];
+  let thisSibling = item.parentNode.firstChild;
+
+  while (thisSibling) {
+    if (thisSibling !== item && thisSibling.nodeType === Node.ELEMENT_NODE)
+      siblings.push(thisSibling);
+    thisSibling = thisSibling.nextElementSibling || thisSibling.nextSibling;
+  }
+
+  for (let i = 0; i < siblings.length; i++) {
+    if (siblings[i].classList.contains('submenu-open')) {
+
+      setTimeout(function timeoutFunction() {
+        siblings[i].querySelector('.js-main-nav-content').style.height = "0";
+        siblings[i].querySelector('.js-main-nav-content').classList.add('is-closed');
+        siblings[i].querySelector('.js-main-nav__container').style.opacity = "0";
+        siblings[i].classList.remove('submenu-open');
+        siblings[i].querySelector('.js-main-nav__top-link').setAttribute('aria-expanded', 'false');
+      }, 500);
+
+    }
+  }
 }
 
 // Close menu when utility nav is clicked
