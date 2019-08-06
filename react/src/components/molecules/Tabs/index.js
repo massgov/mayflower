@@ -6,8 +6,9 @@ import './style.css';
 const Tabs = (tabs) => {
   const handleAllClick = (e) => {
     const selTab = e.target;
-    selTab.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-
+    if(selTab && selTab.scrollIntoView) {
+      selTab.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    }
     // invokes custom function if passed in the component
     if (typeof tabs.handleClick === 'function') {
       const selectedTab = selTab.name;
