@@ -99,6 +99,21 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   }
 
   &__description {
+    .ma__rich-text {
+      p {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      p + p {
+        margin-top: 1.75rem;
+      }
+
+      p + p.ma__visually-hidden {
+        margin-top: 0;
+      }
+    }
+
     .ma__image-promo__more-button {
       display: none;
     }
@@ -117,8 +132,8 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
         margin: auto;
       }
 
-      p.ma__visually-hidden {
-        margin: auto auto 1.75rem;
+      .ma__rich-text p + p.ma__visually-hidden {
+        margin-bottom: 1.75rem;
       }
     }
 
