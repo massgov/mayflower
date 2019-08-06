@@ -1,7 +1,7 @@
-export default (function (window,document,$,undefined) {
+export default (function (window,document,$,undefined,context) {
   "use strict";
 
-  $('.ma__image-promo__description').each(function(descriptionIndex, description) {
+  $('.ma__image-promo__description', context).each(function(descriptionIndex, description) {
     const $description = $(description);
     const $richTextContainer = $description.find('.ma__rich-text').last();
     const totalAllowedCharacters = 350;
@@ -113,7 +113,7 @@ export default (function (window,document,$,undefined) {
     }
     
   });
-}).bind(null,window,document,jQuery);
+}).bind(null,window,document,jQuery,undefined);
 
 /**
  * Convert a group of DOM nodes with <br>s to <p>s.

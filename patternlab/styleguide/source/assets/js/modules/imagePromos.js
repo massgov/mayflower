@@ -3,5 +3,5 @@ import truncateImagePromoDescriptions from "../helpers/truncateImagePromoDescrip
 export default (function (window,document,$,undefined) {
     "use strict";
 
-    truncateImagePromoDescriptions();
+    truncateImagePromoDescriptions($('.ma__location-listing__results .ma__image-promos'));
 })(window,document,jQuery);

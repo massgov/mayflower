@@ -33,7 +33,7 @@ export default (function(window, document, undefined, $, moment){
         }
       });
 
-      truncateImagePromoDescriptions();
+      truncateImagePromoDescriptions(document.querySelectorAll('.ma__location-listing__results .ma__image-promos'));
 
       if (args.focus) {
         // Focus on the first focusable element in the first listing
