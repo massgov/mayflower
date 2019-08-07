@@ -18,7 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - (React) [InputTextFuzzy] DP-14478: check for event before persist #694
 - (React) [Tabs] DP-14479: Patch Tabs molecule so scrollIntoView action only called if it exists. #693 
-- (PatternLab) [Print] DP-15523: Removes sticky TOC from print 
+- (PatternLab) [Print] DP-15523: Removes sticky TOC from print #692
 - (PatternLab) [HeaderSearch] DP-6174: Removed search field clear button in IE #688
 - (React) [ErrorMessage] Fix success message color #691
 
