@@ -40,7 +40,10 @@ class InputTextFuzzy extends React.Component {
   }
   getSuggestionValue = (suggestion) => suggestion.item.text;
   handleChange = (event, { newValue, method }) => {
-    event.persist();
+    if (event && event.persist()) {
+      event.persist();
+    }
+
     const value = newValue;
     this.setState({
       value
@@ -54,7 +57,9 @@ class InputTextFuzzy extends React.Component {
   };
   handleBlur = (event) => {
     if (is.fn(this.props.onBlur)) {
-      event.persist();
+      if (event && event.persist()) {
+        event.persist();
+      }
       this.props.onBlur({ event, value: this.state.value, suggestions: this.state.suggestions });
     }
   }
