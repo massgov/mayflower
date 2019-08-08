@@ -90,15 +90,27 @@
     line-height: .65em;
     overflow: hidden;
     position: absolute;
-      right: 10px;
-      top: 9px;
-    transition: transform .2s ease;
-    transform-origin: center center;
+    right: 10px;
+    width: 100%;
+    height: 100%;
+    max-height: 45px;
+   
     z-index: 1;
 
-    .is-open & {
-      transform: rotate(135deg);
+    &::after {
+      content: "+";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      transition: transform .2s ease;
+      transform-origin: center center;
+
+      .is-open & {
+        transform: rotate(135deg);
+      }
     }
+
+    
 
     @media ($bp-x-small-min) {
       display: none;
@@ -498,6 +510,8 @@
       top:0;
       right: 0;
       transition: right 0.3s ease-out;
+      position: fixed;
+      z-index: 9999;
     }
   }
 }
