@@ -88,7 +88,9 @@ FilterBox.propTypes = {
       componentWithName('DateRange'),
       componentWithName('InputNumber'),
       componentWithName('InputText'),
-      componentWithName('SelectBox')
+      componentWithName('SelectBox'),
+      componentWithName('InputCheckBox'),
+      componentWithName('InputSlider')
     ])
   }))
 };
