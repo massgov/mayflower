@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { componentWithName } from 'airbnb-prop-types';
 // import child components
 import Button from '../../atoms/buttons/Button';
-import { validateFilters } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const FilterBox = (props) => {

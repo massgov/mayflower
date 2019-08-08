@@ -46,42 +46,6 @@ export const componentArrayPropTypeCheck = (
   return true;
 };
 
-// For FilterBox component.
-export const validateFilters = (
-  props,
-  propName,
-  componentName,
-  componentTypes,
-) => {
-  const component = props[propName];
-  const isValid = (comp) => {
-    if (!comp) {
-      // validate if there are any props passed
-      return false;
-    }
-    if (!Array.isArray(comp)) {
-      // validate prop is an array
-      return false;
-    }
-    return comp.every((child) => {
-      // validate each nested object contains a class string and a component
-      if (typeof child.class !== 'string') {
-        return false;
-      }
-      if (!child.component) {
-        return false;
-      }
-      // validate each component matches one of the passed componentTypes
-      return child.component.type.name &&
-          componentTypes.indexOf(child.component.type.name) > -1;
-    });
-  };
-  if (!component || (component && !isValid(component))) {
-    return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${component || 'undefined'}. Validation failed.`);
-  }
-  return true;
-};
-
 export default componentPropTypeCheck;
 
 export const numberCharacterPropTypeCheck = (props, propName, number) => {
