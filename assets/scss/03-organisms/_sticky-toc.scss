@@ -447,7 +447,7 @@
   
   overflow: auto;
 
-  @media($bp-small-min) {
+  @media($bp-medium-min) {
    padding-top: 35px;
   }
 
@@ -475,7 +475,7 @@
     width: 100%;
     max-width: 550px;
 
-    @media($bp-small-min) {
+    @media($bp-medium-min) {
       right: -600px;
     }
 
@@ -516,7 +516,7 @@
 
     .ma__sticky-toc__secondary-label {
 
-      @media($bp-small-min) {
+      @media($bp-medium-min) {
         top:0;
         right: 0;
         transition: right 0.3s ease-out;
