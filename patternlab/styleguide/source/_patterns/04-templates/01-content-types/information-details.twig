@@ -11,6 +11,10 @@
       {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
 
+      {% block overview %}
+        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Overview text'}} %}
+      {% endblock %}
+
       {% if stickyTOC %}
       <div class="ma__information-details__pre-content-media">
         {% block stickyTOC %}
