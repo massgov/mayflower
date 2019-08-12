@@ -71,15 +71,6 @@
     padding: 0 20px 30px;
   }
 
-  .js &--accordion &__content &__content-wrap {
-    // width overlaps parent's 1px borders & negates parent padding
-    // This is so we can have divider borders (left border) and since we have a wrapping
-    // flexbox grid, the first item on each show needs its left border hidden.
-    width: calc(100% + 42px);
-    position: relative;
-      left: -21px;
-  }
-
   // Flexible contact group layout
   // Max 4 column layout, items are no narrower than 18rem & then wrap
   &__content-wrap {
@@ -87,7 +78,25 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     flex-basis: 25%;
+  }
 
+  .js &--accordion &__content &__content-wrap {
+    // width overlaps parent's 1px borders & negates parent padding
+    // This is so we can have divider borders (left border) and since we have a wrapping
+    // flexbox grid, the first item on each show needs its left border hidden.
+    width: calc(100% + 42px);
+    position: relative;
+    left: -21px;
+  }
+
+  &--accordion &__content-wrap {
+    // Always display contact groups stacked when inside accordions
+    display: block;
+
+    .ma__contact-group {
+      max-width: none;
+      padding-bottom: 0;
+    }
   }
 
   &__content-wrap .ma__contact-group {
