@@ -10,17 +10,16 @@
   {% set pageHeader = preContent.pageHeader %}
   {% include "@organisms/by-template/page-header.twig" %}
 
+  {% block overview %}
+    {% if preContent.overview.rteElements %}
+      {% set richText = preContent.overview %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+    {% endif %}
+  {% endblock %}
+
   {% if preContent.stickyTOC %}
     {% set stickyTOC = preContent.stickyTOC %}
     {% include "@organisms/by-template/sticky-toc.twig" %}
-  {% endif %}
-{% endblock %}
-
-{% block overview %}
-  <h1>Boop</h1>
-  {% if overview.rteElements %}
-    {% set richText = overview %}
-    {% include "@organisms/by-author/rich-text.twig" %}
   {% endif %}
 {% endblock %}
 
