@@ -33,7 +33,8 @@ scenarios = scenarios.map((item) => {
     'GeneralTeaser',
     'PressTeaser',
     'Image',
-    'DataTable'
+    'DataTable',
+    'IllustratedHeader'
   ];
   // eslint-disable-next-line prefer-const
   let result = { ...item };
