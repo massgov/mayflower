@@ -32,7 +32,7 @@ scenarios = scenarios.map((item) => {
     'NarrowTemplate',
     'GeneralTeaser',
     'PressTeaser',
-    'Image'
+    'Image',
     'DataTable'
   ];
   // eslint-disable-next-line prefer-const
