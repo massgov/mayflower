@@ -1,5 +1,3 @@
-$utility-nav-height: 43px;
-
 .ma__utility-nav {
   position: relative;
 
@@ -10,16 +8,10 @@ $utility-nav-height: 43px;
 
   &__items {
     @include ma-reset-list;
-    @include ma-container;
-
-    @media ($bp-header-toggle-max){
-      padding-left: 0;
-      padding-right: 0;
-    }
 
     @media ($bp-header-toggle-min){
       @include ma-valign-block;
-      height: $utility-nav-height;
+      height:43px;
       text-align: right;
     }
   }
@@ -27,13 +19,7 @@ $utility-nav-height: 43px;
   &__item {
 
     @media ($bp-header-toggle-max) {
-      padding-right: 15px;
       position: relative;
-
-      &:hover {
-        background-color: $c-white;
-        box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
-      }
     }
 
     @media ($bp-header-toggle-min) {
@@ -82,24 +68,32 @@ $utility-nav-height: 43px;
   }
 
   &__link {
-    border: 0;
+    position: relative;
     background-color: transparent;
-
-    @media ($bp-header-toggle-max) {
-      padding: 11px 20px 9px 45px;
-      width: 100%;
-      text-align: left;
-    }
+    border: 0;
 
     @media ($bp-header-toggle-max) {
       @include ma-chevron;
+      padding: 11px 20px 9px 45px;
+      width: 100%;
+      text-align: left;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      line-height: 1.45;
+      padding: 15px 20px 15px 45px;
+      text-transform: uppercase;
+      transition: all 0.4s ease;
+      text-align: left;
+      width: 100%;
+      border-bottom: 2px solid $c-gray-light;
+      
+      &::after {
+        display: none;
+      }
 
-      &:after {
-        position: absolute;
-        right: 20px;
-        top: 18px;
-        border-right-color: $c-primary-alt;
-      border-bottom-color: $c-primary-alt;
+      &:focus {
+        background-color: $c-bd-divider;
       }
     }
 
@@ -115,9 +109,12 @@ $utility-nav-height: 43px;
 
       @media ($bp-header-toggle-max) {
         position: absolute;
-          top: 50%;
-          left: 20px;
+        top: 50%;
+        left: 20px;
         transform: translateY(-50%);
+        height: 20px;
+        width: 20px;
+        fill: rgba($c-primary, 0.5);
       }
     }
 
@@ -125,6 +122,21 @@ $utility-nav-height: 43px;
       
       @media ($bp-header-toggle-max) {
         display: block;
+        font-weight: inherit;
+      }
+    }
+
+    .toggle-indicator {
+      @include ma-accordion-icon;
+    
+      .submenu-open & {
+        &::after {
+          transform: rotate(135deg);
+        }
+      }
+
+      @media ($bp-header-toggle-min) {
+        display: none;
       }
     }
   }
@@ -234,14 +246,9 @@ $utility-nav-height: 43px;
 
   &__content {
     display: block;
-    margin-top: $header-mobile-controls-height;
     padding-left: 20px;
-    position: fixed;
-    top: 0;
-    right: -300px;
     text-align: left;
     transition: visibility .5s ease, right .5s ease;
-    width: 300px;
     z-index: $z-modal;
     color: $c-font-inverse;
 
@@ -250,18 +257,11 @@ $utility-nav-height: 43px;
       top: 40px;
     }
 
-    .show-menu & {
-      right: 0;
-    }
-
     &.is-closed {
       visibility: hidden;
-      right: -300px;
     }
 
-    a {
-      color: $c-font-inverse;
-    }
+    
 
     .ma__rich-text {
       max-width: 720px;
@@ -272,11 +272,12 @@ $utility-nav-height: 43px;
     }
 
     @media ($bp-header-toggle-min) {
+      margin-top: $header-mobile-controls-height;
       margin-top: 0;
       overflow: visible;
       background-color: $c-primary;
       padding-left: 0;
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 0;
       transition: visibility .6s, top .6s;
@@ -286,6 +287,10 @@ $utility-nav-height: 43px;
       &.is-closed {
         right: 0;
         transition: visibility .3s, top .3s;
+      }
+
+      a {
+        color: $c-font-inverse;
       }
     }
   }
@@ -303,18 +308,6 @@ $utility-nav-height: 43px;
       padding-bottom: 0;
       padding-top: 0;
       margin-top: 10px;
-    }
-
-    @media ($bp-header-toggle-max) {
-      height: calc(100vh - #{$header-mobile-controls-height});
-      padding-left: 20px;
-      padding-right: 20px;
-      background-color: $c-primary;
-
-      .translated-rtl &,
-      .translated-ltr & {
-        height: calc(100vh - #{$header-mobile-controls-height * 2});
-      }
     }
   }
 
@@ -354,6 +347,7 @@ $utility-nav-height: 43px;
   }
 
   &__content-title {
+    display: none;
     
     h2 {
       display: inline-block;
@@ -366,6 +360,7 @@ $utility-nav-height: 43px;
     }
 
     @media ($bp-header-toggle-min) {
+      display: inline-block;
       padding-bottom: 5px;
     }
 
