@@ -998,7 +998,7 @@
                 "href": "#",
                 "text": "See all news and announcements",
                 "chevron": true,
-                "labelContext": "for the Executive Office of Health and Human Services"
+                "label": "See all news and announcements for the Executive Office of Health and Human Services"
               }
             }
           }
@@ -1020,8 +1020,8 @@
               "events": null,
               "pastMore": {
                 "href": "#",
-                "text": "See all past events, agendas, and meeting minutes",
-                "labelContext": "for the Office of the Treasurer & Receiver General",
+                "text": "See all events, agendas, and meeting minutes",
+                "info": "view all past events for Office of the Treasurer & Receiver General",
                 "chevron": true
               }
             }
