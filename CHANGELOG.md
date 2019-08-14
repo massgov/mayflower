@@ -13,21 +13,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
-## 9.20.0 (08/14/2019)
-
-### Added
-- (Patternlab) [Link] DP-9274: Added `labelContext` variable for an optional visually-hidden suffix #683
-
-### Changed
-- (Patternlab) [ContactUs] DP-8937: Made contact groups inside accordions always stack vertically. #697
-- (Patternlab) [PressListingAsGrid] DP-9274: Changed JSON to use the `link` component’s new `labelContext` variable in the style guide #683
-
-
 ## 9.19.0 (08/07/2019)
 
 ### Fixed
 - (React) [InputTextFuzzy] DP-14478: check for event before persist #694
-- (React) [Tabs] DP-14479: Patch Tabs molecule so scrollIntoView action only called if it exists. #693
+- (React) [Tabs] DP-14479: Patch Tabs molecule so scrollIntoView action only called if it exists. #693 
 - (PatternLab) [Print] DP-15523: Removes sticky TOC from print #692
 - (PatternLab) [HeaderSearch] DP-6174: Removed search field clear button in IE #688
 - (React) [ErrorMessage] Fix success message color #691
