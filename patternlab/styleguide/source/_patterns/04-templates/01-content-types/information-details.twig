@@ -12,7 +12,9 @@
       {% include "@organisms/by-template/page-header.twig" %}
 
       {% block overview %}
-        {% include "@base/placeholder.twig" with {'placeholder':{'text':'Overview text'}} %}
+        <div class="ma__rich-text">
+          <p>Overview text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
       {% endblock %}
 
       {% if stickyTOC %}
