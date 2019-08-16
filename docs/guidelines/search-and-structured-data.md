@@ -31,7 +31,7 @@ In order for the above metatags to be consumed and leveraged consistently in the
 
 | **Metatag** | **Syntax** | **Example** |
 | :--- | :--- | :--- |
-| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces, one or more values | `department-of-public-health,department-of-mental-health` |
+| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces, one or more values. As `-` makes a single organization multiple tokens and the [google search api only allows us to filter on up to 10 tokens](https://developers.google.com/custom-search/docs/structured_search), it is prefered to not include `-` in values. | `department-of-public-health,department-of-mental-health` or `departmentofpublichealth,departmentofmental-health` |
 | category | lowercase, controlled vocabulary, one value only, slug with no special characters | `news` |
 | mg\_date | YYYYMMDD | `20180528` |
 | mg\_type | lowercase, controlled vocabulary, one value only, slug with no special characters | `executive-order` |
@@ -55,7 +55,7 @@ Controlled vocabularies provide a way to organize knowledge for subsequent retri
 
 | **Category** | **Vocabulary** |
 | :--- | :--- |
-| news | press-release, press-statement, news, blog-post, speech |
+| news | press-release, press-statement, news, speech |
 | laws-regulations | general-law, session-law, executive-order, regulation, advisory, policy-advisory, policy-statement, administrative-bulletin, technical-information-release, directive, letter-ruling, memorandum, industry-letter, circular-letter, regulatory-bulletin, administrative-procedure, advisory-ruling, decision, ruling, opinion, settlement, consent-order, cease-directive, cease-order, consent-agreement, temporary-order-to-cease-and-desist, order, temporary-order, rules-of-civil-procedure, rules-of-criminal-procedure, rules-of-appellate-procedure, districtmunicipal-courts-supplemental-rules-of-civil-procedure, rules-of-domestic-relations-procedure, districtmunicipal-courts-supplemental-rules-of-criminal-procedure, trial-court-rules, superior-court-rules, supreme-judicial-court-rules, appeals-court-rules, districtmunicipal-court-rules, probate-and-family-court-rules, housing-court-rules, juvenile-court-rules, land-court-rules, guide-to-evidence, electronic-filing-rules, professional-conduct-rules, districtmunicipal-courts-rules-for-probation-violation-proceedings, special-rules-of-the-district-court, probate-and-family-court-uniform-practices, supplemental-rules-of-the-probate-and-family-court, rules-governing-persons-authorized-to-admit-to-bail-out-of-court, districtmunicipal-courts-rules-of-criminal-procedure, office-of-jury-commissioner-regulations, districtmunicipal-courts-rules-for-appellate-division-appeals, law-library |
 
 ### Integration with Search.Mass.Gov
