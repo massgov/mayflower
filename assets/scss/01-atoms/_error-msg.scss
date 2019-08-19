@@ -12,13 +12,15 @@
    margin-right: 3px;
  }
 
-  &--success {
-    display: flex;
-    color: $c-primary-alt;
-  }
+ &.has-error{
+   display: flex;
+   color: $c-font-error;
 
-  &.has-error{
-    display: flex;
-    color: $c-font-error;
-  }
+   &.ma__error-msg--success {
+       display: flex;
+       color: $c-primary-alt;
+     }
+ }
+
+
 }
