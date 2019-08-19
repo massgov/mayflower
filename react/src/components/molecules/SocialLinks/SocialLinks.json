@@ -3,25 +3,25 @@
     "altText": "Follow us on Facebook",
     "href": "#",
     "icon": "@atoms/05-icons/svg-facebook.twig",
-    "component": "Facebook",
+    "component": "facebook",
     "linkType": "facebook"
   },{
     "altText": "Follow us on Twitter",
     "href": "#",
     "icon": "@atoms/05-icons/svg-twitter.twig",
-    "component": "Twitter",
+    "component": "twitter",
     "linkType": "twitter"
   },{
     "altText": "Follow us on LinkedIn",
     "href": "#",
     "icon": "@atoms/05-icons/svg-linkedin.twig",
-    "component": "LinkedIn",
+    "component": "linkedin",
     "linkType": "linkedin"
   },{
     "altText": "Follow us on Youtube",
     "href": "#",
     "icon": "@atoms/05-icons/svg-youtube.twig",
-    "component": "YouTube",
+    "component": "youtube",
     "linkType": "youtube"
   }]
 }

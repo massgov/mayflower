@@ -28,9 +28,7 @@ export const assets = {
   instagram: 'instagram',
   twitter: 'twitter',
   linkedin: 'linkedin',
-  medium: 'medium',
-  youtube: 'youtube',
-  flickr: 'flickr'
+  youtube: 'youtube'
 };
 
 export const svgOptions = {

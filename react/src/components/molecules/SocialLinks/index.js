@@ -26,7 +26,7 @@ const SocialLink = (socialLink) => (
       data-social-share={socialLink.linkType}
       title={socialLink.altText}
     >
-      <Icon name={socialLink.component} />
+      <Icon name={socialLink.linkType} />
     </a>
   </li>
 );
@@ -39,7 +39,7 @@ SocialLink.propTypes = {
   /** Alt text for accessibility */
   altText: PropTypes.string.isRequired,
   /** The social link icon to use */
-  component: PropTypes.oneOf(['Facebook', 'Twitter', 'LinkedIn', 'YouTube', 'Instagram']).isRequired
+  component: PropTypes.oneOf(['facebook', 'twitter', 'linkedIn', 'youTube', 'instagram']).isRequired
 };
 
 SocialLinks.propTypes = {

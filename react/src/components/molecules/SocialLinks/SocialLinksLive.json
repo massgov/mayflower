@@ -15,13 +15,13 @@
     "altText": "Follow us on LinkedIn",
     "href": "https://www.linkedin.com/company/commonwealth-of-massachusetts",
     "icon": "@atoms/05-icons/svg-linkedin.twig",
-    "component": "linkedIn",
+    "component": "linkedin",
     "linkType": "linkedin"
   },{
     "altText": "Follow us on Youtube",
     "href": "https://www.youtube.com/user/massgov",
     "icon": "@atoms/05-icons/svg-youtube.twig",
-    "component": "youTube",
+    "component": "youtube",
     "linkType": "youtube"
   },{
     "altText": "Follow us on Instagram",
