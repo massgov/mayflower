@@ -35,12 +35,10 @@ const SocialLink = (socialLink) => (
 SocialLink.propTypes = {
   /** The URL for the link */
   href: PropTypes.string.isRequired,
-  /** The type of social link */
-  linkType: PropTypes.string.isRequired,
+  /** The type of social link and the icon name */
+  linkType: PropTypes.oneOf(['facebook', 'twitter', 'linkedIn', 'youTube', 'instagram']).isRequired,
   /** Alt text for accessibility */
-  altText: PropTypes.string.isRequired,
-  /** The social link icon to use */
-  component: PropTypes.oneOf(['facebook', 'twitter', 'linkedIn', 'youTube', 'instagram']).isRequired
+  altText: PropTypes.string.isRequired
 };
 
 SocialLinks.propTypes = {
