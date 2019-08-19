@@ -16,7 +16,7 @@ const FooterLinks = (footerLinks) => (
 
 
 const FooterLinksNav = (footerLinksNav) => (
-  <div aria-labelledby={footerLinksNav.id} className={`ma__footer-links__items${footerLinksNav.showNavHeading ? ' ma__footer-links__items--heading' : ''}`}>
+  <div className={`ma__footer-links__items${footerLinksNav.showNavHeading ? ' ma__footer-links__items--heading' : ''}`}>
     {
       footerLinksNav.showNavHeading ? <SidebarHeading title={footerLinksNav.heading} level={2} /> : <h2 className="visually-hidden" id={footerLinksNav.id}>{footerLinksNav.heading}</h2>
     }
