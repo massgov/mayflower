@@ -1,6 +1,24 @@
-<section class="ma__campaign-header">
- <h class="ma__campaign-header--title"></h>
-<span class="ma__campaign-header--sub-title"></span>
-<div class="ma__campaign-header--description"></div>
-<button></button>
+{% set textColor = campaignFullWidthHeader.textColor %}
+{% set bgColor = campaignFullWidthHeader.backgroundColor %}
+{% set bgImage = campaignFullWidthHeader.backgroundImage %}
+
+<section class="ma__campaign-header {{ textColor ? 'ma__campaign-header-light-text' : '' }}"
+{% if bgImage %} style="background-image: url('{{bgImage}}')"{% endif %} 
+{% if bgColor %} style="background-color: {{bgColor}}"{% endif %}>
+  
+  {% set headingLevel = campaignFullWidthHeader.positionTop ? 1 : 2 %}
+  <h{{ headingLevel }} class="ma__campaign-header--title">{{ campaignFullWidthHeader.title }}</h{{ headingLevel }}>
+  
+  {% if campaignFullWidthHeader.subtitle %}
+  <span class="ma__campaign-header--sub-title">{{ campaignFullWidthHeader.subtitle }}</span>
+  {% endif %}
+ 
+  {% if campaignFullWidthHeader.description %}
+  <div class="ma__campaign-header--description">{{ campaignFullWidthHeader.description }}</div>
+  {% endif %}
+  
+  {% if campaignFullWidthHeader.button %} 
+  <button>Button</button>
+  {% endif %}
+
 </section>
