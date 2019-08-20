@@ -36,7 +36,7 @@ SocialLink.propTypes = {
   /** The URL for the link */
   href: PropTypes.string.isRequired,
   /** The type of social link and the icon name */
-  linkType: PropTypes.oneOf(['facebook', 'twitter', 'linkedIn', 'youTube', 'instagram']).isRequired,
+  linkType: PropTypes.oneOf(['facebook', 'twitter', 'linkedin', 'youtube', 'instagram']).isRequired,
   /** Alt text for accessibility */
   altText: PropTypes.string.isRequired
 };
