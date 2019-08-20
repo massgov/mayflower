@@ -31,7 +31,7 @@ In order for the above metatags to be consumed and leveraged consistently in the
 
 | **Metatag** | **Syntax** | **Example** |
 | :--- | :--- | :--- |
-| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces, one or more values. As `-` makes a single organization multiple tokens and the [google search api only allows us to filter on up to 10 tokens](https://developers.google.com/custom-search/docs/structured_search), it is prefered to not include `-` in values. | `department-of-public-health,department-of-mental-health` or `departmentofpublichealth,departmentofmental-health` |
+| mg\_organization | lowercase, comma separated list, slug with no special characters or spaces, one or more values. As `-` makes a single organization multiple tokens and the [google search api only allows us to filter on up to 10 tokens](https://developers.google.com/custom-search/docs/structured_search), it is prefered to not include `-` in values. | `department-of-public-health,department-of-mental-health` or `departmentofpublichealth,departmentofmentalhealth` |
 | category | lowercase, controlled vocabulary, one value only, slug with no special characters | `news` |
 | mg\_date | YYYYMMDD | `20180528` |
 | mg\_type | lowercase, controlled vocabulary, one value only, slug with no special characters | `executive-order` |
