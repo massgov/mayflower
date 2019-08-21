@@ -24,7 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) [EventRecurring] DP-9085: Added line break to address. #701
 
 ### Fixed
-- (Patternlab) [StickyTOC] DP-14912: reposition stickyTOC on mobile screens
+- (Patternlab) [StickyTOC] DP-14912: reposition stickyTOC on mobile screens #700
 - (Docs) [Metatag] DP-15068: Update the search metatag documentation. #708
 - (React) [SocialLinks] DP-15599: Prevent SVGs in SocialLink from receiving keyboard focus. #709
 
