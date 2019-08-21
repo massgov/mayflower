@@ -13,6 +13,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.21.0 (08/21/2019)
+
+### Changed
+- (Patternlab) [ContactRow] DP-9085: Added line break to address. #701
+- (Patternlab) [Event] DP-9085: Added line breaks to addresses. #701
+- (Patternlab) [EventEndDateWithTime] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventEndDate] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventPublicMeeting] DP-9085: Added line break to address. #701
+- (Patternlab) [EventRecurring] DP-9085: Added line break to address. #701
+
+### Fixed
+- (Patternlab) [StickyTOC] DP-14912: reposition stickyTOC on mobile screens
+- (Docs) [Metatag] DP-15068: Update the search metatag documentation. #708
+- (React) [SocialLinks] DP-15599: Prevent SVGs in SocialLink from receiving keyboard focus. #709
+
+
 ## 9.20.0 (08/14/2019)
 
 ### Added
