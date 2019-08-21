@@ -26,6 +26,8 @@ const icons = {
     width="11"
     height="20"
     viewBox="0 0 11 20"
+    focusable="false"
+    aria-hidden="true"
   >
     <path
       id="SvgjsPath1007"
@@ -41,6 +43,8 @@ const icons = {
     width="21"
     height="20"
     viewBox="0 0 21 20"
+    focusable="false"
+    aria-hidden="true"
   >
     <path
       id="SvgjsPath1022"
@@ -55,6 +59,8 @@ const icons = {
     width="20"
     height="20"
     viewBox="0 0 20 20"
+    focusable="false"
+    aria-hidden="true"
   >
     <path
       id="SvgjsPath1013"
@@ -70,6 +76,8 @@ const icons = {
     width="21"
     height="17"
     viewBox="0 0 21 17"
+    focusable="false"
+    aria-hidden="true"
   >
     <path
       id="SvgjsPath1010"
@@ -85,6 +93,8 @@ const icons = {
     width="21"
     height="16"
     viewBox="0 0 21 16"
+    focusable="false"
+    aria-hidden="true"
   >
     <path
       id="SvgjsPath1016"
