@@ -2,7 +2,7 @@
 {% set bgColor = campaignFullWidthHeader.backgroundColor %}
 {% set bgImage = campaignFullWidthHeader.bgImage %}
 
-<section class="ma__campaign-header {{ textColor ? 'ma__campaign-header--light-text' : '' }}{% if bgColor %} ma__campaign-header--{{ bgColor }}{% endif %}{% if bgImage %} ma__campaign-header--image{% endif %}">
+<section id="{{campaignFullWidthHeader.id}}"  class="ma__campaign-header {{ textColor ? 'ma__campaign-header--light-text' : '' }}{% if bgColor %} ma__campaign-header--{{ bgColor }}{% endif %}{% if bgImage %} ma__campaign-header--image{% endif %}">
 
   {% if campaignFullWidthHeader.bgImage %}
     <style>

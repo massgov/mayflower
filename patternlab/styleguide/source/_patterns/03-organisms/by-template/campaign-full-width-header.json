@@ -1,5 +1,6 @@
 {
   "campaignFullWidthHeader": {
+    "id": "1",
     "positionTop": true,
     "backgroundColor": "bay-blue",
     "bgImage": "../../assets/images/placeholder/1600x800.png",
