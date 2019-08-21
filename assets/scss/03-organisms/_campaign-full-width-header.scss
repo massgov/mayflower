@@ -5,4 +5,13 @@
 
   padding: 100px 0;
   text-align: center;
+
+  &--bay-blue {
+    background-color: rgba($c-bay-blue, 0.5);
+  }
+
+  &--light-text {
+    color: white;
+  }
+
 }
