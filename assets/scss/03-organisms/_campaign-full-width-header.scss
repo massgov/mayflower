@@ -11,7 +11,11 @@
   }
 
   &--light-text {
-    color: white !important;
+    color: $c-white;
+
+    h2 {
+      color: $c-white;
+    }
   }
 
 }
