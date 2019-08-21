@@ -1,15 +1,18 @@
 {
   "campaignFullWidthHeader": {
     "positionTop": true,
-    "backgroundColor": "",
-    "backgroundImage": "../../assets/images/placeholder/1600x600-lighthouse-blur.jpg",
+    "backgroundColor": "bay-blue",
+    "bgImage": "../../assets/images/placeholder/1600x800.png",
+    "mobileBgImage": "../../assets/images/placeholder/800x400.png",
     "title": "Training and Professional Development",
     "subtitle": "Find career and professional development programs",
     "description": "This is an optional description",
     "textColor": "",
     "button":{
       "text":"Read More",
-      "href":"#"
+      "href":"#",
+      "size": "small",
+      "theme": ""
     }
   }
 }
