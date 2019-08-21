@@ -1,7 +1,7 @@
 {% set textColor = campaignFullWidthHeader.textColor %}
 {% set bgColor = campaignFullWidthHeader.backgroundColor %}
 
-<section class="ma__campaign-header {{ textColor ? 'ma__campaign-header-light-text' : '' }}{% if bgColor %} ma__campaign-header-{{ bgColor }} {% endif %}">
+<section class="ma__campaign-header {{ textColor ? 'ma__campaign-header--light-text' : '' }}{% if bgColor %} ma__campaign-header--{{ bgColor }} {% endif %}">
 
   {% if campaignFullWidthHeader.bgImage %}
     <style>
