@@ -1,0 +1,36 @@
+{
+  "preContent": {
+    "campaignFullWidthHeader": {
+      "positionTop": true,
+      "bgImage": "../../assets/images/placeholder/1600x800.png",
+      "mobileBgImage": "../../assets/images/placeholder/800x400.png",
+      "title": "Training and Professional Development",
+      "textColor": "white"
+    }
+  },
+  "pageContent": {
+    "textBreak": {
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit libero volutpat sed cras ornare arcu. Mauris a diam maecenas sed enim. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem. Nec feugiat nisl pretium fusce id velit ut."
+            }
+          }
+        }
+      ]
+    },
+    "campaignFullWidthHeader": {
+      "positionTop": false,
+      "backgroundColor": "berkshires-green",
+      "subtitle": "Lacinia quis vel eros donec ac odio. Mi quis hendrerit dolor magna eget est. Vel quam elementum pulvinar etiam non quam. Id velit ut tortor pretium viverra. ",
+      "button":{
+        "text":"Read More",
+        "href":"#",
+        "size": "small",
+        "theme": ""
+      }
+    }
+  }
+}

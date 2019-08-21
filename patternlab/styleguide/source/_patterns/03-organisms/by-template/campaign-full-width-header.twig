@@ -1,17 +1,18 @@
 {% set textColor = campaignFullWidthHeader.textColor %}
 {% set bgColor = campaignFullWidthHeader.backgroundColor %}
+{% set bgImage = campaignFullWidthHeader.bgImage %}
 
-<section class="ma__campaign-header {{ textColor ? 'ma__campaign-header--light-text' : '' }}{% if bgColor %} ma__campaign-header--{{ bgColor }} {% endif %}">
+<section class="ma__campaign-header {{ textColor ? 'ma__campaign-header--light-text' : '' }}{% if bgColor %} ma__campaign-header--{{ bgColor }}{% endif %}{% if bgImage %} ma__campaign-header--image{% endif %}">
 
   {% if campaignFullWidthHeader.bgImage %}
     <style>
-      .ma__campaign-header {
+      .ma__campaign-header--image {
         background-image: url('{{ campaignFullWidthHeader.bgImage }}');
       }
 
       {% if campaignFullWidthHeader.mobileBgImage %}
       @media (-webkit-min-device-pixel-ratio: 2) {
-        .ma__campaign-header {
+        .ma__campaign-header--image {
           background-image: url('{{ campaignFullWidthHeader.mobileBgImage }}');
         }
       }
@@ -19,22 +20,24 @@
     </style>
   {% endif %}
   
-  {% set headingLevel = campaignFullWidthHeader.positionTop ? 1 : 2 %}
-  <h{{ headingLevel }} class="ma__campaign-header--title">{{ campaignFullWidthHeader.title }}</h{{ headingLevel }}>
+  <div class="ma__campaign-header--wrapper">
+    {% set headingLevel = campaignFullWidthHeader.positionTop ? 1 : 2 %}
+    <h{{ headingLevel }} class="ma__campaign-header--title">{{ campaignFullWidthHeader.title }}</h{{ headingLevel }}>
+    
+    {% if campaignFullWidthHeader.subtitle %}
+    <span class="ma__campaign-header--sub-title">{{ campaignFullWidthHeader.subtitle }}</span>
+    {% endif %}
   
-  {% if campaignFullWidthHeader.subtitle %}
-  <span class="ma__campaign-header--sub-title">{{ campaignFullWidthHeader.subtitle }}</span>
-  {% endif %}
- 
-  {% if campaignFullWidthHeader.description %}
-  <div class="ma__campaign-header--description">{{ campaignFullWidthHeader.description }}</div>
-  {% endif %}
-  
-  {% if campaignFullWidthHeader.button %} 
-   
-        {% set button = campaignFullWidthHeader.button %}
-        {% include "@atoms/01-buttons/button.twig" %}
-   
-  {% endif %}
+    {% if campaignFullWidthHeader.description %}
+    <div class="ma__campaign-header--description">{{ campaignFullWidthHeader.description }}</div>
+    {% endif %}
+    
+    {% if campaignFullWidthHeader.button.text %} 
+    <div class="ma__campaign-header--cta">
+      {% set button = campaignFullWidthHeader.button %}
+      {% include "@atoms/01-buttons/button.twig" %}
+    </div>
+    {% endif %}
+  </div>
 
 </section>
