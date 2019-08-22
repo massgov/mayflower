@@ -1,0 +1,18 @@
+.ma__campaign-feature-full-width {
+  
+  &__wrapper {
+    @include ma-container;
+    display: flex;
+    color: $c-black;
+    font-weight: normal;
+  }
+
+  &__title {
+    flex-basis: 60%;
+  }
+
+  &__content {
+    flex-basis: 40%;
+    padding: 20px;
+  }
+}
