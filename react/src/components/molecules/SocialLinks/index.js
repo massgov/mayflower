@@ -24,7 +24,6 @@ const SocialLink = (socialLink) => (
       href={socialLink.href}
       className="ma__social-links__link js-social-share"
       data-social-share={socialLink.linkType}
-      title={socialLink.altText}
       aria-label={socialLink.altText}
     >
       <Icon name={socialLink.linkType} />
