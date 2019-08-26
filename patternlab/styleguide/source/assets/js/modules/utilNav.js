@@ -1,6 +1,7 @@
 export default (function (window, document, $, undefined) {
   const $menuButton = $('.js-header-menu-button');
   let $panels = $('.js-utility-nav--wide .js-util-nav-content');
+  const $mobileLogins = $('.js-utility-nav--narrow .js-util-nav-content');
   let $utilityButtons = $('.js-utility-nav--wide .js-util-nav-toggle');
   const $mobileUtilityNav = $('.js-utility-nav--narrow');
   const $mobileLanguageSelect = $mobileUtilityNav.find('.ma__utility-nav__item').first();
@@ -16,6 +17,7 @@ export default (function (window, document, $, undefined) {
 
   $logInto.on('click', function() {
     $(this).toggleClass('submenu-open');
+    $mobileLogins.toggleClass('is-closed');
   });
 
   function closeMenu() {
