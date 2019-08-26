@@ -220,15 +220,15 @@ jobs:
           fi
 
   auto_changelog:
-    working_directory: ~
-    docker:
-      - image: circleci/node:10.15.1
+    <<: *react_defaults
     steps:
+      - attach_workspace:
+          at: ~/repo
       - run:
           name: 'Auto add changelog for dependabot'
           command: |
+            cd .circleci
             pwd
-            ls -a
             chmod +x .circleci/dependabot.sh
             .circleci/dependabot.sh
 
