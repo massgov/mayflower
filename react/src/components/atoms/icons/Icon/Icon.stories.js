@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text, array, boolean } from '@storybook/addon-knobs';
+import { withKnobs, select, text, array, boolean, color } from '@storybook/addon-knobs';
 import { assets, svgOptions } from './Icon.knob.options';
 import Icon from './index';
 
@@ -15,13 +15,15 @@ storiesOf('atoms/icons', module)
     const title = text('title', 'Icon Title Here');
     const classes = array('classes', ['']);
     const ariaHidden = boolean('ariaHidden', false);
+    const fill = color('fill color', '#000');
     const props = {
       name,
       svgWidth,
       svgHeight,
       title,
       classes,
-      ariaHidden
+      ariaHidden,
+      fill
     };
     if (window.location.search.indexOf('backstop') > -1) {
       return Object.entries(assets).map(([key]) => {

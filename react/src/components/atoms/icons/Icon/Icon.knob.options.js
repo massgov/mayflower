@@ -23,7 +23,12 @@ export const assets = {
   generic: 'generic',
   zoomIn: 'zoomIn',
   zoomOut: 'zoomOut',
-  refresh: 'refresh'
+  refresh: 'refresh',
+  facebook: 'facebook',
+  instagram: 'instagram',
+  twitter: 'twitter',
+  linkedin: 'linkedin',
+  youtube: 'youtube'
 };
 
 export const svgOptions = {
