@@ -259,6 +259,10 @@
 
     &.is-closed {
       visibility: hidden;
+
+      a {
+        pointer-events: none;
+      }
     }
 
     
