@@ -229,8 +229,8 @@ jobs:
           command: |
             cd .circleci
             pwd
-            chmod +x .circleci/dependabot.sh
-            .circleci/dependabot.sh
+            chmod +x dependabot.sh
+            dependabot.sh
 
 workflows:
   version: 2
