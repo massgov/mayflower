@@ -1,0 +1,33 @@
+.ma__campaign-video {
+  padding: 100px 0;
+  text-align: center;
+
+  &--wrapper {
+    @include ma-container();
+  }
+
+  &--bay-blue {
+    background-color: rgba($c-bay-blue, 0.5);
+  }
+
+  &--berkshires-green {
+    background-color: rgba($c-berkshires-green, 0.5);
+  }
+
+  &--light-text {
+    color: $c-white;
+
+    h1, h2 {
+      color: $c-white;
+    }
+  }
+
+  .ma__video__container {
+    background-color: transparent;
+  }
+
+  .ma__video__link {
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
