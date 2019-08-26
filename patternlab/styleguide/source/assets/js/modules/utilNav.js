@@ -77,7 +77,9 @@ export default (function (window, document, $, undefined) {
     });
 
     $panel.on('keydown', function (e) {
-      if (e.key == "Escape") {
+      console.log(e.code);
+      if (e.code == 'Escape' || e.which == '27') {
+        console.log('esc');
         $panel.css('top', '-' + height + 'px');
         $panel.toggleClass('is-closed');
         $panel.attr("aria-hidden", "true");

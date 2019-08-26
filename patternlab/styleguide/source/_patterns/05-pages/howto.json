@@ -4,6 +4,7 @@
     "titleContext": "to Apply for unemployment benefits"
   },
   "relationshipIndicators": {
+    "pageTitle": "Apply for unemployment benefits",
     "primary": {
       "position": "primary",
       "label": "part of",
