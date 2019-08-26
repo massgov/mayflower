@@ -219,16 +219,15 @@ jobs:
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/*'
           fi
 
-    auto_changelog:
-      steps:
-        - attach_workspace:
-            at: ~/repo
-        - run:
-            name: 'Auto add changelog for dependabot'
-            command: |
-              chmod +x .circleci/dependabot.sh
-              .circleci/dependabot.sh
-
+  auto_changelog:
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: 'Auto add changelog for dependabot'
+          command: |
+            chmod +x .circleci/dependabot.sh
+            .circleci/dependabot.sh
 
 workflows:
   version: 2
