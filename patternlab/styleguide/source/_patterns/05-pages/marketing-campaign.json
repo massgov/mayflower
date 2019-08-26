@@ -1,6 +1,7 @@
 {
   "preContent": {
     "campaignFullWidthHeader": {
+      "id": "abc1",
       "positionTop": true,
       "bgImage": "../../assets/images/placeholder/1600x800.png",
       "mobileBgImage": "../../assets/images/placeholder/800x400.png",
@@ -22,6 +23,7 @@
       ]
     },
     "campaignFullWidthHeader": {
+      "id": "abc2",
       "positionTop": false,
       "backgroundColor": "berkshires-green",
       "subtitle": "Lacinia quis vel eros donec ac odio. Mi quis hendrerit dolor magna eget est. Vel quam elementum pulvinar etiam non quam. Id velit ut tortor pretium viverra. ",

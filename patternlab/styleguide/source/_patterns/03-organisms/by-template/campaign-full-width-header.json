@@ -1,8 +1,8 @@
 {
   "campaignFullWidthHeader": {
-    "id": "1",
+    "id": "abc1",
     "positionTop": true,
-    "backgroundColor": "bay-blue",
+    "backgroundColor": "",
     "bgImage": "../../assets/images/placeholder/1600x800.png",
     "mobileBgImage": "../../assets/images/placeholder/800x400.png",
     "title": "Training and Professional Development",
