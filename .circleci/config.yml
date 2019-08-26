@@ -220,6 +220,7 @@ jobs:
           fi
 
   auto_changelog:
+    <<: *react_defaults
     steps:
       - attach_workspace:
           at: ~/repo
