@@ -3,4 +3,6 @@ branch=$(git branch | grep \* | cut -d ' ' -f2)
 git add .
 git commit -m "Add changelog to branch"
 echo "Commit changelog";
+git config user.email "clairesunstudio@gmail.com"
+git config user.name "minghua"
 git push -u origin $branch
