@@ -4,5 +4,6 @@ git add .
 git commit -m "Add changelog to branch"
 echo "Commit changelog";
 git config user.email "clairesunstudio@gmail.com"
-git config user.name "minghua"
+git config user.name "circleci"
+git remote add origin git@github.com:massgov/mayflower.git
 git push -u origin $branch
