@@ -212,6 +212,7 @@ function closeMenu() {
   menuOverlay.classList.remove("overlay-open");
   menuButtonText.textContent = "Menu";
   menuButton.setAttribute('aria-pressed', 'false');
+  menuButton.setAttribute('aria-expanded', 'false');
   menuButton.setAttribute('aria-label', 'Open the main menu for mass.gov');
   buttonLabel = "Menu";
   feedbackButton.classList.remove('hide-button');
@@ -223,6 +224,7 @@ function openMenu() {
   menuButtonText.textContent = "Close";
   buttonLabel = "Close";
   menuButton.setAttribute('aria-pressed', 'true');
+  menuButton.setAttribute('aria-expanded', 'true');
   menuButton.setAttribute('aria-label', 'Close the main menu for mass.gov');
   feedbackButton.classList.add('hide-button');
 }
@@ -247,6 +249,7 @@ function closeSubMenus(item) {
         siblings[i].querySelector('.js-main-nav__container').style.opacity = "0";
         siblings[i].classList.remove('submenu-open');
         siblings[i].querySelector('.js-main-nav__top-link').setAttribute('aria-expanded', 'false');
+        
       }, 500);
 
     }

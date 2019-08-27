@@ -13,6 +13,7 @@
     {% for item in utilityNav.items %}
       <li id="{{ item.id }}" class="ma__utility-nav__item js-util-nav-toggle">
       <button 
+          type="button"
           class="ma__utility-nav__link js-util-nav-toggle"
           aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
           {{ icon(item.icon) }}
@@ -33,7 +34,7 @@
               {% include "@organisms/by-template/utility-panel.twig" %}
               {% endfor %}
             </div>
-            <button class="ma__utility-nav__close js-close-util-nav"><span>{{ item.closeText }}</span><span class="ma__utility-nav__close-icon" aria-hidden="true">+</span></button>
+            <button type="button" class="ma__utility-nav__close js-close-util-nav"><span>{{ item.closeText }}</span><span class="ma__utility-nav__close-icon" aria-hidden="true">+</span></button>
           </div>
         </div>
       </li>
