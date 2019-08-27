@@ -87,7 +87,7 @@ if (null !== searchForm) {
     if (item.classList.contains("submenu-open")) {
       item.classList.remove("submenu-open");
       itemButton.setAttribute('aria-expanded', 'false');
-
+      itemButton.setAttribute('aria-label', 'show menu');
       item.style.pointerEvents = "none";
 
       setTimeout(function timeoutFunction() {
@@ -97,7 +97,7 @@ if (null !== searchForm) {
       item.classList.add("submenu-open");
       itemButton.setAttribute('aria-expanded', 'true');
       item.style.pointerEvents = "none";
-
+      itemButton.setAttribute('aria-label', 'hide menu');
       setTimeout(function timeoutFunction() {
         item.removeAttribute('style');
       }, 700);
@@ -149,6 +149,7 @@ if (null !== searchForm) {
         subMenu.style.height = "0";
         itemButton.parentElement.classList.remove('submenu-open');
         itemButton.setAttribute('aria-expanded', 'false');
+        itemButton.setAttribute('aria-label', 'show menu');
 
         setTimeout(function timeoutFunction() {
           subMenu.classList.add('is-closed');
@@ -165,6 +166,7 @@ if (null !== searchForm) {
       subMenu.style.height = "0";
       item.classList.remove('submenu-open');
       itemButton.setAttribute('aria-expanded', 'false');
+      itemButton.setAttribute('aria-label', 'show menu');
 
       setTimeout(function timeoutFunction() {
         subMenu.classList.add('is-closed');
@@ -249,6 +251,7 @@ function closeSubMenus(item) {
         siblings[i].querySelector('.js-main-nav__container').style.opacity = "0";
         siblings[i].classList.remove('submenu-open');
         siblings[i].querySelector('.js-main-nav__top-link').setAttribute('aria-expanded', 'false');
+        siblings[i].querySelector('.js-main-nav__top-link').setAttribute('aria-label', 'show menu');
         
       }, 500);
 
