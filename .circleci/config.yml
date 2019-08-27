@@ -223,6 +223,7 @@ jobs:
     <<: *react_defaults
     steps:
       - checkout
+      - add_ssh_keys
       - run:
           name: 'Auto add changelog for dependabot'
           command: |
