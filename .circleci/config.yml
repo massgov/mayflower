@@ -224,6 +224,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - *configure_npm
       - run:
           name: 'Auto add changelog for dependabot'
           command: |
