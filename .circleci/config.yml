@@ -223,11 +223,12 @@ jobs:
     <<: *react_defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: .
       - run:
           name: 'Auto add changelog for dependabot'
           command: |
             pwd
+            ls -a
             chmod +x dependabot.sh
             dependabot.sh
 
