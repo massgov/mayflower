@@ -7,3 +7,4 @@ git config user.email "clairesunstudio@gmail.com"
 git config user.name "circleci"
 git remote add origin git@github.com:massgov/mayflower.git
 git push -u origin $branch
+echo "Push to repo";
