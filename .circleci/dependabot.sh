@@ -4,7 +4,7 @@ lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev
 
 if [ "$lastCommit" = "$lastDependabot" ]
 then
-  lastCommit | tee -a  changelogs/dependabot.md
+  echo "- [Dependencies] $lastCommit" >> changelogs/dependabot.md
   git add changelogs/dependabot.md
   git commit -m "Add changelog to changelogs/dependabot.md"
   echo "Commit dependabot changelog";
