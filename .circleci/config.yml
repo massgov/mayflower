@@ -226,13 +226,7 @@ jobs:
       - run:
           name: 'Auto add changelog for dependabot'
           command: |
-            cd react
-            ls -a
-            cd ..
-            ls -a
-            pwd
-            ls -a
-            chmod +x dependabot.sh
+            chmod 744 dependabot.sh
             dependabot.sh
 
 workflows:
