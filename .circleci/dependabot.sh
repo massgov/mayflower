@@ -6,10 +6,10 @@ if [ "$lastCommit" = "$lastDependabot" ]
 then
   lastCommit | tee -a  changelogs/dependabot.md
   git add changelogs/dependabot.md
-  git commit -m "Add changelog to branch"
-  echo "Commit changelog";
+  git commit -m "Add changelog to changelogs/dependabot.md"
+  echo "Commit dependabot changelog";
   git remote add origin git@github.com:massgov/mayflower.git
   git push -u origin $branch
 else
-  echo "Nothing to commit"
+  echo "No changelog added"
 fi
