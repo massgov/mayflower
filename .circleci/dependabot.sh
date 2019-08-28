@@ -1,6 +1,13 @@
 branch=$(git branch | grep \* | cut -d ' ' -f2)
-lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1)
+lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1)
+
+if [[ $lastCommit =~ "/react" ]]; then
+  lastCommit="(React) $lastCommit"
+fi
+if [[ $lastCommit =~ "/patternlab" ]]; then
+  lastCommit="(Patternlab) $lastCommit"
+fi
 
 if [ "$lastCommit" = "$lastDependabot" ]
 then
