@@ -1,0 +1,21 @@
+.ma__campaign-feature-2up {
+
+  &__wrapper {
+    @include ma-container;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__card {
+    flex-basis: 48%;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__text {
+    color: $c-black;
+    font-weight: normal;
+  }
+}

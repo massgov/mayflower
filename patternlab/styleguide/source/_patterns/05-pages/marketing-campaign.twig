@@ -1,0 +1,16 @@
+{% extends '@templates/01-content-types/marketing-campaign.twig' %}
+
+{% block preContent %}
+  {% set campaignFullWidthHeader = preContent.campaignFullWidthHeader %}
+  {% include "@organisms/by-template/campaign-full-width-header.twig" %}
+{% endblock %}
+
+{% block pageContent %}
+    {% set richText = pageContent.textBreak %}
+    {% include "@organisms/by-author/rich-text.twig" %}
+
+    {% set campaignFullWidthHeader = pageContent.campaignFullWidthHeader %}
+    {% include "@organisms/by-template/campaign-full-width-header.twig" %}
+{% endblock %}
+
+{% block postContent %}{% endblock %}

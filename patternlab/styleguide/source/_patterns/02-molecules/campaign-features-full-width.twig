@@ -1,0 +1,30 @@
+{% set bgImage = campaignFullWidthFeature.bgImage %}
+
+<div id="{{campaignFullWidthFeature.id}}" class="ma__campaign-feature-full-width">
+  {% if bgImage %}
+    <style>
+      .ma__campaign-feature-full-width {
+        background-image: url('{{ bgImage }}');
+      }
+
+      {% if campaignFullWidthFeature.mobileBgImage %}
+      @media (-webkit-min-device-pixel-ratio: 2) {
+        .ma__campaign-feature-full-width {
+          background-image: url('{{ campaignFullWidthFeature.mobileBgImage }}');
+        }
+      }
+      {% endif %}
+    </style>
+  {% endif %}
+  <a class="ma__campaign-feature-full-width__wrapper" href="{{campaignFullWidthFeature.link}}">
+    <h2 class="ma__campaign-feature-full-width__title">{{ campaignFullWidthFeature.title }}</h2>
+    <div class="ma__campaign-feature-full-width__content">
+      <div class="ma__campaign-feature-full-width__thumbnail">
+        <img src="{{campaignFullWidthFeature.thumbnail}}" alt="">
+      </div>
+      <div class="ma__campaign-feature-full-width__text">
+        {{campaignFullWidthFeature.text}}
+      </div>
+    </div>
+  </a>
+</div>
