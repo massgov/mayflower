@@ -16,9 +16,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ## 9.22.0 (08/28/2019)
 
 ### Added
-- (Patternlab) [FullWidthCampaignHeader] DP-15512: Version 1 of the Full Width Campaign Full Width Header
-- (Patternlab) [CampaignVideo] DP-15564: Add campaign video component
-- (Patternlab) [CampaignFeature] DP-15583: Adds campaign feature molecules and organism
+- (Patternlab) [FullWidthCampaignHeader] DP-15512: Version 1 of the Full Width Campaign Full Width Header #715
+- (Patternlab) [CampaignVideo] DP-15564: Add campaign video component #716
+- (Patternlab) [CampaignFeature] DP-15583: Adds campaign feature molecules and organism #717
 - (React) [Icon] DP-15599: Added social media icons into Icon component options and added option to set icon fill color #712
 - (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks <a> to follow best practices for Screen Readers. #712
 
