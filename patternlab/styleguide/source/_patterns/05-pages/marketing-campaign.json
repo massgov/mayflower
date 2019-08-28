@@ -4,8 +4,7 @@
       "id": "abc1",
       "positionTop": true,
       "compHeading": {
-        "title": "Training and Professional Development",
-        "level": "1"
+        "title": "Training and Professional Development"
       },
       "bgImage": "../../assets/images/placeholder/1600x800.png",
       "mobileBgImage": "../../assets/images/placeholder/800x400.png",
@@ -32,7 +31,7 @@
       "backgroundColor": "",
       "textColor": "",
       "title": "Why work for the commonwealth",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       "video": {
         "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
         "link": {
