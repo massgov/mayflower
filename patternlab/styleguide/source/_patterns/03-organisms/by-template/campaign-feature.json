@@ -1,10 +1,13 @@
 {
   "campaignFeature": {
-    "title": "Featured Campaign Tile",
+    "title": "",
+    "compHeading": {
+      "title": "Featured Campaign Tile"
+    },
     "positionTop": true,
     "campaignFullWidthFeature": {
       "id": "dfg1234",
-      "positionTop": true,
+      
       "link": "#",
       "bgImage": "../../assets/images/placeholder/1600x800.png",
       "mobileBgImage": "../../assets/images/placeholder/800x400.png",

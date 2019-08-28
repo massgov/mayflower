@@ -1,7 +1,11 @@
 {
   "keyMessage": {
-    "id": "2",
+    "id": "abc2",
     "positionTop": false,
+    "compHeading": {
+      "title": "Training and Professional Development",
+      "level": "2"
+    },
     "backgroundColor": "bay-blue",
     "bgImage": "",
     "mobileBgImage": "",

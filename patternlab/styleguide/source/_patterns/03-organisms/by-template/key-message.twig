@@ -21,8 +21,8 @@
   {% endif %}
 
   <div class="ma__key-message--wrapper">
-    {% set headingLevel = keyMessage.positionTop ? 1 : 2 %}
-    <h{{ headingLevel }} class="ma__key-message--title">{{ keyMessage.title }}</h{{ headingLevel }}>
+    {% set headingLevel = keyMessage.positionTop ? 1 : keyMessage.compHeading.level %}
+    <h{{ headingLevel }} class="ma__key-message--title">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
 
     {% if keyMessage.subtitle %}
     <span class="ma__key-message--sub-title">{{ keyMessage.subtitle }}</span>
