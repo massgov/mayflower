@@ -5,3 +5,4 @@ Security
 Changed\n- [Dependency] test key
 Changed\n- [Dependency] Add changelog to changelogs/dependabot.md
 Changed\n- [Dependency] Add changelog to changelogs/dependabot.md
+Changed\n- [Dependency] Add changelog to changelogs/dependabot.md
