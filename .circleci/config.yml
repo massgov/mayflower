@@ -227,6 +227,8 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - a7:d5:55:42:fe:37:52:b6:71:7c:a6:d8:05:78:fd:25
+      - run:
+          command: echo DELOY_KEY
       - *configure_git
       - run:
           name: 'Auto add changelog for dependabot'
