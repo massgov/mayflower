@@ -12,3 +12,4 @@ Changed\n- [Dependency] Add changelog to changelogs/dependabot.md
 Changed\n- [Dependency] Add changelog to changelogs/dependabot.md
 Changed\n- [Dependency] Add changelog to changelogs/dependabot.md
 Changed\n- [Dependency] Add changelog to changelogs/dependabot.md
+Changed\n- [Dependency] Merge branch 'auto-dependabot-changelog' of github.com:massgov/mayflower into auto-dependabot-changelog
