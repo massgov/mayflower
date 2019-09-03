@@ -230,9 +230,7 @@ jobs:
       - *configure_git
       - run:
           name: 'Auto add changelog for dependabot'
-          command: |
-            chmod +x ./.circleci/dependabot.sh
-            ./.circleci/dependabot.sh
+          command: ./.circleci/dependabot.sh
 
 workflows:
   version: 2
