@@ -21,9 +21,9 @@ if [ "$lastCommit" ]
 then
   echo "$commitType\n- [Dependency] $lastCommit" >> changelogs/dependabot.md
   git add changelogs/dependabot.md
-  git commit -m "Add changelog to changelogs/dependabot.md"
-  echo "Commit dependabot changelog";
-  git push -u origin $branch
+  # git commit -m "Add changelog to changelogs/dependabot.md"
+  # echo "Commit dependabot changelog";
+  # git push -u origin $branch
 else
   echo "No changelog added"
 fi
