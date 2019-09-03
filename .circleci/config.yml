@@ -238,9 +238,7 @@ workflows:
   # Executed on branch pushes.
   build_branch:
     jobs:
-      - auto_changelog:
-          filters:
-            branches: { only: /dependabot\/.*/ }
+      - auto_changelog
       - patternlab_build:
           filters:
             branches: { ignore: /docs\-.*/ }
