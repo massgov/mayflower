@@ -229,9 +229,9 @@ jobs:
             - $DELOY_KEY
       - run:
           command: |
-          echo $DELOY_KEY
-          echo ${DELOY_KEY}
-          echo "${DELOY_KEY}"
+            echo $DELOY_KEY
+            echo ${DELOY_KEY}
+            echo "${DELOY_KEY}"
       - *configure_git
       - run:
           name: 'Auto add changelog for dependabot'
