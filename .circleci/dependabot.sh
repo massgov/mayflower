@@ -23,7 +23,6 @@ then
   git add changelogs/dependabot.md
   git commit -m "Add changelog to changelogs/dependabot.md"
   echo "Commit dependabot changelog";
-  git remote add origin git@github.com:massgov/mayflower.git
   git push -u origin $branch
 else
   echo "No changelog added"
