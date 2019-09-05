@@ -96,6 +96,16 @@
     }
   }
 
+  &__expand-button {
+    .ma__button-icon, .ma__button-icon:hover {
+      &.ma__button-icon--expanded, &.ma__button-icon--quaternary-simple, &.ma__button-icon--quaternary-simple:hover {
+        padding: 0px;
+        font-size: 19px;
+        background-color: transparent
+      }
+    }
+  }
+
   &__expand {
     > button {
       @include ma-button-reset;
