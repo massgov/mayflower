@@ -18,7 +18,7 @@
     .ma__link-dropdown-item {
       display: block;
       width: 100%;
-      padding: 5px 7px 5px 5px;
+      padding: 5px calc(5px + 0.8em) 5px 5px;
       font-size: 1rem;
       text-align: inherit;
       white-space: nowrap;
