@@ -226,13 +226,13 @@ jobs:
       - *no_host_check
       - add_ssh_keys:
           fingerprints:
-            - DELOY_KEY
+            - DEPLOY_KEY
       - run:
           command: |
-            echo DELOY_KEY
-            echo $DELOY_KEY
-            echo ${DELOY_KEY}
-            echo "${DELOY_KEY}"
+            echo DEPLOY_KEY
+            echo $DEPLOY_KEY
+            echo ${DEPLOY_KEY}
+            echo "${DEPLOY_KEY}"
       - *configure_git
       - run:
           name: 'Auto add changelog for dependabot'
