@@ -1,10 +1,10 @@
 @import 'global';
+@import '00-base/mixins';
 @import "01-atoms/button-search";
 
 .ma__button-icon {
   background-color: $c-white;
-  border: 2px solid;
-  border-color: $c-gray-light;
+  border: 2px solid $c-gray-light;
   display: inline-block;
   font-size: 14px;
   font-weight: 700;
@@ -16,16 +16,23 @@
   white-space: nowrap;
   color: $c-primary-alt;
 
-  &.ma__button-capitalized {
+  &--c-white {
+    color: $c-white;
+  }
+  &--c-highlight {
+    color: $c-highlight;
+  }
+  &--c-gray-dark {
+    color: $c-gray-dark;
+  }
+  &--c-primary {
+    color: $c-primary;
+  }
+
+  &--capitalized {
     text-transform: capitalize;
     font-size: 16px;
     letter-spacing: $letter-spacing-small;
-  }
-
-  &--expandable {
-    & > svg {
-      width: 25px;
-    }
   }
 
   &--expanded {
@@ -48,21 +55,199 @@
     transition: fill .4s;
   }
 
-  &.ma__icon-green > svg {
-    fill: $c-primary-alt;
+  &.ma__icon {
+    &--c-white > svg {
+      fill: $c-white;
+    }
+    &--c-primary-alt > svg {
+      fill: $c-primary-alt;
+    }
+    &--c-primary > svg {
+      fill: $c-primary;
+    }
+    &--c-highlight > svg {
+      fill: $c-highlight;
+    }
   }
 
   &.ma__icon-small > svg {
     height: 10px;
   }
 
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
   &--expanded, &:hover {
-    background-color: $c-primary-alt;
-    border-color: $c-primary-alt;
     color: $c-white;
     svg {
       fill: $c-white;
     }
+    &.ma__button-icon {
+      @include ma-button("normal","solid",$c-primary-alt);
+      &--c-primary {
+        @include ma-button("normal","solid",$c-primary);
+      }
+      &--c-highlight {
+        @include ma-button("normal","solid",$c-highlight);
+      }
+      &--c-gray-dark {
+        @include ma-button("normal","solid",$c-gray-dark);
+      }
+    }
   }
 
+  &--secondary, &--expanded.ma__button-icon--secondary, &:hover.ma__button-icon--secondary {
+    @include ma-button("normal","outline",$c-primary-alt);
+    svg {
+      fill: $c-primary-alt;
+    }
+    &:hover {
+      svg {
+        fill: $c-white;
+      }
+    }
+    &.ma__button-icon {
+      &--c-primary {
+        @include ma-button("normal","outline",$c-primary);
+        svg {
+          fill: $c-primary;
+        }
+        &:hover {
+          svg {
+            fill: $c-white;
+          }
+        }
+      }
+      &--c-highlight {
+        @include ma-button("normal","outline",$c-highlight);
+        svg {
+          fill: $c-highlight;
+        }
+        &:hover {
+          svg {
+            fill: $c-white;
+          }
+        }
+      }
+      &--c-gray-dark {
+        @include ma-button("normal","outline",$c-gray-dark);
+        svg {
+          fill: $c-gray-dark;
+        }
+        &:hover {
+          svg {
+            fill: $c-white;
+          }
+        }
+      }
+    }
+  }
+
+  &--tertiary, &--expanded.ma__button-icon--tertiary, &:hover.ma__button-icon--tertiary {
+    @include ma-button("normal","solid",$c-gray-light);
+    color: $c-black;
+    svg {
+      fill: $c-black;
+    }
+  }
+
+  &--quaternary, &--expanded.ma__button-icon--quaternary, &:hover.ma__button-icon--quaternary {
+    min-height: 30px;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    text-transform: none;
+    border-bottom: 2px solid rgba($c-primary-alt,0.75);
+    color: $c-primary-alt;
+
+    &:hover {
+      border-bottom: 3px solid $c-primary-alt;
+      background-color: transparent;
+    }
+
+    svg {
+      fill: rgba($c-primary-alt,0.75);
+    }
+
+    &.ma__button-icon {
+      &--c-primary {
+        border-bottom-color: rgba($c-primary,0.75);
+        color: $c-primary;
+        svg {
+          fill: rgba($c-primary,0.75);
+        }
+        &:hover {
+          border-bottom-color: $c-primary;
+        }
+      }
+      &--c-highlight {
+        border-bottom-color: rgba($c-highlight,0.75);
+        color: $c-highlight;
+        svg {
+          fill: rgba($c-highlight,0.75);
+        }
+        &:hover {
+          border-bottom-color: $c-highlight;
+        }
+      }
+      &--c-gray-dark {
+        border-bottom-color: rgba($c-gray-dark,0.75);
+        color: $c-gray-dark;
+        svg {
+          fill: rgba($c-gray-dark,0.75);
+        }
+        &:hover {
+          border-bottom-color: $c-gray-dark;
+        }
+      }
+    }
+  }
+
+  &--expanded.ma__button-icon--quaternary-simple, &:hover.ma__button-icon--quaternary-simple:hover {
+    background-color: $c-gray-light;
+  }
+
+  &--quaternary-simple {
+    background-color: transparent;
+  }
+
+  &--quaternary-simple, &--expanded.ma__button-icon--quaternary-simple, &:hover.ma__button-icon--quaternary-simple:hover {
+    min-height: unset;
+    box-shadow: none;
+    border: none;
+    padding: 5px 5px;
+    text-transform: none;
+    color: $c-primary-alt;
+    cursor: pointer;
+
+    svg {
+      fill: rgba($c-primary-alt,0.75);
+      width: 10px;
+      height: 10px;
+    }
+
+    &.ma__button-icon {
+      &--c-primary {
+        color: $c-primary;
+        svg {
+          fill: rgba($c-primary,0.75);
+        }
+      }
+      &--c-highlight {
+        color: $c-highlight;
+        svg {
+          fill: rgba($c-highlight,0.75);
+        }
+      }
+      &--c-gray-dark {
+        color: $c-gray-dark;
+        svg {
+          fill: rgba($c-gray-dark,0.75);
+        }
+      }
+    }
+  }
 }

@@ -15,26 +15,26 @@ class ButtonWithIcon extends React.Component {
   }
   render() {
     const {
-      classes, canExpand, expanded, capitalized, iconSize, iconColor, icon, type, usage, ariaLabel
+      classes, expanded, capitalized, iconSize, iconColor, icon, type, usage, ariaLabel, theme
     } = this.props;
     const buttonClasses = classNames({
       'ma__button-icon': true,
-      'ma__button-icon--expandable': canExpand,
-      'ma__button-icon--expanded': canExpand && expanded,
-      'ma__button-capitalized': capitalized,
+      'ma__button-icon--expanded': expanded,
+      'ma__button-icon--capitalized': capitalized,
       'ma__icon-small': iconSize === 'small' || icon.props.name === 'chevron',
-      'ma__icon-green': iconColor,
+      [`ma__icon--${iconColor}`]: iconColor,
       'ma__button-search': icon.props.name === 'search',
       'ma__button-search--secondary': icon.props.name === 'search' && usage === 'secondary',
+      [`ma__button-icon--${theme}`]: theme,
+      [`ma__button-icon--${usage}`]: usage,
       [classes.join(' ')]: classes
     });
     const buttonProps = {
-      type,
+      ...this.props,
       className: buttonClasses,
       onClick: this.handleClick,
       tabIndex: 0
     };
-    if (ariaLabel && ariaLabel !== '') { buttonProps['aria-label'] = ariaLabel; }
     return(
       <button {...buttonProps} ref={this.props.setButtonRef} >
         <span>{this.props.text}</span>
@@ -45,6 +45,8 @@ class ButtonWithIcon extends React.Component {
 }
 
 ButtonWithIcon.propTypes = {
+  /** id for the button */
+  id: PropTypes.string,
   // Function to run on click of the button.
   onClick: PropTypes.func,
   // Sets a reference to the button onto the passed node.
@@ -57,8 +59,6 @@ ButtonWithIcon.propTypes = {
   classes: PropTypes.arrayOf(PropTypes.string),
   // Icon to display within the button.
   icon: PropTypes.element,
-  // If true, button can expand and add expandable class.
-  canExpand: PropTypes.bool,
   // Adds expanded class to button if true.
   expanded: PropTypes.bool,
   // Adds capitalized class to button if true.
@@ -66,13 +66,17 @@ ButtonWithIcon.propTypes = {
   // Defines the size, default size fits the most square icons and "small" setting is specific for the chevron icon.
   iconSize: PropTypes.oneOf(['', 'small']),
   // Defines the fill color of the svg, default color is $c-gray-light.
-  iconColor: PropTypes.oneOf(['', 'green']),
+  iconColor: PropTypes.oneOf(['', 'c-primary','c-primary-alt', 'c-highlight', 'c-white']),
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
    * button's functionality. */
-  ariaLabel: PropTypes.string,
+  'aria-label': PropTypes.string,
+  /** Themes correspond to site color scheme i.e. sass variables */
+  theme: PropTypes.oneOf(['', 'c-primary', 'c-highlight', 'c-gray-dark']),
   /** Button usage */
-  usage: PropTypes.oneOf(['', 'secondary'])
+  usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary', 'quaternary-simple']),
+  /** Whether the button has a popup or not */
+  'aria-haspopup': PropTypes.bool
 };
 
 ButtonWithIcon.defaultProps = {
@@ -80,12 +84,13 @@ ButtonWithIcon.defaultProps = {
   type: 'submit',
   classes: [],
   icon: <Icon name="search" svgHeight={20} svgWidth={20} />,
-  canExpand: false,
   capitalized: false,
   iconSize: '',
   iconColor: '',
   ariaLabel: '',
-  usage: ''
+  usage: '',
+  theme: '',
+  'aria-haspopup': false
 };
 
 export default ButtonWithIcon;
