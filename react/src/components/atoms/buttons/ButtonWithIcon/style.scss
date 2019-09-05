@@ -254,7 +254,7 @@
     cursor: pointer;
 
     svg {
-      fill: rgba($c-primary-alt,0.75);
+      fill: rgba($c-primary-alt,0.5);
       width: 10px;
       height: 10px;
     }
@@ -263,25 +263,25 @@
       &--c-primary {
         color: $c-primary;
         svg {
-          fill: rgba($c-primary,0.75);
+          fill: rgba($c-primary,0.5);
         }
       }
       &--c-highlight {
         color: $c-highlight;
         svg {
-          fill: rgba($c-highlight,0.75);
+          fill: rgba($c-highlight,0.5);
         }
       }
       &--c-gray-dark {
         color: $c-gray-dark;
         svg {
-          fill: rgba($c-gray-dark,0.75);
+          fill: rgba($c-gray-dark,0.5);
         }
       }
       &--c-black {
         color: $c-black;
         svg {
-          fill: rgba($c-black,0.75);
+          fill: rgba($c-black,0.5);
         }
       }
     }
