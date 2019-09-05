@@ -62,7 +62,7 @@ export Table from './components/atoms/table/Table';
 export Paragraph from './components/atoms/text/Paragraph';
 export PublishState from './components/atoms/text/PublishState';
 // @atoms/@time
-export OperationalHours from './components/atoms/time/OperationalHours';
+export OperationalHours from './components/atoms/contact/OperationalHours';
 
 // @molecules
 export Link from './components/molecules/Link';
