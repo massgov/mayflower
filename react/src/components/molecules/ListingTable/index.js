@@ -57,10 +57,10 @@ class ListingTableItem extends React.Component {
                 theme="c-primary"
                 usage="quaternary-simple"
                 type="button"
-                icon={<Icon name="chevron" svgHeight={20} svgWidth={20}/>}
+                icon={<Icon name="chevron" svgHeight={20} svgWidth={20} />}
                 onClick={(e) => this.handleClick(e)}
                 expanded={this.state.open}
-                capitalized={true}
+                capitalized
               />
             </div>
           )}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import ButtonAlert from './index';
 import ButtonAlertDocs from './ButtonAlert.md';
 import buttonWithIconOptions from '../ButtonWithIcon/ButtonWithIcon.knobs.options';

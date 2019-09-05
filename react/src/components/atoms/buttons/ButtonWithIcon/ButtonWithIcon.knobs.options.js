@@ -3,7 +3,7 @@ export default {
     default: '',
     small: 'small'
   },
-  color:{
+  color: {
     'no theme i.e. c-gray-dark': '',
     'c-primary': 'c-primary',
     'c-primary-alt': 'c-primary-alt',
@@ -31,5 +31,5 @@ export default {
     'c-highlight': 'c-highlight',
     'c-gray-dark': 'c-gray-dark',
     'c-black': 'c-black'
-  },
+  }
 };

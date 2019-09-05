@@ -42,7 +42,7 @@ class LinkDropdown extends React.Component {
     const { target } = event;
     this.setState({ buttonExpand: false });
     if (is.fn(this.props.onItemSelect)) {
-      this.props.onItemSelect({target});
+      this.props.onItemSelect({ target });
     }
   }
   handleClickOutside(event) {
@@ -55,8 +55,9 @@ class LinkDropdown extends React.Component {
     }
   }
   render() {
-    const dropdownButton = {
-      ...this.props.dropdownButton,
+    const { dropdownItems, dropdownButton } = this.props;
+    const dropdownButtonProps = {
+      ...dropdownButton,
       onClick: this.handleClick,
       setButtonRef: this.setDropDownButtonRef,
       expanded: this.state.buttonExpand,
@@ -74,13 +75,13 @@ class LinkDropdown extends React.Component {
       'ma__link-dropdown-item': true,
       'ma__link-dropdown-item--expanded': this.state.buttonExpand
     });
-    const { dropdownItem, dropdown, dropdownMenu } = this.props;
+
     return(
-      <div {...dropdown} ref={this.wrapperRef} className={dropdownClasses}>
-        <ButtonWithIcon {...dropdownButton} />
+      <div ref={this.wrapperRef} className={dropdownClasses}>
+        <ButtonWithIcon {...dropdownButtonProps} />
         {this.state.buttonExpand && (
-          <div {...dropdownMenu} className={dropdownMenuClasses} aria-labbelledby={this.props.dropdownButton.id}>
-            {this.props.dropdownItems.map((item) => <DecorativeLink {...item} className={dropdownItemClasses} onClick={this.handleSelect} />)}
+          <div className={dropdownMenuClasses} aria-labelledby={dropdownButtonProps.id}>
+            {dropdownItems.map((item) => <DecorativeLink {...item} className={dropdownItemClasses} onClick={this.handleSelect} />)}
           </div>
         )}
       </div>

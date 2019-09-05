@@ -1,13 +1,14 @@
 import React from 'react';
-import is from 'is';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonWithIcon from '../ButtonWithIcon';
 import Icon from '../../icons/Icon';
-//import './style.css';
+// import './style.css';
 
 const ButtonAlert = (props) => {
-  const { text, hideText, showText, classes, isOpen, ...rest } = props;
+  const {
+    text, hideText, showText, classes, isOpen, ...rest
+  } = props;
   const buttonClasses = classNames({
     'ma__button-alert': true,
     [`${classes}`]: (classes && classes.length > 0),

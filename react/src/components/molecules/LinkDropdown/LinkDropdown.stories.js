@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, object, optionsKnob, select } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import LinkDropdown from '.';
@@ -11,23 +11,23 @@ storiesOf('molecules', module)
   .add('LinkDropdown', (() => {
     const props = {
       dropdownButton: {
-        text: text('text', 'Add to calendar','dropdownButton'),
-        theme: select('theme', buttonWithIconOptions.theme, 'c-primary','dropdownButton'),
-        usage: select('usage', buttonWithIconOptions.usage,'quaternary-simple','dropdownButton'),
-        id: text('id','dropdownbutton-simple','dropdownButton'),
-        'aria-haspopup': boolean('aria-haspopup',true,'dropdownButton'),
-        capitalized: boolean('capitalized',true,'dropdownButton')
+        text: text('text', 'Add to calendar', 'dropdownButton'),
+        theme: select('theme', buttonWithIconOptions.theme, 'c-primary', 'dropdownButton'),
+        usage: select('usage', buttonWithIconOptions.usage, 'quaternary-simple', 'dropdownButton'),
+        id: text('id', 'dropdownbutton-simple', 'dropdownButton'),
+        'aria-haspopup': boolean('aria-haspopup', true, 'dropdownButton'),
+        capitalized: boolean('capitalized', true, 'dropdownButton')
       },
       dropdownItems: object('dropdownItems', [{
         text: 'Google Calendar',
         href: '#'
-      },{
+      }, {
         text: 'Outlook Calendar',
         href: '#'
-      }],'dropdownItems'),
+      }], 'dropdownItems'),
       onItemSelect: action('onItemSelect onClick')
     };
     return(
-      <LinkDropdown {...props}/>
+      <LinkDropdown {...props} />
     );
   }));
