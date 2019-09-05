@@ -28,6 +28,9 @@
   &--c-primary {
     color: $c-primary;
   }
+  &--c-black {
+    color: $c-black;
+  }
 
   &--capitalized {
     text-transform: capitalize;
@@ -37,7 +40,7 @@
 
   &--expanded {
     & > svg {
-      transform: rotate(180deg);
+      transform: rotate(-180deg);
     }
   }
 
@@ -52,7 +55,7 @@
     vertical-align: middle;
     fill: $c-gray-dark;
     height: 20px;
-    transition: fill .4s;
+    transition: transform .5s, fill .4s;
   }
 
   &.ma__icon {
@@ -67,6 +70,9 @@
     }
     &--c-highlight > svg {
       fill: $c-highlight;
+    }
+    &--c-black > svg {
+      fill: $c-black;
     }
   }
 
@@ -94,6 +100,9 @@
       }
       &--c-gray-dark {
         @include ma-button("normal","solid",$c-gray-dark);
+      }
+      &--c-black {
+        @include ma-button("normal","solid",$c-black);
       }
     }
   }
@@ -135,6 +144,17 @@
         @include ma-button("normal","outline",$c-gray-dark);
         svg {
           fill: $c-gray-dark;
+        }
+        &:hover {
+          svg {
+            fill: $c-white;
+          }
+        }
+      }
+      &--c-black {
+        @include ma-button("normal","outline",$c-black);
+        svg {
+          fill: $c-black;
         }
         &:hover {
           svg {
@@ -203,6 +223,16 @@
           border-bottom-color: $c-gray-dark;
         }
       }
+      &--c-black {
+        border-bottom-color: rgba($c-black,0.75);
+        color: $c-black;
+        svg {
+          fill: rgba($c-black,0.75);
+        }
+        &:hover {
+          border-bottom-color: $c-black;
+        }
+      }
     }
   }
 
@@ -248,6 +278,56 @@
           fill: rgba($c-gray-dark,0.75);
         }
       }
+      &--c-black {
+        color: $c-black;
+        svg {
+          fill: rgba($c-black,0.75);
+        }
+      }
     }
   }
+
+  &--alert {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: $letter-spacing-large;
+    line-height: 1;
+    padding: .4em;
+    padding-left: .7em;
+    padding-right: .8em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
+    min-height: unset;
+    border: none;
+    display: inline-block;
+    background-color: $c-primary-alt;
+    color: $c-white;
+
+    &.ma__button-icon > svg {
+      fill: rgba($c-white,.5);
+      width: 10px;
+    }
+
+
+    &.ma__button-icon {
+      &--c-primary {
+        background-color: $c-primary;
+      }
+      &--c-highlight {
+        background-color: $c-highlight;
+        color: $c-black;
+        &.ma__button-icon > svg {
+          fill: rgba($c-black,.5);
+        }
+      }
+      &--c-gray-dark {
+        background-color: $c-gray-dark;
+      }
+      &--c-black {
+        background-color: $c-black;
+      }
+    }
+  }
+
 }
