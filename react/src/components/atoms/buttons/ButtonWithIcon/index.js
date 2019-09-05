@@ -36,7 +36,7 @@ class ButtonWithIcon extends React.Component {
       tabIndex: 0
     };
     return(
-      <button {...buttonProps} ref={this.props.setButtonRef} >
+      <button {...buttonProps} ref={this.props.setButtonRef} aria-expanded={expanded}>
         <span>{this.props.text}</span>
         {this.props.icon}
       </button>
@@ -87,7 +87,7 @@ ButtonWithIcon.defaultProps = {
   capitalized: false,
   iconSize: '',
   iconColor: '',
-  ariaLabel: '',
+  'aria-label': '',
   usage: '',
   theme: '',
   'aria-haspopup': false
