@@ -2,6 +2,50 @@
 @import '00-base/mixins';
 @import "01-atoms/button-search";
 
+$colors: (
+  "c-highlight": $c-highlight,
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-black": $c-black,
+  "c-gray-dark": $c-gray-dark,
+  "c-white": $c-white
+);
+@mixin ma-button-icon-secondary ($color: $c-primary-alt) {
+  svg {
+    fill: $color;
+  }
+  &:hover {
+    svg {
+      fill: $c-white;
+    }
+  }
+}
+@mixin ma-button-icon-quaternary ($color: $c-primary-alt) {
+  border-bottom-color: rgba($color,0.75);
+  color: $color;
+  svg {
+    fill: rgba($color,0.75);
+  }
+  &:hover {
+    border-bottom-color: $color;
+  }
+}
+@mixin ma-button-icon-quaternary-simple ($color: $c-primary-alt) {
+  color: $color;
+  svg {
+    fill: rgba($color,0.5);
+  }
+}
+@mixin ma-button-icon-alert ($color: $c-primary-alt) {
+  background-color: $color;
+  @if $color == $c-highlight {
+    color: $c-black;
+    &.ma__button-icon > svg {
+      fill: rgba($c-black,.5);
+    }
+  }
+}
+
 .ma__button-icon {
   background-color: $c-white;
   border: 2px solid $c-gray-light;
@@ -16,20 +60,10 @@
   white-space: nowrap;
   color: $c-primary-alt;
 
-  &--c-white {
-    color: $c-white;
-  }
-  &--c-highlight {
-    color: $c-highlight;
-  }
-  &--c-gray-dark {
-    color: $c-gray-dark;
-  }
-  &--c-primary {
-    color: $c-primary;
-  }
-  &--c-black {
-    color: $c-black;
+  @each $class, $c in $colors {
+    &--#{$class} {
+      color: $c;
+    }
   }
 
   &--capitalized {
@@ -58,21 +92,9 @@
     transition: transform .5s, fill .4s;
   }
 
-  &.ma__icon {
-    &--c-white > svg {
-      fill: $c-white;
-    }
-    &--c-primary-alt > svg {
-      fill: $c-primary-alt;
-    }
-    &--c-primary > svg {
-      fill: $c-primary;
-    }
-    &--c-highlight > svg {
-      fill: $c-highlight;
-    }
-    &--c-black > svg {
-      fill: $c-black;
+  @each $class, $c in $colors {
+    &.ma__icon--#{$class} > svg {
+      fill: $c;
     }
   }
 
@@ -92,17 +114,10 @@
     }
     &.ma__button-icon {
       @include ma-button("normal","solid",$c-primary-alt);
-      &--c-primary {
-        @include ma-button("normal","solid",$c-primary);
-      }
-      &--c-highlight {
-        @include ma-button("normal","solid",$c-highlight);
-      }
-      &--c-gray-dark {
-        @include ma-button("normal","solid",$c-gray-dark);
-      }
-      &--c-black {
-        @include ma-button("normal","solid",$c-black);
+    }
+    @each $class, $c in $colors {
+      &.ma__button-icon--#{$class} {
+        @include ma-button("normal","solid",$c);
       }
     }
   }
@@ -117,50 +132,10 @@
         fill: $c-white;
       }
     }
-    &.ma__button-icon {
-      &--c-primary {
-        @include ma-button("normal","outline",$c-primary);
-        svg {
-          fill: $c-primary;
-        }
-        &:hover {
-          svg {
-            fill: $c-white;
-          }
-        }
-      }
-      &--c-highlight {
-        @include ma-button("normal","outline",$c-highlight);
-        svg {
-          fill: $c-highlight;
-        }
-        &:hover {
-          svg {
-            fill: $c-white;
-          }
-        }
-      }
-      &--c-gray-dark {
-        @include ma-button("normal","outline",$c-gray-dark);
-        svg {
-          fill: $c-gray-dark;
-        }
-        &:hover {
-          svg {
-            fill: $c-white;
-          }
-        }
-      }
-      &--c-black {
-        @include ma-button("normal","outline",$c-black);
-        svg {
-          fill: $c-black;
-        }
-        &:hover {
-          svg {
-            fill: $c-white;
-          }
-        }
+    @each $class, $c in $colors {
+      &.ma__button-icon--#{$class} {
+        @include ma-button("normal","outline",$c);
+        @include ma-button-icon-secondary($c);
       }
     }
   }
@@ -192,46 +167,9 @@
       fill: rgba($c-primary-alt,0.75);
     }
 
-    &.ma__button-icon {
-      &--c-primary {
-        border-bottom-color: rgba($c-primary,0.75);
-        color: $c-primary;
-        svg {
-          fill: rgba($c-primary,0.75);
-        }
-        &:hover {
-          border-bottom-color: $c-primary;
-        }
-      }
-      &--c-highlight {
-        border-bottom-color: rgba($c-highlight,0.75);
-        color: $c-highlight;
-        svg {
-          fill: rgba($c-highlight,0.75);
-        }
-        &:hover {
-          border-bottom-color: $c-highlight;
-        }
-      }
-      &--c-gray-dark {
-        border-bottom-color: rgba($c-gray-dark,0.75);
-        color: $c-gray-dark;
-        svg {
-          fill: rgba($c-gray-dark,0.75);
-        }
-        &:hover {
-          border-bottom-color: $c-gray-dark;
-        }
-      }
-      &--c-black {
-        border-bottom-color: rgba($c-black,0.75);
-        color: $c-black;
-        svg {
-          fill: rgba($c-black,0.75);
-        }
-        &:hover {
-          border-bottom-color: $c-black;
-        }
+    @each $class, $c in $colors {
+      &.ma__button-icon--#{$class} {
+        @include ma-button-icon-quaternary($c);
       }
     }
   }
@@ -259,30 +197,9 @@
       height: 10px;
     }
 
-    &.ma__button-icon {
-      &--c-primary {
-        color: $c-primary;
-        svg {
-          fill: rgba($c-primary,0.5);
-        }
-      }
-      &--c-highlight {
-        color: $c-highlight;
-        svg {
-          fill: rgba($c-highlight,0.5);
-        }
-      }
-      &--c-gray-dark {
-        color: $c-gray-dark;
-        svg {
-          fill: rgba($c-gray-dark,0.5);
-        }
-      }
-      &--c-black {
-        color: $c-black;
-        svg {
-          fill: rgba($c-black,0.5);
-        }
+    @each $class, $c in $colors {
+      &.ma__button-icon--#{$class} {
+        @include ma-button-icon-quaternary-simple($c);
       }
     }
   }
@@ -309,25 +226,12 @@
       width: 10px;
     }
 
-
-    &.ma__button-icon {
-      &--c-primary {
-        background-color: $c-primary;
-      }
-      &--c-highlight {
-        background-color: $c-highlight;
-        color: $c-black;
-        &.ma__button-icon > svg {
-          fill: rgba($c-black,.5);
-        }
-      }
-      &--c-gray-dark {
-        background-color: $c-gray-dark;
-      }
-      &--c-black {
-        background-color: $c-black;
+    @each $class, $c in $colors {
+      &.ma__button-icon--#{$class} {
+        @include ma-button-icon-alert($c);
       }
     }
+
   }
 
 }
