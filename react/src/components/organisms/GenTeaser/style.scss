@@ -200,6 +200,14 @@
       @media ($bp-small-min){
         flex-flow: row;
       }
+    .ma__link-dropdown {
+      padding-left: 1em;
+      position: relative;
+      top: -5px;
+      .ma__link-dropdown-menu {
+        position: fixed;
+      }
+    }
   }
 
   &__pimary {
@@ -251,5 +259,37 @@
     display: inline-block;
     vertical-align: middle;
     fill: $c-primary-alt;
+  }
+
+  &__infoitem {
+    font-size: 1rem;
+    .ma__contact {
+      &__details {
+        font-size: 0.9rem;
+      }
+    }
+    line-height: 1.2rem;
+    display: flex;
+    &-icon {
+      svg {
+        display: inline-block;
+        vertical-align: middle;
+        fill: $c-primary-alt;
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  &__tag {
+    color: $c-gray;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid $c-gray-light;
+    background-color: #FFFFFF;
+    padding: 0px 5px;
+    min-width: 60px;
+    display: inline-block;
+    margin-right: 0.5em;
   }
 }

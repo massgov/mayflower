@@ -22,7 +22,7 @@ const Address = (props) => {
         </div>
       )}
       { details && (
-        <p className="ma__address__details">{details}</p>
+        <p className="ma__contact__details">{details}</p>
       )}
     </span>
   );

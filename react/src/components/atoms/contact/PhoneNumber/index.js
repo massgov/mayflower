@@ -13,13 +13,14 @@ const formatPhoneNumber = (number) => {
 };
 
 const PhoneNumber = (props) => {
+  console.log(props)
   const { number, details } = props;
   const display = formatPhoneNumber(number);
   return(
     <span className="ma__phone-number">
       <a href={`tel:${number}`} className="ma__phone-number__number">{display}</a>
       { details && (
-        <p className="ma__phone-number__details">{details}</p>
+        <p className="ma__contact__details">{details}</p>
       )}
     </span>
   );

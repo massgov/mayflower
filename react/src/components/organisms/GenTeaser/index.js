@@ -2,7 +2,13 @@ import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '.
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 import ReactHtmlParser from 'react-html-parser';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
+import Address from '../../atoms/contact/Address';
+import PhoneNumber from '../../atoms/contact/PhoneNumber';
+import Email from '../../atoms/contact/Email';
+import EventTime from '../../atoms/contact/EventTime';
+import LinkDropdown from '../../molecules/LinkDropdown';
 import React from 'react';
+import './style.css';
 
 class TeaserOrg extends React.Component {
   constructor(props) {
@@ -64,6 +70,7 @@ const GenTeaser = (props) => {
     </div>
   )
 }
+
 GenTeaser.Title = (props) => {
   const { level, title, children, ...rest } = props;
   const Element = `h${level || 2}`;
@@ -74,6 +81,7 @@ GenTeaser.Title = (props) => {
     </Element>
   )
 }
+
 GenTeaser.Eyebrow = (props) => {
   const { eyebrow, children, ...rest } = props;
   return(
@@ -83,6 +91,7 @@ GenTeaser.Eyebrow = (props) => {
     </div>
   )
 }
+
 GenTeaser.Emphasis = (props) => {
   const { children, ...rest } = props;
   return(
@@ -91,6 +100,7 @@ GenTeaser.Emphasis = (props) => {
     </div>
   )
 }
+
 GenTeaser.Date = (props) => {
   const { date, children, ...rest } = props;
   return(
@@ -100,12 +110,14 @@ GenTeaser.Date = (props) => {
     </span>
   )
 }
+
 GenTeaser.Org = (props) => {
   const { orgs, ...rest } = props;
   return(
     <TeaserOrg orgs={orgs} {...rest}/>
   )
 }
+
 GenTeaser.Description = (props) => {
   const { children, description, ...rest } = props;
   return(
@@ -115,6 +127,7 @@ GenTeaser.Description = (props) => {
     </div>
   );
 }
+
 GenTeaser.KeyAction = (props) => {
   const { description, href, text, info, children, ...rest } = props;
   return(
@@ -125,6 +138,7 @@ GenTeaser.KeyAction = (props) => {
     </div>
  );
 }
+
 GenTeaser.SubLinks= (props) => {
   const { children, ...rest } = props;
   return(
@@ -142,6 +156,7 @@ GenTeaser.SubLinks= (props) => {
     </div>
   )
 }
+
 GenTeaser.MoreInfo = (props) => {
   const { children, ...rest } = props;
   return(
@@ -150,6 +165,7 @@ GenTeaser.MoreInfo = (props) => {
     </div>
   )
 }
+
 GenTeaser.PrimaryInfo = (props) => {
   const { children, ...rest } = props;
   return(
@@ -158,6 +174,7 @@ GenTeaser.PrimaryInfo = (props) => {
     </div>
   )
 }
+
 GenTeaser.SecondaryInfo = (props) => {
   const { children, ...rest } = props;
   return(
@@ -166,8 +183,96 @@ GenTeaser.SecondaryInfo = (props) => {
     </div>
   )
 }
-/*GenTeaser.OnlineContact = (props) => {
 
-}*/
+GenTeaser.Address = (props) => {
+  const { address, ...rest } = props;
+  return(
+    <div className="ma__gen-teaser__infoitem" {...rest}>
+      <span className="ma__gen-teaser__infoitem-icon">
+        <Icon name="marker" svgWidth={15} svgHeight={15} />
+      </span>
+      <Address {...address} />
+    </div>
+  )
+}
+
+GenTeaser.Phone = (props) => {
+  const { phone, ...rest } = props;
+  return(
+    <div className="ma__gen-teaser__infoitem" {...rest}>
+      <span className="ma__gen-teaser__infoitem-icon">
+        <Icon name="phone" svgWidth={15} svgHeight={15} />
+      </span>
+      <PhoneNumber {...phone} />
+    </div>
+  )
+}
+
+GenTeaser.Email = (props) => {
+  const { email, ...rest } = props;
+  return(
+    <div className="ma__gen-teaser__infoitem" {...rest}>
+      <span className="ma__gen-teaser__infoitem-icon">
+        <Icon name="mail" svgWidth={15} svgHeight={15} />
+      </span>
+      <Email {...email} />
+    </div>
+  )
+}
+
+GenTeaser.Event = (props) => {
+  const { event, ...rest } = props;
+  const dropdownProps = {
+    dropdownButton: {
+      text: 'Add to calendar',
+      theme: 'c-primary',
+      usage: 'quaternary-simple',
+      id: 'dropdownbutton-simple',
+      'aria-haspopup': true,
+      capitalized: true
+    },
+    dropdownItems: [{
+      text: 'Google Calendar',
+      href: '#'
+    }, {
+      text: 'Outlook Calendar',
+      href: '#'
+    }]
+  }
+  return(
+    <React.Fragment>
+      <div className="ma__gen-teaser__infoitem" {...rest}>
+        <span className="ma__gen-teaser__infoitem-icon">
+          <Icon name="search" svgWidth={15} svgHeight={15} />
+        </span>
+        <EventTime {...dropdownProps} />
+      </div>
+      <LinkDropdown {...dropdownProps} />
+    </React.Fragment>
+  )
+}
+
+GenTeaser.InfoDetails = (props) => {
+  const { icon, href, text, ...rest } = props;
+  return(
+    <div className="ma__gen-teaser__infoitem" {...rest}>
+      <span className="ma__gen-teaser__infoitem-icon">
+        <Icon name={icon} svgWidth={15} svgHeight={15} />
+      </span>
+      {text && !href && <span>{text}</span>}
+      {href && text && <DecorativeLink text={text} href={href} />}
+    </div>
+  )
+}
+
+GenTeaser.Tags = (props) => {
+  const { tags, ...rest } = props;
+  console.log(tags)
+  return(
+    <div className="ma__gen-teaser__tags" {...rest}>
+      {tags.map(tag => <span className="ma__gen-teaser__tag">{tag}</span>)}
+    </div>
+  )
+}
 
 export default GenTeaser;

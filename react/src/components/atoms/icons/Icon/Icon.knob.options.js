@@ -11,6 +11,7 @@ export const assets = {
   laptop: 'laptop',
   latlonglobe: 'latlonglobe',
   login: 'login',
+  mail: 'mail',
   marker: 'marker',
   opennow: 'opennow',
   phone: 'phone',
