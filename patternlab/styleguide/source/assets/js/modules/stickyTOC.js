@@ -125,6 +125,12 @@ export default (function (window, document) {
       // Toggle mobile TOC open.
       toc.querySelector(".ma__sticky-toc__toggle-link").addEventListener("click", () => {
         tocContent.classList.toggle("is-open");
+        // Update aria-expanded.
+        const tocButton  = document.querySelector(".ma__sticky-toc__toggle-link");
+        let expanderState = tocButton.getAttribute('aria-expanded') === 'true' ? (tocButton.setAttribute('aria-expanded', 'false')) : (tocButton.setAttribute('aria-expanded', 'true'));
+        // Button label for screen reader.
+        const popupLabel = tocButton.querySelector(".js-sticky-toc__state");
+        let popupLabelContent = popupLabel.innerHTML === "Show" ? popupLabel.innerHTML = "Hide" : popupLabel.innerHTML= "Show";
       });
 
       // Expander for additional links to show.
@@ -201,9 +207,14 @@ export default (function (window, document) {
           menuCopy.classList.add("ma__sticky-toc__stuck-menu");
           stuckMenu = tocParent.appendChild(menuCopy);
 
+          // Move focus from the button.stickyTOC-open to the flyout toc
+          focusSwitch();
+
           // Close button.
           stuckMenu.querySelector(".secondary-label-close").addEventListener("click", () => {
             menuToggle();
+            // Move the focus to the Table of Contents button.
+            toc.querySelector(".stickyTOC-open").focus();
           });
 
           // Wait a beat so the slide in can work on first click.
@@ -213,6 +224,7 @@ export default (function (window, document) {
         }
         else {
           menuToggle();
+          focusSwitch();
         }
       });
 
@@ -232,6 +244,13 @@ export default (function (window, document) {
     function menuToggle() {
       stuckMenu.classList.toggle("sticky-nav-open");
       stuckOverlay.style.display = stuckOverlay.style.display === "block" ? "none" : "block";
+    }
+
+    // Move focus from the button.stickyTOC-open to the flyout toc
+    function focusSwitch() {
+      stuckMenu.setAttribute("tabindex", "0");
+      stuckMenu.focus();
+      console.log("flyout open");
     }
 
     initializeToc();
