@@ -285,7 +285,7 @@
   }
 
   .ma__sticky-toc__stuck {
-    display: none; //block;
+    display: none;
     height: 0;
     overflow: hidden;
     position: fixed;
@@ -441,6 +441,7 @@
   z-index: 99;
   background-color: $c-white;
   transition: right 0.3s ease-out;
+
   overflow: auto;
 
   @media($bp-medium-min) {
@@ -456,6 +457,7 @@
     display: flex;
     z-index: 99;
     position: fixed;
+
     align-items: center;
     justify-content: space-between;
     border: 0;

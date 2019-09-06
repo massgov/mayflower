@@ -210,11 +210,17 @@ export default (function (window, document) {
           // Move focus from the button.stickyTOC-open to the flyout toc
           focusSwitch();
 
+          // When the last item in the TOC flyout is tabbed, focus is set on the first focusable element in the flyout container.
+          stuckMenu.lastChild.getElementsByTagName("a")[0].addEventListener("keyup", (e) => {
+            stuckMenu.querySelector(".secondary-label-close").focus();
+          });
+
           // Close button.
           stuckMenu.querySelector(".secondary-label-close").addEventListener("click", () => {
             menuToggle();
             // Move the focus to the Table of Contents button.
             toc.querySelector(".stickyTOC-open").focus();
+            stuckMenu.setAttribute("tabindex", "-1");
           });
 
           // Wait a beat so the slide in can work on first click.
@@ -250,7 +256,6 @@ export default (function (window, document) {
     function focusSwitch() {
       stuckMenu.setAttribute("tabindex", "0");
       stuckMenu.focus();
-      console.log("flyout open");
     }
 
     initializeToc();
