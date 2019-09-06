@@ -8,7 +8,8 @@ import './style.css';
 const DecorativeLink = (props) => {
   const classes = classNames({
     'ma__decorative-link': true,
-    'ma__download-link': props.showFileIcon
+    'ma__download-link': props.showFileIcon,
+    [props.className]: props.className
   });
   let decIcon = null;
   let title;
@@ -52,7 +53,8 @@ DecorativeLink.propTypes = {
   href: PropTypes.string,
   info: PropTypes.string,
   text: PropTypes.string,
-  showFileIcon: PropTypes.bool
+  showFileIcon: PropTypes.bool,
+  className: PropTypes.string
 };
 
 DecorativeLink.defaultProps = {

@@ -66,6 +66,7 @@ export OperationalHours from './components/atoms/contact/OperationalHours';
 
 // @molecules
 export Link from './components/molecules/Link';
+export LinkDropdown from './components/molecules/LinkDropdown';
 export ArrowNav from './components/molecules/ArrowNav';
 export IconLink from './components/molecules/IconLink';
 export CalloutLink from './components/molecules/CalloutLink';
