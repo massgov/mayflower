@@ -1,0 +1,255 @@
+@import 'global';
+
+.ma__gen-teaser {
+
+  &--image {
+    display: flex;
+      flex-wrap: wrap;
+  }
+
+  & + & {
+    border-top-width: 1px;
+    border-top-style: solid;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top-color: $c-bd-divider;
+
+    @media ($bp-large-min){
+      margin-top: 45px;
+      padding-top: 45px;
+    }
+
+    .sidebar & {
+      margin-top: 20px;
+      padding-top: 20px;
+    }
+  }
+
+
+
+  &__image {
+    flex-shrink: 1;
+    flex-grow: 0;
+    flex-basis: 400px;
+    font-size: 0;
+    margin-right: 30px;
+    margin-bottom: 10px;
+
+    span {
+      background-size: cover;
+      display: block;
+      padding-top: 56.25%;
+      width: 100%;
+    }
+  }
+
+  &__image + &__details {
+    flex-basis: 300px;
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+
+  &__eyebrow {
+    margin-bottom: 5px;
+
+    span {
+      font-size: 0.813rem;
+      letter-spacing: .1em;
+      padding: 5px 7px;
+      text-transform: uppercase;
+      background-color: $c-bg-section;
+      font-weight: 700;
+    }
+  }
+
+  &__title {
+    font-size: 1.625rem;
+    line-height: 1.2em;
+    margin-bottom: .25em;
+
+    .ma__decorative-link {
+      font-size: 1.625rem;
+      line-height: 1.2;
+    }
+  }
+
+  &__details {
+    padding: 2px 0 4px;
+    .ma__contact-group{
+      &__details{
+        font-style: italic;
+        font-size: 0.95rem;
+      }
+      &__item{
+        font-size: 1.24rem;
+      }
+      &__name{
+         margin-bottom: 0;
+         span {
+          font-size: 1.25rem;
+          color: $c-gray-dark;
+          font-weight: 550;
+         }
+         >svg{
+          height: 1.1rem;
+          width: 1.1rem;
+         }
+      }
+
+    }
+  }
+
+
+  &__date,
+  &__org {
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 1em;
+    color: $c-font-dark;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  &__date + &__org {
+    border-left: 1px solid $c-bd-divider;
+    margin-left: .75em;
+    padding-left: .75em;
+  }
+
+  &__org {
+    .ma__button-icon--quaternary-simple,
+    .ma__button-icon--expanded.ma__button-icon--quaternary-simple,
+    .ma__button-icon:hover.ma__button-icon--quaternary-simple:hover {
+      background-color: transparent;
+      padding: 0px 0px 0px 0.5rem;
+      position: relative;
+      top: -3px;
+    }
+  }
+
+  &__key-action {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+
+    display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-content: flex-start;
+
+    @media ($bp-small-min){
+      flex-flow: row;
+    }
+
+    .ma__decorative-link {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1rem;
+      margin-bottom: 0px;
+    }
+    &-item {
+      margin-bottom: 0.25rem;
+    }
+    &-col {
+      padding-right: .75em;
+      display: inline-flex;
+      flex: 1 40%;
+      flex-flow: column;
+    }
+    &-col + &-col {
+      display: inline-flex;
+      flex-flow: column;
+      flex: 1 1 100%;
+      padding-left: 0;
+
+      @media ($bp-small-min){
+        flex: 1 50%;
+        align-content: flex-start;
+        border-left: 1px solid $c-bd-divider;
+        margin-left: .75em;
+        padding-left: .75em;
+      }
+    }
+  }
+
+  &__description {
+    font-size: 1.25rem;
+
+    @media ($bp-x-small-max) {
+      font-size: 1.24rem;
+    }
+
+    p {
+      margin-bottom: 0.75em;
+    }
+  }
+
+ &__moreinfo {
+    margin-top: 0;
+    display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-content: flex-start;
+
+      @media ($bp-small-min){
+        flex-flow: row;
+      }
+  }
+
+  &__pimary {
+    padding-right: .75em;
+    display: inline-flex;
+      flex-flow: column;
+      flex: 1 40%;
+  }
+
+  &__secondary {
+
+    display: inline-flex;
+      flex-flow: column;
+      flex: 1 50%;
+
+    &--border{
+      padding-left: 0;
+      border-left-style: none;
+      border-left-width: 0px;
+      align-content: flex-start;
+      flex: 1 1 100%;
+    }
+
+    @media ($bp-small-min){
+      padding-left: .75em;
+      margin-left: .75em;
+      border-left: 1px solid $c-gray-light;
+    }
+  }
+
+  &__secondaryinfo {
+      display: flex;
+        flex-flow: row;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+
+      .ma__decorative-link {
+        margin-left: .25em;
+
+        svg {
+          height: 0.7rem;
+        }
+    }
+  }
+
+  &__secondaryicon svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: $c-primary-alt;
+  }
+}
