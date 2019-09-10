@@ -1,6 +1,7 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
 import sticky from "../helpers/sticky.js";
 import getOuterHtml from "../helpers/getElementOuterHtml.js";
+import activateBodyTextTruncation from "../modules/activateBodyTextTruncation.js";
 
 export default (function(window, document, undefined, $, moment){
   "use strict";
@@ -31,6 +32,9 @@ export default (function(window, document, undefined, $, moment){
           $el.append(item.markup);
         }
       });
+
+      // Re-activate body text truncation after render
+      activateBodyTextTruncation();
 
       if (args.focus) {
         // Focus on the first focusable element in the first listing

@@ -1,0 +1,35 @@
+// Include this in the topmost level of any pattern that might
+// contain a truncated body text area
+@mixin ma-truncated-body-text {
+  .ma-truncated-body-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ma-truncated-body-text__contents {
+    overflow: hidden;
+    position: relative;
+
+    &.expanded {
+      max-height: none !important;
+    }
+  }
+
+  .ma-truncated-body-text__fade_overlay {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(#fff, 0) 0%,
+      rgba(#fff, 1) 100%
+    );
+  }
+
+  .ma-truncated-body-text__button {
+    order: 2;
+    align-self: center;
+  }
+}
