@@ -11,12 +11,13 @@ export default (function (window,document,$,$el) {
   const style = window.getComputedStyle($p.get(0));
   const lineHeight = parseInt(style.lineHeight);
   const paddingTop = parseInt(style.paddingTop);
+  var lineLimit = window.matchMedia('(max-width: 910px)').matches ? 5 : 7;
 
-  if($el.height() < ((lineHeight * 5) + paddingTop)) {
+  if($el.height() < ((lineHeight * lineLimit) + paddingTop)) {
     return;
   }
 
-  const targetHeight = (lineHeight * 4) + paddingTop;
+  const targetHeight = (lineHeight * (lineLimit - 1)) + paddingTop;
   const $button = $('<button class="ma-truncated-body-text__button">Show more</button>');
   const $fadeOverlay = $('<div class="ma-truncated-body-text__fade-overlay"></div>')
 
@@ -29,12 +30,10 @@ export default (function (window,document,$,$el) {
   $contents.append($fadeOverlay);
   $contents.css('max-height', targetHeight);
 
-  $fadeOverlay.css('height', lineHeight + 'px');
-
   $button.data('toggleText', 'Show less');
 
   $button.on('click', function() {
-    $contents.toggleClass('expanded');
+    $el.toggleClass('expanded');
     var oldText = $button.text().trim();
     $button.text($button.data('toggleText'));
     $button.data('toggleText', oldText);
