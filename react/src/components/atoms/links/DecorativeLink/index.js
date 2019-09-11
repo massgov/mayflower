@@ -6,17 +6,20 @@ import Icon from '../../icons/Icon';
 import './style.css';
 
 const DecorativeLink = (props) => {
+  const {
+    showFileIcon, className, href, info, text, ...rest
+  } = props;
   const classes = classNames({
     'ma__decorative-link': true,
-    'ma__download-link': props.showFileIcon,
-    [props.className]: props.className
+    'ma__download-link': showFileIcon,
+    [props.className]: className
   });
   let decIcon = null;
   let title;
-  if (props.showFileIcon) {
+  if (showFileIcon) {
     // eslint-disable-next-line no-bitwise
     const getFileExtension = (filename) => filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2);
-    let ext = getFileExtension(props.href);
+    let ext = getFileExtension(href);
     title = `${ext} file`;
     const genericFile = ['csv', 'doc', 'docm', 'dot', 'dotx', 'dwg', 'geojson', 'gif', 'json', 'jpg', 'kml', 'kmz', 'mp3', 'mpp', 'msg', 'odf', 'ods', 'odt', 'png', 'pps', 'ppsx', 'potx', 'ppt', 'pptm', 'pptx', 'ppsm', 'prx', 'pub', 'rdf', 'rtf', 'tiff', 'tsv', 'txt', 'xls', 'xlsb', 'xlsm', 'xml', 'zip'];
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
@@ -40,10 +43,11 @@ const DecorativeLink = (props) => {
   return(
     <span className={classes}>
       <a
-        href={props.href}
-        title={props.info || null}
+        {...rest}
+        href={href}
+        title={info || null}
       >
-        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}{props.text}&nbsp;<Icon name="arrow" aria-hidden="true" />
+        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}{text}&nbsp;<Icon name="arrow" aria-hidden="true" />
       </a>
     </span>
   );

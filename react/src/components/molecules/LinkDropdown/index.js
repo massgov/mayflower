@@ -16,9 +16,6 @@ class LinkDropdown extends React.Component {
     this.wrapperRef = React.createRef();
     this.setDropDownButtonRef = this.setDropDownButtonRef.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
   componentDidMount() {
     this.buttonClicked = false;
@@ -35,33 +32,45 @@ class LinkDropdown extends React.Component {
   closeDropdown() {
     this.setState({ buttonExpand: false });
   }
-  handleClick() {
-    this.setState((prevState) => ({ buttonExpand: !prevState.buttonExpand }));
-  }
-  handleSelect(event) {
+  handleSelect = (event) => {
     const { target } = event;
     this.setState({ buttonExpand: false });
     if (is.fn(this.props.onItemSelect)) {
       this.props.onItemSelect({ target });
     }
   }
-  handleClickOutside(event) {
+  handleClickOutside = (event) => {
     // Close the panel if the user clicks outside the component.
     const node = this.wrapperRef.current;
     if ((node && !node.contains(event.target))) {
       if (this.state.buttonExpand) {
-        this.setState({ buttonExpand: false });
+        this.closeDropdown();
       }
+    }
+  }
+  handleKeyDown = (event) => {
+    // If the user pressed escape collapse list.
+    if (event.key === 'Escape') {
+      this.closeDropdown();
+    }
+  }
+  handleClick = (event) => {
+    const { target } = event;
+    this.setState((prevState) => ({ buttonExpand: !prevState.buttonExpand }));
+    if (is.fn(this.props.onItemSelect)) {
+      this.props.onButtonClick({ target });
     }
   }
   render() {
     const { dropdownItems, dropdownButton } = this.props;
     const dropdownButtonProps = {
       ...dropdownButton,
-      onClick: this.handleClick,
+      onClick: (e) => this.handleClick(e),
+      onKeyDown: (e) => this.handleKeyDown(e),
       setButtonRef: this.setDropDownButtonRef,
       expanded: this.state.buttonExpand,
-      icon: <Icon name="chevron" svgHeight={20} svgWidth={20} />
+      icon: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
+      'aria-haspopup': true
     };
     const dropdownClasses = classNames({
       'ma__link-dropdown': true,
@@ -81,7 +90,7 @@ class LinkDropdown extends React.Component {
         <ButtonWithIcon {...dropdownButtonProps} />
         {this.state.buttonExpand && (
           <div className={dropdownMenuClasses} aria-labelledby={dropdownButtonProps.id}>
-            {dropdownItems.map((item) => <DecorativeLink {...item} className={dropdownItemClasses} onClick={this.handleSelect} />)}
+            {dropdownItems.map((item, index) => <DecorativeLink {...item} key={`${item.text}-${index}`} className={dropdownItemClasses} onClick={(e) => this.handleSelect(e)} />)}
           </div>
         )}
       </div>
@@ -94,6 +103,8 @@ LinkDropdown.propTypes = {
   dropdownButton: PropTypes.shape(ButtonWithIcon.propTypes),
   /** Custom callback on dropdown item selection. */
   onItemSelect: PropTypes.func,
+  /** Custom callback on dropdown button click. */
+  onButtonClick: PropTypes.func,
   /** An array of dropdown link items */
   dropdownItems: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string,
@@ -103,15 +114,13 @@ LinkDropdown.propTypes = {
 
 LinkDropdown.defaultProps = {
   dropdownButton: {
-    icon: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
     text: 'All Organizations',
     capitalized: true,
     size: 'small',
     iconColor: '',
     theme: 'c-primary',
     usage: 'quaternary-simple',
-    id: 'dropdownbutton-simple',
-    'aria-haspopup': true
+    id: 'dropdownbutton-simple'
   }
 };
 

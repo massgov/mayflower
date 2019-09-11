@@ -15,7 +15,6 @@ storiesOf('molecules', module)
         theme: select('theme', buttonWithIconOptions.theme, 'c-primary', 'dropdownButton'),
         usage: select('usage', buttonWithIconOptions.usage, 'quaternary-simple', 'dropdownButton'),
         id: text('id', 'dropdownbutton-simple', 'dropdownButton'),
-        'aria-haspopup': boolean('aria-haspopup', true, 'dropdownButton'),
         capitalized: boolean('capitalized', true, 'dropdownButton')
       },
       dropdownItems: object('dropdownItems', [{
@@ -25,7 +24,8 @@ storiesOf('molecules', module)
         text: 'Outlook Calendar',
         href: '#'
       }], 'dropdownItems'),
-      onItemSelect: action('onItemSelect onClick')
+      onItemSelect: action('onItemSelect onClick'),
+      onButtonClick: action('onButtonClick onClick')
     };
     return(
       <LinkDropdown {...props} />
