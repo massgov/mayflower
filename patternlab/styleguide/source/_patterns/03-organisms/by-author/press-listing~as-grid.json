@@ -201,8 +201,8 @@
     "more":{
       "href": "#",
       "text": "See all news and announcements",
-      "chevron": true,
-      "label": "See all news and announcements for the blah blah location"
+      "labelContext": "for the blah blah location",
+      "chevron": true
     }
   }
 }

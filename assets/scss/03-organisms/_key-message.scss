@@ -1,0 +1,31 @@
+.ma__key-message {
+  padding: 100px 0;
+  text-align: center;
+
+  &--wrapper {
+    @include ma-container();
+  }
+
+  &--image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &--bay-blue {
+    background-color: rgba($c-bay-blue, 0.5);
+  }
+
+  &--berkshires-green {
+    background-color: rgba($c-berkshires-green, 0.5);
+  }
+
+  &--light-text {
+    color: $c-white;
+
+    h1, h2 {
+      color: $c-white;
+    }
+  }
+
+}

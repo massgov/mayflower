@@ -13,6 +13,54 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.22.0 (08/28/2019)
+
+### Added
+- (Patternlab) [FullWidthCampaignHeader] DP-15512: Version 1 of the Full Width Campaign Full Width Header #715
+- (Patternlab) [CampaignVideo] DP-15564: Add campaign video component #716
+- (Patternlab) [CampaignFeature] DP-15583: Adds campaign feature molecules and organism #717
+- (React) [Icon] DP-15599: Added social media icons into Icon component options and added option to set icon fill color #712
+- (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks <a> to follow best practices for Screen Readers. #712
+
+### Changed
+- (React) [SocialLinks] DP-15599: Change hard coded icon svgs to Icon component. #712
+
+## 9.21.0 (08/21/2019)
+
+### Changed
+- (Patternlab) [ContactRow] DP-9085: Added line break to address. #701
+- (Patternlab) [Event] DP-9085: Added line breaks to addresses. #701
+- (Patternlab) [EventEndDateWithTime] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventEndDate] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventPublicMeeting] DP-9085: Added line break to address. #701
+- (Patternlab) [EventRecurring] DP-9085: Added line break to address. #701
+
+### Fixed
+- (Patternlab) [StickyTOC] DP-14912: reposition stickyTOC on mobile screens #700
+- (Docs) [Metatag] DP-15068: Update the search metatag documentation. #708
+- (React) [SocialLinks] DP-15599: Prevent SVGs in SocialLink from receiving keyboard focus. #709
+
+
+## 9.20.0 (08/14/2019)
+
+### Added
+- (Patternlab) [Link] DP-9274: Added `labelContext` variable for an optional visually-hidden suffix #683
+
+### Changed
+- (Patternlab) [ContactUs] DP-8937: Made contact groups inside accordions always stack vertically. #697
+- (Patternlab) [PressListingAsGrid] DP-9274: Changed JSON to use the `link` component’s new `labelContext` variable in the style guide #683
+
+
+## 9.19.0 (08/07/2019)
+
+### Fixed
+- (React) [InputTextFuzzy] DP-14478: check for event before persist #694
+- (React) [Tabs] DP-14479: Patch Tabs molecule so scrollIntoView action only called if it exists. #693
+- (PatternLab) [Print] DP-15523: Removes sticky TOC from print #692
+- (PatternLab) [HeaderSearch] DP-6174: Removed search field clear button in IE #688
+- (React) [ErrorMessage] Fix success message color #691
+
+
 ## 9.18.0 (07/24/2019)
 
 ### Added
