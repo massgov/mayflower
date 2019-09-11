@@ -26,6 +26,7 @@ $quaternary-colors: (
   text-transform: uppercase;
   transition: background-color .4s, color .4s, border .4s, fill .4s;
   white-space: nowrap;
+  color: $c-primary-alt;
 
   @each $class, $c in $colors {
     &--#{$class} {
