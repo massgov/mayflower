@@ -1,7 +1,11 @@
 {
-  "campaignFullWidthHeader": {
-    "id": "2",
+  "keyMessage": {
+    "id": "abc2",
     "positionTop": false,
+    "compHeading": {
+      "title": "Training and Professional Development",
+      "level": "2"
+    },
     "backgroundColor": "bay-blue",
     "bgImage": "",
     "mobileBgImage": "",
