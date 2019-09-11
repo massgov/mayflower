@@ -3,14 +3,6 @@ export default {
     default: '',
     small: 'small'
   },
-  color: {
-    'no theme i.e. c-gray-dark': '',
-    'c-primary': 'c-primary',
-    'c-primary-alt': 'c-primary-alt',
-    'c-highlight': 'c-highlight',
-    'c-white': 'c-white',
-    'c-black': 'c-black'
-  },
   type: {
     button: 'button',
     submit: 'submit',
@@ -26,7 +18,7 @@ export default {
     alert: 'alert'
   },
   theme: {
-    'no theme i.e. primary-alt (default)': '',
+    'no theme i.e. c-primary-alt (default)': '',
     'c-primary': 'c-primary',
     'c-highlight': 'c-highlight',
     'c-gray-dark': 'c-gray-dark',
