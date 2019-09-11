@@ -90,7 +90,10 @@ class LinkDropdown extends React.Component {
         <ButtonWithIcon {...dropdownButtonProps} />
         {this.state.buttonExpand && (
           <div className={dropdownMenuClasses} aria-labelledby={dropdownButtonProps.id}>
-            {dropdownItems.map((item, index) => <DecorativeLink {...item} key={`${item.text}-${index}`} className={dropdownItemClasses} onClick={(e) => this.handleSelect(e)} />)}
+            {dropdownItems.map((item, index) => (
+              /* eslint-disable-next-line react/no-array-index-key */
+              <DecorativeLink {...item} key={`${item.text}-${index}`} className={dropdownItemClasses} onClick={(e) => this.handleSelect(e)} />
+            ))}
           </div>
         )}
       </div>
