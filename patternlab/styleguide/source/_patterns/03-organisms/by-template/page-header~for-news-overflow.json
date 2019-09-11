@@ -1,0 +1,14 @@
+{
+  "pageHeader": {
+    "title": "News and Announcements",
+    "nested": true,
+    "subTitle": "For <a href=''>Office of Attorney General Maura Healey</a>",
+    "headerTags": {
+      "label": "Related to:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Office of Attorney General Maura Healey"
+      }]
+    }
+  }
+}

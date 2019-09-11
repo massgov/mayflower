@@ -58,7 +58,8 @@
   .ma__banner-carousel,
   .ma__quick-actions,
   .ma__wait-time,
-  .ma__video {
+  .ma__video,
+  .ma__sticky-toc__stuck {
     display: none !important;
   }
 
@@ -457,8 +458,12 @@
     display: none;
   }
 
+  .ma__details__stick-nav {
+    display: none;
+  }
+
   .ma__details__content {
-    margin-left: 0;
+    margin-left: 0 !important;
   }
 
   .ma__callout-time__text {
