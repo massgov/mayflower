@@ -20,7 +20,6 @@ storiesOf('atoms/buttons', module)
         type: select('type', buttonWithIconOptions.type, 'submit'),
         classes: array('classes', []),
         iconSize: select('iconSize', buttonWithIconOptions.size, ''),
-        iconColor: select('iconColor', buttonWithIconOptions.color),
         expanded: boolean('expanded', true),
         capitalized: boolean('capitalized', true),
         'arial-label': text('arial-label', ''),
@@ -31,8 +30,7 @@ storiesOf('atoms/buttons', module)
       const iconProps = {
         name: select('name', svgOptions, 'chevron'),
         svgWidth: 20,
-        svgHeight: 20,
-        fill: props.iconColor
+        svgHeight: 20
       };
       return(
         <ButtonWithIcon {...props} icon={<Icon {...iconProps} />} />

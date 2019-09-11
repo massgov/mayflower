@@ -7,14 +7,13 @@ import './style.css';
 
 const ButtonWithIcon = (props) => {
   const {
-    classes, iconSize, iconColor, icon, expanded, capitalized, usage, theme, setButtonRef, text, ...rest
+    classes, iconSize, icon, expanded, capitalized, usage, theme, setButtonRef, text, ...rest
   } = props;
   const buttonClasses = classNames({
     'ma__button-icon': true,
     'ma__button-icon--expanded': expanded,
     'ma__button-icon--capitalized': capitalized,
     'ma__icon-small': iconSize === 'small' || icon.props.name === 'chevron',
-    [`ma__icon--${iconColor}`]: iconColor,
     'ma__button-search': icon.props.name === 'search',
     'ma__button-search--secondary': icon.props.name === 'search' && usage === 'secondary',
     [`ma__button-icon--${theme}`]: theme,
@@ -55,8 +54,6 @@ ButtonWithIcon.propTypes = {
   capitalized: PropTypes.bool,
   // Defines the size, default size fits the most square icons and "small" setting is specific for the chevron icon.
   iconSize: PropTypes.oneOf(['', 'small']),
-  // Defines the fill color of the svg, default color is $c-gray-light.
-  iconColor: PropTypes.oneOf(['', 'c-primary', 'c-primary-alt', 'c-highlight', 'c-white', 'c-black']),
   /** The aria-label property is used to provide the label to any assistive
    * technologies. This is useful if the text value is not descriptive of the
    * button's functionality. */
@@ -76,7 +73,6 @@ ButtonWithIcon.defaultProps = {
   icon: <Icon name="search" svgHeight={20} svgWidth={20} />,
   capitalized: false,
   iconSize: '',
-  iconColor: '',
   'aria-label': '',
   usage: '',
   theme: '',
