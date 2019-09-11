@@ -20,7 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (React) [Icon] DP-15753: Adds catalog, chart, download, expand, map, report, and settings icons. #729
 - (Patternlab) [KeyMessage, MarketingCampaign] DP-15521: Adds key message component and Campaign Marketing Page. #728
 
-## Security
+### Security
 - (React) [Dependency] Bump is-my-json-valid from 2.17.1 to 2.20.0 in /react (#589)
 - (React) [Dependency] Bump mixin-deep from 1.3.1 to 1.3.2 in /react (#724)
 - (React) [Dependency] Bump eslint-utils from 1.3.1 to 1.4.2 in /react (#721)
