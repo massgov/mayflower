@@ -5,8 +5,7 @@
 <section id="{{campaignVideo.id}}" class="ma__campaign-video {{ textColor ? 'ma__campaign-video--light-text' : '' }}{% if bgColor %} ma__campaign-video--{{ bgColor }}{% endif %}">
 
   <div class="ma__campaign-video--wrapper">
-    {% set headingLevel = campaignVideo.positionTop ? 1 : 2 %}
-    <h{{ headingLevel }} class="ma__campaign-video--title">{{ campaignVideo.title }}</h{{ headingLevel }}>
+    <h2 class="ma__campaign-video--title">{{ campaignVideo.title }}</h2>
   
     {% if campaignVideo.description %}
     <div class="ma__campaign-video--description">{{ campaignVideo.description }}</div>
