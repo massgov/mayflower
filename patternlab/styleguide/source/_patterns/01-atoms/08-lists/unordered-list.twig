@@ -1,4 +1,4 @@
-<ul>
+<ul{{ list.class ? ' class="' ~ list.class ~ '"' }}>
 	{% for list in unorderedList %}
 		<li>{{ list.text }}</li>
 		{% if list.sublist %}
