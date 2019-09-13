@@ -3,6 +3,7 @@ export const assets = {
   arrow: 'arrow',
   arrowbent: 'arrowbent',
   building: 'building',
+  calendar: 'calendar',
   catalog: 'catalog',
   chart: 'chart',
   chevron: 'chevron',

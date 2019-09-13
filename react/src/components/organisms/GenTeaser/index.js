@@ -7,8 +7,12 @@ import PhoneNumber from '../../atoms/contact/PhoneNumber';
 import Email from '../../atoms/contact/Email';
 import EventTime from '../../atoms/contact/EventTime';
 import LinkDropdown from '../../molecules/LinkDropdown';
+import HeaderSearch from '../../molecules/HeaderSearch';
 import React from 'react';
+import helpersClass from "./utils";
 import './style.css';
+
+const helpers = new helpersClass();
 
 class TeaserOrg extends React.Component {
   constructor(props) {
@@ -152,7 +156,7 @@ GenTeaser.SubLinks= (props) => {
             {children.slice(2,4)}
           </div>
         </React.Fragment>
-      ) : children}
+      ) : <div className="ma__gen-teaser__key-action-col">{children}</div>}
     </div>
   )
 }
@@ -230,22 +234,38 @@ GenTeaser.Event = (props) => {
       id: 'dropdownbutton-simple',
       'aria-haspopup': true,
       capitalized: true
-    },
-    dropdownItems: [{
-      text: 'Google Calendar',
-      href: '#'
-    }, {
-      text: 'Outlook Calendar',
-      href: '#'
-    }]
+    }
   }
+  dropdownProps.dropdownItems = event.calendars.map((item) => {
+    const { type, text } = item;
+    let itemVals = "";
+    switch (type) {
+      case 'yahoo':
+      case 'google':
+      case 'outlookcom':
+        itemVals = {
+          text,
+          href: helpers.buildUrl(event,type)
+        }
+        break;
+      default:
+        itemVals = {
+          text,
+          href: helpers.buildUrl(event,type,window||''),
+          target: '_blank',
+          download: 'download.ics'
+        }
+        break;
+    }
+    return itemVals;
+  })
   return(
     <React.Fragment>
       <div className="ma__gen-teaser__infoitem" {...rest}>
         <span className="ma__gen-teaser__infoitem-icon">
-          <Icon name="search" svgWidth={15} svgHeight={15} />
+          <Icon name="calendar" svgWidth={15} svgHeight={15} />
         </span>
-        <EventTime {...dropdownProps} />
+        <EventTime {...event} />
       </div>
       <LinkDropdown {...dropdownProps} />
     </React.Fragment>
@@ -267,10 +287,86 @@ GenTeaser.InfoDetails = (props) => {
 
 GenTeaser.Tags = (props) => {
   const { tags, ...rest } = props;
-  console.log(tags)
   return(
     <div className="ma__gen-teaser__tags" {...rest}>
       {tags.map(tag => <span className="ma__gen-teaser__tag">{tag}</span>)}
+    </div>
+  )
+}
+
+class TeaserSearch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: ''
+    };
+  }
+
+  onChange = (term) => {
+    console.log(window.parent)
+      console.log(window.location)
+    this.setState({
+      query: term
+    });
+  }
+
+  redirect = (searchURL) => {
+    if (window.location !== window.parent.location) {
+      window.parent.location.assign(searchURL);
+    } else {
+      window.location.assign(searchURL);
+    }
+  }
+
+  onClick = (e) => {
+    e.preventDefault();
+    const { target, queryInput } = this.props;
+    const { query } = this.state;
+    if(query.length > 0){
+      const searchURL = queryInput ? target.replace(`{${queryInput}}`,this.state.query) : target;
+      this.redirect(searchURL)
+    }
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { target, queryInput } = this.props;
+    const { query } = this.state;
+    if(query.length > 0){
+      const searchURL = queryInput ? target.replace(`{${queryInput}}`,this.state.query) : target;
+      this.redirect(searchURL)
+    }
+  }
+
+  render() {
+    const { placeholder, id, ...rest } = this.props;
+    return(
+      <HeaderSearch
+        buttonSearch={{
+          ariaLabel: '',
+          onClick: (e) => this.onClick(e),
+          text: 'Search',
+          usage: ''
+        }}
+        defaultText=""
+        id={id}
+        label="Search terms"
+        onChange={(term) => this.onChange(term)}
+        onSubmit={(e) => this.onSubmit(e)}
+        placeholder={placeholder}
+        {...rest}
+      />
+    )
+  }
+}
+
+GenTeaser.SearchBar = (props) => {
+  const { search, ...rest } = props;
+  return(
+    <div className="ma__gen-teaser__search" {...rest}>
+      <TeaserSearch
+        {...search}
+      />
     </div>
   )
 }
