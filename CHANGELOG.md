@@ -13,6 +13,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.23.0 (09/11/2019)
+
+### Added
+- (React, Patternlab) [Circleci] Automate adding changelog for dependabot prs. Changelog will be added by Circleci on dependabot branches into changelogs/dependabot.md. #722
+- (React) [Icon] DP-15753: Adds catalog, chart, download, expand, map, report, and settings icons. #729
+- (Patternlab) [KeyMessage, MarketingCampaign] DP-15521: Adds key message component and Campaign Marketing Page. #728
+
+### Security
+- (React) [Dependency] Bump is-my-json-valid from 2.17.1 to 2.20.0 in /react (#589)
+- (React) [Dependency] Bump mixin-deep from 1.3.1 to 1.3.2 in /react (#724)
+- (React) [Dependency] Bump eslint-utils from 1.3.1 to 1.4.2 in /react (#721)
+
 ## 9.22.0 (08/28/2019)
 
 ### Added
