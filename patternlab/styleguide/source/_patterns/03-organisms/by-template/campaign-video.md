@@ -13,10 +13,12 @@ Displays a campaign video using an iframe with a transcript link.
 
 ### Variables
 ~~~
-position:
+isHeader:
   type: bool / required
-header
-  type: string / optional (required if position = top)
+backgroundColor:
+  ??????
+noVideoBg:
+  type: bool / optional
 description
   type: string / optional
 video {
