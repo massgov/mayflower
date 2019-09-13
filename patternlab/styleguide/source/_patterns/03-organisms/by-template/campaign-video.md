@@ -16,7 +16,7 @@ Displays a campaign video using an iframe with a transcript link.
 isHeader:
   type: bool / required
 backgroundColor:
-  ??????
+  type: string / optional ("", "primary", "primary-alt", "white", "gray-lightest", "primary-lightest")
 noVideoBg:
   type: bool / optional
 description
@@ -28,7 +28,7 @@ video {
     type: string / required
   width: 
     type: string (numbers only) / optional
-  height: 
+  height:
     type: string (numbers only) / optional
   link: 
     type: decorativeLink / required

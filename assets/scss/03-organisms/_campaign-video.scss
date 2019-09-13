@@ -2,12 +2,12 @@
   text-align: center;
   padding-top: 60px;
 
-  &--bg-bay-blue {
-    background-color: $c-bay-blue;
+  &--bg-primary {
+    background-color: $c-primary;
   }
 
-  &--bg-berkshires-green {
-    background-color: $c-berkshires-green;
+  &--bg-primary-alt {
+    background-color: $c-primary-alt;
   }
 
   &--bg-white {
@@ -15,12 +15,12 @@
     padding-top: 0;
   }
 
-  &--bg-platinum-gray {
-    background-color: $c-platinum-gray;
+  &--bg-gray-lightest {
+    background-color: $c-gray-lightest;
   }
 
-  &--bg-bay-blue-lightest {
-    background-color: $c-bay-blue-lightest;
+  &--bg-primary-lightest {
+    background-color: $c-primary-lightest;
   }
 
   &--light-text {

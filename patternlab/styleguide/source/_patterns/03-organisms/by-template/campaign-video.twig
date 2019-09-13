@@ -1,8 +1,8 @@
 {# Use variable if provided; otherwise, default differs between headers and non-headers. #}
-{% set bgColor = campaignVideo.backgroundColor ?? campaignVideo.isHeader ? 'bay-blue' : 'white' %}
+{% set bgColor = campaignVideo.backgroundColor ?? campaignVideo.isHeader ? 'primary' : 'white' %}
 
 {# Automatically set text color based on background color. Update the array with new dark background colors when needed. #}
-{% set lightTextClass = bgColor in ['bay-blue', 'berkshires-green'] ? 'ma__campaign-video--light-text' : null %}
+{% set lightTextClass = bgColor in ['primary', 'primary-alt'] ? 'ma__campaign-video--light-text' : null %}
 {% set headingLevel = campaignVideo.isHeader ? '1' : '2' %}
 {% set videoBgClass = campaignVideo.noVideoBg ? 'ma__campaign-video--no-video-bg' : null %}
 
