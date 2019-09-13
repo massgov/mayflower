@@ -11,7 +11,39 @@
     "mobileBgImage": "",
     "title": "Training and Professional Development",
     "subtitle": "Find career and professional development programs",
-    "description": "This is an optional description",
+    "description": {
+      "rteElements": [
+        {
+          "path": "@atoms/08-lists/unordered-list.twig",
+          "data": {
+            "class": "ma__horizontal-list",
+            "unorderedList" : [
+              {
+                "text": "Lorem ipsum"
+              },
+              {
+                "text": "Dolor sit amet"
+              },
+              {
+                "text": "Consectetur"
+              },
+              {
+                "text": "Adpiscing elit"
+              },
+              {
+                "text": "At vero eos et accusamus"
+              },
+              {
+                "text": "Et iusto odio"
+              },
+              {
+                "text": "Dignissimos ducimus qui"
+              }
+            ]
+          }
+        }
+      ]
+    },
     "textColor": "white",
     "button":{
       "text":"Read More",
