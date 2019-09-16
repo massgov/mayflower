@@ -66,14 +66,89 @@ class TeaserOrg extends React.Component {
   }
 }
 
+class TeaserSearch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: ''
+    };
+  }
+
+  onChange = (term) => {
+    this.setState({
+      query: term
+    });
+  }
+
+  redirect = (searchURL) => {
+    if (window.location !== window.parent.location) {
+      window.parent.location.assign(searchURL);
+    } else {
+      window.location.assign(searchURL);
+    }
+  }
+
+  onClick = (e) => {
+    e.preventDefault();
+    const { target, queryInput } = this.props;
+    const { query } = this.state;
+    if(query.length > 0){
+      const searchURL = queryInput ? target.replace(`{${queryInput}}`,this.state.query) : target;
+      this.redirect(searchURL)
+    }
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { target, queryInput } = this.props;
+    const { query } = this.state;
+    if(query.length > 0){
+      const searchURL = queryInput ? target.replace(`{${queryInput}}`,this.state.query) : target;
+      this.redirect(searchURL)
+    }
+  }
+
+  render() {
+    const { placeholder, id, ...rest } = this.props;
+    return(
+      <HeaderSearch
+        buttonSearch={{
+          ariaLabel: '',
+          onClick: (e) => this.onClick(e),
+          text: 'Search',
+          usage: ''
+        }}
+        defaultText=""
+        id={id}
+        label="Search terms"
+        onChange={(term) => this.onChange(term)}
+        onSubmit={(e) => this.onSubmit(e)}
+        placeholder={placeholder}
+        {...rest}
+      />
+    )
+  }
+}
+
 const GenTeaser = (props) => {
+  const { children, onClick, ...rest } = props;
+  const className = onClick ? "ma__gen-teaser ma__gen-teaser--clickable" : "ma__gen-teaser";
+  const ariaRole = onClick ? "button" : "";
+  return(
+    <section className={className} aria-role={ariaRole} onClick={onClick} {...rest}>
+      {children}
+    </section>
+  )
+};
+
+GenTeaser.Details = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__details" {...rest}>
       {children}
     </div>
   )
-}
+};
 
 GenTeaser.Title = (props) => {
   const { level, title, children, ...rest } = props;
@@ -294,72 +369,6 @@ GenTeaser.Tags = (props) => {
   )
 }
 
-class TeaserSearch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: ''
-    };
-  }
-
-  onChange = (term) => {
-    console.log(window.parent)
-      console.log(window.location)
-    this.setState({
-      query: term
-    });
-  }
-
-  redirect = (searchURL) => {
-    if (window.location !== window.parent.location) {
-      window.parent.location.assign(searchURL);
-    } else {
-      window.location.assign(searchURL);
-    }
-  }
-
-  onClick = (e) => {
-    e.preventDefault();
-    const { target, queryInput } = this.props;
-    const { query } = this.state;
-    if(query.length > 0){
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`,this.state.query) : target;
-      this.redirect(searchURL)
-    }
-  }
-
-  onSubmit = (e) => {
-    e.preventDefault();
-    const { target, queryInput } = this.props;
-    const { query } = this.state;
-    if(query.length > 0){
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`,this.state.query) : target;
-      this.redirect(searchURL)
-    }
-  }
-
-  render() {
-    const { placeholder, id, ...rest } = this.props;
-    return(
-      <HeaderSearch
-        buttonSearch={{
-          ariaLabel: '',
-          onClick: (e) => this.onClick(e),
-          text: 'Search',
-          usage: ''
-        }}
-        defaultText=""
-        id={id}
-        label="Search terms"
-        onChange={(term) => this.onChange(term)}
-        onSubmit={(e) => this.onSubmit(e)}
-        placeholder={placeholder}
-        {...rest}
-      />
-    )
-  }
-}
-
 GenTeaser.SearchBar = (props) => {
   const { search, ...rest } = props;
   return(
@@ -377,6 +386,7 @@ GenTeaser.Button = (props) => {
   return(
     <div className="ma__gen-teaser__button" {...rest}>
       <ButtonWithIcon
+        capitalized={true}
         {...button}
         icon={icon}
       />

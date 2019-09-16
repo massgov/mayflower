@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, date, select, boolean, number, object, array } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 
 import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '../../../index';
@@ -102,30 +103,32 @@ storiesOf('organisms/GenTeaser/', module)
       }
       return(
         <GenTeaser>
-          <GenTeaser.Eyebrow eyebrow={eyebrow} />
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Emphasis>
-            <GenTeaser.Date date={date}/>
-            <GenTeaser.Org orgs={orgs}/>
-          </GenTeaser.Emphasis>
-          <GenTeaser.Description description={description} />
-          <GenTeaser.SearchBar search={search} />
-          <GenTeaser.SubLinks>
-            {subLinks.map(action => <GenTeaser.KeyAction {...action}/>)}
-          </GenTeaser.SubLinks>
-          <GenTeaser.MoreInfo>
-            <GenTeaser.PrimaryInfo>
-              <GenTeaser.Address {...address} />
-              <GenTeaser.Phone {...phone} />
-              <GenTeaser.InfoDetails {...infolink} />
-            </GenTeaser.PrimaryInfo>
-            <GenTeaser.SecondaryInfo>
-              <GenTeaser.Event {...event} />
-              <GenTeaser.Email {...email} />
-              <GenTeaser.InfoDetails {...infodetails} />
-            </GenTeaser.SecondaryInfo>
-          </GenTeaser.MoreInfo>
-          <GenTeaser.Tags tags={tags} />
+          <GenTeaser.Details>
+            <GenTeaser.Eyebrow eyebrow={eyebrow} />
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Emphasis>
+              <GenTeaser.Date date={date}/>
+              <GenTeaser.Org orgs={orgs}/>
+            </GenTeaser.Emphasis>
+            <GenTeaser.Description description={description} />
+            <GenTeaser.SearchBar search={search} />
+            <GenTeaser.SubLinks>
+              {subLinks.map(action => <GenTeaser.KeyAction {...action}/>)}
+            </GenTeaser.SubLinks>
+            <GenTeaser.MoreInfo>
+              <GenTeaser.PrimaryInfo>
+                <GenTeaser.Address {...address} />
+                <GenTeaser.Phone {...phone} />
+                <GenTeaser.InfoDetails {...infolink} />
+              </GenTeaser.PrimaryInfo>
+              <GenTeaser.SecondaryInfo>
+                <GenTeaser.Event {...event} />
+                <GenTeaser.Email {...email} />
+                <GenTeaser.InfoDetails {...infodetails} />
+              </GenTeaser.SecondaryInfo>
+            </GenTeaser.MoreInfo>
+            <GenTeaser.Tags tags={tags} />
+          </GenTeaser.Details>
         </GenTeaser>
       );
     }
@@ -167,17 +170,19 @@ storiesOf('organisms/GenTeaser/', module)
       }
       return(
         <GenTeaser>
-          <GenTeaser.Eyebrow eyebrow={eyebrow} />
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Emphasis>
-            <GenTeaser.Date date={date}/>
-            <GenTeaser.Org orgs={orgs}/>
-          </GenTeaser.Emphasis>
-          <GenTeaser.Description description={description} />
-          <GenTeaser.SearchBar search={search} />
-          <GenTeaser.SubLinks>
-            {subLinks.map(action => <GenTeaser.KeyAction {...action}/>)}
-          </GenTeaser.SubLinks>
+          <GenTeaser.Details>
+            <GenTeaser.Eyebrow eyebrow={eyebrow} />
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Emphasis>
+              <GenTeaser.Date date={date}/>
+              <GenTeaser.Org orgs={orgs}/>
+            </GenTeaser.Emphasis>
+            <GenTeaser.Description description={description} />
+            <GenTeaser.SearchBar search={search} />
+            <GenTeaser.SubLinks>
+              {subLinks.map(action => <GenTeaser.KeyAction {...action}/>)}
+            </GenTeaser.SubLinks>
+          </GenTeaser.Details>
         </GenTeaser>
       );
     })
@@ -199,30 +204,19 @@ storiesOf('organisms/GenTeaser/', module)
         usage: "secondary"
       }
       return(
-        <React.Fragment>
-        <GenTeaser>
-          <GenTeaser.Eyebrow eyebrow={eyebrow} />
-          <GenTeaser.Button button={button} />
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Emphasis>
-            <GenTeaser.Date date={date}/>
-            <GenTeaser.Org orgs={orgs}/>
-          </GenTeaser.Emphasis>
-          <GenTeaser.Description description={description} />
-          <GenTeaser.Tags tags={tags} />
+        <GenTeaser onClick={(e) => console.log(e)}>
+          <GenTeaser.Details>
+            <GenTeaser.Eyebrow eyebrow={eyebrow} />
+            <GenTeaser.Button button={button} />
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Emphasis>
+              <GenTeaser.Date date={date}/>
+              <GenTeaser.Org orgs={orgs}/>
+            </GenTeaser.Emphasis>
+            <GenTeaser.Description description={description} />
+            <GenTeaser.Tags tags={tags} />
+          </GenTeaser.Details>
         </GenTeaser>
-        <GenTeaser>
-          <GenTeaser.Eyebrow eyebrow={eyebrow} />
-          <GenTeaser.Button button={button} />
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Emphasis>
-            <GenTeaser.Date date={date}/>
-            <GenTeaser.Org orgs={orgs}/>
-          </GenTeaser.Emphasis>
-          <GenTeaser.Description description={description} />
-          <GenTeaser.Tags tags={tags} />
-        </GenTeaser>
-        </React.Fragment>
       );
     })
     .add('GenTeaser (Data Download)', () => {
@@ -239,14 +233,16 @@ storiesOf('organisms/GenTeaser/', module)
       const tags = [ 'kml', 'xls', 'json', 'csv' ]
       return(
         <GenTeaser>
-          <GenTeaser.Eyebrow eyebrow={eyebrow} />
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Emphasis>
-            <GenTeaser.Date date={date}/>
-            <GenTeaser.Org orgs={orgs}/>
-          </GenTeaser.Emphasis>
-          <GenTeaser.Description description={description} />
-          <GenTeaser.Tags tags={tags} />
+          <GenTeaser.Details>
+            <GenTeaser.Eyebrow eyebrow={eyebrow} />
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Emphasis>
+              <GenTeaser.Date date={date}/>
+              <GenTeaser.Org orgs={orgs}/>
+            </GenTeaser.Emphasis>
+            <GenTeaser.Description description={description} />
+            <GenTeaser.Tags tags={tags} />
+          </GenTeaser.Details>
         </GenTeaser>
       );
     })
@@ -263,13 +259,15 @@ storiesOf('organisms/GenTeaser/', module)
       const description = "The Massachusetts Department of Public Health (DPH) today announced that laboratory testing has confirmed two new cases of Eastern ...";
       return(
         <GenTeaser>
-          <GenTeaser.Eyebrow eyebrow={eyebrow} />
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Emphasis>
-            <GenTeaser.Date date={date}/>
-            <GenTeaser.Org orgs={orgs}/>
-          </GenTeaser.Emphasis>
-          <GenTeaser.Description description={description} />
+          <GenTeaser.Details>
+            <GenTeaser.Eyebrow eyebrow={eyebrow} />
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Emphasis>
+              <GenTeaser.Date date={date}/>
+              <GenTeaser.Org orgs={orgs}/>
+            </GenTeaser.Emphasis>
+            <GenTeaser.Description description={description} />
+          </GenTeaser.Details>
         </GenTeaser>
       );
     })
@@ -303,16 +301,18 @@ storiesOf('organisms/GenTeaser/', module)
       return(
         <React.Fragment>
           <GenTeaser>
-            <GenTeaser.Eyebrow eyebrow={eyebrow} />
-            <GenTeaser.Title title={title} />
-            <GenTeaser.Emphasis>
-              <GenTeaser.Date date={date}/>
-              <GenTeaser.Org orgs={orgs}/>
-            </GenTeaser.Emphasis>
-            <GenTeaser.Description description={description} />
+            <GenTeaser.Details>
+              <GenTeaser.Eyebrow eyebrow={eyebrow} />
+              <GenTeaser.Title title={title} />
+              <GenTeaser.Emphasis>
+                <GenTeaser.Date date={date}/>
+                <GenTeaser.Org orgs={orgs}/>
+              </GenTeaser.Emphasis>
+              <GenTeaser.Description description={description} />
+            </GenTeaser.Details>
           </GenTeaser>
-          <div style={{borderTop: "1px solid #dcdcdc", marginTop: "20px", paddingTop: "20px"}}>
-            <GenTeaser>
+          <GenTeaser>
+            <GenTeaser.Details>
               <GenTeaser.Eyebrow eyebrow={eyebrowlaw} />
               <GenTeaser.Title title={titlelaw} />
               <GenTeaser.Emphasis>
@@ -322,8 +322,8 @@ storiesOf('organisms/GenTeaser/', module)
               <GenTeaser.SubLinks>
                 {subLinkslaw.map(action => <GenTeaser.KeyAction {...action}/>)}
               </GenTeaser.SubLinks>
-            </GenTeaser>
-          </div>
+            </GenTeaser.Details>
+          </GenTeaser>
         </React.Fragment>
       );
     })
@@ -344,11 +344,13 @@ storiesOf('organisms/GenTeaser/', module)
         }]
       return(
         <GenTeaser>
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Description description={description} />
-          <GenTeaser.SubLinks>
-            {subLinks.map(action => <GenTeaser.KeyAction {...action}/>)}
-          </GenTeaser.SubLinks>
+          <GenTeaser.Details>
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Description description={description} />
+            <GenTeaser.SubLinks>
+              {subLinks.map(action => <GenTeaser.KeyAction {...action}/>)}
+            </GenTeaser.SubLinks>
+          </GenTeaser.Details>
         </GenTeaser>
       );
     })
@@ -383,18 +385,20 @@ storiesOf('organisms/GenTeaser/', module)
       }
       return(
         <GenTeaser>
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Description description={description} />
-          <GenTeaser.MoreInfo>
-            <GenTeaser.PrimaryInfo>
-              <GenTeaser.Phone {...phone} />
-              <GenTeaser.InfoDetails {...locations} />
-            </GenTeaser.PrimaryInfo>
-            <GenTeaser.SecondaryInfo>
-              <GenTeaser.Email {...email} />
-              <GenTeaser.InfoDetails {...infodetails} />
-            </GenTeaser.SecondaryInfo>
-          </GenTeaser.MoreInfo>
+          <GenTeaser.Details>
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Description description={description} />
+            <GenTeaser.MoreInfo>
+              <GenTeaser.PrimaryInfo>
+                <GenTeaser.Phone {...phone} />
+                <GenTeaser.InfoDetails {...locations} />
+              </GenTeaser.PrimaryInfo>
+              <GenTeaser.SecondaryInfo>
+                <GenTeaser.Email {...email} />
+                <GenTeaser.InfoDetails {...infodetails} />
+              </GenTeaser.SecondaryInfo>
+            </GenTeaser.MoreInfo>
+          </GenTeaser.Details>
         </GenTeaser>
       );
     })
@@ -416,13 +420,15 @@ storiesOf('organisms/GenTeaser/', module)
 
       return(
         <GenTeaser>
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Description description={description} />
-          <GenTeaser.MoreInfo>
-            <GenTeaser.PrimaryInfo>
-              <GenTeaser.Address {...address} />
-            </GenTeaser.PrimaryInfo>
-          </GenTeaser.MoreInfo>
+          <GenTeaser.Details>
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Description description={description} />
+            <GenTeaser.MoreInfo>
+              <GenTeaser.PrimaryInfo>
+                <GenTeaser.Address {...address} />
+              </GenTeaser.PrimaryInfo>
+            </GenTeaser.MoreInfo>
+          </GenTeaser.Details>
         </GenTeaser>
       );
     })
@@ -465,19 +471,21 @@ storiesOf('organisms/GenTeaser/', module)
       const orgs = 'MassHire Department of Career Services';
       return(
         <GenTeaser>
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Emphasis>
-            <GenTeaser.Org orgs={orgs}/>
-          </GenTeaser.Emphasis>
-          <GenTeaser.Description description={description} />
-          <GenTeaser.MoreInfo>
-            <GenTeaser.PrimaryInfo>
-              <GenTeaser.Event {...event} />
-            </GenTeaser.PrimaryInfo>
-            <GenTeaser.SecondaryInfo>
-              <GenTeaser.Address {...address} />
-            </GenTeaser.SecondaryInfo>
-          </GenTeaser.MoreInfo>
+          <GenTeaser.Details>
+            <GenTeaser.Title title={title} />
+            <GenTeaser.Emphasis>
+              <GenTeaser.Org orgs={orgs}/>
+            </GenTeaser.Emphasis>
+            <GenTeaser.Description description={description} />
+            <GenTeaser.MoreInfo>
+              <GenTeaser.PrimaryInfo>
+                <GenTeaser.Event {...event} />
+              </GenTeaser.PrimaryInfo>
+              <GenTeaser.SecondaryInfo>
+                <GenTeaser.Address {...address} />
+              </GenTeaser.SecondaryInfo>
+            </GenTeaser.MoreInfo>
+          </GenTeaser.Details>
         </GenTeaser>
       );
     }

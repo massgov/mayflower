@@ -2,21 +2,27 @@
 
 .ma__gen-teaser {
 
+  position: relative;
+
   &--image {
     display: flex;
       flex-wrap: wrap;
   }
 
+  &--clickable {
+    cursor: pointer;
+  }
+
   & + & {
     border-top-width: 1px;
     border-top-style: solid;
-    margin-top: 30px;
-    padding-top: 30px;
+    margin-top: 20px;
+    padding-top: 20px;
     border-top-color: $c-bd-divider;
 
     @media ($bp-large-min){
-      margin-top: 45px;
-      padding-top: 45px;
+      margin-top: 30px;
+      padding-top: 30px;
     }
 
     .sidebar & {
@@ -24,7 +30,6 @@
       padding-top: 20px;
     }
   }
-
 
 
   &__image {
@@ -83,7 +88,8 @@
 
   &__details {
     padding: 2px 0 4px;
-    .ma__contact-group{
+    position: relative;
+    .ma__contact-group {
       &__details{
         font-style: italic;
         font-size: 0.95rem;
@@ -305,9 +311,9 @@
   }
 
   &__button {
-    top: 5px;
-    right: 5px;
-    position: relative;
+    top: 0px;
+    right: 0px;
+    position: absolute;
     .ma__button-icon--secondary {
       border-width: 0px;
     }
