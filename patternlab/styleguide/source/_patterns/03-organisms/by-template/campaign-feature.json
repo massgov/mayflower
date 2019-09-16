@@ -1,10 +1,12 @@
 {
   "campaignFeature": {
-    "title": "Featured Campaign Tile",
+    "compHeading": {
+      "title": "Featured Campaign Tile",
+      "level": ""
+    },
     "positionTop": true,
     "campaignFullWidthFeature": {
-      "id": "1234",
-      "positionTop": true,
+      "id": "dfg1234",
       "link": "#",
       "bgImage": "../../assets/images/placeholder/1600x800.png",
       "mobileBgImage": "../../assets/images/placeholder/800x400.png",
@@ -13,14 +15,14 @@
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     "campaignFeature2up": [{
-      "id": "1234",
+      "id": "dfg123",
       "link": "#",
       "thumbnail": "../../assets/images/placeholder/400x300-kitten.jpg",
       "title": "Campaign 2 up Card 1",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
-      "id": "1234",
+      "id": "dfg12",
       "link": "#",
       "thumbnail": "../../assets/images/placeholder/400x300-kitten.jpg",
       "title": "Campaign 2 up Card 2",
