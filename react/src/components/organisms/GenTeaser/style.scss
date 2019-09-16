@@ -304,6 +304,15 @@
     margin-right: 0.5em;
   }
 
+  &__button {
+    top: 5px;
+    right: 5px;
+    position: relative;
+    .ma__button-icon--secondary {
+      border-width: 0px;
+    }
+  }
+
   &__search {
 
     margin-bottom: 10px;

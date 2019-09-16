@@ -193,9 +193,16 @@ storiesOf('organisms/GenTeaser/', module)
       const orgs = 'Division of Fisheries and Wildlife, Executive Office of Energy and Environmental Affairs';
       const description = "Review the recent white-tailed deer harvest data before heading out to hunt. Though Massachusetts is the 3rd most densely populated state in the country, it is a state where quality deer can be found anywhere. MassWildlife biologists estimate that there are over 100,000 deer statewide. Estimated densities range from about 12-18 per square mile in western and central Massachusetts to over 50 deer per square mile on Martha's Vineyard and Nantucket Islands, and certain areas of eastern MA where hunting access is restricted.";
       const tags = [ 'kml', 'xls', 'json', 'csv' ]
+      const button = {
+        text: "Show Details",
+        theme: "c-primary",
+        usage: "secondary"
+      }
       return(
+        <React.Fragment>
         <GenTeaser>
           <GenTeaser.Eyebrow eyebrow={eyebrow} />
+          <GenTeaser.Button button={button} />
           <GenTeaser.Title title={title} />
           <GenTeaser.Emphasis>
             <GenTeaser.Date date={date}/>
@@ -204,6 +211,18 @@ storiesOf('organisms/GenTeaser/', module)
           <GenTeaser.Description description={description} />
           <GenTeaser.Tags tags={tags} />
         </GenTeaser>
+        <GenTeaser>
+          <GenTeaser.Eyebrow eyebrow={eyebrow} />
+          <GenTeaser.Button button={button} />
+          <GenTeaser.Title title={title} />
+          <GenTeaser.Emphasis>
+            <GenTeaser.Date date={date}/>
+            <GenTeaser.Org orgs={orgs}/>
+          </GenTeaser.Emphasis>
+          <GenTeaser.Description description={description} />
+          <GenTeaser.Tags tags={tags} />
+        </GenTeaser>
+        </React.Fragment>
       );
     })
     .add('GenTeaser (Data Download)', () => {

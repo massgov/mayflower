@@ -371,4 +371,17 @@ GenTeaser.SearchBar = (props) => {
   )
 }
 
+GenTeaser.Button = (props) => {
+  const { button, ...rest } = props;
+  const icon = button.icon ? icon : <Icon name="expand" width={15} height={15} />;
+  return(
+    <div className="ma__gen-teaser__button" {...rest}>
+      <ButtonWithIcon
+        {...button}
+        icon={icon}
+      />
+    </div>
+  )
+}
+
 export default GenTeaser;
