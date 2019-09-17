@@ -19,6 +19,8 @@
       }
       {% endif %}
     </style>
+    {# Including an empty span with the required alt text for the background image #}
+    <span role="img" aria-label="{{ keyMessage.bgImageAlt }}"></span>
   {% endif %}
 
   {% if keyMessage.positionTop and bgColor %}

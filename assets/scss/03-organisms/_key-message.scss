@@ -1,5 +1,16 @@
 .ma__key-message {
   text-align: center;
+  background-color: $c-primary;
+  padding: 40px 0; 
+
+  h1,
+  h2,
+  h3,
+  p {
+    color: $c-white;
+    padding-bottom: 30px;
+    margin-bottom: 0;
+  }
 
   &--image {
     min-height: 415px;
@@ -7,7 +18,7 @@
     background-size: 100% 165px;
     background-repeat: no-repeat;
     margin-bottom: 40px;
-    padding-bottom: 165px;
+    padding: 0 0 165px;
 
     @media($bp-campaign-medium) {
       min-height: 400px;
@@ -20,66 +31,48 @@
     @media($bp-large-min) {
       padding: 180px 0;
     }
-  }
 
-  h1,
-  h2,
-  h3,
-  p {
-    color: $c-white;
-    padding-bottom: 30px;
-    margin-bottom: 0;
-  }
+    .ma__key-message--wrapper {
+      display: inline-block;
+      padding: 40px 20px;
+      background-color: rgba($c-primary, 0.9);
 
-  &.ma__key-message--light {
-    h1,
-    h2,
-    h3,
-    p {
-      color: $c-black;
-    }
-  }
-
-  &--wrapper {
-    display: inline-block;
-    padding: 40px 20px;
-    background-color: rgba($c-primary, 0.9);
-
-    .ma__key-message--light  & {
-      background-color: rgba($c-white, 0.9);
-    }
-
-    @media($bp-medium-min) {
-      padding: 40px;
-    }
-  }
-
-  &--cta {
-    
-    .ma__button {
-      background-color: $c-white;
-      color: $c-primary;
-      border-color: transparent;
-
-      .ma__key-message--light  & {
-        background-color: $c-primary;
-        color: $c-white;
+      @media($bp-medium-min) {
+        padding: 40px;
       }
     }
 
-    &.button--secondary .ma__button {
-      background-color: $c-primary-alt;
+    &.ma__key-message--light {
+
+      h1,
+      h2,
+      h3,
+      p {
+        color: $c-black;
+      }
+
+      .ma__key-message--wrapper {
+        background-color: rgba($c-white, 0.9);
+      }
     }
-  }
 
-  .ma__button {
-    background-color: $c-white;
-    color: $c-primary;
-    border-color: transparent;
+    .ma__key-message--cta {
 
-    .ma__key-message--light  & {
-      background-color: $c-primary;
-      color: $c-white;
+      .ma__button {
+        background-color: $c-white;
+        color: $c-primary;
+        border-color: transparent;
+
+        .ma__key-message--light  & {
+          background-color: $c-primary;
+          color: $c-white;
+        }
+      }
+
+      &.button--secondary .ma__button {
+        background-color: $c-primary-alt;
+        color: $c-white;
+      }
     }
   }
 }
