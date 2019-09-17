@@ -1,31 +1,85 @@
 .ma__key-message {
-  padding: 100px 0;
   text-align: center;
 
-  &--wrapper {
-    @include ma-container();
-  }
-
   &--image {
-    background-position: center;
-    background-size: cover;
+    min-height: 415px;
+    background-position: center bottom;
+    background-size: 100% 165px;
     background-repeat: no-repeat;
-  }
+    margin-bottom: 40px;
+    padding-bottom: 165px;
 
-  &--bay-blue {
-    background-color: rgba($c-bay-blue, 0.5);
-  }
+    @media($bp-campaign-medium) {
+      min-height: 400px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 40px 0; 
+    }
 
-  &--berkshires-green {
-    background-color: rgba($c-berkshires-green, 0.5);
-  }
-
-  &--light-text {
-    color: $c-white;
-
-    h1, h2 {
-      color: $c-white;
+    @media($bp-large-min) {
+      padding: 180px 0;
     }
   }
 
+  h1,
+  h2,
+  h3,
+  p {
+    color: $c-white;
+    padding-bottom: 30px;
+    margin-bottom: 0;
+  }
+
+  &.ma__key-message--light {
+    h1,
+    h2,
+    h3,
+    p {
+      color: $c-black;
+    }
+  }
+
+  &--wrapper {
+    display: inline-block;
+    padding: 40px 20px;
+    background-color: rgba($c-primary, 0.9);
+
+    .ma__key-message--light  & {
+      background-color: rgba($c-white, 0.9);
+    }
+
+    @media($bp-medium-min) {
+      padding: 40px;
+    }
+  }
+
+  &--cta {
+    
+    .ma__button {
+      background-color: $c-white;
+      color: $c-primary;
+      border-color: transparent;
+
+      .ma__key-message--light  & {
+        background-color: $c-primary;
+        color: $c-white;
+      }
+    }
+
+    &.button--secondary .ma__button {
+      background-color: $c-primary-alt;
+    }
+  }
+
+  .ma__button {
+    background-color: $c-white;
+    color: $c-primary;
+    border-color: transparent;
+
+    .ma__key-message--light  & {
+      background-color: $c-primary;
+      color: $c-white;
+    }
+  }
 }

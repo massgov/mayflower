@@ -1,8 +1,9 @@
-{% set textColor = keyMessage.textColor %}
+{% set theme = keyMessage.theme %}
 {% set bgColor = keyMessage.backgroundColor %}
 {% set bgImage = keyMessage.bgImage %}
+{% set buttonTheme = keyMessage.buttonTheme %}
 
-<section id="{{keyMessage.id}}"  class="ma__key-message {{ textColor ? 'ma__key-message--light-text' : '' }}{% if bgColor %} ma__key-message--{{ bgColor }}{% endif %}{% if bgImage %} ma__key-message--image{% endif %}">
+<section id="{{keyMessage.id}}"  class="ma__key-message {{ theme ? 'ma__key-message--light' : '' }}{% if bgColor %} ma__key-message--{{ bgColor }}{% endif %}{% if bgImage %} ma__key-message--image{% endif %}">
 
   {% if keyMessage.bgImage %}
     <style>
@@ -20,20 +21,29 @@
     </style>
   {% endif %}
 
+  {% if keyMessage.positionTop and bgColor %}
+  {# if pattern used as page header with colored background, force color to be bay blue #}
+  <style>
+    .ma__key-message {
+      background-color: #14558f !important;
+    }
+  </style>
+  {% endif %}
+
   <div class="ma__key-message--wrapper">
     {% set headingLevel = keyMessage.positionTop ? 1 : keyMessage.compHeading.level %}
     <h{{ headingLevel }} class="ma__key-message--title">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
 
     {% if keyMessage.subtitle %}
-    <span class="ma__key-message--sub-title">{{ keyMessage.subtitle }}</span>
+    <h3 class="ma__key-message--sub-title">{{ keyMessage.subtitle }}</h3>
     {% endif %}
 
     {% if keyMessage.description %}
-    <div class="ma__key-message--description">{{ keyMessage.description }}</div>
+    <p class="ma__key-message--description">{{ keyMessage.description }}</p>
     {% endif %}
 
     {% if keyMessage.button.text %}
-    <div class="ma__key-message--cta">
+    <div class="ma__key-message--cta{% if buttonTheme %} button--{{buttonTheme}}{% endif %}">
       {% set button = keyMessage.button %}
       {% include "@atoms/01-buttons/button.twig" %}
     </div>

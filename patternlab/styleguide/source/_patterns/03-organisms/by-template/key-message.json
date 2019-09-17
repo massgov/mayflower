@@ -6,17 +6,18 @@
       "title": "Training and Professional Development",
       "level": "1"
     },
+    "theme": "light",
     "backgroundColor": "",
-    "bgImage": "../../assets/images/placeholder/1600x800.png",
-    "mobileBgImage": "../../assets/images/placeholder/800x400.png",
+    "bgImage": "../../assets/images/placeholder/key-messages.jpeg",
+    "mobileBgImage": "",
     "subtitle": "Find career and professional development programs",
-    "description": "This is an optional description",
-    "textColor": "",
+    "description": "",
+    "buttonTheme": "secondary",
     "button":{
       "text":"Read More",
       "href":"#",
       "size": "small",
-      "theme": ""
+      "usage": "secondary"
     }
   }
 }
