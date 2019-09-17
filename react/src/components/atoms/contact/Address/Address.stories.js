@@ -32,4 +32,4 @@ storiesOf('atoms/contact', module)
     return(
       <Address {...props} />
     );
-  })
+  });

@@ -8,10 +8,10 @@ const Address = (props) => {
   return(
     <span className="ma__address">
       { address.streetAddress ? (
-          <div className="ma__address__address">
-            <div className="ma__address__part">{address.streetAddress}</div>
-            <div className="ma__address__part">{`${address.muni}, ${address.state} ${address.zip}`}</div>
-          </div>
+        <div className="ma__address__address">
+          <div className="ma__address__part">{address.streetAddress}</div>
+          <div className="ma__address__part">{`${address.muni}, ${address.state} ${address.zip}`}</div>
+        </div>
         ) : (
           <div className="ma__address__address" dangerouslySetInnerHTML={{ __html: address }} />
         )

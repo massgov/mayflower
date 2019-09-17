@@ -58,7 +58,7 @@
     margin-bottom: 5px;
 
     span {
-      font-size: 0.813rem;
+      font-size: 0.8125rem;
       letter-spacing: .1em;
       padding: 5px 7px;
       text-transform: uppercase;
@@ -95,7 +95,7 @@
         font-size: 0.95rem;
       }
       &__item{
-        font-size: 1.24rem;
+        font-size: 1.25rem;
       }
       &__name{
          margin-bottom: 0;
@@ -116,7 +116,7 @@
 
   &__date,
   &__org {
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1;
     margin-bottom: 1em;
     color: $c-font-dark;
@@ -157,7 +157,7 @@
     }
 
     .ma__decorative-link {
-      font-size: 1.2rem;
+      font-size: 1.1875rem;
       line-height: 1.4rem;
       font-style: italic;
     }
@@ -197,7 +197,7 @@
     font-size: 1.25rem;
 
     @media ($bp-x-small-max) {
-      font-size: 1.24rem;
+      font-size: 1.25rem;
     }
 
     p {
@@ -260,7 +260,7 @@
         flex-flow: row;
         align-items: flex-start;
         margin-bottom: 0.5rem;
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         line-height: 1.2rem;
 
       .ma__decorative-link {
@@ -282,7 +282,7 @@
     font-size: 1rem;
     .ma__contact {
       &__details {
-        font-size: 0.9rem;
+        font-size: 0.875rem;
       }
     }
     line-height: 1.2rem;
@@ -299,7 +299,7 @@
 
   &__tag {
     color: $c-gray;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: bold;
     text-align: center;
     border: 1px solid $c-gray-light;
@@ -317,6 +317,13 @@
     .ma__button-icon--secondary {
       border-width: 0px;
     }
+  }
+
+  &__stat {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    font-size: 0.875rem;
   }
 
   &__search {

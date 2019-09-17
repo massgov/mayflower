@@ -13,7 +13,7 @@ const formatPhoneNumber = (number) => {
 };
 
 const PhoneNumber = (props) => {
-  console.log(props)
+  console.log(props);
   const { number, details } = props;
   const display = formatPhoneNumber(number);
   return(

@@ -1,6 +1,7 @@
-import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '../../../index';
-import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 import ReactHtmlParser from 'react-html-parser';
+import React from 'react';
+
+import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import Address from '../../atoms/contact/Address';
 import PhoneNumber from '../../atoms/contact/PhoneNumber';
@@ -8,11 +9,9 @@ import Email from '../../atoms/contact/Email';
 import EventTime from '../../atoms/contact/EventTime';
 import LinkDropdown from '../../molecules/LinkDropdown';
 import HeaderSearch from '../../molecules/HeaderSearch';
-import React from 'react';
-import helpersClass from "./utils";
+import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '../../../index';
+import { buildUrl } from './utils';
 import './style.css';
-
-const helpers = new helpersClass();
 
 class TeaserOrg extends React.Component {
   constructor(props) {
@@ -47,7 +46,7 @@ class TeaserOrg extends React.Component {
     const shownOrgs = teaserOrgs.slice(0, 3);
     const hiddenOrgs = teaserOrgs.slice(3);
     const toggleProps = {
-      classes: ['ma__gen-teaser__org__show-more', `${!this.state.truncateOrgs ? "show-fewer" : ""}`],
+      classes: ['ma__gen-teaser__org__show-more', `${!this.state.truncateOrgs ? 'show-fewer' : ''}`],
       onClick: (e) => this.handleClick(e),
       onKeyPress: (e) => this.handleKeyPress(e),
       text: (this.state.truncateOrgs) ? ` & ${hiddenOrgs.length} more` : ' Show fewer',
@@ -80,21 +79,13 @@ class TeaserSearch extends React.Component {
     });
   }
 
-  redirect = (searchURL) => {
-    if (window.location !== window.parent.location) {
-      window.parent.location.assign(searchURL);
-    } else {
-      window.location.assign(searchURL);
-    }
-  }
-
   onClick = (e) => {
     e.preventDefault();
     const { target, queryInput } = this.props;
     const { query } = this.state;
-    if(query.length > 0){
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`,this.state.query) : target;
-      this.redirect(searchURL)
+    if (query.length > 0) {
+      const searchURL = queryInput ? target.replace(`{${queryInput}}`, this.state.query) : target;
+      this.redirect(searchURL);
     }
   }
 
@@ -102,9 +93,17 @@ class TeaserSearch extends React.Component {
     e.preventDefault();
     const { target, queryInput } = this.props;
     const { query } = this.state;
-    if(query.length > 0){
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`,this.state.query) : target;
-      this.redirect(searchURL)
+    if (query.length > 0) {
+      const searchURL = queryInput ? target.replace(`{${queryInput}}`, this.state.query) : target;
+      this.redirect(searchURL);
+    }
+  }
+
+  redirect = (searchURL) => {
+    if (window.location !== window.parent.location) {
+      window.parent.location.assign(searchURL);
+    } else {
+      window.location.assign(searchURL);
     }
   }
 
@@ -126,19 +125,19 @@ class TeaserSearch extends React.Component {
         placeholder={placeholder}
         {...rest}
       />
-    )
+    );
   }
 }
 
 const GenTeaser = (props) => {
-  const { children, onClick, ...rest } = props;
-  const className = onClick ? "ma__gen-teaser ma__gen-teaser--clickable" : "ma__gen-teaser";
-  const ariaRole = onClick ? "button" : "";
+  const { children, onClick, onKeyDown, ...rest } = props;
+  const className = onClick ? 'ma__gen-teaser ma__gen-teaser--clickable' : 'ma__gen-teaser';
+  const role = onClick ? 'button' : '';
   return(
-    <section className={className} aria-role={ariaRole} onClick={onClick} {...rest}>
+    <section className={className} onClick={onClick} onKeyDown={onKeyDown} role={role} {...rest}>
       {children}
     </section>
-  )
+  );
 };
 
 GenTeaser.Details = (props) => {
@@ -147,19 +146,21 @@ GenTeaser.Details = (props) => {
     <div className="ma__gen-teaser__details" {...rest}>
       {children}
     </div>
-  )
+  );
 };
 
 GenTeaser.Title = (props) => {
-  const { level, title, children, ...rest } = props;
+  const {
+    level, title, children, ...rest
+  } = props;
   const Element = `h${level || 2}`;
   return(
     <Element className="ma__gen-teaser__title" {...rest} >
       {title && <DecorativeLink {...title} />}
       {children}
     </Element>
-  )
-}
+  );
+};
 
 GenTeaser.Eyebrow = (props) => {
   const { eyebrow, children, ...rest } = props;
@@ -168,8 +169,8 @@ GenTeaser.Eyebrow = (props) => {
       {eyebrow && <span>{eyebrow}</span>}
       {children}
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.Emphasis = (props) => {
   const { children, ...rest } = props;
@@ -177,8 +178,8 @@ GenTeaser.Emphasis = (props) => {
     <div className="ma__gen-teaser__emphasis" {...rest}>
       {children}
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.Date = (props) => {
   const { date, children, ...rest } = props;
@@ -187,15 +188,15 @@ GenTeaser.Date = (props) => {
       {date && date}
       {children}
     </span>
-  )
-}
+  );
+};
 
 GenTeaser.Org = (props) => {
   const { orgs, ...rest } = props;
   return(
-    <TeaserOrg orgs={orgs} {...rest}/>
-  )
-}
+    <TeaserOrg orgs={orgs} {...rest} />
+  );
+};
 
 GenTeaser.Description = (props) => {
   const { children, description, ...rest } = props;
@@ -205,36 +206,38 @@ GenTeaser.Description = (props) => {
       {children}
     </div>
   );
-}
+};
 
 GenTeaser.KeyAction = (props) => {
-  const { description, href, text, info, children, ...rest } = props;
+  const {
+    description, href, text, info, children, ...rest
+  } = props;
   return(
     <div className="ma__gen-teaser__key-action-item" {...rest} >
       {text && href && <DecorativeLink href={href} text={text} info={info} />}
       {description && <p>{ReactHtmlParser(description)}</p>}
       {children}
     </div>
- );
-}
+  );
+};
 
-GenTeaser.SubLinks= (props) => {
+GenTeaser.SubLinks = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__key-action" {...rest}>
       {children.length > 2 ? (
         <React.Fragment>
           <div className="ma__gen-teaser__key-action-col">
-            {children.slice(0,2)}
+            {children.slice(0, 2)}
           </div>
           <div className="ma__gen-teaser__key-action-col">
-            {children.slice(2,4)}
+            {children.slice(2, 4)}
           </div>
         </React.Fragment>
       ) : <div className="ma__gen-teaser__key-action-col">{children}</div>}
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.MoreInfo = (props) => {
   const { children, ...rest } = props;
@@ -242,8 +245,8 @@ GenTeaser.MoreInfo = (props) => {
     <div className="ma__gen-teaser__moreinfo" {...rest}>
       {children}
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.PrimaryInfo = (props) => {
   const { children, ...rest } = props;
@@ -251,8 +254,8 @@ GenTeaser.PrimaryInfo = (props) => {
     <div className="ma__gen-teaser__pimary" {...rest}>
       {children}
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.SecondaryInfo = (props) => {
   const { children, ...rest } = props;
@@ -260,8 +263,8 @@ GenTeaser.SecondaryInfo = (props) => {
     <div className="ma__gen-teaser__secondary" {...rest}>
       {children}
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.Address = (props) => {
   const { address, ...rest } = props;
@@ -272,8 +275,8 @@ GenTeaser.Address = (props) => {
       </span>
       <Address {...address} />
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.Phone = (props) => {
   const { phone, ...rest } = props;
@@ -284,8 +287,8 @@ GenTeaser.Phone = (props) => {
       </span>
       <PhoneNumber {...phone} />
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.Email = (props) => {
   const { email, ...rest } = props;
@@ -296,8 +299,8 @@ GenTeaser.Email = (props) => {
       </span>
       <Email {...email} />
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.Event = (props) => {
   const { event, ...rest } = props;
@@ -310,30 +313,30 @@ GenTeaser.Event = (props) => {
       'aria-haspopup': true,
       capitalized: true
     }
-  }
+  };
   dropdownProps.dropdownItems = event.calendars.map((item) => {
     const { type, text } = item;
-    let itemVals = "";
+    let itemVals = '';
     switch (type) {
       case 'yahoo':
       case 'google':
       case 'outlookcom':
         itemVals = {
           text,
-          href: helpers.buildUrl(event,type)
-        }
+          href: buildUrl(event, type)
+        };
         break;
       default:
         itemVals = {
           text,
-          href: helpers.buildUrl(event,type,window||''),
+          href: buildUrl(event, type, window || ''),
           target: '_blank',
           download: 'download.ics'
-        }
+        };
         break;
     }
     return itemVals;
-  })
+  });
   return(
     <React.Fragment>
       <div className="ma__gen-teaser__infoitem" {...rest}>
@@ -344,11 +347,13 @@ GenTeaser.Event = (props) => {
       </div>
       <LinkDropdown {...dropdownProps} />
     </React.Fragment>
-  )
-}
+  );
+};
 
 GenTeaser.InfoDetails = (props) => {
-  const { icon, href, text, ...rest } = props;
+  const {
+    icon, href, text, ...rest
+  } = props;
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
@@ -357,17 +362,17 @@ GenTeaser.InfoDetails = (props) => {
       {text && !href && <span>{text}</span>}
       {href && text && <DecorativeLink text={text} href={href} />}
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.Tags = (props) => {
   const { tags, ...rest } = props;
   return(
     <div className="ma__gen-teaser__tags" {...rest}>
-      {tags.map(tag => <span className="ma__gen-teaser__tag">{tag}</span>)}
+      {tags.map((tag) => <span className="ma__gen-teaser__tag">{tag}</span>)}
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.SearchBar = (props) => {
   const { search, ...rest } = props;
@@ -377,8 +382,8 @@ GenTeaser.SearchBar = (props) => {
         {...search}
       />
     </div>
-  )
-}
+  );
+};
 
 GenTeaser.Button = (props) => {
   const { button, ...rest } = props;
@@ -386,12 +391,21 @@ GenTeaser.Button = (props) => {
   return(
     <div className="ma__gen-teaser__button" {...rest}>
       <ButtonWithIcon
-        capitalized={true}
+        capitalized
         {...button}
         icon={icon}
       />
     </div>
-  )
-}
+  );
+};
+
+GenTeaser.Stat = (props) => {
+  const { children, ...rest } = props;
+  return(
+    <div className="ma__gen-teaser__stat" {...rest}>
+      {children}
+    </div>
+  );
+};
 
 export default GenTeaser;
