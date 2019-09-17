@@ -13,6 +13,11 @@ var resizeTruncate = function($textAreas) {
 
 export default (function (window,document,$) {
   var $textAreas = $('.ma__services-flexible-link-groups .page-content--intro .ma__rich-text');
+
+  if(!$textAreas.length) {
+    return;
+  }
+
   var truncateTimeout = false;
   var boundResizeTruncate = resizeTruncate.bind(undefined, $textAreas)
 

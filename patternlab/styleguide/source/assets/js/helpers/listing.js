@@ -33,9 +33,6 @@ export default (function(window, document, undefined, $, moment){
         }
       });
 
-      // Re-activate body text truncation after render
-      activateBodyTextTruncation();
-
       if (args.focus) {
         // Focus on the first focusable element in the first listing
         let $firstListing = $el.find(args.data.selectors.row).first();
