@@ -23,8 +23,11 @@
     flex-basis: 100%;
     padding: 20px;
     
-    @media ($bp-medium-min) {
+    @media ($bp-large-min) {
       padding: 40px;
+    }
+
+    @media ($bp-small-min) {
       flex-basis: 40%;
     }
 
