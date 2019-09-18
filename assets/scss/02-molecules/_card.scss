@@ -22,10 +22,6 @@
   &__content {
     flex-basis: 100%;
     padding: 20px;
-    
-    @media ($bp-large-min) {
-      padding: 40px;
-    }
 
     @media ($bp-small-min) {
       flex-basis: 40%;
@@ -34,9 +30,6 @@
     &--secondary {
       flex-flow: row;
       flex-basis: 100%;
-      @media ($bp-medium-min) {
-        padding: 30px;
-      }
     }
   }
 
