@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Changed
 - (Patternlab) [StickyToc] DP-15605: Add context info to sticky TOC buttons to reflect the state of the TOC display. Switch focus as the flyout toc shows/hides. #731
 - (Patternlab) [HeaderAlert] DP-15896: Makes decorative link in a page alert show inline without unexpected wrapping up. #741
+- (Patternlab) [InformationDetails] DP-14105: Added an overview rich text field to the information-details component. #734
 
 ### Security
 - (React) [Dependency] Bump fstream from 1.0.11 to 1.0.12 in /react. #687
