@@ -35,6 +35,19 @@ export default (function (window, document, $) {
 
     // Listen for Google Map api library load completion, with geocode, geometry, and places libraries
     $(document).on("ma:LibrariesLoaded:GoogleMaps", function () {
+      // Set up global geocoder object that will be used later in `listing.js` functions that fetch geocodes from user input.
+      ma.geocoder = ma.geocoder ? ma.geocoder : new google.maps.Geocoder();
+
+      // Set up viewport bounds that will be used as additional properties of GeocoderRequest objects.
+      // NOTE: We set similar "local" bounds in `eventFilters.js` and `locationFilters.js` but we need to set "global"
+      // variable that holds the bounds here so that it can be used current gecoding functions in `listing.js`.
+      let $locationFilterParent = $('.js-filter-by-location', $el);
+      let swLat = $locationFilterParent.data('maPlaceBoundsSwLat');
+      let swLng = $locationFilterParent.data('maPlaceBoundsSwLng');
+      let neLat = $locationFilterParent.data('maPlaceBoundsNeLat');
+      let neLng = $locationFilterParent.data('maPlaceBoundsNeLng');
+      ma.viewportBounds = new google.maps.LatLngBounds(new google.maps.LatLng(swLat,swLng), new google.maps.LatLng(neLat,neLng));
+
       // Set up click handler for location listing rows.
       $el.on("click", row, function (e) {
         // If the link has an href, allow the normal link functionality
@@ -311,7 +324,8 @@ export default (function (window, document, $) {
         let autocompletePlace = ma.autocomplete.getPlace();
       }
       // Geocode the address, then sort the markers and instance of locationListing masterData.
-      ma.geocoder = ma.geocoder ? ma.geocoder : new google.maps.Geocoder();
+      // NOTE: We used to declare a global `ma.geocoder` here, but we have corrected that, and now declare it in the
+      // same file but in the callback that is run on completion of Google Map api library load.
       if (typeof autocompletePlace !== "undefined" && autocompletePlace.hasOwnProperty("place_id")) {
         // This is an asynchronous function
         listings.geocodePlaceId(autocompletePlace.place_id, function (result) {
