@@ -1,32 +1,30 @@
 {
   "campaignFeature": {
     "compHeading": {
-      "title": "Featured Campaign Tile",
+      "title": "Learn about our projects and the people behind them",
       "level": ""
     },
     "positionTop": true,
     "campaignFullWidthFeature": {
       "id": "dfg1234",
       "link": "#",
-      "bgImage": "../../assets/images/placeholder/1600x800.png",
-      "mobileBgImage": "../../assets/images/placeholder/800x400.png",
-      "thumbnail": "../../assets/images/placeholder/400x300-kitten.jpg",
-      "title": "Training and Professional Development",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      "thumbnail": "https://careers.mass.gov/wp-content/uploads/2018/04/PeterCrop-e1562013693446.jpg",
+      "title": "Improving emergency response with mapping technology",
+      "text": "<p>“The work we do at MassGIS supports dispatch, police, fire, and medical professionals who respond to emergency situations. It could benefit all of those who live, visit, and work in the Commonwealth.”</p><br><b>Peter Grace</b>, GIS Analyst"
     },
     "campaignFeature2up": [{
-      "id": "dfg123",
+      "id": "1234",
       "link": "#",
-      "thumbnail": "../../assets/images/placeholder/400x300-kitten.jpg",
-      "title": "Campaign 2 up Card 1",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      "thumbnail": "https://careers.mass.gov/wp-content/uploads/2019/06/Sangit-1.jpg",
+      "title": "From an IT training program to EOTSS Team Lead",
+      "text": "<p>“I’m really impressed with the people who work here. I’ve met individuals who have mentored me and helped me build the skills needed to be successful.”</p><br><b>Sangit Tamang</b>, Identity & Access Management Specialist"
     },
     {
-      "id": "dfg12",
+      "id": "1234",
       "link": "#",
-      "thumbnail": "../../assets/images/placeholder/400x300-kitten.jpg",
-      "title": "Campaign 2 up Card 2",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      "thumbnail": "https://careers.mass.gov/wp-content/uploads/2019/06/Julia.jpg",
+      "title": "How a Texas transplant makes Mass.gov work for content authors",
+      "text": "<p>“It’s fun and exciting to have an opportunity to work hand-in-hand with partner agencies who want to understand and improve the constituent experience.”</p><br><b>Julia Gutierrez</b>, Project Manager"
     }]
   }
 }
