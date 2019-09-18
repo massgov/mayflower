@@ -1,0 +1,34 @@
+{% set thumbnail = card.thumbnail %}
+{% set cardClass = card.usage ? " ma__card--" ~ card.usage : "" %}
+{% set contentClass = card.usage ? " ma__card__content--" ~ card.usage : "" %}
+{% set imgClass = card.usage ? " ma__card__img--" ~ card.usage : "" %}
+{% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
+
+<div id="{{ card.id }}" class="ma__card{{ cardClass }}">
+  {% if not card.usage %}
+    <style>
+      .ma__card__img--{{ card.id }} {
+        background-image: url('{{ thumbnail }}');
+      }
+    </style>
+  {% endif %}
+  <a class="ma__card__wrapper" href="{{ card.link }}">
+    <div class="ma__card__img ma__card__img--{{ card.id }}{{ imgClass }}">
+      <img src="{{ card.thumbnail }}" alt="">
+    </div>
+    <div class="ma__card__content{{ contentClass }}">
+      <h2 class="ma__card__title"><span>{{card.title}}&nbsp;{{ icon('arrow') }}</span></h2>
+      <div class="ma__card__details{{ detailsClass }}">
+        {% if card.usage %}
+        <div class="ma__card__thumbnail">
+          <img src="{{card.thumbnail}}" alt="">
+        </div>
+        {% endif %}
+        <div class="ma__card__text">
+          {{card.text}}
+        </div>
+      </div>
+    </div>
+  </a> 
+</div>
+
