@@ -88,14 +88,15 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    @media ($bp-medium-min) {
+    @media ($bp-small-min) {
       flex-basis: 60%;
       @include ma-aspect-ratio(4,3);
       img {
         display: none;
       }
     }
-    @media ($bp-medium-max) {
+    
+    @media ($bp-small-max) {
       img {
         display: block;
         width: 100%;
