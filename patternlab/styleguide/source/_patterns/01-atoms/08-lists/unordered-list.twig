@@ -3,7 +3,7 @@
 		<li>{{ listItem.text }}</li>
 		{% if listItem.sublist %}
 			<ul>
-				{% for sublist in list.sublist %}
+				{% for sublist in listItem.sublist %}
 					<li>{{ sublist.text }}</li>
 				{% endfor %}
 			</ul>
