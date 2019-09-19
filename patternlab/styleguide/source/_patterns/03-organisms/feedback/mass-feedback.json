@@ -1,9 +1,18 @@
 {
   "formAction": "#",
-  "title": "Did you find what you were looking for on this webpage?",
+  "title": {
+    "value": "Did you find what you were looking for on this webpage?",
+    "required": false
+  },
   "org": "the Registry of Motor Vehicles",
-  "queryAffirmative": "Do you have anything else to tell us?",
-  "queryNegative": "Please tell us what you were looking for.",
+  "queryAffirmative": {
+    "value": "Do you have anything else to tell us?",
+    "required": false
+  },
+  "queryNegative": {
+    "value": "Please tell us what you were looking for.",
+    "required": false
+  },
   "queryDescription": "We will use this information to improve the site.",
   "inputGroup": {
     "required": true,
