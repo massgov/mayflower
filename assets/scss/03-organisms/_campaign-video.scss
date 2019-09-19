@@ -41,12 +41,6 @@
     }
   }
 
-  &--no-video-bg {
-    .ma__video__container {
-      background-color: transparent;
-    }
-  }
-
   &--bg-primary,
   &--bg-primary-alt {
     .ma__campaign-video__video .ma__decorative-link {
@@ -96,6 +90,10 @@
 
   .fluid-width-video-wrapper {
     padding-top: 56.25% !important;
+  }
+
+  .ma__video__container {
+    background-color: transparent;
   }
 
   .ma__video__link {

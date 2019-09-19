@@ -10,6 +10,16 @@ Displays a campaign video using an iframe with a transcript link.
 ### Variant options
 * This pattern includes an optional link to a page containing a transcript of the video
 * This pattern can also by floated to the right by setting the position to ['right'](./?p=atoms-video-as-floated-right)
+* This pattern can have its background set to one of five colors:
+
+  * Bay Blue (primary)
+  * Berkshires Green (primary-alt)
+  * White (white)
+  * Light Gray (gray-lightest)
+  * Pale Blue (primary-lightest)
+
+  When the component is used as a header, only primary and primary-alt
+  are available as background colors.
 
 ### Variables
 ~~~
@@ -17,8 +27,6 @@ isHeader:
   type: bool / required
 backgroundColor:
   type: string / optional ("", "primary", "primary-alt", "white", "gray-lightest", "primary-lightest")
-noVideoBg:
-  type: bool / optional
 description
   type: string / optional
 video {
