@@ -1,6 +1,12 @@
 .ma__campaign-video { 
   text-align: center;
-  padding-top: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @media ($bp-medium-min) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 
   &--bg-primary {
     background-color: $c-primary;
@@ -60,13 +66,6 @@
   
   &__wrapper {
     @include ma-container();
-    padding-top: 40px;
-    padding-bottom: 40px;
-
-    @media ($bp-medium-min) {
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
   }
 
   &__description {
