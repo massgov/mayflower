@@ -2,6 +2,27 @@
   text-align: center;
   background-color: $c-primary;
   padding: 40px 0; 
+  margin-bottom: 30px;
+
+  @media($bp-campaign-medium) {
+    margin-bottom: 40px;
+  }
+
+  &--berkshire-green {
+    background-color: $c-primary-alt;
+  }
+
+  &--bay-blue {
+    background-color: $c-primary;
+  }
+
+  &--bay-blue-light {
+    background-color: rgba($c-primary, 0.1);
+  }
+
+  &--platinum-gray {
+    background-color: $c-gray-lightest;
+  }
 
   h1,
   h2,
