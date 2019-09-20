@@ -5,8 +5,8 @@ import truncateBodyText from "../helpers/truncateBodyText";
  * Initiate truncateBodyText wherever it is needed.
  */
 
-var resizeTruncate = function($textAreas) {
-  $textAreas.not('.ma-truncated-body-text').each(function(i, el) {
+var truncate = function($textAreas) {
+  $textAreas.each(function(i, el) {
     truncateBodyText($(el));
   });
 }
@@ -19,16 +19,13 @@ export default (function (window,document,$) {
   }
 
   var truncateTimeout = false;
-  var boundResizeTruncate = resizeTruncate.bind(undefined, $textAreas)
+  var boundTruncate = truncate.bind(undefined, $textAreas)
 
-  $textAreas.each(function(i, el) {
-    truncateBodyText($(el));
-  });
-
+  boundTruncate();
 
   $(window).on('resize', function() {
     window.clearTimeout(truncateTimeout);
-    truncateTimeout = window.setTimeout(boundResizeTruncate, 500);
+    truncateTimeout = window.setTimeout(boundTruncate, 500);
   });
 })(window,document,jQuery);
   

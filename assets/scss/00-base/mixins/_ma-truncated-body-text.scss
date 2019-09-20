@@ -23,6 +23,7 @@
   .ma-truncated-body-text__contents {
     overflow: hidden;
     position: relative;
+    transition: 0.5s height;
   }
 
   .ma-truncated-body-text__fade-overlay {
