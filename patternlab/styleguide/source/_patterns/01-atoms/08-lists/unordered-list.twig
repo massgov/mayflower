@@ -1,9 +1,9 @@
-<ul>
-	{% for list in unorderedList %}
-		<li>{{ list.text }}</li>
-		{% if list.sublist %}
+<ul{{ class ? ' class="' ~ class ~ '"' }}>
+	{% for listItem in unorderedList %}
+		<li>{{ listItem.text }}</li>
+		{% if listItem.sublist %}
 			<ul>
-				{% for sublist in list.sublist %}
+				{% for sublist in listItem.sublist %}
 					<li>{{ sublist.text }}</li>
 				{% endfor %}
 			</ul>
