@@ -54,9 +54,10 @@
       border-color: rgba($color,.5);
       
       @if $color == $c-highlight {
-        color: $c-black;
+        color: $c-primary;
+        border-color: rgba($c-primary,.5);
         svg {
-          fill: $c-black;
+          fill: $c-primary;
         }
       }
       @else {
@@ -72,10 +73,7 @@
           fill: $c-white;
         }
         @if $color == $c-highlight {
-          color: $c-black;
-          svg {
-            fill: $c-black;
-          }
+          color: $c-font-inverse;
         }
         @else {
           color: $c-font-inverse;
