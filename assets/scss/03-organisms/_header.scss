@@ -114,6 +114,17 @@ body.show-menu {
     .ma__site-logo a {
       margin: 0;
     }
+
+    &--mobile {
+      padding: 20px;
+      width: 100%;
+      border-bottom: 2px solid $c-bd-divider;
+
+      a img {
+        width: 45px;
+        height: 45px;
+      }
+    }
   }
   &__search {
     display: inline-block;
@@ -153,10 +164,6 @@ body.show-menu {
               position: static;
               transition: opacity .4s;
               vertical-align: middle;
-              
-              .show-menu & {
-                opacity: 0;
-              }
             }
           }
         }

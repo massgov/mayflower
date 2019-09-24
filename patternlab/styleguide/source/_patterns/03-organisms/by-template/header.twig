@@ -24,6 +24,9 @@
         </button>
       </div>
       <div class="ma__header__nav-container">
+      <div class="ma__header__logo ma__header__logo--mobile">
+        {% include "@atoms/09-media/site-logo.twig" %}
+      </div>
       {% if not hideHeaderSearch %}
         <div class="ma__header__nav-search js-header__nav-search">
           {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
