@@ -1,3 +1,20 @@
 .ma__campaign-feature {
-  
+  padding-top: 30px;
+  padding-bottom: 60px;
+
+  @media ($bp-medium-min) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  @media ($bp-large-min) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__primary {
+    margin-bottom: 20px;
+  }
+  &__title {
+    text-align: center;
+  }
 }

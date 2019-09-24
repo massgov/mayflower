@@ -28,6 +28,7 @@ import orgSelector from "./modules/orgSelector.js";
 import organizationNavigation from "./modules/organizationNavigation.js";
 import pagination from "./modules/pagination.js";
 import pikaday from "./modules/pikaday.js";
+import preventHorizontalListWidows from "./modules/preventHorizontalListWidows.js";
 // `richText` and `stickTOC` are needed above offsets.
 import stickyTOC from "./modules/stickyTOC.js";
 import relatedOrgsAndTopics from "./modules/relatedOrgsAndTopics.js";
