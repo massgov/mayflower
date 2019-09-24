@@ -1,8 +1,9 @@
 export default (function (window, document, $, undefined) {
 
-  const sidebarHeight = $('.sidebar').length > 0 ? $('.sidebar').outerHeight(true) + 100 : 0;
   // Set height of sidebar plus 100 pixels so full width images
   // don't sit too tight under under the sidebar content.
+  const sidebarHeight = $('.sidebar').length > 0 ? $('.sidebar').outerHeight(true) + 100 : 0;
+
   let debounceTimer;
 
   function mediaWidth() {
