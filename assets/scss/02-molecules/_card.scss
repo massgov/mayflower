@@ -1,0 +1,118 @@
+.ma__card {
+  background-color: $c-gray-light;  
+  
+  &__wrapper {
+    color: $c-black;
+    font-weight: normal;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    @media ($bp-small-min) {
+      flex-flow: row;
+    }
+  }
+
+  &--secondary {
+    background-color: $c-gray-lightest;
+    @media ($bp-small-min) {
+      flex-flow: column;
+    }
+  }
+
+  &__content {
+    flex-basis: 100%;
+    padding: 20px;
+
+    @media ($bp-small-min) {
+      flex-basis: 40%;
+    }
+
+    &--secondary {
+      flex-flow: row;
+      flex-basis: 100%;
+    }
+  }
+
+  &__details {
+    &--secondary {
+      flex-flow: row;
+      display: flex;
+
+       @media ($bp-small-min) {
+         flex-flow: column;
+       }
+       @media ($bp-large-min) {
+         flex-flow: row;
+       }
+
+      .ma__card__thumbnail {
+        flex-basis: 40%;
+        padding-right: 20px;
+        @media ($bp-small-max) {
+          display: none;
+          flex-basis: 0%;
+        }
+      }
+      .ma__card__text {
+        flex-basis: 60%;
+        @media ($bp-small-max) {
+          flex-basis: 100%;
+        }
+      }
+    }
+  }
+
+  &__title {
+    text-decoration: none;
+    font-weight: 700;
+    color: $c-font-link;
+    span {
+      border: 3px solid transparent;
+      transition: border 0.4s ease;
+      display: inline;
+      &:hover {
+        border-bottom-color: rgba($c-font-link,.5);
+      }
+      &:focus {
+        border-bottom-color: rgba($c-font-link,.5) !important;
+      }
+      svg {
+        display: inline-block;
+        height: .6em;
+        margin-right: -.8em;
+        width: .6em;
+        fill: rgba($c-font-link,.5);
+      }
+    }
+  }
+
+  &__img {
+    flex-basis: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media ($bp-small-min) {
+      flex-basis: 60%;
+      @include ma-aspect-ratio(4,3);
+      img {
+        display: none;
+      }
+    }
+    
+    @media ($bp-small-max) {
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &--secondary {
+      @media ($bp-small-min) {
+        display: none
+      }
+    }
+
+  }
+
+}

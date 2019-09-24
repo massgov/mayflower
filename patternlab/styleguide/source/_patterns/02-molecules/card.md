@@ -1,14 +1,14 @@
-Description: The pattern displays 2 cards as secondary variants for the campaign feature organism
+Description: This pattern shows a card with an title, image, and rich text area.
 
 ### Status
-* Added in 9.22.0
+* Added as beta version of molecule in 9.25.0
 
-### Pattern Contains
-* [Card as secondary](./?p=molecules-card-as-secondary) molecule
+### Variant options
+* As [secondary](./?p=molecules-card-as-secondary) with usage set to `"secondary"`.
 
 ### Variables
 ~~~
-campaignFeature2up: [{
+card: {
   id:
     type: string / required
     description: The id of the card element.
@@ -24,8 +24,11 @@ campaignFeature2up: [{
   text:
     type: string of rich text / required
     description: Rich text description field of the card.
+  usage:
+    type: string ("" or "secondary") / optional / default ""
+    description: Whether to treat the card as Primary Card or Secondary Card.
   level:
     type: number / optional / default 3
     description: The heading level the title.
-}]
+}
 ~~~

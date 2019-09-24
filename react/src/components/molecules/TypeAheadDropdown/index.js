@@ -108,9 +108,8 @@ class TypeAheadDropdown extends React.Component {
     const dropdownButton = {
       onClick: this.handleClick,
       setButtonRef: this.setDropDownButtonRef,
-      canExpand: true,
       expanded: this.state.buttonExpand,
-      icon: <Icon name="chevron" />,
+      icon: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
       size: 'small',
       iconColor: '',
       ...this.props.dropdownButton
