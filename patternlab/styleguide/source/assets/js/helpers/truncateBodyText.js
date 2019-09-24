@@ -26,7 +26,7 @@ var calculateTruncation = (function($, $el) {
 
   $el.data({
     thresholdHeight: (lineHeight * lineLimit) + paddingTop,
-    truncatedHeight: (lineHeight * (lineLimit - 2)) + paddingTop,
+    truncatedHeight: (lineHeight * (lineLimit - 3)) + paddingTop,
     intrinsicHeight: $el.children('div').height()
   });
 
