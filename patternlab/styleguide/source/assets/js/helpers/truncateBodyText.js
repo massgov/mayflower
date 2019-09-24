@@ -22,7 +22,7 @@ var calculateTruncation = (function($, $el) {
 
   // lineLimit represents the line count that *triggers* truncation, NOT
   // the height *after* truncation.
-  const lineLimit = window.matchMedia('(max-width: 910px)').matches ? 6 : 8;
+  const lineLimit = window.matchMedia('(max-width: 910px)').matches ? 7 : 9;
 
   $el.data({
     thresholdHeight: (lineHeight * lineLimit) + paddingTop,
