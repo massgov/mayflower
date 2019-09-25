@@ -10,7 +10,16 @@
     "bgImage": "../../assets/images/placeholder/1600x800.png",
     "mobileBgImage": "../../assets/images/placeholder/800x400.png",
     "subtitle": "Find career and professional development programs",
-    "description": "This is an optional description",
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This is an optional text area."
+          }
+        }
+      }]
+    },
     "textColor": "",
     "button":{
       "text":"Read More",

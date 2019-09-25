@@ -129,7 +129,7 @@ $colors: (
         background-color: tint($c-warning, 90%);
       }
 
-      .ma__button-alert {
+      .ma__button-alert, .ma__button-icon--alert {
         width: 100%;
       }
     }

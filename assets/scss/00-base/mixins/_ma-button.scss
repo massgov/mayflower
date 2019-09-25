@@ -33,7 +33,16 @@
     @if($type == "solid") {
       background-color: $color;
       border-color: transparent;
-      color: $c-font-inverse;
+
+      @if $color == $c-highlight {
+        color: $c-black;
+        svg {
+          fill: $c-black;
+        }
+      }
+      @else {
+        color: $c-font-inverse;
+      }
 
       &:hover {
         background-color: rgba($color,.75);
@@ -43,11 +52,32 @@
     @else {
       background-color: $c-font-inverse;
       border-color: rgba($color,.5);
-      color: $color;
+      
+      @if $color == $c-highlight {
+        color: $c-primary;
+        border-color: rgba($c-primary,.5);
+        svg {
+          fill: $c-primary;
+        }
+      }
+      @else {
+        color: $color;
+        svg {
+          fill: $color;
+        }
+      }
 
       &:hover {
         background-color: rgba($color,1);
-        color: $c-font-inverse;
+        svg {
+          fill: $c-white;
+        }
+        @if $color == $c-highlight {
+          color: $c-font-inverse;
+        }
+        @else {
+          color: $c-font-inverse;
+        }
       }
     }
   }
