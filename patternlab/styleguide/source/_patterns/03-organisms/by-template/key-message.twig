@@ -7,45 +7,36 @@
 
   {% if keyMessage.bgImage %}
     <style>
-      #{{ keyMessage.id }}.ma__key-message--image {
+      #{{ keyMessage.id }}.ma__key-message--image .ma__key-message__image {
         background-image: url('{{ keyMessage.bgImage }}');
       }
 
       {% if keyMessage.mobileBgImage %}
       @media (-webkit-min-device-pixel-ratio: 2) {
-        #{{ keyMessage.id }}.ma__key-message--image {
+        #{{ keyMessage.id }}.ma__key-message--image .ma__key-message__image {
           background-image: url('{{ keyMessage.mobileBgImage }}');
         }
       }
       {% endif %}
     </style>
     {# Including an empty span with the required alt text for the background image #}
-    <span role="img" aria-label="{{ keyMessage.bgImageAlt }}"></span>
+    <div class="ma__key-message__image" role="img" aria-label="{{ keyMessage.bgImageAlt }}"></div>
   {% endif %}
 
-  {% if keyMessage.positionTop and bgColor %}
-  {# if pattern used as page header with colored background, force color to be bay blue #}
-  <style>
-    .ma__key-message {
-      background-color: #14558f !important;
-    }
-  </style>
-  {% endif %}
-
-  <div class="ma__key-message--wrapper">
-    {% set headingLevel = keyMessage.positionTop ? 1 : keyMessage.compHeading.level %}
+  <div class="ma__key-message__wrapper">
+    {% set headingLevel = keyMessage.isHeader ? 1 : keyMessage.compHeading.level %}
     <h{{ headingLevel }} class="ma__key-message--title">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
 
     {% if keyMessage.subtitle %}
-    <h3 class="ma__key-message--sub-title">{{ keyMessage.subtitle }}</h3>
+    <h3 class="ma__key-message__sub-title">{{ keyMessage.subtitle }}</h3>
     {% endif %}
 
     {% if keyMessage.description %}
-    <p class="ma__key-message--description">{{ keyMessage.description }}</p>
+    <p class="ma__key-message__description">{{ keyMessage.description }}</p>
     {% endif %}
 
     {% if keyMessage.button.text %}
-    <div class="ma__key-message--cta{% if buttonTheme %} button--{{buttonTheme}}{% endif %}">
+    <div class="ma__key-message__cta{% if buttonTheme %} button--{{buttonTheme}}{% endif %}">
       {% set button = keyMessage.button %}
       {% include "@atoms/01-buttons/button.twig" %}
     </div>

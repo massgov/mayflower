@@ -1,13 +1,12 @@
 {
   "keyMessage": {
     "id": "abc1",
-    "positionTop": "",
+    "isHeader": false,
     "compHeading": {
       "title": "Training and Professional Development",
       "level": "2"
     },
-    "theme": "light",
-    "backgroundColor": "berkshire-green",
+    "backgroundColor": "green",
     "bgImage": "",
     "mobileBgImage": "",
     "bgImageAlt": "Alt text for the background image",

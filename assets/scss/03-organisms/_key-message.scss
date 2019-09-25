@@ -1,27 +1,52 @@
 .ma__key-message {
   text-align: center;
   background-color: $c-primary;
-  padding: 40px 0; 
+  padding: 0 20px; 
   margin-bottom: 30px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 480px;
+  
   @media($bp-campaign-medium) {
-    margin-bottom: 40px;
+    min-height: 580px;
+    margin-bottom: 60px;
   }
 
-  &--berkshire-green {
-    background-color: $c-primary-alt;
+  @media($bp-large-min) {
+    min-height: 760px;
   }
 
-  &--bay-blue {
-    background-color: $c-primary;
+  &, &--blue {
+    &, .ma__key-message__wrapper {
+      background-color: $c-primary;
+    }
   }
 
-  &--bay-blue-light {
-    background-color: rgba($c-primary, 0.1);
+  &--white {
+    &, .ma__key-message__wrapper {
+      background-color: $c-white;
+    }
   }
 
-  &--platinum-gray {
-    background-color: $c-gray-lightest;
+  &--green {
+    &, .ma__key-message__wrapper {
+      background-color: $c-primary-alt;
+    }
+  }
+
+  &--lt-blue {
+    &, .ma__key-message__wrapper {
+      background-color: mix($c-primary, $c-white, 10%);
+    }
+  }
+
+  &--gray {
+    &, .ma__key-message__wrapper {
+      background-color: $c-gray-lightest;
+    }
   }
 
   h1,
@@ -33,58 +58,78 @@
     margin-bottom: 0;
   }
 
+  &__image {
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+    background-position: center center;
+
+    @media($bp-campaign-medium) {
+      height: 380px;
+    }
+
+    @media($bp-large-min) {
+      position: absolute;
+      height: 760px;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &--light {
+    h1,
+    h2,
+    h3,
+    p {
+      color: $c-black;
+    }
+  }
+
+
   &--image {
-    min-height: 415px;
+    min-height: 580px;
     background-position: center bottom;
     background-size: 100% 165px;
     background-repeat: no-repeat;
     margin-bottom: 40px;
-    padding: 0 0 165px;
-
+    padding: 0;
+    
     @media($bp-campaign-medium) {
-      min-height: 400px;
+      min-height: 480px;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      padding: 40px 0; 
+      justify-content: flex-end;
+      // 60px + estimate of 1/3 key message wrapper height
+      margin-bottom: 60px + 90px;
     }
 
     @media($bp-large-min) {
-      padding: 180px 0;
+      min-height: 760px;
     }
 
-    .ma__key-message--wrapper {
+    .ma__key-message__wrapper {
       display: inline-block;
       padding: 40px 20px;
-      background-color: rgba($c-primary, 0.9);
 
-      @media($bp-medium-min) {
+      @media($bp-campaign-medium) {
         padding: 40px;
       }
-    }
 
-    &.ma__key-message--light {
-
-      h1,
-      h2,
-      h3,
-      p {
-        color: $c-black;
-      }
-
-      .ma__key-message--wrapper {
-        background-color: rgba($c-white, 0.9);
+      @media($bp-large-min) {
+        transform: translateY(33%);
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
       }
     }
 
-    .ma__key-message--cta {
+    .ma__key-message__cta {
 
       .ma__button {
         background-color: $c-white;
         color: $c-primary;
         border-color: transparent;
 
-        .ma__key-message--light  & {
+        .ma__key-message--light & {
           background-color: $c-primary;
           color: $c-white;
         }

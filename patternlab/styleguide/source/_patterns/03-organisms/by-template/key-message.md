@@ -10,7 +10,7 @@ A full width header for campaign pages
 ### Variables
 ~~~
 keyMessage: {
-  positionTop: 
+  isHeader:
     type: bool / required
   backgroundColor:
     type: string / optional
