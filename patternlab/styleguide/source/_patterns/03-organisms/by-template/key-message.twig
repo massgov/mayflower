@@ -41,8 +41,8 @@
     <script type="text/javascript">
       window.onload = function() {
         var blckid = "blck{{ keyMessage.id }}";
-        var blckHeight = document.getElementById(blckid).clientHeight;
-        var mrgWrapper = document.getElementById("main-content").clientWidth && document.getElementById("main-content").clientWidth > 780 ? blckHeight * (1/3) + 60 : 60;
+        var blckHeight = document.getElementById(blckid) ? document.getElementById(blckid).clientHeight : 0;
+        var mrgWrapper = document.getElementById("main-content") && document.getElementById("main-content").clientWidth > 780 ? blckHeight * (1/3) + 60 : 60;
         document.getElementById("{{ keyMessage.id }}").style.marginBottom = `${mrgWrapper}px`;
       };
     </script>
