@@ -12,18 +12,39 @@ A full width header for campaign pages
 keyMessage: {
   positionTop: 
     type: bool / required
-  backgroundColor:
+    description: Whether to treat the action card as a main header or not.
+  textOverlay:
     type: string / optional
-  backgroundImage: 
+    options: "c-primary", "c-primary-lightest", "c-primary-alt": $c-primary-alt, "c-primary-alt-lightest", "c-white", "c-gray-lightest"
+    description: The theme of the shifted box of text overlay.
+  backgroundColor:
+    type: string / optional / default = "c-gray-lightest"
+    options: "c-primary", "c-primary-lightest", "c-primary-alt": $c-primary-alt, "c-primary-alt-lightest", "c-white", "c-gray-lightest"
+    description: The theme of the centered text variant.
+  bgImage: 
     type: url / optional
-  title:
-    type: string / required with positionTop = true
+    description: Url to an image for the background.
+  compheading: 
+    {
+      title
+        type: string / required with positionTop = true
+    }
+    type: compheading / required with positionTop = true
+    description: The title header.
   subtitle:
     type: string / optional
+    description: The subtitle text.
   description:
     type: wysiwyg / optional
-  textColor: 
-    type: string / optional
-  button: button / optional
+    description: The description text.
+  button:
+    {
+      href: string / required with button
+      text: string / required with button
+    }
+    type: button / optional
+    description: The description text.
 }
 ~~~
+
+
