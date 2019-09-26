@@ -1,0 +1,10 @@
+{
+  "keyMessage": {
+    "id": "abc1",
+    "backgroundColor": "c-primary",
+    "button":{
+      "text":"Read More",
+      "href":"#"
+    }
+  }
+}

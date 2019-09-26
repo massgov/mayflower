@@ -1,4 +1,4 @@
-<div class="ma__campaign-feature">
+<section class="ma__campaign-feature">
     {% set headingLevel = campaignFeature.positionTop ? 1 : campaignFeature.compHeading.level %}
     <h{{ headingLevel }} class="ma__campaign-feature__title">{{ campaignFeature.compHeading.title }}</h{{ headingLevel }}>
 
@@ -9,4 +9,4 @@
 
     {% set campaignFeature2up = campaignFeature.campaignFeature2up %}
     {% include "@molecules/campaign-feature-2up.twig" %}
-</div>
+</section>

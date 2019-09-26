@@ -40,6 +40,12 @@
           fill: $c-black;
         }
       }
+      @if $color == $c-white {
+        color: $c-primary;
+        svg {
+          fill: $c-primary;
+        }
+      }
       @else {
         color: $c-font-inverse;
       }

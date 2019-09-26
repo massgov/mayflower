@@ -6,7 +6,7 @@
       "title": "Training and Professional Development",
       "level": "2"
     },
-    "backgroundColor": "bay-blue",
+    "backgroundColor": "c-primary",
     "bgImage": "",
     "mobileBgImage": "",
     "title": "Training and Professional Development",
@@ -44,12 +44,9 @@
         }
       ]
     },
-    "textColor": "white",
     "button":{
       "text":"Read More",
-      "href":"#",
-      "size": "small",
-      "theme": ""
+      "href":"#"
     }
   }
 }

@@ -1,14 +1,12 @@
 {
   "keyMessage": {
     "id": "abc1",
-    "positionTop": false,
+    "positionTop": true,
     "compHeading": {
       "title": "Training and Professional Development",
       "level": "1"
     },
-    "textOverlay": "c-gray-lightest",
-    "bgImage": "../../assets/images/placeholder/1600x800.png",
-    "mobileBgImage": "../../assets/images/placeholder/800x400.png",
+    "backgroundColor": "c-primary-alt",
     "subtitle": "Find career and professional development programs",
     "description": {
       "rteElements": [{
