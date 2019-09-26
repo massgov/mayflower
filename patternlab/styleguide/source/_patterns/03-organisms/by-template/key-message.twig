@@ -10,7 +10,7 @@
 {% set titleClass = theme ? " ma__key-message__title--" ~ theme : "" %}
 {% set subClass = theme ? " ma__key-message__title--" ~ theme : "" %}
 {% set blockClass = theme ? " ma__key-message__block--" ~ theme : "" %}
-{% set wrapperClass = keyMessage.positionTop ? " ma__key-message__wrapper--top" : "" %}
+{% set wrapperClass = keyMessage.textOverlay ? " ma__key-message__wrapper--overlay" : "" %}
 
 {% if ( theme == "c-primary" ) or ( theme == "c-primary-alt" ) %}
   {% set buttontheme = { theme: "c-white" } %}
@@ -22,7 +22,7 @@
   {% set buttontheme = { theme: theme } %}
 {% endif %}
 
-<section id="{{keyMessage.id}}"  class="ma__key-message{{msgClass}}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.positionTop %} ma__key-message--image-top{% endif %}">
+<section id="{{keyMessage.id}}"  class="ma__key-message{{msgClass}}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay %} ma__key-message--image-overlay{% endif %}{% if keyMessage.positionTop %} ma__key-message--top{% endif %}">
   {% if bgImage and keyMessage.positionTop %}
     <div id="img{{keyMessage.id}}"  class="ma__key-message__inline-image">
     </div>
@@ -36,6 +36,16 @@
         background-image: url('{{ keyMessage.bgImage }}');
       }
     </style>
+  {% endif %}
+  {% if bgImage and keyMessage.positionTop %}
+    <script type="text/javascript">
+      window.onload = function() {
+        var blckid = "blck{{ keyMessage.id }}";
+        var blckHeight = document.getElementById(blckid).clientHeight;
+        var mrgWrapper = document.getElementById("main-content").clientWidth && document.getElementById("main-content").clientWidth > 780 ? blckHeight * (1/3) + 60 : 60;
+        document.getElementById("{{ keyMessage.id }}").style.marginBottom = `${mrgWrapper}px`;
+      };
+    </script>
   {% endif %}
   <div class="ma__key-message__wrapper{{wrapperClass}}">
     <div id="blck{{keyMessage.id}}" class="ma__key-message__block{{blockClass}}">
@@ -62,21 +72,4 @@
       {% endif %}
     </div>
   </div>
-  {% if bgImage and keyMessage.positionTop %}
-    <script type="text/javascript">
-      window.onload = function() {
-        var blckid = "blck{{ keyMessage.id }}";
-        var blckHeight = document.getElementById(blckid).clientHeight;
-        var mrgWrapper = document.getElementById("main-content").clientWidth && document.getElementById("main-content").clientWidth > 780 ? blckHeight * (1/3) + 60 : 60;
-        document.getElementById("{{ keyMessage.id }}").style.marginBottom = `${mrgWrapper}px`;
-        /*var style = document.createElement('style');
-        style.innerHTML = `
-          h1 {
-            color: blueviolet;
-          }
-        `;
-        document.head.appendChild(style);*/
-      };
-    </script>
-  {% endif %}
 </section>

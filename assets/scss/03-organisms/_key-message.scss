@@ -18,9 +18,6 @@ $colors: (
 
   &__inline-image {
     height: 215px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     @media ($bp-small-min) {
       height: 425px;
     }
@@ -30,17 +27,30 @@ $colors: (
     }
   }
 
-  &__block {
-    padding: 40px;
-  }
-  &__content {
-    padding: 30px 0px;
-  }
-
-  &--image {
+  &__inline-image, &--image {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+  }
+
+  &__block {
+    padding: 30px 0px;
+    max-width: 840px;
+    @media ($bp-medium-min) {
+      margin-left: auto;
+      margin-right: auto;
+      padding: 40px;
+    }
+  }
+  &__content {
+    margin-bottom: 30px;
+  }
+  &--top {
+    margin-bottom: 60px;
+  }
+
+  &--image {
+    
     display: inline-block;
     width: 100%;
     position: relative;
@@ -60,11 +70,13 @@ $colors: (
       opacity: 0.75;
     }
 
-    &-top {
+    &-overlay {
       margin-bottom: 60px;
       @media ($bp-medium-min) {
         height: 800px;
-        margin-bottom: 160px;
+        &.ma__key-message--top {
+          margin-bottom: 160px;
+        }
       }
       &:after {
         opacity: 0;
@@ -73,7 +85,7 @@ $colors: (
 
     .ma__key-message__wrapper {
 
-      &--top {
+      &--overlay {
         display: block;
         height: fit-content;
         padding: 0px;
