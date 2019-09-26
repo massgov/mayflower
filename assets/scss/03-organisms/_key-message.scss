@@ -13,7 +13,16 @@ $colors: (
 
   &__wrapper {
     z-index: 10;
-    @include ma-container();
+    &--top {
+      min-height: 350px;
+      margin-bottom: 40px;
+      padding: 20px 40px;
+      @media ($bp-small-min) {
+        min-height: 400px;
+        padding-top: 180px;
+        padding-bottom: 180px;
+      }
+    }
   }
 
   &__inline-image {
@@ -91,7 +100,7 @@ $colors: (
         padding: 0px;
 
         .ma__key-message__block {
-          padding: 40px;
+          padding: 40px 20px;
           transform: translateY(0%);
 
           @each $class, $c in $colors {
