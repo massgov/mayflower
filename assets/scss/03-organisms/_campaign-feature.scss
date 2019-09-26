@@ -17,4 +17,13 @@
   &__title {
     text-align: center;
   }
+
+  &__more-link {
+    text-align: center;
+    margin: 20px 0;
+
+    a {
+      font-weight: bold;
+    }
+  }
 }
