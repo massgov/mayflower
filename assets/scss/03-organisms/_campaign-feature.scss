@@ -1,5 +1,4 @@
 .ma__campaign-feature {
-  
   padding-top: 30px;
   padding-bottom: 60px;
 
@@ -22,7 +21,10 @@
 
   &__more-link {
     text-align: center;
-    margin: 20px 0;
+
+    @media ($bp-medium-min) {
+      margin-top: 20px;
+    }
 
     a {
       font-weight: bold;
