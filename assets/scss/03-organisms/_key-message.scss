@@ -21,7 +21,6 @@ $colors: (
     }
     &--top {
       min-height: 350px;
-      margin-bottom: 40px;
       padding: 40px 20px;
       @media ($bp-small-min) {
         min-height: 400px;
@@ -140,9 +139,7 @@ $colors: (
   }
 
   &__cta {
-    @media ($bp-medium-min) {
-      margin-bottom: 10px;
-    }
+    margin-bottom: 10px;
   }
 
   @each $class, $c in $colors {
