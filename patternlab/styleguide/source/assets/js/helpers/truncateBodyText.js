@@ -33,13 +33,16 @@ var calculateTruncation = (function($, $el) {
   // Create new elements and gather focusable ones for later tabindex-ing.
   if(!$el.data('truncationPreviouslyCalculated')) {
     $el.data({
-      $button: $('<button class="ma-truncated-body-text__button">Show more</button>'),
+      $button: $('<button class="ma-truncated-body-text__button" aria-label="Show the overview.">Show more</button>'),
       $fadeOverlay: $('<div class="ma-truncated-body-text__fade-overlay"></div>'),
       $focusableEls: $el.find('[href], button, input:not([type="hidden"]), textarea, select, [tabindex]:not([tabindex^="-"])'),
       truncationPreviouslyCalculated: true
     });
 
-    $el.data('$button').data('toggleText', 'Show less');
+    $el.data('$button').data({
+      toggleText: 'Show less',
+      toggleLabel: 'Hide the overview.'
+    });
   }
 }).bind(undefined, jQuery);
 
@@ -49,8 +52,12 @@ var removeTruncation = function($el) {
 
     if($el.data('truncationPreviouslyCalculated')) {
       $el.data('$button').detach();
-      $el.data('$button').data('toggleText', 'Show less');
+      $el.data('$button').data({
+        toggleText: 'Show less',
+        toggleLabel: 'Hide the overview.'
+      });
       $el.data('$button').text('Show more');
+      $el.data('$button').attr('aria-label', 'Show the overview.');
       $el.data('$fadeOverlay').detach();
       toggleTabindexes($el.data('$focusableEls'), true)
     }
@@ -131,6 +138,10 @@ var enableTruncation = function($el) {
     var oldText = $button.text().trim();
     $button.text($button.data('toggleText'));
     $button.data('toggleText', oldText);
+
+    var oldLabel = $button.attr('aria-label');
+    $button.attr('aria-label', $button.data('toggleLabel'));
+    $button.data('toggleLabel', oldLabel);
 
     // Reset or unset focusable state of links/buttons.
     toggleTabindexes($el.data('$focusableEls'), $el.hasClass('expanded'));
