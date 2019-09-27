@@ -100,9 +100,10 @@ $colors: (
       &--overlay {
         display: block;
         height: fit-content;
+        padding: 0px;
 
         .ma__key-message__block {
-          
+          padding: 40px 20px;
           transform: translateY(0%);
 
           @each $class, $c in $colors {
