@@ -1,7 +1,7 @@
 {
   "keyMessage": {
     "id": "abc1",
-    "positionTop": true,
+    "positionTop": false,
     "compHeading": {
       "title": "Technology Careers at the Commonwealth of Massachusetts",
       "level": "1"
