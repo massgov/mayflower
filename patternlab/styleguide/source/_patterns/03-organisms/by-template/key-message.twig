@@ -28,11 +28,16 @@
   {% if bgImage and positionTop %}
     <div id="img{{ id }}"  class="ma__key-message__inline-image">
     </div>
-  {% endif %}
-  {% if bgImage %}
     <style>
       @media(min-width: 781px) {
         #{{ id }}.ma__key-message--image {
+          background-image: url('{{ bgImage }}');
+        }
+      }
+    </style>
+  {% elseif bgImage %}
+    <style>
+      #{{ id }}.ma__key-message--image {
           background-image: url('{{ bgImage }}');
         }
       }
