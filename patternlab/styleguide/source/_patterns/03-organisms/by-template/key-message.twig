@@ -1,0 +1,46 @@
+{% set textColor = keyMessage.textColor %}
+{% set bgColor = keyMessage.backgroundColor %}
+{% set bgImage = keyMessage.bgImage %}
+
+<section id="{{keyMessage.id}}"  class="ma__key-message {{ textColor ? 'ma__key-message--light-text' : '' }}{% if bgColor %} ma__key-message--{{ bgColor }}{% endif %}{% if bgImage %} ma__key-message--image{% endif %}">
+
+  {% if keyMessage.bgImage %}
+    <style>
+      #{{ keyMessage.id }}.ma__key-message--image {
+        background-image: url('{{ keyMessage.bgImage }}');
+      }
+
+      {% if keyMessage.mobileBgImage %}
+      @media (-webkit-min-device-pixel-ratio: 2) {
+        #{{ keyMessage.id }}.ma__key-message--image {
+          background-image: url('{{ keyMessage.mobileBgImage }}');
+        }
+      }
+      {% endif %}
+    </style>
+  {% endif %}
+
+  <div class="ma__key-message--wrapper">
+    {% set headingLevel = keyMessage.positionTop ? 1 : keyMessage.compHeading.level %}
+    <h{{ headingLevel }} class="ma__key-message--title">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
+
+    {% if keyMessage.subtitle %}
+    <span class="ma__key-message--sub-title">{{ keyMessage.subtitle }}</span>
+    {% endif %}
+
+    {% if keyMessage.description %}
+    <div class="ma__key-message--description">
+      {% set richText = keyMessage.description %}
+      {% include "@organisms/by-author/rich-text.twig" %}    
+    </div>
+    {% endif %}
+
+    {% if keyMessage.button.text %}
+    <div class="ma__key-message--cta">
+      {% set button = keyMessage.button %}
+      {% include "@atoms/01-buttons/button.twig" %}
+    </div>
+    {% endif %}
+  </div>
+
+</section>

@@ -7,12 +7,11 @@
   align-items: center;
   font-size: 0;
   padding: 30px 0 20px;
-  
+
   @media ($bp-small-min) {
     height: 1px; // IE11 hack to vertially align content with min-height
     min-height: 800px;
     padding: 20px 0;
-
   }
 
   .page-content &:last-child {
@@ -216,6 +215,14 @@
     transform: translateX(-50%);
     width: 100%;
     z-index: 3;
+
+    @media ($bp-small-max) {
+      position: relative;
+      left: auto;
+      transform: none;
+      bottom: 0;
+    }
+
   }
 
   &__credits-container {

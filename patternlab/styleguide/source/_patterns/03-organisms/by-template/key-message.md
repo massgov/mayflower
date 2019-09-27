@@ -9,7 +9,7 @@ A full width header for campaign pages
 
 ### Variables
 ~~~
-CampaignFullWidthHeader: {
+keyMessage: {
   positionTop: 
     type: bool / required
   backgroundColor:

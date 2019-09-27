@@ -1,9 +1,11 @@
 <div class="ma__campaign-feature">
-    {% set headingLevel = campaignFeature.level ? 1 : 2 %}
-    <h{{ headingLevel }} class="ma__campaign-feature">{{ campaignFeature.title }}</h{{ headingLevel }}>
+    {% set headingLevel = campaignFeature.positionTop ? 1 : campaignFeature.compHeading.level %}
+    <h{{ headingLevel }} class="ma__campaign-feature__title">{{ campaignFeature.compHeading.title }}</h{{ headingLevel }}>
 
-    {% set campaignFullWidthFeature = campaignFeature.campaignFullWidthFeature %}
-    {% include "@molecules/campaign-features-full-width.twig" %}
+    <div class="ma__campaign-feature__primary">
+      {% set card = campaignFeature.campaignFullWidthFeature %}
+      {% include "@molecules/card.twig" with card %}
+    </div>
 
     {% set campaignFeature2up = campaignFeature.campaignFeature2up %}
     {% include "@molecules/campaign-feature-2up.twig" %}
