@@ -65,7 +65,7 @@
       window.addEventListener("resize", marginSet);
     </script>
   {% endif %}
-  <div class="ma__key-message__wrapper{{wrapperClass}}{% if keyMessage.positionTop %} ma__key-message__wrapper--top{% endif %}"">
+  <div class="ma__key-message__wrapper{{wrapperClass}}{% if keyMessage.positionTop %} ma__key-message__wrapper--top{% endif %}">
     <div id="blck{{keyMessage.id}}" class="ma__key-message__block{{blockClass}}">
       {% set headingLevel = keyMessage.positionTop ? 1 : keyMessage.compHeading.level %}
       <h{{ headingLevel }} class="ma__key-message__title{{titleClass}}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
