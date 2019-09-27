@@ -24,6 +24,9 @@ keyMessage: {
   bgImage: 
     type: url / optional
     description: Url to an image for the background.
+  mobileBgImage:
+    type: url / optional
+    description: Url to an image for the background on mobile screen.
   compheading: 
     {
       title

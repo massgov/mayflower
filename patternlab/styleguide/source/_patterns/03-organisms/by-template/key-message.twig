@@ -5,6 +5,7 @@
 {% endif %}
 
 {% set bgImage = keyMessage.bgImage %}
+{% set mobileBgImage = keyMessage.mobileBgImage %}
 {% set positionTop = keyMessage.positionTop %}
 {% set id = keyMessage.id %}
 {% set msgClass = theme ? " ma__key-message--" ~ theme : "" %}
@@ -36,11 +37,21 @@
           background-image: url('{{ bgImage }}');
         }
       }
+    </style>
+  {% endif %}
+  {% if mobileBgImage %}
+    <style>
+      #img{{ id }}.ma__key-message__inline-image {
+        background-image: url('{{ mobileBgImage }}');
+      }
+    </style>
+  {% elseif bgImage %}
+    <style>
       #img{{ id }}.ma__key-message__inline-image {
         background-image: url('{{ bgImage }}');
       }
     </style>
-  {% endif %}
+  {% endif }
   {% if bgImage and positionTop %}
     <script type="text/javascript">
       var id = "{{ id }}";
