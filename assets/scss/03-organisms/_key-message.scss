@@ -149,7 +149,7 @@ $colors: (
       .ma__button {
         width: 100%;
         @media ($bp-small-min) {
-          width: unset;
+          width: auto;
         }
         @if ($c == $c-primary or $c == $c-primary-alt) {
           color: $c;
