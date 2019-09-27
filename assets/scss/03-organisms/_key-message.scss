@@ -123,7 +123,7 @@ $colors: (
 
           .ma__key-message__block {
             display: block;
-            width: fit-content;
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
             transform: translateY(33%);
@@ -137,6 +137,12 @@ $colors: (
 
   &__title {
     margin-bottom: 20px;
+  }
+
+  &__cta {
+    @media ($bp-medium-min) {
+      margin-bottom: 10px;
+    }
   }
 
   @each $class, $c in $colors {
