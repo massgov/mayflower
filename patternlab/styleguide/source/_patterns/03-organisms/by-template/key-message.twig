@@ -84,7 +84,13 @@
   {% endif %}
   <div class="ma__key-message__wrapper{{ wrapperClass }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
     <div id="blck{{ id }}" class="ma__key-message__block{{ blockClass }}">
-      {% set headingLevel = positionTop ? 1 : keyMessage.compHeading.level %}
+      {% if positionTop %}
+        {% set headingLevel = 1 %}
+      {% elseif keyMessage.compheading and keyMessage.compheading.level %}
+        {% set headingLevel = keyMessage.compheading.level == "1" ? 2 : keyMessage.compheading.level %}
+      {% else %}
+        {% set headingLevel = 2 %}
+      {% endif %}
       <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
       {% if keyMessage.subtitle or keyMessage.description %}
         <div class="ma__key-message__content">
