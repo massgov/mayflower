@@ -2,10 +2,10 @@
 A full width header for campaign pages
 
 ### Status
-* Stable as of 5.0.0
+* Beta version 0.3 in package 9.26.0
 
 ### Pattern Contains
-* Link
+* Compheading, Button, RichText
 
 ### Variables
 ~~~
