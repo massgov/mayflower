@@ -5,6 +5,8 @@
 {% endif %}
 
 {% set bgImage = keyMessage.bgImage %}
+{% set positionTop = keyMessage.positionTop %}
+{% set id = keyMessage.id %}
 {% set msgClass = theme ? " ma__key-message--" ~ theme : "" %}
 {% set descClass = theme ? " ma__key-message__description--" ~ theme : "" %}
 {% set titleClass = theme ? " ma__key-message__title--" ~ theme : "" %}
@@ -22,27 +24,27 @@
   {% set buttontheme = { theme: theme } %}
 {% endif %}
 
-<section id="{{keyMessage.id}}"  class="ma__key-message{{msgClass}}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay %} ma__key-message--image-overlay{% endif %}{% if keyMessage.positionTop %} ma__key-message--top{% endif %}">
-  {% if bgImage and keyMessage.positionTop %}
-    <div id="img{{keyMessage.id}}"  class="ma__key-message__inline-image">
+<section id="{{ id }}"  class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %}">
+  {% if bgImage and positionTop %}
+    <div id="img{{ id }}"  class="ma__key-message__inline-image">
     </div>
   {% endif %}
   {% if bgImage %}
     <style>
       @media(min-width: 781px) {
-        #{{ keyMessage.id }}.ma__key-message--image {
-          background-image: url('{{ keyMessage.bgImage }}');
+        #{{ id }}.ma__key-message--image {
+          background-image: url('{{ bgImage }}');
         }
       }
-      #img{{ keyMessage.id }}.ma__key-message__inline-image {
-        background-image: url('{{ keyMessage.bgImage }}');
+      #img{{ id }}.ma__key-message__inline-image {
+        background-image: url('{{ bgImage }}');
       }
     </style>
   {% endif %}
-  {% if bgImage and keyMessage.positionTop %}
+  {% if bgImage and positionTop %}
     <script type="text/javascript">
-      var id = "{{ keyMessage.id }}";
-      var blckid = "blck{{ keyMessage.id }}";
+      var id = "{{ id }}";
+      var blckid = "blck{{ id }}";
       function marginSet() {
         var blckHeight = document.getElementById(blckid) ? document.getElementById(blckid).clientHeight : 0;
         var mrgWrapper = document.getElementById("main-content") ? blckHeight * (1/3) + 60 : 60;
@@ -65,17 +67,17 @@
       window.addEventListener("resize", marginSet);
     </script>
   {% endif %}
-  <div class="ma__key-message__wrapper{{wrapperClass}}{% if keyMessage.positionTop %} ma__key-message__wrapper--top{% endif %}">
-    <div id="blck{{keyMessage.id}}" class="ma__key-message__block{{blockClass}}">
-      {% set headingLevel = keyMessage.positionTop ? 1 : keyMessage.compHeading.level %}
-      <h{{ headingLevel }} class="ma__key-message__title{{titleClass}}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
+  <div class="ma__key-message__wrapper{{ wrapperClass }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
+    <div id="blck{{ id }}" class="ma__key-message__block{{ blockClass }}">
+      {% set headingLevel = positionTop ? 1 : keyMessage.compHeading.level %}
+      <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
       {% if keyMessage.subtitle or keyMessage.description %}
         <div class="ma__key-message__content">
           {% if keyMessage.subtitle %}
-            <span class="ma__key-message__sub-title{{subClass}}">{{ keyMessage.subtitle }}</span>
+            <span class="ma__key-message__sub-title{{ subClass }}">{{ keyMessage.subtitle }}</span>
           {% endif %}
           {% if keyMessage.description %}
-            <div class="ma__key-message__description{{descClass}}">
+            <div class="ma__key-message__description{{ descClass }}">
               {% set richText = keyMessage.description %}
               {% include "@organisms/by-author/rich-text.twig" %}    
             </div>
