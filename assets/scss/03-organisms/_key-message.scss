@@ -27,6 +27,9 @@ $colors: (
         padding-top: 60px;
         padding-bottom: 60px;
       }
+      .ma__key-message__cta {
+        margin-bottom: 10px;
+      }
     }
   }
 
@@ -136,10 +139,6 @@ $colors: (
 
   &__title {
     margin-bottom: 20px;
-  }
-
-  &__cta {
-    margin-bottom: 10px;
   }
 
   @each $class, $c in $colors {
