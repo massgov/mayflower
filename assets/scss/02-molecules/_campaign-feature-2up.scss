@@ -10,7 +10,7 @@
   }
 
   &__card {
-    flex-basis: 100%;
+    flex: 1 1 auto;
     margin-bottom: 20px;
     @media ($bp-small-min) {
       flex-basis: 50%;
