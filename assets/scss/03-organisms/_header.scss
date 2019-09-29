@@ -124,6 +124,10 @@ body.show-menu {
         width: 45px;
         height: 45px;
       }
+
+      @media ($bp-small-min) {
+        display: none;
+      }
     }
   }
   &__search {

@@ -49,11 +49,11 @@
   </nav>
 
   <div class="ma__header__container">
-    <div class="ma__header__logo">
+    <div class="ma__header__logo" tabindex="-1">
       {% include "@atoms/09-media/site-logo.twig" %}
     </div>
     {% if not hideHeaderSearch %}
-      <div class="ma__header__search js-header-search-menu">
+      <div class="ma__header__search ma__header__search-bar js-header-search-menu">
         {% include "@molecules/header-search.twig" %}
       </div>
     {% endif %}

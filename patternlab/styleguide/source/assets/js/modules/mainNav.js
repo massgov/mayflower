@@ -39,6 +39,11 @@ if (null !== menuButton) {
       }
     }
 
+    if (e.code == 'Tab') {
+      e.preventDefault();
+      document.querySelector('.ma__header-search__input').focus();
+    }
+
     if (e.shiftKey && e.code == 'Tab') {
       closeMenu();
     }
