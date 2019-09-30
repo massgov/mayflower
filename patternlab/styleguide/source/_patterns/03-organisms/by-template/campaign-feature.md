@@ -22,7 +22,7 @@ campaignFeature: {
 	id:
 	  type: string / required
 	link:
-	  type: string / required
+	  type: string (url) / required
 	title:
 	  type: string / required
 	thumbnail:
@@ -46,5 +46,10 @@ campaignFeature: {
 	level:
 	  type: number / optional / default 3
   }]
+  moreLink:
+    text:
+      type: string / optional
+    href:
+      type: string (url) / optional
 }
 ~~~
