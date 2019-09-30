@@ -80,7 +80,11 @@
         "thumbnail": "../../assets/images/placeholder/400x300.png",
         "title": "How a Texas transplant makes Mass.gov work for content authors",
         "text": "<p>“It’s fun and exciting to have an opportunity to work hand-in-hand with partner agencies who want to understand and improve the constituent experience.”</p><p><b>Jane Doe</b>, Project Manager</p>"
-      }]
+      }],
+      "moreLink": {
+        "text": "See more featured items",
+        "href": "#"
+      }
     },
     "keyMessage": {
       "id": "abc2",
