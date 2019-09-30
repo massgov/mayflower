@@ -2,10 +2,12 @@ Description: The pattern displays a primary card with 2 side by side secondary c
 
 ### Status
 * Added in 9.22.0
+  * `moreLink` added in 9.26.0
 
 ### Pattern Contains
 * [Card](./?p=molecules-card) molecule (Primary card)
-* [Campaign feature 2 up](/?p=molecules-campaign-feature-2up) molecule
+* [Campaign Feature 2up](/?p=molecules-campaign-feature-2up) molecule
+* [Decorative Link](/?p=atoms-decorative-link) atom
 
 ### Variables
 ~~~
