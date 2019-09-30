@@ -1,13 +1,25 @@
 {
-  "campaignFullWidthHeader": {
+  "keyMessage": {
     "id": "abc1",
     "positionTop": true,
+    "compHeading": {
+      "title": "Training and Professional Development",
+      "level": "1"
+    },
     "backgroundColor": "",
     "bgImage": "../../assets/images/placeholder/1600x800.png",
     "mobileBgImage": "../../assets/images/placeholder/800x400.png",
-    "title": "Training and Professional Development",
     "subtitle": "Find career and professional development programs",
-    "description": "This is an optional description",
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This is an optional text area."
+          }
+        }
+      }]
+    },
     "textColor": "",
     "button":{
       "text":"Read More",

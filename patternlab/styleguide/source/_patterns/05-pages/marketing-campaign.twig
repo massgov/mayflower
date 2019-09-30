@@ -1,16 +1,22 @@
 {% extends '@templates/01-content-types/marketing-campaign.twig' %}
 
 {% block preContent %}
-  {% set campaignFullWidthHeader = preContent.campaignFullWidthHeader %}
-  {% include "@organisms/by-template/campaign-full-width-header.twig" %}
+  {% set keyMessage = preContent.keyMessage %}
+  {% include "@organisms/by-template/key-message.twig" %}
 {% endblock %}
 
 {% block pageContent %}
     {% set richText = pageContent.textBreak %}
     {% include "@organisms/by-author/rich-text.twig" %}
 
-    {% set campaignFullWidthHeader = pageContent.campaignFullWidthHeader %}
-    {% include "@organisms/by-template/campaign-full-width-header.twig" %}
+    {% set campaignVideo = pageContent.campaignVideo %}
+    {% include "@organisms/by-template/campaign-video.twig" %}
+    
+    {% set keyMessage = pageContent.keyMessage %}
+    {% include "@organisms/by-template/key-message.twig" %}
+
+    {% set campaignFeature = pageContent.campaignFeature %}
+    {% include "@organisms/by-template/campaign-feature.twig" %}
 {% endblock %}
 
 {% block postContent %}{% endblock %}

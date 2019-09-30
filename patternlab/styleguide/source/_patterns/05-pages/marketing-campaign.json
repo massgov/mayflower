@@ -1,11 +1,14 @@
 {
   "preContent": {
-    "campaignFullWidthHeader": {
+    "keyMessage": {
       "id": "abc1",
       "positionTop": true,
+      "compHeading": {
+        "title": "Training and Professional Development"
+      },
       "bgImage": "../../assets/images/placeholder/1600x800.png",
       "mobileBgImage": "../../assets/images/placeholder/800x400.png",
-      "title": "Training and Professional Development",
+      "subtitle": "Find career and professional development programs",
       "textColor": "white"
     }
   },
@@ -22,7 +25,22 @@
         }
       ]
     },
-    "campaignFullWidthHeader": {
+    "campaignVideo": {
+      "id": "qwe1",
+      "positionTop": true,
+      "backgroundColor": "",
+      "textColor": "",
+      "title": "Why work for the commonwealth",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "video": {
+        "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
+        "link": {
+          "href": "#",
+          "text": "View transcript"
+        }
+      }
+    },
+    "keyMessage": {
       "id": "abc2",
       "positionTop": false,
       "backgroundColor": "berkshires-green",
@@ -32,6 +50,40 @@
         "href":"#",
         "size": "small",
         "theme": ""
+      }
+    },
+    "campaignFeature": {
+      "compHeading": {
+        "title": "Featured Campaign Tile",
+        "level": "2"
+      },
+      "positionTop": false,
+      "campaignFullWidthFeature": {
+        "id": "dfg1234",
+        "link": "#",
+        "bgImage": "../../assets/images/placeholder/1600x800.png",
+        "mobileBgImage": "../../assets/images/placeholder/800x400.png",
+        "thumbnail": "../../assets/images/placeholder/400x300-kitten.jpg",
+        "title": "Training and Professional Development",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      "campaignFeature2up": [{
+        "id": "dfg123",
+        "link": "#",
+        "thumbnail": "../../assets/images/placeholder/400x300-kitten.jpg",
+        "title": "Campaign 2 up Card 1",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      },
+      {
+        "id": "dfg12",
+        "link": "#",
+        "thumbnail": "../../assets/images/placeholder/400x300-kitten.jpg",
+        "title": "Campaign 2 up Card 2",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      }],
+      "moreLink": {
+        "text": "See more featured items",
+        "href": "#"
       }
     }
   }
