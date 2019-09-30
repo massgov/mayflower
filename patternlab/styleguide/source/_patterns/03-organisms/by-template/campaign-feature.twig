@@ -9,4 +9,11 @@
 
     {% set campaignFeature2up = campaignFeature.campaignFeature2up %}
     {% include "@molecules/campaign-feature-2up.twig" %}
+
+    {% if campaignFeature.moreLink %}
+    {% set decorativeLink = campaignFeature.moreLink %}
+      <div class="ma__campaign-feature__more-link">
+        {% include "@atoms/decorative-link.twig" %}
+      </div>
+    {% endif %}
 </div>

@@ -3,6 +3,7 @@
   padding-bottom: 60px;
 
   @media ($bp-medium-min) {
+    @include ma-container;
     padding-top: 40px;
     padding-bottom: 40px;
   }
@@ -15,6 +16,10 @@
     margin-bottom: 20px;
   }
   &__title {
+    text-align: center;
+  }
+
+  &__more-link {
     text-align: center;
   }
 }
