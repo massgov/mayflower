@@ -105,7 +105,7 @@ storiesOf('organisms/GenTeaser/', module)
           <GenTeaser.Title title={title} />
           <GenTeaser.Emphasis>
             <GenTeaser.Date date={date} />
-            <GenTeaser.Org orgs={orgs} />
+            <GenTeaser.Orgs orgs={orgs} />
           </GenTeaser.Emphasis>
           <GenTeaser.Description description={description} />
           <GenTeaser.SearchBar search={search} />
@@ -163,7 +163,7 @@ storiesOf('organisms/GenTeaser/', module)
       target: 'http://profiles.doe.mass.edu/search/search_new.aspx?leftNavId=11241',
       queryInput: ''
     };
-    const stat = <span>Total Items: <b>143</b></span>
+    const stat = <span>Total Items: <b>143</b></span>;
     return(
       <GenTeaser>
         <GenTeaser.Details>
@@ -172,7 +172,7 @@ storiesOf('organisms/GenTeaser/', module)
           <GenTeaser.Title title={title} />
           <GenTeaser.Emphasis>
             <GenTeaser.Date date={date} />
-            <GenTeaser.Org orgs={orgs} />
+            <GenTeaser.Orgs orgs={orgs} />
           </GenTeaser.Emphasis>
           <GenTeaser.Description description={description} />
           <GenTeaser.SearchBar search={search} />
@@ -208,7 +208,7 @@ storiesOf('organisms/GenTeaser/', module)
           <GenTeaser.Title title={title} />
           <GenTeaser.Emphasis>
             <GenTeaser.Date date={date} />
-            <GenTeaser.Org orgs={orgs} />
+            <GenTeaser.Orgs orgs={orgs} />
           </GenTeaser.Emphasis>
           <GenTeaser.Description description={description} />
           <GenTeaser.Tags tags={tags} />
@@ -219,20 +219,22 @@ storiesOf('organisms/GenTeaser/', module)
   .add('GenTeaser (Data Download)', () => {
     const title = {
       info: '',
-      text: 'Deer harvest data',
-      href: 'https://www.mass.gov/service-details/deer-harvest-data',
-      showFileIcon: false
+      text: '2015 Monthly Electric Customer Migration Data',
+      details: '(30 MB)',
+      href: 'https://www.mass.gov/files/documents/2018/06/15/2015%20Annual%20Electric%20Monthly%20Migration-Complete.xlxs',
+      icon: 'download',
+      showFileIcon: true
     };
-    const date = '01/01/2019';
-    const orgs = 'Division of Fisheries and Wildlife, Executive Office of Energy and Environmental Affairs';
-    const description = "Review the recent white-tailed deer harvest data before heading out to hunt. Though Massachusetts is the 3rd most densely populated state in the country, it is a state where quality deer can be found anywhere. MassWildlife biologists estimate that there are over 100,000 deer statewide. Estimated densities range from about 12-18 per square mile in western and central Massachusetts to over 50 deer per square mile on Martha's Vineyard and Nantucket Islands, and certain areas of eastern MA where hunting access is restricted.";
+    const date = 'Updated on 9/06/2019';
+    const orgs = 'Department of Public Health, Executive Office of Health and Human Services';
+    const description = 'Jun 15, 2018 <b>...</b> <b>Annual Electric</b>. <b>Migration</b>. 2,015,302. 18,322,632,032. 758,696 .... <b>Monthly</b>  Competitive Supply Load Served (2015). State. Lg C &amp; I. Med C &amp; I.';
     return(
       <GenTeaser>
         <GenTeaser.Details>
           <GenTeaser.Title title={title} />
           <GenTeaser.Emphasis>
             <GenTeaser.Date date={date} />
-            <GenTeaser.Org orgs={orgs} />
+            <GenTeaser.Orgs orgs={orgs} />
           </GenTeaser.Emphasis>
           <GenTeaser.Description description={description} />
         </GenTeaser.Details>
@@ -257,7 +259,7 @@ storiesOf('organisms/GenTeaser/', module)
           <GenTeaser.Title title={title} />
           <GenTeaser.Emphasis>
             <GenTeaser.Date date={date} />
-            <GenTeaser.Org orgs={orgs} />
+            <GenTeaser.Orgs orgs={orgs} />
           </GenTeaser.Emphasis>
           <GenTeaser.Description description={description} />
         </GenTeaser.Details>
@@ -299,7 +301,7 @@ storiesOf('organisms/GenTeaser/', module)
             <GenTeaser.Title title={title} />
             <GenTeaser.Emphasis>
               <GenTeaser.Date date={date} />
-              <GenTeaser.Org orgs={orgs} />
+              <GenTeaser.Orgs orgs={orgs} />
             </GenTeaser.Emphasis>
             <GenTeaser.Description description={description} />
           </GenTeaser.Details>
@@ -309,7 +311,7 @@ storiesOf('organisms/GenTeaser/', module)
             <GenTeaser.Eyebrow eyebrow={eyebrowlaw} />
             <GenTeaser.Title title={titlelaw} />
             <GenTeaser.Emphasis>
-              <GenTeaser.Org orgs={orgslaw} />
+              <GenTeaser.Orgs orgs={orgslaw} />
             </GenTeaser.Emphasis>
             <GenTeaser.Description description={descriptionlaw} />
             <GenTeaser.SubLinks>
@@ -467,7 +469,7 @@ storiesOf('organisms/GenTeaser/', module)
         <GenTeaser.Details>
           <GenTeaser.Title title={title} />
           <GenTeaser.Emphasis>
-            <GenTeaser.Org orgs={orgs} />
+            <GenTeaser.Orgs orgs={orgs} />
           </GenTeaser.Emphasis>
           <GenTeaser.Description description={description} />
           <GenTeaser.MoreInfo>

@@ -20,7 +20,5 @@ storiesOf('atoms/contact', module)
     return(
       <EventTime {...props} />
     );
-  }),
-    // { info: PhoneNumberDocs }
-  );
+  }));
 

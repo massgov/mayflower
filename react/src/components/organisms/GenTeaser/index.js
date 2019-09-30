@@ -1,136 +1,23 @@
-import ReactHtmlParser from 'react-html-parser';
 import React from 'react';
+import PropTypes from 'prop-types';
+import ReactHtmlParser from 'react-html-parser';
 
-import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import Address from '../../atoms/contact/Address';
 import PhoneNumber from '../../atoms/contact/PhoneNumber';
 import Email from '../../atoms/contact/Email';
 import EventTime from '../../atoms/contact/EventTime';
 import LinkDropdown from '../../molecules/LinkDropdown';
-import HeaderSearch from '../../molecules/HeaderSearch';
-import { Paragraph, DecorativeLink, ContactGroup, IconLink, Link, Icon } from '../../../index';
+import { DecorativeLink, Icon } from '../../../index';
+import TeaserSearch from './TeaserSearch';
+import TeaserOrgs from './TeaserOrgs';
 import { buildUrl } from './utils';
 import './style.css';
 
-class TeaserOrg extends React.Component {
-  constructor(props) {
-    super(props);
-    const allOrgs = props.orgs.split(',');
-    this.state = {
-      shouldTruncate: (allOrgs.length > 3),
-      truncateOrgs: (allOrgs.length > 3),
-      showAll: false
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
-  componentWillReceiveProps(nextProps) {
-    const allOrgs = nextProps.orgs.split(',');
-    this.setState({ shouldTruncate: (allOrgs.length > 3), truncateOrgs: (allOrgs.length > 3), showAll: false });
-  }
-  handleClick() {
-    this.setState((prevState) => ({ showAll: !prevState.showAll, truncateOrgs: !prevState.truncateOrgs }));
-  }
-  handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      this.setState((prevState) => ({ showAll: !prevState.showAll, truncateOrgs: !prevState.truncateOrgs }));
-    }
-  }
-  render() {
-    const { orgs } = this.props;
-    const teaserOrgs = orgs.split(',');
-    if (!this.state.shouldTruncate) {
-      return<span className="ma__gen-teaser__org">{teaserOrgs.join(', ')}</span>;
-    }
-    const shownOrgs = teaserOrgs.slice(0, 3);
-    const hiddenOrgs = teaserOrgs.slice(3);
-    const toggleProps = {
-      classes: ['ma__gen-teaser__org__show-more', `${!this.state.truncateOrgs ? 'show-fewer' : ''}`],
-      onClick: (e) => this.handleClick(e),
-      onKeyPress: (e) => this.handleKeyPress(e),
-      text: (this.state.truncateOrgs) ? ` & ${hiddenOrgs.length} more` : ' Show fewer',
-      theme: 'c-primary',
-      usage: 'quaternary-simple',
-      capitalized: true,
-      expanded: this.state.showAll,
-      icon: <Icon name="chevron" svgWidth={16} svgHeight="16" />
-    };
-    const toggle = <ButtonWithIcon {...toggleProps} />;
-    const displayedOrgs = (this.state.showAll) ? teaserOrgs.join(', ') : shownOrgs.join(', ');
-    return(
-      <span className="ma__gen-teaser__org">
-        { displayedOrgs }{toggle}
-      </span>);
-  }
-}
-
-class TeaserSearch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: ''
-    };
-  }
-
-  onChange = (term) => {
-    this.setState({
-      query: term
-    });
-  }
-
-  onClick = (e) => {
-    e.preventDefault();
-    const { target, queryInput } = this.props;
-    const { query } = this.state;
-    if (query.length > 0) {
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`, this.state.query) : target;
-      this.redirect(searchURL);
-    }
-  }
-
-  onSubmit = (e) => {
-    e.preventDefault();
-    const { target, queryInput } = this.props;
-    const { query } = this.state;
-    if (query.length > 0) {
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`, this.state.query) : target;
-      this.redirect(searchURL);
-    }
-  }
-
-  redirect = (searchURL) => {
-    if (window.location !== window.parent.location) {
-      window.parent.location.assign(searchURL);
-    } else {
-      window.location.assign(searchURL);
-    }
-  }
-
-  render() {
-    const { placeholder, id, ...rest } = this.props;
-    return(
-      <HeaderSearch
-        buttonSearch={{
-          ariaLabel: '',
-          onClick: (e) => this.onClick(e),
-          text: 'Search',
-          usage: ''
-        }}
-        defaultText=""
-        id={id}
-        label="Search terms"
-        onChange={(term) => this.onChange(term)}
-        onSubmit={(e) => this.onSubmit(e)}
-        placeholder={placeholder}
-        {...rest}
-      />
-    );
-  }
-}
-
 const GenTeaser = (props) => {
-  const { children, onClick, onKeyDown, ...rest } = props;
+  const {
+    children, onClick, onKeyDown, ...rest
+  } = props;
   const className = onClick ? 'ma__gen-teaser ma__gen-teaser--clickable' : 'ma__gen-teaser';
   const role = onClick ? 'button' : '';
   return(
@@ -138,6 +25,12 @@ const GenTeaser = (props) => {
       {children}
     </section>
   );
+};
+
+GenTeaser.propTypes = {
+  onClick: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  children: PropTypes.node
 };
 
 GenTeaser.Details = (props) => {
@@ -149,10 +42,17 @@ GenTeaser.Details = (props) => {
   );
 };
 
+GenTeaser.Details.displayName = 'GenTeaser.Details';
+
+GenTeaser.Details.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
 GenTeaser.Title = (props) => {
   const {
-    level, title, children, ...rest
+    level, title, title: { icon }, children, ...rest
   } = props;
+  title.icon = icon ? <Icon name={icon} svgWidth={15} svgHeight={15} aria-hidden="true" /> : '';
   const Element = `h${level || 2}`;
   return(
     <Element className="ma__gen-teaser__title" {...rest} >
@@ -160,6 +60,14 @@ GenTeaser.Title = (props) => {
       {children}
     </Element>
   );
+};
+
+GenTeaser.Title.displayName = 'GenTeaser.Title';
+
+GenTeaser.Title.propTypes = {
+  level: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  title: PropTypes.shape(DecorativeLink.propTypes),
+  children: PropTypes.node
 };
 
 GenTeaser.Eyebrow = (props) => {
@@ -172,6 +80,13 @@ GenTeaser.Eyebrow = (props) => {
   );
 };
 
+GenTeaser.Eyebrow.displayName = 'GenTeaser.Eyebrow';
+
+GenTeaser.Eyebrow.propTypes = {
+  eyebrow: PropTypes.string,
+  children: PropTypes.node
+};
+
 GenTeaser.Emphasis = (props) => {
   const { children, ...rest } = props;
   return(
@@ -179,6 +94,12 @@ GenTeaser.Emphasis = (props) => {
       {children}
     </div>
   );
+};
+
+GenTeaser.Emphasis.displayName = 'GenTeaser.Emphasis';
+
+GenTeaser.Emphasis.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 GenTeaser.Date = (props) => {
@@ -191,11 +112,25 @@ GenTeaser.Date = (props) => {
   );
 };
 
-GenTeaser.Org = (props) => {
+GenTeaser.Date.displayName = 'GenTeaser.Date';
+
+GenTeaser.Date.propTypes = {
+  date: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  children: PropTypes.node
+};
+
+GenTeaser.Orgs = (props) => {
   const { orgs, ...rest } = props;
   return(
-    <TeaserOrg orgs={orgs} {...rest} />
+    <TeaserOrgs orgs={orgs} {...rest} />
   );
+};
+
+GenTeaser.Orgs.displayName = 'GenTeaser.Orgs';
+
+GenTeaser.Orgs.propTypes = {
+  orgs: PropTypes.string,
+  children: PropTypes.node
 };
 
 GenTeaser.Description = (props) => {
@@ -206,6 +141,13 @@ GenTeaser.Description = (props) => {
       {children}
     </div>
   );
+};
+
+GenTeaser.Description.displayName = 'GenTeaser.Description';
+
+GenTeaser.Description.propTypes = {
+  description: PropTypes.string,
+  children: PropTypes.node
 };
 
 GenTeaser.KeyAction = (props) => {
@@ -219,6 +161,16 @@ GenTeaser.KeyAction = (props) => {
       {children}
     </div>
   );
+};
+
+GenTeaser.KeyAction.displayName = 'GenTeaser.KeyAction';
+
+GenTeaser.KeyAction.propTypes = {
+  description: PropTypes.string,
+  href: PropTypes.string,
+  text: PropTypes.string,
+  info: PropTypes.string,
+  children: PropTypes.node
 };
 
 GenTeaser.SubLinks = (props) => {
@@ -239,6 +191,12 @@ GenTeaser.SubLinks = (props) => {
   );
 };
 
+GenTeaser.SubLinks.displayName = 'GenTeaser.SubLinks';
+
+GenTeaser.SubLinks.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
 GenTeaser.MoreInfo = (props) => {
   const { children, ...rest } = props;
   return(
@@ -246,6 +204,12 @@ GenTeaser.MoreInfo = (props) => {
       {children}
     </div>
   );
+};
+
+GenTeaser.MoreInfo.displayName = 'GenTeaser.MoreInfo';
+
+GenTeaser.MoreInfo.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 GenTeaser.PrimaryInfo = (props) => {
@@ -257,6 +221,12 @@ GenTeaser.PrimaryInfo = (props) => {
   );
 };
 
+GenTeaser.PrimaryInfo.displayName = 'GenTeaser.PrimaryInfo';
+
+GenTeaser.PrimaryInfo.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
 GenTeaser.SecondaryInfo = (props) => {
   const { children, ...rest } = props;
   return(
@@ -264,6 +234,12 @@ GenTeaser.SecondaryInfo = (props) => {
       {children}
     </div>
   );
+};
+
+GenTeaser.SecondaryInfo.displayName = 'GenTeaser.SecondaryInfo';
+
+GenTeaser.SecondaryInfo.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 GenTeaser.Address = (props) => {
@@ -278,6 +254,8 @@ GenTeaser.Address = (props) => {
   );
 };
 
+GenTeaser.Address.displayName = 'GenTeaser.Address';
+
 GenTeaser.Phone = (props) => {
   const { phone, ...rest } = props;
   return(
@@ -290,6 +268,8 @@ GenTeaser.Phone = (props) => {
   );
 };
 
+GenTeaser.Phone.displayName = 'GenTeaser.Phone';
+
 GenTeaser.Email = (props) => {
   const { email, ...rest } = props;
   return(
@@ -301,6 +281,8 @@ GenTeaser.Email = (props) => {
     </div>
   );
 };
+
+GenTeaser.Email.displayName = 'GenTeaser.Email';
 
 GenTeaser.Event = (props) => {
   const { event, ...rest } = props;
@@ -350,6 +332,8 @@ GenTeaser.Event = (props) => {
   );
 };
 
+GenTeaser.Event.displayName = 'GenTeaser.Event';
+
 GenTeaser.InfoDetails = (props) => {
   const {
     icon, href, text, ...rest
@@ -365,6 +349,8 @@ GenTeaser.InfoDetails = (props) => {
   );
 };
 
+GenTeaser.InfoDetails.displayName = 'GenTeaser.InfoDetails';
+
 GenTeaser.Tags = (props) => {
   const { tags, ...rest } = props;
   return(
@@ -372,6 +358,12 @@ GenTeaser.Tags = (props) => {
       {tags.map((tag) => <span className="ma__gen-teaser__tag">{tag}</span>)}
     </div>
   );
+};
+
+GenTeaser.Tags.displayName = 'GenTeaser.Tags';
+
+GenTeaser.Tags.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 GenTeaser.SearchBar = (props) => {
@@ -384,6 +376,8 @@ GenTeaser.SearchBar = (props) => {
     </div>
   );
 };
+
+GenTeaser.SearchBar.displayName = 'GenTeaser.SearchBar';
 
 GenTeaser.Button = (props) => {
   const { button, ...rest } = props;
@@ -399,6 +393,8 @@ GenTeaser.Button = (props) => {
   );
 };
 
+GenTeaser.Button.displayName = 'GenTeaser.Button';
+
 GenTeaser.Stat = (props) => {
   const { children, ...rest } = props;
   return(
@@ -406,6 +402,12 @@ GenTeaser.Stat = (props) => {
       {children}
     </div>
   );
+};
+
+GenTeaser.Stat.displayName = 'GenTeaser.Stat';
+
+GenTeaser.Stat.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export default GenTeaser;

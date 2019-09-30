@@ -16,6 +16,4 @@ storiesOf('atoms/contact', module)
     return(
       <Email {...props} />
     );
-  }),
-    // { info: PhoneNumberDocs }
-  );
+  }));
