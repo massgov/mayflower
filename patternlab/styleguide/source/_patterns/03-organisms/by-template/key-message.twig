@@ -29,7 +29,10 @@
     {% endif %}
 
     {% if keyMessage.description %}
-    <div class="ma__key-message--description">{{ keyMessage.description }}</div>
+    <div class="ma__key-message--description">
+      {% set richText = keyMessage.description %}
+      {% include "@organisms/by-author/rich-text.twig" %}    
+    </div>
     {% endif %}
 
     {% if keyMessage.button.text %}
