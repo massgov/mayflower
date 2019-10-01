@@ -11,4 +11,5 @@ Changed
 - [Dependency] Add changelog to changelogs/dependabot.mdChanged
 - [Dependency] Add changelog to changelogs/dependabot.mdChanged
 - [Dependency] Add changelog to changelogs/dependabot.mdChanged
+- [Dependency] Add changelog to changelogs/dependabot.mdChanged
 - [Dependency] Add changelog to changelogs/dependabot.md
