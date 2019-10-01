@@ -21,6 +21,7 @@ const GenTeaser = (props) => {
   const className = onClick ? 'ma__gen-teaser ma__gen-teaser--clickable' : 'ma__gen-teaser';
   const role = onClick ? 'button' : '';
   return(
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <section className={className} onClick={onClick} onKeyDown={onKeyDown} role={role} {...rest}>
       {children}
     </section>
@@ -263,6 +264,12 @@ GenTeaser.Address = (props) => {
 
 GenTeaser.Address.displayName = 'GenTeaser.Address';
 
+GenTeaser.Address.propTypes = {
+  address: PropTypes.string,
+  directionLink: PropTypes.string,
+  details: PropTypes.string
+};
+
 GenTeaser.Phone = (props) => {
   const { number, details, ...rest } = props;
   const phoneProps = {
@@ -281,6 +288,11 @@ GenTeaser.Phone = (props) => {
 
 GenTeaser.Phone.displayName = 'GenTeaser.Phone';
 
+GenTeaser.Phone.propTypes = {
+  number: PropTypes.string,
+  details: PropTypes.string
+};
+
 GenTeaser.Email = (props) => {
   const { email, details, ...rest } = props;
   const emailProps = {
@@ -298,6 +310,11 @@ GenTeaser.Email = (props) => {
 };
 
 GenTeaser.Email.displayName = 'GenTeaser.Email';
+
+GenTeaser.Email.propTypes = {
+  email: PropTypes.string,
+  details: PropTypes.string
+};
 
 GenTeaser.Event = (props) => {
   const {
