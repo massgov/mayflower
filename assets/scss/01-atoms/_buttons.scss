@@ -1,3 +1,11 @@
+$primarycolors: (
+  "c-primary-alt": $c-primary-alt,
+  "c-highlight": $c-highlight,
+  "c-black": $c-black,
+  "c-gray-dark": $c-gray-dark,
+  "c-white": $c-white
+);
+
 button {
   cursor: pointer;
   font-family: "Texta", "Helvetica", "Arial", "sans-serif";
@@ -18,18 +26,11 @@ button {
 
 .ma__button {
   @include ma-button("normal","solid",$c-primary);
-}
-
-.ma__button--c-primary-alt {
-  @include ma-button("normal","solid",$c-primary-alt);
-}
-
-.ma__button--c-highlight {
-  @include ma-button("normal","solid",$c-highlight);
-}
-
-.ma__button--c-gray-dark {
-  @include ma-button("normal","solid",$c-gray-dark);
+  @each $class, $c in $primarycolors {
+    &--#{$class} {
+      @include ma-button("normal","solid",$c);
+    }
+  }
 }
 
 .ma__button--secondary {
