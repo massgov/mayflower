@@ -2,4 +2,5 @@ Security
 - (React) [Dependency] Bump lodash.mergewith from 4.6.1 to 4.6.2 in /react (#669)
 
 Changed
-- [Dependency] uncomment push
+- [Dependency] uncomment pushChanged
+- [Dependency] Add changelog to changelogs/dependabot.md
