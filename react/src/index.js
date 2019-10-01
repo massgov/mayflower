@@ -97,6 +97,7 @@ export EmergencyHeader from './components/molecules/EmergencyHeader';
 // @organisms
 export FeedbackForm from './components/organisms/FeedbackForm';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
+export GenTeaser from './components/organisms/GenTeaser';
 export Teaser from './components/organisms/Teaser';
 export Footer from './components/organisms/Footer';
 export FooterSlim from './components/organisms/FooterSlim';
