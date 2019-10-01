@@ -17,7 +17,7 @@ fi
 
 
 
-if [ "$lastCommit" ]
+if [ "$lastCommit" = "$lastDependabot" ]
 then
   printf "$commitType\n- [Dependency] $lastCommit" >> changelogs/dependabot.md
   git add changelogs/dependabot.md
