@@ -1,25 +1,24 @@
 branch=$(git branch | grep \* | cut -d ' ' -f2)
 lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
+lastCommitClean=$lastCommit
 lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 commitType="Changed"
 
-if [[ $lastCommit =~ "[Security]"[[:space:]](.*) ]]; then
-  lastCommit="${BASH_REMATCH[1]}"
+if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
+  lastCommitClean="${BASH_REMATCH[1]}"
   commitType="Security"
 fi
 
-if [[ $lastCommit =~ "/react" ]]; then
-  lastCommit="(React) $lastCommit"
+if [[ $lastCommitClean =~ "/react" ]]; then
+  lastCommitClean="(React) $lastCommit"
 fi
-if [[ $lastCommit =~ "/patternlab" ]]; then
-  lastCommit="(Patternlab) $lastCommit"
+if [[ $lastCommitClean =~ "/patternlab" ]]; then
+  lastCommitClean="(Patternlab) $lastCommit"
 fi
-
-
 
 if [ "$lastCommit" = "$lastDependabot" ]
 then
-  printf "$commitType\n- [Dependency] $lastCommit" >> changelogs/dependabot.md
+  printf "$commitType\n- [Dependency] $lastCommitClean" >> changelogs/dependabot.md
   git add changelogs/dependabot.md
   git commit -m "Add changelog to changelogs/dependabot.md"
   echo "Commit dependabot changelog";
