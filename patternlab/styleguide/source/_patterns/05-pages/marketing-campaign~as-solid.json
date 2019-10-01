@@ -3,12 +3,11 @@
     "keyMessage": {
       "id": "abc1",
       "positionTop": true,
+      "backgroundColor": "c-primary",
       "compHeading": {
         "title": "Technology Careers at the Commonwealth of Massachusetts",
         "level": "1"
       },
-      "textOverlay": "c-gray-lightest",
-      "bgImage": "../../assets/images/placeholder/1920x1080-sign.jpg",
       "subtitle": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work.",
       "description": {
         "rteElements": [{
@@ -80,11 +79,7 @@
         "thumbnail": "../../assets/images/placeholder/400x300.png",
         "title": "How a Texas transplant makes Mass.gov work for content authors",
         "text": "<p>“It’s fun and exciting to have an opportunity to work hand-in-hand with partner agencies who want to understand and improve the constituent experience.”</p><p><b>Jane Doe</b>, Project Manager</p>"
-      }],
-      "moreLink": {
-        "text": "See more featured items",
-        "href": "#"
-      }
+      }]
     },
     "keyMessage": {
       "id": "abc2",
