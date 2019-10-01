@@ -243,13 +243,20 @@ GenTeaser.SecondaryInfo.propTypes = {
 };
 
 GenTeaser.Address = (props) => {
-  const { address, ...rest } = props;
+  const {
+    address, directionLink, details, ...rest
+  } = props;
+  const addrProps = {
+    address,
+    directionLink,
+    details
+  };
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
         <Icon name="marker" svgWidth={15} svgHeight={15} />
       </span>
-      <Address {...address} />
+      <Address {...addrProps} />
     </div>
   );
 };
@@ -257,13 +264,17 @@ GenTeaser.Address = (props) => {
 GenTeaser.Address.displayName = 'GenTeaser.Address';
 
 GenTeaser.Phone = (props) => {
-  const { phone, ...rest } = props;
+  const { number, details, ...rest } = props;
+  const phoneProps = {
+    number,
+    details
+  };
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
         <Icon name="phone" svgWidth={15} svgHeight={15} />
       </span>
-      <PhoneNumber {...phone} />
+      <PhoneNumber {...phoneProps} />
     </div>
   );
 };
@@ -271,13 +282,17 @@ GenTeaser.Phone = (props) => {
 GenTeaser.Phone.displayName = 'GenTeaser.Phone';
 
 GenTeaser.Email = (props) => {
-  const { email, ...rest } = props;
+  const { email, details, ...rest } = props;
+  const emailProps = {
+    email,
+    details
+  };
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
         <Icon name="mail" svgWidth={15} svgHeight={15} />
       </span>
-      <Email {...email} />
+      <Email {...emailProps} />
     </div>
   );
 };
@@ -285,7 +300,9 @@ GenTeaser.Email = (props) => {
 GenTeaser.Email.displayName = 'GenTeaser.Email';
 
 GenTeaser.Event = (props) => {
-  const { event, ...rest } = props;
+  const {
+    calendars, startDate, endDate, details, location, description, title, ...rest
+  } = props;
   const dropdownProps = {
     dropdownButton: {
       text: 'Add to calendar',
@@ -296,7 +313,15 @@ GenTeaser.Event = (props) => {
       capitalized: true
     }
   };
-  dropdownProps.dropdownItems = event.calendars.map((item) => {
+  const eventProps = {
+    startDate,
+    endDate,
+    details,
+    location,
+    description,
+    title
+  };
+  dropdownProps.dropdownItems = calendars.map((item) => {
     const { type, text } = item;
     let itemVals = '';
     switch (type) {
@@ -305,13 +330,13 @@ GenTeaser.Event = (props) => {
       case 'outlookcom':
         itemVals = {
           text,
-          href: buildUrl(event, type)
+          href: buildUrl(eventProps, type)
         };
         break;
       default:
         itemVals = {
           text,
-          href: buildUrl(event, type, window || ''),
+          href: buildUrl(eventProps, type, window || ''),
           target: '_blank',
           download: 'download.ics'
         };
@@ -325,7 +350,7 @@ GenTeaser.Event = (props) => {
         <span className="ma__gen-teaser__infoitem-icon">
           <Icon name="calendar" svgWidth={15} svgHeight={15} />
         </span>
-        <EventTime {...event} />
+        <EventTime {...eventProps} />
       </div>
       <LinkDropdown {...dropdownProps} />
     </React.Fragment>
@@ -355,7 +380,7 @@ GenTeaser.Tags = (props) => {
   const { tags, ...rest } = props;
   return(
     <div className="ma__gen-teaser__tags" {...rest}>
-      {tags.map((tag) => <span className="ma__gen-teaser__tag">{tag}</span>)}
+      {tags.map((tag, index) => <span key={`${tag}--${index}`} className="ma__gen-teaser__tag">{tag}</span>)}
     </div>
   );
 };
