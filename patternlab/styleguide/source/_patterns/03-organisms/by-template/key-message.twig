@@ -4,10 +4,9 @@
  {% set theme = keyMessage.backgroundColor ? keyMessage.backgroundColor : "c-gray-lightest" %}
 {% endif %}
 
+{% set headingLevel = keyMessage.compHeading.level %}
 {% set bgImage = keyMessage.bgImage %}
-{% set headingLevel = keyMessage.compHeading.level ? keyMessage.compHeading.level : 2 %}
-{% set positionTop = headingLevel == 1 ? TRUE : FALSE %}
-{# {% set positionTop = keyMessage.positionTop %} #}
+{% set positionTop = keyMessage.positionTop %}
 {% set id = keyMessage.id %}
 {% set msgClass = theme ? " ma__key-message--" ~ theme : "" %}
 {% set descClass = theme ? " ma__key-message__description--" ~ theme : "" %}
