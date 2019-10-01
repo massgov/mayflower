@@ -1,0 +1,101 @@
+{
+  "preContent": {
+    "keyMessage": {
+      "id": "abc1",
+      "positionTop": true,
+      "compHeading": {
+        "title": "Technology Careers at the Commonwealth of Massachusetts",
+        "level": "1"
+      },
+      "textOverlay": "c-gray-lightest",
+      "bgImage": "../../assets/images/placeholder/1920x1080-sign.jpg",
+      "subtitle": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work.",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "This is an optional text area."
+            }
+          }
+        }]
+      },
+      "button":{
+        "text":"Find your job",
+        "href":"#"
+      }
+    }
+  },
+  "pageContent": {
+    "textBreak": {
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit libero volutpat sed cras ornare arcu. Mauris a diam maecenas sed enim. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem. Nec feugiat nisl pretium fusce id velit ut."
+            }
+          }
+        }
+      ]
+    },
+    "campaignVideo": {
+      "id": "qwe1",
+      "positionTop": true,
+      "backgroundColor": "",
+      "textColor": "",
+      "title": "Why work for the commonwealth",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "video": {
+        "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
+        "link": {
+          "href": "#",
+          "text": "View transcript"
+        }
+      }
+    },
+    "campaignFeature": {
+      "compHeading": {
+        "title": "Learn about our projects and the people behind them",
+        "level": ""
+      },
+      "positionTop": true,
+      "campaignFullWidthFeature": {
+        "id": "dfg1234",
+        "link": "#",
+        "thumbnail": "../../assets/images/placeholder/400x300.png",
+        "title": "Improving emergency response with mapping technology",
+        "text": "<p>“The work we do at MassGIS supports dispatch, police, fire, and medical professionals who respond to emergency situations. It could benefit all of those who live, visit, and work in the Commonwealth.”</p><p><b>John Smith Doe</b>, GIS Analyst</p>"
+      },
+      "campaignFeature2up": [{
+        "id": "1234",
+        "link": "#",
+        "thumbnail": "../../assets/images/placeholder/400x300.png",
+        "title": "From an IT training program to EOTSS Team Lead",
+        "text": "<p>“I’m really impressed with the people who work here. I’ve met individuals who have mentored me and helped me build the skills needed to be successful.”</p><p><b>John Smith</b>, Identity & Access Management Specialist</p>"
+      },
+      {
+        "id": "1234",
+        "link": "#",
+        "thumbnail": "../../assets/images/placeholder/400x300.png",
+        "title": "How a Texas transplant makes Mass.gov work for content authors",
+        "text": "<p>“It’s fun and exciting to have an opportunity to work hand-in-hand with partner agencies who want to understand and improve the constituent experience.”</p><p><b>Jane Doe</b>, Project Manager</p>"
+      }],
+      "moreLink": {
+        "text": "See more featured items",
+        "href": "#"
+      }
+    },
+    "keyMessage": {
+      "id": "abc2",
+      "positionTop": false,
+      "backgroundColor": "c-primary",
+      "title": "Work for Mass.gov!",
+      "subtitle": "",
+      "button":{
+        "text":"Find your job",
+        "href":"#"
+      }
+    }
+  }
+}

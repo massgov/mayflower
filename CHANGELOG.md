@@ -13,6 +13,102 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.25.0 (09/25/2019)
+
+### Added
+- (Patternlab) [Card] DP-15872: Adds card molecule with primary (default) and secondary usage variant. #742
+- (Patternlab) [CampaignVideo] DP-15813: Added color options and made other styling tweaks #738
+- (Patternlab) [UnorderedList] DP-15731: Added ability to add classes to lists; implemented ma__horizontal-list class #739
+- (React) [LinkDropdown] DP-15689: Created LinkDropdown molecule. #730
+
+### Changed
+- (Patternlab) [CampaignFullWidthFeature] DP-15872: Replaces campaign feature full width molecule with card molecule. #742
+- (Patternlab) [CampaignFeature2up] DP-15872: Updates campaign feature 2up to consume new card molecule in secondary variant and updates molecule scss. #742
+- (Patternlab) [CampaignFeature] DP-15872: Updates campaign feature organism to consume primary card molecule and adds organism scss. #742
+- (React) [ButtonWithIcon] DP-15689: Extended the ButtonWithIcon component to pass multiple themes (c-primary, c-primary-alt, c-highlight, c-gray-dark, c-black) and display for multiple usages per base button atom (primary, secondary, tertiary, quaternary, quaternary-simple, alert). #730
+- (React) [DecorativeLink] DP-15689: Enabled classnames to be passed to DecorativeLink. #730
+- (React) [ListingTable] DP-15689: Updated ListingTable to consume ButtonWithIcon for expand functionality. #730
+- (React) [ButtonAlert] DP-15689: Made ButtonAlert a variant of buttonwithicon. #730
+
+### Fixed
+- (Patternlab) [Locations] DP-15856: Uses google map's viewport biasing when converting user's input into a geocode so that places from and around Massachusetts are returned, thereby fixing previously faulty location filtering. #745
+- (React) [Button, ButtonWithIcon] DP-15689: Fixed color contrast a11y issue of c-highlight theme. #730
+
+### Security
+- (Patternlab) [Dependency] DP-12883: Bumps browser-sync from 2.26.3 to 2.26.7 and handlebars from 4.05 to 4.1.2 to address security vulnerabilities #750 
+- (React) [Dependency] Bump lodash.template from 4.4.0 to 4.5.0 in /react #671
+- (React) [Dependency] Bump lodash from 4.17.10 to 4.17.15 in /react #681
+
+## 9.24.0 (09/18/2019)
+
+### Changed
+- (Patternlab) [StickyToc] DP-15605: Add context info to sticky TOC buttons to reflect the state of the TOC display. Switch focus as the flyout toc shows/hides. #731
+- (Patternlab) [HeaderAlert] DP-15896: Makes decorative link in a page alert show inline without unexpected wrapping up. #741
+- (Patternlab) [InformationDetails] DP-14105: Added an overview rich text field to the information-details component. #734
+
+### Security
+- (React) [Dependency] Bump fstream from 1.0.11 to 1.0.12 in /react. #687
+
+## 9.23.0 (09/11/2019)
+
+### Added
+- (React, Patternlab) [Circleci] Automate adding changelog for dependabot prs. Changelog will be added by Circleci on dependabot branches into changelogs/dependabot.md. #722
+- (React) [Icon] DP-15753: Adds catalog, chart, download, expand, map, report, and settings icons. #729
+- (Patternlab) [KeyMessage, MarketingCampaign] DP-15521: Adds key message component and Campaign Marketing Page. #728
+
+### Security
+- (React) [Dependency] Bump is-my-json-valid from 2.17.1 to 2.20.0 in /react (#589)
+- (React) [Dependency] Bump mixin-deep from 1.3.1 to 1.3.2 in /react (#724)
+- (React) [Dependency] Bump eslint-utils from 1.3.1 to 1.4.2 in /react (#721)
+
+## 9.22.0 (08/28/2019)
+
+### Added
+- (Patternlab) [FullWidthCampaignHeader] DP-15512: Version 1 of the Full Width Campaign Full Width Header #715
+- (Patternlab) [CampaignVideo] DP-15564: Add campaign video component #716
+- (Patternlab) [CampaignFeature] DP-15583: Adds campaign feature molecules and organism #717
+- (React) [Icon] DP-15599: Added social media icons into Icon component options and added option to set icon fill color #712
+- (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks <a> to follow best practices for Screen Readers. #712
+
+### Changed
+- (React) [SocialLinks] DP-15599: Change hard coded icon svgs to Icon component. #712
+
+## 9.21.0 (08/21/2019)
+
+### Changed
+- (Patternlab) [ContactRow] DP-9085: Added line break to address. #701
+- (Patternlab) [Event] DP-9085: Added line breaks to addresses. #701
+- (Patternlab) [EventEndDateWithTime] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventEndDate] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventPublicMeeting] DP-9085: Added line break to address. #701
+- (Patternlab) [EventRecurring] DP-9085: Added line break to address. #701
+
+### Fixed
+- (Patternlab) [StickyTOC] DP-14912: reposition stickyTOC on mobile screens #700
+- (Docs) [Metatag] DP-15068: Update the search metatag documentation. #708
+- (React) [SocialLinks] DP-15599: Prevent SVGs in SocialLink from receiving keyboard focus. #709
+
+
+## 9.20.0 (08/14/2019)
+
+### Added
+- (Patternlab) [Link] DP-9274: Added `labelContext` variable for an optional visually-hidden suffix #683
+
+### Changed
+- (Patternlab) [ContactUs] DP-8937: Made contact groups inside accordions always stack vertically. #697
+- (Patternlab) [PressListingAsGrid] DP-9274: Changed JSON to use the `link` component’s new `labelContext` variable in the style guide #683
+
+
+## 9.19.0 (08/07/2019)
+
+### Fixed
+- (React) [InputTextFuzzy] DP-14478: check for event before persist #694
+- (React) [Tabs] DP-14479: Patch Tabs molecule so scrollIntoView action only called if it exists. #693
+- (PatternLab) [Print] DP-15523: Removes sticky TOC from print #692
+- (PatternLab) [HeaderSearch] DP-6174: Removed search field clear button in IE #688
+- (React) [ErrorMessage] Fix success message color #691
+
+
 ## 9.18.0 (07/24/2019)
 
 ### Added

@@ -11,6 +11,12 @@
       {% include "@molecules/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
 
+      {% block overview %}
+        <div class="ma__rich-text">
+          <p>Overview text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      {% endblock %}
+
       {% if stickyTOC %}
       <div class="ma__information-details__pre-content-media">
         {% block stickyTOC %}
@@ -41,6 +47,7 @@
 
     </div>
 
+    {% if sidebar %}
     <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
       {% block sidebar %}
         {% if sidebar.contactList %}
@@ -52,6 +59,7 @@
         {% endif %}
       {% endblock %}
     </aside>
+    {% endif %}
 
   </div>
 
