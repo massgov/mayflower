@@ -14,71 +14,75 @@ const defaultDate = new Date('2018-02-02');
 storiesOf('organisms/GenTeaser/', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('GenTeaser (Basic)', () => {
-    const title = {
-      info: 'Title info here',
-      text: 'Basic Search Result',
-      href: '#',
-      showFileIcon: false
+    const basic = {
+      title: {
+        info: text('title.info','Title info here','GenTeaser.Title'),
+        text: text('title.text','Basic Search Result','GenTeaser.Title'),
+        href: text('title.href','#','GenTeaser.Title'),
+        showFileIcon: text('title.showFileIcon',false,'GenTeaser.Title')
+      },
+      description: text('description','A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in <b>writing dealing with a particular</b> point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.','GenTeaser.Description')
     };
-    const description = 'A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in <b>writing dealing with a particular</b> point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.';
     return(
       <GenTeaser>
         <GenTeaser.Details>
-          <GenTeaser.Title title={title} />
-          <GenTeaser.Description description={description} />
+          <GenTeaser.Title title={basic.title} />
+          <GenTeaser.Description description={basic.description} />
         </GenTeaser.Details>
       </GenTeaser>
     );
   })
   .add('GenTeaser (DataCatalog)', () => {
-    const subLinks = [{
-      text: 'Teacher Salaries Report',
-      href: 'http://profiles.doe.mass.edu/statereport/teachersalaries.aspx',
-      description: 'Total teaching salaries, divided by the number of full-time equivalent teachers, equals the average teacher salary.'
-    }, {
-      text: 'MCAS Achievement Results',
-      href: 'http://profiles.doe.mass.edu/statereport/mcas.aspx',
-      description: 'This report contains results for legacy MCAS only.'
-    }, {
-      text: 'Next Generation MCAS Achievement Results',
-      href: 'http://profiles.doe.mass.edu/statereport/nextgenmcas.aspx',
-      description: 'This report contains results for Next Generation MCAS only.'
-    }, {
-      text: 'Per Pupil Expenditures',
-      href: 'http://profiles.doe.mass.edu/statereport/ppx.aspx',
-      description: "Per pupil expenditures are calculated by dividing a district's operating costs by its average pupil membership (FTEs), including in-district expenditures per pupil and total expenditures per pupil, which includes in-district and out-of-district spending and enrollment."
-    }];
-    const title = {
-      info: '',
-      text: 'School and District Profiles',
-      href: 'http://profiles.doe.mass.edu/',
-      showFileIcon: false
-    };
-    const description = "The Massachusetts Department of Early and Seconday Education's school and district profile exploration tool.";
-    const eyebrow = <span><Icon name="catalog" svgWidth={16} svgHeight="16" /> Data Catalog</span>;
-    const date = '01/01/2019';
-    const orgs = 'Massachusetts Department of Early and Seconday Education';
-    const tags = ['kml', 'xls', 'json', 'csv'];
-    const search = {
-      placeholder: 'search profiles.doe.mass.edu...',
-      target: 'http://profiles.doe.mass.edu/search/search_new.aspx?leftNavId=11241',
-      queryInput: ''
-    };
-    const stat = <span>Total Items: <b>143</b></span>;
+    const dataCatalog = {
+      title: {
+        info: text('title.info','Title info here','GenTeaser.Title'),
+        text: text('title.text','School and District Profiles','GenTeaser.Title'),
+        href: text('title.href','http://profiles.doe.mass.edu/','GenTeaser.Title'),
+        showFileIcon: text('title.showFileIcon',false,'GenTeaser.Title')
+      },
+      description: text('description','The Massachusetts Department of Early and Seconday Education\'s school and district profile exploration tool.', 'GenTeaser.Description'),
+      subLinks: [{
+        text: 'Teacher Salaries Report',
+        href: 'http://profiles.doe.mass.edu/statereport/teachersalaries.aspx',
+        description: 'Total teaching salaries, divided by the number of full-time equivalent teachers, equals the average teacher salary.'
+      }, {
+        text: 'MCAS Achievement Results',
+        href: 'http://profiles.doe.mass.edu/statereport/mcas.aspx',
+        description: 'This report contains results for legacy MCAS only.'
+      }, {
+        text: 'Next Generation MCAS Achievement Results',
+        href: 'http://profiles.doe.mass.edu/statereport/nextgenmcas.aspx',
+        description: 'This report contains results for Next Generation MCAS only.'
+      }, {
+        text: 'Per Pupil Expenditures',
+        href: 'http://profiles.doe.mass.edu/statereport/ppx.aspx',
+        description: "Per pupil expenditures are calculated by dividing a district's operating costs by its average pupil membership (FTEs), including in-district expenditures per pupil and total expenditures per pupil, which includes in-district and out-of-district spending and enrollment."
+      }],
+      date: '01/01/2019',
+      orgs: 'Massachusetts Department of Early and Seconday Education',
+      search: {
+        placeholder: 'search profiles.doe.mass.edu...',
+        target: 'http://profiles.doe.mass.edu/search/search_new.aspx?leftNavId=11241',
+        queryInput: ''
+      },
+      stat: <span>Total Items: <b>143</b></span>,
+      eyebrow: <span><Icon name="catalog" svgWidth={16} svgHeight="16" /> Data Catalog</span>
+    }
+
     return(
       <GenTeaser>
         <GenTeaser.Details>
-          <GenTeaser.Stat>{stat}</GenTeaser.Stat>
-          <GenTeaser.Eyebrow eyebrow={eyebrow} />
-          <GenTeaser.Title title={title} />
+          <GenTeaser.Stat>{dataCatalog.stat}</GenTeaser.Stat>
+          <GenTeaser.Eyebrow eyebrow={dataCatalog.eyebrow} />
+          <GenTeaser.Title title={dataCatalog.title} />
           <GenTeaser.Emphasis>
-            <GenTeaser.Date date={date} />
-            <GenTeaser.Orgs orgs={orgs} />
+            <GenTeaser.Date date={dataCatalog.date} />
+            <GenTeaser.Orgs orgs={dataCatalog.orgs} />
           </GenTeaser.Emphasis>
-          <GenTeaser.Description description={description} />
-          <GenTeaser.SearchBar search={search} />
+          <GenTeaser.Description description={dataCatalog.description} />
+          <GenTeaser.SearchBar search={dataCatalog.search} />
           <GenTeaser.SubLinks>
-            {subLinks.map((item) => <GenTeaser.KeyAction {...item} />)}
+            {dataCatalog.subLinks.map((item) => <GenTeaser.KeyAction {...item} />)}
           </GenTeaser.SubLinks>
         </GenTeaser.Details>
       </GenTeaser>
