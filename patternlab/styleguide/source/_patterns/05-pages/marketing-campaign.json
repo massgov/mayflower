@@ -57,9 +57,9 @@
     "campaignFeature": {
       "compHeading": {
         "title": "Learn about our projects and the people behind them",
-        "level": ""
+        "level": "2"
       },
-      "positionTop": true,
+      "positionTop": false,
       "campaignFullWidthFeature": {
         "id": "dfg1234",
         "link": "#",
