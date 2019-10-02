@@ -2,9 +2,12 @@
   .page-content>:last-child {
     &.ma__key-message {
       margin-bottom: -45px;
-      @media (min-width: 911px) {
+      &--c-white {
+        margin-top: 0px;
+      }
+      @media ($bp-large-min) {
         margin-bottom: -60px;
       }
-    }   
+    }    
   } 
 }
