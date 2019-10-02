@@ -27,18 +27,6 @@
     }
   },
   "pageContent": {
-    "textBreak": {
-      "rteElements": [
-        {
-          "path": "@atoms/11-text/paragraph.twig",
-          "data": {
-            "paragraph": {
-              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Blandit libero volutpat sed cras ornare arcu. Mauris a diam maecenas sed enim. Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem. Nec feugiat nisl pretium fusce id velit ut."
-            }
-          }
-        }
-      ]
-    },
     "campaignVideo": {
       "id": "qwe1",
       "positionTop": true,
@@ -57,9 +45,9 @@
     "campaignFeature": {
       "compHeading": {
         "title": "Learn about our projects and the people behind them",
-        "level": ""
+        "level": "2"
       },
-      "positionTop": true,
+      "positionTop": false,
       "campaignFullWidthFeature": {
         "id": "dfg1234",
         "link": "#",
