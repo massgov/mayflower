@@ -1,19 +1,8 @@
 .ma__campaign-feature {
   @include ma-container();
-  padding-top: 30px;
-  padding-bottom: 60px;
-
-  @media ($bp-medium-min) {
-    @include ma-container;
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-  @media ($bp-large-min) {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
 
   &__primary {
+    margin-top: 20px;
     margin-bottom: 20px;
   }
   &__title {
