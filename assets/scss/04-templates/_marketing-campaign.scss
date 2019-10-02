@@ -1,3 +1,22 @@
 .ma__marketing-campaign__main-content {
   margin-bottom: 0px;
+
+  .page-content>* {
+    margin-top: 40px;
+  }
+  @media ($bp-medium-min) {
+    .page-content>* {
+      margin-top: 70px;
+    }
+  }
+  @media ($bp-large-min) {
+    .page-content>* {
+      margin-top: 90px;
+    }
+  }
+
+  .page-content>:last-child {
+    margin-bottom: 0px;
+  }
+  
 }
