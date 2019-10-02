@@ -4,7 +4,7 @@
  {% set theme = keyMessage.backgroundColor ? keyMessage.backgroundColor : "c-gray-lightest" %}
 {% endif %}
 
-{% set bgImage = keyMessage.bgImage | raw %}
+{% set bgImage = keyMessage.bgImage %}
 {% set positionTop = keyMessage.positionTop %}
 {% set headingLevel = keyMessage.compHeading.level ? keyMessage.compHeading.level : (positionTop ? 1 : 2) %}
 {% set id = keyMessage.id %}
