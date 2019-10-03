@@ -126,7 +126,8 @@ storiesOf('organisms/GenTeaser/', module)
         text: text('title: text', '2015 Monthly Electric Customer Migration Data', 'GenTeaser.Title'),
         href: text('title: href', 'https://www.mass.gov/files/documents/2018/06/15/2015%20Annual%20Electric%20Monthly%20Migration-Complete.xlxs', 'GenTeaser.Title'),
         icon: 'download',
-        showFileIcon: boolean('title: showFileIcon', true, 'GenTeaser.Title')
+        showFileIcon: boolean('title: showFileIcon', true, 'GenTeaser.Title'),
+        details: '(30 MB)'
       },
       description: text('description', 'Jun 15, 2018 <b>...</b> <b>Annual Electric</b>. <b>Migration</b>. 2,015,302. 18,322,632,032. 758,696 .... <b>Monthly</b>  Competitive Supply Load Served (2015). State. Lg C &amp; I. Med C &amp; I.', 'GenTeaser.Description'),
       date: text('date', 'Updated on 9/06/2019', 'GenTeaser.Date'),
