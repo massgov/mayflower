@@ -226,7 +226,7 @@ jobs:
       - *no_host_check
       - add_ssh_keys:
           fingerprints:
-            - $DEPLOY_KEY   
+            - a7:d5:55:42:fe:37:52:b6:71:7c:a6:d8:05:78:fd:25
       - *configure_git
       - run:
           name: 'Auto add changelog for dependabot'

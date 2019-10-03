@@ -1,12 +1,5 @@
 .ma__campaign-video { 
   text-align: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-
-  @media ($bp-medium-min) {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
 
   &--bg-primary {
     background-color: $c-primary;
@@ -71,12 +64,6 @@
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
-  }
-
-  &__title {
-    @include ma-h1;
-    margin-bottom: 20px;
   }
 
   &__video {
@@ -84,6 +71,7 @@
     max-width: 1006px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
   }
 
   .fluid-width-video-wrapper {
