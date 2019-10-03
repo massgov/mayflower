@@ -59,7 +59,7 @@ storiesOf('organisms/EmergencyAlerts', module)
       emergencyHeader: object('emergencyHeader', {
         prefix: 'Updates',
         icon: (!iconName) ? null : <Icon name={iconName} />,
-        title: ({ linkClasses }) => <span><span rawhtml="Welcome to the newly redesigned Massachusetts Governor's Budget website! &amp;#127881;">Welcome to the newly </span> <span class="ma__decorative-link"><a href="https://www.mass.gov/forms/feedback-for-the-redesigned-governors-budget-website---unpublished?auHash=hFqcizBfSVOaaVk_RzCtsABx93CqOXQ7XBGnfjr-Mnc">Let us know what you think.&nbsp;</a></span></span>
+        title: ({ linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">{titleText}</a>
       }),
       buttonClose: boolean('buttonClose', true)
     };
