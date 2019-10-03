@@ -1,6 +1,7 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
 import sticky from "../helpers/sticky.js";
 import getOuterHtml from "../helpers/getElementOuterHtml.js";
+import truncateImagePromoDescriptions from "../helpers/truncateImagePromoDescriptions.js";
 
 export default (function(window, document, undefined, $, moment){
   "use strict";
@@ -31,6 +32,8 @@ export default (function(window, document, undefined, $, moment){
           $el.append(item.markup);
         }
       });
+
+      truncateImagePromoDescriptions(document.querySelectorAll('.ma__location-listing__results .ma__image-promos'));
 
       if (args.focus) {
         // Focus on the first focusable element in the first listing
