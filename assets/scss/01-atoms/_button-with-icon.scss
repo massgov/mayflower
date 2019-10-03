@@ -17,15 +17,15 @@ $quaternary-colors: (
   background-color: $c-white;
   border: 2px solid $c-gray-light;
   display: inline-block;
-  font-size: 14px;
   font-weight: 700;
   letter-spacing: $letter-spacing-large;
-  min-height: 46px;
   padding: 0 14px;
   text-transform: uppercase;
   transition: background-color .4s, color .4s, border .4s, fill .4s;
   white-space: nowrap;
   color: $c-primary-alt;
+  min-height: 46px;
+  font-size: 14px;
 
   @each $class, $c in $colors {
     &--#{$class} {
@@ -38,9 +38,23 @@ $quaternary-colors: (
     }
   }
 
+  &--small { 
+    font-size: 1rem;
+    line-height: 1.2;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 0px;
+  }
+
+  &--large { 
+    font-size: 1.375rem;
+    line-height: 1.61;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
   &--capitalized {
     text-transform: capitalize;
-    font-size: 16px;
     letter-spacing: $letter-spacing-small;
   }
 
