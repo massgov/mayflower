@@ -430,6 +430,7 @@ GenTeaser.Button = (props) => {
         capitalized
         {...button}
         icon={icon}
+        size="small"
       />
     </div>
   );
