@@ -35,7 +35,7 @@
     @media ($bp-large-extended-min) {
       width: 70%;
     }
-    
+
   }
 
   // Backward Compatible - had to add the --new as a variant for the new styling
@@ -108,6 +108,7 @@
 
   &__link {
     font-size: 1.25rem;
+    width: 97%;
   }
 }
 
