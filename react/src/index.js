@@ -18,6 +18,12 @@ export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
 export ButtonFixedFeedback from './components/atoms/buttons/ButtonFixedFeedback';
 export ButtonAlert from './components/atoms/buttons/ButtonAlert';
+// @atoms/@contact
+export Address from './components/atoms/contact/Address';
+export Email from './components/atoms/contact/Email';
+export EventTime from './components/atoms/contact/EventTime';
+export OperationalHours from './components/atoms/contact/OperationalHours';
+export PhoneNumber from './components/atoms/contact/PhoneNumber';
 // @atoms/@forms
 export Form, { FormProvider } from './components/atoms/forms/Form';
 export HelperText from './components/atoms/forms/HelperText';
@@ -33,10 +39,7 @@ export InputSlider from './components/atoms/forms/InputSlider';
 export CompoundSlider from './components/atoms/forms/CompoundSlider';
 export InputCurrency from './components/atoms/forms/InputCurrency';
 export InputCheckBox from './components/atoms/forms/InputCheckBox';
-
-// Also export the context.
 export { InputContext, FormContext } from './components/atoms/forms/Input/context';
-
 export InputNumber from './components/atoms/forms/InputNumber';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
@@ -60,8 +63,6 @@ export Table from './components/atoms/table/Table';
 // @atoms/@text
 export Paragraph from './components/atoms/text/Paragraph';
 export PublishState from './components/atoms/text/PublishState';
-// @atoms/@time
-export OperationalHours from './components/atoms/contact/OperationalHours';
 
 // @molecules
 export Link from './components/molecules/Link';
@@ -121,21 +122,21 @@ export CalloutAlert from './components/organisms/CalloutAlert';
 export HelpTip from './components/organisms/HelpTip';
 export EmergencyAlerts from './components/organisms/EmergencyAlerts';
 
-//@templates
+// @templates
 export NarrowTemplate from './components/templates/NarrowTemplate';
 
-//@pages
+// @pages
 export Error403 from './components/pages/Error403';
 export Error404 from './components/pages/Error404';
 export Error500 from './components/pages/Error500';
 
-//@animations
+// @animations
 export Collapse from './components/animations/Collapse';
 
-//@dataviz
+// @dataviz
 export DataTable from './components/dataviz/DataTable';
 
-//To archive & remove in version 10
+// To archive & remove in version 10
 export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
 export PressTeaser from './components/molecules/PressTeaser';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
