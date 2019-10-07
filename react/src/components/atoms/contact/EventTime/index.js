@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import parse from 'react-html-parser';
 import './style.css';
 
 const timeFormat = new Intl.DateTimeFormat('en-US', {
@@ -22,7 +23,7 @@ const EventTime = (props) => {
         </div>
       </div>
       { details && (
-        <p className="ma__contact__details" dangerouslySetInnerHTML={{ __html: details }} />
+        <p className="ma__contact__details">{parse(details)}</p>
       )}
     </span>
   );
@@ -34,7 +35,7 @@ EventTime.propTypes = {
   /** The end date of the event. */
   endDate: PropTypes.instanceOf(Date).isRequired,
   /** Details around the event. */
-  details: PropTypes.string
+  details: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 export default EventTime;

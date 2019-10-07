@@ -2,7 +2,6 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, array, text, select, boolean, object } from '@storybook/addon-knobs';
-import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import GenTeaser from './index';
 import { Icon } from '../../../index';

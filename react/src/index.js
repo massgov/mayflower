@@ -26,7 +26,6 @@ export InputDate from './components/atoms/forms/InputDate';
 export InputText from './components/atoms/forms/InputText';
 export SelectBox from './components/atoms/forms/SelectBox';
 export InputRadio from './components/atoms/forms/InputRadio';
-export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
 export InputTextFuzzy from './components/atoms/forms/InputTextFuzzy';
 export Input from './components/atoms/forms/Input';
 export Error from './components/atoms/forms/Input/error';
@@ -76,7 +75,6 @@ export HeaderSearch from './components/molecules/HeaderSearch';
 export MainNav from './components/molecules/MainNav';
 export OrgSelector from './components/molecules/OrgSelector';
 export Pagination from './components/molecules/Pagination';
-export PressTeaser from './components/molecules/PressTeaser';
 export ResultsHeading from './components/molecules/ResultsHeading';
 export SearchBannerForm from './components/molecules/SearchBannerForm';
 export SocialLinks from './components/molecules/SocialLinks';
@@ -96,9 +94,7 @@ export EmergencyHeader from './components/molecules/EmergencyHeader';
 
 // @organisms
 export FeedbackForm from './components/organisms/FeedbackForm';
-export GeneralTeaser from './components/organisms/GeneralTeaser';
 export GenTeaser from './components/organisms/GenTeaser';
-export Teaser from './components/organisms/Teaser';
 export Footer from './components/organisms/Footer';
 export FooterSlim from './components/organisms/FooterSlim';
 export PressFilters from './components/organisms/PressFilters';
@@ -138,3 +134,9 @@ export Collapse from './components/animations/Collapse';
 
 //@dataviz
 export DataTable from './components/dataviz/DataTable';
+
+//To remove & retire in version 10
+export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
+export PressTeaser from './components/molecules/PressTeaser';
+export GeneralTeaser from './components/organisms/GeneralTeaser';
+export Teaser from './components/organisms/Teaser';

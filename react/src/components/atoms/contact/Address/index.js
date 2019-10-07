@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import parse from 'react-html-parser';
 import DecorativeLink from '../../links/DecorativeLink';
 import './style.css';
 
@@ -13,7 +14,7 @@ const Address = (props) => {
           <div className="ma__address__part">{`${address.muni}, ${address.state} ${address.zip}`}</div>
         </div>
         ) : (
-          <div className="ma__address__address" dangerouslySetInnerHTML={{ __html: address }} />
+          <div className="ma__address__address">{parse(address)}</div>
         )
       }
       { directionLink && (
@@ -22,7 +23,7 @@ const Address = (props) => {
         </div>
       )}
       { details && (
-        <p className="ma__contact__details" dangerouslySetInnerHTML={{ __html: details }} />
+        <p className="ma__contact__details">{parse(details)}</p>
       )}
     </span>
   );
@@ -46,12 +47,13 @@ Address.propTypes = {
       zip: PropTypes.string,
       country: PropTypes.string
     }),
-    PropTypes.string
+    PropTypes.string,
+    PropTypes.object
   ]).isRequired,
   /** A link to the directions of the address. */
   directionLink: PropTypes.string,
   /** Details around visiting the address. */
-  details: PropTypes.string
+  details: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 export default Address;

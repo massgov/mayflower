@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import parse from 'react-html-parser';
 import './style.css';
 
 const formatPhoneNumber = (number) => {
@@ -19,7 +20,7 @@ const PhoneNumber = (props) => {
     <span className="ma__phone-number">
       <a href={`tel:${number}`} className="ma__phone-number__number">{display}</a>
       { details && (
-        <p className="ma__contact__details" dangerouslySetInnerHTML={{ __html: details }} />
+        <p className="ma__contact__details">{parse(details)}</p>
       )}
     </span>
   );
@@ -29,7 +30,7 @@ PhoneNumber.propTypes = {
   /** The phone number. Expect the following +16174659898 or 6174659898 */
   number: PropTypes.string.isRequired,
   /** Details around contacting the provided phone number */
-  details: PropTypes.string
+  details: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 export default PhoneNumber;
