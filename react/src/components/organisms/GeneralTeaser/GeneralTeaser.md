@@ -7,8 +7,8 @@ image is too large, the content will wrap and appear in a single column, regardl
 If a teaser image is provided, it will link to the title's href, if set.
 
 ### Status
-This component is deprecated and is replaced by [GenTeaser](../../Organism/GenTeaser).
-This component will be archive in the next major version.
+This component is deprecated and is replaced by [GenTeaser](../GenTeaser).
+This component will be archives in the next major version, version 10.
 
 ### Pattern Contains
 * Decorative Link

@@ -135,7 +135,7 @@ export Collapse from './components/animations/Collapse';
 //@dataviz
 export DataTable from './components/dataviz/DataTable';
 
-//To remove & retire in version 10
+//To archive & remove in version 10
 export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
 export PressTeaser from './components/molecules/PressTeaser';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
