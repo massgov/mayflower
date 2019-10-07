@@ -47,6 +47,7 @@
 
     </div>
 
+    {% if sidebar %}
     <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
       {% block sidebar %}
         {% if sidebar.contactList %}
@@ -58,6 +59,7 @@
         {% endif %}
       {% endblock %}
     </aside>
+    {% endif %}
 
   </div>
 

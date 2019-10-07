@@ -1,31 +1,179 @@
+$colors: (
+  "c-primary": $c-primary,
+  "c-primary-lightest":  $c-primary-lightest,
+  "c-primary-alt": $c-primary-alt,
+  "c-primary-alt-lightest": $c-primary-alt-lightest,
+  "c-white": $c-white,
+  "c-gray-lightest": $c-gray-lightest
+);
+
 .ma__key-message {
-  padding: 100px 0;
   text-align: center;
 
-  &--wrapper {
-    @include ma-container();
+  &__wrapper {
+    z-index: 10;
+    min-height: 140px;
+    padding: 40px 20px;
+    @media ($bp-small-min) {
+      min-height: 160px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    &--top {
+      min-height: 350px;
+      padding: 40px 20px;
+      @media ($bp-small-min) {
+        min-height: 400px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+      .ma__key-message__cta {
+        margin-bottom: 10px;
+      }
+    }
   }
 
-  &--image {
+  &__inline-image {
+    height: 215px;
+    @media ($bp-small-min) {
+      height: 425px;
+    }
+    @media ($bp-medium-min) {
+      height: 0px;
+      display: none;
+    }
+  }
+
+  &__inline-image, &--image {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
   }
 
-  &--bay-blue {
-    background-color: rgba($c-bay-blue, 0.5);
-  }
-
-  &--berkshires-green {
-    background-color: rgba($c-berkshires-green, 0.5);
-  }
-
-  &--light-text {
-    color: $c-white;
-
-    h1, h2 {
-      color: $c-white;
+  &__block {
+    max-width: 840px;
+    @media ($bp-medium-min) {
+      margin-left: auto;
+      margin-right: auto;
     }
   }
+  &__content {
+    margin-bottom: 20px;
+  }
+  &--top {
+    margin-bottom: 60px;
+  }
+
+  &--image {
+    
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    z-index: 0;
+
+    &:after {
+      content:'';
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      opacity: 0.75;
+    }
+
+    &-overlay {
+      margin-bottom: 60px;
+      @media ($bp-medium-min) {
+        height: 600px;
+        &.ma__key-message--top {
+          margin-bottom: 150px;
+        }
+      }
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    .ma__key-message__wrapper {
+
+      &--overlay {
+        display: block;
+        height: fit-content;
+        padding: 0px;
+
+        .ma__key-message__block {
+          padding: 20px 20px;
+          transform: translateY(0%);
+
+          @each $class, $c in $colors {
+            &--#{$class} {
+              background: $c;
+            }
+          }
+        }
+
+        @media ($bp-medium-min) {
+          @include ma-container();
+          display: flex;
+          flex-flow: column;
+          justify-content: flex-end;
+          height: 100%;
+          position: relative;
+
+          .ma__key-message__block {
+            display: block;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateY(33%);
+            box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.25);
+          }
+        }
+      }
+      
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  @each $class, $c in $colors {
+    &--#{$class} {
+      background-color: $c;
+      
+      .ma__button {
+        width: 100%;
+        @media ($bp-small-min) {
+          width: auto;
+        }
+        @if ($c == $c-primary or $c == $c-primary-alt) {
+          color: $c;
+        }
+      }
+      
+      &.ma__key-message--image:after {
+        background: $c;
+      }
+    }
+
+  }
+
+  &__title, &__sub-title, &__description {
+    @each $class, $c in $colors {
+      &--#{$class} {
+        @if ($c == $c-primary or $c == $c-primary-alt) {
+          color: $c-white;
+        } @else {
+          color: $c-black
+        }
+      }
+    }
+  }
+
+  
 
 }

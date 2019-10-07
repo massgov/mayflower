@@ -1,0 +1,13 @@
+.ma__campaign-landing {
+  .page-content>:last-child {
+    &.ma__key-message {
+      margin-bottom: -45px;
+      &--c-white {
+        margin-top: 0px;
+      }
+      @media ($bp-large-min) {
+        margin-bottom: -60px;
+      }
+    }    
+  } 
+}

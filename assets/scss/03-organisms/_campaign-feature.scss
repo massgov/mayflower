@@ -1,3 +1,15 @@
 .ma__campaign-feature {
-  
+  @include ma-container();
+
+  &__primary {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  &__title {
+    text-align: center;
+  }
+
+  &__more-link {
+    text-align: center;
+  }
 }

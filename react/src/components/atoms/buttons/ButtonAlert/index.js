@@ -1,12 +1,14 @@
 import React from 'react';
-import is from 'is';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.css';
+import ButtonWithIcon from '../ButtonWithIcon';
+import Icon from '../../icons/Icon';
+// import './style.css';
 
-const ButtonAlert = ({
-  text, onClick, hideText, showText, classes, isOpen, type
-}) => {
+const ButtonAlert = (props) => {
+  const {
+    text, hideText, showText, classes, isOpen, ...rest
+  } = props;
   const buttonClasses = classNames({
     'ma__button-alert': true,
     [`${classes}`]: (classes && classes.length > 0),
@@ -14,17 +16,14 @@ const ButtonAlert = ({
   });
   const buttonProps = {
     className: buttonClasses,
-    type
+    expanded: isOpen,
+    text: isOpen ? `${hideText} ${text}` : `${showText} ${text}`,
+    usage: 'alert',
+    icon: <Icon name="chevron" svgHeight={10} svgWidth={10} />,
+    ...rest
   };
-  if (is.fn(onClick)) {
-    buttonProps.onClick = onClick;
-  }
   return(
-    <button {...buttonProps}>
-      <span className="ma__button-alert__hide">{hideText}</span>
-      <span className="ma__button-alert__show">{showText}</span>
-      {text}
-    </button>
+    <ButtonWithIcon {...buttonProps} />
   );
 };
 
@@ -42,12 +41,15 @@ ButtonAlert.propTypes = {
   /** Adds is-open class to button if true. */
   isOpen: PropTypes.bool,
   /** HTML <button> 'type' attribute  */
-  type: PropTypes.oneOf(['submit', 'reset', 'button', ''])
+  type: PropTypes.oneOf(['submit', 'reset', 'button', '']),
+  /** Theme of the button */
+  theme: PropTypes.oneOf(['', 'c-primary', 'c-highlight', 'c-gray-dark', 'c-black'])
 };
 
 ButtonAlert.defaultProps = {
   isOpen: false,
-  type: 'button'
+  type: 'button',
+  theme: 'c-black'
 };
 
 export default ButtonAlert;

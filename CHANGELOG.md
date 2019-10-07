@@ -13,6 +13,63 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.26.0 (10/02/2019)
+
+### Added
+
+- (Patternlab) [Button] DP-15986: Adds primary button theme variant of c-white. #758
+- (Patternlab) [CampaignFeature] DP-4562: Add "more" link to Campaign Features component #759
+
+### Changed
+
+- (Patternlab) [MarketingCampaign]: Updated template so bottom key message lines up with footer. #758
+- (Patternlab) [CampaignFeature]: Update campaign feature to use ma-container mixin gutters. #758
+- (Patternlab) [KeyMessage]: Update key message component to pass color themes. Update to render with boxed callout and solid overlay callout. #758
+Fixed
+- (Patternlab) [KeyMessage] DP-14562: Set received heading level value to 'headingLevel', keyMessage.compHeading.level to headingLevel. Add a filter for banner image URL not to encode "&". #770
+- (Patternlab) [Card] DP-16073: Stack image on primary card on tablet size screen. #772
+
+### Fixed
+
+- (Patternlab) [Search Banner] DP-13660: Fixed spacing on mobile devices to prevent popular search links from overlapping image credit. #753
+- (Patternlab) [Info Details] DP-15262: Updated sidebar handling so the first item is shows full-width when no sidebar content is present. #746
+- (Patternlab) [CampaignFeature2up, Card] DP-15979: Fixed flexbox bug related to layout on small screens. #751
+- (Patternlab) [Video]: Updated iframe video allow params to prevent console error. #758
+- (Patternlab) [CampaignVideo]: Fixes bug related to setting theme of component. #758
+- (Patternlab) [MarketingCampaign] DP-16073: Fix spacing between marketing campaign page sections. #772
+- (Patternlab) [CampaignVideo] DP-16073: Remove heading style override and wrapper top/bottom padding in preference of inheriting margins from page. #772
+
+### Security
+
+- (React) [Dependency] Bump lodash.mergewith from 4.6.1 to 4.6.2 in /react #669
+
+
+## 9.25.0 (09/25/2019)
+
+### Added
+- (Patternlab) [Card] DP-15872: Adds card molecule with primary (default) and secondary usage variant. #742
+- (Patternlab) [CampaignVideo] DP-15813: Added color options and made other styling tweaks #738
+- (Patternlab) [UnorderedList] DP-15731: Added ability to add classes to lists; implemented ma__horizontal-list class #739
+- (React) [LinkDropdown] DP-15689: Created LinkDropdown molecule. #730
+
+### Changed
+- (Patternlab) [CampaignFullWidthFeature] DP-15872: Replaces campaign feature full width molecule with card molecule. #742
+- (Patternlab) [CampaignFeature2up] DP-15872: Updates campaign feature 2up to consume new card molecule in secondary variant and updates molecule scss. #742
+- (Patternlab) [CampaignFeature] DP-15872: Updates campaign feature organism to consume primary card molecule and adds organism scss. #742
+- (React) [ButtonWithIcon] DP-15689: Extended the ButtonWithIcon component to pass multiple themes (c-primary, c-primary-alt, c-highlight, c-gray-dark, c-black) and display for multiple usages per base button atom (primary, secondary, tertiary, quaternary, quaternary-simple, alert). #730
+- (React) [DecorativeLink] DP-15689: Enabled classnames to be passed to DecorativeLink. #730
+- (React) [ListingTable] DP-15689: Updated ListingTable to consume ButtonWithIcon for expand functionality. #730
+- (React) [ButtonAlert] DP-15689: Made ButtonAlert a variant of buttonwithicon. #730
+
+### Fixed
+- (Patternlab) [Locations] DP-15856: Uses google map's viewport biasing when converting user's input into a geocode so that places from and around Massachusetts are returned, thereby fixing previously faulty location filtering. #745
+- (React) [Button, ButtonWithIcon] DP-15689: Fixed color contrast a11y issue of c-highlight theme. #730
+
+### Security
+- (Patternlab) [Dependency] DP-12883: Bumps browser-sync from 2.26.3 to 2.26.7 and handlebars from 4.05 to 4.1.2 to address security vulnerabilities #750 
+- (React) [Dependency] Bump lodash.template from 4.4.0 to 4.5.0 in /react #671
+- (React) [Dependency] Bump lodash from 4.17.10 to 4.17.15 in /react #681
+
 ## 9.24.0 (09/18/2019)
 
 ### Changed
