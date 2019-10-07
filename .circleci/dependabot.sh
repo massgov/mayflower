@@ -10,10 +10,10 @@ if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
 fi
 
 if [[ $lastCommitClean =~ "/react" ]]; then
-  lastCommitClean="(React) [Dependency] $lastCommit"
+  lastCommitClean="(React) [Dependency] $lastCommitClean"
 fi
 if [[ $lastCommitClean =~ "/patternlab" ]]; then
-  lastCommitClean="(Patternlab) [Dependency] $lastCommit"
+  lastCommitClean="(Patternlab) [Dependency] $lastCommitClean"
 fi
 
 if [ "$lastCommit" = "$lastDependabot" ]
