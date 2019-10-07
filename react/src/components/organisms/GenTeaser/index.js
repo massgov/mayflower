@@ -376,6 +376,16 @@ GenTeaser.Event = (props) => {
 
 GenTeaser.Event.displayName = 'GenTeaser.Event';
 
+GenTeaser.Event.propTypes = {
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
+  location: PropTypes.string,
+  details: PropTypes.string,
+  calendars: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
+  description: PropTypes.string
+};
+
 GenTeaser.InfoDetails = (props) => {
   const {
     icon, href, text, ...rest
@@ -383,7 +393,7 @@ GenTeaser.InfoDetails = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <Icon name={icon} svgWidth={15} svgHeight={15} />
+        <Icon name={icon || 'laptop'} svgWidth={15} svgHeight={15} />
       </span>
       {text && !href && <span>{text}</span>}
       {href && text && <DecorativeLink text={text} href={href} />}
@@ -393,11 +403,20 @@ GenTeaser.InfoDetails = (props) => {
 
 GenTeaser.InfoDetails.displayName = 'GenTeaser.InfoDetails';
 
+GenTeaser.InfoDetails.propTypes = {
+  text: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  href: PropTypes.string
+};
+
 GenTeaser.Tags = (props) => {
   const { tags, ...rest } = props;
   return(
     <div className="ma__gen-teaser__tags" {...rest}>
-      {tags.map((tag, index) => <span key={`${tag}--${index}`} className="ma__gen-teaser__tag">{tag}</span>)}
+      {
+        // eslint-disable-next-line react/no-array-index-key
+        tags.map((tag, index) => <span key={`${tag}--${index}`} className="ma__gen-teaser__tag">{tag}</span>)
+      }
     </div>
   );
 };
@@ -421,9 +440,13 @@ GenTeaser.SearchBar = (props) => {
 
 GenTeaser.SearchBar.displayName = 'GenTeaser.SearchBar';
 
+GenTeaser.SearchBar.propTypes = {
+  search: PropTypes.shape(TeaserSearch.propTypes).isRequired
+};
+
 GenTeaser.Button = (props) => {
   const { button, ...rest } = props;
-  const icon = button.icon ? icon : <Icon name="expand" width={15} height={15} />;
+  const icon = button.icon ? button.icon : <Icon name="expand" width={15} height={15} />;
   return(
     <div className="ma__gen-teaser__button" {...rest}>
       <ButtonWithIcon
@@ -437,6 +460,10 @@ GenTeaser.Button = (props) => {
 };
 
 GenTeaser.Button.displayName = 'GenTeaser.Button';
+
+GenTeaser.Button.propTypes = {
+  button: PropTypes.shape(ButtonWithIcon.propTypes).isRequired
+};
 
 GenTeaser.Stat = (props) => {
   const { children, ...rest } = props;

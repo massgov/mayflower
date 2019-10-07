@@ -194,7 +194,7 @@ storiesOf('organisms/GenTeaser/', module)
       },
       eyebrow: 'General Law',
       description: "''Contract for health club services'', a contract which has the primary purpose of providing a person with the right to use the facilities of a health club or with ..",
-      date: "7/13/2019",
+      date: '7/13/2019',
       orgs: 'Massachusetts Legislature',
       subLinks: [{
         text: 'Search Sections within this Chapter',
