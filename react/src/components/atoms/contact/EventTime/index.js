@@ -22,7 +22,7 @@ const EventTime = (props) => {
         </div>
       </div>
       { details && (
-        <p className="ma__contact__details">{details}</p>
+        <p className="ma__contact__details" dangerouslySetInnerHTML={{ __html: details }} />
       )}
     </span>
   );

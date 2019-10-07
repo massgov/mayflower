@@ -8,7 +8,7 @@ const Email = (props) => {
     <span className="ma__email">
       <a href={`mailto:${email}`} className="ma__email__email">{email}</a>
       { details && (
-        <p className="ma__contact__details">{details}</p>
+        <p className="ma__contact__details" dangerouslySetInnerHTML={{ __html: details }} />
       )}
     </span>
   );

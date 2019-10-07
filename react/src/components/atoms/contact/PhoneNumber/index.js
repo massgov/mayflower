@@ -19,7 +19,7 @@ const PhoneNumber = (props) => {
     <span className="ma__phone-number">
       <a href={`tel:${number}`} className="ma__phone-number__number">{display}</a>
       { details && (
-        <p className="ma__contact__details">{details}</p>
+        <p className="ma__contact__details" dangerouslySetInnerHTML={{ __html: details }} />
       )}
     </span>
   );
