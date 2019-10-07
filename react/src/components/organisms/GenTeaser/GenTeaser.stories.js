@@ -187,22 +187,22 @@ storiesOf('organisms/GenTeaser/', module)
     };
     const law = {
       title: {
-        info: text('title: info', 'This is the info', 'GenTeaser.Title'),
-        text: text('title: text', 'General Law - Part I, Title XV, Chapter 93, Section 78', 'GenTeaser.Title'),
-        href: text('title: href', 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93/Section78', 'GenTeaser.Title'),
-        showFileIcon: boolean('title: showFileIcon', false, 'GenTeaser.Title')
+        info: 'This is the info',
+        text: 'General Law - Part I, Title XV, Chapter 93, Section 78',
+        href: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93/Section78',
+        showFileIcon: false
       },
-      eyebrow: text('eyebrow', 'General Law', 'GenTeaser.Eyebrow'),
-      description: text('description', "''Contract for health club services'', a contract which has the primary purpose of providing a person with the right to use the facilities of a health club or with ..", 'GenTeaser.Description'),
-      date: text('date', '7/12/2019', 'GenTeaser.Date'),
-      orgs: text('orgs', 'Massachusetts Legislature', 'GenTeaser.Orgs'),
-      subLinks: object('subLinks', [{
+      eyebrow: 'General Law',
+      description: "''Contract for health club services'', a contract which has the primary purpose of providing a person with the right to use the facilities of a health club or with ..",
+      date: "7/13/2019",
+      orgs: 'Massachusetts Legislature',
+      subLinks: [{
         text: 'Search Sections within this Chapter',
         href: 'http://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93'
       }, {
         text: 'Search for General Laws',
         href: 'http://malegislature.gov/Laws/GeneralLaws'
-      }], 'GenTeaser.SubLinks')
+      }]
     };
     return(
       <React.Fragment>
@@ -222,6 +222,7 @@ storiesOf('organisms/GenTeaser/', module)
             <GenTeaser.Eyebrow eyebrow={law.eyebrow} />
             <GenTeaser.Title title={law.title} />
             <GenTeaser.Emphasis>
+              <GenTeaser.Date date={law.date} />
               <GenTeaser.Orgs orgs={law.orgs} />
             </GenTeaser.Emphasis>
             <GenTeaser.Description description={law.description} />
