@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, array, text, select, boolean, object } from '@storybook/addon-knobs';
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import GenTeaser from './index';
+import GenTeaserDocs from './GenTeaser.md';
 import { Icon } from '../../../index';
 
 storiesOf('organisms/GenTeaser', module)
@@ -26,7 +27,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser as DataCatalog', () => {
     const dataCatalog = {
       title: {
@@ -64,7 +65,6 @@ storiesOf('organisms/GenTeaser', module)
       stat: text('stat', <span>Total Items: <b>143</b></span>, 'GenTeaser.Stat'),
       eyebrow: text('eyebrow', <span><Icon name="catalog" svgWidth={16} svgHeight={16} /> Data Catalog</span>, 'GenTeaser.Eyebrow')
     };
-
     return(
       <GenTeaser>
         <GenTeaser.Details>
@@ -83,7 +83,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser as Dataset', () => {
     const dataset = {
       title: {
@@ -118,7 +118,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser as Data Download', () => {
     const dataDownload = {
       title: {
@@ -145,7 +145,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser as News', () => {
     const news = {
       title: {
@@ -172,7 +172,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser  as Laws and Regs', () => {
     const regulation = {
       title: {
@@ -234,7 +234,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser>
       </React.Fragment>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser as Services', () => {
     const service = {
       title: {
@@ -264,7 +264,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser (State Org)', () => {
     const stateOrg = {
       title: {
@@ -310,7 +310,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser as Location', () => {
     const location = {
       title: {
@@ -340,7 +340,7 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  })
+  }, { info: GenTeaserDocs })
   .add('GenTeaser as Event', () => {
     const startTime = new Date(2019, 7, 12, 13, 0, 0);
     const endTime = new Date(2019, 7, 17, 16, 0, 0);
@@ -396,4 +396,4 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  });
+  }, { info: GenTeaserDocs })
