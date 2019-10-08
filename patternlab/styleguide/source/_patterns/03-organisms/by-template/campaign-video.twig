@@ -1,14 +1,13 @@
 {# Use variable if provided; otherwise, default differs between headers and non-headers. #}
-{% set bgColor = campaignVideo.backgroundColor ?? (campaignVideo.isHeader ? 'primary' : 'white') %}
+{% set bgColor = campaignVideo.backgroundColor ?? (campaignVideo.isHeader ? 'c-primary' : 'c-white') %}
 
 {# Automatically set text color based on background color. Update the array with new dark background colors when needed. #}
-{% set lightTextClass = bgColor in ['primary', 'primary-alt'] ? 'ma__campaign-video--light-text' : null %}
+
 {% set headingLevel = campaignVideo.isHeader ? '1' : '2' %}
 
 {% set classes = [
   'ma__campaign-video',
-  'ma__campaign-video--bg-' ~ bgColor,
-  lightTextClass,
+  'ma__campaign-video--' ~ bgColor
 ] %}
 
 <section id="{{campaignVideo.id}}" class="{{ classes|join(' ') }}">
