@@ -8,7 +8,7 @@ import { Icon } from '../../../index';
 
 storiesOf('organisms/GenTeaser', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('GenTeaser (Basic)', () => {
+  .add('GenTeaser as Basic', () => {
     const basic = {
       title: {
         info: text('title: info', 'Title info here', 'GenTeaser.Title'),
@@ -58,7 +58,8 @@ storiesOf('organisms/GenTeaser', module)
       search: {
         placeholder: text('search: placeholder', 'search profiles.doe.mass.edu...', 'GenTeaser.Search'),
         target: text('search: target', 'http://profiles.doe.mass.edu/search/search_new.aspx?leftNavId=11241', 'GenTeaser.Search'),
-        queryInput: text('search: queryInput', '', 'GenTeaser.Search')
+        queryInput: text('search: queryInput', '', 'GenTeaser.Search'),
+        id: text('search: id', 'jahdfjadh', 'GenTeaser.Search')
       },
       stat: text('stat', <span>Total Items: <b>143</b></span>, 'GenTeaser.Stat'),
       eyebrow: text('eyebrow', <span><Icon name="catalog" svgWidth={16} svgHeight={16} /> Data Catalog</span>, 'GenTeaser.Eyebrow')

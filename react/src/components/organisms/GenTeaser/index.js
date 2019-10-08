@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 
 import { DecorativeLink, Icon, LinkDropdown, EventTime, Email, PhoneNumber, Address, ButtonWithIcon } from '../../../index';
-import GenTeaserSearch from './GenTeaserSearch';
-import GenTeaserOrgs from './GenTeaserOrgs';
+import TeaserSearch from './TeaserSearch';
+import TeaserOrgs from './TeaserOrgs';
 import { buildUrl } from './utils';
 import './style.css';
 
@@ -22,13 +22,15 @@ const GenTeaser = (props) => {
   );
 };
 
+GenTeaser.displayName = 'GenTeaser';
+
 GenTeaser.propTypes = {
   onClick: PropTypes.func,
   onKeyDown: PropTypes.func,
   children: PropTypes.node
 };
 
-GenTeaser.Details = (props) => {
+const GenTeaserDetails = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__details" {...rest}>
@@ -37,13 +39,14 @@ GenTeaser.Details = (props) => {
   );
 };
 
-GenTeaser.Details.displayName = 'GenTeaser.Details';
-
-GenTeaser.Details.propTypes = {
+GenTeaserDetails.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-GenTeaser.Title = (props) => {
+GenTeaser.Details = GenTeaserDetails;
+GenTeaser.Details.displayName = 'GenTeaser.Details';
+
+const GenTeaserTitle = (props) => {
   const {
     level, title, title: { icon }, children, ...rest
   } = props;
@@ -57,15 +60,16 @@ GenTeaser.Title = (props) => {
   );
 };
 
-GenTeaser.Title.displayName = 'GenTeaser.Title';
-
-GenTeaser.Title.propTypes = {
+GenTeaserTitle.propTypes = {
   level: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   title: PropTypes.shape(DecorativeLink.propTypes),
   children: PropTypes.node
 };
 
-GenTeaser.Eyebrow = (props) => {
+GenTeaser.Title = GenTeaserTitle;
+GenTeaser.Title.displayName = 'GenTeaser.Title';
+
+const GenTeaserEyebrow = (props) => {
   const { eyebrow, children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__eyebrow" {...rest} >
@@ -75,14 +79,15 @@ GenTeaser.Eyebrow = (props) => {
   );
 };
 
-GenTeaser.Eyebrow.displayName = 'GenTeaser.Eyebrow';
-
-GenTeaser.Eyebrow.propTypes = {
-  eyebrow: PropTypes.string,
+GenTeaserEyebrow.propTypes = {
+  eyebrow: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: PropTypes.node
 };
 
-GenTeaser.Emphasis = (props) => {
+GenTeaser.Eyebrow = GenTeaserEyebrow;
+GenTeaser.Eyebrow.displayName = 'GenTeaser.Eyebrow';
+
+const GenTeaserEmphasis = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__emphasis" {...rest}>
@@ -91,13 +96,14 @@ GenTeaser.Emphasis = (props) => {
   );
 };
 
-GenTeaser.Emphasis.displayName = 'GenTeaser.Emphasis';
-
-GenTeaser.Emphasis.propTypes = {
+GenTeaserEmphasis.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-GenTeaser.Date = (props) => {
+GenTeaser.Emphasis = GenTeaserEmphasis;
+GenTeaser.Emphasis.displayName = 'GenTeaser.Emphasis';
+
+const GenTeaserDate = (props) => {
   const { date, children, ...rest } = props;
   return(
     <span className="ma__gen-teaser__date" {...rest}>
@@ -107,28 +113,30 @@ GenTeaser.Date = (props) => {
   );
 };
 
-GenTeaser.Date.displayName = 'GenTeaser.Date';
-
-GenTeaser.Date.propTypes = {
+GenTeaserDate.propTypes = {
   date: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   children: PropTypes.node
 };
 
-GenTeaser.Orgs = (props) => {
+GenTeaser.Date = GenTeaserDate;
+GenTeaser.Date.displayName = 'GenTeaser.Date';
+
+const GenTeaserOrgs = (props) => {
   const { orgs, ...rest } = props;
   return(
-    <GenTeaserOrgs orgs={orgs} {...rest} />
+    <TeaserOrgs orgs={orgs} {...rest} />
   );
 };
 
-GenTeaser.Orgs.displayName = 'GenTeaser.Orgs';
-
-GenTeaser.Orgs.propTypes = {
+GenTeaserOrgs.propTypes = {
   orgs: PropTypes.string,
   children: PropTypes.node
 };
 
-GenTeaser.Description = (props) => {
+GenTeaser.Orgs = GenTeaserOrgs;
+GenTeaser.Orgs.displayName = 'GenTeaser.Orgs';
+
+const GenTeaserDescription = (props) => {
   const { children, description, ...rest } = props;
   return(
     <div className="ma__gen-teaser__description" {...rest}>
@@ -138,14 +146,15 @@ GenTeaser.Description = (props) => {
   );
 };
 
-GenTeaser.Description.displayName = 'GenTeaser.Description';
-
-GenTeaser.Description.propTypes = {
+GenTeaserDescription.propTypes = {
   description: PropTypes.string,
   children: PropTypes.node
 };
 
-GenTeaser.KeyAction = (props) => {
+GenTeaser.Description = GenTeaserDescription;
+GenTeaser.Description.displayName = 'GenTeaser.Description';
+
+const GenTeaserKeyAction = (props) => {
   const {
     description, href, text, info, children, ...rest
   } = props;
@@ -158,9 +167,7 @@ GenTeaser.KeyAction = (props) => {
   );
 };
 
-GenTeaser.KeyAction.displayName = 'GenTeaser.KeyAction';
-
-GenTeaser.KeyAction.propTypes = {
+GenTeaserKeyAction.propTypes = {
   description: PropTypes.string,
   href: PropTypes.string,
   text: PropTypes.string,
@@ -168,7 +175,10 @@ GenTeaser.KeyAction.propTypes = {
   children: PropTypes.node
 };
 
-GenTeaser.SubLinks = (props) => {
+GenTeaser.KeyAction = GenTeaserKeyAction;
+GenTeaser.KeyAction.displayName = 'GenTeaser.KeyAction';
+
+const GenTeaserSubLinks = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__key-action" {...rest}>
@@ -186,13 +196,14 @@ GenTeaser.SubLinks = (props) => {
   );
 };
 
-GenTeaser.SubLinks.displayName = 'GenTeaser.SubLinks';
-
-GenTeaser.SubLinks.propTypes = {
+GenTeaserSubLinks.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-GenTeaser.MoreInfo = (props) => {
+GenTeaser.SubLinks = GenTeaserSubLinks;
+GenTeaser.SubLinks.displayName = 'GenTeaser.SubLinks';
+
+const GenTeaserMoreInfo = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__moreinfo" {...rest}>
@@ -201,13 +212,14 @@ GenTeaser.MoreInfo = (props) => {
   );
 };
 
-GenTeaser.MoreInfo.displayName = 'GenTeaser.MoreInfo';
-
-GenTeaser.MoreInfo.propTypes = {
+GenTeaserMoreInfo.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-GenTeaser.PrimaryInfo = (props) => {
+GenTeaser.MoreInfo = GenTeaserMoreInfo;
+GenTeaser.MoreInfo.displayName = 'GenTeaser.MoreInfo';
+
+const GenTeaserPrimaryInfo = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__pimary" {...rest}>
@@ -216,13 +228,14 @@ GenTeaser.PrimaryInfo = (props) => {
   );
 };
 
-GenTeaser.PrimaryInfo.displayName = 'GenTeaser.PrimaryInfo';
-
-GenTeaser.PrimaryInfo.propTypes = {
+GenTeaserPrimaryInfo.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-GenTeaser.SecondaryInfo = (props) => {
+GenTeaser.PrimaryInfo = GenTeaserPrimaryInfo;
+GenTeaser.PrimaryInfo.displayName = 'GenTeaser.PrimaryInfo';
+
+const GenTeaserSecondaryInfo = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__secondary" {...rest}>
@@ -231,13 +244,14 @@ GenTeaser.SecondaryInfo = (props) => {
   );
 };
 
-GenTeaser.SecondaryInfo.displayName = 'GenTeaser.SecondaryInfo';
-
-GenTeaser.SecondaryInfo.propTypes = {
+GenTeaserSecondaryInfo.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-GenTeaser.Address = (props) => {
+GenTeaser.SecondaryInfo = GenTeaserSecondaryInfo;
+GenTeaser.SecondaryInfo.displayName = 'GenTeaser.SecondaryInfo';
+
+const GenTeaserAddress = (props) => {
   const {
     address, directionLink, details, ...rest
   } = props;
@@ -256,15 +270,16 @@ GenTeaser.Address = (props) => {
   );
 };
 
-GenTeaser.Address.displayName = 'GenTeaser.Address';
-
-GenTeaser.Address.propTypes = {
+GenTeaserAddress.propTypes = {
   address: PropTypes.string,
   directionLink: PropTypes.string,
   details: PropTypes.string
 };
 
-GenTeaser.Phone = (props) => {
+GenTeaser.Address = GenTeaserAddress;
+GenTeaser.Address.displayName = 'GenTeaser.Address';
+
+const GenTeaserPhone = (props) => {
   const { number, details, ...rest } = props;
   const phoneProps = {
     number,
@@ -280,14 +295,15 @@ GenTeaser.Phone = (props) => {
   );
 };
 
-GenTeaser.Phone.displayName = 'GenTeaser.Phone';
-
-GenTeaser.Phone.propTypes = {
+GenTeaserPhone.propTypes = {
   number: PropTypes.string,
   details: PropTypes.string
 };
 
-GenTeaser.Email = (props) => {
+GenTeaser.Phone = GenTeaserPhone;
+GenTeaser.Phone.displayName = 'GenTeaser.Phone';
+
+const GenTeaserEmail = (props) => {
   const { email, details, ...rest } = props;
   const emailProps = {
     email,
@@ -303,14 +319,15 @@ GenTeaser.Email = (props) => {
   );
 };
 
-GenTeaser.Email.displayName = 'GenTeaser.Email';
-
-GenTeaser.Email.propTypes = {
+GenTeaserEmail.propTypes = {
   email: PropTypes.string,
   details: PropTypes.string
 };
 
-GenTeaser.Event = (props) => {
+GenTeaser.Email = GenTeaserEmail;
+GenTeaser.Email.displayName = 'GenTeaser.Email';
+
+const GenTeaserEvent = (props) => {
   const {
     calendars, startDate, endDate, details, location, description, title, ...rest
   } = props;
@@ -368,9 +385,7 @@ GenTeaser.Event = (props) => {
   );
 };
 
-GenTeaser.Event.displayName = 'GenTeaser.Event';
-
-GenTeaser.Event.propTypes = {
+GenTeaserEvent.propTypes = {
   startDate: PropTypes.string,
   endDate: PropTypes.string,
   location: PropTypes.string,
@@ -380,7 +395,10 @@ GenTeaser.Event.propTypes = {
   description: PropTypes.string
 };
 
-GenTeaser.InfoDetails = (props) => {
+GenTeaser.Event = GenTeaserEvent;
+GenTeaser.Event.displayName = 'GenTeaser.Event';
+
+const GenTeaserInfoDetails = (props) => {
   const {
     icon, href, text, ...rest
   } = props;
@@ -395,15 +413,16 @@ GenTeaser.InfoDetails = (props) => {
   );
 };
 
-GenTeaser.InfoDetails.displayName = 'GenTeaser.InfoDetails';
-
-GenTeaser.InfoDetails.propTypes = {
+GenTeaserInfoDetails.propTypes = {
   text: PropTypes.string.isRequired,
   icon: PropTypes.string,
   href: PropTypes.string
 };
 
-GenTeaser.Tags = (props) => {
+GenTeaser.InfoDetails = GenTeaserInfoDetails;
+GenTeaser.InfoDetails.displayName = 'GenTeaser.InfoDetails';
+
+const GenTeaserTags = (props) => {
   const { tags, ...rest } = props;
   return(
     <div className="ma__gen-teaser__tags" {...rest}>
@@ -415,30 +434,32 @@ GenTeaser.Tags = (props) => {
   );
 };
 
-GenTeaser.Tags.displayName = 'GenTeaser.Tags';
-
-GenTeaser.Tags.propTypes = {
+GenTeaserTags.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
-GenTeaser.SearchBar = (props) => {
+GenTeaser.Tags = GenTeaserTags;
+GenTeaser.Tags.displayName = 'GenTeaser.Tags';
+
+const GenTeaserSearchBar = (props) => {
   const { search, ...rest } = props;
   return(
     <div className="ma__gen-teaser__search" {...rest}>
-      <GenTeaserSearch
+      <TeaserSearch
         {...search}
       />
     </div>
   );
 };
 
-GenTeaser.SearchBar.displayName = 'GenTeaser.SearchBar';
-
-GenTeaser.SearchBar.propTypes = {
-  search: PropTypes.shape(GenTeaserSearch.propTypes).isRequired
+GenTeaserSearchBar.propTypes = {
+  search: PropTypes.shape(TeaserSearch.propTypes).isRequired
 };
 
-GenTeaser.Button = (props) => {
+GenTeaser.SearchBar = GenTeaserSearchBar;
+GenTeaser.SearchBar.displayName = 'GenTeaser.SearchBar';
+
+const GenTeaserButton = (props) => {
   const { button, ...rest } = props;
   const icon = button.icon ? button.icon : <Icon name="expand" width={15} height={15} />;
   return(
@@ -453,13 +474,14 @@ GenTeaser.Button = (props) => {
   );
 };
 
-GenTeaser.Button.displayName = 'GenTeaser.Button';
-
-GenTeaser.Button.propTypes = {
+GenTeaserButton.propTypes = {
   button: PropTypes.shape(ButtonWithIcon.propTypes).isRequired
 };
 
-GenTeaser.Stat = (props) => {
+GenTeaser.Button = GenTeaserButton;
+GenTeaser.Button.displayName = 'GenTeaser.Button';
+
+const GenTeaserStat = (props) => {
   const { children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__stat" {...rest}>
@@ -468,10 +490,11 @@ GenTeaser.Stat = (props) => {
   );
 };
 
-GenTeaser.Stat.displayName = 'GenTeaser.Stat';
-
-GenTeaser.Stat.propTypes = {
+GenTeaserStat.propTypes = {
   children: PropTypes.node.isRequired
 };
+
+GenTeaser.Stat = GenTeaserStat;
+GenTeaser.Stat.displayName = 'GenTeaser.Stat';
 
 export default GenTeaser;
