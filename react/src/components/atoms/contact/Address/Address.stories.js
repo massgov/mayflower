@@ -4,7 +4,6 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
 import Address from './index';
-// import PhoneNumberDocs from './PhoneNumber.md';
 
 storiesOf('atoms/contact', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
