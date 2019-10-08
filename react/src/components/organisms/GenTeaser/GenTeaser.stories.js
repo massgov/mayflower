@@ -27,7 +27,7 @@ storiesOf('organisms/GenTeaser', module)
       </GenTeaser>
     );
   })
-  .add('GenTeaser (DataCatalog)', () => {
+  .add('GenTeaser as DataCatalog', () => {
     const dataCatalog = {
       title: {
         info: text('title: info', 'Title info here', 'GenTeaser.Title'),
@@ -83,7 +83,7 @@ storiesOf('organisms/GenTeaser', module)
       </GenTeaser>
     );
   })
-  .add('GenTeaser (Dataset)', () => {
+  .add('GenTeaser as Dataset', () => {
     const dataset = {
       title: {
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
@@ -118,7 +118,7 @@ storiesOf('organisms/GenTeaser', module)
       </GenTeaser>
     );
   })
-  .add('GenTeaser (Data Download)', () => {
+  .add('GenTeaser as Data Download', () => {
     const dataDownload = {
       title: {
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
@@ -145,7 +145,7 @@ storiesOf('organisms/GenTeaser', module)
       </GenTeaser>
     );
   })
-  .add('GenTeaser (News)', () => {
+  .add('GenTeaser as News', () => {
     const news = {
       title: {
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
@@ -172,7 +172,7 @@ storiesOf('organisms/GenTeaser', module)
       </GenTeaser>
     );
   })
-  .add('GenTeaser (Laws & Regs)', () => {
+  .add('GenTeaser  as Laws and Regs', () => {
     const regulation = {
       title: {
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
@@ -234,7 +234,7 @@ storiesOf('organisms/GenTeaser', module)
       </React.Fragment>
     );
   })
-  .add('GenTeaser (Services)', () => {
+  .add('GenTeaser as Services', () => {
     const service = {
       title: {
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
@@ -310,7 +310,7 @@ storiesOf('organisms/GenTeaser', module)
       </GenTeaser>
     );
   })
-  .add('GenTeaser (Location)', () => {
+  .add('GenTeaser as Location', () => {
     const location = {
       title: {
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
@@ -340,7 +340,7 @@ storiesOf('organisms/GenTeaser', module)
       </GenTeaser>
     );
   })
-  .add('GenTeaser (Event)', () => {
+  .add('GenTeaser as Event', () => {
     const startTime = new Date(2019, 7, 12, 13, 0, 0);
     const endTime = new Date(2019, 7, 17, 16, 0, 0);
     const event = {
