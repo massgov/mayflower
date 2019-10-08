@@ -6,8 +6,8 @@
     font-weight: normal;
     width: 100%;
     display: flex;
-    flex-flow: column;
-    @media ($bp-small-min) {
+      flex-flow: column;
+    @media ($bp-medium-min) {
       flex-flow: row;
     }
   }
@@ -16,20 +16,21 @@
     background-color: $c-gray-lightest;
     @media ($bp-small-min) {
       flex-flow: column;
+      flex: 1 1 auto;
     }
   }
 
   &__content {
-    flex-basis: 100%;
+    flex: 1 1 auto;
     padding: 20px;
 
-    @media ($bp-small-min) {
+    @media ($bp-medium-min) {
       flex-basis: 40%;
     }
 
     &--secondary {
       flex-flow: row;
-      flex-basis: 100%;
+      flex: 1 1 auto;
     }
   }
 
@@ -56,7 +57,7 @@
       .ma__card__text {
         flex-basis: 60%;
         @media ($bp-small-max) {
-          flex-basis: 100%;
+          flex: 1 1 auto;
         }
       }
     }
@@ -87,12 +88,12 @@
   }
 
   &__img {
-    flex-basis: 100%;
+    flex: 1 1 auto;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 
-    @media ($bp-small-min) {
+    @media ($bp-medium-min) {
       flex-basis: 60%;
       @include ma-aspect-ratio(4,3);
       img {
@@ -100,7 +101,7 @@
       }
     }
     
-    @media ($bp-small-max) {
+    @media ($bp-medium-max) {
       img {
         display: block;
         width: 100%;
