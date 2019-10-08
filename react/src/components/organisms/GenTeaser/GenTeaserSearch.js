@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HeaderSearch from '../../molecules/HeaderSearch';
 
-class TeaserSearch extends React.Component {
+class GenTeaserSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,7 +66,7 @@ class TeaserSearch extends React.Component {
   }
 }
 
-TeaserSearch.propTypes = {
+GenTeaserSearch.propTypes = {
   /** The target url of the search bar */
   target: PropTypes.string.isRequired,
   /** The id of the search bar */
@@ -77,4 +77,4 @@ TeaserSearch.propTypes = {
   placeholder: PropTypes.string.isRequired
 };
 
-export default TeaserSearch;
+export default GenTeaserSearch;

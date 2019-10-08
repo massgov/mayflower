@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ButtonWithIcon, Icon } from '../../../index';
 
-class TeaserOrgs extends React.Component {
+class GenTeaserOrgs extends React.Component {
   constructor(props) {
     super(props);
     const { orgs } = props;
@@ -56,9 +56,9 @@ class TeaserOrgs extends React.Component {
   }
 }
 
-TeaserOrgs.propTypes = {
+GenTeaserOrgs.propTypes = {
   /** A comma seperate list of organizations. */
   orgs: PropTypes.string.isRequired
 };
 
-export default TeaserOrgs;
+export default GenTeaserOrgs;

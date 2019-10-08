@@ -2,15 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import Address from '../../atoms/contact/Address';
-import PhoneNumber from '../../atoms/contact/PhoneNumber';
-import Email from '../../atoms/contact/Email';
-import EventTime from '../../atoms/contact/EventTime';
-import LinkDropdown from '../../molecules/LinkDropdown';
-import { DecorativeLink, Icon } from '../../../index';
-import TeaserSearch from './TeaserSearch';
-import TeaserOrgs from './TeaserOrgs';
+import { DecorativeLink, Icon, LinkDropdown, EventTime, Email, PhoneNumber, Address, ButtonWithIcon } from '../../../index';
+import GenTeaserSearch from './GenTeaserSearch';
+import GenTeaserOrgs from './GenTeaserOrgs';
 import { buildUrl } from './utils';
 import './style.css';
 
@@ -123,7 +117,7 @@ GenTeaser.Date.propTypes = {
 GenTeaser.Orgs = (props) => {
   const { orgs, ...rest } = props;
   return(
-    <TeaserOrgs orgs={orgs} {...rest} />
+    <GenTeaserOrgs orgs={orgs} {...rest} />
   );
 };
 
@@ -431,7 +425,7 @@ GenTeaser.SearchBar = (props) => {
   const { search, ...rest } = props;
   return(
     <div className="ma__gen-teaser__search" {...rest}>
-      <TeaserSearch
+      <GenTeaserSearch
         {...search}
       />
     </div>
@@ -441,7 +435,7 @@ GenTeaser.SearchBar = (props) => {
 GenTeaser.SearchBar.displayName = 'GenTeaser.SearchBar';
 
 GenTeaser.SearchBar.propTypes = {
-  search: PropTypes.shape(TeaserSearch.propTypes).isRequired
+  search: PropTypes.shape(GenTeaserSearch.propTypes).isRequired
 };
 
 GenTeaser.Button = (props) => {
