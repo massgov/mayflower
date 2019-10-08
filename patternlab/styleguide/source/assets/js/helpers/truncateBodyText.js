@@ -8,7 +8,7 @@
  */
 var calculateTruncation = (function($, $el) {
   // Force reflow to correctly calculate height
-  $el.get(0).getBoundingClientRect()
+  $el.get(0).getBoundingClientRect();
 
   // Find a paragraph whose line-height to gauge.
   var $p = $el.find('p');
@@ -59,7 +59,7 @@ var removeTruncation = function($el) {
       $el.data('$button').text('Show more');
       $el.data('$button').attr('aria-label', 'Show the overview.');
       $el.data('$fadeOverlay').detach();
-      toggleTabindexes($el.data('$focusableEls'), true)
+      toggleTabindexes($el.data('$focusableEls'), true);
     }
 
     $el.data('$button').off('.truncateBodyText');
@@ -88,7 +88,7 @@ var toggleTabindexes = function($focusableEls, expanded) {
 
       // Save the old tabindex for later restoration.
       if($el.attr('tabindex')) {
-        $el.data('originalTabIndex', $el.attr('tabindex'))
+        $el.data('originalTabIndex', $el.attr('tabindex'));
       }
       
       $el.attr('tabindex', '-1');
@@ -163,7 +163,7 @@ var initTruncation = function($el) {
   $el.wrapInner('<div></div>');
 
   enableTruncation($el);
-}
+};
 
 export default (function (window,document,$,$el) {
   initTruncation($el);
