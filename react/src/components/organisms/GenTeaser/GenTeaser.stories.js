@@ -6,7 +6,7 @@ import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import GenTeaser from './index';
 import { Icon } from '../../../index';
 
-storiesOf('organisms/GenTeaser/', module)
+storiesOf('organisms/GenTeaser', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('GenTeaser (Basic)', () => {
     const basic = {
