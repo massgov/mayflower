@@ -1,7 +1,6 @@
 import getTemplate from "../helpers/getHandlebarTemplate.js";
 import sticky from "../helpers/sticky.js";
 import getOuterHtml from "../helpers/getElementOuterHtml.js";
-import activateBodyTextTruncation from "../modules/activateBodyTextTruncation.js";
 
 export default (function(window, document, undefined, $, moment){
   "use strict";
