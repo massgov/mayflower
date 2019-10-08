@@ -30,7 +30,7 @@
     "campaignVideo": {
       "id": "qwe1",
       "positionTop": true,
-      "backgroundColor": "",
+      "backgroundColor": "c-primary-lightest",
       "textColor": "",
       "title": "Why work for the commonwealth",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -78,8 +78,41 @@
       "id": "abc2",
       "positionTop": false,
       "backgroundColor": "c-primary",
-      "title": "Work for Mass.gov!",
+      "compHeading": {
+        "title": "Benefits of working for the Commonwealth",
+        "level": "2"
+      },
       "subtitle": "",
+      "description": {
+        "rteElements": [
+          {
+            "path": "@atoms/08-lists/unordered-list.twig",
+            "data": {
+              "class": "ma__horizontal-list",
+              "unorderedList" : [
+                {
+                  "text": "Comprehensize health plans"
+                },
+                {
+                  "text": "Retirement plans"
+                },
+                {
+                  "text": "Culture of learning"
+                },
+                {
+                  "text": "Pre-tax benefits"
+                },
+                {
+                  "text": "Flexible work arrangements"
+                },
+                {
+                  "text": "Tuition remission"
+                }
+              ]
+            }
+          }
+        ]
+      },
       "button":{
         "text":"Find your job",
         "href":"#"

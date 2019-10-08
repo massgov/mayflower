@@ -12,11 +12,11 @@ Displays a campaign video using an iframe with a transcript link.
 * This pattern can also by floated to the right by setting the position to ['right'](./?p=atoms-video-as-floated-right)
 * This pattern can have its background set to one of five colors:
 
-  * Bay Blue (primary)
-  * Berkshires Green (primary-alt)
-  * White (white)
-  * Light Gray (gray-lightest)
-  * Pale Blue (primary-lightest)
+  * Bay Blue (c-primary)
+  * Berkshires Green (c-primary-alt)
+  * White (c-white)
+  * Light Gray (c-gray-lightest)
+  * Pale Blue (c-primary-lightest)
 
   When the component is used as a header, only primary and primary-alt
   are available as background colors.
@@ -26,7 +26,7 @@ Displays a campaign video using an iframe with a transcript link.
 isHeader:
   type: bool / required
 backgroundColor:
-  type: string / optional ("", "primary", "primary-alt", "white", "gray-lightest", "primary-lightest")
+  type: string / optional ("", "c-primary", "c-primary-alt", "c-white", "c-gray-lightest", "c-primary-lightest")
 description
   type: string / optional
 video {
