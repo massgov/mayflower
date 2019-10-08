@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ButtonWithIcon, Icon } from '../../../index';
+import { ButtonWithIcon, Icon } from '../../../../index';
 
-class GenTeaserOrgs extends React.Component {
+class TeaserOrgs extends Component {
   constructor(props) {
     super(props);
     const { orgs } = props;
@@ -56,9 +56,9 @@ class GenTeaserOrgs extends React.Component {
   }
 }
 
-GenTeaserOrgs.propTypes = {
+TeaserOrgs.propTypes = {
   /** A comma seperate list of organizations. */
   orgs: PropTypes.string.isRequired
 };
 
-export default GenTeaserOrgs;
+export default TeaserOrgs;

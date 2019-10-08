@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import HeaderSearch from '../../molecules/HeaderSearch';
+import { HeaderSearch } from '../../../../index';
 
-class GenTeaserSearch extends React.Component {
+class TeaserSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,7 +66,7 @@ class GenTeaserSearch extends React.Component {
   }
 }
 
-GenTeaserSearch.propTypes = {
+TeaserSearch.propTypes = {
   /** The target url of the search bar */
   target: PropTypes.string.isRequired,
   /** The id of the search bar */
@@ -77,4 +77,4 @@ GenTeaserSearch.propTypes = {
   placeholder: PropTypes.string.isRequired
 };
 
-export default GenTeaserSearch;
+export default TeaserSearch;
