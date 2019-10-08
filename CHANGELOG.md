@@ -13,6 +13,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.27.0 (10/08/2019)
+
+### Changed
+
+- (Patternlab) [CampaignVideo]: Updated background color variables to match color variable names in MF. Added top/bottom padding to the component. #776
+- (React) [Dependency] Bump react-dom from 16.8.6 to 16.9.0 in /react (#740)
+- (React) [Dependency] Bump @storybook/addon-storysource from 5.1.9 to 5.2.1 in /react (#762)
+### Fixed
+
+- (React) [EmergencyHeader, DecorativeLink] Fix decorative link wrapping issue in alert header and download link. #775
+- (React, Patternlab) [Circleci] Fix auto generate changelog for dependabot prs (followup #722) #765
+
+### Security
+
+- (React) [Dependency] Bump sshpk from 1.13.1 to 1.16.1 in /react (#592)
+
 ## 9.26.0 (10/02/2019)
 
 ### Added
