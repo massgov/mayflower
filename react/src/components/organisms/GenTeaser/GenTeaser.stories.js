@@ -396,4 +396,4 @@ storiesOf('organisms/GenTeaser', module)
         </GenTeaser.Details>
       </GenTeaser>
     );
-  }, { info: GenTeaserDocs })
+  }, { info: GenTeaserDocs });

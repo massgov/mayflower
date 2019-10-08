@@ -25,8 +25,11 @@ const GenTeaser = (props) => {
 GenTeaser.displayName = 'GenTeaser';
 
 GenTeaser.propTypes = {
+  /** A custom on click function */
   onClick: PropTypes.func,
+  /** A custom on key down function */
   onKeyDown: PropTypes.func,
+  /** React children to render */
   children: PropTypes.node
 };
 
@@ -40,6 +43,7 @@ const GenTeaserDetails = (props) => {
 };
 
 GenTeaserDetails.propTypes = {
+  /** React children to render */
   children: PropTypes.node.isRequired
 };
 
@@ -61,8 +65,11 @@ const GenTeaserTitle = (props) => {
 };
 
 GenTeaserTitle.propTypes = {
+  /** The heading level of the title */
   level: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** The title object (text, info, href) */
   title: PropTypes.shape(DecorativeLink.propTypes),
+  /** React children to render */
   children: PropTypes.node
 };
 
@@ -80,7 +87,9 @@ const GenTeaserEyebrow = (props) => {
 };
 
 GenTeaserEyebrow.propTypes = {
+  /** Either a string or react component */
   eyebrow: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  /** React children to render */
   children: PropTypes.node
 };
 
@@ -97,6 +106,7 @@ const GenTeaserEmphasis = (props) => {
 };
 
 GenTeaserEmphasis.propTypes = {
+  /** React children to render */
   children: PropTypes.node.isRequired
 };
 
@@ -114,7 +124,9 @@ const GenTeaserDate = (props) => {
 };
 
 GenTeaserDate.propTypes = {
+  /** Either a formatted date or a formatted date with a label */
   date: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** React children to render */
   children: PropTypes.node
 };
 
@@ -129,8 +141,8 @@ const GenTeaserOrgs = (props) => {
 };
 
 GenTeaserOrgs.propTypes = {
-  orgs: PropTypes.string,
-  children: PropTypes.node
+  /** An comma seperate list of organizations */
+  orgs: PropTypes.string
 };
 
 GenTeaser.Orgs = GenTeaserOrgs;
@@ -147,7 +159,9 @@ const GenTeaserDescription = (props) => {
 };
 
 GenTeaserDescription.propTypes = {
+  /** A html formatted or plain string of text */
   description: PropTypes.string,
+  /** React children to render */
   children: PropTypes.node
 };
 
@@ -168,10 +182,15 @@ const GenTeaserKeyAction = (props) => {
 };
 
 GenTeaserKeyAction.propTypes = {
+  /** A description of the link */
   description: PropTypes.string,
+  /** A link */
   href: PropTypes.string,
+  /** Link text */
   text: PropTypes.string,
+  /** Link info */
   info: PropTypes.string,
+  /** React children to render */
   children: PropTypes.node
 };
 
@@ -197,6 +216,7 @@ const GenTeaserSubLinks = (props) => {
 };
 
 GenTeaserSubLinks.propTypes = {
+  /** React children to render */
   children: PropTypes.node.isRequired
 };
 
@@ -213,6 +233,7 @@ const GenTeaserMoreInfo = (props) => {
 };
 
 GenTeaserMoreInfo.propTypes = {
+  /** React children to render */
   children: PropTypes.node.isRequired
 };
 
@@ -229,6 +250,7 @@ const GenTeaserPrimaryInfo = (props) => {
 };
 
 GenTeaserPrimaryInfo.propTypes = {
+  /** React children to render */
   children: PropTypes.node.isRequired
 };
 
@@ -245,6 +267,7 @@ const GenTeaserSecondaryInfo = (props) => {
 };
 
 GenTeaserSecondaryInfo.propTypes = {
+  /** React children to render */
   children: PropTypes.node.isRequired
 };
 
@@ -271,8 +294,11 @@ const GenTeaserAddress = (props) => {
 };
 
 GenTeaserAddress.propTypes = {
+  /** A string or html formatted string of the address */
   address: PropTypes.string,
+  /** A link to directions to the address */
   directionLink: PropTypes.string,
+  /** Any details related to the phone number */
   details: PropTypes.string
 };
 
@@ -296,7 +322,9 @@ const GenTeaserPhone = (props) => {
 };
 
 GenTeaserPhone.propTypes = {
+  /** The phone number */
   number: PropTypes.string,
+  /** Any details related to the phone number */
   details: PropTypes.string
 };
 
@@ -320,7 +348,9 @@ const GenTeaserEmail = (props) => {
 };
 
 GenTeaserEmail.propTypes = {
-  email: PropTypes.string,
+  /** An email object */
+  email: PropTypes.shape(Email.propTypes).isRequired,
+  /** Any details related to the email */
   details: PropTypes.string
 };
 
@@ -386,12 +416,22 @@ const GenTeaserEvent = (props) => {
 };
 
 GenTeaserEvent.propTypes = {
+  /** The start date & time of the event  */
   startDate: PropTypes.string,
+  /** The end date & time of the event  */
   endDate: PropTypes.string,
+  /** The address of the event */
   location: PropTypes.string,
+  /** Any details about the event */
   details: PropTypes.string,
+  /** What type of calendars you would like users to be able to add to.
+      'google', 'yahoo', and 'outlookcom' if passed will render as specific
+      formats, all others render as base ics format.
+   */
   calendars: PropTypes.arrayOf(PropTypes.string),
+  /** The title of the event */
   title: PropTypes.string,
+  /** A description of the event */
   description: PropTypes.string
 };
 
@@ -414,8 +454,11 @@ const GenTeaserInfoDetails = (props) => {
 };
 
 GenTeaserInfoDetails.propTypes = {
+  /** The text information related to the details */
   text: PropTypes.string.isRequired,
+  /** The icon to render in the text, defaults to laptop icon. */
   icon: PropTypes.string,
+  /** A link for the text */
   href: PropTypes.string
 };
 
@@ -435,6 +478,7 @@ const GenTeaserTags = (props) => {
 };
 
 GenTeaserTags.propTypes = {
+  /** An array of tags */
   tags: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
@@ -453,6 +497,13 @@ const GenTeaserSearchBar = (props) => {
 };
 
 GenTeaserSearchBar.propTypes = {
+  /**
+    search:
+      target: target url of the search bar
+      id: id of the search bar
+      queryInput: query input variable to replace in the target url with the user entered term
+      placeholder: Placeholder text of the search bar.
+  */
   search: PropTypes.shape(TeaserSearch.propTypes).isRequired
 };
 
@@ -475,6 +526,7 @@ const GenTeaserButton = (props) => {
 };
 
 GenTeaserButton.propTypes = {
+  /** Expects props from ButtonWithIcon (e.g. text, info, etc.) */
   button: PropTypes.shape(ButtonWithIcon.propTypes).isRequired
 };
 
@@ -491,6 +543,7 @@ const GenTeaserStat = (props) => {
 };
 
 GenTeaserStat.propTypes = {
+  /** Expects to receive children directly (e.g. <span><b>103 item</b></span>). */
   children: PropTypes.node.isRequired
 };
 
