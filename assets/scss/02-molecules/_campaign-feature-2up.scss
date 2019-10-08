@@ -1,21 +1,29 @@
 .ma__campaign-feature-2up {
 
   &__wrapper {
-    @include ma-container;
     display: flex;
     justify-content: space-between;
+    flex-flow: column;
+    @media ($bp-small-min) {
+      flex-flow: row;
+    }
   }
 
   &__card {
-    flex-basis: 48%;
+    flex: 1 1 auto;
+    margin-bottom: 20px;
+    @media ($bp-small-min) {
+      flex-basis: 50%;
+    }
+    .ma__card {
+      height: 100%;
+    }
   }
 
-  &__content {
-    display: flex;
+  @media ($bp-small-min) {
+    &__card:nth-child(2n + 1) {
+      margin-right: 20px;
+    }
   }
 
-  &__text {
-    color: $c-black;
-    font-weight: normal;
-  }
 }

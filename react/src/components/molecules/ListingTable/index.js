@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
 import Collapse from '../../animations/Collapse';
+import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
+import Icon from '../../atoms/icons/Icon';
 
 import './style.css';
 
@@ -49,17 +51,17 @@ class ListingTableItem extends React.Component {
             </Collapse>
           )}
           {(inlineAccordion) && (
-            <div className="ma__listing-table__expand">
-              <button
+            <div className="ma__listing-table__expand-button">
+              <ButtonWithIcon
+                text={this.state.open ? (row.lessLabel || 'Less') : (row.moreLabel || 'More')}
+                theme="c-primary"
+                usage="quaternary-simple"
                 type="button"
+                icon={<Icon name="chevron" svgHeight={20} svgWidth={20} />}
                 onClick={(e) => this.handleClick(e)}
-                aria-expanded="false"
-              >
-                {(this.state.open) ?
-                  (<span>{row.lessLabel || 'Less'}</span>) :
-                  (<span>{row.moreLabel || 'More'}</span>)
-                }
-              </button>
+                expanded={this.state.open}
+                capitalized
+              />
             </div>
           )}
         </td>

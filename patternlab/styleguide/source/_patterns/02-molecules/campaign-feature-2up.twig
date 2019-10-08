@@ -1,24 +1,11 @@
 <div class="ma__campaign-feature-2up">
   <div class="ma__campaign-feature-2up__wrapper">
     {% for card in campaignFeature2up %}
-
-    <div class="ma__campaign-feature-2up__card">
-      <a class="ma__campaign-feature-2up__link" href="{{card.link}}">
-        <h2 class="ma__campaign-feature-2up__title">{{ card.title }}</h2>
-        
-        <div class="ma__campaign-feature-2up__content">
-        {% if card.thumbnail %}
-          <div class="ma__campaign-feature-2up__thumbnail">
-            <img src="{{card.thumbnail}}" alt="">
-          </div>
-        {% endif %}
-          <div class="ma__campaign-feature-2up__text">
-            {{card.text}}
-          </div>
-        </div>
-      </a>
-    </div>
-
+      <div class="ma__campaign-feature-2up__card">
+        {% set usage = { usage: "secondary" } %}
+        {% set card = card|merge(usage) %}
+        {% include "@molecules/card.twig" with card %}
+      </div>
     {% endfor %}
   </div>
 </div>
