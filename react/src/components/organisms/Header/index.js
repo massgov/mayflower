@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
-import airbnbPropTypes from 'airbnb-prop-types';
 import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
@@ -201,7 +200,7 @@ Header.propTypes = {
     /** The URL query parameter that will be set to the value of the search input element. */
     searchTermParam: PropTypes.string,
     /** Optional extra query parameters to add to the redirect baseUrl. */
-    queryParams: airbnbPropTypes.object
+    queryParams: PropTypes.object
   }),
   /** imports the mainnav component */
   mainNav: PropTypes.shape(MainNav.propTypes).isRequired,
