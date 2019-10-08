@@ -30,8 +30,7 @@ scenarios = scenarios.map((item) => {
   const delays = [
     'Error',
     'NarrowTemplate',
-    'GeneralTeaser',
-    'PressTeaser',
+    'GenTeaser',
     'Image',
     'DataTable',
     'IllustratedHeader'
