@@ -1,61 +1,54 @@
+$colors: (
+  "c-primary": $c-primary,
+  "c-primary-lightest":  $c-primary-lightest,
+  "c-primary-alt": $c-primary-alt,
+  "c-primary-alt-lightest": $c-primary-alt-lightest,
+  "c-white": $c-white,
+  "c-gray-lightest": $c-gray-lightest
+);
+
 .ma__campaign-video { 
   text-align: center;
 
-  &--bg-primary {
-    background-color: $c-primary;
-  }
+  @each $class, $c in $colors {
+    &--#{$class} {
+      background-color: $c;
+      @if ($c == $c-primary or $c == $c-primary-alt) {
+        color: $c-white;
+        .ma__campaign-video__title {
+          color: $c-white;
+        }
+        a {
+          &:link,
+          &:visited,
+          &:hover,
+          &:active,
+          &:focus {
+            color: white;
+          }
+        }
+        .ma__campaign-video__video .ma__decorative-link {
+          a {
+            &:hover,
+            &:active,
+            &:focus {
+              border-bottom-color: rgba($c-white, 0.5);
+            }
+          }
 
-  &--bg-primary-alt {
-    background-color: $c-primary-alt;
-  }
-
-  &--bg-white {
-    background-color: $c-white;
-  }
-
-  &--bg-gray-lightest {
-    background-color: $c-gray-lightest;
-  }
-
-  &--bg-primary-lightest {
-    background-color: $c-primary-lightest;
-  }
-
-  &--light-text {
-    color: $c-white;
-
-    .ma__campaign-video__title {
-      color: $c-white;
-    }
-
-    a {
-      &:link,
-      &:visited,
-      &:hover,
-      &:active,
-      &:focus {
-        color: white;
-      }
-    }
-  }
-
-  &--bg-primary,
-  &--bg-primary-alt {
-    .ma__campaign-video__video .ma__decorative-link {
-      a {
-        &:hover,
-        &:active,
-        &:focus {
-          border-bottom-color: rgba($c-white, 0.5);
+          svg {
+            fill: rgba($c-white, 0.5);
+          }
         }
       }
-
-      svg {
-        fill: rgba($c-white, 0.5);
+      @if ($c != $c-white) {
+        padding-top: 20px;
+        padding-bottom: 20px;
       }
     }
+   
   }
-  
+
   &__wrapper {
     @include ma-container();
   }
