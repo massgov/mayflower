@@ -31,6 +31,7 @@ scenarios = scenarios.map((item) => {
     'Error',
     'NarrowTemplate',
     'GenTeaser',
+    'TeaserListing',
     'Image',
     'DataTable',
     'IllustratedHeader'
