@@ -1,0 +1,4 @@
+Patch
+
+Fixed
+- (React) [EmergencyHeader, DecorativeLink] Fix decorative link wrapping issue in alert header and download link. #775
