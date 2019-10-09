@@ -507,7 +507,7 @@ const GenTeaserEvent = (props) => {
   } = props;
   const dropdownProps = {
     dropdownButton: {
-      text: 'Add to calendar',
+      text: 'Add to Calendar',
       theme: 'c-primary',
       usage: 'quaternary',
       id: 'dropdownbutton-simple',
