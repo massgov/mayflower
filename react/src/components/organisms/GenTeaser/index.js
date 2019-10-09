@@ -33,6 +33,10 @@ GenTeaser.propTypes = {
   children: PropTypes.node
 };
 
+/**
+  Wrapper
+  */
+
 const GenTeaserDetails = (props) => {
   const { children, ...rest } = props;
   return(
@@ -50,6 +54,34 @@ GenTeaserDetails.propTypes = {
 GenTeaser.Details = GenTeaserDetails;
 GenTeaser.Details.displayName = 'GenTeaser.Details';
 
+/**
+  Eyebrow
+  */
+
+const GenTeaserEyebrow = (props) => {
+  const { eyebrow, children, ...rest } = props;
+  return(
+    <div className="ma__gen-teaser__eyebrow" {...rest} >
+      {eyebrow && <span>{eyebrow}</span>}
+      {children}
+    </div>
+  );
+};
+
+GenTeaserEyebrow.propTypes = {
+  /** Either a string or react component */
+  eyebrow: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  /** React children to render */
+  children: PropTypes.node
+};
+
+GenTeaser.Eyebrow = GenTeaserEyebrow;
+GenTeaser.Eyebrow.displayName = 'GenTeaser.Eyebrow';
+
+
+/**
+  Title Link
+  */
 const GenTeaserTitle = (props) => {
   const {
     level, title, title: { icon }, children, ...rest
@@ -76,25 +108,9 @@ GenTeaserTitle.propTypes = {
 GenTeaser.Title = GenTeaserTitle;
 GenTeaser.Title.displayName = 'GenTeaser.Title';
 
-const GenTeaserEyebrow = (props) => {
-  const { eyebrow, children, ...rest } = props;
-  return(
-    <div className="ma__gen-teaser__eyebrow" {...rest} >
-      {eyebrow && <span>{eyebrow}</span>}
-      {children}
-    </div>
-  );
-};
-
-GenTeaserEyebrow.propTypes = {
-  /** Either a string or react component */
-  eyebrow: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  /** React children to render */
-  children: PropTypes.node
-};
-
-GenTeaser.Eyebrow = GenTeaserEyebrow;
-GenTeaser.Eyebrow.displayName = 'GenTeaser.Eyebrow';
+/**
+  Emphasis - wrapper for GenTeaserDate and GenTeaserOrgs
+  */
 
 const GenTeaserEmphasis = (props) => {
   const { children, ...rest } = props;
@@ -104,6 +120,7 @@ const GenTeaserEmphasis = (props) => {
     </div>
   );
 };
+
 
 GenTeaserEmphasis.propTypes = {
   /** React children to render */

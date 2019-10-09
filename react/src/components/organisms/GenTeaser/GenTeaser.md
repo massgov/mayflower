@@ -1,16 +1,47 @@
 ### GenTeaser
 
-The GenTeaser component provide a flexible and extensible content container with multiple variants and options. This is leveraged when rendering search results or overview/teser content for a linked page.
+The GenTeaser component provide a flexible and extensible content container with multiple variants and options. This is leveraged when rendering search results or overview/teaser content for a linked page.
 
-#### SubTypes
+*Usage:*
+```
+<GenTeaser onClick={(e) => action(e)} onKeyDown={(e) => action(e)}>
+  <GenTeaser.Details>
+    <GenTeaser.Eyebrow eyebrow={dataset.eyebrow} />
+    <GenTeaser.Button button={dataset.button} />
+    <GenTeaser.Title title={dataset.title} />
+    <GenTeaser.Emphasis>
+      <GenTeaser.Date date={dataset.date} />
+      <GenTeaser.Orgs orgs={dataset.orgs} />
+    </GenTeaser.Emphasis>
+    <GenTeaser.Description description={dataset.description} />
+    <GenTeaser.SearchBar search={dataCatalog.search} />
+    <GenTeaser.SubLinks>
+      {dataCatalog.subLinks.map((item) =>
+        <GenTeaser.KeyAction {...item} />
+      )}
+    </GenTeaser.SubLinks>
+    <GenTeaser.MoreInfo>
+      <GenTeaser.PrimaryInfo>
+        <GenTeaser.Phone {...stateOrg.phone} />
+        <GenTeaser.InfoDetails {...stateOrg.locations} />
+      </GenTeaser.PrimaryInfo>
+      <GenTeaser.SecondaryInfo>
+        <GenTeaser.Email {...stateOrg.email} />
+        <GenTeaser.InfoDetails {...stateOrg.infodetails} />
+      </GenTeaser.SecondaryInfo>
+    </GenTeaser.MoreInfo>
+    <GenTeaser.Tags tags={dataset.tags} />
+  </GenTeaser.Details>
+</GenTeaser>
+```
+
+
+----
+*SubTypes:*
 
 #### Details
 
 A wrapper around `<GenTeaser>` content.
- 
-#### Title
-
-Pass a Title to <GenTeaser> via `<GenTeaser.Title>`. Pass `<GenTeaser.Title>` inside `<GenTeaser.Details>`.
 
 #### Eyebrow
 
@@ -19,6 +50,11 @@ Pass an Eyebrow to `<GenTeaser>` via `<GenTeaser.Eyebrow>`. This is meant to pro
 #### Button
 
 Pass a Button to `<GenTeaser>` via `<GenTeaser.Button>`. Currently, this is used if there is a teaser expansion action can be taken. You should not use `<GenTeaser.Stat>` and `<GenTeaser.Button>` in the same Teaser as Button will cover Stat. Pass `<GenTeaser.Button>` inside `<GenTeaser.Details>`.
+
+#### Title
+
+Pass a Title to <GenTeaser> via `<GenTeaser.Title>`. Pass `<GenTeaser.Title>` inside `<GenTeaser.Details>`.
+
 
 #### Stat
 
