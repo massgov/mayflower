@@ -162,11 +162,10 @@
     p {
       font-size: 1rem;
       line-height: 1rem;
-      margin-top: 0.25rem;
       margin-bottom: 0px;
     }
     &-item {
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
       line-height: 1;
     }
     &-col {
@@ -301,7 +300,7 @@
     font-weight: bold;
     text-align: center;
     border: 1px solid $c-gray-light;
-    background-color: #FFFFFF;
+    background-color: $c-white;
     padding: 0px 5px;
     min-width: 60px;
     display: inline-block;
@@ -337,9 +336,9 @@
       .ma__button-icon.ma__button-search {
         height: 42px;
         min-height: 42px;
-        background-color: white;
-        border-color: #DCDCDC !important;
-        color: #388557;
+        background-color: $c-white;
+        border-color: $c-gray-light !important;
+        color: $c-primary-alt;
         svg {
           fill: $c-primary-alt;
           height: 13px;
