@@ -17,13 +17,13 @@ const Address = (props) => {
           <div className="ma__address__address">{parse(address)}</div>
         )
       }
+      { details && (
+        <p className="ma__contact__details">{parse(details)}</p>
+      )}
       { directionLink && (
         <div className="ma__address__directions">
           <DecorativeLink text="Directions" href={directionLink} />
         </div>
-      )}
-      { details && (
-        <p className="ma__contact__details">{parse(details)}</p>
       )}
     </span>
   );

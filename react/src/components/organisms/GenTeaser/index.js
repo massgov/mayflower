@@ -509,7 +509,7 @@ const GenTeaserEvent = (props) => {
     dropdownButton: {
       text: 'Add to calendar',
       theme: 'c-primary',
-      usage: 'quaternary-simple',
+      usage: 'quaternary',
       id: 'dropdownbutton-simple',
       'aria-haspopup': true,
       capitalized: true

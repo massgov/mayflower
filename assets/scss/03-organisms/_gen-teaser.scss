@@ -237,6 +237,10 @@
       flex-flow: column;
       flex: 1 50%;
 
+    & > *:first-child {
+      margin-top: 0.5rem;
+    }
+
     &--border{
       padding-left: 0;
       border-left-style: none;
@@ -249,6 +253,9 @@
       padding-left: .75em;
       margin-left: .75em;
       border-left: 1px solid $c-gray-light;
+      & > *:first-child {
+        margin-top: 0rem;
+      }
     }
   }
 
@@ -276,7 +283,10 @@
   }
 
   &__infoitem {
-    font-size: 1rem;
+    font-size: 1.125rem;
+    & + & {
+      margin-top: 0.5rem;
+    }
     .ma__contact {
       &__details {
         font-size: 0.875rem;
@@ -292,6 +302,8 @@
         margin-right: 0.5em;
       }
     }
+
+
   }
 
   &__tag {
