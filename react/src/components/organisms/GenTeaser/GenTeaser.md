@@ -8,6 +8,7 @@ The GenTeaser component provide a flexible and extensible content container with
   <GenTeaser.Details>
     <GenTeaser.Eyebrow eyebrow={dataset.eyebrow} />
     <GenTeaser.Button button={dataset.button} />
+    <GenTeaser.Stat>{dataCatalog.stat}</GenTeaser.Stat>
     <GenTeaser.Title title={dataset.title} />
     <GenTeaser.Emphasis>
       <GenTeaser.Date date={dataset.date} />
@@ -51,14 +52,15 @@ Pass an Eyebrow to `<GenTeaser>` via `<GenTeaser.Eyebrow>`. This is meant to pro
 
 Pass a Button to `<GenTeaser>` via `<GenTeaser.Button>`. Currently, this is used if there is a teaser expansion action can be taken. You should not use `<GenTeaser.Stat>` and `<GenTeaser.Button>` in the same Teaser as Button will cover Stat. Pass `<GenTeaser.Button>` inside `<GenTeaser.Details>`.
 
+#### Stat
+
+Pass a State to `<GenTeaser>` via `<GenTeaser.Stat>`. This will render a key value related to the teaser content such as the number of datasets found in a data catalog. Pass `<GenTeaser.Stat>` inside `<GenTeaser.Details>`.
+
+
 #### Title
 
 Pass a Title to <GenTeaser> via `<GenTeaser.Title>`. Pass `<GenTeaser.Title>` inside `<GenTeaser.Details>`.
 
-
-#### Stat
-
-Pass a State to `<GenTeaser>` via `<GenTeaser.Stat>`. This will render a key value related to the teaser content such as the number of datasets found in a data catalog. Pass `<GenTeaser.Stat>` inside `<GenTeaser.Details>`.
 
 #### Emphasis
 
@@ -72,13 +74,14 @@ Pass `<GenTeaser.Date>` inside `<GenTeaser.Emphasis>`. This should render a rele
 
 Pass `<GenTeaser.Orgs>` inside `<GenTeaser.Emphasis>`. This should render the publishing entities/authors/organizations attached to the teaser content. If more than three organizations are passed in an array to this component will provide a collapse/show all feature.
 
+#### Description
+
+Pass a description to <GenTeaser> via `<GenTeaser.Description>`. Pass `<GenTeaser.Description>` inside `<GenTeaser.Details>`.
+
 #### SearchBar
 
 If you want the teaser to permit users to search the site from, Pass `<GenTeaser.SearchBar>` inside `<GenTeaser.Details>`.
 
-#### Description
-
-Pass a description to <GenTeaser> via `<GenTeaser.Description>`. Pass `<GenTeaser.Description>` inside `<GenTeaser.Details>`.
 
 #### SubLinks
 
