@@ -5,21 +5,13 @@ import { HeaderSearch } from '../../../../index';
 class TeaserSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      query: ''
-    };
-  }
-
-  onChange = (term) => {
-    this.setState({
-      query: term
-    });
+    this.inputRef = React.createRef();
   }
 
   onClick = (e) => {
     e.preventDefault();
     const { target, queryInput } = this.props;
-    const { query } = this.state;
+    const query = this.inputRef.current.value;
     if (query.length > 0) {
       const searchURL = queryInput ? target.replace(`{${queryInput}}`, this.state.query) : target;
       this.redirect(searchURL);
@@ -45,7 +37,7 @@ class TeaserSearch extends Component {
   }
 
   render() {
-    const { placeholder, id, ...rest } = this.props;
+    const { placeholder, id, queryInput, ...rest } = this.props;
     return(
       <HeaderSearch
         buttonSearch={{
@@ -54,11 +46,11 @@ class TeaserSearch extends Component {
           text: 'Search',
           usage: ''
         }}
-        defaultText=""
+        defaultText={queryInput}
         id={id}
         label="Search terms"
-        onChange={(term) => this.onChange(term)}
         onSubmit={(e) => this.onSubmit(e)}
+        inputRef={this.inputRef}
         placeholder={placeholder}
         {...rest}
       />
