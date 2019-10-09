@@ -37,7 +37,9 @@ class TeaserSearch extends Component {
   }
 
   render() {
-    const { placeholder, id, queryInput, ...rest } = this.props;
+    const {
+      placeholder, id, queryInput, ...rest
+    } = this.props;
     return(
       <HeaderSearch
         buttonSearch={{
