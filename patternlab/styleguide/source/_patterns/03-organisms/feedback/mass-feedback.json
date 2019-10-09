@@ -2,7 +2,7 @@
   "formAction": "#",
   "title": {
     "value": "Did you find what you were looking for on this webpage?",
-    "required": false
+    "required": true
   },
   "org": "the Registry of Motor Vehicles",
   "queryAffirmative": {
