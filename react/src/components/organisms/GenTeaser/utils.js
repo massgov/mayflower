@@ -41,8 +41,8 @@ export const buildUrl = (event, type, window) => {
     case 'google':
       calendarUrl = 'https://calendar.google.com/calendar/render';
       calendarUrl += '?action=TEMPLATE';
-      calendarUrl += `&dates=${formatTime(event.startTime)}`;
-      calendarUrl += `/${formatTime(event.endTime)}`;
+      calendarUrl += `&dates=${formatTime(event.startDate)}`;
+      calendarUrl += `/${formatTime(event.endDate)}`;
       calendarUrl += `&location=${encodeURIComponent(event.location)}`;
       calendarUrl += `&text=${encodeURIComponent(event.title)}`;
       calendarUrl += `&details=${encodeURIComponent(event.description)}`;
@@ -50,10 +50,10 @@ export const buildUrl = (event, type, window) => {
 
     case 'yahoo': {
       // yahoo doesn't utilize endTime so we need to calulate duration
-      const duration = calculateDuration(event.startTime, event.endTime);
+      const duration = calculateDuration(event.startDate, event.endDate);
       calendarUrl = 'https://calendar.yahoo.com/?v=60&view=d&type=20';
       calendarUrl += `&title=${encodeURIComponent(event.title)}`;
-      calendarUrl += `&st=${formatTime(event.startTime)}`;
+      calendarUrl += `&st=${formatTime(event.startDate)}`;
       calendarUrl += `&dur=${duration}`;
       calendarUrl += `&desc=${encodeURIComponent(event.description)}`;
       calendarUrl += `&in_loc=${encodeURIComponent(event.location)}`;
@@ -63,8 +63,8 @@ export const buildUrl = (event, type, window) => {
 
     case 'outlookcom':
       calendarUrl = 'https://outlook.live.com/owa/?rru=addevent';
-      calendarUrl += `&startdt=${formatTime(event.startTime)}`;
-      calendarUrl += `&enddt=${formatTime(event.endTime)}`;
+      calendarUrl += `&startdt=${formatTime(event.startDate)}`;
+      calendarUrl += `&enddt=${formatTime(event.endDate)}`;
       calendarUrl += `&subject=${encodeURIComponent(event.title)}`;
       calendarUrl += `&location=${encodeURIComponent(event.location)}`;
       calendarUrl += `&body=${encodeURIComponent(event.description)}`;
@@ -79,8 +79,8 @@ export const buildUrl = (event, type, window) => {
         'VERSION:2.0',
         'BEGIN:VEVENT',
         `URL:${document.URL}`,
-        `DTSTART:${formatTime(event.startTime)}`,
-        `DTEND:${formatTime(event.endTime)}`,
+        `DTSTART:${formatTime(event.startDate)}`,
+        `DTEND:${formatTime(event.endDate)}`,
         `SUMMARY:${event.title}`,
         `DESCRIPTION:${event.description}`,
         `LOCATION:${event.location}`,

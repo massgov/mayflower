@@ -515,7 +515,6 @@ const GenTeaserEvent = (props) => {
       capitalized: true
     }
   };
-
   const eventProps = {
     startDate,
     endDate,
