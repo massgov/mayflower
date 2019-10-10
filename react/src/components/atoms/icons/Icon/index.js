@@ -6,8 +6,8 @@ export default class Icon extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string,
-    svgWidth: PropTypes.number,
-    svgHeight: PropTypes.number,
+    svgWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    svgHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     classes: PropTypes.arrayOf(PropTypes.string),
     ariaHidden: PropTypes.bool,
     fill: PropTypes.string
