@@ -1,3 +1,4 @@
-Security
-- (React) [Dependency] Bump lodash.mergewith from 4.6.1 to 4.6.2 in /react (#669)
-
+Patch
+Changed
+- (React) [Dependency]: Bump eslint-plugin-react from 7.12.4 to 7.14.3 in /react #689Changed
+- [Dependency] (React) Bump eslint-plugin-react from 7.12.4 to 7.14.3 in /react (#689)

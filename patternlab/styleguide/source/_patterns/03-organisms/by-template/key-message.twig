@@ -6,6 +6,7 @@
 
 {% set bgImage = keyMessage.bgImage %}
 {% set positionTop = keyMessage.positionTop %}
+{% set headingLevel = keyMessage.compHeading.level ? keyMessage.compHeading.level : (positionTop ? 1 : 2) %}
 {% set id = keyMessage.id %}
 {% set msgClass = theme ? " ma__key-message--" ~ theme : "" %}
 {% set descClass = theme ? " ma__key-message__description--" ~ theme : "" %}
@@ -24,7 +25,7 @@
   {% set buttontheme = { theme: theme } %}
 {% endif %}
 
-<section id="{{ id }}"  class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %}">
+<section id="{{ id }}"  class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay and bgImage %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %}">
   {% if bgImage and positionTop %}
     <div id="img{{ id }}"  class="ma__key-message__inline-image">
     </div>
@@ -66,7 +67,7 @@
         var style = document.createElement('style');
         style.innerHTML =
         `#${id} {` +
-        '  margin-bottom: 60px;' +  
+        '  margin-bottom: 40px;' +
         '}' +
         '@media(min-width: 781px) {' +
         `  #${id} {` +
@@ -84,13 +85,6 @@
   {% endif %}
   <div class="ma__key-message__wrapper{{ wrapperClass }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
     <div id="blck{{ id }}" class="ma__key-message__block{{ blockClass }}">
-      {% if positionTop %}
-        {% set headingLevel = 1 %}
-      {% elseif keyMessage.compheading and keyMessage.compheading.level %}
-        {% set headingLevel = keyMessage.compheading.level == "1" ? 2 : keyMessage.compheading.level %}
-      {% else %}
-        {% set headingLevel = 2 %}
-      {% endif %}
       <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
       {% if keyMessage.subtitle or keyMessage.description %}
         <div class="ma__key-message__content">
@@ -100,7 +94,7 @@
           {% if keyMessage.description %}
             <div class="ma__key-message__description{{ descClass }}">
               {% set richText = keyMessage.description %}
-              {% include "@organisms/by-author/rich-text.twig" %}    
+              {% include "@organisms/by-author/rich-text.twig" %}
             </div>
           {% endif %}
         </div>

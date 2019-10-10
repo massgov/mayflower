@@ -7,7 +7,7 @@
     width: 100%;
     display: flex;
       flex-flow: column;
-    @media ($bp-small-min) {
+    @media ($bp-medium-min) {
       flex-flow: row;
     }
   }
@@ -24,7 +24,7 @@
     flex: 1 1 auto;
     padding: 20px;
 
-    @media ($bp-small-min) {
+    @media ($bp-medium-min) {
       flex-basis: 40%;
     }
 
@@ -93,7 +93,7 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    @media ($bp-small-min) {
+    @media ($bp-medium-min) {
       flex-basis: 60%;
       @include ma-aspect-ratio(4,3);
       img {
@@ -101,7 +101,7 @@
       }
     }
     
-    @media ($bp-small-max) {
+    @media ($bp-medium-max) {
       img {
         display: block;
         width: 100%;
