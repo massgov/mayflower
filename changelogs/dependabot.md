@@ -6,3 +6,6 @@ Changed
 - (React) [Dependency]: Bump @storybook/addon-actions, @storybook/addon-a11y, @storybook/addon-info, @storybook/addon-knobs, @storybook/addon-links, @storybook/addon-storysource, @storybook/addon-viewport, @storybook/addons, and @storybook/react from 5.1.9 to 5.2.3 in /react #761
 Changed
 - [Dependency] (React) Bump @storybook/addon-actions from 5.1.9 to 5.2.1 in /react (#761)
+
+Changed
+- (React) [Dependency] Test a commit by mocking dependabot in /react (#xxx)
