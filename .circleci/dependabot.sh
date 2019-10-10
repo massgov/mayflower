@@ -18,7 +18,7 @@ fi
 
 if [ "$lastCommit" = "$lastDependabot" ]
 then
-  printf "\n\n$commitType\n- $lastCommitClean" >> changelogs/dependabot.md
+  printf "\n$commitType\n- $lastCommitClean" >> changelogs/dependabot.md
   git add changelogs/dependabot.md
   git commit -m "Add changelog to changelogs/dependabot.md"
   echo "Commit dependabot changelog";
