@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Paragraph from '../../atoms/text/Paragraph';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
+import './styles.css';
 
 const UtilityPanel = (utilityPanel) => {
   const descriptionClasses = ['ma__utility-panel__description'];
@@ -11,7 +12,7 @@ const UtilityPanel = (utilityPanel) => {
     descriptionClasses.push('ma__utility-panel__description--full');
   }
   return(
-    <section className="ma__utility-panel">
+    <div className="ma__utility-panel">
       <div className={descriptionClasses.join(' ')}>
         <Paragraph {...utilityPanel.description} />
       </div>
@@ -23,7 +24,7 @@ const UtilityPanel = (utilityPanel) => {
           </li>
         ))}
       </ul>
-    </section>
+    </div>
   );
 };
 

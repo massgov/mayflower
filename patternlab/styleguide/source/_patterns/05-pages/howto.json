@@ -61,29 +61,6 @@
     "divider": false,
     "title": "Apply for unemployment benefits",
     "subTitle": "Have you lost your job?  You may qualify for temporary income to support you while you look for a new one.",
-    "socialLinks": {
-      "label": "Share:",
-      "items": [
-        {
-          "altText": "Follow us on Facebook",
-          "href": "#",
-          "icon": "facebook",
-          "linkType": "facebook"
-        },
-        {
-          "altText": "Follow us on Twitter",
-          "href": "#",
-          "icon": "twitter",
-          "linkType": "twitter"
-        },
-        {
-          "altText": "Follow us on LinkedIn",
-          "href": "#",
-          "icon": "linkedin",
-          "linkType": "linkedin"
-        }
-      ]
-    },
     "optionalContents": [
       {
         "path": "@organisms/by-author/callout-time.twig",
@@ -136,16 +113,16 @@
       },
       {
         "href": "next-steps",
-        "text": "Next Steps",
+        "text": "Next steps",
         "info": ""
       },
       {
         "href": "more-info",
-        "text": "More Info",
+        "text": "More info",
         "info": ""
       },
       {
-        "href": "manage-account",
+        "href": "manage-your-account",
         "text": "Manage your account",
         "info": ""
       },
@@ -330,7 +307,7 @@
     },
     "stepsUnordered": {
       "compHeading": {
-        "title": "How To Apply",
+        "title": "How to apply",
         "level": 3,
         "color": "",
         "id": "how-to-apply",
@@ -412,7 +389,7 @@
     },
     "stepsOrdered": {
       "compHeading": {
-        "title": "Next Steps",
+        "title": "Next steps",
         "titleContext": "to Apply for unemployment benefits",
         "level": 3,
         "color": "",
@@ -526,50 +503,80 @@
         }
       ]
     },
-    "accountManagementSections": [
-      {
-        "richText": {
-          "rteElements": [
-            {
-              "path": "@atoms/11-text/paragraph.twig",
-              "data": {
-                "paragraph": {
-                  "text": "This is a link for users who have already created an account and would like to check status, download paperwork, etc"
-                }
-              }
-            }
-          ]
-        },
-        "link": {
-          "href": "#",
-          "text": "Log in to your UI Online account",
-          "context": "",
-          "button": false,
-          "info": ""
-        }
+    "descriptiveLinks": {
+      "compHeading": {
+        "title": "Manage Your Account",
+        "sub": "true",
+        "color": "",
+        "id": "manage-your-account",
+        "centered": ""
       },
-      {
-        "richText": {
-          "rteElements": [
-            {
-              "path": "@atoms/11-text/paragraph.twig",
-              "data": {
-                "paragraph": {
-                  "text": "Optional second section for account management. Limit to 3 sections."
+      "links": [
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
                 }
               }
-            }
-          ]
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Check your status",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
         },
-        "link": {
-          "href": "#",
-          "text": "Log in to another kind of account",
-          "context": "",
-          "button": false,
-          "info": ""
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Log in to your account",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
+        },
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Lorem ipsum dolor sit amet.",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
         }
-      }
-    ],
+      ]
+    },
     "formDownloads": {
       "compHeading": {
         "title": "Downloads",

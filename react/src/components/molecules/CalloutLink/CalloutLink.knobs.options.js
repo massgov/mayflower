@@ -3,7 +3,7 @@
  */
 export default {
   theme: {
-    '': 'no theme i.e. primary (default)',
+    'no theme i.e. primary (default)': '',
     white: 'white'
   }
 };

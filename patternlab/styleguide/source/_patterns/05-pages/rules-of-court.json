@@ -80,6 +80,11 @@
       }],
     "widgets": null
   },
+  "stickyTOC": {
+    "title": "Table of Content",
+    "parent": ".ma__court-rules__content",
+    "sections": ".page-content h2.ma__comp-heading"
+  },
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
@@ -163,10 +168,10 @@
         },
         "rteElements": [
           {
-            "path": "@atoms/11-text/paragraph.twig",
+            "path": "@atoms/11-text/raw-html.twig",
             "data": {
-              "paragraph": {
-                "text": "Parties may obtain discovery by one or more of the following methods except as otherwise provided in <a href=\"/courts/case-legal-res/rules-of-court/civil-procedure/mrcp30.html\" >Rule 30(a)</a></span> and <a href=\"/courts/case-legal-res/rules-of-court/civil-procedure/mrcp30a.html#a\">Rule 30A(a)</a>,<a href=\"/courts/case-legal-res/rules-of-court/civil-procedure/mrcp30a.html#b\">(b)</a>: depositions upon oral examination or written questions; written interrogatories; production of documents or things or permission to enter upon land or other property, for inspection and other purposes; physical and mental examinations; and requests for admission. Unless the court orders otherwise, or unless otherwise provided in these rules, the frequency of use of these methods is not limited."
+              "rawHtml": {
+                "content": "<p class='ma__rich-text__indent' data-ma-heading-parent='H2'>Parties may obtain discovery by one or more of the following methods except as otherwise provided in <a href='/courts/case-legal-res/rules-of-court/civil-procedure/mrcp30.html'>Rule 30(a)</a> and <a href='/courts/case-legal-res/rules-of-court/civil-procedure/mrcp30a.html#a'>Rule 30A(a)</a>,<a href='/courts/case-legal-res/rules-of-court/civil-procedure/mrcp30a.html#b'>(b)</a>: depositions upon oral examination or written questions; written interrogatories; production of documents or things or permission to enter upon land or other property, for inspection and other purposes; physical and mental examinations; and requests for admission. Unless the court orders otherwise, or unless otherwise provided in these rules, the frequency of use of these methods is not limited.</p>"
               }
             }
           }
@@ -183,275 +188,11 @@
           "centered": ""
         },
         "rteElements": [
-          {
-            "path": "@atoms/11-text/paragraph.twig",
+           {
+            "path": "@atoms/11-text/raw-html.twig",
             "data": {
-              "paragraph": {
-                "text": "Unless otherwise limited by order of the court in accordance with these rules, the scope of discovery is as follows:"
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-3.twig",
-            "data": {
-              "heading3": {
-                "text": "(1) In General"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "Parties may obtain discovery regarding any matter, not privileged, which is relevant to the subject matter involved in the pending action, whether it relates to the claim or defense of the party seeking discovery or to the claim or defense of any other party, including the existence, description, nature, custody, condition and location of any books, documents, or other tangible things and the identity and location of persons having knowledge of any discoverable matter. It is not ground for objection that the information sought will be inadmissible at the trial if the information sought appears reasonably calculated to lead to the discovery of admissible evidence."
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-3.twig",
-            "data": {
-              "heading3": {
-                "text": "(2) Insurance Agreements"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "A party may obtain discovery of the existence and contents of any insurance agreement under which any person carrying on an insurance business may be liable to satisfy part or all of a judgment which may be entered in the action or to indemnify or reimburse for payments made to satisfy the judgment. Information concerning the insurance agreement is not by reason of disclosure admissible in evidence at trial. For purposes of this paragraph, an application for insurance shall not be treated as part of an insurance agreement."
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-3.twig",
-            "data": {
-              "heading3": {
-                "text": "(3) Trial Preparation: Materials"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "Subject to the provisions of subdivision (b)(4) of this rule, a party may obtain discovery of documents and tangible things otherwise discoverable under subdivision (b)(1) of this rule and prepared in anticipation of litigation or for trial by or for another party or by or for that other party's representative (including his attorney, consultant, surety, indemnitor, insurer, or agent) only upon a showing that the party seeking discovery has substantial need of the materials in the preparation of his case and that he is unable without undue hardship to obtain the substantial equivalent of the materials by other means. In ordering discovery of such materials when the required showing has been made, the court shall protect against disclosure of the mental impressions, conclusions, opinions, or legal theories of an attorney or other representative of a party concerning the litigation."
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "A party may obtain without the required showing a statement concerning the action or its subject matter previously made by that party. Upon request, a person not a party may obtain without the required showing a statement concerning the action or its subject matter previously made by that person. If the request is refused, the person may move for a court order. The provisions of <a href=\"#\">Rule 37(a)(4)</a> apply to the award of expenses incurred in relation to the motion. For purposes of this paragraph, a statement previously made is (A) a written statement signed or otherwise adopted or approved by the person making it, or (B) a stenographic, mechanical, electrical, or other recording, or a transcription thereof, which is a substantially verbatim recital of an oral statement by the person making it and contemporaneously recorded."
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-3.twig",
-            "data": {
-              "heading3": {
-                "text": "(4) Trial Preparation: Experts"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "Discovery of facts known and opinions held by experts, otherwise discoverable under the provisions of subdivision (b)(1) of this rule and acquired or developed in anticipation of litigation or for trial, may be obtained only as follows:"
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-4.twig",
-            "data": {
-              "heading4": {
-                "text": "(A)"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "(i) A party may through interrogatories require any other party to identify each person whom the other party expects to call as an expert witness at trial, to state the subject matter on which the expert is expected to testify, and to state the substance of the facts and opinions to which the expert is expected to testify and a summary of the grounds for each opinion. (ii) Upon motion, the court may order further discovery by other means, subject to such restrictions as to scope and such provisions, pursuant to subdivision (b)(4)(C) of this rule, concerning fees and expenses as the court may deem appropriate."
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-4.twig",
-            "data": {
-              "heading4": {
-                "text": "(B)"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "A party may discover facts known or opinions held by an expert who has been retained or specially employed by another party in anticipation of litigation or preparation for trial and who is not expected to be called as a witness at trial, only as provided in Rule 35(b) or upon a showing of exceptional circumstances under which it is impracticable for the party seeking discovery to obtain facts or opinions on the same subject by other means."
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-4.twig",
-            "data": {
-              "heading4": {
-                "text": "(C)"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "Unless manifest injustice would result, (i) the court shall require that the party seeking discovery pay the expert a reasonable fee for time spent in responding to discovery under subdivisions (b)(4)(A)(ii) and (b)(4)(B) of this rule; and (ii) with respect to discovery obtained under subdivision (b)(4)(A)(ii) of this rule the court may require, and with respect to discovery obtained under subdivision (b)(4)(B) of this rule the court shall require, the party seeking discovery to pay the other party a fair portion of the fees and expenses reasonably incurred by the latter party in obtaining facts and opinions from the expert."
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-3.twig",
-            "data": {
-              "heading3": {
-                "text": "(5) Claims of Privilege or Protection of Trial Preparation Materials"
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-4.twig",
-            "data": {
-              "heading4": {
-                "text": "(A) Information Withheld"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "When a party withholds information otherwise discoverable by claiming that the information is privileged or subject to protection as trial-preparation material, the party must:"
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-5.twig",
-            "data": {
-              "heading5": {
-                "text": "(i)"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "expressly make the claim; and "
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-5.twig",
-            "data": {
-              "heading5": {
-                "text": "(ii)"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "describe the nature of the documents, communications, or tangible things not produced or disclosed - and do so in a manner that, without revealing information itself privileged or protected, will enable other parties to assess the claim. The court, upon motion, may order the withholding party to provide such additional information as is necessary to assess the claim of privilege."
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-4.twig",
-            "data": {
-              "heading4": {
-                "text": "(B) Information mistakenly produced; claim of privilege"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "If information produced in discovery is subject to a claim of privilege or of protection as trial-preparation material, the party making the claim may notify any party that received the information of the claim and the basis for it. After being notified, a party shall promptly return, sequester, or destroy the specified information and any copies it has; shall not use or disclose the information until the claim is resolved; shall take reasonable steps to retrieve the information if the party disclosed it before being notified; and may promptly present the information to the court under Trial Court Rule VIII, Uniform Rules on Impoundment Procedure , for a determination of the claim. The producing party shall preserve the information until the claim is resolved."
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "In resolving any such claim, the court should determine whether:"
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-5.twig",
-            "data": {
-              "heading5": {
-                "text": "(i)"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "the disclosure was inadvertent;"
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-5.twig",
-            "data": {
-              "heading5": {
-                "text": "(ii) "
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "the holder of the privilege or protection took reasonable steps to prevent disclosure; and"
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-5.twig",
-            "data": {
-              "heading5": {
-                "text": "(iii)"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "the holder promptly took reasonable steps to rectify the error"
-              }
-            }
-          },
-          {
-            "path": "@atoms/04-headings/heading-4.twig",
-            "data": {
-              "heading4": {
-                "text": "(C) Effect of a ruling"
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "If the court, following such procedure, or pursuant to an order under Rule 26(f)(3), upholds the privilege or protection in a written order, the disclosure shall not be deemed a waiver in the matter before the court or in any other proceeding."
+              "rawHtml": {
+                "content": "<p class='ma__rich-text__indent' data-ma-heading-parent='H2'>Unless otherwise limited by order of the court in accordance with these rules, the scope of discovery is as follows:</p><h3 class='ma__rich-text__indent'>(1) In General</h3><p class='ma__rich-text__indent' data-ma-heading-parent='H3'>Parties may obtain discovery regarding any matter, not privileged, which is relevant to the subject matter involved in the pending action, whether it relates to the claim or defense of the party seeking discovery or to the claim or defense of any other party, including the existence, description, nature, custody, condition and location of any books, documents, or other tangible things and the identity and location of persons having knowledge of any discoverable matter. It is not ground for objection that the information sought will be inadmissible at the trial if the information sought appears reasonably calculated to lead to the discovery of admissible evidence.</p><h3 class='ma__rich-text__indent'>(2) Insurance Agreements</h3><p class='ma__rich-text__indent' data-ma-heading-parent='H3'>A party may obtain discovery of the existence and contents of any insurance agreement under which any person carrying on an insurance business may be liable to satisfy part or all of a judgment which may be entered in the action or to indemnify or reimburse for payments made to satisfy the judgment. Information concerning the insurance agreement is not by reason of disclosure admissible in evidence at trial. For purposes of this paragraph, an application for insurance shall not be treated as part of an insurance agreement.</p>          <h3 class='ma__rich-text__indent'>(3) Trial Preparation: Materials</h3><p class='ma__rich-text__indent' data-ma-heading-parent='H3'>Subject to the provisions of subdivision (b)(4) of this rule, a party may obtain discovery of documents and tangible things otherwise discoverable under subdivision (b)(1) of this rule and prepared in anticipation of litigation or for trial by or for another party or by or for that other party's representative (including his attorney, consultant, surety, indemnitor, insurer, or agent) only upon a showing that the party seeking discovery has substantial need of the materials in the preparation of his case and that he is unable without undue hardship to obtain the substantial equivalent of the materials by other means. In ordering discovery of such materials when the required showing has been made, the court shall protect against disclosure of the mental impressions, conclusions, opinions, or legal theories of an attorney or other representative of a party concerning the litigation.</p><p class='ma__rich-text__indent' data-ma-heading-parent='H3'>A party may obtain without the required showing a statement concerning the action or its subject matter previously made by that party. Upon request, a person not a party may obtain without the required showing a statement concerning the action or its subject matter previously made by that person. If the request is refused, the person may move for a court order. The provisions of <a href='#'>Rule 37(a)(4)</a> apply to the award of expenses incurred in relation to the motion. For purposes of this paragraph, a statement previously made is (A) a written statement signed or otherwise adopted or approved by the person making it, or (B) a stenographic, mechanical, electrical, or other recording, or a transcription thereof, which is a substantially verbatim recital of an oral statement by the person making it and contemporaneously recorded.</p><h3 class='ma__rich-text__indent'>(4) Trial Preparation: Experts</h3><p class='ma__rich-text__indent' data-ma-heading-parent='H3'>Discovery of facts known and opinions held by experts, otherwise discoverable under the provisions of subdivision (b)(1) of this rule and acquired or developed in anticipation of litigation or for trial, may be obtained only as follows:</p><h4 class='ma__rich-text__indent'>(A)</h4><p class='ma__rich-text__indent' data-ma-heading-parent='H4'>(i) A party may through interrogatories require any other party to identify each person whom the other party expects to call as an expert witness at trial, to state the subject matter on which the expert is expected to testify, and to state the substance of the facts and opinions to which the expert is expected to testify and a summary of the grounds for each opinion. (ii) Upon motion, the court may order further discovery by other means, subject to such restrictions as to scope and such provisions, pursuant to subdivision (b)(4)(C) of this rule, concerning fees and expenses as the court may deem appropriate.</p><h4 class='ma__rich-text__indent'>(B)</h4><p class='ma__rich-text__indent' data-ma-heading-parent='H4'>A party may discover facts known or opinions held by an expert who has been retained or specially employed by another party in anticipation of litigation or preparation for trial and who is not expected to be called as a witness at trial, only as provided in Rule 35(b) or upon a showing of exceptional circumstances under which it is impracticable for the party seeking discovery to obtain facts or opinions on the same subject by other means.</p><h4 class='ma__rich-text__indent'>(C)</h4><p class='ma__rich-text__indent' data-ma-heading-parent='H4'>Unless manifest injustice would result, (i) the court shall require that the party seeking discovery pay the expert a reasonable fee for time spent in responding to discovery under subdivisions (b)(4)(A)(ii) and (b)(4)(B) of this rule; and (ii) with respect to discovery obtained under subdivision (b)(4)(A)(ii) of this rule the court may require, and with respect to discovery obtained under subdivision (b)(4)(B) of this rule the court shall require, the party seeking discovery to pay the other party a fair portion of the fees and expenses reasonably incurred by the latter party in obtaining facts and opinions from the expert.</p><h3 class='ma__rich-text__indent'>(5) Claims of Privilege or Protection of Trial Preparation Materials</h3><h4 class='ma__rich-text__indent'>(A) Information Withheld</h4><p class='ma__rich-text__indent' data-ma-heading-parent='H4'>When a party withholds information otherwise discoverable by claiming that the information is privileged or subject to protection as trial-preparation material, the party must:</p><h5 class='ma__rich-text__indent'>(i)</h5><p class='ma__rich-text__indent' data-ma-heading-parent='H5'>expressly make the claim; and </p><h5 class='ma__rich-text__indent'>(ii)</h5><p class='ma__rich-text__indent' data-ma-heading-parent='H5'>describe the nature of the documents, communications, or tangible things not produced or disclosed - and do so in a manner that, without revealing information itself privileged or protected, will enable other parties to assess the claim. The court, upon motion, may order the withholding party to provide such additional information as is necessary to assess the claim of privilege.</p><h4 class='ma__rich-text__indent'>(B) Information mistakenly produced; claim of privilege</h4><p class='ma__rich-text__indent' data-ma-heading-parent='H4'>If information produced in discovery is subject to a claim of privilege or of protection as trial-preparation material, the party making the claim may notify any party that received the information of the claim and the basis for it. After being notified, a party shall promptly return, sequester, or destroy the specified information and any copies it has; shall not use or disclose the information until the claim is resolved; shall take reasonable steps to retrieve the information if the party disclosed it before being notified; and may promptly present the information to the court under Trial Court Rule VIII, Uniform Rules on Impoundment Procedure , for a determination of the claim. The producing party shall preserve the information until the claim is resolved.</p><p class='ma__rich-text__indent' data-ma-heading-parent='H4'>In resolving any such claim, the court should determine whether:</p><h5 class='ma__rich-text__indent'>(i)</h5><p class='ma__rich-text__indent' data-ma-heading-parent='H5'>the disclosure was inadvertent;</p><h5 class='ma__rich-text__indent'>(ii) </h5><p class='ma__rich-text__indent' data-ma-heading-parent='H5'>the holder of the privilege or protection took reasonable steps to prevent disclosure; and</p><h5 class='ma__rich-text__indent'>(iii)</h5><p class='ma__rich-text__indent' data-ma-heading-parent='H5'>the holder promptly took reasonable steps to rectify the error</p><h4 class='ma__rich-text__indent'>(C) Effect of a ruling</h4><p class='ma__rich-text__indent' data-ma-heading-parent='H4'>If the court, following such procedure, or pursuant to an order under Rule 26(f)(3), upholds the privilege or protection in a written order, the disclosure shall not be deemed a waiver in the matter before the court or in any other proceeding.</p>"
               }
             }
           }

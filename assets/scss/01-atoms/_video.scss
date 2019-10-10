@@ -3,6 +3,13 @@
 
   &__container {
     padding: 13px;
+    position: relative;
+    padding-bottom: 12px + 29px + 13px;// 12px + 1.5rem + 13px
+    background-color: rgba($c-primary,.1);
+
+    @media ($bp-large-min) {
+      padding-bottom: 12px + 32px + 13px;
+    }
   }
 
   @media ($bp-small-min) {
@@ -15,6 +22,22 @@
     }
   }
 
+  .ma__services & {
+
+    @media ($bp-small-min) {
+      width: 80%;
+    }
+
+    @media ($bp-large-min) {
+      width: 100%;
+    }
+
+    @media ($bp-large-extended-min) {
+      width: 70%;
+    }
+
+  }
+
   // Backward Compatible - had to add the --new as a variant for the new styling
   .main-content--full .page-content > & {
     @include ma-container('restricted');
@@ -22,6 +45,10 @@
 
   &__link {
     margin-top: 12px;
+    position: absolute;
+    bottom: 13px;
+    font-size: 1.25rem;
+    width: calc(100% - 26px);
   }
 }
 
@@ -70,18 +97,6 @@
   .ma__content-link,
   .ma__decorative-link {
     margin-top: 12px;
-  }
-}
-
-//theme
-.ma__video {
-
-  &__container {
-    background-color: rgba($c-primary,.1);
-  }
-
-  &__link {
-    font-size: 1.25rem;
   }
 }
 

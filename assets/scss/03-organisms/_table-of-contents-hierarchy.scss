@@ -30,12 +30,50 @@
     padding: 0;
     padding-top: 20px;
     list-style: none;
+    background: $c-gray-lightest;
+    border: 2px solid $c-gray-light;
+
+    > * + * {
+      border-top: 1px solid $c-gray-light;
+    }
 
     .ma__decorative-link {
       padding: 20px;
     }
     .ma__download-link {
       padding: 20px;
+    }
+  }
+
+  //react
+  .ma__accordion-header {
+    
+    &__button {
+      padding-left: 20px;
+      padding-right: 20px;
+
+      &--solid.is-open {
+        margin-bottom: unset;
+      }
+    }
+
+    &__title {
+      font-size: 1.375rem;
+    }
+  }
+
+  .ma__accordion-content__body {
+    background: $c-white;
+    list-style: none;
+    margin-bottom: unset;
+    padding: 10px 0 10px 20px;
+
+    & a {
+      transition: none;
+    }
+
+    &.collapsed {
+       padding: unset;
     }
   }
 
@@ -47,6 +85,8 @@
     margin-bottom: 0;
     display: none;
     padding: 10px 0 10px 20px;
+    background: $c-white;
+    border-top: 2px solid $c-gray-light;
   }
 
   .ma__toc--hierarchy__title {
@@ -59,6 +99,7 @@
     text-align: left;
     width: 100%;
     font-weight: bold;
+    color: $c-primary;
 
     &:after {
       font-size: 2.5rem;
@@ -77,25 +118,5 @@
   &.is-open .ma__toc--hierarchy__title:after {
     transform: rotate(135deg);
   }
-}
 
-//theme
-.ma__toc--hierarchy {
-  .ma__toc--hierarchy__container {
-    background: $c-gray-lightest;
-    border: 2px solid $c-gray-light;
-
-    > * + * {
-      border-top: 1px solid $c-gray-light;
-    }
-  }
-
-  .ma__toc--hierarchy__accordion-content  {
-    background: $c-white;
-    border-top: 2px solid $c-gray-light;
-  }
-
-  .ma__toc--hierarchy__title {
-    color: $c-primary;
-  }
 }

@@ -22,10 +22,16 @@ For a guide and information on the components included in mayflower-react and th
 * `npm install`
 * `npm start`: This will run the demo application.
 
+Please note that we are currently relying on symlink for pulling in shared assets into react source code. For Windows users, you need to manually create the symlink before running `npm start`.
+e.g. In cmd prompt:
+- $ `cd src` - make sure you are in the `src` folder in `mayflower/react`
+- $ `rm assets`
+- $ `ln -s ../../assets assets`
+
 #### System Requirements
 
-- node.js, currently standardized on version 8.9.4
-- npm, currently standardized on version 5.6.0
+- node.js, currently standardized on version 10.15.1
+- npm, currently standardized on version 6.4.1
 - That's it! All other dependencies should be included when you run ``npm i``.
 
 #### Useful commands

@@ -9,6 +9,10 @@
   {% set listingTable = mainContent.listingTable %}
   {% include "@molecules/listing-table.twig" %}
 
+  {% if stickyTOC %}
+    {% include "@organisms/by-template/sticky-toc.twig" %}
+  {% endif %}
+
   {% set contactList = sideContent.contactList %}
   {% include "@organisms/by-author/contact-list.twig" %}
 
@@ -18,8 +22,10 @@
   {% set richText = mainContent.richText %}
   {% include "@organisms/by-author/rich-text.twig" %}
 
-  {% set formDownloads = mainContent.formDownloads %}
-  {% include "@organisms/by-author/form-downloads.twig" %}
+  {% block formDownloadLinks %}
+    {% set formDownloads = mainContent.formDownloads %}
+    {% include "@organisms/by-author/form-downloads.twig" %}
+  {% endblock %}
 
   {% set contactList = mainContent.contactList %}
   {% include "@organisms/by-author/contact-list.twig" %}
@@ -30,7 +36,7 @@
 {% block sidebar %}
   {% set contactList = sideContent.contactList %}
   {% include "@organisms/by-author/contact-list.twig" %}
-  
+
   {% set pressListing = sideContent.pressListing %}
   {% include "@organisms/by-author/press-listing.twig" %}
 
@@ -40,4 +46,3 @@
 {% block postContent %}
 
 {% endblock %}
-

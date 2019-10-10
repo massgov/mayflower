@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">
+    <aside class="sidebar sidebar--colored">
       {% if sidebar.contactList %}
         {% set contactList = sidebar.contactList %}
         {% include "@organisms/by-author/contact-list.twig" %}
@@ -61,4 +61,3 @@
 
 {# site footer #}
 {% block footer %}{% endblock %}
-

@@ -1,51 +1,83 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import is from 'is';
+import './style.css';
 
-const Pagination = (pagination) => (
-  <div className="ma__pagination js-pagination" role="navigation" aria-label="Pagination Navigation">
-    <div className="ma__pagination__container">
-      {!pagination.prev.hide && (
-        <button
-          className="ma__pagination__prev js-pagination-prev"
-          type="button"
-          disabled={pagination.prev.disabled}
-          onClick={pagination.prev.onClick}
-          aria-label={pagination.prev.ariaLabel}
-        >
-          {pagination.prev.text}
-        </button>
-    )}
-      {pagination.pages.map((page, pageIndex) => {
-        const key = `pagination.item.${pageIndex}`;
-        return page.text === 'spacer' ? (
-          <span key={key} className="ma__pagination__spacer">&hellip;</span>
-        ) : (
-          <button
-            className={page.active ? 'ma__pagination__page js-pagination-page is-active' : 'ma__pagination__page js-pagination-page'}
-            type="button"
-            data-page={page.text}
-            onClick={page.onClick}
-            key={key}
-            aria-label={page.ariaLabel}
+const Pagination = (props) => {
+  const { prev, next, pages } = props;
+
+  const handleClick = (event, handleAnchorClick) => {
+    event.preventDefault();
+    if (is.fn(handleClick)) {
+      handleAnchorClick(event);
+    }
+  };
+
+  const handleKeyDown = (event, handleAnchorClick) => {
+    if (event.key === ' ' && is.fn(handleClick)) {
+      event.preventDefault();
+      handleAnchorClick(event);
+    }
+  };
+
+  return(
+    <div className="ma__pagination js-pagination" role="navigation" aria-label="Pagination Navigation">
+      <nav className="ma__pagination__container">
+        {!prev.hide && (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a
+            className={`ma__pagination__prev ${prev.disabled && ' disabled'}`}
+            role="button"
+            href="#"
+            onClick={(e) => handleClick(e, prev.onClick)}
+            onKeyDown={(e) => handleKeyDown(e, prev.onClick)}
+            aria-label={`Go to ${prev.text} page`}
+            aria-disabled={prev.disabled}
+            tabIndex={prev.disabled ? -1 : 0}
           >
-            {page.text}
-          </button>
-        );
-      })}
-      {!pagination.next.hide && (
-        <button
-          className="ma__pagination__next js-pagination-next"
-          type="button"
-          disabled={pagination.next.disabled}
-          onClick={pagination.next.onClick}
-          aria-label={pagination.next.ariaLabel}
-        >
-          {pagination.next.text}
-        </button>
-      )}
+            {prev.text}
+          </a>
+        )}
+        {pages.map((page, pageIndex) => {
+          const key = `pagination.item.${pageIndex}`;
+          return page.text === 'spacer' ? (
+            <span key={key} className="ma__pagination__spacer">&hellip;</span>
+          ) : (
+              // eslint-disable-next-line jsx-a11y/anchor-is-valid
+            <a
+              className={page.active ? 'ma__pagination__page is-active' : 'ma__pagination__page'}
+              role="button"
+              href="#"
+              data-page={page.text}
+              onClick={(e) => handleClick(e, page.onClick)}
+              onKeyDown={(e) => handleKeyDown(e, page.onClick)}
+              key={key}
+              aria-label={`Go to Page ${page.text}`}
+              tabIndex={0}
+            >
+              {page.text}
+            </a>
+            );
+        })}
+        {!next.hide && (
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a
+            className={`ma__pagination__next ${next.disabled && ' disabled'}`}
+            role="button"
+            href="#"
+            onClick={(e) => handleClick(e, next.onClick)}
+            onKeyDown={(e) => handleKeyDown(e, next.onClick)}
+            aria-label={`Go to ${next.text} page`}
+            aria-disabled={next.disabled}
+            tabIndex={next.disabled ? -1 : 0}
+          >
+            {next.text}
+          </a>
+        )}
+      </nav>
     </div>
-  </div>
-);
+  );
+};
 
 Pagination.propTypes = {
   /** next.disabled: Defines whether the next button is available or not to users.
@@ -54,16 +86,15 @@ Pagination.propTypes = {
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired,
     hide: PropTypes.bool,
-    onClick: PropTypes.func,
-    ariaLabel: PropTypes.string
+    onClick: PropTypes.func
   }),
   /** prev.disabled: Defines whether the prev button is available or not to users.
       prev.text: Defines the text shown for the previous button. */
   prev: PropTypes.shape({
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired,
-    onClick: PropTypes.func,
-    ariaLabel: PropTypes.string
+    hide: PropTypes.bool,
+    onClick: PropTypes.func
   }),
   /** Pages is an array that defines what page numbers users are able to paginate through.
       pages.active: Defines whether the page number is active or not.
@@ -72,8 +103,7 @@ Pagination.propTypes = {
     active: PropTypes.bool,
     text: PropTypes.string.isRequired,
     hide: PropTypes.bool,
-    onClick: PropTypes.func,
-    ariaLabel: PropTypes.string
+    onClick: PropTypes.func
   }))
 };
 

@@ -9,11 +9,11 @@ export default (function (window, document, $) {
 
   const $window = $(window);
   let responsiveTables = [];
-  
+
   // Set the width of each sticky header cell and the width of the sticky
   // header table.
   function setWidths(rt) {
-    
+
     rt.$table
       .find("thead th")
       .each(function (i) {
@@ -79,7 +79,7 @@ export default (function (window, document, $) {
         margin: 0,
         width: "100%"
       });
-    
+
     $element.toggleClass("has-horizontal-scroll", canScroll);
     // Make sure the scrollbar is the width of the table.
     $element.find(".ma__table__horizontal-nav").width($table.parent().width());
@@ -90,14 +90,14 @@ export default (function (window, document, $) {
     }
 
     let rt = {
-        index: index,
-        $root: $element,
-        $table: $table,
-        $stickyHeader: $stickyHeader,
-        theadHeight: theadHeight,
-        headerStuck: false,
-        scrollStuck: false,
-        canScroll
+      index: index,
+      $root: $element,
+      $table: $table,
+      $stickyHeader: $stickyHeader,
+      theadHeight: theadHeight,
+      headerStuck: false,
+      scrollStuck: false,
+      canScroll
     };
     // Set the widths of the header.
     setWidths(rt);
@@ -122,14 +122,13 @@ export default (function (window, document, $) {
       tableWrapper.scrollLeft = 0;
       scrollbar.scrollLeft = scrollbar.scrollWidth - scrollbar.offsetWidth;
     }
-    
+
   }
-  
+
   // Certain other components that stick to the top of the page need to be accounted for.
   // This calculates the additional offset that a table sticky header should drop down.
   function getAdditionalOffset() {
     let additionalOffset = 0;
-
     if (document.documentElement.clientWidth <= 825) {
       const $jsStickyHeader = $(".js-sticky-header");
       if ($jsStickyHeader) {
@@ -140,6 +139,14 @@ export default (function (window, document, $) {
       document.documentElement.clientWidth <= 765) {
       additionalOffset += $(".js-scroll-anchors").height();
     }
+    if (document.documentElement.classList.contains('stickyTOC')) {
+      if (document.documentElement.clientWidth <= 841) {
+        additionalOffset += 75;
+      }
+      else {
+        additionalOffset += 70;
+      }
+    }
     return additionalOffset > 0 ? additionalOffset + "px" : 0;
   }
 
@@ -149,7 +156,8 @@ export default (function (window, document, $) {
     const elementTop = rt.$root.offset().top;
     const windowTop = $window.scrollTop();
     const windowBottom = windowTop + $window.height();
-    const elementBottom = (elementTop + rt.$root.height());
+    // + 50 to accommodate table padding for stickyNav 
+    const elementBottom = (elementTop + (rt.$root.height() + 50));
     const tableBottom = elementTop + rt.$table.height();
 
     // Handle header visibility.
@@ -180,7 +188,7 @@ export default (function (window, document, $) {
       }
       else if (rt.scrollStuck &&
         (windowBottom > elementBottom && windowTop < elementBottom ||
-        headerBottom > windowBottom || elementBottom < windowTop)) {
+          headerBottom > windowBottom || elementBottom < windowTop)) {
 
         responsiveTables[rt.index].scrollStuck = false;
         rt.$root.removeClass("stickNav");
@@ -197,7 +205,7 @@ export default (function (window, document, $) {
   }
 
   // When the window is resized, reset the tables.
-  function handleWindowResize () {
+  function handleWindowResize() {
     responsiveTables.forEach((rt) => {
       initializeTable(rt.$root[0], true, rt.index);
     });
@@ -210,7 +218,7 @@ export default (function (window, document, $) {
     let midpoint = $(e.target).offset().left + $(e.target).width() / 2;
     let clickpoint = e.pageX - posX;
 
-    if (clickpoint < midpoint ) {
+    if (clickpoint < midpoint) {
       // Scroll left.
       $scrollContainer.animate({
         scrollLeft: $scrollContainer.scrollLeft() - Math.abs(midpoint - clickpoint)
@@ -262,7 +270,7 @@ export default (function (window, document, $) {
     const amountToScroll = 200;
 
     // Scrollbar left arrow.
-    $(".ma__table__horizontal-nav__left").click(function() {
+    $(".ma__table__horizontal-nav__left").click(function () {
       const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
       // On click of left arrow element, animate the movement of the scrollbar
       // to the left by the integer amount defined in `amountToScroll`.
@@ -274,7 +282,7 @@ export default (function (window, document, $) {
     });
 
     // Scrollbar right arrow.
-    $(".ma__table__horizontal-nav__right").click(function() {
+    $(".ma__table__horizontal-nav__right").click(function () {
       const $scrollContainer = $(this).parents(".js-ma-responsive-table").find(".ma__table--responsive__wrapper");
       // On click of left arrow element, animate the movement of the scrollbar
       // to the left by the integer amount defined in `amountToScroll`.
@@ -313,7 +321,7 @@ export default (function (window, document, $) {
 
     const $scrollbar = rt.$root.find(".clip-scrollbar");
     const $scrollbarIndicator = $scrollbar.find(".ma__scroll-indicator");
-    
+
     $scrollbar.find(".ma__scroll-indicator--bar").css("width", `${scrollbarWidth}px`);
     $scrollbarIndicator.css("width", `${scrollbarContainerWidth}px`);
     $scrollbarIndicator.find(".ma__scroll-indicator__button").css("width", `${buttonWidth}px`);

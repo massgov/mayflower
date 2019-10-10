@@ -13,6 +13,9 @@
     @include ma-container();
   }
 
+  .main-content--full .page-content > & {
+    @include ma-component-spacing();
+  }
   &--view-specific {
 
     .main-content--two .page-content & {

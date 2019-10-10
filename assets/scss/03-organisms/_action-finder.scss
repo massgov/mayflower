@@ -79,6 +79,10 @@ $action-finder-bp: 900px;
     @include ma-h5;
   }
 
+  h3.ma__action-finder__category {
+    @include ma-h3;
+  }
+
   &__search {
 
     @media ($bp-large-min) {
@@ -112,6 +116,10 @@ $action-finder-bp: 900px;
 
   &__items:not(&__items--all) {
     padding-bottom: 25px;
+
+    @media ($bp-medium-min) {
+      padding-bottom: 45px;
+    }
   }
 
   .ma__illustrated-link,
@@ -180,6 +188,7 @@ $action-finder-bp: 900px;
     padding-bottom: 48px;
     text-align: left;
   }
+
 }
 
 //theme
