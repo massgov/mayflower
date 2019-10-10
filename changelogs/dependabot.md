@@ -1,8 +1,8 @@
-Security
-- (React) [Dependency] Bump sshpk from 1.13.1 to 1.16.1 in /react (#592)
+Patch
 Changed
-- [Dependency] (React) Bump react-dom from 16.8.6 to 16.9.0 in /react (#740)
+- (React) [Dependency]: Bump eslint-plugin-react from 7.12.4 to 7.14.3 in /react #689
+Patch
 Changed
-- [Dependency] (React) Bump @storybook/addon-storysource from 5.1.9 to 5.2.1 in /react (#762)
-Security
-- [Dependency] (React) [Security] Bump sshpk from 1.13.1 to 1.16.1 in /react (#592)
+- (React) [Dependency]: Bump @storybook/addon-actions, @storybook/addon-a11y, @storybook/addon-info, @storybook/addon-knobs, @storybook/addon-links, @storybook/addon-storysource, @storybook/addon-viewport, @storybook/addons, and @storybook/react from 5.1.9 to 5.2.3 in /react #761
+Changed
+- [Dependency] (React) Bump @storybook/addon-actions from 5.1.9 to 5.2.1 in /react (#761)
