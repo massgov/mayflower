@@ -1,7 +1,7 @@
 branch=$(git branch | grep \* | cut -d ' ' -f2)
 lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 lastCommitClean=$lastCommit
-lastDependabot=$(git log --author="clairesunstudio" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
+lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 commitType="Changed"
 
 if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
@@ -20,7 +20,7 @@ if [ "$lastCommit" = "$lastDependabot" ]
 then
   printf "\n$commitType\n- $lastCommitClean" > changelogs/dependabot-${branch##*/}.md
   git add changelogs/dependabot-${branch##*/}.md
-  git commit -m "Add changelog to changelogs/dependabot.md"
+  git commit -m "Added a new changelog to the `changelogs/` folder"
   echo "Commit dependabot changelog";
   git push -u origin $branch
 else
