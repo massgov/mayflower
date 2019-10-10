@@ -1,7 +1,7 @@
 branch=$(git branch | grep \* | cut -d ' ' -f2)
 lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 lastCommitClean=$lastCommit
-lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
+lastDependabot=$(git log --author="clairesunstudio" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 commitType="Changed"
 
 if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
