@@ -14,7 +14,7 @@ const weekday = [
   'saturday'
 ];
 
-storiesOf('atoms/time', module)
+storiesOf('atoms/contact', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('OperationalHours', () => {
     const showActive = boolean('showActive', false);
