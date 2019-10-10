@@ -9,3 +9,5 @@ Changed
 
 Changed
 - (React) [Dependency] Test a commit by mocking dependabot in /react (#xxx)
+Security
+- (Patternlab) [Dependency] Test a security commit by mocking dependabot in /patternlab/styleguide (#xxx)
