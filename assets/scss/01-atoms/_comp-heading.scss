@@ -30,6 +30,15 @@
       display: block;
     }
   }
+
+  &--no-line:not(&--sidebar) {
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    &::after {
+      display: none;
+    }
+  }
 }
 //theme
 .ma__comp-heading {

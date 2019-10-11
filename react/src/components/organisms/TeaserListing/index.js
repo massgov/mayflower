@@ -43,8 +43,8 @@ class TeaserListing extends React.Component {
      const invisibleItems = (shownNumber) ? teaser.items.slice(shownNumber) : [];
 
      let teaserHeading = 2;
-     teaserHeading = parseInt((teaser.compHeading && teaser.compHeading.level) ? teaser.compHeading.level : teaserHeading) + 1;
-     teaserHeading = parseInt((teaser.sidebarHeading && teaser.sidebarHeading.level) ? teaser.sidebarHeading.level : teaserHeading) + 1;
+     teaserHeading = parseInt(((teaser.compHeading && teaser.compHeading.level) ? teaser.compHeading.level : teaserHeading), 10) + 1;
+     teaserHeading = parseInt(((teaser.sidebarHeading && teaser.sidebarHeading.level) ? teaser.sidebarHeading.level : teaserHeading), 10) + 1;
 
      return(
        <section className="ma__teaser-listing">
@@ -52,78 +52,78 @@ class TeaserListing extends React.Component {
            {(teaser.compHeading) && (<CompHeading {...teaser.compHeading} />)}
            {(teaser.sidebarHeading) && (<SidebarHeading {...teaser.sidebarHeading} />)}
            {(teaser.description) && (
-           <div className="ma__teaser-listing__description">
-             <Paragraph {...teaser.description} />
-           </div>
-          )}
+             <div className="ma__teaser-listing__description">
+               <Paragraph {...teaser.description} />
+             </div>
+           )}
            {(teaser.featuredItems) && (
-           <div className={featuredClasses}>
-             {teaser.featuredItems.map((teaser, index) => {
-                const key = `featured-listing--item-${index}`;
-                const teaserProps = {
-                  key,
-                  level: teaserHeading,
-                  ...teaser
-                };
-                return<GeneralTeaser {...teaserProps} />;
-              })}
-           </div>
-          )}
+             <div className={featuredClasses}>
+               {teaser.featuredItems.map((item, index) => {
+                 const key = `featured-listing--item-${index}`;
+                 const teaserProps = {
+                   key,
+                   level: teaserHeading,
+                   ...item
+                 };
+                 return<GeneralTeaser {...teaserProps} />;
+               })}
+             </div>
+           )}
            {(invisibleItems.length > 0) && (
-           <React.Fragment>
-             <ul className={itemsClasses}>
-               {shownItems.map((teaser, o) => {
-                  const key = `teaser-listing--item-${o}`;
-                  return(
-                    <li className="ma__teaser-listing__item" key={key}>
-                      <GeneralTeaser level={teaserHeading} {...teaser} />
-                    </li>
-                  );
-                })}
-             </ul>
-             <Collapse in={this.state.open} dimension="height">
-               <div className="ma__teaser-listing__extra">
-                 <ul className={itemsClasses}>
-                   {invisibleItems.map((teaser, u) => {
-                      const key = `hidden-teaser-listing--item-${u}`;
-                      return(
-                        <li className="ma__teaser-listing__item" key={key}>
-                          <GeneralTeaser level={teaserHeading} {...teaser} />
-                        </li>
-                      );
-                    })}
-                 </ul>
-               </div>
-             </Collapse>
-             <button
-               className="ma__content-link ma__content-link--chevron ma__content-link__acordion-toggle js-accordion-link"
-               aria-label={(this.state.open) ? teaser.lessLabel : teaser.moreLabel}
-               onClick={this.handleClick}
-             >
-               {(this.state.open) ?
-                (<span className="less">{teaser.lessLabel}</span>) :
-                (<span className="more">{teaser.moreLabel}</span>)
-              }
-             </button>
-           </React.Fragment>
-          )}
+             <React.Fragment>
+               <ul className={itemsClasses}>
+                 {shownItems.map((item, index) => {
+                   const key = `teaser-listing--item-${index}`;
+                   return(
+                     <li className="ma__teaser-listing__item" key={key}>
+                       <GeneralTeaser level={teaserHeading} {...item} />
+                     </li>
+                   );
+                 })}
+               </ul>
+               <Collapse in={this.state.open} dimension="height">
+                 <div className="ma__teaser-listing__extra">
+                   <ul className={itemsClasses}>
+                     {invisibleItems.map((item, index) => {
+                       const key = `hidden-teaser-listing--item-${index}`;
+                       return(
+                         <li className="ma__teaser-listing__item" key={key}>
+                           <GeneralTeaser level={teaserHeading} {...item} />
+                         </li>
+                       );
+                     })}
+                   </ul>
+                 </div>
+               </Collapse>
+               <button
+                 className="ma__content-link ma__content-link--chevron ma__content-link__acordion-toggle js-accordion-link"
+                 aria-label={(this.state.open) ? teaser.lessLabel : teaser.moreLabel}
+                 onClick={this.handleClick}
+               >
+                 {(this.state.open)
+                   ? (<span className="less">{teaser.lessLabel}</span>)
+                   : (<span className="more">{teaser.moreLabel}</span>)
+                 }
+               </button>
+             </React.Fragment>
+           )}
            {(invisibleItems.length === 0) && (
-           <ul className={itemsClasses}>
-             {teaser.items.map((teaser, p) => {
-                  const key = `teaser-listing--item-${p}`;
-                  return(
-                    <li key={key} className="ma__teaser-listing__item">
-                      <GeneralTeaser {...teaser} />
-                    </li>
-                  );
-                })}
-           </ul>
-          )}
+             <ul className={itemsClasses}>
+               {teaser.items.map((item, index) => {
+                 const key = `teaser-listing--item-${index}`;
+                 return(
+                   <li key={key} className="ma__teaser-listing__item">
+                     <GeneralTeaser {...item} />
+                   </li>
+                 );
+               })}
+             </ul>
+           )}
            {(teaser.more) && (
-           <div className="ma__teaser-listing__more">
-             <Link {...teaser.more} />
-           </div>
-          )}
+             <div className="ma__teaser-listing__more">
+               <Link {...teaser.more} />
+             </div>
+           )}
          </div>
        </section>
      );

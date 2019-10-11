@@ -9,8 +9,8 @@ import UtilityPanelData from './UtilityPanel.json';
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'UtilityPanel', (() => (
+    'UtilityPanel', () => (
       <UtilityPanel {...UtilityPanelData} />
-    )),
+    ),
     { info: UtilityPanelDocs }
   );

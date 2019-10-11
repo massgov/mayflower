@@ -52,7 +52,7 @@ export default (function (window, document) {
         // Create a link for the sticky TOC.
         const tocLink = document.createElement("div");
         tocLink.className = "ma__sticky-toc__link";
-        tocLink.innerHTML = `<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg><a href="#${sectionId}" >${sectionTitle}</a>`;
+        tocLink.innerHTML = `<a href="#${sectionId}"><svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg>${sectionTitle}</a>`;
         tocColumn.appendChild(tocLink);
         tocSections.links.push(tocLink);
 
@@ -114,7 +114,7 @@ export default (function (window, document) {
     function setEventListeners() {
       // Update the sticky header text when a link is clicked, even if another header is visible.
       tocParent.addEventListener("click", (e) => {
-        if (e.target.matches(".ma__sticky-toc__link a")) {
+        if (e.target.matches(".ma__sticky-toc__link a").textContent) {
           pauseScroll = true;
           setTimeout(() => { pauseScroll = false; }, 20);
           stickyToc.innerHTML = e.target.innerHTML;
@@ -125,6 +125,12 @@ export default (function (window, document) {
       // Toggle mobile TOC open.
       toc.querySelector(".ma__sticky-toc__toggle-link").addEventListener("click", () => {
         tocContent.classList.toggle("is-open");
+        // Update aria-expanded.
+        const tocButton  = document.querySelector(".ma__sticky-toc__toggle-link");
+        let expanderState = tocButton.getAttribute('aria-expanded') === 'true' ? (tocButton.setAttribute('aria-expanded', 'false')) : (tocButton.setAttribute('aria-expanded', 'true'));
+        // Button label for screen reader.
+        const popupLabel = tocButton.querySelector(".js-sticky-toc__state");
+        let popupLabelContent = popupLabel.innerHTML === "Show" ? popupLabel.innerHTML = "Hide" : popupLabel.innerHTML= "Show";
       });
 
       // Expander for additional links to show.
@@ -201,9 +207,20 @@ export default (function (window, document) {
           menuCopy.classList.add("ma__sticky-toc__stuck-menu");
           stuckMenu = tocParent.appendChild(menuCopy);
 
+          // Move focus from the button.stickyTOC-open to the flyout toc
+          focusSwitch();
+
+          // When the last item in the TOC flyout is tabbed, focus is set on the first focusable element in the flyout container.
+          stuckMenu.lastChild.getElementsByTagName("a")[0].addEventListener("keyup", (e) => {
+            stuckMenu.querySelector(".secondary-label-close").focus();
+          });
+
           // Close button.
           stuckMenu.querySelector(".secondary-label-close").addEventListener("click", () => {
             menuToggle();
+            // Move the focus to the Table of Contents button.
+            toc.querySelector(".stickyTOC-open").focus();
+            stuckMenu.setAttribute("tabindex", "-1");
           });
 
           // Wait a beat so the slide in can work on first click.
@@ -213,6 +230,7 @@ export default (function (window, document) {
         }
         else {
           menuToggle();
+          focusSwitch();
         }
       });
 
@@ -232,6 +250,12 @@ export default (function (window, document) {
     function menuToggle() {
       stuckMenu.classList.toggle("sticky-nav-open");
       stuckOverlay.style.display = stuckOverlay.style.display === "block" ? "none" : "block";
+    }
+
+    // Move focus from the button.stickyTOC-open to the flyout toc
+    function focusSwitch() {
+      stuckMenu.setAttribute("tabindex", "0");
+      stuckMenu.focus();
     }
 
     initializeToc();

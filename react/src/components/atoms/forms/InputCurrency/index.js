@@ -137,10 +137,12 @@ const Currency = (props) => {
             }
           };
 
-          const handleBlur = () => {
+          const handleBlur = (e) => {
+            const { type } = e;
             const inputEl = ref.current;
             const stringValue = inputEl.value;
             // isNotNumber returns true if stringValue is null, undefined or 'NaN'
+            /* eslint-disable-next-line   no-restricted-globals */
             const isNotNumber = !stringValue || isNaN(Number(numbro.unformat(stringValue)));
             if (isNotNumber) {
               inputEl.setAttribute('placeholder', props.placeholder);
@@ -156,7 +158,7 @@ const Currency = (props) => {
               const updateError = displayErrorMessage(newValue);
               context.updateState({ value: toCurrency(newValue, countDecimals(props.step)), ...updateError }, () => {
                 if (is.fn(props.onBlur)) {
-                  props.onBlur(newValue);
+                  props.onBlur(newValue, { id: props.id, type });
                 }
               });
             }
@@ -220,6 +222,25 @@ const Currency = (props) => {
       }
     </InputContext.Consumer>
   );
+};
+
+Currency.propTypes = {
+  required: PropTypes.bool,
+  showButtons: PropTypes.bool,
+  language: PropTypes.string,
+  /* eslint-disable-next-line react/forbid-prop-types */
+  format: PropTypes.object,
+  max: PropTypes.number,
+  min: PropTypes.number,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  step: PropTypes.number,
+  placeholder: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  maxlength: PropTypes.number,
+  width: PropTypes.number,
+  disabled: PropTypes.bool
 };
 
 const InputCurrency = (props) => {
@@ -297,6 +318,7 @@ InputCurrency.propTypes = {
   /** A language tag that represents what country the currency should display. Comes from IETF BCP 47: https://numbrojs.com/languages.html */
   language: PropTypes.string,
   /** Numbro Formatting options for displaying the currency. See https://numbrojs.com/format.html */
+  /* eslint-disable-next-line react/forbid-prop-types */
   format: PropTypes.object,
   /** Inline label and input field */
   inline: PropTypes.bool,

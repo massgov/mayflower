@@ -7,11 +7,10 @@ import Icon from '../../atoms/icons/Icon';
 import Paragraph from '../../atoms/text/Paragraph';
 import './style.css';
 
-
 class HelpTip extends Component {
   constructor(props) {
     super(props);
-    const openArray = this.props.triggerText.map((trigger, index) => false);
+    const openArray = this.props.triggerText.map(() => false);
     this.state = {
       isOpen: openArray
     };
@@ -47,12 +46,13 @@ class HelpTip extends Component {
   };
 
   buildDangerouslyIfHasMarkup = (text, hasMarkup) => (
+    /* eslint-disable react/no-danger */
     hasMarkup ? <span dangerouslySetInnerHTML={{ __html: text }} /> : text
   );
 
   render() {
     const {
-      hasMarkup, triggerText, textAfter, helpText, children, id, theme, text, disabled
+      hasMarkup, triggerText, helpText, children, id, theme, text, disabled
     } = this.props;
 
     const baseClass = classNames({
@@ -85,6 +85,7 @@ class HelpTip extends Component {
             'ma__help-tip__trigger--disabled': disabled
           });
           return(
+            /* eslint-disable-next-line react/no-array-index-key */
             <span key={`help-tip-label-${id}-${index}`} className="ma__help-tip__label" id={`label-${id}-${index}`}>
               {index === 0 && this.buildDangerouslyIfHasMarkup(splitText[index], hasMarkup)}
               <span className="ma_help-tip__label-a11y" id={`context-a11y-${id}-${index}`} aria-hidden="true">
@@ -107,9 +108,10 @@ class HelpTip extends Component {
               </span>
               {this.buildDangerouslyIfHasMarkup(splitText[index + 1], hasMarkup)}
             </span>
-        );
+          );
         })}
         {triggerText.map((trigger, index) => !disabled && (
+          /* eslint-disable-next-line react/no-array-index-key */
           <Collapse key={`help-tip-collapse-${id}-${index}`} in={this.state.isOpen[index]} dimension="height" className={helpTextContainer}>
             <div className="ma__help-tip__content" id={`help-tip-content-${id}-${index}`} aria-hidden={!this.state.isOpen[index]}>
               <div
@@ -163,7 +165,8 @@ HelpTip.propTypes = {
   /** Themes correspond to site color scheme i.e. sass variables */
   theme: PropTypes.oneOf(['c-primary', 'c-primary-alt', 'c-highlight', 'c-gray-dark', 'c-error-red', 'c-white']),
   /** Disable helptip trigger text */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  children: PropTypes.node
 };
 
 HelpTip.defaultProps = {

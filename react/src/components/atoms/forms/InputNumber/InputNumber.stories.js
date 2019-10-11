@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import InputNumber from './index';
 import InputNumberOptions from './InputNumber.knobs.options';
@@ -16,13 +16,6 @@ storiesOf('atoms/forms', module)
       Object.getOwnPropertyNames(InputNumberOptions).forEach((key) => {
         inputTextOptionsWithKnobs[key] = InputNumberOptions[key]();
       });
-      console.table(inputTextOptionsWithKnobs);
-      // inputTextOptionsWithKnobs.hiddenLabel = boolean('InputNumber.blah2.hiddenLabel', false);
-
-      // const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => {
-      //   console.log(k, v());
-      //   return({ [k]: v() });
-      // }));
       const storyProps = {
         style: (inputTextOptionsWithKnobs.inline) ? { width: '400px' } : { width: '200px' }
       };

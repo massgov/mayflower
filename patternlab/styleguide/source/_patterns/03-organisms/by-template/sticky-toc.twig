@@ -1,32 +1,37 @@
 {% if stickyTOC %}
 <section class="ma__sticky-toc" data-min-to-show="{{ stickyTOC.min ? stickyTOC.min : 2 }}" data-parent="{{ stickyTOC.parent }}"
   data-sections="{{ stickyTOC.sections }}">
+  {# Skip link #}
   <div class="ma__jump-links__skip-link__container">
     <a href="#ma-end-sticky-toc" class="ma__jump-links__skip-link">Skip table of contents</a>
   </div>
+  {# Static display on desktop #}
   <div class="ma__sticky-toc__inner">
     <div class="ma__sticky-toc__container">
       <h2 class="ma__sticky-toc__title" id="page-contents">{{ stickyTOC.title }}</h2>
       <nav class="ma__sticky-toc__links" aria-labelledby="page-contents">
-        <button class="ma__sticky-toc__toggle-link">+</button>
+        {# Mobile toggle button #}
+        <button class="ma__sticky-toc__toggle-link" aria-haspopup="true" aria-expanded="false"><span class="ma__visually-hidden js-sticky-toc__state">Show</span><span class="ma__visually-hidden"> table of contents</span><span aria-hidden="true">+</span></button>
+        {# Desktop layover #}
         <div class="ma__sticky-toc__column">
-          <div class="ma__sticky-toc__secondary-label">{{ stickyTOC.title }} <span class="secondary-label-close"></span></div>
+          <div class="ma__sticky-toc__secondary-label">{{ stickyTOC.title }} <button class="secondary-label-close" aria-expanded="true"><span class="ma__visually-hidden">Hide Table of contents</span><span aria-hidden="true">x</span></button></div>
+
           {% for link in stickyTOC.links %}
           <div class="ma__sticky-toc__link">
-            {{ icon('circle-chevron') }}
-            </svg>
             <a href="#{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
           </div>
           {% endfor %}
+
         </div>
       </nav>
       <div class="ma__sticky-toc__footer">
-        <button type="button" class="js-sticky-toc__toggle-items">Show More</span>
+        <button type="button" class="js-sticky-toc__toggle-items"  aria-haspopup="true" aria-expanded="false" aria-conrole="sticky-toc">Show More<span class="ma__visually-hidden">Table of contents</span></span>
         </button>
       </div>
     </div>
   </div>
-  <div class="ma__sticky-toc__stuck">
+  {# Sticky TOC buttons #}
+  <div class="ma__sticky-toc__stuck" id="sticky-toc">
     <div class="ma__sticky-toc__stuck--inner-wrapper">
       <div class="ma__sticky-toc__current-section"></div>
       <div class="ma__sticky-toc__tools">
@@ -37,12 +42,12 @@
           </button>
         </div>
         <div class="ma__sticky-toc__sticky-toggle">
-          <button class="stickyTOC-open">{{ stickyTOC.title }}</button>
+          <button class="stickyTOC-open" aria-haspopup="true" aria-expanded="false"><span class="ma__visually-hidden">Show</span>{{ stickyTOC.title }}</button>
         </div>
       </div>
     </div>
   </div>
   <a id="ma-end-sticky-toc"></a>
-  <div class="ma__sticky-toc__overlay"></div>
+  <div class="ma__sticky-toc__overlay" ></div>
 </section>
 {% endif %}

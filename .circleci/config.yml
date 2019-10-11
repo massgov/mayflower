@@ -157,6 +157,9 @@ jobs:
           name: Mayflower React Build
           command: cd react && npm run build
       - run:
+          name: Mayflower React Linter
+          command: cd react && npm run lint
+      - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
       - persist_to_workspace:
@@ -216,12 +219,26 @@ jobs:
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/*'
           fi
 
+  auto_changelog:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - *no_host_check
+      - add_ssh_keys:
+          fingerprints:
+            - a7:d5:55:42:fe:37:52:b6:71:7c:a6:d8:05:78:fd:25
+      - *configure_git
+      - run:
+          name: 'Auto add changelog for dependabot'
+          command: ./.circleci/dependabot.sh
+
 workflows:
   version: 2
 
   # Executed on branch pushes.
   build_branch:
     jobs:
+      - auto_changelog
       - patternlab_build:
           filters:
             branches: { ignore: /docs\-.*/ }
