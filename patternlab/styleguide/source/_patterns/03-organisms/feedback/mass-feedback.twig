@@ -1,24 +1,24 @@
 <div class="ma__mass-feedback-form">
   <h2 class="visually-hidden">Feedback</h2>
-
   <form class="ma__mass-feedback-form__form" method="post" novalidate action="{{ formAction }}" id="{{ formId }}">
-    <fieldset class="ma_feedback-fieldset feedback-load">
+    <fieldset class="ma_feedback-fieldset feedback-load" role="radiogroup"{% if title.required %} aria-required="true"{% endif %}>
       <legend>
-        {{ title }}
+        {{ title.value }}{{ title.required ? ' <span aria-hidden="true">*</span>' : '' }}
       </legend>
 
       {% set inputGroup = inputGroup %}
+      {% set inputGroup = inputGroup|merge({"required": title.required}) %}
       {% include "@atoms/03-forms/input-group.twig" %}
     </fieldset>
 
     <div class="ma__mass-feedback-form__fields">
       <fieldset class="ma_feedback-fieldset">
         <legend class="feedback-response feedback-positive">
-          {{ queryAffirmative }}
+          {{ queryAffirmative.value }}{{ queryAffirmative.required ? ' <span aria-hidden="true">*</span>' : '' }}
         </legend>
 
         <legend class="feedback-response feedback-negative">
-          {{ queryNegative }}
+          {{ queryNegative.value }}{{ queryNegative.required ? ' <span aria-hidden="true">*</span>' : '' }}
         </legend>
 
         <p>{{ queryDescription }}</p>
@@ -42,7 +42,7 @@
         {% if Response %}
         <div class="ma__mass-feedback-form__form--user-response feedback-response feedback-negative">
           <legend>
-            {{ Response }} 
+            {{ Response }}
             {% if responseRequired.inputGroup %} {{ org }}? *{% endif %}
             {% if noResponseDescription %}<a class="ma__content-link--chevron form--no-response">Why? </a>{% endif %}
           </legend>
