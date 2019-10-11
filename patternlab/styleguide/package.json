@@ -62,7 +62,7 @@
     "picturefill": "^3.0.3",
     "pikaday": "^1.8.0",
     "svg4everybody": "^2.1.9",
-    "through2": "^2.0.3",
+    "through2": "^3.0.1",
     "twig": "^1.13.2",
     "undertaker-registry": "^1.0.1",
     "untildify": "^3.0.3",
