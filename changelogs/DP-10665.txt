@@ -1,3 +1,3 @@
 Changed
 Minor
-- React DP-10665: Match the footer logo to Mass.gov site's by adding a link to the Mass.gov home and remove the deprecate alt value. #314
+- (React) [Footer] DP-10665: Match the footer logo to Mass.gov site's by adding a link to the Mass.gov home and remove the deprecate alt value. #314
