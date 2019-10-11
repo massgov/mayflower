@@ -9,6 +9,7 @@
       "value": "male",
       "id": "gender-male",
       "label": "Male",
+      "required": true,
       "checked": true
     },{
       "name": "gender",
@@ -21,6 +22,7 @@
       "value": "other",
       "id": "gender-other",
       "label": "Other",
+      "required": true,
       "checked": false
     }]
   }
