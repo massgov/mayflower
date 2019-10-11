@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, object, boolean, text } from '@storybook/addon-knobs';
 
 import stateSeal from 'SharedAssets/images/stateseal.png';
@@ -21,12 +20,8 @@ storiesOf('organisms/Footer', module)
         showNavHeading: boolean('showNavHeading', true),
         socialLinks: object('socialLinksData', SocialLinksData),
         footerLogo: object('footer.footerLogo', {
-          url: {
-            domain: text('footer.footerLogo.url.domain', 'https://www.mass.gov/')
-          },
-          image: {
-            src: text('footer.footerLogo.image.src', stateSeal)
-          },
+          domain: text('footer.footerLogo.domain', 'https://www.mass.gov/'),
+          src: text('footer.footerLogo.src', stateSeal),
           title: text('footer.footerLogo.title', 'Mass.gov homepage')
         }),
         footerText: object('footerText', {
