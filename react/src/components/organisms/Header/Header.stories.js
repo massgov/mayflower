@@ -54,7 +54,7 @@ storiesOf('organisms', module)
         placeholder: text('Header headerSearch: placeholder', 'Search Mass.gov', 'Header Search'),
         buttonSearch: {
           ariaLabel: 'Search',
-          onClick: (e) => {
+          onClick: () => {
             action('Search button clicked');
           },
           usage: 'secondary'

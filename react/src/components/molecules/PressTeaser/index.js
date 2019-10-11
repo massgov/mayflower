@@ -7,7 +7,10 @@ import './style.css';
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';
   const Element = `h${pressTeaser.level || 2}`;
-
+  if (process.env.NODE_ENV === 'development') {
+    /* eslint-disable-next-line no-console */
+    console.warn('This component is deprecated and will be archived in v10. Use the GenTeaser Organism instead.');
+  }
   return(
     <section className={imageClass}>
       { pressTeaser.image && pressTeaser.image.src && (

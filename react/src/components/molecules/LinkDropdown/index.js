@@ -120,7 +120,6 @@ LinkDropdown.defaultProps = {
     text: 'All Organizations',
     capitalized: true,
     size: 'small',
-    iconColor: '',
     theme: 'c-primary',
     usage: 'quaternary-simple',
     id: 'dropdownbutton-simple'
