@@ -1,14 +1,13 @@
 {% if textarea.labelText %}
   <label for="input-type-textarea"
-  class="ma__label {{ textarea.required ? 'ma__label--required' : 'ma__label--optional'}} {{ textarea.hiddenLabel ? 'ma__label--hidden' : '' }}">{{ textarea.labelText }}</label>
+  class="ma__label {{ textarea.required ? 'ma__label--required' : 'ma__label--optional'}} {{ textarea.hiddenLabel ? 'ma__label--hidden' : '' }}">{{ textarea.labelText }}{{ textarea.required ? '<span aria-hidden="true">*</span>': ''}}</label>
 {% endif %}
-<textarea 
-  class="{{ textarea.required ? 'js-is-required' : ''}}" 
-  name="{{ textarea.name }}" 
-  id="{{ textarea.id }}" 
+<textarea
+  class="{{ textarea.required ? 'js-is-required' : ''}}"
+  name="{{ textarea.name }}"
+  id="{{ textarea.id }}"
   data-type="{{ textarea.type }}"
   {% if textarea.maxlength %}
     maxlength="{{ textarea.maxlength }}"
   {% endif %}
   {{ textarea.required ? 'required' : '' }} /></textarea>
-  
