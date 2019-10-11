@@ -8,22 +8,26 @@ import { InputContext, FormContext } from './context';
 /* eslint-disable react/no-unused-state */
 
 const Input = (props) => {
+  const {
+    inline, classes, labelText, hiddenLabel, required, disabled, id
+  } = props
   const inputClasses = classNames({
     'ma__input-group': true,
-    'ma__input-group--inline': props.inline
+    'ma__input-group--inline': inline,
+    [classes.join(' ')]: classes
   });
   const inputLabelClasses = classNames({
     ma__label: true,
-    'ma__label--hidden': (props.labelText && props.hiddenLabel),
-    'ma__label--required': (props.labelText && props.required),
-    'ma__label--optional': (props.labelText && !props.required),
-    'ma__label--disabled': (props.labelText && props.disabled)
+    'ma__label--hidden': (labelText && hiddenLabel),
+    'ma__label--required': (labelText && required),
+    'ma__label--optional': (labelText && !required),
+    'ma__label--disabled': (labelText && disabled)
   });
   // InputProvider will get the same props.children as Input.
   return(
     <React.Fragment>
       <div className={inputClasses}>
-        {props.labelText && <label htmlFor={props.id} className={inputLabelClasses}>{props.labelText}</label>}
+        {labelText && <label htmlFor={id} className={inputLabelClasses}>{labelText}</label>}
         <InputProvider {...props} />
       </div>
     </React.Fragment>
@@ -97,13 +101,18 @@ class InputProvider extends React.Component {
 
 Input.contextType = InputContext;
 
+InputProvider.defaultProps = {
+  classes: []
+};
+
 InputProvider.propTypes = {
   inline: PropTypes.bool,
   id: PropTypes.string,
   children: PropTypes.node,
   disabled: PropTypes.bool,
   errorMsg: PropTypes.string,
-  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number])
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool, PropTypes.number]),
+  classes: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default Input;

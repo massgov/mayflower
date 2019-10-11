@@ -1,4 +1,4 @@
-import { text, boolean, select } from '@storybook/addon-knobs/react';
+import { text, boolean, select, array } from '@storybook/addon-knobs/react';
 import { action } from '@storybook/addon-actions';
 import { svgOptions } from '../../icons/Icon/Icon.knob.options';
 
@@ -11,5 +11,6 @@ export default {
   disabled: () => boolean('disabled', false),
   required: () => boolean('required', false),
   errorMsg: () => text('errorMsg', 'You are required to check this box.'),
-  labelText: () => text('labelText', 'Checkbox Input')
+  labelText: () => text('labelText', 'Checkbox Input'),
+  classes: array('classes', [])
 };
