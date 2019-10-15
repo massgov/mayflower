@@ -43,12 +43,4 @@
     color: $c-font-link;
     font-weight: 700;
   }
-
-  &__tags + &__sort {
-
-    @media ($bp-x-small-min) {
-      position: relative;
-        top: 10px;
-    }
-  }
 }

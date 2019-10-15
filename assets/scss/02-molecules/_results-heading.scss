@@ -32,12 +32,6 @@
     @media ($bp-x-small-min) {
       float: right;
       margin-bottom: 0px;
-    }
-  }
-
-  &__tags + &__sort {
-
-    @media ($bp-x-small-min) {
       position: relative;
         top: 10px;
     }
