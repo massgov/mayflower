@@ -18,16 +18,6 @@ class TeaserSearch extends Component {
     }
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    const { target, queryInput } = this.props;
-    const query = this.inputRef.current.value;
-    if (query.length > 0) {
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`, query) : target;
-      this.redirect(searchURL);
-    }
-  }
-
   redirect = (searchURL) => {
     if (window.location !== window.parent.location) {
       window.parent.location.assign(searchURL);
