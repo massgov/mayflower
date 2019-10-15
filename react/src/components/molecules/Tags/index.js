@@ -28,7 +28,7 @@ class Tags extends Component {
     const { tags } = this.state;
     return(
       tags && (
-      <div className="ma__results-heading__tags">
+      <div className="ma__tags">
         { tags.map((tag, tagIndex) => (
             <ButtonTag
               type={tag.type}
@@ -39,7 +39,7 @@ class Tags extends Component {
             />
            ))}
         { tags.length > 1 && (
-        <button type="button" className="ma__results-heading__clear js-results-heading-clear" onClick={() => this.handleClearAll()}>Clear all</button>
+        <button type="button" className="ma__tags-clear js-results-heading-clear" onClick={() => this.handleClearAll()}>Clear all</button>
           )}
       </div>)
     );
