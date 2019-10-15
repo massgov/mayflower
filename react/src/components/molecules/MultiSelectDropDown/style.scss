@@ -1,9 +1,9 @@
 @import 'global';
-@import '02-molecules/multiselect-dropdown';
+// @import '02-molecules/multiselect-dropdown';
 
 .ma__multiselect-dropdown {
 
-  display: inline-block;
+  display: block;
 
   .ma__multiselect-dropdown-menu {
     position: fixed;
