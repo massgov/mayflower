@@ -1,22 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ButtonToggle from '../../atoms/buttons/ButtonToggle';
+import ButtonTag from '../../atoms/buttons/ButtonTag';
 import SelectBox from '../../atoms/forms/SelectBox';
 import './style.css';
-
-const Tag = ({ type, value, text, handleClick }) => {
-  return (
-    <button
-      type="button"
-      className="ma__results-heading__tag js-results-heading-tag"
-      data-ma-filter-type={type}
-      data-ma-filter-value={value}
-      onClick={handleClick}
-    >
-      {text}
-    </button>
-  )
-}
 
 class Tags extends Component {
   constructor(props) {
@@ -45,7 +32,7 @@ class Tags extends Component {
       tags && (
       <div className="ma__results-heading__tags">
         { tags.map((tag, tagIndex) => (
-            <Tag
+            <ButtonTag
               type={tag.type}
               value={tag.value}
               text={tag.text}
