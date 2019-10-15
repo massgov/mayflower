@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import is from 'is';
 import classNames from 'classnames';
 import InputCheckBox from '../../atoms/forms/InputCheckBox';
+import Tags from '../../molecules/Tags';
 import './style.css';
 
 class MultiSelectDropDown extends React.Component {
@@ -12,6 +13,15 @@ class MultiSelectDropDown extends React.Component {
 
   render() {
     const { dropdownItems, onItemSelect } = this.props
+    const tagsProps = [{
+      type: 'format',
+      text: 'PDF',
+      value: 'pdf'
+    }, {
+      type: 'format',
+      text: 'CSV',
+      value: 'csv'
+    }]
     return(
       <div className="ma__multiselect-dropdown ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded">
       <fieldset className="group">
@@ -20,7 +30,9 @@ class MultiSelectDropDown extends React.Component {
         </legend>
         <div className="ma__select-box__field ma__select-box__field--inline">
           <div className="ma__select-box__link">
-            <span className="js-dropdown-link">All Formats</span>
+            <span className="js-dropdown-link">
+              <Tags tags={tagsProps} />
+            </span>
             <span className="ma__select-box__icon"></span>
           </div>
         </div>
