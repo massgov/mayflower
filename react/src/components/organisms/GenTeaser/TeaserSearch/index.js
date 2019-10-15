@@ -13,7 +13,7 @@ class TeaserSearch extends Component {
     const { target, queryInput } = this.props;
     const query = this.inputRef.current.value;
     if (query.length > 0) {
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`, this.state.query) : target;
+      const searchURL = queryInput ? target.replace(`{${queryInput}}`, query) : target;
       this.redirect(searchURL);
     }
   }
@@ -21,9 +21,9 @@ class TeaserSearch extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const { target, queryInput } = this.props;
-    const { query } = this.state;
+    const query = this.inputRef.current.value;
     if (query.length > 0) {
-      const searchURL = queryInput ? target.replace(`{${queryInput}}`, this.state.query) : target;
+      const searchURL = queryInput ? target.replace(`{${queryInput}}`, query) : target;
       this.redirect(searchURL);
     }
   }
@@ -48,7 +48,7 @@ class TeaserSearch extends Component {
           text: 'Search',
           usage: ''
         }}
-        defaultText={queryInput}
+        defaultText=""
         id={id}
         label="Search terms"
         onSubmit={(e) => this.onSubmit(e)}
