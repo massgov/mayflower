@@ -4,6 +4,20 @@ import ButtonToggle from '../../atoms/buttons/ButtonToggle';
 import SelectBox from '../../atoms/forms/SelectBox';
 import './style.css';
 
+const Tag = ({ type, value, text, handleClick }) => {
+  return (
+    <button
+      type="button"
+      className="ma__results-heading__tag js-results-heading-tag"
+      data-ma-filter-type={type}
+      data-ma-filter-value={value}
+      onClick={handleClick}
+    >
+      {text}
+    </button>
+  )
+}
+
 class Tags extends Component {
   constructor(props) {
     super(props);
@@ -31,17 +45,13 @@ class Tags extends Component {
       tags && (
       <div className="ma__results-heading__tags">
         { tags.map((tag, tagIndex) => (
-          <button
-            type="button"
-            className="ma__results-heading__tag js-results-heading-tag"
-            data-ma-filter-type={tag.type}
-            data-ma-filter-value={tag.value}
-            /* eslint-disable-next-line react/no-array-index-key */
-            key={`resultsHeading.tag.${tagIndex}`}
-            onClick={(e) => this.handleClearThis(e)}
-          >
-            {tag.text}
-          </button>
+            <Tag
+              type={tag.type}
+              value={tag.value}
+              text={tag.text}
+              handleClick={(e) => this.handleClearThis(e)}
+              key={`resultsHeading.tag.${tagIndex}`}
+            />
            ))}
         { tags.length > 1 && (
         <button type="button" className="ma__results-heading__clear js-results-heading-clear" onClick={() => this.handleClearAll()}>Clear all</button>
