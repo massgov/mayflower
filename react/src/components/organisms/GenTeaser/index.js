@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 
-import { DecorativeLink, Icon, LinkDropdown, EventTime, Email, PhoneNumber, Address, ButtonWithIcon } from '../../../index';
+import { Icon, LinkDropdown, EventTime, PhoneNumber, Address } from '../../../index';
+import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
+import DecorativeLink from '../../atoms/links/DecorativeLink';
+import Email from '../../atoms/contact/Email';
 import TeaserSearch from './TeaserSearch';
 import TeaserOrgs from './TeaserOrgs';
 import { buildUrl } from './utils';
