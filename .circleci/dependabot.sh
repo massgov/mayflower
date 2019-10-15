@@ -22,7 +22,7 @@ fi
 if [ "$lastCommit" = "$lastDependabot" ]
 then
   printf "\n$commitType\n- $lastCommitClean" > changelogs/dependabot-${fileName}.md
-  git add changelogs/dependabot-${branch##*/}.md
+  git add changelogs/dependabot-${fileName}.md
   git commit -m "Added a new changelog to the `changelogs/` folder"
   echo "Commit dependabot changelog";
   git push -u origin $branch
