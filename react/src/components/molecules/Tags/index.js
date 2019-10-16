@@ -21,7 +21,7 @@ class Tags extends Component {
   }
   handleClearThis(event) {
     if (typeof this.props.onClearThisCallback === 'function') {
-      this.props.onClearThisCallback(event.target);
+      this.props.onClearThisCallback(event.target, event);
     }
   }
   render() {

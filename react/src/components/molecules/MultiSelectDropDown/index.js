@@ -42,8 +42,9 @@ class MultiSelectDropDown extends React.Component {
     }
   }
 
-  handleTagClick = (e) => {
-    const val = e.getAttribute('data-ma-filter-value');
+  handleTagClick = (target, e) => {
+    e.stopPropagation();
+    const val = target.getAttribute('data-ma-filter-value');
     const { values } = this.state;
     values.splice(values.indexOf(val), 1);
     this.setState({
