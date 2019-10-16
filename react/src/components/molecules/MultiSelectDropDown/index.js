@@ -83,7 +83,7 @@ class MultiSelectDropDown extends React.Component {
     });
 
     return(
-      <div className="ma__multiselect-dropdown ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded">
+      <div className="ma__multiselect-dropdown">
         <fieldset className="group">
           <legend className={titleClasses.length > 0 ? titleCls : null}>
             {title}
@@ -97,19 +97,24 @@ class MultiSelectDropDown extends React.Component {
             </div>
           </div>
           {
-            dropwDownExpand && dropdownItems.map((item, i) => (
-              <InputCheckBox
-                id={`input-checkbox${i}`}
-                /* eslint-disable-next-line react/no-array-index-key */
-                key={`input-checkbox${i}`}
-                name={fieldName}
-                value={item.value}
-                label={item.label}
-                onChange={this.handleSelect}
-                classes={['ma__multiselect-dropdown-item']}
-                defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
-              />
-            ))
+            dropwDownExpand && (
+              <div className="ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded">
+                {
+                  dropdownItems.map((item, i) => (
+                    <InputCheckBox
+                      id={`input-checkbox${i}`}
+                      /* eslint-disable-next-line react/no-array-index-key */
+                      key={`input-checkbox${i}`}
+                      name={fieldName}
+                      value={item.value}
+                      label={item.label}
+                      onChange={this.handleSelect}
+                      classes={['ma__multiselect-dropdown-item']}
+                      defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
+                    />
+                  ))}
+              </div>
+            )
           }
         </fieldset>
       </div>
