@@ -6,22 +6,50 @@ import InputCheckBox from '../../atoms/forms/InputCheckBox';
 import Tags from '../../molecules/Tags';
 import './style.css';
 
+export const getObjByValue = (arr, value, key) => {
+  let i = 0;
+  const arrayMax = arr.length;
+  for (; i < arrayMax; i += 1) {
+    const item = arr[i];
+    if (item[key] === value) {
+      return item;
+    }
+  }
+  return undefined;
+};
+
 class MultiSelectDropDown extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      values: []
+    };
   }
 
+  handleSelect = (e, val, id) => {
+    const { values } = this.state;
+    if (val) {
+      values.push(val);
+    } else {
+      values.splice(values.indexOf(val), 1);
+    }
+    this.setState({
+      values
+    });
+    if (is.fn(this.props.onItemSelect)) {
+      this.props.onItemSelect(e, val, id);
+    }
+  }
   render() {
-    const { dropdownItems, onItemSelect } = this.props
-    const tagsProps = [{
-      type: 'format',
-      text: 'PDF',
-      value: 'pdf'
-    }, {
-      type: 'format',
-      text: 'CSV',
-      value: 'csv'
-    }]
+    const { dropdownItems } = this.props;
+    const { values } = this.state;
+    const tags = values.map((val, i) => getObjByValue(dropdownItems, val, 'value'));
+    const tagsProps = tags.map((tag, i) => ({
+      value: tag.value,
+      text: tag.label,
+      type: 'format'
+    }))
+
     return(
       <div className="ma__multiselect-dropdown ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded">
       <fieldset className="group">
@@ -41,10 +69,9 @@ class MultiSelectDropDown extends React.Component {
             <InputCheckBox
               id={`input-checkbox${i}`}
               key={`input-checkbox${i}`}
-              name="input-name"
               value={item.value}
               label={item.label}
-              onChange={(e) => onItemSelect()}
+              onChange={this.handleSelect}
               classes={["ma__multiselect-dropdown-item"]}
             />
           ))

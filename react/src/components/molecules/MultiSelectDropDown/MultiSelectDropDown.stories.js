@@ -12,20 +12,20 @@ storiesOf('molecules', module)
     const props = {
       title: 'Filter by Format(s)',
       dropdownItems: object('dropdownItems', [{
-        value: 'PDF',
-        label: 'pdf'
+        label: 'PDF',
+        value: 'pdf'
       }, {
-        value: 'Excel',
-        label: 'excel'
+        label: 'Excel',
+        value: 'excel'
       }, {
-        value: 'CSV',
-        label: 'csv'
+        label: 'CSV',
+        value: 'csv'
       }, {
-        value: 'HTML',
-        label: 'html'
+        label: 'HTML',
+        value: 'html'
       }, {
-        value: 'JSON',
-        label: 'json'
+        label: 'JSON',
+        value: 'json'
       }], 'dropdownItems'),
       onItemSelect: action('onItemSelect onClick'),
       onDropDownClick: action('onButtonClick onClick')
