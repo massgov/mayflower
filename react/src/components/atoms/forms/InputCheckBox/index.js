@@ -40,7 +40,7 @@ const CheckBox = (props) => {
     type: 'checkbox',
     id,
     value,
-    checked: !!value,
+    checked: value === props.value,
     onClick: handleClick,
     disabled
   };
