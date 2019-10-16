@@ -1,16 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs';
+import { withKnobs, object, text, array } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import MultiSelectDropDown from '.';
-import buttonWithIconOptions from '../../atoms/buttons/ButtonWithIcon/ButtonWithIcon.knobs.options';
+import MultiSelectDropDown from './index';
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('MultiSelectDropDown', (() => {
     const props = {
-      title: 'Filter by Format(s)',
+      title: text('title', 'Filter by Format(s)'),
+      titleClasses: array('titleClasses', []),
       dropdownItems: object('dropdownItems', [{
         label: 'PDF',
         value: 'pdf'
@@ -28,7 +28,8 @@ storiesOf('molecules', module)
         value: 'json'
       }], 'dropdownItems'),
       onItemSelect: action('onItemSelect onClick'),
-      onDropDownClick: action('onButtonClick onClick')
+      onDropDownClick: action('onButtonClick onClick'),
+      fieldName: text('fieldName', 'formats')
     };
     return(
       <MultiSelectDropDown {...props} />

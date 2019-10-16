@@ -21,4 +21,4 @@ storiesOf('molecules/Tags', module)
       );
     }),
     { info: TagsDocs }
-  )
+  );
