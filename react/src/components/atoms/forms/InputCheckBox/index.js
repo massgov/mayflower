@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -8,53 +8,47 @@ import Icon from '../../icons/Icon';
 import { InputContext } from '../Input/context';
 import './style.css';
 
-const CheckBox = (props) => (
-  <React.Fragment>
-    <InputContext.Consumer>
-      {
-        (context) => {
-          const { value } = context;
-          const {
-            icon, label, disabled, required, id
-          } = props;
-          const handleClick = (e) => {
-            e.persist();
-            context.updateState({ value: !value ? props.value : !value }, () => {
-              if (typeof props.onChange === 'function') {
-                props.onChange(e, context.getValue(), id);
-              }
-            });
-            if (!!value && required) {
-              context.updateState({ showError: true });
-            } else {
-              context.updateState({ showError: false });
-            }
-          };
-          const checkboxClasses = classNames({
-            'ma__input-checkbox': true,
-            'ma__input-checkbox--disabled': disabled
-          });
-          const inputProps = {
-            type: 'checkbox',
-            id,
-            value,
-            checked: !!value,
-            onClick: handleClick,
-            disabled
-          };
-          return(
-            <span className={checkboxClasses}>
-              <input {...inputProps} />
-              {icon}
-              <label htmlFor={id} tabIndex={-1} ><span>{ label }</span></label>
-            </span>
+const CheckBox = (props) => {
+  const context = useContext(InputContext);
+  const { value } = context;
+  const {
+    icon, label, disabled, required, id
+  } = props;
 
-          );
-        }
+  const handleClick = (e) => {
+    e.persist();
+    context.updateState({ value: !value ? props.value : !value }, () => {
+      if (typeof props.onChange === 'function') {
+        props.onChange(e, context.getValue(), id);
       }
-    </InputContext.Consumer>
-  </React.Fragment>
-);
+    });
+    if (!!value && required) {
+      context.updateState({ showError: true });
+    } else {
+      context.updateState({ showError: false });
+    }
+  };
+  const checkboxClasses = classNames({
+    'ma__input-checkbox': true,
+    'ma__input-checkbox--disabled': disabled
+  });
+  const inputProps = {
+    type: 'checkbox',
+    id,
+    value,
+    checked: !!value,
+    onClick: handleClick,
+    disabled
+  };
+  return(
+    <span className={checkboxClasses}>
+      <input {...inputProps} />
+      {icon && icon.name && icon}
+      <label htmlFor={id} tabIndex={-1} ><span>{ label }</span></label>
+    </span>
+
+  );
+};
 
 CheckBox.propTypes = {
   icon: PropTypes.shape(Icon.propTypes),
@@ -63,7 +57,8 @@ CheckBox.propTypes = {
   required: PropTypes.bool,
   id: PropTypes.string,
   value: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  defaultValue: PropTypes.string
 };
 
 const InputCheckBox = (props) => {
@@ -93,8 +88,8 @@ InputCheckBox.propTypes = {
   id: PropTypes.string,
   /** Value of the input that is associated with in the formContext. */
   value: PropTypes.string,
-  /** Default checked value. */
-  defaultValue: PropTypes.bool,
+  /** Default input value. */
+  defaultValue: PropTypes.string,
   /** Label for the checkbox input. */
   label: PropTypes.string,
   /** Icon that renders after the label. */

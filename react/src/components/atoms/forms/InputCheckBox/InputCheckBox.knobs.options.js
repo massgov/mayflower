@@ -6,7 +6,7 @@ export default {
   id: () => text('id', 'input-checkbox'),
   label: () => text('label', 'Apply to all'),
   icon: () => select('icon', svgOptions, ''),
-  defaultValue: () => boolean('checked', false),
+  defaultValue: () => text('checked', 'select-all'),
   onChange: () => action('onChange'),
   disabled: () => boolean('disabled', false),
   required: () => boolean('required', false),
