@@ -15,20 +15,24 @@ $colors: (
     min-height: 140px;
     padding: 40px 20px;
     @media ($bp-small-min) {
-      min-height: 160px;
+      // min-height: 160px;
       padding-top: 60px;
       padding-bottom: 60px;
     }
     &--top {
-      min-height: 350px;
+      // min-height: 350px;
       padding: 40px 20px;
       @media ($bp-small-min) {
-        min-height: 400px;
+        // min-height: 400px;
         padding-top: 60px;
         padding-bottom: 60px;
       }
       .ma__key-message__cta {
         margin-bottom: 10px;
+      }
+
+      .ma__key-message__title + .ma__key-message__cta {
+        margin-top: 40px;
       }
     }
   }
@@ -58,6 +62,7 @@ $colors: (
     }
   }
   &__content {
+    margin-top: 20px;
     margin-bottom: 20px;
   }
   &--top {
@@ -65,7 +70,7 @@ $colors: (
   }
 
   &--image {
-    
+
     display: inline-block;
     position: relative;
     width: 100%;
@@ -133,18 +138,22 @@ $colors: (
           }
         }
       }
-      
+
     }
   }
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 0;
+  }
+
+  &__title + &__cta {
+    margin-top: 40px;
   }
 
   @each $class, $c in $colors {
     &--#{$class} {
       background-color: $c;
-      
+
       .ma__button {
         width: 100%;
         @media ($bp-small-min) {
@@ -154,7 +163,7 @@ $colors: (
           color: $c;
         }
       }
-      
+
       &.ma__key-message--image:after {
         background: $c;
       }
@@ -174,6 +183,6 @@ $colors: (
     }
   }
 
-  
+
 
 }
