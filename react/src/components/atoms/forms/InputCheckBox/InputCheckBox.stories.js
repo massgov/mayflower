@@ -19,7 +19,7 @@ storiesOf('atoms/forms', module)
         id: text('id', 'input-checkbox'),
         value: text('value', 'select-all'),
         label: text('label', 'Apply to all'),
-        defaultValue: boolean('checked', false),
+        defaultValue: text('defaultValue', 'select-all'),
         onChange: action('onChange'),
         disabled: boolean('disabled', false),
         required: boolean('required', false),
