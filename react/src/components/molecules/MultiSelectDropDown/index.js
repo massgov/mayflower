@@ -88,14 +88,18 @@ class MultiSelectDropDown extends React.Component {
           <legend className={titleClasses.length > 0 ? titleCls : null}>
             {title}
           </legend>
-          <div className="ma__select-box__field" onClick={this.handleClick}>
+          <button
+            className="ma__select-box__field"
+            onClick={this.handleClick}
+            onFocus={() => this.setState({ dropwDownExpand: true })}
+          >
             <div className="ma__select-box__link">
               <span className="js-dropdown-link">
                 { values.length > 0 ? <Tags {...tagsProps} /> : defaultText}
               </span>
               <span className="ma__select-box__icon" />
             </div>
-          </div>
+          </button>
           {
             dropwDownExpand && (
               <div className="ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded">

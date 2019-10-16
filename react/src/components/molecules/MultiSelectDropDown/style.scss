@@ -24,7 +24,7 @@
     .ma__multiselect-dropdown-item {
       display: block;
       width: 100%;
-      padding: 0.5em 18px 0 ;
+      padding: 0.5em 18px 0;
       font-size: 1rem;
       text-align: inherit;
       white-space: nowrap;
@@ -46,4 +46,10 @@
       }
     }
   }
+}
+
+button.ma__select-box__field {
+  @include ma-button-reset;
+  width: 100%;
+  text-align: left;
 }
