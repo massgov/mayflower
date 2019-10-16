@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -12,8 +12,12 @@ const CheckBox = (props) => {
   const context = useContext(InputContext);
   const { value } = context;
   const {
-    icon, label, disabled, required, id
+    icon, label, disabled, required, id, defaultValue
   } = props;
+
+  useEffect(() => {
+    context.updateState({ value: defaultValue });
+  }, [defaultValue]);
 
   const handleClick = (e) => {
     e.persist();
@@ -73,7 +77,8 @@ const InputCheckBox = (props) => {
     value,
     required: props.required,
     onChange,
-    disabled: props.disabled
+    disabled: props.disabled,
+    defaultValue: props.defaultValue
   };
   return(
     <Input {...inputProps}>
