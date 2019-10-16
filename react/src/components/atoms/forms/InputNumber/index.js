@@ -277,7 +277,8 @@ InputNumber.defaultProps = {
   onChange: null,
   step: 1,
   showButtons: true,
-  unit: ''
+  unit: '',
+  classes: []
 };
 
 export default InputNumber;
