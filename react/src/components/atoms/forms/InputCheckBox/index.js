@@ -14,6 +14,7 @@ const CheckBox = (props) => (
       {
         (context) => {
           const { value } = context;
+          console.log(value)
           const {
             icon, label, disabled, required, id
           } = props;
