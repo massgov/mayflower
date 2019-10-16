@@ -45,7 +45,7 @@ const CheckBox = (props) => (
           return(
             <span className={checkboxClasses}>
               <input {...inputProps} />
-              {icon && icon.name && <Icon {...icon} />}
+              {icon}
               <label htmlFor={id} tabIndex={-1} ><span>{ label }</span></label>
             </span>
 
