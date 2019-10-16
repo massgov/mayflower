@@ -59,7 +59,6 @@ class MultiSelectDropDown extends React.Component {
   render() {
     const { dropdownItems } = this.props;
     const { values } = this.state;
-    console.log(values)
     const tags = values.map((val, i) => getObjByValue(dropdownItems, val, 'value'));
     const tagsProps = {
       tags: tags.map((tag) => ({
@@ -73,32 +72,35 @@ class MultiSelectDropDown extends React.Component {
 
     return(
       <div className="ma__multiselect-dropdown ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded">
-      <fieldset className="group">
-        <legend className={this.props.titleClasses}>
-          {this.props.title}
-        </legend>
-        <div className="ma__select-box__field">
-          <div className="ma__select-box__link">
-            <span className="js-dropdown-link">
-              <Tags {...tagsProps} />
-            </span>
-            <span className="ma__select-box__icon"></span>
+        <fieldset className="group">
+          <legend className={this.props.titleClasses}>
+            {this.props.title}
+          </legend>
+          <div className="ma__select-box__field">
+            <div className="ma__select-box__link">
+              <span className="js-dropdown-link">
+                <Tags {...tagsProps} />
+              </span>
+              <span className="ma__select-box__icon" />
+            </div>
           </div>
-        </div>
-        {
-          dropdownItems.map((item, i) => (
-            <InputCheckBox
-              id={`input-checkbox${i}`}
-              key={`input-checkbox${i}`}
-              value={item.value}
-              label={item.label}
-              onChange={this.handleSelect}
-              classes={["ma__multiselect-dropdown-item"]}
-              defaultValue={values.indexOf(item.value) > 0}
-            />
-          ))
-        }
-      </fieldset>
+          {
+            dropdownItems.map((item, i) => {
+              return(
+                <InputCheckBox
+                  id={`input-checkbox${i}`}
+                  key={`input-checkbox${i}`}
+                  value={item.value}
+                  label={item.label}
+                  onChange={this.handleSelect}
+                  classes={["ma__multiselect-dropdown-item"]}
+                  defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
+                />
+              )
+            }
+            )
+          }
+        </fieldset>
       </div>
     );
   }
