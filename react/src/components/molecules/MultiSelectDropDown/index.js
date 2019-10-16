@@ -40,15 +40,36 @@ class MultiSelectDropDown extends React.Component {
       this.props.onItemSelect(e, val, id);
     }
   }
+
+  handleTagClick = (e) => {
+    const val = e.getAttribute('data-ma-filter-value');
+    const { values } = this.state;
+    values.splice(values.indexOf(val), 1);
+    this.setState({
+      values
+    });
+  }
+
+  handleClearAll = () => {
+    this.setState({
+      values: []
+    });
+  }
+
   render() {
     const { dropdownItems } = this.props;
     const { values } = this.state;
+    console.log(values)
     const tags = values.map((val, i) => getObjByValue(dropdownItems, val, 'value'));
-    const tagsProps = tags.map((tag, i) => ({
-      value: tag.value,
-      text: tag.label,
-      type: 'format'
-    }))
+    const tagsProps = {
+      tags: tags.map((tag) => ({
+        value: tag.value,
+        text: tag.label,
+        type: 'format'
+      })),
+      onClearThisCallback: this.handleTagClick,
+      onClearCallback: this.handleClearAll
+    }
 
     return(
       <div className="ma__multiselect-dropdown ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded">
@@ -56,10 +77,10 @@ class MultiSelectDropDown extends React.Component {
         <legend className={this.props.titleClasses}>
           {this.props.title}
         </legend>
-        <div className="ma__select-box__field ma__select-box__field--inline">
+        <div className="ma__select-box__field">
           <div className="ma__select-box__link">
             <span className="js-dropdown-link">
-              <Tags tags={tagsProps} />
+              <Tags {...tagsProps} />
             </span>
             <span className="ma__select-box__icon"></span>
           </div>
@@ -73,6 +94,7 @@ class MultiSelectDropDown extends React.Component {
               label={item.label}
               onChange={this.handleSelect}
               classes={["ma__multiselect-dropdown-item"]}
+              defaultValue={values.indexOf(item.value) > 0}
             />
           ))
         }
