@@ -17,6 +17,7 @@ storiesOf('atoms/forms', module)
     'InputCheckBox', (() => {
       const props = {
         id: text('id', 'input-checkbox'),
+        value: text('value', 'select-all'),
         label: text('label', 'Apply to all'),
         defaultValue: boolean('checked', false),
         onChange: action('onChange'),

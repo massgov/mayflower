@@ -14,13 +14,12 @@ const CheckBox = (props) => (
       {
         (context) => {
           const { value } = context;
-          console.log(value)
           const {
             icon, label, disabled, required, id
           } = props;
           const handleClick = (e) => {
             e.persist();
-            context.updateState({ value: !value }, () => {
+            context.updateState({ value: !value ? props.value : !value }, () => {
               if (typeof props.onChange === 'function') {
                 props.onChange(e, context.getValue(), id);
               }
@@ -38,7 +37,8 @@ const CheckBox = (props) => (
           const inputProps = {
             type: 'checkbox',
             id,
-            checked: value,
+            value,
+            checked: !!value,
             onClick: handleClick,
             disabled
           };
@@ -62,18 +62,20 @@ CheckBox.propTypes = {
   disabled: PropTypes.bool,
   required: PropTypes.bool,
   id: PropTypes.string,
+  value: PropTypes.string,
   onChange: PropTypes.func
 };
 
 const InputCheckBox = (props) => {
   const {
-    icon, label, onChange, ...inputProps
+    icon, label, onChange, value, ...inputProps
   } = props;
   // Input and checkBox share the props.checked, props.id values.
   const checkBoxProps = {
     icon,
     label,
     id: props.id,
+    value,
     required: props.required,
     onChange,
     disabled: props.disabled
@@ -89,6 +91,8 @@ const InputCheckBox = (props) => {
 InputCheckBox.propTypes = {
   /** Id of the input that the label is tied to and the value is associated with in the formContext. */
   id: PropTypes.string,
+  /** Value of the input that is associated with in the formContext. */
+  value: PropTypes.string,
   /** Default checked value. */
   defaultValue: PropTypes.bool,
   /** Label for the checkbox input. */
