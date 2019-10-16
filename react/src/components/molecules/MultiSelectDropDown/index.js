@@ -27,6 +27,16 @@ class MultiSelectDropDown extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.buttonClicked = false;
+    document.addEventListener('mousedown', (e) => this.handleClickOutside(e));
+    this.wrapperRef.addEventListener('keydown', (e) => this.handleKeyDown(e));
+  }
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', () => this.handleClickOutside());
+    this.wrapperRef.removeEventListener('keydown', () => this.handleKeyDown());
+  }
+
   handleSelect = (e, val, id) => {
     const { values } = this.state;
     if (val) {
@@ -62,6 +72,26 @@ class MultiSelectDropDown extends React.Component {
     this.setState((prevState) => ({ dropwDownExpand: !prevState.dropwDownExpand }));
   }
 
+  handleClickOutside = (event) => {
+    // Close the panel if the user clicks outside the component.
+    const node = this.wrapperRef;
+    if ((node && !node.contains(event.target))) {
+      if (this.state.dropwDownExpand) {
+        this.closeDropDown();
+      }
+    }
+  }
+  handleKeyDown = (event) => {
+    // If the user pressed escape collapse list.
+    if (event.key === 'Escape') {
+      this.closeDropDown();
+    }
+  }
+
+  closeDropDown = () => {
+    this.setState({ dropwDownExpand: false });
+  }
+
   render() {
     const {
       dropdownItems, fieldName, title, titleClasses, defaultText
@@ -83,7 +113,12 @@ class MultiSelectDropDown extends React.Component {
     });
 
     return(
-      <div className="ma__multiselect-dropdown">
+      <div
+        className="ma__multiselect-dropdown"
+        ref={(node) => {
+          this.wrapperRef = node;
+        }}
+      >
         <fieldset className="group">
           <legend className={titleClasses.length > 0 ? titleCls : null}>
             {title}
@@ -92,6 +127,7 @@ class MultiSelectDropDown extends React.Component {
             className="ma__select-box__field"
             onClick={this.handleClick}
             onFocus={() => this.setState({ dropwDownExpand: true })}
+            onKeyDown={this.handleKeyDown}
           >
             <div className="ma__select-box__link">
               <span className="js-dropdown-link">
@@ -102,7 +138,9 @@ class MultiSelectDropDown extends React.Component {
           </button>
           {
             dropwDownExpand && (
-              <div className="ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded">
+              <div
+                className="ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded"
+              >
                 {
                   dropdownItems.map((item, i) => (
                     <InputCheckBox
