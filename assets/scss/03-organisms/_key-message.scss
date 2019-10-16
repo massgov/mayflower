@@ -15,15 +15,12 @@ $colors: (
     min-height: 140px;
     padding: 40px 20px;
     @media ($bp-small-min) {
-      // min-height: 160px;
       padding-top: 60px;
       padding-bottom: 60px;
     }
     &--top {
-      // min-height: 350px;
       padding: 40px 20px;
       @media ($bp-small-min) {
-        // min-height: 400px;
         padding-top: 60px;
         padding-bottom: 60px;
       }
@@ -144,10 +141,6 @@ $colors: (
 
   &__title {
     margin-bottom: 0;
-  }
-
-  &__title + &__cta {
-    margin-top: 40px;
   }
 
   @each $class, $c in $colors {
