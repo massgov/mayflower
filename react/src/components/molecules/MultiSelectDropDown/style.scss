@@ -24,12 +24,13 @@
     .ma__multiselect-dropdown-item {
       display: block;
       width: 100%;
-      padding: 5px calc(5px + 0.8em) 5px 5px;
+      padding: 0.5em 18px 0 ;
       font-size: 1rem;
       text-align: inherit;
       white-space: nowrap;
       background-color: transparent;
       border: 0;
+      border: 1px solid $c-gray-light;
 
       a, a:hover, a:hover {
         border-bottom: none;
