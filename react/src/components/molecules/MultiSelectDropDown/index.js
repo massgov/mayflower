@@ -22,7 +22,8 @@ class MultiSelectDropDown extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: []
+      values: [],
+      dropwDownExpand: false
     };
   }
 
@@ -56,11 +57,15 @@ class MultiSelectDropDown extends React.Component {
     });
   }
 
+  handleClick = () => {
+    this.setState((prevState) => ({ dropwDownExpand: !prevState.dropwDownExpand }));
+  }
+
   render() {
     const {
-      dropdownItems, fieldName, title, titleClasses
+      dropdownItems, fieldName, title, titleClasses, defaultText
     } = this.props;
-    const { values } = this.state;
+    const { values, dropwDownExpand } = this.state;
     const tags = values.map((val) => getObjByValue(dropdownItems, val, 'value'));
     const tagsProps = {
       tags: tags.map((tag) => ({
@@ -82,16 +87,16 @@ class MultiSelectDropDown extends React.Component {
           <legend className={titleClasses.length > 0 ? titleCls : null}>
             {title}
           </legend>
-          <div className="ma__select-box__field">
+          <div className="ma__select-box__field" onClick={this.handleClick}>
             <div className="ma__select-box__link">
               <span className="js-dropdown-link">
-                <Tags {...tagsProps} />
+                { values.length > 0 ? <Tags {...tagsProps} /> : defaultText}
               </span>
               <span className="ma__select-box__icon" />
             </div>
           </div>
           {
-            dropdownItems.map((item, i) => (
+            dropwDownExpand && dropdownItems.map((item, i) => (
               <InputCheckBox
                 id={`input-checkbox${i}`}
                 /* eslint-disable-next-line react/no-array-index-key */
@@ -116,6 +121,8 @@ MultiSelectDropDown.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   /** Legend classes. */
   titleClasses: PropTypes.arrayOf(PropTypes.string),
+  /** Default display in dropdown field. */
+  defaultText: PropTypes.string,
   /** Custom callback on dropdown item selection. */
   onItemSelect: PropTypes.func,
   /** Custom callback on dropdown click. */

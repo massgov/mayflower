@@ -11,6 +11,7 @@ storiesOf('molecules', module)
     const props = {
       title: text('title', 'Filter by Format(s)'),
       titleClasses: array('titleClasses', []),
+      defaultText: text('defaultText', 'All Formats', 'dropdownItems'),
       dropdownItems: object('dropdownItems', [{
         label: 'PDF',
         value: 'pdf'
