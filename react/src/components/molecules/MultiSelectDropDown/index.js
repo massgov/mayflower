@@ -193,6 +193,7 @@ class MultiSelectDropDown extends React.Component {
                       onKeyDown={this.handleDropDownKeyDown}
                       classes={['ma__multiselect-dropdown-item']}
                       defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
+                      tabIndex={-1}
                     />
                   ))}
               </div>

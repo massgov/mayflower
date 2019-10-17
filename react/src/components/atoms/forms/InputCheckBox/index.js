@@ -13,7 +13,7 @@ const CheckBox = (props) => {
   const context = useContext(InputContext);
   const { value } = context;
   const {
-    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange
+    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex
   } = props;
 
   useEffect(() => {
@@ -43,6 +43,7 @@ const CheckBox = (props) => {
     value,
     checked: value === props.value,
     onClick: handleClick,
+    tabIndex,
     disabled
   };
 
@@ -69,12 +70,13 @@ CheckBox.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   onKeyDown: PropTypes.func,
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
+  tabIndex: PropTypes.number
 };
 
 const InputCheckBox = (props) => {
   const {
-    icon, label, onChange, onKeyDown, value, ...inputProps
+    icon, label, onChange, onKeyDown, value, tabIndex, ...inputProps
   } = props;
   // Input and checkBox share the props.checked, props.id values.
   const checkBoxProps = {
@@ -85,6 +87,7 @@ const InputCheckBox = (props) => {
     required: props.required,
     onChange,
     onKeyDown,
+    tabIndex,
     disabled: props.disabled,
     defaultValue: props.defaultValue
   };
@@ -103,6 +106,8 @@ InputCheckBox.propTypes = {
   value: PropTypes.string,
   /** Default input value. */
   defaultValue: PropTypes.string,
+  /** Tab index for the checkbox input. */
+  tabIndex: PropTypes.number,
   /** Label for the checkbox input. */
   label: PropTypes.string,
   /** Icon that renders after the label. */
