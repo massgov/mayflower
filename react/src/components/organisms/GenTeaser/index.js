@@ -139,13 +139,12 @@ const GenTeaserTitle = (props) => {
     level, title, children, ...rest
   } = props;
   if (title) {
-    title.icon = title.icon ? <Icon name={icon} svgWidth={15} svgHeight={15} aria-hidden="true" /> : '';
+    title.icon = title.icon ? <Icon name={title.icon} svgWidth={15} svgHeight={15} aria-hidden="true" /> : '';
   }
   const Element = `h${level || 2}`;
   return(
     <Element className="ma__gen-teaser__title" {...rest} >
-      {title && <DecorativeLink {...title} />}
-      {children}
+      {children || <DecorativeLink {...title} />}
     </Element>
   );
 };
