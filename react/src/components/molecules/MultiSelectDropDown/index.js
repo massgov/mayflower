@@ -31,6 +31,7 @@ class MultiSelectDropDown extends React.Component {
     this.buttonClicked = false;
     document.addEventListener('mousedown', (e) => this.handleClickOutside(e));
     this.wrapperRef.addEventListener('keydown', (e) => this.handleKeyDown(e));
+    this.wrapperRef.addEventListener('onblur', (e) => this.handleKeyDown(e));
   }
   componentWillUnmount() {
     document.removeEventListener('mousedown', () => this.handleClickOutside());
@@ -68,9 +69,6 @@ class MultiSelectDropDown extends React.Component {
     });
   }
 
-  handleClick = () => {
-    this.setState((prevState) => ({ dropwDownExpand: !prevState.dropwDownExpand }));
-  }
 
   handleClickOutside = (event) => {
     // Close the panel if the user clicks outside the component.
@@ -131,6 +129,19 @@ class MultiSelectDropDown extends React.Component {
     }
   }
 
+  handleClick = () => {
+    this.toggleDropDown();
+  }
+
+  handleComboBoxKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      this.toggleDropDown();
+    }
+  }
+
+  toggleDropDown = () => {
+    this.setState((prevState) => ({ dropwDownExpand: !prevState.dropwDownExpand }));
+  }
   closeDropDown = () => {
     this.setState({ dropwDownExpand: false });
   }
@@ -178,7 +189,7 @@ class MultiSelectDropDown extends React.Component {
             aria-haspopup
             className="ma__select-box__field"
             onClick={this.handleClick}
-            onFocus={() => this.setState({ dropwDownExpand: true })}
+            onKeyDown={this.handleComboBoxKeyDown}
           >
             <div className="ma__select-box__link">
               <span className="js-dropdown-link">
