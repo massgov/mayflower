@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import is from 'is';
 
 import Input from '../Input';
 import Error from '../Input/error';
@@ -12,7 +13,7 @@ const CheckBox = (props) => {
   const context = useContext(InputContext);
   const { value } = context;
   const {
-    icon, label, disabled, required, id, defaultValue
+    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange
   } = props;
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const CheckBox = (props) => {
     e.persist();
     context.updateState({ value: !value ? props.value : !value }, () => {
       if (typeof props.onChange === 'function') {
-        props.onChange(e, context.getValue(), id);
+        onChange(e, context.getValue(), id);
       }
     });
     if (!!value && required) {
@@ -44,6 +45,11 @@ const CheckBox = (props) => {
     onClick: handleClick,
     disabled
   };
+
+  if (is.fn(onKeyDown)) {
+    inputProps.onKeyDown = onKeyDown;
+  }
+
   return(
     <span className={checkboxClasses}>
       <input {...inputProps} />
@@ -62,12 +68,13 @@ CheckBox.propTypes = {
   id: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
   defaultValue: PropTypes.string
 };
 
 const InputCheckBox = (props) => {
   const {
-    icon, label, onChange, value, ...inputProps
+    icon, label, onChange, onKeyDown, value, ...inputProps
   } = props;
   // Input and checkBox share the props.checked, props.id values.
   const checkBoxProps = {
@@ -77,6 +84,7 @@ const InputCheckBox = (props) => {
     value,
     required: props.required,
     onChange,
+    onKeyDown,
     disabled: props.disabled,
     defaultValue: props.defaultValue
   };
@@ -101,6 +109,8 @@ InputCheckBox.propTypes = {
   icon: PropTypes.shape(Icon.propTypes),
   /** Custom callback function called when input checked value is changed. */
   onChange: PropTypes.func,
+  /** Custom callback function called when a keyboard action is triggered. */
+  onKeyDown: PropTypes.func,
   /** Whether the input is disabled. */
   disabled: PropTypes.bool,
   /** Whether checked is required. */

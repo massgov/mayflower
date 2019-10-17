@@ -21,6 +21,7 @@ storiesOf('atoms/forms', module)
         label: text('label', 'Apply to all'),
         defaultValue: text('defaultValue', 'select-all'),
         onChange: action('onChange'),
+        onKeyDown: action('onKeyDown'),
         disabled: boolean('disabled', false),
         required: boolean('required', false),
         errorMsg: text('errorMsg', 'You are required to check this box.'),
