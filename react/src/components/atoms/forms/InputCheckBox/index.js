@@ -124,7 +124,9 @@ InputCheckBox.propTypes = {
   labelText: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object
-  ]).isRequired
+  ]).isRequired,
+  /** Pass array of classNames to input wrapper div */
+  classes: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default InputCheckBox;

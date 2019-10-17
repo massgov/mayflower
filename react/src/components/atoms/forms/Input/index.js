@@ -10,11 +10,11 @@ import { InputContext, FormContext } from './context';
 const Input = (props) => {
   const {
     inline, classes, labelText, hiddenLabel, required, disabled, id
-  } = props
+  } = props;
   const inputClasses = classNames({
     'ma__input-group': true,
     'ma__input-group--inline': inline,
-    [classes.join(' ')]: classes
+    [classes && classes.length > 0 && classes.join(' ')]: true
   });
   const inputLabelClasses = classNames({
     ma__label: true,
@@ -40,7 +40,8 @@ Input.propTypes = {
   hiddenLabel: PropTypes.bool,
   required: PropTypes.bool,
   inline: PropTypes.bool,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  classes: PropTypes.arrayOf(PropTypes.string)
 };
 
 // Anything within a provider always re-renders when state changes.
@@ -100,10 +101,6 @@ class InputProvider extends React.Component {
 }
 
 Input.contextType = InputContext;
-
-InputProvider.defaultProps = {
-  classes: []
-};
 
 InputProvider.propTypes = {
   inline: PropTypes.bool,
