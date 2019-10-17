@@ -138,7 +138,9 @@ const GenTeaserTitle = (props) => {
   const {
     level, title, title: { icon }, children, ...rest
   } = props;
-  title.icon = icon ? <Icon name={icon} svgWidth={15} svgHeight={15} aria-hidden="true" /> : '';
+  if (title) {
+    title.icon = icon ? <Icon name={icon} svgWidth={15} svgHeight={15} aria-hidden="true" /> : '';
+  }
   const Element = `h${level || 2}`;
   return(
     <Element className="ma__gen-teaser__title" {...rest} >
