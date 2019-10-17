@@ -36,6 +36,7 @@ class MultiSelectDropDown extends React.Component {
   componentWillUnmount() {
     document.removeEventListener('mousedown', () => this.handleClickOutside());
     this.wrapperRef.removeEventListener('keydown', () => this.handleKeyDown());
+    this.wrapperRef.removeEventListener('onblur', (e) => this.handleKeyDown(e));
   }
 
   handleSelect = (e, val, id) => {
@@ -59,14 +60,17 @@ class MultiSelectDropDown extends React.Component {
     const { values } = this.state;
     values.splice(values.indexOf(val), 1);
     this.setState({
-      values
+      values,
+      dropwDownExpand: true
     });
+    this.focusOnComboBox();
   }
 
   handleClearAll = () => {
     this.setState({
       values: []
     });
+    this.focusOnComboBox();
   }
 
 
