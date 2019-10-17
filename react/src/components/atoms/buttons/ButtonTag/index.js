@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-const ButtonTag = ({ type, value, text, handleClick }) => {
-  return (
-    <button
-      type="button"
-      className="ma__button-tag js-results-heading-tag"
-      data-ma-filter-type={type}
-      data-ma-filter-value={value}
-      onClick={handleClick}
-    >
-      {text}
-    </button>
-  )
-}
+const ButtonTag = ({
+  type, value, text, handleClick
+}) => (
+  <button
+    type="button"
+    className="ma__button-tag js-results-heading-tag"
+    data-ma-filter-type={type}
+    data-ma-filter-value={value}
+    onClick={handleClick}
+  >
+    {text}
+  </button>
+);
 
 ButtonTag.propTypes = {
   /** The label text of the sort button */

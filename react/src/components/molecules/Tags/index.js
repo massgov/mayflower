@@ -30,14 +30,15 @@ class Tags extends Component {
       tags && (
       <div className="ma__tags">
         { tags.map((tag, tagIndex) => (
-            <ButtonTag
-              type={tag.type}
-              value={tag.value}
-              text={tag.text}
-              handleClick={(e) => this.handleClearThis(e)}
-              key={`resultsHeading.tag.${tagIndex}`}
-            />
-           ))}
+          <ButtonTag
+            type={tag.type}
+            value={tag.value}
+            text={tag.text}
+            handleClick={(e) => this.handleClearThis(e)}
+            /* eslint-disable-next-line react/no-array-index-key */
+            key={`resultsHeading.tag.${tagIndex}`}
+          />
+         ))}
         { tags.length > 1 && (
         <button type="button" className="ma__tags-clear js-results-heading-clear" onClick={() => this.handleClearAll()}>Clear all</button>
           )}
