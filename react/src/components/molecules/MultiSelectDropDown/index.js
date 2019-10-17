@@ -81,6 +81,38 @@ class MultiSelectDropDown extends React.Component {
       }
     }
   }
+  handleComboBoxKeyDown = (event) => {
+    if (event.key === 'ArrowDown') {
+      const nextItem = event.target
+        .nextElementSibling
+        .firstChild
+        .getElementsByTagName('input')[0];
+      nextItem.focus();
+    }
+  }
+
+  handleDropDownKeyDown = (event) => {
+    const targetId = event.target.id;
+    const index = Number(targetId.split('-').pop());
+    const nextIndex = index + 1;
+    const prevIndex = index - 1;
+    if (event.key === 'ArrowUp') {
+      if (prevIndex === -1) {
+        const comboBox = document.getElementById(`${this.props.fieldName}-multiselect-combobox`);
+        comboBox.focus();
+      }
+      if (prevIndex >= 0) {
+        const prevItem = document.getElementById(`input-checkbox-${prevIndex}`);
+        prevItem.focus();
+      }
+    }
+
+    if (event.key === 'ArrowDown' && nextIndex < this.props.dropdownItems.length) {
+      const nextItem = document.getElementById(`input-checkbox-${nextIndex}`);
+      nextItem.focus();
+    }
+  }
+
   handleKeyDown = (event) => {
     // If the user pressed escape collapse list.
     if (event.key === 'Escape') {
@@ -123,11 +155,17 @@ class MultiSelectDropDown extends React.Component {
           <legend className={titleClasses.length > 0 ? titleCls : null}>
             {title}
           </legend>
-          <button
+          <div
+            role="combobox"
+            tabIndex={0}
+            aria-expanded={dropwDownExpand}
+            aria-controls={`${fieldName}-multiselect`}
+            id={`${fieldName}-multiselect-combobox`}
+            aria-haspopup
             className="ma__select-box__field"
             onClick={this.handleClick}
             onFocus={() => this.setState({ dropwDownExpand: true })}
-            onKeyDown={this.handleKeyDown}
+            onKeyDown={this.handleComboBoxKeyDown}
           >
             <div className="ma__select-box__link">
               <span className="js-dropdown-link">
@@ -135,22 +173,24 @@ class MultiSelectDropDown extends React.Component {
               </span>
               <span className="ma__select-box__icon" />
             </div>
-          </button>
+          </div>
           {
             dropwDownExpand && (
               <div
+                id={`${fieldName}-multiselect`}
                 className="ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded"
               >
                 {
                   dropdownItems.map((item, i) => (
                     <InputCheckBox
-                      id={`input-checkbox${i}`}
+                      id={`input-checkbox-${i}`}
                       /* eslint-disable-next-line react/no-array-index-key */
-                      key={`input-checkbox${i}`}
+                      key={`input-checkbox-${i}`}
                       name={fieldName}
                       value={item.value}
                       label={item.label}
                       onChange={this.handleSelect}
+                      onKeyDown={this.handleDropDownKeyDown}
                       classes={['ma__multiselect-dropdown-item']}
                       defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
                     />
