@@ -23,7 +23,7 @@ const CheckBox = (props) => {
   const handleClick = (e) => {
     e.persist();
     context.updateState({ value: !value ? props.value : !value }, () => {
-      if (typeof props.onChange === 'function') {
+      if (is.fn(onChange)) {
         onChange(e, context.getValue(), id);
       }
     });
