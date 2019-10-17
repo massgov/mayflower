@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import is from 'is';
 import classNames from 'classnames';
 import InputCheckBox from '../../atoms/forms/InputCheckBox';
 import Tags from '../../molecules/Tags';
@@ -31,7 +30,6 @@ class MultiSelectDropDown extends React.Component {
     this.buttonClicked = false;
     document.addEventListener('mousedown', (e) => this.handleClickOutside(e));
     this.wrapperRef.addEventListener('keydown', (e) => this.handleKeyDown(e));
-    this.wrapperRef.addEventListener('onblur', (e) => this.handleKeyDown(e));
   }
   componentWillUnmount() {
     document.removeEventListener('mousedown', () => this.handleClickOutside());
@@ -39,20 +37,21 @@ class MultiSelectDropDown extends React.Component {
     this.wrapperRef.removeEventListener('onblur', (e) => this.handleKeyDown(e));
   }
 
-  handleSelect = (e, val, id) => {
-    const { values } = this.state;
-    if (val) {
-      values.push(val);
-    } else {
-      values.splice(values.indexOf(val), 1);
-    }
-    this.setState({
-      values
-    });
-    if (is.fn(this.props.onItemSelect)) {
-      this.props.onItemSelect(e, val, id);
-    }
+
+  onBlur = () => {
+    // Time out to wait for React processing delay on activeElement
+    this._timeoutID = setTimeout(() => {
+      if (document.activeElement !== null) {
+        if (!this.wrapperRef.contains(document.activeElement)) {
+          this.setState({
+            dropwDownExpand: false
+          });
+        }
+      }
+    }, 0);
   }
+
+  _timeoutID;
 
   handleTagClick = (target, e) => {
     e.stopPropagation();
@@ -99,7 +98,12 @@ class MultiSelectDropDown extends React.Component {
     }
   }
 
+
   handleKeyDown = (event) => {
+    // Detect onBlur using tab key
+    if (event.key === 'Tab') {
+      this.onBlur();
+    }
     // If the user pressed escape collapse list.
     if (event.key === 'Escape') {
       this.closeDropDown();
