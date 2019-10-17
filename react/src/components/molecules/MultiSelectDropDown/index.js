@@ -81,19 +81,18 @@ class MultiSelectDropDown extends React.Component {
       }
     }
   }
-  handleComboBoxKeyDown = (event) => {
-    if (event.key === 'ArrowDown') {
-      const nextItem = event.target
-        .nextElementSibling
-        .firstChild
-        .getElementsByTagName('input')[0];
-      nextItem.focus();
-    }
-  }
 
-  handleDropDownKeyDown = (event) => {
-    const targetId = event.target.id;
-    const index = Number(targetId.split('-').pop());
+  handleKeyDown = (event) => {
+    // If the user pressed escape collapse list.
+    if (event.key === 'Escape') {
+      this.closeDropDown();
+    }
+    let index = -1;
+    const { tagName } = event.target;
+    if (tagName === 'INPUT') {
+      const targetId = event.target.id;
+      index = Number(targetId.split('-').pop());
+    }
     const nextIndex = index + 1;
     const prevIndex = index - 1;
     if (event.key === 'ArrowUp') {
@@ -103,20 +102,17 @@ class MultiSelectDropDown extends React.Component {
       }
       if (prevIndex >= 0) {
         const prevItem = document.getElementById(`input-checkbox-${prevIndex}`);
-        prevItem.focus();
+        if (prevItem) {
+          prevItem.focus();
+        }
       }
     }
 
     if (event.key === 'ArrowDown' && nextIndex < this.props.dropdownItems.length) {
       const nextItem = document.getElementById(`input-checkbox-${nextIndex}`);
-      nextItem.focus();
-    }
-  }
-
-  handleKeyDown = (event) => {
-    // If the user pressed escape collapse list.
-    if (event.key === 'Escape') {
-      this.closeDropDown();
+      if (nextItem) {
+        nextItem.focus();
+      }
     }
   }
 
@@ -155,6 +151,9 @@ class MultiSelectDropDown extends React.Component {
           <legend className={titleClasses.length > 0 ? titleCls : null}>
             {title}
           </legend>
+          {
+            /* eslint-disable jsx-a11y/click-events-have-key-events */
+          }
           <div
             role="combobox"
             tabIndex={0}
@@ -165,7 +164,6 @@ class MultiSelectDropDown extends React.Component {
             className="ma__select-box__field"
             onClick={this.handleClick}
             onFocus={() => this.setState({ dropwDownExpand: true })}
-            onKeyDown={this.handleComboBoxKeyDown}
           >
             <div className="ma__select-box__link">
               <span className="js-dropdown-link">
@@ -190,7 +188,6 @@ class MultiSelectDropDown extends React.Component {
                       value={item.value}
                       label={item.label}
                       onChange={this.handleSelect}
-                      onKeyDown={this.handleDropDownKeyDown}
                       classes={['ma__multiselect-dropdown-item']}
                       defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
                       tabIndex={-1}
