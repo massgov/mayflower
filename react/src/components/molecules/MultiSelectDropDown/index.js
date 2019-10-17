@@ -82,6 +82,21 @@ class MultiSelectDropDown extends React.Component {
     }
   }
 
+  handleDropDownKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      const { value } = event.target;
+      const { values } = this.state;
+      if (values.indexOf(value) > -1) {
+        values.splice(values.indexOf(value), 1);
+      } else {
+        values.push(value);
+      }
+      this.setState({
+        values
+      });
+    }
+  }
+
   handleKeyDown = (event) => {
     // If the user pressed escape collapse list.
     if (event.key === 'Escape') {
@@ -188,6 +203,7 @@ class MultiSelectDropDown extends React.Component {
                       value={item.value}
                       label={item.label}
                       onChange={this.handleSelect}
+                      onKeyDown={this.handleDropDownKeyDown}
                       classes={['ma__multiselect-dropdown-item']}
                       defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
                       tabIndex={-1}
