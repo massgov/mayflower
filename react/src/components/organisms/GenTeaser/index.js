@@ -136,10 +136,10 @@ export default GenTeaser;
   */
 const GenTeaserTitle = (props) => {
   const {
-    level, title, title: { icon }, children, ...rest
+    level, title, children, ...rest
   } = props;
   if (title) {
-    title.icon = icon ? <Icon name={icon} svgWidth={15} svgHeight={15} aria-hidden="true" /> : '';
+    title.icon = title.icon ? <Icon name={icon} svgWidth={15} svgHeight={15} aria-hidden="true" /> : '';
   }
   const Element = `h${level || 2}`;
   return(
