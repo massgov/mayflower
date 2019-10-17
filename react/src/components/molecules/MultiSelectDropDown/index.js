@@ -99,7 +99,9 @@ class MultiSelectDropDown extends React.Component {
     // If the user pressed escape collapse list.
     if (event.key === 'Escape') {
       this.closeDropDown();
+      this.focusOnComboBox();
     }
+
     let index = -1;
     const { tagName } = event.target;
     if (tagName === 'INPUT') {
@@ -108,10 +110,10 @@ class MultiSelectDropDown extends React.Component {
     }
     const nextIndex = index + 1;
     const prevIndex = index - 1;
+
     if (event.key === 'ArrowUp') {
       if (prevIndex === -1) {
-        const comboBox = document.getElementById(`${this.props.fieldName}-multiselect-combobox`);
-        comboBox.focus();
+        this.focusOnComboBox();
       }
       if (prevIndex >= 0) {
         const prevItem = document.getElementById(`input-checkbox-${prevIndex}`);
@@ -127,6 +129,11 @@ class MultiSelectDropDown extends React.Component {
         nextItem.focus();
       }
     }
+  }
+
+  focusOnComboBox = () => {
+    const comboBox = document.getElementById(`${this.props.fieldName}-multiselect-combobox`);
+    comboBox.focus();
   }
 
   handleClick = () => {
