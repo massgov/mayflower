@@ -62,7 +62,6 @@ class MultiSelectDropDown extends React.Component {
       values,
       dropwDownExpand: true
     });
-    this.focusOnComboBox();
   }
 
   handleClearAll = () => {
@@ -149,6 +148,7 @@ class MultiSelectDropDown extends React.Component {
   }
 
   handleComboBoxKeyDown = (event) => {
+    event.stopPropagation();
     if (event.key === 'Enter') {
       this.toggleDropDown();
     }
