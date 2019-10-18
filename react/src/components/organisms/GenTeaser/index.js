@@ -2,10 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 
-import { Icon, LinkDropdown, EventTime, PhoneNumber, Address } from '../../../index';
+import LinkDropdown from '../../molecules/LinkDropdown';
+import Icon from '../../atoms/icons/Icon';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Email from '../../atoms/contact/Email';
+import EventTime from '../../atoms/contact/EventTime';
+import PhoneNumber from '../../atoms/contact/PhoneNumber';
+import Address from '../../atoms/contact/Address';
 import TeaserSearch from './TeaserSearch';
 import TeaserOrgs from './TeaserOrgs';
 import { buildUrl } from './utils';
@@ -65,8 +69,7 @@ const GenTeaserEyebrow = (props) => {
   const { eyebrow, children, ...rest } = props;
   return(
     <div className="ma__gen-teaser__eyebrow" {...rest} >
-      {eyebrow && <span>{eyebrow}</span>}
-      {children}
+      {children || <span>{eyebrow}</span>}
     </div>
   );
 };
@@ -191,8 +194,7 @@ const GenTeaserDate = (props) => {
   const { date, children, ...rest } = props;
   return(
     <span className="ma__gen-teaser__date" {...rest}>
-      {date && date}
-      {children}
+      {children || date}
     </span>
   );
 };
@@ -235,8 +237,7 @@ const GenTeaserDescription = (props) => {
   const { children, description, ...rest } = props;
   return(
     <div className="ma__gen-teaser__description" {...rest}>
-      {description && <p>{ReactHtmlParser(description)}</p>}
-      {children}
+      {children || <p>{ReactHtmlParser(description)}</p>}
     </div>
   );
 };
@@ -320,9 +321,12 @@ const GenTeaserKeyAction = (props) => {
   } = props;
   return(
     <div className="ma__gen-teaser__key-action-item" {...rest} >
-      {text && href && <DecorativeLink href={href} text={text} info={info} />}
-      {description && <p>{ReactHtmlParser(description)}</p>}
-      {children}
+      {children || (
+        <React.Fragment>
+          {text && href && <DecorativeLink href={href} text={text} info={info} />}
+          {description && <p>{ReactHtmlParser(description)}</p>}
+        </React.Fragment>
+      )}
     </div>
   );
 };
