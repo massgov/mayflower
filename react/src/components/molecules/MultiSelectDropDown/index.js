@@ -84,19 +84,22 @@ class MultiSelectDropDown extends React.Component {
 
   handleDropDownKeyDown = (event) => {
     if (event.key === 'Enter') {
-      const { value } = event.target;
-      const { values } = this.state;
-      if (values.indexOf(value) > -1) {
-        values.splice(values.indexOf(value), 1);
-      } else {
-        values.push(value);
-      }
-      this.setState({
-        values
-      });
+      this.handleSelect(event);
     }
   }
 
+  handleSelect = (event) => {
+    const { value } = event.target;
+    const { values } = this.state;
+    if (values.indexOf(value) > -1) {
+      values.splice(values.indexOf(value), 1);
+    } else {
+      values.push(value);
+    }
+    this.setState({
+      values
+    });
+  }
 
   handleKeyDown = (event) => {
     // Detect onBlur using tab key
