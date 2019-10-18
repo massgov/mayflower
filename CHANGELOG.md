@@ -13,6 +13,41 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.28.0 (10/15/2019)
+
+### Added
+- (React, Patternlab) [CircleCi] Fix auto generated changelog format and separate dependabot changelogs into individual files. #778
+- (Patternlab) [Feedback Form] DP-16115: Update Feedback Form to allow toggling required "legend" items to improve accessibility. #747
+- (Patternlab) [Feedback Form] DP-16115: Add required attribute to radio button. #747
+- (Patternlab) [Feedback Form] DP-16115: Add role="radiogroup" and a condition to add aria-required="true" to fieldset. #747
+- (React) [Icon] DP-15689: Added `mail` and `calendar` svg for Icon options. #766
+- (React) [PhoneNumber] DP-15689: Added PhoneNumber component to library. #766
+- (React) [EventTime] DP-15689: Added EventTime component to library. #766
+- (React) [Email] DP-15689: Added Email component to library. #766
+- (React) [Address] DP-15689: Added Address component to library. #766
+- (React) [GenTeaser] DP-15689: Added GenTeaser component to library. #766
+- (React) [Dependency] DP-15689: Added react-html-parser as dependency. #766
+- (Patternlab) [ServiceFlexibleLinkGroups] DP-15349: Added text fade and collapse/expand functionality to overview text area. #735
+
+### Changed
+- (React) [Dependency] DP-15689: Bumps eslint-plugin-react from 7.11.1 to 7.14.3. #766
+- (React) [ButtonWithIcon] DP-15689: Added `size` prop to component. #766
+- (React) [DecorativeLink] DP-15689: Added `icon` and `details` props to component. #766
+- (React) [Footer] DP-10665: Match the footer logo to Mass.gov site's by adding a link to the Mass.gov home and remove the deprecate alt value. #314
+- (React) [Dependency]: Bump eslint-plugin-react from 7.12.4 to 7.14.3 in /react #689
+- (React) [Dependency]: Bump @storybook/addon-actions, @storybook/addon-a11y, @storybook/addon-info, @storybook/addon-knobs, @storybook/addon-links, @storybook/addon-storysource, @storybook/addon-viewport, @storybook/addons, and @storybook/react from 5.1.9 to 5.2.3 in /react #761
+- (Patternlab) [Dependency] Bump gulp-sass from 4.0.1 to 4.0.2 in /patternlab/styleguide #582
+- (Patternlab) [Dependency] Bump gulp-header from 2.0.5 to 2.0.9 in /patternlab/styleguide #674
+
+### Fixed
+- (React, Patternlab) [CircleCi] Only run auto changelog task on dependabot branches. #788
+- (Patternlab) [KeyMessage] DP-16109: Set a condition to check bgImage and set class for overlay box position to section based on its result. #777
+- (React) [GenTeaser, TeaserSearch] DP-16106: Fixed bug related to query input prop and term in the TeaserSearch component consumed by GenTeaser. #794
+- (Patternlab) [Video] DP-16028: Fix video transcription display to lined up as one line and no overwraping to video. #783
+
+### Removed
+- (React) [PressTeaser, GeneralTeaser, Teaser] DP-15689: Flagged components for removal & archiving in version 10. Removed story from storybook. #766
+
 ## 9.27.0 (10/08/2019)
 
 ### Changed
@@ -20,6 +55,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 - (Patternlab) [CampaignVideo]: Updated background color variables to match color variable names in MF. Added top/bottom padding to the component. #776
 - (React) [Dependency] Bump react-dom from 16.8.6 to 16.9.0 in /react (#740)
 - (React) [Dependency] Bump @storybook/addon-storysource from 5.1.9 to 5.2.1 in /react (#762)
+
 ### Fixed
 
 - (React) [EmergencyHeader, DecorativeLink] Fix decorative link wrapping issue in alert header and download link. #775
