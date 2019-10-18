@@ -15,6 +15,14 @@
   font-size: 2.25rem;
   line-height: 1.2;
   margin-bottom: 1rem;
+
+  @media ($bp-medium-min) {
+    font-size: 2.5rem;
+  }
+
+  @media ($bp-x-large-min) {
+    font-size: 2.75rem;
+  }
 }
 
 @mixin ma-h3 {
