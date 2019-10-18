@@ -29,7 +29,6 @@
     }
   }
 
-
   &__image {
     flex-shrink: 1;
     flex-grow: 0;
@@ -111,6 +110,9 @@
     }
   }
 
+  &__emphasis {
+    line-height: 1.1
+  }
 
   &__date,
   &__org {
