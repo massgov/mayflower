@@ -28,12 +28,14 @@
   }
 
   &__sort {
-
     @media ($bp-x-small-min) {
       float: right;
       margin-bottom: 0px;
-      position: relative;
-        top: 10px;
     }
+  }
+
+  .ma_tags + &__sort {
+    position: relative;
+    top: 10px;
   }
 }
