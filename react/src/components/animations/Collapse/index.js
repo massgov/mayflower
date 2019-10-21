@@ -52,7 +52,11 @@ class Collapse extends React.Component {
 
   // Expanding
   handleEnter(elem) {
-    elem.style[this.getDimension()] = '0'; // eslint-disable-line no-param-reassign
+    const { minDimension } = this.props;
+    const dimension = this.getDimension();
+    const currentDim = parseInt(css(elem, dimension), 10);
+    const setDim = (minDimension <= currentDim) ? minDimension : currentDim;
+    elem.style[this.getDimension()] = `${setDim}px`; // eslint-disable-line no-param-reassign
   }
 
   handleEntering(elem) {
@@ -72,7 +76,11 @@ class Collapse extends React.Component {
   }
 
   handleExiting(elem) {
-    elem.style[this.getDimension()] = '0'; // eslint-disable-line no-param-reassign
+    const { minDimension } = this.props;
+    const dimension = this.getDimension();
+    const currentDim = parseInt(css(elem, dimension), 10);
+    const setDim = (minDimension <= currentDim) ? minDimension : currentDim;
+    elem.style[dimension] = `${setDim}px`; // eslint-disable-line no-param-reassign
   }
 
   render() {
@@ -158,7 +166,8 @@ Collapse.propTypes = {
   /** ARIA role of collapsible element */
   role: PropTypes.string,
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  minDimension: PropTypes.number
 };
 
 Collapse.defaultProps = {
@@ -168,7 +177,8 @@ Collapse.defaultProps = {
   unmountOnExit: false,
   appear: false,
   dimension: 'height',
-  getDimensionValue
+  getDimensionValue,
+  minDimension: 0
 };
 
 export default Collapse;
