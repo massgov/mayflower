@@ -56,7 +56,8 @@ class Collapse extends React.Component {
     const dimension = this.getDimension();
     const currentDim = parseInt(css(elem, dimension), 10);
     const setDim = (minDimension <= currentDim) ? minDimension : currentDim;
-    elem.style[this.getDimension()] = `${setDim}px`; // eslint-disable-line no-param-reassign
+    elem.style[dimension] = `${setDim}px`; // eslint-disable-line no-param-reassign
+    elem.style[`max${capitalize(dimension)}`] = 'unset'; // eslint-disable-line no-param-reassign
   }
 
   handleEntering(elem) {
@@ -92,6 +93,8 @@ class Collapse extends React.Component {
       onExiting,
       className,
       children,
+      minDimension,
+      minDimensionOnMount,
       ...props
     } = this.props;
 
@@ -102,9 +105,10 @@ class Collapse extends React.Component {
       [ENTERED]: 'expanded'
     };
 
+    const dimension = this.getDimension();
+
     delete props.dimension;
     delete props.getDimensionValue;
-
     return(
       <Transition
         {...props}
@@ -118,11 +122,14 @@ class Collapse extends React.Component {
         {(state, innerProps) =>
           React.cloneElement(children, {
             ...innerProps,
+            style: {
+              [`max${capitalize(dimension)}`]: minDimensionOnMount ? `${minDimension}px` : 'unset'
+            },
             className: classNames(
               className,
               children.props.className,
               collapseStyles[state],
-              this.getDimension() === 'width' && 'width'
+              dimension === 'width' && 'width',
             )
           })
         }
@@ -165,9 +172,16 @@ Collapse.propTypes = {
   getDimensionValue: PropTypes.func,
   /** ARIA role of collapsible element */
   role: PropTypes.string,
+  /** classNames for direct children */
   className: PropTypes.string,
+  /** child node */
   children: PropTypes.node,
-  minDimension: PropTypes.number
+  /** The minimum dimension, height or width, that you want the animation to collapse to.
+   *  This should be in number of pixels (i.e. pass 200 if you want it to collapse to a height of 200px.
+      The default value is 0. */
+  minDimension: PropTypes.number,
+  /** Whether you want to set the minimum height of the child on its initial mount */
+  minDimensionOnMount: PropTypes.bool
 };
 
 Collapse.defaultProps = {
@@ -175,10 +189,11 @@ Collapse.defaultProps = {
   timeout: 300,
   mountOnEnter: false,
   unmountOnExit: false,
-  appear: false,
+  appear: true,
   dimension: 'height',
   getDimensionValue,
-  minDimension: 0
+  minDimension: 0,
+  minDimensionOnMount: false
 };
 
 export default Collapse;
