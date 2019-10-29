@@ -59,6 +59,7 @@ class Header extends Component {
   };
   // On click action used for both top and bottom buttons.
   defaultButtonSearchOnClick = (e) => {
+    e.preventDefault();
     if (e && e.currentTarget === this.buttonRefTop.current) {
       if (this.state.shouldNavigateTop) {
         const query = this.searchInputTop.current.value;
