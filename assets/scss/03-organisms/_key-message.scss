@@ -12,7 +12,6 @@ $colors: (
 
   &__wrapper {
     z-index: 10;
-    min-height: 140px;
     padding: 40px 20px;
     @media ($bp-small-min) {
       padding-top: 60px;
