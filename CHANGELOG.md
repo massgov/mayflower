@@ -13,9 +13,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.29.0 (10/29/2019)
+
+### Changed
+- (Patternlab) [KeyMessage] DP-16164: Set key message component height to be adjustable based on available content in the container maintaining even padding on top and bottom. #798
+- (React) [Collapse] DP-16257: Extend collapse animation to make a minimum dimension value prop passable - default is a full collapse of the content block to 0px. #805
+- (React, Patternlab) [Headings] DP-16271 Added breakpoints and Increased font size for H2. #799
+
+### Fixed
+- (React) [Icon] BugFix: Fix minor svg issues in icon library (data, linkedin, map, questionmark, refresh, twitter). #806
+
 ## 9.28.2 (10/18/2019)
 
-Fixed
+### Fixed
 - (React) [GenTeaser] DP-16106: Fix import statement bug resulting in jest suite failure on consumer side of mayflower-react package. #797
 - (React) [Header] DP-16106: Fix bug in the search bar in header to enable redirect action to take place. #797
 
