@@ -10,6 +10,10 @@ class Teaser extends React.Component {
     this.state = {
       isActive: false
     };
+    if (process.env.NODE_ENV === 'development') {
+      /* eslint-disable-next-line no-console */
+      console.warn('This component is deprecated and will be archived in v10. Use the GenTeaser Organism instead.');
+    }
   }
 
   handleMouseEnter = () => {

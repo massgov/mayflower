@@ -38,6 +38,10 @@
     }
   }
 
+  &__details {
+    font-weight: 400;
+  }
+
   a {
     .ma__download-link--icon {
       display: inline-flex;
