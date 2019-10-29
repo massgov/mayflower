@@ -157,7 +157,7 @@ storiesOf('organisms/GenTeaser', module)
       eyebrow: text('eyebrow', 'Press Release', 'GenTeaser.Eyebrow'),
       description: text('description', 'The Massachusetts Department of Public Health (DPH) today announced that laboratory testing has confirmed two new cases of Eastern ...', 'GenTeaser.Description'),
       date: text('date', '9/06/2019', 'GenTeaser.Date'),
-      orgs: text('orgs', 'Department of Public Health, Executive Office of Health and Human Services', 'GenTeaser.Orgs')
+      orgs: text('orgs', 'Bureau of Substance Addiction Services, Department of Mental Health, Department of Public Health, Executive Office of Health and Human Services', 'GenTeaser.Orgs')
     };
     return(
       <GenTeaser>
