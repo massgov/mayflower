@@ -71,12 +71,13 @@ $colors: (
 
   .ma__video__container {
     background-color: transparent;
-    padding: 0 0 41px 0;
+    padding: 0 0 48px 0;
   }
 
   .ma__video__link {
     left: 50%;
     transform: translate(-50%);
+    bottom: 5px;
   }
 
   .ma__decorative-link {
