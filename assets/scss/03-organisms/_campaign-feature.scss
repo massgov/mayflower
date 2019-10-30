@@ -1,6 +1,9 @@
 .ma__campaign-feature {
   @include ma-container();
 
+  padding-top: 40px;
+  padding-bottom: 40px;
+
   @media ($bp-small-min) {
     padding-top: 60px;
     padding-bottom: 60px;
