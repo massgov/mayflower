@@ -8,6 +8,9 @@
       @media ($bp-large-min) {
         margin-bottom: -60px;
       }
-    }    
-  } 
+    }
+  }
+  .main-content--full .page-content > * {
+    margin-top: 0;
+  }
 }
