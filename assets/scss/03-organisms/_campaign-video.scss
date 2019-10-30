@@ -77,6 +77,19 @@ $colors: (
   .ma__video__link {
     left: 50%;
     transform: translate(-50%);
+
+    // &__link {
+      margin-top: 12px;
+      position: absolute;
+      bottom: 13px;
+      font-size: 1.25rem;
+      width: calc(100% - 26px);
+    // }
+
+    // .ma__content-link,
+    // .ma__decorative-link {
+      margin-top: 12px;
+    // }
   }
 
   .ma__decorative-link {
