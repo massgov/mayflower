@@ -1,5 +1,8 @@
 {% if keyMessage.textOverlay %}
   {% set theme = keyMessage.textOverlay ? keyMessage.textOverlay : "" %}
+{% elseif bgImage and ( keyMessage.backgroundColor == "c-primary-alt" ) %}
+{# Green over bg image in content area is darker than one for solid bg. #}
+ {% set theme = "c-primary-alt-dark" %}
 {% else %}
  {% set theme = keyMessage.backgroundColor ? keyMessage.backgroundColor : "c-gray-lightest" %}
 {% endif %}
@@ -15,7 +18,7 @@
 {% set blockClass = theme ? " ma__key-message__block--" ~ theme : "" %}
 {% set wrapperClass = keyMessage.textOverlay ? " ma__key-message__wrapper--overlay" : "" %}
 
-{% if ( theme == "c-primary" ) or ( theme == "c-primary-alt" ) %}
+{% if ( theme == "c-primary" ) or ( theme == "c-primary-alt" ) or ( theme == "c-primary-alt-dark" ) %}
   {% set buttontheme = { theme: "c-white" } %}
 {% elseif ( theme == "c-primary-alt-lightest" ) %}
   {% set buttontheme = { theme: "c-primary-alt" } %}
