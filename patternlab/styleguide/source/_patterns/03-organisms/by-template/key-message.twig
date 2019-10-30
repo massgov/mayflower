@@ -85,7 +85,9 @@
   {% endif %}
   <div class="ma__key-message__wrapper{{ wrapperClass }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
     <div id="blck{{ id }}" class="ma__key-message__block{{ blockClass }}">
+    {% if keyMessage.compHeading.title %}
       <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
+    {% endif %}
       {% if keyMessage.subtitle or keyMessage.description %}
         <div class="ma__key-message__content">
           {% if keyMessage.subtitle %}
