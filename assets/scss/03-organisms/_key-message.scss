@@ -3,8 +3,9 @@ $colors: (
   "c-primary-lightest":  $c-primary-lightest,
   "c-primary-alt": $c-primary-alt,
   "c-primary-alt-lightest": $c-primary-alt-lightest,
+  "c-primary-alt-dark": $c-primary-alt-dark,
   "c-white": $c-white,
-  "c-gray-lightest": $c-gray-lightest
+  "c-gray-lightest": $c-gray-lightest,
 );
 
 .ma__key-message {
@@ -151,7 +152,7 @@ $colors: (
         @media ($bp-small-min) {
           width: auto;
         }
-        @if ($c == $c-primary or $c == $c-primary-alt) {
+        @if ($c == $c-primary or $c == $c-primary-alt or $c == $c-primary-alt-dark) {
           color: $c;
         }
       }
@@ -166,7 +167,7 @@ $colors: (
   &__title, &__sub-title, &__description {
     @each $class, $c in $colors {
       &--#{$class} {
-        @if ($c == $c-primary or $c == $c-primary-alt) {
+        @if ($c == $c-primary or $c == $c-primary-alt or $c == $c-primary-alt-dark) {
           color: $c-white;
         } @else {
           color: $c-black
