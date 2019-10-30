@@ -7,7 +7,9 @@ $colors: (
   "c-gray-lightest": $c-gray-lightest
 );
 
-.ma__campaign-video { 
+.ma__campaign-video {
+  padding-top: 60px;
+  padding-bottom: 60px;
   text-align: center;
 
   @each $class, $c in $colors {
@@ -41,12 +43,12 @@ $colors: (
           }
         }
       }
-      @if ($c != $c-white) {
-        padding-top: 20px;
-        padding-bottom: 20px;
-      }
+      // @if ($c != $c-white) {
+      //   padding-top: 20px;
+      //   padding-bottom: 20px;
+      // }
     }
-   
+
   }
 
   &__wrapper {
