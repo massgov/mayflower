@@ -8,8 +8,6 @@ $colors: (
 );
 
 .ma__campaign-video {
-  padding-top: 60px;
-  padding-bottom: 60px;
   text-align: center;
 
   @each $class, $c in $colors {
@@ -49,6 +47,12 @@ $colors: (
 
   &__wrapper {
     @include ma-container();
+
+    padding: 40px 20px;
+    @media ($bp-small-min) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
   }
 
   &__description {
