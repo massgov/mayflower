@@ -1,6 +1,6 @@
 {% if keyMessage.textOverlay %}
   {% set theme = keyMessage.textOverlay ? keyMessage.textOverlay : "" %}
-{% elseif bgImage and ( keyMessage.backgroundColor == "c-primary-alt" ) %}
+{% elseif keyMessage.bgImage and ( keyMessage.backgroundColor == "c-primary-alt" ) %}
 {# Green over bg image in content area is darker than one for solid bg. #}
  {% set theme = "c-primary-alt-dark" %}
 {% else %}
