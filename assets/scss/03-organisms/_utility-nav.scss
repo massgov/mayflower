@@ -161,6 +161,44 @@ $utility-nav-height: 43px;
     }
   }
 
+  &__content-title {
+    
+    h2 {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.625rem;
+      line-height: 1.45;
+      font-weight: 500;
+      margin-bottom: 0;
+      color: $c-white;
+    }
+
+    @media ($bp-header-toggle-min) {
+      padding-bottom: 5px;
+    }
+
+    svg {
+      opacity: 0.7;
+      fill: $c-white;
+    }
+
+    & > span,
+    & > svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    & > svg {
+      height: 20px;
+      margin-right: 10px;
+      width: 20px;
+
+      &.svg-login {
+        width: 25px;
+      }
+    }
+  }
+
   &__translate {
     position: relative;
 
@@ -360,41 +398,4 @@ $utility-nav-height: 43px;
     font-weight: 400;
   }
 
-  &__content-title {
-    
-    h2 {
-      display: inline-block;
-      vertical-align: middle;
-      font-size: 1.625rem;
-      line-height: 1.45;
-      font-weight: 500;
-      margin-bottom: 0;
-      color: $c-white;
-    }
-
-    @media ($bp-header-toggle-min) {
-      padding-bottom: 5px;
-    }
-
-    svg {
-      opacity: 0.7;
-      fill: $c-white;
-    }
-
-    & > span,
-    & > svg {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    & > svg {
-      height: 20px;
-      margin-right: 10px;
-      width: 20px;
-
-      &.svg-login {
-        width: 25px;
-      }
-    }
-  }
 }

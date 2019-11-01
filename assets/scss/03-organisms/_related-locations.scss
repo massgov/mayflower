@@ -73,13 +73,6 @@
       }
     }
 
-    &:hover {
-
-      .ma__related-location__title {
-        text-decoration: underline;
-      }
-    }
-
     .ma__related-location {
       max-width: 230px;
       display: block;
@@ -102,6 +95,13 @@
           padding: 0;
           font-size: 1.65rem;
         }
+      }
+    }
+
+    &:hover {
+
+      .ma__related-location__title {
+        text-decoration: underline;
       }
     }
   }

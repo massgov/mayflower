@@ -1,16 +1,4 @@
 .ma__information-details {
-
-  &__content {
-
-    & > * {
-
-      @include ma-component-spacing;
-    }
-  }
-}
-//theme
-
-.ma__information-details {
   
   .pre-content .ma__rich-text {
     margin-bottom: 30px;

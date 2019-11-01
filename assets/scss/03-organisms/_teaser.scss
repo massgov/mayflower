@@ -5,22 +5,6 @@
 $c-gray-dcdcdc: #dcdcdc;
 $c-theme-green: #43956f;
 
-.ma__results-list-container {
-
-  .ma__general-teaser {
-    padding: 15px;
-
-    @media ($bp-large-min) {
-      padding: 20px;
-    }
-
-    &--active {
-      background-color: $c-gray-lightest;
-    }
-  }
-}
-
-
 .ma__general-teaser {
 
   & + & {
@@ -36,7 +20,7 @@ $c-theme-green: #43956f;
   }
 
   .ma__quality__wrapper {
-    font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+    font-family: "Texta", Helvetica, Arial, sans-serif;
     font-size: 19.2px;
     line-height: 23px;
   }
@@ -116,6 +100,14 @@ $c-theme-green: #43956f;
     }
   }
 
+  &__secondaryicon svg {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.1rem;
+    width: 1.1rem;
+    fill: $c-primary-alt;
+  }
+
   &__date,
   &__org {
     font-size: 18px;
@@ -177,9 +169,9 @@ $c-theme-green: #43956f;
 
   &__moreinfo {
     display: flex;
+    flex-flow: column;
     flex-direction: row;
     flex-wrap: wrap;
-    flex-flow: column;
     justify-content: flex-start;
     align-content: flex-start;
     margin-top: 1em;
@@ -241,14 +233,6 @@ $c-theme-green: #43956f;
     }
   }
 
-  &__secondaryicon svg {
-    display: inline-block;
-    vertical-align: middle;
-    height: 1.1rem;
-    width: 1.1rem;
-    fill: $c-primary-alt;
-  }
-
   svg.link-arrow {
     height: 1rem;
     width: 1rem;
@@ -266,10 +250,6 @@ $c-theme-green: #43956f;
 
   .ma__general-teaser__primary {
     flex-grow: 2;
-
-    &__details {
-
-    }
   }
 
   .ma-icon {
@@ -307,3 +287,21 @@ $c-theme-green: #43956f;
     }
   }
 }
+
+.ma__results-list-container {
+
+  .ma__general-teaser {
+    padding: 15px;
+
+    @media ($bp-large-min) {
+      padding: 20px;
+    }
+
+    &--active {
+      background-color: $c-gray-lightest;
+    }
+  }
+}
+
+
+

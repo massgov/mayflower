@@ -28,8 +28,8 @@
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "stylelint": "stylelint '**/*.scss'",
-    "stylelint-fix": "stylelint '**/*.scss' --fix"
+    "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
+    "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose"
   },
   "pre-push": [
     "lint"

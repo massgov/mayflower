@@ -2,8 +2,7 @@
 .ma__related-action {
 
   & + & {
-    border-top-width: 1px;
-    border-top-style: solid;
+    border: 1px solid $c-bd-divider;
     margin-top: 30px;
     padding-top: 30px;
   }
@@ -32,23 +31,5 @@
       font-size: 1.625rem;
       line-height: 1.2;
     }
-  }
-}
-
-//theme
-
-.paragraph--type--related-link, // mass gov drupal instance
-.ma__related-action {
-
-  & + & {
-    border-top-color: $c-bd-divider;
-  }
-
-  &__link {
-
-  }
-
-  &__description {
-
   }
 }
