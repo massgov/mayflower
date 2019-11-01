@@ -27,7 +27,9 @@ class MainNav extends Component {
   };
 
   onNavigateCallBack = ({ e, href }) => {
-    e.preventDefault();
+    console.log(href)
+    // e.preventDefault();
+    // e.stopPropagation();
     const { onNavigateCallBack, closeMobleMenu } = this.props;
     if (is.fn(closeMobleMenu)) {
       closeMobleMenu();
@@ -40,14 +42,22 @@ class MainNav extends Component {
   };
 
   openSubNav = (e) => {
+    //console.log(e.currentTarget)
+    // e.persist();
+    // e.nativeEvent.stopImmediatePropagation();
+    e.stopPropagation();
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
+    console.log(e.currentTarget)
     this.setState({
       navSelected: e.currentTarget.id
     });
   };
 
   closeSubNav = () => {
+    // e.persist();
+    // e.stopPropagation();
+    // e.stopPropagation();
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
     this.setState({
@@ -69,7 +79,7 @@ class MainNav extends Component {
             const buttonId = `button${index}`;
             const liId = `li${index}`;
             const { navSelected } = this.state;
-            const isExpanded = navSelected === liId;
+            const isExpanded = navSelected === buttonId;
             const itemBody = [];
             if (item.subNav) {
               const buttonProps = {
@@ -80,7 +90,11 @@ class MainNav extends Component {
                 'aria-haspopup': 'true',
                 role: 'menuitem',
                 'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
-                key: buttonId
+                key: buttonId,
+                onKeyDown: this.onKeyDown,
+                onMouseOver: this.openSubNav,
+                // onFocus: this.openSubNav,
+                // onMouseLeave: this.closeSubNav
               };
               itemBody.push(<button {...buttonProps}>{item.text}</button>);
               const navItemClasses = classNames({
@@ -88,6 +102,7 @@ class MainNav extends Component {
                 'is-open-react': isExpanded,
                 'is-closed-react': !isExpanded
               });
+              console.log(navSelected,buttonId)
               itemBody.push((
                 /* eslint-disable-next-line react/no-array-index-key */
                 <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>
@@ -145,10 +160,7 @@ class MainNav extends Component {
                 key={`liClasses${index}`}
                 id={liId}
                 role="menuitem"
-                onKeyDown={this.onKeyDown}
-                onMouseOver={this.openSubNav}
-                onFocus={this.openSubNav}
-                onMouseLeave={this.closeSubNav}
+                // onClick={this.openSubNav}
               >
                 {itemBody}
               </li>);
