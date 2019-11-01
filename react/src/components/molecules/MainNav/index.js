@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import is from 'is';
 import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
@@ -41,6 +42,15 @@ class MainNav extends Component {
     });
   };
 
+  onNavigateCallBack = (e, href) => {
+    e.preventDefault()
+    const { onNavigateCallBack } = this.props;
+    if (is.fn(onNavigateCallBack)) {
+      console.log(href)
+      onNavigateCallBack(href);
+    }
+  };
+
   render() {
     return(
       <div className="ma__main-nav">
@@ -78,12 +88,25 @@ class MainNav extends Component {
                 <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>
                   <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
                     <li role="presentation" className="ma__main-nav__subitem">
-                      <a href={item.href} role="menuitem" className="ma__main-nav__link" tabIndex={!isExpanded ? -1 : null}>{item.text}</a>
+                      <a
+                        href={item.href}
+                        role="menuitem"
+                        className="ma__main-nav__link"
+                        tabIndex={!isExpanded ? -1 : null}
+                      >
+                        {item.text}
+                      </a>
                     </li>
                     {item.subNav.map((subItem, subItemIndex) => (
                       /* eslint-disable-next-line react/no-array-index-key */
                       <li role="menuitem" className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`}>
-                        <a href={subItem.href} role="menuitem" className="ma__main-nav__link">{subItem.text}</a>
+                        <button
+                          onClick={(e) => this.onNavigateCallBack(e, subItem.href)}
+                          role="menuitem"
+                          className="ma__main-nav__link"
+                        >
+                          {subItem.text}
+                        </button>
                       </li>
                     ))}
                     {

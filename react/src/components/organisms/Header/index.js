@@ -134,6 +134,11 @@ class Header extends Component {
     };
     return(<HeaderSearch {...headerSearchProps} />);
   };
+
+  onNavigate = () => {
+    this.menuButtonClicked(false);
+  }
+
   render() {
     const header = this.props;
     const HeaderUtilityNav = <UtilityNav {...this.props.utilityNav} isOpen={this.state.utilNavOpen} />;
@@ -179,7 +184,7 @@ class Header extends Component {
             </div>
             }
             <div className="ma__header__main-nav">
-              <MainNav {...header.mainNav} />
+              <MainNav {...header.mainNav} onNavigateCallBack={this.onNavigate} />
             </div>
             <div className="ma__header__utility-nav ma__header__utility-nav--narrow">
               {HeaderUtilityNav}
