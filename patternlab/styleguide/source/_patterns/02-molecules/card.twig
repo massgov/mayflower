@@ -4,7 +4,7 @@
 {% set imgClass = card.usage ? " ma__card__img--" ~ card.usage : "" %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
 
-<div id="{{ card.id }}" class="ma__card{{ cardClass }}">
+<div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }}">
   {% if not card.usage %}
     <style>
       .ma__card__img--{{ card.id }} {
