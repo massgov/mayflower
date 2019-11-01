@@ -83,14 +83,14 @@ class MainNav extends Component {
                 <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>
                   <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
                     <li role="presentation" className="ma__main-nav__subitem">
-                      <a
-                        href={item.href}
+                      <button
+                        onClick={(e) => this.onNavigateCallBack({ e, href: item.href })}
                         role="menuitem"
                         className="ma__main-nav__link"
                         tabIndex={!isExpanded ? -1 : null}
                       >
                         {item.text}
-                      </a>
+                      </button>
                     </li>
                     {item.subNav.map((subItem, subItemIndex) => (
                       /* eslint-disable-next-line react/no-array-index-key */
@@ -107,10 +107,14 @@ class MainNav extends Component {
                     {
                       item.href && (
                         <li role="presentation" className="ma__main-nav__subitem ma__main-nav__subitem--main">
-                          <a href={item.href} role="menuitem" className="ma__main-nav__link">
+                          <button
+                            onClick={(e) => this.onNavigateCallBack({ e, href: item.href })}
+                            role="menuitem"
+                            className="ma__main-nav__link"
+                          >
                             <Icon name="arrowbent" aria-hidden />
                             <span>{item.text}</span>
-                          </a>
+                          </button>
                         </li>
                       )
                     }
