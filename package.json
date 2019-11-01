@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "repository": "https://github.com/massgov/mayflower.git",
   "license": "UNLICENSED",
-  "devDependencies": {
-    "danger": "^9.2.2"
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "danger": "^9.2.2",
+    "js-yaml": "^3.13.1"
   }
 }
