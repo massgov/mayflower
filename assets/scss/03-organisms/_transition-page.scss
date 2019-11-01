@@ -2,8 +2,13 @@
   margin-bottom: 40px;
   text-align: center;
 
+  &:before {
+    background-color: rgba($c-primary-alt, .15);
+  }
+
   &__icon {
     margin-bottom: 15px;
+    fill: $c-primary-alt;
 
     svg {
       width: 63px;
@@ -14,6 +19,7 @@
   &__message {
     font-size: 1.75rem;
     line-height: 1.31;
+    font-weight: 700;
 
     @media ($bp-small-min) {
       font-size: 2.25rem;
@@ -31,22 +37,5 @@
     input {
       margin: 0 10px 20px;
     }
-  }
-}
-
-//theme
-
-.ma__transition-page {
-
-  &:before {
-    background-color: rgba($c-primary-alt, .15);
-  }
-
-  &__icon {
-    fill: $c-primary-alt;
-  }
-
-  &__message {
-    font-weight: 700;
   }
 }

@@ -6,6 +6,7 @@
   line-height: 1.4;
   padding: 20px;
   padding-right: 0;
+  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
 
   &__name {
     font-size: 1.5rem;
@@ -18,11 +19,17 @@
 
   &__phone {
     white-space: nowrap;
+    color: $c-font-base;
+    font-weight: inherit;
   }
 
   &__email-link {
 
     @include ma-link-underline;
+
+    &:hover {
+      border-color: rgba($c-font-link, .5);
+    }
   }
 
   &__address {
@@ -32,23 +39,8 @@
   &__directions {
     margin-top: 6px;
   }
-}
-
-//theme
-
-.ma__info-window {
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
 
   &__label {
     font-weight: 500;
-  }
-
-  &__phone {
-    color: $c-font-base;
-    font-weight: inherit;
-  }
-
-  &__email-link:hover {
-    border-color: rgba($c-font-link, .5);
   }
 }

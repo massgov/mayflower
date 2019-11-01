@@ -5,6 +5,8 @@
   &__title {
 
     @include ma-border-decorative;
+
+    @include ma-border-decorative($c-primary-alt);
     padding-bottom: 16px;
   }
 
@@ -31,6 +33,10 @@
     float: left;
     padding-right: 30px;
     width: 90px;
+
+    svg {
+      fill: $c-primary-alt;
+    }
   }
 
   &__content {
@@ -68,6 +74,11 @@
       &:after {
         height: .5em;
         width: .5em;
+      }
+
+      &:hover,
+      &:after {
+        border-color: rgba($c-font-link, .5);
       }
     }
   }
@@ -116,32 +127,4 @@
     }
   }
 
-}
-
-//theme
-
-.ma__test-feed {
-
-  &__title {
-
-    @include ma-border-decorative($c-primary-alt);
-  }
-
-  &__icon {
-
-    svg {
-      fill: $c-primary-alt;
-    }
-  }
-  
-  &__view-all {
-    
-    a {
-      
-      &:hover,
-      &:after {
-        border-color: rgba($c-font-link, .5);
-      }
-    }
-  }
 }

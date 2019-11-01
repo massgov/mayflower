@@ -3,26 +3,6 @@
 
 @mixin ma-truncated-body-text {
 
-  .ma-truncated-body-text {
-    display: flex;
-    flex-direction: column;
-
-    &.expanded {
-
-      .ma-truncated-body-text__contents {
-        max-height: none;
-      }
-
-      .ma-truncated-body-text__fade-overlay {
-        display: none;
-      }
-
-      .ma-truncated-body-text__button::after {
-        transform: translateY(-55%) rotate(-135deg);
-      }
-    }
-  }
-
   .ma-truncated-body-text__contents {
     overflow: hidden;
     position: relative;
@@ -61,4 +41,25 @@
       color: $c-primary-lighter;
     }
   }
+
+  .ma-truncated-body-text {
+    display: flex;
+    flex-direction: column;
+
+    &.expanded {
+
+      .ma-truncated-body-text__contents {
+        max-height: none;
+      }
+
+      .ma-truncated-body-text__fade-overlay {
+        display: none;
+      }
+
+      .ma-truncated-body-text__button::after {
+        transform: translateY(-55%) rotate(-135deg);
+      }
+    }
+  }
+  
 }

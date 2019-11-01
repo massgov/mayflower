@@ -5,6 +5,8 @@
   &__title {
 
     @include ma-border-decorative;
+
+    @include ma-border-decorative($c-primary-alt);
     margin-bottom: 45px;
     padding-bottom: 16px;
     text-align: center;
@@ -18,12 +20,24 @@
   &__items {
 
     @include clearfix;
+    border-color: $c-bd-divider;
 
     @media ($bp-small-min) {
       display: flex;
       align-items: stretch;
       flex-wrap: wrap;
       justify-content: center;
+    }
+  }
+
+  &__link {
+
+    a:hover {
+      border-bottom-color: rgba($c-primary, .5);
+    }
+
+    svg {
+      fill: rgba($c-primary, .5);
     }
   }
 
@@ -45,31 +59,6 @@
 
       @include omega(4n);
       display: flex;
-    }
-  }
-}
-
-//theme
-
-.ma__top-actions {
-
-  &__title {
-
-    @include ma-border-decorative($c-primary-alt);
-  }
-
-  &__item {
-    border-color: $c-bd-divider;
-  }
-
-  &__link {
-
-    a:hover {
-      border-bottom-color: rgba($c-primary, .5);
-    }
-
-    svg {
-      fill: rgba($c-primary, .5);
     }
   }
 }

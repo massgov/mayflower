@@ -31,23 +31,6 @@
       width: 100%;
     }
 
-    .main-content--two .page-content & {
-      padding-right: $offset;
-
-      @media ($bp-large-min) {
-        margin-right: -$offset + 20px;
-        margin-bottom: 50px;
-      }
-
-      @media ($bp-x-large-min) {
-        margin-right: -$offset;
-        padding-right: $offset + 20px;
-
-      }
-
-    }
-    // left (shows as right and then switches to left)
-
     .sidebar & {
 
       @media ($bp-large-max) {
@@ -72,6 +55,25 @@
         padding-left: $offset;
       }
     }
+
+    .main-content--two .page-content & {
+      padding-right: $offset;
+
+      @media ($bp-large-min) {
+        margin-right: -$offset + 20px;
+        margin-bottom: 50px;
+      }
+
+      @media ($bp-x-large-min) {
+        margin-right: -$offset;
+        padding-right: $offset + 20px;
+
+      }
+
+    }
+    
+    // left (shows as right and then switches to left)
+
 
     @if ($direction == left) {
 
