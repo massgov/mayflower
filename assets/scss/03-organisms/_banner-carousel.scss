@@ -15,10 +15,6 @@
     width: 40px;
     z-index: 1;
 
-    @media ($bp-page-width-max) {
-
-    }
-
     @media ($bp-page-width-min) {
       min-width: 40px;
       width: calc((100vw - #{$max-width} + 40px) / 2);

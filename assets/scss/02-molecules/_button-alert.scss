@@ -26,10 +26,6 @@
     transition: transform .5s;
     width: 8px;
     border-color: rgba($c-font-inverse,.5);
-
-    .is-open & {
-      
-    }
   }
 
   // This is used in mayflower-react specifically, `is-open` class is moved down a level from patternlab

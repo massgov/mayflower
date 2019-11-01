@@ -238,7 +238,7 @@ $page-banner-height: 330px;
     
     @media ($bp-x-small-min) {
       position: relative;
-      top: calc(#{$page-banner-height}/2);
+      top: calc(#{$page-banner-height} / 2);
     }
 
     @media ($bp-medium-min) {

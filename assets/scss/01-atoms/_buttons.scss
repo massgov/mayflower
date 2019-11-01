@@ -8,26 +8,13 @@ $primarycolors: (
 
 button {
   cursor: pointer;
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+  font-family: "Texta", Helvetica, Arial, sans-serif;
   font-weight: 400;
 }
 
 .ma__button {
 
   @include ma-button("normal");
-}
-
-.ma__button--small { 
-
-  @include ma-button("small");
-}
-
-.ma__button--large { 
-
-  @include ma-button("large");
-}
-
-.ma__button {
 
   @include ma-button("normal","solid",$c-primary);
 
@@ -38,6 +25,16 @@ button {
       @include ma-button("normal","solid",$c);
     }
   }
+}
+
+.ma__button--small { 
+
+  @include ma-button("small");
+}
+
+.ma__button--large { 
+
+  @include ma-button("large");
 }
 
 .ma__button--secondary {
