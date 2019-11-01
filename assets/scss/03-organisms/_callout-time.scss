@@ -4,6 +4,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container('restricted');
   }
 
@@ -38,6 +39,7 @@
 }
 
 //theme
+
 .ma__callout-time {
 
   &__icon {

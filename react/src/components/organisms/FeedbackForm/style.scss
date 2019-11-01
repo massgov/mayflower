@@ -1,6 +1,7 @@
 @import "global";
 
 .ma__feedback-form {
+
   textarea {
     resize: none;
     overflow: hidden;
@@ -12,6 +13,7 @@
 /**
 * Override css for the Formstack multi page feedback form.
 */
+
 #fsForm2521317 .hide {
   display: none;
 }
@@ -19,6 +21,7 @@
 /**
  * MAYFLOWER STYLE
  */
+
 #fsForm2521317 {
   border: 2px solid #dcdcdc;
   background: #ffffff;
@@ -40,6 +43,7 @@
 #fsForm2521317 fieldset > label {
   margin-top: 30px;
 }
+
 #fsForm2521317 fieldset > fieldset:first-child,
 #fsForm2521317 fieldset > label:first-child {
   margin-top: 0;
@@ -98,6 +102,7 @@
 }
 
 /* Error messages */
+
 #fsForm2521317 .messages {
   margin: 0 0 2rem 0;
 }
@@ -123,6 +128,7 @@
 }
 
 @media (min-width: 621px) {/* $bp-small-min */
+
   #fsForm2521317 > *,
   #fsForm2521317 p.ma__info-container {
     margin-top: 60px;
@@ -135,6 +141,7 @@
 }
 
 @media (min-width: 781px) {/* $bp-medium-min */
+
   #fsForm2521317 > *,
   #fsForm2521317 p.ma__info-container {
     margin-top: 70px;
@@ -142,6 +149,7 @@
 }
 
 @media (min-width: 911px) {/* $bp-large-min */
+
   #fsForm2521317 > *,
   #fsForm2521317 p.ma__info-container {
     margin-top: 90px;
@@ -149,6 +157,7 @@
 }
 
 @media (min-width: 621px) {/* $bp-small-min */
+
   #fsForm2521317 > *,
   #fsForm2521317 p.ma__info-container {
     margin-top: 45px;

@@ -13,16 +13,20 @@ $colors: (
   &__wrapper {
     z-index: 10;
     padding: 40px 20px;
+
     @media ($bp-small-min) {
       padding-top: 60px;
       padding-bottom: 60px;
     }
+
     &--top {
       padding: 40px 20px;
+
       @media ($bp-small-min) {
         padding-top: 60px;
         padding-bottom: 60px;
       }
+
       .ma__key-message__cta {
         margin-bottom: 10px;
       }
@@ -35,9 +39,11 @@ $colors: (
 
   &__inline-image {
     height: 215px;
+
     @media ($bp-small-min) {
       height: 425px;
     }
+
     @media ($bp-medium-min) {
       height: 0px;
       display: none;
@@ -52,15 +58,18 @@ $colors: (
 
   &__block {
     max-width: 840px;
+
     @media ($bp-medium-min) {
       margin-left: auto;
       margin-right: auto;
     }
   }
+
   &__content {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
   &--top {
     margin-bottom: 60px;
   }
@@ -87,12 +96,15 @@ $colors: (
 
     &-overlay {
       margin-bottom: 60px;
+
       @media ($bp-medium-min) {
         height: 600px;
+
         &.ma__key-message--top {
           margin-bottom: 150px;
         }
       }
+
       &:after {
         opacity: 0;
       }
@@ -110,6 +122,7 @@ $colors: (
           transform: translateY(0%);
 
           @each $class, $c in $colors {
+
             &--#{$class} {
               background: $c;
             }
@@ -117,6 +130,7 @@ $colors: (
         }
 
         @media ($bp-medium-min) {
+
           @include ma-container();
           display: flex;
           flex-flow: column;
@@ -143,14 +157,17 @@ $colors: (
   }
 
   @each $class, $c in $colors {
+
     &--#{$class} {
       background-color: $c;
 
       .ma__button {
         width: 100%;
+
         @media ($bp-small-min) {
           width: auto;
         }
+
         @if ($c == $c-primary or $c == $c-primary-alt) {
           color: $c;
         }
@@ -164,8 +181,11 @@ $colors: (
   }
 
   &__title, &__sub-title, &__description {
+
     @each $class, $c in $colors {
+
       &--#{$class} {
+
         @if ($c == $c-primary or $c == $c-primary-alt) {
           color: $c-white;
         } @else {

@@ -5,7 +5,9 @@
   }
 
   .main-content--full .page-content > & {
+
     @include ma-container();
+
     @include ma-component-spacing;
   }
   
@@ -20,6 +22,7 @@
   &__prev,
   &__next,
   &__page {
+
     @include ma-button-reset;
     font-size: 20px;
     line-height: 1;
@@ -44,6 +47,7 @@
   }
 
   &__prev {
+
     @include ma-chevron('left');
     
     @media ($bp-small-max) {
@@ -70,6 +74,7 @@
       border-color: transparent;
 
       @media ($bp-small-min) {
+
         @include ma-link-underline;
       }
     }
@@ -77,6 +82,7 @@
   }
 
   &__next {
+
     @include ma-chevron('right');
 
     @media ($bp-small-max) {
@@ -96,6 +102,7 @@
       
 
       @media ($bp-small-min) {
+
         @include ma-link-underline;
       }
     }
@@ -117,6 +124,7 @@
     }
 
     &:after {
+
       @include ma-link-underline;
       content: "";
       display: block;

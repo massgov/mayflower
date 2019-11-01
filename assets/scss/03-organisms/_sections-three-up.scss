@@ -4,11 +4,14 @@ $bp-section-3up-large-max: "max-width:950px";
 .ma__sections-3up {
   
   &__title {
+
     @include ma-container;
   }
 
   &__container {
+
     @include ma-container;
+
     @include clearfix;
     display: flex;
       align-items: stretch;
@@ -31,18 +34,23 @@ $bp-section-3up-large-max: "max-width:950px";
         flex-basis: auto;
         margin-bottom: 80px;
       }
+
       @media ($bp-medium-min) {
         margin-bottom: 80px;
       }
 
       @media ($bp-small-min) and ($bp-section-3up-large-max) {
+
         @include span-columns(4 of 8);
+
         @include omega(2n);
       }
       
       @media ($bp-section-3up-large-min) {
           margin-top: 60px;
+
           @include span-columns(4 of 12);
+
           @include omega(3n);
       }
     }

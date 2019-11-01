@@ -24,6 +24,7 @@
       right: -25px;
     }
   }
+
   .ma__toc--hierarchy__container {
     position: relative;
     top: -20px;
@@ -40,12 +41,14 @@
     .ma__decorative-link {
       padding: 20px;
     }
+
     .ma__download-link {
       padding: 20px;
     }
   }
 
   //react
+
   .ma__accordion-header {
     
     &__button {
@@ -80,6 +83,7 @@
 }
 
 .ma__toc--hierarchy__accordion {
+
   .ma__toc--hierarchy__accordion-content {
     list-style: none;
     margin-bottom: 0;

@@ -3,6 +3,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container;
   }
 
@@ -16,7 +17,7 @@
     margin-top: 30px;
     padding-top: 30px;
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       margin-top: 45px;
       padding-top: 45px;
     }
@@ -28,9 +29,10 @@
   }
 
   &__secondary-items {
+
     @include ma-reset-list;
 
-    @media($bp-medium-min) {
+    @media ($bp-medium-min) {
       display: flex;
         flex-wrap: wrap;
         justify-content: stretch;
@@ -40,8 +42,9 @@
 
   &__secondary-item {
 
-    @media($bp-x-small-max) {
-      &:nth-child(n + 4){
+    @media ($bp-x-small-max) {
+
+      &:nth-child(n + 4) {
         display: none;
       }
 
@@ -50,7 +53,7 @@
       }      
     }
 
-    @media($bp-medium-max) {
+    @media ($bp-medium-max) {
       
       & + & {
         border-top-width: 1px;
@@ -99,7 +102,7 @@
       }
     }
 
-    @media($bp-medium-min) and ($bp-large-max) {
+    @media ($bp-medium-min) and ($bp-large-max) {
 
       &:nth-child(2n+2) {
         border-right: none;
@@ -114,7 +117,7 @@
       }
     }
 
-    @media($bp-large-min) {
+    @media ($bp-large-min) {
       flex-basis: 33%;
 
       &:nth-child(3) {
@@ -149,6 +152,7 @@
 }
 
 //theme
+
 .ma__press-listing {
 
   &__secondary-items {
@@ -164,7 +168,8 @@
   }
 }
 
-@media($bp-medium-min) {
+@media ($bp-medium-min) {
+
   _:-ms-fullscreen, :root .ma__press-listing__secondary-items {
     justify-content: space-between;
     margin: 0;
@@ -177,8 +182,7 @@
     position: relative;
   }
 
-  _:-ms-fullscreen, :root .ma__press-teaser::after
-   {
+  _:-ms-fullscreen, :root .ma__press-teaser::after {
     content: "";
     width: 1px;
     height: 100%;
@@ -189,7 +193,8 @@
   }
 }
 
-@media($bp-large-min) {
+@media ($bp-large-min) {
+
   _:-ms-fullscreen, :root .ma__press-listing__secondary-item {
     flex-basis: 30%;
     padding: 0;

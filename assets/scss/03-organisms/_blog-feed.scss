@@ -1,7 +1,9 @@
 .ma__blog-feed {
+
   @include ma-container;
 
   &__title {
+
     @include ma-border-decorative;
     margin-bottom: 40px;
     padding-bottom: 15px;
@@ -18,16 +20,20 @@
   }
 
   &__items {
+
     @include clearfix;
     margin-bottom: 30px;
   }
 
   &__item {
+
     @include clearfix;
     margin-bottom: 30px;
 
     @media ($bp-large-min) {
+
       @include span-columns(3 of 6);
+
       @include omega(2n);
       margin-bottom: 0;
     }
@@ -80,7 +86,9 @@
     text-align: right;
 
     a {
+
       @include ma-chevron;
+
       @include ma-link-underline;
       display: inline-block;
 
@@ -93,9 +101,11 @@
 }
 
 //theme
+
 .ma__blog-feed {
 
   &__title {
+
     @include ma-border-decorative($c-primary-alt);
   }
 

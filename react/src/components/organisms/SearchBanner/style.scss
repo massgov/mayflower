@@ -14,9 +14,13 @@
   }
 
   .ma__header-search {
+
     .ma__button-search {
+
       &, &--secondary {
-        @media($bp-medium-max) {
+
+        @media ($bp-medium-max) {
+
           span {
             display: none;
           }
@@ -30,6 +34,7 @@
 
     .ma_search-banner__filter-box-container {
       margin-top: 20px;
+
       @media ($bp-medium-min) {
         margin-top: 60px;
       }
@@ -45,6 +50,7 @@
   }
 
   .ma__input-typeahead {
+
     &--boxed {
       background-color: $c-gray-lightest;
     }
@@ -89,6 +95,7 @@
     }
 
     &--desktop-hidden {
+
       @media ($bp-medium-min) {
         display: none;
       }
@@ -124,11 +131,13 @@
   .ma__filter-box {
     text-align: left;
     width: 100%;
+
     @media ($bp-large-min) {
       position: absolute;
     }
 
     &--desktop-hidden {
+
       @media ($bp-medium-min) {
         display: none;
       }
@@ -136,11 +145,13 @@
   }
 
   @media ($bp-large-max) {
+
     .ma__search-banner__filter-box-toggle-container.main-content--two {
       max-width: 100%;
       width: 100%;
       margin: 0;
       padding: 0;
+
       .ma__search-banner__filter-box-toggle {
         padding: 8px 20px;
       }

@@ -1,8 +1,10 @@
 @import 'global';
+
 @import '02-molecules/org-selector';
 
-.react-autosuggest__suggestions{
-  &-container--open{
+.react-autosuggest__suggestions {
+
+  &-container--open {
     position: absolute;
     width: 100%;
     background: white;

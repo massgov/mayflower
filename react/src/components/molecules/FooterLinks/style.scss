@@ -1,10 +1,14 @@
 @import 'global';
 // Import Neat for the mixins.
+
 @import "bourbon-neat/app/assets/stylesheets/neat";
+
 @import '02-molecules/footer-links';
 
 .ma__footer-links {
+
   &__items {
+
     &--heading {
       border-bottom: none;
 
@@ -15,7 +19,9 @@
 
 
     }
+
     ul {
+
       @include ma-reset-list;
     }
   }

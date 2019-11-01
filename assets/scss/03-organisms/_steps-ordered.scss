@@ -5,10 +5,12 @@ $steps-ordered-icon-border: 3px;
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container('restricted');
   }
 
   &__items {
+
     @include ma-reset-list;
     counter-reset: li; // Initiate a counter
   }
@@ -75,6 +77,7 @@ $steps-ordered-icon-border: 3px;
 }
 
 //theme
+
 .ma__steps-ordered {
 
   &__item {

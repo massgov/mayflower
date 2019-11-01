@@ -1,4 +1,5 @@
 .ma__category-icon {
+
   @include ma-valign-block;
   display: inline-block;
   font-size: 0;
@@ -42,6 +43,7 @@
   }
 }
 //theme
+
 .ma__category-icon {
   background-color: $c-primary-alt;
 

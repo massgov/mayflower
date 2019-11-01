@@ -38,6 +38,7 @@
   }
 
   &__title {
+
     @include ma-h5;
     margin-bottom: 0;
     min-height: 32px;
@@ -49,6 +50,7 @@
 }
 
 //theme
+
 .ma__collapsible-header {
 
   &__button {
@@ -71,6 +73,7 @@
   }
 
   &__title {
+
     @include ma-h4;
     font-weight: 700;
   }

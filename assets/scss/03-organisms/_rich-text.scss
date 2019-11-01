@@ -3,6 +3,7 @@ $rich-text-spacing-mobile: 1.5rem;
 $heading-indent: $gutter;
 
 .ma__rich-text {
+
   @include clearfix;
 
   &__flame {
@@ -20,6 +21,7 @@ $heading-indent: $gutter;
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container('restricted');
   }
 
@@ -31,6 +33,7 @@ $heading-indent: $gutter;
   }
 
   // extra specificity was needed to override & a { ... }
+
   & &__footnote {
     border-style: solid;
     border-width: 2px;
@@ -48,10 +51,12 @@ $heading-indent: $gutter;
   }
 
   // rich text has an optional title
+
   h2:not(.ma__comp-heading),
   h3:not(.ma__comp-heading),
   h3:not(.ma__sidebar-heading),
   h4 {
+
     @include ma-comp-heading;
     display: block;
   }
@@ -75,6 +80,7 @@ $heading-indent: $gutter;
   }
 
   h3 {
+
     &.ma__rich-text__indent {
       margin-left: $heading-indent; // 1.
     }
@@ -147,6 +153,7 @@ $heading-indent: $gutter;
   }
 
   // List styles
+
   ul {
     list-style-type: disc;
     margin-bottom: $rich-text-spacing-mobile;
@@ -186,7 +193,9 @@ $heading-indent: $gutter;
   // end list styles
 
   // link styles
+
   a {
+
     @include ma-link-underline;
     border-bottom-width: 1px;
     overflow-wrap: break-word;
@@ -198,6 +207,7 @@ $heading-indent: $gutter;
   // end link styles
 
   // TABLE styles
+
   table {
     margin-bottom: $rich-text-spacing-mobile;
     min-width: 450px;
@@ -219,12 +229,14 @@ $heading-indent: $gutter;
   // end Table styles
 
   // last element in the rich text content
+
   & > :last-child {
     margin-bottom: 0 !important;
   }
 }
 
 //theme
+
 .ma__rich-text {
 
   &__flame {
@@ -241,6 +253,7 @@ $heading-indent: $gutter;
   }
 
   h2, h3, h4 {
+
     @include ma-comp-heading($c-primary-alt);
   }
 

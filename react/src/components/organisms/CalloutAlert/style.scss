@@ -1,4 +1,5 @@
 @import 'global';
+
 @import '03-organisms/callout-alert';
 
 
@@ -6,7 +7,7 @@
   padding-left: 0;
   padding: 15px 20px;
 
-  @media ($bp-small-min){
+  @media ($bp-small-min) {
     padding-left: 0;
     padding: 30px;
   }

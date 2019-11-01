@@ -1,10 +1,11 @@
 .ma__colored-heading {
+
   @include ma-heading-colored();
 
   .sidebar & {
     margin-top: 45px;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       margin-top: 50px;
     }
 
@@ -15,7 +16,9 @@
 }
 
 //theme
+
 .ma__colored-heading {
+
   @include ma-heading-colored($c-bg-comp-title);
 
   &--green {

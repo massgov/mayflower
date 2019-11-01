@@ -1,4 +1,5 @@
 .ma__iframe {
+
   @include clearfix;
 
   &__container {
@@ -7,7 +8,9 @@
   }
 
   // maintain a 16:9 aspect ratio for responsive iframes
+
   &--responsive {
+
     .ma__iframe__container {
         position: relative;
         padding-bottom: 56.25%;
@@ -35,6 +38,7 @@
   }
 
   .main-content--full .page-content > & {
+
     @include ma-container('restricted');
   }
 
@@ -49,6 +53,7 @@
 }
 
 //theme
+
 .ma__iframe {
 
 // Comment out for DP-8190

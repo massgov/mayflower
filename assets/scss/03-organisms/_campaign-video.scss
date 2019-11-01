@@ -11,14 +11,19 @@ $colors: (
   text-align: center;
 
   @each $class, $c in $colors {
+
     &--#{$class} {
       background-color: $c;
+
       @if ($c == $c-primary or $c == $c-primary-alt) {
         color: $c-white;
+
         .ma__campaign-video__title {
           color: $c-white;
         }
+
         a {
+
           &:link,
           &:visited,
           &:hover,
@@ -27,8 +32,11 @@ $colors: (
             color: white;
           }
         }
+
         .ma__campaign-video__video .ma__decorative-link {
+
           a {
+
             &:hover,
             &:active,
             &:focus {
@@ -41,6 +49,7 @@ $colors: (
           }
         }
       }
+
       @if ($c != $c-white) {
         padding-top: 20px;
         padding-bottom: 20px;
@@ -50,6 +59,7 @@ $colors: (
   }
 
   &__wrapper {
+
     @include ma-container();
   }
 

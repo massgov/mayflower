@@ -108,6 +108,7 @@ $border-width: 1px;
     }
 
   }
+
   &__close-mobile {
     display: none;
     border-radius: 0;
@@ -146,48 +147,65 @@ $border-width: 1px;
   }
 
   #{$helpTipBaseClass}__container {
+
     &--c-primary {
       background-color: $c-primary-lightest;
+
       #{$helpTipBaseClass}__close-desktop {
+
         svg {
           fill: $c-primary;
         }
       }
     }
+
     &--c-primary-alt {
       background-color: $c-primary-alt-lightest;
+
       #{$helpTipBaseClass}__close-desktop {
+
         svg {
           fill: $c-primary-alt;
         }
       }
     }
+
     &--c-highlight {
       background-color: $c-highlight-lightest;
+
       #{$helpTipBaseClass}__close-desktop {
+
         svg {
           fill: $c-gray-dark;
         }
       }
     }
+
     &--c-gray-dark {
       background-color: $c-gray-lightest;
+
       #{$helpTipBaseClass}__close-desktop {
+
         svg {
           fill: $c-gray-dark;
         }
       }
     }
+
      &--c-error-red {
       background-color: $c-error-red-lightest;
+
       #{$helpTipBaseClass}__close-desktop {
+
         svg {
           fill: $c-error-red;
         }
       }
     }
+
     &--c-white {
       background-color: $c-white;
+
       #{$helpTipBaseClass}__close-desktop {
         fill: $c-gray-dark;
       }
@@ -195,6 +213,7 @@ $border-width: 1px;
   }
 
   &.mobile-tray {
+
     #{$helpTipBaseClass}__container {
       position: fixed;
       bottom: 0;
@@ -202,44 +221,58 @@ $border-width: 1px;
       right: 0;
       z-index: 10; // to create a new stacking context on top, stack below mobile site header (z-index: 90)
       margin-top: .5rem;
+
       &--c-primary {
         background-color: $c-primary-lightest;
+
         #{$helpTipBaseClass}__close-mobile {
           background-color: $c-primary;
         }
       }
+
       &--c-primary-alt {
         background-color: $c-primary-alt-lightest;
+
         #{$helpTipBaseClass}__close-mobile {
           background-color: $c-primary-alt;
         }
       }
+
       &--c-highlight {
         background-color: $c-highlight-lightest;
+
         #{$helpTipBaseClass}__close-mobile {
           background-color: $c-highlight;
         }
       }
+
       &--c-gray-dark {
         background-color: $c-gray-lightest;
+
         #{$helpTipBaseClass}__close-mobile {
           background-color: $c-gray-dark;
         }
       }
+
       &--c-error-red {
         background-color: $c-error-red-lightest;
+
         #{$helpTipBaseClass}__close-mobile {
           background-color: $c-error-red;
         }
       }
+
       &--c-white {
         background-color: $c-white;
+
         #{$helpTipBaseClass}__close-mobile {
           background-color: $c-gray-dark;
         }
       }
     }
+
     #{$helpTipBaseClass}__text {
+
       .ma__help-tip__text-direct {
         padding: 10px 5px;
         margin: 0px;
@@ -248,11 +281,13 @@ $border-width: 1px;
         color: $c-black;
       }
     }
+
     #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
       height: 50vh;
     }
 
     #{$helpTipBaseClass}__text--children {
+
       .ma__help-tip__text--direct {
         padding-top: 0px;
         padding-bottom: 0px;
@@ -268,6 +303,7 @@ $border-width: 1px;
     }
 
     @media ($bp-large-min) {
+
       #{$helpTipBaseClass}__container {
         position: relative;
         bottom: auto;
@@ -275,18 +311,23 @@ $border-width: 1px;
         &--c-primary {
           background-color: $c-primary-lightest;
         }
+
         &--c-primary-alt {
           background-color: $c-primary-alt-lightest;
         }
+
         &--c-highlight {
           background-color: $c-highlight-lightest;
         }
+
         &--c-gray-dark {
           background-color: $c-gray-lightest;
         }
+
         &--c-error-red {
           background-color: $c-error-red-lightest;
         }
+
         &--c-white {
           background-color: $c-white;
         }
@@ -300,8 +341,9 @@ $border-width: 1px;
         display: block;
       }
 
-      #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children  {
+      #{$helpTipBaseClass}__text, #{$helpTipBaseClass}__text--children {
         height: auto;
+
         #{$helpTipBaseClass}__text-direct {
           padding: 10px 5px;
           margin: 0px;
