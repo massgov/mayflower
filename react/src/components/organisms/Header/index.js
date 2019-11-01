@@ -135,15 +135,6 @@ class Header extends Component {
     return(<HeaderSearch {...headerSearchProps} />);
   };
 
-  onNavigate = (href) => {
-    this.menuButtonClicked(false);
-    console.log(href)
-    const { onNavigate } = this.props;
-    if (is.fn(onNavigate)) {
-      onNavigate(href);
-    }
-  }
-
   render() {
     const header = this.props;
     const HeaderUtilityNav = <UtilityNav {...this.props.utilityNav} isOpen={this.state.utilNavOpen} />;
@@ -189,7 +180,7 @@ class Header extends Component {
             </div>
             }
             <div className="ma__header__main-nav">
-              <MainNav {...header.mainNav} onNavigateCallBack={(href) => this.onNavigate(href)} />
+              <MainNav {...header.mainNav} closeMobleMenu={() => this.menuButtonClicked(false)} />
             </div>
             <div className="ma__header__utility-nav ma__header__utility-nav--narrow">
               {HeaderUtilityNav}

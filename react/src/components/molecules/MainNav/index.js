@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import is from 'is';
 import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
@@ -27,7 +28,15 @@ class MainNav extends Component {
 
   onNavigateCallBack = ({ e, href }) => {
     e.preventDefault();
-    this.props.onNavigateCallBack(href);
+    const { onNavigateCallBack, closeMobleMenu } = this.props;
+    if (is.fn(closeMobleMenu)) {
+      closeMobleMenu();
+    }
+    if (is.fn(onNavigateCallBack)) {
+      onNavigateCallBack(href);
+    } else {
+      window.location.assign(href);
+    }
   };
 
   mouseOver = (e) => {
@@ -134,7 +143,7 @@ class MainNav extends Component {
                 /* eslint-disable-next-line react/no-array-index-key */
                 key={`liClasses${index}`}
                 id={liId}
-                role="presentation"
+                role="menuitem"
                 onKeyDown={this.onKeyDown}
                 onMouseEnter={this.mouseOver}
                 onMouseLeave={this.mouseOut}
@@ -150,6 +159,8 @@ class MainNav extends Component {
 }
 
 MainNav.propTypes = {
+  /** closeMobleMenu passed from Header */
+  closeMobleMenu: PropTypes.func,
   /** Callback that is triggered on subnav item click */
   onNavigateCallBack: PropTypes.func,
   /** An array of navigation objects to display in the main nav */
