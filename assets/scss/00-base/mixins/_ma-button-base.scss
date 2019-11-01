@@ -1,5 +1,6 @@
 @mixin ma-button-base {
-  border: 3px solid;
+  border-width: 3px;
+  boder-style: solid;
   box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
   display: inline-block;
   letter-spacing: $letter-spacing-large;
