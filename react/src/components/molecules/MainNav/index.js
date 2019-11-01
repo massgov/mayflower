@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
+import css from 'dom-helpers/style';
 import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
@@ -39,7 +40,7 @@ class MainNav extends Component {
     }
   };
 
-  mouseOver = (e) => {
+  openSubNav = (e) => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
     this.setState({
@@ -47,7 +48,7 @@ class MainNav extends Component {
     });
   };
 
-  mouseOut = () => {
+  closeSubNav = () => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
     this.setState({
@@ -55,7 +56,12 @@ class MainNav extends Component {
     });
   };
 
+
   render() {
+    const element = document.querySelector('.ma__main-nav__subitem--main');
+    //const style = Window.getComputedStyle(element)
+    console.log(element)
+
     return(
       <div className="ma__main-nav">
         <ul className="ma__main-nav__items" role="menubar">
@@ -145,8 +151,9 @@ class MainNav extends Component {
                 id={liId}
                 role="menuitem"
                 onKeyDown={this.onKeyDown}
-                onMouseEnter={this.mouseOver}
-                onMouseLeave={this.mouseOut}
+                // onMouseOver={this.openSubNav}
+                // onMouseLeave={this.closeSubNav}
+                onClick={this.openSubNav}
               >
                 {itemBody}
               </li>);
