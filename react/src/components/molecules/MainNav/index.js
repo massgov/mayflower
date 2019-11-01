@@ -14,12 +14,12 @@ class MainNav extends Component {
   }
 
   onKeyDown = (e) => {
-    if (e.keyCode === 13) {
+    if (e.key === 'Enter') {
       this.setState({
         navSelected: e.currentTarget.id
       });
     }
-    if (e.keyCode === 27) {
+    if (e.key === 'Escape') {
       this.setState({
         navSelected: -1
       });
