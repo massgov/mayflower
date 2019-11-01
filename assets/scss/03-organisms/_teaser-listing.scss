@@ -9,6 +9,67 @@
 
   &__container {
     overflow: hidden;
+
+    .ma__content-link--chevron.ma__content-link__acordion-toggle {
+      font-size: 1.25rem;
+      font-weight: 700;
+      border: 0;
+      padding-left: 0;
+      background: transparent;
+
+      &:after {
+        top: 20%;
+        right: 0;
+      }
+    }
+
+    .ma__teaser-listing__items {
+      margin-bottom: 20px;
+    }
+
+    .ma__teaser-listing__items:last-child {
+      margin-bottom: 0;
+    }
+
+    .ma__teaser-listing__extra {
+      display: none;
+      padding-top: 40px;
+      border-top-style: solid;
+      border-top-width: 1px;
+
+      &.expanded {
+        display: block;
+      }
+    }
+
+    .ma__content-link--chevron.ma__content-link__acordion-toggle .more {
+      display: inline;
+      border: 0;
+    }
+
+    .ma__content-link--chevron.ma__content-link__acordion-toggle .less {
+      display: inline;
+      border: 0;
+    }
+
+    .ma__content-link--chevron.ma__content-link__acordion-toggle:after {
+      transform: rotate(45deg);
+    }
+
+    &.is-open {
+
+      .ma__content-link--chevron.ma__content-link__acordion-toggle:after {
+        transform: rotate(-135deg);
+      }
+
+      .ma__content-link--chevron.ma__content-link__acordion-toggle .more {
+        display: none;
+      }
+
+      .ma__content-link--chevron.ma__content-link__acordion-toggle .less {
+        display: inline;
+      }
+    }
   }
 
   &__optional-content, &__featured-items, &__items, &__extra {
@@ -225,72 +286,6 @@
 
     svg {
       fill: rgba($c-font-link, 0.5);
-    }
-  }
-
-  // Accordion behavior
-
-  &__container {
-
-    .ma__content-link--chevron.ma__content-link__acordion-toggle {
-      font-size: 1.25rem;
-      font-weight: 700;
-      border: 0;
-      padding-left: 0;
-      background: transparent;
-
-      &:after {
-        top: 20%;
-        right: 0;
-      }
-    }
-
-    .ma__teaser-listing__items {
-      margin-bottom: 20px;
-    }
-
-    .ma__teaser-listing__items:last-child {
-      margin-bottom: 0;
-    }
-
-    .ma__teaser-listing__extra {
-      display: none;
-      padding-top: 40px;
-      border-top-style: solid;
-      border-top-width: 1px;
-
-      &.expanded {
-        display: block;
-      }
-    }
-
-    .ma__content-link--chevron.ma__content-link__acordion-toggle .more {
-      display: inline;
-      border: 0;
-    }
-
-    .ma__content-link--chevron.ma__content-link__acordion-toggle .less {
-      display: inline;
-      border: 0;
-    }
-
-    .ma__content-link--chevron.ma__content-link__acordion-toggle:after {
-      transform: rotate(45deg);
-    }
-
-    &.is-open {
-
-      .ma__content-link--chevron.ma__content-link__acordion-toggle:after {
-        transform: rotate(-135deg);
-      }
-
-      .ma__content-link--chevron.ma__content-link__acordion-toggle .more {
-        display: none;
-      }
-
-      .ma__content-link--chevron.ma__content-link__acordion-toggle .less {
-        display: inline;
-      }
     }
   }
 }
