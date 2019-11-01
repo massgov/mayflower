@@ -39,7 +39,7 @@ class MainNav extends Component {
     }
   };
 
-  mouseOver = (e) => {
+  openSubNav = (e) => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
     this.setState({
@@ -47,13 +47,14 @@ class MainNav extends Component {
     });
   };
 
-  mouseOut = () => {
+  closeSubNav = () => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
     this.setState({
       navSelected: -1
     });
   };
+
 
   render() {
     return(
@@ -145,8 +146,9 @@ class MainNav extends Component {
                 id={liId}
                 role="menuitem"
                 onKeyDown={this.onKeyDown}
-                onMouseEnter={this.mouseOver}
-                onMouseLeave={this.mouseOut}
+                onMouseOver={this.openSubNav}
+                onFocus={this.openSubNav}
+                onMouseLeave={this.closeSubNav}
               >
                 {itemBody}
               </li>);
