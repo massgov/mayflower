@@ -21,7 +21,6 @@ class Header extends Component {
     this.searchInputBottom = React.createRef();
     this.buttonRefTop = React.createRef();
     this.buttonRefBottom = React.createRef();
-    this.mainNavRef = React.createRef();
   }
   menuButtonClicked = (afterButtonSearch = false) => {
     // eslint-disable-next-line no-undef
@@ -164,13 +163,8 @@ class Header extends Component {
         <nav className="ma__header__nav" aria-labelledby="main_navigation" id="main-navigation">
           <h2 id="main_navigation" className="visually-hidden">Main Navigation</h2>
           <div className="ma__header__button-container js-sticky-header">
-            <button
-              onClick={() => {
-                this.mainNavRef.current.closeSubNav();
-              }}
-              className="ma__header__back-button js-close-sub-nav"
-            >
-              Back
+            <button className="ma__header__back-button js-close-sub-nav">
+              <span>Back</span>
             </button>
             <button
               className="ma__header__menu-button js-header-menu-button"
@@ -186,11 +180,7 @@ class Header extends Component {
             </div>
             }
             <div className="ma__header__main-nav">
-              <MainNav
-                {...header.mainNav}
-                closeMobleMenu={() => this.menuButtonClicked(false)}
-                ref={this.mainNavRef}
-              />
+              <MainNav {...header.mainNav} closeMobleMenu={() => this.menuButtonClicked(false)} />
             </div>
             <div className="ma__header__utility-nav ma__header__utility-nav--narrow">
               {HeaderUtilityNav}
