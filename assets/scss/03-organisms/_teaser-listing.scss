@@ -11,6 +11,10 @@
     overflow: hidden;
   }
 
+  &__optional-content, &__featured-items, &__items, &__extra {
+    border-color: $c-bd-divider;
+  }
+
   &__description {
 
     p {
@@ -232,6 +236,10 @@
         top: 20%;
         right: 0;
       }
+
+      &,&:after {
+        border-color: $c-bd-divider;
+      }
     }
 
     .ma__teaser-listing__items {
@@ -280,22 +288,6 @@
       .ma__content-link--chevron.ma__content-link__acordion-toggle .less {
         display: inline;
       }
-    }
-  }
-}
-
-//theme
-
-.ma__teaser-listing {
-
-  &__optional-content, &__featured-items, &__items, &__extra {
-    border-color: $c-bd-divider;
-  }
-
-  &__featured-items .ma__general-teaser, &__item {
-
-    &, &:after {
-      border-color: $c-bd-divider;
     }
   }
 }
