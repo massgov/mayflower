@@ -24,12 +24,13 @@ $colors: (
         padding-bottom: 60px;
       }
       .ma__key-message__cta {
+        margin-top: 20px;
         margin-bottom: 10px;
       }
     }
   }
 
-  .ma__key-message__wrapper--top .ma__key-message__title + .ma__key-message__cta {
+  .ma__key-message__wrapper .ma__key-message__title + .ma__key-message__cta {
     margin-top: 40px;
   }
 
@@ -59,10 +60,9 @@ $colors: (
   }
   &__content {
     margin-top: 20px;
-    margin-bottom: 20px;
   }
-  &--top {
-    margin-bottom: 60px;
+  &__content + &__cta {
+    margin-top: 20px;
   }
 
   &--image {
@@ -82,7 +82,7 @@ $colors: (
       height: 100%;
       display: block;
       position: absolute;
-      opacity: 0.75;
+      opacity: 0.8;
     }
 
     &-overlay {
@@ -177,4 +177,9 @@ $colors: (
 
 
 
+}
+
+// Override the message block max width in the content area only.
+.page-content .ma__key-message__block {
+  max-width: 1240px;
 }
