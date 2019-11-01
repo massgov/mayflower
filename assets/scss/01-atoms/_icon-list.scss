@@ -6,6 +6,7 @@
     background-size: 32px 32px;
     list-style: none;
     padding: 3px 0 3px 50px;
+    background: url('#{$assets-path}/images/svg-icons/circle-chevron-green.svg') no-repeat left top;
 
     @media ($bp-small-min) {
       padding-left: 60px;
@@ -22,15 +23,5 @@
     li {
       list-style: disc;
     }
-  }
-}
-
-//theme
-
-.ma__rich-text .ma__icon-list,
-.ma__icon-list {
-
-  & > li {
-    background: url('#{$assets-path}/images/svg-icons/circle-chevron-green.svg') no-repeat left top;
   }
 }

@@ -9,7 +9,7 @@
       position: relative;
 
       &:before {
-        border: 2px solid;
+        border: 2px solid $c-bd-input;
         content: "";
         display: block;
         height: 1.125em;
@@ -19,14 +19,5 @@
         width: 1.125em;
       }
     }
-  }
-}
-
-//theme
-
-.ma__checklist {
-  
-  li:before {
-    border-color: $c-bd-input;
   }
 }

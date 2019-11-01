@@ -10,15 +10,22 @@
   text-align: center;
   width: 130px;
   z-index: 2;
+  background-color: $c-primary-alt;
 
   svg {
     display: inline-block;
     vertical-align: middle;
   }
 
+  svg,
+  svg > g {
+    fill: $c-white;
+  }
+
   &:after {
     content: "";
     display: block;
+    background-color: $c-primary-alt;
     height: 0;
     padding-top: 22%;  // twice the degree since it skews in the middle
     position: absolute;
@@ -40,19 +47,5 @@
       height: 35px;
       width: 35px;
     }
-  }
-}
-//theme
-
-.ma__category-icon {
-  background-color: $c-primary-alt;
-
-  svg,
-  svg > g {
-    fill: $c-white;
-  }
-
-  &:after {
-    background-color: $c-primary-alt;
   }
 }

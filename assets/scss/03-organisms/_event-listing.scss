@@ -273,6 +273,8 @@ $event-listing-bp-show-grid: $bp-medium-min;
   }
 }
 
+/* stylelint-disable */
+
 // IE11 spacing hacks
 
 @media ($bp-medium-min) {
@@ -302,4 +304,5 @@ $event-listing-bp-show-grid: $bp-medium-min;
     padding-right: 20px;
   }
 
+/* stylelint-enable */
 }

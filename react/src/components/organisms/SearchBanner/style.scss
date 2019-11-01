@@ -14,6 +14,7 @@
   }
 
   .ma__header-search {
+    max-width: none;
 
     .ma__button-search {
 
@@ -43,10 +44,6 @@
 
   .main-content--two {
     position: relative;
-  }
-
-  .ma__header-search {
-    max-width: none;
   }
 
   .ma__input-typeahead {

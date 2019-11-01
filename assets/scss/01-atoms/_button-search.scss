@@ -18,6 +18,7 @@
     height: 20px;
     transition: fill .4s;
     width: 20px;
+    fill: $color;
   }
 
 
@@ -46,10 +47,6 @@
     & > svg {
       fill: $background-color;
     }
-  }
-
-  & > svg {
-    fill: $color;
   }
 }
 

@@ -15,14 +15,6 @@
     margin-right: 4px;
     transform: skew(-30deg);
     width: 100%;
-  }
-}
-
-//theme
-
-.ma__divider {
-
-  &:after {
     background-color: $c-primary-alt;
   }
 }

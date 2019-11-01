@@ -2,6 +2,8 @@
 
   @include ma-heading-colored();
 
+  @include ma-heading-colored($c-bg-comp-title);
+
   .sidebar & {
     margin-top: 45px;
 
@@ -13,13 +15,6 @@
       margin-top: 0;
     }
   }
-}
-
-//theme
-
-.ma__colored-heading {
-
-  @include ma-heading-colored($c-bg-comp-title);
 
   &--green {
     background-color: $c-primary-alt;

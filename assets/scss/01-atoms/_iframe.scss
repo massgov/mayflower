@@ -44,24 +44,11 @@
 
   &__link {
     margin-top: 12px;
+    font-size: 1.25rem;
   }
 
   iframe {
     width: 100%;
     border: none;
-  }
-}
-
-//theme
-
-.ma__iframe {
-
-// Comment out for DP-8190
-//  &__container {
-//    background-color: rgba($c-primary,.1);
-//  }
-
-  &__link {
-    font-size: 1.25rem;
   }
 }

@@ -1,5 +1,7 @@
 .ma__comp-heading {
 
+   @include ma-comp-heading($c-primary-alt);
+
   &:not(&--sidebar) {
 
     @include ma-comp-heading;
@@ -9,6 +11,8 @@
   .sidebar & {
 
     @include ma-sidebar-heading;
+
+    @include ma-sidebar-heading($c-bd-divider,$c-font-base);
 
     &:after {
       display: none;
@@ -29,6 +33,8 @@
     @include ma-heading-colored($direction: left);
     border-bottom: none;
 
+    @include ma-heading-colored($c-bg-comp-title);
+
     &:after {
       display: block;
     }
@@ -41,23 +47,6 @@
     &::after {
       display: none;
     }
-  }
-}
-//theme
-
-.ma__comp-heading {
-
-  @include ma-comp-heading($c-primary-alt);
-
-  .sidebar &,
-  &--sidebar {
-
-    @include ma-sidebar-heading($c-bd-divider,$c-font-base);
-  }
-
-  .sidebar--colored & {
-
-    @include ma-heading-colored($c-bg-comp-title);
   }
 
   &--yellow {

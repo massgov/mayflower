@@ -31,6 +31,7 @@
   &__secondary-items {
 
     @include ma-reset-list;
+    border-color: $c-bd-divider;
 
     @media ($bp-medium-min) {
       display: flex;
@@ -42,6 +43,8 @@
 
   &__secondary-item {
 
+    border-color: $c-bd-divider;
+
     @media ($bp-x-small-max) {
 
       &:nth-child(n + 4) {
@@ -51,6 +54,10 @@
       .ma__press-teaser__image {
         display: none;
       }      
+    }
+
+    &:after {
+      border-color: $c-bd-divider;
     }
 
     @media ($bp-medium-max) {
@@ -151,22 +158,7 @@
   }
 }
 
-//theme
-
-.ma__press-listing {
-
-  &__secondary-items {
-    border-color: $c-bd-divider;
-  }
-
-  &__secondary-item {
-    border-color: $c-bd-divider;
-
-    &:after {
-      border-color: $c-bd-divider;
-    }
-  }
-}
+/* stylelint-disable */
 
 @media ($bp-medium-min) {
 
@@ -200,3 +192,5 @@
     padding: 0;
   }
 }
+
+/* stylelint-enable */

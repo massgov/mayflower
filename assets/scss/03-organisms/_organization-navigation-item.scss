@@ -477,6 +477,8 @@
   }
 }
 
+/* stylelint-disable */
+
 // IE hacks
 
 _:-ms-lang(x), .ma__org-nav-contact-us__contact-row .wrappedGroup {
@@ -486,3 +488,5 @@ _:-ms-lang(x), .ma__org-nav-contact-us__contact-row .wrappedGroup {
 _:-ms-lang(x), .ma__org-nav-i-want-to .ma__org-nav-i-want-to-section {
   flex: 1 1 auto;
 }
+
+/* stylelint-enable */
