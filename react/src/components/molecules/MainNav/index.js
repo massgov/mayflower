@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import is from 'is';
 import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
@@ -26,6 +25,11 @@ class MainNav extends Component {
     }
   };
 
+  onNavigateCallBack = ({ e, href }) => {
+    e.preventDefault();
+    this.props.onNavigateCallBack(href);
+  };
+
   mouseOver = (e) => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
@@ -40,15 +44,6 @@ class MainNav extends Component {
     this.setState({
       navSelected: -1
     });
-  };
-
-  onNavigateCallBack = (e, href) => {
-    e.preventDefault()
-    const { onNavigateCallBack } = this.props;
-    if (is.fn(onNavigateCallBack)) {
-      console.log(href)
-      onNavigateCallBack(href);
-    }
   };
 
   render() {
@@ -101,7 +96,7 @@ class MainNav extends Component {
                       /* eslint-disable-next-line react/no-array-index-key */
                       <li role="menuitem" className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`}>
                         <button
-                          onClick={(e) => this.onNavigateCallBack(e, subItem.href)}
+                          onClick={(e) => this.onNavigateCallBack({ e, href: subItem.href })}
                           role="menuitem"
                           className="ma__main-nav__link"
                         >
@@ -154,6 +149,8 @@ class MainNav extends Component {
 }
 
 MainNav.propTypes = {
+  /** Callback that is triggered on subnav item click */
+  onNavigateCallBack: PropTypes.func,
   /** An array of navigation objects to display in the main nav */
   mainNav: PropTypes.arrayOf(PropTypes.shape({
     href: PropTypes.string,
