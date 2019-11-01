@@ -183,7 +183,6 @@
   overflow: hidden;
   border: 2px solid rgba($c-primary, 0.5);
   -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
 
   &::-webkit-scrollbar { 
     display: none;  // Safari and Chrome
