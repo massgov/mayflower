@@ -14,8 +14,6 @@ button {
 
 .ma__button {
 
-  @include ma-button("normal");
-
   @include ma-button("normal","solid",$c-primary);
 
   @each $class, $c in $primarycolors {
