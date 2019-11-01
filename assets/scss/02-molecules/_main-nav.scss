@@ -111,7 +111,7 @@
       }
     }
 
-    .is-open, is-open-react & {
+    .is-open, .is-open-react & {
 
       &:after {
         @media ($bp-header-toggle-min) {
