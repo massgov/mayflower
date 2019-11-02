@@ -1,7 +1,7 @@
 {% set thumbnail = card.thumbnail %}
 {% set cardClass = card.usage ? " ma__card--" ~ card.usage : "" %}
 {% set contentClass = card.usage ? " ma__card__content--" ~ card.usage : "" %}
-{% set imgClass = card.usage ? "" : " ma__card__img--" ~ card.id %}
+{% set imgClass = card.usage ? card.usage : card.id %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
 
 <div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }}">
@@ -13,7 +13,7 @@
     </style>
   {% endif %}
   <a class="ma__card__wrapper" href="{{ card.link }}">
-    <div class="ma__card__img{{ imgClass }}">
+    <div class="ma__card__img ma__card__img--{{ imgClass }}">
       <img src="{{ card.thumbnail }}" alt="">
     </div>
     <div class="ma__card__content{{ contentClass }}">
