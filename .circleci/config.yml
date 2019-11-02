@@ -35,6 +35,11 @@ jobs:
             - pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
             - pl-npm-v3-
       - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && npm install' }
+      - run: { name: 'Yarn Install', command: 'yarn install' }
+      # Check for changelog in the PR.
+      - run:
+          name: Check for a changelog file in the PR
+          command: yarn danger ci
       - save_cache:
           name: Save NPM cache
           key: pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
