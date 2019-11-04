@@ -43,14 +43,12 @@
     }
 </style>
 {% endif %}
-{% if keyMessage.mobileBgImage %}
+{% if keyMessage.mobileBgImage and positionTop %}
 <style>
   #img{{ id }}.ma__key-message__inline-image {
     background-image: url('{{ keyMessage.mobileBgImage }}');
   }
 </style>
-{% endif %}
-{% if bgImage and positionTop %}
 <script type="text/javascript">
   var id = "{{ id }}";
   var blckid = "blck{{ id }}";
