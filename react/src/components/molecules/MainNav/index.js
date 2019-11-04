@@ -5,6 +5,7 @@ import is from 'is';
 import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
+
 class MainNav extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +28,6 @@ class MainNav extends Component {
   };
 
   onNavigateCallBack = ({ e, href }) => {
-    console.log(href)
     // e.preventDefault();
     // e.stopPropagation();
     const { onNavigateCallBack, closeMobleMenu } = this.props;
@@ -42,17 +42,21 @@ class MainNav extends Component {
     this.setState({
       navSelected: -1
     });
+    this.props.updateHeaderState({
+      navSelected: -1
+    });
   };
 
   openSubNav = (e) => {
-    //console.log(e.currentTarget)
     // e.persist();
     // e.nativeEvent.stopImmediatePropagation();
     e.stopPropagation();
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
-    console.log(e.currentTarget)
     this.setState({
+      navSelected: e.currentTarget.id
+    });
+    this.props.updateHeaderState({
       navSelected: e.currentTarget.id
     });
   };
@@ -66,10 +70,15 @@ class MainNav extends Component {
     this.setState({
       navSelected: -1
     });
+    this.props.updateHeaderState({
+      navSelected: -1
+    });
   };
 
 
   render() {
+    // console.log(this.state)
+
     return(
       <div className="ma__main-nav">
         <ul className="ma__main-nav__items" role="menubar">
@@ -81,8 +90,8 @@ class MainNav extends Component {
             });
             const buttonId = `button${index}`;
             const liId = `li${index}`;
-            const { navSelected } = this.state;
-            const isExpanded = navSelected === buttonId;
+            const { subNavOpen } = this.props;
+            const isExpanded = subNavOpen === buttonId;
             const itemBody = [];
             if (item.subNav) {
               const buttonProps = {
@@ -105,7 +114,6 @@ class MainNav extends Component {
                 'is-open-react': isExpanded,
                 'is-closed-react': !isExpanded
               });
-              console.log(navSelected,buttonId)
               itemBody.push((
                 /* eslint-disable-next-line react/no-array-index-key */
                 <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>

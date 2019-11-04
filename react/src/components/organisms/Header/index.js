@@ -9,13 +9,15 @@ import SiteLogo from '../../atoms/media/SiteLogo';
 import logo from '../../../assets/images/stateseal.png';
 import './styles.css';
 
+
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       utilNavOpen: false,
       shouldNavigateTop: false,
-      shouldNavigateBottom: true
+      shouldNavigateBottom: true,
+      subNavOpen: -1
     };
     this.searchInputTop = React.createRef();
     this.searchInputBottom = React.createRef();
@@ -23,6 +25,13 @@ class Header extends Component {
     this.buttonRefBottom = React.createRef();
     this.mainNavRef = React.createRef();
   }
+
+  updateSubNav = ({ navSelected }) => {
+    this.setState({
+      subNavOpen: navSelected
+    });
+  }
+
   menuButtonClicked = (afterButtonSearch = false) => {
     // eslint-disable-next-line no-undef
     const body = document.querySelector('body');
@@ -139,6 +148,8 @@ class Header extends Component {
   render() {
     const header = this.props;
     const HeaderUtilityNav = <UtilityNav {...this.props.utilityNav} isOpen={this.state.utilNavOpen} />;
+    const { subNavOpen } = this.state;
+    console.log(subNavOpen, subNavOpen !== -1)
     return(
       <header className="ma__header" id="header">
         {!header.hideBackTo && (
@@ -163,13 +174,23 @@ class Header extends Component {
         </div>
         <nav className="ma__header__nav" aria-labelledby="main_navigation" id="main-navigation">
           <h2 id="main_navigation" className="visually-hidden">Main Navigation</h2>
-          <div className="ma__header__button-container js-sticky-header">
-            <button
-              onClick={() => this.mainNavRef.current.closeSubNav()}
-              className="ma__header__back-button js-close-sub-nav"
-            >
-              Back
-            </button>
+          <div className="ma__header__button-container">
+            {
+              (subNavOpen !== -1) && (
+                <button
+                  onClick={() => {
+                    this.updateSubNav({
+                      navSelected: -1
+                    })
+                  }}
+                  className="ma__header__back-button--react"
+                >
+                  <span>
+                    Back
+                  </span>
+                </button>
+              )
+            }
             <button
               className="ma__header__menu-button js-header-menu-button"
               onClick={() => this.menuButtonClicked(false)}
@@ -184,7 +205,13 @@ class Header extends Component {
             </div>
             }
             <div className="ma__header__main-nav">
-              <MainNav {...header.mainNav} closeMobleMenu={() => this.menuButtonClicked(false)} ref={this.mainNavRef} />
+              <MainNav
+                {...header.mainNav}
+                closeMobleMenu={() => this.menuButtonClicked(false)}
+                ref={this.mainNavRef}
+                updateHeaderState={(state) => this.updateSubNav(state)}
+                subNavOpen={subNavOpen}
+              />
             </div>
             <div className="ma__header__utility-nav ma__header__utility-nav--narrow">
               {HeaderUtilityNav}
