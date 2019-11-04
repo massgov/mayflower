@@ -187,50 +187,58 @@ body {
   }
 
   &__back-button {
-    @include ma-button-reset;
-    font-size: 1.125rem;
-    height: 33px;
-    letter-spacing: $letter-spacing-large;
-    margin-left: 20px;
-    padding-left: 20px;
-    position: fixed;
-      top: 3px;
-      left: 100%; // hides the outline
-    text-transform: uppercase;
-    transition: left .5s, visibility .5s;
-    visibility: hidden;
-    z-index: $z-dropdown;
+    &, &--react {
+      @include ma-button-reset;
+      font-size: 1.125rem;
+      height: 33px;
+      letter-spacing: $letter-spacing-large;
+      margin-left: 20px;
+      padding-left: 20px;
+      position: fixed;
+        top: 3px;
+        left: 100%; // hides the outline
+      text-transform: uppercase;
+      transition: left .5s, visibility .5s;
+      z-index: $z-dropdown;
 
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 43px;
-    }
+      .translated-rtl &,
+      .translated-ltr & {
+        top: 43px;
+      }
 
-    &:before {
-      border-left: 3px solid;
-      border-top: 3px solid;
-      content: "";
-      display: inline-block;
-      height: .65em;
-      margin-top: 3px;
-      margin-left: 3px;
-      position: absolute;
-        left: 0;
-        top: 6px;
-      transform: rotate(-45deg);
-      transform-origin: 75% 75%;
-      vertical-align: middle;
-      width: .65em;
+      &:before {
+        border-left: 3px solid;
+        border-top: 3px solid;
+        content: "";
+        display: inline-block;
+        height: .65em;
+        margin-top: 3px;
+        margin-left: 3px;
+        position: absolute;
+          left: 0;
+          top: 6px;
+        transform: rotate(-45deg);
+        transform-origin: 75% 75%;
+        vertical-align: middle;
+        width: .65em;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
-    span {
-      display: inline-block;
-      vertical-align: middle;
+    & {
+      visibility: hidden;
+      .show-menu.show-utilmenu &,
+      .show-menu.show-submenu & {
+        left: calc(100vw - 280px);
+        visibility: visible;
+      }
     }
-
-    .show-menu.show-utilmenu &,
-    .show-menu.show-submenu & {
+    &--react {
       left: calc(100vw - 280px);
       visibility: visible;
+      display: block;
     }
   }
 
