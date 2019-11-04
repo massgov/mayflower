@@ -39,6 +39,9 @@ class MainNav extends Component {
     } else {
       window.location.assign(href);
     }
+    this.setState({
+      navSelected: -1
+    });
   };
 
   openSubNav = (e) => {
