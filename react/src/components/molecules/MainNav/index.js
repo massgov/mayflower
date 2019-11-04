@@ -171,6 +171,7 @@ const MainNav = (props) => {
             itemBody.push(<button {...buttonProps}>{item.text}</button>);
           }
           return(
+            /* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */
             <li
               className={topItemClasses}
               /* eslint-disable-next-line react/no-array-index-key */
