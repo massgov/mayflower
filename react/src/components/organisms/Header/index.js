@@ -17,7 +17,7 @@ class Header extends Component {
       utilNavOpen: false,
       shouldNavigateTop: false,
       shouldNavigateBottom: true,
-      subNavOpen: -1
+      navSelected: -1
     };
     this.searchInputTop = React.createRef();
     this.searchInputBottom = React.createRef();
@@ -28,7 +28,7 @@ class Header extends Component {
 
   updateSubNav = ({ navSelected }) => {
     this.setState({
-      subNavOpen: navSelected
+      navSelected
     });
   }
 
@@ -59,6 +59,9 @@ class Header extends Component {
     } else {
       this.setState(newState);
     }
+    this.updateSubNav({
+      navSelected: -1
+    });
   };
   // Puts focus on the mobile search input after the menu is opened via the search button.
   afterButtonSearch = () => {
@@ -148,8 +151,7 @@ class Header extends Component {
   render() {
     const header = this.props;
     const HeaderUtilityNav = <UtilityNav {...this.props.utilityNav} isOpen={this.state.utilNavOpen} />;
-    const { subNavOpen } = this.state;
-    console.log(subNavOpen, subNavOpen !== -1)
+    const { navSelected } = this.state;
     return(
       <header className="ma__header" id="header">
         {!header.hideBackTo && (
@@ -176,12 +178,12 @@ class Header extends Component {
           <h2 id="main_navigation" className="visually-hidden">Main Navigation</h2>
           <div className="ma__header__button-container">
             {
-              (subNavOpen !== -1) && (
+              (navSelected !== -1) && (
                 <button
                   onClick={() => {
                     this.updateSubNav({
                       navSelected: -1
-                    })
+                    });
                   }}
                   className="ma__header__back-button--react"
                 >
@@ -210,7 +212,7 @@ class Header extends Component {
                 closeMobleMenu={() => this.menuButtonClicked(false)}
                 ref={this.mainNavRef}
                 updateHeaderState={(state) => this.updateSubNav(state)}
-                subNavOpen={subNavOpen}
+                navSelected={navSelected}
               />
             </div>
             <div className="ma__header__utility-nav ma__header__utility-nav--narrow">

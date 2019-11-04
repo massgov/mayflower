@@ -7,29 +7,21 @@ import './style.css';
 
 
 class MainNav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      navSelected: -1
-    };
-  }
 
   onKeyDown = (e) => {
     if (e.key === 'Enter') {
-      this.setState({
-        navSelected: e.currentTarget.id
+      this.props.updateHeaderState({
+        navSelected: -1
       });
     }
     if (e.key === 'Escape') {
-      this.setState({
+      this.props.updateHeaderState({
         navSelected: -1
       });
     }
   };
 
-  onNavigateCallBack = ({ e, href }) => {
-    // e.preventDefault();
-    // e.stopPropagation();
+  onNavigateCallBack = ({ href }) => {
     const { onNavigateCallBack, closeMobleMenu } = this.props;
     if (is.fn(closeMobleMenu)) {
       closeMobleMenu();
@@ -39,37 +31,23 @@ class MainNav extends Component {
     } else {
       window.location.assign(href);
     }
-    this.setState({
-      navSelected: -1
-    });
     this.props.updateHeaderState({
       navSelected: -1
     });
   };
 
   openSubNav = (e) => {
-    // e.persist();
-    // e.nativeEvent.stopImmediatePropagation();
     e.stopPropagation();
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
-    this.setState({
-      navSelected: e.currentTarget.id
-    });
     this.props.updateHeaderState({
       navSelected: e.currentTarget.id
     });
   };
 
   closeSubNav = () => {
-    // e.persist();
-    // e.stopPropagation();
-    // e.stopPropagation();
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
-    this.setState({
-      navSelected: -1
-    });
     this.props.updateHeaderState({
       navSelected: -1
     });
@@ -77,8 +55,6 @@ class MainNav extends Component {
 
 
   render() {
-    // console.log(this.state)
-
     return(
       <div className="ma__main-nav">
         <ul className="ma__main-nav__items" role="menubar">
@@ -90,8 +66,8 @@ class MainNav extends Component {
             });
             const buttonId = `button${index}`;
             const liId = `li${index}`;
-            const { subNavOpen } = this.props;
-            const isExpanded = subNavOpen === buttonId;
+            const { navSelected } = this.props;
+            const isExpanded = navSelected === buttonId;
             const itemBody = [];
             if (item.subNav) {
               const buttonProps = {
@@ -183,6 +159,10 @@ class MainNav extends Component {
 }
 
 MainNav.propTypes = {
+  /** navSelected state tracked in Header, passed from Header */
+  navSelected: PropTypes.func,
+  /** set navSelected state in Header, passed from Header */
+  updateHeaderState: PropTypes.func,
   /** closeMobleMenu passed from Header */
   closeMobleMenu: PropTypes.func,
   /** Callback that is triggered on subnav item click */
