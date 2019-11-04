@@ -20,14 +20,15 @@ const MainNav = (props) => {
     }
   };
 
-  const onNavigate = ({ href }) => {
+  const onNavigate = ({ e, href }) => {
+    e.stopPropagation();
     const { onNavigateCallBack, closeMobleMenu } = props;
     if (is.fn(closeMobleMenu)) {
       closeMobleMenu();
     }
     if (is.fn(onNavigateCallBack)) {
       onNavigateCallBack(href);
-    } else if (window) {
+    } else if (typeof window !== 'undefined') {
       window.location.assign(href);
     }
     props.updateHeaderState({
@@ -36,7 +37,6 @@ const MainNav = (props) => {
   };
 
   const openSubNav = (e) => {
-    e.stopPropagation();
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
     props.updateHeaderState({
@@ -52,6 +52,19 @@ const MainNav = (props) => {
     });
   };
 
+
+  const openSubNavHover = (e) => {
+    if (typeof window !== 'undefined' && window.innerWidth > 840) {
+      openSubNav(e);
+    }
+  };
+
+  const closeSubNavHover = () => {
+    if (typeof window !== 'undefined' && window.innerWidth > 840) {
+      closeSubNav();
+    }
+  };
+
   return(
     <div className="ma__main-nav">
       <ul className="ma__main-nav__items" role="menubar">
@@ -64,7 +77,7 @@ const MainNav = (props) => {
           const buttonId = `button${index}`;
           const liId = `li${index}`;
           const { navSelected } = props;
-          const isExpanded = navSelected === buttonId;
+          const isExpanded = navSelected === liId;
           const itemBody = [];
           if (item.subNav) {
             const buttonProps = {
@@ -75,11 +88,7 @@ const MainNav = (props) => {
               'aria-haspopup': 'true',
               role: 'menuitem',
               'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
-              key: buttonId,
-              onKeyDown,
-              onMouseOver: (window && window.innerWidth > 840 && openSubNav),
-              onClick: openSubNav,
-              onMouseLeave: (window && window.innerWidth > 840 && closeSubNav)
+              key: buttonId
             };
             itemBody.push(<button {...buttonProps}>{item.text}</button>);
             const navItemClasses = classNames({
@@ -144,6 +153,10 @@ const MainNav = (props) => {
               key={`liClasses${index}`}
               id={liId}
               role="menuitem"
+              onKeyDown={onKeyDown}
+              onMouseOver={openSubNavHover}
+              onMouseLeave={closeSubNavHover}
+              onClick={openSubNav}
             >
               {itemBody}
             </li>);
