@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
@@ -7,6 +7,30 @@ import './style.css';
 
 
 const MainNav = (props) => {
+  const checkDesktopMode = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth > 840) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  const [isDesktop, setIsDesktop] = useState(checkDesktopMode());
+
+  const updateDesktopMode = () => {
+    setIsDesktop(checkDesktopMode());
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', updateDesktopMode);
+    }
+    return() => {
+      window.removeEventListener('resize', updateDesktopMode);
+    };
+  }, []);
+
   const onKeyDown = (e) => {
     if (e.key === 'Enter') {
       props.updateHeaderState({
@@ -54,13 +78,13 @@ const MainNav = (props) => {
 
 
   const openSubNavHover = (e) => {
-    if (typeof window !== 'undefined' && window.innerWidth > 840) {
+    if (typeof window !== 'undefined' && isDesktop) {
       openSubNav(e);
     }
   };
 
   const closeSubNavHover = () => {
-    if (typeof window !== 'undefined' && window.innerWidth > 840) {
+    if (typeof window !== 'undefined' && isDesktop) {
       closeSubNav();
     }
   };
