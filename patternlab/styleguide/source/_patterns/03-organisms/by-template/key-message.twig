@@ -49,12 +49,6 @@
     background-image: url('{{ keyMessage.mobileBgImage }}');
   }
 </style>
-{% elseif bgImage and positionTop %}
-<style>
-  #img{{ id }}.ma__key-message__inline-image {
-    background-image: url('{{ bgImage }}');
-  }
-</style>
 {% endif %}
 {% if bgImage and positionTop %}
 <script type="text/javascript">
