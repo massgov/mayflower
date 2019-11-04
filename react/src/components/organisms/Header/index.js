@@ -23,7 +23,6 @@ class Header extends Component {
     this.searchInputBottom = React.createRef();
     this.buttonRefTop = React.createRef();
     this.buttonRefBottom = React.createRef();
-    this.mainNavRef = React.createRef();
   }
 
   updateSubNav = ({ navSelected }) => {
@@ -210,7 +209,6 @@ class Header extends Component {
               <MainNav
                 {...header.mainNav}
                 closeMobleMenu={() => this.menuButtonClicked(false)}
-                ref={this.mainNavRef}
                 updateHeaderState={(state) => this.updateSubNav(state)}
                 navSelected={navSelected}
               />
