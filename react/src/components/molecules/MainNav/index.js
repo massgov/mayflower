@@ -78,13 +78,13 @@ const MainNav = (props) => {
 
 
   const openSubNavHover = (e) => {
-    if (typeof window !== 'undefined' && isDesktop) {
+    if (isDesktop) {
       openSubNav(e);
     }
   };
 
   const closeSubNavHover = () => {
-    if (typeof window !== 'undefined' && isDesktop) {
+    if (isDesktop) {
       closeSubNav();
     }
   };
