@@ -92,9 +92,9 @@ class MainNav extends Component {
                 'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
                 key: buttonId,
                 onKeyDown: this.onKeyDown,
-                onMouseOver: this.openSubNav,
-                // onFocus: this.openSubNav,
-                // onMouseLeave: this.closeSubNav
+                onMouseOver: (window && window.innerWidth > 840 && this.openSubNav),
+                onClick: this.openSubNav,
+                onMouseLeave:  (window && window.innerWidth > 840 && this.closeSubNav)
               };
               itemBody.push(<button {...buttonProps}>{item.text}</button>);
               const navItemClasses = classNames({
@@ -160,7 +160,6 @@ class MainNav extends Component {
                 key={`liClasses${index}`}
                 id={liId}
                 role="menuitem"
-                // onClick={this.openSubNav}
               >
                 {itemBody}
               </li>);
