@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
@@ -6,47 +6,42 @@ import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
 
-const MainNav = (props) => {
-  const checkDesktopMode = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth > 840) {
-        return true;
-      }
-    }
-    return false;
-  };
-
-  const [isDesktop, setIsDesktop] = useState(checkDesktopMode());
-
-  const updateDesktopMode = () => {
-    setIsDesktop(checkDesktopMode());
-  };
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', updateDesktopMode);
-    }
-    return() => {
-      window.removeEventListener('resize', updateDesktopMode);
+class MainNav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDesktop: this.checkDesktopMode()
     };
-  }, []);
+  }
 
-  const onKeyDown = (e) => {
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', this.updateDesktopMode);
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('resize', this.updateDesktopMode);
+    }
+  }
+
+  onKeyDown = (e) => {
     if (e.key === 'Enter') {
-      props.updateHeaderState({
+      this.props.updateHeaderState({
         navSelected: -1
       });
     }
     if (e.key === 'Escape') {
-      props.updateHeaderState({
+      this.props.updateHeaderState({
         navSelected: -1
       });
     }
   };
 
-  const onNavigate = ({ e, href }) => {
+  onNavigate = ({ e, href }) => {
     e.stopPropagation();
-    const { onNavigateCallBack, closeMobleMenu } = props;
+    const { onNavigateCallBack, closeMobleMenu } = this.props;
     if (is.fn(closeMobleMenu)) {
       closeMobleMenu();
     }
@@ -55,142 +50,159 @@ const MainNav = (props) => {
     } else if (typeof window !== 'undefined') {
       window.location.assign(href);
     }
-    props.updateHeaderState({
+    this.props.updateHeaderState({
       navSelected: -1
     });
   };
 
-  const openSubNav = (e) => {
+  checkDesktopMode = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth > 840) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  updateDesktopMode = () => {
+    this.setState({
+      isDesktop: this.checkDesktopMode()
+    });
+  }
+
+  openSubNav = (e) => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
-    props.updateHeaderState({
+    this.props.updateHeaderState({
       navSelected: e.currentTarget.id
     });
   };
 
-  const closeSubNav = () => {
+  closeSubNav = () => {
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
-    props.updateHeaderState({
+    this.props.updateHeaderState({
       navSelected: -1
     });
   };
 
 
-  const openSubNavHover = (e) => {
-    if (isDesktop) {
-      openSubNav(e);
+  openSubNavHover = (e) => {
+    if (this.state.isDesktop) {
+      this.openSubNav(e);
     }
   };
 
-  const closeSubNavHover = () => {
-    if (isDesktop) {
-      closeSubNav();
+  closeSubNavHover = () => {
+    if (this.state.isDesktop) {
+      this.closeSubNav();
     }
   };
 
-  return(
-    <div className="ma__main-nav">
-      <ul className="ma__main-nav__items" role="menubar">
-        {props.mainNav.map((item, index) => {
-          const topItemClasses = classNames({
-            'ma__main-nav__item': true,
-            'is-active': item.active,
-            'has-subnav': item.subNav
-          });
-          const buttonId = `button${index}`;
-          const liId = `li${index}`;
-          const { navSelected } = props;
-          const isExpanded = navSelected === liId;
-          const itemBody = [];
-          if (item.subNav) {
-            const buttonProps = {
-              id: buttonId,
-              index,
-              className: 'ma__main-nav__top-link',
-              'aria-expanded': `${isExpanded}`,
-              'aria-haspopup': 'true',
-              role: 'menuitem',
-              'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
-              key: buttonId
-            };
-            itemBody.push(<button {...buttonProps}>{item.text}</button>);
-            const navItemClasses = classNames({
-              'ma__main-nav__subitems': true,
-              'is-open-react': isExpanded,
-              'is-closed-react': !isExpanded
+  render() {
+    return(
+      <div className="ma__main-nav">
+        <ul className="ma__main-nav__items" role="menubar">
+          {this.props.mainNav.map((item, index) => {
+            const topItemClasses = classNames({
+              'ma__main-nav__item': true,
+              'is-active': item.active,
+              'has-subnav': item.subNav
             });
-            itemBody.push((
-              /* eslint-disable-next-line react/no-array-index-key */
-              <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>
-                <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
-                  <li role="menuitem" className="ma__main-nav__subitem">
-                    <a
-                      href={item.href}
-                      className="ma__main-nav__link"
-                      tabIndex={!isExpanded ? -1 : null}
-                    >
-                      {item.text}
-                    </a>
-                  </li>
-                  {item.subNav.map((subItem, subItemIndex) => (
-                    /* eslint-disable-next-line react/no-array-index-key */
-                    <li className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`}>
-                      <button
-                        onClick={(e) => onNavigate({ e, href: subItem.href })}
+            const buttonId = `button${index}`;
+            const liId = `li${index}`;
+            const { navSelected } = this.props;
+            const isExpanded = navSelected === liId;
+            const itemBody = [];
+            if (item.subNav) {
+              const buttonProps = {
+                id: buttonId,
+                index,
+                className: 'ma__main-nav__top-link',
+                'aria-expanded': `${isExpanded}`,
+                'aria-haspopup': 'true',
+                role: 'menuitem',
+                'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
+                key: buttonId
+              };
+              itemBody.push(<button {...buttonProps}>{item.text}</button>);
+              const navItemClasses = classNames({
+                'ma__main-nav__subitems': true,
+                'is-open-react': isExpanded,
+                'is-closed-react': !isExpanded
+              });
+              itemBody.push((
+                /* eslint-disable-next-line react/no-array-index-key */
+                <div className={navItemClasses} key={`navItem${index}`} aria-hidden={!isExpanded}>
+                  <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
+                    <li role="menuitem" className="ma__main-nav__subitem">
+                      <a
+                        href={item.href}
                         className="ma__main-nav__link"
+                        tabIndex={!isExpanded ? -1 : null}
                       >
-                        {subItem.text}
-                      </button>
+                        {item.text}
+                      </a>
                     </li>
-                  ))}
-                  {
-                    item.href && (
-                      <li role="menuitem" className="ma__main-nav__subitem ma__main-nav__subitem--main">
+                    {item.subNav.map((subItem, subItemIndex) => (
+                      /* eslint-disable-next-line react/no-array-index-key */
+                      <li className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`}>
                         <button
-                          onClick={(e) => onNavigate({ e, href: item.href })}
+                          onClick={(e) => this.onNavigate({ e, href: subItem.href })}
                           className="ma__main-nav__link"
                         >
-                          <Icon name="arrowbent" aria-hidden />
-                          <span>{item.text}</span>
+                          {subItem.text}
                         </button>
                       </li>
-                    )
-                  }
-                </ul>
-              </div>));
-          } else {
-            const buttonProps = {
-              id: buttonId,
-              className: 'ma__main-nav__top-link',
-              'aria-haspopup': 'true',
-              key: buttonId,
-              role: 'menuitem',
-              'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
-            };
-            itemBody.push(<button {...buttonProps}>{item.text}</button>);
+                    ))}
+                    {
+                      item.href && (
+                        <li role="menuitem" className="ma__main-nav__subitem ma__main-nav__subitem--main">
+                          <button
+                            onClick={(e) => this.onNavigate({ e, href: item.href })}
+                            className="ma__main-nav__link"
+                          >
+                            <Icon name="arrowbent" aria-hidden />
+                            <span>{item.text}</span>
+                          </button>
+                        </li>
+                      )
+                    }
+                  </ul>
+                </div>));
+            } else {
+              const buttonProps = {
+                id: buttonId,
+                className: 'ma__main-nav__top-link',
+                'aria-haspopup': 'true',
+                key: buttonId,
+                role: 'menuitem',
+                'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
+              };
+              itemBody.push(<button {...buttonProps}>{item.text}</button>);
+            }
+            return(
+              /* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */
+              <li
+                className={topItemClasses}
+                /* eslint-disable-next-line react/no-array-index-key */
+                key={`liClasses${index}`}
+                id={liId}
+                role="menuitem"
+                onKeyDown={this.onKeyDown}
+                onMouseOver={this.openSubNavHover}
+                onMouseLeave={this.closeSubNavHover}
+                onClick={this.openSubNav}
+              >
+                {itemBody}
+              </li>);
+            })
           }
-          return(
-            /* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */
-            <li
-              className={topItemClasses}
-              /* eslint-disable-next-line react/no-array-index-key */
-              key={`liClasses${index}`}
-              id={liId}
-              role="menuitem"
-              onKeyDown={onKeyDown}
-              onMouseOver={openSubNavHover}
-              onMouseLeave={closeSubNavHover}
-              onClick={openSubNav}
-            >
-              {itemBody}
-            </li>);
-          })
-        }
-      </ul>
-    </div>
-  );
-};
+        </ul>
+      </div>
+    );
+  }
+}
 
 MainNav.propTypes = {
   /** navSelected state tracked in Header, passed from Header */
