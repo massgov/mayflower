@@ -200,6 +200,8 @@ body {
       text-transform: uppercase;
       transition: left .5s, visibility .5s;
       z-index: $z-dropdown;
+      font-weight: 700;
+      color: $c-font-inverse;
 
       .translated-rtl &,
       .translated-ltr & {
@@ -221,10 +223,13 @@ body {
         transform-origin: 75% 75%;
         vertical-align: middle;
         width: .65em;
+        border-left-color: $c-font-inverse;
+        border-top-color: $c-font-inverse;
       }
       span {
         display: inline-block;
         vertical-align: middle;
+        opacity: 0.7;
       }
     }
     & {
@@ -404,20 +409,6 @@ body {
   &__button-container {
     @media ($bp-header-toggle-max) {
       background-color: $c-primary;
-    }
-  }
-
-  &__back-button {
-    font-weight: 700;
-    color: $c-font-inverse;
-
-    &:before {
-      border-left-color: $c-font-inverse;
-      border-top-color: $c-font-inverse;
-    }
-
-    span {
-      opacity: 0.7;
     }
   }
 
