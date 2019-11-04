@@ -27,7 +27,7 @@ const MainNav = (props) => {
     }
     if (is.fn(onNavigateCallBack)) {
       onNavigateCallBack(href);
-    } else {
+    } else if (window) {
       window.location.assign(href);
     }
     props.updateHeaderState({
