@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
@@ -79,7 +79,7 @@ const MainNav = (props) => {
               onKeyDown,
               onMouseOver: (window && window.innerWidth > 840 && openSubNav),
               onClick: openSubNav,
-              onMouseLeave:  (window && window.innerWidth > 840 && closeSubNav)
+              onMouseLeave: (window && window.innerWidth > 840 && closeSubNav)
             };
             itemBody.push(<button {...buttonProps}>{item.text}</button>);
             const navItemClasses = classNames({
@@ -151,8 +151,8 @@ const MainNav = (props) => {
         }
       </ul>
     </div>
-  )
-}
+  );
+};
 
 MainNav.propTypes = {
   /** navSelected state tracked in Header, passed from Header */
