@@ -94,6 +94,7 @@
       {% if keyMessage.subtitle or keyMessage.description %}
         <div class="ma__key-message__content">
           {% if keyMessage.subtitle %}
+            {# Increment heading level by 1 from its parent heading. #}
             {% set headingLevel = headingLevel + 1 %}
             <h{{ headingLevel }} class="ma__key-message__sub-title{{ subClass }}">{{ keyMessage.subtitle }}</h{{ headingLevel }}>
           {% endif %}
