@@ -15,6 +15,7 @@
     margin-bottom: 20px;
 
     @media ($bp-small-min) {
+      margin-bottom: 0;
       flex-basis: 50%;
     }
 
