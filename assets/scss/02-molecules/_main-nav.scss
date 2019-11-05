@@ -256,6 +256,7 @@
   }
 
   &__link {
+
     @include ma-button-reset;
     width: 100%;
     text-align: left;
