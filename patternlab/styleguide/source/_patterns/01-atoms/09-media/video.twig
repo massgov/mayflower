@@ -7,8 +7,8 @@
       {% set video = video|merge({'link': {
                                     'href': video.link.href,
                                     'text': video.link.text,
-                                    'info': video.link.info,
-                                    'labelContext': video.label,
+                                    'info': '',
+                                    'labelContext': video.link.labelContext,
                                     'property': video.link.property }}) %}
         {% set decorativeLink = video.link %}
         {% include "@atoms/decorative-link.twig" %}

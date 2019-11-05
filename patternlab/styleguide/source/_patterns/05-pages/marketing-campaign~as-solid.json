@@ -37,7 +37,10 @@
         "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
         "link": {
           "href": "#",
-          "text": "View transcript"
+          "text": "View transcript",
+          "info": "",
+          "labelContext": " of Why work for the commonwealth",
+          "property": ""
         }
       }
     },
