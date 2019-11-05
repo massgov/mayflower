@@ -208,7 +208,7 @@ class Header extends Component {
             <div className="ma__header__main-nav">
               <MainNav
                 {...header.mainNav}
-                closeMobleMenu={() => this.menuButtonClicked(false)}
+                closeMobileMenu={() => this.menuButtonClicked(false)}
                 updateHeaderState={(state) => this.updateSubNav(state)}
                 navSelected={navSelected}
               />

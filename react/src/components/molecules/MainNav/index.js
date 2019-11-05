@@ -27,13 +27,14 @@ class MainNav extends Component {
   }
 
   onKeyDown = (e) => {
+    const { updateHeaderState } = this.props;
     if (e.key === 'Enter') {
-      this.props.updateHeaderState({
+      updateHeaderState({
         navSelected: -1
       });
     }
     if (e.key === 'Escape') {
-      this.props.updateHeaderState({
+      updateHeaderState({
         navSelected: -1
       });
     }
@@ -41,16 +42,16 @@ class MainNav extends Component {
 
   onNavigate = ({ e, href }) => {
     e.stopPropagation();
-    const { onNavigateCallBack, closeMobleMenu } = this.props;
-    if (is.fn(closeMobleMenu)) {
-      closeMobleMenu();
+    const { onNavigateCallBack, closeMobileMenu, updateHeaderState } = this.props;
+    if (is.fn(closeMobileMenu)) {
+      closeMobileMenu();
     }
     if (is.fn(onNavigateCallBack)) {
       onNavigateCallBack(href);
     } else if (typeof window !== 'undefined') {
       window.location.assign(href);
     }
-    this.props.updateHeaderState({
+    updateHeaderState({
       navSelected: -1
     });
   };
@@ -71,39 +72,44 @@ class MainNav extends Component {
   }
 
   openSubNav = (e) => {
+    const { updateHeaderState } = this.props;
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
-    this.props.updateHeaderState({
+    updateHeaderState({
       navSelected: e.currentTarget.id
     });
   };
 
   closeSubNav = () => {
+    const { updateHeaderState } = this.props;
     const bodyClass = document.querySelector('body').classList;
     bodyClass.toggle('show-submenu');
-    this.props.updateHeaderState({
+    updateHeaderState({
       navSelected: -1
     });
   };
 
 
   openSubNavHover = (e) => {
-    if (this.state.isDesktop) {
+    const { isDesktop } = this.state;
+    if (isDesktop) {
       this.openSubNav(e);
     }
   };
 
   closeSubNavHover = () => {
-    if (this.state.isDesktop) {
+    const { isDesktop } = this.state;
+    if (isDesktop) {
       this.closeSubNav();
     }
   };
 
   render() {
+    const { mainNav, navSelected } = this.props;
     return(
       <div className="ma__main-nav">
         <ul className="ma__main-nav__items" role="menubar">
-          {this.props.mainNav.map((item, index) => {
+          {mainNav.map((item, index) => {
             const topItemClasses = classNames({
               'ma__main-nav__item': true,
               'is-active': item.active,
@@ -111,7 +117,6 @@ class MainNav extends Component {
             });
             const buttonId = `button${index}`;
             const liId = `li${index}`;
-            const { navSelected } = this.props;
             const isExpanded = navSelected === liId;
             const itemBody = [];
             if (item.subNav) {
@@ -209,8 +214,8 @@ MainNav.propTypes = {
   navSelected: PropTypes.func,
   /** set navSelected state in Header, passed from Header */
   updateHeaderState: PropTypes.func,
-  /** closeMobleMenu passed from Header */
-  closeMobleMenu: PropTypes.func,
+  /** closeMobileMenu passed from Header */
+  closeMobileMenu: PropTypes.func,
   /** Callback that is triggered on subnav item click */
   onNavigateCallBack: PropTypes.func,
   /** An array of navigation objects to display in the main nav */
