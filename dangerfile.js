@@ -8,13 +8,13 @@ const {readFileSync} = require('fs');
 const CHANGELOG_SCHEMA = {
   "definitions": {
     "ChangelogLine": {
-      "ProjectPrefix": "object",
-      "ComponentName": "string",
+      "project": "object",
+      "component": "string",
       "description": "A single line in a changelog",
       "type": "object",
-      "required": ["ProjectPrefix", "ComponentName", "description"],
+      "required": ["project", "component", "description", "issue"],
       "properties": {
-        "ComponentName": {
+        "component": {
           "type": "string"
         },
         "description": {
@@ -31,7 +31,7 @@ const CHANGELOG_SCHEMA = {
     "PrefixGroup": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ProjectPrefix"
+        "$ref": "#/definitions/project"
       }
     }
   },

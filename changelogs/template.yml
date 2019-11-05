@@ -11,12 +11,12 @@
 #- Fixed for any bug fixes.
 #- Security in case of vulnerabilities.
 
-#___PROJECTS PREFIX___
+#___PROJECT___
 #- Patternlab
 #- React
 #- Docs
 
-#___COMPONENT NAME___
+#___COMPONENT___
 #Component name in `PascalCase`
 #e.g. Header, Form, InputSlider, InputTextTypeAhead
 
@@ -25,7 +25,8 @@
 #- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module #473
 #- (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
 
-Type [Enter a valid CHANGE TYPE - see list above]:
-  - project prefix: [enter a valid project prefix - see list above]
-    component name: [enter a valid component name - see direction above]
-    description: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. #PR
+CHANGE TYPE - [see list above]:
+  - project: [enter a valid project prefix - see list above]
+    component: [enter a valid component name - see direction above]
+    description: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
+    issue: [add a Jira ticket or issue number, e.g. DP-12345 or 124]
