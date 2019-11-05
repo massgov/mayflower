@@ -6,22 +6,9 @@ const shell = require('shelljs');
 // https://github.com/npm/node-semver
 const semver = require('semver');
 
-
+// Used for the file system for changelog.
 const path = require('path');
 const fs = require('fs');
-
-/**
- * $ node scripts/release-branch 9.16.0
- * @param {2} version - e.g. 9.16.0
- */
-
-
-let version = '';
-process.argv.forEach((val, index) => {
-  if (index === 2) {
-    version = val;
-  }
-});
 
 // Find out the latest release tag and display it in the command line
 const latest = shell.exec('git describe --abbrev=0 --tags');
@@ -32,7 +19,7 @@ shell.echo('Display the current tag:', latest);
 // Increment the release branch.
 const minor = semver.inc(latest.toString(), 'minor');
 
-// Print out the new ninor version
+// Print out the new minor version
 shell.echo(minor);
 
 // Update the changelog.md file
@@ -41,7 +28,7 @@ const day = today.getDay();
 const month = today.getMonth();
 const year = today.getFullYear();
 
-
+// Changelog.md title for each release
 const title = `## ${minor} (${month}/${day}/${year})`;
 // Look at the changelog files
 // '!**/template.md'
