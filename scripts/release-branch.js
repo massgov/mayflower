@@ -31,7 +31,7 @@ const year = today.getFullYear();
 // Changelog.md title for each release
 const title = `## ${minor} (${month}/${day}/${year})`;
 // Look at the changelog files
-// '!**/template.md'
+// '!**/template.yml'
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 
