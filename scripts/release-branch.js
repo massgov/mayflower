@@ -39,7 +39,7 @@ shell.echo(minor);
 const today = new Date();
 const day = today.getDay();
 const month = today.getMonth();
-const year = today.getYear();
+const year = today.getFullYear();
 
 
 const title = `## ${minor} (${month}/${day}/${year})`;
