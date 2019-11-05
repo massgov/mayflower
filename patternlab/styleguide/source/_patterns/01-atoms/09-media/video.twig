@@ -1,6 +1,6 @@
 {% set posClass = video.position ? "ma__video--" ~ video.position : '' %}
   {# backward compatibile with v5.6 - toggle new styles with ma__video--new #}
-<div class="ma__video ma__video--new {{ posClass }}" aria-label="Video {{ video.label }}">
+<div class="ma__video ma__video--new {{ posClass }}">
   <div class="ma__video__container js-ma-responsive-video"{% if not video.link %} style="padding-bottom: 13px;"{% endif %}>
     {% if video.link %}
       <div class="ma__video__link">
