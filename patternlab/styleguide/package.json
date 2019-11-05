@@ -70,9 +70,7 @@
     "whatwg-fetch": "^3.0.0"
   },
   "dependencies": {
-    "del": "^4.0.0",
-    "semver": "^6.3.0",
-    "shelljs": "^0.8.3"
+    "del": "^4.0.0"
   },
   "scripts": {
     "gulp": "gulp"
