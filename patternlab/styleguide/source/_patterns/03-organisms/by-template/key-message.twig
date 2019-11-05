@@ -29,24 +29,12 @@
 {% endif %}
 
 {% if bgImage and positionTop %}
+{# Set up bg image and horizontal padding for key message in header. #}
 <style>
   @media(min-width: 781px) {
     #{{ id }}.ma__key-message--image {
       background-image: url('{{ bgImage }}');
     }
-  }
-</style>
-{% elseif bgImage %}
-<style>
-  #{{ id }}.ma__key-message--image {
-      background-image: url('{{ bgImage }}');
-    }
-</style>
-{% endif %}
-{% if keyMessage.mobileBgImage and positionTop %}
-<style>
-  #img{{ id }}.ma__key-message__inline-image {
-    background-image: url('{{ keyMessage.mobileBgImage }}');
   }
 </style>
 <script type="text/javascript">
@@ -58,7 +46,7 @@
     var style = document.createElement('style');
     style.innerHTML =
     `#${id} {` +
-    '  margin-bottom: 40px;' +
+    '  margin-bottom: 0;' +
     '}' +
     '@media(min-width: 781px) {' +
     `  #${id} {` +
@@ -73,6 +61,20 @@
   };
   window.addEventListener("resize", marginSet);
 </script>
+{% elseif bgImage %}
+{# Set up bg image for key message in content area. #}
+<style>
+  #{{ id }}.ma__key-message--image {
+      background-image: url('{{ bgImage }}');
+    }
+</style>
+{% endif %}
+{% if keyMessage.mobileBgImage and positionTop %}
+<style>
+  #img{{ id }}.ma__key-message__inline-image {
+    background-image: url('{{ keyMessage.mobileBgImage }}');
+  }
+</style>
 {% endif %}
 <section {% if id %}id="{{ id }}" {% endif %}class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay and bgImage %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %}">
   {% if bgImage and positionTop %}
