@@ -7,21 +7,26 @@
 
 @mixin ma-button ($size:"normal", $type:"solid", $color:"transparent") {
   // layout
-  @if($color == "transparent") {
+
+  @if ($color == "transparent") {
+
     @include ma-button-base;
     
     // default
-    @if($size == "normal") {
+
+    @if ($size == "normal") {
       font-size: 1.25rem;
       line-height: 1.4;
     }
     // small
-    @if($size == "small") {
+
+    @if ($size == "small") {
       font-size: 1rem;
       line-height: 1.2;
     }
     // large
-    @if($size == "large") {
+
+    @if ($size == "large") {
       font-size: 1.375rem;
       line-height: 1.61;
     }
@@ -30,23 +35,25 @@
   @else {
     font-weight: 700;
 
-    @if($type == "solid") {
+    @if ($type == "solid") {
       background-color: $color;
       border-color: transparent;
 
       @if $color == $c-highlight {
         color: $c-black;
+
         svg {
           fill: $c-black;
         }
       }
+
       @if $color == $c-white {
         color: $c-primary;
+
         svg {
           fill: $c-primary;
         }
-      }
-      @else {
+      } @else {
         color: $c-font-inverse;
       }
 
@@ -62,12 +69,13 @@
       @if $color == $c-highlight {
         color: $c-primary;
         border-color: rgba($c-primary,.5);
+
         svg {
           fill: $c-primary;
         }
-      }
-      @else {
+      } @else {
         color: $color;
+
         svg {
           fill: $color;
         }
@@ -75,13 +83,14 @@
 
       &:hover {
         background-color: rgba($color,1);
+
         svg {
           fill: $c-white;
         }
+
         @if $color == $c-highlight {
           color: $c-font-inverse;
-        }
-        @else {
+        } @else {
           color: $c-font-inverse;
         }
       }

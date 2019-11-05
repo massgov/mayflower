@@ -23,32 +23,40 @@
     }
 
     & .main-content .page-content {
+
       > .ma__action-finder,
       > .ma__divider,
       > .ma__event-listing,
       > .ma__mapped-locations {
+
         @include ma-component-spacing('large');
       }
     }
 
     & .main-content .page-content {
+
       > .ma__split-columns {
+
         @include ma-component-spacing;
       }
     }
 
     & .main-content.main-content--full .page-content > .ma__key-actions {
+
       @include ma-component-spacing('large');
     }
 
   }
 
   &__container {
+
     @include ma-container;
   }
 
   // reduce the width of the title and border
+
   &__section--restricted + &__section--restricted &__container {
+
     @include ma-container('restricted');
   }
 
@@ -63,6 +71,7 @@
   }
 
   &__section ~ &__section--borderless &__container:before {
+
     @media ($bp-large-min) {
       border-top-width: 0;
     }
@@ -74,6 +83,7 @@
 }
 
 //theme
+
 .ma__stacked-row {
 
   &__section {

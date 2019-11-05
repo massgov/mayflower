@@ -1,10 +1,18 @@
 .ma__button-sort {
+
   @include ma-button-reset;
   font-size: 18px;
   line-height: 1.2;
   padding: 5px 15px 5px 5px;
   position: relative;
   white-space: nowrap;
+  color: $c-font-link;
+  font-weight: 700;
+
+  &--asc,
+  &--dsc {
+    color: $c-font-base;
+  }
 
   &:before,
   &:after {
@@ -20,6 +28,7 @@
     border-bottom-width: 6px;
     margin-bottom: 2px;
     bottom: 50%;
+    border-bottom-color: $c-font-link;
   }
 
   &:after {
@@ -27,29 +36,11 @@
     border-top-width: 6px;
     margin-top: 1px;
     top: 50%;
-  }
-}
-
-//theme
-.ma__button-sort {
-  color: $c-font-link;
-  font-weight: 700;
-
-  &--asc,
-  &--dsc {
-    color: $c-font-base;
-  }
-
-  &:before {
-    border-bottom-color: $c-font-link;
+    border-top-color: $c-font-link;
   }
 
   &--asc:before {
     border-bottom-color: $c-gray;
-  }
-
-  &:after {
-    border-top-color: $c-font-link;
   }
 
   &--dsc:after {

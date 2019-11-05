@@ -9,15 +9,18 @@ $utility-nav-height: 43px;
   }
 
   &__items {
+
     @include ma-reset-list;
+
     @include ma-container;
 
-    @media ($bp-header-toggle-max){
+    @media ($bp-header-toggle-max) {
       padding-left: 0;
       padding-right: 0;
     }
 
-    @media ($bp-header-toggle-min){
+    @media ($bp-header-toggle-min) {
+
       @include ma-valign-block;
       height: $utility-nav-height;
       text-align: right;
@@ -76,7 +79,7 @@ $utility-nav-height: 43px;
     }
     
     span {
-      font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+      font-family: "Texta", "Helvetica", "Arial", sans-serif;
       font-weight: 500;
     }
   }
@@ -92,6 +95,7 @@ $utility-nav-height: 43px;
     }
 
     @media ($bp-header-toggle-max) {
+
       @include ma-chevron;
 
       &:after {
@@ -125,6 +129,72 @@ $utility-nav-height: 43px;
       
       @media ($bp-header-toggle-max) {
         display: block;
+      }
+    }
+  }
+
+  &__close {
+
+    @include ma-button-reset;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    right: 35px;
+
+    @media ($bp-header-toggle-max) {
+      display: none;
+    }
+
+    span {
+      display: inline-block;
+      text-transform: uppercase;
+      vertical-align: middle;
+      letter-spacing: $letter-spacing-large;
+      color: $c-white;
+      opacity: 0.7;
+    }
+
+    &:hover span {
+      opacity: 1;
+    }
+  }
+
+  &__content-title {
+    
+    h2 {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.625rem;
+      line-height: 1.45;
+      font-weight: 500;
+      margin-bottom: 0;
+      color: $c-white;
+    }
+
+    @media ($bp-header-toggle-min) {
+      padding-bottom: 5px;
+    }
+
+    svg {
+      opacity: 0.7;
+      fill: $c-white;
+    }
+
+    & > span,
+    & > svg {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    & > svg {
+      height: 20px;
+      margin-right: 10px;
+      width: 20px;
+
+      &.svg-login {
+        width: 25px;
       }
     }
   }
@@ -166,6 +236,7 @@ $utility-nav-height: 43px;
     }
 
     .goog-te-gadget-simple .goog-te-menu-value {
+
       @include ma-chevron;
       color: $c-font-base;
 
@@ -291,6 +362,7 @@ $utility-nav-height: 43px;
   }
 
   &__container {
+
     @include ma-container;
     overflow-y: auto;
     padding-bottom: 20px;
@@ -318,33 +390,6 @@ $utility-nav-height: 43px;
     }
   }
 
-  &__close {
-    @include ma-button-reset;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
-    position: absolute;
-    top: 0;
-    right: 35px;;
-
-    @media ($bp-header-toggle-max) {
-      display: none;
-    }
-
-    span {
-      display: inline-block;
-      text-transform: uppercase;
-      vertical-align: middle;
-      letter-spacing: $letter-spacing-large;
-      color: $c-white;
-      opacity: 0.7;
-    }
-
-    &:hover span {
-      opacity: 1;
-    }
-  }
-
   &__close-icon {
     font-size: 2.5rem;
     line-height: .5em;
@@ -353,41 +398,4 @@ $utility-nav-height: 43px;
     font-weight: 400;
   }
 
-  &__content-title {
-    
-    h2 {
-      display: inline-block;
-      vertical-align: middle;
-      font-size: 1.625rem;
-      line-height: 1.45;
-      font-weight: 500;
-      margin-bottom: 0;
-      color: $c-white;
-    }
-
-    @media ($bp-header-toggle-min) {
-      padding-bottom: 5px;
-    }
-
-    svg {
-      opacity: 0.7;
-      fill: $c-white;
-    }
-
-    & > span,
-    & > svg {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    & > svg {
-      height: 20px;
-      margin-right: 10px;
-      width: 20px;
-
-      &.svg-login {
-        width: 25px;
-      }
-    }
-  }
 }

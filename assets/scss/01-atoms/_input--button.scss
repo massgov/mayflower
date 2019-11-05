@@ -1,4 +1,5 @@
 @mixin ma__input--button($type) {
+
   .ma__input-#{$type} {
     display: inline-flex;
       flex-direction: row;
@@ -43,6 +44,7 @@
 
   	  &-plus,
   	  &-minus {
+
   	    @include ma-button-reset;
   	    border: 2px solid $c-bd-input;
   	    border-bottom: none;

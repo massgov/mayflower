@@ -1,11 +1,15 @@
 .ma__featured-item-mosaic {
+
     @include ma-container();
 
     // Accordion behavior
 
     .ma__featured-item-mosaic__toggle {
+
       @include ma-button-reset;
+
       @include ma-link-underline;
+
       @include ma-chevron;
       font-size: 1.375rem;
       padding-right: 10px;
@@ -13,10 +17,13 @@
       .less {
         display: none;
       }
+
       &[aria-expanded="true"] {
+
         .more {
           display: none;
         }
+
         .less {
           display: inline;
         }
@@ -27,6 +34,7 @@
         transform: translateY(-45%) rotate(45deg);
 
       }
+
       &[aria-expanded="true"]:after {
           transform: translateY(-55%) rotate(-135deg);
         }
@@ -37,16 +45,20 @@
     }
 
     @media ($bp-small-max) {
+
       &.is-open {
+
         .js-accordion-content {
           display: initial;
         }
       }
+
       .js-accordion-content {
         display: none;
       }
     }
 }
+
 .ma__featured-item-mosaic__container {
     margin-left: -10px;
     margin-right: -10px;
@@ -61,6 +73,7 @@
 
     .ma__divider {
       margin-top: 20px;
+
       @media ($bp-small-min) {
         margin-top: 50px;
       }
@@ -85,6 +98,7 @@
       max-width: 50%;
       flex-direction: row;
     }
+
     @media ($bp-large-min) {
       flex-basis: 33%;
       max-width: 33%;
@@ -93,6 +107,7 @@
 
     @media ($bp-small-min) and ($bp-large-max) {
     //       last odd child gets flowed
+
       &:last-child:nth-child(odd) {
         flex-basis: 100%;
         max-width: 100%;
@@ -108,6 +123,7 @@
 }
 
 //theme
+
 .ma__featured-item-mosaic__toggle {
   color: $c-font-link;
   font-weight: 700;

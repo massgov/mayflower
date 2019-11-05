@@ -5,6 +5,7 @@
   z-index:1;
 
   &__hide {
+
     @include ma-button-reset;
     font-size: 3rem;
     font-weight: 700;
@@ -17,6 +18,7 @@
   }
 
   &__container {
+
     @include ma-container;
     padding: 12px 40px;
     text-align: center;

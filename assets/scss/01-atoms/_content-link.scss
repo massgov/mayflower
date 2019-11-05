@@ -1,11 +1,14 @@
 .ma__content-link {
+
   @include ma-link-underline;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
   max-width: 100%;
+  color: $c-font-link; 
 
   &--chevron {
+
     @include ma-chevron;
     border-bottom: none;
     display: inline-block;
@@ -22,44 +25,31 @@
       position: absolute;
       transform: translateY(50%) rotate(-45deg);
       width: .45em;
+      border-color: rgba($c-font-link, .5);
     }
 
     span {
+
       @include ma-link-underline;
+
+      &:hover {
+        border-bottom-color: rgba($c-font-link, .5);
+      }
     }
   }
 
   &--phone {
     border: none;
     padding-bottom: 0;
+    color: inherit; 
+    font-weight: inherit;
 
     &:hover {
       border: none;
     }
   }
-}
-
-//theme
-.ma__content-link {
-  color: $c-font-link; 
 
   &:hover {
     border-bottom-color: rgba($c-font-link, .5);
-  }
-
-  &--chevron {
-
-    &:after {
-      border-color: rgba($c-font-link, .5);
-    }
-
-    span:hover {
-      border-bottom-color: rgba($c-font-link, .5);
-    }
-  }
-
-  &--phone {
-    color: inherit; 
-    font-weight: inherit;
   }
 }

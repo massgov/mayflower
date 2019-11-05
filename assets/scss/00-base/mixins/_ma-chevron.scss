@@ -1,6 +1,7 @@
 @mixin ma-chevron($side:"right") {
 
-  @if($side == "right") {
+  @if ($side == "right") {
+
     &:after {
       border-right: 4px solid;
       border-bottom: 4px solid;
@@ -18,6 +19,7 @@
   }
   // left
   @else {
+
     &:before {
       border-right: 4px solid;
       border-bottom: 4px solid;

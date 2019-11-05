@@ -1,6 +1,7 @@
 .ma__icon-links {
 
   &__items {
+
     @include ma-reset-list;
   }
 
@@ -28,6 +29,7 @@
 }
 
 //theme
+
 .ma__icon-links {
 
   &__icon {

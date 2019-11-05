@@ -82,6 +82,7 @@
   &__graphic + &__content &__date {
 
     @media ($bp-small-min) {
+
       @include ma-visually-hidden;
     }
   }
@@ -123,6 +124,7 @@
 }
 
 //theme
+
 .ma__event-teaser {
 
   & + & {

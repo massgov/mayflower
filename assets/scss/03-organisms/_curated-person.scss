@@ -1,11 +1,14 @@
 .ma__curated-person {
+
   @include ma-container('restricted');
 
   .main-content--full .page-content > & {
+
     @include ma-component-spacing(small);
   }
 
   .ma_stacked-row-external-sidebar & {
+
     @include ma-component-spacing(small);
     padding: 0;
   }

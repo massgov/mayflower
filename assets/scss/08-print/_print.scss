@@ -53,7 +53,6 @@
   .ma__action-activities__link,
   .ma__action-header__divider,
   .ma__action-finder__see-all-container,
-  .ma__page-banner__icon,
   .ma__page-banner--small .ma__page-banner__icon,
   .ma__banner-carousel,
   .ma__quick-actions,
@@ -172,7 +171,6 @@
       padding: 0;
       margin: 0;
       position: relative;
-      max-width: none;
       width: 100%;
       height: auto;
       top: 0;
@@ -255,7 +253,7 @@
     margin: 2rem 0;
   }
 
-  .ma__callout-link  {
+  .ma__callout-link {
     border-width: 0 !important;
     break-inside: avoid;
     page-break-inside: avoid;
@@ -425,7 +423,7 @@
     width: 100%;
     max-width: none;
 
-    .ma__image{
+    .ma__image {
      display: none;
     }
 
@@ -487,7 +485,9 @@
   }
 
   // Page level custom print styles
+
   .ma__details__content .ma__rich-text {
+
     ul li {
       list-style-type: none;
       padding-left: 2em;

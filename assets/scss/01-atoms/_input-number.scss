@@ -8,6 +8,7 @@
 
   &__plus,
   &__minus {
+
     @include ma-button-reset;
     border-style: solid;
     border-width: 2px;
@@ -57,6 +58,7 @@
 }
 
 //theme
+
 .ma__input-number {
 
   &__plus,

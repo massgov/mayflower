@@ -11,13 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/massgov/mayflower.git"
   },
-  "contributors": [
-    "Jes Constantine <jesconstantine@gmail.com>",
-    "Isaac Chansky <ichansky@gmail.com>",
-    "Jonathan Dallas <jonathan.dallas@velir.com>",
-    "Sarena Douglass <sarena.douglass@velir.com>",
-    "Greg LeRoux <leroux@palantir.net>"
-  ],
   "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/massgov/mayflower/issues"
@@ -61,6 +54,9 @@
     "node-sass": "^4.11.0",
     "picturefill": "^3.0.3",
     "pikaday": "^1.8.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-recommended-scss": "^4.0.0",
+    "stylelint-scss": "^3.12.0",
     "svg4everybody": "^2.1.9",
     "through2": "^2.0.3",
     "twig": "^1.13.2",
@@ -73,6 +69,8 @@
     "del": "^4.0.0"
   },
   "scripts": {
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
+    "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose"
   }
 }

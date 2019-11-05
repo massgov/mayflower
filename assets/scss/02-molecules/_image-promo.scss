@@ -1,6 +1,7 @@
 $image-promo-bp-x-large-min: "min-width: 1160px";
 
 .ma__image-promo {
+
   @include clearfix();
   border-color: $c-bd-divider;
   display: flex;
@@ -39,6 +40,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   }
 
   &__title {
+
     @include ma-h5;
     margin-bottom: 0;
   }

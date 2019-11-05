@@ -1,9 +1,11 @@
 // Custom Checkboxes
+
 .ma__input-checkbox {
   display: inline-block;
   position: relative;
 
   input {
+
     @include ma-visually-hidden;
   }
 
@@ -14,12 +16,14 @@
       right: 0;
     vertical-align: top;
     width: 24px;
+    fill: $c-primary-alt;
   }
 
   label {
     font-size: 1.375rem;
     line-height: 1rem;
     padding-left: 1.25em;
+    font-weight: 400;
 
     &:focus {
       outline: none;
@@ -38,14 +42,24 @@
         left: 0;
       text-align: center;
       width: 2em;
+      background-color: $c-white;
+      border-color: $c-bd-input-dark;
+
+      .ma__form--light & {
+        background-color: rgba($c-white, 0.1);
+        border-color: rgba($c-bd-input,.5);
+      }
     }
 
     span {
       line-height: 1.2em;
     }
+
+    
   }
 
-  &--disabled{
+  &--disabled {
+
     label {
       opacity: 0.5;
     }
@@ -65,28 +79,6 @@
   svg ~ label {
     padding-right: 30px;
   }
-}
-
-//theme
-.ma__input-checkbox {
-
-  & > svg {
-    fill: $c-primary-alt;
-  }
-
-  label {
-    font-weight: 400;
-
-    &:before {
-      background-color: $c-white;
-      border-color: $c-bd-input-dark;
-
-      .ma__form--light & {
-        background-color: rgba($c-white, 0.1);
-        border-color: rgba($c-bd-input,.5);
-      }
-    }
-  }
 
   input.has-error ~ label:before {
     border-color: $c-bd-error;
@@ -97,6 +89,7 @@
 
     /* WebKit gets its native focus styles.
      */
+
     @media (-webkit-min-device-pixel-ratio:0) {
       outline: -webkit-focus-ring-color auto 5px;
     }

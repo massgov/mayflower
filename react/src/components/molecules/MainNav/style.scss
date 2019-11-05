@@ -1,11 +1,14 @@
 @import 'global';
+
 @import '00-base/z-index';
+
 @import '02-molecules/main-nav';
 
 
 
 
 .ma__main-nav {
+
   &__subitem:last-child &__link {
     font-size: unset;
     letter-spacing: unset;

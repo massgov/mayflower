@@ -14,7 +14,7 @@
     padding-top: 30px;
     border-top-color: $c-bd-divider;
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       margin-top: 45px;
       padding-top: 45px;
     }
@@ -75,22 +75,28 @@
 
   &__details {
     padding: 2px 0 4px;
-    .ma__contact-group{
-      &__details{
+
+    .ma__contact-group {
+
+      &__details {
         font-style: italic;
         font-size: 0.95rem;
       }
-      &__item{
+
+      &__item {
         font-size: 1.24rem;
       }
-      &__name{
+
+      &__name {
          margin-bottom: 0;
+
          span {
           font-size: 1.25rem;
           color: $c-gray-dark;
           font-weight: 550;
          }
-         >svg{
+
+         >svg {
           height: 1.1rem;
           width: 1.1rem;
          }
@@ -118,13 +124,17 @@
 
   &__org {
     border-left-color: $c-bd-divider;
+
       &__show-more {
+
         &.show-fewer {
           padding-left: 1rem;
+
           svg {
             transform: rotate(180deg);
           }
         }
+
         svg {
           fill: rgba(20, 85, 143, 0.5);
           width: 1em;
@@ -134,8 +144,9 @@
 
   }
 
-  &__sublink{
+  &__sublink {
     margin-bottom: 0.25rem;
+
     .ma__decorative-link {
       font-size: 1.2rem;
       line-height: 1.4rem;
@@ -157,13 +168,11 @@
 
   &__moreinfo {
     display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      flex-flow: column;
+      flex-flow: column wrap;
       justify-content: flex-start;
       align-content: flex-start;
 
-      @media ($bp-small-min){
+      @media ($bp-small-min) {
         flex-flow: row;
 
       }
@@ -180,14 +189,14 @@
       flex-flow: column;
       flex: 1 50%;
 
-    &--border{
+    &--border {
       border-left-style: none;
       border-left-width: 0px;
       align-content: flex-start;
       flex: 1 1 100%;
     }
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       border-left-style: solid;
       border-left-width: 1px;
       padding-left: .75em;

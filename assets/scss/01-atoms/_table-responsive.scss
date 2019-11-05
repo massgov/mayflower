@@ -102,11 +102,13 @@
    
     // Native position is at the bottom of the responsive container;
     // so show the bar.
+
     .has-horizontal-scroll & {
         display: flex;
     }
 
     // Bottom is visble, anchor it.
+
     .has-horizontal-scroll.has-bottom-visible & {
         bottom: 0;
         left: auto;
@@ -181,7 +183,6 @@
   overflow: hidden;
   border: 2px solid rgba($c-primary, 0.5);
   -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
 
   &::-webkit-scrollbar { 
     display: none;  // Safari and Chrome

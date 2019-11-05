@@ -18,10 +18,12 @@
     height: 20px;
     transition: fill .4s;
     width: 20px;
+    fill: $color;
   }
 
 
   background-color: $background-color;
+
   @if $background-color==$c-white {
     border-color: $c-bd-input !important;
   } @else {
@@ -34,6 +36,7 @@
   &:hover,
   &:focus {
     background-color: $color;
+
     @if $color==$c-white {
       border-color: $c-bd-input !important;
     } @else {
@@ -45,18 +48,18 @@
       fill: $background-color;
     }
   }
-  & > svg {
-    fill: $color;
-  }
 }
 
 .ma__button-search {
 
   //primary button search
+
   @include ma-button-search($c-primary-alt, $c-white);
 
   //secondary button search
+
   &--secondary {
+
     @include ma-button-search($c-white, $c-primary-alt);
   }
 }
