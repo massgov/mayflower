@@ -1,17 +1,4 @@
-# Mayflower Release Notes
 
-All notable changes to this project will be documented in this file.
-
-See [Change Log Instructions](docs/for-developers/changelog-instructions.md) for directions on updating this file.
-
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-
-```
-<ticket/issue #>: Human-friendly description, with hyperlinked patterns (<Link to #PR>)
-```
-
-**For example**
-- DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
 ## 9.30.0 (11/05/2019)
 
