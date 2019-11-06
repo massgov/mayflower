@@ -31,12 +31,15 @@ const year = today.getFullYear();
 // Changelog.md title for each release
 const title = `## ${minor} (${month}/${day}/${year})`;
 // Look at the changelog files
-// '!**/template.yml'
+
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 
 let newLogs = [];
-const changelogs = fs.readdirSync(directoryPath);
+// Read directory path and exclude the template.yml file.
+const changelogs = fs.readdirSync(directoryPath).filter(function(template) {
+  return template !== 'template.yml';
+});
 changelogs.forEach((fileName) => {
   const content = fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8');
   newLogs.push(content)
