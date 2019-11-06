@@ -72,7 +72,7 @@ $colors: (
       margin-right: auto;
     }
   }
-  
+
   &__content + &__cta {
     margin-top: 20px;
   }
@@ -198,7 +198,13 @@ $colors: (
 
 // Mimic the font size of h2.
 .pre-content .ma__key-message__sub-title {
-  font-size: 2.75rem;
+
+  @media ($bp-small-min) {
+    font-size: 2.5rem;
+  }
+  @media ($bp-medium-min) {
+    font-size: 2.75rem;
+  }
 }
 
 // Mimic the font size of h3.
