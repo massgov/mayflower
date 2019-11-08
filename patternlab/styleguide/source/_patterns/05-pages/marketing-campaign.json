@@ -9,7 +9,8 @@
       },
       "textOverlay": "c-gray-lightest",
       "bgImage": "../../assets/images/placeholder/1920x1080-sign.jpg",
-      "subtitle": "This is an optional subtitle area.",
+      "mobileBgImage": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
+      "subtitle": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work.",
       "description": {
         "rteElements": [{
           "path": "@atoms/11-text/paragraph.twig",
@@ -56,14 +57,14 @@
         "text": "<p>“The work we do at MassGIS supports dispatch, police, fire, and medical professionals who respond to emergency situations. It could benefit all of those who live, visit, and work in the Commonwealth.”</p><p><b>John Smith Doe</b>, GIS Analyst</p>"
       },
       "campaignFeature2up": [{
-        "id": "1234",
+        "id": "",
         "link": "#",
         "thumbnail": "../../assets/images/placeholder/400x300.png",
         "title": "From an IT training program to EOTSS Team Lead",
         "text": "<p>“I’m really impressed with the people who work here. I’ve met individuals who have mentored me and helped me build the skills needed to be successful.”</p><p><b>John Smith</b>, Identity & Access Management Specialist</p>"
       },
       {
-        "id": "1234",
+        "id": "",
         "link": "#",
         "thumbnail": "../../assets/images/placeholder/400x300.png",
         "title": "How a Texas transplant makes Mass.gov work for content authors",
@@ -82,6 +83,8 @@
         "title": "Benefits of working for the Commonwealth",
         "level": "2"
       },
+      "bgImage": "",
+      "mobileBgImage": "",
       "subtitle": "",
       "description": {
         "rteElements": [
