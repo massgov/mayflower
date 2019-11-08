@@ -51,3 +51,24 @@
   line-height: 1.4;
   margin-bottom: .25em;
 }
+
+@mixin ma-heading($level: 1) {
+  @if($level == 1) {
+    @include ma-h1;
+  }
+  @if($level == 2) {
+    @include ma-h2;
+  }
+  @if($level == 3) {
+    @include ma-h3;
+  }
+  @if($level == 4) {
+    @include ma-h4;
+  }
+  @if($level == 5) {
+    @include ma-h5;
+  }
+  @if($level == 6) {
+    @include ma-h6;
+  }
+}
