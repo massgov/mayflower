@@ -65,6 +65,10 @@ $colors: (
     background-repeat: no-repeat;
   }
 
+  &__content {
+    margin-top: 20px;
+  }
+
   &__block {
     max-width: 840px;
     @media ($bp-medium-min) {
@@ -186,28 +190,17 @@ $colors: (
       }
     }
   }
+}
 
 
-
+// Get heading level higher styles for sub-title
+@for $i from 1 through 5 {
+  h#{$i}.ma__key-message__title + .ma__key-message__sub-title {
+    @include ma-heading($i+1);
+  }
 }
 
 // Override the message block max width in the content area only.
 .page-content .ma__key-message__block {
   max-width: 1240px;
-}
-
-// Mimic the font size of h2.
-.pre-content .ma__key-message__sub-title {
-
-  @media ($bp-small-min) {
-    font-size: 2.5rem;
-  }
-  @media ($bp-medium-min) {
-    font-size: 2.75rem;
-  }
-}
-
-// Mimic the font size of h3.
-.page-content .ma__key-message__sub-title {
-  font-size: 2rem;
 }
