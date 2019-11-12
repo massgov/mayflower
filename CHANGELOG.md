@@ -13,6 +13,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.31.0 (11/12/2019)
+
+### Fixed
+- (Patternlab) [KeyMessage] DP-16457: Correct semantics of sub title and apply title heading level + 1 styles to it. #818
+- (Patternlab) [KeyMessage] DP-16457: Fix padding bug introduced if only title and button. #824
+- (React) [Collapse] DP-16483: Fixed collapse animation if max dimension passed on IE11. #823
+
 ## 9.30.0 (11/05/2019)
 
 ### Added
