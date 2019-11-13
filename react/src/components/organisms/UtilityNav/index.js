@@ -77,7 +77,7 @@ const NavItem = (obj) => {
   };
   const iconProps = {
     name: item.icon,
-    ariaHidden: !item.ariaLabelText
+    ariaHidden: true
   };
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
@@ -108,7 +108,7 @@ const NavItemLink = (obj) => {
   const item = obj.data;
   const iconProps = {
     name: item.icon,
-    ariaHidden: !item.ariaLabelText
+    ariaHidden: true
   };
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
