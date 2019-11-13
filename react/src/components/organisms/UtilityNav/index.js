@@ -75,10 +75,14 @@ const NavItem = (obj) => {
     'aria-hidden': isExpanded ? 'false' : 'true',
     id: divId
   };
+  const iconProps = {
+    name: item.icon,
+    ariaHidden: !item.ariaLabelText
+  };
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
       <button onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
-        <Icon name={item.icon} />
+        <Icon {...iconProps} />
         <span>{item.text}</span>
       </button>
       <div {...divProps}>
@@ -88,7 +92,7 @@ const NavItem = (obj) => {
               <span>{item.closeText}</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>
-            <Icon name={item.icon} />
+            <Icon {...iconProps} />
             <span>{item.text}</span>
           </div>
           <div className="ma__utility-nav__content-body">
