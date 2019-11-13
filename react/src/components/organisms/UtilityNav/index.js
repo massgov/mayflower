@@ -106,10 +106,14 @@ const NavItem = (obj) => {
 
 const NavItemLink = (obj) => {
   const item = obj.data;
+  const iconProps = {
+    name: item.icon,
+    ariaHidden: !item.ariaLabelText
+  };
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
       <a className="ma__utility-nav__link" href={item.href} aria-label={item.ariaLabelText || item.text}>
-        <Icon name={item.icon} />
+        <Icon {...iconProps} />
         <span>{item.text}</span>
       </a>
     </li>
