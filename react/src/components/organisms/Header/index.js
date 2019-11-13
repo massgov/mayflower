@@ -65,18 +65,21 @@ class Header extends Component {
   // Puts focus on the mobile search input after the menu is opened via the search button.
   afterButtonSearch = () => {
     document.getElementById('nav-search').focus();
-    if (is.fn(this.props.headerSearch.buttonSearch.onClick)) {
-      this.props.headerSearch.buttonSearch.onClick();
+    const { headerSearch } = this.props;
+    if (is.fn(headerSearch.buttonSearch.onClick)) {
+      headerSearch.buttonSearch.onClick();
     }
   };
   // On click action used for both top and bottom buttons.
   defaultButtonSearchOnClick = (e) => {
     e.preventDefault();
+    const { searchRedirect } = this.props;
+    const { shouldNavigateBottom, shouldNavigateTop } = this.state;
     if (e && e.currentTarget === this.buttonRefTop.current) {
-      if (this.state.shouldNavigateTop) {
+      if (shouldNavigateTop) {
         const query = this.searchInputTop.current.value;
         if (query.length > 0) {
-          const { baseUrl, searchTermParam, queryParams = {} } = this.props.searchRedirect;
+          const { baseUrl, searchTermParam, queryParams = {} } = searchRedirect;
           const searchQuery = new URLSearchParams({ [searchTermParam]: query, ...queryParams });
           // If in an iframe, change parent window location.
           if (window.location !== window.parent.location) {
@@ -94,10 +97,10 @@ class Header extends Component {
       }
     }
     if (e && e.currentTarget === this.buttonRefBottom.current) {
-      if (this.state.shouldNavigateBottom) {
+      if (shouldNavigateBottom) {
         const query = this.searchInputBottom.current.value;
         if (query.length > 0) {
-          const { baseUrl, searchTermParam, queryParams = {} } = this.props.searchRedirect;
+          const { baseUrl, searchTermParam, queryParams = {} } = searchRedirect;
           const searchQuery = new URLSearchParams({ [searchTermParam]: query, ...queryParams });
           // If in an iframe, change parent window location.
           if (window.location !== window.parent.location) {
@@ -120,10 +123,11 @@ class Header extends Component {
     this.setState({ shouldNavigateBottom });
   }
   topHeaderSearch = () => {
+    const { headerSearch } = this.props;
     const headerSearchProps = {
-      ...this.props.headerSearch,
+      ...headerSearch,
       buttonSearch: {
-        ...this.props.headerSearch.buttonSearch,
+        ...headerSearch.buttonSearch,
         setButtonRef: this.buttonRefTop,
         onClick: this.defaultButtonSearchOnClick
       },
@@ -133,10 +137,11 @@ class Header extends Component {
     return(<HeaderSearch {...headerSearchProps} />);
   };
   bottomHeaderSearch = () => {
+    const { headerSearch } = this.props;
     const headerSearchProps = {
-      ...this.props.headerSearch,
+      ...headerSearch,
       buttonSearch: {
-        ...this.props.headerSearch.buttonSearch,
+        ...headerSearch.buttonSearch,
         setButtonRef: this.buttonRefBottom,
         onClick: this.defaultButtonSearchOnClick
       },
@@ -148,28 +153,29 @@ class Header extends Component {
   };
 
   render() {
-    const header = this.props;
-    const HeaderUtilityNav = <UtilityNav {...this.props.utilityNav} isOpen={this.state.utilNavOpen} />;
-    const { navSelected } = this.state;
+    const {
+      hideBackTo, siteLogo, hideHeaderSearch, headerSearch, mainNav, utilityNav
+    } = this.props;
+    const { navSelected, utilNavOpen } = this.state;
     return(
       <header className="ma__header" id="header">
-        {!header.hideBackTo && (
+        {!hideBackTo && (
           <div className="ma__header__backto">
             <a href="http://www.mass.gov">Go to classic Mass.gov</a>
           </div>)}
         <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
         <div className="ma__header__utility-nav ma__header__utility-nav--wide">
-          {HeaderUtilityNav}
+          {utilityNav ? <UtilityNav {...utilityNav} isOpen={utilNavOpen} /> : <div className="ma__header__banner" />}
         </div>
         <div className="ma__header__container">
           <div className="ma__header__logo">
             {
-              is.fn(header.siteLogo) ? header.siteLogo() : <SiteLogo {...header.siteLogo} />
+              is.fn(siteLogo) ? siteLogo() : <SiteLogo {...siteLogo} />
             }
           </div>
-          {!header.hideHeaderSearch &&
+          {!hideHeaderSearch &&
           <div className="ma__header__search js-header-search-menu">
-            {is.fn(header.headerSearch) ? header.headerSearch() : this.topHeaderSearch()}
+            {is.fn(headerSearch) ? headerSearch() : this.topHeaderSearch()}
           </div>
           }
         </div>
@@ -200,21 +206,23 @@ class Header extends Component {
             </button>
           </div>
           <div className="ma__header__nav-container">
-            {!header.hideHeaderSearch &&
+            {!hideHeaderSearch &&
             <div className="ma__header__nav-search">
-              {is.fn(header.headerSearch) ? header.headerSearch() : this.bottomHeaderSearch()}
+              {is.fn(headerSearch) ? headerSearch() : this.bottomHeaderSearch()}
             </div>
             }
-            <div className="ma__header__main-nav">
-              <MainNav
-                {...header.mainNav}
-                closeMobileMenu={() => this.menuButtonClicked(false)}
-                updateHeaderState={(state) => this.updateSubNav(state)}
-                navSelected={navSelected}
-              />
-            </div>
+            { mainNav && (
+              <div className="ma__header__main-nav">
+                <MainNav
+                  {...mainNav}
+                  closeMobileMenu={() => this.menuButtonClicked(false)}
+                  updateHeaderState={(state) => this.updateSubNav(state)}
+                  navSelected={navSelected}
+                />
+              </div>
+            )}
             <div className="ma__header__utility-nav ma__header__utility-nav--narrow">
-              {HeaderUtilityNav}
+              {utilityNav ? <UtilityNav {...utilityNav} isOpen={utilNavOpen} /> : <div className="ma__header__banner" />}
             </div>
           </div>
         </nav>
@@ -225,7 +233,7 @@ class Header extends Component {
 
 Header.propTypes = {
   /** imports the utilityNav component */
-  utilityNav: PropTypes.shape(UtilityNav.propTypes).isRequired,
+  utilityNav: PropTypes.shape(UtilityNav.propTypes),
   /** imports the headersearch component */
   headerSearch: PropTypes.oneOfType([PropTypes.shape(HeaderSearch.propTypes), PropTypes.func]).isRequired,
   searchRedirect: PropTypes.shape({
@@ -237,7 +245,7 @@ Header.propTypes = {
     queryParams: airbnbPropTypes.object
   }),
   /** imports the mainnav component */
-  mainNav: PropTypes.shape(MainNav.propTypes).isRequired,
+  mainNav: PropTypes.shape(MainNav.propTypes),
   /** Adds a prop to hide header search in the header */
   hideHeaderSearch: PropTypes.bool,
   /** Adds a prop to not display go back to classic.mass.gov */

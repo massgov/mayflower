@@ -85,14 +85,19 @@ body {
     }
   }
 
+  &__banner {
+    @media ($bp-large-min) {
+      height: 15px;
+      background-color: $c-primary;
+      color: $c-white;
+    }
+  }
 
   &__search {
     display: inline-block;
     text-align: right;
     vertical-align: middle;
     width: calc(100% - #{$header-logo-width});
-
-
 
     @media ($bp-small-min) {
       width: 66.12903%; //@include span-columns(8);
