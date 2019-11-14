@@ -57,7 +57,7 @@ class Collapse extends React.Component {
     const currentDim = parseInt(css(elem, dimension), 10);
     const setDim = (minDimension <= currentDim) ? minDimension : currentDim;
     elem.style[dimension] = `${setDim}px`; // eslint-disable-line no-param-reassign
-    elem.style[`max${capitalize(dimension)}`] = 'unset'; // eslint-disable-line no-param-reassign
+    elem.style[`max${capitalize(dimension)}`] = 'none'; // eslint-disable-line no-param-reassign
   }
 
   handleEntering(elem) {
@@ -123,7 +123,7 @@ class Collapse extends React.Component {
           React.cloneElement(children, {
             ...innerProps,
             style: {
-              [`max${capitalize(dimension)}`]: minDimensionOnMount ? `${minDimension}px` : 'unset'
+              [`max${capitalize(dimension)}`]: minDimensionOnMount ? `${minDimension}px` : 'none'
             },
             className: classNames(
               className,

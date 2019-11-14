@@ -14,6 +14,7 @@ storiesOf('organisms', module)
   .add(
     'Header', () => {
       const mainNavProps = {
+        onNavigateCallBack: action('onNavigateCallBack'),
         mainNav: []
       };
       mainNavProps.mainNav = MainNavData.mainNav.map((nav, navIndex) => {
