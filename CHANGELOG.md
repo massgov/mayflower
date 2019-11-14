@@ -1,5 +1,12 @@
 
 
+## 9.31.0 (11/12/2019)
+
+### Fixed
+- (Patternlab) [KeyMessage] DP-16457: Correct semantics of sub title and apply title heading level + 1 styles to it. #818
+- (Patternlab) [KeyMessage] DP-16457: Fix padding bug introduced if only title and button. #824
+- (React) [Collapse] DP-16483: Fixed collapse animation if max dimension passed on IE11. #823
+
 ## 9.30.0 (11/05/2019)
 
 ### Added

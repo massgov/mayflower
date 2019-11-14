@@ -31,7 +31,18 @@ $colors: (
     }
   }
 
-  .ma__key-message__wrapper .ma__key-message__title + .ma__key-message__cta {
+  .ma__key-message__sub-title {
+    margin-top: 20px;
+    font-weight: 700;
+
+    @each $class, $c in $colors {
+      &--#{$class} {
+        background: $c;
+      }
+    }
+  }
+
+  .ma__key-message__wrapper header + .ma__key-message__cta {
     margin-top: 40px;
   }
 
@@ -52,6 +63,10 @@ $colors: (
     background-repeat: no-repeat;
   }
 
+  &__content {
+    margin-top: 20px;
+  }
+
   &__block {
     max-width: 840px;
     @media ($bp-medium-min) {
@@ -59,9 +74,7 @@ $colors: (
       margin-right: auto;
     }
   }
-  &__content {
-    margin-top: 20px;
-  }
+
   &__content + &__cta {
     margin-top: 20px;
   }
@@ -175,9 +188,14 @@ $colors: (
       }
     }
   }
+}
 
 
-
+// Get heading level higher styles for sub-title
+@for $i from 1 through 5 {
+  h#{$i}.ma__key-message__title + .ma__key-message__sub-title {
+    @include ma-heading($i+1);
+  }
 }
 
 // Override the message block max width in the content area only.
