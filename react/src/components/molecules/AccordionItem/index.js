@@ -16,7 +16,7 @@ class AccordionItem extends React.Component {
   }
 
   handleClick() {
-    const open = this.state;
+    const { open } = this.state;
     this.setState({
       open: !open
     });
