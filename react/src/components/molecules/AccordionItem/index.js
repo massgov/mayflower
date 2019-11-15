@@ -24,7 +24,7 @@ class AccordionItem extends React.Component {
 
   render() {
     const {
-      buttonId, secondary, border, emphasize, icon, title, headerLevel, children, expandableSectionId, info
+      secondary, border, emphasize, icon, title, headerLevel, children, id, info
     } = this.props;
     const { open } = this.state;
     const accordionClasses = classNames({
@@ -52,8 +52,8 @@ class AccordionItem extends React.Component {
             aria-label={info}
             onClick={this.handleClick}
             aria-expanded={open}
-            aria-controls={expandableSectionId}
-            id={buttonId}
+            aria-controls={`expandable-section-${id}`}
+            id={`button-${id}`}
           >
             { icon && !secondary && (
               <div className="ma__accordion-header__icon">
@@ -69,7 +69,7 @@ class AccordionItem extends React.Component {
           </button>
         </header>
         <Collapse in={open} dimension="height">
-          <div className="ma__accordion-content__body" id={expandableSectionId} aria-labelledby={buttonId}>
+          <div className="ma__accordion-content__body" id={`expandable-section-${id}`} aria-labelledby={`button-${id}`}>
             {children}
           </div>
         </Collapse>
@@ -96,10 +96,8 @@ AccordionItem.propTypes = {
   secondary: PropTypes.bool,
   /** Heading level for accordion title */
   headerLevel: PropTypes.number,
-  /** Expand button id, used for a11y */
-  buttonId: PropTypes.string,
-  /** Expanded section id used for a11y */
-  expandableSectionId: PropTypes.string
+  /** Expand button id and section id, used for a11y */
+  id: PropTypes.string
 };
 
 AccordionItem.defaultProps = {
