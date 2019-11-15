@@ -23,7 +23,9 @@ class AccordionItem extends React.Component {
   }
 
   render() {
-    const { buttonId, secondary, border, emphasize, icon, title, headerLevel, children, expandableSectionId, info } = this.props;
+    const {
+      buttonId, secondary, border, emphasize, icon, title, headerLevel, children, expandableSectionId, info
+    } = this.props;
     const { open } = this.state;
     const accordionClasses = classNames({
       'ma__accordion-item': !secondary,
