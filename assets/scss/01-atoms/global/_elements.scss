@@ -119,28 +119,14 @@ ol {
 
 
 // Heading styles
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  color: $c-font-heading;
-  font-weight: 700;
-}
-h1 {
-  @include ma-h1;
-}
-h2 {
-  @include ma-h2;
-}
-h3 {
-  @include ma-h3;
-}
-h4 {
-  @include ma-h4;
-}
-h5 {
-  @include ma-h5;
-}
-h6 {
-  @include ma-h6;
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    margin-top: 0;
+    color: $c-font-heading;
+    font-weight: 700;
+    @include ma-heading($i);
+  }
 }
 
 // end heading styles
