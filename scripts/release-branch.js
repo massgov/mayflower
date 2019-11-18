@@ -38,6 +38,12 @@ const title = `## ${minor} (${month}/${day}/${year})`;
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 
+var type = 'CHANGE_TYPE';
+var project = 'project';
+var component = 'component';
+var description = 'description';
+var issue = 'issue';
+
 let newLogs = [];
 // Read directory path and exclude the template.yml file.
 const changelogs = fs.readdirSync(directoryPath).filter(function(template) {
@@ -45,7 +51,11 @@ const changelogs = fs.readdirSync(directoryPath).filter(function(template) {
 });
 changelogs.forEach((fileName) => {
   const content = fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8');
-  newLogs.push(content)
+  for ([
+       '### ${type}'
+        ['-' + ${project} + ${component} + ${issue} ':' + ${description}]
+       ]);
+  newLogs.push(content);
 });
 
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
