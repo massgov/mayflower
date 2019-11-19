@@ -17,6 +17,7 @@ class Header extends Component {
       utilNavOpen: false,
       shouldNavigateTop: false,
       shouldNavigateBottom: true,
+      utilNavSelected: -1,
       navSelected: -1
     };
     this.searchInputTop = React.createRef();
@@ -28,6 +29,12 @@ class Header extends Component {
   updateSubNav = ({ navSelected }) => {
     this.setState({
       navSelected
+    });
+  }
+
+  updateUtilNav = ({ utilNavSelected }) => {
+    this.setState({
+      utilNavSelected
     });
   }
 
@@ -149,8 +156,7 @@ class Header extends Component {
 
   render() {
     const header = this.props;
-    const HeaderUtilityNav = <UtilityNav {...this.props.utilityNav} isOpen={this.state.utilNavOpen} />;
-    const { navSelected } = this.state;
+    const { navSelected, utilNavSelected } = this.state;
     return(
       <header className="ma__header" id="header">
         {!header.hideBackTo && (
@@ -159,7 +165,7 @@ class Header extends Component {
           </div>)}
         <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
         <div className="ma__header__utility-nav ma__header__utility-nav--wide">
-          {HeaderUtilityNav}
+          <UtilityNav {...this.props.utilityNav} />
         </div>
         <div className="ma__header__container">
           <div className="ma__header__logo">
@@ -177,7 +183,7 @@ class Header extends Component {
           <h2 id="main_navigation" className="visually-hidden">Main Navigation</h2>
           <div className="ma__header__button-container">
             {
-              (navSelected !== -1) && (
+              (navSelected !== -1 || utilNavOpen) && (
                 <button
                   onClick={() => {
                     this.updateSubNav({
@@ -214,7 +220,11 @@ class Header extends Component {
               />
             </div>
             <div className="ma__header__utility-nav ma__header__utility-nav--narrow">
-              {HeaderUtilityNav}
+              <UtilityNav
+                {...this.props.utilityNav}
+                updateHeaderState={(state) => this.updateUtilNav(state)}
+                navSelected={utilNavSelected}
+              />
             </div>
           </div>
         </nav>

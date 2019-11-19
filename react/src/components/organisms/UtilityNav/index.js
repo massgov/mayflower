@@ -11,7 +11,7 @@ class UtilityNav extends Component {
     super(props);
     this.state = {
       navSelected: -1,
-      isOpen: this.props.isOpen
+      isOpen: false
     };
     this.onClick = this.onClick.bind(this);
     this.ident = shortid.generate();
@@ -88,7 +88,10 @@ const NavItem = (obj) => {
       <div {...divProps}>
         <div className="ma__utility-nav__container">
           <div className="ma__utility-nav__content-title">
-            <button onClick={(e) => obj.handleClick(divId, e)} className="ma__utility-nav__close js-close-util-nav">
+            <button
+              onClick={(e) => obj.handleClick(divId, e)}
+              className="ma__utility-nav__close"
+            >
               <span>{item.closeText}</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>
@@ -121,6 +124,10 @@ const NavItemLink = (obj) => {
 };
 
 UtilityNav.propTypes = {
+  /** utilNavSelected state tracked in Header, passed from Header */
+  utilNavSelected: PropTypes.func,
+  /** set navSelected state in Header, passed from Header */
+  updateHeaderState: PropTypes.func,
   /** Boolean that controls when to show the google language dom. */
   googleLanguages: PropTypes.bool,
   /** An array of navigation items to display to the user. */
