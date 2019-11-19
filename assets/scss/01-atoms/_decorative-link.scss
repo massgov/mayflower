@@ -1,6 +1,6 @@
 .ma__decorative-link {
   @include ma-link-decorative;
-  display: inline-block;
+  display: inline;
   vertical-align: middle;
   width: 100%;
 
@@ -30,7 +30,7 @@
 
       a {
         border-bottom-color: transparent;
-  
+
         svg {
           fill: rgba($c-font-link, 1);
         }
