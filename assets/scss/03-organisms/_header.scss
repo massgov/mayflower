@@ -105,17 +105,15 @@ body {
       color: $c-white;
     }
     &--mobile {
-      @media ($bp-large-max) {
-        height: 15px;
-        background-color: $c-primary;
-        color: $c-white;
-        position: fixed;
-          top: 0;
-          left: 0;
-        text-align: right;
-        width: 100%;
-        z-index: $z-dropdown;
-      }
+      height: 15px;
+      background-color: $c-primary;
+      color: $c-white;
+      position: fixed;
+        top: 0;
+        left: 0;
+      text-align: right;
+      width: 100%;
+      z-index: $z-dropdown;
       @media ($bp-large-min) {
         display: none;
       }
