@@ -1,9 +1,11 @@
-<span class="ma__icon-links__icon">
-  {% if item.icon %}
-    {{ icon(item.icon) }}
-  {% endif %}
-</span>
-<span class="ma__icon-links__link">
-  {% set decorativeLink = item.link %}
-  {% include "@atoms/decorative-link.twig" %}
-</span>
+<span class="ma__icon-link">
+  <span class="ma__icon-link__icon">
+    {% if item.icon %}
+      {{ icon(item.icon) }}
+    {% endif %}
+  </span>
+  <span class="ma__icon-link__link">
+    {% set decorativeLink = item.link %}
+    {% include "@atoms/decorative-link.twig" %}
+  </span>
+</span<
