@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import airbnbPropTypes from 'airbnb-prop-types';
+import classNames from 'classnames';
 import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
 import SiteLogo from '../../atoms/media/SiteLogo';
 import logo from '../../../assets/images/stateseal.png';
-import './styles.css';
 
+import './styles.css';
 
 class Header extends Component {
   constructor(props) {
@@ -157,8 +158,13 @@ class Header extends Component {
       hideBackTo, siteLogo, hideHeaderSearch, headerSearch, mainNav, utilityNav
     } = this.props;
     const { navSelected, utilNavOpen } = this.state;
+    const headerClasses = classNames({
+      ma__header: true,
+      'ma__header--slim': !utilityNav,
+      'ma__header--slim-mobile': (hideHeaderSearch && !mainNav && !utilityNav)
+    });
     return(
-      <header className="ma__header" id="header">
+      <header className={headerClasses} id="header">
         {!hideBackTo && (
           <div className="ma__header__backto">
             <a href="http://www.mass.gov">Go to classic Mass.gov</a>
@@ -181,30 +187,32 @@ class Header extends Component {
         </div>
         <nav className="ma__header__nav" aria-labelledby="main_navigation" id="main-navigation">
           <h2 id="main_navigation" className="visually-hidden">Main Navigation</h2>
-          <div className="ma__header__button-container">
-            {
-              (navSelected !== -1) && (
-                <button
-                  onClick={() => {
-                    this.updateSubNav({
-                      navSelected: -1
-                    });
-                  }}
-                  className="ma__header__back-button--react"
-                >
-                  <span>
-                    Back
-                  </span>
-                </button>
-              )
-            }
-            <button
-              className="ma__header__menu-button js-header-menu-button"
-              onClick={() => this.menuButtonClicked(false)}
-            >
-              <span>Menu</span><span className="ma__header__menu-icon" />
-            </button>
-          </div>
+          {(!hideHeaderSearch || mainNav || utilityNav) ? (
+            <div className="ma__header__button-container">
+              {
+                (navSelected !== -1) && (
+                  <button
+                    onClick={() => {
+                      this.updateSubNav({
+                        navSelected: -1
+                      });
+                    }}
+                    className="ma__header__back-button--react"
+                  >
+                    <span>
+                      Back
+                    </span>
+                  </button>
+                )
+              }
+              <button
+                className="ma__header__menu-button js-header-menu-button"
+                onClick={() => this.menuButtonClicked(false)}
+              >
+                <span>Menu</span><span className="ma__header__menu-icon" />
+              </button>
+            </div>
+          ) : <div className="ma__header__banner ma__header__banner--mobile" />}
           <div className="ma__header__nav-container">
             {!hideHeaderSearch &&
             <div className="ma__header__nav-search">

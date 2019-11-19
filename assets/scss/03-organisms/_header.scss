@@ -25,6 +25,19 @@ body {
   padding-top: 43px; // height of the util nav
   position: relative;
 
+  &--slim {
+    @media ($bp-large-min) {
+      padding-top: 0px;
+    }
+  }
+
+  &--slim-mobile {
+    padding-top: 15px; // height of thin banner on mobile
+    @media ($bp-large-min) {
+      padding-top: 0px;
+    }
+  }
+
   &__skip-nav {
     display: block;
     margin: 0 auto;
@@ -90,6 +103,19 @@ body {
       height: 15px;
       background-color: $c-primary;
       color: $c-white;
+    }
+    &--mobile {
+      @media ($bp-large-max) {
+        height: 15px;
+        background-color: $c-primary;
+        color: $c-white;
+        position: fixed;
+          top: 0;
+          left: 0;
+        text-align: right;
+        width: 100%;
+        z-index: $z-dropdown;
+      }
     }
   }
 

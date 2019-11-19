@@ -217,4 +217,47 @@ storiesOf('organisms/Header', module)
       return(<Header {...headerProps} />);
     },
     { info: HeaderDocs }
+  )
+  .add(
+    'Header without MainNav, UtilityNav, & Search', () => {
+      const headerSearchProps = {
+        placeholder: text('Header headerSearch: placeholder', 'Search Mass.gov', 'Header Search'),
+        buttonSearch: {
+          ariaLabel: 'Search',
+          onClick: () => {
+            action('Search button clicked');
+          },
+          usage: 'secondary'
+        },
+        onSubmit: action('Form submitted'),
+        onChange: action('Text input modified')
+      };
+      const siteLogoProps = {
+        url: {
+          domain: text('Header siteLogo: url domain', 'https://www.mass.gov/', 'Site Logo')
+        },
+        image: {
+          src: text('Header siteLogo: image src', logo, 'Site Logo'),
+          alt: text('Header siteLogo: image alt', 'Massachusetts state seal', 'Site Logo'),
+          width: number('Header siteLogo: image width', 45, 'Site Logo'),
+          height: number('Header siteLogo: image height', 45, 'Site Logo')
+        },
+        siteName: text('Header siteLogo: siteName', 'Mass.gov', 'Site Logo'),
+        title: text('Header siteLogo: title', 'Mass.gov homepage', 'Site Logo')
+      };
+      const headerProps = {
+        headerSearch: { ...headerSearchProps },
+        hideHeaderSearch: boolean('hideHeaderSearch', true),
+        hideBackTo: boolean('hideBackTo', true),
+        siteLogo: siteLogoProps,
+        searchRedirect: {
+          baseUrl: text('Header searchRedirect: baseUrl', 'https://search.mass.gov'),
+          searchTermParam: text('Header searchRedirect: searchTermParam', 'q'),
+          queryParams: object('Header searchRedirect: queryParams', { page: '1' })
+        }
+      };
+      return(<Header {...headerProps} />);
+    },
+    { info: HeaderDocs }
   );
+
