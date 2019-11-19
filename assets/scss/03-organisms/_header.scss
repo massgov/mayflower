@@ -116,6 +116,9 @@ body {
         width: 100%;
         z-index: $z-dropdown;
       }
+      @media ($bp-large-min) {
+        display: none;
+      }
     }
   }
 
