@@ -1,3 +1,14 @@
+## 9.32.0 (11/19/2019)
+
+### Changed
+- (React) [Header] DP-14222: Enable Header to render with and without UtilityNav and MainNav content. #828
+- (Patternlab) [Video] DP-16313: Removes aria-label from div.ma__video ma__video--new, Remove title from decorative link which is a duplicate to link label context. Replaces aria-label with title in iframe. Replaces obsolete frameborder attribute with css. #821
+
+### Fixed
+- (React) [UtilityNav] DP-11663: set `ariaHidden` on decorative SVG icon. #827
+- (React) [AccordionItem] DP-12195: Adds `id` prop to accordion item component to address a11y issues. #829
+
+
 ## 9.31.0 (11/12/2019)
 
 ### Fixed
