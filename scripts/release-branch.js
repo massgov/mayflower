@@ -46,16 +46,16 @@ var issue = 'issue';
 
 let newLogs = [];
 // Read directory path and exclude the template.yml file.
-const changelogs = fs.readdirSync(directoryPath).filter(function(template) {
+const changelogs = fs.readdirSync(directoryPath).filter(function(template) {;
   return template !== 'template.yml';
 });
 changelogs.forEach((fileName) => {
   const content = fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8');
-  for ([
-       '### ${type}'
-        ['-' + ${project} + ${component} + ${issue} ':' + ${description}]
-       ]);
-  newLogs.push(content);
+  console.log(typeof content)
+  //content.forEach((change) => {
+    //newLogs.push(`### ${type} \n [- ${project} ${component} ${issue}: ${description}]`);
+  //});
+  //newLogs.push(content);
 });
 
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
