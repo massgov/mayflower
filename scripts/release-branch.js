@@ -9,6 +9,7 @@ const semver = require('semver');
 // Used for the file system for changelog.
 const path = require('path');
 const fs = require('fs');
+const yaml = require('js-yaml');
 
 // Find out the latest release tag and display it in the command line
 const latest = shell.exec('git describe --abbrev=0 --tags');
@@ -38,29 +39,25 @@ const title = `## ${minor} (${month}/${day}/${year})`;
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 
-var type = 'CHANGE_TYPE';
-var project = 'project';
-var component = 'component';
-var description = 'description';
-var issue = 'issue';
-
 let newLogs = [];
 // Read directory path and exclude the template.yml file.
 const changelogs = fs.readdirSync(directoryPath).filter(function(template) {;
   return template !== 'template.yml';
 });
 changelogs.forEach((fileName) => {
-  const content = fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8');
-  console.log(typeof content)
-  //content.forEach((change) => {
-    //newLogs.push(`### ${type} \n [- ${project} ${component} ${issue}: ${description}]`);
-  //});
-  //newLogs.push(content);
+  const content = yaml.safeLoad(fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8'));
+  Object.keys(content).forEach((changeType, i) => {
+  	newLogs.push(`\n### ${changeType} \n`)
+  	content[changeType].forEach((change) => {
+  		const newChange = `- ${change.project} ${change.component} ${change.issue}: ${change.description}\n`
+  		newLogs.push(newChange)
+  	})
+  });
 });
 
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
-fd.splice(0, 0, title, newLogs);
-var allLogs = fd.join("\n");
+fd.splice(0, 0, title, newLogs.join(''));
+var allLogs = fd.join('\n');
 
 fs.writeFileSync(changelogPath, allLogs, (err) => {
   if (err) throw err;
