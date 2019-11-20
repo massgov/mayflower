@@ -41,7 +41,7 @@ const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 
 let newLogs = [];
 // Read directory path and exclude the template.yml file.
-const changelogs = fs.readdirSync(directoryPath).filter(function(template) {;
+const changelogs = fs.readdirSync(directoryPath).filter(function(template) {
   return template !== 'template.yml';
 });
 changelogs.forEach((fileName) => {
@@ -59,13 +59,21 @@ const fd = fs.readFileSync(changelogPath).toString().split("\n");
 fd.splice(0, 0, title, newLogs.join(''));
 var allLogs = fd.join('\n');
 
+// Remove the changelog files
+fs.readdir(directoryPath, function(err, items) {
+  for (var i=0; i<items.length; i++) {
+    // console.log(items[i]);
+    if (items[i] != "template.yml") {
+      fs.unlink(items, (err) => {
+        if (err) throw err;
+      });
+    }
+  }
+});
+
 fs.writeFileSync(changelogPath, allLogs, (err) => {
   if (err) throw err;
 })
-
-// If nothing to release exit code to stop the script
-
-// Remove the changelog files
 
 // Checkout the branch.
 // const releaseBranch = shell.exec('git checkout -b release/' + minor);
