@@ -62,9 +62,9 @@ var allLogs = fd.join('\n');
 // Remove the changelog files
 fs.readdir(directoryPath, function(err, items) {
   for (var i=0; i<items.length; i++) {
-    // console.log(items[i]);
     if (items[i] != "template.yml") {
-      fs.unlink(items, (err) => {
+      var changeLogFilePath = directoryPath + "/" + items[i];
+      fs.unlink(changeLogFilePath, (err) => {
         if (err) throw err;
       });
     }
