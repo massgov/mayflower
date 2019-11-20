@@ -49,7 +49,7 @@ changelogs.forEach((fileName) => {
   Object.keys(content).forEach((changeType, i) => {
   	newLogs.push(`\n### ${changeType} \n`)
   	content[changeType].forEach((change) => {
-  		const newChange = `- ${change.project} ${change.component} ${change.issue}: ${change.description}\n`
+  		const newChange = `- (${change.project}) [${change.component}] ${change.issue}: ${change.description}\n`
   		newLogs.push(newChange)
   	})
   });
