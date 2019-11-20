@@ -76,46 +76,46 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 })
 
 // Checkout the branch.
-// const releaseBranch = shell.exec('git checkout -b release/' + minor);
+const releaseBranch = shell.exec('git checkout -b release/' + minor);
 
 // Display the new release branch
-// shell.echo('Display the current tag:', releaseBranch);
+shell.echo('Display the current tag:', releaseBranch);
 
 // Git add to the checkout branch
-// shell.exec('git add .');
+shell.exec('git add .');
 
 // Push the branch up to GitHub
-// shell.exec('git push --set-upstream origin release/' + releaseBranch);
+shell.exec('git push --set-upstream origin release/' + releaseBranch);
 
 // Create the pull request in GitHub
-// const data = JSON.stringify({
-//   title: 'Release/${minor}',
-//   body: 'xxxx',
-//   head: '${minor}',
-//   base: 'master',
-// })
-//
-// const options = {
-//   username: 'massgov-bot:DANGER_GITHUB_API_TOKEN',
-//   userAgent: 'https://api.github.com/repos/massgov/mayflower/',
-//   path: 'https://api.github.com/repos/massgov/mayflower/pulls',
-//   method: 'POST',
-//   headers: {
-//     'Accept': 'application/json',
-//     'Content-Type': 'application/json',
-//   }
-// }
-// const req = https.request(options, (res) => {
-//   console.log(`statusCode: ${res.statusCode}`)
-//
-//   res.on('data', (d) => {
-//     process.stdout.write(d)
-//   })
-// })
-//
-// req.on('error', (err) => {
-//   if (err) throw err;
-// })
-//
-// req.write(data)
-// req.end()
+const data = JSON.stringify({
+  title: 'Release/${minor}',
+  body: 'xxxx',
+  head: '${minor}',
+  base: 'master',
+})
+
+const options = {
+  username: 'massgov-bot:DANGER_GITHUB_API_TOKEN',
+  userAgent: 'https://api.github.com/repos/massgov/mayflower/',
+  path: 'https://api.github.com/repos/massgov/mayflower/pulls',
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  }
+}
+const req = https.request(options, (res) => {
+  console.log(`statusCode: ${res.statusCode}`)
+
+  res.on('data', (d) => {
+    process.stdout.write(d)
+  })
+})
+
+req.on('error', (err) => {
+  if (err) throw err;
+})
+
+req.write(data)
+req.end()
