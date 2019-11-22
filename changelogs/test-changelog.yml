@@ -1,0 +1,5 @@
+Added:
+  - project: React
+    component: Button
+    description: This is a test (#PR)
+    issue: DP-1234
