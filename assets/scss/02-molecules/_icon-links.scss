@@ -1,0 +1,5 @@
+.ma__icon-links {
+  &__items {
+    @include ma-reset-list;
+  }
+}
