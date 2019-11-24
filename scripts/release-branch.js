@@ -60,7 +60,7 @@ fd.splice(0, 0, title, newLogs.join(''));
 var allLogs = fd.join('\n');
 
 // Remove the changelog files
-fs.readdirSync(directoryPath, function(err, items) {
+fs.readdir(directoryPath, function(err, items) {
   for (var i=0; i<items.length; i++) {
     if (items[i] != "template.yml") {
       var changeLogFilePath = directoryPath + "/" + items[i];
