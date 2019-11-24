@@ -11,6 +11,9 @@ const path = require('path');
 const fs = require('fs');
 const yaml = require('js-yaml');
 
+// GitHub API
+const https = require('https')
+
 // Find out the latest release tag and display it in the command line
 const latest = shell.exec('git describe --abbrev=0 --tags');
 
@@ -19,9 +22,6 @@ shell.echo('Display the current tag:', latest);
 
 // Increment the release branch.
 const minor = semver.inc(latest.toString(), 'minor');
-
-// GitHub API
-const https = require('https')
 
 // Print out the new minor version
 shell.echo(minor);
@@ -60,7 +60,7 @@ fd.splice(0, 0, title, newLogs.join(''));
 var allLogs = fd.join('\n');
 
 // Remove the changelog files
-fs.readdir(directoryPath, function(err, items) {
+fs.readdirSync(directoryPath, function(err, items) {
   for (var i=0; i<items.length; i++) {
     if (items[i] != "template.yml") {
       var changeLogFilePath = directoryPath + "/" + items[i];
@@ -76,7 +76,8 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 })
 
 // Checkout the branch.
-const releaseBranch = shell.exec('git checkout -b release/' + minor);
+shell.exec('git checkout -b release/' + minor);
+const releaseBranch = 'release/'+ minor;
 
 // Display the new release branch
 shell.echo('Display the current tag:', releaseBranch);
@@ -84,38 +85,41 @@ shell.echo('Display the current tag:', releaseBranch);
 // Git add to the checkout branch
 shell.exec('git add .');
 
-// Push the branch up to GitHub
-shell.exec('git push --set-upstream origin release/' + releaseBranch);
+// Commit message for the branch
+shell.exec('git commit -m "changelog update and remove old changelog files"');
 
-// Create the pull request in GitHub
-const data = JSON.stringify({
-  title: 'Release/${minor}',
-  body: 'xxxx',
-  head: '${minor}',
-  base: 'master',
-})
-
-const options = {
-  username: 'massgov-bot:DANGER_GITHUB_API_TOKEN',
-  userAgent: 'https://api.github.com/repos/massgov/mayflower/',
-  path: 'https://api.github.com/repos/massgov/mayflower/pulls',
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  }
-}
-const req = https.request(options, (res) => {
-  console.log(`statusCode: ${res.statusCode}`)
-
-  res.on('data', (d) => {
-    process.stdout.write(d)
-  })
-})
-
-req.on('error', (err) => {
-  if (err) throw err;
-})
-
-req.write(data)
-req.end()
+// // Push the branch up to GitHub
+// shell.exec('git push --set-upstream origin', releaseBranch);
+//
+// // Create the pull request in GitHub
+// const data = JSON.stringify({
+//   title: 'Release/${minor}',
+//   body: 'xxxx',
+//   head: '${minor}',
+//   base: 'master',
+// })
+//
+// const options = {
+//   username: 'massgov-bot:DANGER_GITHUB_API_TOKEN',
+//   userAgent: 'https://api.github.com/repos/massgov/mayflower/',
+//   path: 'https://api.github.com/repos/massgov/mayflower/pulls',
+//   method: 'POST',
+//   headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json',
+//   }
+// }
+// const req = https.request(options, (res) => {
+//   console.log(`statusCode: ${res.statusCode}`)
+//
+//   res.on('data', (d) => {
+//     process.stdout.write(d)
+//   })
+// })
+//
+// req.on('error', (err) => {
+//   if (err) throw err;
+// })
+//
+// req.write(data)
+// req.end()
