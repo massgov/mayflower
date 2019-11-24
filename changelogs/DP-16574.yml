@@ -1,0 +1,5 @@
+Fixed:
+- project: Patternlab
+  component: IconLink, IconLinks
+  description: Fix icon links display bug. (#831)
+  issue: DP-16574
