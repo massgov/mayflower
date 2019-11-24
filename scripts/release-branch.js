@@ -97,7 +97,7 @@ const data = JSON.stringify({
 })
 
 const options = {
-  username: `massgov-bot:${DANGER_GITHUB_API_TOKEN}`,
+  username: `massgov-bot:${process.env.DANGER_GITHUB_API_TOKEN}`,
   userAgent: 'https://api.github.com/repos/massgov/mayflower/',
   path: 'https://api.github.com/repos/massgov/mayflower/pulls',
   method: 'POST',
