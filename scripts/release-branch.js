@@ -89,14 +89,14 @@ shell.exec('git push --set-upstream origin release/' + releaseBranch);
 
 // Create the pull request in GitHub
 const data = JSON.stringify({
-  title: 'Release/${minor}',
+  title: `Release/${minor}`,
   body: 'xxxx',
-  head: '${minor}',
+  head: minor,
   base: 'master',
 })
 
 const options = {
-  username: 'massgov-bot:DANGER_GITHUB_API_TOKEN',
+  username: `massgov-bot:${DANGER_GITHUB_API_TOKEN}`,
   userAgent: 'https://api.github.com/repos/massgov/mayflower/',
   path: 'https://api.github.com/repos/massgov/mayflower/pulls',
   method: 'POST',
