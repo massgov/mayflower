@@ -2,8 +2,9 @@
   "name": "mayflower",
   "version": "1.0.0",
   "repository": "https://github.com/massgov/mayflower.git",
-  "license": "UNLICENSED",
-  "dependencies": {
+  "license": "GPL-2.0-only",
+  "private": true,
+  "devDependencies": {
     "js-yaml": "^3.13.1",
     "semver": "^6.3.0",
     "shelljs": "^0.8.3"
