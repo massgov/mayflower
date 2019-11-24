@@ -76,17 +76,17 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 })
 
 // Checkout the branch.
-// shell.exec('git checkout -b release/' + minor);
-// const releaseBranch = 'release/'+ minor;
+shell.exec('git checkout -b release/' + minor);
+const releaseBranch = 'release/'+ minor;
 
 // Display the new release branch
-// shell.echo('Display the current tag:', releaseBranch);
+shell.echo('Display the current tag:', releaseBranch);
 
 // Git add to the checkout branch
-// shell.exec('git add .');
+shell.exec('git add .');
 
 // Commit message for the branch
-// shell.exec('git commit -m "changelog update and remove old changelog files"');
+shell.exec('git commit -m "changelog update and remove old changelog files"');
 
 // // Push the branch up to GitHub
 // shell.exec('git push --set-upstream origin', releaseBranch);
