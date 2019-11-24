@@ -83,10 +83,10 @@ const releaseBranch = 'release/'+ minor;
 shell.echo('Display the current tag:', releaseBranch);
 
 // Git add to the checkout branch
-shell.exec('git add -A .');
+shell.exec('git add');
 
 // Commit message for the branch
-shell.exec('git commit -m "changelog update and remove old changelog files"');
+// shell.exec('git commit -m "changelog update and remove old changelog files"');
 
 // // Push the branch up to GitHub
 // shell.exec('git push --set-upstream origin', releaseBranch);
