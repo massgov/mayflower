@@ -88,38 +88,35 @@ shell.exec('git add .');
 // Commit message for the branch
 // shell.exec('git commit -m "changelog update and remove old changelog files"');
 
-// // Push the branch up to GitHub
-// shell.exec('git push --set-upstream origin', releaseBranch);
-//
-// // Create the pull request in GitHub
-// const data = JSON.stringify({
-//   title: 'Release/${minor}',
-//   body: 'xxxx',
-//   head: '${minor}',
-//   base: 'master',
-// })
-//
-// const options = {
-//   username: 'massgov-bot:DANGER_GITHUB_API_TOKEN',
-//   userAgent: 'https://api.github.com/repos/massgov/mayflower/',
-//   path: 'https://api.github.com/repos/massgov/mayflower/pulls',
-//   method: 'POST',
-//   headers: {
-//     'Accept': 'application/json',
-//     'Content-Type': 'application/json',
-//   }
-// }
-// const req = https.request(options, (res) => {
-//   console.log(`statusCode: ${res.statusCode}`)
-//
-//   res.on('data', (d) => {
-//     process.stdout.write(d)
-//   })
-// })
-//
-// req.on('error', (err) => {
-//   if (err) throw err;
-// })
-//
-// req.write(data)
-// req.end()
+// Create the pull request in GitHub
+const data = JSON.stringify({
+  title: `Release/${minor}`,
+  body: 'xxxx',
+  head: minor,
+  base: 'master',
+})
+
+const options = {
+  username: `massgov-bot:${DANGER_GITHUB_API_TOKEN}`,
+  userAgent: 'https://api.github.com/repos/massgov/mayflower/',
+  path: 'https://api.github.com/repos/massgov/mayflower/pulls',
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  }
+}
+const req = https.request(options, (res) => {
+  console.log(`statusCode: ${res.statusCode}`)
+
+  res.on('data', (d) => {
+    process.stdout.write(d)
+  })
+})
+
+req.on('error', (err) => {
+  if (err) throw err;
+})
+
+req.write(data)
+req.end()
