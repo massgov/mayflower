@@ -83,7 +83,7 @@ const releaseBranch = 'release/'+ minor;
 shell.echo('Display the current tag:', releaseBranch);
 
 // Git add to the checkout branch
-shell.exec('git add');
+shell.exec('git commit -a');
 
 // Commit message for the branch
 // shell.exec('git commit -m "changelog update and remove old changelog files"');
