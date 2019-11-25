@@ -102,8 +102,8 @@ const InputCheckBox = (props) => {
 InputCheckBox.propTypes = {
   /** Id of the input that the label is tied to and the value is associated with in the formContext. */
   id: PropTypes.string,
-  /** Value of the input that is associated with in the formContext. */
-  value: PropTypes.string,
+  /** Value of the input that is associated with in the formContext. (required) */
+  value: PropTypes.string.isRequired,
   /** Default input value. */
   defaultValue: PropTypes.string,
   /** Tab index for the checkbox input. */
