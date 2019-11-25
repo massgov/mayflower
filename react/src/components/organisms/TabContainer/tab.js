@@ -6,57 +6,6 @@ import TabContext from './context';
 import TabBody from './tab-body';
 
 class Tab extends React.Component {
-  handleKeyDown = (e) => {
-    let nextIdent = null;
-    let prevIdent = null;
-    this.context.tabIds.forEach((ident, key) => {
-      if (this.context.activeTab === ident) {
-        nextIdent = key === (this.context.tabIds.size - 1) ? this.context.tabIds.get(0) : this.context.tabIds.get(key + 1);
-        prevIdent = key === 0 ? this.context.tabIds.get(this.context.tabIds.size - 1) : this.context.tabIds.get(key - 1);
-      }
-    });
-    if (e.key === 'ArrowRight') {
-      const body = document.getElementById(this.context.tabContainerBodyId);
-      if (this.context.tabRefs[nextIdent]) {
-        this.context.setActiveTab(nextIdent);
-      } else if (!body.getElementsByClassName('ma__tab-container--nested')[0] && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
-            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
-        // If the TabContainer has a parent TabContainer, and that container has a next selectable sibling.
-        if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
-            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
-          const nextTab = e.currentTarget
-            .closest('div.ma__tab-container')
-            .parentElement
-            .closest('div.ma__tab-container')
-            .getElementsByClassName('ma__tab-title--active')[0]
-            .nextElementSibling
-            .getElementsByTagName('button')[0];
-          nextTab.removeAttribute('tabindex');
-          nextTab.focus();
-        }
-      }
-    }
-    if (e.key === 'ArrowLeft') {
-      const body = document.getElementById(this.context.tabContainerBodyId);
-      if (this.context.tabRefs[prevIdent]) {
-        this.context.setActiveTab(prevIdent);
-      } else if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
-        // If the TabContainer has a parent TabContainer, and that container has a previous selectable sibling.
-        if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
-            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].previousElementSibling) {
-          const prevTab = e.currentTarget
-            .closest('div.ma__tab-container')
-            .parentElement
-            .closest('div.ma__tab-container')
-            .getElementsByClassName('ma__tab-title--active')[0]
-            .previousElementSibling
-            .getElementsByTagName('button')[0];
-          prevTab.removeAttribute('tabindex');
-          prevTab.focus();
-        }
-      }
-    }
-  };
   render() {
     const { tabIdent, active } = this.props;
     const { setActiveTab, activeTab } = this.context;
@@ -75,7 +24,6 @@ class Tab extends React.Component {
           this.props.handleClick(e, tabIdent, this.props.children);
         }
       },
-      onKeyDown: this.handleKeyDown,
       id: tabIdent,
       'aria-selected': active,
       'aria-controls': this.context.tabContainerBodyId,
