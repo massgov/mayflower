@@ -1,0 +1,5 @@
+Fixed:
+  - project: React
+    component: TabContainer
+    description: Enable focus in tab container by removing arrowdown and arrowup mgmt at the tab level. (#835)
+    issue: DP-11777
