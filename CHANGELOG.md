@@ -20,7 +20,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 - (React) [TabContainer] DP-11777: Enable focus in tab container by removing arrowdown and arrowup mgmt at the tab level. #836
-Fixed
 - (Patternlab) [IconLink, IconLinks] DP-16574: Fix icon links display bug. #831
   - Refactor scss to match IconLink and IconLinks levels
   - Add wrapper span to fix IconLink molecule in Patternlab
