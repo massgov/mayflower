@@ -19,7 +19,7 @@ const https = require('https');
 const git = require('simple-git');
 
 // Find out the latest release tag and display it in the command line.
-const latest = git().exec('describe --abbrev=0 --tags');
+const latest = shell.exec('git describe --abbrev=0 --tags');
 
 // Display the latest tag.
 shell.echo('Display the current tag:', latest);
@@ -82,19 +82,19 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 
 // Checkout the branch.
 const releaseBranch = 'release/' + minor;
-// git().checkoutLocalBranch();
+shell.exec('git checkout -b' + releaseBranch)
 
 // Display the new release branch
 shell.echo('Display the current tag:', releaseBranch);
 
 // Git add to the checkout branch
-// git().add('./*');
+git().add('./*');
 
 // Commit message for the branch
-// git().commit('changelog update and remove old changelog files');
+shell.exec('git commit -m "changelog update and remove old changelog files"')
 
 // Push the release branch to GitHub
-// git().push('origin', '${releaseBranch}')
+// shell.exec('git push origin --set-upstream origin' + releaseBranch);
 
 // Create the pull request in GitHub
 // const data = JSON.stringify({
