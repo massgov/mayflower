@@ -24,7 +24,27 @@ backstop_defaults: &backstop_defaults
   docker:
     - image: circleci/python:2.7.14
 
+container_config: &container_config
+  working_directory: /var/www/code
+  docker:
+    - image: circleci/node:10.15.1
+
 jobs:
+  build:
+    <<: *container_config
+    steps:
+      - checkout
+      - run:
+          name: NPM Install
+          command: npm install
+      - save_cache:
+          name: Save NPM cache
+          key: npm-packages-{{ .Branch }}-{{ checksum "package-lock.json }}
+
+      - persist_to_workspace:
+          root: /var/www
+          paths: [code]
+
   patternlab_build:
     <<: *patternlab_defaults
     steps:
@@ -281,9 +301,9 @@ workflows:
   # Release branch automation every Tuesday at 1 p.m. ET
   release:
     jobs:
-      - patternlab_build
+      - build
       - release_branch:
-          requires: [patternlab_build]
+          requires: [build]
     triggers:
       - schedule:
           cron: "00 18 * * 2"
@@ -294,14 +314,14 @@ workflows:
 
   build_github_tag:
     jobs:
-      - patternlab_build:
+      - build:
           filters:
             branches:
               only: master
       - hold:
           type: approval
           requires:
-            - patternlab_build
+            - build
           filters:
             branches:
              only: master
