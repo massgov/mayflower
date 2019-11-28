@@ -82,6 +82,7 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 
 // Checkout the branch.
 const releaseBranch = 'release/' + minor;
+git().checkoutLocalBranch(releaseBranch);
 shell.exec('git checkout -b' + releaseBranch);
 
 // Display the new release branch
