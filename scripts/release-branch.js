@@ -12,7 +12,11 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 
 // GitHub API
-const https = require('https')
+const https = require('https');
+
+// Added simple-git to use for git add "npm install simple-git"
+// Could not use the shell.exec to git add the remove changelogs.
+const simpleGit = require('simple-git');
 
 // Find out the latest release tag and display it in the command line
 const latest = shell.exec('git describe --abbrev=0 --tags');
@@ -84,7 +88,7 @@ const releaseBranch = 'release/'+ minor;
 shell.echo('Display the current tag:', releaseBranch);
 
 // Git add to the checkout branch
-shell.exec('git add .');
+simpleGit.add('git add .');
 
 // Commit message for the branch
 // shell.exec('git commit -m "changelog update and remove old changelog files"');
