@@ -88,13 +88,13 @@ git().checkoutLocalBranch(releaseBranch);
 shell.echo('Display the current tag:', releaseBranch);
 
 // Git add to the checkout branch
-// git().add('./*');
+git().add('./*');
 
 // Commit message for the branch
-// git().commit('changelog update and remove old changelog files');
+git().commit('changelog update and remove old changelog files');
 
 // Push the release branch to GitHub
-// shell.exec('git push origin --set-upstream origin' + releaseBranch);
+// git().push('origin', releaseBranch);
 
 // Create the pull request in GitHub
 // const data = JSON.stringify({
