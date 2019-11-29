@@ -28,7 +28,8 @@ storiesOf('molecules', module)
         border: boolean('border', true),
         emphasize: boolean('emphasize', true),
         secondary: boolean('secondary', false),
-        headerLevel: select('headerLevel', [1, 2, 3, 4, 5, 6], 2)
+        headerLevel: select('headerLevel', [1, 2, 3, 4, 5, 6], 2),
+        id: text('id', 'accordionid')
       };
 
       // Example of child element, paragraph, passable to accordion

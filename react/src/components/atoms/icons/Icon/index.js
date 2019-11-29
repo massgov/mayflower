@@ -6,10 +6,11 @@ export default class Icon extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string,
-    svgWidth: PropTypes.number,
-    svgHeight: PropTypes.number,
+    svgWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    svgHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     classes: PropTypes.arrayOf(PropTypes.string),
-    ariaHidden: PropTypes.bool
+    ariaHidden: PropTypes.bool,
+    fill: PropTypes.string
   };
   static defaultProps = {
     title: null,
@@ -30,6 +31,7 @@ export default class Icon extends React.Component {
       name,
       classes,
       ariaHidden,
+      fill,
       ...rest
     } = this.props;
     // The promise will not be resolved until after render,
@@ -46,7 +48,7 @@ export default class Icon extends React.Component {
           const content = (
             <svg {...attr} {...rest} >
               {title && <title>{title}</title>}
-              <use xlinkHref={`#${name}`} />
+              <use xlinkHref={`#${name}`} fill={fill} />
             </svg>
           );
           if (this.state.loaded !== name) {

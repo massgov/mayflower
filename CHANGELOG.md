@@ -13,6 +13,232 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.32.0 (11/19/2019)
+
+### Changed
+- (React) [Header] DP-14222: Enable Header to render with and without UtilityNav and MainNav content. #828
+- (Patternlab) [Video] DP-16313: Removes aria-label from div.ma__video ma__video--new, Remove title from decorative link which is a duplicate to link label context. Replaces aria-label with title in iframe. Replaces obsolete frameborder attribute with css. #821
+
+### Fixed
+- (React) [UtilityNav] DP-11663: set `ariaHidden` on decorative SVG icon. #827
+- (React) [AccordionItem] DP-12195: Adds `id` prop to accordion item component to address a11y issues. #829
+
+## 9.31.0 (11/12/2019)
+
+### Fixed
+- (Patternlab) [KeyMessage] DP-16457: Correct semantics of sub title and apply title heading level + 1 styles to it. #818
+- (Patternlab) [KeyMessage] DP-16457: Fix padding bug introduced if only title and button. #824
+- (React) [Collapse] DP-16483: Fixed collapse animation if max dimension passed on IE11. #823
+
+## 9.30.0 (11/05/2019)
+
+### Added
+- (Patternlab) [KeyMessage] DP-16287: Add a logic to assign proper green with or without background image to key message in content area. #811
+
+### Changed
+- (Patternlab) [KeyMessage] DP-16299: Change the width of the content area key message block from 840px to 1240px in desktop display. #810
+- (Patternlab) [KeyMessage] DP-16299: Adjust spacing button and message content container. #810
+- (Patternlab) [KeyMessage] DP-16299: Set a condition to print the keymesage heading only when its value is available. #810
+- (Patternlab) [KeyMessage] DP-16299: Change the opacity of the ovelay color in the content area to 0.8. #810
+- (Patternlab) [FeatureCard] DP-16299: Adjust the bottom spacing for feature card in desktop display with or without more link. #810
+- (Patternlab) [Feature] DP-16299: Adjust margin and padding for feature container. #810
+- (Patternlab) [Video] DP-16299: Adjust margin and padding for video #810
+- (Patternlab) [CampaignLanding] DP-16336: Adjust margin and padding for campaign page components. #810
+- (Patternlab) [Card] DP-16314: Correct closing heading level for feature card. Removed id from secondary cards. Correct the wrong class name for the card and the condition to add the class to the container. #816
+- (Patternlab) [Pages Marketing Campaign] DP-16314: Update landing page jsons to match the change for ID. #816
+Added
+- (Patternlab) [SVG Icons Arrow] DP-16314: Add `focusable='false'` to svg icons. #816
+Fixed
+- (Patternlab) [KeyMessage] DP-16312: Reposition style and script for the background image above the keymessage container. #813
+- (Patternlab) [KeyMessage] DP-16312: Add a condition to add ID only when its value is available to key message section. #813
+- (Patternlab) [KeyMessage] DP-16312: Remove the extra curly brace causing a parse error. #813
+- (Patternlab) [KeyMessage] DP-16312: Add a condition to button link to add title only when its value is available. #813
+- (Patternlab) [KeyMessage] DP-16312: Modify the condition to add the second set of style. #813
+
+### Fixed
+- (React) [Header, MainNav] DP-16413: Fixed MainNav bug on mobile #814
+  - Allow nav item navigation to close main nav on mobile in SPA
+  - Allow passing in custom navigation function into MainNav by adding `onNavigateCallBack` prop to `MainNav`
+  - Update nav item roles to match currently Mass.gov main nav
+  - Separate mouse events and click event on MainNav items for desktop and mobile modes.
+  - Added react class on MainNav back button to avoid display to be impacted by css.
+
+
+## 9.29.0 (10/29/2019)
+
+### Changed
+- (Patternlab) [KeyMessage] DP-16164: Set key message component height to be adjustable based on available content in the container maintaining even padding on top and bottom. #798
+- (React) [Collapse] DP-16257: Extend collapse animation to make a minimum dimension value prop passable - default is a full collapse of the content block to 0px. #805
+- (React, Patternlab) [Headings] DP-16271 Added breakpoints and Increased font size for H2. #799
+
+### Fixed
+- (React) [Icon] BugFix: Fix minor svg issues in icon library (data, linkedin, map, questionmark, refresh, twitter). #806
+
+## 9.28.2 (10/18/2019)
+
+### Fixed
+- (React) [GenTeaser] DP-16106: Fix import statement bug resulting in jest suite failure on consumer side of mayflower-react package. #797
+- (React) [Header] DP-16106: Fix bug in the search bar in header to enable redirect action to take place. #797
+
+## 9.28.0 (10/15/2019)
+
+### Added
+- (React, Patternlab) [CircleCi] Fix auto generated changelog format and separate dependabot changelogs into individual files. #778
+- (Patternlab) [Feedback Form] DP-16115: Update Feedback Form to allow toggling required "legend" items to improve accessibility. #747
+- (Patternlab) [Feedback Form] DP-16115: Add required attribute to radio button. #747
+- (Patternlab) [Feedback Form] DP-16115: Add role="radiogroup" and a condition to add aria-required="true" to fieldset. #747
+- (React) [Icon] DP-15689: Added `mail` and `calendar` svg for Icon options. #766
+- (React) [PhoneNumber] DP-15689: Added PhoneNumber component to library. #766
+- (React) [EventTime] DP-15689: Added EventTime component to library. #766
+- (React) [Email] DP-15689: Added Email component to library. #766
+- (React) [Address] DP-15689: Added Address component to library. #766
+- (React) [GenTeaser] DP-15689: Added GenTeaser component to library. #766
+- (React) [Dependency] DP-15689: Added react-html-parser as dependency. #766
+- (Patternlab) [ServiceFlexibleLinkGroups] DP-15349: Added text fade and collapse/expand functionality to overview text area. #735
+
+### Changed
+- (React) [Dependency] DP-15689: Bumps eslint-plugin-react from 7.11.1 to 7.14.3. #766
+- (React) [ButtonWithIcon] DP-15689: Added `size` prop to component. #766
+- (React) [DecorativeLink] DP-15689: Added `icon` and `details` props to component. #766
+- (React) [Footer] DP-10665: Match the footer logo to Mass.gov site's by adding a link to the Mass.gov home and remove the deprecate alt value. #314
+- (React) [Dependency]: Bump eslint-plugin-react from 7.12.4 to 7.14.3 in /react #689
+- (React) [Dependency]: Bump @storybook/addon-actions, @storybook/addon-a11y, @storybook/addon-info, @storybook/addon-knobs, @storybook/addon-links, @storybook/addon-storysource, @storybook/addon-viewport, @storybook/addons, and @storybook/react from 5.1.9 to 5.2.3 in /react #761
+- (Patternlab) [Dependency] Bump gulp-sass from 4.0.1 to 4.0.2 in /patternlab/styleguide #582
+- (Patternlab) [Dependency] Bump gulp-header from 2.0.5 to 2.0.9 in /patternlab/styleguide #674
+
+### Fixed
+- (React, Patternlab) [CircleCi] Only run auto changelog task on dependabot branches. #788
+- (Patternlab) [KeyMessage] DP-16109: Set a condition to check bgImage and set class for overlay box position to section based on its result. #777
+- (React) [GenTeaser, TeaserSearch] DP-16106: Fixed bug related to query input prop and term in the TeaserSearch component consumed by GenTeaser. #794
+- (Patternlab) [Video] DP-16028: Fix video transcription display to lined up as one line and no overwraping to video. #783
+
+### Removed
+- (React) [PressTeaser, GeneralTeaser, Teaser] DP-15689: Flagged components for removal & archiving in version 10. Removed story from storybook. #766
+
+## 9.27.0 (10/08/2019)
+
+### Changed
+
+- (Patternlab) [CampaignVideo]: Updated background color variables to match color variable names in MF. Added top/bottom padding to the component. #776
+- (React) [Dependency] Bump react-dom from 16.8.6 to 16.9.0 in /react (#740)
+- (React) [Dependency] Bump @storybook/addon-storysource from 5.1.9 to 5.2.1 in /react (#762)
+
+### Fixed
+
+- (React) [EmergencyHeader, DecorativeLink] Fix decorative link wrapping issue in alert header and download link. #775
+- (React, Patternlab) [Circleci] Fix auto generate changelog for dependabot prs (followup #722) #765
+
+### Security
+
+- (React) [Dependency] Bump sshpk from 1.13.1 to 1.16.1 in /react (#592)
+
+## 9.26.0 (10/02/2019)
+
+### Added
+
+- (Patternlab) [Button] DP-15986: Adds primary button theme variant of c-white. #758
+- (Patternlab) [CampaignFeature] DP-4562: Add "more" link to Campaign Features component #759
+
+### Changed
+
+- (Patternlab) [MarketingCampaign]: Updated template so bottom key message lines up with footer. #758
+- (Patternlab) [CampaignFeature]: Update campaign feature to use ma-container mixin gutters. #758
+- (Patternlab) [KeyMessage]: Update key message component to pass color themes. Update to render with boxed callout and solid overlay callout. #758
+Fixed
+- (Patternlab) [KeyMessage] DP-14562: Set received heading level value to 'headingLevel', keyMessage.compHeading.level to headingLevel. Add a filter for banner image URL not to encode "&". #770
+- (Patternlab) [Card] DP-16073: Stack image on primary card on tablet size screen. #772
+
+### Fixed
+
+- (Patternlab) [Search Banner] DP-13660: Fixed spacing on mobile devices to prevent popular search links from overlapping image credit. #753
+- (Patternlab) [Info Details] DP-15262: Updated sidebar handling so the first item is shows full-width when no sidebar content is present. #746
+- (Patternlab) [CampaignFeature2up, Card] DP-15979: Fixed flexbox bug related to layout on small screens. #751
+- (Patternlab) [Video]: Updated iframe video allow params to prevent console error. #758
+- (Patternlab) [CampaignVideo]: Fixes bug related to setting theme of component. #758
+- (Patternlab) [MarketingCampaign] DP-16073: Fix spacing between marketing campaign page sections. #772
+- (Patternlab) [CampaignVideo] DP-16073: Remove heading style override and wrapper top/bottom padding in preference of inheriting margins from page. #772
+
+### Security
+
+- (React) [Dependency] Bump lodash.mergewith from 4.6.1 to 4.6.2 in /react #669
+
+
+## 9.25.0 (09/25/2019)
+
+### Added
+- (Patternlab) [Card] DP-15872: Adds card molecule with primary (default) and secondary usage variant. #742
+- (Patternlab) [CampaignVideo] DP-15813: Added color options and made other styling tweaks #738
+- (Patternlab) [UnorderedList] DP-15731: Added ability to add classes to lists; implemented ma__horizontal-list class #739
+- (React) [LinkDropdown] DP-15689: Created LinkDropdown molecule. #730
+
+### Changed
+- (Patternlab) [CampaignFullWidthFeature] DP-15872: Replaces campaign feature full width molecule with card molecule. #742
+- (Patternlab) [CampaignFeature2up] DP-15872: Updates campaign feature 2up to consume new card molecule in secondary variant and updates molecule scss. #742
+- (Patternlab) [CampaignFeature] DP-15872: Updates campaign feature organism to consume primary card molecule and adds organism scss. #742
+- (React) [ButtonWithIcon] DP-15689: Extended the ButtonWithIcon component to pass multiple themes (c-primary, c-primary-alt, c-highlight, c-gray-dark, c-black) and display for multiple usages per base button atom (primary, secondary, tertiary, quaternary, quaternary-simple, alert). #730
+- (React) [DecorativeLink] DP-15689: Enabled classnames to be passed to DecorativeLink. #730
+- (React) [ListingTable] DP-15689: Updated ListingTable to consume ButtonWithIcon for expand functionality. #730
+- (React) [ButtonAlert] DP-15689: Made ButtonAlert a variant of buttonwithicon. #730
+
+### Fixed
+- (Patternlab) [Locations] DP-15856: Uses google map's viewport biasing when converting user's input into a geocode so that places from and around Massachusetts are returned, thereby fixing previously faulty location filtering. #745
+- (React) [Button, ButtonWithIcon] DP-15689: Fixed color contrast a11y issue of c-highlight theme. #730
+
+### Security
+- (Patternlab) [Dependency] DP-12883: Bumps browser-sync from 2.26.3 to 2.26.7 and handlebars from 4.05 to 4.1.2 to address security vulnerabilities #750
+- (React) [Dependency] Bump lodash.template from 4.4.0 to 4.5.0 in /react #671
+- (React) [Dependency] Bump lodash from 4.17.10 to 4.17.15 in /react #681
+
+## 9.24.0 (09/18/2019)
+
+### Changed
+- (Patternlab) [StickyToc] DP-15605: Add context info to sticky TOC buttons to reflect the state of the TOC display. Switch focus as the flyout toc shows/hides. #731
+- (Patternlab) [HeaderAlert] DP-15896: Makes decorative link in a page alert show inline without unexpected wrapping up. #741
+- (Patternlab) [InformationDetails] DP-14105: Added an overview rich text field to the information-details component. #734
+
+### Security
+- (React) [Dependency] Bump fstream from 1.0.11 to 1.0.12 in /react. #687
+
+## 9.23.0 (09/11/2019)
+
+### Added
+- (React, Patternlab) [Circleci] Automate adding changelog for dependabot prs. Changelog will be added by Circleci on dependabot branches into changelogs/dependabot.md. #722
+- (React) [Icon] DP-15753: Adds catalog, chart, download, expand, map, report, and settings icons. #729
+- (Patternlab) [KeyMessage, MarketingCampaign] DP-15521: Adds key message component and Campaign Marketing Page. #728
+
+### Security
+- (React) [Dependency] Bump is-my-json-valid from 2.17.1 to 2.20.0 in /react (#589)
+- (React) [Dependency] Bump mixin-deep from 1.3.1 to 1.3.2 in /react (#724)
+- (React) [Dependency] Bump eslint-utils from 1.3.1 to 1.4.2 in /react (#721)
+
+## 9.22.0 (08/28/2019)
+
+### Added
+- (Patternlab) [FullWidthCampaignHeader] DP-15512: Version 1 of the Full Width Campaign Full Width Header #715
+- (Patternlab) [CampaignVideo] DP-15564: Add campaign video component #716
+- (Patternlab) [CampaignFeature] DP-15583: Adds campaign feature molecules and organism #717
+- (React) [Icon] DP-15599: Added social media icons into Icon component options and added option to set icon fill color #712
+- (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks <a> to follow best practices for Screen Readers. #712
+
+### Changed
+- (React) [SocialLinks] DP-15599: Change hard coded icon svgs to Icon component. #712
+
+## 9.21.0 (08/21/2019)
+
+### Changed
+- (Patternlab) [ContactRow] DP-9085: Added line break to address. #701
+- (Patternlab) [Event] DP-9085: Added line breaks to addresses. #701
+- (Patternlab) [EventEndDateWithTime] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventEndDate] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventPublicMeeting] DP-9085: Added line break to address. #701
+- (Patternlab) [EventRecurring] DP-9085: Added line break to address. #701
+
+### Fixed
+- (Patternlab) [StickyTOC] DP-14912: reposition stickyTOC on mobile screens #700
+- (Docs) [Metatag] DP-15068: Update the search metatag documentation. #708
+- (React) [SocialLinks] DP-15599: Prevent SVGs in SocialLink from receiving keyboard focus. #709
+
+
 ## 9.20.0 (08/14/2019)
 
 ### Added

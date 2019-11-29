@@ -15,7 +15,7 @@ export default {
   id: (value) => text('CompHeading: id', value, 'CompHeading'),
   sub: (value) => boolean('CompHeading: sub', value, 'CompHeading'),
   level: (value) => select('CompHeading: level', levelOptions, value, 'CompHeading'),
-  color: (value) => select('CompHeading: color', { 'green (default)': '', yellow: 'yellow' }, value, 'CompHeading'),
+  color: (value) => select('CompHeading: color', { 'green (default)': '', yellow: 'yellow', gray: 'gray' }, value, 'CompHeading'),
   centered: (value) => boolean('CompHeading: centered', value, 'CompHeading'),
   sidebar: (value) => boolean('CompHeading: sidebar', value, 'CompHeading')
 };

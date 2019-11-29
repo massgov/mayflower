@@ -1,0 +1,16 @@
+{
+  "campaignVideo": {
+    "id": "2",
+    "isHeader": false,
+    "title": "Why work for the commonwealth?",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    "video": {
+      "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
+      "link": {
+        "href": "#",
+        "text": "View transcript"
+      },
+      "label": "Placeholder video"
+    }
+  }
+}

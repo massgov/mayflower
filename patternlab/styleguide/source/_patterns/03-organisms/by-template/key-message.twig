@@ -1,0 +1,112 @@
+{% if keyMessage.textOverlay %}
+  {% set theme = keyMessage.textOverlay ? keyMessage.textOverlay : "" %}
+{% elseif keyMessage.bgImage and ( keyMessage.backgroundColor == "c-primary-alt" ) %}
+{# Green over bg image in content area is darker than one for solid bg. #}
+ {% set theme = "c-primary-alt-dark" %}
+{% else %}
+ {% set theme = keyMessage.backgroundColor ? keyMessage.backgroundColor : "c-gray-lightest" %}
+{% endif %}
+
+{% set bgImage = keyMessage.bgImage %}
+{% set positionTop = keyMessage.positionTop %}
+{% set headingLevel = keyMessage.compHeading.level ? keyMessage.compHeading.level : (positionTop ? 1 : 2) %}
+{% set id = keyMessage.id %}
+{% set msgClass = theme ? " ma__key-message--" ~ theme : "" %}
+{% set descClass = theme ? " ma__key-message__description--" ~ theme : "" %}
+{% set titleClass = theme ? " ma__key-message__title--" ~ theme : "" %}
+{% set subClass = theme ? " ma__key-message__title--" ~ theme : "" %}
+{% set blockClass = theme ? " ma__key-message__block--" ~ theme : "" %}
+{% set wrapperClass = keyMessage.textOverlay ? " ma__key-message__wrapper--overlay" : "" %}
+
+{% if ( theme == "c-primary" ) or ( theme == "c-primary-alt" ) or ( theme == "c-primary-alt-dark" ) %}
+  {% set buttontheme = { theme: "c-white" } %}
+{% elseif ( theme == "c-primary-alt-lightest" ) %}
+  {% set buttontheme = { theme: "c-primary-alt" } %}
+{% elseif ( theme == "c-white" ) or ( theme == "c-gray-lightest" ) %}
+  {% set buttontheme = { theme: "c-primary" } %}
+{% else %}
+  {% set buttontheme = { theme: theme } %}
+{% endif %}
+
+{% if bgImage and positionTop %}
+{# Set up bg image and horizontal padding for key message in header. #}
+<style>
+  @media(min-width: 781px) {
+    #{{ id }}.ma__key-message--image {
+      background-image: url('{{ bgImage }}');
+    }
+  }
+</style>
+<script type="text/javascript">
+  var id = "{{ id }}";
+  var blckid = "blck{{ id }}";
+  function marginSet() {
+    var blckHeight = document.getElementById(blckid) ? document.getElementById(blckid).clientHeight : 0;
+    var mrgWrapper = document.getElementById("main-content") ? blckHeight * (1/3) + 60 : 60;
+    var style = document.createElement('style');
+    style.innerHTML =
+    `#${id} {` +
+    '  margin-bottom: 0;' +
+    '}' +
+    '@media(min-width: 781px) {' +
+    `  #${id} {` +
+    `    margin-bottom: ${mrgWrapper}px;` +
+      '}' +
+    '}';
+    var ref = document.querySelector('script');
+    ref.parentNode.insertBefore(style, ref);
+  }
+  window.onload = function() {
+    marginSet();
+  };
+  window.addEventListener("resize", marginSet);
+</script>
+{% elseif bgImage %}
+{# Set up bg image for key message in content area. #}
+<style>
+  #{{ id }}.ma__key-message--image {
+      background-image: url('{{ bgImage }}');
+    }
+</style>
+{% endif %}
+{% if keyMessage.mobileBgImage and positionTop %}
+<style>
+  #img{{ id }}.ma__key-message__inline-image {
+    background-image: url('{{ keyMessage.mobileBgImage }}');
+  }
+</style>
+{% endif %}
+<section {% if id %}id="{{ id }}" {% endif %}class="ma__key-message{{ msgClass }}{% if bgImage %} ma__key-message--image{% endif %}{% if keyMessage.textOverlay and bgImage %} ma__key-message--image-overlay{% endif %}{% if positionTop %} ma__key-message--top{% endif %}">
+  {% if bgImage and positionTop %}
+    <div id="img{{ id }}"  class="ma__key-message__inline-image">
+    </div>
+  {% endif %}
+  <div class="ma__key-message__wrapper{{ wrapperClass }}{% if positionTop %} ma__key-message__wrapper--top{% endif %}">
+    <div id="blck{{ id }}" class="ma__key-message__block{{ blockClass }}">
+      {% if keyMessage.compHeading.title or keyMessage.subtitle %}
+        <header>
+        {% if keyMessage.compHeading.title %}
+          <h{{ headingLevel }} class="ma__key-message__title{{ titleClass }}">{{ keyMessage.compHeading.title }}</h{{ headingLevel }}>
+        {% endif %}
+        {% if keyMessage.subtitle %}
+          <p class="ma__key-message__sub-title{{ subClass }}">{{ keyMessage.subtitle }}</p>
+        {% endif %}
+        </header>
+      {% endif %}
+      {% if keyMessage.description %}
+        <div class="ma__key-message__content">
+          <div class="ma__key-message__description{{ descClass }}">
+            {% set richText = keyMessage.description %}
+            {% include "@organisms/by-author/rich-text.twig" %}
+          </div>
+        </div>
+      {% endif %}
+      {% if keyMessage.button.text %}
+        <div class="ma__key-message__cta">
+          {% set button = keyMessage.button|merge(buttontheme) %}
+          {% include "@atoms/01-buttons/button.twig" %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
