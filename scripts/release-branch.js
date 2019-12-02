@@ -19,8 +19,7 @@ const https = require('https');
 const git = require('simple-git');
 
 // Find out the latest release tag and display it in the command line.
-// const latest = shell.exec('git describe --abbrev=0 --tags');
-const latest = '9.33.0'
+const latest = shell.exec('git describe --abbrev=0 --tags');
 
 // Display the latest tag.
 shell.echo('Display the current tag:', latest);
