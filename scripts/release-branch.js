@@ -22,13 +22,13 @@ const git = require('simple-git');
 const latest = shell.exec('git describe --abbrev=0 --tags');
 
 // Display the latest tag.
-shell.echo('Display the current tag:', latest);
+console.log(`Display the latest tag: ${latest}`);
 
 // Increment the release branch.
 const minor = semver.inc(latest.toString(), 'minor');
 
 // Print out the new minor version
-shell.echo(minor);
+console.log(`New release tag: ${minor}`);
 
 // Update the changelog.md file
 const today = new Date();
@@ -82,12 +82,11 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 
 // Checkout the branch.
 const releaseBranch = 'release/' + minor;
-shell.exec(`git checkout -b ${releaseBranch}`);
 
-// Display the new release branch
-console.log(`On current release branch: ${releaseBranch}`)
-
-git().add('./*')
+git().checkoutLocalBranch(releaseBranch, () => {
+        console.log(`On current release branch: ${releaseBranch}`)
+      })
+     .add('./*')
      .commit('changelog update and remove old changelog files')
      .push('origin', releaseBranch);
 
