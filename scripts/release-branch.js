@@ -119,7 +119,7 @@ const req = https.request(options, (res) => {
 })
 
 req.on('error', (err) => {
-  if (err) throw err;
+  console.log(err.message)
 })
 
 req.write(data)
