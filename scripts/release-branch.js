@@ -88,7 +88,7 @@ git().checkoutLocalBranch(releaseBranch);
 shell.echo('Display the current tag:', releaseBranch);
 
 // Git add to the checkout branch
-git().add('./*');
+git().add('..');
 
 // Commit message for the branch
 git().commit('changelog update and remove old changelog files');
