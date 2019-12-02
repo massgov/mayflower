@@ -86,20 +86,11 @@ const releaseBranch = 'release/' + minor;
 shell.exec(`git checkout -b ${releaseBranch}`);
 
 // Display the new release branch
-shell.echo('Display the current release branch:', releaseBranch);
+console.log(`On current release branch: ${releaseBranch}`)
 
-// Git add to the checkout branch
-// shell.exec('git add .')
-// shell.exec('git add changelogs/*')
 git().add('./*')
      .commit('changelog update and remove old changelog files')
      .push('origin', releaseBranch);
-//
-// // Commit message for the branch
-// git().commit('changelog update and remove old changelog files');
-// //
-// // // Push the release branch to GitHub
-// git().push('origin', releaseBranch);
 
 // Create the pull request in GitHub
 // const data = JSON.stringify({
