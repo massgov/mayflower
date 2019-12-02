@@ -83,49 +83,53 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 
 // Checkout the branch.
 const releaseBranch = 'release/' + minor;
-git().checkoutLocalBranch(releaseBranch);
+shell.exec(`git checkout -b ${releaseBranch}`);
 
 // Display the new release branch
 shell.echo('Display the current release branch:', releaseBranch);
 
 // Git add to the checkout branch
-git().add('..');
-
-// Commit message for the branch
-git().commit('changelog update and remove old changelog files');
-
-// Push the release branch to GitHub
-git().push('origin', releaseBranch);
+// shell.exec('git add .')
+// shell.exec('git add changelogs/*')
+git().add('./*')
+     .commit('changelog update and remove old changelog files')
+     .push('origin', releaseBranch);
+//
+// // Commit message for the branch
+// git().commit('changelog update and remove old changelog files');
+// //
+// // // Push the release branch to GitHub
+// git().push('origin', releaseBranch);
 
 // Create the pull request in GitHub
-const data = JSON.stringify({
-  title: `Release/${minor}`,
-  body: 'xxx',
-  head: releaseBranch,
-  base: 'master',
-})
-
-const options = {
-  username: `massgov-bot:${process.env.DANGER_GITHUB_API_TOKEN}`,
-  userAgent: 'https://api.github.com/repos/massgov/mayflower/',
-  path: 'https://api.github.com/repos/massgov/mayflower/pulls',
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  }
-}
-const req = https.request(options, (res) => {
-  console.log(`statusCode: ${res.statusCode}`)
-
-  res.on('data', (d) => {
-    process.stdout.write(d)
-  })
-})
-
-req.on('error', (err) => {
-  if (err) throw err;
-})
-
-req.write(data)
-req.end()
+// const data = JSON.stringify({
+//   title: `Release/${minor}`,
+//   body: 'xxx',
+//   head: releaseBranch,
+//   base: 'master',
+// })
+//
+// const options = {
+//   username: `massgov-bot:${process.env.DANGER_GITHUB_API_TOKEN}`,
+//   userAgent: 'https://api.github.com/repos/massgov/mayflower/',
+//   path: 'https://api.github.com/repos/massgov/mayflower/pulls',
+//   method: 'POST',
+//   headers: {
+//     'Accept': 'application/json',
+//     'Content-Type': 'application/json',
+//   }
+// }
+// const req = https.request(options, (res) => {
+//   console.log(`statusCode: ${res.statusCode}`)
+//
+//   res.on('data', (d) => {
+//     process.stdout.write(d)
+//   })
+// })
+//
+// req.on('error', (err) => {
+//   if (err) throw err;
+// })
+//
+// req.write(data)
+// req.end()

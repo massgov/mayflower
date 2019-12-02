@@ -1,5 +1,0 @@
-Added:
-  - project: Patternlab
-    component: KeyMessage
-    description: Add a logic to assign proper green with or without background image to key message in content area. (#811)
-    issue: DP-16287
