@@ -19,7 +19,8 @@ const https = require('https');
 const git = require('simple-git');
 
 // Find out the latest release tag and display it in the command line.
-const latest = shell.exec('git describe --abbrev=0 --tags');
+// const latest = shell.exec('git describe --abbrev=0 --tags');
+const latest = '9.33.0'
 
 // Display the latest tag.
 shell.echo('Display the current tag:', latest);
@@ -85,7 +86,7 @@ const releaseBranch = 'release/' + minor;
 git().checkoutLocalBranch(releaseBranch);
 
 // Display the new release branch
-shell.echo('Display the current tag:', releaseBranch);
+shell.echo('Display the current release branch:', releaseBranch);
 
 // Git add to the checkout branch
 git().add('..');
