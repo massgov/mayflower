@@ -100,7 +100,7 @@ git().push('origin', releaseBranch);
 const data = JSON.stringify({
   title: `Release/${minor}`,
   body: 'xxx',
-  head: minor,
+  head: releaseBranch,
   base: 'master',
 })
 
