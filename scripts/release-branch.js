@@ -100,8 +100,8 @@ const octokit = new Octokit({
 
 const owner = 'massgov';
 const repo = 'mayflower';
-const title = 'Release/test';
-const head = 'release/9.34.0';
+const title = `Release ${minor}`;
+const head = releaseBranch;
 const base = 'master';
 
 octokit.pulls
