@@ -2,6 +2,8 @@
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');
 
+const Octokit = require("@octokit/rest");
+
 // Added semver to use for increment the version "npm install semver"
 // https://github.com/npm/node-semver
 const semver = require('semver');
@@ -10,9 +12,6 @@ const semver = require('semver');
 const path = require('path');
 const fs = require('fs');
 const yaml = require('js-yaml');
-
-// GitHub API
-const https = require('https');
 
 // Added simple-git to use for git add "npm install simple-git"
 // Could not use the shell.exec to git add the remove changelogs.
@@ -91,34 +90,27 @@ git().checkoutLocalBranch(releaseBranch, () => {
      .push('origin', releaseBranch);
 
 // Create the pull request in GitHub
-const data = JSON.stringify({
-  title: `Release/${minor}`,
-  body: 'xxx',
-  head: releaseBranch,
-  base: 'master',
-})
+const { DANGER_GITHUB_API_TOKEN } = process.env
 
-const options = {
-  username: `massgov-bot:${process.env.DANGER_GITHUB_API_TOKEN}`,
-  userAgent: 'https://api.github.com/repos/massgov/mayflower/',
-  path: 'https://api.github.com/repos/massgov/mayflower/pulls',
-  method: 'POST',
-  headers: {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-  }
-}
-const req = https.request(options, (res) => {
-  console.log(`statusCode: ${res.statusCode}`)
+const octokit = new Octokit({
+  auth: DANGER_GITHUB_API_TOKEN
+});
 
-  res.on('data', (d) => {
-    process.stdout.write(d)
-  })
-})
+const owner = 'massgov';
+const repo = 'mayflower';
+const title = 'Release/test';
+const head = 'release/9.34.0';
+const base = 'master';
 
-req.on('error', (err) => {
-  console.log(err.message)
-})
-
-req.write(data)
-req.end()
+octokit.pulls
+    .create({
+      owner,
+      repo,
+      title,
+      head,
+      base
+    })
+    .catch(function() {
+      console.error(`There was an error creating the Github PR: ${e.toString()}`);
+      process.exit(1);
+    })
