@@ -306,11 +306,12 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "00 18 * * 2"
+          cron: "15 20 * * 2"
           filters:
             branches:
               only:
                 - develop
+                - DP-16378-release-automation-test
 
   build_github_tag:
     jobs:
