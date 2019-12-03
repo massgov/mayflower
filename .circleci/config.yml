@@ -309,7 +309,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "25 20 * * 2"
+          cron: "33 20 * * 2"
           filters:
             branches:
               only:
