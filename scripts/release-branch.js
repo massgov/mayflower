@@ -98,20 +98,16 @@ const octokit = new Octokit({
   auth: DANGER_GITHUB_API_TOKEN
 });
 
-const owner = 'massgov';
-const repo = 'mayflower';
-const title = `Release ${minor}`;
-const head = releaseBranch;
-const base = 'master';
+const pullRequest = {
+  owner: 'massgov',
+  repo: 'mayflower',
+  title: `Release ${minor}`,
+  head: releaseBranch,
+  base: 'master'
+}
 
 octokit.pulls
-  .create({
-    owner,
-    repo,
-    title,
-    head,
-    base
-  })
+  .create(pullRequest)
   .catch(function() {
     console.error(`There was an error creating the Github PR: ${e.toString()}`);
     process.exit(1);
