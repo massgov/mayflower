@@ -1,3 +1,8 @@
+## 9.34.0 (11/2/2019)
+
+### Added 
+- (Patternlab, React) [Release] DP-16378: Added the release automation for Mayflower repository (#817)
+
 ## 9.34.0 (11/1/2019)
 
 ### Added 

@@ -1,5 +1,0 @@
-Added:
-  - project: Patternlab, React
-    component: Release
-    description: Added the release automation for Mayflower repository (#817)
-    issue: DP-16378
