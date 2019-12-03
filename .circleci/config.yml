@@ -40,7 +40,7 @@ jobs:
       - save_cache:
           name: Save NPM cache
           key: npm-packages-{{ .Branch }}-{{ checksum "package-lock.json }}
-
+          paths: [ patternlab/styleguide/node_modules ]
       - persist_to_workspace:
           root: /var/www
           paths: [code]
@@ -306,7 +306,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "15 20 * * 2"
+          cron: "17 20 * * 2"
           filters:
             branches:
               only:
