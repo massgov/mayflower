@@ -1,0 +1,5 @@
+Fixed:
+  - project: Patternlab, React
+    component: releases
+    description: Fixed the release automation to see if works (#PR)
+    issue: DP-12345
