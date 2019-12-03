@@ -4,8 +4,8 @@ import './style.css';
 
 class FootNote extends React.Component {
   handleScroll() {
-    const element = document.getElementByClassName(`footnoteref${this.props.index}`)[0];
-    element.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    const element = document.getElementsByClassName(`footnoteref${this.props.index}`)[0];
+    element.scrollIntoView({ block: 'start', behavior: 'smooth' });
   }
   render() {
     const { children, index } = this.props;
