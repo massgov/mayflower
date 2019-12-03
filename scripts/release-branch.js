@@ -4,7 +4,6 @@ const shell = require('shelljs');
 
 
 const Octokit = require("@octokit/rest");
-const octokit = new Octokit();
 
 // Added semver to use for increment the version "npm install semver"
 // https://github.com/npm/node-semver
@@ -95,8 +94,12 @@ const git = require('simple-git');
 //      .push('origin', releaseBranch);
 
 
+const { DANGER_GITHUB_API_TOKEN } = process.env
+console.log(DANGER_GITHUB_API_TOKEN)
 
-console.log(process.env.DANGER_GITHUB_API_TOKEN)
+const octokit = new Octokit({
+  auth: DANGER_GITHUB_API_TOKEN
+});
 
 const owner = 'massgov';
 const repo = 'mayflower';
@@ -104,13 +107,18 @@ const title = 'Release/test';
 const head = 'release/9.34.0';
 const base = 'master';
 
-octokit.pulls.create({
-  owner,
-  repo,
-  title,
-  head,
-  base
-})
+octokit.pulls
+  .create({
+    owner,
+    repo,
+    title,
+    head,
+    base
+  })
+  .catch(function() {
+    console.error(`There was an error creating the Github PR: ${e.toString()}`);
+    process.exit(1);
+  })
 
 // Create the pull request in GitHub
 // const data = JSON.stringify({
