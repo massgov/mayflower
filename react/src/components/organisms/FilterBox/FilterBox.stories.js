@@ -63,6 +63,8 @@ storiesOf('organisms', module)
     const props = {
       active: boolean('Filterbox active', true),
       action: text('Filterbox action', '#'),
+      filterLabel: text('Filterbox label', 'Mass.gov search results filter'),
+      filterNote: text('Filterbox label', 'This is an additional note for the SR users'),
       pressType: {},
       submitButton: {
         text: text('Filterbox submitButton: text', 'Submit', 'Submit Button'),
