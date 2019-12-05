@@ -9,7 +9,7 @@ import './style.css';
 
 const FilterBox = (props) => {
   const {
-    action, submitButton, clearButton, active, fields
+    action, submitButton, clearButton, active, fields, filterLabel, filterNote
   } = props;
   const handleClear = () => {
     if (typeof props.clearButton.onClearCallback === 'function') {
@@ -30,12 +30,16 @@ const FilterBox = (props) => {
         <form
           className={filterBoxFormClasses}
           action={action}
-          aria-describedby="FILTER-NOTE"
-          aria-label="FILTER TITLE"
+          aria-describedby={`${props.id}-note`}
+          aria-label={filterLabel}
         >
-          <div id="FILTER-NOTE" aria-hidden="true" className="ma-visually-hidden">
-            As you select options, you&apos;ll be automatically redirected to the page you select.
-          </div>
+          {
+            filterNote && (
+              <div id={`${props.id}-note`} aria-hidden="true" className="ma-visually-hidden">
+                {filterNote}
+              </div>
+            )
+          }
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
               { fields.map((field, i) => (
@@ -77,6 +81,10 @@ FilterBox.propTypes = {
   active: PropTypes.bool,
   /** The form action  */
   action: PropTypes.string,
+  /** Apply active state  */
+  filterLabel: PropTypes.string,
+  /** Apply active state  */
+  filterNote: PropTypes.string,
   /** @atoms/forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes),
   /** Clear all button at the bottom of the filter */
