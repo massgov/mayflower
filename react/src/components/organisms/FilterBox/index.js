@@ -30,7 +30,7 @@ const FilterBox = (props) => {
         <form
           className={filterBoxFormClasses}
           action={action}
-          aria-describedby={`${props.id}-note`}
+          aria-describedby={props.id && `${props.id}-note`}
           aria-label={filterLabel}
         >
           {
