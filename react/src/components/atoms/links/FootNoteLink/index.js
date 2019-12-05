@@ -13,7 +13,7 @@ class FootNoteLink extends React.Component {
       <button
         className={`ma__footnote-link footnoteref${index}`}
         aria-describedby={`footnotemsg${index}`}
-        aria-label="see footnote"
+        aria-label={`see footnote ${index}`}
         onClick={() => this.handleScroll()}
         tabIndex="0"
         role="link"
