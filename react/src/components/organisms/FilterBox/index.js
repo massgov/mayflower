@@ -81,9 +81,9 @@ FilterBox.propTypes = {
   active: PropTypes.bool,
   /** The form action  */
   action: PropTypes.string,
-  /** Apply active state  */
+  /** The aria-label for the filter form element  */
   filterLabel: PropTypes.string,
-  /** Apply active state  */
+  /** An additional note for the SR users describing the functionality of the filter  */
   filterNote: PropTypes.string,
   /** @atoms/forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes),
