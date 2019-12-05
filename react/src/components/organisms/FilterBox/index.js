@@ -27,7 +27,15 @@ const FilterBox = (props) => {
   return(
     <section className={filterBoxClasses} id={props.id}>
       <div className="ma__filter-box__container">
-        <form className={filterBoxFormClasses} action={action}>
+        <form
+          className={filterBoxFormClasses}
+          action={action}
+          aria-describedby="FILTER-NOTE"
+          aria-label="FILTER TITLE"
+        >
+          <div id="FILTER-NOTE" aria-hidden="true" className="ma-visually-hidden">
+            As you select options, you&apos;ll be automatically redirected to the page you select.
+          </div>
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
               { fields.map((field, i) => (
