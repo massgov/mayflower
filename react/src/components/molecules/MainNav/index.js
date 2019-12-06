@@ -212,7 +212,9 @@ class MainNav extends Component {
 MainNav.propTypes = {
   /** navSelected state tracked in Header, passed from Header */
   navSelected: PropTypes.oneOfType([
+    // Id of the nav li selected
     PropTypes.string,
+    // none of nav li is selected
     PropTypes.oneOf([-1])
   ]),
   /** set navSelected state in Header, passed from Header */
