@@ -211,7 +211,10 @@ class MainNav extends Component {
 
 MainNav.propTypes = {
   /** navSelected state tracked in Header, passed from Header */
-  navSelected: PropTypes.func,
+  navSelected: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.oneOf([-1])
+  ]),
   /** set navSelected state in Header, passed from Header */
   updateHeaderState: PropTypes.func,
   /** closeMobileMenu passed from Header */
