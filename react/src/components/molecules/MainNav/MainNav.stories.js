@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, object } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 import MainNav from './index';
 import MainNavDocs from './MainNav.md';
@@ -11,6 +12,7 @@ storiesOf('molecules', module)
   .add(
     'MainNav', (() => {
       const newProps = {
+        onNavigateCallBack: action('onNavigateCallBack'),
         mainNav: []
       };
       newProps.mainNav = MainNavData.mainNav.map((nav, navIndex) => {

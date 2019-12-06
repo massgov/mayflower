@@ -13,6 +13,85 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.33.0 (11/26/2019)
+
+### Added
+- (React) [CompHeading] DP-16339: Add `gray` color option. #834
+
+### Fixed
+- (React) [TabContainer] DP-11777: Enable focus in tab container by removing arrowdown and arrowup mgmt at the tab level. #836
+- (Patternlab) [IconLink, IconLinks] DP-16574: Fix icon links display bug. #831
+  - Refactor scss to match IconLink and IconLinks levels
+  - Add wrapper span to fix IconLink molecule in Patternlab
+
+
+## 9.32.0 (11/19/2019)
+
+### Changed
+- (React) [Header] DP-14222: Enable Header to render with and without UtilityNav and MainNav content. #828
+- (Patternlab) [Video] DP-16313: Removes aria-label from div.ma__video ma__video--new, Remove title from decorative link which is a duplicate to link label context. Replaces aria-label with title in iframe. Replaces obsolete frameborder attribute with css. #821
+
+### Fixed
+- (React) [UtilityNav] DP-11663: set `ariaHidden` on decorative SVG icon. #827
+- (React) [AccordionItem] DP-12195: Adds `id` prop to accordion item component to address a11y issues. #829
+
+## 9.31.0 (11/12/2019)
+
+### Fixed
+- (Patternlab) [KeyMessage] DP-16457: Correct semantics of sub title and apply title heading level + 1 styles to it. #818
+- (Patternlab) [KeyMessage] DP-16457: Fix padding bug introduced if only title and button. #824
+- (React) [Collapse] DP-16483: Fixed collapse animation if max dimension passed on IE11. #823
+
+## 9.30.0 (11/05/2019)
+
+### Added
+- (Patternlab) [KeyMessage] DP-16287: Add a logic to assign proper green with or without background image to key message in content area. #811
+
+### Changed
+- (Patternlab) [KeyMessage] DP-16299: Change the width of the content area key message block from 840px to 1240px in desktop display. #810
+- (Patternlab) [KeyMessage] DP-16299: Adjust spacing button and message content container. #810
+- (Patternlab) [KeyMessage] DP-16299: Set a condition to print the keymesage heading only when its value is available. #810
+- (Patternlab) [KeyMessage] DP-16299: Change the opacity of the ovelay color in the content area to 0.8. #810
+- (Patternlab) [FeatureCard] DP-16299: Adjust the bottom spacing for feature card in desktop display with or without more link. #810
+- (Patternlab) [Feature] DP-16299: Adjust margin and padding for feature container. #810
+- (Patternlab) [Video] DP-16299: Adjust margin and padding for video #810
+- (Patternlab) [CampaignLanding] DP-16336: Adjust margin and padding for campaign page components. #810
+- (Patternlab) [Card] DP-16314: Correct closing heading level for feature card. Removed id from secondary cards. Correct the wrong class name for the card and the condition to add the class to the container. #816
+- (Patternlab) [Pages Marketing Campaign] DP-16314: Update landing page jsons to match the change for ID. #816
+Added
+- (Patternlab) [SVG Icons Arrow] DP-16314: Add `focusable='false'` to svg icons. #816
+Fixed
+- (Patternlab) [KeyMessage] DP-16312: Reposition style and script for the background image above the keymessage container. #813
+- (Patternlab) [KeyMessage] DP-16312: Add a condition to add ID only when its value is available to key message section. #813
+- (Patternlab) [KeyMessage] DP-16312: Remove the extra curly brace causing a parse error. #813
+- (Patternlab) [KeyMessage] DP-16312: Add a condition to button link to add title only when its value is available. #813
+- (Patternlab) [KeyMessage] DP-16312: Modify the condition to add the second set of style. #813
+
+### Fixed
+- (React) [Header, MainNav] DP-16413: Fixed MainNav bug on mobile #814
+  - Allow nav item navigation to close main nav on mobile in SPA
+  - Allow passing in custom navigation function into MainNav by adding `onNavigateCallBack` prop to `MainNav`
+  - Update nav item roles to match currently Mass.gov main nav
+  - Separate mouse events and click event on MainNav items for desktop and mobile modes.
+  - Added react class on MainNav back button to avoid display to be impacted by css.
+
+
+## 9.29.0 (10/29/2019)
+
+### Changed
+- (Patternlab) [KeyMessage] DP-16164: Set key message component height to be adjustable based on available content in the container maintaining even padding on top and bottom. #798
+- (React) [Collapse] DP-16257: Extend collapse animation to make a minimum dimension value prop passable - default is a full collapse of the content block to 0px. #805
+- (React, Patternlab) [Headings] DP-16271 Added breakpoints and Increased font size for H2. #799
+
+### Fixed
+- (React) [Icon] BugFix: Fix minor svg issues in icon library (data, linkedin, map, questionmark, refresh, twitter). #806
+
+## 9.28.2 (10/18/2019)
+
+### Fixed
+- (React) [GenTeaser] DP-16106: Fix import statement bug resulting in jest suite failure on consumer side of mayflower-react package. #797
+- (React) [Header] DP-16106: Fix bug in the search bar in header to enable redirect action to take place. #797
+
 ## 9.28.0 (10/15/2019)
 
 ### Added
@@ -118,7 +197,7 @@ Fixed
 - (React) [Button, ButtonWithIcon] DP-15689: Fixed color contrast a11y issue of c-highlight theme. #730
 
 ### Security
-- (Patternlab) [Dependency] DP-12883: Bumps browser-sync from 2.26.3 to 2.26.7 and handlebars from 4.05 to 4.1.2 to address security vulnerabilities #750 
+- (Patternlab) [Dependency] DP-12883: Bumps browser-sync from 2.26.3 to 2.26.7 and handlebars from 4.05 to 4.1.2 to address security vulnerabilities #750
 - (React) [Dependency] Bump lodash.template from 4.4.0 to 4.5.0 in /react #671
 - (React) [Dependency] Bump lodash from 4.17.10 to 4.17.15 in /react #681
 
