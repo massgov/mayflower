@@ -1,21 +1,3 @@
-## 9.34.0 (11/1/2019)
-
-### Added 
-- (Patternlab) [KeyMessage] DP-16287: Add a logic to assign proper green with or without background image to key message in content area. (#811)
-
-### Changed 
-- (Patternlab) [KeyMessage] DP-16299: Change the width of the content area key message block from 840px to 1240px in desktop display. (#810)
-- (Patternlab) [KeyMessage] DP-16299: Adjust spacing button and message content container. (#810)
-- (Patternlab) [KeyMessage] DP-16299: Set a condition to print the keymesage heading only when its value is available. (#810)
-- (Patternlab) [KeyMessage, New1, New2] DP-16299: Change the opacity of the ovelay color in the content area to 0.8. (#810)
-- (Patternlab, React) [FeatureCard] DP-16299: Adjust the bottom spacing for feature card in desktop display with or without more link. (#810)
-- (Patternlab) [Feature] DP-16299: Adjust margin and padding for feature container. (#810)
-- (Patternlab, React) [Video, Feature, KeyMessage] DP-16299: Adjust margin and padding for video. (#810)
-- (Patternlab) [CampaignLanding] DP-16336: Adjust margin and padding for campaign page components. (#810)
-
-### Fixed 
-- (Patternlab) [IconLink, IconLinks] DP-16574: Fix icon links display bug. (#831)
-
 # Mayflower Release Notes
 
 All notable changes to this project will be documented in this file.
