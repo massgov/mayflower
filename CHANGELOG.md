@@ -13,6 +13,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 **For example**
 - DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
 
+## 9.33.0 (11/26/2019)
+
+### Added
+- (React) [CompHeading] DP-16339: Add `gray` color option. #834
+
+### Fixed
+- (React) [TabContainer] DP-11777: Enable focus in tab container by removing arrowdown and arrowup mgmt at the tab level. #836
+- (Patternlab) [IconLink, IconLinks] DP-16574: Fix icon links display bug. #831
+  - Refactor scss to match IconLink and IconLinks levels
+  - Add wrapper span to fix IconLink molecule in Patternlab
+
+
 ## 9.32.0 (11/19/2019)
 
 ### Changed
