@@ -83,7 +83,7 @@ FilterBox.propTypes = {
   /** An array of filter fields */
   fields: PropTypes.arrayOf(PropTypes.shape({
     class: PropTypes.string,
-    component: PropTypes.oneOf([
+    component: PropTypes.oneOfType([
       componentWithName('SelectBox'),
       componentWithName('InputTextTypeAhead'),
       componentWithName('DateRange')
