@@ -3,6 +3,8 @@ lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 lastCommitClean=$lastCommit
 lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 commitType="Changed"
+project="Patternlab, React"
+component="Dependency"
 
 if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
   lastCommitClean="${BASH_REMATCH[1]}"
@@ -10,16 +12,19 @@ if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
 fi
 
 if [[ $lastCommitClean =~ "/react" ]]; then
-  lastCommitClean="(React) [Dependency] $lastCommitClean"
+  project="React"
 fi
 if [[ $lastCommitClean =~ "/patternlab" ]]; then
-  lastCommitClean="(Patternlab) [Dependency] $lastCommitClean"
+  project="Patternlab"
 fi
 
 if [ "$lastCommit" = "$lastDependabot" ]
 then
-  printf "\n$commitType\n- $lastCommitClean" > changelogs/dependabot-${branch##*/}.md
-  git add changelogs/dependabot-${branch##*/}.md
+  printf "\n$commitType:
+          \n- project: $lastCommitClean
+          \n\s\scomponent: $component
+          " > changelogs/dependabot-${branch##*/}.yml
+  git add changelogs/dependabot-${branch##*/}.yml
   git commit -m "Added a new changelog to the `changelogs/` folder"
   echo "Commit dependabot changelog";
   git push -u origin $branch
