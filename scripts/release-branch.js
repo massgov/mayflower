@@ -18,7 +18,7 @@ const yaml = require('js-yaml');
 const git = require('simple-git');
 
 // Find out the latest release tag and display it in the command line.
-const latest = shell.exec('git describe --abbrev=0 --tags');
+const latest = shell.exec('git tag  | grep -E "^[0-9]" | sort -V | tail -1');
 
 // Display the latest tag.
 console.log(`Display the latest tag: ${latest}`);
