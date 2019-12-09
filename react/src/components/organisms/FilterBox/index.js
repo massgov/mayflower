@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
-import { validateFilters } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const FilterBox = (props) => {
