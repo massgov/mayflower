@@ -2,7 +2,6 @@
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');
 
-
 const Octokit = require("@octokit/rest");
 
 // Added semver to use for increment the version "npm install semver"
