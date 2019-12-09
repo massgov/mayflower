@@ -85,6 +85,7 @@ FilterBox.propTypes = {
     component: PropTypes.oneOfType([
       componentWithName('SelectBox'),
       componentWithName('InputTextTypeAhead'),
+      componentWithName('InputTextFuzzy'),
       componentWithName('DateRange')
     ])
   }))
