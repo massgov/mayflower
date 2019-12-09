@@ -314,6 +314,7 @@ workflows:
             branches:
               only:
                 - develop
+                - DP-16378-release-automation-test
 
   build_github_tag:
     jobs:

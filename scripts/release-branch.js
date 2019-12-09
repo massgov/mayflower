@@ -89,6 +89,7 @@ git().checkoutLocalBranch(releaseBranch, () => {
      .commit('changelog update and remove old changelog files')
      .push('origin', releaseBranch);
 
+
 // Create the pull request in GitHub
 const { DANGER_GITHUB_API_TOKEN } = process.env
 
@@ -96,21 +97,17 @@ const octokit = new Octokit({
   auth: DANGER_GITHUB_API_TOKEN
 });
 
-const owner = 'massgov';
-const repo = 'mayflower';
-const title = 'Release/test';
-const head = 'release/9.34.0';
-const base = 'master';
+const pullRequest = {
+  owner: 'massgov',
+  repo: 'mayflower',
+  title: `Release ${minor}`,
+  head: releaseBranch,
+  base: 'master'
+}
 
 octokit.pulls
-    .create({
-      owner,
-      repo,
-      title,
-      head,
-      base
-    })
-    .catch(function() {
-      console.error(`There was an error creating the Github PR: ${e.toString()}`);
-      process.exit(1);
-    })
+  .create(pullRequest)
+  .catch(function() {
+    console.error(`There was an error creating the Github PR: ${e.toString()}`);
+    process.exit(1);
+  })
