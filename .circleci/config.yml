@@ -24,25 +24,20 @@ backstop_defaults: &backstop_defaults
   docker:
     - image: circleci/python:2.7.14
 
-container_config: &container_config
-  working_directory: /var/www/code
-  docker:
-    - image: circleci/node:10.15.1
-
 jobs:
   build:
     <<: *patternlab_defaults
     steps:
       - checkout
       - restore_cache:
-          name: Restore NPM Cache
+          name: Restore yarn.lock
           keys:
-            - pl-npm-v3-{{ checksum "package-lock.json" }}
-            - pl-npm-v3-
-      - run: { name: 'NPM Install', command: 'npm install' }
+            - root-npm-v3-{{ checksum "yarn.lock" }}
+            - root-npm-v3-
+      - run: {name: 'Install packages', command: 'npm i -g yarn && yarn'}
       - save_cache:
           name: Save NPM cache
-          key: pl-npm-v3-{{ checksum "package-lock.json" }}
+          key: root-npm-v3-{{ checksum "yarn.lock" }}
           paths: [ node_modules ]
       - persist_to_workspace:
           root: /var/www/code
