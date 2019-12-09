@@ -4,7 +4,7 @@
 set -e
 
 # Find the last tag in develop
-latest=$(git describe --abbrev=0 --tags)
+latest=$(git tag  | grep -E '^[0-9]' | sort -V | tail -1)
 
 # Display the latest tag
 echo $latest
