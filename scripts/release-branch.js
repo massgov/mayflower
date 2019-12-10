@@ -107,7 +107,7 @@ const pullRequest = {
 
 octokit.pulls
   .create(pullRequest)
-  .catch(function() {
-    console.error(`There was an error creating the Github PR: ${e.toString()}`);
+  .catch(function(err) {
+    console.error(`There was an error creating the Github PR: ${err.toString()}`);
     process.exit(1);
   })
