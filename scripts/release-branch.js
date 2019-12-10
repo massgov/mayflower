@@ -82,7 +82,10 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 // Checkout the branch.
 const releaseBranch = 'release/' + minor;
 
-git().checkoutBranch(releaseBranch, 'develop', () => {
+git().deleteLocalBranch(releaseBranch, () =>  {
+        console.log(`deleted ${releaseBranch}`)
+      })
+     .checkoutLocalBranch(releaseBranch, () => {
         console.log(`On current release branch: ${releaseBranch}`)
       })
      .add('./*')
@@ -107,7 +110,6 @@ const pullRequest = {
 
 octokit.pulls
   .create(pullRequest)
-  .catch(function() {
+  .catch(function(e) {
     console.error(`There was an error creating the Github PR: ${e.toString()}`);
-    process.exit(1);
   })
