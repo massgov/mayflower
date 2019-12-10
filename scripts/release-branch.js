@@ -60,7 +60,7 @@ changelogs.forEach((fileName) => {
 });
 
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
-fd.splice(2, 0, title, newLogs.join(''));
+fd.splice(3, 0, title, newLogs.join(''));
 var allLogs = fd.join('\n');
 
 // Remove the changelog files
