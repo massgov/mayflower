@@ -18,7 +18,7 @@ const yaml = require('js-yaml');
 
 // Added simple-git to use for git add "npm install simple-git"
 // Could not use the shell.exec to git add the remove changelogs.
-const git = require('simple-git/promise');
+const git = require('simple-git/promise')();
 
 // Find out the latest release tag and display it in the command line.
 const latest = shell.exec('git tag  | grep -E "^[0-9]" | sort -V | tail -1');
@@ -91,10 +91,10 @@ const releaseBranch = 'release/' + minor;
   // asynchronous function immediately and exit 1.
 
   // Create the release branch and push to Github.
-  await git().deleteLocalBranch(releaseBranch)
-  await git().checkoutLocalBranch(releaseBranch)
-  await git().add('./*');
-  await git().commit('Changelog update and remove old changelog files');
+  await git.deleteLocalBranch(releaseBranch)
+  await git.checkoutLocalBranch(releaseBranch)
+  await git.add('./*');
+  await git.commit('Changelog update and remove old changelog files');
   // Use a force-push so if we have an old version of the branch sitting around
   // (eg: an unreleased one from last week), it gets updated regardless.
   await git.push('origin', releaseBranch, {'--force': null});
