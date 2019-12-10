@@ -82,7 +82,7 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 // Checkout the branch.
 const releaseBranch = 'release/' + minor;
 
-git().checkoutLocalBranch(releaseBranch, () => {
+git().checkoutBranch(releaseBranch, 'develop', () => {
         console.log(`On current release branch: ${releaseBranch}`)
       })
      .add('./*')
