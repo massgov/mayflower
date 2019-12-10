@@ -55,7 +55,7 @@ storiesOf('organisms/Header', module)
       const headerSearchProps = {
         placeholder: text('Header headerSearch: placeholder', 'Search Mass.gov', 'Header Search'),
         buttonSearch: {
-          ariaLabel: 'Search',
+          'aria-label': 'Search',
           onClick: () => {
             action('Search button clicked');
           },
@@ -116,7 +116,7 @@ storiesOf('organisms/Header', module)
       const headerSearchProps = {
         placeholder: text('Header headerSearch: placeholder', 'Search Mass.gov', 'Header Search'),
         buttonSearch: {
-          ariaLabel: 'Search',
+          'aria-label': 'Search',
           onClick: () => {
             action('Search button clicked');
           },
@@ -180,7 +180,7 @@ storiesOf('organisms/Header', module)
       const headerSearchProps = {
         placeholder: text('Header headerSearch: placeholder', 'Search Mass.gov', 'Header Search'),
         buttonSearch: {
-          ariaLabel: 'Search',
+          'aria-label': 'Search',
           onClick: () => {
             action('Search button clicked');
           },
@@ -223,7 +223,7 @@ storiesOf('organisms/Header', module)
       const headerSearchProps = {
         placeholder: text('Header headerSearch: placeholder', 'Search Mass.gov', 'Header Search'),
         buttonSearch: {
-          ariaLabel: 'Search',
+          'aria-label': 'Search',
           onClick: () => {
             action('Search button clicked');
           },
@@ -260,4 +260,3 @@ storiesOf('organisms/Header', module)
     },
     { info: HeaderDocs }
   );
-
