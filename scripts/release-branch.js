@@ -3,6 +3,9 @@
 const shell = require('shelljs');
 
 const Octokit = require("@octokit/rest");
+const octokit = new Octokit({
+  auth: process.env.DANGER_GITHUB_API_TOKEN
+});
 
 // Added semver to use for increment the version "npm install semver"
 // https://github.com/npm/node-semver
@@ -15,7 +18,7 @@ const yaml = require('js-yaml');
 
 // Added simple-git to use for git add "npm install simple-git"
 // Could not use the shell.exec to git add the remove changelogs.
-const git = require('simple-git');
+const git = require('simple-git/promise');
 
 // Find out the latest release tag and display it in the command line.
 const latest = shell.exec('git tag  | grep -E "^[0-9]" | sort -V | tail -1');
@@ -82,32 +85,29 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
 // Checkout the branch.
 const releaseBranch = 'release/' + minor;
 
-git().checkoutLocalBranch(releaseBranch, () => {
-        console.log(`On current release branch: ${releaseBranch}`)
-      })
-     .add('./*')
-     .commit('changelog update and remove old changelog files')
-     .push('origin', releaseBranch);
+(async function() {
+  // This asynchronous logic will happen sequentially.
+  // If an error is thrown, it will break out of this
+  // asynchronous function immediately and exit 1.
 
+  // Create the release branch and push to Github.
+  await git().deleteLocalBranch(releaseBranch)
+  await git().checkoutLocalBranch(releaseBranch)
+  await git().add('./*');
+  await git().commit('Changelog update and remove old changelog files');
+  // Use a force-push so if we have an old version of the branch sitting around
+  // (eg: an unreleased one from last week), it gets updated regardless.
+  await git.push('origin', releaseBranch, {'--force': null});
 
-// Create the pull request in GitHub
-const { DANGER_GITHUB_API_TOKEN } = process.env
-
-const octokit = new Octokit({
-  auth: DANGER_GITHUB_API_TOKEN
-});
-
-const pullRequest = {
-  owner: 'massgov',
-  repo: 'mayflower',
-  title: `Release ${minor}`,
-  head: releaseBranch,
-  base: 'master'
-}
-
-octokit.pulls
-  .create(pullRequest)
-  .catch(function() {
-    console.error(`There was an error creating the Github PR: ${e.toString()}`);
-    process.exit(1);
-  })
+  // Create the pull request in GitHub
+  await octokit.pulls.create({
+    owner: 'massgov',
+    repo: 'mayflower',
+    title: `Release ${minor}`,
+    head: releaseBranch,
+    base: 'master'
+  });
+})().catch(function(err) {
+  console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
+  process.exit(1);
+})
