@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { componentWithName } from 'airbnb-prop-types';
 import classNames from 'classnames';
-import componentPropTypeCheck, { componentArrayPropTypeCheck } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 class Teaser extends React.Component {
@@ -95,32 +95,21 @@ Teaser.propTypes = {
   /** A function that runs when the mouse is hovering over the component. */
   setActiveHover: PropTypes.func,
   /** A DecorativeLink used to display the title. */
-  title: (props, propName, componentName) =>
-    componentPropTypeCheck(props, propName, componentName, 'DecorativeLink'),
+  title: componentWithName('DecorativeLink'),
   /** An array of components to be displayed under the title, on the left.
       Components that may be passed in the array: Link, ContactGroup. */
-  left: (props, propName, componentName) => {
-    if (props[propName]) {
-      return componentArrayPropTypeCheck(props, propName, componentName, [
-        'Link',
-        'ContactGroup'
-      ]);
-    }
-    return new Error('Invalid component.');
-  },
+  left: PropTypes.arrayOf(PropTypes.oneOfType([
+    componentWithName('Link'),
+    componentWithName('ContactGroup')
+  ])),
   /** An array of components to be displayed under the title, on the right.
       If left is not set, this will display on the left side under the title instead.
       Components that may be passed in the array: DecorativeLink, OperationalHours, IconLink. */
-  right: (props, propName, componentName) => {
-    if (props[propName]) {
-      return componentArrayPropTypeCheck(props, propName, componentName, [
-        'DecorativeLink',
-        'OperationalHours',
-        'IconLink'
-      ]);
-    }
-    return new Error('Invalid component.');
-  }
+  right: PropTypes.arrayOf(PropTypes.oneOfType([
+    componentWithName('DecorativeLink'),
+    componentWithName('OperationalHours'),
+    componentWithName('IconLink')
+  ]))
 };
 
 export default Teaser;
