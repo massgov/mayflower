@@ -5,7 +5,8 @@ import { action } from '@storybook/addon-actions';
 
 import ResultsHeading from './index';
 import ResultsHeadingDocs from './ResultsHeading.md';
-import { TagsData, SortData } from './ResultsHeading.knobs.options';
+import TagsData from '../../molecules/Tags/Tags.knobs.options';
+import { SortData } from './ResultsHeading.knobs.options';
 import buttonToggleOptions from '../../atoms/buttons/ButtonToggle/ButtonToggle.knobs.options';
 
 storiesOf('molecules/ResultsHeading', module)
