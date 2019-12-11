@@ -304,11 +304,12 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "00 18 * * 2"
+          cron: "45 15 * * 3"
           filters:
             branches:
               only:
                 - develop
+                - release_branch_cleanup
 
   build_github_tag:
     jobs:
