@@ -6,6 +6,7 @@
   "private": true,
   "devDependencies": {
     "@octokit/rest": "^16.35.0",
+    "ajv": "^6.10.2",
     "danger": "^9.2.9",
     "js-yaml": "^3.13.1",
     "semver": "^6.3.0",
