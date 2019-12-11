@@ -9,7 +9,7 @@ import './style.css';
 
 const FilterBox = (props) => {
   const {
-    action, submitButton, clearButton, active, fields
+    action, submitButton, clearButton, active, fields, filterLabel, filterNote
   } = props;
   const handleClear = () => {
     if (typeof props.clearButton.onClearCallback === 'function') {
@@ -27,7 +27,19 @@ const FilterBox = (props) => {
   return(
     <section className={filterBoxClasses} id={props.id}>
       <div className="ma__filter-box__container">
-        <form className={filterBoxFormClasses} action={action}>
+        <form
+          className={filterBoxFormClasses}
+          action={action}
+          aria-describedby={filterNote ? `${props.id}-note` : null}
+          aria-label={filterLabel || null}
+        >
+          {
+            filterNote && (
+              <div id={`${props.id}-note`} aria-hidden="true" className="ma-visually-hidden">
+                {filterNote}
+              </div>
+            )
+          }
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
               { fields.map((field, i) => (
@@ -69,6 +81,10 @@ FilterBox.propTypes = {
   active: PropTypes.bool,
   /** The form action  */
   action: PropTypes.string,
+  /** The aria-label for the filter form element  */
+  filterLabel: PropTypes.string,
+  /** An additional note for the SR users describing the functionality of the filter  */
+  filterNote: PropTypes.string,
   /** @atoms/forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes),
   /** Clear all button at the bottom of the filter */
