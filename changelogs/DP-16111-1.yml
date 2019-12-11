@@ -1,0 +1,11 @@
+Changed:
+  - project: React
+    component: InputCheckBox
+    description:  [InputCheckBox] Refactor InputCheckBox to be used for multiple selections. #787
+      - Allow defaultValue to update the component state
+      - Added required `value` prop to input checkbox element (Major)
+      - Added `onKeyDown` prop to allow passing arrow navigation between checkbox options
+      - Added `tabIndex` prop to permit change of tab-index
+      - Added `classes` prop to permit passing in classes to input wrapper div
+    issue: DP-16111
+    
