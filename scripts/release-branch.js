@@ -72,7 +72,11 @@ fs.readdirSync(directoryPath, function(err, items) {
     if (items[i] != "template.yml") {
       var changeLogFilePath = directoryPath + "/" + items[i];
       fs.unlink(changeLogFilePath, (err) => {
-        if (err) throw err;
+        if (err) {
+            console.log("failed to delete changelog:"+err);
+        } else {
+            console.log('successfully deleted changelog');                                
+        }
       });
     }
   }
