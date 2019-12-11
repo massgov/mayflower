@@ -91,7 +91,7 @@ const releaseBranch = 'release/' + minor;
   // asynchronous function immediately and exit 1.
 
   // Create the release branch and push to Github.
-  await git.deleteLocalBranch(releaseBranch)
+  shell.exec(`git branch -D ${releaseBranch}`)
   await git.checkoutLocalBranch(releaseBranch)
   await git.add('./*');
   await git.commit('Changelog update and remove old changelog files');
