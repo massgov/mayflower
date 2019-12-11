@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { componentWithName } from 'airbnb-prop-types';
 import classNames from 'classnames';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
-import { validateFilters } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const FilterBox = (props) => {
@@ -80,14 +80,17 @@ FilterBox.propTypes = {
   /** Controls if we allow filterbox to render only on mobile */
   filterDesktopHidden: PropTypes.bool,
   /** An array of filter fields */
-  fields: (props, propName, componentName) => (
-    validateFilters(props, propName, componentName, [
-      'SelectBox',
-      'InputTextTypeAhead',
-      'DateRange'
+  fields: PropTypes.arrayOf(PropTypes.shape({
+    class: PropTypes.string,
+    component: PropTypes.oneOfType([
+      componentWithName('SelectBox'),
+      componentWithName('InputTextTypeAhead'),
+      componentWithName('InputTextFuzzy'),
+      componentWithName('DateRange')
     ])
-  )
+  }))
 };
+
 
 FilterBox.defaultProps = {
   id: 'filter-box',
