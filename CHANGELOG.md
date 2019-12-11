@@ -12,18 +12,18 @@ All notable changes to this project will be documented in this file.
 	- Added `classes` prop to permit passing in classes to input wrapper div
 
 ### Added 
-- (React) [MultiSelectDropDown] DP-16111: Added `MultiSelectDropDown` molecule.
-- (React) [ButtonTag, Tags] DP-16111: Added `ButtonTag` atom under buttons and `Tags` molecule.
-- (React) [Input] DP-16111: Added classes props to Input to pass classNames into input wrapper div.
+- (React) [MultiSelectDropDown] DP-16111: Added `MultiSelectDropDown` molecule. #787
+- (React) [ButtonTag, Tags] DP-16111: Added `ButtonTag` atom under buttons and `Tags` molecule. #787
+- (React) [Input] DP-16111: Added classes props to Input to pass classNames into input wrapper div. #787
 
 ### Changed 
-- (React) [FootNote, FootNoteLink] DP-11765: Change FootNoteLink ID to classname to avoid duplicative IDs. Change scroll event on FootNote to go to the start of the FootNoteLink.
+- (React) [FootNote, FootNoteLink] DP-11765: Change FootNoteLink ID to classname to avoid duplicative IDs. Change scroll event on FootNote to go to the start of the FootNoteLink. #839
 
 ### Fixed 
-- (React) [Header, MainNav] DP-16673: Fixed PropTypes check console error for `navSelected` and `searchRedirect`, and fixed aria-label attribute in Header story.
+- (React) [Header, MainNav] DP-16673: Fixed PropTypes check console error for `navSelected` and `searchRedirect`, and fixed aria-label attribute in Header story. #843
 
 ### Fixed 
-- (React) [FilterBox, IconLink, PageFlipper, TableofContents] DP-16677: Fix component prop type checks by replacing custom util function `componentPropTypeCheck` with `componentWithName` from 'airbnb-prop-types'.
+- (React) [FilterBox, IconLink, PageFlipper, TableofContents] DP-16677: Fix component prop type checks by replacing custom util function `componentPropTypeCheck` with `componentWithName` from 'airbnb-prop-types'. #845
 
 ## 9.33.0 (11/26/2019)
 
