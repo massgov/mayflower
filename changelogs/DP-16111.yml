@@ -3,27 +3,14 @@ Added:
     component: MultiSelectDropDown
     description: Added `MultiSelectDropDown` molecule. #787
     issue: DP-16111
-    
-Added:
+
   - project: React
     component: ButtonTag, Tags
     description: Added `ButtonTag` atom under buttons and `Tags` molecule. #787
     issue: DP-16111
     
-Added:
   - project: React
     component: Input
     description:  Added classes props to Input to pass classNames into input wrapper div. #787
-    issue: DP-16111
-    
-Changed:
-  - project: React
-    component: InputCheckBox
-    description:  [InputCheckBox] Refactor InputCheckBox to be used for multiple selections. #787
-      - Allow defaultValue to update the component state
-      - Added required `value` prop to input checkbox element (Major)
-      - Added `onKeyDown` prop to allow passing arrow navigation between checkbox options
-      - Added `tabIndex` prop to permit change of tab-index
-      - Added `classes` prop to permit passing in classes to input wrapper div
     issue: DP-16111
     
