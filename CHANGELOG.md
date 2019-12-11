@@ -16,6 +16,9 @@ All notable changes to this project will be documented in this file.
 - (React) [ButtonTag, Tags] DP-16111: Added `ButtonTag` atom under buttons and `Tags` molecule. #787
 - (React) [Input] DP-16111: Added classes props to Input to pass classNames into input wrapper div. #787
 
+### Added
+- (React) [FilterBox] DP-12168: Added `filterLabel` and `filterNote` props to FilterBox organism. #842
+
 ### Changed 
 - (React) [FootNote, FootNoteLink] DP-11765: Change FootNoteLink ID to classname to avoid duplicative IDs. Change scroll event on FootNote to go to the start of the FootNoteLink. #839
 
