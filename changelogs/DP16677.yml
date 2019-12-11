@@ -1,0 +1,5 @@
+Fixed:
+  - project: React
+    component: FilterBox, IconLink, PageFlipper, TableofContents
+    description: Fix component prop type checks by replacing custom util function `componentPropTypeCheck` with `componentWithName` from 'airbnb-prop-types'. #845
+    issue: DP-16677

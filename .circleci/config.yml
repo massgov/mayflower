@@ -25,6 +25,24 @@ backstop_defaults: &backstop_defaults
     - image: circleci/python:2.7.14
 
 jobs:
+  build:
+    <<: *patternlab_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore yarn.lock
+          keys:
+            - root-npm-v3-{{ checksum "yarn.lock" }}
+            - root-npm-v3-
+      - run: {name: 'Install packages', command: 'npm i -g yarn && yarn'}
+      - save_cache:
+          name: Save NPM cache
+          key: root-npm-v3-{{ checksum "yarn.lock" }}
+          paths: [ node_modules ]
+      - persist_to_workspace:
+          root: /var/www/code
+          paths: ["*"]
+
   patternlab_build:
     <<: *patternlab_defaults
     steps:
@@ -232,6 +250,30 @@ jobs:
           name: 'Auto add changelog for dependabot'
           command: ./.circleci/dependabot.sh
 
+  release_branch:
+    <<: *patternlab_defaults
+    steps:
+      - checkout
+      - *no_host_check
+      - run: { name: 'NPM Install', command: 'npm install' }
+      # Identify the committer i.e. CircleCI deployment bot
+      - run: git config --global user.email "circleci@example.com"
+      - run: git config --global user.name "CircleCI Deployment Bot"
+      - run:
+          command: 'node scripts/release-branch.js'
+
+  github_tag:
+    <<: *patternlab_defaults
+    steps:
+      - checkout
+      - *no_host_check
+      # Identify the committer i.e. CircleCI deployment bot
+      - run: git config --global user.email "circleci@example.com"
+      - run: git config --global user.name "CircleCI Deployment Bot"
+      - run:
+          command: 'scripts/github-tag'
+
+
 workflows:
   version: 2
 
@@ -253,6 +295,40 @@ workflows:
           filters:
             branches: { ignore: /docs\-.*/ }
       - react_test: {requires: [react_build_storybook]}
+
+  # Release branch automation every Tuesday at 1 p.m. ET
+  release:
+    jobs:
+      - build
+      - release_branch:
+          requires: [build]
+    triggers:
+      - schedule:
+          cron: "00 20 * * 2"
+          filters:
+            branches:
+              only:
+                - develop
+
+  build_github_tag:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - hold:
+          type: approval
+          requires:
+            - build
+          filters:
+            branches:
+             only: master
+      - github_tag:
+          requires:
+            - hold
+          filters:
+            branches:
+              only: master
 
   # Executed on tag pushes.
   build_tag:
