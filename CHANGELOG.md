@@ -1,6 +1,33 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.34.0 (11/3/2019)
+
+### Changed 
+- (React) [InputCheckBox] DP-16111: Refactor InputCheckBox to be used for multiple selections. #787 
+	- Allow defaultValue to update the component state 
+	- Added required `value` prop to input checkbox element (Major) 
+	- Added `onKeyDown` prop to allow passing arrow navigation between checkbox options 
+	- Added `tabIndex` prop to permit change of tab-index 
+	- Added `classes` prop to permit passing in classes to input wrapper div
+
+### Added 
+- (React) [MultiSelectDropDown] DP-16111: Added `MultiSelectDropDown` molecule. #787
+- (React) [ButtonTag, Tags] DP-16111: Added `ButtonTag` atom under buttons and `Tags` molecule. #787
+- (React) [Input] DP-16111: Added classes props to Input to pass classNames into input wrapper div. #787
+
+### Added
+- (React) [FilterBox] DP-12168: Added `filterLabel` and `filterNote` props to FilterBox organism. #842
+
+### Changed 
+- (React) [FootNote, FootNoteLink] DP-11765: Change FootNoteLink ID to classname to avoid duplicative IDs. Change scroll event on FootNote to go to the start of the FootNoteLink. #839
+
+### Fixed 
+- (React) [Header, MainNav] DP-16673: Fixed PropTypes check console error for `navSelected` and `searchRedirect`, and fixed aria-label attribute in Header story. #843
+
+### Fixed 
+- (React) [FilterBox, IconLink, PageFlipper, TableofContents] DP-16677: Fix component prop type checks by replacing custom util function `componentPropTypeCheck` with `componentWithName` from 'airbnb-prop-types'. #845
+
 ## 9.33.0 (11/26/2019)
 
 ### Added
