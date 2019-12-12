@@ -59,7 +59,6 @@ class Tab extends React.Component {
   };
   render() {
     const { tabIdent, active, tabRef } = this.props;
-    console.log(tabRef)
     const { setActiveTab, activeTab } = this.context;
     const tabClasses = classNames({
       'ma__tab-title': true,
