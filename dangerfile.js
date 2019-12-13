@@ -28,12 +28,12 @@ const CHANGELOG_SCHEMA = {
         "$ref": "#/definitions/ChangelogLine"
       }
     },
-    "PrefixGroup": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/project"
-      }
-    }
+    // "PrefixGroup": {
+    //   "type": "array",
+    //   "items": {
+    //     "$ref": "#/definitions/project"
+    //   }
+    // }
   },
   "title": "ChangelogFile",
   "type": "object",
@@ -57,19 +57,19 @@ const CHANGELOG_SCHEMA = {
     {"required": ["React"]},
     {"required": ["Docs"]}
   ],
-  "title": "PrefixFile",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "Patternlab": {"$ref": "#/definitions/PrefixGroup" },
-    "React": {"$ref": "#/definitions/PrefixGroup" },
-    "Docs": {"$ref": "#/definitions/PrefixGroup" },
-  },
-  "anyOf": [
-    {"required": ["Patternlab"]},
-    {"required": ["React"]},
-    {"required": ["Docs"]}
-  ],
+  // "title": "PrefixFile",
+  // "type": "object",
+  // "additionalProperties": false,
+  // "properties": {
+  //   "Patternlab": {"$ref": "#/definitions/PrefixGroup" },
+  //   "React": {"$ref": "#/definitions/PrefixGroup" },
+  //   "Docs": {"$ref": "#/definitions/PrefixGroup" },
+  // },
+  // "anyOf": [
+  //   {"required": ["Patternlab"]},
+  //   {"required": ["React"]},
+  //   {"required": ["Docs"]}
+  // ],
 }
 
 // A list of all the changelog files that were touched during this change.
