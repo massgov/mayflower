@@ -25,7 +25,8 @@ const CHANGELOG_SCHEMA = {
     "ChangelogGroup": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ChangelogLine"
+        "$ref": "#/definitions/ChangelogLine",
+        "$ref": "#/definitions/project"
       }
     },
     // "PrefixGroup": {
@@ -60,16 +61,16 @@ const CHANGELOG_SCHEMA = {
   // "title": "PrefixFile",
   // "type": "object",
   // "additionalProperties": false,
-  // "properties": {
-  //   "Patternlab": {"$ref": "#/definitions/PrefixGroup" },
-  //   "React": {"$ref": "#/definitions/PrefixGroup" },
-  //   "Docs": {"$ref": "#/definitions/PrefixGroup" },
-  // },
-  // "anyOf": [
-  //   {"required": ["Patternlab"]},
-  //   {"required": ["React"]},
-  //   {"required": ["Docs"]}
-  // ],
+  "properties": {
+    "Patternlab": {"$ref": "#/definitions/PrefixGroup" },
+    "React": {"$ref": "#/definitions/PrefixGroup" },
+    "Docs": {"$ref": "#/definitions/PrefixGroup" },
+  },
+  "anyOf": [
+    {"required": ["Patternlab"]},
+    {"required": ["React"]},
+    {"required": ["Docs"]}
+  ],
 }
 
 // A list of all the changelog files that were touched during this change.
