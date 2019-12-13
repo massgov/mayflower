@@ -25,15 +25,16 @@ const CHANGELOG_SCHEMA = {
     "ChangelogGroup": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ChangelogLine"
-      }
-    },
-    "PrefixGroup": {
-      "type": "array",
-      "items": {
+        "$ref": "#/definitions/ChangelogLine",
         "$ref1": "#/definitions/project"
       }
-    }
+    },
+    // "PrefixGroup": {
+    //   "type": "array",
+    //   "items": {
+    //     "$ref1": "#/definitions/project"
+    //   }
+    // }
   },
   "title": "ChangelogFile",
   "type": "object",
@@ -61,9 +62,9 @@ const CHANGELOG_SCHEMA = {
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "Patternlab": {"$ref1": "#/definitions/PrefixGroup" },
-    "React": {"$ref1": "#/definitions/PrefixGroup" },
-    "Docs": {"$ref1": "#/definitions/PrefixGroup" },
+    "Patternlab": {"$ref1": "#/definitions/ChangelogGroup" },
+    "React": {"$ref1": "#/definitions/ChangelogGroup" },
+    "Docs": {"$ref1": "#/definitions/ChangelogGroup" },
   },
   "anyOf": [
     {"required": ["Patternlab"]},
