@@ -25,20 +25,19 @@ const CHANGELOG_SCHEMA = {
     "ChangelogGroup": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ChangelogLine",
-        "$ref1": "#/definitions/project"
+        "$ref": "#/definitions/ChangelogLine"
       }
     },
-    // "PrefixGroup": {
-    //   "type": "array",
-    //   "items": {
-    //     "$ref": "#/definitions/project"
-    //   }
-    // }
+    "PrefixGroup": {
+      "type": "array",
+      "items": {
+        "$ref1": "#/definitions/project"
+      }
+    }
   },
   "title": "ChangelogFile",
   "type": "object",
-  "additionalProperties": true,
+  "additionalProperties": false,
   "properties": {
     "Added":  {"$ref": "#/definitions/ChangelogGroup" },
     "Changed":  { "$ref": "#/definitions/ChangelogGroup" },
@@ -58,13 +57,13 @@ const CHANGELOG_SCHEMA = {
     {"required": ["React"]},
     {"required": ["Docs"]}
   ],
-  // "title": "PrefixFile",
-  // "type": "object",
-  // "additionalProperties": false,
+  "title": "PrefixFile",
+  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "Patternlab": {"$ref1": "#/definitions/project" },
-    "React": {"$ref1": "#/definitions/project" },
-    "Docs": {"$ref1": "#/definitions/project" },
+    "Patternlab": {"$ref1": "#/definitions/PrefixGroup" },
+    "React": {"$ref1": "#/definitions/PrefixGroup" },
+    "Docs": {"$ref1": "#/definitions/PrefixGroup" },
   },
   "anyOf": [
     {"required": ["Patternlab"]},
