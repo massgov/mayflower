@@ -26,7 +26,7 @@ const CHANGELOG_SCHEMA = {
       "type": "array",
       "items": {
         "$ref": "#/definitions/ChangelogLine",
-        "$ref": "#/definitions/project"
+        "$ref1": "#/definitions/project"
       }
     },
     // "PrefixGroup": {
@@ -62,9 +62,9 @@ const CHANGELOG_SCHEMA = {
   // "type": "object",
   // "additionalProperties": false,
   "properties": {
-    "Patternlab": {"$ref": "#/definitions/project" },
-    "React": {"$ref": "#/definitions/project" },
-    "Docs": {"$ref": "#/definitions/project" },
+    "Patternlab": {"$ref1": "#/definitions/project" },
+    "React": {"$ref1": "#/definitions/project" },
+    "Docs": {"$ref1": "#/definitions/project" },
   },
   "anyOf": [
     {"required": ["Patternlab"]},
