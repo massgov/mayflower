@@ -62,9 +62,9 @@ const CHANGELOG_SCHEMA = {
   // "type": "object",
   // "additionalProperties": false,
   "properties": {
-    "Patternlab": {"$ref": "#/definitions/PrefixGroup" },
-    "React": {"$ref": "#/definitions/PrefixGroup" },
-    "Docs": {"$ref": "#/definitions/PrefixGroup" },
+    "Patternlab": {"$ref": "#/definitions/project" },
+    "React": {"$ref": "#/definitions/project" },
+    "Docs": {"$ref": "#/definitions/project" },
   },
   "anyOf": [
     {"required": ["Patternlab"]},
