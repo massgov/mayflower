@@ -38,7 +38,7 @@ const CHANGELOG_SCHEMA = {
   },
   "title": "ChangelogFile",
   "type": "object",
-  "additionalProperties": false,
+  "additionalProperties": true,
   "properties": {
     "Added":  {"$ref": "#/definitions/ChangelogGroup" },
     "Changed":  { "$ref": "#/definitions/ChangelogGroup" },
