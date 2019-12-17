@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
+import { componentWithName } from 'airbnb-prop-types';
 
 const IconLink = (props) => (
   <span className={props.wrapperClasses.join(' ')}>
@@ -10,8 +10,8 @@ const IconLink = (props) => (
 );
 
 IconLink.propTypes = {
-  icon: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'Icon'),
-  link: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'Link'),
+  icon: componentWithName('Icon'),
+  link: componentWithName('Link'),
   wrapperClasses: PropTypes.arrayOf(PropTypes.string)
 };
 

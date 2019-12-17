@@ -1,5 +1,6 @@
 import React from 'react';
-import { componentArrayPropTypeCheck } from '../../utilities/componentPropTypeCheck';
+import PropTypes from 'prop-types';
+import { componentWithName } from 'airbnb-prop-types';
 import './style.css';
 
 const TableofContents = (props) => (
@@ -16,7 +17,10 @@ const TableofContents = (props) => (
 
 TableofContents.propTypes = {
   /** The heading text  */
-  heading: (props, propName, componentName) => componentArrayPropTypeCheck(props, propName, componentName, ['ColoredHeading', 'SidebarHeading'])
+  heading: PropTypes.oneOfType([
+    componentWithName('ColoredHeading'),
+    componentWithName('SidebarHeading')
+  ])
 };
 
 export default TableofContents;
