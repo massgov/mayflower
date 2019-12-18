@@ -58,7 +58,7 @@ class Tab extends React.Component {
     }
   };
   render() {
-    const { tabIdent, active } = this.props;
+    const { tabIdent, active, tabRef } = this.props;
     const { setActiveTab, activeTab } = this.context;
     const tabClasses = classNames({
       'ma__tab-title': true,
@@ -80,7 +80,7 @@ class Tab extends React.Component {
       'aria-selected': active,
       'aria-controls': this.context.tabContainerBodyId,
       role: 'tab',
-      ref: this.props.tabRef,
+      ref: tabRef,
       tabIndex: active ? 0 : -1
     };
     return(
@@ -115,7 +115,7 @@ Tab.propTypes = {
   /** Children passed to tab container (tab content) */
   children: PropTypes.node,
   /** The tabs ref */
-  tabRef: PropTypes.oneOfType([PropTypes.func, PropTypes.instanceOf(Element)])
+  tabRef: PropTypes.oneOfType([PropTypes.object, PropTypes.instanceOf(Element)])
 };
 
 export default Tab;
