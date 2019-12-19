@@ -32,12 +32,12 @@ const CHANGELOG_SCHEMA = {
     "type": "object",
     "additionalProperties": false,
     "properties": {
-      "Added":  {"$ref": "#/definitions/ChangelogGroup" },
-      "Changed":  { "$ref": "#/definitions/ChangelogGroup" },
-      "Deprecated":  { "$ref": "#/definitions/ChangelogGroup" },
-      "Removed": { "$ref": "#/definitions/ChangelogGroup" },
-      "Fixed": { "$ref": "#/definitions/ChangelogGroup" },
-      "Security": { "$ref": "#/definitions/ChangelogGroup" }
+      "Added": {"$ref": "#/definitions/ChangelogGroup"},
+      "Changed": {"$ref": "#/definitions/ChangelogGroup"},
+      "Deprecated": {"$ref": "#/definitions/ChangelogGroup"},
+      "Removed": {"$ref": "#/definitions/ChangelogGroup"},
+      "Fixed": {"$ref": "#/definitions/ChangelogGroup"},
+      "Security": {"$ref": "#/definitions/ChangelogGroup"}
     },
     "anyOf": [
       {"required": ["Added"]},
@@ -50,27 +50,8 @@ const CHANGELOG_SCHEMA = {
       {"required": ["React"]},
       {"required": ["Docs"]}
     ],
-    "PrefixGroup": {
-      "type": "array",
-      "items": {
-        "$ref1": "#/definitions/project"
-      }
-    }
-    },
-    "title": "PrefixFile",
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "Patternlab": {"$ref1": "#/definitions/PrefixGroup" },
-      "React": {"$ref1": "#/definitions/PrefixGroup" },
-      "Docs": {"$ref1": "#/definitions/PrefixGroup" },
-    },
-    "anyOf": [
-      {"required": ["Patternlab"]},
-      {"required": ["React"]},
-      {"required": ["Docs"]}
-    ],
-};
+  }
+}
 
 // A list of all the changelog files that were touched during this change.
 const changelogs = danger.git.fileMatch('changelogs/*.yml', '!**/template.yml');
