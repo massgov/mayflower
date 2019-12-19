@@ -45,10 +45,7 @@ const CHANGELOG_SCHEMA = {
       {"required": ["Deprecated"]},
       {"required": ["Removed"]},
       {"required": ["Fixed"]},
-      {"required": ["Security"]},
-      {"required": ["Patternlab"]},
-      {"required": ["React"]},
-      {"required": ["Docs"]}
+      {"required": ["Security"]}
     ],
   }
 }
