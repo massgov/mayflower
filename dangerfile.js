@@ -23,6 +23,7 @@ const CHANGELOG_SCHEMA = {
       }
     },
     "ChangelogGroup": {
+      "description": "A grouping of changelog items",
       "type": "array",
       "items": {
         "$ref": "#/definitions/ChangelogLine"
