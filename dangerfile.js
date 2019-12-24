@@ -26,7 +26,8 @@ const CHANGELOG_SCHEMA = {
       "description": "A grouping of changelog items",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ChangelogLine"
+        "$ref": "#/definitions/ChangelogLine",
+        "ref1": "#/definitions/project"
       }
     }
   },
@@ -39,7 +40,10 @@ const CHANGELOG_SCHEMA = {
     "Deprecated":  { "$ref": "#/definitions/ChangelogGroup" },
     "Removed": { "$ref": "#/definitions/ChangelogGroup" },
     "Fixed": { "$ref": "#/definitions/ChangelogGroup" },
-    "Security": { "$ref": "#/definitions/ChangelogGroup" }
+    "Security": { "$ref": "#/definitions/ChangelogGroup" },
+    "Patternlab": { "ref1": "#/definitions/ChangelogGroup" },
+    "React": { "ref1": "#/definitions/ChangelogGroup" },
+    "Docs": { "ref1": "#/definitions/ChangelogGroup" }
   },
   "anyOf": [
     {"required": ["Added"]},
@@ -47,7 +51,11 @@ const CHANGELOG_SCHEMA = {
     {"required": ["Deprecated"]},
     {"required": ["Removed"]},
     {"required": ["Fixed"]},
-    {"required": ["Security"]}
+    {"required": ["Security"]},
+    {"required": ["Patternlab"]},
+    {"required": ["React"]},
+    {"required": ["Docs"]}
+
   ]
 }
 
