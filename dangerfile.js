@@ -8,15 +8,10 @@ const {readFileSync} = require('fs');
 const CHANGELOG_SCHEMA = {
   "definitions": {
     "ChangelogLine": {
-      "project": "object",
-      "component": "string",
       "description": "A single line in a changelog",
       "type": "object",
-      "required": ["project", "component", "description", "issue"],
+      "required": ["description", "issue"],
       "properties": {
-        "component": {
-          "type": "string"
-        },
         "description": {
           "type": "string"
         }
@@ -28,27 +23,27 @@ const CHANGELOG_SCHEMA = {
       "items": {
         "$ref": "#/definitions/ChangelogLine"
       }
-    },
-    "title": "ChangelogFile",
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "Added": {"$ref": "#/definitions/ChangelogGroup"},
-      "Changed": {"$ref": "#/definitions/ChangelogGroup"},
-      "Deprecated": {"$ref": "#/definitions/ChangelogGroup"},
-      "Removed": {"$ref": "#/definitions/ChangelogGroup"},
-      "Fixed": {"$ref": "#/definitions/ChangelogGroup"},
-      "Security": {"$ref": "#/definitions/ChangelogGroup"}
-    },
-    "anyOf": [
-      {"required": ["Added"]},
-      {"required": ["Changed"]},
-      {"required": ["Deprecated"]},
-      {"required": ["Removed"]},
-      {"required": ["Fixed"]},
-      {"required": ["Security"]}
-    ],
-  }
+    }
+  },
+  "title": "ChangelogFile",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "Added":  {"$ref": "#/definitions/ChangelogGroup" },
+    "Changed":  { "$ref": "#/definitions/ChangelogGroup" },
+    "Deprecated":  { "$ref": "#/definitions/ChangelogGroup" },
+    "Removed": { "$ref": "#/definitions/ChangelogGroup" },
+    "Fixed": { "$ref": "#/definitions/ChangelogGroup" },
+    "Security": { "$ref": "#/definitions/ChangelogGroup" }
+  },
+  "anyOf": [
+    {"required": ["Added"]},
+    {"required": ["Changed"]},
+    {"required": ["Deprecated"]},
+    {"required": ["Removed"]},
+    {"required": ["Fixed"]},
+    {"required": ["Security"]}
+  ]
 }
 
 // A list of all the changelog files that were touched during this change.
