@@ -8,10 +8,15 @@ const {readFileSync} = require('fs');
 const CHANGELOG_SCHEMA = {
   "definitions": {
     "ChangelogLine": {
+      "project": "Name of the project being changed",
+      "component": "Which components are affected by code",
       "description": "A single line in a changelog",
       "type": "object",
-      "required": ["description", "issue"],
+      "required": ["project", "component", "description", "issue"],
       "properties": {
+        "component": {
+          "type": "string"
+        },
         "description": {
           "type": "string"
         }
