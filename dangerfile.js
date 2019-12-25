@@ -27,7 +27,7 @@ const CHANGELOG_SCHEMA = {
       "type": "array",
       "items": {
         "$ref": "#/definitions/ChangelogLine",
-        "$ref": "#/definitions/project"
+        "$ref1": "#/definitions/project"
       }
     }
   },
@@ -41,9 +41,9 @@ const CHANGELOG_SCHEMA = {
     "Removed": { "$ref": "#/definitions/ChangelogGroup" },
     "Fixed": { "$ref": "#/definitions/ChangelogGroup" },
     "Security": { "$ref": "#/definitions/ChangelogGroup" },
-    "Patternlab": { "$ref": "#/definitions/ChangelogGroup" },
-    "React": { "$ref": "#/definitions/ChangelogGroup" },
-    "Docs": { "$ref": "#/definitions/ChangelogGroup" }
+    "Patternlab": { "$ref1": "#/definitions/ChangelogGroup" },
+    "React": { "$ref1": "#/definitions/ChangelogGroup" },
+    "Docs": { "$ref1": "#/definitions/ChangelogGroup" }
   },
   "anyOf": [
     {"required": ["Added"]},
