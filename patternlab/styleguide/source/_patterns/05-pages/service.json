@@ -215,7 +215,8 @@
         "type": "internal",
         "href": "http://www.google.com",
         "text": "See all 15",
-        "info": "See all 15 How-To's",
+        "info": "",
+        "labelContext": " of What would you like to do?",
         "button": true
       },
       "featuredLinks": [
@@ -274,7 +275,8 @@
         "type": "internal",
         "href": "http://www.google.com",
         "text": "See all 10",
-        "info": "See all 10 pages",
+        "info": "",
+        "labelContext": " of What you need to know",
         "button": true
       },
       "featuredLinks": "",
@@ -469,9 +471,11 @@
             "path": "@organisms/by-author/link-list.twig",
             "data": {
               "linkList": {
-                "sidebarHeading": {
+                "compHeading": {
                   "title": "Related Services",
-                  "titleContext": "to Unemployment Benefits"
+                  "titleContext": "to Unemployment Benefits",
+                  "sub": true,
+                  "sidebar": true
                 },
                 "stacked": true,
                 "links": [
@@ -517,9 +521,11 @@
             "path": "@organisms/by-author/form-downloads.twig",
             "data": {
               "formDownloads": {
-                "sidebarHeading": {
+                "compHeading": {
                   "title": "Additional Resources",
-                  "titleContext": "for Unemployment Benefits"
+                  "titleContext": "for Unemployment Benefits",
+                  "sub": true,
+                  "sidebar": true
                 },
                 "downloadLinks": [
                   {

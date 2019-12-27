@@ -4,8 +4,8 @@ import './style.css';
 
 class FootNote extends React.Component {
   handleScroll() {
-    const element = document.getElementById(`footnoteref${this.props.index}`);
-    element.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    const element = document.getElementsByClassName(`footnoteref${this.props.index}`)[0];
+    element.scrollIntoView({ block: 'start', behavior: 'smooth' });
   }
   render() {
     const { children, index } = this.props;
@@ -15,7 +15,8 @@ class FootNote extends React.Component {
           id={`footnotemsg${index}`}
           onClick={() => this.handleScroll()}
         >
-          <span className="ma__footnote-item-content">{`${index}. ${children}`}</span>
+          {/* eslint-disable-next-line react/no-danger */}
+          <span className="ma__footnote-item-content" dangerouslySetInnerHTML={{ __html: `${index}. ${children}` }} />
         </button>
       </div>
     );
@@ -26,7 +27,8 @@ FootNote.propTypes = {
   /** Pair the FootNote molecule with the FootNoteLink. */
   /** The number/index of the footnote item. */
   /** If this is the second footnote on the page, `i` would be 2. */
-  index: PropTypes.string
+  index: PropTypes.string,
+  children: PropTypes.node
 };
 
 export default FootNote;

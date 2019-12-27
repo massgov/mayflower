@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, text } from '@storybook/addon-knobs/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 
 import Breadcrumb from './index';
 import BreadcrumbItem from './item';
@@ -9,15 +8,11 @@ import { Link } from '../../../index';
 
 const getLink = (sampleText = 'Sample Link', index) => {
   const linkProps = {
-    text: text(`Breadcrumb.${index}.text`, sampleText),
-    href: text(`Breadcrumb.${index}.href`, 'http://www.mass.gov/'),
+    text: text(`Breadcrumb ${index}: text`, sampleText, `Breadcrumb ${index}`),
+    href: text(`Breadcrumb ${index}: href`, 'http://www.mass.gov/', `Breadcrumb ${index}`),
     icon: null
   };
   return<Link {...linkProps} />;
-};
-
-const currentItemProp = {
-  currentPage: text('Breadcrumb.current.text', 'Suffolk DA - Historical Spending')
 };
 
 const getItem = (itemText, index, currentPage) => (
@@ -27,12 +22,17 @@ const getItem = (itemText, index, currentPage) => (
 );
 
 storiesOf('molecules', module)
-  .addDecorator(withKnobs)
-  .add('Breadcrumb', withInfo('<div></div>')(() => (
-    <Breadcrumb>
-      {getItem('Appropriation Recommendation', 0)}
-      {getItem('Independents', 1)}
-      {getItem('District Attorneys', 2)}
-      <BreadcrumbItem {...currentItemProp} />
-    </Breadcrumb>
-  )));
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('Breadcrumb', (() => {
+    const currentItemProp = {
+      currentPage: text('currentPage', 'Suffolk DA - Historical Spending')
+    };
+    return(
+      <Breadcrumb>
+        {getItem('Appropriation Recommendation', 0)}
+        {getItem('Independents', 1)}
+        {getItem('District Attorneys', 2)}
+        <BreadcrumbItem {...currentItemProp} />
+      </Breadcrumb>
+    );
+  }));

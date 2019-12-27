@@ -1,10 +1,9 @@
 import React from 'react';
 import { DecorativeLink, Link, ContactGroup, IconLink, Icon, OperationalHours } from '../../../index';
-import PropTypes from 'prop-types';
 
-const getLink = (sampleText = 'Sample Link') => {
+const getLink = (text = 'Sample Link') => {
   const linkProps = {
-    sampleText,
+    text,
     href: 'http://www.mass.gov/'
   };
   return<Link {...linkProps} />;

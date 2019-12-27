@@ -125,7 +125,7 @@ const OrgInfo = (props) => {
 };
 
 /** An object which has the image, name, title, description, and link to an org.  */
-OrgInfo.propTypes = PropTypes.shape(ImagePromo.propTypes);
+OrgInfo.propTypes = ImagePromo.propTypes;
 
 OrgSelector.propTypes = {
   /** @atoms/forms/SelectBox  */

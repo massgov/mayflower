@@ -2,6 +2,7 @@
   "stackedRows": [{
     "title": "Stacked Row",
     "id": "",
+    "borderless": true,
     "pageContent": [{
       "path": "@base/placeholder.twig",
       "data": {
@@ -13,6 +14,7 @@
   },{
     "title": "Stacked row",
     "id": "",
+    "borderless": true,
     "pageContent": [{
       "path": "@base/placeholder.twig",
       "data": {
@@ -21,8 +23,5 @@
         }
       }
     }]
-  }],
-  "sidebar": {
-    "coloredHeadings": false
-  }
+  }]
 }

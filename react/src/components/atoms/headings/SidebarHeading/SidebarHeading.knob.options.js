@@ -1,4 +1,4 @@
-import { text, select } from '@storybook/addon-knobs/react';
+import { text, select } from '@storybook/addon-knobs';
 
 const levelOptions = {
   1: 1,
@@ -10,6 +10,6 @@ const levelOptions = {
 };
 
 export default {
-  title: (value) => text('sidebarHeading.title', value),
-  level: (value) => select('sidebarHeading.level', levelOptions, value)
+  title: (value) => text('SidebarHeading: title', value, 'SidebarHeading'),
+  level: (value) => select('SidebarHeading: level', levelOptions, value, 'SidebarHeading')
 };

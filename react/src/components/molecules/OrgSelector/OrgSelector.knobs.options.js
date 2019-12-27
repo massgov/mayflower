@@ -9,8 +9,8 @@ export default {
         href: '#',
         alt: 'Maura Healey',
         src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
-        height: '100',
-        width: '100'
+        height: 100,
+        width: 100
       },
       name: {
         text: 'Maura Healey',
@@ -30,8 +30,8 @@ export default {
         href: '#',
         alt: 'Charles Baker',
         src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
-        height: '100',
-        width: '100'
+        height: 100,
+        width: 100
       },
       name: {
         text: 'Charles Baker',
@@ -51,8 +51,8 @@ export default {
         href: '#',
         alt: 'Department of Public Health',
         src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
-        height: '100',
-        width: '100'
+        height: 100,
+        width: 100
       },
       name: {
         text: 'Department of Public Health',
@@ -72,8 +72,8 @@ export default {
         href: '#',
         alt: 'Massachusetts Department of Mental Health',
         src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
-        height: '100',
-        width: '100'
+        height: 100,
+        width: 100
       },
       name: {
         text: 'Massachusetts Department of Mental Health',
@@ -93,8 +93,8 @@ export default {
         href: '#',
         alt: 'Department of Conservation & Recreation',
         src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
-        height: '100',
-        width: '100'
+        height: 100,
+        width: 100
       },
       name: {
         text: 'Department of Conservation & Recreation',
@@ -114,8 +114,8 @@ export default {
         href: '#',
         alt: 'Board of Registration in Medicine',
         src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
-        height: '100',
-        width: '100'
+        height: 100,
+        width: 100
       },
       name: {
         text: 'Board of Registration in Medicine',
@@ -135,8 +135,8 @@ export default {
         href: '#',
         alt: 'Division of Capital Asset Management and Maintenance',
         src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
-        height: '100',
-        width: '100'
+        height: 100,
+        width: 100
       },
       name: {
         text: 'Division of Capital Asset Management and Maintenance',

@@ -35,10 +35,18 @@
         {% include "@atoms/04-headings/comp-heading.twig" %}
       </div>
     {% endif %}
-
-    <h1 class="ma__page-header__title">{% if prefix %}<span class="visually-hidden">{{ prefix }}&nbsp;</span>{% endif %}{{pageHeader.title}}</h1>
-    {% if pageHeader.subTitle %}
-      <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
+    {% if pageHeader.nested %}
+        <h1 class="ma__page-header__title">{% if prefix %}<span class="visually-hidden">{{ prefix }}&nbsp;</span>{% endif %}{{pageHeader.title}}
+        {% if pageHeader.subTitle %}
+          <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
+        {% endif %}
+        </h1>
+    {% else %}
+      <h1 class="ma__page-header__title">{% if prefix %}<span class="visually-hidden">{{ prefix }}&nbsp;</span>{% endif %}{{pageHeader.title}}
+      </h1>
+      {% if pageHeader.subTitle %}
+        <div class="ma__page-header__sub-title">{{pageHeader.subTitle}}</div>
+      {% endif %}
     {% endif %}
     {% if pageHeader.optionalContents %}
       <div class="ma__page-header__optional-content">

@@ -1,13 +1,19 @@
 {% set posClass = video.position ? "ma__video--" ~ video.position : '' %}
   {# backward compatibile with v5.6 - toggle new styles with ma__video--new #}
 <div class="ma__video ma__video--new {{ posClass }}">
-  <div class="ma__video__container js-ma-responsive-video">
-    <iframe width="{{ video.width }}" height="{{ video.height }}" src="{{ video.src }}" frameborder="0" allowfullscreen aria-label="{{ video.label }}"></iframe>
+  <div class="ma__video__container js-ma-responsive-video"{% if not video.link %} style="padding-bottom: 13px;"{% endif %}>
     {% if video.link %}
       <div class="ma__video__link">
+      {% set video = video|merge({'link': {
+                                    'href': video.link.href,
+                                    'text': video.link.text,
+                                    'info': '',
+                                    'labelContext': video.link.labelContext,
+                                    'property': video.link.property }}) %}
         {% set decorativeLink = video.link %}
         {% include "@atoms/decorative-link.twig" %}
       </div>
     {% endif %}
+    <iframe width="{{ video.width }}" height="{{ video.height }}" src="{{ video.src }}" allowfullscreen allow="accelerometer; fullscreen; gyroscope; picture-in-picture" title="{{ video.label }}"></iframe>
   </div>
 </div>

@@ -54,6 +54,9 @@
       &.is-open:after {
         display: none;
       }
+      &.is-open-react:after {
+        display: none;
+      }
     }
   }
 
@@ -108,7 +111,7 @@
       }
     }
 
-    .is-open & {
+    .is-open, .is-open-react & {
 
       &:after {
         @media ($bp-header-toggle-min) {
@@ -180,8 +183,9 @@
         right: 0;
       }
 
-      &.is-closed {
+      &.is-closed, &.is-closed-react {
         right: -300px;
+        display: none !important;
       }
     }
 
@@ -194,6 +198,11 @@
 
       &.is-closed {
         @include ma-visually-hidden;
+        display: none !important;
+      }
+
+      &.is-closed-react {
+       display: none !important;
       }
 
       .ma__main-nav__item:last-child & {
@@ -233,6 +242,9 @@
   }
 
   &__link {
+    @include ma-button-reset;
+    width: 100%;
+    text-align: left;
     display: block;
     font-size: 1.25rem;
     line-height: 1.33;
@@ -258,7 +270,8 @@
   &__item {
 
     &:hover,
-    &.is-open {
+    &.is-open,
+    &.has-focus {
       background-color: $c-white;
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
     }
@@ -269,7 +282,7 @@
 
   &__top-link {
     font-weight: 700;
-    
+
     .has-subnav & {
   // chevron
       &:after {
@@ -316,7 +329,7 @@
     color: $c-font-base;
     font-weight: 500;
 
-    &:hover, 
+    &:hover,
     &:focus {
       background-color: $c-bg-subtle;
     }
@@ -331,7 +344,7 @@
     background-color: $c-bg-subtle;
     color: $c-font-link;
     font-weight: 700;
-  
+
     &:hover {
       background-color: $c-gray-light;
     }

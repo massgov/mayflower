@@ -25,6 +25,19 @@ body {
   padding-top: 43px; // height of the util nav
   position: relative;
 
+  &--slim {
+    @media ($bp-large-min) {
+      padding-top: 0px;
+    }
+  }
+
+  &--slim-mobile {
+    padding-top: 15px; // height of thin banner on mobile
+    @media ($bp-large-min) {
+      padding-top: 0px;
+    }
+  }
+
   &__skip-nav {
     display: block;
     margin: 0 auto;
@@ -44,6 +57,14 @@ body {
     height: 100px;
     padding-top: 8px;
     padding-bottom: 8px;
+
+    & .ma__header-search__wrapper {
+      float: right;
+      @media ($bp-small-min) {
+        justify-content: flex-end;
+        float: none;
+      }
+    }
 
     @media ($bp-header-toggle-min) {
       padding-top: 20px;
@@ -77,6 +98,27 @@ body {
     }
   }
 
+  &__banner {
+    @media ($bp-large-min) {
+      height: 15px;
+      background-color: $c-primary;
+      color: $c-white;
+    }
+    &--mobile {
+      height: 15px;
+      background-color: $c-primary;
+      color: $c-white;
+      position: fixed;
+        top: 0;
+        left: 0;
+      text-align: right;
+      width: 100%;
+      z-index: $z-dropdown;
+      @media ($bp-large-min) {
+        display: none;
+      }
+    }
+  }
 
   &__search {
     display: inline-block;
@@ -177,50 +219,63 @@ body {
   }
 
   &__back-button {
-    @include ma-button-reset;
-    font-size: 1.125rem;
-    height: 33px;
-    letter-spacing: $letter-spacing-large;
-    margin-left: 20px;
-    padding-left: 20px;
-    position: fixed;
-      top: 3px;
-      left: 100%; // hides the outline
-    text-transform: uppercase;
-    transition: left .5s, visibility .5s;
-    visibility: hidden;
-    z-index: $z-dropdown;
+    &, &--react {
+      @include ma-button-reset;
+      font-size: 1.125rem;
+      height: 33px;
+      letter-spacing: $letter-spacing-large;
+      margin-left: 20px;
+      padding-left: 20px;
+      position: fixed;
+        top: 3px;
+        left: 100%; // hides the outline
+      text-transform: uppercase;
+      transition: left .5s, visibility .5s;
+      z-index: $z-dropdown;
+      font-weight: 700;
+      color: $c-font-inverse;
 
-    .translated-rtl &,
-    .translated-ltr & {
-      top: 43px;
-    }
+      .translated-rtl &,
+      .translated-ltr & {
+        top: 43px;
+      }
 
-    &:before {
-      border-left: 3px solid;
-      border-top: 3px solid;
-      content: "";
-      display: inline-block;
-      height: .65em;
-      margin-top: 3px;
-      margin-left: 3px;
-      position: absolute;
-        left: 0;
-        top: 6px;
-      transform: rotate(-45deg);
-      transform-origin: 75% 75%;
-      vertical-align: middle;
-      width: .65em;
+      &:before {
+        border-left: 3px solid;
+        border-top: 3px solid;
+        content: "";
+        display: inline-block;
+        height: .65em;
+        margin-top: 3px;
+        margin-left: 3px;
+        position: absolute;
+          left: 0;
+          top: 6px;
+        transform: rotate(-45deg);
+        transform-origin: 75% 75%;
+        vertical-align: middle;
+        width: .65em;
+        border-left-color: $c-font-inverse;
+        border-top-color: $c-font-inverse;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        opacity: 0.7;
+      }
     }
-    span {
-      display: inline-block;
-      vertical-align: middle;
+    & {
+      visibility: hidden;
+      .show-menu.show-utilmenu &,
+      .show-menu.show-submenu & {
+        left: calc(100vw - 280px);
+        visibility: visible;
+      }
     }
-
-    .show-menu.show-utilmenu &,
-    .show-menu.show-submenu & {
+    &--react {
       left: calc(100vw - 280px);
       visibility: visible;
+      display: block;
     }
   }
 
@@ -386,20 +441,6 @@ body {
   &__button-container {
     @media ($bp-header-toggle-max) {
       background-color: $c-primary;
-    }
-  }
-
-  &__back-button {
-    font-weight: 700;
-    color: $c-font-inverse;
-
-    &:before {
-      border-left-color: $c-font-inverse;
-      border-top-color: $c-font-inverse;
-    }
-
-    span {
-      opacity: 0.7;
     }
   }
 

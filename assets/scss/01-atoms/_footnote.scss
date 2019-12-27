@@ -16,11 +16,15 @@
     font-size: 1.25rem;
     color: $c-font-link;
 
+    a {
+      font-weight: 500;
+      border-bottom: 1px solid;
+    }
+
     &:after {
-      content: "\0021A9";
+      content: "\2191";
       line-height: 1;
       color: $c-font-link;
-      padding-top: .25em;
       margin-left: .25em;
     }
 
@@ -29,7 +33,6 @@
 
       &::after {
         border: none;
-        margin-left: 0;
         opacity: .7;
       }
     }

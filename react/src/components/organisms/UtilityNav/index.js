@@ -31,7 +31,7 @@ class UtilityNav extends Component {
     const { navSelected } = this.state;
     const { googleLanguages, items } = this.props;
     return((
-      <section className="ma__utility-nav js-util-nav">
+      <div className="ma__utility-nav js-util-nav">
         <ul className="ma__utility-nav__items">
           {googleLanguages && <GoogleLanguages />}
           {items.map((item, itemIndex) => {
@@ -40,10 +40,15 @@ class UtilityNav extends Component {
             // Use utility nav ident to make unique item ids.
             newItem.navIdent = this.ident;
             const { isOpen } = this.state;
-            return(<NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />);
+            return(
+              (item.panel)
+                /* eslint-disable react/no-array-index-key */
+                ? <NavItem handleClick={this.onClick} data={newItem} key={`navItem.${itemIndex}`} index={itemIndex} isOpen={isOpen} />
+                : <NavItemLink key={`navItem.${itemIndex}`} data={item} />
+            );
           })}
         </ul>
-      </section>
+      </div>
     ));
   }
 }
@@ -70,21 +75,25 @@ const NavItem = (obj) => {
     'aria-hidden': isExpanded ? 'false' : 'true',
     id: divId
   };
-  return((
+  const iconProps = {
+    name: item.icon,
+    ariaHidden: true
+  };
+  return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
-      <a onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
-        <Icon name={item.icon} />
+      <button onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
+        <Icon {...iconProps} />
         <span>{item.text}</span>
-      </a>
+      </button>
       <div {...divProps}>
         <div className="ma__utility-nav__container">
           <div className="ma__utility-nav__content-title">
             <button onClick={(e) => obj.handleClick(divId, e)} className="ma__utility-nav__close js-close-util-nav">
-              <span>{ item.closeText }</span>
+              <span>{item.closeText}</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>
-            <Icon name={item.icon} />
-            <span>{ item.text }</span>
+            <Icon {...iconProps} />
+            <span>{item.text}</span>
           </div>
           <div className="ma__utility-nav__content-body">
             <UtilityPanel {...item.panel} />
@@ -92,9 +101,24 @@ const NavItem = (obj) => {
         </div>
       </div>
     </li>
-  ));
+  );
 };
 
+const NavItemLink = (obj) => {
+  const item = obj.data;
+  const iconProps = {
+    name: item.icon,
+    ariaHidden: true
+  };
+  return(
+    <li className="ma__utility-nav__item js-util-nav-toggle">
+      <a className="ma__utility-nav__link" href={item.href} aria-label={item.ariaLabelText || item.text}>
+        <Icon {...iconProps} />
+        <span>{item.text}</span>
+      </a>
+    </li>
+  );
+};
 
 UtilityNav.propTypes = {
   /** Boolean that controls when to show the google language dom. */
@@ -109,8 +133,10 @@ UtilityNav.propTypes = {
     icon: PropTypes.oneOf([
       'building', 'login'
     ]),
+    /** The href for the link if not a button. */
+    href: PropTypes.string,
     /** The text to use on the close link. */
-    closeText: PropTypes.string.isRequired,
+    closeText: PropTypes.string,
     /** Displays an utility panel when text is clicked. */
     panel: PropTypes.shape(UtilityPanel.propTypes)
   })),

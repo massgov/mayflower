@@ -1,15 +1,20 @@
 ### Description
-An account manager section wrapper for How To Pages
+A wrapper for sets of descriptive Links
 
 ### Status
 * Stable as of 5.0.0
 
 ### Pattern Contains
-account-manager-section
+descriptive-link
+comp heading
 
 ### Variables
 ~~~
-accountManagementSections: {
+heading: {
+  content:
+  type: string /required
+}
+links: {
   content:
     type: richtext /required
 

@@ -14,22 +14,24 @@ const Footer = ({
 }) => (
   <footer className="ma__footer js-footer" id="footer">
     <div className="ma__footer__container">
-      <div className="ma__footer__nav">
-        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
-      </div>
       <section className="ma__footer__info">
         <div className="ma__footer__logo">
-          <img src={footerLogo.src} alt={footerLogo.altText} width="120" height="120" />
+          <a href={footerLogo.domain} title={footerLogo.title}>
+            <img src={footerLogo.src} alt="" width="100" height="100" />
+          </a>
         </div>
         <div className="ma__footer__social">
           <SocialLinks {...socialLinks} />
         </div>
         <div className="ma__footer__copyright">
-          <p><b>&copy; {footerText.copyright}</b></p>
+          <p className="ma__footer__copyright--date">&copy; {footerText.copyright}</p>
           <p>{footerText.description}</p>
           <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
         </div>
       </section>
+      <div className="ma__footer__nav">
+        <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
+      </div>
     </div>
     { backToTopButton &&
     <button className="ma__footer__back2top js-back2top is-hidden">
@@ -53,8 +55,10 @@ Footer.propTypes = {
   footerLogo: PropTypes.shape({
     /** logo image source url */
     src: PropTypes.string,
-    /** logo image alt text */
-    altText: PropTypes.string
+    /** The URL for the site root */
+    domain: PropTypes.string,
+    /** The title of the logo link */
+    title: PropTypes.string
   }),
   /** Adds footer info section */
   footerText: PropTypes.shape({
@@ -74,8 +78,9 @@ Footer.defaultProps = {
   showNavHeading: false,
   backToTopButton: false,
   footerLogo: {
+    domain: '/',
     src: logo,
-    altText: 'Massachusetts State Seal'
+    title: 'Mass.gov homepage'
   },
   footerText: {
     copyright: `${moment().year()} Commonwealth of Massachusetts.`,

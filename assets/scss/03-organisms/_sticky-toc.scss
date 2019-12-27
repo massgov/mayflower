@@ -82,6 +82,10 @@
           bottom: -30px; // compensate for bottom margin
       }
     }
+
+    &.is-open span {// popup state + symbol
+      transform: rotate(135deg);
+    }
   }
 
   &__toggle-link {
@@ -90,15 +94,22 @@
     line-height: .65em;
     overflow: hidden;
     position: absolute;
-      right: 10px;
-      top: 9px;
-    transition: transform .2s ease;
-    transform-origin: center center;
+    right: 10px;
+    width: 100%;
+    height: 100%;
+    max-height: 45px;
+
     z-index: 1;
 
-    .is-open & {
-      transform: rotate(135deg);
+    span {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      transition: transform .2s ease;
+      transform-origin: center center;
     }
+
+
 
     @media ($bp-x-small-min) {
       display: none;
@@ -111,20 +122,20 @@
     padding-left: 35px;
     position: relative;
 
-    & > svg {
-      height: 22px;
-      position: absolute;
-      left: 0;
-      top: 4px;
-      transform: rotate(90deg);
-      width: 22px;
-    }
-
     a {
       @include ma-link-underline;
 
       @media ($bp-x-small-min) {
         line-height: 1.5;
+      }
+
+      svg {
+        height: 22px;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        transform: rotate(90deg);
+        width: 22px;
       }
     }
 
@@ -178,14 +189,18 @@
   }
 
   &__link {
-
+    a {
     & > svg {
       fill: $c-primary-alt;
 
       @media ($bp-x-small-max) {
         display: none;
       }
+      :hover {
+        border-bottom: none;
+      }
     }
+  }
 
     &:hover a {
       border-bottom-color: rgba($c-font-link,.5);
@@ -273,7 +288,7 @@
   }
 
   .ma__sticky-toc__stuck {
-    display: block;
+    display: none;
     height: 0;
     overflow: hidden;
     position: fixed;
@@ -293,6 +308,7 @@
 .ma__sticky-toc.stuck {
 
   .ma__sticky-toc__stuck {
+    display: block;
     padding-top: 15px;
     height: 75px;
     transition: height 0.2s ease-in;
@@ -389,14 +405,14 @@
       display: block;
     }
 
-    &::after {
-      content: '\00d7';
+    span {
+      display: block;
       font-size: 2.1rem;
       font-weight: 200;
+      left: 50%;
       line-height: 0;
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 45%;
       transform: translate(-50%, -50%);
     }
   }
@@ -428,8 +444,12 @@
   z-index: 99;
   background-color: $c-white;
   transition: right 0.3s ease-out;
-  padding-top: 35px;
+
   overflow: auto;
+
+  @media($bp-medium-min) {
+   padding-top: 35px;
+  }
 
   @media ($bp-header-toggle-min) {
     top: 0;
@@ -440,7 +460,7 @@
     display: flex;
     z-index: 99;
     position: fixed;
-    right: -600px;
+
     align-items: center;
     justify-content: space-between;
     border: 0;
@@ -454,6 +474,10 @@
     padding: 10px 20px;
     width: 100%;
     max-width: 550px;
+
+    @media($bp-medium-min) {
+      right: -600px;
+    }
 
     &::after {
       content: '';
@@ -473,14 +497,15 @@
     a {
       font-weight: 700;
       font-size: 1.375rem;
-    }
+      display: flex;
 
-    &> svg {
-      display: block;
-      margin-top: 7px;
+      svg {
+        display: block;
+        margin-top: 7px;
 
-      @media ($bp-x-small-min) {
-        margin: 0;
+        @media ($bp-x-small-min) {
+          margin: 0;
+        }
       }
     }
   }
@@ -490,9 +515,14 @@
     z-index: 10000;
 
     .ma__sticky-toc__secondary-label {
-      top:0;
-      right: 0;
-      transition: right 0.3s ease-out;
+
+      @media($bp-medium-min) {
+        top:0;
+        right: 0;
+        transition: right 0.3s ease-out;
+        position: fixed;
+        z-index: 9999;
+      }
     }
   }
 }

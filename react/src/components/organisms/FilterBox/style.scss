@@ -35,7 +35,7 @@ $assets-path: '../../../assets';
 			}
 			 flex-direction: column;
        align-items: baseline;
-			 justify-content: start;
+			 justify-content: flex-start;
 			 margin: 1rem 0;
 
 			 > div {
@@ -84,4 +84,8 @@ $assets-path: '../../../assets';
   .ma__select-box{
     display: block;
   }
+
+	.ma-visually-hidden {
+		@include ma-visually-hidden;
+	}
 }
