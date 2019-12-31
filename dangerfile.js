@@ -8,17 +8,23 @@ const {readFileSync} = require('fs');
 const CHANGELOG_SCHEMA = {
   "definitions": {
     "ChangelogLine": {
-      "project": "",
+      "project": "Which project is being changed",
       "component": "Which components are affected by code",
       "description": "A single line in a changelog",
       "type": "object",
-      "required": ["component", "description", "issue"],
+      "required": ["project","component", "description", "issue"],
       "properties": {
         "component": {
           "type": "string"
         },
         "description": {
           "type": "string"
+        },
+        "project": {
+          "type": "object",
+          "anyOf": [
+            {"required": ["Patternlab", "React", "Docs"]}
+          ]
         }
       }
     },
@@ -26,8 +32,7 @@ const CHANGELOG_SCHEMA = {
       "description": "A grouping of changelog items",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ChangelogLine",
-        "$ref1": "#/definitions/project"
+        "$ref": "#/definitions/ChangelogLine"
       }
     }
   },
@@ -40,10 +45,7 @@ const CHANGELOG_SCHEMA = {
     "Deprecated":  { "$ref": "#/definitions/ChangelogGroup" },
     "Removed": { "$ref": "#/definitions/ChangelogGroup" },
     "Fixed": { "$ref": "#/definitions/ChangelogGroup" },
-    "Security": { "$ref": "#/definitions/ChangelogGroup" },
-    "Patternlab": { "$ref1": "#/definitions/ChangelogGroup" },
-    "React": { "$ref1": "#/definitions/ChangelogGroup" },
-    "Docs": { "$ref1": "#/definitions/ChangelogGroup" }
+    "Security": { "$ref": "#/definitions/ChangelogGroup" }
   },
   "anyOf": [
     {"required": ["Added"]},
@@ -51,11 +53,7 @@ const CHANGELOG_SCHEMA = {
     {"required": ["Deprecated"]},
     {"required": ["Removed"]},
     {"required": ["Fixed"]},
-    {"required": ["Security"]},
-    {"required": ["Patternlab"]},
-    {"required": ["React"]},
-    {"required": ["Docs"]}
-
+    {"required": ["Security"]}
   ]
 }
 
