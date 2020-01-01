@@ -1,6 +1,11 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.36.0 (0/3/2020)
+
+### Fixed 
+- (React) [Tab] DP-16678: Fixed PropTypes check console error for `tabRef`.
+
 ## 9.35.0 (12/18/2019)
 
 ### Fixed 
