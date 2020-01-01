@@ -21,7 +21,7 @@ const CHANGELOG_SCHEMA = {
           "type": "string"
         },
         "project": {
-          "type": "object",
+          "type": "string",
           "anyOf": [
             {"required": ["Patternlab", "React", "Docs"]}
           ]
