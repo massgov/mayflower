@@ -7,7 +7,7 @@ import './style.css';
 
 const DecorativeLink = (props) => {
   const {
-    showFileIcon, className, href, info, text, ...rest
+    showFileIcon, className, href, info, text, details, icon, ...rest
   } = props;
   const classes = classNames({
     'ma__decorative-link': true,
@@ -47,7 +47,11 @@ const DecorativeLink = (props) => {
         href={href}
         title={info || null}
       >
-        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}{text}&nbsp;<Icon name="arrow" aria-hidden="true" />
+        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}
+        {text}
+        {details && <span className="ma__decorative-link__details">&nbsp;{details}</span>}
+        &nbsp;
+        {icon || <Icon name="arrow" aria-hidden="true" />}
       </a>
     </span>
   );
@@ -58,7 +62,9 @@ DecorativeLink.propTypes = {
   info: PropTypes.string,
   text: PropTypes.string,
   showFileIcon: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  details: PropTypes.string,
+  icon: PropTypes.elementType
 };
 
 DecorativeLink.defaultProps = {

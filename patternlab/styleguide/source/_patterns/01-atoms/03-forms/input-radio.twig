@@ -4,6 +4,6 @@
 {% endif %}
 
 <span class="ma__input-radio">
-  <input name="{{ inputRadio.name }}" type="radio" value="{{ inputRadio.value }}" id="{{ inputRadio.id }}" {{ inputRadio.checked ? 'checked' : '' }}>
+  <input name="{{ inputRadio.name }}" type="radio" value="{{ inputRadio.value }}" id="{{ inputRadio.id }}" {{ inputRadio.checked ? 'checked' : '' }}{{ inputRadio.required ? ' required="required"' : '' }}>
   <label class="ma__input-radio__label" for="{{ inputRadio.id }}"><span>{{ inputRadio.label }}</span></label>
 </span>

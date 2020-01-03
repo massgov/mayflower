@@ -7,10 +7,11 @@ import './style.css';
 
 const ButtonWithIcon = (props) => {
   const {
-    classes, iconSize, icon, expanded, capitalized, usage, theme, setButtonRef, text, ...rest
+    classes, iconSize, icon, expanded, capitalized, usage, theme, setButtonRef, text, size, ...rest
   } = props;
   const buttonClasses = classNames({
     'ma__button-icon': true,
+    [`ma__button-icon--${size}`]: size,
     'ma__button-icon--expanded': expanded,
     'ma__button-icon--capitalized': capitalized,
     'ma__icon-small': iconSize === 'small' || icon.props.name === 'chevron',
@@ -44,6 +45,8 @@ ButtonWithIcon.propTypes = {
   text: PropTypes.string,
   /** HTML <button> 'type' attribute  */
   type: PropTypes.oneOf(['submit', 'reset', 'button', '']),
+  /** Create a smaller button */
+  size: PropTypes.oneOf(['', 'small', 'large']),
   // Button classes.
   classes: PropTypes.arrayOf(PropTypes.string),
   // Icon to display within the button.
@@ -69,6 +72,7 @@ ButtonWithIcon.propTypes = {
 ButtonWithIcon.defaultProps = {
   text: 'Search',
   type: 'submit',
+  size: '',
   classes: [],
   icon: <Icon name="search" svgHeight={20} svgWidth={20} />,
   capitalized: false,

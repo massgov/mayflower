@@ -57,71 +57,6 @@ class TabContainer extends React.Component {
       this.state.tabRefs[tabId].current.focus();
     }
   };
-  handleKeyDown = (e) => {
-    if (e.key === 'ArrowUp') {
-      // If the active focus is on the body, move focus to the current tab.
-      if (document.activeElement === this.tabBodyRef.current) {
-        const currentTab = this.state.activeTab;
-        this.preventBodyKeyDown = false;
-        this.state.tabRefs[currentTab].current.removeAttribute('tabindex');
-        this.state.tabRefs[currentTab].current.focus();
-      } else if (this.props.nested) {
-        // If the tab container is nested and active focus is not on the body,
-        // set focus to the parent tab container.
-        const tab = e.currentTarget
-          .parentElement
-          .parentElement
-          .closest('div.ma__tab-container')
-          .getElementsByClassName('ma__tab-title--active')[0]
-          .getElementsByTagName('button')[0];
-        tab.removeAttribute('tabindex');
-        tab.focus();
-        this.preventBodyKeyDown = true;
-      } else {
-        this.preventBodyKeyDown = false;
-      }
-    }
-    if (e.key === 'ArrowDown') {
-      // If the tab container is not nested and has no nested tab container children...
-      if (!this.props.nested && this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length === 0) {
-        // Set focus on the tab container's body.
-        this.focusOnTabBody();
-      }
-      // If the tab container is not nested and has nested tab container children...
-      if (!this.preventBodyKeyDown && !this.props.nested && this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length > 0) {
-        // Set focus on the first tab of the nested tab container child.
-        const nested = this.tabBodyRef.current
-          .getElementsByClassName('ma__tab-container--nested')[0]
-          .getElementsByTagName('ul')[0]
-          .getElementsByClassName('ma__tab-title--active')[0]
-          .getElementsByTagName('button')[0];
-        nested.removeAttribute('tabindex');
-        this.tabBodyRef.current.removeAttribute('tabindex');
-        nested.focus();
-        // The next key down arrow should not run on the parent tab container, but on the child it will.
-        this.preventBodyKeyDown = true;
-      }
-      // If the tab container is nested...
-      if (this.props.nested) {
-        // And has nested tab containers...
-        if (this.tabBodyRef.current.getElementsByClassName('ma__tab-container--nested').length > 0) {
-          // Set focus on the first tab of the nested tab container child.
-          const nested = this.tabBodyRef.current
-            .getElementsByClassName('ma__tab-container--nested')[0]
-            .getElementsByTagName('ul')[0]
-            .getElementsByClassName('ma__tab-title--active')[0]
-            .getElementsByTagName('button')[0];
-          nested.removeAttribute('tabindex');
-          this.tabBodyRef.current.removeAttribute('tabindex');
-          nested.focus();
-          // The next key down arrow should not run on the parent tab container, but on the child it will.
-          this.preventBodyKeyDown = true;
-        } else {
-          this.focusOnTabBody();
-        }
-      }
-    }
-  };
   render() {
     const classes = classNames({
       'ma__tab-container': true,
@@ -145,7 +80,7 @@ class TabContainer extends React.Component {
     return(
       <TabContext.Provider value={this.state}>
         <div className={classes}>
-          <ul className={ulClasses} id={this.state.tabContainerId} onKeyDown={this.handleKeyDown} role="tablist">
+          <ul className={ulClasses} id={this.state.tabContainerId} role="tablist">
             <span id={this.spanId} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
             {childrenWithProps}
           </ul>

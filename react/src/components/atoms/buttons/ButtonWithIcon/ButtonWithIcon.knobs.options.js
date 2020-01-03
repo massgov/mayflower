@@ -1,7 +1,12 @@
 export default {
-  size: {
+  iconSize: {
     default: '',
     small: 'small'
+  },
+  size: {
+    default: '',
+    small: 'small',
+    large: 'large'
   },
   type: {
     button: 'button',

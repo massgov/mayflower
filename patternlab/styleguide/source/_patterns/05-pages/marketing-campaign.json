@@ -9,13 +9,14 @@
       },
       "textOverlay": "c-gray-lightest",
       "bgImage": "../../assets/images/placeholder/1920x1080-sign.jpg",
+      "mobileBgImage": "../../assets/images/placeholder/1600x600-lighthouse.jpg",
       "subtitle": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work.",
       "description": {
         "rteElements": [{
           "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph" : {
-              "text": "This is an optional text area."
+              "text": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work."
             }
           }
         }]
@@ -30,7 +31,7 @@
     "campaignVideo": {
       "id": "qwe1",
       "positionTop": true,
-      "backgroundColor": "",
+      "backgroundColor": "c-primary-lightest",
       "textColor": "",
       "title": "Why work for the commonwealth",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -38,7 +39,10 @@
         "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
         "link": {
           "href": "#",
-          "text": "View transcript"
+          "text": "View transcript",
+          "info": "",
+          "labelContext": " of Why work for the commonwealth",
+          "property": ""
         }
       }
     },
@@ -56,14 +60,14 @@
         "text": "<p>“The work we do at MassGIS supports dispatch, police, fire, and medical professionals who respond to emergency situations. It could benefit all of those who live, visit, and work in the Commonwealth.”</p><p><b>John Smith Doe</b>, GIS Analyst</p>"
       },
       "campaignFeature2up": [{
-        "id": "1234",
+        "id": "",
         "link": "#",
         "thumbnail": "../../assets/images/placeholder/400x300.png",
         "title": "From an IT training program to EOTSS Team Lead",
         "text": "<p>“I’m really impressed with the people who work here. I’ve met individuals who have mentored me and helped me build the skills needed to be successful.”</p><p><b>John Smith</b>, Identity & Access Management Specialist</p>"
       },
       {
-        "id": "1234",
+        "id": "",
         "link": "#",
         "thumbnail": "../../assets/images/placeholder/400x300.png",
         "title": "How a Texas transplant makes Mass.gov work for content authors",
@@ -78,8 +82,43 @@
       "id": "abc2",
       "positionTop": false,
       "backgroundColor": "c-primary",
-      "title": "Work for Mass.gov!",
+      "compHeading": {
+        "title": "Benefits of working for the Commonwealth",
+        "level": "2"
+      },
+      "bgImage": "",
+      "mobileBgImage": "",
       "subtitle": "",
+      "description": {
+        "rteElements": [
+          {
+            "path": "@atoms/08-lists/unordered-list.twig",
+            "data": {
+              "class": "ma__horizontal-list",
+              "unorderedList" : [
+                {
+                  "text": "Comprehensize health plans"
+                },
+                {
+                  "text": "Retirement plans"
+                },
+                {
+                  "text": "Culture of learning"
+                },
+                {
+                  "text": "Pre-tax benefits"
+                },
+                {
+                  "text": "Flexible work arrangements"
+                },
+                {
+                  "text": "Tuition remission"
+                }
+              ]
+            }
+          }
+        ]
+      },
       "button":{
         "text":"Find your job",
         "href":"#"

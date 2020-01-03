@@ -10,17 +10,17 @@ if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
 fi
 
 if [[ $lastCommitClean =~ "/react" ]]; then
-  lastCommitClean="(React) $lastCommit"
+  lastCommitClean="(React) [Dependency] $lastCommitClean"
 fi
 if [[ $lastCommitClean =~ "/patternlab" ]]; then
-  lastCommitClean="(Patternlab) $lastCommit"
+  lastCommitClean="(Patternlab) [Dependency] $lastCommitClean"
 fi
 
 if [ "$lastCommit" = "$lastDependabot" ]
 then
-  printf "$commitType\n- [Dependency] $lastCommitClean" >> changelogs/dependabot.md
-  git add changelogs/dependabot.md
-  git commit -m "Add changelog to changelogs/dependabot.md"
+  printf "\n$commitType\n- $lastCommitClean" > changelogs/dependabot-${branch##*/}.md
+  git add changelogs/dependabot-${branch##*/}.md
+  git commit -m "Added a new changelog to the `changelogs/` folder"
   echo "Commit dependabot changelog";
   git push -u origin $branch
 else
