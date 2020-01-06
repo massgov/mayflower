@@ -1,0 +1,5 @@
+Security:
+  - project: Patternlab
+    component: Dependency
+    description: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782 
+    issue: DP-16925
