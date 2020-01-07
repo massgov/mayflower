@@ -1,5 +1,0 @@
-Fixed:
-  - project: React
-    component: Tab
-    description: Fixed PropTypes check console error for `tabRef`. #860
-    issue: DP-16678
