@@ -1,17 +1,43 @@
 # Mayflower Release Notes
-
 All notable changes to this project will be documented in this file.
 
-See [Change Log Instructions](docs/for-developers/changelog-instructions.md) for directions on updating this file.
+## 9.36.0 (1/7/2020)
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+### Security 
+- (Patternlab) [Dependency] DP-16925: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782 
 
-```
-<ticket/issue #>: Human-friendly description, with hyperlinked patterns (<Link to #PR>)
-```
+## 9.35.0 (12/18/2019)
 
-**For example**
-- DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
+### Fixed 
+- (React) [Tab] DP-16678: Fixed PropTypes check console error for `tabRef`.
+
+
+## 9.34.0 (12/11/2019)
+
+### Changed 
+- (React) [InputCheckBox] DP-16111: Refactor InputCheckBox to be used for multiple selections. #787 
+	- Allow defaultValue to update the component state 
+	- Added required `value` prop to input checkbox element (Major) 
+	- Added `onKeyDown` prop to allow passing arrow navigation between checkbox options 
+	- Added `tabIndex` prop to permit change of tab-index 
+	- Added `classes` prop to permit passing in classes to input wrapper div
+
+### Added 
+- (React) [MultiSelectDropDown] DP-16111: Added `MultiSelectDropDown` molecule. #787
+- (React) [ButtonTag, Tags] DP-16111: Added `ButtonTag` atom under buttons and `Tags` molecule. #787
+- (React) [Input] DP-16111: Added classes props to Input to pass classNames into input wrapper div. #787
+
+### Added
+- (React) [FilterBox] DP-12168: Added `filterLabel` and `filterNote` props to FilterBox organism. #842
+
+### Changed 
+- (React) [FootNote, FootNoteLink] DP-11765: Change FootNoteLink ID to classname to avoid duplicative IDs. Change scroll event on FootNote to go to the start of the FootNoteLink. #839
+
+### Fixed 
+- (React) [Header, MainNav] DP-16673: Fixed PropTypes check console error for `navSelected` and `searchRedirect`, and fixed aria-label attribute in Header story. #843
+
+### Fixed 
+- (React) [FilterBox, IconLink, PageFlipper, TableofContents] DP-16677: Fix component prop type checks by replacing custom util function `componentPropTypeCheck` with `componentWithName` from 'airbnb-prop-types'. #845
 
 ## 9.33.0 (11/26/2019)
 
@@ -24,7 +50,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
   - Refactor scss to match IconLink and IconLinks levels
   - Add wrapper span to fix IconLink molecule in Patternlab
 
-
 ## 9.32.0 (11/19/2019)
 
 ### Changed
@@ -34,6 +59,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - (React) [UtilityNav] DP-11663: set `ariaHidden` on decorative SVG icon. #827
 - (React) [AccordionItem] DP-12195: Adds `id` prop to accordion item component to address a11y issues. #829
+
 
 ## 9.31.0 (11/12/2019)
 
