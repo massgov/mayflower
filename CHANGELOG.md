@@ -1,7 +1,18 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
-## 9.34.0 (11/3/2019)
+## 9.36.0 (1/7/2020)
+
+### Security 
+- (Patternlab) [Dependency] DP-16925: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782 
+
+## 9.35.0 (12/18/2019)
+
+### Fixed 
+- (React) [Tab] DP-16678: Fixed PropTypes check console error for `tabRef`.
+
+
+## 9.34.0 (12/11/2019)
 
 ### Changed 
 - (React) [InputCheckBox] DP-16111: Refactor InputCheckBox to be used for multiple selections. #787 
