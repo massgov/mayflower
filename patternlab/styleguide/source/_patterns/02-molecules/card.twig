@@ -1,10 +1,10 @@
 {% set thumbnail = card.thumbnail %}
 {% set cardClass = card.usage ? " ma__card--" ~ card.usage : "" %}
 {% set contentClass = card.usage ? " ma__card__content--" ~ card.usage : "" %}
-{% set imgClass = card.usage ? " ma__card__img--" ~ card.usage : "" %}
+{% set imgClass = card.usage ? card.usage : card.id %}
 {% set detailsClass = card.usage ? " ma__card__details--" ~ card.usage : "" %}
 
-<div id="{{ card.id }}" class="ma__card{{ cardClass }}">
+<div {% if not card.usage %}id="{{ card.id }}" {% endif %}class="ma__card{{ cardClass }}">
   {% if not card.usage %}
     <style>
       .ma__card__img--{{ card.id }} {
@@ -13,12 +13,12 @@
     </style>
   {% endif %}
   <a class="ma__card__wrapper" href="{{ card.link }}">
-    <div class="ma__card__img ma__card__img--{{ card.id }}{{ imgClass }}">
+    <div class="ma__card__img ma__card__img--{{ imgClass }}">
       <img src="{{ card.thumbnail }}" alt="">
     </div>
     <div class="ma__card__content{{ contentClass }}">
       {% set headingLevel = card.level ? card.level : 3 %}
-      <h{{ headingLevel }} class="ma__card__title"><span>{{card.title}}&nbsp;{{ icon('arrow') }}</span></h2>
+      <h{{ headingLevel }} class="ma__card__title"><span>{{card.title}}&nbsp;{{ icon('arrow') }}</span></h{{ headingLevel }}>
       <div class="ma__card__details{{ detailsClass }}">
         {% if card.usage %}
         <div class="ma__card__thumbnail">
@@ -30,6 +30,6 @@
         </div>
       </div>
     </div>
-  </a> 
+  </a>
 </div>
 
