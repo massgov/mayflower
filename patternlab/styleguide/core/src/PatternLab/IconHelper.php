@@ -91,7 +91,7 @@ class IconHelper {
    * @return string
    */
   public function getSvgUse($id) {
-    return sprintf('<svg aria-hidden="true"><use xlink:href="#%s"></use></svg>', $id);
+    return sprintf('<svg aria-hidden="true" focusable="false"><use xlink:href="#%s"></use></svg>', $id);
   }
 
   /**
