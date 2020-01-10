@@ -28,5 +28,5 @@
 Changed:
   - project: Patternlab
     component: n/a
-    description: Bump node-normalize-scss from 8.0.0 to 8.0.1 in /patternlab/styleguide. #792
-    issue: DP-16830
+    description: Bump dotenv from 6.0.0 to 8.2.0 in /patternlab/styleguide. #804
+    issue: DP-16832
