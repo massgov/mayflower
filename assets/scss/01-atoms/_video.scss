@@ -10,6 +10,10 @@
     @media ($bp-large-min) {
       padding-bottom: 12px + 32px + 13px;
     }
+
+    iframe {
+      border: none;
+    }
   }
 
   @media ($bp-small-min) {

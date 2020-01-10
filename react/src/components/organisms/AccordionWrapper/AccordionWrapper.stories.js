@@ -26,18 +26,21 @@ storiesOf('organisms', module)
       const AccordionItem1Props = {
         title: text('Accordion1 title', 'Collapsible Header One', 'Accordion1'),
         info: text('Accordion1 info', 'Collapsible Header One', 'Accordion1'),
-        icon: select('Accordion1 icon', Object.keys(icons), 'circlechevron', 'Accordion1')
+        icon: select('Accordion1 icon', Object.keys(icons), 'circlechevron', 'Accordion1'),
+        id: text('id', 'accordionid1')
       };
       const AccordionItem2Props = {
         title: text('Accordion2 title', 'Collapsible Header Two', 'Accordion2'),
         info: text('Accordion2 info', 'Collapsible Header Two', 'Accordion2'),
-        icon: select('Accordion2 icon', Object.keys(icons), 'laptop', 'Accordion2')
+        icon: select('Accordion2 icon', Object.keys(icons), 'laptop', 'Accordion2'),
+        id: text('id', 'accordionid2')
       };
       const AccordionWrapperProps = {
         border: boolean('border', true),
         secondary: boolean('secondary', false),
         emphasize: boolean('emphasize', true),
-        headerLevel: select('headerLevel', [1, 2, 3, 4, 5, 6], 2)
+        headerLevel: select('headerLevel', [1, 2, 3, 4, 5, 6], 2),
+        id: text('id', 'accordionid3')
       };
 
       // Set the icon prop to the actual element based on knob selection.
