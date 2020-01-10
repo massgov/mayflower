@@ -27,6 +27,6 @@
 
 Changed:
   - project: Patternlab
-    component: n/a
+    component: Dependency
     description: Bumps del from 4.0.0 to 5.1.0. #719
     issue: DP-16827
