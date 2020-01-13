@@ -27,6 +27,6 @@
 
 Changed:
   - project: Patternlab
-    component: n/a
-    description: Bump node-normalize-scss from 8.0.0 to 8.0.1 in /patternlab/styleguide. #792
-    issue: DP-16830
+    component: Dependency
+    description: Bump gulp from 4.0.0 to 4.0.2 in /patternlab/styleguide. #876
+    issue: DP-17137
