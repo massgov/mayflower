@@ -1,7 +1,7 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
-## 9.37.0 (0/2/2020)
+## 9.37.0 (1/14/2020)
 
 ### Changed
 (Patternlab) [Dependency] Bump node-normalize-scss from 8.0.0 to 8.0.1.
