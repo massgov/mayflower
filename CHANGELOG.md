@@ -1,6 +1,11 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.36.0 (1/7/2020)
+
+### Security 
+- (Patternlab) [Dependency] DP-16925: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782 
+
 ## 9.35.0 (12/18/2019)
 
 ### Fixed 
