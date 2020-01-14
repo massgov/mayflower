@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## 9.37.0 (0/2/2020)
 
+### Changed
+(Patternlab) [Dependency] Bump node-normalize-scss from 8.0.0 to 8.0.1.
+
 ### Changed 
 - (Patternlab) [Dependency] DP-16827: Bumps del from 4.0.0 to 5.1.0.
 
