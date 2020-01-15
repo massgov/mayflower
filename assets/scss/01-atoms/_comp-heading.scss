@@ -56,4 +56,8 @@
   &--yellow {
     @include ma-border-decorative($c-highlight, 1);
   }
+
+  &--gray {
+    @include ma-border-decorative($c-gray, 1);
+  }
 }

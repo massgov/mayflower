@@ -14,6 +14,10 @@ class TeaserOrg extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    if (process.env.NODE_ENV === 'development') {
+      /* eslint-disable-next-line no-console */
+      console.warn('This component is deprecated and will be archived in v10. Use the GenTeaser Organism instead.');
+    }
   }
   componentWillReceiveProps(nextProps) {
     const allOrgs = nextProps.orgs.split(',');

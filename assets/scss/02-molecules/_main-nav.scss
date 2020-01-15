@@ -78,6 +78,9 @@
   }
  
   &__link {
+    @include ma-button-reset;
+    width: 100%;
+    text-align: left;
     display: block;
     position: relative;
     font-size: 1.25rem;

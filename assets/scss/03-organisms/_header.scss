@@ -40,6 +40,19 @@ body.show-menu {
       padding-top: 43px;
   }
 
+  &--slim {
+    @media ($bp-large-min) {
+      padding-top: 0px;
+    }
+  }
+
+  &--slim-mobile {
+    padding-top: 15px; // height of thin banner on mobile
+    @media ($bp-large-min) {
+      padding-top: 0px;
+    }
+  }
+
   &__skip-nav {
     display: block;
     margin: 0 auto;
@@ -135,7 +148,7 @@ body.show-menu {
     text-align: right;
     vertical-align: middle;
     width: calc(100% - #{$header-logo-width});
-    
+
     @media ($bp-small-min) {
       width: 66.12903%; //@include span-columns(8);
     }
