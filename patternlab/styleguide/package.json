@@ -69,7 +69,8 @@
     "whatwg-fetch": "^3.0.0"
   },
   "dependencies": {
-    "del": "^5.1.0"
+    "del": "^5.1.0",
+    "terser": "^4.6.3"
   },
   "scripts": {
     "gulp": "gulp"
