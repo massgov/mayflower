@@ -1,0 +1,5 @@
+Changed:
+  - project: Patternlab
+    component: Dependency
+    description: Replace uglify-js with terser. #880
+    issue: DP-17156
