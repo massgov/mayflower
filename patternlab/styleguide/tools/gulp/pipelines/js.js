@@ -1,4 +1,4 @@
-const uglify         = require("gulp-uglify"),
+const terser         = require("gulp-terser"),
     rename         = require("gulp-rename"),
     sourcemaps     = require("gulp-sourcemaps"),
     browserify     = require("browserify"),
@@ -24,7 +24,7 @@ module.exports = {
             .pipe(sourcemaps.init, {loadMaps: true})
             .pipe(concat, "vendor.js", {newLine: ";"})
             .pipe(function() {
-                return gulpIf(minify, uglify());
+                return gulpIf(minify, terser());
             })
             .pipe(rename, {suffix: "-generated"})
             .pipe(sourcemaps.write, "./")();
@@ -37,7 +37,7 @@ module.exports = {
             .pipe(browserifyNoExternals, browserifyOptions)
             .pipe(sourcemaps.init, { loadMaps: true })
             .pipe(function() {
-                return gulpIf(minify, uglify());
+                return gulpIf(minify, terser());
             })
             .pipe(rename, {suffix: "-generated"})
             .pipe(sourcemaps.write, "./")();
