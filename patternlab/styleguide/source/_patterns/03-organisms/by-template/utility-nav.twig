@@ -13,25 +13,15 @@
     {% for item in utilityNav.items %}
       <li class="ma__utility-nav__item{% if not(item.text == 'State Organizations') %} js-util-nav-toggle{% endif %}">
       {% if item.text == 'State Organizations' %}
-        <a class="ma__utility-nav__link" href="http://google.com">
-          {{ icon(item.icon) }}
-          <span>
-            {{ item.text }}
-          </span>
-        </a>
-{# {% set utilityPanel = item.panel %} #}
-{% for item in item.panels %}
-  <span style="color: red; font-weight: bold;">Panel:
-  {{ item.panel }}
-  {# {% include "@organisms/by-template/utility-panel.twig" %} #}
-  {% set panda = item.link %}
-  {% for item in item.links %}
-    {{ panda.href }}
-    {{ item.link }}
-    {{ item.link.href }}
-  {% endfor %}
-  </span>
-{% endfor %}
+        {# Get hef value. #}
+        {% for panel in item.panels %}
+          {% for link in panel.links %}
+            <a class="ma__utility-nav__link" href="{{ link.href }}">
+              {{ icon(item.icon) }}
+              <span>{{ item.text }}</span>
+            </a>
+         {% endfor %}
+        {% endfor %}
       {% else %}
         <button class="ma__utility-nav__link js-util-nav-toggle"
             aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
