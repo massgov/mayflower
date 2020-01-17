@@ -1,0 +1,5 @@
+Changed:
+  - project: Patternlab
+    component: CircleCI testing
+    description: Updated the Backstopjs version from 3.2.17 to 3.9.2 for Patternlab. (#PR)
+    issue: DP-16813
