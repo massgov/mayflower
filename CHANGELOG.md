@@ -1,6 +1,38 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.37.0 (1/14/2020)
+
+### Changed
+(Patternlab) [Dependency] Bump node-normalize-scss from 8.0.0 to 8.0.1.
+
+### Changed 
+- (Patternlab) [Dependency] DP-16827: Bumps del from 4.0.0 to 5.1.0.
+
+### Security 
+- (Patternlab) [Dependency] DP-16828: Update eslint-utils from v.1.3.1 to v.1.4.2.
+
+### Changed 
+- (Patternlab) [Dependency] DP-16831: Bump eslint-plugin-react from 7.11.1 to 7.16.0 in /patternlab/styleguide.
+
+### Changed 
+- (Patternlab) [Dependency] DP-16832: Bump dotenv from 6.0.0 to 8.2.0 in /patternlab/styleguide.
+
+### Changed 
+- (Patternlab) [Dependency] DP-16833: Bump gulp-rename from 1.3.0 to 2.0.0 in /patternlab/styleguide.
+
+### Changed 
+- (Patternlab) [Dependency] DP-16834: Bump url-search-params-polyfill from 5.0.0 to 7.0.1 in /patternlab/styleguide.
+
+### Changed 
+- (Patternlab) [Dependency] DP-17124: Bump untildify from 3.0.3 to 4.0.0 in /patternlab/styleguide.
+
+### Changed 
+- (Patternlab) [Dependency] DP-17125: Bump through2 from 2.0.3 to 3.0.1 in /patternlab/styleguide.
+
+### Changed 
+- (Patternlab) [Dependency] DP-17137: Bump gulp from 4.0.0 to 4.0.2 in /patternlab/styleguide.
+
 ## 9.36.0 (1/7/2020)
 
 ### Security 
