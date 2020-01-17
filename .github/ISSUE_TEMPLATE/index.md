@@ -1,39 +1,29 @@
-Before opening an issue:
+1. Before opening an issue:
 
 - [Search for duplicate or closed issues](https://github.com/massgov/mayflower/issues?utf8=%E2%9C%93&q=is%3Aissue)
+- Read the [contributing guidelines](https://github.com/massgov/mayflower/blob/master/CONTRIBUTING.md)
+
 - For Mayflower Documentation, refer to the [Mayflower Documentation](https://mass.gov/mayflower)
 - For Mayflower React, refer to the [Mayflower React Storybook](https://mayflower-react.digital.mass.gov/)
 - For Mayflower Patternlab, refer to the [Mayflower Patternlab](https://mayflower.digital.mass.gov/)
 
 
-When submitting your request, include:
+2. When submitting your request, include:
 
-<!-- Please feel free to remove whatever sections/lines in this aren’t relevant.
+Title: [Docs | React | Patternlab]: Brief description
 
-Use the title line as the title of your pull request, then delete these lines.
+When reporting a bug, include:
 
-## Title line template: [Title]: Brief description
+- Mayflower version
+- Operating system and version (Windows, Mac OS X, Android, iOS, Win10 Mobile)
+- Browser and version (Chrome, Firefox, Safari, IE, MS Edge, Opera 15+, Android Browser)
+- Description (write a sentence or two about the issue)
+- Steps to reproduce on live site
+- Prepare a [reduced test case](https://css-tricks.com/reduced-test-cases/)
 
-Website: For issues that impact designsystem.digital.gov’s look, feel, or functionality, please open an issue on the uswds-site repo (https://github.com/uswds/uswds-site/issues/new).
+When suggesting a feature, include:
 
--->
+- As much detail as possible for what we should add and why it's important to Mayflower
+- Relevant links to prior art, screenshots, or live demos whenever possible
 
-## Description
 
-Include a high-level description of the issue. What did you expect to happen? What happened instead? What would you like to see changed?
-
-Include any benefits, challenges, or considerations. This can be short and sweet.
-
-## Steps to reproduce the issue
-
-1. Step one
-2. Step two
-3. Step three
-4. etc.
-
-## Additional information [optional]
-
-* Relevant research and support documents
-* Screen shot images
-* Notes
-* And so on
