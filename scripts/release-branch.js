@@ -34,12 +34,15 @@ console.log(`New release tag: ${minor}`);
 
 // Update the changelog.md file
 const today = new Date();
-const day = today.getDay();
-const month = today.getMonth();
+// Changed from getDay() was giving the wrong day of the week adjusted to use getDate() instead.
+const day = today.getDate();
+// Need to increase getMonth() by one.
+const month = today.getMonth() +1;
 const year = today.getFullYear();
 
 // Changelog.md title for each release
 const title = `## ${minor} (${month}/${day}/${year})`;
+
 // Look at the changelog files
 
 const directoryPath = path.resolve(__dirname, '../changelogs');
@@ -65,7 +68,7 @@ changelogs.forEach((fileName) => {
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
 fd.splice(3, 0, title, newLogs.join(''));
 var allLogs = fd.join('\n');
-  
+
 
 // Remove the changelog files
 for (var i=0; i<changelogs.length; i++) {
@@ -74,7 +77,7 @@ for (var i=0; i<changelogs.length; i++) {
     if (err) {
         console.log("failed to delete changelog:"+err);
     } else {
-        console.log('successfully deleted changelog');                                
+        console.log('successfully deleted changelog');
     }
   });
 }
