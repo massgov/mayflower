@@ -1,3 +1,12 @@
+---
+name: Bugs or Feature Requests
+about: Report a bug or submit a feature request
+title: "[React | Patternlab | Docs]"
+labels: ''
+assignees: ''
+
+---
+
 ## 1. Before opening an issue:
 
 - [Search for duplicate or closed issues](https://github.com/massgov/mayflower/issues?utf8=%E2%9C%93&q=is%3Aissue)
