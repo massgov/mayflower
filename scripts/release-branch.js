@@ -85,11 +85,13 @@ changeTypes.forEach((changeType) => {
   });
 })
 
+
+console.log(newLogs)
+
 // const fd = fs.readFileSync(changelogPath).toString().split("\n");
 // fd.splice(3, 0, title, newLogs.join(''));
 // var allLogs = fd.join('\n');
 
-//console.log(newLogs)
 
 
 // // Remove the changelog files
