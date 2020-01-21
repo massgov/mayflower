@@ -108,7 +108,7 @@ for (var i=0; i<changelogs.length; i++) {
 }
 
 
-Checkout the branch.
+// Checkout the branch.
 const releaseBranch = 'release/' + minor;
 
 (async function() {
