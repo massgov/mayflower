@@ -76,7 +76,7 @@ changelogs.forEach((fileName) => {
   });
 });
 
-/** Format consolidated changelogs data into string with preferrered markdown syntax */
+/** Format consolidated changelogs data into a string with desired markdown syntax */
 changeTypes.forEach((changeType) => {
   newLogs.push(`\n### ${changeType} \n`)
   changeContents[changeType].forEach((change) => {
