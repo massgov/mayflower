@@ -48,7 +48,7 @@ const title = `## ${minor} (${month}/${day}/${year})`;
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 
-let newLogs = [];
+
 // Read directory path and exclude the template.yml file.
 const changelogs = fs.readdirSync(directoryPath).filter(function(file) {
   return file.match(/^.*\.yml$/g) && file!== "template.yml";
@@ -56,19 +56,27 @@ const changelogs = fs.readdirSync(directoryPath).filter(function(file) {
 
 let changeTypes = []
 let changeContents = {}
+let newLogs = [];
+/** Loop through each changelog in the changelogs directory,
+  * consolidate changelogs with the same changeTypes together
+*/
 changelogs.forEach((fileName) => {
   const content = yaml.safeLoad(fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8'));
   Object.keys(content).forEach((changeType) => {
-    console.log(changeTypes.indexOf(changeType))
+    // If it encounters a new change type
     if(changeTypes.indexOf(changeType) < 0) {
+      // add it to the changeType array
       changeTypes.push(changeType);
+      // add the content of the changelog to changeContents object under the changeType key
       changeContents[changeType] = content[changeType]
     } else {
+      // If it's an existing change type, add append the content of the changelog into the changeType array
       changeContents[changeType] = [...changeContents[changeType], ...content[changeType]]
     }
   });
 });
 
+/** Format consolidated changelogs data into string with preferrered markdown syntax */
 changeTypes.forEach((changeType) => {
   newLogs.push(`\n### ${changeType} \n`)
   changeContents[changeType].forEach((change) => {
