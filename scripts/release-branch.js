@@ -88,28 +88,28 @@ changeTypes.forEach((changeType) => {
 
 console.log(newLogs)
 
-// const fd = fs.readFileSync(changelogPath).toString().split("\n");
-// fd.splice(3, 0, title, newLogs.join(''));
-// var allLogs = fd.join('\n');
+const fd = fs.readFileSync(changelogPath).toString().split("\n");
+fd.splice(3, 0, title, newLogs.join(''));
+var allLogs = fd.join('\n');
 
 
 
-// // Remove the changelog files
-// for (var i=0; i<changelogs.length; i++) {
-//   var changeLogFilePath = directoryPath + "/" + changelogs[i];
-//   fs.unlink(changeLogFilePath, (err) => {
-//     if (err) {
-//         console.log("failed to delete changelog:"+err);
-//     } else {
-//         console.log('successfully deleted changelog');
-//     }
-//   });
-// }
-//
-// fs.writeFileSync(changelogPath, allLogs, (err) => {
-//   if (err) throw err;
-// })
-//
+// Remove the changelog files
+for (var i=0; i<changelogs.length; i++) {
+  var changeLogFilePath = directoryPath + "/" + changelogs[i];
+  fs.unlink(changeLogFilePath, (err) => {
+    if (err) {
+        console.log("failed to delete changelog:"+err);
+    } else {
+        console.log('successfully deleted changelog');
+    }
+  });
+}
+
+fs.writeFileSync(changelogPath, allLogs, (err) => {
+  if (err) throw err;
+})
+
 // // Checkout the branch.
 // const releaseBranch = 'release/' + minor;
 //

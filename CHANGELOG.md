@@ -1,6 +1,16 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.39.0 (1/21/2020)
+
+### Added 
+- (0) [enter a valid component name - see direction above] add a Jira ticket or issue number,e.g. DP-12345 or 124: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
+- (1) [enter a valid component name - see direction above] add a Jira ticket or issue number,e.g. DP-12345 or 124: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
+
+### Changed 
+- (2) [enter a valid component name - see direction above] add a Jira ticket or issue number,e.g. DP-12345 or 124: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
+- (3) [enter a valid component name - see direction above] add a Jira ticket or issue number,e.g. DP-12345 or 124: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
+
 ## 9.38.0 (1/21/2020)
 
 ### Changed 

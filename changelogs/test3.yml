@@ -1,5 +1,0 @@
-Changed:
-  - project: 3
-    component: [enter a valid component name - see direction above]
-    description: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
-    issue: [add a Jira ticket or issue number, e.g. DP-12345 or 124]
