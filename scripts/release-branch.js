@@ -70,7 +70,7 @@ changelogs.forEach((fileName) => {
       // add the content of the changelog to changeContents object under the changeType key
       changeContents[changeType] = content[changeType]
     } else {
-      // If it's an existing change type, add append the content of the changelog into the changeType array
+      // If it's an existing change type, append the content of the changelog into the existing changeType array
       changeContents[changeType] = [...changeContents[changeType], ...content[changeType]]
     }
   });
