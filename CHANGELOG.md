@@ -1,6 +1,17 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.38.0 (1/21/2020)
+
+### Changed 
+- (Patternlab) [Dependency] DP-17156: Replace uglify-js with terser.
+
+### Fixed 
+- (Patternlab, React) [release automation] DP-16732: Fixed the display for the month and date in the release automation. (#PR)
+
+### Changed 
+- (Patternlab) [Dependency] DP-17136: Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide.
+
 ## 9.37.0 (1/14/2020)
 
 ### Changed
