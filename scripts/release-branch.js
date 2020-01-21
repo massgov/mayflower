@@ -54,22 +54,31 @@ const changelogs = fs.readdirSync(directoryPath).filter(function(file) {
   return file.match(/^.*\.yml$/g) && file!== "template.yml";
 });
 
+let changeTypes = []
+let changeContents = []
 changelogs.forEach((fileName) => {
   const content = yaml.safeLoad(fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8'));
-  Object.keys(content).forEach((changeType, i) => {
-    newLogs.push(`\n### ${changeType} \n`)
-    content[changeType].forEach((change) => {
-      const newChange = `- (${change.project}) [${change.component}] ${change.issue}: ${change.description}\n`
-      newLogs.push(newChange);
-    });
+  Object.keys(content).forEach((changeType) => {
+    changeTypes.push(changeType);
+    changeContents.push(content[changeType])
   });
+  // newLogs.push(`\n### ${changeType} \n`)
+  // content[changeType].forEach((change) => {
+  //   //console.log(change)
+  //   const newChange = `- (${change.project}) [${change.component}] ${change.issue}: ${change.description}\n`
+  //   newLogs.push(newChange);
+  // });
 });
+
+  changeTypes = [... new Set(changeTypes)]
+  console.log(changeContents)
+
 
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
 fd.splice(3, 0, title, newLogs.join(''));
 var allLogs = fd.join('\n');
 
-console.log(newLogs)
+//console.log(newLogs)
 
 
 // // Remove the changelog files
