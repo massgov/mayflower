@@ -58,28 +58,24 @@ let changeTypes = []
 let changeContents = {}
 changelogs.forEach((fileName) => {
   const content = yaml.safeLoad(fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8'));
-  //console.log(content)
   Object.keys(content).forEach((changeType) => {
+    console.log(changeTypes.indexOf(changeType))
     if(changeTypes.indexOf(changeType) < 0) {
       changeTypes.push(changeType);
       changeContents[changeType] = content[changeType]
     } else {
-      changeContents[changeType] = [...changeContents[changeType], ...changeContents[changeType]]
+      changeContents[changeType] = [...changeContents[changeType], ...content[changeType]]
     }
   });
 });
-// console.log(changeContents)
 
 changeTypes.forEach((changeType) => {
   newLogs.push(`\n### ${changeType} \n`)
   changeContents[changeType].forEach((change) => {
-    //console.log(change)
     const newChange = `- (${change.project}) [${change.component}] ${change.issue}: ${change.description}\n`
     newLogs.push(newChange);
   });
 })
-
-console.log(newLogs)
 
 // const fd = fs.readFileSync(changelogPath).toString().split("\n");
 // fd.splice(3, 0, title, newLogs.join(''));
