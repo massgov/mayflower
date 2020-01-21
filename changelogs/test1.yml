@@ -1,4 +1,4 @@
-CHANGETYPE:
+Added:
   - project: [enter a valid project prefix - see list above]
     component: [enter a valid component name - see direction above]
     description: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
