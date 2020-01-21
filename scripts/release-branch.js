@@ -67,20 +67,23 @@ changelogs.forEach((fileName) => {
       changeContents[changeType] = [...changeContents[changeType], ...changeContents[changeType]]
     }
   });
-  // newLogs.push(`\n### ${changeType} \n`)
-  // content[changeType].forEach((change) => {
-  //   //console.log(change)
-  //   const newChange = `- (${change.project}) [${change.component}] ${change.issue}: ${change.description}\n`
-  //   newLogs.push(newChange);
-  // });
 });
-  // Unique change typeschangeTypes = [... new Set(changeTypes)]
-  console.log(changeContents)
+// console.log(changeContents)
 
+changeTypes.forEach((changeType) => {
+  newLogs.push(`\n### ${changeType} \n`)
+  changeContents[changeType].forEach((change) => {
+    //console.log(change)
+    const newChange = `- (${change.project}) [${change.component}] ${change.issue}: ${change.description}\n`
+    newLogs.push(newChange);
+  });
+})
 
-const fd = fs.readFileSync(changelogPath).toString().split("\n");
-fd.splice(3, 0, title, newLogs.join(''));
-var allLogs = fd.join('\n');
+console.log(newLogs)
+
+// const fd = fs.readFileSync(changelogPath).toString().split("\n");
+// fd.splice(3, 0, title, newLogs.join(''));
+// var allLogs = fd.join('\n');
 
 //console.log(newLogs)
 
