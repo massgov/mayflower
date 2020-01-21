@@ -32,17 +32,6 @@ const minor = semver.inc(latest.toString(), 'minor');
 // Print out the new minor version
 console.log(`New release tag: ${minor}`);
 
-// Update the changelog.md file
-const today = new Date();
-// Changed from getDay() was giving the wrong day of the week adjusted to use getDate() instead.
-const day = today.getDate();
-// Need to increase getMonth() by one.
-const month = today.getMonth() +1;
-const year = today.getFullYear();
-
-// Changelog.md title for each release
-const title = `## ${minor} (${month}/${day}/${year})`;
-
 // Look at the changelog files
 
 const directoryPath = path.resolve(__dirname, '../changelogs');
@@ -85,12 +74,26 @@ changeTypes.forEach((changeType) => {
   });
 })
 
+const today = new Date();
+// Changed from getDay() was giving the wrong day of the week adjusted to use getDate() instead.
+const day = today.getDate();
+// Need to increase getMonth() by one.
+const month = today.getMonth() +1;
+const year = today.getFullYear();
+
+// Changelog.md title for each release
+const title = `## ${minor} (${month}/${day}/${year})`;
+// Add release title with
+const newLogsWithTitle = [title, ...newLogs].join('');
 
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
-fd.splice(3, 0, title, newLogs.join(''));
+fd.splice(3, 0, newLogsWithTitle);
+
+// Update the changelog.md file
 var allLogs = fd.join('\n');
-
-
+fs.writeFileSync(changelogPath, allLogs, (err) => {
+  if (err) throw err;
+})
 
 // Remove the changelog files
 for (var i=0; i<changelogs.length; i++) {
@@ -104,36 +107,33 @@ for (var i=0; i<changelogs.length; i++) {
   });
 }
 
-fs.writeFileSync(changelogPath, allLogs, (err) => {
-  if (err) throw err;
-})
 
 // Checkout the branch.
-const releaseBranch = 'release/' + minor;
-
-(async function() {
-  // This asynchronous logic will happen sequentially.
-  // If an error is thrown, it will break out of this
-  // asynchronous function immediately and exit 1.
-
-  // Create the release branch and push to Github.
-  shell.exec(`git branch -D ${releaseBranch}`)
-  await git.checkoutLocalBranch(releaseBranch)
-  await git.add('./*');
-  await git.commit('Changelog update and remove old changelog files');
-  // Use a force-push so if we have an old version of the branch sitting around
-  // (eg: an unreleased one from last week), it gets updated regardless.
-  await git.push('origin', releaseBranch, {'--force': null});
-
-  // Create the pull request in GitHub
-  await octokit.pulls.create({
-    owner: 'massgov',
-    repo: 'mayflower',
-    title: `Release ${minor}`,
-    head: releaseBranch,
-    base: 'master'
-  });
-})().catch(function(err) {
-  console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
-  process.exit(1);
-})
+// const releaseBranch = 'release/' + minor;
+//
+// (async function() {
+//   // This asynchronous logic will happen sequentially.
+//   // If an error is thrown, it will break out of this
+//   // asynchronous function immediately and exit 1.
+//
+//   // Create the release branch and push to Github.
+//   shell.exec(`git branch -D ${releaseBranch}`)
+//   await git.checkoutLocalBranch(releaseBranch)
+//   await git.add('./*');
+//   await git.commit('Changelog update and remove old changelog files');
+//   // Use a force-push so if we have an old version of the branch sitting around
+//   // (eg: an unreleased one from last week), it gets updated regardless.
+//   await git.push('origin', releaseBranch, {'--force': null});
+//
+//   // Create the pull request in GitHub
+//   await octokit.pulls.create({
+//     owner: 'massgov',
+//     repo: 'mayflower',
+//     title: `Release ${minor}`,
+//     head: releaseBranch,
+//     base: 'master'
+//   });
+// })().catch(function(err) {
+//   console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
+//   process.exit(1);
+// })
