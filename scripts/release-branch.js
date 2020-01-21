@@ -55,12 +55,17 @@ const changelogs = fs.readdirSync(directoryPath).filter(function(file) {
 });
 
 let changeTypes = []
-let changeContents = []
+let changeContents = {}
 changelogs.forEach((fileName) => {
   const content = yaml.safeLoad(fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8'));
+  //console.log(content)
   Object.keys(content).forEach((changeType) => {
-    changeTypes.push(changeType);
-    changeContents.push(content[changeType])
+    if(changeTypes.indexOf(changeType) < 0) {
+      changeTypes.push(changeType);
+      changeContents[changeType] = content[changeType]
+    } else {
+      changeContents[changeType] = [...changeContents[changeType], ...changeContents[changeType]]
+    }
   });
   // newLogs.push(`\n### ${changeType} \n`)
   // content[changeType].forEach((change) => {
@@ -69,8 +74,7 @@ changelogs.forEach((fileName) => {
   //   newLogs.push(newChange);
   // });
 });
-
-  changeTypes = [... new Set(changeTypes)]
+  // Unique change typeschangeTypes = [... new Set(changeTypes)]
   console.log(changeContents)
 
 
