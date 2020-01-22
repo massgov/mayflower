@@ -260,6 +260,7 @@ jobs:
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
       - run:
+          command: 'node scripts/consolidate-changelogs.js'
           command: 'node scripts/release-branch.js'
 
   github_tag:
@@ -271,7 +272,7 @@ jobs:
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
       - run:
-          command: 'scripts/github-tag'
+          command: 'node scripts/release-tag.js'
 
 
 workflows:
