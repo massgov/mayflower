@@ -14,7 +14,7 @@ octokit.repos.createRelease({
   body: newLogsWithTitle
 })
 
-fs.unlink(changeLogFilePath, (err) => {
+fs.unlink(tempLogsPath, (err) => {
   if (err) {
       console.log(`failed to delete tempLogs.json: ${err.toString()}`);
   } else {
