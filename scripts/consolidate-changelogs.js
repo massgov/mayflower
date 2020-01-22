@@ -24,9 +24,9 @@ for (var i=0; i<changelogs.length; i++) {
   var changeLogFilePath = directoryPath + "/" + changelogs[i];
   fs.unlink(changeLogFilePath, (err) => {
     if (err) {
-        console.log("failed to delete changelog:"+err);
+        console.log(`failed to delete changelog: ${err.toString()}`);
     } else {
-        console.log('successfully deleted changelog');
+        console.log(`successfully deleted changelog ${changelogs[i]}`);
     }
   });
 }
