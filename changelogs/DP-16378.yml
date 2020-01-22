@@ -1,0 +1,5 @@
+Added:
+  - project: Patternlab, React
+    component: Release
+    description: Adding a check for a changelog to each PR with Dangerfilejs. (#812)
+    issue: DP-16378

@@ -20,11 +20,6 @@
 #Component name in `PascalCase`
 #e.g. Header, Form, InputSlider, InputTextTypeAhead
 
-#___EXAMPLE___
-#Added:
-#- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module #473
-#- (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
-
 CHANGE TYPE - [see list above]:
   - project: [enter a valid project prefix - see list above]
     component: [enter a valid component name - see direction above]
