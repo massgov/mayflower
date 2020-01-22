@@ -1,5 +1,3 @@
-// const { newLogsWithTitle, changelogs } = require('./compile-changelogs');
-//
 const path = require('path');
 const fs = require('fs');
 
