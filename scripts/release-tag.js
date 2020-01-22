@@ -1,4 +1,5 @@
-const { newLogsWithTitle, octokit, minor } = require('./release-branch');
+const { octokit, minor } = require('./release-vars');
+const { newLogsWithTitle } = require('./release-branch');
 
 octokit.repos.createRelease({
   owner: 'massgov',

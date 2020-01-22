@@ -1,12 +1,7 @@
+const { octokit, minor } = require('./release-vars');
 // Added shelljs to use maybe in the script "npm install shelljs"
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');
-
-const Octokit = require("@octokit/rest");
-const octokit = new Octokit({
-  auth: process.env.DANGER_GITHUB_API_TOKEN
-});
-exports.octokit = octokit;
 
 // Added semver to use for increment the version "npm install semver"
 // https://github.com/npm/node-semver
