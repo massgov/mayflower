@@ -1,7 +1,5 @@
 const { newLogsWithTitle, octokit, minor } = require('./release-branch');
 
-console.log(newLogsWithTitle)
-
 octokit.repos.createRelease({
   owner: 'massgov',
   repo: 'mayflower',
