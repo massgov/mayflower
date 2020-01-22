@@ -1,5 +1,5 @@
 const { octokit, minor } = require('./release-vars');
-const { newLogsWithTitle } = require('./consolidate-changelogs');
+const { newLogsWithTitle } = require('./compile-changelogs');
 // Added shelljs to use maybe in the script "npm install shelljs"
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');

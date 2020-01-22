@@ -1,5 +1,5 @@
 const { octokit, minor } = require('./release-vars');
-const { newLogsWithTitle } = require('./consolidate-changelogs');
+const { newLogsWithTitle } = require('./compile-changelogs');
 
 octokit.repos.createRelease({
   owner: 'massgov',
