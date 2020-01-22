@@ -56,5 +56,9 @@ const title = `## ${minor} (${month}/${day}/${year})`;
 // Add release title with
 const newLogsWithTitle = [title, ...newLogs].join('');
 
-exports.changelogs = changelogs;
-exports.newLogsWithTitle = newLogsWithTitle;
+module.exports = {
+  changelogs,
+  newLogsWithTitle
+}
+// exports.changelogs = changelogs;
+// exports.newLogsWithTitle = newLogsWithTitle;
