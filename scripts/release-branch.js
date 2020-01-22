@@ -6,6 +6,7 @@ const Octokit = require("@octokit/rest");
 const octokit = new Octokit({
   auth: process.env.DANGER_GITHUB_API_TOKEN
 });
+exports.octokit = octokit;
 
 // Added semver to use for increment the version "npm install semver"
 // https://github.com/npm/node-semver
@@ -28,6 +29,7 @@ console.log(`Display the latest tag: ${latest}`);
 
 // Increment the release branch.
 const minor = semver.inc(latest.toString(), 'minor');
+exports.minor = minor;
 
 // Print out the new minor version
 console.log(`New release tag: ${minor}`);
@@ -85,6 +87,7 @@ const year = today.getFullYear();
 const title = `## ${minor} (${month}/${day}/${year})`;
 // Add release title with
 const newLogsWithTitle = [title, ...newLogs].join('');
+exports.newLogsWithTitle = newLogsWithTitle;
 
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
 fd.splice(3, 0, newLogsWithTitle);
