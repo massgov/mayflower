@@ -1,3 +1,6 @@
+// Added semver to use for increment the version "npm install semver"
+// https://github.com/npm/node-semver
+const semver = require('semver');
 // Added shelljs to use maybe in the script "npm install shelljs"
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');

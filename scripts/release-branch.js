@@ -3,10 +3,6 @@ const { octokit, minor } = require('./release-vars');
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');
 
-// Added semver to use for increment the version "npm install semver"
-// https://github.com/npm/node-semver
-const semver = require('semver');
-
 // Used for the file system for changelog.
 const path = require('path');
 const fs = require('fs');
@@ -15,19 +11,6 @@ const yaml = require('js-yaml');
 // Added simple-git to use for git add "npm install simple-git"
 // Could not use the shell.exec to git add the remove changelogs.
 const git = require('simple-git/promise')();
-
-// Find out the latest release tag and display it in the command line.
-const latest = shell.exec('git tag  | grep -E "^[0-9]" | sort -V | tail -1');
-
-// Display the latest tag.
-console.log(`Display the latest tag: ${latest}`);
-
-// Increment the release branch.
-const minor = semver.inc(latest.toString(), 'minor');
-exports.minor = minor;
-
-// Print out the new minor version
-console.log(`New release tag: ${minor}`);
 
 // Look at the changelog files
 
