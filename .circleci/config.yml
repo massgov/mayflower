@@ -260,6 +260,7 @@ jobs:
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
       - run:
+          command: 'node scripts/compile-changelogs.js'
           command: 'node scripts/consolidate-changelogs.js'
           command: 'node scripts/release-branch.js'
 
