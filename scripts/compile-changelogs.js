@@ -6,6 +6,7 @@ const yaml = require('js-yaml');
 
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
+const tempLogsPath = `${path.resolve(__dirname, '../')}/tempLogs.json`;
 
 
 // Read directory path and exclude the template.yml file.
@@ -56,5 +57,11 @@ const title = `## ${minor} (${month}/${day}/${year})`;
 // Add release title with
 const newLogsWithTitle = [title, ...newLogs].join('');
 
-exports.changelogs = changelogs;
-exports.newLogsWithTitle = newLogsWithTitle;
+const tempLogs = {
+  changelogs,
+  newLogsWithTitle
+}
+
+fs.writeFileSync(tempLogsPath, JSON.stringify(tempLogs, null, 2), (err) => {
+  if (err) throw err;
+});
