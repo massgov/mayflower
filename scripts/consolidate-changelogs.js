@@ -1,12 +1,17 @@
-const { newLogsWithTitle, changelogs } = require('./compile-changelogs');
-
+// const { newLogsWithTitle, changelogs } = require('./compile-changelogs');
+//
 const path = require('path');
 const fs = require('fs');
 
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
+const tempLogsPath = `${path.resolve(__dirname, '../')}/tempLogs.json`;
 
 const fd = fs.readFileSync(changelogPath).toString().split("\n");
+
+// Get data from tempLogs JSON
+const { newLogsWithTitle, changelogs } = JSON.parse(fs.readFileSync(tempLogsPath, 'utf-8'))
+
 fd.splice(3, 0, newLogsWithTitle);
 
 // Update the changelog.md file
