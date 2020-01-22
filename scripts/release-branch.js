@@ -93,6 +93,7 @@ fs.writeFileSync(changelogPath, allLogs, (err) => {
   if (err) throw err;
 })
 
+
 // Remove the changelog files
 for (var i=0; i<changelogs.length; i++) {
   var changeLogFilePath = directoryPath + "/" + changelogs[i];
