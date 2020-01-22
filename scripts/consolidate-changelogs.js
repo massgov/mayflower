@@ -1,3 +1,5 @@
+const { minor } = require('./release-vars');
+
 const path = require('path');
 const fs = require('fs');
 const yaml = require('js-yaml');
