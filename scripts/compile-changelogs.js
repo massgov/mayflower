@@ -57,6 +57,8 @@ const title = `## ${minor} (${month}/${day}/${year})`;
 // Add release title with
 const newLogsWithTitle = [title, ...newLogs].join('');
 
+
+// Store data into tempLogs JSON
 const tempLogs = {
   changelogs,
   newLogsWithTitle
