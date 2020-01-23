@@ -3,7 +3,7 @@
 # lastCommitClean=$lastCommit
 # lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 branch="dependabot/npm_and_yarn/patternlab/styleguide/core-js-3.6.4"
-lastDependabot="Bump gulp-if from 2.0.2 to 3.0.0 in /patternlab/styleguide"
+lastCommitClean="Bump gulp-if from 2.0.2 to 3.0.0 in /patternlab/styleguide"
 changeType="Changed"
 project=""
 
@@ -26,7 +26,7 @@ $changeType:
   - project: $project
     component: Dependency
     description: $lastCommitClean
-    issue: DP-1111"
+    issue: "
 echo $changelog
 # if [ "$lastCommit" = "$lastDependabot" ]
 # then
