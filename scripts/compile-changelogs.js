@@ -40,7 +40,8 @@ changelogs.forEach((fileName) => {
 changeTypes.forEach((changeType) => {
   newLogs.push(`\n### ${changeType} \n`)
   changeContents[changeType].forEach((change) => {
-    const newChange = `- (${change.project}) [${change.component}] ${change.issue}: ${change.description}\n`
+    const { project, component, issue, description } = change;
+    const newChange = `- (${project}) [${component}] ${issue || ''}: ${description}\n`
     newLogs.push(newChange);
   });
 })
