@@ -12,12 +12,12 @@ if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
   changeType="Security"
 fi
 
-if [[ $lastCommitClean =~ "/react" ]]; then
-  lastCommitClean="$lastCommitClean"
+if [[ $lastCommitClean =~ (.*)" in /react" ]]; then
+  lastCommitClean="${BASH_REMATCH[1]}"
   project="React"
 fi
-if [[ $lastCommitClean =~ "/patternlab" ]]; then
-  lastCommitClean="$lastCommitClean"
+if [[ $lastCommitClean =~ (.*)" in /patternlab/styleguide" ]]; then
+  lastCommitClean="${BASH_REMATCH[1]}"
   project="Patternlab"
 fi
 
