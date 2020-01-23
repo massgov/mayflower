@@ -11,11 +11,11 @@ if [[ $lastCommitClean =~ "[Security]"[[:space:]](.*) ]]; then
 fi
 
 if [[ $lastCommitClean =~ "/react" ]]; then
-  lastCommitClean="(React) $lastCommitClean"
+  lastCommitClean="$lastCommitClean"
   project="React"
 fi
 if [[ $lastCommitClean =~ "/patternlab" ]]; then
-  lastCommitClean="(Patternlab) $lastCommitClean"
+  lastCommitClean="$lastCommitClean"
   project="Patternlab"
 fi
 
