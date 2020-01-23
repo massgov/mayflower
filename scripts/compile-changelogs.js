@@ -41,7 +41,7 @@ changeTypes.forEach((changeType) => {
   newLogs.push(`\n### ${changeType} \n`)
   changeContents[changeType].forEach((change) => {
     const { project, component, issue, description } = change;
-    const newChange = `- (${project}) [${component}] ${issue || ''}: ${description}\n`
+    const newChange = `- (${project}) [${component}] ${issue ? `${issue}: ` : ''}${description}\n`
     newLogs.push(newChange);
   });
 })
