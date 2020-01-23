@@ -1,7 +1,9 @@
-branch=$(git branch | grep \* | cut -d ' ' -f2)
-lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
-lastCommitClean=$lastCommit
-lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
+# branch=$(git branch | grep \* | cut -d ' ' -f2)
+# lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
+# lastCommitClean=$lastCommit
+# lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
+branch="dependabot/npm_and_yarn/patternlab/styleguide/core-js-3.6.4"
+lastDependabot="Bump gulp-if from 2.0.2 to 3.0.0 in /patternlab/styleguide"
 changeType="Changed"
 project=""
 
@@ -19,19 +21,20 @@ if [[ $lastCommitClean =~ "/patternlab" ]]; then
   project="Patternlab"
 fi
 
-if [ "$lastCommit" = "$lastDependabot" ]
-then
-  printf
-    "\n$changeType:\n
-    - project: $project\n
-      component: [Dependency]
-      description: $lastCommitClean
-      issue: "
-  > changelogs/dependabot-${branch##*/}.md
-  git add changelogs/dependabot-${branch##*/}.md
-  git commit -m "Added a new changelog to the `changelogs/` folder"
-  echo "Commit dependabot changelog";
-  git push -u origin $branch
-else
-  echo "No changelog added"
-fi
+changelog="
+$changeType:
+  - project: $project
+    component: Dependency
+    description: $lastCommitClean
+    issue: DP-1111"
+echo $changelog
+# if [ "$lastCommit" = "$lastDependabot" ]
+# then
+  printf "$changelog" > changelogs/dependabot-${branch##*/}.md
+  # git add changelogs/dependabot-${branch##*/}.md
+  # git commit -m "Added a new changelog to the `changelogs/` folder"
+  # echo "Commit dependabot changelog";
+  # git push -u origin $branch
+# else
+#   echo "No changelog added"
+# fi
