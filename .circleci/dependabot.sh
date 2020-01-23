@@ -2,8 +2,8 @@
 # lastCommit=$(git log --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
 # lastCommitClean=$lastCommit
 # lastDependabot=$(git log --author="dependabot-preview" --pretty=oneline --abbrev-commit | head -n 1 | cut -c 10-)
-branch="dependabot/npm_and_yarn/patternlab/styleguide/core-js-3.6.4"
-lastCommitClean="Bump gulp-if from 2.0.2 to 3.0.0 in /patternlab/styleguide"
+branch="dependabot/npm_and_yarn/react/handlebars-4.5.3"
+lastCommitClean="[Security] Bump handlebars from 4.0.12 to 4.5.3 in /react"
 changeType="Changed"
 project=""
 
