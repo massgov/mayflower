@@ -1,4 +1,3 @@
-
 Changed:
   - project: Patternlab
     component: Dependency

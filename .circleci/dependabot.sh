@@ -21,8 +21,7 @@ if [[ $lastCommitClean =~ (.*)" in /patternlab/styleguide" ]]; then
   project="Patternlab"
 fi
 
-changelog="
-$changeType:
+changelog="$changeType:
   - project: $project
     component: Dependency
     description: $lastCommitClean
