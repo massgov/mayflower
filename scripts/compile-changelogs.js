@@ -58,7 +58,7 @@ if (impacts.includes('Major')) {
 }
 // Increment the release branch.
 const version = semver.inc(latest.toString(), maxImpact);
-console.log(version)
+console.log(`New release tag: ${version}`);
 
 // const today = new Date();
 // // Changed from getDay() was giving the wrong day of the week adjusted to use getDate() instead.
