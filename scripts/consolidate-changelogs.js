@@ -5,16 +5,16 @@ const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 const tempLogsPath = `${path.resolve(__dirname, '../')}/tempLogs.json`;
 
-const fd = fs.readFileSync(changelogPath).toString().split("\n");
+var allLogs = fs.readFileSync(changelogPath).toString().split("\n");
 
 // Get data from tempLogs JSON
 const { newLogsWithTitle, changelogs } = JSON.parse(fs.readFileSync(tempLogsPath, 'utf-8'))
 
 // Insert new changelogs onto the 4th line
-fd.splice(3, 0, newLogsWithTitle);
+allLogs.splice(3, 0, newLogsWithTitle);
+allLogs = allLogs.join('\n');
 
 // Update the changelog.md file
-var allLogs = fd.join('\n');
 fs.writeFileSync(changelogPath, allLogs, (err) => {
   if (err) throw err;
 })
