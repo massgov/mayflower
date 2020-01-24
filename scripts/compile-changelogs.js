@@ -6,8 +6,6 @@ const yaml = require('js-yaml');
 
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
-const tempLogsPath = `${path.resolve(__dirname, '../')}/tempLogs.json`;
-
 
 // Read directory path and exclude the template.yml file.
 const changelogs = fs.readdirSync(directoryPath).filter(function(file) {
@@ -58,11 +56,33 @@ const title = `## ${minor} (${month}/${day}/${year})`;
 // Add release title with
 const newLogsWithTitle = [title, ...newLogs].join('');
 
-
-// Store data into tempLogs JSON
-const tempLogs = {
+// Export data to use in release-branch.js
+module.exports = {
   changelogs,
   newLogsWithTitle
-}
+};
 
-module.exports = tempLogs;
+
+var allLogs = fs.readFileSync(changelogPath).toString().split("\n");
+
+// Insert new changelogs onto the 4th line
+allLogs.splice(3, 0, newLogsWithTitle);
+allLogs = allLogs.join('\n');
+
+// Update the changelog.md file
+fs.writeFileSync(changelogPath, allLogs, (err) => {
+  if (err) throw err;
+})
+
+
+// Remove the changelog files
+for (var i=0; i<changelogs.length; i++) {
+  var changeLogFilePath = directoryPath + "/" + changelogs[i];
+  fs.unlink(changeLogFilePath, (err) => {
+    if (err) {
+        console.log(`failed to delete changelog: ${err.toString()}`);
+    } else {
+        console.log(`successfully deleted changelog ${changelogs[i]}`);
+    }
+  });
+}

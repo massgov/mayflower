@@ -1,9 +1,7 @@
 const { octokit, minor } = require('./release-vars');
 const fs = require('fs');
 const path = require('path');
-const tempLogsPath = `${path.resolve(__dirname, '../')}/tempLogs.json`;
-// Get data from tempLogs JSON
-const { newLogsWithTitle, changelogs } = JSON.parse(fs.readFileSync(tempLogsPath, 'utf-8'))
+const { newLogsWithTitle, changelogs } = require('./compile-changelogs');
 
 // Added shelljs to use maybe in the script "npm install shelljs"
 // https://github.com/shelljs/shelljs
