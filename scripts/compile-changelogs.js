@@ -61,45 +61,46 @@ if (impacts.includes('Major')) {
 const version = semver.inc(latest.toString(), maxImpact);
 console.log(`New release tag: ${version}`);
 
-// const today = new Date();
-// // Changed from getDay() was giving the wrong day of the week adjusted to use getDate() instead.
-// const day = today.getDate();
-// // Need to increase getMonth() by one.
-// const month = today.getMonth() +1;
-// const year = today.getFullYear();
-//
-// // Changelog.md title for each release
-// const title = `## ${minor} (${month}/${day}/${year})`;
-// // Add release title with
-// const newLogsWithTitle = [title, ...newLogs].join('');
-//
-// // Export data to use in release.branch
-// module.exports = {
-//   changelogs,
-//   newLogsWithTitle
-// };
-//
-//
-// var allLogs = fs.readFileSync(changelogPath).toString().split("\n");
-//
-// // Insert new changelogs onto the 4th line
-// allLogs.splice(3, 0, newLogsWithTitle);
-// allLogs = allLogs.join('\n');
-//
-// // Update the changelog.md file
-// fs.writeFileSync(changelogPath, allLogs, (err) => {
-//   if (err) throw err;
-// })
-//
-//
-// // Remove the changelog files
-// for (var i=0; i<changelogs.length; i++) {
-//   var changeLogFilePath = directoryPath + "/" + changelogs[i];
-//   fs.unlink(changeLogFilePath, (err) => {
-//     if (err) {
-//         console.log(`failed to delete changelog: ${err.toString()}`);
-//     } else {
-//         console.log(`successfully deleted changelog ${changelogs[i]}`);
-//     }
-//   });
-// }
+const today = new Date();
+// Changed from getDay() was giving the wrong day of the week adjusted to use getDate() instead.
+const day = today.getDate();
+// Need to increase getMonth() by one.
+const month = today.getMonth() +1;
+const year = today.getFullYear();
+
+// Changelog.md title for each release
+const title = `## ${minor} (${month}/${day}/${year})`;
+// Add release title with
+const newLogsWithTitle = [title, ...newLogs].join('');
+
+// Export data to use in release.branch
+module.exports = {
+  changelogs,
+  newLogsWithTitle,
+  version
+};
+
+
+var allLogs = fs.readFileSync(changelogPath).toString().split("\n");
+
+// Insert new changelogs onto the 4th line
+allLogs.splice(3, 0, newLogsWithTitle);
+allLogs = allLogs.join('\n');
+
+// Update the changelog.md file
+fs.writeFileSync(changelogPath, allLogs, (err) => {
+  if (err) throw err;
+})
+
+
+// Remove the changelog files
+for (var i=0; i<changelogs.length; i++) {
+  var changeLogFilePath = directoryPath + "/" + changelogs[i];
+  fs.unlink(changeLogFilePath, (err) => {
+    if (err) {
+        console.log(`failed to delete changelog: ${err.toString()}`);
+    } else {
+        console.log(`successfully deleted changelog ${changelogs[i]}`);
+    }
+  });
+}
