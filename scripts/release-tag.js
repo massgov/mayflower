@@ -1,6 +1,7 @@
-const { octokit, minor } = require('./release-vars');
 const fs = require('fs');
 const path = require('path');
+
+const { octokit, minor } = require('./release-vars');
 
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 const re = /\n##\s/;

@@ -1,8 +1,8 @@
-const { minor } = require('./release-vars');
-
 const path = require('path');
 const fs = require('fs');
 const yaml = require('js-yaml');
+
+const { minor } = require('./release-vars');
 
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
@@ -56,7 +56,7 @@ const title = `## ${minor} (${month}/${day}/${year})`;
 // Add release title with
 const newLogsWithTitle = [title, ...newLogs].join('');
 
-// Export data to use in release-branch.js
+// Export data to use in release.branch
 module.exports = {
   changelogs,
   newLogsWithTitle

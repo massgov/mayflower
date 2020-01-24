@@ -1,8 +1,5 @@
-const { octokit, minor } = require('./release-vars');
 const fs = require('fs');
 const path = require('path');
-const { newLogsWithTitle, changelogs } = require('./compile-changelogs');
-
 // Added shelljs to use maybe in the script "npm install shelljs"
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');
@@ -11,6 +8,8 @@ const shell = require('shelljs');
 // Could not use the shell.exec to git add the remove changelogs.
 const git = require('simple-git/promise')();
 
+const { octokit, minor } = require('./release-vars');
+const { newLogsWithTitle, changelogs } = require('./compile-changelogs');
 
 // Checkout the branch.
 const releaseBranch = 'release/' + minor;
