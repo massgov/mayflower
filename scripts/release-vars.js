@@ -14,13 +14,7 @@ const octokit = new Octokit({
 const latest = shell.exec('git tag  | grep -E "^[0-9]" | sort -V | tail -1');
 
 // Display the latest tag.
-console.log(`Display the latest tag: ${latest}`);
-
-// Increment the release branch.
-const minor = semver.inc(latest.toString(), 'minor');
-
-// Print out the new minor version
-console.log(`New release tag: ${minor}`);
+console.log(`Previous release tag: ${latest}`);
 
 
 exports.octokit = octokit;
