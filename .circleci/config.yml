@@ -259,8 +259,6 @@ jobs:
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run: node scripts/compile-changelogs.js
-      - run: node scripts/consolidate-changelogs.js
       - run: node scripts/release-branch.js
 
   github_tag:
