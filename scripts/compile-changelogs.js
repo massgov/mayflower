@@ -65,6 +65,4 @@ const tempLogs = {
   newLogsWithTitle
 }
 
-fs.writeFileSync(tempLogsPath, JSON.stringify(tempLogs, null, 2), (err) => {
-  if (err) throw err;
-});
+module.exports = tempLogs;

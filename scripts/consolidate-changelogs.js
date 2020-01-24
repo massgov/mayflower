@@ -8,7 +8,7 @@ const tempLogsPath = `${path.resolve(__dirname, '../')}/tempLogs.json`;
 var allLogs = fs.readFileSync(changelogPath).toString().split("\n");
 
 // Get data from tempLogs JSON
-const { newLogsWithTitle, changelogs } = JSON.parse(fs.readFileSync(tempLogsPath, 'utf-8'))
+const { newLogsWithTitle, changelogs } = require('./compile-changelogs');
 
 // Insert new changelogs onto the 4th line
 allLogs.splice(3, 0, newLogsWithTitle);
