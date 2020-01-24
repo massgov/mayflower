@@ -18,7 +18,7 @@ if (version.trim() === latest.toString().trim()) {
   process.exit(1);
 }
 
-Cut the release tag in GitHub
+// Cut the release tag in GitHub
 octokit.repos.createRelease({
   owner: 'massgov',
   repo: 'mayflower',
