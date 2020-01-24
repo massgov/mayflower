@@ -50,6 +50,7 @@ changeTypes.forEach((changeType) => {
   });
 })
 
+/** Form the new release tag */
 let maxImpact = 'patch'
 if (impacts.includes('Major')) {
   maxImpact = 'major';
