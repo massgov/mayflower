@@ -10,6 +10,7 @@ const fd = fs.readFileSync(changelogPath).toString().split("\n");
 // Get data from tempLogs JSON
 const { newLogsWithTitle, changelogs } = JSON.parse(fs.readFileSync(tempLogsPath, 'utf-8'))
 
+// Insert new changelogs onto the 4th line
 fd.splice(3, 0, newLogsWithTitle);
 
 // Update the changelog.md file
