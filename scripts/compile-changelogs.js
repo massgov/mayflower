@@ -69,7 +69,7 @@ const month = today.getMonth() +1;
 const year = today.getFullYear();
 
 // Changelog.md title for each release
-const title = `## ${minor} (${month}/${day}/${year})`;
+const title = `## ${version} (${month}/${day}/${year})`;
 // Add release title with
 const newLogsWithTitle = [title, ...newLogs].join('');
 
