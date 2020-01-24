@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 - (Patternlab) [Dependency] DP-17156: Replace uglify-js with terser.
 
 ### Fixed
-- (Patternlab, React) [release automation] DP-16732: Fixed the display for the month and date in the release automation. (#PR)
+- (Patternlab, React) [release automation] DP-16732: Fixed the display for the month and date in the release automation. (#874)
 
 ### Changed
 - (Patternlab) [Dependency] DP-17136: Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide.
