@@ -1,9 +1,11 @@
 const { octokit, minor } = require('./release-vars');
 const fs = require('fs');
 const path = require('path');
-const tempLogsPath = `${path.resolve(__dirname, '../')}/tempLogs.json`;
-// Get data from tempLogs JSON
-const { newLogsWithTitle } = JSON.parse(fs.readFileSync(tempLogsPath, 'utf-8'))
+
+const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
+const re = /\n##\s/
+const newLogs = fs.readFileSync(changelogPath).toString().split(re, 2);
+const newLogsWithTitle = `\n## ${newLogs[1]}`
 
 octokit.repos.createRelease({
   owner: 'massgov',
