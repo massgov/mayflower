@@ -24,4 +24,4 @@ console.log(`New release tag: ${minor}`);
 
 
 exports.octokit = octokit;
-exports.minor = minor;
+exports.latest = latest;

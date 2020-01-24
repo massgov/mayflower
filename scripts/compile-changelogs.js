@@ -5,7 +5,7 @@ const yaml = require('js-yaml');
 // https://github.com/npm/node-semver
 const semver = require('semver');
 
-const { minor } = require('./release-vars');
+const { latest } = require('./release-vars');
 
 const directoryPath = path.resolve(__dirname, '../changelogs');
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
@@ -45,7 +45,7 @@ changeTypes.forEach((changeType) => {
   changeContents[changeType].forEach((change) => {
     const { project, component, issue, description, impact } = change;
     const newChange = `- (${project}) [${component}] ${issue ? `${issue}: ` : ''}${description}\n`
-    impacts.push(version);
+    impacts.push(impact);
     newLogs.push(newChange);
   });
 })
@@ -58,6 +58,7 @@ if (impacts.includes('Major')) {
 }
 // Increment the release branch.
 const version = semver.inc(latest.toString(), maxImpact);
+console.log(version)
 
 // const today = new Date();
 // // Changed from getDay() was giving the wrong day of the week adjusted to use getDate() instead.
