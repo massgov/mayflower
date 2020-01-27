@@ -27,7 +27,8 @@ const GradientTile = (props) => {
     const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
     setRgb(() => computedStyles);
   });
-  const hex = (x) => `0 ${parseInt(x, 10).toString(16)}`.slice(-2);
+  // Convert decimal to hexadecimal
+  const hex = (x) => `0${Number(x).toString(16)}`.slice(-2);
   const rgbToHex = (rgbVal) => {
     const rgbValues = rgbVal && rgbVal.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
     const hexValue = rgbValues && `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
