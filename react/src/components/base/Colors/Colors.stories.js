@@ -1,7 +1,6 @@
 import React, { Fragment, useRef, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
 
@@ -25,19 +24,18 @@ const Color = ({ color, value, name }) => {
 
 const GradientTile = ({ color, value, name, index }) => {
   const colorRef = useRef(null);
-  const [rgb, setRgb] = useState('')
+  const [rgb, setRgb] = useState('');
   useEffect(() => {
-    const computedStyles = window.getComputedStyle(ReactDOM.findDOMNode(colorRef.current)).getPropertyValue('background-color');
+    const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
     setRgb(() => computedStyles);
   });
   const hex = (x) => `0 ${parseInt(x, 10).toString(16)}`.slice(-2);
-  const rgbToHex = (rgb) => {
-    const rgbValues = rgb && rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    console.log(rgbValues[1])
-    const hexValue = "#" + hex(rgbValues[1]) + hex(rgbValues[2]) + hex(rgbValues[3]);
+  const rgbToHex = (rgbVal) => {
+    const rgbValues = rgbVal && rgbVal.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    const hexValue = `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
     return hexValue;
-  }
-  return (
+  };
+  return(
     <li className="title tile--tint">
       <h3 className="ma__sidebar-heading">{`${color} ${index * 10} %`}</h3>
       <div className="sg-swatch" ref={colorRef} />
@@ -59,40 +57,34 @@ for (i = 0; i < tiles; i++) {
 
 storiesOf('base/colors', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'Colors', (() => {
-      return(
-        <Fragment>
-          <SidebarHeading title="Theme Colors" level={2} />
-          <ul className="sg-colors">
-            {
-              themeColors.map((color) => <Color {...color} />)
-            }
-          </ul>
-          <SidebarHeading title="Gray Scale Colors" level={2} />
-          <ul className="sg-colors">
-            {
-              grayScaleColors.map((color) => <Color {...color} />)
-            }
-          </ul>
-          <SidebarHeading title="Utility Colors" level={2} />
-          <ul className="sg-colors">
-            {
-              utilityColors.map((color) => <Color {...color} />)
-            }
-          </ul>
-        </Fragment>
-      );
-    }))
-  .add(
-    'Gradients', (() => {
-      return(
-        <Fragment>
-          <ul className="sg-colors">
-            {
-              tilesArray.map((i) => <GradientTile color="blue" value="#14558f" name="c-primary" index={i} />)
-            }
-          </ul>
-        </Fragment>
-      );
-    }));
+  .add('Colors', (() => (
+    <Fragment>
+      <SidebarHeading title="Theme Colors" level={2} />
+      <ul className="sg-colors">
+        {
+          themeColors.map((color) => <Color {...color} />)
+        }
+      </ul>
+      <SidebarHeading title="Gray Scale Colors" level={2} />
+      <ul className="sg-colors">
+        {
+          grayScaleColors.map((color) => <Color {...color} />)
+        }
+      </ul>
+      <SidebarHeading title="Utility Colors" level={2} />
+      <ul className="sg-colors">
+        {
+          utilityColors.map((color) => <Color {...color} />)
+        }
+      </ul>
+    </Fragment>
+  )))
+  .add('Gradients', (() => (
+    <Fragment>
+      <ul className="sg-colors">
+        {
+          tilesArray.map((index) => <GradientTile color="blue" value="#14558f" name="c-primary" index={index} />)
+        }
+      </ul>
+    </Fragment>
+  )));

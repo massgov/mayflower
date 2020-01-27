@@ -52,14 +52,6 @@ $tiles: 10;
 // }
 
 .tile {
-  width: 70px;
-  height: 70px;
-  border: 1px solid transparentize(#DDD, 0.15);
-  border-radius: 3px;
-  box-shadow: 0 0 0 5px #FFF inset;
-  float: left;
-  margin: 0 0 20px 20px;
-
   &--tint {
     @for $i from 0 through $tiles {
       &:nth-child(#{$i + 1}) {
