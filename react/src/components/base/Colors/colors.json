@@ -1,0 +1,51 @@
+{
+  "themeColors": [
+    {
+      "name": "$c-primary",
+      "color": "Bay Blue",
+      "value": "#14558f"
+    },
+    {
+      "name": "$c-primary-alt",
+      "color": "Berkshires Green",
+      "value": "#388557"
+    },
+    {
+      "name": "$c-highlight",
+      "color": "Duckling Yellow",
+      "value": "#f6c51b"
+    },
+    {
+      "name": "$c-gray-dark",
+      "color": "Granite Gray",
+      "value": "#535353"
+    },
+    {
+      "name": "$c-independence-cranberry",
+      "color": "Independent Cranberry",
+      "value": "#680A1D"
+    }
+  ],
+  "utilityColors": [
+    {
+      "name": "$c-error-red",
+      "color": "Error Red",
+      "value": "#14558f"
+    },
+    {
+      "name": "$c-focus",
+      "color": "Focus Hightlight",
+      "value": "#3e94cf"
+    },
+    {
+      "name": "$c-warning",
+      "color": "Warning Yellow",
+      "value": "#f6c51b"
+    },
+    {
+      "name": "$c-success",
+      "color": "Success Green",
+      "value": "#388557"
+    }
+  ]
+}

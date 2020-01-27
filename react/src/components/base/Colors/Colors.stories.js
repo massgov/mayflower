@@ -2,8 +2,20 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-const Color = (color) => {
-  <div className={`color-swatch ${color}`}></div>
+import './styles.css';
+
+const Color = ({ color, value, name }) => {
+  return (
+    <li style={{ width: 300, margin: 20, padding: 10 }}>
+      <h2 className="ma__sidebar-heading">{color}</h2>
+      <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
+      <div className="sg-info">
+        <span>{value}</span>
+        <br />
+        <code style={{ fontSize: '1rem' }}>{name}</code>
+      </div>
+    </li>
+  );
 };
 
 storiesOf('base', module)
@@ -11,7 +23,13 @@ storiesOf('base', module)
   .add(
     'Colors', (() => {
       const props = {
-        text: text('text', 'This is just a placeholder for templates')
+        name: "$c-primary",
+        color: "Bay Blue",
+        value: "#14558f"
       };
-      return(<Color {...props} />);
+      return(
+        <ul className="sg-colors">
+          <Color {...props} />
+        </ul>
+      );
     }));
