@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
+import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
+
 import { themeColors, grayScaleColors, utilityColors } from './colors.json';
 
 import './styles.css';
@@ -26,16 +28,19 @@ storiesOf('base', module)
     'Colors', (() => {
       return(
         <Fragment>
+        <SidebarHeading title="Theme Colors" level={2} />
           <ul className="sg-colors">
             {
               themeColors.map((color) => <Color {...color} />)
             }
           </ul>
+          <SidebarHeading title="Gray Scale Colors" level={2} />
           <ul className="sg-colors">
             {
               grayScaleColors.map((color) => <Color {...color} />)
             }
           </ul>
+          <SidebarHeading title="Utility Colors" level={2} />
           <ul className="sg-colors">
             {
               utilityColors.map((color) => <Color {...color} />)
