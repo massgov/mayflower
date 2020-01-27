@@ -22,7 +22,7 @@ const Color = ({ color, value, name }) => {
   );
 };
 
-const GradientTile = ({ color, value, name, index }) => {
+const GradientTile = ({ color, name, index }) => {
   const colorRef = useRef(null);
   const [rgb, setRgb] = useState('');
   useEffect(() => {
@@ -32,11 +32,11 @@ const GradientTile = ({ color, value, name, index }) => {
   const hex = (x) => `0 ${parseInt(x, 10).toString(16)}`.slice(-2);
   const rgbToHex = (rgbVal) => {
     const rgbValues = rgbVal && rgbVal.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    const hexValue = `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
+    const hexValue = rgbValues && `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
     return hexValue;
   };
   return(
-    <li className="title tile--tint">
+    <li className={`${name}--tint`}>
       <h3 className="ma__sidebar-heading">{`${color} ${index * 10} %`}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
@@ -48,12 +48,21 @@ const GradientTile = ({ color, value, name, index }) => {
   );
 };
 
-const tiles = 10;
-let i;
-const tilesArray = [];
-for (i = 0; i < tiles; i++) {
-  tilesArray.push(i);
-}
+const GradientSpectrum = ({ name, color }) => {
+  const tiles = 10;
+  let i;
+  const tilesArray = [];
+  for (i = 0; i < tiles; i++) {
+    tilesArray.push(i);
+  }
+  return(
+    <ul className="sg-colors">
+      {
+        tilesArray.map((index) => <GradientTile color={color} name={name} index={index} />)
+      }
+    </ul>
+  );
+};
 
 storiesOf('base/colors', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -81,10 +90,10 @@ storiesOf('base/colors', module)
   )))
   .add('Gradients', (() => (
     <Fragment>
-      <ul className="sg-colors">
-        {
-          tilesArray.map((index) => <GradientTile color="blue" value="#14558f" name="c-primary" index={index} />)
-        }
-      </ul>
+      <GradientSpectrum name="c-primary" color="Bay Blue" />
+      <GradientSpectrum name="c-primary-alt" color="" />
+      <GradientSpectrum name="c-highlight" color="" />
+      <GradientSpectrum name="c-independence-cranberry" color="" />
+      <GradientSpectrum name="c-gray-dark" color="" />
     </Fragment>
   )));

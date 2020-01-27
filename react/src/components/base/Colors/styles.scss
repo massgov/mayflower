@@ -32,33 +32,34 @@
 }
 
 
-// $colors: (
-//   "c-warning": $c-warning,
-//   "c-primary": $c-primary,
-//   "c-primary-alt": $c-primary-alt,
-//   "c-error": $c-error,
-//   "c-gray": $c-gray
-// );
-// @each $class, $c in $colors {
-//   .#{$class}-10 {
-//     background: tint($color, 10%);
-//   }
-// }
-
-$color: $c-primary;
 $tiles: 10;
-// @function tint($color, $percentage) {
-//     @return mix(#FFF, $color, $percentage);
-// }
-
-.tile {
-  &--tint {
-    @for $i from 0 through $tiles {
-      &:nth-child(#{$i + 1}) {
-        .sg-swatch {
-          background: tint($color, 10*$i);
+@mixin ma_gradient($class, $color) {
+  .#{$class} {
+    &--tint {
+      @for $i from 0 through $tiles {
+        &:nth-child(#{$i + 1}) {
+          .sg-swatch {
+            background: tint($color, 10*$i);
+          }
         }
       }
     }
   }
 }
+
+$colors: (
+  "c-highlight": $c-highlight,
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-independence-cranberry": $c-independence-cranberry,
+  "c-gray-dark": $c-gray-dark
+);
+
+@each $class, $c in $colors {
+  @include ma_gradient($class, $c);
+}
+
+
+// @function tint($color, $percentage) {
+//     @return mix(#FFF, $color, $percentage);
+// }
