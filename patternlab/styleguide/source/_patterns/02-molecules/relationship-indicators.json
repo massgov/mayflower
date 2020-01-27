@@ -3,7 +3,7 @@
     "pageTitle": "Unemployment Benefits",
     "primary": {
       "position": "primary",
-      "label": "offered by",
+      "label": "part of",
       "tags": [{
         "class": "ma__relationship-indicators--term",
         "href": "#",
@@ -16,7 +16,7 @@
     },
     "secondary": {
       "position": "",
-      "label": "related to",
+      "label": "offered by",
       "tags": [{
         "class": "ma__relationship-indicators--term",
         "href": "#",
