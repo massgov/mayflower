@@ -52,7 +52,7 @@ const GradientTile = (props) => {
 };
 
 const GradientSpectrum = ({ name, color, direction }) => {
-  const tiles = direction === 'tint' ? 10 : 5;
+  const tiles = direction === 'tint' ? 10 : 6;
   let i;
   const tilesArray = [];
   for (i = 0; i < tiles; i += 1) {
