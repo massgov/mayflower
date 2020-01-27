@@ -65,7 +65,7 @@ $tiles: 10;
       @for $i from 0 through $tiles {
         &:nth-child(#{$i + 1}) {
           .sg-swatch {
-            background: shade($color, 10*$i);
+            background: darken($color, 5*$i);
           }
         }
       }

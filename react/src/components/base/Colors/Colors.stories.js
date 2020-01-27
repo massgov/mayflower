@@ -34,12 +34,12 @@ const GradientTile = (props) => {
     const hexValue = rgbValues && `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
     return hexValue;
   };
-  const { index, direction } = props;
+  const { index, effect } = props;
   const firstTile = index === 0;
-  const color = firstTile ? props.color : `${index * 10} % ${direction}`;
+  const color = firstTile ? props.color : `${index * 10} % ${effect}`;
   const name = firstTile ? `$${props.name}` : '';
   return(
-    <li className={`${props.name}--${direction}`}>
+    <li className={`${props.name}--${effect}`}>
       <h3 className="ma__sidebar-heading">{color}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
@@ -51,8 +51,8 @@ const GradientTile = (props) => {
   );
 };
 
-const GradientSpectrum = ({ name, color, direction }) => {
-  const tiles = direction === 'tint' ? 10 : 6;
+const GradientSpectrum = ({ name, color, effect }) => {
+  const tiles = effect === 'tint' ? 10 : 6;
   let i;
   const tilesArray = [];
   for (i = 0; i < tiles; i += 1) {
@@ -61,7 +61,7 @@ const GradientSpectrum = ({ name, color, direction }) => {
   return(
     <ul className="sg-colors sg-colors--gradient">
       {
-        tilesArray.map((index) => <GradientTile color={color} name={name} index={index} direction={direction} />)
+        tilesArray.map((index) => <GradientTile color={color} name={name} index={index} effect={effect} />)
       }
     </ul>
   );
@@ -98,7 +98,7 @@ storiesOf('base/colors', module)
           const props = {
             name: name.match(/\$(.*)/)[1],
             color,
-            direction: 'tint'
+            effect: 'tint'
           };
           return(<GradientSpectrum {...props} />);
         })
@@ -112,7 +112,7 @@ storiesOf('base/colors', module)
           const props = {
             name: name.match(/\$(.*)/)[1],
             color,
-            direction: 'shade'
+            effect: 'shade'
           };
           return(<GradientSpectrum {...props} />);
         })
