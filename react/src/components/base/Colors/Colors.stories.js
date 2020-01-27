@@ -4,7 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 
 import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
 
-import { themeColors, grayScaleColors, utilityColors } from './colors.json';
+import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
 
 import './styles.css';
 
@@ -71,7 +71,7 @@ storiesOf('base/colors', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Colors', (() => (
     <Fragment>
-      <SidebarHeading title="Theme Colors" level={2} />
+      <SidebarHeading title="Mayflower Brand Colors" level={2} />
       <ul className="sg-colors">
         {
           themeColors.map((color) => <Color {...color} />)
@@ -87,6 +87,22 @@ storiesOf('base/colors', module)
       <ul className="sg-colors">
         {
           utilityColors.map((color) => <Color {...color} />)
+        }
+      </ul>
+      <SidebarHeading title="Theme Color Usage" level={2} />
+      <ul className="sg-colors">
+        {
+          primaryColors.map((color) => <Color {...color} />)
+        }
+      </ul>
+      <ul className="sg-colors">
+        {
+          primaryAltColors.map((color) => <Color {...color} />)
+        }
+      </ul>
+      <ul className="sg-colors">
+        {
+          highLightColors.map((color) => <Color {...color} />)
         }
       </ul>
     </Fragment>
