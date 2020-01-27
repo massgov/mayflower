@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import { themeColors, utilityColors } from './colors.json';
+import { themeColors, grayScaleColors, utilityColors } from './colors.json';
 
 import './styles.css';
 
@@ -29,6 +29,11 @@ storiesOf('base', module)
           <ul className="sg-colors">
             {
               themeColors.map((color) => <Color {...color} />)
+            }
+          </ul>
+          <ul className="sg-colors">
+            {
+              grayScaleColors.map((color) => <Color {...color} />)
             }
           </ul>
           <ul className="sg-colors">

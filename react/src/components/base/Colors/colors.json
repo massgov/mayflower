@@ -26,6 +26,33 @@
       "value": "#680A1D"
     }
   ],
+  "grayScaleColors":[
+    {
+      "name": "$c-black",
+      "color": "Revolution Gray",
+      "value": "#141414"
+    },
+    {
+      "name": "$c-gray-dark",
+      "color": "Granite Gray",
+      "value": "#535353"
+    },
+    {
+      "name": "$c-gray",
+      "color": "Atlantic Gray",
+      "value": "#707070"
+    },
+    {
+      "name": "$c-gray-light",
+      "color": "Overcast Gray",
+      "value": "#dcdcdc"
+    },
+    {
+      "name": "$c-gray-lightest",
+      "color": "Platinum Gray",
+      "value": "#f2f2f2"
+    }
+  ],
   "utilityColors": [
     {
       "name": "$c-error-red",
