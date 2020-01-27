@@ -20,7 +20,7 @@ const Color = ({ color, value, name }) => (
   </li>
 );
 
-const GradientTile = ({ color, name, index }) => {
+const GradientTile = (props) => {
   const colorRef = useRef(null);
   const [rgb, setRgb] = useState('');
   useEffect(() => {
@@ -33,14 +33,17 @@ const GradientTile = ({ color, name, index }) => {
     const hexValue = rgbValues && `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
     return hexValue;
   };
+  const firstTile = props.index === 0;
+  const color = firstTile ? props.color : `${props.index * 10} %`;
+  const name = firstTile ? `$${props.name}` : `${name}-${props.index * 10}`;
   return(
-    <li className={`${name}--tint`}>
-      <h3 className="ma__sidebar-heading">{`${color} ${index * 10} %`}</h3>
+    <li className={`${props.name}--tint`}>
+      <h3 className="ma__sidebar-heading">{color}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
         <span>{rgbToHex(rgb)}</span>
         <br />
-        <code style={{ fontSize: '1rem' }}>{`${name}-${index * 10}`}</code>
+        <code style={{ fontSize: '1rem' }}>{name}</code>
       </div>
     </li>
   );
