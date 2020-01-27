@@ -37,8 +37,9 @@ const GradientTile = (props) => {
   const firstTile = props.index === 0;
   const color = firstTile ? props.color : `${props.index * 10} %`;
   const name = firstTile ? `$${props.name}` : '';
+  const direction = props.direction;
   return(
-    <li className={`${props.name}--tint`}>
+    <li className={`${props.name}--${direction}`}>
       <h3 className="ma__sidebar-heading">{color}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
@@ -50,7 +51,7 @@ const GradientTile = (props) => {
   );
 };
 
-const GradientSpectrum = ({ name, color }) => {
+const GradientSpectrum = ({ name, color, direction }) => {
   const tiles = 10;
   let i;
   const tilesArray = [];
@@ -60,7 +61,7 @@ const GradientSpectrum = ({ name, color }) => {
   return(
     <ul className="sg-colors sg-colors--gradient">
       {
-        tilesArray.map((index) => <GradientTile color={color} name={name} index={index} />)
+        tilesArray.map((index) => <GradientTile color={color} name={name} index={index} direction={direction} />)
       }
     </ul>
   );
@@ -90,13 +91,28 @@ storiesOf('base/colors', module)
       </ul>
     </Fragment>
   )))
-  .add('Gradients', (() => (
+  .add('Gradients (Light)', (() => (
     <Fragment>
       {
         themeColors.map(({ name, color }) => {
           const props = {
             name: name.match(/\$(.*)/)[1],
-            color
+            color,
+            direction: 'tint'
+          };
+          return(<GradientSpectrum {...props} />);
+        })
+      }
+    </Fragment>
+  )))
+  .add('Gradients (Dark)', (() => (
+    <Fragment>
+      {
+        themeColors.map(({ name, color }) => {
+          const props = {
+            name: name.match(/\$(.*)/)[1],
+            color,
+            direction: 'shade'
           };
           return(<GradientSpectrum {...props} />);
         })

@@ -59,6 +59,20 @@ $tiles: 10;
   }
 }
 
+@mixin ma_gradient_dark($class, $color) {
+  .#{$class} {
+    &--shade {
+      @for $i from 0 through $tiles {
+        &:nth-child(#{$i + 1}) {
+          .sg-swatch {
+            background: shade($color, 10*$i);
+          }
+        }
+      }
+    }
+  }
+}
+
 $colors: (
   "c-highlight": $c-highlight,
   "c-primary": $c-primary,
@@ -69,4 +83,5 @@ $colors: (
 
 @each $class, $c in $colors {
   @include ma_gradient($class, $c);
+  @include ma_gradient_dark($class, $c);
 }
