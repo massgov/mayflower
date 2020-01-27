@@ -28,7 +28,7 @@ storiesOf('base', module)
     'Colors', (() => {
       return(
         <Fragment>
-        <SidebarHeading title="Theme Colors" level={2} />
+          <SidebarHeading title="Theme Colors" level={2} />
           <ul className="sg-colors">
             {
               themeColors.map((color) => <Color {...color} />)
@@ -45,6 +45,26 @@ storiesOf('base', module)
             {
               utilityColors.map((color) => <Color {...color} />)
             }
+          </ul>
+        </Fragment>
+      );
+    }))
+  .add(
+    'Colors', (() => {
+      return(
+        <Fragment>
+          <h2 class="title">Tint</h2>
+          <ul class="color-list">
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
+            <li class="tile tile--tint"></li>
           </ul>
         </Fragment>
       );

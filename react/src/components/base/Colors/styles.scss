@@ -1,7 +1,6 @@
-.color-swatch {
-  width: 250px;
-  height: 250px;
-}
+@import '../../styles/global';
+// import color variables
+// import bourbon library "tint" and "shade" functions
 
 .sg-colors {
   display: flex;
@@ -30,4 +29,42 @@
 .sg-label {
   font-size: 90%;
   line-height: 1;
+}
+
+
+// $colors: (
+//   "c-warning": $c-warning,
+//   "c-primary": $c-primary,
+//   "c-primary-alt": $c-primary-alt,
+//   "c-error": $c-error,
+//   "c-gray": $c-gray
+// );
+// @each $class, $c in $colors {
+//   .#{$class}-10 {
+//     background: tint($color, 10%);
+//   }
+// }
+
+$color: $c-primary;
+$tiles: 10;
+// @function tint($color, $percentage) {
+//     @return mix(#FFF, $color, $percentage);
+// }
+
+.tile {
+  width: 70px;
+  height: 70px;
+  border: 1px solid transparentize(#DDD, 0.15);
+  border-radius: 3px;
+  box-shadow: 0 0 0 5px #FFF inset;
+  float: left;
+  margin: 0 0 20px 20px;
+  background-color: $color;
+  &--tint {
+    @for $i from 1 through $tiles {
+      &:nth-child(#{$i}) {
+         background: tint($color, 10*$i);
+      }
+    }
+  }
 }
