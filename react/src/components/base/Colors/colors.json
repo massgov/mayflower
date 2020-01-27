@@ -30,7 +30,7 @@
     {
       "name": "$c-error-red",
       "color": "Error Red",
-      "value": "#14558f"
+      "value": "#CD0D0D"
     },
     {
       "name": "$c-focus",
