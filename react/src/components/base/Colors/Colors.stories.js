@@ -88,10 +88,14 @@ storiesOf('base/colors', module)
   )))
   .add('Gradients', (() => (
     <Fragment>
-      <GradientSpectrum name="c-primary" color="Bay Blue" />
-      <GradientSpectrum name="c-primary-alt" color="" />
-      <GradientSpectrum name="c-highlight" color="" />
-      <GradientSpectrum name="c-independence-cranberry" color="" />
-      <GradientSpectrum name="c-gray-dark" color="" />
+      {
+        themeColors.map(({ name, color }) => {
+          const props = {
+            name: name.match(/\$(.*)/)[1],
+            color
+          };
+          return(<GradientSpectrum {...props} />);
+        })
+      }
     </Fragment>
   )));
