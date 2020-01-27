@@ -35,7 +35,7 @@ const GradientTile = (props) => {
   };
   const firstTile = props.index === 0;
   const color = firstTile ? props.color : `${props.index * 10} %`;
-  const name = firstTile ? `$${props.name}` : `${name}-${props.index * 10}`;
+  const name = firstTile ? `$${props.name}` : '';
   return(
     <li className={`${props.name}--tint`}>
       <h3 className="ma__sidebar-heading">{color}</h3>
@@ -57,7 +57,7 @@ const GradientSpectrum = ({ name, color }) => {
     tilesArray.push(i);
   }
   return(
-    <ul className="sg-colors">
+    <ul className="sg-colors sg-colors--gradient">
       {
         tilesArray.map((index) => <GradientTile color={color} name={name} index={index} />)
       }
