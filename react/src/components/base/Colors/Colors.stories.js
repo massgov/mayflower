@@ -1,10 +1,9 @@
 import React, { Fragment, useRef, useEffect, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-
 import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
-
 import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
+import ColorGradientsDocs from './ColorGradients.md';
 
 import './styles.css';
 
@@ -107,31 +106,37 @@ storiesOf('base/colors', module)
       </ul>
     </Fragment>
   )))
-  .add('Gradients (Light)', (() => (
-    <Fragment>
-      {
-        themeColors.map(({ name, color }) => {
-          const props = {
-            name: name.match(/\$(.*)/)[1],
-            color,
-            effect: 'tint'
-          };
-          return(<GradientSpectrum {...props} />);
-        })
-      }
-    </Fragment>
-  )))
-  .add('Gradients (Dark)', (() => (
-    <Fragment>
-      {
-        themeColors.map(({ name, color }) => {
-          const props = {
-            name: name.match(/\$(.*)/)[1],
-            color,
-            effect: 'shade'
-          };
-          return(<GradientSpectrum {...props} />);
-        })
-      }
-    </Fragment>
-  )));
+  .add(
+    'Gradients (Light)', (() => (
+      <Fragment>
+        {
+          themeColors.map(({ name, color }) => {
+            const props = {
+              name: name.match(/\$(.*)/)[1],
+              color,
+              effect: 'tint'
+            };
+            return(<GradientSpectrum {...props} />);
+          })
+        }
+      </Fragment>
+    )),
+    { info: ColorGradientsDocs }
+  )
+  .add(
+    'Gradients (Dark)', (() => (
+      <Fragment>
+        {
+          themeColors.map(({ name, color }) => {
+            const props = {
+              name: name.match(/\$(.*)/)[1],
+              color,
+              effect: 'shade'
+            };
+            return(<GradientSpectrum {...props} />);
+          })
+        }
+      </Fragment>
+    )),
+    { info: ColorGradientsDocs }
+  );
