@@ -2,6 +2,7 @@
 // import color variables
 // import bourbon library "tint" and "shade" functions
 
+// use patternlab color swatches styles
 .sg-colors {
   display: flex;
   flex-wrap: wrap;
@@ -31,7 +32,7 @@
   line-height: 1;
 }
 
-
+// Programetically generate gradient colors
 $tiles: 10;
 @mixin ma_gradient($class, $color) {
   .#{$class} {
@@ -58,8 +59,3 @@ $colors: (
 @each $class, $c in $colors {
   @include ma_gradient($class, $c);
 }
-
-
-// @function tint($color, $percentage) {
-//     @return mix(#FFF, $color, $percentage);
-// }
