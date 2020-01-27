@@ -34,10 +34,10 @@ const GradientTile = (props) => {
     const hexValue = rgbValues && `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
     return hexValue;
   };
-  const firstTile = props.index === 0;
-  const color = firstTile ? props.color : `${props.index * 10} %`;
+  const { index, direction } = props;
+  const firstTile = index === 0;
+  const color = firstTile ? props.color : `${index * 10} % ${direction}`;
   const name = firstTile ? `$${props.name}` : '';
-  const direction = props.direction;
   return(
     <li className={`${props.name}--${direction}`}>
       <h3 className="ma__sidebar-heading">{color}</h3>
@@ -52,7 +52,7 @@ const GradientTile = (props) => {
 };
 
 const GradientSpectrum = ({ name, color, direction }) => {
-  const tiles = 10;
+  const tiles = direction === 'tint' ? 10 : 5;
   let i;
   const tilesArray = [];
   for (i = 0; i < tiles; i += 1) {
