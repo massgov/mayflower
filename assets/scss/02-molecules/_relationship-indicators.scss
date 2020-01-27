@@ -41,8 +41,8 @@
     }
 
     &--section {
-        width: 100%;
-        min-width: 50%;
+        // width: 100%;
+        // min-width: 50%;
         display: flex;
         flex-direction: column;
 
@@ -58,12 +58,14 @@
           padding-top: 15px;
         }
 
-        &:first-child {
-          padding: 15px 0;
-        }
+        // &:first-child {
+        //   padding: 15px 0;
+        // }
 
         &.primary {
-        
+            width: 100%;
+            min-width: 60%;
+
             @media ($bp-medium-min) {
                 padding-right: 1.5rem;
             }
@@ -85,10 +87,10 @@
                     flex-direction: initial;
                 }
             }
-        
+
             // Only hide tags if secondary tags present.
             &:not(.single) .ma__relationship-indicators--term {
-              
+
               &:nth-child(n+2) {
                 display: none;
               }
@@ -120,6 +122,8 @@
         }
 
         &.secondary {
+            width: 100%;
+            min-width: 40%;
 
             .ma__relationship-indicators--term {
 
@@ -153,7 +157,7 @@
 
         a {
           width: 100%;
-      
+
           @media ($bp-x-small-min) {
            width: auto;
           }
@@ -171,11 +175,11 @@
             font-weight: 600;
             white-space: nowrap;
             display: none;
-            
+
             .tag-state {
                 text-transform: none;
             }
-            
+
             &:after {
                 opacity: 0.5;
                 border-width: 3px;
@@ -183,7 +187,7 @@
                 width: 8px;
                 transform: translateY(-45%) rotate(45deg);
             }
-            
+
             &.is-open::after {
                 transform: translateY(-55%) rotate(-135deg);
             }
@@ -195,6 +199,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
+        padding-inline-start: 0;
 
         @media ($bp-x-small-min) {
             flex-flow: row wrap;
