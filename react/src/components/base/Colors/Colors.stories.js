@@ -13,7 +13,7 @@ const Color = ({ color, value, name }) => (
     <h3 className="ma__sidebar-heading">{color}</h3>
     <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
     <div className="sg-info">
-      <span>{value}</span>
+      <span>{value.toUpperCase()}</span>
       <br />
       <code style={{ fontSize: '1rem' }}>{name}</code>
     </div>
@@ -42,7 +42,7 @@ const GradientTile = (props) => {
       <h3 className="ma__sidebar-heading">{color}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
-        <span>{rgbToHex(rgb)}</span>
+        <span>{rgbToHex(rgb).toUpperCase()}</span>
         <br />
         <code style={{ fontSize: '1rem' }}>{name}</code>
       </div>
