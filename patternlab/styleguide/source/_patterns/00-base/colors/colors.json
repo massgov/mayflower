@@ -19,17 +19,17 @@
     },{
     "items": [
       {
-        "name": "$c-primary-alt", 
+        "name": "$c-primary-alt",
         "color": "Berkshires Green",
         "value": "#388557"
       },
       {
-        "name": "$c-berkshires-green-lighter", 
+        "name": "$c-berkshires-green-lighter",
         "color": "50% Berkshires Green",
         "value": "#97c2a9"
       },
       {
-        "name": "$c-berkshires-green-lightest", 
+        "name": "$c-berkshires-green-lightest",
         "color": "20% Berkshires Green",
         "value": "#d6E7dd"
       }]
@@ -46,7 +46,7 @@
         "value": "#fbe28d"
       },
       {
-        "name": "$$c-duckling-yellow-lightest",
+        "name": "$c-duckling-yellow-lightest",
         "color": "10% Duckling Yellow",
         "value": "#fef9e8"
       }]
