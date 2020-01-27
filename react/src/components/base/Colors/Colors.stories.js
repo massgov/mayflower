@@ -8,19 +8,17 @@ import { themeColors, grayScaleColors, utilityColors } from './colors.json';
 
 import './styles.css';
 
-const Color = ({ color, value, name }) => {
-  return (
-    <li style={{ width: 300, margin: 10, padding: 10 }}>
-      <h3 className="ma__sidebar-heading">{color}</h3>
-      <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
-      <div className="sg-info">
-        <span>{value}</span>
-        <br />
-        <code style={{ fontSize: '1rem' }}>{name}</code>
-      </div>
-    </li>
-  );
-};
+const Color = ({ color, value, name }) => (
+  <li style={{ width: 300, margin: 10, padding: 10 }}>
+    <h3 className="ma__sidebar-heading">{color}</h3>
+    <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
+    <div className="sg-info">
+      <span>{value}</span>
+      <br />
+      <code style={{ fontSize: '1rem' }}>{name}</code>
+    </div>
+  </li>
+);
 
 const GradientTile = ({ color, name, index }) => {
   const colorRef = useRef(null);
@@ -52,7 +50,7 @@ const GradientSpectrum = ({ name, color }) => {
   const tiles = 10;
   let i;
   const tilesArray = [];
-  for (i = 0; i < tiles; i++) {
+  for (i = 0; i < tiles; i += 1) {
     tilesArray.push(i);
   }
   return(
