@@ -31,17 +31,19 @@
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
-      "label": "offered by",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Highway Division"
-      },
-      {
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Mass Dept of Transportation"
-      }]
+      "label": "part of",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Other agency or organization"
+        }
+      ]
     }
   },
   "pageContent": {
@@ -88,46 +90,50 @@
                 "titleContext": "",
                 "level": 3
               },
-              "downloadLinks": [{
-                "downloadLink": {
-                  "iconSize": "",
-                  "icon": "doc-pdf",
-                  "decorativeLink": {
-                    "text": "PDF resource item",
-                    "href": "#",
-                    "info": "",
-                    "property": ""
-                  },
-                  "size": "30kb",
-                  "format": "PDF"
+              "downloadLinks": [
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-pdf",
+                    "decorativeLink": {
+                      "text": "PDF resource item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "30kb",
+                    "format": "PDF"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "laptop",
+                    "decorativeLink": {
+                      "text": "Link to an online form",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "",
+                    "decorativeLink": {
+                      "text": "Link to another page",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
                 }
-              },{
-                "downloadLink": {
-                  "iconSize": "",
-                  "icon": "laptop",
-                  "decorativeLink": {
-                    "text": "Link to an online form",
-                    "href": "#",
-                    "info": "",
-                    "property": ""
-                  },
-                  "size": "",
-                  "format": "form"
-                }
-              },{
-                "downloadLink": {
-                  "iconSize": "",
-                  "icon": "",
-                  "decorativeLink": {
-                    "text": "Link to another page",
-                    "href": "#",
-                    "info": "",
-                    "property": ""
-                  },
-                  "size": "",
-                  "format": "form"
-                }
-              }]
+              ]
             }
           }
         }
@@ -224,9 +230,9 @@
           }
         },
         {
-        "path": "@atoms/09-media/iframe.twig",
+          "path": "@atoms/09-media/iframe.twig",
           "data": {
-           "iframe": {
+            "iframe": {
               "src": "https://massgov.github.io",
               "title": "Embed page title for accessibility",
               "position": "full",
@@ -243,9 +249,9 @@
           }
         },
         {
-        "path": "@atoms/09-media/iframe.twig",
+          "path": "@atoms/09-media/iframe.twig",
           "data": {
-           "iframe": {
+            "iframe": {
               "src": "https://massgov.github.io",
               "title": "Embed page title for accessibility",
               "position": "full",
