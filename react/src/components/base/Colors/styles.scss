@@ -59,7 +59,9 @@ $tiles: 10;
   box-shadow: 0 0 0 5px #FFF inset;
   float: left;
   margin: 0 0 20px 20px;
-  background-color: $color;
+  .sg-swatch {
+    background-color: $color;
+  }
   &--tint {
     @for $i from 1 through $tiles {
       &:nth-child(#{$i}) {

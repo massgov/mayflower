@@ -22,6 +22,27 @@ const Color = ({ color, value, name }) => {
   );
 };
 
+const GradientTile = ({ color, value, name, index }) => {
+  return (
+    <li className="title tile--tint">
+      <h3 className="ma__sidebar-heading">{`${color} ${index * 10} %`}</h3>
+      <div className="sg-swatch" />
+      <div className="sg-info">
+        <span>{value}</span>
+        <br />
+        <code style={{ fontSize: '1rem' }}>{`${name}-${index * 10}`}</code>
+      </div>
+    </li>
+  );
+};
+
+const tiles = 10;
+let i;
+const tilesArray = [];
+for (i = 0; i < tiles; i++) {
+  tilesArray.push(i);
+}
+
 storiesOf('base', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
@@ -53,18 +74,10 @@ storiesOf('base', module)
     'Colors', (() => {
       return(
         <Fragment>
-          <h2 class="title">Tint</h2>
-          <ul class="color-list">
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
-            <li class="tile tile--tint"></li>
+          <ul class="sg-colors">
+            {
+              tilesArray.map((i) => <GradientTile color="blue" value="#14558f" name="c-primary" index={i} />)
+            }
           </ul>
         </Fragment>
       );
