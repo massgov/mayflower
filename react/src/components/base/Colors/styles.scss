@@ -61,8 +61,8 @@ $tiles: 10;
   margin: 0 0 20px 20px;
 
   &--tint {
-    @for $i from 1 through $tiles {
-      &:nth-child(#{$i}) {
+    @for $i from 0 through $tiles {
+      &:nth-child(#{$i + 1}) {
         .sg-swatch {
           background: tint($color, 10*$i);
         }

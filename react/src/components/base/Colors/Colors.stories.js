@@ -28,14 +28,21 @@ const GradientTile = ({ color, value, name, index }) => {
   const [rgb, setRgb] = useState('')
   useEffect(() => {
     const computedStyles = window.getComputedStyle(ReactDOM.findDOMNode(colorRef.current)).getPropertyValue('background-color');
-    setRgb(() => computedStyles) ;
+    setRgb(() => computedStyles);
   });
+  const hex = (x) => `0 ${parseInt(x, 10).toString(16)}`.slice(-2);
+  const rgbToHex = (rgb) => {
+    const rgbValues = rgb && rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    console.log(rgbValues[1])
+    const hexValue = "#" + hex(rgbValues[1]) + hex(rgbValues[2]) + hex(rgbValues[3]);
+    return hexValue;
+  }
   return (
     <li className="title tile--tint">
       <h3 className="ma__sidebar-heading">{`${color} ${index * 10} %`}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
-        <span>{rgb}</span>
+        <span>{rgbToHex(rgb)}</span>
         <br />
         <code style={{ fontSize: '1rem' }}>{`${name}-${index * 10}`}</code>
       </div>
