@@ -50,9 +50,9 @@ const GradientTile = (props) => {
     setCopied(true);
     navigator.clipboard.writeText(hexValue);
     const timer = setTimeout(() => {
-      setCopied(false)
+      setCopied(false);
     }, 1000);
-    clearTimeout(timer);
+    return() => clearTimeout(timer);
   };
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
