@@ -16,7 +16,7 @@
         {# Get hef value. #}
         {% for panel in item.panels %}
           {% for link in panel.links %}
-            <a class="ma__utility-nav__link" href="{{ link.href }}">
+            <a class="ma__utility-nav__link direct-link" href="{{ link.href }}">
               {{ icon(item.icon) }}
               <span>{{ item.text }}</span>
             </a>

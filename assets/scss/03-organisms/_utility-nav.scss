@@ -41,6 +41,13 @@ $utility-nav-height: 43px;
       padding-left: 30px;
       vertical-align: middle;
     }
+
+    // Adjusting the style to match other items.
+    // Separate this style from react.
+    a.direct-link {
+      padding: 1px 7px 2px 7px;
+      // font-weight: 400;
+    }
   }
 
   &__link,
@@ -392,9 +399,3 @@ $utility-nav-height: 43px;
   }
 }
 
-// Adjusting the style to match other items.
-a.ma__utility-nav__link {
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
-  font-weight: 400;
-  padding: 1px 7px 2px 7px;
-}
