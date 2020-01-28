@@ -23,10 +23,17 @@ const Color = ({ color, value, name }) => (
 const GradientTile = (props) => {
   const colorRef = useRef(null);
   const [rgb, setRgb] = useState('');
+  const [copied, setCopied] = useState(false);
   useEffect(() => {
     const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
     setRgb(() => computedStyles);
   });
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     console.log('This will run after 1 second!')
+  //   }, 5000);
+  //   return () => clearTimeout(timer);
+  // }, []);
   // Convert decimal to hexadecimal
   const hex = (x) => `0${Number(x).toString(16)}`.slice(-2);
   const rgbToHex = (rgbVal) => {
@@ -39,6 +46,15 @@ const GradientTile = (props) => {
   const color = firstTile ? props.color : `${index * 10} % ${effect}`;
   const name = firstTile ? `$${props.name}` : '';
   const hexValue = rgbToHex(rgb).toUpperCase();
+  const copyAction = () => {
+    setCopied(true);
+    navigator.clipboard.writeText(hexValue);
+    const timer = setTimeout(() => {
+      setCopied(false)
+    }, 1000);
+    clearTimeout(timer);
+  };
+  const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
     <li className={`${props.name}--${effect}`}>
       <h3 className="ma__sidebar-heading">{color}</h3>
@@ -46,11 +62,13 @@ const GradientTile = (props) => {
       <div className="sg-info">
         <span>{hexValue}</span>
         { navigator && navigator.clipboard && (
-          <button onClick={() => {
-            navigator.clipboard.writeText(hexValue);
-          }}>
-          <Icon name="copy" svgWidth={16} svgHeight={16} />
-        </button>
+          <button
+            onClick={copyAction}
+            title={copyButtonTitle}
+            aria-label={copyButtonTitle}
+          >
+            { copied ? <Icon name="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon name="copy" svgWidth={16} svgHeight={16} />}
+          </button>
         )}
         <br />
         <code style={{ fontSize: '1rem' }}>{name}</code>
