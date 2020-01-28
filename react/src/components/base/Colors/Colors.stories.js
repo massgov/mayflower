@@ -28,13 +28,6 @@ const GradientTile = (props) => {
     const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
     setRgb(() => computedStyles);
   });
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     console.log('This will run after 1 second!')
-  //   }, 5000);
-  //   return () => clearTimeout(timer);
-  // }, []);
-  // Convert decimal to hexadecimal
   const hex = (x) => `0${Number(x).toString(16)}`.slice(-2);
   const rgbToHex = (rgbVal) => {
     const rgbValues = rgbVal && rgbVal.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
