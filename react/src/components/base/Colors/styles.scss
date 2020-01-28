@@ -21,6 +21,10 @@
       padding: 0.3em;
     }
 
+    button {
+      margin-left: 0.5em;
+      @include ma_button_reset;
+    }
     // Align gradient matrix
     &--gradient {
       li {
@@ -40,6 +44,15 @@
   &-label {
     font-size: 90%;
     line-height: 1;
+  }
+
+  &-info {
+    font-size: 1rem;
+    font-family: "Source Code Pro", monospace;
+    span {
+      background-color: $c-gray-lightest;
+      padding: 0.1em 0.2em;
+    }
   }
 }
 

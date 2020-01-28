@@ -1,7 +1,8 @@
 import React, { Fragment, useRef, useEffect, useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
+import SidebarHeading from '../../atoms/headings/SidebarHeading';
+import Icon from '../../atoms/icons/Icon';
 import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
 import ColorGradientsDocs from './ColorGradients.md';
 
@@ -37,12 +38,20 @@ const GradientTile = (props) => {
   const firstTile = index === 0;
   const color = firstTile ? props.color : `${index * 10} % ${effect}`;
   const name = firstTile ? `$${props.name}` : '';
+  const hexValue = rgbToHex(rgb).toUpperCase();
   return(
     <li className={`${props.name}--${effect}`}>
       <h3 className="ma__sidebar-heading">{color}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
-        <span>{rgbToHex(rgb).toUpperCase()}</span>
+        <span>{hexValue}</span>
+        { navigator && navigator.clipboard && (
+          <button onClick={() => {
+            navigator.clipboard.writeText(hexValue);
+          }}>
+          <Icon name="copy" svgWidth={16} svgHeight={16} />
+        </button>
+        )}
         <br />
         <code style={{ fontSize: '1rem' }}>{name}</code>
       </div>
