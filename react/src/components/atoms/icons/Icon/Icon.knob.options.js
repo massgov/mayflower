@@ -7,6 +7,7 @@ export const assets = {
   catalog: 'catalog',
   chart: 'chart',
   chevron: 'chevron',
+  copy: 'copy',
   circlechevron: 'circlechevron',
   data: 'data',
   download: 'download',
