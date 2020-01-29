@@ -5,6 +5,7 @@ import SidebarHeading from '../../atoms/headings/SidebarHeading';
 import { ColorSwatch, GradientSpectrum } from './index';
 import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
 
+
 import ColorGradientsDocs from './ColorGradients.md';
 
 import './styles.css';
@@ -34,7 +35,7 @@ storiesOf('base/colors', module)
           utilityColors.map((color, i) => <ColorSwatch key={`utilityColors${i}`} {...color} />)
         }
       </ul>
-      <SidebarHeading title="Theme ColorSwatch Usage" level={2} />
+      <SidebarHeading title="Theme Colors Usage" level={2} />
       <ul className="sg-colors">
         {
           // eslint-disable-next-line react/no-array-index-key
