@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import SidebarHeading from '../../atoms/headings/SidebarHeading';
-import { Color, GradientSpectrum } from './index';
+import { ColorSwatch, GradientSpectrum } from './index';
 import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
 
 import ColorGradientsDocs from './ColorGradients.md';
@@ -17,40 +17,40 @@ storiesOf('base/colors', module)
       <ul className="sg-colors">
         {
           // eslint-disable-next-line react/no-array-index-key
-          themeColors.map((color, i) => <Color key={`themeColors${i}`} {...color} />)
+          themeColors.map((color, i) => <ColorSwatch key={`themeColors${i}`} {...color} />)
         }
       </ul>
       <SidebarHeading title="Gray Scale Colors" level={2} />
       <ul className="sg-colors">
         {
           // eslint-disable-next-line react/no-array-index-key
-          grayScaleColors.map((color, i) => <Color key={`grayScaleColors${i}`} {...color} />)
+          grayScaleColors.map((color, i) => <ColorSwatch key={`grayScaleColors${i}`} {...color} />)
         }
       </ul>
       <SidebarHeading title="Utility Colors" level={2} />
       <ul className="sg-colors">
         {
           // eslint-disable-next-line react/no-array-index-key
-          utilityColors.map((color, i) => <Color key={`utilityColors${i}`} {...color} />)
+          utilityColors.map((color, i) => <ColorSwatch key={`utilityColors${i}`} {...color} />)
         }
       </ul>
-      <SidebarHeading title="Theme Color Usage" level={2} />
+      <SidebarHeading title="Theme ColorSwatch Usage" level={2} />
       <ul className="sg-colors">
         {
           // eslint-disable-next-line react/no-array-index-key
-          primaryColors.map((color, i) => <Color key={`primaryColors${i}`} {...color} />)
-        }
-      </ul>
-      <ul className="sg-colors">
-        {
-          // eslint-disable-next-line react/no-array-index-key
-          primaryAltColors.map((color, i) => <Color key={`primaryAltColors${i}`} {...color} />)
+          primaryColors.map((color, i) => <ColorSwatch key={`primaryColors${i}`} {...color} />)
         }
       </ul>
       <ul className="sg-colors">
         {
           // eslint-disable-next-line react/no-array-index-key
-          highLightColors.map((color, i) => <Color key={`highLightColors${i}`} {...color} />)
+          primaryAltColors.map((color, i) => <ColorSwatch key={`primaryAltColors${i}`} {...color} />)
+        }
+      </ul>
+      <ul className="sg-colors">
+        {
+          // eslint-disable-next-line react/no-array-index-key
+          highLightColors.map((color, i) => <ColorSwatch key={`highLightColors${i}`} {...color} />)
         }
       </ul>
     </Fragment>

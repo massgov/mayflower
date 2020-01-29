@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Icon from '../../atoms/icons/Icon';
 import './styles.css';
 
-const Color = ({ name, value, variable }) => {
+const ColorSwatch = ({ name, value, variable }) => {
   const [copied, setCopied] = useState(false);
   const hexValue = value.toUpperCase();
   const copyAction = () => {
@@ -37,7 +37,7 @@ const Color = ({ name, value, variable }) => {
   );
 };
 
-Color.propTypes = {
+ColorSwatch.propTypes = {
   /** Color name */
   name: PropTypes.string,
   /** Color hex value */
@@ -133,4 +133,4 @@ GradientSpectrum.propTypes = {
   variable: PropTypes.string
 };
 
-export { Color, GradientSpectrum };
+export { ColorSwatch, GradientSpectrum };
