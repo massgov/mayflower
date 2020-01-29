@@ -41,6 +41,13 @@ $utility-nav-height: 43px;
       padding-left: 30px;
       vertical-align: middle;
     }
+
+    // Adjusting the style to match other items.
+    // Separate this style from react.
+    a.direct-link {
+      padding: 1px 7px 2px 7px;
+      // font-weight: 400;
+    }
   }
 
   &__link,
@@ -74,7 +81,7 @@ $utility-nav-height: 43px;
         stroke: transparent;
       }
     }
-    
+
     span {
       font-family: "Texta", "Helvetica", "Arial", "sans-serif";
       font-weight: 500;
@@ -122,7 +129,7 @@ $utility-nav-height: 43px;
     }
 
     & > span {
-      
+
       @media ($bp-header-toggle-max) {
         display: block;
       }
@@ -197,13 +204,13 @@ $utility-nav-height: 43px;
 
       &:after {
         margin-left: .25em;
-        transform: rotate(45deg) translateY(-45%); 
+        transform: rotate(45deg) translateY(-45%);
 
         @media ($bp-header-toggle-max) {
           position: absolute;
             top: 45%;
             right: 10px;
-        }     
+        }
       }
     }
   }
@@ -219,12 +226,12 @@ $utility-nav-height: 43px;
     transition-delay: .5s;
 
     @media ($bp-header-toggle-max) {
-      left: 20px;    
+      left: 20px;
     }
 
     & > svg {
       height: 18px;
-      width: 20px;    
+      width: 20px;
     }
   }
 
@@ -297,7 +304,7 @@ $utility-nav-height: 43px;
     padding-top: 15px;
     position: relative;
     z-index: $z-dropdown;
-    
+
     @media ($bp-header-toggle-min) {
       height: auto;
       padding-bottom: 0;
@@ -354,7 +361,7 @@ $utility-nav-height: 43px;
   }
 
   &__content-title {
-    
+
     h2 {
       display: inline-block;
       vertical-align: middle;
@@ -391,3 +398,4 @@ $utility-nav-height: 43px;
     }
   }
 }
+
