@@ -1,126 +1,126 @@
 {
   "themeColors": [
     {
-      "name": "$c-primary",
-      "color": "Bay Blue",
+      "variable": "$c-primary",
+      "name": "Bay Blue",
       "value": "#14558f"
     },
     {
-      "name": "$c-primary-alt",
-      "color": "Berkshires Green",
+      "variable": "$c-primary-alt",
+      "name": "Berkshires Green",
       "value": "#388557"
     },
     {
-      "name": "$c-highlight",
-      "color": "Duckling Yellow",
+      "variable": "$c-highlight",
+      "name": "Duckling Yellow",
       "value": "#f6c51b"
     },
     {
-      "name": "$c-gray-dark",
-      "color": "Granite Gray",
+      "variable": "$c-gray-dark",
+      "name": "Granite Gray",
       "value": "#535353"
     },
     {
-      "name": "$c-independence-cranberry",
-      "color": "Independent Cranberry",
+      "variable": "$c-independence-cranberry",
+      "name": "Independent Cranberry",
       "value": "#680A1D"
     }
   ],
   "grayScaleColors":[
     {
-      "name": "$c-black",
-      "color": "Revolution Gray",
+      "variable": "$c-black",
+      "name": "Revolution Gray",
       "value": "#141414"
     },
     {
-      "name": "$c-gray-dark",
-      "color": "Granite Gray",
+      "variable": "$c-gray-dark",
+      "name": "Granite Gray",
       "value": "#535353"
     },
     {
-      "name": "$c-gray",
-      "color": "Atlantic Gray",
+      "variable": "$c-gray",
+      "name": "Atlantic Gray",
       "value": "#707070"
     },
     {
-      "name": "$c-gray-light",
-      "color": "Overcast Gray",
+      "variable": "$c-gray-light",
+      "name": "Overcast Gray",
       "value": "#dcdcdc"
     },
     {
-      "name": "$c-gray-lightest",
-      "color": "Platinum Gray",
+      "variable": "$c-gray-lightest",
+      "name": "Platinum Gray",
       "value": "#f2f2f2"
     }
   ],
   "utilityColors": [
     {
-      "name": "$c-error-red",
-      "color": "Error Red",
+      "variable": "$c-error-red",
+      "name": "Error Red",
       "value": "#CD0D0D"
     },
     {
-      "name": "$c-focus",
-      "color": "Focus Hightlight",
+      "variable": "$c-focus",
+      "name": "Focus Hightlight",
       "value": "#3e94cf"
     },
     {
-      "name": "$c-warning",
-      "color": "Warning Yellow",
+      "variable": "$c-warning",
+      "name": "Warning Yellow",
       "value": "#f6c51b"
     },
     {
-      "name": "$c-success",
-      "color": "Success Green",
+      "variable": "$c-success",
+      "name": "Success Green",
       "value": "#388557"
     }
   ],
   "primaryColors": [
     {
-      "name": "$c-primary",
-      "color": "Bay Blue",
+      "variable": "$c-primary",
+      "name": "Bay Blue",
       "value": "#14558f"
     },
     {
-      "name": "$c-bay-blue-lighter",
-      "color": "50% Bay Blue",
+      "variable": "$c-bay-blue-lighter",
+      "name": "50% Bay Blue",
       "value": "#8aaac7"
     },
     {
-      "name": "$c-bay-blue-lightest",
-      "color": "10% Bay Blue",
+      "variable": "$c-bay-blue-lightest",
+      "name": "10% Bay Blue",
       "value": "#e7eef4"
     }],
   "primaryAltColors": [
     {
-      "name": "$c-primary-alt",
-      "color": "Berkshires Green",
+      "variable": "$c-primary-alt",
+      "name": "Berkshires Green",
       "value": "#388557"
     },
     {
-      "name": "$c-berkshires-green-lighter",
-      "color": "50% Berkshires Green",
+      "variable": "$c-berkshires-green-lighter",
+      "name": "50% Berkshires Green",
       "value": "#97c2a9"
     },
     {
-      "name": "$c-berkshires-green-lightest",
-      "color": "20% Berkshires Green",
+      "variable": "$c-berkshires-green-lightest",
+      "name": "20% Berkshires Green",
       "value": "#d6E7dd"
     }],
   "highLightColors": [
     {
-      "name": "$c-highlight",
-      "color": "Duckling Yellow",
+      "variable": "$c-highlight",
+      "name": "Duckling Yellow",
       "value": "#f6c51b"
     },
     {
-      "name": "$c-highlight-lighter",
-      "color": "50% Duckling Yellow",
+      "variable": "$c-highlight-lighter",
+      "name": "50% Duckling Yellow",
       "value": "#fbe28d"
     },
     {
-      "name": "$c-highlight-lightest",
-      "color": "10% Duckling Yellow",
+      "variable": "$c-highlight-lightest",
+      "name": "10% Duckling Yellow",
       "value": "#fef9e8"
     }]
 }

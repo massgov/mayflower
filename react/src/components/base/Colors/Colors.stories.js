@@ -1,70 +1,13 @@
-import React, { Fragment, useRef, useEffect, useState } from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
-import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
+import SidebarHeading from '../../atoms/headings/SidebarHeading';
+import { Color, GradientSpectrum } from './index';
 import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltColors, highLightColors } from './colors.json';
+
 import ColorGradientsDocs from './ColorGradients.md';
 
 import './styles.css';
-
-const Color = ({ color, value, name }) => (
-  <li style={{ width: 300, margin: 10, padding: 10 }}>
-    <h3 className="ma__sidebar-heading">{color}</h3>
-    <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
-    <div className="sg-info">
-      <span>{value.toUpperCase()}</span>
-      <br />
-      <code style={{ fontSize: '1rem' }}>{name}</code>
-    </div>
-  </li>
-);
-
-const GradientTile = (props) => {
-  const colorRef = useRef(null);
-  const [rgb, setRgb] = useState('');
-  useEffect(() => {
-    const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
-    setRgb(() => computedStyles);
-  });
-  // Convert decimal to hexadecimal
-  const hex = (x) => `0${Number(x).toString(16)}`.slice(-2);
-  const rgbToHex = (rgbVal) => {
-    const rgbValues = rgbVal && rgbVal.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    const hexValue = rgbValues && `#${hex(rgbValues[1])}${hex(rgbValues[2])}${hex(rgbValues[3])}`;
-    return hexValue;
-  };
-  const { index, effect } = props;
-  const firstTile = index === 0;
-  const color = firstTile ? props.color : `${index * 10} % ${effect}`;
-  const name = firstTile ? `$${props.name}` : '';
-  return(
-    <li className={`${props.name}--${effect}`}>
-      <h3 className="ma__sidebar-heading">{color}</h3>
-      <div className="sg-swatch" ref={colorRef} />
-      <div className="sg-info">
-        <span>{rgbToHex(rgb).toUpperCase()}</span>
-        <br />
-        <code style={{ fontSize: '1rem' }}>{name}</code>
-      </div>
-    </li>
-  );
-};
-
-const GradientSpectrum = ({ name, color, effect }) => {
-  const tiles = effect === 'tint' ? 10 : 6;
-  let i;
-  const tilesArray = [];
-  for (i = 0; i < tiles; i += 1) {
-    tilesArray.push(i);
-  }
-  return(
-    <ul className="sg-colors sg-colors--gradient">
-      {
-        tilesArray.map((index) => <GradientTile color={color} name={name} index={index} effect={effect} />)
-      }
-    </ul>
-  );
-};
 
 storiesOf('base/colors', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -73,35 +16,41 @@ storiesOf('base/colors', module)
       <SidebarHeading title="Mayflower Brand Colors" level={2} />
       <ul className="sg-colors">
         {
-          themeColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          themeColors.map((color, i) => <Color key={`themeColors${i}`} {...color} />)
         }
       </ul>
       <SidebarHeading title="Gray Scale Colors" level={2} />
       <ul className="sg-colors">
         {
-          grayScaleColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          grayScaleColors.map((color, i) => <Color key={`grayScaleColors${i}`} {...color} />)
         }
       </ul>
       <SidebarHeading title="Utility Colors" level={2} />
       <ul className="sg-colors">
         {
-          utilityColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          utilityColors.map((color, i) => <Color key={`utilityColors${i}`} {...color} />)
         }
       </ul>
       <SidebarHeading title="Theme Color Usage" level={2} />
       <ul className="sg-colors">
         {
-          primaryColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          primaryColors.map((color, i) => <Color key={`primaryColors${i}`} {...color} />)
         }
       </ul>
       <ul className="sg-colors">
         {
-          primaryAltColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          primaryAltColors.map((color, i) => <Color key={`primaryAltColors${i}`} {...color} />)
         }
       </ul>
       <ul className="sg-colors">
         {
-          highLightColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          highLightColors.map((color, i) => <Color key={`highLightColors${i}`} {...color} />)
         }
       </ul>
     </Fragment>
@@ -110,13 +59,16 @@ storiesOf('base/colors', module)
     'Gradients (Light)', (() => (
       <Fragment>
         {
-          themeColors.map(({ name, color }) => {
+          themeColors.map(({ variable, name }, i) => {
             const props = {
-              name: name.match(/\$(.*)/)[1],
-              color,
+              variable: variable.match(/\$(.*)/)[1],
+              name,
               effect: 'tint'
             };
-            return(<GradientSpectrum {...props} />);
+            return(
+              // eslint-disable-next-line react/no-array-index-key
+              <GradientSpectrum {...props} key={`spectrum_${variable}${i}`} />
+            );
           })
         }
       </Fragment>
@@ -127,13 +79,16 @@ storiesOf('base/colors', module)
     'Gradients (Dark)', (() => (
       <Fragment>
         {
-          themeColors.map(({ name, color }) => {
+          themeColors.map(({ variable, name }, i) => {
             const props = {
-              name: name.match(/\$(.*)/)[1],
-              color,
+              variable: variable.match(/\$(.*)/)[1],
+              name,
               effect: 'shade'
             };
-            return(<GradientSpectrum {...props} />);
+            return(
+              // eslint-disable-next-line react/no-array-index-key
+              <GradientSpectrum {...props} key={`spectrum_${variable}${i}`} />
+            );
           })
         }
       </Fragment>

@@ -20,6 +20,12 @@
 #Component name in `PascalCase`
 #e.g. Header, Form, InputSlider, InputTextTypeAhead
 
+#___IMPACT___
+# - Major impact when you make incompatible API changes,
+# - Minor impact when you add functionality in a backwards compatible manner, and
+# - Patch impact when you make backwards compatible bug fixes.
+# See https://semver.org/ for more info.
+
 #___EXAMPLE___
 #Added:
 #- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module #473
@@ -30,3 +36,4 @@ CHANGE TYPE - [see list above]:
     component: [enter a valid component name - see direction above]
     description: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
     issue: [add a Jira ticket or issue number, e.g. DP-12345 or 124]
+    impact: [enter a valid impact, e.g. Minor]
