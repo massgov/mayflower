@@ -27,7 +27,7 @@
       <div class="ma__teaser-listing__featured-items {{ stacked }}">
         {% for generalTeaser in teaserListing.featuredItems %}
           {% set generalTeaser = generalTeaser|merge({"level":teaserHeading}) %}
-          {% include "@molecules/general-teaser.twig" %}
+          {% include "@molecules/general-teaser/general-teaser.twig" %}
         {% endfor %}
       </div>
     {% endif %}
@@ -39,7 +39,7 @@
               {% block teaserListItem %}
                 <li class="ma__teaser-listing__item">
                   {% set generalTeaser = generalTeaser|merge({"level":teaserHeading}) %}
-                  {% include "@molecules/general-teaser.twig" %}
+                  {% include "@molecules/general-teaser/general-teaser.twig" %}
                 </li>
               {% endblock %}
             {% endfor %}
