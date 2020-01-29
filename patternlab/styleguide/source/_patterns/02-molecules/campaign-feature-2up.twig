@@ -4,7 +4,7 @@
       <div class="ma__campaign-feature-2up__card">
         {% set usage = { usage: "secondary" } %}
         {% set card = card|merge(usage) %}
-        {% include "@molecules/card.twig" with card %}
+        {% include "@molecules/card/card.twig" with card %}
       </div>
     {% endfor %}
   </div>
