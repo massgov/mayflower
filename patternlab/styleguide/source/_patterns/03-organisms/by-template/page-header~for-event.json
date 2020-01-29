@@ -45,7 +45,7 @@
         }
       }
     },{
-      "path": "@molecules/contact-us.twig",
+      "path": "@molecules/contact-components/contact-us.twig",
       "data": {
         "contactUs": {
           "groups": [{

@@ -17,13 +17,13 @@
         {% for actionStep in stepsOrdered.steps %}
           <li class="ma__steps-ordered__item">
             {% set actionStep = actionStep|merge({"level":stepHeading}) %}
-            {% include "@molecules/action-step.twig" %}
+            {% include "@molecules/action-step/action-step.twig" %}
           </li>
           {% endfor %}
         </ol>
     {% else %}
       {% set actionStep = stepsOrdered.steps|first|merge({"level":stepHeading}) %}
-      {% include "@molecules/action-step.twig" %}
+      {% include "@molecules/action-step/action-step.twig" %}
     {% endif %}
   {% endblock %}
 </section>

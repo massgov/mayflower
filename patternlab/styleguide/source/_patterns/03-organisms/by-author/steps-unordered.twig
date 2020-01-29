@@ -17,6 +17,6 @@
   {% endif %}  
   {% for actionStep in stepsUnordered.steps %}
     {% set actionStep = actionStep|merge({"level":stepHeading}) %}
-    {% include "@molecules/action-step.twig" %}
+    {% include "@molecules/action-step/action-step.twig" %}
   {% endfor %}
 </section>

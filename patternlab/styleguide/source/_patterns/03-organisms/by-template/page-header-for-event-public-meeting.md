@@ -6,7 +6,7 @@ This is a variant of the [Page Header](./?p=organisms-page-header) pattern showi
 * populate the `optionalContents` array with the following patterns:
   * @organisms/by-author/event-teaser.twig
   * @molecules/labelled-list.twig
-   * @organisms/by-author/contact-us.twig
+   * @organisms/by-author/contact-components/contact-us.twig
   * @organisms/by-author/callout-time.twig
     * alert
   * @organisms/by-author/key-actions.twig

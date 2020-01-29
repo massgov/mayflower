@@ -17,7 +17,7 @@
     "subTitle": "",
     "headerTags": null,
     "optionalContents": [{
-      "path": "@molecules/contact-us.twig",
+      "path": "@molecules/contact-components/contact-us.twig",
       "data": {
         "contactUs": {
           "level": 2,
