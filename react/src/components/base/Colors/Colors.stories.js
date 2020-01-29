@@ -1,4 +1,5 @@
 import React, { Fragment, useRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import SidebarHeading from '../../atoms/headings/SidebarHeading';
@@ -8,14 +9,14 @@ import ColorGradientsDocs from './ColorGradients.md';
 
 import './styles.css';
 
-const Color = ({ color, value, name }) => (
+const Color = ({ name, value, variable }) => (
   <li style={{ width: 300, margin: 10, padding: 10 }}>
-    <h3 className="ma__sidebar-heading">{color}</h3>
+    <h3 className="ma__sidebar-heading">{name}</h3>
     <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
     <div className="sg-info">
       <span>{value.toUpperCase()}</span>
       <br />
-      <code style={{ fontSize: '1rem' }}>{name}</code>
+      <code style={{ fontSize: '1rem' }}>{variable}</code>
     </div>
   </li>
 );
@@ -36,8 +37,8 @@ const GradientTile = (props) => {
   };
   const { index, effect } = props;
   const firstTile = index === 0;
-  const color = firstTile ? props.color : `${index * 10} % ${effect}`;
-  const name = firstTile ? `$${props.name}` : '';
+  const name = firstTile ? props.name : `${index * 10} % ${effect}`;
+  const variable = firstTile ? `$${props.variable}` : '';
   const hexValue = rgbToHex(rgb).toUpperCase();
   const copyAction = () => {
     setCopied(true);
@@ -49,8 +50,8 @@ const GradientTile = (props) => {
   };
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
-    <li className={`${props.name}--${effect}`}>
-      <h3 className="ma__sidebar-heading">{color}</h3>
+    <li className={`${props.variable}--${effect}`}>
+      <h3 className="ma__sidebar-heading">{name}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
         <span>{hexValue}</span>
@@ -60,17 +61,17 @@ const GradientTile = (props) => {
             title={copyButtonTitle}
             aria-label={copyButtonTitle}
           >
-            { copied ? <Icon name="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon name="copy" svgWidth={16} svgHeight={16} />}
+            { copied ? <Icon variable="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon variable="copy" svgWidth={16} svgHeight={16} />}
           </button>
         )}
         <br />
-        <code style={{ fontSize: '1rem' }}>{name}</code>
+        <code style={{ fontSize: '1rem' }}>{variable}</code>
       </div>
     </li>
   );
 };
 
-const GradientSpectrum = ({ name, color, effect }) => {
+const GradientSpectrum = ({ variable, name, effect }) => {
   const tiles = effect === 'tint' ? 10 : 6;
   let i;
   const tilesArray = [];
@@ -80,10 +81,19 @@ const GradientSpectrum = ({ name, color, effect }) => {
   return(
     <ul className="sg-colors sg-colors--gradient">
       {
-        tilesArray.map((index) => <GradientTile color={color} name={name} index={index} effect={effect} />)
+        tilesArray.map((index) => <GradientTile name={name} variable={variable} index={index} effect={effect} />)
       }
     </ul>
   );
+};
+
+Color.propTypes = {
+  /** Color name. */
+  name: PropTypes.string,
+  /** Color hex value */
+  value: PropTypes.string,
+  /** Color variable alias */
+  variable: PropTypes.string
 };
 
 storiesOf('base/colors', module)
@@ -130,10 +140,10 @@ storiesOf('base/colors', module)
     'Gradients (Light)', (() => (
       <Fragment>
         {
-          themeColors.map(({ name, color }) => {
+          themeColors.map(({ variable, name }) => {
             const props = {
-              name: name.match(/\$(.*)/)[1],
-              color,
+              variable: variable.match(/\$(.*)/)[1],
+              name,
               effect: 'tint'
             };
             return(<GradientSpectrum {...props} />);
@@ -147,10 +157,10 @@ storiesOf('base/colors', module)
     'Gradients (Dark)', (() => (
       <Fragment>
         {
-          themeColors.map(({ name, color }) => {
+          themeColors.map(({ variable, name }) => {
             const props = {
-              name: name.match(/\$(.*)/)[1],
-              color,
+              variable: variable.match(/\$(.*)/)[1],
+              name,
               effect: 'shade'
             };
             return(<GradientSpectrum {...props} />);
