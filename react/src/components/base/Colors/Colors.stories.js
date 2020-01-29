@@ -21,6 +21,15 @@ const Color = ({ name, value, variable }) => (
   </li>
 );
 
+Color.propTypes = {
+  /** Color name */
+  name: PropTypes.string,
+  /** Color hex value */
+  value: PropTypes.string,
+  /** Color variable alias */
+  variable: PropTypes.string
+};
+
 const GradientTile = (props) => {
   const colorRef = useRef(null);
   const [rgb, setRgb] = useState('');
@@ -71,6 +80,17 @@ const GradientTile = (props) => {
   );
 };
 
+GradientTile.propTypes = {
+  /** Gradient index, used to determine the percentage of the effect */
+  index: PropTypes.string,
+  /** Color effect: tint or shade  */
+  effect: PropTypes.string,
+  /** Base color name */
+  name: PropTypes.string,
+  /** Base color variable alias */
+  variable: PropTypes.string
+};
+
 const GradientSpectrum = ({ variable, name, effect }) => {
   const tiles = effect === 'tint' ? 10 : 6;
   let i;
@@ -87,12 +107,12 @@ const GradientSpectrum = ({ variable, name, effect }) => {
   );
 };
 
-Color.propTypes = {
-  /** Color name. */
+GradientSpectrum.propTypes = {
+  /** Color effect: tint or shade  */
+  effect: PropTypes.string,
+  /** Base color name */
   name: PropTypes.string,
-  /** Color hex value */
-  value: PropTypes.string,
-  /** Color variable alias */
+  /** Base color variable alias */
   variable: PropTypes.string
 };
 
