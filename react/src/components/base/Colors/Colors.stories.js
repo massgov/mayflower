@@ -101,7 +101,8 @@ const GradientSpectrum = ({ variable, name, effect }) => {
   return(
     <ul className="sg-colors sg-colors--gradient">
       {
-        tilesArray.map((index) => <GradientTile name={name} variable={variable} index={index} effect={effect} />)
+        // eslint-disable-next-line react/no-array-index-key
+        tilesArray.map((index) => <GradientTile key={`${variable}${index}`} name={name} variable={variable} index={index} effect={effect} />)
       }
     </ul>
   );
@@ -123,35 +124,41 @@ storiesOf('base/colors', module)
       <SidebarHeading title="Mayflower Brand Colors" level={2} />
       <ul className="sg-colors">
         {
-          themeColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          themeColors.map((color, i) => <Color key={`themeColors${i}`} {...color} />)
         }
       </ul>
       <SidebarHeading title="Gray Scale Colors" level={2} />
       <ul className="sg-colors">
         {
-          grayScaleColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          grayScaleColors.map((color, i) => <Color key={`grayScaleColors${i}`} {...color} />)
         }
       </ul>
       <SidebarHeading title="Utility Colors" level={2} />
       <ul className="sg-colors">
         {
-          utilityColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          utilityColors.map((color, i) => <Color key={`utilityColors${i}`} {...color} />)
         }
       </ul>
       <SidebarHeading title="Theme Color Usage" level={2} />
       <ul className="sg-colors">
         {
-          primaryColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          primaryColors.map((color, i) => <Color key={`primaryColors${i}`} {...color} />)
         }
       </ul>
       <ul className="sg-colors">
         {
-          primaryAltColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          primaryAltColors.map((color, i) => <Color key={`primaryAltColors${i}`} {...color} />)
         }
       </ul>
       <ul className="sg-colors">
         {
-          highLightColors.map((color) => <Color {...color} />)
+          // eslint-disable-next-line react/no-array-index-key
+          highLightColors.map((color, i) => <Color key={`highLightColors${i}`} {...color} />)
         }
       </ul>
     </Fragment>
@@ -160,13 +167,16 @@ storiesOf('base/colors', module)
     'Gradients (Light)', (() => (
       <Fragment>
         {
-          themeColors.map(({ variable, name }) => {
+          themeColors.map(({ variable, name }, i) => {
             const props = {
               variable: variable.match(/\$(.*)/)[1],
               name,
               effect: 'tint'
             };
-            return(<GradientSpectrum {...props} />);
+            return(
+              // eslint-disable-next-line react/no-array-index-key
+              <GradientSpectrum {...props} key={`spectrum_${variable}${i}`} />
+            );
           })
         }
       </Fragment>
@@ -177,13 +187,16 @@ storiesOf('base/colors', module)
     'Gradients (Dark)', (() => (
       <Fragment>
         {
-          themeColors.map(({ variable, name }) => {
+          themeColors.map(({ variable, name }, i) => {
             const props = {
               variable: variable.match(/\$(.*)/)[1],
               name,
               effect: 'shade'
             };
-            return(<GradientSpectrum {...props} />);
+            return(
+              // eslint-disable-next-line react/no-array-index-key
+              <GradientSpectrum {...props} key={`spectrum_${variable}${i}`} />
+            );
           })
         }
       </Fragment>
