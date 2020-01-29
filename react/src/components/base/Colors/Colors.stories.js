@@ -70,7 +70,7 @@ const GradientTile = (props) => {
             title={copyButtonTitle}
             aria-label={copyButtonTitle}
           >
-            { copied ? <Icon variable="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon variable="copy" svgWidth={16} svgHeight={16} />}
+            { copied ? <Icon name="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon name="copy" svgWidth={16} svgHeight={16} />}
           </button>
         )}
         <br />
@@ -82,7 +82,7 @@ const GradientTile = (props) => {
 
 GradientTile.propTypes = {
   /** Gradient index, used to determine the percentage of the effect */
-  index: PropTypes.string,
+  index: PropTypes.number,
   /** Color effect: tint or shade  */
   effect: PropTypes.string,
   /** Base color name */
