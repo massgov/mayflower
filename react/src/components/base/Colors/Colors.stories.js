@@ -9,17 +9,39 @@ import ColorGradientsDocs from './ColorGradients.md';
 
 import './styles.css';
 
-const Color = ({ name, value, variable }) => (
-  <li style={{ width: 300, margin: 10, padding: 10 }}>
-    <h3 className="ma__sidebar-heading">{name}</h3>
-    <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
-    <div className="sg-info">
-      <span>{value.toUpperCase()}</span>
-      <br />
-      <code style={{ fontSize: '1rem' }}>{variable}</code>
-    </div>
-  </li>
-);
+const Color = ({ name, value, variable }) => {
+  const [copied, setCopied] = useState(false);
+  const hexValue = value.toUpperCase();
+  const copyAction = () => {
+    setCopied(true);
+    navigator.clipboard.writeText(hexValue);
+    const timer = setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+    return() => clearTimeout(timer);
+  };
+  const copyButtonTitle = copied ? 'copied' : 'copy hex code';
+  return(
+    <li style={{ width: 300, margin: 10, padding: 10 }}>
+      <h3 className="ma__sidebar-heading">{name}</h3>
+      <div className="sg-swatch" style={{ background: value, borderRadius: 0 }} />
+      <div className="sg-info">
+        <span>{hexValue}</span>
+        { navigator && navigator.clipboard && (
+          <button
+            onClick={copyAction}
+            title={copyButtonTitle}
+            aria-label={copyButtonTitle}
+          >
+            { copied ? <Icon name="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon name="copy" svgWidth={16} svgHeight={16} />}
+          </button>
+        )}
+        <br />
+        <code style={{ fontSize: '1rem' }}>{variable}</code>
+      </div>
+    </li>
+  );
+};
 
 Color.propTypes = {
   /** Color name */
