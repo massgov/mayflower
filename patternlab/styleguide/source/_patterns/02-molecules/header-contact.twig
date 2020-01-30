@@ -27,18 +27,18 @@
     {% if headerContact.phone|length %}
       <div class="ma__header-contact__column">
         {% set contactGroup = headerContact.phone %}
-        {% include "@molecules/contact-group.twig" %}
+        {% include "@molecules/contact-group/contact-group.twig" %}
       </div>
     {% endif %}
     {% if headerContact.online|length or headerContact.fax|length %}
       <div class="ma__header-contact__column {{accordionContent}}">
         {% if headerContact.online|length %}
           {% set contactGroup = headerContact.online %}
-          {% include "@molecules/contact-group.twig" %}
+          {% include "@molecules/contact-group/contact-group.twig" %}
         {% endif %}
         {% if headerContact.fax|length %}
           {% set contactGroup = headerContact.fax %}
-          {% include "@molecules/contact-group.twig" %}
+          {% include "@molecules/contact-group/contact-group.twig" %}
         {% endif %}
       </div>
     {% endif %}

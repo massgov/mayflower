@@ -36,7 +36,7 @@
           {% set contactGroup = group|merge({
                                "level": groupHeading,
                                "contactName": contactName })  %}
-          {% include "@molecules/contact-group.twig" %}
+          {% include "@molecules/contact-group/contact-group.twig" %}
         {% endfor %}
       {% endblock %}
 
@@ -48,7 +48,7 @@
               {% set contactGroup = group|merge({
                                  "level": groupHeading,
                                  "contactName": contactName })  %}
-              {% include "@molecules/contact-group.twig" %}
+              {% include "@molecules/contact-group/contact-group.twig" %}
             {% endfor %}
           {% endblock %}
         </div>
@@ -65,7 +65,7 @@
             {% set contactGroup = group|merge({
                              "level": groupHeading,
                              "contactName": contactName })  %}
-            {% include "@molecules/contact-group.twig" %}
+            {% include "@molecules/contact-group/contact-group.twig" %}
           {% endfor %}
           {% if contactUs.decorativeLink %}
             <div class="ma__contact-us__more-info">

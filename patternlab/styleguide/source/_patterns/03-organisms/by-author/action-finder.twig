@@ -59,7 +59,7 @@
               {% include "@molecules/illustrated-link.twig" %}
             {% elseif link.icon %}
               {% set downloadLink = link %}
-              {% include "@molecules/download-link.twig" %}
+              {% include "@molecules/download-link/download-link.twig" %}
             {% else %}
               {% set calloutLink = link %}
               {% include "@molecules/callout-link/callout-link.twig" %}

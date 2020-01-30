@@ -40,7 +40,7 @@
     {% block curatedPersonGroups %}
       {% for group in curatedPerson.groups %}
         {% set contactGroup = group|merge({"level": groupHeading}) %}
-        {% include "@molecules/contact-group.twig" %}
+        {% include "@molecules/contact-group/contact-group.twig" %}
       {% endfor %}
     {% endblock %}
   </div>
