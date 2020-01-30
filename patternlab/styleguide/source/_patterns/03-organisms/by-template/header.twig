@@ -15,7 +15,7 @@
     </div>
     {% if not hideHeaderSearch %}
       <div class="ma__header__search js-header-search-menu">
-        {% include "@molecules/header-search.twig" %}
+        {% include "@molecules/search/header-search.twig" %}
       </div>
     {% endif %}
   </div>
@@ -30,7 +30,7 @@
       {% if not hideHeaderSearch %}
         <div class="ma__header__nav-search">
           {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
-          {% include "@molecules/header-search.twig" %}
+          {% include "@molecules/search/header-search.twig" %}
         </div>
       {% endif %}
       <div class="ma__header__main-nav">

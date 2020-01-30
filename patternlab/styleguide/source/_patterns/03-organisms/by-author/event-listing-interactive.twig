@@ -4,12 +4,12 @@
   {% if eventListingInteractive.eventFilters %}
     <div class="ma__event-listing-interactive__filters">
       {% set eventFilters = eventListingInteractive.eventFilters %}
-      {% include "@molecules/event-filters.twig" %}
+      {% include "@molecules/search/event-filters.twig" %}
     </div>
   {% endif %}
   <div class="ma__event-listing-interactive__results js-event-listing-results">
     {% set resultsHeading = eventListingInteractive.resultsHeading %}
-    {% include "@molecules/results-heading.twig" %}
+    {% include "@molecules/search/results-heading.twig" %}
     {% set eventListing = eventListingInteractive.eventListing %}
     {% include "@organisms/by-author/event-listing.twig" %}
     {% set pagination = eventListingInteractive.pagination %}

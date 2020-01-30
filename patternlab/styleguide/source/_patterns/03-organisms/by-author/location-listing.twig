@@ -4,7 +4,7 @@
   {% if locationListing.locationFilters %}
     <div class="ma__location-listing__filters">
       {% set locationFilters = locationListing.locationFilters %}
-      {% include "@molecules/location-filters.twig" %}
+      {% include "@molecules/search/location-filters.twig" %}
     </div>
   {% endif %}
   <div class="ma__location-listing__columns">
@@ -17,7 +17,7 @@
       </div>
       <div class="ma__location-listing__results js-location-listing-results">
         {% set resultsHeading = locationListing.resultsHeading %}
-        {% include "@molecules/results-heading.twig" %}
+        {% include "@molecules/search/results-heading.twig" %}
         {% set promoHeading = locationListing.imagePromos.promoHeading %}
         {% set items = locationListing.imagePromos.items[:maxItems] %}
 
