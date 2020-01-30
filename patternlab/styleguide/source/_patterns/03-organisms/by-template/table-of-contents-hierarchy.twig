@@ -12,7 +12,7 @@
         {% if section.linkItems|length > 0 %}
           {% block tocExpandableSection %}
             {% set expandableSection = section %}
-            {% include "@molecules/expandable-section.twig" %}
+            {% include "@molecules/accordion-components/expandable-section.twig" %}
           {% endblock %}
         {% elseif section.icon %}
           <li>
