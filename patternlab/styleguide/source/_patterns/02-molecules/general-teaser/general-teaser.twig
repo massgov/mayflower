@@ -35,7 +35,7 @@
   {% block eyebrow %}
     {% if generalTeaser.eyebrow %}
       {% set eyebrow = generalTeaser.eyebrow %}
-      {% include "@molecules/general-teaser-eyebrow.twig" %}
+      {% include "@molecules/general-teaser/general-teaser-eyebrow.twig" %}
     {% endif %}
   {% endblock %}
 
@@ -43,14 +43,14 @@
     {% if generalTeaser.title.text %}
       {% set title = generalTeaser.title %}
       {% set headingLevel = generalTeaser.level ? : 2 %}
-      {% include "@molecules/general-teaser-title.twig" %}
+      {% include "@molecules/general-teaser/general-teaser-title.twig" %}
     {% endif %}
   {% endblock %}
 
   {% block emphasizedText %}
     {% if generalTeaser.emphasizedText %}
       {% set emphasizedText = generalTeaser.emphasizedText %}
-      {% include "@molecules/general-teaser-emphasizedText.twig" %}
+      {% include "@molecules/general-teaser/general-teaser-emphasizedText.twig" %}
     {% endif %}
   {% endblock %}
 
