@@ -19,7 +19,7 @@
         {% block formContent %}
           {% if form.errorList %}
             {% set errorList = form.errorList %}
-            {% include "@molecules/error-list.twig" %}
+            {% include "@molecules/forms/error-list.twig" %}
           {% endif %}
           {% for group in form.groups %}
             {% set compHeading = group.compHeading %}
