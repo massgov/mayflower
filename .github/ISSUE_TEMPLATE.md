@@ -1,9 +1,18 @@
-Before opening an issue:
+## 1. Before opening an issue:
 
 - [Search for duplicate or closed issues](https://github.com/massgov/mayflower/issues?utf8=%E2%9C%93&q=is%3Aissue)
 - Read the [contributing guidelines](https://github.com/massgov/mayflower/blob/master/CONTRIBUTING.md)
 
-When reporting a bug, include:
+- For Mayflower Documentation, refer to the [Mayflower Documentation](https://mass.gov/mayflower)
+- For Mayflower React, refer to the [Mayflower React Storybook](https://mayflower-react.digital.mass.gov/)
+- For Mayflower Patternlab, refer to the [Mayflower Patternlab](https://mayflower.digital.mass.gov/)
+
+
+## 2. When submitting your request, include:
+
+Title: [Docs | React | Patternlab]: Brief description
+
+### When reporting a bug, include:
 
 - Mayflower version
 - Operating system and version (Windows, Mac OS X, Android, iOS, Win10 Mobile)
@@ -12,8 +21,7 @@ When reporting a bug, include:
 - Steps to reproduce on live site
 - Prepare a [reduced test case](https://css-tricks.com/reduced-test-cases/)
 
-When suggesting a feature, include:
+### When suggesting a feature, include:
 
 - As much detail as possible for what we should add and why it's important to Mayflower
 - Relevant links to prior art, screenshots, or live demos whenever possible
-
