@@ -1,7 +1,7 @@
-# Write your changelog entry here.  Every PR must have a changelog.
-#___DESCRIPTION___
-#  Change_type (see below)
-#- (Project_prefix) [ComponentName] DP-1234: Adds apples to apple trees for admin apple pickers #PR
+# Every PR must have a changelog. To add a change:
+# 1. Make a copy of this file and name it with the ticket number.
+# 2. Use the example at the bottom and edit the following fields, use ___TEMPLATE___ for reference
+# 3. Replace the
 
 #___CHANGE TYPES___
 #- Added for new features.
@@ -10,6 +10,7 @@
 #- Removed for now removed features.
 #- Fixed for any bug fixes.
 #- Security in case of vulnerabilities.
+#e.g. Added
 
 #___PROJECT___
 #- Patternlab
@@ -17,8 +18,17 @@
 #- Docs
 
 #___COMPONENT___
-#Component name in `PascalCase`
-#e.g. Header, Form, InputSlider, InputTextTypeAhead
+#Component name(s) in `PascalCase`
+#e.g. Header
+#e.g. Form, InputSlider, InputTextTypeAhead
+
+#___DESCRIPTION___
+# PR description and PR number (append PR number with # to create a link to the PR in Github)
+#e.g. Adds apples to apple trees for admin apple pickers #PR
+
+#___ISSUE___
+# A Jira ticket or a Github issue number (append Github issue number with # to create a link to the issue in Github)
+# e.g. DP-12345 or #123
 
 #___IMPACT___
 # - Major impact when you make incompatible API changes,
@@ -26,14 +36,19 @@
 # - Patch impact when you make backwards compatible bug fixes.
 # See https://semver.org/ for more info.
 
-#___EXAMPLE___
-#Added:
-#- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module #473
-#- (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
 
-CHANGE TYPE - [see list above]:
-  - project: [enter a valid project prefix - see list above]
-    component: [enter a valid component name - see direction above]
-    description: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
-    issue: [add a Jira ticket or issue number, e.g. DP-12345 or 124]
-    impact: [enter a valid impact, e.g. Minor]
+#___TEMPLATE___
+#ChangeType [enter a valid option from the list under __CHANGE TYPES___, e.g. ]:
+#  - project: Enter one or multiple valid project prefix(es) - see list above
+#    component: Enter one or multiple valid component name(s) - see instruction above
+#    description: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
+#    issue: Add a Jira ticket or issue number, e.g. DP-12345 or 124
+#    impact: Enter a valid impact, e.g. Minor
+
+#___EXAMPLE___
+Added:
+  - project: React, Patternlab
+    component: Color
+    description: Addded Color stories and color gradients. #909
+    issue: DP-17253
+    impact: Minor
