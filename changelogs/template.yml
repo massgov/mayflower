@@ -1,29 +1,32 @@
 # Every PR must have a changelog. To add a change:
 # 1. Make a copy of this file and name it with the ticket number.
-# 2. Use the example at the bottom and edit the following fields, use ___TEMPLATE___ for reference
-# 3. Replace the
+# 2. Keep the example at the bottom and edit the following fields, using ___TEMPLATE___ for reference
+# 3. Remove all comments from the copied file
 
 #___CHANGE TYPES___
-#- Added for new features.
-#- Changed for changes in existing functionality.
-#- Deprecated for soon-to-be removed features.
-#- Removed for now removed features.
-#- Fixed for any bug fixes.
-#- Security in case of vulnerabilities.
-#e.g. Added
+# - Added for new features.
+# - Changed for changes in existing functionality.
+# - Deprecated for soon-to-be removed features.
+# - Removed for now removed features.
+# - Fixed for any bug fixes.
+# - Security in case of vulnerabilities.
+# e.g. Added
 
 #___PROJECT___
-#- Patternlab
-#- React
-#- Docs
+# - Patternlab
+# - React
+# - Docs
+# e.g. React
+# e.g. React, Patternlab
 
 #___COMPONENT___
-#Component name(s) in `PascalCase`
-#e.g. Header
-#e.g. Form, InputSlider, InputTextTypeAhead
+# Component name(s) in `PascalCase`
+# e.g. Header
+# e.g. Form, InputSlider, InputTextTypeAhead
 
 #___DESCRIPTION___
 # PR description and PR number (append PR number with # to create a link to the PR in Github)
+# If you need multiple lines, start the first line with the following "|-" characters.
 #e.g. Adds apples to apple trees for admin apple pickers #PR
 
 #___ISSUE___
@@ -34,14 +37,15 @@
 # - Major impact when you make incompatible API changes,
 # - Minor impact when you add functionality in a backwards compatible manner, and
 # - Patch impact when you make backwards compatible bug fixes.
+# e.g. Minor
 # See https://semver.org/ for more info.
 
 
 #___TEMPLATE___
-#ChangeType [enter a valid option from the list under __CHANGE TYPES___, e.g. ]:
-#  - project: Enter one or multiple valid project prefix(es) - see list above
-#    component: Enter one or multiple valid component name(s) - see instruction above
-#    description: Describe the change. If you need multiple lines, start the first line with the following "|-" characters. (#PR)
+# ChangeType [enter a valid option, see __CHANGE TYPES___ e.g. Added]:
+#  - project: Enter one or multiple (comma separated) valid project prefix(es) - see ___PROJECT___ e.g. React, Patternlab
+#    component: Enter one or multiple (comma separated) valid component name(s) - see ___COMPONENT___ e.g. Color
+#    description: Describe the change and add the PR number. see ___DESCRIPTION___ e.g. #PR
 #    issue: Add a Jira ticket or issue number, e.g. DP-12345 or 124
 #    impact: Enter a valid impact, e.g. Minor
 
