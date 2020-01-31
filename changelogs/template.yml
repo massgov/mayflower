@@ -27,6 +27,7 @@
 #___DESCRIPTION___
 # PR description and PR number (append PR number with # to create a link to the PR in Github)
 # If you need multiple lines, start the first line with the following "|-" characters.
+# For any breaking changes, add a comment in the PR describing the necessary changes on the consumer side and link that comment in the description.
 #e.g. Adds apples to apple trees for admin apple pickers #PR
 
 #___ISSUE___
