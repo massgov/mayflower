@@ -1,25 +1,27 @@
 import { create } from '@storybook/theming';
+import logo from './mayflower-react-logo.png';
 
 // https://storybook.js.org/docs/configurations/theming/
 
 export default create({
   base: 'light',
 
-  colorSecondary: '#7D4CDB',
+  colorSecondary: '#14558F',
 
-  appBg: '#F8F8F8',
-  appBorderColor: '#EDEDED',
+  appBg: '#F2F2F2',
+  appBorderColor: '#DCDCDC',
   appBorderRadius: 6,
 
-  barTextColor: '#999999',
-  barSelectedColor: '#7D4CDB',
+  barTextColor: '#707070',
+  barSelectedColor: '#14558F',
   barBg: '#F2F2F2',
 
   inputBg: 'white',
-  inputBorder: 'rgba(0,0,0,.1)',
-  inputTextColor: '#333333',
+  inputBorder: '#DCDCDC',
+  inputTextColor: '#141414',
   inputBorderRadius: 4,
 
-  brandImage: '/grommet-logo.svg',
-  brandUrl: 'https://v2.grommet.io/',
+  brandImage: logo,
+  brandTitle: 'Mayflower React',
+  brandUrl: 'https://github.com/massgov/mayflower'
 });
