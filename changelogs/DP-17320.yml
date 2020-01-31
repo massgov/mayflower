@@ -1,0 +1,6 @@
+Changed:
+  - project: React
+    component: Storybook
+    description: Config storybook to add Mayflower theme. #915
+    issue: DP-17320
+    impact: Patch
