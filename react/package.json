@@ -87,6 +87,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.0.1",
+    "github-markdown-css": "^3.0.1",
+    "markdown-it": "^10.0.0",
     "node-sass-chokidar": "^1.2.2",
     "npm-run-all": "^4.1.2",
     "nwb": "0.23.x",
@@ -94,8 +96,7 @@
     "prop-types": "^15.7.1",
     "react": "16.8.6",
     "react-dom": "16.9.0",
-    "react-html-parser": "^2.0.2",
-    "markdown-it": "^10.0.0"
+    "react-html-parser": "^2.0.2"
   },
   "homepage": "",
   "license": "MIT",
