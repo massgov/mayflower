@@ -3,3 +3,4 @@ Changed:
     component: UtilityNav
     description: Change the state organizations menu from a button to a link directly to the page. #882
     issue: DP-16804
+    impact: Minor
