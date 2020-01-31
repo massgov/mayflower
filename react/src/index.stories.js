@@ -4,9 +4,11 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import './index.css';
 
-storiesOf('101|mayflower-react ', module)
+import Docs from '../README.md';
+
+storiesOf('Welcome🎉|mayflower-react', module)
   .add(
-    'Welcome 🎉', (() => {
-      return(<div>text</div>);
+    'About', (() => {
+      return(Docs);
     })
   );
