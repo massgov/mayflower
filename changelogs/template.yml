@@ -1,6 +1,6 @@
 # Every PR must have a changelog. To add a change:
 # 1. Make a copy of this file and name it with the ticket number.
-# 2. Keep the example at the bottom and edit the following fields, using ___TEMPLATE___ for reference
+# 2. Keep the original format of the example at the bottom, and override each element of it using ___TEMPLATE___ for reference
 # 3. Remove all comments from the copied file
 
 #___CHANGE TYPES___
