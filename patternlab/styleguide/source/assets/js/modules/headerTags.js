@@ -36,6 +36,7 @@ export default (function (window,document,$,undefined) {
   });
 
   $('.ma__relationship-indicators--terms').each(function() {
+
     let $tagWrapper = $(this);
     let $button = $tagWrapper.find('.js-relationship-indicator-button');
     let $buttonCounter = $button.find('.tag-count');
@@ -68,9 +69,10 @@ export default (function (window,document,$,undefined) {
     });
 
     $button.on('keydown', function(e) {
-      if (e.keyCode === 9 && $tagWrapper.parent().hasClass('tags-open')) { 
-        $focusTag.focus();
-        e.preventDefault(); 
+      if (e.keyCode === 9 && $tagWrapper.parent().hasClass('tags-open') && !$button.hasClass('last-item')) {
+          $focusTag.focus();
+          $button.toggleClass('last-item');
+          e.preventDefault();
       }
     });
 
@@ -81,7 +83,7 @@ export default (function (window,document,$,undefined) {
 
       setTimeout(function(){
         let windowWidth = $(window).width();
-        
+
         // recount the hidden tags.
         $hiddenTag = $tagWrapper.find('.ma__relationship-indicators--term:hidden');
         tagCount = $hiddenTag.length;
@@ -89,15 +91,15 @@ export default (function (window,document,$,undefined) {
         // Update button text.
         $buttonCounter.text(tagCount);
         $tagState.text('more');
-        
+
         // Reset the button visibility.
         if(tagCount >= 1 && windowWidth < 910) {
           $button.show();
-        } 
+        }
         else if (tagCount == 0) {
           $button.hide();
         }
-        
+
       }, 500);
 
     });
