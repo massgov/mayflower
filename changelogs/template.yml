@@ -28,7 +28,7 @@
 # PR description and PR number (append PR number with # to create a link to the PR in Github)
 # If you need multiple lines, start the first line with the following "|-" characters.
 # For any breaking changes, add a comment in the PR describing the necessary changes on the consumer side and link that comment in the description.
-#e.g. Adds apples to apple trees for admin apple pickers #PR
+#e.g. Adds apples to apple trees for admin apple pickers (#PR)
 
 #___ISSUE___
 # A Jira ticket or a Github issue number (append Github issue number with # to create a link to the issue in Github)
@@ -46,7 +46,7 @@
 # ChangeType [enter a valid option, see __CHANGE TYPES___ e.g. Added]:
 #  - project: Enter one or multiple (comma separated) valid project prefix(es) - see ___PROJECT___ e.g. React, Patternlab
 #    component: Enter one or multiple (comma separated) valid component name(s) - see ___COMPONENT___ e.g. Color
-#    description: Describe the change and add the PR number. see ___DESCRIPTION___ e.g. #PR
+#    description: Describe the change and add the PR number. see ___DESCRIPTION___ e.g. Adds apples to apple trees for admin apple pickers (#PR)
 #    issue: Add a Jira ticket or issue number, e.g. DP-12345 or 124
 #    impact: Enter a valid impact, e.g. Minor
 
@@ -54,6 +54,6 @@
 Added:
   - project: React, Patternlab
     component: Color
-    description: Addded Color stories and color gradients. #909
+    description: Addded Color stories and color gradients. (#909)
     issue: DP-17253
     impact: Minor
