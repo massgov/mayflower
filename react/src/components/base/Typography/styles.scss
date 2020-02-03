@@ -6,6 +6,35 @@
   }
 
   &-block {
+    margin-top: 0 !important;
     margin-bottom: 2rem;
+  }
+}
+
+
+$styles: (
+  "light": 'Light',
+  "book": 'Book',
+  "medium": 'Medium',
+  "bold": 'Bold',
+  "black": 'Black'
+);
+
+
+
+.ma-texta {
+  &-light {
+    @include ma-texta-style('Light')
+
+    &--italic {
+      @include ma-texta-style('Light', true)
+    }
+  }
+  &-black {
+    @include ma-texta-style('Black')
+
+    &--italic {
+      @include ma-texta-style('Black', true)
+    }
   }
 }
