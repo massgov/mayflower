@@ -20,7 +20,7 @@ const slugifyStyle = (style) => {
 
 storiesOf('brand|typography', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('Texta', (() => {
+  .add('Texta (Main Font)', (() => {
     const props = {
       text: text('custom text', 'Type something in the text knob, and use other knobs to change text styles.'),
       style: select('custom style', styles, 'Medium Italic'),
@@ -78,4 +78,35 @@ storiesOf('brand|typography', module)
         </div>
       </div>
     );
-  }));
+  }))
+  .add('Source Code Pro (Monospace Font)', (() => (
+    <div className="main-content main-content--two">
+      <div className="page-content">
+        <Heading text="Source Code Pro" level={1} />
+        <SidebarHeading title="Characters" level={2} />
+        <div className="sb-block sb-block--mono">
+          <div className="sb-text">{letters.toUpperCase()}</div>
+          <div className="sb-text">{letters}</div>
+          <hr />
+          <div className="sb-text">{numbers}</div>
+          <hr />
+          <div className="sb-text">{characters}</div>
+          <hr />
+        </div>
+
+        <SidebarHeading title="Styles" level={2} />
+        <div className="sb-block sb-block--mono sb-grid">
+          {
+            styles.map((style) => {
+              const className = `ma-texta-${slugifyStyle(style)}`;
+              return(
+                <Fragment>
+                  <span className={className}>{style}</span>
+                </Fragment>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  )));
