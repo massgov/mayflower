@@ -1,24 +1,32 @@
 # Mayflower-React
 [![npm package][npm-badge]][npm]
 
-Mayflower-react is a React component library under the enterprise design system for the Commonwealth of Massachusetts. Mayflower-react is a published npm package [@massds/mayflower-react][npm] that is dependent on static assets generate by [Mayflower PatternLab][mayflower-github]. Mayflower PatternLab is published as a dependency npm package [@massds/mayflower][mayflower-npm]. Refer to [Mayflower PatternLab Static Site][mayflower] for a complete list of its UI components.
+Mayflower-react is a React component library under the [enterprise design system for the Commonwealth of Massachusetts][mayflower-doc].
 
-# How to use Mayflower-React in your Project!
+- **Live demo:** [mayflower-react storybook][react-storybook]
+- **NPM package:** [@massds/mayflower-react][npm].
+- **Codebase:** [Mayflower monorepo][mayflower-github] `react` subdirectory
+  >[Mayflower monorepo][mayflower-github] comprised of [Mayflower documentation][mayflower-doc], two component libraries — [Mayflower React][react-storybook] and [Mayflower PatternLab][patternLab], and their [shared assets][shared-assets].
+  > Refer to [Mayflower PatternLab Static Site][patternlab] for the set of UI components consumed in Mass.gov.
 
-## Quick start
 
+## Using Mayflower-React in Your Project
 1. Install mayflower-react into your project as a dependency.
 `npm i @massds/mayflower-react --save`
 2. Import components into your App.js
 `import { Button } from '@massds/mayflower-react';`
 3. Render components in JSX
-``<Button info="this will be the tooltip text on hover" text="button" onClick={button clicked()} />``
+`<Button text="Button" onClick={() => console.log('mayflower button clicked!')} />`
 
-For a guide and information on the components included in mayflower-react and there functionality visit our [mayflower-react storybook][mayflower-react]. Click on the Info and Knobs tabs for component prop types, details and options.
+Please note that [@massds/mayflower-react][npm] comes with prebuilt css, svg and other image files. If you are configuring your own Webpack, you might need to add the following loaders to handle these files:
+``npm install --save-dev css-loader svg-inline-loader file-loader``
 
-# Contributing, Releasing, and Developing in Mayflower-React
+You can also kickstart your React project with Mayflower-react referring to the [Mayflower React Starter][react-starter] built with [Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app).
 
-## Development
+For a guide and information on the components included in mayflower-react and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
+
+
+## Mayflower-React Development
 * `npm install`
 * `npm start`: This will run the demo application.
 
@@ -58,7 +66,7 @@ $ ``git add package.json package-lock.json``
 
 $ ``git commit -m 'Added purgecss library'``
 
-## Testing
+## Mayflower-React Testing
 
 #### Production build testing
 
@@ -87,7 +95,7 @@ $ ``source-map-explorer umd/@massds/*.min.js``
 Sometimes it is useful to test a Mayflower React component that has not yet been published to npm. This can be accomplished by using the [``npm link``](https://docs.npmjs.com/cli/link) command.
 
 
-## Release process
+## Mayflower-React Release Process
 
 We are tracking versions of this project in the package.json, which means when cutting a release we expect the main ``"version": "0.30.0"`` to be updated using proper [semantic versioning](https://semver.org/). So if we were releasing a bugfix or other minor improvement we would bump to ``0.30.1``, if we were releasing a new feature we would bump to ``0.31.0``, etc.
 
@@ -104,11 +112,13 @@ We are tracking versions of this project in the package.json, which means when c
 4. $ ``aws cloudfront create-invalidation --distribution-id 	
 [!!PROD_DISTRIBUTION_ID_HERE!!] --paths '/*'`` (Invalidates CloudFront for prod box)
 
-You should see your changes live at [mayflower-react storybook][mayflower-react] within a few minutes!
+You should see your changes live at [mayflower-react storybook][react-storybook] within a few minutes!
 
 [npm-badge]: https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square
 [npm]: https://www.npmjs.com/package/@massds/mayflower-react
-[mayflower-npm]: https://www.npmjs.com/package/@massds/mayflower
 [mayflower-github]: https://github.com/massgov/mayflower
-[mayflower]: https://mayflower.digital.mass.gov
-[mayflower-react]: https://mayflower-react.digital.mass.gov
+[mayflower-doc]: https://www.mass.gov/mayflower
+[react-storybook]: https://mayflower-react.digital.mass.gov
+[react-starter]: https://github.com/massgov/mayflower-react-starter
+[patternlab]: https://mayflower.digital.mass.gov
+[shared-assets]: https://github.com/massgov/mayflower/tree/develop/assets
