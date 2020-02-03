@@ -14,4 +14,12 @@
       border: 1px solid $c-gray-lightest;
     }
   }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 300px auto;
+    @media ($bp-small-max){
+      grid-template-columns: auto;
+    }
+  }
 }

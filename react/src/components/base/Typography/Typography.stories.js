@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import Heading from '../../atoms/headings/Heading';
@@ -37,10 +37,18 @@ storiesOf('brand|typography', module)
             <div className="sb-text">{numbers}</div>
           </div>
           <SidebarHeading title="Styles" level={2} />
-          <div className="sb-block">
+          <div className="sb-block sb-grid">
             {
               styles.map((style) => {
-                return<div className={`ma-texta-${slugifyStyle(style)}`}>{style}</div>;
+                const className = `ma-texta-${slugifyStyle(style)}`;
+                return(
+                  <Fragment>
+                    <span className={className}>{style}</span>
+                    <span className="markdown-body">
+                      <code>{`.${className}`}</code>
+                    </span>
+                  </Fragment>
+                );
               })
             }
           </div>
