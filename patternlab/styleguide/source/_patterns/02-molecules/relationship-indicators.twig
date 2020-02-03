@@ -7,17 +7,17 @@
     <ul class="ma__relationship-indicators--terms" aria-labelledby="primary">
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
-     
+
         {% set wrappedLink = item %}
-        {% include "@atoms/11-text/wrapped-link.twig" %} 
-      
+        {% include "@atoms/11-text/wrapped-link.twig" %}
+
       {% endfor %}
     {% endblock %}
-    <li class="ma__relationship-indicators__expand-indicators">
-    <button type="button" class="js-relationship-indicator-button" role="button" aria-pressed="false">
-      show <span class="tag-count"></span> <span class="tag-state">more</span>
-    </button>
-    </li>
+      <li class="ma__relationship-indicators__expand-indicators">
+        <button type="button" class="js-relationship-indicator-button" aria-pressed="false">
+          show <span class="tag-count"></span> <span class="tag-state">more</span>
+        </button>
+      </li>
     </ul>
   </div>
 
@@ -31,15 +31,17 @@
       <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
       {% block secondaryRelationship %}
       {% for item in relationshipIndicators.secondary.tags %}
-      
+
         {% set wrappedLink = item %}
-        {% include "@atoms/11-text/wrapped-link.twig" %} 
-        
+        {% include "@atoms/11-text/wrapped-link.twig" %}
+
       {% endfor %}
       {% endblock %}
-      <button type="button" class="js-relationship-indicator-button" role="button" aria-label="show more" aria-pressed="false">
-        show <span class="tag-count"></span> <span class="tag-state">more</span>
-      </button>
+        <li class="ma__relationship-indicators__expand-indicators">
+          <button type="button" class="js-relationship-indicator-button" aria-label="show more" aria-pressed="false">
+            show <span class="tag-count"></span> <span class="tag-state">more</span>
+          </button>
+        </li>
       </ul>
     </div>
   {% endif %}
