@@ -21,7 +21,7 @@ storiesOf('brand|typography', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Texta', (() => {
     const props = {
-      text: text('text', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+      text: text('text', 'Type something in the text knob.')
     };
     return(
       <div className="main-content main-content--two">
@@ -29,12 +29,17 @@ storiesOf('brand|typography', module)
           <Heading text="Texta" level={1} />
           <SidebarHeading title="Characters" level={2} />
           <div className="sb-block">
-            <div className="sb-text">{characters}</div>
-            <hr />
             <div className="sb-text">{letters.toUpperCase()}</div>
             <div className="sb-text">{letters}</div>
             <hr />
             <div className="sb-text">{numbers}</div>
+            <hr />
+            <div className="sb-text">{characters}</div>
+            <hr />
+          </div>
+          <SidebarHeading title="Custom Sentence" level={2} />
+          <div className="sb-block">
+            <div className="sb-text">{props.text}</div>
           </div>
           <SidebarHeading title="Styles" level={2} />
           <div className="sb-block sb-grid">
