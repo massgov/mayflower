@@ -11,10 +11,13 @@ addParameters({
     showPanel: true // show the code panel by default
   },
 });
-// automatically import all files ending in *.stories.js
-const req = require.context('../src', true, /.stories.js$/);
+
 function loadStories() {
-  req.keys().forEach((filename) => {
+  // load index story first
+  require('../src/index.stories.js');
+  // automatically import all files ending in *.stories.js
+  const req = require.context('../src', true, /.stories.js$/);
+  req.keys().sort().forEach((filename) => {
     req(filename);
   });
   addDecorator(
