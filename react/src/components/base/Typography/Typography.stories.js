@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import Heading from '../../atoms/headings/Heading';
 import SidebarHeading from '../../atoms/headings/SidebarHeading';
+import DecorativeLink from '../../atoms/links/DecorativeLink';
 import {
   characters,
   letters,
@@ -93,19 +94,12 @@ storiesOf('brand|typography', module)
           <div className="sb-text">{characters}</div>
           <hr />
         </div>
-
-        <SidebarHeading title="Styles" level={2} />
-        <div className="sb-block sb-block--mono sb-grid">
-          {
-            styles.map((style) => {
-              const className = `ma-texta-${slugifyStyle(style)}`;
-              return(
-                <Fragment>
-                  <span className={className}>{style}</span>
-                </Fragment>
-              );
-            })
-          }
+        <div className="sb-block">
+        Source Code Pro is an open source font available on Google Fonts.
+        <DecorativeLink
+          text="Download the fonts or see more information on Google Fonts"
+          href="https://fonts.google.com/specimen/Source+Code+Pro"
+        />
         </div>
       </div>
     </div>
