@@ -69,9 +69,9 @@ storiesOf('brand|typography', module)
           <div className="sb-block">
             { Object.keys(typographyOptions.size).map((key) => {
                 const Element = typographyOptions.size[key];
-                return (
+                return(
                   <Element>{key}</Element>
-                )
+                );
               })
             }
           </div>
