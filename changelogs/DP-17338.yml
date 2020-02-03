@@ -6,6 +6,6 @@ Changed:
     impact: Patch
   - project: React
     component: Storybook
-    description: Display `Color` into category "Brand". (#916)
+    description: Display `Color` in category "Brand". (#916)
     issue: DP-17338
     impact: Patch
