@@ -14,8 +14,7 @@ import {
 } from './typography.json';
 import typographyOptions from './Typography.knobs.options';
 import TypographyDocs from '../../../../../docs/style/typography.md';
-import image from '../../../../../docs/.gitbook/assets/texta-massgov.png';
-console.log(image)
+import image from 'GitbookAssets/texta-massgov.png';
 
 import './styles.css';
 import '../../../markdown.css';
@@ -28,10 +27,7 @@ const slugifyStyle = (style) => {
 const md = new MarkdownIt();
 const reg = /\(\.\.\/(\.gitbook\/assets\/.*)\)/g;
 const cleanTypographyDocs = TypographyDocs.replace(reg, (match, contents) => {
-  console.log(`../../../../../docs/${contents}`)
-  //import(`../../../../../docs/${contents}`).then((e) => console.log(e));
-  const graphImage = require(`../../../../../docs/${contents}`)
-  console.log(graphImage)
+  console.log(`../../../${contents}`)
 });
 const result = md.render(cleanTypographyDocs);
 
