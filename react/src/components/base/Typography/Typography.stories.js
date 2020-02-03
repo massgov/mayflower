@@ -14,6 +14,8 @@ import {
 } from './typography.json';
 import typographyOptions from './Typography.knobs.options';
 import TypographyDocs from '../../../../../docs/style/typography.md';
+import image from '../../../../../docs/.gitbook/assets/texta-massgov.png';
+console.log(image)
 
 import './styles.css';
 import '../../../markdown.css';
@@ -24,9 +26,13 @@ const slugifyStyle = (style) => {
 };
 
 const md = new MarkdownIt();
-const reg = /\(\.\.\/\.gitbook\/assets\//g;
-const cleanTypographyDocs = TypographyDocs.replace(reg, '(../../../../../docs/.gitbook/assets/');
-console.log(cleanTypographyDocs)
+const reg = /\(\.\.\/(\.gitbook\/assets\/.*)\)/g;
+const cleanTypographyDocs = TypographyDocs.replace(reg, (match, contents) => {
+  console.log(`../../../../../docs/${contents}`)
+  //import(`../../../../../docs/${contents}`).then((e) => console.log(e));
+  const graphImage = require(`../../../../../docs/${contents}`)
+  console.log(graphImage)
+});
 const result = md.render(cleanTypographyDocs);
 
 storiesOf('brand|typography', module)
@@ -36,6 +42,7 @@ storiesOf('brand|typography', module)
       <div className="page-content">
         <div className="markdown-body">
           {ReactHtmlParser(result)}
+          <img src={image} />
         </div>
       </div>
     </div>
