@@ -8,11 +8,11 @@ const shell = require('shelljs');
 // Could not use the shell.exec to git add the remove changelogs.
 const git = require('simple-git/promise')();
 
-const { octokit, minor } = require('./release-vars');
-const { newLogsWithTitle, changelogs } = require('./compile-changelogs');
+const { octokit } = require('./release-vars');
+const { newLogsWithTitle, changelogs, version } = require('./compile-changelogs');
 
 // Checkout the branch.
-const releaseBranch = 'release/' + minor;
+const releaseBranch = 'release/' + version;
 
 (async function() {
   // This asynchronous logic will happen sequentially.
@@ -32,7 +32,7 @@ const releaseBranch = 'release/' + minor;
   await octokit.pulls.create({
     owner: 'massgov',
     repo: 'mayflower',
-    title: `Release ${minor}`,
+    title: `Release ${version}`,
     head: releaseBranch,
     base: 'master',
     body: newLogsWithTitle

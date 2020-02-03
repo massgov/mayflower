@@ -24,7 +24,8 @@ changelog="$changeType:
   - project: $project
     component: Dependency
     description: $lastCommitClean
-    issue: "
+    issue:
+    impact: Patch"
 
 if [ "$lastCommit" = "$lastDependabot" ]
 then
