@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { withKnobs, text, select } from '@storybook/addon-knobs';
 import Heading from '../../atoms/headings/Heading';
 import SidebarHeading from '../../atoms/headings/SidebarHeading';
 import {
@@ -9,6 +9,7 @@ import {
   numbers,
   styles
 } from './typography.json';
+import typographyOptions from './Typography.knobs.options';
 
 import './styles.css';
 
@@ -21,8 +22,11 @@ storiesOf('brand|typography', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Texta', (() => {
     const props = {
-      text: text('text', 'Type something in the text knob.')
+      text: text('custom text', 'Type something in the text knob, and use other knobs to change text styles.'),
+      style: select('custom style', typographyOptions.styles, 'Medium Italic'),
+      size: select('custom size', typographyOptions.size, 'p')
     };
+    const CustomElement = props.size;
     return(
       <div className="main-content main-content--two">
         <div className="page-content">
@@ -37,10 +41,14 @@ storiesOf('brand|typography', module)
             <div className="sb-text">{characters}</div>
             <hr />
           </div>
+
           <SidebarHeading title="Custom Sentence" level={2} />
           <div className="sb-block">
-            <div className="sb-text">{props.text}</div>
+            <CustomElement className={`ma-texta-${slugifyStyle(props.style)}`}>
+              {props.text}
+            </CustomElement>
           </div>
+
           <SidebarHeading title="Styles" level={2} />
           <div className="sb-block sb-grid">
             {

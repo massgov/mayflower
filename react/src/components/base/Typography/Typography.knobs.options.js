@@ -11,10 +11,16 @@ export default {
     'Heading 6': 'h6',
     'Body text': 'p'
   },
-  usage: {
-    'primary (default)': '',
-    secondary: 'secondary',
-    tertiary: 'tertiary',
-    quaternary: 'quaternary'
-  }
+  styles: [
+    "Light",
+    "Light Italic",
+    "Book",
+    "Book Italic",
+    "Medium",
+    "Medium Italic",
+    "Bold",
+    "Bold Italic",
+    "Black",
+    "Black Italic"
+  ]
 };
