@@ -1,6 +1,6 @@
 # Every PR must have a changelog. To create a changelog:
 # 1. Make a copy of this file and name it with the ticket number.
-# 2. Keep the original format of the example at the bottom, and override each element of it using ___TEMPLATE___ for reference
+# 2. Keep the original format of one of the examples at the bottom, and override each element of it using ___TEMPLATE___ for reference
 # 3. Remove all comments from the copied file
 
 #___CHANGE TYPES___
@@ -57,3 +57,30 @@ Added:
     description: Addded Color stories and color gradients. (#909)
     issue: DP-17253
     impact: Minor
+
+#___EXAMPLE WITH MULTIPLE ITEMS___
+Changed:
+  - project: React
+    component: Storybook
+    description: Render welcome page to Mayflower-react. (#916)
+    issue: DP-17338
+    impact: Patch
+  - project: React
+    component: Storybook
+    description: Display `Color` in category "Brand". (#916)
+    issue: DP-17338
+    impact: Patch
+
+#___EXAMPLE WITH MULTIPLE CHANGE TYPES___
+Added:
+  - project: React
+    component: Storybook
+    description: Add welcome page to Mayflower-react. (#916)
+    issue: DP-17338
+    impact: Patch
+Changed:
+  - project: React
+    component: Storybook
+    description: Display `Color` in category "Brand". (#916)
+    issue: DP-17338
+    impact: Patch
