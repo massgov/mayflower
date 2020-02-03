@@ -31,8 +31,8 @@ storiesOf('brand|typography', module)
           <div className="sb-block">
             <div className="sb-text">{characters}</div>
             <hr />
-            <div className="sb-text">{letters}</div>
             <div className="sb-text">{letters.toUpperCase()}</div>
+            <div className="sb-text">{letters}</div>
             <hr />
             <div className="sb-text">{numbers}</div>
           </div>
@@ -43,6 +43,15 @@ storiesOf('brand|typography', module)
                 return<div className={`ma-texta-${slugifyStyle(style)}`}>{style}</div>;
               })
             }
+          </div>
+          <SidebarHeading title="Sizes" level={2} />
+          <div className="sb-block">
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <p>Body text</p>
           </div>
         </div>
       </div>
