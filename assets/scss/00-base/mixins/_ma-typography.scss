@@ -73,6 +73,7 @@
   }
 }
 
+// Texta styles
 @mixin ma-texta-style($weight: 'Light', $italic: false) {
   @if($weight == 'Light') {
     font-weight: 300;

@@ -1,4 +1,5 @@
 @import '../../styles/global';
+@import "01-atoms/global/fonts-styles";
 
 .sb {
   &-text {
@@ -11,28 +12,6 @@
 
     hr {
       border: 1px solid $c-gray-lightest;
-    }
-  }
-}
-
-
-$styles: (
-  "light": 'Light',
-  "book": 'Book',
-  "medium": 'Medium',
-  "bold": 'Bold',
-  "black": 'Black'
-);
-
-
-
-.ma-texta {
-  @each $class, $s in $styles {
-    &-#{$class} {
-      @include ma-texta-style($s)
-      &--italic {
-        @include ma-texta-style($s, true)
-      }
     }
   }
 }
