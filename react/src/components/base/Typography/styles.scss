@@ -1,0 +1,11 @@
+@import '../../styles/global';
+
+.sb {
+  &-text {
+    overflow-wrap: break-word;
+  }
+
+  &-block {
+    margin-bottom: 2rem;
+  }
+}
