@@ -8,6 +8,10 @@
   &-block {
     margin-top: 0 !important;
     margin-bottom: 2rem;
+
+    hr {
+      border: 1px solid $c-gray-lightest;
+    }
   }
 }
 
@@ -23,18 +27,12 @@ $styles: (
 
 
 .ma-texta {
-  &-light {
-    @include ma-texta-style('Light')
-
-    &--italic {
-      @include ma-texta-style('Light', true)
-    }
-  }
-  &-black {
-    @include ma-texta-style('Black')
-
-    &--italic {
-      @include ma-texta-style('Black', true)
+  @each $class, $s in $styles {
+    &-#{$class} {
+      @include ma-texta-style($s)
+      &--italic {
+        @include ma-texta-style($s, true)
+      }
     }
   }
 }

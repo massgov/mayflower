@@ -30,21 +30,17 @@ storiesOf('brand|typography', module)
           <SidebarHeading title="Characters" level={2} />
           <div className="sb-block">
             <div className="sb-text">{characters}</div>
-          </div>
-          <SidebarHeading title="Letters Only" level={2} />
-          <div className="sb-block">
+            <hr />
             <div className="sb-text">{letters}</div>
             <div className="sb-text">{letters.toUpperCase()}</div>
-          </div>
-          <SidebarHeading title="Numbers Only" level={2} />
-          <div className="sb-block">
+            <hr />
             <div className="sb-text">{numbers}</div>
           </div>
           <SidebarHeading title="Styles" level={2} />
           <div className="sb-block">
             {
               styles.map((style) => {
-                return<div className={`ma-texta-${slugifyStyle(style)}`}>{style}</div>
+                return<div className={`ma-texta-${slugifyStyle(style)}`}>{style}</div>;
               })
             }
           </div>
