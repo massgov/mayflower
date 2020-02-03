@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import ReactHtmlParser from 'react-html-parser';
+import MarkdownIt, { Ruler } from 'markdown-it';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import Heading from '../../atoms/headings/Heading';
@@ -11,16 +13,39 @@ import {
   styles
 } from './typography.json';
 import typographyOptions from './Typography.knobs.options';
+import TypographyDocs from '../../../../../docs/style/typography.md';
 
 import './styles.css';
+import '../../../markdown.css';
 
 const slugifyStyle = (style) => {
   const [weight, italic] = style.split(' ');
   return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
 };
 
+const md = new MarkdownIt()
+md.core.ruler.at('replacements', function replace(state) {
+  const reg = /\(\.\.\/\.gitbook\/assets\//g;
+  state.tokens.forEach((token) => {
+    const newContent = token.content.replace(reg, '(../../../../../docs/.gitbook/assets/')
+    token.content = newContent
+  })
+});
+const result = md.render(TypographyDocs);
+
+
 storiesOf('brand|typography', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('About', (() => (
+    <div className="main-content main-content--two">
+      <div className="page-content">
+        <div className="markdown-body">
+          {ReactHtmlParser(result)}
+        </div>
+      </div>
+    </div>
+  )
+  ))
   .add('Texta (Main Font)', (() => {
     const props = {
       text: text('custom text', 'Type something in the text knob, and use other knobs to change text styles.'),
@@ -95,12 +120,13 @@ storiesOf('brand|typography', module)
           <hr />
         </div>
         <div className="sb-block">
-        Source Code Pro is an open source font available on Google Fonts.
-        <DecorativeLink
-          text="Download the fonts or see more information on Google Fonts"
-          href="https://fonts.google.com/specimen/Source+Code+Pro"
-        />
+          Source Code Pro is an open source font available on Google Fonts.
+          <DecorativeLink
+            text="Download the fonts or see more information on Google Fonts"
+            href="https://fonts.google.com/specimen/Source+Code+Pro"
+          />
         </div>
       </div>
     </div>
-  )));
+  )),
+  { info: TypographyDocs });
