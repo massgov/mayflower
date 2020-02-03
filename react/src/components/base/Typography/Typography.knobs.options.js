@@ -10,17 +10,5 @@ export default {
     'Heading 5': 'h5',
     'Heading 6': 'h6',
     'Body text': 'p'
-  },
-  styles: [
-    "Light",
-    "Light Italic",
-    "Book",
-    "Book Italic",
-    "Medium",
-    "Medium Italic",
-    "Bold",
-    "Bold Italic",
-    "Black",
-    "Black Italic"
-  ]
+  }
 };
