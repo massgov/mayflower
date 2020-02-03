@@ -23,16 +23,11 @@ const slugifyStyle = (style) => {
   return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
 };
 
-const md = new MarkdownIt()
-md.core.ruler.at('replacements', function replace(state) {
-  const reg = /\(\.\.\/\.gitbook\/assets\//g;
-  state.tokens.forEach((token) => {
-    const newContent = token.content.replace(reg, '(../../../../../docs/.gitbook/assets/')
-    token.content = newContent
-  })
-});
-const result = md.render(TypographyDocs);
-
+const md = new MarkdownIt();
+const reg = /\(\.\.\/\.gitbook\/assets\//g;
+const cleanTypographyDocs = TypographyDocs.replace(reg, '(../../../../../docs/.gitbook/assets/');
+console.log(cleanTypographyDocs)
+const result = md.render(cleanTypographyDocs);
 
 storiesOf('brand|typography', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
