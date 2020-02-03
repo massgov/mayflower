@@ -4,7 +4,9 @@ Contributing to Mayflower
 Mayflower is primarily a design system.  This repository is the concrete implementation of that design system, and is broken into 2 distinct parts:
 
 * *[Documentation](/docs)*: Documentation for the overall design system, including guiding principals.
-* *Implementations*: Implementations of Mayflower in various languages and technologies. Each implementation has its own documentation explaining how to use and work with it.
+* ***Implementations***: Implementations of Mayflower in various languages and technologies. Each implementation has its own documentation explaining how to use and work with it.
+  - [Mayflower React](/react)
+  - [Mayflower Patternlab](/patternlab)
 
 Versioning
 ----------
@@ -34,7 +36,7 @@ Step by step guide for contributing:
     git commit -m "Add foos to bars"
     git push origin patternlab/my_feature
     ```
-5. Follow the [Changelog Instructions](docs/for-developers/change-log-instructions.md) to add a changelog.
+5. Follow the [Changelog Instructions](./docs/for-developers/changelog-instructions.md) to add a changelog.
 6. Open a [Pull Request](https://github.com/massgov/mayflower/compare) to have your code reviewed.
 
 #### Using the Gitbook editor
