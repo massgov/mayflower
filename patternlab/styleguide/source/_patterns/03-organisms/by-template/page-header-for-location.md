@@ -8,4 +8,4 @@ This is a variant of the [Page Header](./?p=organisms-page-header) pattern showi
   * @organisms/by-author/contact-components/contact-us.twig
   * @organisms/by-author/key-actions.twig
 * populate the `widgets` array with the following pattern:
-  * @molecules/location-icons.twig
+  * @molecules/location-icons/location-icons.twig

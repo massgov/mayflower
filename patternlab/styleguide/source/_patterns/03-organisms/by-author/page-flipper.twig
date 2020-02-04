@@ -9,13 +9,13 @@
   <div class="ma__page-flipper__container">
     {% if pageFlipper.prev %}
       {% set arrowNav = pageFlipper.prev %}
-      {% include "@molecules/arrow-nav.twig" %}
+      {% include "@molecules/nav/arrow-nav.twig" %}
     {% else %}
       <div class="ma__page-flipper__blank">&nbsp;</div>
     {% endif %}
     {% if pageFlipper.next %}
       {% set arrowNav = pageFlipper.next %}
-      {% include "@molecules/arrow-nav.twig" %}
+      {% include "@molecules/nav/arrow-nav.twig" %}
     {% else %}
       <div class="ma__page-flipper__blank">&nbsp;</div>
     {% endif %}

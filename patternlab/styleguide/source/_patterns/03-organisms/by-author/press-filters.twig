@@ -7,7 +7,7 @@
     <form class="ma__press-filters__form js-press-filters" action="{{ pressFilters.action }}">
       <div class="ma__press-filters__organizations">
         {% set orgSelector = pressFilters.orgSelector %}
-        {% include "@molecules/org-selector.twig" %}
+        {% include "@molecules/forms/org-selector.twig" %}
       </div>
       <div class="ma__press-filters__topic">
         {% set selectBox = pressFilters.topic %}
