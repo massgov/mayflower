@@ -1,0 +1,13 @@
+Changed:
+  - project: React
+    component: Storybook
+    description: Organize all form components from atoms, molecules and organisms into a forms category. (#919)
+    |- Import paths from mayflower-react stay the same. No impact on the consumer side.
+    issue: DP-17372
+    impact: Patch
+  - project: React
+    component: Storybook
+    description: Move Placeholder component into atoms. (#919)
+    |- Import paths from mayflower-react stay the same. No impact on the consumer side.
+    issue: DP-17372
+    impact: Patch
