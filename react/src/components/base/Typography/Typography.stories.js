@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import MarkdownIt, { Ruler } from 'markdown-it';
+import MarkdownIt from 'markdown-it';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import Heading from '../../atoms/headings/Heading';
@@ -122,5 +122,4 @@ storiesOf('brand|typography', module)
         </div>
       </div>
     </div>
-  )),
-  { info: TypographyDocs });
+  )));
