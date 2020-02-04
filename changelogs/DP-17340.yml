@@ -1,0 +1,6 @@
+Added:
+  - project: React
+    component: Storybook
+    description: Added Typography story and documentation. (#918)
+    issue: DP-17340
+    impact: Patch
