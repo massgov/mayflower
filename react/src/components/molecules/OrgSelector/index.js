@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectBox from '../../atoms/forms/SelectBox/index';
-import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
+import SelectBox from '../../forms/SelectBox/index';
+import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
 import ImagePromo from '../ImagePromo';
 import './style.css';
 
@@ -128,9 +128,9 @@ const OrgInfo = (props) => {
 OrgInfo.propTypes = ImagePromo.propTypes;
 
 OrgSelector.propTypes = {
-  /** @atoms/forms/SelectBox  */
+  /** @forms/SelectBox  */
   selectBox: PropTypes.shape(SelectBox.propTypes),
-  /** @atoms/forms/InputTextTypeAhead  */
+  /** @forms/InputTextTypeAhead  */
   typeAhead: PropTypes.shape(InputTextTypeAhead.propTypes),
   /** An array of objects of org info which renders (as <OrgInfo/>) when that org is selected  */
   organizations: PropTypes.arrayOf(PropTypes.shape(OrgInfo.propTypes)),

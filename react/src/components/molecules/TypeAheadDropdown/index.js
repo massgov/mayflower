@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
+import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
 import Icon from '../../atoms/icons/Icon';
 import './style.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputDate from '../../atoms/forms/InputDate';
+import InputDate from '../../forms/InputDate';
 import './style.css';
 
 class DateRange extends React.Component {
@@ -33,9 +33,9 @@ class DateRange extends React.Component {
 DateRange.propTypes = {
   /** The text label of the date range input */
   label: PropTypes.string.isRequired,
-  /** The start date of your filter query, @atoms/forms/InputDate */
+  /** The start date of your filter query, @forms/InputDate */
   startDate: PropTypes.shape(InputDate.props).isRequired,
-  /** The end date of your filter query, @atoms/forms/InputDate */
+  /** The end date of your filter query, @forms/InputDate */
   endDate: PropTypes.shape(InputDate.props).isRequired
 };
 

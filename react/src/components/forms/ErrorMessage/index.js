@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../icons/Icon';
+import Icon from '../../atoms/icons/Icon';
 import './style.css';
 
 const ErrorMessage = ({

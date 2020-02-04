@@ -8,7 +8,7 @@ import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import { countDecimals } from '../Input/utility';
-import { numberCharacterPropTypeCheck } from '../../../utilities/componentPropTypeCheck';
+import { numberCharacterPropTypeCheck } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const NumberInput = (props) => {

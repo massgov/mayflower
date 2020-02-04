@@ -26,22 +26,22 @@ export EventTime from './components/atoms/contact/EventTime';
 export OperationalHours from './components/atoms/contact/OperationalHours';
 export PhoneNumber from './components/atoms/contact/PhoneNumber';
 // @atoms/@forms
-export Form, { FormProvider } from './components/atoms/forms/Form';
-export HelperText from './components/atoms/forms/HelperText';
-export ErrorMessage from './components/atoms/forms/ErrorMessage';
-export InputDate from './components/atoms/forms/InputDate';
-export InputText from './components/atoms/forms/InputText';
-export SelectBox from './components/atoms/forms/SelectBox';
-export InputRadio from './components/atoms/forms/InputRadio';
-export InputTextFuzzy from './components/atoms/forms/InputTextFuzzy';
-export Input from './components/atoms/forms/Input';
-export Error from './components/atoms/forms/Input/error';
-export InputSlider from './components/atoms/forms/InputSlider';
-export CompoundSlider from './components/atoms/forms/CompoundSlider';
-export InputCurrency from './components/atoms/forms/InputCurrency';
-export InputCheckBox from './components/atoms/forms/InputCheckBox';
-export { InputContext, FormContext } from './components/atoms/forms/Input/context';
-export InputNumber from './components/atoms/forms/InputNumber';
+export Form, { FormProvider } from './components/forms/Form';
+export HelperText from './components/forms/HelperText';
+export ErrorMessage from './components/forms/ErrorMessage';
+export InputDate from './components/forms/InputDate';
+export InputText from './components/forms/InputText';
+export SelectBox from './components/forms/SelectBox';
+export InputRadio from './components/forms/InputRadio';
+export InputTextFuzzy from './components/forms/InputTextFuzzy';
+export Input from './components/forms/Input';
+export Error from './components/forms/Input/error';
+export InputSlider from './components/forms/InputSlider';
+export CompoundSlider from './components/forms/CompoundSlider';
+export InputCurrency from './components/forms/InputCurrency';
+export InputCheckBox from './components/forms/InputCheckBox';
+export { InputContext, FormContext } from './components/forms/Input/context';
+export InputNumber from './components/forms/InputNumber';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
 export CompHeading from './components/atoms/headings/CompHeading';
@@ -140,7 +140,7 @@ export Collapse from './components/animations/Collapse';
 export DataTable from './components/dataviz/DataTable';
 
 // To archive & remove in version 10
-export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
+export InputTextTypeAhead from './components/forms/InputTextTypeAhead';
 export PressTeaser from './components/molecules/PressTeaser';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Teaser from './components/organisms/Teaser';

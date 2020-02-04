@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import InputRadio from '../../atoms/forms/InputRadio';
-import ErrorMessage from '../../atoms/forms/ErrorMessage';
+import InputRadio from '../../forms/InputRadio';
+import ErrorMessage from '../../forms/ErrorMessage';
 import './style.css';
 
 class InputRadioGroup extends React.Component {
