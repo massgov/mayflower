@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import InputText from '../../atoms/forms/InputText';
+import InputText from '../../forms/InputText';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 
 import './style.css';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ButtonToggle from '../../atoms/buttons/ButtonToggle';
-import SelectBox from '../../atoms/forms/SelectBox';
+import SelectBox from '../../forms/SelectBox';
 import Tags from '../../molecules/Tags';
 import './style.css';
 
