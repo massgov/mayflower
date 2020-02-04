@@ -11,7 +11,7 @@ import headingOptions from '../../atoms/headings/Headings.knobs.options';
 import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeading.knobs.options';
 import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
 import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
-import orgSelectorOptions from '../../molecules/OrgSelector/OrgSelector.knobs.options';
+import orgSelectorOptions from '../../forms/OrgSelector/OrgSelector.knobs.options';
 
 storiesOf('organisms/PressFilters', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

@@ -1,4 +1,4 @@
-import FeedbackForm from './components/organisms/FeedbackForm';
+import FeedbackForm from './components/forms/FeedbackForm';
 
 /*
   Since we are package a library of UI components, export each component here
