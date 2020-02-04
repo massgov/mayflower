@@ -11,29 +11,41 @@
       </li>
     {% endif %}
     {% for item in utilityNav.items %}
-      <li class="ma__utility-nav__item js-util-nav-toggle">
-      <button class="ma__utility-nav__link js-util-nav-toggle"
-          aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
-          {{ icon(item.icon) }}
-          <span>
-            {{ item.text }}
-          </span>
-        </button>
-        <div aria-hidden="true" class="ma__utility-nav__content js-util-nav-content is-closed">
-          <div class="ma__utility-nav__container">
-            <div class="ma__utility-nav__content-title">
-              <button class="ma__utility-nav__close js-close-util-nav"><span>{{ item.closeText }}</span><span class="ma__utility-nav__close-icon" aria-hidden="true">+</span></button>
+      <li class="ma__utility-nav__item{% if not(item.text == 'State Organizations') %} js-util-nav-toggle{% endif %}">
+      {% if item.text == 'State Organizations' %}
+        {# Get hef value. #}
+        {% for panel in item.panels %}
+          {% for link in panel.links %}
+            <a class="ma__utility-nav__link direct-link" href="{{ link.href }}">
               {{ icon(item.icon) }}
-              <h2>{{ item.text }}</h2>
-            </div>
-            <div class="ma__utility-nav__content-body">
-              {% set utilityPanel = item.panel %}
-              {% for item in item.panels %}
-              {% include "@organisms/by-template/utility-panel.twig" %}
-              {% endfor %}
+              <span>{{ item.text }}</span>
+            </a>
+         {% endfor %}
+        {% endfor %}
+      {% else %}
+        <button class="ma__utility-nav__link js-util-nav-toggle"
+            aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
+            {{ icon(item.icon) }}
+            <span>
+              {{ item.text }}
+            </span>
+          </button>
+          <div aria-hidden="true" class="ma__utility-nav__content js-util-nav-content is-closed">
+            <div class="ma__utility-nav__container">
+              <div class="ma__utility-nav__content-title">
+                <button class="ma__utility-nav__close js-close-util-nav"><span>{{ item.closeText }}</span><span class="ma__utility-nav__close-icon" aria-hidden="true">+</span></button>
+                {{ icon(item.icon) }}
+                <h2>{{ item.text }}</h2>
+              </div>
+              <div class="ma__utility-nav__content-body">
+                {% set utilityPanel = item.panel %}
+                {% for item in item.panels %}
+                {% include "@organisms/by-template/utility-panel.twig" %}
+                {% endfor %}
+              </div>
             </div>
           </div>
-        </div>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

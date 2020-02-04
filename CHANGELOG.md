@@ -1,15 +1,27 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.39.0 (2/4/2020)
+### Changed 
+- (Patternlab) [UtilityNav] DP-16804: Change the state organizations menu from a button to a link directly to the page. (#882)
+- (React) [Storybook] DP-17320: Config storybook to add Mayflower theme. (#915)
+- (React) [Storybook] DP-17338: Render welcome page to Mayflower-react. (#916)
+- (React) [Storybook] DP-17338: Display `Color` in category "Brand". (#916)
+- (React) [Storybook] DP-17372: Organize all form components from atoms, molecules and organisms into a forms category. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+- (React) [Storybook] DP-17372: Move Placeholder component into atoms. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+
+### Added 
+- (React) [Color] DP-17253: Addded Color stories and color gradients. (#909)
+
 ## 9.38.0 (1/21/2020)
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-17156: Replace uglify-js with terser.
 
-### Fixed 
-- (Patternlab, React) [release automation] DP-16732: Fixed the display for the month and date in the release automation. (#PR)
+### Fixed
+- (Patternlab, React) [release automation] DP-16732: Fixed the display for the month and date in the release automation. (#874)
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-17136: Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide.
 
 ## 9.37.0 (1/14/2020)
@@ -17,55 +29,55 @@ All notable changes to this project will be documented in this file.
 ### Changed
 (Patternlab) [Dependency] Bump node-normalize-scss from 8.0.0 to 8.0.1.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16827: Bumps del from 4.0.0 to 5.1.0.
 
-### Security 
+### Security
 - (Patternlab) [Dependency] DP-16828: Update eslint-utils from v.1.3.1 to v.1.4.2.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16831: Bump eslint-plugin-react from 7.11.1 to 7.16.0 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16832: Bump dotenv from 6.0.0 to 8.2.0 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16833: Bump gulp-rename from 1.3.0 to 2.0.0 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16834: Bump url-search-params-polyfill from 5.0.0 to 7.0.1 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-17124: Bump untildify from 3.0.3 to 4.0.0 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-17125: Bump through2 from 2.0.3 to 3.0.1 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-17137: Bump gulp from 4.0.0 to 4.0.2 in /patternlab/styleguide.
 
 ## 9.36.0 (1/7/2020)
 
-### Security 
-- (Patternlab) [Dependency] DP-16925: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782 
+### Security
+- (Patternlab) [Dependency] DP-16925: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782
 
 ## 9.35.0 (12/18/2019)
 
-### Fixed 
+### Fixed
 - (React) [Tab] DP-16678: Fixed PropTypes check console error for `tabRef`.
 
 
 ## 9.34.0 (12/11/2019)
 
-### Changed 
-- (React) [InputCheckBox] DP-16111: Refactor InputCheckBox to be used for multiple selections. #787 
-	- Allow defaultValue to update the component state 
-	- Added required `value` prop to input checkbox element (Major) 
-	- Added `onKeyDown` prop to allow passing arrow navigation between checkbox options 
-	- Added `tabIndex` prop to permit change of tab-index 
+### Changed
+- (React) [InputCheckBox] DP-16111: Refactor InputCheckBox to be used for multiple selections. #787
+	- Allow defaultValue to update the component state
+	- Added required `value` prop to input checkbox element (Major)
+	- Added `onKeyDown` prop to allow passing arrow navigation between checkbox options
+	- Added `tabIndex` prop to permit change of tab-index
 	- Added `classes` prop to permit passing in classes to input wrapper div
 
-### Added 
+### Added
 - (React) [MultiSelectDropDown] DP-16111: Added `MultiSelectDropDown` molecule. #787
 - (React) [ButtonTag, Tags] DP-16111: Added `ButtonTag` atom under buttons and `Tags` molecule. #787
 - (React) [Input] DP-16111: Added classes props to Input to pass classNames into input wrapper div. #787
@@ -73,13 +85,13 @@ All notable changes to this project will be documented in this file.
 ### Added
 - (React) [FilterBox] DP-12168: Added `filterLabel` and `filterNote` props to FilterBox organism. #842
 
-### Changed 
+### Changed
 - (React) [FootNote, FootNoteLink] DP-11765: Change FootNoteLink ID to classname to avoid duplicative IDs. Change scroll event on FootNote to go to the start of the FootNoteLink. #839
 
-### Fixed 
+### Fixed
 - (React) [Header, MainNav] DP-16673: Fixed PropTypes check console error for `navSelected` and `searchRedirect`, and fixed aria-label attribute in Header story. #843
 
-### Fixed 
+### Fixed
 - (React) [FilterBox, IconLink, PageFlipper, TableofContents] DP-16677: Fix component prop type checks by replacing custom util function `componentPropTypeCheck` with `componentWithName` from 'airbnb-prop-types'. #845
 
 ## 9.33.0 (11/26/2019)
