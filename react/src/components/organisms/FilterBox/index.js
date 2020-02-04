@@ -85,7 +85,7 @@ FilterBox.propTypes = {
   filterLabel: PropTypes.string,
   /** An additional note for the SR users describing the functionality of the filter  */
   filterNote: PropTypes.string,
-  /** @atoms/forms/Button */
+  /** @forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes),
   /** Clear all button at the bottom of the filter */
   clearButton: PropTypes.shape({
