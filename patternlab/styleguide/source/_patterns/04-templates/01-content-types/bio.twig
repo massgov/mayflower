@@ -33,7 +33,7 @@
 
           {% if sideContent.social %}
             {% set iconLinks = sideContent.social %}
-            {% include "@molecules/icon-links.twig" %}
+            {% include "@molecules/link-icon/icon-links.twig" %}
           {% endif %}
 
           {% block inlineSidebar %}
@@ -89,7 +89,7 @@
         {% block personSocial %}
           {% if sideContent.social %}
             {% set iconLinks = sideContent.social %}
-            {% include "@molecules/icon-links.twig" %}
+            {% include "@molecules/link-icon/icon-links.twig" %}
           {% endif %}
         {% endblock %}
 
