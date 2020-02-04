@@ -14,7 +14,6 @@ import {
 } from './typography.json';
 import typographyOptions from './Typography.knobs.options';
 import TypographyDocs from '../../../../../docs/style/typography.md';
-import image from 'GitbookAssets/texta-massgov.png';
 
 import './styles.css';
 import '../../../markdown.css';
@@ -26,10 +25,8 @@ const slugifyStyle = (style) => {
 
 const md = new MarkdownIt();
 const reg = /\(\.\.\/(\.gitbook\/assets\/.*)\)/g;
-const cleanTypographyDocs = TypographyDocs.replace(reg, (match, contents) => {
-  console.log(`../../../${contents}`)
-});
-const result = md.render(cleanTypographyDocs);
+const githubImageTypographyDocsFixed = TypographyDocs.replace(reg, (match, contents) => `(https://raw.githubusercontent.com/massgov/mayflower/develop/docs/${contents})`);
+const result = md.render(githubImageTypographyDocsFixed);
 
 storiesOf('brand|typography', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -38,7 +35,6 @@ storiesOf('brand|typography', module)
       <div className="page-content">
         <div className="markdown-body">
           {ReactHtmlParser(result)}
-          <img src={image} />
         </div>
       </div>
     </div>
