@@ -4,7 +4,7 @@ import { withKnobs, number } from '@storybook/addon-knobs';
 
 import FeedbackForm from '.';
 
-storiesOf('organisms', module)
+storiesOf('forms|organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('FeedbackForm', () => {
     const props = {

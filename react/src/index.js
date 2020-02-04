@@ -26,6 +26,7 @@ export DateRange from './components/forms/DateRange';
 export MultiSelectDropDown from './components/forms/MultiSelectDropDown';
 export OrgSelector from './components/forms/OrgSelector';
 export TypeAheadDropdown from './components/forms/TypeAheadDropdown';
+export FeedbackForm from './components/forms/FeedbackForm';
 
 //@base
 export Placeholder from './components/base/Placeholder';
@@ -97,7 +98,6 @@ export EmergencyAlert from './components/molecules/EmergencyAlert';
 export EmergencyHeader from './components/molecules/EmergencyHeader';
 
 // @organisms
-export FeedbackForm from './components/organisms/FeedbackForm';
 export GenTeaser from './components/organisms/GenTeaser';
 export Footer from './components/organisms/Footer';
 export FooterSlim from './components/organisms/FooterSlim';
