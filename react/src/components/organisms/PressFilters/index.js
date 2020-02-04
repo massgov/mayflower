@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 // import child components
 import Button from '../../atoms/buttons/Button';
 import ColoredHeading from '../../atoms/headings/ColoredHeading';
-import DateRange from '../../molecules/DateRange';
-import OrgSelector from '../../molecules/OrgSelector';
+import DateRange from '../../forms/DateRange';
+import OrgSelector from '../../forms/OrgSelector';
 import SelectBox from '../../forms/SelectBox';
 import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
 import './style.css';
