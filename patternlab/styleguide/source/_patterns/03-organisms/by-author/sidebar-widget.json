@@ -5,7 +5,7 @@
       "color": ""
     },
     "items": [{
-      "path": "@molecules/action-event.twig",
+      "path": "@molecules/action-components/action-event.twig",
       "data": {
         "actionEvent": {
           "name": {
@@ -19,7 +19,7 @@
         }
       }
     },{
-      "path": "@molecules/action-event.twig",
+      "path": "@molecules/action-components/action-event.twig",
       "data": {
         "actionEvent": {
           "name": {
