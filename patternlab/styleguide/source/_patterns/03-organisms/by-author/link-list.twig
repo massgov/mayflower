@@ -25,7 +25,7 @@
             <li class="ma__link-list__item">
               {% if decorativeLink.icon %}
                 {% set downloadLink = decorativeLink %}
-                {% include "@molecules/download-link/download-link.twig" %}
+                {% include "@molecules/link-download/download-link.twig" %}
               {% elseif decorativeLink.href %}
                 {% include "@atoms/decorative-link.twig" %}
               {% else %}
@@ -43,7 +43,7 @@
           <li class="ma__link-list__item">
             {% if decorativeLink.icon %}
               {% set downloadLink = decorativeLink %}
-              {% include "@molecules/download-link/download-link.twig" %}
+              {% include "@molecules/link-download/download-link.twig" %}
             {% elseif decorativeLink.href %}
               {% include "@atoms/decorative-link.twig" %}
             {% else %}
@@ -57,7 +57,7 @@
           <li class="ma__link-list__item">
             {% if decorativeLink.icon %}
               {% set downloadLink = decorativeLink %}
-              {% include "@molecules/download-link/download-link.twig" %}
+              {% include "@molecules/link-download/download-link.twig" %}
             {% elseif decorativeLink.href %}
               {% include "@atoms/decorative-link.twig" %}
             {% else %}
