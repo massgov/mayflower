@@ -5,7 +5,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import Placeholder from '.';
 import PlaceholderDocs from './Placeholder.md';
 
-storiesOf('base', module)
+storiesOf('atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Placeholder', (() => {

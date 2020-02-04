@@ -28,11 +28,9 @@ export OrgSelector from './components/forms/OrgSelector';
 export TypeAheadDropdown from './components/forms/TypeAheadDropdown';
 export FeedbackForm from './components/forms/FeedbackForm';
 
-//@base
-export Placeholder from './components/base/Placeholder';
-
 // @atoms
 export Divider from './components/atoms/Divider';
+export Placeholder from './components/atoms/Placeholder';
 // @atoms/@buttons
 export ArrowButton from './components/atoms/buttons/ArrowButton';
 export Button from './components/atoms/buttons/Button';
