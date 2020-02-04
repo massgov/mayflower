@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputDate from '../../forms/InputDate';
+import InputDate from '../InputDate';
 import './style.css';
 
 class DateRange extends React.Component {

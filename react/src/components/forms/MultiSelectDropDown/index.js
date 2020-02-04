@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import InputCheckBox from '../../forms/InputCheckBox';
+import InputCheckBox from '../InputCheckBox';
 import Tags from '../../molecules/Tags';
 import './style.css';
 

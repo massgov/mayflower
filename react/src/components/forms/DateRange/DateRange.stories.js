@@ -5,9 +5,9 @@ import { action } from '@storybook/addon-actions';
 
 import DateRange from './index';
 import DateRangeDocs from './DateRange.md';
-import inputDateOptions from '../../forms/InputDate/InputDate.knobs.options';
+import inputDateOptions from '../InputDate/InputDate.knobs.options';
 
-storiesOf('molecules', module)
+storiesOf('forms|molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DateRange', () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectBox from '../../forms/SelectBox/index';
-import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
-import ImagePromo from '../ImagePromo';
+import SelectBox from '../SelectBox/index';
+import InputTextTypeAhead from '../InputTextTypeAhead';
+import ImagePromo from '../../molecules/ImagePromo';
 import './style.css';
 
 class OrgSelector extends React.Component {

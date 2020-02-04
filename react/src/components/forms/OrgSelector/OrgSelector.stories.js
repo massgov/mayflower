@@ -6,9 +6,9 @@ import { action } from '@storybook/addon-actions';
 import OrgSelector from './index';
 import OrgSelectorDocs from './OrgSelector.md';
 import orgSelectorOptions from './OrgSelector.knobs.options';
-import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import inputOptions from '../InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
-storiesOf('molecules/OrgSelector', module)
+storiesOf('forms|molecules/OrgSelector', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'OrgSelector with SelectBox', (() => {

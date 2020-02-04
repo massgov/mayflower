@@ -4,9 +4,9 @@ import { withKnobs, text, boolean, object, optionsKnob } from '@storybook/addon-
 import { action } from '@storybook/addon-actions';
 
 import TypeAheadDropdown from '.';
-import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import inputOptions from '../InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
-storiesOf('molecules', module)
+storiesOf('forms|molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('TypeAheadDropdown', (() => {
     const options = inputOptions.options.orgSelector;
