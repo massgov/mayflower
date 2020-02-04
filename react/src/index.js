@@ -4,6 +4,28 @@ import FeedbackForm from './components/organisms/FeedbackForm';
   Since we are package a library of UI components, export each component here
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
 */
+// @forms
+export Form, { FormProvider } from './components/forms/Form';
+export HelperText from './components/forms/HelperText';
+export ErrorMessage from './components/forms/ErrorMessage';
+export InputDate from './components/forms/InputDate';
+export InputText from './components/forms/InputText';
+export SelectBox from './components/forms/SelectBox';
+export InputRadio from './components/forms/InputRadio';
+export InputTextFuzzy from './components/forms/InputTextFuzzy';
+export Input from './components/forms/Input';
+export Error from './components/forms/Input/error';
+export InputSlider from './components/forms/InputSlider';
+export CompoundSlider from './components/forms/CompoundSlider';
+export InputCurrency from './components/forms/InputCurrency';
+export InputCheckBox from './components/forms/InputCheckBox';
+export { InputContext, FormContext } from './components/forms/Input/context';
+export InputNumber from './components/forms/InputNumber';
+export InputRadioGroup from './components/forms/InputRadioGroup';
+export DateRange from './components/forms/DateRange';
+export MultiSelectDropDown from './components/forms/MultiSelectDropDown';
+export OrgSelector from './components/forms/OrgSelector';
+export TypeAheadDropdown from './components/forms/TypeAheadDropdown';
 
 //@base
 export Placeholder from './components/base/Placeholder';
@@ -25,23 +47,6 @@ export Email from './components/atoms/contact/Email';
 export EventTime from './components/atoms/contact/EventTime';
 export OperationalHours from './components/atoms/contact/OperationalHours';
 export PhoneNumber from './components/atoms/contact/PhoneNumber';
-// @atoms/@forms
-export Form, { FormProvider } from './components/forms/Form';
-export HelperText from './components/forms/HelperText';
-export ErrorMessage from './components/forms/ErrorMessage';
-export InputDate from './components/forms/InputDate';
-export InputText from './components/forms/InputText';
-export SelectBox from './components/forms/SelectBox';
-export InputRadio from './components/forms/InputRadio';
-export InputTextFuzzy from './components/forms/InputTextFuzzy';
-export Input from './components/forms/Input';
-export Error from './components/forms/Input/error';
-export InputSlider from './components/forms/InputSlider';
-export CompoundSlider from './components/forms/CompoundSlider';
-export InputCurrency from './components/forms/InputCurrency';
-export InputCheckBox from './components/forms/InputCheckBox';
-export { InputContext, FormContext } from './components/forms/Input/context';
-export InputNumber from './components/forms/InputNumber';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
 export CompHeading from './components/atoms/headings/CompHeading';
@@ -71,24 +76,19 @@ export LinkDropdown from './components/molecules/LinkDropdown';
 export ArrowNav from './components/molecules/ArrowNav';
 export IconLink from './components/molecules/IconLink';
 export CalloutLink from './components/molecules/CalloutLink';
-export DateRange from './components/molecules/DateRange';
 export FooterLinks from './components/molecules/FooterLinks';
 export HeaderSearch from './components/molecules/HeaderSearch';
 export MainNav from './components/molecules/MainNav';
-export MultiSelectDropDown from './components/molecules/MultiSelectDropDown';
-export OrgSelector from './components/molecules/OrgSelector';
 export Pagination from './components/molecules/Pagination';
 export ResultsHeading from './components/molecules/ResultsHeading';
 export SearchBannerForm from './components/molecules/SearchBannerForm';
 export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
-export InputRadioGroup from './components/molecules/InputRadioGroup';
 export ImagePromo from './components/molecules/ImagePromo';
 export Tabs from './components/molecules/Tabs';
 export Tags from './components/molecules/Tags';
 export Tooltip from './components/molecules/Tooltip';
-export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
 export ListingTable from './components/molecules/ListingTable';
 export Breadcrumb from './components/molecules/Breadcrumb';
