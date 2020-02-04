@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.39.2 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Release tag error. (#922)
+
 ## 9.39.1 (2/4/2020)
 ### Fixed
 - (React, Patternlab) [Circle] Hotfix release tag package install. (#922)
