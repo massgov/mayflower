@@ -8,7 +8,7 @@ import InputTextTypeAhead from './index';
 import inputOptions from './InputTextTypeAhead.knobs.options';
 import InputTextTypeAheadDocs from './InputTextTypeAhead.md';
 
-storiesOf('forms', module)
+storiesOf('forms|atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputTextTypeAhead', (() => {

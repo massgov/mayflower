@@ -11,7 +11,7 @@ import InputSlider from '../InputSlider';
 import InputCurrency from '../InputCurrency';
 import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
 
-storiesOf('forms', module)
+storiesOf('forms|atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Form', (() => {

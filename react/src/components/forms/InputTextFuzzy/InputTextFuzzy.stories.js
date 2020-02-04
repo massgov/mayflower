@@ -7,7 +7,7 @@ import InputTextFuzzy from './index';
 import InputTextFuzzyDocs from './InputTextFuzzy.md';
 import inputOptions from './InputTextFuzzy.knobs.options';
 
-storiesOf('forms', module)
+storiesOf('forms|atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputTextFuzzy', (() => {

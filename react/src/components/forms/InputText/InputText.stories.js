@@ -8,7 +8,7 @@ import InputText from './index';
 import InputTextDocs from './InputText.md';
 import InputTextOptions from './InputText.knobs.options';
 
-storiesOf('forms', module)
+storiesOf('forms|atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputText', (() => {
