@@ -8,7 +8,7 @@ import SelectBox from './index';
 import selectOptions from './SelectBox.knobs.options';
 import SelectBoxDocs from './SelectBox.md';
 
-storiesOf('atoms/forms', module)
+storiesOf('forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'SelectBox', (() => {

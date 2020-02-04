@@ -6,7 +6,7 @@ import InputNumber from './index';
 import InputNumberOptions from './InputNumber.knobs.options';
 import InputNumberDocs from './InputNumber.md';
 
-storiesOf('atoms/forms', module)
+storiesOf('forms', module)
   .addDecorator(withKnobs({
     escapeHTML: false
   }))

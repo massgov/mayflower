@@ -7,7 +7,7 @@ import ErrorMessage from './index';
 import ErrorMessageDocs from './ErrorMessage.md';
 import ErrorMessageOptions from './ErrorMessage.knobs.options';
 
-storiesOf('atoms/forms', module)
+storiesOf('forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'ErrorMessage', (() => {

@@ -6,7 +6,7 @@ import InputSlider from './index';
 import InputSliderOptions from './InputSlider.knobs.options';
 import InputSliderDocs from './InputSlider.md';
 
-storiesOf('atoms/forms', module)
+storiesOf('forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputSlider', (() => {

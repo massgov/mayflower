@@ -11,7 +11,7 @@ import inputCheckBoxDocs from './InputCheckBox.md';
 import Icon from '../../atoms/icons/Icon';
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 
-storiesOf('atoms/forms', module)
+storiesOf('forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputCheckBox', (() => {

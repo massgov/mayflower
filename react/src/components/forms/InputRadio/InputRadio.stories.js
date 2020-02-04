@@ -7,7 +7,7 @@ import { action } from '@storybook/addon-actions';
 import InputRadio from './index';
 import InputRadioDocs from './InputRadio.md';
 
-storiesOf('atoms/forms', module)
+storiesOf('forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputRadio', (() => {

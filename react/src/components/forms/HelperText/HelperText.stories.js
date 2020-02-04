@@ -6,7 +6,7 @@ import HelperText from './index';
 import HelperTextDocs from './HelperText.md';
 import HelperTextOptions from './HelperText.knobs.options';
 
-storiesOf('atoms/forms', module)
+storiesOf('forms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'HelperText', (() => {
