@@ -68,7 +68,7 @@
       }]
     },
     "optionalContents": [{
-      "path": "@molecules/event-teaser.twig",
+      "path": "@molecules/teaser-event/event-teaser.twig",
       "data": {
         "eventTeaser": {
           "title": null,

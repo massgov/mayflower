@@ -17,7 +17,7 @@
         {% block featuredItems %}
           {% for pressTeaser in pressListing.items %}
             {% set pressTeaser = pressTeaser|merge({"level":teaserHeading}) %}
-            {% include "@molecules/press-teaser.twig" %}
+            {% include "@molecules/teaser-press/press-teaser.twig" %}
           {% endfor %}
         {% endblock %}
       </div>
@@ -28,7 +28,7 @@
           {% for pressTeaser in pressListing.secondaryItems %}
             <li class="ma__press-listing__secondary-item">
               {% set pressTeaser = pressTeaser|merge({"level":teaserHeading}) %}
-              {% include "@molecules/press-teaser.twig" %}
+              {% include "@molecules/teaser-press/press-teaser.twig" %}
             </li>
           {% endfor %}
         {% endblock %}
