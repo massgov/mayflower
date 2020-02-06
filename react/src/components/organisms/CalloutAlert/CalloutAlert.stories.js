@@ -4,7 +4,7 @@ import { withKnobs, select } from '@storybook/addon-knobs';
 
 import CalloutAlert from './index';
 import CalloutAlertDocs from './CalloutAlert.md';
-import { svgOptions } from '../../atoms/Icon/Icon.knob.options';
+import { svgOptions } from '../../base/Icon/Icon.knob.options';
 import Paragraph from '../../atoms/text/Paragraph';
 import OrderedList from '../../atoms/lists/OrderedList';
 import DecorativeLink from '../../atoms/links/DecorativeLink';

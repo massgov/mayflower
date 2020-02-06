@@ -9,7 +9,7 @@ import InputCheckBox from './index';
 import inputCheckBoxDocs from './InputCheckBox.md';
 
 import Icon from '../../base/Icon';
-import { svgOptions } from '../../atoms/Icon/Icon.knob.options';
+import { svgOptions } from '../../base/Icon/Icon.knob.options';
 
 storiesOf('forms|atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
