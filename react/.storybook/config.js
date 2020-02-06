@@ -1,11 +1,23 @@
-import {configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import theme from './mayflowerTheme';
 
-// automatically import all files ending in *.stories.js
-const req = require.context('../src', true, /.stories.js$/);
+
+addParameters({
+  options: {
+    theme: theme,
+    showNav: true,
+    showPanel: true // show the code panel by default
+  },
+});
+
 function loadStories() {
-  req.keys().forEach((filename) => {
+  // load index story first
+  require('../src/index.stories.js');
+  // automatically import all files ending in *.stories.js
+  const req = require.context('../src', true, /.stories.js$/);
+  req.keys().sort().forEach((filename) => {
     req(filename);
   });
   addDecorator(

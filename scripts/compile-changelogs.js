@@ -15,6 +15,11 @@ const changelogs = fs.readdirSync(directoryPath).filter(function(file) {
   return file.match(/^.*\.yml$/g) && file!== "template.yml";
 });
 
+if (!changelogs || changelogs.length<1) {
+  console.log('Nothing to release today!')
+  process.exit(1);
+}
+
 let changeTypes = [];
 let impacts = [];
 let changeContents = {};
