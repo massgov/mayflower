@@ -8,7 +8,7 @@ import ButtonWithIconDocs from './ButtonWithIcon.md';
 import buttonWithIconOptions from './ButtonWithIcon.knobs.options';
 
 import Icon from '../../../base/Icon';
-import { svgOptions } from '../../Icon/Icon.knob.options';
+import { svgOptions } from '../../../base/Icon/Icon.knob.options';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
