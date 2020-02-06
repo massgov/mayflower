@@ -1,6 +1,6 @@
 .ReactTable {
   .rt-tbody {
-    font-family: "Source Code Pro", monospace;
+    font-family: $fonts-mono;
     font-size: 1rem;
   }
   .rt-thead, .-pagination {

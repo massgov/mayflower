@@ -37,7 +37,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+  font-family: $fonts;
   font-weight: 400;
   font-size: 1.375rem;
 }
