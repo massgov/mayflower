@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, array, boolean, color } from '@storybook/addon-knobs';
 import { assets, svgOptions } from './Icon.knob.options';
 import Icon from './index';
+
 
 storiesOf('atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -61,16 +62,18 @@ storiesOf('brand|icons', module)
       ariaHidden,
       fill
     };
-    Object.entries(assets).forEach(([key]) => {
-      console.log(typeof key)
-      const backstopProps = {
-        key,
-        name: key,
-        svgWidth,
-        svgHeight,
-        title
-      };
-    return<Icon name="alert" />;
-    });
-
+    const allIconProps = Object.keys(assets).map((key) => ({
+      key,
+      name: key,
+      svgWidth,
+      svgHeight,
+      title
+    }));
+    return(
+      <Fragment>
+        {
+          allIconProps.map((iconProp) => <Icon {...iconProp} />)
+        }
+      </Fragment>
+    );
   });
