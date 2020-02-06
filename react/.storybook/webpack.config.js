@@ -32,8 +32,7 @@ module.exports = ({ config }) => {
     ...config.resolve,
     alias: {
       ...config.resolve.alias,
-      SharedAssets: path.resolve(__dirname, '../../assets/'),
-      GitbookAssets: path.resolve(__dirname, '../../docs/.gitbook/assets'),
+      SharedAssets: path.resolve(__dirname, '../../assets/')
     }};
 
   return config;
