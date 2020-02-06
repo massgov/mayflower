@@ -70,10 +70,16 @@ storiesOf('brand|icons', module)
       title
     }));
     return(
-      <Fragment>
+      <ul className="sg-colors">
         {
-          allIconProps.map((iconProp) => <Icon {...iconProp} />)
+          allIconProps.map((iconProp) => (
+            <li style={{ width: 300, margin: 10, padding: 10 }}>
+              <div className="sg-info">
+                <Icon {...iconProp} />
+              </div>
+            </li>
+          ))
         }
-      </Fragment>
+      </ul>
     );
   });
