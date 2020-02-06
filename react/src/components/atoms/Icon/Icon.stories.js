@@ -76,6 +76,8 @@ storiesOf('brand|icons', module)
             <li style={{ width: 300, margin: 10, padding: 10 }}>
               <div className="sg-info">
                 <Icon {...iconProp} />
+                <span>{iconProp.name}</span>
+
               </div>
             </li>
           ))
