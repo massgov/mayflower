@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text, array, boolean, color } from '@storybook/addon-knobs';
+import { withKnobs, select, text, array, boolean, color, number } from '@storybook/addon-knobs';
 import { assets, svgOptions } from './Icon.knob.options';
 import Icon from './index';
 import IconDisplay from './IconDisplay';
@@ -44,8 +44,8 @@ storiesOf('atoms', module)
 storiesOf('brand|icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Icons', () => {
-    const svgWidth = text('svgWidth', 40);
-    const svgHeight = text('svgHeight', 40);
+    const svgWidth = number('svgWidth', 40);
+    const svgHeight = number('svgHeight', 40);
     const title = text('title', 'Icon Title Here');
     const classes = array('classes', ['']);
     const ariaHidden = boolean('ariaHidden', false);
@@ -63,7 +63,7 @@ storiesOf('brand|icons', module)
     return(
       <ul className="sg-icons">
         {
-          allIconProps.map((iconProp, i) => (
+          allIconProps.map((iconProp) => (
             <IconDisplay {...iconProp} key={`icon_${iconProp.key}`} />
           ))
         }

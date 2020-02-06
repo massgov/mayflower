@@ -4,7 +4,7 @@ import Icon from './index';
 import './display.css';
 
 const IconDisplay = (props) => {
-  const { key, name } = props;
+  const { name } = props;
   const [copied, setCopied] = useState(false);
   const copyAction = () => {
     setCopied(true);
@@ -16,7 +16,7 @@ const IconDisplay = (props) => {
   };
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
-    <li style={{ width: 180, margin: 10, padding: 10 }} key={`icon_${key}`} >
+    <li style={{ width: 180, margin: 10, padding: 10 }} >
       <div className="sg-icons-info">
         <Icon {...props} />
         <div>
