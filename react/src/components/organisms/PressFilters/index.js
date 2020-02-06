@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 // import child components
 import Button from '../../atoms/buttons/Button';
 import ColoredHeading from '../../atoms/headings/ColoredHeading';
-import DateRange from '../../molecules/DateRange';
-import OrgSelector from '../../molecules/OrgSelector';
-import SelectBox from '../../atoms/forms/SelectBox';
-import InputTextTypeAhead from '../../atoms/forms/InputTextTypeAhead';
+import DateRange from '../../forms/DateRange';
+import OrgSelector from '../../forms/OrgSelector';
+import SelectBox from '../../forms/SelectBox';
+import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
 import './style.css';
 
 const PressFilters = (props) => {
@@ -62,9 +62,9 @@ PressFilters.propTypes = {
   action: PropTypes.string,
   /** @atoms/headings/ColoredHeading */
   coloredHeading: PropTypes.shape(ColoredHeading.PropTypes),
-  /** @atoms/forms/SelectBox */
+  /** @forms/SelectBox */
   topic: PropTypes.shape(SelectBox.PropTypes),
-  /** @atoms/forms/SelectBox or /** @atoms/forms/InputTextTypeAhead  */
+  /** @forms/SelectBox or /** @forms/InputTextTypeAhead  */
   pressType: PropTypes.oneOf([
     PropTypes.shape({ selectBox: SelectBox.propTypes }),
     PropTypes.shape({ typeAhead: InputTextTypeAhead.propTypes })
@@ -73,7 +73,7 @@ PressFilters.propTypes = {
   orgSelector: PropTypes.shape(OrgSelector.PropTypes).isRequired,
   /** @molecules/DateRange */
   dateRange: PropTypes.shape(DateRange.PropTypes).isRequired,
-  /** @atoms/forms/Button */
+  /** @forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes).isRequired,
   /** Clear all button at the bottom of the filter */
   clearButton: PropTypes.shape({

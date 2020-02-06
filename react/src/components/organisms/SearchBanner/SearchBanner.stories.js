@@ -5,12 +5,12 @@ import { action } from '@storybook/addon-actions';
 
 import { SelectBox, InputTextTypeAhead, DateRange } from '../../../index';
 import SearchBanner from './index';
-import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 import tabsOptions from '../../molecules/Tabs/Tabs.knobs.options';
 import filterBoxSharedProps from '../FilterBox/FilterBox.props';
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
-import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
+import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
 
 storiesOf('organisms/SearchBanner', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
