@@ -32,25 +32,22 @@
         }
       }
     }
-  }
-  &-swatch {
-    border-radius: 5px;
-    display: block;
-    height: 4em;
-    margin-bottom: 0.3em;
-  }
 
-  &-label {
-    font-size: 90%;
-    line-height: 1;
-  }
-
-  &-info {
-    font-size: 1rem;
-    font-family: "Source Code Pro", monospace;
-    span {
-      background-color: $c-gray-lightest;
-      padding: 0.1em 0.2em;
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1rem;
+      font-family: "Source Code Pro", monospace;
+      div {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+      }
+      span {
+        background-color: $c-gray-lightest;
+        padding: 0.1em 0.2em;
+      }
     }
   }
 }

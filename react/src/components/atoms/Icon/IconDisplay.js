@@ -16,10 +16,21 @@ const IconDisplay = (props) => {
   };
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
-    <li style={{ width: 300, margin: 10, padding: 10 }} key={`icon_${key}`} >
-      <div className="sg-info">
+    <li style={{ width: 180, margin: 10, padding: 10 }} key={`icon_${key}`} >
+      <div className="sg-icons-info">
         <Icon {...props} />
-        <span>{name}</span>
+        <div>
+          <span>{name}</span>
+          { navigator && navigator.clipboard && (
+            <button
+              onClick={copyAction}
+              title={copyButtonTitle}
+              aria-label={copyButtonTitle}
+            >
+              { copied ? <Icon name="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon name="copy" svgWidth={16} svgHeight={16} />}
+            </button>
+          )}
+        </div>
       </div>
     </li>
   );
