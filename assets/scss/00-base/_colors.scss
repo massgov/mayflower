@@ -46,9 +46,10 @@ $c-error: $c-error-red;
 $c-error-lighter: $c-error-red-lighter;
 $c-error-lightest: $c-error-red-lightest;
 $c-warning: $c-duckling-yellow;
+$c-success: $c-berkshires-green;
 $c-focus: #3e94cf;
 // Need to add these colors to this listing new to add
-// $c-success $c-focus $c-visited
+// $c-visited
 
 
 // Theme Color Usage Variables
@@ -56,9 +57,11 @@ $c-primary: $c-bay-blue !default;
 $c-primary-lighter: $c-bay-blue-lighter !default;
 $c-primary-lightest: $c-bay-blue-lightest !default;
 $c-primary-alt: $c-berkshires-green !default;
+$c-primary-alt-lighter: $c-berkshires-green-lighter !default;
 $c-primary-alt-lightest: $c-berkshires-green-lightest !default;
 $c-primary-alt-dark: $c-berkshires-green-dark !default;
 $c-highlight: $c-duckling-yellow !default;
+$c-highlight-lighter: $c-duckling-yellow-lighter !default;
 $c-highlight-lightest: $c-duckling-yellow-lightest !default;
 
 $c-font-base: $c-black;

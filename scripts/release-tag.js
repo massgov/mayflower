@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { octokit } = require('./release-vars');
+const { octokit, latest } = require('./release-vars');
 
 const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
 const re = /\n##\s/;
@@ -12,6 +12,12 @@ const reg = /^[0-9]+\.[0-9]+\.[0-9]/
 const version = newLogs[1].match(reg)[0];
 console.log(`New release tag: ${version}`);
 
+// If the lastest version in CHANGELOG.md is the same as the previous release version, do not cut a release
+if (version.trim() === latest.toString().trim()) {
+  console.log('Nothing to release today!')
+  process.exit(1);
+}
+
 // Cut the release tag in GitHub
 octokit.repos.createRelease({
   owner: 'massgov',
@@ -20,7 +26,4 @@ octokit.repos.createRelease({
   target_commitish: 'master',
   name: version,
   body: newLogsWithTitle
-})().catch(function(err) {
-  console.error(`There was an error thrown during the cutting of the release tag: ${err.toString()}`);
-  process.exit(1);
 });
