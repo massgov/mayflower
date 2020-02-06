@@ -26,7 +26,4 @@ octokit.repos.createRelease({
   target_commitish: 'master',
   name: version,
   body: newLogsWithTitle
-})().catch(function(err) {
-  console.error(`There was an error thrown during the cutting of the release tag: ${err.toString()}`);
-  process.exit(1);
 });

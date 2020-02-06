@@ -1,6 +1,26 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.39.2 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Release tag error. (#922)
+
+## 9.39.1 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Hotfix release tag package install. (#922)
+
+## 9.39.0 (2/4/2020)
+### Changed
+- (Patternlab) [UtilityNav] DP-16804: Change the state organizations menu from a button to a link directly to the page. (#882)
+- (React) [Storybook] DP-17320: Config storybook to add Mayflower theme. (#915)
+- (React) [Storybook] DP-17338: Render welcome page to Mayflower-react. (#916)
+- (React) [Storybook] DP-17338: Display `Color` in category "Brand". (#916)
+- (React) [Storybook] DP-17372: Organize all form components from atoms, molecules and organisms into a forms category. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+- (React) [Storybook] DP-17372: Move Placeholder component into atoms. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+
+### Added
+- (React) [Color] DP-17253: Addded Color stories and color gradients. (#909)
+
 ## 9.38.0 (1/21/2020)
 
 ### Changed
