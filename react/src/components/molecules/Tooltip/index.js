@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../atoms/Icon';
+import Icon from '../../base/Icon';
 // eslint-disable-next-line import/no-unresolved
 import './style.css';
 

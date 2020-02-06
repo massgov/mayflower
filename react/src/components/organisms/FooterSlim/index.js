@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Icon from '../../atoms/Icon';
+import Icon from '../../base/Icon';
 
 import './style.css';
 

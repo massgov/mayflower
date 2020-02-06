@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs/react';
 
 import EmergencyAlerts from './index';
-import Icon from '../../atoms/Icon';
+import Icon from '../../base/Icon';
 import { svgOptions } from '../../atoms/Icon/Icon.knob.options';
 import Link from '../../molecules/Link';
 

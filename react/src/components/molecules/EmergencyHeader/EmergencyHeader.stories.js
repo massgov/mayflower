@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import EmergencyHeader from '.';
-import Icon from '../../atoms/Icon';
+import Icon from '../../base/Icon';
 import { svgOptions } from '../../atoms/Icon/Icon.knob.options';
 
 /* eslint-disable react/prop-types */

@@ -5,7 +5,7 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import AccordionWrapper from './index';
 import AccordionWrapperDocs from './AccordionWrapper.md';
 import AccordionItem from '../../molecules/AccordionItem';
-import Icon from '../../atoms/Icon';
+import Icon from '../../base/Icon';
 import Paragraph from '../../atoms/text/Paragraph';
 import OrderedList from '../../atoms/lists/OrderedList';
 

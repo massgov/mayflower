@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon from '../../atoms/Icon';
+import Icon from '../../base/Icon';
 import './style.css';
 
 const CalloutAlert = (props) => {

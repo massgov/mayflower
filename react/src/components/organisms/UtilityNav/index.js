@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 import UtilityPanel from '../UtilityPanel';
-import Icon from '../../atoms/Icon';
+import Icon from '../../base/Icon';
 import './styles.css';
 
 class UtilityNav extends Component {
