@@ -7,7 +7,7 @@ import ButtonWithIcon from '.';
 import ButtonWithIconDocs from './ButtonWithIcon.md';
 import buttonWithIconOptions from './ButtonWithIcon.knobs.options';
 
-import Icon from '../../icons/Icon';
+import Icon from '../../Icon';
 import { svgOptions } from '../../icons/Icon/Icon.knob.options';
 
 storiesOf('atoms/buttons', module)

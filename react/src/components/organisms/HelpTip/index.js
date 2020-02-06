@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Collapse from '../../animations/Collapse';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../atoms/Icon';
 import Paragraph from '../../atoms/text/Paragraph';
 import './style.css';
 

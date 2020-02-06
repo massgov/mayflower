@@ -4,7 +4,7 @@ import is from 'is';
 import classNames from 'classnames';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../atoms/Icon';
 import './style.css';
 
 class LinkDropdown extends React.Component {

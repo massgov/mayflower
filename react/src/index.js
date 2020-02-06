@@ -52,7 +52,7 @@ export CompHeading from './components/atoms/headings/CompHeading';
 export Heading from './components/atoms/headings/Heading';
 export SidebarHeading from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
-export Icon from './components/atoms/icons/Icon';
+export Icon from './components/atoms/Icon';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 export FootNote from './components/atoms/links/FootNote';

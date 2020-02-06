@@ -5,7 +5,7 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import Paragraph from '../../atoms/text/Paragraph';
 import AccordionItem from './index';
 import AccordionItemDocs from './AccordionItem.md';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../atoms/Icon';
 
 const getIcon = (iconProps) => <Icon {...iconProps} />;
 

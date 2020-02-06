@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Image from '../../atoms/media/Image';
 import Paragraph from '../../atoms/text/Paragraph';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../atoms/Icon';
 import './style.css';
 
 const ImagePromo = (props) => {

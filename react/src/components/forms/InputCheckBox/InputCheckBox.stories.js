@@ -8,7 +8,7 @@ import { action } from '@storybook/addon-actions';
 import InputCheckBox from './index';
 import inputCheckBoxDocs from './InputCheckBox.md';
 
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../atoms/Icon';
 import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
 
 storiesOf('forms|atoms', module)
