@@ -39,3 +39,38 @@ storiesOf('atoms', module)
     }
     return(<Icon {...props} />);
   });
+
+storiesOf('brand|icons', module)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('Icons', () => {
+    // This needs to be dynamic somehow.
+
+    const name = select('name', svgOptions, 'alert');
+    const svgWidth = text('svgWidth', 40);
+    const svgHeight = text('svgHeight', 40);
+    const title = text('title', 'Icon Title Here');
+    const classes = array('classes', ['']);
+    const ariaHidden = boolean('ariaHidden', false);
+    const fill = color('fill color', '#000');
+    const props = {
+      name,
+      svgWidth,
+      svgHeight,
+      title,
+      classes,
+      ariaHidden,
+      fill
+    };
+    Object.entries(assets).forEach(([key]) => {
+      console.log(typeof key)
+      const backstopProps = {
+        key,
+        name: key,
+        svgWidth,
+        svgHeight,
+        title
+      };
+    return<Icon name="alert" />;
+    });
+
+  });

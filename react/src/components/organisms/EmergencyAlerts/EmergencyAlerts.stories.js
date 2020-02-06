@@ -4,7 +4,7 @@ import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs
 
 import EmergencyAlerts from './index';
 import Icon from '../../atoms/Icon';
-import { svgOptions } from '../../atoms/icons/Icon/Icon.knob.options';
+import { svgOptions } from '../../atoms/Icon/Icon.knob.options';
 import Link from '../../molecules/Link';
 
 const themeOptions = {
