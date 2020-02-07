@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Icon from './index';
 import './display.css';
 
 const IconDisplay = (props) => {
-  const { name } = props;
+  const { name, random } = props;
   const [copied, setCopied] = useState(false);
   const copyAction = () => {
     setCopied(true);
@@ -16,9 +16,9 @@ const IconDisplay = (props) => {
   };
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
-    <li style={{ width: 180, margin: 10, padding: 10 }} >
+    <li style={{ width: 180, margin: 10, padding: 10 }}>
       <div className="sg-icons-info">
-        <Icon {...props} />
+        <Icon {...props} key={random} />
         <div>
           <span>{name}</span>
           { navigator && navigator.clipboard && (
