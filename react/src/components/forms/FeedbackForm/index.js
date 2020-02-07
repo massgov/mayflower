@@ -22,13 +22,6 @@ HiddenFields.propTypes = {
 };
 
 export default class FeedbackForm extends Component {
-  static defaultProps = {
-    formId: 2521317,
-    radioId: 47054416,
-    yesFeedbackId: 52940022,
-    noFeedbackId: 47054414,
-    refererId: 47056299
-  };
   static propTypes = {
     /** A ref object as created by React.createRef(). Will be applied to the form element. */
     formRef: PropTypes.oneOfType([
@@ -54,6 +47,13 @@ export default class FeedbackForm extends Component {
     /** A function whose return value is rendered under the no textarea. */
     noDisclaimer: PropTypes.func
   }
+  static defaultProps = {
+    formId: 2521317,
+    radioId: 47054416,
+    yesFeedbackId: 52940022,
+    noFeedbackId: 47054414,
+    refererId: 47056299
+  };
   state = {
     yesText: '',
     noText: '',
