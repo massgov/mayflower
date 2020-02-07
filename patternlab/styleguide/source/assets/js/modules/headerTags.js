@@ -69,12 +69,32 @@ export default (function (window,document,$,undefined) {
     });
 
     $button.on('keydown', function(e) {
-      if (e.keyCode === 9 && $tagWrapper.parent().hasClass('tags-open') && !$button.hasClass('last-item')) {
+      if ((e.keyCode === 9 || e.keyCode === 40 || (e.ctrlKey && e.altKey && e.keyCode === 39)) && $tagWrapper.parent().hasClass('tags-open') && !$button.hasClass('last-item')) {
           $focusTag.focus();
           $button.toggleClass('last-item');
           e.preventDefault();
       }
     });
+
+
+function setVoiceOverFocus(element) {
+  var focusInterval = 10; // ms, time between function calls
+  var focusTotalRepetitions = 10; // number of repetitions
+
+  element.setAttribute('tabindex', '0');
+  element.blur();
+
+  var focusRepetitions = 0;
+  var interval = window.setInterval(function() {
+    element.focus();
+    focusRepetitions++;
+    if (focusRepetitions >= focusTotalRepetitions) {
+      window.clearInterval(interval);
+    }
+  }, focusInterval);
+}
+
+
 
     $(window).resize(function () {
       // Remove all the screen width specific styles.
