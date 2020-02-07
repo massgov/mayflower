@@ -1,0 +1,13 @@
+Changed:
+  - project: React
+    component: Icon
+    description: Move Icon from atoms to base. (#924)
+    issue: DP-17354
+    impact: Patch
+
+Added:
+  - project: React
+    component: Icon
+    description: Display all icons in a story. (#924)
+    issue: DP-17354
+    impact: Patch
