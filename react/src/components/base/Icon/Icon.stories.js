@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, array, boolean, color, number } from '@storybook/addon-knobs';
 import { assets, svgOptions } from './Icon.knob.options';

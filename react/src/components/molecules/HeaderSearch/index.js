@@ -90,7 +90,12 @@ HeaderSearch.propTypes = {
   /** @molecules/TypeAheadDropdown */
   orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
   /** postInputFilter passable component */
-  postInputFilter: componentWithName('SelectBox')
+  postInputFilter: componentWithName('SelectBox'),
+  /** A ref object as created by React.createRef(). Will be applied to the input element. */
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
+  ])
 };
 
 HeaderSearch.defaultProps = {
