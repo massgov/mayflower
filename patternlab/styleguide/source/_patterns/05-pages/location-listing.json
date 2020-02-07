@@ -9,22 +9,6 @@
         {
           "class": "ma__relationship-indicators--term",
           "href": "#",
-          "title": "Department of Conservation and Recreation"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Other agency or organization"
-        }
-      ]
-    },
-    "secondary": {
-      "position": "",
-      "label": "offered by",
-      "tags": [
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
           "title": "Snowmobile in the Parks"
         },
         {
@@ -51,6 +35,22 @@
           "class": "ma__relationship-indicators--term",
           "href": "#",
           "title": "Biking"
+        }
+      ]
+    },
+    "secondary": {
+      "position": "",
+      "label": "offered by",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Other agency or organization"
         }
       ]
     }
