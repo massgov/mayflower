@@ -33,3 +33,8 @@ $letter-spacing-default: 0;
 // symbol displayed in a pseudo element. To display properly,
 // the following string should be used in the CSS `content` setting.
 $close-icon: '\00d7';
+
+
+// font families
+$fonts: "Texta", "Helvetica", "Arial", "sans-serif";
+$fonts-mono: "Source Code Pro", "Monaco", "monospace";
