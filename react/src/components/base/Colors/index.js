@@ -32,7 +32,6 @@ ColorSwatch.propTypes = {
 const GradientTile = (props) => {
   const colorRef = useRef(null);
   const [rgb, setRgb] = useState('');
-  const [copied, setCopied] = useState(false);
   useEffect(() => {
     const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
     setRgb(() => computedStyles);
@@ -48,30 +47,13 @@ const GradientTile = (props) => {
   const name = firstTile ? props.name : `${index * 10} % ${effect}`;
   const variable = firstTile ? `$${props.variable}` : '';
   const hexValue = rgbToHex(rgb).toUpperCase();
-  const copyAction = () => {
-    setCopied(true);
-    navigator.clipboard.writeText(hexValue);
-    const timer = setTimeout(() => {
-      setCopied(false);
-    }, 1000);
-    return() => clearTimeout(timer);
-  };
-  const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
     <li className={`${props.variable}--${effect}`}>
       <h3 className="ma__sidebar-heading">{name}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
         <span>{hexValue}</span>
-        { navigator && navigator.clipboard && (
-          <button
-            onClick={copyAction}
-            title={copyButtonTitle}
-            aria-label={copyButtonTitle}
-          >
-            { copied ? <Icon name="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon name="copy" svgWidth={16} svgHeight={16} />}
-          </button>
-        )}
+        <ButtonCopy content={hexValue} />
         <br />
         <code style={{ fontSize: '1rem' }}>{variable}</code>
       </div>
