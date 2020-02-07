@@ -1,4 +1,4 @@
-@import '../../styles/global';
+@import 'global';
 // import color variables
 // import bourbon library "tint" and "shade" functions
 
@@ -7,9 +7,9 @@
   &-colors {
     display: flex;
     flex-wrap: wrap;
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
     li {
       border: 1px solid #ddd;
@@ -21,10 +21,6 @@
       padding: 0.3em;
     }
 
-    button {
-      margin-left: 0.5em;
-      @include ma_button_reset;
-    }
     // Align gradient matrix
     &--gradient {
       li {
@@ -48,7 +44,7 @@
 
   &-info {
     font-size: 1rem;
-    font-family: "Source Code Pro", monospace;
+    font-family: $fonts-mono;
     span {
       background-color: $c-gray-lightest;
       padding: 0.1em 0.2em;
