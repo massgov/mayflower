@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../Icon';
 import ButtonCopy from '../../atoms/buttons/ButtonCopy';
 import './styles.css';
 
