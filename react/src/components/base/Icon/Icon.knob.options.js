@@ -38,8 +38,8 @@ export const assets = {
   pdf: 'pdf',
   generic: 'generic',
   youtube: 'youtube',
-  zoomIn: 'zoomIn',
-  zoomOut: 'zoomOut'
+  zoomin: 'zoomin',
+  zoomout: 'zoomout'
 };
 
 export const svgOptions = {

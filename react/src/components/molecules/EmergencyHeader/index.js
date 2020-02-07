@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
 import { componentWithName } from 'airbnb-prop-types';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
 
 import './style.css';
 
