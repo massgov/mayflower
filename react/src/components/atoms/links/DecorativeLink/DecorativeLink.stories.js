@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
-import Icon from '../../icons/Icon';
+import Icon from '../../../base/Icon';
 
 export default {
   info: (value) => text('DecorativeLink: info', value, 'DecorativeLink'),

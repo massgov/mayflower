@@ -72,3 +72,37 @@
     @include ma-h6;
   }
 }
+
+// Texta styles
+@mixin ma-texta-style($weight: 'Light', $italic: false) {
+  @if($weight == 'Light') {
+    font-weight: 300;
+    @if($italic == true) {
+      font-style: italic;
+    }
+  }
+  @if($weight == 'Book') {
+    font-weight: 400;
+    @if($italic == true) {
+      font-style: italic;
+    }
+  }
+  @if($weight == 'Medium') {
+    font-weight: 500;
+    @if($italic == true) {
+      font-style: italic;
+    }
+  }
+  @if($weight == 'Bold') {
+    font-weight: 700;
+    @if($italic == true) {
+      font-style: italic;
+    }
+  }
+  @if($weight == 'Black') {
+    font-weight: 800;
+    @if($italic == true) {
+      font-style: italic;
+    }
+  }
+}
