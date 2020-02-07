@@ -115,7 +115,7 @@ Tab.propTypes = {
   /** Children passed to tab container (tab content) */
   children: PropTypes.node,
   /** The tabs ref */
-  tabRef: PropTypes.oneOfType([PropTypes.object, PropTypes.instanceOf(Element)])
+  tabRef: PropTypes.oneOfType([PropTypes.object, PropTypes.any])
 };
 
 export default Tab;
