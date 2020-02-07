@@ -32,7 +32,7 @@ module.exports = ({ config }) => {
     ...config.resolve,
     alias: {
       ...config.resolve.alias,
-      SharedAssets: path.resolve(__dirname, '../../assets/'),
+      SharedAssets: path.resolve(__dirname, '../../assets/')
     }};
 
   return config;

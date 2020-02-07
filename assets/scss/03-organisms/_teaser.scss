@@ -31,7 +31,7 @@ $c-theme-green: #43956f;
     flex-wrap: wrap;
   }
   .ma__quality__wrapper {
-    font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+    font-family: $fonts;
     font-size: 19.2px;
     line-height: 23px;
   }
