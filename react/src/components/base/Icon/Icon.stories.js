@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text, array, boolean, color, number } from '@storybook/addon-knobs';
+import { withKnobs, select, text, array, boolean, color, number, button } from '@storybook/addon-knobs';
 import { assets, svgOptions } from './Icon.knob.options';
 import Icon from './index';
 import IconDisplay from './IconDisplay';
@@ -9,7 +9,7 @@ storiesOf('brand|icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Icon', () => {
     // This needs to be dynamic somehow.
-
+    const [key, setKey] = useState(0);
     const name = select('name', svgOptions, 'alert');
     const svgWidth = text('svgWidth', 40);
     const svgHeight = text('svgHeight', 40);
@@ -26,6 +26,10 @@ storiesOf('brand|icons', module)
       ariaHidden,
       fill
     };
+    button('update', () => {
+      setKey(key+1)
+    })
+    console.log(key)
     if (window.location.search.indexOf('backstop') > -1) {
       return Object.entries(assets).map(([key]) => {
         const backstopProps = {
@@ -38,7 +42,7 @@ storiesOf('brand|icons', module)
         return<Icon {...backstopProps} />;
       });
     }
-    return(<Icon {...props} />);
+    return(<Icon {...props} key={key} />);
   });
 
 storiesOf('brand|icons', module)
