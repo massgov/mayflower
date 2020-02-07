@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Icon
-import './style.css';
+import Icon from '../../../base/Icon';
 
-const ButtonCopy = (button) => {
+const ButtonCopy = ({ content }) => {
   const [copied, setCopied] = useState(false);
   const copyAction = () => {
     setCopied(true);
-    navigator.clipboard.writeText(name);
+    navigator.clipboard.writeText(content);
     const timer = setTimeout(() => {
       setCopied(false);
     }, 1000);
@@ -25,23 +24,13 @@ const ButtonCopy = (button) => {
       </button>
     );
   }
-
+  // If no clipboard available, don't render ButtonCopy
+  return null;
 };
 
 ButtonCopy.propTypes = {
   /** Copied content string. */
   content: PropTypes.string
-};
-
-// Only set defaults for the configuration variables which need to be opted in to activate.
-ButtonCopy.defaultProps = {
-  href: '',
-  type: '',
-  size: '',
-  theme: '',
-  usage: '',
-  disabled: false,
-  classes: ['']
 };
 
 export default ButtonCopy;
