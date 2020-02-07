@@ -1,0 +1,6 @@
+Fixed:
+  - project: React
+    component: Dependency
+    description: Move react-scripts into dev dependencies, and move react-html-parser into prod dependencies. (#927)
+    issue: DP-17417
+    impact: Patch
