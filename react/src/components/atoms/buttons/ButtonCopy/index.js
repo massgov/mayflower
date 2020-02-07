@@ -14,7 +14,7 @@ const ButtonCopy = ({ content }) => {
     return() => clearTimeout(timer);
   };
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
-  if (navigator && navigator.clipboard) {
+  if ((navigator && navigator.clipboard) || (window.location.search.indexOf('backstop') > -1)) {
     return(
       <button
         className="ma__button-copy"
