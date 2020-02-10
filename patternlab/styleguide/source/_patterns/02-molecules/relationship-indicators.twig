@@ -8,16 +8,21 @@
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
 
-        {% set wrappedLink = item %}
-        {% include "@atoms/11-text/wrapped-link.twig" %}
+        <li class="ma__relationship-indicators--term js-term {{ item.class }}">
+          <a href="{{ item.href }}">{{ item.title }}</a>
+        </li>
+        {# Add the button after the first item as the second item in the list for accessibility purpose. Managing focus order with JS doesn't work in VoiceOver. #}
+        {% if loop.first %}
+          <li class="ma__relationship-indicators__expand-indicators">
+            <button type="button" class="js-relationship-indicator-button" aria-pressed="false">
+              show <span class="tag-count"></span> <span class="tag-state">more</span>
+            </button>
+          </li>
+        {% endif %}
 
       {% endfor %}
     {% endblock %}
-      <li class="ma__relationship-indicators__expand-indicators">
-        <button type="button" class="js-relationship-indicator-button" aria-pressed="false">
-          show <span class="tag-count"></span> <span class="tag-state">more</span>
-        </button>
-      </li>
+
     </ul>
   </div>
 
@@ -32,16 +37,20 @@
       {% block secondaryRelationship %}
       {% for item in relationshipIndicators.secondary.tags %}
 
-        {% set wrappedLink = item %}
-        {% include "@atoms/11-text/wrapped-link.twig" %}
+        <li class="ma__relationship-indicators--term js-term {{ item.class }}">
+          <a href="{{ item.href }}">{{ item.title }}</a>
+        </li>
+        {# Add the button after the first item as the second item in the list for accessibility purpose. Managing focus order with JS doesn't work in VoiceOver. #}
+        {% if loop.first %}
+          <li class="ma__relationship-indicators__expand-indicators">
+            <button type="button" class="js-relationship-indicator-button" aria-label="show more" aria-pressed="false">
+              show <span class="tag-count"></span> <span class="tag-state">more</span>
+            </button>
+          </li>
+        {% endif %}
 
       {% endfor %}
       {% endblock %}
-        <li class="ma__relationship-indicators__expand-indicators">
-          <button type="button" class="js-relationship-indicator-button" aria-label="show more" aria-pressed="false">
-            show <span class="tag-count"></span> <span class="tag-state">more</span>
-          </button>
-        </li>
       </ul>
     </div>
   {% endif %}
