@@ -9,7 +9,6 @@ storiesOf('brand|icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Icon', () => {
     // This needs to be dynamic somehow.
-    const [key, setKey] = useState(0);
     const name = select('name', svgOptions, 'alert');
     const svgWidth = text('svgWidth', 40);
     const svgHeight = text('svgHeight', 40);
@@ -26,11 +25,6 @@ storiesOf('brand|icons', module)
       ariaHidden,
       fill
     };
-    button('update', () => {
-      const randomKey = Math.random(100);
-      setKey(randomKey);
-      return randomKey;
-    });
     if (window.location.search.indexOf('backstop') > -1) {
       return Object.entries(assets).map(([key]) => {
         const backstopProps = {
@@ -42,13 +36,13 @@ storiesOf('brand|icons', module)
         return<Icon {...backstopProps} />;
       });
     }
-    return(<Icon {...props} key={key} />);
+    return(<Icon {...props} key={name} />);
   });
 
 storiesOf('brand|icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('All Icons', () => {
-    const [key, setKey] = useState(0);
+    const [key, setKey] = useState(Math.random(100));
     const svgWidth = number('svgWidth', 40);
     const svgHeight = number('svgHeight', 40);
     const title = text('title', 'Icon Title Here');
@@ -70,7 +64,6 @@ storiesOf('brand|icons', module)
       setKey(randomKey);
       return randomKey
     });
-    console.log(key);
     return(
       <ul className="sg-icons">
         {

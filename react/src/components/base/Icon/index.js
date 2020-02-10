@@ -34,26 +34,28 @@ export default class Icon extends React.Component {
       ...rest
     } = this.props;
 
-    this.loadAssets(name)
-      .then(({ default: SVG }) => {
-        if (SVG && SVG.content) {
-          const attr = {
-            width: svgWidth || null,
-            height: svgHeight || null,
-            className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
-            'aria-hidden': ariaHidden || null
-          };
-          const content = (
-            <svg {...attr} {...rest} >
-              {title && <title>{title}</title>}
-              <use xlinkHref={`#${name}`} fill={fill} />
-            </svg>
-          );
-          if (this.state.loaded !== name) {
-            this.setState({ loaded: name, content });
+    if (this._isMounted) {
+      this.loadAssets(name)
+        .then(({ default: SVG }) => {
+          if (SVG && SVG.content) {
+            const attr = {
+              width: svgWidth || null,
+              height: svgHeight || null,
+              className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
+              'aria-hidden': ariaHidden || null
+            };
+            const content = (
+              <svg {...attr} {...rest} >
+                {title && <title>{title}</title>}
+                <use xlinkHref={`#${name}`} fill={fill} />
+              </svg>
+            );
+            if (this.state.loaded !== name) {
+              this.setState({ loaded: name, content });
+            }
           }
-        }
-      });
+        });
+    }
   }
 
   componentWillUnmount() {
