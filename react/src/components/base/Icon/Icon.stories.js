@@ -62,7 +62,7 @@ storiesOf('brand|icons', module)
     const test = button('update', () => {
       const randomKey = Math.random(100);
       setKey(randomKey);
-      return randomKey
+      return randomKey;
     });
     return(
       <ul className="sg-icons">

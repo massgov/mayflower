@@ -17,7 +17,7 @@ const IconDisplay = (props) => {
   // useEffect(() => {
   //   setCopied('')
   // }, [random])
-  //console.log(`${name}${random}`)
+  // console.log(`${name}${random}`)
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
     <li style={{ width: 180, margin: 10, padding: 10 }}>

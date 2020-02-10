@@ -65,7 +65,7 @@ export default class Icon extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('unmount')
+    console.log('unmount');
     this._isMounted = false;
   }
 
