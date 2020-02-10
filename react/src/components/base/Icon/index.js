@@ -16,10 +16,16 @@ export default class Icon extends React.Component {
     title: null,
     classes: []
   }
-  state = {
-    content: null,
-    loaded: null
-  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      content: null,
+      loaded: null
+    };
+    this._isMounted = false;
+  }
+
 
   componentDidMount() {
     this._isMounted = true;
@@ -59,6 +65,7 @@ export default class Icon extends React.Component {
   }
 
   componentWillUnmount() {
+    console.log('unmount')
     this._isMounted = false;
   }
 
