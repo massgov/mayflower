@@ -21,9 +21,8 @@ export default class Icon extends React.Component {
     loaded: null
   };
 
-  loadAssets = (asset) => import(/* webpackChunkName: "svg-icons" */ /* webpackMode: "lazy-once" */`!svg-sprite-loader!./assets/${asset}.svg`);
-
-  render() {
+  componentDidMount() {
+    this._isMounted = true;
     const {
       svgWidth,
       svgHeight,
@@ -34,8 +33,7 @@ export default class Icon extends React.Component {
       fill,
       ...rest
     } = this.props;
-    // The promise will not be resolved until after render,
-    // so re-render once the promise is finished by using state.
+
     this.loadAssets(name)
       .then(({ default: SVG }) => {
         if (SVG && SVG.content) {
@@ -56,6 +54,17 @@ export default class Icon extends React.Component {
           }
         }
       });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  loadAssets = (asset) => import(/* webpackChunkName: "svg-icons" */ /* webpackMode: "lazy-once" */`!svg-sprite-loader!./assets/${asset}.svg`);
+
+  render() {
+    // The promise will not be resolved until after render,
+    // so re-render once the promise is finished by using state.
     return this.state.content;
   }
 }

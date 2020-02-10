@@ -9,7 +9,7 @@ storiesOf('brand|icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Icon', () => {
     // This needs to be dynamic somehow.
-    //const [key, setKey] = useState(0);
+    const [key, setKey] = useState(0);
     const name = select('name', svgOptions, 'alert');
     const svgWidth = text('svgWidth', 40);
     const svgHeight = text('svgHeight', 40);
@@ -26,9 +26,9 @@ storiesOf('brand|icons', module)
       ariaHidden,
       fill
     };
-    const key = button('update', () => {
+    button('update', () => {
       const randomKey = Math.random(100);
-      console.log(randomKey)
+      setKey(randomKey);
       return randomKey;
     });
     if (window.location.search.indexOf('backstop') > -1) {
@@ -48,15 +48,16 @@ storiesOf('brand|icons', module)
 storiesOf('brand|icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('All Icons', () => {
+    const [key, setKey] = useState(0);
     const svgWidth = number('svgWidth', 40);
     const svgHeight = number('svgHeight', 40);
     const title = text('title', 'Icon Title Here');
     const classes = array('classes', ['']);
     const ariaHidden = boolean('ariaHidden', false);
     const fill = color('fill color', '#000');
-    const allIconProps = Object.keys(assets).map((key) => ({
-      key,
-      name: key,
+    const allIconProps = Object.keys(assets).map((k) => ({
+      k,
+      name: k,
       svgWidth,
       svgHeight,
       title,
@@ -64,16 +65,17 @@ storiesOf('brand|icons', module)
       ariaHidden,
       fill
     }));
-    const key = button('update', () => {
+    const test = button('update', () => {
       const randomKey = Math.random(100);
-      console.log(randomKey)
-      return randomKey;
+      setKey(randomKey);
+      return randomKey
     });
+    console.log(key);
     return(
       <ul className="sg-icons">
         {
           allIconProps.map((iconProp) => (
-            <IconDisplay {...iconProp} key={`icon_${iconProp.key}`} random={key} />
+            <IconDisplay {...iconProp} key={`icon_${iconProp.k}`} random={key} />
           ))
         }
       </ul>

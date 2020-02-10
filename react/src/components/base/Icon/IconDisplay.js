@@ -14,11 +14,15 @@ const IconDisplay = (props) => {
     }, 1000);
     return() => clearTimeout(timer);
   };
+  // useEffect(() => {
+  //   setCopied('')
+  // }, [random])
+  console.log(`${name}${random}`)
   const copyButtonTitle = copied ? 'copied' : 'copy hex code';
   return(
     <li style={{ width: 180, margin: 10, padding: 10 }}>
       <div className="sg-icons-info">
-        <Icon {...props} key={random} />
+        <Icon {...props} key={`${name}${random}`} />
         <div>
           <span>{name}</span>
           { navigator && navigator.clipboard && (
