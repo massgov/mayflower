@@ -10,20 +10,24 @@ $bp-xl:   1200px;
 
 // Global breakpoint media variables.
 $bp-x-small-min:            "min-width: " + ($bp-xs + 1);
-$bp-x-small-max:            "max-width:" + $bp-xs;
+$bp-x-small-max:            "max-width:"  +  $bp-xs;
 $bp-small-min:              "min-width: " + ($bp-s + 1);
-$bp-small-max:              "max-width:" + $bp-s;
+$bp-small-max:              "max-width:"  +  $bp-s;
 $bp-medium-min:             "min-width: " + ($bp-m + 1);
-$bp-medium-max:             "max-width:" + $bp-m;
+$bp-medium-max:             "max-width:"  +  $bp-m;
 $bp-large-min:              "min-width: " + ($bp-l + 1);
-$bp-large-max:              "max-width:" + $bp-l;
-$bp-large-extended:         "max-width:" + $bp-l-ex;
+$bp-large-max:              "max-width:"  +  $bp-l;
+$bp-large-extended:         "max-width:"  +  $bp-l-ex;
 $bp-large-extended-min:     "min-width: " + ($bp-l-ex + 1);
 $bp-x-large-min:            "min-width: " + ($bp-xl + 1);
-$bp-x-large-max:            "max-width:" + $bp-xl;
+$bp-x-large-max:            "max-width:"  +  $bp-xl;
 
-$bp-page-width-min:         "min-width:" + ($max-width + 1);
-$bp-page-width-max:         "max-width:" + $max-width;
+// See max-width in variables
+$bp-page-width-min:         "min-width:"  + ($max-width + 1);
+$bp-page-width-max:         "max-width:"  + $max-width;
+
+
+/* One-off breakpoints (consider consolidation)*/
 $bp-centered-content-width: "min-width: 1315px";
 
 // Semi Global breakpoint media variables
