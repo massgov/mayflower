@@ -7,10 +7,10 @@ const storyKindOrder = [
   'about', // storyKindOrder.indexOf -1 follow alphabetical order
   'brand', // storyKindOrder.indexOf -1 follow alphabetical order
   'dataviz', // storyKindOrder.indexOf -1 follow alphabetical order
-  'forms|context',
   'forms|atoms',
   'forms|molecules',
   'forms|organisms',
+  'forms|context',
   'atoms',
   'molecules',
   'organisms',
@@ -34,8 +34,6 @@ addParameters({
 });
 
 function loadStories() {
-  // load index story first
-  require('../src/index.stories.js');
   // automatically import all files ending in *.stories.js
   const req = require.context('../src', true, /.stories.js$/);
   req.keys().forEach((filename) => {
