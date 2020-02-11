@@ -4,7 +4,7 @@ import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
 
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
 
 
 storiesOf('molecules/ImagePromo', module)

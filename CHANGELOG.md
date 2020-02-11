@@ -1,6 +1,47 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.40.0 (2/11/2020)
+### Added 
+- (React) [ButtonCopy] DP-17435: Addded ButtonCopy atom under buttons. (#929)
+
+### Fixed 
+- (React, Patternlab) [SCSS] Align shared scss vars. (#933)
+
+## 9.39.3 (2/7/2020)
+### Added 
+- (React) [Typography] DP-17340: Added Typography story and documentation. (#918)
+- (React, Patternlab) [styles] DP-17340: Added `ma-texta-style($weight, $italic)` mixin and Texta font style classes. (#918)
+- (React, Patternlab) [styles] DP-17340: Added `$fonts` and `$fonts-mono` font family variables. (#918)
+- (React) [Icon] DP-17354: Display all icons in a story. (#924)
+
+### Changed 
+- (React) [Icon] DP-17354: Move Icon from atoms to base. (#924)
+
+### Fixed 
+- (React) [Dependency] DP-17417: Move react-scripts into dev dependencies, and move react-html-parser into prod dependencies. (#927)
+- (React) [Tab, FeedbackForm] DP-17417: Fix tab ref proptype for server side rendering. (#928)
+
+## 9.39.2 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Release tag error. (#922)
+
+## 9.39.1 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Hotfix release tag package install. (#922)
+
+## 9.39.0 (2/4/2020)
+### Changed
+- (Patternlab) [UtilityNav] DP-16804: Change the state organizations menu from a button to a link directly to the page. (#882)
+- (React) [Storybook] DP-17320: Config storybook to add Mayflower theme. (#915)
+- (React) [Storybook] DP-17338: Render welcome page to Mayflower-react. (#916)
+- (React) [Storybook] DP-17338: Display `Color` in category "Brand". (#916)
+- (React) [Storybook] DP-17372: Organize all form components from atoms, molecules and organisms into a forms category. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+- (React) [Storybook] DP-17372: Move Placeholder component into atoms. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+
+### Added
+- (React) [Color] DP-17253: Addded Color stories and color gradients. (#909)
+
 ## 9.38.0 (1/21/2020)
 
 ### Changed

@@ -266,6 +266,7 @@ jobs:
     steps:
       - checkout
       - *no_host_check
+      - run: { name: 'NPM Install', command: 'npm install' }
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"

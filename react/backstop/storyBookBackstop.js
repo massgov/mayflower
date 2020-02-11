@@ -100,7 +100,8 @@ const mapComponents = (components, debug) => components.map((component) => {
   // Backstop overrides.
   const overrides = [
     'GeneralTeaser',
-    'Icon'
+    'Icon',
+    'ButtonCopy'
   ];
   const backstop = (overrides.indexOf(name) > -1) ? '&backstop=true' : '';
   const url = `${urlBase}iframe.html?id=${toId(kind, name)}${backstop}`;
@@ -120,11 +121,9 @@ const mapComponents = (components, debug) => components.map((component) => {
 const isAtom = (component) => {
   const { filePath } = component;
   // Skip table and media/Image; they need to be tested with larger viewports.
-  // Also skip handling of icons for now - this will be handled with the Icon component.
   return(filePath.indexOf('/atoms/') > -1) &&
     (filePath.indexOf('table') === -1) &&
-    (path.basename(filePath) !== 'Image') &&
-    (filePath.indexOf('icons') === -1);
+    (path.basename(filePath) !== 'Image');
 };
 
 /**
