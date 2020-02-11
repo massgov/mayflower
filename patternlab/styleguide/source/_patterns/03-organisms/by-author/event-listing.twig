@@ -19,7 +19,7 @@
           {% for eventTeaser in eventListing.events %}
             {% set eventTeaser = eventTeaser|merge({"level":teaserHeading}) %}
             <li class="ma__event-listing__item js-event-listing-item">
-              {% include "@molecules/event-teaser.twig" %}
+              {% include "@molecules/teaser-event/event-teaser.twig" %}
             </li>
           {% endfor %}
         {% endblock %}

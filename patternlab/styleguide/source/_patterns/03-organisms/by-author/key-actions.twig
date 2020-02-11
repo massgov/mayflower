@@ -13,10 +13,10 @@
       {% for link in keyActions.links %}
         {% if link.image %}
           {% set illustratedLink = link %}
-          {% include "@molecules/illustrated-link.twig" %}
+          {% include "@molecules/link-illustrated/illustrated-link.twig" %}
         {% else %}
           {% set calloutLink = link %}
-          {% include "@molecules/callout-link.twig" %}
+          {% include "@molecules/link-callout/callout-link.twig" %}
         {% endif %}
       {% endfor %}
     </div>

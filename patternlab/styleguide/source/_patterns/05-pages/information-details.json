@@ -187,7 +187,7 @@
           }
         },
         {
-          "path": "@molecules/callout-stats.twig",
+          "path": "@molecules/callout-stats/callout-stats.twig",
           "data": {
             "statsCallout": {
               "pull": "right",

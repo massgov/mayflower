@@ -13,7 +13,7 @@
               {% if column|length == 1 %}
                 {% set featuredItem = featuredItem|merge({'variation': 'tall'}) %}
               {% endif %}
-              {% include "@molecules/featured-item.twig" %}
+              {% include "@molecules/featured-item/featured-item.twig" %}
             {% endfor %}
           </div>
         {% endfor %}
@@ -24,7 +24,7 @@
               {% if column|length == 1 %}
                 {% set featuredItem = featuredItem|merge({'variation': 'tall'}) %}
               {% endif %}
-              {% include "@molecules/featured-item.twig" %}
+              {% include "@molecules/featured-item/featured-item.twig" %}
             {% endfor %}
           </div>
         {% endfor %}

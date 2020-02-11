@@ -18,7 +18,7 @@
       },
       "more": null,
       "includes": [{
-        "path": "@molecules/contact-us.twig",
+        "path": "@molecules/contact-components/contact-us.twig",
         "data": {
           "contactUs": {
             "accordion": false,

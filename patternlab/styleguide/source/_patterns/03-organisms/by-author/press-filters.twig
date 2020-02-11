@@ -7,7 +7,7 @@
     <form class="ma__press-filters__form js-press-filters" action="{{ pressFilters.action }}">
       <div class="ma__press-filters__organizations">
         {% set orgSelector = pressFilters.orgSelector %}
-        {% include "@molecules/org-selector.twig" %}
+        {% include "@molecules/forms/org-selector.twig" %}
       </div>
       <div class="ma__press-filters__topic">
         {% set selectBox = pressFilters.topic %}
@@ -19,7 +19,7 @@
       </div>
       <div class="ma__press-filters__date">
         {% set dateRange = pressFilters.dateRange %}
-        {% include "@molecules/date-range.twig" %}
+        {% include "@molecules/forms/date-range.twig" %}
       </div>
       <div class="ma__press-filters__button">
         {% set button = pressFilters.submitButton %}

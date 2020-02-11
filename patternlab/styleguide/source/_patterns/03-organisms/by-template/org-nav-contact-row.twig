@@ -18,7 +18,7 @@
     <div class="ma__contact-row__primary">
       {% block primaryContactGroup %}
         {% set contactGroup = contactRow.primaryContact|merge({"level": contactHeading}) %}
-        {% include "@molecules/contact-group.twig" %}
+        {% include "@molecules/contact-group/contact-group.twig" %}
       {% endblock %}
     </div>
   {% endif %}
@@ -27,7 +27,7 @@
     {% block additionalContacts %}
       {% for contact in contactRow.additionalContacts %}
         {% set contactGroup = contact|merge({"level": contactHeading}) %}
-        {% include "@molecules/contact-group.twig" %}
+        {% include "@molecules/contact-group/contact-group.twig" %}
       {% endfor %}
     {% endblock %}
     {% if contactRow.moreLink %}

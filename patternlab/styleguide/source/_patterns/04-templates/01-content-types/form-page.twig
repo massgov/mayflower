@@ -3,7 +3,7 @@
 <main class="ma__form-page" id="main-content" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
-      {% include "@molecules/relationship-indicators.twig" %}
+      {% include "@molecules/relationship-indicators/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
     {% endblock %}
   </div>
@@ -19,7 +19,7 @@
         {% block formContent %}
           {% if form.errorList %}
             {% set errorList = form.errorList %}
-            {% include "@molecules/error-list.twig" %}
+            {% include "@molecules/forms/error-list.twig" %}
           {% endif %}
           {% for group in form.groups %}
             {% set compHeading = group.compHeading %}

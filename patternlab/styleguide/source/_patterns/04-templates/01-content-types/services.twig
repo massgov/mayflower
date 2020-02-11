@@ -14,7 +14,7 @@
   {% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
   <div class="pre-content">
     {% block preContent %}
-      {% include "@molecules/relationship-indicators.twig" %}
+      {% include "@molecules/relationship-indicators/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-banner.twig" %}
     {% endblock %}
   </div>
@@ -56,12 +56,12 @@
               {% if flexibleLinkGroup %}
                 {% if introSidebar.login %}
                   {% set iconLinks = introSidebar.login.iconLinks %}
-                  {% include "@molecules/icon-links.twig" %}
+                  {% include "@molecules/link-icon/icon-links.twig" %}
                 {% endif %}
               {% endif %}
               {% if introSidebar.social %}
                 {% set iconLinks = introSidebar.social.iconLinks %}
-                {% include "@molecules/icon-links.twig" %}
+                {% include "@molecules/link-icon/icon-links.twig" %}
               {% endif %}
               {% if introSidebar.imageLinkList %}
                 {% set imageLinkList = introSidebar.imageLinkList %}

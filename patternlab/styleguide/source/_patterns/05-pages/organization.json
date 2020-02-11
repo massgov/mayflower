@@ -632,7 +632,7 @@
       ],
       "sideBar": [
         {
-          "path": "@molecules/icon-links.twig",
+          "path": "@molecules/link-icon/icon-links.twig",
           "data": {
             "iconLinks": {
               "compHeading": {

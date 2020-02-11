@@ -11,7 +11,7 @@
     {% for item in collapsibleContent.items %}
       <div class="ma__collapsible-content__item js-accordion {{ item.expanded ? 'is-open' : '' }}">
         {% set collapsibleHeader = item.collapsibleHeader %}
-        {% include "@molecules/collapsible-header.twig" %}
+        {% include "@molecules/accordion-components/collapsible-header.twig" %}
         <div class="ma__collapsible-content__body js-accordion-content {{ collapsibleHeader.icon ? '' : 'ma__collapsible-content__body--without-icon' }}">
           {% for pattern in item.includes %}
             {% include pattern.path with pattern.data %}

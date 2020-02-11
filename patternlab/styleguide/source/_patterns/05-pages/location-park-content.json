@@ -18,7 +18,7 @@
     "headerTags": null,
     "optionalContents": [
       {
-        "path": "@molecules/contact-us.twig",
+        "path": "@molecules/contact-components/contact-us.twig",
         "data": {
           "contactUs": {
             "groups": [
@@ -101,7 +101,7 @@
     ],
     "widgets": [
       {
-        "path": "@molecules/location-icons.twig",
+        "path": "@molecules/location-icons/location-icons.twig",
         "data": {
           "locationIcons": {
             "icons": [

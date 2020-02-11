@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block preContent %}
-  {% include "@molecules/relationship-indicators.twig" %}
+  {% include "@molecules/relationship-indicators/relationship-indicators.twig" %}
   {% include "@organisms/by-template/page-header.twig" %}
 {% endblock %}
 
@@ -15,7 +15,7 @@
 
 {% block postContent %}
   {% set backButton = postContent.backButton %}
-  {% include "@molecules/back-button.twig" %}
+  {% include "@molecules/buttons/back-button.twig" %}
   {% set pageFlipper = postContent.pageFlipper %}
   {% include "@organisms/by-author/page-flipper.twig" %}
 {% endblock %}

@@ -8,7 +8,7 @@
         <li>
           {% if link.icon %}
             {% set downloadLink = link %}
-            {% include "@molecules/download-link.twig" %}
+            {% include "@molecules/link-download/download-link.twig" %}
           {% else %}
             {% set decorativeLink = link %}
             {% include "@atoms/decorative-link.twig" %}

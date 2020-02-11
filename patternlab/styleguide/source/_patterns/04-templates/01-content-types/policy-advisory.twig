@@ -5,7 +5,7 @@
 <main id="main-content" class="ma__policy-advisory" tabindex="-1">
   <div class="pre-content">
     {% block preContent %}
-      {% include "@molecules/relationship-indicators.twig" %}
+      {% include "@molecules/relationship-indicators/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
     {% endblock %}
   </div>
@@ -50,7 +50,7 @@
 
         {% if mainContent.references %}
           {% set headerTags = mainContent.references %}
-          {% include "@molecules/header-tags.twig" %}
+          {% include "@molecules/relationship-indicators/header-tags.twig" %}
         {% endif %}
       </div>
       <aside class="sidebar {{ sidebar.coloredHeadings ? 'sidebar--colored' : '' }}">

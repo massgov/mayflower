@@ -5,7 +5,7 @@ This is a variant of the [Page Header](./?p=organisms-page-header) pattern showi
 * set the `divider` variable to false
 * set the `category`, socialLinks`, and `publishState` to null
 * populate the `optionalContents` array with the following patterns:
-  * @organisms/by-author/contact-us.twig
+  * @organisms/by-author/contact-components/contact-us.twig
   * @organisms/by-author/key-actions.twig
 * populate the `widgets` array with the following pattern:
-  * @molecules/location-icons.twig
+  * @molecules/location-icons/location-icons.twig
