@@ -34,6 +34,7 @@ export Placeholder from './components/atoms/Placeholder';
 // @atoms/@buttons
 export ArrowButton from './components/atoms/buttons/ArrowButton';
 export Button from './components/atoms/buttons/Button';
+export ButtonCopy from './components/atoms/buttons/ButtonCopy';
 export ButtonSort from './components/atoms/buttons/ButtonSort';
 export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
