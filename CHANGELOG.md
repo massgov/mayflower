@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.40.0 (2/11/2020)
+### Added 
+- (React) [ButtonCopy] DP-17435: Addded ButtonCopy atom under buttons. (#929)
+
+### Fixed 
+- (React, Patternlab) [SCSS] Align shared scss vars. (#933)
+
 ## 9.39.3 (2/7/2020)
 ### Added 
 - (React) [Typography] DP-17340: Added Typography story and documentation. (#918)
