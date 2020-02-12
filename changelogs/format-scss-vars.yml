@@ -1,6 +1,0 @@
-Fixed:
-  - project: React, Patternlab
-    component: SCSS
-    description: Align shared scss vars. (#933)
-    issue:
-    impact: Patch
