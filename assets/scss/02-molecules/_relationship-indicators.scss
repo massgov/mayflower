@@ -1,4 +1,5 @@
 .ma__relationship-indicators {
+
     @include clearfix;
     display: flex;
     flex-direction: column;
@@ -6,6 +7,10 @@
     font-weight: 600;
     font-size: 16px;
     margin: 0 20px 10px;
+
+    @media ($bp-x-small-min) {
+        padding-top: 20px;
+    }
 
     @media ($bp-medium-min) {
         margin-left: 30px;
@@ -34,6 +39,14 @@
         margin-right: 10px;
         white-space: nowrap;
         margin-top: -1px;
+
+        @media ($bp-x-small-min) {
+            min-width: 6.5em;
+        }
+
+        @media($bp-large-min) {
+            min-width: unset;
+        }
     }
 
     &__expand-indicators {
@@ -148,12 +161,21 @@
         }
 
         .ma__relationship-indicators--term {
-          margin-bottom: 12px;
+          margin-bottom:12px;
           margin-right: 10px;
           line-height: 22px;
           font-size: 16px;
           padding-right: 5px;
           list-style: none;
+
+          @media ($bp-x-small-min) {
+            // flex-flow: row wrap;
+            margin-bottom: 2px;
+          }
+
+          @media ($bp-medium-min) {
+            margin-bottom: 6px;
+          }
         }
 
         a {
