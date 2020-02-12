@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Icon from './index';
+import ButtonCopy from '../../atoms/buttons/ButtonCopy';
 import './display.css';
 
 const IconDisplay = (props) => {
@@ -25,15 +26,7 @@ const IconDisplay = (props) => {
         <Icon {...props} key={`${name}${random}`} />
         <div>
           <span>{name}</span>
-          { navigator && navigator.clipboard && (
-            <button
-              onClick={copyAction}
-              title={copyButtonTitle}
-              aria-label={copyButtonTitle}
-            >
-              { copied ? <Icon name="inputsuccess" svgWidth={16} svgHeight={16} /> : <Icon name="copy" svgWidth={16} svgHeight={16} />}
-            </button>
-          )}
+          <ButtonCopy content={name} />
         </div>
       </div>
     </li>
