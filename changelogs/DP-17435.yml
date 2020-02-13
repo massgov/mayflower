@@ -1,6 +1,0 @@
-Added:
-  - project: React
-    component: ButtonCopy
-    description: Addded ButtonCopy atom under buttons. (#929)
-    issue: DP-17435
-    impact: Minor
