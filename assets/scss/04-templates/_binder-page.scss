@@ -17,12 +17,4 @@
             padding-top: 1.625rem;
         }
     }
-
-// This style is for the binder internal page only.
-// Drupal uses separate styles and templates in it. Don't move this to compoenet level.  It would impact presentation in Drupal.
-// This is reference purpose only.
-// WIP
-    .referencing-binders ~ .ma__relationship-indicators {
-        border-bottom: 1px solid #dcdcdc;
-    }
 }
