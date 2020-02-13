@@ -25,6 +25,7 @@ import linkListToggle from "./modules/linkListToggle.js";
 import locationListing from "./modules/locationListing.js";
 import locationFilters from "./modules/locationFilters.js";
 import mainNav from "./modules/mainNav.js";
+import mobileNav from "./modules/mobileNav.js";
 import orgSelector from "./modules/orgSelector.js";
 import organizationNavigation from "./modules/organizationNavigation.js";
 import pagination from "./modules/pagination.js";
