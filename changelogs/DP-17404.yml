@@ -1,21 +1,21 @@
 Changed:
   - project: Patternlab
     component: RelationshipIndicator
-    description: Match spacing with the current prod(develop) version. (#)
+    description: Match spacing with the current prod(develop) version. (#938)
     issue: DP-17404
     impact: Patch
   - project: Patternlab
     component: RelationsipIndicator
-    description: Align relationship the first terms in primary and secondary sets. (#)
+    description: Align relationship the first terms in primary and secondary sets. (#938)
     issue: DP-17404
     impact: Patch
   - project: Patternlab
     component: BinderInternalPage
-    description: Position the TOC below the relationship indicator. (#)
+    description: Position the TOC below the relationship indicator. (#938)
     issue: DP-17404
     impact: Patch
   - project: Patternlab
     component: MobileNav
-    description: Put back missing mobileNav.js in index.js. (#)
+    description: Put back missing mobileNav.js in index.js. (#938)
     issue: DP-17404
     impact: Patch
