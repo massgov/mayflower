@@ -136,6 +136,10 @@
             min-width: 40%;
             padding-top: 15px;
 
+            @media ($bp-large-min) {
+                padding-top: 0;
+            }
+
             .ma__relationship-indicators--term {
 
                 &:nth-child(n+2) {
