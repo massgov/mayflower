@@ -1,5 +1,4 @@
 .ma__relationship-indicators {
-
     @include clearfix;
     display: flex;
     flex-direction: column;
@@ -161,20 +160,15 @@
         }
 
         .ma__relationship-indicators--term {
-          margin-bottom:12px;
+          margin-bottom: 6px;
           margin-right: 10px;
           line-height: 22px;
           font-size: 16px;
           padding-right: 5px;
           list-style: none;
 
-          @media ($bp-x-small-min) {
-            // flex-flow: row wrap;
-            margin-bottom: 2px;
-          }
-
-          @media ($bp-medium-min) {
-            margin-bottom: 6px;
+          @media ($bp-large-min) {
+            margin-bottom: 12px;
           }
         }
 
