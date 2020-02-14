@@ -4,7 +4,7 @@ import ClassNames from 'classnames';
 
 import Collapse from '../../animations/Collapse';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
 
 import './style.css';
 

@@ -3,21 +3,40 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withInfo } from '@storybook/addon-info';
 import theme from './mayflowerTheme';
 
+const storyKindOrder = [
+  'about', // storyKindOrder.indexOf -1 follow alphabetical order
+  'brand', // storyKindOrder.indexOf -1 follow alphabetical order
+  'dataviz', // storyKindOrder.indexOf -1 follow alphabetical order
+  'forms|atoms',
+  'forms|molecules',
+  'forms|organisms',
+  'forms|context',
+  'atoms',
+  'molecules',
+  'organisms',
+  'templates',
+  'pages'
+];
 
 addParameters({
   options: {
     theme: theme,
     showNav: true,
-    showPanel: true // show the code panel by default
+    showPanel: true, // show the code panel by default,
+    storySort: (a, b) => {
+      const aKind = a[1].kind.split('/')[0];
+      const bKind = b[1].kind.split('/')[0];
+      console.log(a[1].id)
+      return (storyKindOrder.indexOf(aKind) - storyKindOrder.indexOf(bKind)) || a[1].id.toLowerCase().localeCompare(b[1].id.toLowerCase(), undefined, { numeric: true });
+    }
+
   },
 });
 
 function loadStories() {
-  // load index story first
-  require('../src/index.stories.js');
   // automatically import all files ending in *.stories.js
   const req = require.context('../src', true, /.stories.js$/);
-  req.keys().sort().forEach((filename) => {
+  req.keys().forEach((filename) => {
     req(filename);
   });
   addDecorator(

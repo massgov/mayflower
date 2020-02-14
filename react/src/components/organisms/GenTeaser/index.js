@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
 
 import LinkDropdown from '../../molecules/LinkDropdown';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Email from '../../atoms/contact/Email';

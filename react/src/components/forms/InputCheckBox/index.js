@@ -5,7 +5,7 @@ import is from 'is';
 
 import Input from '../Input';
 import Error from '../Input/error';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
 import { InputContext } from '../Input/context';
 import './style.css';
 

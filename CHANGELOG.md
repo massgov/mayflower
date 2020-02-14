@@ -1,6 +1,27 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.40.0 (2/11/2020)
+### Added 
+- (React) [ButtonCopy] DP-17435: Addded ButtonCopy atom under buttons. (#929)
+
+### Fixed 
+- (React, Patternlab) [SCSS] Align shared scss vars. (#933)
+
+## 9.39.3 (2/7/2020)
+### Added 
+- (React) [Typography] DP-17340: Added Typography story and documentation. (#918)
+- (React, Patternlab) [styles] DP-17340: Added `ma-texta-style($weight, $italic)` mixin and Texta font style classes. (#918)
+- (React, Patternlab) [styles] DP-17340: Added `$fonts` and `$fonts-mono` font family variables. (#918)
+- (React) [Icon] DP-17354: Display all icons in a story. (#924)
+
+### Changed 
+- (React) [Icon] DP-17354: Move Icon from atoms to base. (#924)
+
+### Fixed 
+- (React) [Dependency] DP-17417: Move react-scripts into dev dependencies, and move react-html-parser into prod dependencies. (#927)
+- (React) [Tab, FeedbackForm] DP-17417: Fix tab ref proptype for server side rendering. (#928)
+
 ## 9.39.2 (2/4/2020)
 ### Fixed
 - (React, Patternlab) [Circle] Release tag error. (#922)

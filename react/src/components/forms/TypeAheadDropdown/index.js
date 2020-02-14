@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import InputTextTypeAhead from '../InputTextTypeAhead';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
 import './style.css';
 
 class TypeAheadDropdown extends React.Component {

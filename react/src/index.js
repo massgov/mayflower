@@ -34,6 +34,7 @@ export Placeholder from './components/atoms/Placeholder';
 // @atoms/@buttons
 export ArrowButton from './components/atoms/buttons/ArrowButton';
 export Button from './components/atoms/buttons/Button';
+export ButtonCopy from './components/atoms/buttons/ButtonCopy';
 export ButtonSort from './components/atoms/buttons/ButtonSort';
 export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
@@ -52,7 +53,7 @@ export CompHeading from './components/atoms/headings/CompHeading';
 export Heading from './components/atoms/headings/Heading';
 export SidebarHeading from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
-export Icon from './components/atoms/icons/Icon';
+export Icon from './components/base/Icon';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 export FootNote from './components/atoms/links/FootNote';
