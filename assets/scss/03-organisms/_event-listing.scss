@@ -275,6 +275,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
 
 // IE11 spacing hacks
 /* stylelint-disable selector-type-no-unknown */
+
 @media ($bp-medium-min) {
 
   _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(odd) {

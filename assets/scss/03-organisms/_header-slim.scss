@@ -1,5 +1,5 @@
 .ma__header_slim {
-  
+
   .ma__container {
 
     @include ma-container;
@@ -15,11 +15,9 @@
   @media (min-width: 1000px) {
 
     &__logo {
-      float: left;
-      display: block;
-      margin-right: 1.6129%;
-      display: inline-block;
       float: none;
+      display: inline-block;
+      margin-right: 1.6129%;
 
       &:last-child {
         margin-right: 0;
