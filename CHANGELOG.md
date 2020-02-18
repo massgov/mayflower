@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 ## 9.40.1 (2/18/2020)
 ### Changed 
 - (React) [Storybook] DP-17473: Customize ordering of stories. (#934)
+### Fixed
+- (Patternlab) [UtilityNav] Fix the mobile version overwrap display issue. (#926)
 
 ## 9.40.0 (2/11/2020)
 ### Added 
