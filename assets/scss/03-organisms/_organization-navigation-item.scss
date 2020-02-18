@@ -478,7 +478,7 @@
 }
 
 // IE hacks
-
+/* stylelint-disable selector-type-no-unknown */
 _:-ms-lang(x), .ma__org-nav-contact-us__contact-row .wrappedGroup {
   flex: 1 1 auto;
 }

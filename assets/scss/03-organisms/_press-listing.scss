@@ -50,11 +50,11 @@
 
       .ma__press-teaser__image {
         display: none;
-      }      
+      }
     }
 
     @media ($bp-medium-max) {
-      
+
       & + & {
         border-top-width: 1px;
         border-top-style: solid;
@@ -168,6 +168,8 @@
   }
 }
 
+// IE11 spacing hacks
+/* stylelint-disable selector-type-no-unknown */
 @media ($bp-medium-min) {
 
   _:-ms-fullscreen, :root .ma__press-listing__secondary-items {
@@ -178,7 +180,7 @@
   _:-ms-fullscreen, :root .ma__press-listing__secondary-item {
     flex-basis: 45%;
     padding: 0;
-    border-right-width: 0; 
+    border-right-width: 0;
     position: relative;
   }
 
