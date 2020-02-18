@@ -46,7 +46,12 @@ $utility-nav-height: 43px;
     // Separate this style from react.
     a.direct-link {
       padding: 1px 7px 2px 7px;
-      // font-weight: 400;
+
+      @media ($bp-header-toggle-max) {
+        padding: 11px 20px 9px 45px;
+        width: 100%;
+        text-align: left;
+      }
     }
   }
 
