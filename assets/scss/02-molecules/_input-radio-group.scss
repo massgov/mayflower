@@ -6,21 +6,21 @@ $total-margin: $margin * 2;
   @if ($bp == "large") {
 
     @media ($bp-large-max) {
-      width: calc(100%/#{$col} - #{$total-margin});
+      width: calc(100% / #{$col} - #{$total-margin});
     }
   }
 
   @if ($bp == "medium") {
 
     @media ($bp-medium-max) {
-      width: calc(100%/#{$col} - #{$total-margin});
+      width: calc(100% / #{$col} - #{$total-margin});
     }
   }
 
   @if ($bp == "small") {
 
     @media ($bp-small-max) {
-      width: calc(100%/#{$col} - #{$total-margin});
+      width: calc(100% / #{$col} - #{$total-margin});
     }
   }
 }
@@ -53,7 +53,7 @@ $total-margin: $margin * 2;
 
       @for $i from 1 to 7 {
         .item-#{$i} {
-          width: calc(100%/#{$i} - #{$total-margin});
+          width: calc(100% / #{$i} - #{$total-margin});
         }
       }
 

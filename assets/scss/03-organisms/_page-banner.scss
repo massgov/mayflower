@@ -14,7 +14,7 @@ $page-banner-height: 330px;
     margin-bottom: 40px;
   }
 
-  // to match height and font size being provided to prod by 
+  // to match height and font size being provided to prod by
   // decision tree module styles
 
   .decision-tree & {
@@ -82,11 +82,11 @@ $page-banner-height: 330px;
       left: 500px;
       background-size: cover;
       background-position: center;
-      
+
       @media (min-width: $max-width) {
         right: calc(-100vw + #{$max-width});
       }
-      
+
       @media ($bp-large-extended) {
         left: 0;
         top: 100%;
@@ -235,10 +235,10 @@ $page-banner-height: 330px;
     max-width: 700px;
     position: relative;
     top: 0;
-    
+
     @media ($bp-x-small-min) {
       position: relative;
-      top: calc(#{$page-banner-height}/2);
+      top: calc(#{$page-banner-height} / 2);
     }
 
     @media ($bp-medium-min) {
