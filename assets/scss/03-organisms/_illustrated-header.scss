@@ -147,17 +147,11 @@ $bp-illustrated-header-image-width: 360px;
   &__category {
     font-weight: 700;
   }
-
-  .ma__page-header {
-
-    &__intro {
-    }
-  }
 }
 
 .ma__illustrated-header--inverted {
 
-  &, 
+  &,
   .ma__page-header__title,
   .ma__illustrated-header__category {
     color: $c-white;

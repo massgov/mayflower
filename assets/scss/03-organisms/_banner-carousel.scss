@@ -15,10 +15,6 @@
     width: 40px;
     z-index: 1;
 
-    @media ($bp-page-width-max) {
-
-    }
-
     @media ($bp-page-width-min) {
       min-width: 40px;
       width: calc((100vw - #{$max-width} + 40px) / 2);
@@ -122,7 +118,7 @@
 .ma__banner-carousel {
 
   .slick-arrow {
-    
+
     &:after {
       border-color: $c-white;
     }
@@ -132,12 +128,12 @@
     }
 
     &:hover:before {
-      background-color: $c-primary;      
+      background-color: $c-primary;
     }
   }
 
   .slick-dots {
-    
+
     button {
       background-color: $c-primary;
     }
