@@ -52,6 +52,7 @@
     box-shadow: none;
     border-radius: 0;
   }
+
   .is-today.is-selected & {
     color: $c-font-inverse;
   }

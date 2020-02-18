@@ -1,6 +1,7 @@
 .ma__header_slim {
   
   .ma__container {
+
     @include ma-container;
   }
 
@@ -12,6 +13,7 @@
   }
 
   @media (min-width: 1000px) {
+
     &__logo {
       float: left;
       display: block;
@@ -26,6 +28,7 @@
   }
 
   @media (min-width: 621px) {
+
     &__logo {
       float: left;
       display: block;
@@ -33,7 +36,7 @@
       display: inline-block;
       float: none;
 
-      &:last-child{
+      &:last-child {
         margin-right: 0;
       }
     }
@@ -79,6 +82,7 @@
       font-size: 0;
       padding-top: 20px;
       padding-bottom: 20px;
+
       &:before {
         content: "";
         display: inline-block;

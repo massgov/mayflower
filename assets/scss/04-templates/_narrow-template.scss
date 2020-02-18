@@ -5,36 +5,44 @@ $narrow-template-max-width: 670px;
 $narrow-template-header-height: 170px;
 
 @keyframes narrow-template-bg-full-left {
+
   0% { 
     left: 150%;
   }
+
   100% {
     left: $narrow-template-bg-offset-full;
   }
 }
 
 @keyframes narrow-template-bg-narrow-left {
+
   0% { 
     left: 150%;
   }
+
   100% {
     left: $narrow-template-bg-offset-narrow;
   }
 }
 
 @keyframes narrow-template-bg-full-right {
+
   0% { 
     right: 150%;
   }
+
   100% {
     right: $narrow-template-bg-offset-full;
   }
 }
 
 @keyframes narrow-template-bg-narrow-right {
+
   0% { 
     right: 150%;
   }
+
   100% {
     right: $narrow-template-bg-offset-narrow;
   }
@@ -92,6 +100,7 @@ $narrow-template-header-height: 170px;
   }
 
   &__header {
+
     @include ma-container;
     height: $narrow-template-header-height;
     font-size: 0;
@@ -101,6 +110,7 @@ $narrow-template-header-height: 170px;
   }
 
   &__container {
+
     @include ma-container;
     display: flex;
       flex-direction: column;

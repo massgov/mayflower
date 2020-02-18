@@ -39,10 +39,12 @@
   }
 
   &__text {
+
     @include ma-link-underline;
     display: inline;
 
     svg {
+
       @include ma-link-arrow;
       fill: rgba($c-font-link,.5);
     }
@@ -67,7 +69,7 @@
     font-weight: 700;
   }
 
-  &__header{
+  &__header {
     align-content: stretch;
     width: 100%;
     display: inline-flex;
@@ -96,14 +98,16 @@
     font-weight: 700;
   }
 
-  &--white{
+  &--white {
     background-color: $c-white;
     border-color: tint($c-font-detail,70%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 
   // removed after version 5.5.0
+
   &__info {
+
     @include ma-visually-hidden;
   }
 }

@@ -16,7 +16,7 @@
     line-height: 1.5;
     padding-top: 5px;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
 
@@ -36,6 +36,7 @@
 }
 
 //theme
+
 .paragraph--type--related-link, // mass gov drupal instance
 .ma__related-action {
 

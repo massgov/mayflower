@@ -8,6 +8,7 @@
     display: inline-block;
 
     &:last-child {
+
       a {
         color: $c-black;
         font-weight: 700;
@@ -15,7 +16,9 @@
         pointer-events: none;
       }
     }
+
     &:not(:last-child) {
+
       &::after {
         content: " >";
         margin-right: 7px;
@@ -24,7 +27,9 @@
       a {
         color: $c-gray-dark;
         font-weight: 500;
+
         @include ma-link-transition;
+
         @include ma-link-underline;
 
         &:hover {

@@ -1,4 +1,5 @@
 .ma__services {
+
   @include ma-truncated-body-text;
 
   .page-content--intro {
@@ -17,8 +18,11 @@
   }
 
   .more-info-header {
+
     @include ma-container;
+
     @include ma-component-spacing;
+
     @include clearfix;
 
     .ma__comp-heading {
@@ -33,6 +37,7 @@
     }
 
     .ma__stacked-row__section {
+
       .ma__split-columns {
         margin-top: 15px;
       }
@@ -68,9 +73,12 @@
   }
 
   .ma__stacked-row__section {
+
     .ma__split-columns {
+
       .ma__comp-heading,
       .ma__sidebar-heading {
+
         @include ma-h3;
         border: 0;
         margin-bottom: 0 !important;
@@ -82,15 +90,18 @@
   }
 
   .ma__stacked-row__section .main-content .page-content {
+
     .ma__action-finder,
     .ma__mapped-locations,
     .ma__event-listing,
     .ma__image-credit {
+
       @include ma-component-spacing;
     }
   }
 
   .main-content--full .page-content--intro {
+
     .ma__video--right + .ma__teaser-text {
 
       @media ($bp-page-width-min) {
@@ -115,6 +126,7 @@
 
 
   .sidebar--intro {
+
     & > .ma__image:first-child {
 
       @media ($bp-large-max) {

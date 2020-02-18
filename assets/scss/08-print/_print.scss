@@ -255,7 +255,7 @@
     margin: 2rem 0;
   }
 
-  .ma__callout-link  {
+  .ma__callout-link {
     border-width: 0 !important;
     break-inside: avoid;
     page-break-inside: avoid;
@@ -425,7 +425,7 @@
     width: 100%;
     max-width: none;
 
-    .ma__image{
+    .ma__image {
      display: none;
     }
 
@@ -487,7 +487,9 @@
   }
 
   // Page level custom print styles
+
   .ma__details__content .ma__rich-text {
+
     ul li {
       list-style-type: none;
       padding-left: 2em;

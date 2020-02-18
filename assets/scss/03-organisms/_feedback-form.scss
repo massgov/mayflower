@@ -11,6 +11,7 @@ $feedback-form-bp-min: "min-width: 751px";
   }
 
   &__container {
+
     @include ma-container;
     max-width: ($column + $gutter) * 8 - $gutter;
     padding-top: 60px;
@@ -26,6 +27,7 @@ $feedback-form-bp-min: "min-width: 751px";
   }
 
   &__title {
+
     @include ma-border-decorative;
     margin-bottom: $feedback-form-spacing-mobile;
     padding-bottom: 16px;
@@ -61,6 +63,7 @@ $feedback-form-bp-min: "min-width: 751px";
     }
 
     @media ($feedback-form-bp-min) {
+
       @include span-columns(4 of 8);
     }
 
@@ -102,6 +105,7 @@ $feedback-form-bp-min: "min-width: 751px";
     }
 
     @media ($feedback-form-bp-min) {
+
       @include span-columns(4 of 8);
     }
 
@@ -141,6 +145,7 @@ $feedback-form-bp-min: "min-width: 751px";
     button,
     input[type="submit"],
     input[type="button"] {
+
       @include ma-button;
     }
   }
@@ -160,6 +165,7 @@ $feedback-form-bp-min: "min-width: 751px";
 }
 
 //theme
+
 .ma__feedback-form {
 
   &__overlay {
@@ -168,6 +174,7 @@ $feedback-form-bp-min: "min-width: 751px";
   }
 
   &__title {
+
     @include ma-border-decorative($c-highlight,1);
     color: $c-font-inverse;
   }
@@ -177,6 +184,7 @@ $feedback-form-bp-min: "min-width: 751px";
     button,
     input[type="button"],
     input[type="submit"] {
+
       @include ma-button("normal","solid",$c-primary);
     }
   }

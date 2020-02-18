@@ -54,6 +54,7 @@ $menu-transition-time: 0.3s;
   }
 
   &__mobile-toggle {
+
     @include ma-container;
     padding-top: 1rem;
     padding-bottom: 1rem;

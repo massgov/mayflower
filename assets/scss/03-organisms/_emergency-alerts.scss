@@ -19,14 +19,17 @@ $colors: (
 
 
   // top positioning on mobile for utility nav space
+
   .ma__ajax-pattern > & {
-    @media($bp-header-toggle-max) {
+
+    @media ($bp-header-toggle-max) {
       top: 40px;
     }
   }
 
   &__header {
     background-color: $c-warning;
+
     .ma__emergency-header {
       margin-left: 0;
       margin-right: 0;
@@ -36,6 +39,7 @@ $colors: (
   }
 
   &__hide {
+
     @include ma-button-reset;
     font-size: 3rem;
     line-height: .65;
@@ -55,6 +59,7 @@ $colors: (
     }
 
     @media ($bp-small-min) and ($bp-large-max) {
+
       @include ma-container;
       margin: 0;
       position: absolute;
@@ -96,6 +101,7 @@ $colors: (
   }
 
   &__container {
+
     @include ma-container;
 
     @media ($bp-small-max) {
@@ -113,12 +119,14 @@ $colors: (
   }
 
   &__interface {
+
     @include ma-container;
     font-size: 0;
 
     @media ($bp-small-min) {
       display: none;
     }
+
     @media ($bp-small-max) {
       background-color: $c-warning;
       padding: 20px;
@@ -137,8 +145,10 @@ $colors: (
 }
 
 @each $class, $c in $colors {
+
   .ma__emergency-alerts {
     &__hide--#{$class} {
+
       @if $c == $c-warning {
         color: $c-font-base;
 
@@ -147,6 +157,7 @@ $colors: (
       }
     }
     &--#{$class} {
+
       &.collapsed {
         visibility: hidden;
         height: 0px;
@@ -177,9 +188,11 @@ $colors: (
       background-color: rgba($c, 1);
     }
     &__interface--#{$class} {
+
       &.open {
        background-color: tint($c, 90%);
       }
+
       &.closed {
        background-color: rgba($c, 1);
       }

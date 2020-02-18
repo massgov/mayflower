@@ -1,15 +1,19 @@
 .ReactTable {
+
   .rt-tbody {
     font-family: $fonts-mono;
     font-size: 1rem;
   }
+
   .rt-thead, .-pagination {
+
     input, select, .-btn {
       border-radius: 0 !important;
     }
   }
 
   $alignment: left center right;
+
   @each $option in $alignment {
     .data-align-#{$option} {
       text-align: #{$option};

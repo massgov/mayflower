@@ -1,6 +1,7 @@
 .ma__header-contact {
 
   // controls for when to activate accordion
+
   &:before {
     content: "true";
     display: none;
@@ -22,6 +23,7 @@
   }
 
   &__accordion {
+
     @include ma-button-reset;
     border-top: 1px solid;
     display: block;
@@ -94,6 +96,7 @@
 }
 
 //theme
+
 .ma__header-contact {
 
   &__accordion {

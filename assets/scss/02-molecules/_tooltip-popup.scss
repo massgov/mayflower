@@ -15,6 +15,7 @@ $dropdown-background-color: $background-color;
 $dropdown-border-color: $border-color;
 
 // "top", "bottom", "left", "right"
+
 @mixin triangle($where, $background-color, $border-color) {
 
     $top: $where == "top";
@@ -24,6 +25,7 @@ $dropdown-border-color: $border-color;
 
 
     // http://www.cssarrowplease.com/
+
     &:after,
     &:before {
         position: absolute;
@@ -43,6 +45,7 @@ $dropdown-border-color: $border-color;
     }
 
     // triangle
+
     &:after {
         border-color: transparent;
         border-width: $triangle-size;
@@ -60,6 +63,7 @@ $dropdown-border-color: $border-color;
     }
 
     // triangle border
+
     &:before {
         border-color: transparent;
         border-width: $triangle-size + $border-width*2;
@@ -106,6 +110,7 @@ $dropdown-border-color: $border-color;
     }
 
     // if this popup doesn't move, only animate the opacity
+
     &.is-stationary {
         transition: opacity $duration, visibility $duration, transform $duration;
     }
@@ -164,6 +169,7 @@ $dropdown-border-color: $border-color;
 }
 
 // triangle
+
 .popup__triangle {
 
     position: absolute;
@@ -175,6 +181,7 @@ $dropdown-border-color: $border-color;
     transition: all $duration;
 
     .is-triangle-top & {
+
         @include triangle("top", $background-color, $border-color);
 
         top: 0;
@@ -182,37 +189,44 @@ $dropdown-border-color: $border-color;
     }
 
     .is-triangle-top.popup--dropdown & {
+
         @include triangle("top", $dropdown-background-color, $dropdown-border-color);
     }
 
     .is-triangle-right & {
+
         @include triangle("right", $background-color, $border-color);
         top: 50%;
         right: 0;
     }
 
     .is-triangle-right.popup--dropdown & {
+
         @include triangle("right", $dropdown-background-color, $dropdown-border-color);
     }
 
     .is-triangle-bottom & {
+
         @include triangle("bottom", $background-color, $border-color);
         bottom: 0;
         left: 50%;
     }
 
     .is-triangle-bottom.popup--dropdown & {
+
         @include triangle("bottom", $dropdown-background-color, $dropdown-border-color);
     }
 
 
     .is-triangle-left & {
+
         @include triangle("left", $background-color, $border-color);
         top: 50%;
         left: 0;
     }
 
     .is-triangle-left.popup--dropdown & {
+
         @include triangle("left", $dropdown-background-color, $dropdown-border-color);
     }
 }
