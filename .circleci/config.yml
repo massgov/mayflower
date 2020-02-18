@@ -299,7 +299,9 @@ workflows:
       - auto_changelog:
           filters:
             branches: { only: /dependabot\/.*/ }
-      - assets_test: { ignore: /(docs\-).*/ }
+      - assets_test:
+          filters:
+            branches: { ignore: /docs\-.*/ }
       - patternlab_build:
           filters:
             branches: { ignore: /docs\-.*/ }
