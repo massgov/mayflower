@@ -177,9 +177,7 @@ $c-theme-green: #43956f;
 
   &__moreinfo {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-flow: column;
+    flex-flow: column wrap;
     justify-content: flex-start;
     align-content: flex-start;
     margin-top: 1em;

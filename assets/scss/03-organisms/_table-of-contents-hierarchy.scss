@@ -16,12 +16,11 @@
       content: "";
       position: absolute;
       top: 0;
-      right: 0;
+      right: -25px;
       background: inherit;
       height: 100%;
       width: 50px;
       transform: skew(-.53rad);
-      right: -25px;
     }
   }
 
@@ -50,7 +49,7 @@
   //react
 
   .ma__accordion-header {
-    
+
     &__button {
       padding-left: 20px;
       padding-right: 20px;

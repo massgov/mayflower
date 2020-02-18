@@ -20,8 +20,10 @@
       content: '';
       width: 75px;
       height: 20px;
+      /* background fallback */
       background-color: $c-primary-alt;
-      background: linear-gradient(120deg, $c-primary-alt 65px, $c-white 0);
+      /* will be on top of fallback, if browser supports it */
+      background-image: linear-gradient(120deg, $c-primary-alt 65px, $c-white 0);
       position: absolute;
       top: 0;
       left: 0;
