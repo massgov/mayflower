@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.40.1 (2/18/2020)
+### Changed 
+- (React) [Storybook] DP-17473: Customize ordering of stories. (#934)
+
 ## 9.40.0 (2/11/2020)
 ### Added 
 - (React) [ButtonCopy] DP-17435: Addded ButtonCopy atom under buttons. (#929)

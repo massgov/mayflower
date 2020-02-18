@@ -1,6 +1,0 @@
-Changed:
-  - project: React
-    component: Storybook
-    description: Customize ordering of stories. (#934)
-    issue: DP-17473
-    impact: Patch
