@@ -4,7 +4,7 @@
 <main id="main-content" class="ma__press" tabindex="-1"{% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
   <div class="pre-content">
     {% block preContent %}
-      {% include "@molecules/relationship-indicators.twig" %}
+      {% include "@molecules/relationship-indicators/relationship-indicators.twig" %}
       {% include "@organisms/by-template/page-header.twig" %}
     {% endblock %}
   </div>
@@ -12,7 +12,7 @@
     <div class="page-content ma__press__page-content">
       {% if pageContent.pressStatus %}
         {% set pressStatus = pageContent.pressStatus %}
-        {% include "@molecules/press-status.twig" %}
+        {% include "@molecules/press-status/press-status.twig" %}
       {% endif %}
 
       {% if sidebar.contactList %}

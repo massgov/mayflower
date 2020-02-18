@@ -1,16 +1,16 @@
 {% extends '@templates/two-column-reversed.twig' %}
 
 {% block preContent %}
-  {% include "@molecules/relationship-indicators.twig" %}
+  {% include "@molecules/relationship-indicators/relationship-indicators.twig" %}
   {% include "@organisms/by-template/page-header.twig" %}
 {% endblock %}
 {% block sidebar %}
   {% include "@organisms/by-author/press-filters.twig" %}
 {% endblock %}
 {% block pageContent %}
-  {% include "@molecules/results-heading.twig" %}
+  {% include "@molecules/search/results-heading.twig" %}
   {% include "@organisms/by-author/press-listing.twig" %}
-  {% include "@molecules/pagination.twig" %}
+  {% include "@molecules/nav/pagination.twig" %}
 {% endblock %}
 {% block postContent %}
 

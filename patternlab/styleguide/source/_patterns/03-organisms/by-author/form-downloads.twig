@@ -12,7 +12,7 @@
     {% block formDownloadLinks %}
       {% for item in formDownloads.downloadLinks %}
         {% set downloadLink = item.downloadLink %}
-        {% include "@molecules/download-link.twig" %}
+        {% include "@molecules/link-download/download-link.twig" %}
       {% endfor %}
     {% endblock %}
   </div>

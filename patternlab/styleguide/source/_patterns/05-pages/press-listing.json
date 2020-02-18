@@ -6,7 +6,7 @@
     "headerTags": null,
     "optionalContents": null,
     "widgets": [{
-      "path": "@molecules/social-links.twig",
+      "path": "@molecules/links-social/social-links.twig",
       "data": {
         "socialLinks": {
           "label": "Get Updates:",

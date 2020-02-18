@@ -10,7 +10,7 @@
   {% if mappedLocations.googleMap %}
     <div class="ma__mapped-locations__map">
       {% set googleMap = mappedLocations.googleMap %}
-      {% include "@molecules/google-map.twig" %}
+      {% include "@molecules/google-map/google-map.twig" %}
     </div>
   {% endif %}
   {% if mappedLocations.paragraph or mappedLocations.button %}

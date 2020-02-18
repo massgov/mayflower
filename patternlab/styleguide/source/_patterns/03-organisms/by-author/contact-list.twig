@@ -21,7 +21,7 @@
   {% block contactListContacts %}
     {% for contact in contactList.contacts %}
       {% set contactUs = contact|merge({"level": contactHeading}) %}
-      {% include "@molecules/contact-us.twig" %}
+      {% include "@molecules/contact-components/contact-us.twig" %}
     {% endfor %}
   {% endblock %}
 </section>

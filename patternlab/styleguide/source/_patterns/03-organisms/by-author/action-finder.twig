@@ -38,10 +38,10 @@
           {% for link in actionFinder.featuredLinks %}
             {% if link.image %}
               {% set illustratedLink = link %}
-              {% include "@molecules/illustrated-link.twig" %}
+              {% include "@molecules/link-illustrated/illustrated-link.twig" %}
             {% else %}
               {% set calloutLink = link %}
-              {% include "@molecules/callout-link.twig" %}
+              {% include "@molecules/link-callout/callout-link.twig" %}
             {% endif %}
           {% endfor %}
         {% endblock %}
@@ -56,13 +56,13 @@
           {% for link in actionFinder.links %}
             {% if link.image %}
               {% set illustratedLink = link %}
-              {% include "@molecules/illustrated-link.twig" %}
+              {% include "@molecules/link-illustrated/illustrated-link.twig" %}
             {% elseif link.icon %}
               {% set downloadLink = link %}
-              {% include "@molecules/download-link.twig" %}
+              {% include "@molecules/link-download/download-link.twig" %}
             {% else %}
               {% set calloutLink = link %}
-              {% include "@molecules/callout-link.twig" %}
+              {% include "@molecules/link-callout/callout-link.twig" %}
             {% endif %}
           {% endfor %}
         {% endblock %}

@@ -43,7 +43,7 @@
         }
       }
     },{
-      "path": "@molecules/back-button.twig",
+      "path": "@molecules/buttons/back-button.twig",
       "data": {
         "backButton": {
           "link": {

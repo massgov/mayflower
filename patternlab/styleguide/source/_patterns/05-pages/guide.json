@@ -188,7 +188,7 @@
     "title": "Bringing Leased Vehicles to MA",
     "id": "bringing-leased-vehicles-to-ma",
     "pageContent": [{
-      "path": "@molecules/callout-stats.twig",
+      "path": "@molecules/callout-stats/callout-stats.twig",
       "data": {
         "statsCallout": {
           "pull": "right",

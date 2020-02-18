@@ -24,7 +24,7 @@
       }]
     },
     "optionalContents": [{
-      "path": "@molecules/event-teaser.twig",
+      "path": "@molecules/teaser-event/event-teaser.twig",
       "data": {
         "eventTeaser": {
           "title": null,
@@ -37,7 +37,7 @@
         }
       }
     },{
-      "path": "@molecules/contact-us.twig",
+      "path": "@molecules/contact-components/contact-us.twig",
       "data": {
         "contactUs": {
           "groups": [{

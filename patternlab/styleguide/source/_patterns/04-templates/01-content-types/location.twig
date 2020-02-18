@@ -8,7 +8,7 @@
   {% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
   <div class="pre-content">
     {% block preContent %}
-      {% include "@molecules/relationship-indicators.twig" %}
+      {% include "@molecules/relationship-indicators/relationship-indicators.twig" %}
       {# Use ajax pattern to render page alerts if data present. #}
       {% if ajaxHeaderAlerts %}
         {% set ajaxPattern = ajaxHeaderAlerts %}
@@ -31,7 +31,7 @@
       {% include "@atoms/04-headings/colored-heading.twig" %}
       <div class="ma__details__content">
         <div class="ma__details__stick-nav">
-          {% include "@molecules/sticky-nav.twig" %}
+          {% include "@molecules/nav/sticky-nav.twig" %}
         </div>
         {% block pageContent %}
           {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page content'}} %}

@@ -4,7 +4,7 @@
 
     {% block descriptiveLinks %}
       {% for link in descriptiveLinks.links %}
-        {% include "@molecules/descriptive-link.twig" with {
+        {% include "@molecules/link-descriptive/descriptive-link.twig" with {
           richText: link.richText,
           link: link.link
         } %}
