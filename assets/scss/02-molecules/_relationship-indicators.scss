@@ -62,22 +62,6 @@
     order: 1;
   }
 
-  &--term, &__expand-indicators {
-    margin-bottom: 2px;
-
-    @media ($bp-x-small-min) {
-      margin-bottom: 5px;
-    }
-
-    @media ($bp-large-max) {
-      // margin-bottom: 5px;
-    }
-
-    @media ($bp-large-min) {
-      margin-bottom: 12px;
-    }
-  }
-
   &--section {
     width: 100%;
     min-width: 50%;
@@ -91,6 +75,23 @@
     // &:first-child {
     //   padding: 15px 0;
     // }
+
+    .ma__relationship-indicators--term,
+    .ma__relationship-indicators__expand-indicators {
+      margin-bottom: 2px;
+
+      @media ($bp-x-small-min) {
+        margin-bottom: 5px;
+      }
+
+      @media ($bp-large-max) {
+        // margin-bottom: 5px;
+      }
+
+      @media ($bp-large-min) {
+        margin-bottom: 12px;
+      }
+    }
 
     &.primary {
       width: 100%;
