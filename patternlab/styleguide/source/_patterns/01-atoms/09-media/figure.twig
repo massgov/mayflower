@@ -1,16 +1,50 @@
 {% set figureClass = figure.align ? "ma__figure--" ~ figure.align : "" %}
+{% set iframeClass = "ma__iframe__container js-ma-responsive-iframe" %}
 
-<figure class="ma__figure {{ figureClass }}">
-  {% set image = figure.image %}
+{# Tableau embed iframe #}
+{# iframe element is generaged by Tableau JS. #}
+{% if figure.tableau %}
+  {% set id = figure.tableau.id %}
+  {% set src = figure.tableau.src %}
+{% endif %}
+
+{# <figure class="ma__figure {{ figureClass }}"> #}
+
+<figure class="ma__figure {{ figureClass }}{% if figure.iframe %} {{ iframeClass }}{% endif %}"{% if figure.tableau %} id="{{ id }}"{% endif %}>
+
+
   {% if figure.title %}
   <span class="ma__figure__title">
     {{ figure.title }}
   </span>
   {% endif %}
-  {% include "@atoms/09-media/image.twig" %}
+
+  {# For image. #}
+  {% if figure.image %}
+    {% set image = figure.image %}
+    {% include "@atoms/09-media/image.twig" %}
+  {% endif %}
+  {# For iframe. #}
+  {% if figure.iframe %}
+    {% set iframe = figure.iframe %}
+    {# Regular iframe #}
+    {% include "@atoms/09-media/iframe.twig" %}
+  {% endif %}
+
   {% if figure.caption %}
     <figcaption class="ma__figure__caption">
       {{ figure.caption }}
     </figcaption>
   {% endif %}
 </figure>
+
+{% if figure.tableau %}
+<script type="text/javascript">
+  window.addEventListener("DOMContentLoaded", function() {
+    const url = "{{ src }}"
+    new tableau.Viz(document.getElementById("{{ id }}"), url);
+  });
+</script>
+
+<script src="https://public.tableau.com/javascripts/api/tableau-2.3.0.min.js" />
+{% endif %}

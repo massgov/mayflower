@@ -7,6 +7,16 @@
       "height": "",
       "width": ""
     },
+    "iframe": {
+      "src": "https://massgov.github.io",
+      "title": "title",
+      "height": "853",
+      "width": ""
+    },
+    "tableau": {
+      "id": "123456",
+      "src": "https://public.tableau.com/views/diversity_update_v11/with_headline?%3Aembed=y&amp;%3AshowVizHome=no&amp;%3Adisplay_count=y&amp;%3Adisplay_static_image=y&amp;%3AbootstrapWhenNotified=true&:size=821,2&:embed=y&:showVizHome=n&:bootstrapWhenNotified=y&:apiID=host0#navType=1&navSrc=Parse"
+    },
     "title": "This is an option image title",
     "caption": "This is an optional caption that can wrap to multiple lines."
   }

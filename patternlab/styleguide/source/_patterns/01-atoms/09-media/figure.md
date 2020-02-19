@@ -25,6 +25,16 @@ figure: {
     width:
       type: string
   }
+  iframe: {
+    src:
+      type: string (url) / required
+    title:
+      type: string / required
+    height:
+      type: string
+    width:
+      type: string
+  }
   title:
     type: string
   caption:
