@@ -1,3 +1,7 @@
+@import "mixins/clearfix";
+
+@import "mixins/span-columns";
+
 @import "mixins/ma-aspect-ratio";
 
 @import "mixins/ma-auto-size";
@@ -45,5 +49,3 @@
 @import "mixins/ma-valign-block";
 
 @import "mixins/ma-visually-hidden";
-
-@import "mixins/clearfix";
