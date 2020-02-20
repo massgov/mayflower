@@ -1,16 +1,18 @@
 {% set figureClass = figure.align ? "ma__figure--" ~ figure.align : "" %}
 {% set iframeClass = "ma__iframe__container js-ma-responsive-iframe" %}
 
-{# Tableau embed iframe #}
+{# Dataviz embed iframe #}
 {# iframe element is generaged by Tableau JS. #}
-{% if figure.tableau %}
-  {% set id = figure.tableau.id %}
-  {% set src = figure.tableau.src %}
+{% if figure.dataviz %}
+  {% set id = figure.dataviz.id %}
+  {% set src = figure.dataviz.src %}
+  {# TODO:  SET SIZE VALUES #}
+  {% set size = "ma__figure--" ~ figure.dataviz.size %}
 {% endif %}
 
 {# <figure class="ma__figure {{ figureClass }}"> #}
 
-<figure class="ma__figure {{ figureClass }}{% if figure.iframe %} {{ iframeClass }}{% endif %}"{% if figure.tableau %} id="{{ id }}"{% endif %}>
+<figure class="ma__figure {{ figureClass }}{% if figure.iframe %} {{ iframeClass }}{% endif %}{% if figure.dataviz %} {{ size }} ma__dataviz{% endif %}"{% if figure.dataviz %} id="{{ id }}"{% endif %}>
 
 
   {% if figure.title %}
@@ -38,7 +40,7 @@
   {% endif %}
 </figure>
 
-{% if figure.tableau %}
+{% if figure.dataviz %}
 <script type="text/javascript">
   window.addEventListener("DOMContentLoaded", function() {
     const url = "{{ src }}"
@@ -46,5 +48,13 @@
   });
 </script>
 
-<script src="https://public.tableau.com/javascripts/api/tableau-2.3.0.min.js" />
+<script>
+    // Selecting the iframe element
+    var iframe = document.getElementById("{{ id }}");
+
+    // Adjusting the iframe height onload event
+    iframe.onload = function(){
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+    </script>
 {% endif %}

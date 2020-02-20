@@ -35,6 +35,13 @@ figure: {
     width:
       type: string
   }
+  dataviz: {
+    size: string / required
+    src:
+      type: string (url) / required
+    title:
+      type: string / required
+  }
   title:
     type: string
   caption:
