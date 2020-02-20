@@ -1,6 +1,6 @@
+$assets-path: '@massds/mayflower-theme';
 @import "@massds/mayflower-theme/scss/mayflower-global";
 //include form styles here to export input styling
-$assets-path: '../../../assets';
 @import "01-atoms/forms";
 
 .ma__filter-box{

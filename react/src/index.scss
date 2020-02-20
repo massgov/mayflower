@@ -1,7 +1,10 @@
 // normalize the css across browsers added in npm
 // Path to Mayflower shared assets.
-$assets-path: './assets';
-@import "@massds/mayflower-theme/scss/index";
+// @import "normalize-scss/sass/normalize";
+// @import "bourbon/core/bourbon";
+// @import "bourbon-neat/app/assets/stylesheets/neat";
+$assets-path: '@massds/mayflower-theme';
+@import "@massds/mayflower-theme/scss/mayflower-global";
 
 // Bower vendors
 @import "pikaday/scss/pikaday";
