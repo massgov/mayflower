@@ -21,15 +21,14 @@
   "engines": {
     "node": "10.15.1"
   },
+  "private": true,
   "workspaces": {
     "nohoist": [
-      "**/bourbon",
-      "**/bourbon/**",
-      "**/bourbon-neat",
-      "**/bourbon-neat/**"
+      "@massds/mayflower-theme"
     ],
     "packages": [
-      "assets"
+      "assets",
+      "react"
     ]
   }
 }
