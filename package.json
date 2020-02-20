@@ -20,15 +20,5 @@
   },
   "engines": {
     "node": "10.15.1"
-  },
-  "private": true,
-  "workspaces": {
-    "nohoist": [
-      "@massds/mayflower-theme"
-    ],
-    "packages": [
-      "assets",
-      "react"
-    ]
   }
 }
