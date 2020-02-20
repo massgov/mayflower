@@ -1,7 +1,7 @@
 @import "@massds/mayflower-theme/scss/mayflower-global";
 // Import Neat for the mixins.
 @import "bourbon-neat/app/assets/stylesheets/neat";
-@import '02-molecules/footer-links';
+@import '@massds/mayflower-theme/scss/02-molecules/footer-links';
 
 .ma__footer-links {
   &__items {

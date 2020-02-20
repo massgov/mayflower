@@ -33,7 +33,9 @@
     "lint"
   ],
   "dependencies": {
-    "@massds/mayflower-theme": "^1.0.0",
+    "@massds/mayflower-theme": "0.1.1",
+    "bourbon": "^5.1.0",
+    "bourbon-neat": "^1.7.2",
     "airbnb-prop-types": "^2.13.2",
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",

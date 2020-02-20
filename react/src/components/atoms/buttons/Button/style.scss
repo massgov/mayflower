@@ -1,6 +1,6 @@
 @import "@massds/mayflower-theme/scss/mayflower-global";
-@import '00-base/mixins';
-@import '01-atoms/buttons';
+@import '@massds/mayflower-theme/scss/00-base/mixins';
+@import '@massds/mayflower-theme/scss/01-atoms/buttons';
 
 .ma__button.ma__button--secondary {
   &.ma__button--c-primary-alt{

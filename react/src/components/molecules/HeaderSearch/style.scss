@@ -1,5 +1,5 @@
 @import "@massds/mayflower-theme/scss/mayflower-global";
-@import "01-atoms/button-search";
+@import "@massds/mayflower-theme/scss/01-atoms/button-search";
 
 .ma__header-search {
   &__wrapper{
@@ -63,4 +63,4 @@
   }
 }
 
-@import "02-molecules/header-search";
+@import "@massds/mayflower-theme/scss/02-molecules/header-search";
