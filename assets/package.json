@@ -19,10 +19,6 @@
   ],
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
-  "dependencies": {
-    "bourbon-neat": "^1.7.2",
-    "normalize-scss": "^7.0.1"
-  },
   "devDependencies": {
     "stylelint": "^13.2.0",
     "stylelint-config-recommended": "^3.0.0",

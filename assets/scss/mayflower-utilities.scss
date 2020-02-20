@@ -2,8 +2,6 @@
 // Mayflower scss also uses bourbon and bourbon-neat variables and utilities
 // Install them as dependencies and import bourbon and bourbon-neat scss above mayflower scss
 
-@import "../node_modules/bourbon-neat/app/assets/stylesheets/neat";
-
 @import '00-base/variables';
 
 @import '00-base/breakpoints';
