@@ -2,8 +2,8 @@
   "figure": {
     "align": "",
     "dataviz": {
-      "size": "large",
       "id": "123456",
+      "size": "",
       "src": "https://public.tableau.com/views/diversity_update_v11/with_headline?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true"
     },
     "title": "This is an option title",

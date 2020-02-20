@@ -36,11 +36,10 @@ figure: {
       type: string
   }
   dataviz: {
-    size: string / required
+    id: string('small', 'medium', 'large') / optional
+    size: string / optional
     src:
       type: string (url) / required
-    title:
-      type: string / required
   }
   title:
     type: string
