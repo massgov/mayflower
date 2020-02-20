@@ -1,9 +1,11 @@
 .ma__collapsible-content {
+
   @include clearfix;
 
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container;
   }
 
@@ -13,7 +15,7 @@
     margin-top: 20px;
   }
 
-  &__body{
+  &__body {
     padding-bottom: 30px;
     padding-left: 60px;
     padding-right: 40px;
@@ -37,6 +39,7 @@
 }
 
 //theme
+
 .ma__collapsible-content {
 
   &__item {

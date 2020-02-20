@@ -1,0 +1,6 @@
+Added:
+  - project: Assets
+    component: SCSS
+    description: Added style linting for shared SCSS, fixed lint errors and add to circle test. (#939)
+    issue: DP-17528
+    impact: Patch

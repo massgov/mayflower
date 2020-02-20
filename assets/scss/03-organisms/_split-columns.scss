@@ -1,7 +1,9 @@
 .ma__split-columns {
 
   &__container {
+
     @include ma-container;
+
     @include clearfix;
 
     .main-content--two & {
@@ -11,18 +13,23 @@
   }
 
   &__column {
+
     @include ma-component-spacing;
 
     // two items (50/50)
+
     &:first-child:nth-last-child(2),
     &:first-child:nth-last-child(2) ~ & {
       
-      @media($bp-medium-min) {
+      @media ($bp-medium-min) {
+
         @include span-columns(2 of 4);
         margin-top: 0;
       }
     }
-    @media($bp-x-large-min) {
+
+    @media ($bp-x-large-min) {
+
       &:first-child:nth-last-child(2),
       &:first-child:nth-last-child(2) ~ & {
         margin: 0;
@@ -39,24 +46,30 @@
     }
 
     // three columns
+
     &:first-child:nth-last-child(3),
     &:first-child:nth-last-child(3) ~ & {
       
-      @media($bp-large-min) {
+      @media ($bp-large-min) {
+
         @include span-columns(2 of 6);
         margin-top: 0;
       }
     }
       
     // two items (50/50) in a 2/3 width
+
     .main-content--two &:first-child:nth-last-child(2),
     .main-content--two &:first-child:nth-last-child(2) ~ & {
-      @media($bp-large-min) {
+
+      @media ($bp-large-min) {
         // restack when page-content becomes 2/3
+
         @include span-columns(12);
       }
 
-      @media($bp-x-large-min) {
+      @media ($bp-x-large-min) {
+
         @include span-columns(2 of 4);
       }
     }

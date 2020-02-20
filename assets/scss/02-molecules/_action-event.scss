@@ -23,12 +23,13 @@
 
   &__description {
     
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
   }
 }
 //theme
+
 .ma__action-event {
 
   & + & {

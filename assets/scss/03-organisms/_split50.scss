@@ -1,16 +1,20 @@
 .ma__split50 {
+
   @include ma-container;
 
   &__container {
 
     @media ($bp-medium-min) {
+
       @include clearfix;
       padding-top: 60px;
       padding-bottom: 60px;
 
       > *:nth-last-child(n+2),
       > *:nth-last-child(n+2) ~ * {
+
         @include span-columns(6);
+
         @include omega(2n);
         margin-top: 0;
         margin-bottom: 0;
@@ -25,12 +29,14 @@
   }
 
   &--has-divider &__container {
+
     @media ($bp-medium-min) {
       border-top: 1px solid;
     }
   }
 }
 //theme
+
 .ma__split50 {
 
   &__container {

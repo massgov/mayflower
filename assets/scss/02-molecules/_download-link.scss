@@ -1,4 +1,5 @@
 .ma__download-link {
+
   @include clearfix();
 
   & + & {
@@ -41,6 +42,7 @@
   }
 
   &__file-link {
+
     @include ma-link-underline;
     padding-bottom: 3px;
     margin-right: .2em;
@@ -64,6 +66,7 @@
 }
 
 //theme
+
 .ma__download-link {
 
   &__icon {
@@ -71,6 +74,7 @@
   }
 
   &__file-link {
+
     &:hover {
       border-bottom-color: rgba($c-font-link,.5);
     }

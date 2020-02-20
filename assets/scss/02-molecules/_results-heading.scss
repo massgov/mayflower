@@ -1,11 +1,14 @@
 .ma__results-heading {
 
   .main-content--full .page-content > & {
+
     @include ma-container();
+
     @include ma-component-spacing;
   }
 
   &__container {
+
     @include clearfix;
     border-bottom-style: solid;
     border-bottom-width: 2px;
@@ -28,6 +31,7 @@
   }
 
   &__sort {
+
     @media ($bp-x-small-min) {
       float: right;
       margin-bottom: 0px;

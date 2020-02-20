@@ -9,7 +9,7 @@
   &__inputs {
     display: flex;
 
-    @media($bp-x-small-max) {
+    @media ($bp-x-small-max) {
       flex-wrap: wrap;
     }
   }

@@ -5,7 +5,7 @@
 @mixin ma-heading-colored($c-bg:transparent,$direction:right,$c-page:white) {
   $offset: 55px;
   
-  @if($c-bg == transparent) {
+  @if ($c-bg == transparent) {
     font-size: 1.375rem;
     letter-spacing: $letter-spacing-large;
     line-height: 1.39;
@@ -39,7 +39,7 @@
         margin-bottom: 50px;
       }
 
-      @media($bp-x-large-min) {
+      @media ($bp-x-large-min) {
         margin-right: -$offset;
         padding-right: $offset + 20px;
 
@@ -47,7 +47,9 @@
 
     }
     // left (shows as right and then switches to left)
+
     .sidebar & {
+
       @media ($bp-large-max) {
         padding-right: $offset;
       }
@@ -65,13 +67,14 @@
         }
       }
 
-      @media($bp-x-large-min) {
+      @media ($bp-x-large-min) {
         margin-left: -$offset;
         padding-left: $offset;
       }
     }
 
-    @if($direction == left) {
+    @if ($direction == left) {
+
       @media ($bp-large-max) {
         padding-right: $offset;
       }
@@ -89,14 +92,14 @@
         }
       }
 
-      @media($bp-x-large-min) {
+      @media ($bp-x-large-min) {
         margin-left: -$offset;
         padding-left: $offset;
       }
     }
   }
 
-  @if($c-bg != transparent) {
+  @if ($c-bg != transparent) {
     background-color: $c-bg;
     color: $c-white;
 

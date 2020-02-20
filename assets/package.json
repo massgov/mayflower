@@ -1,0 +1,27 @@
+{
+  "name": "mayflower-theme",
+  "version": "1.0.0",
+  "description": "Mayflower theming assets, including color variables, fonts, icons and other imagery, along with componentized scss used to style Mayflower markup",
+  "main": "index.js",
+  "scripts": {
+    "test": "stylelint",
+    "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
+    "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/massgov/mayflower/tree/master/assets"
+  },
+  "keywords": [
+    "theme",
+    "scss"
+  ],
+  "author": "Massachusetts Digital Services (MDS)",
+  "license": "MIT",
+  "devDependencies": {
+    "stylelint": "^13.2.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.14.2"
+  }
+}

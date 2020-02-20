@@ -11,6 +11,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container;
   }
 
@@ -61,6 +62,7 @@
 }
 
 //theme
+
 .ma__error-list {
 
   &__container {
