@@ -2,8 +2,8 @@
   "name": "@massds/mayflower-theme",
   "version": "0.1.0",
   "description": "Mayflower theming assets, including color variables, fonts, icons and other imagery, along with componentized scss used to style Mayflower markup",
-  "main": "scss/index.scss",
-  "sass": "scss/mayflower-global.scss",
+  "style": "scss/mayflower-global.scss",
+  "sass": "scss/mayflower-theme.scss",
   "scripts": {
     "test": "stylelint",
     "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
