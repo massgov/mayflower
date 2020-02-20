@@ -20,7 +20,6 @@
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
   "dependencies": {
-    "bourbon": "^5.1.0",
     "bourbon-neat": "^1.7.2",
     "normalize-scss": "^7.0.1"
   },
