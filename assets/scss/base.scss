@@ -1,8 +1,15 @@
 // base variables and mixins from Mayflower
+
 @import "../node_modules/bourbon/core/bourbon";
+
 @import "../node_modules/bourbon-neat/app/assets/stylesheets/neat";
+
 @import '00-base/variables';
+
 @import '00-base/breakpoints';
+
 @import '00-base/colors';
+
 @import '00-base/mixins';
+
 @import "00-base/z-index";
