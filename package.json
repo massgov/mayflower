@@ -5,6 +5,7 @@
   "license": "GPL-2.0-only",
   "private": true,
   "devDependencies": {
+    "lerna": "3.15.0",
     "js-yaml": "^3.13.1",
     "@octokit/rest": "^16.35.0",
     "semver": "^6.3.0",
@@ -13,5 +14,22 @@
   },
   "dependencies": {
     "@octokit/rest": "^16.35.0"
+  },
+  "scripts": {
+    "lerna": "./node_modules/.bin/lerna"
+  },
+  "engines": {
+    "node": "10.15.1"
+  },
+  "workspaces": {
+    "nohoist": [
+      "**/bourbon",
+      "**/bourbon/**",
+      "**/bourbon-neat",
+      "**/bourbon-neat/**"
+    ],
+    "packages": [
+      "assets"
+    ]
   }
 }

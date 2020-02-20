@@ -1,5 +1,5 @@
 {
-  "name": "mayflower-theme",
+  "name": "@massds/mayflower-theme",
   "version": "1.0.0",
   "description": "Mayflower theming assets, including color variables, fonts, icons and other imagery, along with componentized scss used to style Mayflower markup",
   "main": "index.js",
