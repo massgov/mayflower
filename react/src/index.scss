@@ -27,12 +27,12 @@ $assets-path: './assets';
 
 // base global styles
 @import "00-base/global/elements";
-@import "00-base/forms";
 
 // Print styles
 @import "08-print/print";
 
 // Atoms - reusable styles
+@import "01-atoms/forms";
 @import "01-atoms/content-link";
 
 @import "02-molecules/general-teaser";
