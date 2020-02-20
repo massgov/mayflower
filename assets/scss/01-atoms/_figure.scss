@@ -3,6 +3,13 @@
 
   .main-content--full .page-content > & {
     @include ma-container;
+
+    &--large {
+
+      @media ($bp-large-bridge-min) {
+        width: auto;
+      }
+    }
   }
 
   @media ($bp-small-min) {
@@ -46,7 +53,6 @@
     font-style: italic;
     line-height: 1.57;
   }
-
 }
 
 //theme
@@ -55,4 +61,68 @@
   &__caption {
     font-weight: 300;
   }
+
+// Tableau size
+
+// $bp-large-bridge-min: min-width: 1025px;
+// $bp-large-bridge-max: max-width: 1024px;
+  &--small {
+    width: 100%;
+  }
+
+  &--medium {
+    width: 100%;
+  }
+
+  @media ($bp-x-small-min) {// 481~
+    &--small {
+      width: 50%;
+    }
+
+    &--medium {
+      width: 60%;
+      margin-right: .5em;
+    }
+  }
+
+  @media ($bp-large-bridge-min) {// 1025~
+    &--small {
+      width: 30%;
+    }
+
+    &--medium {
+      width: 50%;
+    }
+  }
+
+  &--large {
+
+    @media ($bp-large-bridge-max) {
+      width: 100%;
+    }
+  }
+
+  // alignment
+  @media ($bp-x-small-max) {
+    &--left, &--right {
+      float: none;
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+  &--left {
+    float: left;
+    margin-right: .5em;
+    margin-bottom: 1em;
+  }
+
+  &--right {
+    float: right;
+    margin-left: .5em;
+    margin-bottom: 1em;
+  }
+}
+// TEST STYLES
+.ma__dataviz {
+  background-color: yellow;
 }
