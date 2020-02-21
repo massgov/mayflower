@@ -6,7 +6,9 @@
   "files": [
     "colors",
     "fonts",
-    "images"
+    "images/svg-icons",
+    "images/stateseal-color.png",
+    "images/stateseal.png"
   ],
   "scripts": {
     "test": "stylelint",

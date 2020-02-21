@@ -2,6 +2,15 @@
 [![npm package][npm-badge]][npm]
 
 Mayflower-tokens provides a bundled up library of design tokens and assets that you will need for theming your front end framework to look and feel like [Mass.gov](https://mass.gov) and other Commonwealth web properties that are in Mayflower ecosystem. Mayflower-tokens includes color token SCSS variables, fonts, icons and other imagery from Mayflower — the [enterprise design system for the Commonwealth of Massachusetts][mayflower-doc].
+```
+├── fonts                             Texta web fonts      
+├── images             
+│   ├── svg-icons                     SVG icon files
+│   ├── stateseal-color               stateseal png in color
+│   ├── stateseal-color               stateseal png grayscale
+├── colors         
+│   ├── _mayflower-color-tokens.scss  Color tokens
+```
 
 - **Codebase:** [Mayflower monorepo][mayflower-github] `assets` subdirectory
   >[Mayflower monorepo][mayflower-github] comprised of [Mayflower documentation][mayflower-doc], two component libraries — [Mayflower React][react-storybook] and [Mayflower PatternLab][patternLab], and their [shared assets][shared-assets].
