@@ -1,30 +1,36 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.40.2 (2/21/2020)
+### Added
+- (Assets) [SCSS] DP-17528: Added style linting for shared SCSS, fixed lint errors and add to circle test. (#939)
+### Changed
+- (Patternlab) [Dependabot] DP-17569: Revert "Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide #875." (#944)
+
 ## 9.40.1 (2/18/2020)
-### Changed 
+### Changed
 - (React) [Storybook] DP-17473: Customize ordering of stories. (#934)
 ### Fixed
 - (Patternlab) [UtilityNav] Fix the mobile version overwrap display issue. (#926)
 
 ## 9.40.0 (2/11/2020)
-### Added 
+### Added
 - (React) [ButtonCopy] DP-17435: Addded ButtonCopy atom under buttons. (#929)
 
-### Fixed 
+### Fixed
 - (React, Patternlab) [SCSS] Align shared scss vars. (#933)
 
 ## 9.39.3 (2/7/2020)
-### Added 
+### Added
 - (React) [Typography] DP-17340: Added Typography story and documentation. (#918)
 - (React, Patternlab) [styles] DP-17340: Added `ma-texta-style($weight, $italic)` mixin and Texta font style classes. (#918)
 - (React, Patternlab) [styles] DP-17340: Added `$fonts` and `$fonts-mono` font family variables. (#918)
 - (React) [Icon] DP-17354: Display all icons in a story. (#924)
 
-### Changed 
+### Changed
 - (React) [Icon] DP-17354: Move Icon from atoms to base. (#924)
 
-### Fixed 
+### Fixed
 - (React) [Dependency] DP-17417: Move react-scripts into dev dependencies, and move react-html-parser into prod dependencies. (#927)
 - (React) [Tab, FeedbackForm] DP-17417: Fix tab ref proptype for server side rendering. (#928)
 
@@ -1045,7 +1051,7 @@ Note: This will need to be followed up in search and other apps consuming Filter
 - (Patternlab) DP-9255: Add conditions to place 'title' and 'aria-labelledby' only when their values are available. #218
 - (Patternlab)  DP-10084: MF Change to styling of More links on service page
 - (Patternlab) DP-10157: [MF] How-to BM1: Add slight visual emphasis to mobile sticky nav
-- (Patternlab & React) #236:  
+- (Patternlab & React) #236:
 	- Updates base button classnames based on theme prop to reflect new naming variable (c-primary, c-primary-alt, c-highlight, c-dark-gray)
 	- Removes outline prop from button.
 	- Adds usage prop to button to reflect primary, secondary, tertiary, and quaternary designs.
