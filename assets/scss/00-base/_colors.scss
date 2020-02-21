@@ -15,31 +15,31 @@ $c-highlight-lighter:    $c-duckling-yellow-lighter !default;
 $c-highlight-lightest:   $c-duckling-yellow-lightest !default;
 
 // Utility Colors Variables
-$c-error:                $c-error-red;
-$c-error-lighter:        $c-error-red-lighter;
-$c-error-lightest:       $c-error-red-lightest;
-$c-warning:              $c-duckling-yellow;
-$c-success:              $c-berkshires-green;
-$c-focus:                $c-focus-hightlight;
+$c-error:                $c-error-red !default;
+$c-error-lighter:        $c-error-red-lighter !default;
+$c-error-lightest:       $c-error-red-lightest !default;
+$c-warning:              $c-duckling-yellow !default;
+$c-success:              $c-berkshires-green !default;
+$c-focus:                $c-focus-hightlight !default;
 // Need to add these colors to this listing new to add
 // $c-visited
 
-$c-font-base:            $c-black;
-$c-font-detail:          $c-gray-dark;
-$c-font-dark:            $c-black;
-$c-font-medium:          $c-gray;
+$c-font-base:            $c-black !default;
+$c-font-detail:          $c-gray-dark !default;
+$c-font-dark:            $c-black !default;
+$c-font-medium:          $c-gray !default;
 
-$c-font-heading:         $c-black;
-$c-font-inverse:         $c-white;
-$c-font-link:            $c-bay-blue;
-$c-font-error:           $c-error;
+$c-font-heading:         $c-black !default;
+$c-font-inverse:         $c-white !default;
+$c-font-link:            $c-bay-blue !default;
+$c-font-error:           $c-error !default;
 
-$c-bg-comp-title:        $c-gray-dark;
-$c-bg-subtle:            $c-gray-lightest;
-$c-bg-section:           $c-gray-lightest;
+$c-bg-comp-title:        $c-gray-dark !default;
+$c-bg-subtle:            $c-gray-lightest !default;
+$c-bg-section:           $c-gray-lightest !default;
 
-$c-bd-divider:           $c-gray-light;
-$c-bd-divider-dark:      $c-gray-dark;
-$c-bd-error:             $c-error;
-$c-bd-input:             $c-gray-light;
-$c-bd-input-dark:        $c-gray;
+$c-bd-divider:           $c-gray-light !default;
+$c-bd-divider-dark:      $c-gray-dark !default;
+$c-bd-error:             $c-error !default;
+$c-bd-input:             $c-gray-light !default;
+$c-bd-input-dark:        $c-gray !default;
