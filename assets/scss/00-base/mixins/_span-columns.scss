@@ -20,7 +20,7 @@
 ///
 /// @example scss - Usage
 ///   .element {
-///     @include span-columns(6);
+///     @include span-columns(6 of 12);
 ///
 ///    .nested-element {
 ///      @include span-columns(2 of 6);

@@ -33,7 +33,7 @@
 
     @media ($bp-small-min) and ($bp-x-large-max) {
 
-      @include span-columns(6);
+      @include span-columns(6 of 12);
 
       @include omega(2n);
       display: flex;
@@ -41,7 +41,7 @@
 
     @media ($bp-x-large-min) {
 
-      @include span-columns(3);
+      @include span-columns(3 of 12);
 
       @include omega(4n);
       display: flex;

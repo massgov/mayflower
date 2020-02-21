@@ -54,7 +54,7 @@
 
     @media ($bp-medium-min) {
 
-      @include span-columns(6);
+      @include span-columns(6 of 12);
 
       @include omega(2n);
       height: 215px;
@@ -168,7 +168,7 @@
 
     &:hover {
       background-color: darken($c-bg-subtle, 10%);
-      
+
       a {
         border-bottom-color: $c-font-link;
       }
@@ -179,7 +179,7 @@
 
       &:hover {
         background-color: rgba($c-primary,.8);
-      
+
         a {
           border-bottom-color: $c-font-inverse;
         }
@@ -191,7 +191,7 @@
 
       &:hover {
         background-color: rgba($c-primary-alt,.8);
-        
+
         a {
           border-bottom-color: $c-font-inverse;
         }
@@ -203,7 +203,7 @@
 
       &:hover {
         background-color: rgba($c-gray-dark,.8);
-      
+
         a {
           border-bottom-color: $c-font-inverse;
         }

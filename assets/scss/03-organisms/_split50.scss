@@ -13,7 +13,7 @@
       > *:nth-last-child(n+2),
       > *:nth-last-child(n+2) ~ * {
 
-        @include span-columns(6);
+        @include span-columns(6 of 12);
 
         @include omega(2n);
         margin-top: 0;
