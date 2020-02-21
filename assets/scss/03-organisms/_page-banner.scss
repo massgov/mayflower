@@ -14,8 +14,9 @@ $page-banner-height: 330px;
     margin-bottom: 40px;
   }
 
-  // to match height and font size being provided to prod by 
+  // to match height and font size being provided to prod by
   // decision tree module styles
+
   .decision-tree & {
 
     h1 {
@@ -61,8 +62,10 @@ $page-banner-height: 330px;
     overflow: hidden;
     height: auto;
     min-height: 240px;
+
     @media ($bp-large-extended) {
       max-height: none;
+
        &:after {
         content: '';
         display: block;
@@ -79,11 +82,11 @@ $page-banner-height: 330px;
       left: 500px;
       background-size: cover;
       background-position: center;
-      
+
       @media (min-width: $max-width) {
         right: calc(-100vw + #{$max-width});
       }
-      
+
       @media ($bp-large-extended) {
         left: 0;
         top: 100%;
@@ -94,12 +97,14 @@ $page-banner-height: 330px;
   }
 
   &--linked &__container {
+
     @media ($bp-large-extended) {
       height: auto;
     }
   }
 
   &--linked &__content-wrapper {
+
     @media ($bp-large-extended) {
       width: auto;
     }
@@ -111,6 +116,7 @@ $page-banner-height: 330px;
   }
 
   &__container {
+
     @include ma-container;
     height: 100%;
     position: relative;
@@ -118,6 +124,7 @@ $page-banner-height: 330px;
   }
 
   &--columns &__container {
+
     @include clearfix;
     height: auto;
     min-height: 500px;
@@ -228,10 +235,10 @@ $page-banner-height: 330px;
     max-width: 700px;
     position: relative;
     top: 0;
-    
+
     @media ($bp-x-small-min) {
       position: relative;
-      top: calc(#{$page-banner-height}/2);
+      top: calc(#{$page-banner-height} / 2);
     }
 
     @media ($bp-medium-min) {
@@ -256,15 +263,15 @@ $page-banner-height: 330px;
       height: 2.75em;
       width: 100%;
 
-      @media ($bp-medium-min){
+      @media ($bp-medium-min) {
         height: 3.75em;
       }
 
-      @media ($bp-large-min){
+      @media ($bp-large-min) {
         height: 4.25em;
       }
 
-      @media ($bp-x-large-min){
+      @media ($bp-x-large-min) {
         height: 4.625em;
       }
     }
@@ -303,27 +310,29 @@ $page-banner-height: 330px;
       font-size: 3.25rem;
     }
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       font-size: 3.5rem;
     }
 
-    @media ($bp-x-large-min){
+    @media ($bp-x-large-min) {
       font-size: 3.875rem;
     }
   }
 
   &--overlay &__title {
+
     @media ($bp-x-small-min) {
       width: calc(100% - 75px);
     }
   }
 
   &__icon + &__title {
+
     @media ($bp-x-small-min) {
       width: calc(100% - 75px);
     }
 
-    @media ($bp-medium-min){
+    @media ($bp-medium-min) {
       width: calc(100% - #{$page-banner-icon-width});
     }
   }
@@ -346,7 +355,7 @@ $page-banner-height: 330px;
     margin-top: .8em;
     top: $page-banner-height;
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       max-width: 820px;
     }
   }
@@ -377,7 +386,8 @@ $page-banner-height: 330px;
     float: left;
     z-index: 1;
 
-    @media ($bp-medium-min){
+    @media ($bp-medium-min) {
+
       @include span-columns(4 of 12);
       font-size: 1.813rem;
       letter-spacing: $letter-spacing-small;
@@ -413,12 +423,14 @@ $page-banner-inner-width: 612px;
 .ma__page-banner {
 
   &__container {
+
     &:before {
       background-color: rgba($c-primary-alt, 0.8);
     }
   }
 
   &--blue &__container {
+
     &:before {
       background-color: rgba($c-primary, 0.8);
     }
@@ -445,11 +457,13 @@ $page-banner-inner-width: 612px;
   }
 
   &--columns &__content {
+
     &:after {
       background-color: rgba($c-primary-alt,.7);
     }
 
     @media ($bp-x-small-min) {
+
       &:after {
         background-color: transparent;
       }
@@ -457,10 +471,12 @@ $page-banner-inner-width: 612px;
   }
 
   &--linked &__container {
+
     @media ($bp-large-extended) {
       background-color: $c-primary-alt;
     }
   }
+
   &--linked &__content {
     background-color: $c-primary-alt;
     background-image: none;
@@ -492,8 +508,10 @@ $page-banner-inner-width: 612px;
   }
 
   .ma__decorative-link {
+
     a {
       color: $c-font-inverse;
+
       &:hover {
         border-bottom-color: rgba($c-font-inverse, 0.5);
       }

@@ -1,7 +1,9 @@
 .ma__top-actions {
+
   @include ma-container;
 
   &__title {
+
     @include ma-border-decorative;
     margin-bottom: 45px;
     padding-bottom: 16px;
@@ -14,6 +16,7 @@
   }
 
   &__items {
+
     @include clearfix;
 
     @media ($bp-small-min) {
@@ -29,13 +32,17 @@
     margin-bottom: 20px;
 
     @media ($bp-small-min) and ($bp-x-large-max) {
+
       @include span-columns(6);
+
       @include omega(2n);
       display: flex;
     }
 
     @media ($bp-x-large-min) {
+
       @include span-columns(3);
+
       @include omega(4n);
       display: flex;
     }
@@ -43,9 +50,11 @@
 }
 
 //theme
+
 .ma__top-actions {
 
   &__title {
+
     @include ma-border-decorative($c-primary-alt);
   }
 

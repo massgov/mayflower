@@ -1,5 +1,6 @@
 // // use in the Action Map component info window
 // // Handle bar template
+
 .ma__info-window {
   font-size: 1.25rem;
   line-height: 1.4;
@@ -20,6 +21,7 @@
   }
 
   &__email-link {
+
     @include ma-link-underline;
   }
 
@@ -33,6 +35,7 @@
 }
 
 //theme
+
 .ma__info-window {
   font-family: $fonts;
 

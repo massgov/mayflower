@@ -1,15 +1,15 @@
 .ma__footer_slim {
   background-color: $c-platinum-gray;
-  font-family: "Texta";
   font-size: 1.2rem;
   line-height: 1.2;
   padding: 20px 0 30px;
   position: relative;
 
   .ma__container {
+
     @include ma-container;
   }
-  
+
   &--container {
     position: relative;
 
@@ -46,6 +46,7 @@
   .ma__site-logo {
     position: absolute;
     top: 0;
+
     span {
       display: none;
     }
@@ -80,6 +81,7 @@
         font-weight: 100;
         margin: 0 0.85rem;
       }
+
       &:last-child:after {
         content: "";
         margin: 0;
@@ -88,6 +90,7 @@
   }
 
   &--contact {
+
     a {
       font-weight: 500;
     }
@@ -98,6 +101,7 @@
       svg {
         fill: $c-primary-alt;
       }
+
       span, a {
         padding-left: 0.25rem;
       }

@@ -1,4 +1,5 @@
 .ma__relationship-indicators {
+
     @include clearfix;
     display: flex;
     flex-direction: column;
@@ -75,6 +76,7 @@
             }
         
             // Only hide tags if secondary tags present.
+
             &:not(.single) .ma__relationship-indicators--term {
               
               &:nth-child(n+2) {
@@ -148,8 +150,11 @@
         }
 
         button {
+
             @include ma-button-reset;
+
             @include ma-link-underline;
+
             @include ma-chevron;
             text-transform: capitalize;
             align-self: flex-start;

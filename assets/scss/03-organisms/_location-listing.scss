@@ -6,6 +6,7 @@ $location-listin--map-min-width: 315px;
   position: relative;
 
   &__container {
+
     @include ma-container;
   }
 
@@ -229,6 +230,7 @@ $location-listin--map-min-width: 315px;
       // Location street address, and city-state-zip, should be wrapped
       // in separate <span> elements. This allows the transition between
       // block and inline styling for the address better than a <br>.
+
       > .street {
         display: block;
       }

@@ -3,7 +3,9 @@
   .pre-content > &,
   .post-content > &,
   .main-content.main-content--full .page-content > & {
+
     @include ma-container('restricted');
+
     @include ma-component-spacing('large');
   }
 
@@ -18,7 +20,7 @@
     padding-left: 65px;
     position: relative;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       padding: 30px;
       padding-left: 100px;
     }
@@ -31,7 +33,7 @@
       left:20px;
     transform: translateY(-50%);
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       left: 30px;
     }
 
@@ -39,7 +41,7 @@
       height: 48px;
       width: 44px;
 
-      @media ($bp-small-max){
+      @media ($bp-small-max) {
         height: 36px;
         width: 34px;
       }
@@ -52,6 +54,7 @@
     padding-right: 18px;
 
     & > span {
+
       @include ma-link-underline;
       display: inline;
 
@@ -71,9 +74,11 @@
 }
 
 //theme
+
 .ma__callout-alert {
 
   //default
+
   &__content {
     background-color: tint($c-warning, 90%);
     border-color: tint($c-warning, 50%);
@@ -98,6 +103,7 @@
   }
 
   //c-primary
+
   &--c-primary &__content {
     background-color: tint($c-primary, 90%);
     border-color: tint($c-primary, 50%);
@@ -109,6 +115,7 @@
   }
 
   //c-primary-alt
+
   &--c-primary-alt &__content {
     background-color: tint($c-primary-alt, 90%);
     border-color: tint($c-primary-alt, 50%);
@@ -120,6 +127,7 @@
   }
 
   //c-gray-dark
+
   &--c-gray-dark &__content {
     background-color: tint($c-gray-dark, 90%);
     border-color: tint($c-gray-dark, 50%);
@@ -131,6 +139,7 @@
   }
 
   //c-error-red
+
   &--c-error-red &__content {
     background-color: tint($c-error-red, 90%);
     border-color: tint($c-error-red, 50%);
@@ -142,6 +151,7 @@
   }
 
   //c-white
+
   &--c-white &__content {
     background-color: tint($c-white, 90%);
     border-color: tint($c-gray-dark, 50%);

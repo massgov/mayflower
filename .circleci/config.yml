@@ -273,6 +273,23 @@ jobs:
       - run: node scripts/release-tag.js
 
 
+  assets_test:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - mfr-dependencies-{{ checksum "assets/package.json" }}
+      - run: cd assets && npm install
+      - save_cache:
+          paths:
+            - assets/node_modules
+          key: mfr-dependencies-{{ checksum "assets/package.json" }}
+      - run:
+          name: Mayflower Style Linter
+          command: cd assets && npm run stylelint
+
+
 workflows:
   version: 2
 
@@ -282,6 +299,9 @@ workflows:
       - auto_changelog:
           filters:
             branches: { only: /dependabot\/.*/ }
+      - assets_test:
+          filters:
+            branches: { ignore: /docs\-.*/ }
       - patternlab_build:
           filters:
             branches: { ignore: /docs\-.*/ }

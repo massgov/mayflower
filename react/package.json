@@ -100,7 +100,7 @@
   },
   "homepage": "",
   "license": "MIT",
-  "repository": "https://github.com/massgov/mayflower/react",
+  "repository": "https://github.com/massgov/mayflower/tree/master/react",
   "keywords": [
     "react-component"
   ]

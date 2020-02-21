@@ -22,6 +22,7 @@
     }
 
     .ma__content-link {
+
       span {
         border-bottom-width: 1px;
         font-size: 1.25rem;
@@ -55,8 +56,10 @@ $colors: (
   "c-error": $c-error,
   "c-gray": $c-gray
 );
+
 @each $class, $c in $colors {
   .ma__emergency-alert--#{$class} {
+
     @include ma-emergency-alert($c);
   }
 }

@@ -3,6 +3,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container;
   }
 
@@ -11,6 +12,7 @@
   }
 
   &__container {
+
     @include clearfix;
   }
 
@@ -19,6 +21,7 @@
     padding-left: 20px;
 
     .sidebar & {
+
       @include ma-reset-list;
     }
 
@@ -26,6 +29,7 @@
     &:first-child:nth-last-child(2) ~ & {
 
       @media ($bp-medium-min) {
+
         @include span-columns(6);
       }
     }
@@ -68,6 +72,7 @@
   }
 
   &--image-links {
+
     .sidebar & .ma__link-list__item + .ma__link-list__item {
       border-top: none;
       margin-top: 0px;
@@ -77,6 +82,7 @@
 }
 
 //theme
+
 .ma__link-list {
 
   &__item {
@@ -88,6 +94,7 @@
   }
 
   &--no-line {
+
     .ma__comp-heading--no-line {
       margin-bottom: 5px;
     }

@@ -11,6 +11,7 @@
 
 // WARNING: avoid nesting of elements,
 // because it makes them harder to override.
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,7 +20,7 @@
 html {
   font-size: 14.5px;
 
-  @media ($bp-small-min){
+  @media ($bp-small-min) {
     font-size: 16px;
   }
 
@@ -43,6 +44,7 @@ body {
 }
 
 a {
+
   @include ma-link-transition;
   text-decoration: none;
   font-weight: 700;
@@ -125,6 +127,7 @@ ol {
     margin-top: 0;
     color: $c-font-heading;
     font-weight: 700;
+
     @include ma-heading($i);
   }
 }
@@ -133,10 +136,12 @@ ol {
 
 .ma__visually-hidden,
 .visually-hidden {
+
   @include ma-visually-hidden;
 }
 
 // To disabled scrolling (for use when another scrollable container is in the foreground)
+
 .scroll-disabled {
   height: 100vh;
   overflow: hidden;
@@ -149,6 +154,7 @@ h4,
 p,
 main,
 div {
+
   &[tabindex="-1"]:focus {
     outline: none;
   }

@@ -13,6 +13,7 @@
   &__title {
 
     h2 {
+
       @include ma-h4;
     }
   }
@@ -25,6 +26,7 @@
   .pre-content > & &__container,
   .post-content > & &__container,
   .main-content--full .page-content > & &__container {
+
     @include ma-container();
   }
 
@@ -47,6 +49,7 @@
 }
 
 //theme
+
 .ma__form-requirements {
   background-color: $c-bg-section;
 

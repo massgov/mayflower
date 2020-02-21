@@ -30,7 +30,7 @@
   line-height: 1.2;
   margin-bottom: .75em;
 
-  @media ($bp-small-min){
+  @media ($bp-small-min) {
     margin-bottom: 1em;
   }
 }
@@ -53,55 +53,78 @@
 }
 
 @mixin ma-heading($level: 1) {
-  @if($level == 1) {
+
+  @if ($level == 1) {
+
     @include ma-h1;
   }
-  @if($level == 2) {
+
+  @if ($level == 2) {
+
     @include ma-h2;
   }
-  @if($level == 3) {
+
+  @if ($level == 3) {
+
     @include ma-h3;
   }
-  @if($level == 4) {
+
+  @if ($level == 4) {
+
     @include ma-h4;
   }
-  @if($level == 5) {
+
+  @if ($level == 5) {
+
     @include ma-h5;
   }
-  @if($level == 6) {
+
+  @if ($level == 6) {
+
     @include ma-h6;
   }
 }
 
 // Texta styles
+
 @mixin ma-texta-style($weight: 'Light', $italic: false) {
-  @if($weight == 'Light') {
+
+  @if ($weight == 'Light') {
     font-weight: 300;
-    @if($italic == true) {
+
+    @if ($italic == true) {
       font-style: italic;
     }
   }
-  @if($weight == 'Book') {
+
+  @if ($weight == 'Book') {
     font-weight: 400;
-    @if($italic == true) {
+
+    @if ($italic == true) {
       font-style: italic;
     }
   }
-  @if($weight == 'Medium') {
+
+  @if ($weight == 'Medium') {
     font-weight: 500;
-    @if($italic == true) {
+
+    @if ($italic == true) {
       font-style: italic;
     }
   }
-  @if($weight == 'Bold') {
+
+  @if ($weight == 'Bold') {
     font-weight: 700;
-    @if($italic == true) {
+
+    @if ($italic == true) {
       font-style: italic;
     }
   }
-  @if($weight == 'Black') {
+
+  @if ($weight == 'Black') {
     font-weight: 800;
-    @if($italic == true) {
+
+    @if ($italic == true) {
       font-style: italic;
     }
   }

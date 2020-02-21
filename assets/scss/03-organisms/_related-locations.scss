@@ -2,6 +2,7 @@
   background-color: $c-bg-section;
 
   &__container {
+
     @include ma-container;
     border-bottom: 2px solid $c-bd-divider;
     padding-top: 60px;
@@ -20,13 +21,16 @@
   }
 
   &__title {
+
     @include ma-border-decorative;
+
     @include ma-border-decorative($c-primary-alt);
     margin-bottom: 45px;
     padding-bottom: 16px;
   }
 
   &__items {
+
     @media ($bp-small-min) {
       display: flex;
       justify-content: space-between;
@@ -51,6 +55,7 @@
       @media ($bp-large-extended-min) {
         width: 39%;
         border-left: 1px solid $c-gray-light;
+
         a {
           margin: 0 auto;
         }
