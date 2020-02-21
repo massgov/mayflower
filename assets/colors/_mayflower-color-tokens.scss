@@ -88,6 +88,15 @@ $c-atlantic-gray:                  #707070;
 $c-overcast-gray:                  #DCDCDC;
 $c-platinum-gray:                  #F2F2F2;
 
+// Gray Scale Spectrum Mapping
+$c-black:                          $c-revolution-gray;
+$c-gray-dark:                      $c-granite-gray;
+$c-gray:                           $c-atlantic-gray;
+$c-gray-light:                     $c-overcast-gray;
+$c-gray-lighter:                   #CCCCCC; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
+$c-gray-lightest:                  $c-platinum-gray;
+$c-white:                          white;
+
 // Error Red (#CD0D0D)
 $c-error-red:                      #CD0D0D;
 $c-error-red-lighter:              #EEACAC; //Commonly used in outlines

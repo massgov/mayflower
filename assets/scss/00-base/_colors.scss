@@ -1,29 +1,8 @@
-// Theme colors
+// Mayflower Color Theme and Usage Mapping
 
-@import 'colors-tokens';
+@import '../../colors/mayflower-color-tokens';
 
-
-// Gray Scale Spectrum
-$c-black:                $c-revolution-gray;
-$c-gray-dark:            $c-granite-gray;
-$c-gray:                 $c-atlantic-gray;
-$c-gray-light:           $c-overcast-gray;
-$c-gray-lighter:         #CCCCCC;
-$c-gray-lightest:        $c-platinum-gray;
-$c-white:                white;
-
-// Additional Global Colors Representing Special States
-$c-error:                $c-error-red;
-$c-error-lighter:        $c-error-red-lighter;
-$c-error-lightest:       $c-error-red-lightest;
-$c-warning:              $c-duckling-yellow;
-$c-success:              $c-berkshires-green;
-$c-focus:                $c-focus-hightlight;
-// Need to add these colors to this listing new to add
-// $c-visited
-
-
-// Theme Color Usage Variables
+// Theme Color Variables
 $c-primary:              $c-bay-blue !default;
 $c-primary-lighter:      $c-bay-blue-lighter !default;
 $c-primary-lightest:     $c-bay-blue-lightest !default;
@@ -34,6 +13,16 @@ $c-primary-alt-dark:     $c-berkshires-green-dark !default;
 $c-highlight:            $c-duckling-yellow !default;
 $c-highlight-lighter:    $c-duckling-yellow-lighter !default;
 $c-highlight-lightest:   $c-duckling-yellow-lightest !default;
+
+// Utility Colors Variables
+$c-error:                $c-error-red;
+$c-error-lighter:        $c-error-red-lighter;
+$c-error-lightest:       $c-error-red-lightest;
+$c-warning:              $c-duckling-yellow;
+$c-success:              $c-berkshires-green;
+$c-focus:                $c-focus-hightlight;
+// Need to add these colors to this listing new to add
+// $c-visited
 
 $c-font-base:            $c-black;
 $c-font-detail:          $c-gray-dark;
