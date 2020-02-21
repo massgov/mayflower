@@ -1,6 +1,6 @@
 {
   "name": "@massds/mayflower-tokens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mayflower design tokens — it includes color token SCSS variables, fonts, icons and other imagery",
   "style": "colors/_mayflower-color-tokens.scss",
   "files": [
