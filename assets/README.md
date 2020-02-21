@@ -22,7 +22,7 @@ Mayflower-tokens provides a bundled up library of design tokens and assets that 
 `npm i @massds/mayflower-tokens --save`
 2. Import color tokens into your SASS/SCSS file
 `@import '[path to node_modules]/@massds/mayflower-tokens/colors/mayflower-color_tokens';`
-3. Refer to variables in `@massds/mayflower-tokens/colors/_mayflower-color_tokens.scss` to map the Mayflower color tokens in your theming SCSS.
+3. Refer to variables in `@massds/mayflower-tokens/colors/_mayflower-color_tokens.scss` or a [live demo for the colors](https://mayflower-react.digital.mass.gov/?path=/story/brand-colors--colors) to map the Mayflower color tokens in your theming SCSS.
 4. You can also find the web fonts Texta that are used in Mayflower (please)
 To import into your styles, refer to [mayflower Texta font imports](https://github.com/massgov/mayflower/blob/develop/assets/scss/00-base/_fonts.scss).
 
