@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Dependabot
-    description: Revert "Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide #875" (#)
-    issue: DP-17569
-    impact: Minor
