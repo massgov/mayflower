@@ -1,8 +1,13 @@
 {
-  "name": "mayflower-theme",
+  "name": "@massds/mayflower-tokens",
   "version": "1.0.0",
-  "description": "Mayflower theming assets, including color variables, fonts, icons and other imagery, along with componentized scss used to style Mayflower markup",
-  "main": "index.js",
+  "description": "Mayflower design tokens — it includes color token SCSS variables, fonts, icons and other imagery",
+  "style": "colors/_mayflower-color-tokens.scss",
+  "files": [
+    "colors",
+    "fonts",
+    "images"
+  ],
   "scripts": {
     "test": "stylelint",
     "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
@@ -13,8 +18,11 @@
     "url": "https://github.com/massgov/mayflower/tree/master/assets"
   },
   "keywords": [
-    "theme",
-    "scss"
+    "scss",
+    "colors",
+    "tokens",
+    "icons",
+    "fonts"
   ],
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
