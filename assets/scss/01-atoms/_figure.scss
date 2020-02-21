@@ -53,7 +53,73 @@
     font-style: italic;
     line-height: 1.57;
   }
+
+
+
+  // EXCLURIVE STYLES to dataviz
+  // Tableau size
+
+  // $bp-large-bridge-min: min-width: 1025px;
+  // $bp-large-bridge-max: max-width: 1024px;
+  &--small.ma__dataviz, {
+    width: 100%;
+
+    @media ($bp-x-small-min) {// 481~
+      width: 50%;
+    }
+
+    @media ($bp-large-bridge-min) {// 1025~
+      width: 30%;
+    }
+  }
+
+  &--medium.ma__dataviz {
+    width: 100%;
+
+    @media ($bp-x-small-min) {// 481~
+      width: 60%;
+      margin-right: .5em;
+    }
+
+    @media ($bp-large-bridge-min) {// 1025~
+      width: 50%;
+    }
+  }
+
+
+  &--large.ma__dataviz {
+
+    @media ($bp-large-bridge-max) {
+      width: 100%;
+    }
+  }
+
+
+  // alignment
+  @media ($bp-x-small-max) {
+    &--left.ma__dataviz, &--right.ma__dataviz {
+      float: none;
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+  &--left.ma__dataviz {
+    float: left;
+    margin-right: .5em;
+    margin-bottom: 1em;
+  }
+
+  &--right.ma__dataviz {
+    float: right;
+    margin-left: .5em;
+    margin-bottom: 1em;
+  }
 }
+
+// TEST STYLES
+.ma__dataviz {
+  background-color: yellow;
+  }
 
 //theme
 .ma__figure {
@@ -61,68 +127,4 @@
   &__caption {
     font-weight: 300;
   }
-
-// Tableau size
-
-// $bp-large-bridge-min: min-width: 1025px;
-// $bp-large-bridge-max: max-width: 1024px;
-  &--small {
-    width: 100%;
-  }
-
-  &--medium {
-    width: 100%;
-  }
-
-  @media ($bp-x-small-min) {// 481~
-    &--small {
-      width: 50%;
-    }
-
-    &--medium {
-      width: 60%;
-      margin-right: .5em;
-    }
-  }
-
-  @media ($bp-large-bridge-min) {// 1025~
-    &--small {
-      width: 30%;
-    }
-
-    &--medium {
-      width: 50%;
-    }
-  }
-
-  &--large {
-
-    @media ($bp-large-bridge-max) {
-      width: 100%;
-    }
-  }
-
-  // alignment
-  @media ($bp-x-small-max) {
-    &--left, &--right {
-      float: none;
-      margin-right: 0;
-      margin-bottom: 0;
-    }
-  }
-  &--left {
-    float: left;
-    margin-right: .5em;
-    margin-bottom: 1em;
-  }
-
-  &--right {
-    float: right;
-    margin-left: .5em;
-    margin-bottom: 1em;
-  }
-}
-// TEST STYLES
-.ma__dataviz {
-  background-color: yellow;
 }
