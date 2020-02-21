@@ -1,43 +1,14 @@
 // Theme colors
 
-// Primary Color
-$c-bay-blue:                       #14558f;
-$c-bay-blue-lighter:               #8AAAC7;
-$c-bay-blue-lightest:              #E7EEF4;
+@import 'colors-tokens';
 
-// Primary Alt Color
-$c-berkshires-green:               #388557;
-$c-berkshires-green-lighter:       #97C2A9;
-$c-berkshires-green-lightest:      #D6E7DD;
-$c-berkshires-green-dark:          #214F34;
 
-// Highlight and Warning Color
-$c-duckling-yellow:                #f6c51b;
-$c-duckling-yellow-lighter:        #FBE28D;
-$c-duckling-yellow-lightest:       #FEF9E8;
-
-// Government to Government Color. Currently not in use.
-$c-independence-cranberry:         #680A1D;
-$c-independence-cranberry-lighter: #AD7E88;
-
-// Base Gray Scale Colors
-$c-revolution-gray:                #141414;
-$c-granite-gray:                   #535353;
-$c-overcast-gray:                  #DCDCDC;
-$c-platinum-gray:                  #F2F2F2;
-$c-atlantic-gray:                  #707070;
-$c-very-light-gray:                #CCCCCC;
-
-// Error Colors
-$c-error-red:                      #CD0D0D;
-$c-error-red-lighter:              #EEACAC;
-$c-error-red-lightest:             #FCF3F3;
-
-// Full Gray Scale
+// Gray Scale Spectrum
 $c-black:                $c-revolution-gray;
 $c-gray-dark:            $c-granite-gray;
 $c-gray:                 $c-atlantic-gray;
 $c-gray-light:           $c-overcast-gray;
+$c-gray-lighter:         #CCCCCC;
 $c-gray-lightest:        $c-platinum-gray;
 $c-white:                white;
 
@@ -47,7 +18,7 @@ $c-error-lighter:        $c-error-red-lighter;
 $c-error-lightest:       $c-error-red-lightest;
 $c-warning:              $c-duckling-yellow;
 $c-success:              $c-berkshires-green;
-$c-focus:                #3e94cf;
+$c-focus:                $c-focus-hightlight;
 // Need to add these colors to this listing new to add
 // $c-visited
 
