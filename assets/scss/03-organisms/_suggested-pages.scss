@@ -68,7 +68,7 @@
 
     @media ($bp-x-large-min) {
 
-      @include span-columns(4);
+      @include span-columns(4 of 12);
 
       @include omega(3n);
     }

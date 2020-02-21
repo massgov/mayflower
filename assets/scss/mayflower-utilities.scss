@@ -1,0 +1,11 @@
+// base variables and mixins from Mayflower
+// Mayflower scss also uses bourbon and bourbon-neat variables and utilities
+// Install them as dependencies and import bourbon and bourbon-neat scss above mayflower scss
+
+@import '00-base/variables';
+
+@import '00-base/breakpoints';
+
+@import '00-base/mixins';
+
+@import "00-base/z-index";

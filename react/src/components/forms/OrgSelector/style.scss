@@ -1,5 +1,5 @@
-@import 'global';
-@import '02-molecules/org-selector';
+@import "@massds/mayflower-theme/scss/mayflower-global";
+@import '@massds/mayflower-theme/scss/02-molecules/org-selector';
 
 .react-autosuggest__suggestions{
   &-container--open{

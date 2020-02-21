@@ -30,7 +30,7 @@
 
       @media ($bp-medium-min) {
 
-        @include span-columns(6);
+        @include span-columns(6 of 12);
       }
     }
 

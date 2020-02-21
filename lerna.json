@@ -1,0 +1,9 @@
+{
+  "lerna": "3.15.0",
+  "packages": [
+    "assets",
+    "react"
+  ],
+  "npmClient": "yarn",
+  "version": "1.0.2"
+}
