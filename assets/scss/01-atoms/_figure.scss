@@ -61,7 +61,7 @@
 
   // $bp-large-bridge-min: min-width: 1025px;
   // $bp-large-bridge-max: max-width: 1024px;
-  &--small.ma__dataviz, {
+  &--small.ma__dataviz {
     width: 100%;
 
     @media ($bp-x-small-min) {// 481~
@@ -86,14 +86,12 @@
     }
   }
 
-
   &--large.ma__dataviz {
 
     @media ($bp-large-bridge-max) {
       width: 100%;
     }
   }
-
 
   // alignment
   @media ($bp-x-small-max) {
@@ -113,6 +111,21 @@
     float: right;
     margin-left: .5em;
     margin-bottom: 1em;
+  }
+}
+
+
+@media ($bp-large-bridge-min) {// 1025~
+  .main-content--two {
+
+    .ma__figure--small.ma__dataviz {
+      width: 50%;
+    }
+
+    .ma__figure--medium.ma__dataviz {
+      width: 60%;
+    }
+
   }
 }
 
