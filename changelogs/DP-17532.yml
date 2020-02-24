@@ -1,0 +1,17 @@
+Changed:
+  - project: Assets
+    component: SCSS
+    description: Separated color token variable scss from the color usage mapping. (#947)
+    issue: DP-17532
+    impact: Minor
+Added:
+  - project: Assets
+    component: SCSS
+    description: Added and refactored mayflower color gradients into color token stylesheet. (#947)
+    issue: DP-17532
+    impact: Minor
+  - project: Assets
+    component: SCSS
+    description: Registered a new `mayflower-token` package in npm to include color tokens, fonts and images. (#947)
+    issue: DP-17532
+    impact: Minor
