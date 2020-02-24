@@ -1,27 +1,36 @@
+/**
+  This script is used to copy the contents of the npm package @massds/mayflower-tokens
+  into the dist folder. To control what gets into the dist folder, edit dist_paths.js
+*/
 const path = require('path');
 const fs = require('fs');
 const distPaths = require('./dist_paths');
 
+// Function to create a new directory if it does not already exist.
+const createPath = (path) => {
+  if (!fs.existsSync(path)){
+    fs.mkdirSync(path);
+  }
+}
+
 // Create dist folder
-fs.mkdirSync(path.resolve(__dirname, `../../dist`));
+createPath(path.resolve(__dirname, `../../dist`));
 
 distPaths.forEach((dist) => {
   const src = path.resolve(__dirname, `../../${dist.src}`)
   const dest = path.resolve(__dirname, `../../dist/${dist.dest}`)
-  // create new directory for destination if not already exists
   const destFolder = dest.split('/');
   const lastPath = destFolder.pop();
-  // Check if destination is a directory
   const isDir = !lastPath.includes('.');
-  const destFolderPath = destFolder.join('/');
+  // Check if src file or directory exist
   if (fs.existsSync(src)) {
+    // Check if destination is a directory
     if (isDir) {
-      if (!fs.existsSync(dest)){
-        fs.mkdirSync(dest);
-      }
+      createPath(dest);
       const contents = fs.readdirSync(src);
       let i=0;
-      for (; i<contents.length;i++) {
+      // Loop through the src directory and copy the immediate children files into dest location with the same filename
+      for (;i<contents.length;i++) {
         const fileName = contents[i];
         // exclude hidden files, e.g. .DS_Store
         if (!fileName.startsWith('.') ) {
@@ -32,9 +41,8 @@ distPaths.forEach((dist) => {
         }
       }
     } else {
-      if (!fs.existsSync(destFolderPath)){
-        fs.mkdirSync(destFolderPath);
-      }
+      const destFolderPath = destFolder.join('/');
+      createPath(destFolderPath);
       fs.copyFile(src, dest, (err) => {
         if (err) throw err;
         console.log(`${dist.src} was copied to dist/${dist.dest}`);
