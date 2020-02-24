@@ -4,6 +4,15 @@ const distPaths = [{
 },{
   src: 'fonts',
   dest: 'fonts'
+},{
+  src: 'images/stateseal.png',
+  dest: 'images/stateseal.png'
+},{
+  src: 'images/stateseal-color.png',
+  dest: 'images/stateseal-color.png'
+},{
+  src: 'images/svg-icons',
+  dest: 'images/icons'
 }]
 
 module.exports = distPaths;

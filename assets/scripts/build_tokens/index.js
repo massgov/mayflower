@@ -12,17 +12,16 @@ distPaths.forEach((dist) => {
   const isDir = !lastPath.includes('.');
   const destFolderPath = destFolder.join('/');
   if (fs.existsSync(src)) {
-    if (!fs.existsSync(destFolderPath)){
-      fs.mkdirSync(destFolderPath);
-    }
     if (isDir) {
+      if (!fs.existsSync(dest)){
+        fs.mkdirSync(dest);
+      }
       const contents = fs.readdirSync(src);
       let i=0;
       for (; i<contents.length;i++) {
         const fileName = contents[i];
         // exclude hidden files, e.g. .DS_Store
         if (!fileName.startsWith('.') ) {
-          console.log(fileName);
           fs.copyFile(`${src}/${fileName}`, `${dest}/${fileName}`, (err) => {
             if (err) throw err;
             console.log(`${dist.src}/${fileName} was copied to dist/${dist.dest}/${fileName}`);
@@ -30,6 +29,9 @@ distPaths.forEach((dist) => {
         }
       }
     } else {
+      if (!fs.existsSync(destFolderPath)){
+        fs.mkdirSync(destFolderPath);
+      }
       fs.copyFile(src, dest, (err) => {
         if (err) throw err;
         console.log(`${dist.src} was copied to dist/${dist.dest}`);
