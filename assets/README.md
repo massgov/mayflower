@@ -33,6 +33,16 @@ Please note that the fonts and the svg-icons are licensed only for the usage on 
 Fontspring grants Licensee a perpetual, worldwide, non-exclusive and non-transferrable license to install the Texta as webfont on Websites that are owned by the Commonwealth of Massachusetts using the @font-face selector in CSS files. For other usage, you may have to acquire an additional license through Fontsprint.
 For more details about Texta's terms of use, please refer to our [web font license](https://www.fontspring.com/lic/htswufoczd).
 
+## Publish Package
+To publish the package, you will have to be a collaborator or have access to the [@massds/mayflower-tokens npm package](https://www.npmjs.com/package/@massds/mayflower-tokens).
+Login to the npm account by `npm login`.
+
+1. Build the distribution folder `dist`.
+  `npm run build`
+2. Update `version` in package.json.
+3. Publish `@massds/mayflower-tokens` to npm registry.
+  `npm publish`
+4. Wait a few minutes and check [@massds/mayflower-tokens][npm] on the registry.
 
 
 [npm-badge]: https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square
