@@ -5,7 +5,8 @@
 // Bold => 700
 // Black => 800
 
-// Light | 300
+// Set $assets-path to form the correct links to the parent folder of fonts/ based on the location of the compiled css
+$assets-path: '..' !default;
 
 @font-face {
   font-family: 'Texta';

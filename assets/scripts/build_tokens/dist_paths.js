@@ -10,6 +10,9 @@ const distPaths = [{
   src: 'fonts',
   dest: 'fonts'
 },{
+  src: 'scss/00-base/_fonts.scss',
+  dest: 'scss/_fonts.scss'
+},{
   src: 'images/stateseal.png',
   dest: 'images/stateseal.png'
 },{
