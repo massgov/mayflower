@@ -1,5 +1,5 @@
 const distPaths = [{
-  src: 'colors/_mayflower-color-tokens.scss',
+  src: 'scss/00-base/_color-tokens.scss',
   dest: 'scss/_colors.scss'
 },{
   src: 'fonts',
