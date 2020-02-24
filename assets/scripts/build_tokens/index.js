@@ -2,6 +2,9 @@ const path = require('path');
 const fs = require('fs');
 const distPaths = require('./dist_paths');
 
+// Create dist folder
+fs.mkdirSync(path.resolve(__dirname, `../../dist`));
+
 distPaths.forEach((dist) => {
   const src = path.resolve(__dirname, `../../${dist.src}`)
   const dest = path.resolve(__dirname, `../../dist/${dist.dest}`)
