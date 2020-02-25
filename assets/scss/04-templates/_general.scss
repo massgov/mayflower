@@ -45,6 +45,16 @@
     @include ma-component-spacing('large');
   }
 
+  // Test style to expand the main column to full when side column is empty.
+  .main-content--two--full & {
+
+    @media ($bp-large-min){
+      float: none;
+      padding-right: 0;
+      width: 100%;
+    }
+  }
+
   // Almost works, but needs to only apply while the item is floated
   // .main-content & > *:first-child[class*='--left'] + *,
   // .main-content & > *:first-child[class*='--right'] + * {
