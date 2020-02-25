@@ -2,26 +2,31 @@
   "themeColors": [
     {
       "variable": "$c-primary",
+      "token": "$c-bay-blue",
       "name": "Bay Blue",
       "value": "#14558f"
     },
     {
       "variable": "$c-primary-alt",
+      "token": "$c-berkshires-green",
       "name": "Berkshires Green",
       "value": "#388557"
     },
     {
       "variable": "$c-highlight",
+      "token": "$c-duckling-yellow",
       "name": "Duckling Yellow",
       "value": "#f6c51b"
     },
     {
       "variable": "$c-gray-dark",
+      "token": "$c-granite-gray",
       "name": "Granite Gray",
       "value": "#535353"
     },
     {
       "variable": "$c-independence-cranberry",
+      "token": "$c-independence-cranberry",
       "name": "Independent Cranberry",
       "value": "#680A1D"
     }
@@ -82,12 +87,12 @@
       "value": "#14558f"
     },
     {
-      "variable": "$c-bay-blue-lighter",
+      "variable": "$c-primary-lighter",
       "name": "50% Bay Blue",
       "value": "#8aaac7"
     },
     {
-      "variable": "$c-bay-blue-lightest",
+      "variable": "$c-primary-lightest",
       "name": "10% Bay Blue",
       "value": "#e7eef4"
     }],
@@ -98,12 +103,12 @@
       "value": "#388557"
     },
     {
-      "variable": "$c-berkshires-green-lighter",
+      "variable": "$c-primary-alt-lighter",
       "name": "50% Berkshires Green",
       "value": "#97c2a9"
     },
     {
-      "variable": "$c-berkshires-green-lightest",
+      "variable": "$c-primary-alt-lightest",
       "name": "10% Berkshires Green",
       "value": "#EBF3EE"
     }],

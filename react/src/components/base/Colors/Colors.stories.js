@@ -60,15 +60,15 @@ storiesOf('brand|colors', module)
     'Gradients (Light)', (() => (
       <Fragment>
         {
-          themeColors.map(({ variable, name }, i) => {
+          themeColors.map(({ token, name }, i) => {
             const props = {
-              variable: variable.match(/\$(.*)/)[1],
+              token: token.match(/\$(.*)/)[1],
               name,
               effect: 'tint'
             };
             return(
               // eslint-disable-next-line react/no-array-index-key
-              <GradientSpectrum {...props} key={`spectrum_${variable}${i}`} />
+              <GradientSpectrum {...props} key={`spectrum_${token}${i}`} />
             );
           })
         }
@@ -80,15 +80,15 @@ storiesOf('brand|colors', module)
     'Gradients (Dark)', (() => (
       <Fragment>
         {
-          themeColors.map(({ variable, name }, i) => {
+          themeColors.map(({ token, name }, i) => {
             const props = {
-              variable: variable.match(/\$(.*)/)[1],
+              token: token.match(/\$(.*)/)[1],
               name,
               effect: 'shade'
             };
             return(
               // eslint-disable-next-line react/no-array-index-key
-              <GradientSpectrum {...props} key={`spectrum_${variable}${i}`} />
+              <GradientSpectrum {...props} key={`spectrum_${token}${i}`} />
             );
           })
         }
