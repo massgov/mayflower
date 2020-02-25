@@ -57,27 +57,13 @@
 
 
   // EXCLURIVE STYLES to dataviz
-  // Tableau size
-
+  .ma__dataviz {
+    width: 100%;
+  }
   // $bp-large-bridge-min: min-width: 1025px;
   // $bp-large-bridge-max: max-width: 1024px;
-  &--small.ma__dataviz {
-    width: 100%;
 
-    @media ($bp-x-small-min) {// 481~
-      width: 50%;
-    }
-
-    @media ($bp-medium-min) {// 781~
-      width: 33.33%;
-      width: calc(100% / 3);
-    }
-
-    // @media ($bp-large-bridge-min) {// 1025~
-    //   width: 30%;
-    // }
-  }
-
+  // Small
   // Right rail
   .main-content--two &--small.ma__dataviz {
     width: 100%;
@@ -87,9 +73,31 @@
     }
   }
 
+  // Full width (no side col content)
+  .main-content--two--full &--small.ma__dataviz {
 
-  &--medium.ma__dataviz {
+    @media ($bp-x-small-min) {// 481~
+      width: 50%;
+    }
+
+    @media ($bp-medium-min) {// 781~
+      width: 33.33%;
+      width: calc(100% / 3);
+    }
+  }
+
+  // Medium
+  // Right rail
+  .main-content--two &--medium.ma__dataviz {
     width: 100%;
+
+    @media ($bp-large-bridge-min) {// 1025~
+      width: 66.66%;
+      width: calc(100% / 3 * 2);
+    }
+  }
+  // Full width (no side col content)
+  .main-content--two--full &--medium.ma__dataviz {
 
     @media ($bp-x-small-min) {// 481~
       width: 66.66%;
@@ -102,28 +110,22 @@
     }
   }
 
-  // Right rail
-  .main-content--two &--medium.ma__dataviz {
-    width: 100%;
-
-    @media ($bp-large-bridge-min) {// 1025~
-      width: 66.66%;
-      width: calc(100% / 3 * 2);
-    }
-  }
-
+  // Large
   &--large.ma__dataviz {
     width: 100%;
+  }
+  // Right rail
+  // .main-content--two &--large.ma__dataviz {
+  //   width: 100%;
+  // }
+  // Full width (no side col content)
+  .main-content--two--full &--large.ma__dataviz {
+    // width: 100%;
 
     @media ($bp-large-min) {
       width: 66.66%;
       width: calc(100% / 3 * 2);
     }
-  }
-
-  // Right rail
-  .main-content--two &--large.ma__dataviz {
-    width: 100%;
   }
 
   // alignment
@@ -146,11 +148,6 @@
     margin-bottom: 1em;
   }
 }
-
-// TEST STYLES
-.ma__dataviz {
-  // background-color: yellow;
-  }
 
 //theme
 .ma__figure {
