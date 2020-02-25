@@ -388,3 +388,7 @@ workflows:
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
+      - assets_deploy_tag:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
