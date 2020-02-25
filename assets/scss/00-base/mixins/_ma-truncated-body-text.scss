@@ -1,11 +1,14 @@
 // Include this in the topmost level of any pattern that might
 // contain a truncated body text area
+
 @mixin ma-truncated-body-text {
+
   .ma-truncated-body-text {
     display: flex;
     flex-direction: column;
 
     &.expanded {
+
       .ma-truncated-body-text__contents {
         max-height: none;
       }
@@ -41,6 +44,7 @@
   }
 
   .ma-truncated-body-text__button {
+
     @include ma-chevron;
     order: 2;
     width: 100%;

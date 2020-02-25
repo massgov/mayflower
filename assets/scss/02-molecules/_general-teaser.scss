@@ -1,12 +1,15 @@
 .ma__general-teaser {
+
   @include clearfix();
 
   &--image {
     display: flex;
     flex-wrap: wrap;
+
     &.stacked {
       flex-direction: column;
     }
+
     &.side-by-side, &.contents-stacked {
       flex-direction: row;
     }
@@ -35,6 +38,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container('restricted');
   }
 
@@ -101,6 +105,7 @@
 }
 
 //theme
+
 .ma__general-teaser {
 
   & + & {

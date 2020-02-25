@@ -1,4 +1,5 @@
 .ma__featured-item {
+
   @include ma-aspect-ratio(4, 3);
   display: block;
   max-width: 100%;
@@ -7,7 +8,9 @@
 
   // dimmer
   // this :before is set up in the aspect ratio mixin
+
   &:before {
+
     @include ma-link-transition;
     background-color: transparent;
     z-index: 1;
@@ -34,13 +37,17 @@
   }
 
   @media ($bp-small-min) {
+
     .ma__featured-item__image--large {
       display: block;
     }
+
     .ma__featured-item__image {
       display: none;
     }
+
     @include ma-aspect-ratio(3, 5);
+
     .ma__featured-item__image--large img {
       max-width: none;
       width: auto;
@@ -64,11 +71,13 @@
   line-height: 1.25;
 
   svg {
+
     @include ma-link-arrow;
   }
 }
 
 .ma__featured-item__title.truncated {
+
   span::after {
     content: ' . . . ';
     white-space: nowrap;
@@ -76,14 +85,17 @@
 }
 
 //theme
+
 .ma__featured-item {
     background-color: $c-gray-lightest;
 }
+
 .ma__featured-item__title-container {
     background-color: $c-primary-alt;
     color: $c-white;
 
     span {
+
         @include ma-link-transition;
         border-bottom: 3px solid transparent;
     }

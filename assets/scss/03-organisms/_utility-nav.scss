@@ -9,15 +9,18 @@ $utility-nav-height: 43px;
   }
 
   &__items {
+
     @include ma-reset-list;
+
     @include ma-container;
 
-    @media ($bp-header-toggle-max){
+    @media ($bp-header-toggle-max) {
       padding-left: 0;
       padding-right: 0;
     }
 
-    @media ($bp-header-toggle-min){
+    @media ($bp-header-toggle-min) {
+
       @include ma-valign-block;
       height: $utility-nav-height;
       text-align: right;
@@ -44,9 +47,15 @@ $utility-nav-height: 43px;
 
     // Adjusting the style to match other items.
     // Separate this style from react.
+
     a.direct-link {
       padding: 1px 7px 2px 7px;
-      // font-weight: 400;
+
+      @media ($bp-header-toggle-max) {
+        padding: 11px 20px 9px 45px;
+        width: 100%;
+        text-align: left;
+      }
     }
   }
 
@@ -99,6 +108,7 @@ $utility-nav-height: 43px;
     }
 
     @media ($bp-header-toggle-max) {
+
       @include ma-chevron;
 
       &:after {
@@ -173,6 +183,7 @@ $utility-nav-height: 43px;
     }
 
     .goog-te-gadget-simple .goog-te-menu-value {
+
       @include ma-chevron;
       color: $c-font-base;
 
@@ -298,6 +309,7 @@ $utility-nav-height: 43px;
   }
 
   &__container {
+
     @include ma-container;
     overflow-y: auto;
     padding-bottom: 20px;
@@ -326,13 +338,14 @@ $utility-nav-height: 43px;
   }
 
   &__close {
+
     @include ma-button-reset;
     cursor: pointer;
     font-size: 1rem;
     font-weight: 700;
     position: absolute;
     top: 0;
-    right: 35px;;
+    right: 35px;
 
     @media ($bp-header-toggle-max) {
       display: none;

@@ -4,7 +4,9 @@
   position: relative;
 
   .slick-arrow {
+
     @include ma-chevron;
+
     @include ma-button-reset;
     font-size: 1rem;
     height: 100%;
@@ -12,10 +14,6 @@
       top: 0;
     width: 40px;
     z-index: 1;
-
-    @media ($bp-page-width-max) {
-
-    }
 
     @media ($bp-page-width-min) {
       min-width: 40px;
@@ -70,6 +68,7 @@
   }
 
   .slick-dots {
+
     @include ma-reset-list;
     position: absolute;
       top: 0;
@@ -83,6 +82,7 @@
     }
 
     button {
+
       @include ma-button-reset;
       border-radius: 50%;
       height: .75rem;
@@ -92,6 +92,7 @@
   }
 
   &__slides {
+
     @include clearfix;
   }
 
@@ -113,10 +114,11 @@
 }
 
 //theme
+
 .ma__banner-carousel {
 
   .slick-arrow {
-    
+
     &:after {
       border-color: $c-white;
     }
@@ -126,12 +128,12 @@
     }
 
     &:hover:before {
-      background-color: $c-primary;      
+      background-color: $c-primary;
     }
   }
 
   .slick-dots {
-    
+
     button {
       background-color: $c-primary;
     }

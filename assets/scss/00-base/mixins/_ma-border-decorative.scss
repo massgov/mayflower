@@ -1,12 +1,15 @@
 // $bg is the color of the parent
 // $fg is the color of the line
+
 @mixin ma-border-decorative($fg: transparent, $opacity: .5) {
-  @if($fg == transparent) {
+
+  @if ($fg == transparent) {
     position: relative;
   }
 
   &:after {
-    @if($fg == transparent) {
+
+    @if ($fg == transparent) {
       content: "";
       height: 3px;
       position: absolute;
@@ -18,8 +21,7 @@
       @media print {
         display: none;
       }
-    }
-    @else {
+    } @else {
       background-color: rgba($fg,$opacity);
 
       .no-cssgradients & {

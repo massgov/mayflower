@@ -3,10 +3,12 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
   }
 
   .ma__button {
+
     @include ma-chevron("left");
 
     &:before {
@@ -15,8 +17,11 @@
   }
 
   // backward compatible with v5.6 - replaced link with button atom
+
   a:not(.ma__button) {
+
     @include ma-button("small");
+
     @include ma-chevron("left");
 
     &:before {
@@ -26,9 +31,11 @@
 }
 
 //theme
+
 .ma__back-button {
 
   .ma__button {
+
     &:before {
       border-color: rgba($c-font-link,.5);
       transition: all 0.4s ease;    
@@ -40,7 +47,9 @@
   }
 
   // backward compatible with v5.6 - replaced link with button atom
+
   a:not(.ma__button) {
+
     @include ma-button("","",$c-font-link);
     border-color: rgba($c-font-link,.5);
 

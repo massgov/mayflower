@@ -1,4 +1,5 @@
 .ma__content-link {
+
   @include ma-link-underline;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -6,6 +7,7 @@
   max-width: 100%;
 
   &--chevron {
+
     @include ma-chevron;
     border-bottom: none;
     display: inline-block;
@@ -25,6 +27,7 @@
     }
 
     span {
+
       @include ma-link-underline;
     }
   }
@@ -40,6 +43,7 @@
 }
 
 //theme
+
 .ma__content-link {
   color: $c-font-link; 
 

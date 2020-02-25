@@ -1,6 +1,7 @@
 .ma__form-page {
 
   & > * {
+
     @include ma-component-spacing;
   }
 

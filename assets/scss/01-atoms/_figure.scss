@@ -2,6 +2,7 @@
   margin: 0;
 
   .main-content--full .page-content > & {
+
     @include ma-container;
 
     &--large {
@@ -13,6 +14,7 @@
   }
 
   @media ($bp-small-min) {
+
     &--left,
     &--align-left,
     &.align-left {
@@ -45,6 +47,7 @@
   }
 
   &__title {
+
     @include ma-h2;
   }
 
@@ -150,6 +153,7 @@
 }
 
 //theme
+
 .ma__figure {
 
   &__caption {
