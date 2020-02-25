@@ -104,8 +104,8 @@
     },
     {
       "variable": "$c-berkshires-green-lightest",
-      "name": "20% Berkshires Green",
-      "value": "#d6E7dd"
+      "name": "10% Berkshires Green",
+      "value": "#EBF3EE"
     }],
   "highLightColors": [
     {
