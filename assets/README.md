@@ -12,6 +12,7 @@ Mayflower-tokens provides a bundled up library of design tokens and assets that 
     ├── scss        
     │   ├── _colors.scss      Color tokens
     │   ├── _fonts.scss       Texta font imports (needs to set $assets-path)
+    │   ├── _index.scss       Default SCSS export 
 ```
 
 - **Codebase:** [Mayflower monorepo][mayflower-github] `assets` subdirectory
