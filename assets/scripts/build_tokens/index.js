@@ -52,3 +52,9 @@ distPaths.forEach((dist) => {
     console.log('source file doesn\'t exist!')
   }
 });
+
+// Copy over _index.scss as default SCSS export
+fs.copyFile(path.resolve(__dirname, '_index.scss'), path.resolve(__dirname, '../../dist/scss/_index.scss'), (err) => {
+  if (err) throw err;
+  console.log(`_index.scss was copied to dist/scss/_index.scss`);
+});
