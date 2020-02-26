@@ -1,6 +1,14 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.41.0 (2/25/2020)
+### Changed 
+- (Assets) [SCSS] DP-17532: Separated color token variable scss from the color usage mapping. (#947)
+
+### Added 
+- (Assets) [SCSS] DP-17532: Added and refactored mayflower color gradients into color token stylesheet. (#947)
+- (Assets) [SCSS] DP-17532: Registered a new `mayflower-token` package in npm to include color tokens, fonts and images. (#947)
+
 ## 9.40.2 (2/21/2020)
 ### Added
 - (Assets) [SCSS] DP-17528: Added style linting for shared SCSS, fixed lint errors and add to circle test. (#939)
