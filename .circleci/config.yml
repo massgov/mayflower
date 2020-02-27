@@ -288,6 +288,9 @@ jobs:
       - run:
           name: Mayflower Style Linter
           command: cd assets && npm run stylelint
+      - run:
+          name: Validate Package Build
+          command: cd assets && npm run build
 
   assets_deploy_tag:
     <<: *react_defaults
