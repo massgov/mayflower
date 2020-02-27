@@ -18,21 +18,7 @@ storiesOf('brand|colors', module)
       <ul className="sg-colors">
         {
           // eslint-disable-next-line react/no-array-index-key
-          themeColors.map((color, i) => <ColorSwatch key={`themeColors${i}`} {...color} />)
-        }
-      </ul>
-      <SidebarHeading title="Gray Scale Colors" level={2} />
-      <ul className="sg-colors">
-        {
-          // eslint-disable-next-line react/no-array-index-key
-          grayScaleColors.map((color, i) => <ColorSwatch key={`grayScaleColors${i}`} {...color} />)
-        }
-      </ul>
-      <SidebarHeading title="Utility Colors" level={2} />
-      <ul className="sg-colors">
-        {
-          // eslint-disable-next-line react/no-array-index-key
-          utilityColors.map((color, i) => <ColorSwatch key={`utilityColors${i}`} {...color} />)
+          themeColors.map((color, i) => <ColorSwatch key={`themeColors${i}`} {...color} variable={color.token} />)
         }
       </ul>
       <SidebarHeading title="Theme Colors Usage" level={2} />
@@ -54,21 +40,35 @@ storiesOf('brand|colors', module)
           highLightColors.map((color, i) => <ColorSwatch key={`highLightColors${i}`} {...color} />)
         }
       </ul>
+      <SidebarHeading title="Gray Scale Colors" level={2} />
+      <ul className="sg-colors">
+        {
+          // eslint-disable-next-line react/no-array-index-key
+          grayScaleColors.map((color, i) => <ColorSwatch key={`grayScaleColors${i}`} {...color} />)
+        }
+      </ul>
+      <SidebarHeading title="Utility Colors" level={2} />
+      <ul className="sg-colors">
+        {
+          // eslint-disable-next-line react/no-array-index-key
+          utilityColors.map((color, i) => <ColorSwatch key={`utilityColors${i}`} {...color} />)
+        }
+      </ul>
     </Fragment>
   )))
   .add(
     'Gradients (Light)', (() => (
       <Fragment>
         {
-          themeColors.map(({ variable, name }, i) => {
+          themeColors.map(({ token, name }, i) => {
             const props = {
-              variable: variable.match(/\$(.*)/)[1],
+              token: token.match(/\$(.*)/)[1],
               name,
               effect: 'tint'
             };
             return(
               // eslint-disable-next-line react/no-array-index-key
-              <GradientSpectrum {...props} key={`spectrum_${variable}${i}`} />
+              <GradientSpectrum {...props} key={`spectrum_${token}${i}`} />
             );
           })
         }
@@ -80,15 +80,15 @@ storiesOf('brand|colors', module)
     'Gradients (Dark)', (() => (
       <Fragment>
         {
-          themeColors.map(({ variable, name }, i) => {
+          themeColors.map(({ token, name }, i) => {
             const props = {
-              variable: variable.match(/\$(.*)/)[1],
+              token: token.match(/\$(.*)/)[1],
               name,
               effect: 'shade'
             };
             return(
               // eslint-disable-next-line react/no-array-index-key
-              <GradientSpectrum {...props} key={`spectrum_${variable}${i}`} />
+              <GradientSpectrum {...props} key={`spectrum_${token}${i}`} />
             );
           })
         }

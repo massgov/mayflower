@@ -44,17 +44,36 @@ const GradientTile = (props) => {
   const { index, effect } = props;
   const firstTile = index === 0;
   const name = firstTile ? props.name : `${index * 10} % ${effect}`;
-  const variable = firstTile ? `$${props.variable}` : '';
+  let token;
+  switch (name) {
+    case props.name:
+      token = `$${props.token}`;
+      break;
+    case '50 % tint':
+      token = 'lighter';
+      break;
+    case '90 % tint':
+      token = 'lightest';
+      break;
+    case '30 % shade':
+      token = 'darker';
+      break;
+    case '50 % shade':
+      token = 'darkest';
+      break;
+    default:
+      token = '';
+  }
   const hexValue = rgbToHex(rgb).toUpperCase();
   return(
-    <li className={`${props.variable}--${effect}`}>
+    <li className={`${props.token}--${effect}`}>
       <h3 className="ma__sidebar-heading">{name}</h3>
       <div className="sg-swatch" ref={colorRef} />
       <div className="sg-info">
         <span>{hexValue}</span>
         <ButtonCopy content={hexValue} />
         <br />
-        <code style={{ fontSize: '1rem' }}>{variable}</code>
+        <code style={{ fontSize: '1rem' }}>{token}</code>
       </div>
     </li>
   );
@@ -67,11 +86,11 @@ GradientTile.propTypes = {
   effect: PropTypes.string,
   /** Base color name */
   name: PropTypes.string,
-  /** Base color variable alias */
-  variable: PropTypes.string
+  /** Base color SCSS variable name */
+  token: PropTypes.string
 };
 
-const GradientSpectrum = ({ variable, name, effect }) => {
+const GradientSpectrum = ({ token, name, effect }) => {
   const tiles = effect === 'tint' ? 10 : 6;
   let i;
   const tilesArray = [];
@@ -82,7 +101,7 @@ const GradientSpectrum = ({ variable, name, effect }) => {
     <ul className="sg-colors sg-colors--gradient">
       {
         // eslint-disable-next-line react/no-array-index-key
-        tilesArray.map((index) => <GradientTile key={`${variable}${index}`} name={name} variable={variable} index={index} effect={effect} />)
+        tilesArray.map((index) => <GradientTile key={`${token}${index}`} name={name} token={token} index={index} effect={effect} />)
       }
     </ul>
   );
@@ -93,8 +112,8 @@ GradientSpectrum.propTypes = {
   effect: PropTypes.string,
   /** Base color name */
   name: PropTypes.string,
-  /** Base color variable alias */
-  variable: PropTypes.string
+  /** Base color SCSS variable alias */
+  token: PropTypes.string
 };
 
 export { ColorSwatch, GradientSpectrum };
