@@ -295,7 +295,7 @@ jobs:
       - checkout
       - *configure_npm
       - run: cd assets && npm i
-      - run: npm run build
+      - run: cd assets && npm run build
       - run:
           name: 'Publish mayflower-tokens NPM package'
           command: |
