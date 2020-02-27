@@ -288,6 +288,7 @@ jobs:
       - run:
           name: Mayflower Style Linter
           command: cd assets && npm run stylelint
+      - run: cd assets && npm install
 
   assets_deploy_tag:
     <<: *react_defaults
@@ -300,7 +301,7 @@ jobs:
           name: 'Publish mayflower-tokens NPM package'
           command: |
             cd assets
-            npm version --no-git-tag-version "$CIRCLE_TAG"
+            npm version --no-git-tag-version 0.0.0
             if test -z "$(npm show @massds/mayflower-tokens@0.0.0)"; then
               npm publish
             else
