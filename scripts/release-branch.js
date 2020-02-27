@@ -10,34 +10,43 @@ const git = require('simple-git/promise')();
 
 const { octokit } = require('./release-vars');
 const { newLogsWithTitle, changelogs, version } = require('./compile-changelogs');
+const bumpVersion = require('./version-bump');
 
-// Checkout the branch.
-const releaseBranch = 'release/' + version;
+const reactPath = '../react/package.json';
+const patternlabPath = '../patternlab/styleguide/package.json';
+const assetsPath = '../assets/package.json';
 
-(async function() {
-  // This asynchronous logic will happen sequentially.
-  // If an error is thrown, it will break out of this
-  // asynchronous function immediately and exit 1.
+bumpVersion(reactPath, version);
+bumpVersion(patternlabPath, version);
+bumpVersion(assetsPath, version);
 
-  // Create the release branch and push to Github.
-  shell.exec(`git branch -D ${releaseBranch}`)
-  await git.checkoutLocalBranch(releaseBranch)
-  await git.add('./*');
-  await git.commit('Changelog update and remove old changelog files');
-  // Use a force-push so if we have an old version of the branch sitting around
-  // (eg: an unreleased one from last week), it gets updated regardless.
-  await git.push('origin', releaseBranch, {'--force': null});
-
-  // Create the pull request in GitHub
-  await octokit.pulls.create({
-    owner: 'massgov',
-    repo: 'mayflower',
-    title: `Release ${version}`,
-    head: releaseBranch,
-    base: 'master',
-    body: newLogsWithTitle
-  });
-})().catch(function(err) {
-  console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
-  process.exit(1);
-})
+// // Checkout the branch.
+// const releaseBranch = 'release/' + version;
+//
+// (async function() {
+//   // This asynchronous logic will happen sequentially.
+//   // If an error is thrown, it will break out of this
+//   // asynchronous function immediately and exit 1.
+//
+//   // Create the release branch and push to Github.
+//   shell.exec(`git branch -D ${releaseBranch}`)
+//   await git.checkoutLocalBranch(releaseBranch)
+//   await git.add('./*');
+//   await git.commit('Changelog update and remove old changelog files');
+//   // Use a force-push so if we have an old version of the branch sitting around
+//   // (eg: an unreleased one from last week), it gets updated regardless.
+//   await git.push('origin', releaseBranch, {'--force': null});
+//
+//   // Create the pull request in GitHub
+//   await octokit.pulls.create({
+//     owner: 'massgov',
+//     repo: 'mayflower',
+//     title: `Release ${version}`,
+//     head: releaseBranch,
+//     base: 'master',
+//     body: newLogsWithTitle
+//   });
+// })().catch(function(err) {
+//   console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);
+//   process.exit(1);
+// })
