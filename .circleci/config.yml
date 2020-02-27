@@ -301,7 +301,7 @@ jobs:
           command: |
             cd assets
             npm version --no-git-tag-version "$CIRCLE_TAG"
-            if test -z "$(npm show @massds/mayflower-tokens@$CIRCLE_TAG)"; then
+            if test -z "$(npm show @massds/mayflower-tokens@0.0.0)"; then
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
@@ -320,6 +320,7 @@ workflows:
       - assets_test:
           filters:
             branches: { ignore: /docs\-.*/ }
+      - assets_deploy_tag
       # - patternlab_build:
       #     filters:
       #       branches: { ignore: /docs\-.*/ }
@@ -390,5 +391,5 @@ workflows:
             tags: { only: /.*/ }
       - assets_deploy_tag:
           filters:
-            # branches: { ignore: /.*/ }
+            branches: { ignore: /.*/ }
             tags: { only: /.*/ }
