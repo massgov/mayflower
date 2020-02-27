@@ -2,6 +2,23 @@ $rich-text-spacing: 1.75rem;
 $rich-text-spacing-mobile: 1.5rem;
 $heading-indent: $gutter;
 
+// .pre-content > .ma__rich-text__container,
+// .post-content > .ma__rich-text__container,
+// .main-content--full .page-content > .ma__rich-text__container {
+
+//   @include ma-container('restricted');
+// }
+
+// .ma__rich-text__container h2.ma__comp-heading {
+//   padding-top: .75em;
+
+//   &:first-child {
+//     padding-top: 0;
+//   }
+// }
+
+
+
 .ma__rich-text {
 
   @include clearfix;
@@ -18,14 +35,15 @@ $heading-indent: $gutter;
     margin-bottom: 0;
   }
 
-  .pre-content > &,
-  .post-content > &,
-  .main-content--full .page-content > & {
+  .pre-content > &__container,
+  // .pre-content > &,
+  .post-content > &__container,
+  .main-content--full .page-content > &__container {
 
     @include ma-container('restricted');
   }
 
-  .ma__split-columns__column > & {
+  .ma__split-columns__column > &__container {
     margin-bottom: 1em;
     max-width: 100%;
     padding-left: 0;
@@ -61,7 +79,7 @@ $heading-indent: $gutter;
     display: block;
   }
 
-  h2 {
+  &__container h2 {
     padding-top: .75em;
 
     &:first-child {
@@ -242,7 +260,7 @@ $heading-indent: $gutter;
   &__flame {
     font-weight: bold;
   }
-  
+
   &__footnote {
     border-color: rgba($c-font-link,.5);
 
