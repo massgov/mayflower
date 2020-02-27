@@ -323,18 +323,18 @@ workflows:
       - assets_test:
           filters:
             branches: { ignore: /docs\-.*/ }
-      # - patternlab_build:
-      #     filters:
-      #       branches: { ignore: /docs\-.*/ }
-      # - patternlab_deploy_branch:
-      #     requires: [patternlab_build]
-      #     filters:
-      #       branches: { ignore: /(docs\-|react\/).*/ }
-      # - patternlab_test: {requires: [patternlab_build]}
-      # - react_build_storybook:
-      #     filters:
-      #       branches: { ignore: /docs\-.*/ }
-      # - react_test: {requires: [react_build_storybook]}
+      - patternlab_build:
+          filters:
+            branches: { ignore: /docs\-.*/ }
+      - patternlab_deploy_branch:
+          requires: [patternlab_build]
+          filters:
+            branches: { ignore: /(docs\-|react\/).*/ }
+      - patternlab_test: {requires: [patternlab_build]}
+      - react_build_storybook:
+          filters:
+            branches: { ignore: /docs\-.*/ }
+      - react_test: {requires: [react_build_storybook]}
 
   # Release branch automation every Tuesday at 1 p.m. ET
   release:
@@ -393,5 +393,5 @@ workflows:
             tags: { only: /.*/ }
       - assets_deploy_tag:
           filters:
-            # branches: { ignore: /.*/ }
+            branches: { ignore: /.*/ }
             tags: { only: /.*/ }
