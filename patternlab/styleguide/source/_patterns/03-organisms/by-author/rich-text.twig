@@ -1,4 +1,5 @@
-<div class="ma__rich-text {{headerIndent}}">
+<section class="ma__rich-text__container">
+
   {% if richText.compHeading %}
     {% set compHeading = richText.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
@@ -9,6 +10,7 @@
     {% include "@atoms/04-headings/sidebar-heading.twig" %}
   {% endif %}
 
+  <div class="ma__rich-text {{headerIndent}}">
   {# use this block to render your own content (see pattern docs) #}
   {% block rteElements %}
     {% for element in richText.rteElements %}
@@ -22,4 +24,5 @@
       {% include "@atoms/decorative-link.twig" %}
     </div>
   {% endif %}
-</div>
+  </div>
+</section>
