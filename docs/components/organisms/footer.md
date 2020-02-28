@@ -11,7 +11,7 @@ This is the global footer of the Mass.gov site, and is made up of a few sections
 {% endhint %}
 
 {% hint style="info" %}
-[**Mayflower React Footer Component**](http://mayflower-react.digital.mass.gov/?selectedKind=organisms%2FFooter&selectedStory=Footer&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[**Mayflower React Footer Component**](https://mayflower.digital.mass.gov/react/?selectedKind=organisms%2FFooter&selectedStory=Footer&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endhint %}
 
 ## **Placement & Guidelines:**
