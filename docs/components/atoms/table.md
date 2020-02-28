@@ -68,7 +68,7 @@ Tables should only be used to present raw data sets, to make content easy to sca
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Table in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-table)
+[Table in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-table)
 {% endtab %}
 {% endtabs %}
 

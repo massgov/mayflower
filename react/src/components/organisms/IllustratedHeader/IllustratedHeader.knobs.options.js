@@ -1,7 +1,7 @@
 export default {
   illustratedHeader: {
     bgInfo: 'Forest of the Berkshires',
-    bgImage: 'https://mayflower.digital.mass.gov/assets/images/placeholder/600x450.png',
+    bgImage: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/600x450.png',
     category: 'Guide',
     inverted: false,
     publishState: {

@@ -67,7 +67,7 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Primary Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button)​
+[Primary Button in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button)​
 {% endtab %}
 {% endtabs %}
 
@@ -91,7 +91,7 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Secondary Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button-as-secondary-color)
+[Secondary Button in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button-as-secondary-color)
 {% endtab %}
 {% endtabs %}
 
@@ -135,7 +135,7 @@ Work in Progress
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Link Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button-as-link)
+[Link Button in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button-as-link)
 {% endtab %}
 {% endtabs %}
 
@@ -187,7 +187,7 @@ Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Search Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button-search)
+[Search Button in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button-search)
 {% endtab %}
 {% endtabs %}
 

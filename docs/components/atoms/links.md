@@ -38,7 +38,7 @@ Currently Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Link in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-link)
+[Link in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-link)
 {% endtab %}
 {% endtabs %}
 
@@ -61,7 +61,7 @@ Currently Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Decorative Link in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-decorative-link)
+[Decorative Link in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-decorative-link)
 {% endtab %}
 {% endtabs %}
 
@@ -81,7 +81,7 @@ Currently Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Chevron Link in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-link-chevron)
+[Chevron Link in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-link-chevron)
 {% endtab %}
 {% endtabs %}
 

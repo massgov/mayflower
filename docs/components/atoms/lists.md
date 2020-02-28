@@ -54,7 +54,7 @@ Lists display a series of related content. Each list item begins with a bullet o
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Ordered List in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-ordered-list)
+[Ordered List in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-ordered-list)
 {% endtab %}
 {% endtabs %}
 
@@ -81,7 +81,7 @@ Lists display a series of related content. Each list item begins with a bullet o
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Unordered List in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-unordered-list)
+[Unordered List in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-unordered-list)
 {% endtab %}
 {% endtabs %}
 

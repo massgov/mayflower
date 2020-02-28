@@ -21,7 +21,7 @@ export default {
     featuredItems: [
       {
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/172x228.png',
+          src: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/172x228.png',
           alt: 'placeholder image',
           width: '172',
           height: '228'
@@ -41,7 +41,7 @@ export default {
       },
       {
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/172x228.png',
+          src: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/172x228.png',
           alt: 'placeholder image',
           width: '172',
           height: '228'
@@ -64,7 +64,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/72x96.png',
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -86,7 +86,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/72x96.png',
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -107,7 +107,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/72x96.png',
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -128,7 +128,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/72x96.png',
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -149,7 +149,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/72x96.png',
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -170,7 +170,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/72x96.png',
           alt: 'placeholder image',
           width: '72',
           height: '96'

@@ -2,12 +2,12 @@
 
 This is the global masthead of the Mass.gov site, and is comprised of a few distinct sections. The main/primary navigation and associated dropdowns \(Living, Working, Learning, Visiting & Exploring and Your Government\), the utility navigation and associated dropdown or drawer of links, search and the button to take users to the classic Mass.gov.
 
-| ![Header on Desktop 1024px](https://mayflower.digital.mass.gov/capture/capture_03-organisms-by-template-header_0_document_1_tablet.png) | ![Header on Mobile 320px](https://mayflower.digital.mass.gov/capture/capture_03-organisms-by-template-header_0_document_0_phone.png) |
+| ![Header on Desktop 1024px](https://mayflower.digital.mass.gov/patternlab/capture/capture_03-organisms-by-template-header_0_document_1_tablet.png) | ![Header on Mobile 320px](https://mayflower.digital.mass.gov/patternlab/capture/capture_03-organisms-by-template-header_0_document_0_phone.png) |
 | :--- | :--- |
 
 
 {% hint style="info" %}
-[**Mayflower PatternLab Header Pattern**](https://mayflower.digital.mass.gov/?p=organisms-header&view=c)
+[**Mayflower PatternLab Header Pattern**](https://mayflower.digital.mass.gov/patternlab/?p=organisms-header&view=c)
 {% endhint %}
 
 {% hint style="info" %}

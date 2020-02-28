@@ -120,5 +120,5 @@ You should see your changes live at [mayflower-react storybook][react-storybook]
 [mayflower-doc]: https://www.mass.gov/mayflower
 [react-storybook]: https://mayflower.digital.mass.gov/react
 [react-starter]: https://github.com/massgov/mayflower-react-starter
-[patternlab]: https://mayflower.digital.mass.gov
+[patternlab]: https://mayflower.digital.mass.gov/patternlab
 [shared-assets]: https://github.com/massgov/mayflower/tree/develop/assets

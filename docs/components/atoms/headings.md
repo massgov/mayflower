@@ -76,7 +76,7 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Heading Levels 1-6 Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-heading-1)
+[Heading Levels 1-6 Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-heading-1)
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +96,7 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Grey Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-colored-heading)
+[Grey Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-colored-heading)
 {% endtab %}
 {% endtabs %}
 
@@ -116,7 +116,7 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Green Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-colored-heading-green)
+[Green Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-colored-heading-green)
 {% endtab %}
 {% endtabs %}
 
@@ -136,7 +136,7 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Blue Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-colored-heading-blue)
+[Blue Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-colored-heading-blue)
 {% endtab %}
 {% endtabs %}
 
@@ -156,7 +156,7 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Component Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-comp-heading)
+[Component Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-comp-heading)
 {% endtab %}
 {% endtabs %}
 
@@ -176,7 +176,7 @@ Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Column Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-column-heading)
+[Column Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-column-heading)
 {% endtab %}
 {% endtabs %}
 
@@ -196,7 +196,7 @@ Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Sidebar Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-sidebar-heading)
+[Sidebar Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-sidebar-heading)
 {% endtab %}
 {% endtabs %}
 

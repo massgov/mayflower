@@ -14,7 +14,7 @@ assignees: ''
 
 - For Mayflower Documentation, refer to the [Mayflower Documentation](https://mass.gov/mayflower)
 - For Mayflower React, refer to the [Mayflower React Storybook](https://mayflower.digital.mass.gov/react/)
-- For Mayflower Patternlab, refer to the [Mayflower Patternlab](https://mayflower.digital.mass.gov/)
+- For Mayflower Patternlab, refer to the [Mayflower Patternlab](https://mayflower.digital.mass.gov/patternlab/)
 
 
 ## 2. When submitting your request, include:

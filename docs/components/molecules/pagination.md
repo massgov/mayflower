@@ -50,7 +50,7 @@ The pagination molecule includes:
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Pagination in Pattern Lab](https://mayflower.digital.mass.gov/?p=molecules-pagination)
+[Pagination in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=molecules-pagination)
 {% endtab %}
 {% endtabs %}
 

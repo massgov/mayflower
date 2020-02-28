@@ -32,7 +32,7 @@ Select boxes should not be used if possible. The behavior of select boxes varies
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[SelectBox in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-select-box)
+[SelectBox in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-select-box)
 {% endtab %}
 {% endtabs %}
 

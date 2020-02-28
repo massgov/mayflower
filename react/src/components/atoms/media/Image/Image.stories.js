@@ -12,7 +12,7 @@ storiesOf('atoms/media', module)
     'Image', (() => {
       const props = {
         alt: text('alt', 'alt text'),
-        src: text('src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),
+        src: text('src', 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/800x400.png'),
         width: number('width', 800),
         height: number('height', 400),
         shape: text('shape', ''),
@@ -27,7 +27,7 @@ storiesOf('atoms/media', module)
     'Image (circular)', (() => {
       const props = {
         alt: text('alt', 'alt text'),
-        src: text('src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/250x250.png'),
+        src: text('src', 'https://mayflower.digital.mass.gov/patternlab/assets/images/placeholder/250x250.png'),
         width: number('width', 250),
         height: number('height', 250),
         shape: text('shape', ''),

@@ -2,12 +2,12 @@
 
 This is the global footer of the Mass.gov site, and is made up of a few sections. It includes the state seal / site logo, social channels and service and copyright information, as well as 3 columns of links.
 
-| ![Header on Desktop 1024px](https://mayflower.digital.mass.gov/capture/capture_03-organisms-by-template-footer_0_document_1_tablet.png) | ![Header on Mobile 320px](https://mayflower.digital.mass.gov/capture/capture_03-organisms-by-template-footer_0_document_0_phone.png) |
+| ![Header on Desktop 1024px](https://mayflower.digital.mass.gov/patternlab/capture/capture_03-organisms-by-template-footer_0_document_1_tablet.png) | ![Header on Mobile 320px](https://mayflower.digital.mass.gov/patternlab/capture/capture_03-organisms-by-template-footer_0_document_0_phone.png) |
 | :--- | :--- |
 
 
 {% hint style="info" %}
-[**Mayflower PatternLab Footer Pattern**](https://mayflower.digital.mass.gov/?p=organisms-footer?view=c)
+[**Mayflower PatternLab Footer Pattern**](https://mayflower.digital.mass.gov/patternlab/?p=organisms-footer?view=c)
 {% endhint %}
 
 {% hint style="info" %}
