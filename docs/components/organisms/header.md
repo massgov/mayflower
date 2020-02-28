@@ -11,7 +11,7 @@ This is the global masthead of the Mass.gov site, and is comprised of a few dist
 {% endhint %}
 
 {% hint style="info" %}
-\*\*\*\*[**Mayflower React Header Component**](https://mayflower-react.digital.mass.gov/?selectedKind=organisms&selectedStory=Header&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)\*\*\*\*
+\*\*\*\*[**Mayflower React Header Component**](https://mayflower.digital.mass.gov/react/?selectedKind=organisms&selectedStory=Header&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)\*\*\*\*
 {% endhint %}
 
 ## Placement & Guidelines

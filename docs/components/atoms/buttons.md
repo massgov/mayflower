@@ -131,7 +131,7 @@ Work in Progress
 {% endtab %}
 
 {% tab title="React" %}
-[Link Button in Storybook](https://mayflower-react.digital.mass.gov/?knob-button.href=https%3A%2F%2Fmass.gov&knob-button.text=button&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-ButtonWithIcon.text=BUTTON&knob-ButtonWithIcon.icon=chevron&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Link Button in Storybook](https://mayflower.digital.mass.gov/react/?knob-button.href=https%3A%2F%2Fmass.gov&knob-button.text=button&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-ButtonWithIcon.text=BUTTON&knob-ButtonWithIcon.icon=chevron&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
@@ -156,7 +156,7 @@ Work in Progress
 {% endtab %}
 
 {% tab title="React" %}
-[Icon Button in Storybook](https://mayflower-react.digital.mass.gov/?knob-ButtonWithIcon.canExpand=true&knob-button.href=&knob-button.text=button&knob-ButtonWithIcon.capitalized=true&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-ButtonWithIcon.text=BUTTON&knob-ButtonWithIcon.icon=chevron&knob-ButtonWithIcon.expanded=true&selectedKind=atoms%2Fbuttons&selectedStory=ButtonWithIcon&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Icon Button in Storybook](https://mayflower.digital.mass.gov/react/?knob-ButtonWithIcon.canExpand=true&knob-button.href=&knob-button.text=button&knob-ButtonWithIcon.capitalized=true&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-ButtonWithIcon.text=BUTTON&knob-ButtonWithIcon.icon=chevron&knob-ButtonWithIcon.expanded=true&selectedKind=atoms%2Fbuttons&selectedStory=ButtonWithIcon&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
@@ -183,7 +183,7 @@ Not Available
 {% endtab %}
 
 {% tab title="React" %}
-[Search Button In Storybook](https://mayflower-react.digital.mass.gov/?selectedKind=atoms%2Fbuttons&selectedStory=ButtonSearch)
+[Search Button In Storybook](https://mayflower.digital.mass.gov/react/?selectedKind=atoms%2Fbuttons&selectedStory=ButtonSearch)
 {% endtab %}
 
 {% tab title="Twig PL" %}

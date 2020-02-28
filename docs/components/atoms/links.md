@@ -57,7 +57,7 @@ Currently Not Available
 {% endtab %}
 
 {% tab title="React" %}
-[Decorative Link in Storybook](https://mayflower-react.digital.mass.gov/?selectedKind=atoms%2Flinks&selectedStory=DecorativeLink&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Decorative Link in Storybook](https://mayflower.digital.mass.gov/react/?selectedKind=atoms%2Flinks&selectedStory=DecorativeLink&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
