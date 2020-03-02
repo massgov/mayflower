@@ -48,6 +48,12 @@ module.exports = async function(page, scenario, vp) {
         jQuery.fx.off = true;
         // Immediately complete any in-progress animations.
         jQuery(':animated').finish();
+
+        // Undo the Google Optimize page-hiding snippet so we can access the page
+        // before the 2s timeout. See https://developers.google.com/optimize.
+        if(window.dataLayer && window.dataLayer.hide && window.dataLayer.hide.end) {
+            window.dataLayer.hide.end();
+        }
     });
 
     // Finally, wait for ajax to complete - this is to give alerts
