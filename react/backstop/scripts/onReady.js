@@ -9,9 +9,10 @@ module.exports = async (page, scenario, vp) => {
       '  animation-duration: 0ms !important;\n' +
       '  transition-duration: 0ms !important;\n' +
       '  transition-delay: 0ms !important;\n' +
+      '}' +
+      '.info__show-button {' +
+      '  display: none !important;' +
       '}'
   });
-  await require('./clickAndHoverHelper')(page, scenario);
-
   // add more ready handlers here...
 };

@@ -24,26 +24,12 @@ const testComponents = storyBookBackstop.listComponents(dirList);
 // Map discovered Component dirs to Backstop scenarios.
 let scenarios = storyBookBackstop.mapComponents(testComponents, debug);
 
-// The Error and example Template pages need a delay to allow the background
-// animation to complete.
-scenarios = scenarios.map((item) => {
-  const delays = [
-    'Error',
-    'NarrowTemplate',
-    'GenTeaser',
-    'TeaserListing',
-    'Image',
-    'DataTable',
-    'IllustratedHeader'
-  ];
-  // eslint-disable-next-line prefer-const
-  let result = { ...item };
-  if (delays.some((value) => item.label.indexOf(value) > -1)) {
-    // @todo: If this delay is ok to remove, we can scratch this whole block.
-    // result.delay = 5000;
-  }
-  return result;
-});
+// Account for delays necessary to fully render the page.
+// This delay is "jitter" - time the page takes to render AFTER
+// the page has been presented to the user, but before it is visually
+// complete. If we raise this number, it means our performance has gotten
+// worse.
+scenarios = scenarios.map((item) => ({...item, delay: 300}))
 
 module.exports = {
   id: 'vrt',
@@ -57,12 +43,13 @@ module.exports = {
     html_report: path.resolve(__dirname, './data/html_report'),
     ci_report: path.resolve(__dirname, './data/ci_report')
   },
+  readyEvent: "storyRendered",
   report: ['browser', 'CI'],
   engine: 'puppeteer',
   engineOptions: {
     args: ['--no-sandbox']
   },
-  asyncCaptureLimit: 5,
+  asyncCaptureLimit: 3,
   asyncCompareLimit: 50,
   debug: false,
   debugWindow: false
