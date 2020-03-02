@@ -29,7 +29,7 @@ let scenarios = storyBookBackstop.mapComponents(testComponents, debug);
 // the page has been presented to the user, but before it is visually
 // complete. If we raise this number, it means our performance has gotten
 // worse.
-scenarios = scenarios.map((item) => ( {...item, delay: 300} ));
+scenarios = scenarios.map((item) => ({ ...item, delay: 300 }));
 
 module.exports = {
   id: 'vrt',
