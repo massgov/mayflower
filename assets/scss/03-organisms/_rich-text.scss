@@ -2,23 +2,6 @@ $rich-text-spacing: 1.75rem;
 $rich-text-spacing-mobile: 1.5rem;
 $heading-indent: $gutter;
 
-// .pre-content > .ma__rich-text__container,
-// .post-content > .ma__rich-text__container,
-// .main-content--full .page-content > .ma__rich-text__container {
-
-//   @include ma-container('restricted');
-// }
-
-// .ma__rich-text__container h2.ma__comp-heading {
-//   padding-top: .75em;
-
-//   &:first-child {
-//     padding-top: 0;
-//   }
-// }
-
-
-
 .ma__rich-text {
 
   @include clearfix;
@@ -48,6 +31,11 @@ $heading-indent: $gutter;
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  // TEST CODE
+  .ma__comp-heading + & {
+    margin-top: 0;
   }
 
   // extra specificity was needed to override & a { ... }
