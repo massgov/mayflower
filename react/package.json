@@ -69,6 +69,7 @@
     "@storybook/addon-storysource": "^5.3.14",
     "@storybook/addon-viewport": "^5.3.14",
     "@storybook/addons": "^5.3.14",
+    "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.14",
     "acorn": "^5.7.2",
     "acorn-jsx": "^4.1.1",
