@@ -39,7 +39,8 @@ scenarios = scenarios.map((item) => {
   // eslint-disable-next-line prefer-const
   let result = { ...item };
   if (delays.some((value) => item.label.indexOf(value) > -1)) {
-    result.delay = 5000;
+    // @todo: If this delay is ok to remove, we can scratch this whole block.
+    // result.delay = 5000;
   }
   return result;
 });
