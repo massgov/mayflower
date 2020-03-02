@@ -21,7 +21,8 @@ $heading-indent: $gutter;
   .pre-content > &__container,
   .pre-content > &,
   .post-content > &__container,
-  .main-content--full .page-content > &__container {
+  .main-content--full .page-content > &__container,
+  .main-content--full .page-content > & {
 
     @include ma-container('restricted');
   }
