@@ -27,7 +27,14 @@
         {% endblock %}
 
         {% set pagination = locationListing.pagination %}
-        {% include "@molecules/pagination.twig" %}
+
+        {% include "@molecules/pagination.twig" with {
+          pagination: {
+            prev: pagination.prev,
+            next: pagination.next,
+            pages: pagination.pages|slice(0, 10)
+          }
+        } %}
       </div>
     </div>
   </div>
