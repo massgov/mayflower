@@ -53,9 +53,10 @@
   }
 
   // Test style to expand the main column to full when side column is empty.
+
   .main-content--two--full & {
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       float: none;
       padding-right: 0;
       width: 100%;
