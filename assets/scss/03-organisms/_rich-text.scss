@@ -34,6 +34,7 @@ $heading-indent: $gutter;
   }
 
   // TEST CODE
+
   .ma__comp-heading + & {
     margin-top: 0;
   }

@@ -58,6 +58,7 @@
   }
 
   // EXCLURIVE STYLES to dataviz
+  
   .ma__dataviz {
 
     width: 100%;
@@ -67,6 +68,7 @@
 
   // Small
   // Right rail
+
   .main-content--two &--small.ma__dataviz {
     width: 100%;
 
@@ -76,6 +78,7 @@
   }
 
   // Full width (no side col content)
+
   .main-content--two--full &--small.ma__dataviz {
 
     @media ($bp-x-small-min) {// 481~
@@ -90,6 +93,7 @@
 
   // Medium
   // Right rail
+
   .main-content--two &--medium.ma__dataviz {
     width: 100%;
 
@@ -98,7 +102,9 @@
       width: calc(100% / 3 * 2);
     }
   }
+
   // Full width (no side col content)
+
   .main-content--two--full &--medium.ma__dataviz {
 
     @media ($bp-x-small-min) {// 481~
@@ -113,6 +119,7 @@
   }
 
   // Large
+
   &--large.ma__dataviz {
     width: 100%;
   }
@@ -121,6 +128,7 @@
   //   width: 100%;
   // }
   // Full width (no side col content)
+
   .main-content--two--full &--large.ma__dataviz {
     // width: 100%;
 
@@ -131,13 +139,16 @@
   }
 
   // alignment
+
   @media ($bp-x-small-max) {
+  
     &--left.ma__dataviz, &--right.ma__dataviz {
       float: none;
       margin-right: 0;
       margin-bottom: 0;
     }
   }
+
   &--left.ma__dataviz {
     float: left;
     margin-right: .5em;
