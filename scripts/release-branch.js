@@ -10,6 +10,15 @@ const git = require('simple-git/promise')();
 
 const { octokit } = require('./release-vars');
 const { newLogsWithTitle, changelogs, version } = require('./compile-changelogs');
+const bumpVersion = require('./version-bump');
+
+const reactPath = '../react/package.json';
+const patternlabPath = '../patternlab/styleguide/package.json';
+const assetsPath = '../assets/package.json';
+
+bumpVersion(reactPath, version);
+bumpVersion(patternlabPath, version);
+bumpVersion(assetsPath, version);
 
 // Checkout the branch.
 const releaseBranch = 'release/' + version;
