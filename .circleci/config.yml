@@ -221,7 +221,7 @@ jobs:
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
-              echo $CIRCLE_TAG
+              echo "$CIRCLE_TAG"
             fi
       - run: |
           # Only sync to S3 for stable tags.
@@ -303,7 +303,7 @@ jobs:
           name: 'Publish mayflower-tokens NPM package'
           command: |
             cd assets
-            if test -z "$(npm show @massds/mayflower-tokens@$CIRCLE_TAG)"; then
+            if test -z "$(npm show @massds/mayflower-tokens@9.42.0)"; then
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
@@ -350,25 +350,25 @@ workflows:
   #             only:
   #               - develop
 
-  # build_github_tag:
-  #   jobs:
-  #     - build:
-  #         filters:
-  #           branches:
-  #             only: master
-  #     - hold:
-  #         type: approval
-  #         requires:
-  #           - build
-  #         filters:
-  #           branches:
-  #            only: master
-  #     - github_tag:
-  #         requires:
-  #           - hold
-  #         filters:
-  #           branches:
-  #             only: master
+  build_github_tag:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - hold:
+          type: approval
+          requires:
+            - build
+          filters:
+            branches:
+             only: master
+      - github_tag:
+          requires:
+            - hold
+          filters:
+            branches:
+              only: master
 
   # Executed on tag pushes.
   build_tag:
