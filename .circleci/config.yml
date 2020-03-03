@@ -304,7 +304,7 @@ jobs:
           command: |
             cd assets
             if test -z "$(npm show @massds/mayflower-tokens@$CIRCLE_TAG)"; then
-              echo "success"
+              npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
               echo "$CIRCLE_TAG"
