@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Location-listing
+    description: Limit pagination output to 10 items
+    issue: DP-15035
+    impact: Minor
