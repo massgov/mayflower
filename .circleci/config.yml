@@ -144,7 +144,6 @@ jobs:
           name: 'Deploy NPM Tag'
           command: |
             cd patternlab/styleguide/dist
-            npm version --no-git-tag-version "$CIRCLE_TAG"
             if test -z "$(npm show @massds/mayflower@$CIRCLE_TAG)"; then
               npm publish
             else
@@ -217,7 +216,6 @@ jobs:
           name: 'Publish mayflower-react NPM package'
           command: |
             cd react
-            npm version --no-git-tag-version "$CIRCLE_TAG"
             if test -z "$(npm show @massds/mayflower-react@$CIRCLE_TAG)"; then
               npm publish
             else
@@ -303,7 +301,6 @@ jobs:
           name: 'Publish mayflower-tokens NPM package'
           command: |
             cd assets
-            npm version --no-git-tag-version "$CIRCLE_TAG"
             if test -z "$(npm show @massds/mayflower-tokens@$CIRCLE_TAG)"; then
               npm publish
             else
