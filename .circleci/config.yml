@@ -148,6 +148,7 @@ jobs:
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
+              echo "$CIRCLE_TAG"
             fi
       - run:
           name: 'Deploy S3 Tag'
@@ -220,6 +221,7 @@ jobs:
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
+              echo $CIRCLE_TAG
             fi
       - run: |
           # Only sync to S3 for stable tags.
