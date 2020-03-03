@@ -337,38 +337,38 @@ workflows:
       # - react_test: {requires: [react_build_storybook]}
 
   # Release branch automation every Tuesday at 1 p.m. ET
-  release:
-    jobs:
-      - build
-      - release_branch:
-          requires: [build]
-    triggers:
-      - schedule:
-          cron: "00 18 * * 2"
-          filters:
-            branches:
-              only:
-                - develop
+  # release:
+  #   jobs:
+  #     - build
+  #     - release_branch:
+  #         requires: [build]
+  #   triggers:
+  #     - schedule:
+  #         cron: "00 18 * * 2"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - develop
 
-  build_github_tag:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: master
-      - hold:
-          type: approval
-          requires:
-            - build
-          filters:
-            branches:
-             only: master
-      - github_tag:
-          requires:
-            - hold
-          filters:
-            branches:
-              only: master
+  # build_github_tag:
+  #   jobs:
+  #     - build:
+  #         filters:
+  #           branches:
+  #             only: master
+  #     - hold:
+  #         type: approval
+  #         requires:
+  #           - build
+  #         filters:
+  #           branches:
+  #            only: master
+  #     - github_tag:
+  #         requires:
+  #           - hold
+  #         filters:
+  #           branches:
+  #             only: master
 
   # Executed on tag pushes.
   build_tag:
