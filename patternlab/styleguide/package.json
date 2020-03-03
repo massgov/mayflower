@@ -5,7 +5,7 @@
     "node": ">6.9.0",
     "npm": ">5.0.0"
   },
-  "version": "9.42.0",
+  "version": "9.43.0",
   "author": "Massachusetts Digital Services (MDS)",
   "repository": {
     "type": "git",
