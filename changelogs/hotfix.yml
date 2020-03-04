@@ -1,6 +1,6 @@
-Added:
+Fixed:
   - project: React, Patternlab, Assets
     component: Auto Release
-    description: Added step to bump version in package.json. (#956)
+    description: Revert commiting package.json version bump. (#909)
     issue: DP-17652
     impact: Patch
