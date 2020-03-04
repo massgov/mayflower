@@ -1,6 +1,0 @@
-Added:
-  - project: Assets
-    component: CircleCI
-    description: Added @massds/mayflower-tokens package to auto release, keeping versioning consistent with other mayflower npm packages.(#949)
-    issue: DP-17651
-    impact: Minor
