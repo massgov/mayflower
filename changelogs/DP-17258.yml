@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: StickyTOC
-    description: Fix "see more" button not appearing after the TOC
-    issue: DP-17258
-    impact: Minor
