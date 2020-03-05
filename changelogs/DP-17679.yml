@@ -1,0 +1,6 @@
+Changed:
+  - project: React, Patternlab
+    component: Testing
+    description: Updated BackstopJS to 4.x and added numerous test speed and stability enhancements.
+    issue: DP-17679
+    impact: Minor
