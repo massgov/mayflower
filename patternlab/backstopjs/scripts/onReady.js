@@ -6,6 +6,19 @@
  * an element, you can probably deal with it here.
  */
 module.exports = async function(page, scenario, vp) {
+
+    // Wait for all visible fonts to complete loading.
+    await page.evaluate(async function() {
+        await document.fonts.ready;
+    })
+
+    // Wait for all images to complete loading.
+    await page.waitForFunction(() => {
+        return Array.from(document.getElementsByTagName('img'))
+            .filter(i => i.hasAttribute('src') && !i.complete)
+            .length === 0;
+    })
+
     await page.addStyleTag({
         content: '' +
         // Force all animation to complete immediately.
@@ -61,9 +74,11 @@ module.exports = async function(page, scenario, vp) {
     // in local environments.
     await page.waitForFunction('jQuery.active == 0');
 
-    // Add a slight delay.  This covers up some of the jitter caused
-    // by weird network conditions, slow javascript, etc. We should
-    // work to reduce this number, since it represents instability
-    // in our styling.
-    await page.waitFor(300);
+    if(scenario.label.match(/^page /)) {
+        // Add a slight delay.  This covers up some of the jitter caused
+        // by weird network conditions, slow javascript, etc. We should
+        // work to reduce this number, since it represents instability
+        // in our styling.
+        await page.waitFor(350);
+    }
 }

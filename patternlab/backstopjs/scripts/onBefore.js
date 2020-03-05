@@ -19,7 +19,7 @@ const banned = [
     'bam.nr-data.net',
     'maps.googleapis.com',
     '9p83os0fkf.execute-api.us-east-1.amazonaws.com/v1/waittime',
-    'public.tableau.com/javascripts'
+    'public.tableau.com/javascripts',
 ];
 // Block scripts that do analytics tracking, have side effects based on
 // domain, or cause timeouts on page load because they load in lots of extra
