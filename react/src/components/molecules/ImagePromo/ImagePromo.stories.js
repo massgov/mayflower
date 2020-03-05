@@ -6,7 +6,7 @@ import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
 import Icon from '../../base/Icon';
 
-import rectPlaceholder from '../../../assets/images/placeholder/800x400.png';
+import rectPlaceholder from '../../../assets/images/placeholder/190x107.png';
 import sqrPlaceholder from '../../../assets/images/placeholder/100x100.png';
 
 
