@@ -1,6 +1,23 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.42.1 (3/3/2020)
+### Fixed 
+- (React, Patternlab, Assets) [Auto Release] DP-17652: Revert commiting package.json version bump. (#909)
+
+## 9.42.0 (3/3/2020)
+### Fixed 
+- (Patternlab) [Location-listing] DP-15035: Limit pagination output to 10 items
+
+### Changed 
+- (Patternlab) [StickyTOC] DP-17258: Fix "see more" button not appearing after the TOC
+
+### Added 
+- (Assets) [scripts] DP-17532: Added a build step to map the src to a different structure for distribution `npm run build` and restructured `mayflower-token` package content in a `dist` folder. (#948)
+- (Assets) [SCSS] DP-17532: Added `lighter` `lightest` `darker` `darkest` variables consistently across all brand colors, adjusted the variable labels in the storybook. (#948)
+- (Assets) [CircleCI] DP-17651: Added @massds/mayflower-tokens package to auto release, keeping versioning consistent with other mayflower npm packages.(#949)
+- (React, Patternlab, Assets) [Auto Release] DP-17652: Added step to bump version in package.json. (#956)
+
 ## 9.41.0 (2/25/2020)
 ### Changed
 - (Assets) [SCSS] DP-17532: Separated color token variable scss from the color usage mapping. (#947)
