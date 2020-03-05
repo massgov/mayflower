@@ -28,7 +28,6 @@ const bannedRE = new RegExp(banned.map(escapeRegexp).join('|'))
 
 async function interceptRequest(request) {
   let urlMatch;
-  console.log(`Intercepting ${request.url()}`)
   // Replace static maps with a placeholder image of the same size.
   if(urlMatch = request.url().match(/maps\.googleapis\.com\/maps\/api\/staticmap.*size=(\d+x\d+)/)) {
     request.respond({
@@ -37,23 +36,10 @@ async function interceptRequest(request) {
     })
     return
   }
-  // Replace hero images with placeholder images. Hero images can be randomized, so we just
-  // replace them with their
-  if(urlMatch = request.url().match(/\/files\/styles\/hero(\d+x\d+)/)) {
-    request.respond({
-      status: 301,
-      headers: {Location: `https://via.placeholder.com/${urlMatch[1]}.png?text=Hero%20Image`}
-    })
-    return;
-  }
-
+  // Conditionally block requests if they match our regex.
   if(bannedRE.test(request.url())) {
-    console.log(`Blocking ${request.url()}`)
     request.abort()
   } else {
-    if(!request.url().match('http://web')) {
-      console.log(`Allowing external request to ${request.url()}`)
-    }
     request.continue()
   }
 }

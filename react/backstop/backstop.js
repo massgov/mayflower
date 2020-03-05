@@ -24,16 +24,10 @@ const testComponents = storyBookBackstop.listComponents(dirList);
 // Map discovered Component dirs to Backstop scenarios.
 let scenarios = storyBookBackstop.mapComponents(testComponents, debug);
 
-// Account for delays necessary to fully render the page.
-// This delay is "jitter" - time the page takes to render AFTER
-// the page has been presented to the user, but before it is visually
-// complete. If we raise this number, it means our performance has gotten
-// worse.
-scenarios = scenarios.map((item) => ({ ...item, delay: 300 }));
-
 module.exports = {
   id: 'vrt',
   viewports,
+  onBeforeScript: 'onBefore.js',
   onReadyScript: 'onReady.js',
   scenarios,
   paths: {
@@ -43,6 +37,10 @@ module.exports = {
     html_report: path.resolve(__dirname, './data/html_report'),
     ci_report: path.resolve(__dirname, './data/ci_report')
   },
+  // Use 'storyRendered' being printed to the console as the trigger to start
+  // taking the snapshot. This is something Storybook prints on its own. This
+  // prevents us from having to add a manual delay to compensate for Storybook's
+  // slow boot time.
   readyEvent: 'storyRendered',
   report: ['browser', 'CI'],
   engine: 'puppeteer',
