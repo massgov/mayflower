@@ -25,17 +25,14 @@
 
   .main-content--two & {
 
-    &.has-sidebar {
+    @media ($bp-large-min) {
+      float:left;
+      padding-right: $column;
+      width: calc(100% - #{$layout-sidebar-width});
+    }
 
-      @media ($bp-large-min) {
-        float: left;
-        padding-right: $column;
-        width: calc(100% - #{$layout-sidebar-width});
-      }
-
-      @media ($bp-x-large-min) {
-        padding-right: $column + ($gutter * 2);
-      }
+    @media ($bp-x-large-min) {
+      padding-right: $column + ($gutter * 2);
     }
   }
 

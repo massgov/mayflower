@@ -59,4 +59,11 @@
       }
     }
   }
+
+  .page-content:not(.has-sidebar) {
+    float: none;
+    padding-right: 0;
+    width: 100%;
+  }
+
 }
