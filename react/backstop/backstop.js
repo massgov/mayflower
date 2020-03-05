@@ -22,7 +22,7 @@ const dirList = listDirs(componentsPath)
 const testComponents = storyBookBackstop.listComponents(dirList);
 
 // Map discovered Component dirs to Backstop scenarios.
-let scenarios = storyBookBackstop.mapComponents(testComponents, debug);
+const scenarios = storyBookBackstop.mapComponents(testComponents, debug);
 
 module.exports = {
   id: 'vrt',
