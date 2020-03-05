@@ -31,4 +31,7 @@ module.exports = async (page, scenario, vp) => {
       '  display: none !important;' +
       '}'
   });
+
+  // Additional wait for rendering to complete 100%.
+  await page.waitFor(100);
 };
