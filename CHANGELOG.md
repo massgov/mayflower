@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.42.1 (3/3/2020)
+### Fixed 
+- (React, Patternlab, Assets) [Auto Release] DP-17652: Revert commiting package.json version bump. (#909)
+
 ## 9.42.0 (3/3/2020)
 ### Fixed 
 - (Patternlab) [Location-listing] DP-15035: Limit pagination output to 10 items
