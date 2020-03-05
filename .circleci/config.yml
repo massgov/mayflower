@@ -224,7 +224,7 @@ jobs:
             cd react
             aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete
             aws configure set preview.cloudfront true
-            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/react*'
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*'
           fi
 
   auto_changelog:
