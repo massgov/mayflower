@@ -1,22 +1,6 @@
-{% set figureClass = figure.align ? "ma__figure--" ~ figure.align : "" %}
-{% set iframeClass = "ma__iframe__container js-ma-responsive-iframe" %}
+{% set alignmentClass = figure.align ? "ma__figure--" ~ figure.align : "" %}
 
-{# Dataviz embed iframe #}
-{# iframe element is generaged by Tableau JS. #}
-{% if figure.dataviz %}
-  {# Set align default to left. #}
-  {% set figureClass = figure.align ? "ma__figure--" ~ figure.align : "ma__figure--left" %}
-  {% set id = figure.dataviz.id %}
-  {% set src = figure.dataviz.src %}
-  {# TODO:  SET SIZE VALUES #}
-  {% set size = figure.dataviz.size ? "ma__figure--" ~ figure.dataviz.size : "ma__figure--large" %}
-{% endif %}
-
-{# <figure class="ma__figure {{ figureClass }}"> #}
-{# {% if figure.dataviz %}<div class="ma__iframe--responsive">{% endif %} #}
-<figure class="ma__figure {{ figureClass }}{% if figure.iframe %} {{ iframeClass }}{% endif %}{% if figure.dataviz %} {{ size }} ma__dataviz{% endif %}"{% if figure.dataviz %} id="{{ id }}"{% endif %}>
-{# <figure class="ma__figure {{ figureClass }}{% if figure.iframe %} {{ iframeClass }}{% endif %}{% if figure.dataviz %} {{ size }} ma__dataviz js-ma-responsive-iframe{% endif %}"{% if figure.dataviz %} id="{{ id }}"{% endif %}> #}
-
+<figure class="ma__figure {{ alignmentClass }}">
 
   {% if figure.title %}
   <span class="ma__figure__title">
@@ -29,12 +13,6 @@
     {% set image = figure.image %}
     {% include "@atoms/09-media/image.twig" %}
   {% endif %}
-  {# For iframe. #}
-  {% if figure.iframe %}
-    {% set iframe = figure.iframe %}
-    {# Regular iframe #}
-    {% include "@atoms/09-media/iframe.twig" %}
-  {% endif %}
 
   {% if figure.caption %}
     <figcaption class="ma__figure__caption">
@@ -42,22 +20,3 @@
     </figcaption>
   {% endif %}
 </figure>
-{# {% if figure.dataviz %}</div>{% endif %} #}
-{% if figure.dataviz %}
-<script type="text/javascript">
-  window.addEventListener("DOMContentLoaded", function() {
-    const url = "{{ src }}"
-    new tableau.Viz(document.getElementById("{{ id }}"), url);
-  });
-</script>
-
-{# <script>
-    // Selecting the iframe element
-    var iframe = document.getElementById("{{ id }}");
-
-    // Adjusting the iframe height onload event
-    iframe.onload = function(){
-        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-    }
-    </script> #}
-{% endif %}
