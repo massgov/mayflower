@@ -48,7 +48,7 @@ module.exports = {
     args: ['--no-sandbox']
   },
   asyncCaptureLimit: 3,
-  asyncCompareLimit: 50,
+  asyncCompareLimit: 20,
   debug: false,
   debugWindow: false
 };

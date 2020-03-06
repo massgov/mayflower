@@ -84,12 +84,22 @@ const listComponents = (dirList) => {
 const mapComponents = (components, debug) => components.map((component) => {
   const { kind, name } = component;
   const viewports = [];
+  const selectors = [];
   if (isAtom(component)) {
     viewports.push({ label: 'small_atom', width: 400, height: 250 });
   } else {
     viewports.push({ label: 'phone', width: 320, height: 480 });
     viewports.push({ label: 'tablet', width: 1024, height: 768 });
   }
+  // Set the component selector. For the fixed feedback button we need to use
+  // an explicit selector. For all others, snapshot Storybook's render screen.
+  if(isFixedFeedback(component)) {
+    selectors.push('.ma__fixed-feedback-button');
+  }
+  else {
+    selectors.push('#root > div');
+  }
+
   let urlBase = 'http://web/';
   if (debug) {
     // Only use --debug when running backstop outside of docker for local
@@ -108,7 +118,8 @@ const mapComponents = (components, debug) => components.map((component) => {
   return makeScenario(
     `${kind}/${name}`,
     url,
-    viewports
+    viewports,
+    selectors
   );
 });
 
@@ -126,6 +137,10 @@ const isAtom = (component) => {
     (path.basename(filePath) !== 'Image');
 };
 
+const isFixedFeedback = (component) => {
+  return path.basename(component.filePath) === 'ButtonFixedFeedback';
+}
+
 /**
  * Creates a Backstop scenario object from the passed label and url.
  *
@@ -133,11 +148,12 @@ const isAtom = (component) => {
  * @param {string} url
  * @param {array} viewports
  */
-const makeScenario = (label, url, viewports = null) => ({
+const makeScenario = (label, url, viewports = null, selectors = null) => ({
   label,
   url,
   misMatchThreshold: 0.05,
-  viewports
+  viewports,
+  selectors
 });
 
 module.exports = { listComponents, mapComponents, makeScenario };
