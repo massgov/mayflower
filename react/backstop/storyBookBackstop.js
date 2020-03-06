@@ -93,10 +93,9 @@ const mapComponents = (components, debug) => components.map((component) => {
   }
   // Set the component selector. For the fixed feedback button we need to use
   // an explicit selector. For all others, snapshot Storybook's render screen.
-  if(isFixedFeedback(component)) {
+  if (isFixedFeedback(component)) {
     selectors.push('.ma__fixed-feedback-button');
-  }
-  else {
+  } else {
     selectors.push('#root > div');
   }
 
@@ -137,9 +136,14 @@ const isAtom = (component) => {
     (path.basename(filePath) !== 'Image');
 };
 
-const isFixedFeedback = (component) => {
-  return path.basename(component.filePath) === 'ButtonFixedFeedback';
-}
+/**
+ * Determines if a component is the Fixed Feedback button.
+ *
+ * @param component
+ * @return {boolean}
+ */
+const isFixedFeedback = (component) =>
+  path.basename(component.filePath) === 'ButtonFixedFeedback';
 
 /**
  * Creates a Backstop scenario object from the passed label and url.
