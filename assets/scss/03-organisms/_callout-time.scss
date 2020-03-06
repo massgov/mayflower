@@ -8,6 +8,10 @@
     @include ma-container('restricted');
   }
 
+  .ma__rich-text__container & {
+    @include ma-component-spacing;
+  }
+
   &__container {
     position: relative;
   }
