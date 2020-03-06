@@ -22,7 +22,6 @@ $heading-indent: $gutter;
   .pre-content > &,
   .post-content > &__container,
   .main-content--full .page-content > &__container,
-  .ma__announcement__page-content > &__container &,
   .main-content--full .page-content > &
   {
 
@@ -41,6 +40,11 @@ $heading-indent: $gutter;
 
   .ma__comp-heading + & {
     margin-top: 0;
+  }
+
+  .page-content.ma__announcement__page-content &__container & {
+
+    @include ma-component-spacing;
   }
 
   // extra specificity was needed to override & a { ... }
