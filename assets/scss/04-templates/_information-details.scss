@@ -60,7 +60,7 @@
     }
   }
 
-  .page-content:not(.has-sidebar) {
+  .page-content.no-sidebar {
     float: none;
     padding-right: 0;
     width: 100%;
