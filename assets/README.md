@@ -3,13 +3,16 @@
 
 Mayflower-tokens provides a bundled up library of design tokens and assets that you will need for theming your front end framework to look and feel like [Mass.gov](https://mass.gov) and other Commonwealth web properties that are in Mayflower ecosystem. Mayflower-tokens includes color token SCSS variables, fonts, icons and other imagery from Mayflower — the [enterprise design system for the Commonwealth of Massachusetts][mayflower-doc].
 ```
-├── fonts                             Texta web fonts      
-├── images             
-│   ├── svg-icons                     SVG icon files
-│   ├── stateseal-color               stateseal png in color
-│   ├── stateseal-color               stateseal png grayscale
-├── colors         
-│   ├── _mayflower-color-tokens.scss  Color tokens
+├── dist   
+    ├── fonts                 Texta web fonts      
+    ├── images             
+    │   ├── svg-icons         SVG icon files
+    │   ├── stateseal         stateseal png
+    │   ├── stateseal-color   stateseal png in color grayscale
+    ├── scss        
+    │   ├── _colors.scss      Color tokens
+    │   ├── _fonts.scss       Texta font imports (needs to set $assets-path)
+    │   ├── _index.scss       Default SCSS export 
 ```
 
 - **Codebase:** [Mayflower monorepo][mayflower-github] `assets` subdirectory
@@ -33,6 +36,16 @@ Please note that the fonts and the svg-icons are licensed only for the usage on 
 Fontspring grants Licensee a perpetual, worldwide, non-exclusive and non-transferrable license to install the Texta as webfont on Websites that are owned by the Commonwealth of Massachusetts using the @font-face selector in CSS files. For other usage, you may have to acquire an additional license through Fontsprint.
 For more details about Texta's terms of use, please refer to our [web font license](https://www.fontspring.com/lic/htswufoczd).
 
+## Publish Package
+
+1. `npm login` — Login to the npm account.
+>To publish the package, you will have to be a collaborator or have access to the [@massds/mayflower-tokens npm package](https://www.npmjs.com/package/@massds/mayflower-tokens).
+
+1. `npm run build` — Build the distribution folder `dist`.
+
+1. Update `version` in package.json.
+1. `npm publish` — Publish `@massds/mayflower-tokens` to npm registry.å
+1. Wait a few minutes and check [@massds/mayflower-tokens][npm] on the registry.
 
 
 [npm-badge]: https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square

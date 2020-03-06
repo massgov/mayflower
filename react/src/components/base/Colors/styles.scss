@@ -83,11 +83,11 @@ $tiles: 10;
 }
 
 $colors: (
-  "c-highlight": $c-highlight,
-  "c-primary": $c-primary,
-  "c-primary-alt": $c-primary-alt,
+  "c-duckling-yellow": $c-duckling-yellow,
+  "c-bay-blue": $c-bay-blue,
+  "c-berkshires-green": $c-berkshires-green,
   "c-independence-cranberry": $c-independence-cranberry,
-  "c-gray-dark": $c-gray-dark
+  "c-granite-gray": $c-granite-gray
 );
 
 @each $class, $c in $colors {
