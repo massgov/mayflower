@@ -12,12 +12,35 @@ module.exports = async function(page, scenario, vp) {
         await document.fonts.ready;
     })
 
-    // Wait for all images to complete loading.
+    // Wait for all <img> elements to complete loading.
     await page.waitForFunction(() => {
-        return Array.from(document.getElementsByTagName('img'))
-            .filter(i => i.hasAttribute('src') && !i.complete)
-            .length === 0;
-    })
+        const images = Array.from(document.images);
+        const unloaded = images.filter(i => i.hasAttribute('src') && !i.complete)
+        return unloaded.length === 0;
+    });
+
+    // Wait for background images to finish loading.
+    await page.evaluate(async function() {
+        const bgHavingElements = document.querySelectorAll('[role="img"]');
+        const loadPromises = Array.from(bgHavingElements).map((element) => {
+            const style = getComputedStyle(element);
+            if (style.backgroundImage.match(/^url\(/)) {
+                // If a background image is found, create an <img> as a way for us to
+                // detect its loading status. The promise resolves when it has loaded.
+                return new Promise((resolve, reject) =>{
+                    const url = style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '')
+                    const img = document.createElement('img');
+                    img.setAttribute('src', url);
+                    img.onload = () => {
+                        img.remove();
+                        resolve();
+                    }
+                })
+            }
+            return Promise.resolve();
+        });
+        return Promise.all(loadPromises);
+    });
 
     await page.addStyleTag({
         content: '' +
@@ -39,11 +62,11 @@ module.exports = async function(page, scenario, vp) {
         '  bottom: 0;' +
         '  z-index: 100;' +
         '}' +
-        // Kill google Maps (show a green box instead)
-        '.js-google-map {' +
+        // Kill google Maps and iframes (show a green box instead)
+        '.js-google-map, .js-ma-responsive-iframe {' +
         '  position: relative;' +
         '}' +
-        '.js-google-map:before {' +
+        '.js-google-map:before, .js-ma-responsive-iframe:before {' +
         '  background: #B2DEA2;\n' +
         '  content: \' \';\n' +
         '  display: block;\n' +
@@ -56,6 +79,11 @@ module.exports = async function(page, scenario, vp) {
         '}'
     });
 
+    // Wait for ajax to complete - this is to give alerts
+    // time to finish rendering. This can take a while, especially
+    // in local environments.
+    await page.waitForFunction('jQuery.active == 0');
+
     await page.evaluate(async function () {
         // Disable jQuery animation for any future calls.
         jQuery.fx.off = true;
@@ -67,12 +95,10 @@ module.exports = async function(page, scenario, vp) {
         if(window.dataLayer && window.dataLayer.hide && window.dataLayer.hide.end) {
             window.dataLayer.hide.end();
         }
+
     });
 
-    // Finally, wait for ajax to complete - this is to give alerts
-    // time to finish rendering. This can take a while, especially
-    // in local environments.
-    await page.waitForFunction('jQuery.active == 0');
+
 
     if(scenario.label.match(/^page /)) {
         // Add a slight delay.  This covers up some of the jitter caused
