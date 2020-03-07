@@ -67,12 +67,12 @@
       }
     },
     {
-      "path": "@atoms/09-media/figure.twig",
+      "path": "@atoms/09-media/figure--image.twig",
       "data": {
         "figure": {
           "align": "",
-          "image": { 
-            "alt": "alt text", 
+          "image": {
+            "alt": "alt text",
             "src": "../../assets/images/placeholder/800x400.png",
             "height": "",
             "width": ""
@@ -90,12 +90,12 @@
       }
     },
     {
-      "path": "@atoms/09-media/figure.twig",
+      "path": "@atoms/09-media/figure--image.twig",
       "data": {
         "figure": {
           "align": "align-right",
-          "image": { 
-            "alt": "alt text", 
+          "image": {
+            "alt": "alt text",
             "src": "../../assets/images/placeholder/400x300.png",
             "height": "",
             "width": ""
@@ -129,12 +129,12 @@
       }
     },
     {
-      "path": "@atoms/09-media/figure.twig",
+      "path": "@atoms/09-media/figure--image.twig",
       "data": {
         "figure": {
           "align": "align-left",
-          "image": { 
-            "alt": "alt text", 
+          "image": {
+            "alt": "alt text",
             "src": "../../assets/images/placeholder/400x300.png",
             "height": "",
             "width": ""
@@ -361,7 +361,7 @@
         "unorderedList": [
           { "text": "This is a list item in an unordered list" },
           { "text": "An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line." },
-          { 
+          {
             "text": "Lists can be nested inside of each other",
             "sublist" : [
               {"text":"This is a nested list item"},

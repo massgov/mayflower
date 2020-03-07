@@ -21,7 +21,7 @@
       }
     }],
     "widgets": [{
-      "path": "@atoms/09-media/figure.twig",
+      "path": "@atoms/09-media/figure--image.twig",
       "data": {
         "figure": {
           "align": "",
