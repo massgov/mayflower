@@ -36,9 +36,9 @@ figure: {
       type: string
   }
   dataviz: {
-    id: string('small', 'medium', 'large') / optional
-    size: string / optional
-    src:
+    id: string / optional
+    size: string('small', 'medium', 'large') / optional
+    url:
       type: string (url) / required
   }
   title:
