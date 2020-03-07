@@ -1,0 +1,14 @@
+{
+  "figure": {
+    "align": "",
+    "class": "",
+    "iframe": {
+      "src": "https://massgov.github.io",
+      "title": "Embed page title for accessibility",
+      "height": "853",
+      "position": ""
+    },
+    "title": "This is an option image title",
+    "caption": "This is an optional caption that can wrap to multiple lines."
+  }
+}

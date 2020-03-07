@@ -1,0 +1,15 @@
+{% if figure.iframe %}
+  {# Render figure.content, which will be the main content of the figure #}
+  {# Important: we wrap this in an `if` statement to allow consuming systems
+     to either use figure.image or figure.content (if they prefer to externally
+     render figure.content
+   #}
+  {% set figure = figure|merge({
+    'content': include("@atoms/09-media/iframe.twig", {'iframe': figure.iframe})
+  }) %}
+{% endif %}
+{% include "@atoms/09-media/figure.twig" with {
+  figure: figure|merge({
+    'class': 'ma__iframe__container js-ma-responsive-iframe',
+  })
+} %}
