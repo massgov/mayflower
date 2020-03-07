@@ -19,13 +19,16 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          description
+          url
         }
       }
     }
   `)
+  const { description, title, url } = data.site.siteMetadata;
   const siteLogoProps = {
     url: {
-      domain: 'https://www.mass.gov/'
+      domain: url
     },
     image: {
       src: logo,
@@ -33,13 +36,13 @@ const Layout = ({ children }) => {
       width: 45,
       height: 45
     },
-    siteName: 'Mayflower',
-    title: 'Mayflower homepage'
+    siteName: title,
+    title: description
   }
   const siteLogo = <SiteLogo {...siteLogoProps} />
   return (
     <>
-      <HeaderSlim siteTitle={data.site.siteMetadata.title} />
+      <HeaderSlim siteLogo={siteLogo} />
       <main id="main-content">
         <div className={`ma__container`}>
           { children }

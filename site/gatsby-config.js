@@ -2,8 +2,9 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `Mayflower homepage`,
-    description: `The landing page of the Commonwealth Design System`,
+    title: `Mayflower`,
+    description: `A design system for the Commonwealth of Massachusetts`,
+    url: 'https://mayflower.digital.mass.gov/'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
