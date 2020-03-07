@@ -1,7 +1,7 @@
 {
   "figure": {
-    "align": "right",
-    "class": "ma__iframe__container js-ma-responsive-iframe",
+    "align": "",
+    "class": "",
     "image": {
       "alt": "alt text",
       "src": "../../assets/images/placeholder/820x460.png",
