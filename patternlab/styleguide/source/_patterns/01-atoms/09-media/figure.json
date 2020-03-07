@@ -1,9 +1,8 @@
 {
   "figure": {
     "align": "",
-    "class": "",
     "content": "",
-    "title": "This is an option image title",
+    "title": "This is an option title",
     "caption": "This is an optional caption that can wrap to multiple lines."
   }
 }
