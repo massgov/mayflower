@@ -1,5 +1,6 @@
 {% set alignmentClass = figure.align ? " ma__figure--" ~ figure.align : "" %}
-<figure class="ma__figure{{ alignmentClass }}{{ figure.class ? " "~ figure.class : "" }}">
+{% set sizeClass = figure.size ? " ma__figure--" ~ figure.size : "" %}
+<figure class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : "" }}">
   {% if figure.title %}
   <span class="ma__figure__title">
     {{ figure.title }}
