@@ -4,8 +4,13 @@
      to either use figure.image or figure.content (if they prefer to externally
      render figure.content
    #}
+  {% set content %}
+    {% include "@atoms/09-media/iframe.twig" with {
+      'iframe': figure.iframe
+    } %}
+  {% endset %}
   {% set figure = figure|merge({
-    'content': include("@atoms/09-media/iframe.twig", {'iframe': figure.iframe})
+    'content': content
   }) %}
 {% endif %}
 {% include "@atoms/09-media/figure.twig" with {
