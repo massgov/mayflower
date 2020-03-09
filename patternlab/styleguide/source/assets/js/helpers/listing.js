@@ -436,16 +436,13 @@ export default (function(window, document, undefined, $, moment){
    *   Upon success, the return value of the passed callback function.
    */
   function geocodeAddressString(address, callback) {
-    // Only attempt to execute if google's geocode library is loaded and viewport bounds are set.
-    if (typeof ma.geocoder === "undefined" || typeof ma.viewportBounds === "undefined" ) {
+    // Only attempt to execute if google's geocode library is loaded.
+    if (typeof ma.geocoder === "undefined") {
       return;
     }
 
     // Geocode address string, then execute callback with argument upon success.
-    // NOTE: We use viewport bounds based bias to get geocodes from the geography of our interest.
-    // See: https://jira.mass.gov/browse/DP-15856
-    // See: https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingViewports
-    ma.geocoder.geocode({address: address, 'bounds': ma.viewportBounds}, function (results, status) {
+    ma.geocoder.geocode({address: address}, function (results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         let place =  results[0];
         return callback(place);
@@ -468,16 +465,13 @@ export default (function(window, document, undefined, $, moment){
    *   Upon success, the return value of the passed callback function.
    */
   function geocodePlaceId(place_id, callback) {
-    // Only attempt to execute if google's geocode library is loaded and viewport bounds are set.
-    if (typeof ma.geocoder === "undefined" || typeof ma.viewportBounds === "undefined" ) {
+    // Only attempt to execute if google's geocode library is loaded.
+    if (typeof ma.geocoder === "undefined") {
       return;
     }
 
     // Geocode address string, then execute callback with argument upon success.
-    // NOTE: We use viewport bounds based bias to get geocodes from the geography of our interest.
-    // See: https://jira.mass.gov/browse/DP-15856
-    // See: https://developers.google.com/maps/documentation/javascript/geocoding#GeocodingViewports
-    ma.geocoder.geocode({ 'placeId': place_id, 'bounds': ma.viewportBounds}, function(results, status) {
+    ma.geocoder.geocode({ 'placeId': place_id}, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         let place =  results[0];
         return callback(place);
