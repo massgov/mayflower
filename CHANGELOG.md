@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.43.0 (3/10/2020)
+### Changed 
+- (React, Patternlab) [Testing] DP-17679: Updated BackstopJS to 4.x and added numerous test speed and stability enhancements.
+
 ## 9.42.1 (3/3/2020)
 ### Fixed 
 - (React, Patternlab, Assets) [Auto Release] DP-17652: Revert commiting package.json version bump. (#909)
