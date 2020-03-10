@@ -41,7 +41,7 @@ Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Header Tags in Pattern Lab](https://mayflower.digital.mass.gov/?p=molecules-header-tags)
+[Header Tags in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=molecules-header-tags)
 {% endtab %}
 {% endtabs %}
 
