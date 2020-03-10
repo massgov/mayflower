@@ -1,6 +1,6 @@
 This is the Callout Alert Component
 
-see [@organisms/callout-alert](https://mayflower.digital.mass.gov/?p=organisms-callout-alert&view=c)
+see [@organisms/callout-alert](https://mayflower.digital.mass.gov/patternlab/?p=organisms-callout-alert&view=c)
 
 **React version allows the following configuration**
 1. Icons
