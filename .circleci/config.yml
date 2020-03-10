@@ -141,15 +141,15 @@ jobs:
             git rev-parse --verify -q "$CIRCLE_TAG" || git tag "$CIRCLE_TAG"
             git push origin "$CIRCLE_TAG"
       - run:
-        name: 'Deploy NPM Tag'
-        command: |
-          cd patternlab/styleguide/dist
-          npm version --no-git-tag-version "$CIRCLE_TAG"
-          if test -z "$(npm show @massds/mayflower@$CIRCLE_TAG)"; then
-            npm publish
-          else
-            echo "Skipping NPM publish - $CIRCLE_TAG already exists"
-          fi
+          name: 'Deploy NPM Tag'
+          command: |
+            cd patternlab/styleguide/dist
+            npm version --no-git-tag-version "$CIRCLE_TAG"
+            if test -z "$(npm show @massds/mayflower@$CIRCLE_TAG)"; then
+              npm publish
+            else
+              echo "Skipping NPM publish - $CIRCLE_TAG already exists"
+            fi
       - run:
           name: 'Deploy S3 Tag'
           command: |
