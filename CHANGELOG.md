@@ -1,18 +1,25 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.43.0 (3/10/2020)
+### Changed
+- (React, Patternlab) [Testing] DP-17679: Updated BackstopJS to 4.x and added numerous test speed and stability enhancements. (#959)
+
+- (React) [storybook] DP-17662: Changed S3 bucket and storybook site URL, `mayflower-react.digital.mass.gov` → `mayflower.digital.mass.gov/react`. (#957)
+- (React) [patternlab] DP-17662: Changed S3 bucket and storybook site URL, `mayflower.digital.mass.gov` → `mayflower.digital.mass.gov/patternlab`. (#957)
+
 ## 9.42.1 (3/3/2020)
-### Fixed 
+### Fixed
 - (React, Patternlab, Assets) [Auto Release] DP-17652: Revert commiting package.json version bump. (#909)
 
 ## 9.42.0 (3/3/2020)
-### Fixed 
+### Fixed
 - (Patternlab) [Location-listing] DP-15035: Limit pagination output to 10 items
 
-### Changed 
+### Changed
 - (Patternlab) [StickyTOC] DP-17258: Fix "see more" button not appearing after the TOC
 
-### Added 
+### Added
 - (Assets) [scripts] DP-17532: Added a build step to map the src to a different structure for distribution `npm run build` and restructured `mayflower-token` package content in a `dist` folder. (#948)
 - (Assets) [SCSS] DP-17532: Added `lighter` `lightest` `darker` `darkest` variables consistently across all brand colors, adjusted the variable labels in the storybook. (#948)
 - (Assets) [CircleCI] DP-17651: Added @massds/mayflower-tokens package to auto release, keeping versioning consistent with other mayflower npm packages.(#949)
