@@ -39,6 +39,7 @@ $heading-indent: $gutter;
     margin-top: 0;
   }
 
+  .ma__policy-advisory__content &__container &,
   .page-content.ma__announcement__page-content &__container & {
 
     @include ma-component-spacing;
