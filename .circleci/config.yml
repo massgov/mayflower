@@ -197,7 +197,7 @@ jobs:
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
           cd react
-          docker-compose run backstop test --atoms && docker-compose run backstop test
+          docker-compose run backstop test
       - run:
           command: cd react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
           when: always
