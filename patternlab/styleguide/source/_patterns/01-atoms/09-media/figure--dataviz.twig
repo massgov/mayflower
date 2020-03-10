@@ -1,20 +1,16 @@
+{# Note: in Mayflower, we render the Tableau embed using figure.dataviz, but
+   we recommend using this template by passing in a fully rendered iframe to
+   figure.content instead so the consuming system can handle the javascript
+   inclusions and triggering using its own logic.
+#}
 {% if figure.dataviz %}
   {# Render figure.content, which will be the main content of the figure #}
-  {# Important: we wrap this in an `if` statement to allow consuming systems
-     to either use figure.image or figure.content (if they prefer to externally
-     render figure.content
-   #}
-  {% set align = figure.align|default('left') %}
-  {% set id = figure.dataviz.id %}
-  {# TODO:  SET SIZE VALUES #}
-  {# Set default size to large. #}
-  {% set size = "ma__figure--" ~ figure.dataviz.size|default('large') %}
-  {% set class = size ~ ' ' ~ 'ma__dataviz' %}
   {% set content %}
-    <div id="{{ figure.dataviz.id }}"></div>
+    {% set id = 'dataviz-' ~ random(9999) %}
+    <div id="{{ id }}"></div>
     <script type="text/javascript">
       window.addEventListener("DOMContentLoaded", function() {
-        new tableau.Viz(document.getElementById("{{ figure.dataviz.id }}"), "{{ figure.dataviz.url }}");
+        new tableau.Viz(document.getElementById("{{ id }}"), "{{ figure.dataviz.url }}");
       });
     </script>
   {% endset %}
@@ -24,8 +20,8 @@
 {% endif %}
 {% include "@atoms/09-media/figure.twig" with {
   figure: figure|merge({
-    'align': align,
-    'id': id,
-    'class': class,
+    'align': figure.align|default('left'),
+    'size': figure.size|default('large'),
+    'class': 'ma__dataviz',
   })
 } %}
