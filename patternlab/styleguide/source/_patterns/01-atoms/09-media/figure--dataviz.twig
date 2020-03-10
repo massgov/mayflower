@@ -3,9 +3,10 @@
    figure.content instead so the consuming system can handle the javascript
    inclusions and triggering using its own logic.
 #}
-{% if figure.dataviz %}
+{# Commented area is not necessary since tableau data is passed from Drupal as figure.content. #}
+{# {% if figure.dataviz %} #}
   {# Render figure.content, which will be the main content of the figure #}
-  {% set content %}
+  {# {% set content %}
     {% set id = 'dataviz-' ~ random(9999) %}
     <div id="{{ id }}"></div>
     <script type="text/javascript">
@@ -18,6 +19,7 @@
     'content': content,
   }) %}
 {% endif %}
+#}
 {% include "@atoms/09-media/figure.twig" with {
   figure: figure|merge({
     'align': figure.align|default('left'),
