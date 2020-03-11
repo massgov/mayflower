@@ -13,7 +13,7 @@ import { HeaderSlim, SiteLogo } from "@massds/mayflower-react"
 import "./layout.scss"
 import logo from '../images/stateseal.png';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, pre }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -40,10 +40,12 @@ const Layout = ({ children }) => {
     title: description
   }
   const siteLogo = <SiteLogo {...siteLogoProps} />
+
   return (
     <>
       <HeaderSlim siteLogo={siteLogo} />
       <main id="main-content">
+        {pre && pre()}
         <div className={`ma__container`}>
           { children }
         </div>

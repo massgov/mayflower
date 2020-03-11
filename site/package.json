@@ -7,7 +7,6 @@
   "dependencies": {
     "@massds/mayflower-react": "9.40.0",
     "gatsby": "^2.19.7",
-    "gatsby-plugin-sass": "^2.1.30",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-offline": "^3.0.32",
@@ -22,6 +21,13 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
     "prettier": "^1.19.1"
   },
   "keywords": [
@@ -35,7 +41,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "lint": "./node_modules/.bin/eslint . --config .eslintrc",
+    "lint-fix": "./node_modules/.bin/eslint --fix . --config .eslintrc; exit 0"
   },
   "repository": {
     "type": "git",
