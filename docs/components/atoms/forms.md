@@ -86,7 +86,7 @@ inputCheckbox {
 }
 ```
 
-The **input checkbox** pattern is included in the following patterns: [atoms-input-group-checkbox-inline](https://mayflower.digital.mass.gov/patterns/01-atoms-03-forms-input-group-checkbox-inline/01-atoms-03-forms-input-group-checkbox-inline.html), [atoms-input-group-checkbox](https://mayflower.digital.mass.gov/patterns/01-atoms-03-forms-input-group-checkbox/01-atoms-03-forms-input-group-checkbox.html), [atoms-input-group-radio-inline](https://mayflower.digital.mass.gov/patterns/01-atoms-03-forms-input-group-radio-inline/01-atoms-03-forms-input-group-radio-inline.html), [atoms-input-group](https://mayflower.digital.mass.gov/patterns/01-atoms-03-forms-input-group/01-atoms-03-forms-input-group.html),[molecules-location-filters](https://mayflower.digital.mass.gov/patterns/02-molecules-location-filters/02-molecules-location-filters.html), [organisms-transition-page](https://mayflower.digital.mass.gov/patterns/03-organisms-by-template-transition-page/03-organisms-by-template-transition-page.html)
+The **input checkbox** pattern is included in the following patterns: [atoms-input-group-checkbox-inline](https://mayflower.digital.mass.gov/patternlab/patterns/01-atoms-03-forms-input-group-checkbox-inline/01-atoms-03-forms-input-group-checkbox-inline.html), [atoms-input-group-checkbox](https://mayflower.digital.mass.gov/patternlab/patterns/01-atoms-03-forms-input-group-checkbox/01-atoms-03-forms-input-group-checkbox.html), [atoms-input-group-radio-inline](https://mayflower.digital.mass.gov/patternlab/patterns/01-atoms-03-forms-input-group-radio-inline/01-atoms-03-forms-input-group-radio-inline.html), [atoms-input-group](https://mayflower.digital.mass.gov/patternlab/patterns/01-atoms-03-forms-input-group/01-atoms-03-forms-input-group.html),[molecules-location-filters](https://mayflower.digital.mass.gov/patternlab/patterns/02-molecules-location-filters/02-molecules-location-filters.html), [organisms-transition-page](https://mayflower.digital.mass.gov/patternlab/patterns/03-organisms-by-template-transition-page/03-organisms-by-template-transition-page.html)
 {% endtab %}
 
 {% tab title="HTML" %}
@@ -127,7 +127,7 @@ Checkbox
 {% tab title="About" %}
 ![visual example](https://github.com/massgov/edit-mayflower-docs/tree/c019cd17f3fd3bed8e6188d596b68959fa6adb24/docs/.gitbook/assets/form_text_input_optional.png)
 
-This is a variant of the [Input Text](https://mayflower.digital.mass.gov/patterns/01-atoms-03-forms/?p=atoms-input-text) pattern showing an example of an optional input.
+This is a variant of the [Input Text](https://mayflower.digital.mass.gov/patternlab/patterns/01-atoms-03-forms/?p=atoms-input-text) pattern showing an example of an optional input.
 
 ### How to generate
 
@@ -135,7 +135,7 @@ This is a variant of the [Input Text](https://mayflower.digital.mass.gov/pattern
 
 The **input text as optional** pattern contains the following patterns:
 
-The **input text as optional** pattern is included in the following patterns: [atoms-input-text-as-error](https://mayflower.digital.mass.gov/patterns/01-atoms-03-forms-input-text-as-error/01-atoms-03-forms-input-text-as-error.html), [molecules-event-filters](https://mayflower.digital.mass.gov/patterns/02-molecules-event-filters/02-molecules-event-filters.html), [molecules-location-filters](https://mayflower.digital.mass.gov/patterns/02-molecules-location-filters/02-molecules-location-filters.html),[molecules-search-banner-form](https://mayflower.digital.mass.gov/patterns/02-molecules-search-banner-form/02-molecules-search-banner-form.html), [organisms-feedback-form](https://mayflower.digital.mass.gov/patterns/03-organisms-by-author-feedback-form/03-organisms-by-author-feedback-form.html)
+The **input text as optional** pattern is included in the following patterns: [atoms-input-text-as-error](https://mayflower.digital.mass.gov/patternlab/patterns/01-atoms-03-forms-input-text-as-error/01-atoms-03-forms-input-text-as-error.html), [molecules-event-filters](https://mayflower.digital.mass.gov/patternlab/patterns/02-molecules-event-filters/02-molecules-event-filters.html), [molecules-location-filters](https://mayflower.digital.mass.gov/patternlab/patterns/02-molecules-location-filters/02-molecules-location-filters.html),[molecules-search-banner-form](https://mayflower.digital.mass.gov/patternlab/patterns/02-molecules-search-banner-form/02-molecules-search-banner-form.html), [organisms-feedback-form](https://mayflower.digital.mass.gov/patternlab/patterns/03-organisms-by-author-feedback-form/03-organisms-by-author-feedback-form.html)
 {% endtab %}
 
 {% tab title="HTML" %}
