@@ -68,9 +68,9 @@
           "data": {
             "figure": {
               "align": "right",
+              "size": "small",
               "dataviz": {
                 "id": "987980",
-                "size": "small",
                 "url": "https://public.tableau.com/views/diversity_update_v11/with_headline?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true"
               },
               "caption": "<b>I am caption.</b> Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
