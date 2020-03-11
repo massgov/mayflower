@@ -118,7 +118,7 @@ You should see your changes live at [mayflower-react storybook][react-storybook]
 [npm]: https://www.npmjs.com/package/@massds/mayflower-react
 [mayflower-github]: https://github.com/massgov/mayflower
 [mayflower-doc]: https://www.mass.gov/mayflower
-[react-storybook]: https://mayflower-react.digital.mass.gov
+[react-storybook]: https://mayflower.digital.mass.gov/react
 [react-starter]: https://github.com/massgov/mayflower-react-starter
-[patternlab]: https://mayflower.digital.mass.gov
+[patternlab]: https://mayflower.digital.mass.gov/patternlab
 [shared-assets]: https://github.com/massgov/mayflower/tree/develop/assets
