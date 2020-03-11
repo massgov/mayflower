@@ -4,9 +4,9 @@
    inclusions and triggering using its own logic.
 #}
 {# Commented area is not necessary since tableau data is passed from Drupal as figure.content. #}
-{# {% if figure.dataviz %} #}
+{% if figure.dataviz %}
   {# Render figure.content, which will be the main content of the figure #}
-  {# {% set content %}
+  {% set content %}
     {% set id = 'dataviz-' ~ random(9999) %}
     <div id="{{ id }}"></div>
     <script type="text/javascript">
@@ -19,11 +19,12 @@
     'content': content,
   }) %}
 {% endif %}
-#}
 {% include "@atoms/09-media/figure.twig" with {
   figure: figure|merge({
     'align': figure.align|default('left'),
     'size': figure.size|default('large'),
+    'title': figure.title,
+    'caption': figure.caption,
     'class': 'ma__dataviz',
   })
 } %}

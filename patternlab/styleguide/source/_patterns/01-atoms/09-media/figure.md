@@ -15,6 +15,8 @@ This shows an Image using a `<figure>` elements with an optional caption
 figure: {
   align:
     type: string ('left', 'right') / optional
+  size:
+    type: string('small', 'medium', 'large') / optional
   image: {
     alt:
       type: string / required
@@ -37,7 +39,6 @@ figure: {
   }
   dataviz: {
     id: string / optional
-    size: string('small', 'medium', 'large') / optional
     url:
       type: string (url) / required
   }
@@ -46,4 +47,4 @@ figure: {
   caption:
     type: string
 }
-~~~
+~
