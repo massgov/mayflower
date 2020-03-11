@@ -1,6 +1,9 @@
 /**
  * Option definitions for the Button's enumerable properties (imported in stories)
  */
+
+import sqrPlaceholder from '../../../assets/images/placeholder/100x100.png';
+
 export default {
   organizations: [
     {
@@ -8,7 +11,7 @@ export default {
       image: {
         href: '#',
         alt: 'Maura Healey',
-        src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+        src: sqrPlaceholder,
         height: 100,
         width: 100
       },
@@ -29,7 +32,7 @@ export default {
       image: {
         href: '#',
         alt: 'Charles Baker',
-        src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+        src: sqrPlaceholder,
         height: 100,
         width: 100
       },
@@ -50,7 +53,7 @@ export default {
       image: {
         href: '#',
         alt: 'Department of Public Health',
-        src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+        src: sqrPlaceholder,
         height: 100,
         width: 100
       },
@@ -71,7 +74,7 @@ export default {
       image: {
         href: '#',
         alt: 'Massachusetts Department of Mental Health',
-        src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+        src: sqrPlaceholder,
         height: 100,
         width: 100
       },
@@ -92,7 +95,7 @@ export default {
       image: {
         href: '#',
         alt: 'Department of Conservation & Recreation',
-        src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+        src: sqrPlaceholder,
         height: 100,
         width: 100
       },
@@ -113,7 +116,7 @@ export default {
       image: {
         href: '#',
         alt: 'Board of Registration in Medicine',
-        src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+        src: sqrPlaceholder,
         height: 100,
         width: 100
       },
@@ -134,7 +137,7 @@ export default {
       image: {
         href: '#',
         alt: 'Division of Capital Asset Management and Maintenance',
-        src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png',
+        src: sqrPlaceholder,
         height: 100,
         width: 100
       },

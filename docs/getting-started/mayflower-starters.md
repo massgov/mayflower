@@ -55,9 +55,9 @@ Next steps to add CSS and Javascript to the html page:
 1. In the `<header> </header>` section the following will be added:
 
    ```text
-     <link rel="stylesheet" href="https://mayflower.digital.mass.gov/assets/css/base-theme-generated.css"  media="all" />
-     <link rel="stylesheet" href="https://mayflower.digital.mass.gov/assets/css/index-generated.css" media="all" />
-     <script src="https://mayflower.digital.mass.gov/assets/js/vendor/modernizr.js"></script>
+     <link rel="stylesheet" href="https://mayflower.digital.mass.gov/patternlab/assets/css/base-theme-generated.css"  media="all" />
+     <link rel="stylesheet" href="https://mayflower.digital.mass.gov/patternlab/assets/css/index-generated.css" media="all" />
+     <script src="https://mayflower.digital.mass.gov/patternlab/assets/js/vendor/modernizr.js"></script>
    ```
 
    Explanation of adding the following CSS and Javascript files to the html page:
@@ -69,8 +69,8 @@ Next steps to add CSS and Javascript to the html page:
 
    ```text
      <!--Notes that this Mayflower assets-->
-     <script src="https://mayflower.digital.mass.gov/assets/js/vendor-generated.js"></script>
-     <script src="https://mayflower.digital.mass.gov/assets/js/index-generated.js"></script>
+     <script src="https://mayflower.digital.mass.gov/patternlab/assets/js/vendor-generated.js"></script>
+     <script src="https://mayflower.digital.mass.gov/patternlab/assets/js/index-generated.js"></script>
    ```
 
    Explanation of adding the following Javascripts files to the html page
@@ -83,7 +83,7 @@ Next steps to add CSS and Javascript to the html page:
 ### Mayflower
 
 1. [Mayflower GitHub Repository](https://github.com/massgov/mayflower)
-2. [Mayflower website](https://mayflower.digital.mass.gov/) using the GitHub Pages to publish the website.
+2. [Mayflower website](https://mayflower.digital.mass.gov/patternlab/) using the GitHub Pages to publish the website.
 3. [Example of Resposity which uses Mayflower \(RMV Wait Time Widget\)](https://github.com/massgov/rmvwaittime)
 
 ### GitHub

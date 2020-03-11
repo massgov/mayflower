@@ -50,7 +50,7 @@ Currently Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Input Checkbox in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-input-checkbox)
+[Input Checkbox in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-input-checkbox)
 {% endtab %}
 {% endtabs %}
 

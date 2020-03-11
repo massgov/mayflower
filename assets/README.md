@@ -12,7 +12,7 @@ Mayflower-tokens provides a bundled up library of design tokens and assets that 
     ├── scss        
     │   ├── _colors.scss      Color tokens
     │   ├── _fonts.scss       Texta font imports (needs to set $assets-path)
-    │   ├── _index.scss       Default SCSS export 
+    │   ├── _index.scss       Default SCSS export
 ```
 
 - **Codebase:** [Mayflower monorepo][mayflower-github] `assets` subdirectory
@@ -25,7 +25,7 @@ Mayflower-tokens provides a bundled up library of design tokens and assets that 
 `npm i @massds/mayflower-tokens --save`
 2. Import color tokens into your SASS/SCSS file
 `@import '[path to node_modules]/@massds/mayflower-tokens/colors/mayflower-color_tokens';`
-3. Refer to variables in `@massds/mayflower-tokens/colors/_mayflower-color_tokens.scss` or a [live demo for the colors](https://mayflower-react.digital.mass.gov/?path=/story/brand-colors--colors) to map the Mayflower color tokens in your theming SCSS.
+3. Refer to variables in `@massds/mayflower-tokens/colors/_mayflower-color_tokens.scss` or a [live demo for the colors](https://mayflower.digital.mass.gov/react/?path=/story/brand-colors--colors) to map the Mayflower color tokens in your theming SCSS.
 4. You can also find the web fonts Texta that are used in Mayflower (please)
 To import into your styles, refer to [mayflower Texta font imports](https://github.com/massgov/mayflower/blob/develop/assets/scss/00-base/_fonts.scss).
 
@@ -52,7 +52,7 @@ For more details about Texta's terms of use, please refer to our [web font licen
 [npm]: https://www.npmjs.com/package/@massds/mayflower-tokens
 [mayflower-github]: https://github.com/massgov/mayflower
 [mayflower-doc]: https://www.mass.gov/mayflower
-[react-storybook]: https://mayflower-react.digital.mass.gov
+[react-storybook]: https://mayflower.digital.mass.gov/react
 [react-starter]: https://github.com/massgov/mayflower-react-starter
-[patternlab]: https://mayflower.digital.mass.gov
+[patternlab]: https://mayflower.digital.mass.gov/patternlab
 [shared-assets]: https://github.com/massgov/mayflower/tree/develop/assets
