@@ -328,7 +328,6 @@ export default (function (window, document, $) {
         listings.geocodeAddressString(reasonable_formatted_location, function (result) {
           transformReturn.data = sortDataAroundPlace(result, filteredData);
           transformReturn.geocode = result;
-          console.log(result);
           // Return the data sorted by location and the geocoded place object
           promise.resolve(transformReturn);
         });
