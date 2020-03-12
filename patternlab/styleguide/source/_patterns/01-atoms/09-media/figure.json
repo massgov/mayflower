@@ -1,6 +1,7 @@
 {
   "figure": {
     "align": "",
+    "wrap": false,
     "size": "",
     "content": "",
     "title": "This is an option title",

@@ -15,6 +15,8 @@ This shows an Image using a `<figure>` elements with an optional caption
 figure: {
   align:
     type: string ('left', 'right') / optional
+  wrap:
+    type: boolean
   size:
     type: string('small', 'medium', 'large') / optional
   image: {
