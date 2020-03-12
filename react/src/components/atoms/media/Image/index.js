@@ -8,7 +8,7 @@ const Image = (props) => {
   const imageClasses = classNames({
     ma__image: true,
     [shape]: shape,
-    [classes.join(' ')]: classes
+    [classes && classes.join(' ')]: classes
   });
   // eslint-disable-next-line jsx-a11y/alt-text
   return(<img className={imageClasses} {...imgProps} />);
