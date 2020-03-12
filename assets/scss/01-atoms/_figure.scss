@@ -58,6 +58,7 @@
   }
 
   // EXCLURIVE STYLES to dataviz
+
   &--x-large,
   .ma__dataviz {
 
@@ -154,6 +155,7 @@
   }
 
   // No wrapping
+  
   &--no-wrap.ma__figure {
     float: none;
   }
@@ -226,7 +228,7 @@
   .main-content--two--full &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz {
 
     @media ($bp-large-min) {
-      
+
       padding-left: 66.66%;
       padding-left: calc(100% / 3 * 2);
     }
