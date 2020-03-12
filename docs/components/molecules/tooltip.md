@@ -64,7 +64,7 @@ Current Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Tooltip in Pattern Lab](https://mayflower.digital.mass.gov/?p=molecules-tooltip)
+[Tooltip in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=molecules-tooltip)
 {% endtab %}
 {% endtabs %}
 
