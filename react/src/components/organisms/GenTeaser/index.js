@@ -7,6 +7,7 @@ import Icon from '../../base/Icon';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Email from '../../atoms/contact/Email';
+import Image from '../../atoms/media/Image';
 import EventTime from '../../atoms/contact/EventTime';
 import PhoneNumber from '../../atoms/contact/PhoneNumber';
 import Address from '../../atoms/contact/Address';
@@ -40,6 +41,8 @@ GenTeaser.propTypes = {
   children: PropTypes.node
 };
 
+export default GenTeaser;
+
 /**
   Wrapper
   */
@@ -60,6 +63,31 @@ GenTeaserDetails.propTypes = {
 
 GenTeaser.Details = GenTeaserDetails;
 GenTeaser.Details.displayName = 'GenTeaser.Details';
+
+/**
+  Image
+  */
+
+const GenTeaserImage = (props) => {
+  const { img, children, ...rest } = props;
+  return(
+    <div className="ma__gen-teaser__image" {...rest}>
+      {children || (img && (
+        <Image {...img} />
+      ))}
+    </div>
+  );
+};
+
+GenTeaserImage.propTypes = {
+  /** Either a string or react component */
+  img: PropTypes.shape(Image.propTypes),
+  /** React children to render */
+  children: PropTypes.node
+};
+
+GenTeaser.Image = GenTeaserImage;
+GenTeaser.Image.displayName = 'GenTeaser.Image';
 
 /**
   Eyebrow
@@ -132,7 +160,6 @@ GenTeaserStat.propTypes = {
 GenTeaser.Stat = GenTeaserStat;
 GenTeaser.Stat.displayName = 'GenTeaser.Stat';
 
-export default GenTeaser;
 
 /**
   Title Link
