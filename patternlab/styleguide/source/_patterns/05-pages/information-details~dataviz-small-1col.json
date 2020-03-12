@@ -68,6 +68,7 @@
           "data": {
             "figure": {
               "align": "right",
+              "wrap": true,
               "size": "small",
               "dataviz": {
                 "id": "987980",
@@ -86,10 +87,25 @@
           }
         },
         {
+          "path": "@atoms/09-media/figure--dataviz.twig",
+          "data": {
+            "figure": {
+              "align": "left",
+              "wrap": true,
+              "size": "small",
+              "dataviz": {
+                "id": "12345",
+                "url": "https://public.tableau.com/views/diversity_update_v11/with_headline?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true"
+              },
+              "caption": "<b>I am caption.</b> Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+            }
+          }
+        },
+        {
           "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
-              "text": "Tristique risus nec feugiat in fermentum. Amet nulla facilisi morbi tempus iaculis urna id volutpat lacus. Non consectetur a erat nam at lectus urna duis. Vitae congue eu consequat ac felis donec et odio. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Senectus et netus et malesuada fames ac turpis. Augue mauris augue neque gravida in. Viverra mauris in aliquam sem fringilla ut. At tellus at urna condimentum mattis. Iaculis eu non diam phasellus. Nec nam aliquam sem et tortor consequat id porta."
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elit pellentesque habitant morbi tristique senectus et netus. Aliquam malesuada bibendum arcu vitae. Iaculis at erat pellentesque adipiscing commodo elit. Elementum eu facilisis sed odio morbi quis. Augue interdum velit euismod in pellentesque massa. Eu sem integer vitae justo eget magna fermentum iaculis. Adipiscing bibendum est ultricies integer quis. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Dolor morbi non arcu risus. Condimentum lacinia quis vel eros donec ac odio. Tempus egestas sed sed risus pretium. Amet porttitor eget dolor morbi non arcu risus. Neque convallis a cras semper auctor neque vitae tempus. Iaculis at erat pellentesque adipiscing. Blandit turpis cursus in hac habitasse platea dictumst quisque sagittis. Dignissim diam quis enim lobortis scelerisque. Sociis natoque penatibus et magnis dis. Amet facilisis magna etiam tempor orci eu. "
             }
           }
         }
