@@ -1,0 +1,61 @@
+{
+  "title": "Homepage",
+  "header": {
+    "title": "FY2020-2024 Capital Plan",
+    "date": "20190606",
+    "links": [
+      {
+        "href": "https://www.mass.gov/person/charlie-baker-governor",
+        "text": "Charles D. Baker, Governor"
+      },
+      {
+        "href": "https://www.mass.gov/person/karyn-polito-lieutenant-governor",
+        "text": "Karyn Polito, Lieutenant Governor"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": {
+        "info": "",
+        "text": "Mass.gov",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "test",
+      "img": {
+        "src": "../images/massgov.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    },
+    {
+      "title": {
+        "info": "",
+        "text": "Massachusetts budget sites",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "test",
+      "img": {
+        "src": "../images/budget.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    },
+    {
+      "title": {
+        "info": "",
+        "text": "Mass.gov",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "test",
+      "img": {
+        "src": "../images/massgov.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    }
+  ]
+}

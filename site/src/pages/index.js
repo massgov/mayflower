@@ -1,5 +1,6 @@
 import React from "react"
-
+import { graphql } from "gatsby";
+import Img from 'gatsby-image';
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
@@ -31,60 +32,56 @@ const layoutProps = {
     )
 };
 
-const teaserProps = {
-  title: {
-    info: 'GenTeaser.Title',
-    text: 'Job Fair 2019',
-    href: 'https://www.mass.gov/locations/haverhill-rmv-service-center',
-    showFileIcon: false
-  },
-  description: 'test',
-  img: {
-    src: 'https://via.placeholder.com/150',
-    alt: '',
-    shape: 'circular'
-  }
-};
-
-const IndexPage = () => (
-
-  <Layout {...layoutProps}>
-    <SEO title="Home" />
-    <p>Welcome to Mayflower Homepage.</p>
-    <div class="container">
-      <div class="row">
-        <div class="col-md">
-          <GenTeaser>
-            <GenTeaser.Details>
-              <GenTeaser.Image img={teaserProps.img} />
-              <GenTeaser.Title title={teaserProps.title} />
-              <GenTeaser.Description description={teaserProps.description} />
-            </GenTeaser.Details>
-          </GenTeaser>
+const IndexPage = ({ data }) => {
+  const { projects } = data.content
+  return(
+    <Layout {...layoutProps}>
+      <SEO title="Home" />
+      <p>Welcome to Mayflower Homepage.</p>
+        <div class="row">
+          {
+            projects.map(({ title, description, img }) => (
+              <div class="col-md">
+                <GenTeaser>
+                  <GenTeaser.Details>
+                    <GenTeaser.Image>
+                      <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
+                    </GenTeaser.Image>
+                    <GenTeaser.Title title={title} />
+                    <GenTeaser.Description description={description} />
+                  </GenTeaser.Details>
+                </GenTeaser>
+              </div>
+            )
+          )}
         </div>
-        <div class="col-md">
-          <GenTeaser>
-            <GenTeaser.Details>
-              <GenTeaser.Image img={teaserProps.img} />
-              <GenTeaser.Title title={teaserProps.title} />
-              <GenTeaser.Description description={teaserProps.description} />
-            </GenTeaser.Details>
-          </GenTeaser>
-        </div>
-        <div class="col-md">
-          <GenTeaser>
-            <GenTeaser.Details>
-              <GenTeaser.Image img={teaserProps.img} />
-              <GenTeaser.Title title={teaserProps.title} />
-              <GenTeaser.Description description={teaserProps.description} />
-            </GenTeaser.Details>
-          </GenTeaser>
-        </div>
-      </div>
-    </div>
-    <div>
-    </div>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const query = graphql`
+  query IndexPageQuery {
+    content: dataJson {
+      projects {
+        title {
+          text
+          href
+          info
+        }
+        description
+        img {
+          alt
+          src {
+            childImageSharp {
+              fluid(quality: 100, maxWidth: 400) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

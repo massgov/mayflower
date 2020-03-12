@@ -15,6 +15,15 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: path.resolve(__dirname, './src/data/')
+      }
+    },
+    'gatsby-transformer-json',
+    'gatsby-plugin-create-data-nodes',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -24,7 +33,7 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `src/images/stateseal.png`, // This path is relative to the root of the site.
+        icon: `src/images/stateseal.png` // This path is relative to the root of the site.
       },
     },
     {
