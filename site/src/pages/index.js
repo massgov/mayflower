@@ -3,7 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
-import { IllustratedHeader, Button } from "@massds/mayflower-react";
+import { IllustratedHeader, Button, GenTeaser } from "@massds/mayflower-react";
 
 import './index.scss';
 
@@ -31,13 +31,59 @@ const layoutProps = {
     )
 };
 
+const teaserProps = {
+  title: {
+    info: 'GenTeaser.Title',
+    text: 'Job Fair 2019',
+    href: 'https://www.mass.gov/locations/haverhill-rmv-service-center',
+    showFileIcon: false
+  },
+  description: 'test',
+  img: {
+    src: 'https://via.placeholder.com/150',
+    alt: '',
+    shape: 'circular'
+  }
+};
+
 const IndexPage = () => (
 
   <Layout {...layoutProps}>
     <SEO title="Home" />
-    <h1>Hello</h1>
     <p>Welcome to Mayflower Homepage.</p>
-    <p>Now go build something great.</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <GenTeaser>
+            <GenTeaser.Details>
+              <GenTeaser.Image img={teaserProps.img} />
+              <GenTeaser.Title title={teaserProps.title} />
+              <GenTeaser.Description description={teaserProps.description} />
+            </GenTeaser.Details>
+          </GenTeaser>
+        </div>
+        <div class="col-md">
+          <GenTeaser>
+            <GenTeaser.Details>
+              <GenTeaser.Image img={teaserProps.img} />
+              <GenTeaser.Title title={teaserProps.title} />
+              <GenTeaser.Description description={teaserProps.description} />
+            </GenTeaser.Details>
+          </GenTeaser>
+        </div>
+        <div class="col-md">
+          <GenTeaser>
+            <GenTeaser.Details>
+              <GenTeaser.Image img={teaserProps.img} />
+              <GenTeaser.Title title={teaserProps.title} />
+              <GenTeaser.Description description={teaserProps.description} />
+            </GenTeaser.Details>
+          </GenTeaser>
+        </div>
+      </div>
+    </div>
+    <div>
+    </div>
   </Layout>
 )
 
