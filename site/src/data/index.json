@@ -26,7 +26,7 @@
         "href": "https://www.mass.gov",
         "showFileIcon": false
       },
-      "description": "test",
+      "description": "",
       "img": {
         "src": "../images/massgov.png",
         "alt": "",
@@ -35,12 +35,12 @@
     },
     {
       "title": {
-        "info": "",
+        "info": "FY20 summary budget site homepage",
         "text": "Massachusetts budget sites",
         "href": "https://www.mass.gov",
         "showFileIcon": false
       },
-      "description": "test",
+      "description": "",
       "img": {
         "src": "../images/budget.png",
         "alt": "",
@@ -49,12 +49,12 @@
     },
     {
       "title": {
-        "info": "",
+        "info": "mass.gov homepage",
         "text": "Mass.gov",
         "href": "https://www.mass.gov",
         "showFileIcon": false
       },
-      "description": "test",
+      "description": "",
       "img": {
         "src": "../images/massgov.png",
         "alt": "",

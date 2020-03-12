@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { HeaderSlim, SiteLogo } from "@massds/mayflower-react"
+import { HeaderSlim, SiteLogo, FooterSlim } from "@massds/mayflower-react"
 import "./layout.scss"
 import logo from '../images/stateseal.png';
 
@@ -41,6 +41,19 @@ const Layout = ({ children, pre }) => {
   }
   const siteLogo = <SiteLogo {...siteLogoProps} />
 
+  const footerProps = {
+    title: 'Massachusetts Executive Office of Technology Security and Services (EOTSS)',
+    contact: {
+      address: '1 Ashburton Place, 8th Floor, Boston, MA 02108',
+      phone: '(617) 626-4400',
+      online: {
+        href: 'https://mass.gov/EOTSS',
+        title: 'EOTSS Official Website'
+      }
+    },
+    siteLogo
+  }
+
   return (
     <>
       <HeaderSlim siteLogo={siteLogo} />
@@ -50,7 +63,7 @@ const Layout = ({ children, pre }) => {
           { children }
         </div>
       </main>
-
+      <FooterSlim {...footerProps} />
     </>
   )
 }

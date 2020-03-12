@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => {
   return(
     <Layout {...layoutProps}>
       <SEO title="Home" />
-      <p>Welcome to Mayflower Homepage.</p>
+      <h2>Showcase</h2>
         <div class="row">
           {
             projects.map(({ title, description, img }) => (
