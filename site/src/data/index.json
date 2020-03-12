@@ -1,16 +1,20 @@
 {
   "title": "Homepage",
   "header": {
-    "title": "FY2020-2024 Capital Plan",
-    "date": "20190606",
-    "links": [
+    "pageHeader": {
+      "title": "A design system for the state government"
+    },
+    "category": "Commonwealth of Massachusetts",
+    "inverted": true,
+    "paragraph": "We make it easier to build a accessible, mobile-friendly government websites with a consistent look and feel for the state of Massachusetts.",
+    "bgInfo": "",
+    "bgImage": "",
+    "buttons": [
       {
         "href": "https://www.mass.gov/person/charlie-baker-governor",
-        "text": "Charles D. Baker, Governor"
-      },
-      {
-        "href": "https://www.mass.gov/person/karyn-polito-lieutenant-governor",
-        "text": "Karyn Polito, Lieutenant Governor"
+        "text": "Github",
+        "usage": "secondary",
+        "theme": ""
       }
     ]
   },
