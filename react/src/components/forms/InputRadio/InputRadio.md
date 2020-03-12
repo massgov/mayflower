@@ -1,6 +1,6 @@
 This is our stylized radio button (with variants)
 
-@see [@forms/input-radio](https://mayflower.digital.mass.gov/?p=atoms-input-radio&view=c)
+@see [@forms/input-radio](https://mayflower.digital.mass.gov/patternlab/?p=atoms-input-radio&view=c)
 
 **Prop variant recipes**
 1. InputRadio as "standard"
