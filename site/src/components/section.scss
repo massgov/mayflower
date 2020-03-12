@@ -1,0 +1,13 @@
+@import '../styles/global';
+
+.ma__section-wrapper {
+  padding: 2rem 0;
+
+  h2 {
+    @include ma-h3;
+  }
+
+  &--blue {
+    background-color: $c-primary-lightest;
+  }
+}

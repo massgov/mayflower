@@ -58,10 +58,7 @@ const Layout = ({ children, pre }) => {
     <>
       <HeaderSlim siteLogo={siteLogo} />
       <main id="main-content">
-        {pre && pre()}
-        <div className={`ma__container`}>
-          { children }
-        </div>
+        { children }
       </main>
       <FooterSlim {...footerProps} />
     </>

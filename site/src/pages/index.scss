@@ -1,10 +1,15 @@
 @import '../styles/bootstrap-grid';
+@import '../styles/global';
 
 .ma__illustrated-header {
-  margin-top: 0;
+  margin: 0;
 }
 
 .ma__button-group {
   display: flex;
   align-items: stretch;
+}
+
+.ma__search--tabs {
+  background-color: $c-gray-lightest;
 }

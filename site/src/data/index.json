@@ -18,6 +18,23 @@
       }
     ]
   },
+  "tabs": [
+    {
+      "value": "",
+      "label": "Mayflower React",
+      "ariaLabel": ""
+    },
+    {
+      "value": "",
+      "label": "Mayflower Patternlab",
+      "ariaLabel": ""
+    },
+    {
+      "value": "news",
+      "label": "Documentation",
+      "ariaLabel": ""
+    }
+  ],
   "projects": [
     {
       "title": {
@@ -49,8 +66,52 @@
     },
     {
       "title": {
+        "info": "PFML Contribution Calculator",
+        "text": "Paid Family Medical Leave Contribution Calculator",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "",
+      "img": {
+        "src": "../images/pfml-calculator.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    }
+  ],
+  "channels": [
+    {
+      "title": {
+        "info": "",
+        "text": "Github",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "",
+      "img": {
+        "src": "../images/pfml-calculator.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    },
+    {
+      "title": {
+        "info": "FY20 summary budget site homepage",
+        "text": "Slack",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "",
+      "img": {
+        "src": "../images/budget.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    },
+    {
+      "title": {
         "info": "mass.gov homepage",
-        "text": "Mass.gov",
+        "text": "Email",
         "href": "https://www.mass.gov",
         "showFileIcon": false
       },
