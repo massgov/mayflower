@@ -240,14 +240,8 @@ export default (function (window,document,$,undefined) {
       }
       // If place argument was populated from locationFilter (zipcode text input) but not from Place autocomplete.
       else {
-        // When users just enter a cityname, google's `geocoder` inside the `geocodeAddressString` is not precise
-        // even with 'bounds' parameter set, so we add " MA, USA" to acheive desired accuracy.
-        // NOTE: This is NOT done when autocomplete result is selected by user, in which case the above `if` situation is executed.
-        var user_entered_location_string = place;
-        var user_entered_location_parts = user_entered_location_string.split(",");
-        var reasonable_formatted_location = user_entered_location_parts.pop() + " MA, USA";
         // This is an asynchronous function
-        listings.geocodeAddressString(reasonable_formatted_location, function(result) {
+        listings.geocodeAddressString(place, function(result) {
           transformReturn.data = sortDataAroundPlace(result, filteredData);
           transformReturn.geocode = result;
           // Return the data sorted by location and the geocoded place object
