@@ -398,40 +398,14 @@ storiesOf('organisms/GenTeaser', module)
     );
   }, { info: GenTeaserDocs })
   .add('GenTeaser with Image', () => {
-    const startTime = new Date(2019, 7, 12, 13, 0, 0);
-    const endTime = new Date(2019, 7, 17, 16, 0, 0);
-    const event = {
+    const teaser = {
       title: {
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
         text: text('title: text', 'Job Fair 2019', 'GenTeaser.Title'),
         href: text('title: href', 'https://www.mass.gov/locations/haverhill-rmv-service-center', 'GenTeaser.Title'),
         showFileIcon: boolean('title: showFileIcon', false, 'GenTeaser.Title')
       },
-      orgs: text('orgs', 'MassHire Department of Career Services', 'GenTeaser.Orgs'),
       description: text('description', 'Jul 17, 2019 ... offered by. MassHire Department of Career Services. show 0 more. related to. MassHire Plymouth Career Center · MassHire ... Job Fair 2019.', 'GenTeaser.Description'),
-      address: {
-        address: text('address: address', 'Kingston Collection 101 Kingston Collection Way<br>Kingston MA 02364', 'GenTeaser.PrimaryInfo'),
-        directionLink: text('address: directionLink', 'https://maps.google.com/?q=Kingston+Collection+101+Kingston+Collection+Way+Kingston+MA+02364', 'GenTeaser.PrimaryInfo'),
-        details: text('address: details', 'details', '', 'GenTeaser.PrimaryInfo')
-      },
-      event: {
-        startDate: startTime,
-        endDate: endTime,
-        details: text('details', 'First come first serve.'),
-        location: '324-R Clark Street, Worcester MA 01606',
-        description: 'Go to this link https://www.mass.gov/',
-        title: 'Title here',
-        calendars: [{
-          text: 'iCal or Outlook',
-          type: 'outlook'
-        }, {
-          text: 'Yahoo Calendar',
-          type: 'yahoo'
-        }, {
-          text: 'Google Calendar',
-          type: 'google'
-        }]
-      },
       img: {
         src: 'https://via.placeholder.com/150',
         alt: '',
@@ -441,12 +415,9 @@ storiesOf('organisms/GenTeaser', module)
     return(
       <GenTeaser>
         <GenTeaser.Details>
-          <GenTeaser.Image img={event.img} />
-          <GenTeaser.Title title={event.title} />
-          <GenTeaser.Emphasis>
-            <GenTeaser.Orgs orgs={event.orgs} />
-          </GenTeaser.Emphasis>
-          <GenTeaser.Description description={event.description} />
+          <GenTeaser.Image img={teaser.img} />
+          <GenTeaser.Title title={teaser.title} />
+          <GenTeaser.Description description={teaser.description} />
         </GenTeaser.Details>
       </GenTeaser>
     );
