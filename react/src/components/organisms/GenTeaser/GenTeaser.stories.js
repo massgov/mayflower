@@ -433,9 +433,9 @@ storiesOf('organisms/GenTeaser', module)
         }]
       },
       img: {
-        src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png',
+        src: 'https://via.placeholder.com/150',
         alt: '',
-        shape: ''
+        shape: 'circular'
       }
     };
     return(
