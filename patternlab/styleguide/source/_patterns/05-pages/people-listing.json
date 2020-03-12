@@ -25,6 +25,7 @@
       "data": {
         "figure": {
           "align": "",
+          "wrap": false,
           "image": {
             "alt": "alt text",
             "src": "../../assets/images/placeholder/500x300.png",

@@ -100,6 +100,7 @@
           "data": {
             "figure": {
               "align": "full",
+              "wrap": false,
               "image": {
                 "alt": "alt text",
                 "src": "../../assets/images/placeholder/1600x600.png",

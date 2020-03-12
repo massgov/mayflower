@@ -4,6 +4,7 @@
      to either use figure.image or figure.content (if they prefer to externally
      render figure.content
    #}
+  {% set wrap = figure.align == "" ? false : true %}
   {% set content %}
     {% include "@atoms/09-media/image.twig" with {
       'image': figure.image
@@ -15,6 +16,7 @@
 {% endif %}
 {% include "@atoms/09-media/figure.twig" with {
   figure: figure|merge({
+    'wrap': wrap,
     'class': '',
   })
 } %}

@@ -34,6 +34,7 @@
           "data": {
             "figure": {
               "align": "align-right",
+              "wrap": true,
               "image": {
                 "alt": "alt text",
                 "src": "../../assets/images/placeholder/400x300.png",
