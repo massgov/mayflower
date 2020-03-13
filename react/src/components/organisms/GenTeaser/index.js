@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
+import classNames from 'classnames';
 
 import LinkDropdown from '../../molecules/LinkDropdown';
 import Icon from '../../base/Icon';
@@ -18,13 +19,18 @@ import './style.css';
 
 const GenTeaser = (props) => {
   const {
-    children, onClick, onKeyDown, ...rest
+    children, onClick, onKeyDown, stacked, align, ...rest
   } = props;
-  const className = onClick ? 'ma__gen-teaser ma__gen-teaser--clickable' : 'ma__gen-teaser';
+  const teaserClasses = classNames({
+    'ma__gen-teaser': true,
+    'ma__gen-teaser--clickable': onClick,
+    'ma__gen-teaser--stacked': stacked,
+    [`ma__gen-teaser--align-${align}`]: align
+  });
   const role = onClick ? 'button' : '';
   return(
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <section className={className} onClick={onClick} onKeyDown={onKeyDown} role={role} {...rest}>
+    <section className={teaserClasses} onClick={onClick} onKeyDown={onKeyDown} role={role} {...rest}>
       {children}
     </section>
   );
@@ -38,7 +44,11 @@ GenTeaser.propTypes = {
   /** A custom on key down function */
   onKeyDown: PropTypes.func,
   /** React children to render */
-  children: PropTypes.node
+  children: PropTypes.node,
+  /** whether to stack image on top */
+  stacked: PropTypes.bool,
+  /** alignment for description relative to image */
+  align: PropTypes.oneOf(['top', 'center'])
 };
 
 export default GenTeaser;

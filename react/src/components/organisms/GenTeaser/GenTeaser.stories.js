@@ -399,6 +399,8 @@ storiesOf('organisms/GenTeaser', module)
   }, { info: GenTeaserDocs })
   .add('GenTeaser with Image', () => {
     const teaser = {
+      stacked: boolean('image: stacked', false),
+      align: select('image: align', ['top', 'center'], 'top'),
       title: {
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
         text: text('title: text', 'Job Fair 2019', 'GenTeaser.Title'),
@@ -413,9 +415,9 @@ storiesOf('organisms/GenTeaser', module)
       }
     };
     return(
-      <GenTeaser>
+      <GenTeaser stacked={teaser.stacked} align={teaser.align}>
+        <GenTeaser.Image img={teaser.img} />
         <GenTeaser.Details>
-          <GenTeaser.Image img={teaser.img} />
           <GenTeaser.Title title={teaser.title} />
           <GenTeaser.Description description={teaser.description} />
         </GenTeaser.Details>
