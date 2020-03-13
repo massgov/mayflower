@@ -91,7 +91,7 @@ const IndexPage = ({ data: { content } }) => {
                   <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
                 </GenTeaser.Image>
                 <GenTeaser.Details>
-                  <GenTeaser.Title title={title} />
+                  <GenTeaser.Title title={title} level={3}/>
                   <GenTeaser.Description description={description} />
                 </GenTeaser.Details>
               </GenTeaser>
