@@ -39,7 +39,8 @@ export const assets = {
   generic: 'generic',
   youtube: 'youtube',
   zoomin: 'zoomin',
-  zoomout: 'zoomout'
+  zoomout: 'zoomout',
+  github: 'github'
 };
 
 export const svgOptions = {
