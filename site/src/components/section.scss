@@ -7,7 +7,15 @@
     @include ma-h3;
   }
 
-  &--blue {
+  &--primary {
     background-color: $c-primary-lightest;
+  }
+
+  &--gray-light {
+    background-color: $c-gray-lightest;
+  }
+
+  &--primary-alt {
+    background-color: $c-primary-alt-lightest;
   }
 }

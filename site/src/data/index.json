@@ -11,10 +11,12 @@
     "bgImage": "",
     "buttons": [
       {
-        "href": "https://www.mass.gov/person/charlie-baker-governor",
+        "href": "https://github.com/massgov/mayflower",
         "text": "Github",
-        "usage": "secondary",
-        "theme": ""
+        "usage": "tertiary",
+        "theme": "",
+        "iconName": "github",
+        "iconTitle": "github icon"
       }
     ]
   },

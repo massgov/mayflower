@@ -5,15 +5,15 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Section from "../components/section"
-import { IllustratedHeader, Button, GenTeaser, Tabs } from "@massds/mayflower-react";
+import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, Icon } from "@massds/mayflower-react";
 import BannerImage from '../images/massgov.png';
 
 import './index.scss';
 
-const IndexPage = ({ data }) => {
-  const { header, projects, channels, tabs } = data.content
+const IndexPage = ({ data: { content } }) => {
+  const { header, projects, channels, tabs } = content
   const { paragraph, buttons, ...headerProps } = header;
-  headerProps.bgImage = BannerImage;
+  headerProps.bgImage = '';
   return(
     <Layout>
       <SEO title="Home" />
@@ -23,15 +23,18 @@ const IndexPage = ({ data }) => {
         </span>
         <div className="ma__button-group">
           {
-            buttons.map((button) => (
-              <Button {...button}/>
-            ))
+            buttons.map((button) => {
+              button.icon = <Icon name={button.iconName} title={button.iconTitle} svgHeight={20} svgWidth={20} />
+              return(
+                <ButtonWithIcon {...button}/>
+              )
+            })
           }
         </div>
       </IllustratedHeader>
       <Tabs tabs={tabs} />
       <Section>
-        <h2>Showcase</h2>
+        <h2>Get Started</h2>
         <div class="row">
           {
             projects.map(({ title, description, img }) => (
@@ -50,7 +53,27 @@ const IndexPage = ({ data }) => {
           )}
         </div>
       </Section>
-      <Section>
+      <Section bgColor="primary">
+        <h2>See Mayflower in Use</h2>
+        <div class="row">
+          {
+            projects.map(({ title, description, img }) => (
+              <div class="col-md">
+                <GenTeaser>
+                  <GenTeaser.Details>
+                    <GenTeaser.Image style={{ height: 200, borderWidth: '1px', borderStyle: 'solid' }}>
+                      <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
+                    </GenTeaser.Image>
+                    <GenTeaser.Title title={title} />
+                    <GenTeaser.Description description={description} />
+                  </GenTeaser.Details>
+                </GenTeaser>
+              </div>
+            )
+          )}
+        </div>
+      </Section>
+      <Section bgColor="primary-alt">
       <h2>Join Mayflower Community</h2>
       <div class="row">
         {
@@ -93,6 +116,7 @@ export const query = graphql`
           text
           usage
           theme
+          iconName
         }
       }
       tabs {

@@ -6,10 +6,16 @@
 }
 
 .ma__button-group {
+  margin-top: 1rem;
   display: flex;
   align-items: stretch;
 }
 
 .ma__search--tabs {
   background-color: $c-gray-lightest;
+}
+
+.ma__gen-teaser__image {
+  overflow: hidden;
+  border-color: $c-gray-lighter;
 }
