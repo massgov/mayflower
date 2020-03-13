@@ -5,13 +5,13 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Section from "../components/section"
-import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, Icon } from "@massds/mayflower-react";
+import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, Icon, SectionLinks, DecorativeLink } from "@massds/mayflower-react";
 import BannerImage from '../images/massgov.png';
 
 import './index.scss';
 
 const IndexPage = ({ data: { content } }) => {
-  const { header, projects, channels, tabs } = content
+  const { header, projects, channels, tabs, links } = content
   const { paragraph, buttons, ...headerProps } = header;
   headerProps.bgImage = '';
   const channelImageStyles = {
@@ -41,20 +41,15 @@ const IndexPage = ({ data: { content } }) => {
       </IllustratedHeader>
       <Tabs tabs={tabs} />
       <Section>
-        <h2>Get Started</h2>
         <div class="row">
           {
-            projects.map(({ title, description, img }) => (
+            links.map(({ items, ...sectionLinksProps }) => (
               <div class="col-md">
-                <GenTeaser stacked>
-                  <GenTeaser.Image>
-                    <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
-                  </GenTeaser.Image>
-                  <GenTeaser.Details>
-                    <GenTeaser.Title title={title} />
-                    <GenTeaser.Description description={description} />
-                  </GenTeaser.Details>
-                </GenTeaser>
+                <SectionLinks {...sectionLinksProps}>
+                  {
+                    items.map((item) => <DecorativeLink {...item} />)
+                  }
+                </SectionLinks>
               </div>
             )
           )}
@@ -130,6 +125,17 @@ export const query = graphql`
         value
         label
         href
+      }
+      links {
+        title {
+          text
+          href
+        }
+        description
+        items {
+          text
+          href
+        }
       }
       projects {
         title {

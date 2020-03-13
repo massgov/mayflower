@@ -37,6 +37,55 @@
       "href": "https://mayflower.digital.mass.gov/docs"
     }
   ],
+  "links": [{
+    "title": {
+      "text": "1. Branding and Tokens"
+    },
+    "description": "Use these branding assets to create a cohesive look across Commonwealth web properties.",
+    "items": [{
+      "text": "Colors",
+      "href": ""
+    },{
+      "text": "Typography",
+      "href": ""
+    },{
+      "text": "Icons",
+      "href": ""
+    },{
+      "text": "Mayflower Tokens NPM Package",
+      "href": "https://www.npmjs.com/package/@massds/mayflower-tokens"
+    }]
+  },
+  {
+    "title": {
+      "text": "2. Markup and CSS"
+    },
+    "description": "Implement Mayflower HTML markup and its generated static assets.",
+    "items": [{
+      "text": "Mayflower CSS and JS NPM Package",
+      "href": ""
+    },{
+      "text": "Mayflower HTML Starter",
+      "href": ""
+    }]
+  },
+  {
+    "title": {
+      "text": "3. Component Libraries",
+      "href": ""
+    },
+    "description": "Use Mayflower component libraries help you build fast, accessible, mobile-friendly, cross-browser compatible web products quickly and efficiently.",
+    "items": [{
+      "text": "React Component Library",
+      "href": ""
+    },{
+      "text": "Mayflower React NPM Package",
+      "href": ""
+    },{
+      "text": "Patternlab Component Library",
+      "href": "Mayflower React NPM Package"
+    }]
+  }],
   "projects": [
     {
       "title": {
