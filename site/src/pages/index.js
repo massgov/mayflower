@@ -14,6 +14,13 @@ const IndexPage = ({ data: { content } }) => {
   const { header, projects, channels, tabs } = content
   const { paragraph, buttons, ...headerProps } = header;
   headerProps.bgImage = '';
+  const channelImageStyles = {
+    borderRadius: 50,
+    height: 50,
+    minWidth: 50,
+    borderWidth: '1px',
+    borderStyle: 'solid'
+  };
   return(
     <Layout>
       <SEO title="Home" />
@@ -39,11 +46,11 @@ const IndexPage = ({ data: { content } }) => {
           {
             projects.map(({ title, description, img }) => (
               <div class="col-md">
-                <GenTeaser>
+                <GenTeaser stacked>
+                  <GenTeaser.Image>
+                    <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
+                  </GenTeaser.Image>
                   <GenTeaser.Details>
-                    <GenTeaser.Image>
-                      <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
-                    </GenTeaser.Image>
                     <GenTeaser.Title title={title} />
                     <GenTeaser.Description description={description} />
                   </GenTeaser.Details>
@@ -59,11 +66,11 @@ const IndexPage = ({ data: { content } }) => {
           {
             projects.map(({ title, description, img }) => (
               <div class="col-md">
-                <GenTeaser>
+                <GenTeaser stacked>
+                  <GenTeaser.Image style={{ height: 200, borderWidth: '1px', borderStyle: 'solid' }}>
+                    <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
+                  </GenTeaser.Image>
                   <GenTeaser.Details>
-                    <GenTeaser.Image style={{ height: 200, borderWidth: '1px', borderStyle: 'solid' }}>
-                      <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
-                    </GenTeaser.Image>
                     <GenTeaser.Title title={title} />
                     <GenTeaser.Description description={description} />
                   </GenTeaser.Details>
@@ -79,11 +86,11 @@ const IndexPage = ({ data: { content } }) => {
         {
           channels.map(({ title, description, img }) => (
             <div class="col-md">
-              <GenTeaser>
+              <GenTeaser align="top">
+                <GenTeaser.Image style={channelImageStyles}>
+                  <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
+                </GenTeaser.Image>
                 <GenTeaser.Details>
-                  <GenTeaser.Image>
-                    <Img fluid={img.src.childImageSharp.fixed} alt={img.alt}  />
-                  </GenTeaser.Image>
                   <GenTeaser.Title title={title} />
                   <GenTeaser.Description description={description} />
                 </GenTeaser.Details>
@@ -153,8 +160,8 @@ export const query = graphql`
           alt
           src {
             childImageSharp {
-              fixed(quality: 100, width: 100, height: 100) {
-                ...GatsbyImageSharpFixed
+              fluid(quality: 100, maxWidth: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
           }
