@@ -64,9 +64,9 @@ Tabs.propTypes = {
   selectedTab: PropTypes.string,
   tabs: PropTypes.arrayOf(PropTypes.shape({
     /* href is used as anchor link href for the tab if the handleClick is not passed as a function */
-    value: PropTypes.string,
+    value: PropTypes.string.isRequired,
     /* text rendered for the tab */
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     /* href is used as anchor link href for the tab if the handleClick is not passed as a function */
     href: PropTypes.string,
     /* arial-label for the tab button if the handleClick is passed as a function */

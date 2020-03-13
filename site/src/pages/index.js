@@ -129,7 +129,7 @@ export const query = graphql`
       tabs {
         value
         label
-        ariaLabel
+        href
       }
       projects {
         title {

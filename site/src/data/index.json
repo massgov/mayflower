@@ -24,17 +24,17 @@
     {
       "value": "",
       "label": "Mayflower React",
-      "ariaLabel": ""
+      "href": "https://mayflower.digital.mass.gov/react"
     },
     {
       "value": "",
       "label": "Mayflower Patternlab",
-      "ariaLabel": ""
+      "href": "https://mayflower.digital.mass.gov/patternlab"
     },
     {
       "value": "news",
       "label": "Documentation",
-      "ariaLabel": ""
+      "href": "https://mayflower.digital.mass.gov/docs"
     }
   ],
   "projects": [
