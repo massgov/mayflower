@@ -56,12 +56,6 @@
     }
   }
 
-  &__image + &__details {
-    flex-basis: 300px;
-    flex-shrink: 1;
-    flex-grow: 1;
-  }
-
   &__eyebrow {
     margin-bottom: 5px;
 
