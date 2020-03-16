@@ -1,0 +1,174 @@
+{
+  "title": "Homepage",
+  "header": {
+    "pageHeader": {
+      "title": "A design system for the state government"
+    },
+    "category": "Commonwealth of Massachusetts",
+    "inverted": true,
+    "paragraph": "We make it easier to build a accessible, mobile-friendly government websites with a consistent look and feel for the state of Massachusetts.",
+    "bgInfo": "",
+    "bgImage": "",
+    "buttons": [
+      {
+        "href": "https://github.com/massgov/mayflower",
+        "text": "Github",
+        "usage": "tertiary",
+        "theme": "",
+        "iconName": "github",
+        "iconTitle": "github icon"
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "value": "",
+      "label": "Mayflower React",
+      "href": "https://mayflower.digital.mass.gov/react"
+    },
+    {
+      "value": "",
+      "label": "Mayflower Patternlab",
+      "href": "https://mayflower.digital.mass.gov/patternlab"
+    },
+    {
+      "value": "news",
+      "label": "Documentation",
+      "href": "https://mayflower.digital.mass.gov/docs"
+    }
+  ],
+  "links": [{
+    "title": {
+      "text": "1. Branding and Tokens"
+    },
+    "description": "Use these branding assets to create a cohesive look across Commonwealth web properties.",
+    "items": [{
+      "text": "Colors",
+      "href": ""
+    },{
+      "text": "Typography",
+      "href": ""
+    },{
+      "text": "Icons",
+      "href": ""
+    },{
+      "text": "Mayflower Tokens NPM Package",
+      "href": "https://www.npmjs.com/package/@massds/mayflower-tokens"
+    }]
+  },
+  {
+    "title": {
+      "text": "2. Markup and CSS"
+    },
+    "description": "Implement Mayflower HTML markup and its generated static assets.",
+    "items": [{
+      "text": "Mayflower CSS and JS NPM Package",
+      "href": ""
+    },{
+      "text": "Mayflower HTML Starter",
+      "href": ""
+    }]
+  },
+  {
+    "title": {
+      "text": "3. Component Libraries",
+      "href": ""
+    },
+    "description": "Use Mayflower component libraries help you build fast, accessible, mobile-friendly, cross-browser compatible web products quickly and efficiently.",
+    "items": [{
+      "text": "React Component Library",
+      "href": ""
+    },{
+      "text": "Mayflower React NPM Package",
+      "href": ""
+    },{
+      "text": "Patternlab Component Library",
+      "href": "Mayflower React NPM Package"
+    }]
+  }],
+  "projects": [
+    {
+      "title": {
+        "info": "",
+        "text": "Mass.gov",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "",
+      "img": {
+        "src": "../images/massgov.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    },
+    {
+      "title": {
+        "info": "FY20 summary budget site homepage",
+        "text": "Massachusetts budget sites",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "",
+      "img": {
+        "src": "../images/budget.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    },
+    {
+      "title": {
+        "info": "PFML Contribution Calculator",
+        "text": "Paid Family Medical Leave Contribution Calculator",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "",
+      "img": {
+        "src": "../images/pfml-calculator.png",
+        "alt": "",
+        "shape": "circular"
+      }
+    }
+  ],
+  "channels": [
+    {
+      "title": {
+        "info": "",
+        "text": "Github",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "Found a bug or have a feature request?",
+      "icon": {
+        "name": "github",
+        "fill": "#388557"
+      }
+    },
+    {
+      "title": {
+        "info": "FY20 summary budget site homepage",
+        "text": "Slack",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "Join the discussion and stay updated",
+      "icon": {
+        "name": "slack",
+        "fill": "#388557"
+      }
+    },
+    {
+      "title": {
+        "info": "mass.gov homepage",
+        "text": "Email",
+        "href": "https://www.mass.gov",
+        "showFileIcon": false
+      },
+      "description": "Get in touch with the team",
+      "icon": {
+        "name": "mail",
+        "fill": "#388557"
+      }
+    }
+  ]
+}
