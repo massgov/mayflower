@@ -1,6 +1,22 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.44.0 (3/16/2020)
+### Added 
+- (React) [Icon] DP-17530: Added github and slack icons. (#970)
+- (React) [SectionLinks] DP-17530: Added SectionLinks component. (#970)
+- (React) [Tabs] DP-17530: Added anchor link option for Tabs. (#970)
+- (React) [GenTeaser] DP-17530: Added GenTeaser.Image. (#970)
+- (React) [Image] DP-17530: Refactored and fixed `shape` and `classes` props. (#970)
+- (Patternlab) [InformationDetails] DP-17625: Visual Story sidebar template and styles adjust. (#969)
+
+### Changed 
+- (Site) [New] DP-17530: Added Mayflower site homepage built with Gatsby and Mayflower React. (#970)
+- (React, Patternlab, Assets) [CircleCI] DP-17800: Move release to Monday 1pm EST (#980)
+
+### Fixed 
+- (Patternlab) [Listings] DP-17633: Fix geocoding for autocomplete results on location listings. (#972)
+
 ## 9.43.0 (3/10/2020)
 ### Changed
 - (React, Patternlab) [Testing] DP-17679: Updated BackstopJS to 4.x and added numerous test speed and stability enhancements. (#959)
