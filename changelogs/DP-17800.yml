@@ -1,6 +1,6 @@
 Changed:
   - project: React, Patternlab, Assets
     component: CircleCI
-    description: Move release to Monday 1pm EST (#971)
+    description: Move release to Monday 1pm EST (#980)
     issue: DP-17800
     impact: Patch
