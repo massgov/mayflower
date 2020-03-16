@@ -18,7 +18,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
 
 ## Deployment  
 1. Wait for [the circle build](https://circleci.com/gh/massgov/mayflower) to pass, which will deploy your release branch to staging automagically :).
-1. Verify release notes against the site rendered at: `https://mayflower.digital.mass.gov/b/<your-release-branch>/index.html`.
+1. Verify release notes against the site rendered at: `https://mayflower.digital.mass.gov/patternlab/b/<your-release-branch>/index.html`.
 1. Smoke test Mayflower (a quick way to do this is to browse around to some of the different pages in the "pages" menu and do a quick gut check)
 1. Open a Github Pull Request to merge (no squash!) the release branch into the `master` branch. To merge the release branch into `master` branch you will need a peer to review and approve the Pull Request. 
     1. Add the [CHANGELOG.md](../CHANGELOG.md) to the Pull Request.
@@ -31,7 +31,7 @@ Mayflower release managers with the necessary repo permissions can follow these 
     1. Release title: `#.#.#` (your release number)
     1. Describe the release: paste your release notes markdown here, after the release version/date line, add a link to the release PR (protip: type `#` and you'll get an autocomplete dropdown to get to your pr)
 1. Wait for [the circle builds](https://circleci.com/gh/massgov/mayflower) to pass
-1. Smoke test [Prod](https://mayflower.digital.mass.gov)
+1. Smoke test [Prod](https://mayflower.digital.mass.gov/patternlab)
     - Make sure the home page reflects the date and version
 
 ## Post Deployment

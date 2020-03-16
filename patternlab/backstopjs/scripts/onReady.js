@@ -6,6 +6,42 @@
  * an element, you can probably deal with it here.
  */
 module.exports = async function(page, scenario, vp) {
+
+    // Wait for all visible fonts to complete loading.
+    await page.evaluate(async function() {
+        await document.fonts.ready;
+    })
+
+    // Wait for all <img> elements to complete loading.
+    await page.waitForFunction(() => {
+        const images = Array.from(document.images);
+        const unloaded = images.filter(i => i.hasAttribute('src') && !i.complete)
+        return unloaded.length === 0;
+    });
+
+    // Wait for background images to finish loading.
+    await page.evaluate(async function() {
+        const bgHavingElements = document.querySelectorAll('[role="img"]');
+        const loadPromises = Array.from(bgHavingElements).map((element) => {
+            const style = getComputedStyle(element);
+            if (style.backgroundImage.match(/^url\(/)) {
+                // If a background image is found, create an <img> as a way for us to
+                // detect its loading status. The promise resolves when it has loaded.
+                return new Promise((resolve, reject) =>{
+                    const url = style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '')
+                    const img = document.createElement('img');
+                    img.setAttribute('src', url);
+                    img.onload = () => {
+                        img.remove();
+                        resolve();
+                    }
+                })
+            }
+            return Promise.resolve();
+        });
+        return Promise.all(loadPromises);
+    });
+
     await page.addStyleTag({
         content: '' +
         // Force all animation to complete immediately.
@@ -26,11 +62,11 @@ module.exports = async function(page, scenario, vp) {
         '  bottom: 0;' +
         '  z-index: 100;' +
         '}' +
-        // Kill google Maps (show a green box instead)
-        '.js-google-map {' +
+        // Kill google Maps and iframes (show a green box instead)
+        '.js-google-map, .js-ma-responsive-iframe {' +
         '  position: relative;' +
         '}' +
-        '.js-google-map:before {' +
+        '.js-google-map:before, .js-ma-responsive-iframe:before {' +
         '  background: #B2DEA2;\n' +
         '  content: \' \';\n' +
         '  display: block;\n' +
@@ -43,21 +79,32 @@ module.exports = async function(page, scenario, vp) {
         '}'
     });
 
+    // Wait for ajax to complete - this is to give alerts
+    // time to finish rendering. This can take a while, especially
+    // in local environments.
+    await page.waitForFunction('jQuery.active == 0');
+
     await page.evaluate(async function () {
         // Disable jQuery animation for any future calls.
         jQuery.fx.off = true;
         // Immediately complete any in-progress animations.
         jQuery(':animated').finish();
+
+        // Undo the Google Optimize page-hiding snippet so we can access the page
+        // before the 2s timeout. See https://developers.google.com/optimize.
+        if(window.dataLayer && window.dataLayer.hide && window.dataLayer.hide.end) {
+            window.dataLayer.hide.end();
+        }
+
     });
 
-    // Finally, wait for ajax to complete - this is to give alerts
-    // time to finish rendering. This can take a while, especially
-    // in local environments.
-    await page.waitForFunction('jQuery.active == 0');
 
-    // Add a slight delay.  This covers up some of the jitter caused
-    // by weird network conditions, slow javascript, etc. We should
-    // work to reduce this number, since it represents instability
-    // in our styling.
-    await page.waitFor(300);
+
+    if(scenario.label.match(/^page /)) {
+        // Add a slight delay.  This covers up some of the jitter caused
+        // by weird network conditions, slow javascript, etc. We should
+        // work to reduce this number, since it represents instability
+        // in our styling.
+        await page.waitFor(350);
+    }
 }

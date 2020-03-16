@@ -6,6 +6,9 @@ import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
 import Icon from '../../base/Icon';
 
+import rectPlaceholder from '../../../assets/images/placeholder/190x107.png';
+import sqrPlaceholder from '../../../assets/images/placeholder/100x100.png';
+
 
 storiesOf('molecules/ImagePromo', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -20,7 +23,7 @@ storiesOf('molecules/ImagePromo', module)
         stacked: boolean('ImagePromo: stacked', false),
         small: boolean('ImagePromo: small', false),
         image: {
-          src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/190x107.png', 'Image'),
+          src: text('ImagePromo: image src', rectPlaceholder, 'Image'),
           alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
           width: number('ImagePromo: image width', 190, 'Image'),
           height: number('ImagePromo: image height', 107, 'Image')
@@ -50,7 +53,7 @@ storiesOf('molecules/ImagePromo', module)
         stacked: boolean('ImagePromo: stacked', true),
         small: boolean('ImagePromo: small', true),
         image: {
-          src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/100x100.png', 'Image'),
+          src: text('ImagePromo: image src', sqrPlaceholder, 'Image'),
           alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
           width: number('ImagePromo: image width', 100, 'Image'),
           height: number('ImagePromo: image height', 100, 'Image')
@@ -88,7 +91,7 @@ storiesOf('molecules/ImagePromo', module)
         stacked: boolean('ImagePromo: stacked', false),
         small: boolean('ImagePromo: small', false),
         image: {
-          src: text('ImagePromo: image src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/190x107.png', 'Image'),
+          src: text('ImagePromo: image src', rectPlaceholder, 'Image'),
           alt: text('ImagePromo: image alt', 'placeholder image', 'Image'),
           width: undefined,
           height: number('ImagePromo: image height', 107, 'Image')
