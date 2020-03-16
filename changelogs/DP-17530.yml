@@ -1,0 +1,32 @@
+Added:
+  - project: React
+    component: Icon
+    description: Added github and slack icons. (#970)
+    issue: DP-17530
+    impact: Minor
+  - project: React
+    component: SectionLinks
+    description: Added SectionLinks component. (#970)
+    issue: DP-17530
+    impact: Minor
+  - project: React
+    component: Tabs
+    description: Added anchor link option for Tabs. (#970)
+    issue: DP-17530
+    impact: Minor
+  - project: React
+    component: GenTeaser
+    description: Added GenTeaser.Image. (#970)
+    issue: DP-17530
+    impact: Minor
+  - project: React
+    component: Image
+    description: Refactored and fixed `shape` and `classes` props. (#970)
+    issue: DP-17530
+    impact: Patch
+Changed:
+  - project: Site
+    component: New
+    description: Added Mayflower site homepage built with Gatsby and Mayflower React. (#970)
+    issue: DP-17530
+    impact: Minor
