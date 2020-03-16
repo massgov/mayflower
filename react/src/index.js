@@ -82,6 +82,7 @@ export MainNav from './components/molecules/MainNav';
 export Pagination from './components/molecules/Pagination';
 export ResultsHeading from './components/molecules/ResultsHeading';
 export SearchBannerForm from './components/molecules/SearchBannerForm';
+export SectionLinks from './components/molecules/SectionLinks';
 export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
