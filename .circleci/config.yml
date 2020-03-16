@@ -310,6 +310,40 @@ jobs:
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
             fi
 
+  sites_test:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - mfr-dependencies-{{ checksum "assets/package.json" }}
+      - run: cd site && npm install
+      - save_cache:
+          paths:
+            - site/node_modules
+          key: mfr-dependencies-{{ checksum "assets/package.json" }}
+      - run:
+          name: Validate Package Build
+          command: cd site && npm run build
+          
+  site_deploy_tag:
+    <<: *react_defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            sudo apt-get update && sudo apt-get -y -qq install awscli
+          fi
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            cd react
+            aws s3 sync public s3://mayflower.digital.mass.gov --delete
+            aws configure set preview.cloudfront true
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/*'
+          fi
 
 workflows:
   version: 2
