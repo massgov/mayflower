@@ -40,7 +40,8 @@ export const assets = {
   youtube: 'youtube',
   zoomin: 'zoomin',
   zoomout: 'zoomout',
-  github: 'github'
+  github: 'github',
+  slack: 'slack'
 };
 
 export const svgOptions = {
