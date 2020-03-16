@@ -14,12 +14,10 @@ const IndexPage = ({ data: { content } }) => {
   const { header, projects, channels, tabs, links } = content
   const { paragraph, buttons, ...headerProps } = header;
   headerProps.bgImage = '';
+  const iconDimension = 50;
   const channelImageStyles = {
-    borderRadius: 50,
-    height: 50,
-    minWidth: 50,
-    borderWidth: '1px',
-    borderStyle: 'solid'
+    height: iconDimension,
+    minWidth: iconDimension
   };
   return(
     <Layout>
@@ -79,11 +77,11 @@ const IndexPage = ({ data: { content } }) => {
       <h2>Join Mayflower Community</h2>
       <div class="row">
         {
-          channels.map(({ title, description, img }) => (
+          channels.map(({ title, description, icon }) => (
             <div class="col-md">
               <GenTeaser align="top">
                 <GenTeaser.Image style={channelImageStyles}>
-                  <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
+                  <Icon {...icon} svgWidth={iconDimension} svgHeight={iconDimension} />
                 </GenTeaser.Image>
                 <GenTeaser.Details>
                   <GenTeaser.Title title={title} level={3}/>
@@ -162,15 +160,9 @@ export const query = graphql`
           info
         }
         description
-        img {
-          alt
-          src {
-            childImageSharp {
-              fluid(quality: 100, maxWidth: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
+        icon {
+          name
+          fill
         }
       }
     }

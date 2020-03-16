@@ -139,10 +139,9 @@
         "showFileIcon": false
       },
       "description": "Found a bug or have a feature request?",
-      "img": {
-        "src": "../images/stateseal.png",
-        "alt": "",
-        "shape": "circular"
+      "icon": {
+        "name": "github",
+        "fill": "#388557"
       }
     },
     {
@@ -153,10 +152,9 @@
         "showFileIcon": false
       },
       "description": "Join the discussion and stay updated",
-      "img": {
-        "src": "../images/stateseal.png",
-        "alt": "",
-        "shape": "circular"
+      "icon": {
+        "name": "slack",
+        "fill": "#388557"
       }
     },
     {
@@ -167,10 +165,9 @@
         "showFileIcon": false
       },
       "description": "Get in touch with the team",
-      "img": {
-        "src": "../images/stateseal.png",
-        "alt": "",
-        "shape": "circular"
+      "icon": {
+        "name": "mail",
+        "fill": "#388557"
       }
     }
   ]
