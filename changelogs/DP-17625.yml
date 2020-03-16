@@ -1,0 +1,6 @@
+Added:
+  - project: Patternlab
+    component: InformationDetails
+    description: Visual Story sidebar template and styles adjust. (#969)
+    issue: DP-17625
+    impact: Minor
