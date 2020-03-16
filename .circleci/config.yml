@@ -310,7 +310,7 @@ jobs:
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
             fi
 
-  sites_test:
+  site_test:
     <<: *react_defaults
     steps:
       - checkout
