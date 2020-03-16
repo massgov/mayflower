@@ -316,12 +316,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "assets/package.json" }}
-      - run: cd site && npm install
+            - mfr-dependencies-{{ checksum "site/yarn.lock" }}
+      - run: {name: 'Install packages', command: 'cd site && npm i -g yarn && yarn'}
       - save_cache:
           paths:
             - site/node_modules
-          key: mfr-dependencies-{{ checksum "assets/package.json" }}
+          key: mfr-dependencies-{{ checksum "site/yarn.lock" }}
       - run:
           name: Validate Package Build
           command: cd site && npm run build
