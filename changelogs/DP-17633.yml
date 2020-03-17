@@ -1,6 +1,0 @@
-Fixed:
-  - project: Patternlab
-    component: Listings
-    description: Fix geocoding for autocomplete results on location listings. (#972)
-    issue: DP-17633
-    impact: Patch
