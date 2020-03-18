@@ -180,6 +180,9 @@ jobs:
       - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
+      - run:
+          name: Cleanup Mayflower assets package
+          command: rm -f react/es/assets/package.json
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
