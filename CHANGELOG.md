@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.44.1 (3/19/2020)
+### Fixed 
+- (React) [NPM Package] hotfix: Remove package.json from symlinked assets folder in package. (#986)
+
 ## 9.44.0 (3/16/2020)
 ### Added 
 - (React) [Icon] DP-17530: Added github and slack icons. (#970)
