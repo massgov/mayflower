@@ -1,6 +1,8 @@
 .ma__gen-teaser {
 
   position: relative;
+  display: flex;
+    flex-direction: row;
 
   &--image {
     display: flex;
@@ -29,10 +31,19 @@
     }
   }
 
+  &--stacked {
+    flex-direction: column;
+  }
+
+  &--align-center {
+    align-items: center;
+  }
+
+  &--align-top {
+    align-items: top;
+  }
+
   &__image {
-    flex-shrink: 1;
-    flex-grow: 0;
-    flex-basis: 400px;
     font-size: 0;
     margin-right: 30px;
     margin-bottom: 10px;
@@ -43,12 +54,6 @@
       padding-top: 56.25%;
       width: 100%;
     }
-  }
-
-  &__image + &__details {
-    flex-basis: 300px;
-    flex-shrink: 1;
-    flex-grow: 1;
   }
 
   &__eyebrow {
@@ -84,6 +89,7 @@
   }
 
   &__details {
+    width: 100%;
     padding: 2px 0 4px;
     position: relative;
 

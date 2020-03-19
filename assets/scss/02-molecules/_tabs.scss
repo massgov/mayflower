@@ -19,6 +19,11 @@
     cursor: pointer;
     font-weight: normal;
 
+    &:hover {
+      border-bottom: 5px solid;
+      border-color: $c-primary-lighter;
+    }
+
     &.is-selected {
       border-bottom: 5px solid;
       padding-left: 1.4rem;

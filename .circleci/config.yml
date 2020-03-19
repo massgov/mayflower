@@ -180,6 +180,11 @@ jobs:
       - run:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
+      - run:
+          name: Cleanup Mayflower assets package
+          command: |
+            rm -rf react/es/assets/package.json react/es/assets/package-lock.json react/es/assets/dist react/es/assets/scripts
+            rm -rf react/lib/assets/package.json react/lib/assets/package-lock.json react/lib/assets/dist react/lib/assets/scripts
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
@@ -344,7 +349,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "00 18 * * 2"
+          cron: "00 18 * * 1"
           filters:
             branches:
               only:

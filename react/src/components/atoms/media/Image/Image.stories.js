@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, number, text } from '@storybook/addon-knobs';
+import { withKnobs, number, text, array } from '@storybook/addon-knobs';
 
 import Image from './index';
 import ImageDocs from './Image.md';
@@ -18,9 +18,8 @@ storiesOf('atoms/media', module)
         width: number('width', 800),
         height: number('height', 400),
         shape: text('shape', ''),
-        classes: text('classes', '')
+        classes: array('classes', [])
       };
-      props.classes = [props.classes];
       return(<Image {...props} />);
     }),
     { info: ImageDocs }
@@ -32,10 +31,9 @@ storiesOf('atoms/media', module)
         src: text('src', circPlaceholder),
         width: number('width', 250),
         height: number('height', 250),
-        shape: text('shape', ''),
-        classes: text('classes', 'ma__image circular')
+        shape: text('shape', 'circular'),
+        classes: array('classes', [])
       };
-      props.classes = [props.classes];
 
       return(<Image {...props} />);
     }),
