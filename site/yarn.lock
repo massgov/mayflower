@@ -1118,10 +1118,10 @@
   dependencies:
     core-js "^2.5.7"
 
-"@massds/mayflower-react@9.40.0":
-  version "9.40.0"
-  resolved "https://registry.yarnpkg.com/@massds/mayflower-react/-/mayflower-react-9.40.0.tgz#16e79241edd723ebcb665afd5c66a912e6052bfd"
-  integrity sha512-YL2uX4R86UzCRibnC0jtgsckr/Gxov2h1cy6ly5LDwcTl6va5Tp3VCEnVE7uck8E1HL7VruIIKM7IkDoIGtBZw==
+"@massds/mayflower-react@9.44.2":
+  version "9.44.2"
+  resolved "https://registry.yarnpkg.com/@massds/mayflower-react/-/mayflower-react-9.44.2.tgz#a6ba65a317b85e56fa86ff11402ebf4dcd181b04"
+  integrity sha512-307scmUBeInooik++v16nvgqum6RgSstYQmif7Ahm9noeyejjggVlcoDi0sMngmyK9L1/UuBXTQOX+qVLeLmPw==
   dependencies:
     airbnb-prop-types "^2.13.2"
     autosuggest-highlight "^3.1.1"
