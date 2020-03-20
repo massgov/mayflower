@@ -6,7 +6,6 @@
     margin: 0 20px 20px 20px;
   }
 
-  // .main-content--full .page-content > &
   .page-content > & {
 
     @include ma-container;
@@ -58,7 +57,7 @@
     line-height: 1.57;
   }
 
-  // EXCLURIVE STYLES to dataviz
+  // EXCLURIVE STYLES to dataviz - remove .ma__dataviz to apply all figure elements.
 
   &--x-large {
 
@@ -67,7 +66,7 @@
     margin-left: 0;
   }
 
-  // Small - Right rail
+  // Small
 
   .no-sidebar &--small.ma__dataviz {
 
@@ -142,6 +141,7 @@
   }
 
   .page-content:not(.no-sidebar) &--large.ma__dataviz {
+
     @media ($bp-large-min) {
       margin-right: 0;
       margin-left: 0;
@@ -188,8 +188,7 @@
     }
   }
 
-  // NO WRAP
-  // Small - Right rail
+  // NO WRAP - Small
 
   &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz {
 
@@ -198,8 +197,6 @@
       padding-left: 50%;
     }
   }
-
-  // Small - Full width (no side col content)
 
   .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz {
 
@@ -215,7 +212,7 @@
     }
   }
 
-  // Medium - Right rail
+  // NO WRAP - Medium
 
   &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz {
 
@@ -225,8 +222,6 @@
       padding-left: calc(100% / 3);
     }
   }
-
-  // Medium - Full width (no side col content)
 
   .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz {
 
@@ -242,7 +237,7 @@
     }
   }
 
-  // Large
+  // NO WRAP - Large
 
   .no-sidebar &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz {
 
