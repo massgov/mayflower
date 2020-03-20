@@ -1,8 +1,8 @@
 {
-  "name": "@massds/mayflower-react",
+  "name": "@massds/mayflower-react-test",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "9.3.0",
+  "version": "9.44.2-test3",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -25,7 +25,7 @@
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "npm run build && ./scripts/cleanup-package.sh",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
