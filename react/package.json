@@ -1,8 +1,8 @@
 {
-  "name": "@massds/mayflower-react-test",
+  "name": "@massds/mayflower-react",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "9.44.2-test3",
+  "version": "9.44.2",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
