@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## 9.44.2 (3/20/2020)
 ### Fixed
-- (React) [NPM Package] hotfix: Fix Mayflower-react by updating prepublish hook. Please note: 9.44.1 was not successful, due to the package was overwritten by prepublish build. (#990)
+- (React) [NPM Package] hotfix: Fix Mayflower-react by updating prepublish hook. Please note: 9.44.1 was not successful, due to the package being overwritten by prepublish build. (#990)
 
 ## 9.44.1 (3/19/2020)
 ### Fixed
