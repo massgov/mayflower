@@ -1,6 +1,0 @@
-Fixed:
-  - project: React
-    component: NPM Package
-    description: Remove package.json from symlinked assets folder in package. (#986)
-    issue: hotfix
-    impact: Patch
