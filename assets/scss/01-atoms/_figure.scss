@@ -1,5 +1,10 @@
 .ma__figure {
+
   margin: 0;
+
+  @media ($bp-x-small-min) {
+    margin: 0 20px 20px 20px;
+  }
 
   .main-content--full .page-content > & {
 
@@ -14,13 +19,13 @@
   }
 
   @media ($bp-small-min) {
+    margin: 0 30px 30px 30px;
 
     &--left,
     &--align-left,
     &.align-left {
       float: left;
-      margin-right: .5em;
-      margin-bottom: 1em;
+      margin-left: 0;
       width: 50%;
     }
 
@@ -28,18 +33,13 @@
     &--align-right,
     &.align-right {
       float: right;
-      margin-left: .5em;
-      margin-bottom: 1em;
+      margin-right: 0;
       width: 50%;
     }
   }
 
   &--full {
     transition: width 0.2s;
-  }
-
-  .rich-text & {
-    margin-bottom: 1.75em;
   }
 
   img {
@@ -59,18 +59,22 @@
 
   // EXCLURIVE STYLES to dataviz
 
-  &--x-large,
-  .ma__dataviz {
+  &--x-large {
 
     width: 100%;
+    margin-right: 0;
+    margin-left: 0;
   }
-  // $bp-large-bridge-min: min-width: 1025px;
-  // $bp-large-bridge-max: max-width: 1024px;
 
   // Small - Right rail
 
   .main-content--two &--small.ma__dataviz {
     width: 100%;
+
+    @media ($bp-large-bridge-max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
 
     @media ($bp-large-bridge-min) {// 1025~
       width: 50%;
@@ -79,7 +83,8 @@
 
   // Small - Full width (no side col content)
 
-  .main-content--two--full &--small.ma__dataviz {
+  .main-content--two--full &--small.ma__dataviz,
+  .no-sidebar &--small.ma__dataviz {
 
     @media ($bp-x-small-min) {// 481~
       width: 50%;
@@ -96,6 +101,11 @@
   .main-content--two &--medium.ma__dataviz {
     width: 100%;
 
+    @media ($bp-large-bridge-max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
     @media ($bp-large-bridge-min) {// 1025~
       width: 66.66%;
       width: calc(100% / 3 * 2);
@@ -104,12 +114,13 @@
 
   // Medium - Full width (no side col content)
 
-  .main-content--two--full &--medium.ma__dataviz {
+  .main-content--two--full &--medium.ma__dataviz,
+  .no-sidebar &--medium.ma__dataviz {
 
     @media ($bp-x-small-min) {// 481~
       width: 66.66%;
       width: calc(100% / 3 * 2);
-      margin-right: .5em;
+      // margin-right: .5em;
     }
 
     @media ($bp-medium-min) {// 781~
@@ -121,9 +132,20 @@
 
   &--large.ma__dataviz {
     width: 100%;
+
+    @media ($bp-large-max) {
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
-  .main-content--two--full &--large.ma__dataviz {
+  .main-content--two &--large.ma__dataviz {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .main-content--two--full &--large.ma__dataviz,
+  .no-sidebar &--large.ma__dataviz {
 
     @media ($bp-large-min) {
       width: 66.66%;
@@ -135,7 +157,8 @@
 
   @media ($bp-x-small-max) {
 
-    &--left.ma__dataviz, &--right.ma__dataviz {
+    &--left.ma__dataviz,
+    &--right.ma__dataviz {
       float: none;
       margin-right: 0;
       margin-bottom: 0;
@@ -144,20 +167,20 @@
 
   &--left.ma__dataviz {
     float: left;
-    margin-right: .5em;
-    margin-bottom: 1em;
+    margin-left: 0;
   }
 
   &--right.ma__dataviz {
     float: right;
-    margin-left: .5em;
-    margin-bottom: 1em;
+    margin-right: 0;
   }
 
   // No wrapping
 
   &--no-wrap.ma__figure {
     float: none;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   &--no-wrap.ma__figure--right,
@@ -182,7 +205,8 @@
 
   // Small - Full width (no side col content)
 
-  .main-content--two--full &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz {
+  .main-content--two--full &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz,
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz {
 
     @media ($bp-x-small-min) {// 481~
 
@@ -209,7 +233,8 @@
 
   // Medium - Full width (no side col content)
 
-  .main-content--two--full &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz {
+  .main-content--two--full &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz,
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz {
 
     @media ($bp-x-small-min) {// 481~
 
@@ -225,7 +250,8 @@
 
   // Large
 
-  .main-content--two--full &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz {
+  .main-content--two--full &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz,
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz {
 
     @media ($bp-large-min) {
 

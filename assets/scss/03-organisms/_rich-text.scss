@@ -157,14 +157,6 @@ $heading-indent: $gutter;
     width: 100%;
   }
 
-  figure {
-    margin-bottom: $rich-text-spacing-mobile;
-
-    @media ($bp-small-min) {
-      margin-bottom: $rich-text-spacing;
-    }
-  }
-
   // List styles
 
   ul {
