@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  pathPrefix: `/home`,
   siteMetadata: {
     title: `Mayflower`,
     description: `A design system for the Commonwealth of Massachusetts`,
