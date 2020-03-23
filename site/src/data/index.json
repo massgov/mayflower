@@ -153,7 +153,7 @@
       "title": {
         "info": "",
         "text": "Submit a Github issue",
-        "href": "https://www.mass.gov",
+        "href": "https://github.com/massgov/mayflower/issues/new/choose",
         "showFileIcon": false
       },
       "description": "Found a bug or have a feature request?",
@@ -166,7 +166,7 @@
       "title": {
         "info": "",
         "text": "Join Mayflower Slack",
-        "href": "https://www.mass.gov",
+        "href": "https://join.slack.com/t/mayflowerdesignsystem/shared_invite/zt-7bspvkb6-2CBqU8oxumJuikKpe4pZHA",
         "showFileIcon": false
       },
       "description": "Join the Mayflower community and stay updated with releases.",
