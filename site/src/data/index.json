@@ -68,17 +68,22 @@
     "title": {
       "text": "2. Markup and CSS"
     },
-    "description": "Implement Mayflower HTML markup and its generated static assets to .",
+    "description": "Implement Mayflower HTML markup and link to the CDN for compiled static assets.",
     "items": [{
-      "text": "Mayflower CSS and JS NPM Package",
-      "href": "",
-      "description": "",
-      "theme": ""
-    },{
       "text": "Mayflower HTML Starter",
-      "href": "",
-      "description": "",
+      "href": "https://github.com/massgov/mayflower-starters",
+      "description": "Use the Mayflower starters to kick-start builidng a simple webpage.",
       "theme": ""
+    }, {
+      "text": "Mayflower Patternlab",
+      "href": "https://mayflower.digital.mass.gov/patternlab",
+      "description": "Explore the Mayflower components and their HTML markup.",
+      "theme": ""
+    }, {
+      "text": "Mayflower static assets CDN",
+      "href": "https://unpkg.com/browse/@massds/mayflower/",
+      "description": "Webfonts, images, compiled CSS and JS are served over the UNPKG CDN. Point to a specific version to go with the markup.",
+      "theme": "white"
     }]
   },
   {
@@ -86,7 +91,7 @@
       "text": "3. Component Libraries",
       "href": ""
     },
-    "description": "Leverage Mayflower component libraries build fast, accessible, mobile-friendly, cross-browser compatible web products efficiently.",
+    "description": "Leverage Mayflower component libraries to build fast, accessible, mobile-friendly, cross-browser compatible web products efficiently.",
     "items": [{
       "text": "React Component Library",
       "href": "",
@@ -95,11 +100,6 @@
     },{
       "text": "Mayflower React NPM Package",
       "href": "",
-      "description": "",
-      "theme": ""
-    },{
-      "text": "Patternlab Component Library",
-      "href": "Mayflower React NPM Package",
       "description": "",
       "theme": ""
     }]
@@ -123,7 +123,7 @@
       "title": {
         "info": "FY20 summary budget site homepage",
         "text": "Massachusetts budget sites",
-        "href": "https://www.mass.gov",
+        "href": "http://budget.digital.mass.gov/summary/fy20/",
         "showFileIcon": false
       },
       "description": "",
@@ -137,7 +137,7 @@
       "title": {
         "info": "PFML Contribution Calculator",
         "text": "Paid Family Medical Leave Contribution Calculator",
-        "href": "https://www.mass.gov",
+        "href": "https://calculator.digital.mass.gov/pfml/contribution",
         "showFileIcon": false
       },
       "description": "",
@@ -152,7 +152,7 @@
     {
       "title": {
         "info": "",
-        "text": "Github",
+        "text": "Submit a Github issue",
         "href": "https://www.mass.gov",
         "showFileIcon": false
       },
@@ -164,12 +164,12 @@
     },
     {
       "title": {
-        "info": "FY20 summary budget site homepage",
-        "text": "Slack",
+        "info": "",
+        "text": "Join Mayflower Slack",
         "href": "https://www.mass.gov",
         "showFileIcon": false
       },
-      "description": "Join the discussion and stay updated",
+      "description": "Join the Mayflower community and stay updated with releases.",
       "icon": {
         "name": "slack",
         "fill": "#388557"
@@ -177,12 +177,12 @@
     },
     {
       "title": {
-        "info": "mass.gov homepage",
-        "text": "Email",
-        "href": "https://www.mass.gov",
+        "info": "",
+        "text": "Email Us",
+        "href": "mailto:Digitalservices@mass.gov",
         "showFileIcon": false
       },
-      "description": "Get in touch with the team",
+      "description": "Get in touch with the team for other purposes.",
       "icon": {
         "name": "mail",
         "fill": "#388557"
