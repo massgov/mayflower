@@ -94,14 +94,14 @@
     "description": "Leverage Mayflower component libraries to build fast, accessible, mobile-friendly, cross-browser compatible web products efficiently.",
     "items": [{
       "text": "React Component Library",
-      "href": "",
-      "description": "",
+      "href": "https://mayflower.digital.mass.gov/react",
+      "description": "Browse Mayflower components built with ReactJS.",
       "theme": ""
     },{
       "text": "Mayflower React NPM Package",
-      "href": "",
-      "description": "",
-      "theme": ""
+      "href": "https://www.npmjs.com/package/@massds/mayflower-react",
+      "description": "Install the package to use Mayflower components in your React APP.",
+      "theme": "white"
     }]
   }],
   "projects": [
