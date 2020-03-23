@@ -39,7 +39,7 @@ const IndexPage = ({ data: { content } }) => {
       </IllustratedHeader>
       <Tabs tabs={tabs} />
       <Section>
-        <div class="row">
+        <div class="row ma__row--three-up">
           {
             links.map(({ items, ...sectionLinksProps }) => (
               <div class="col-md">

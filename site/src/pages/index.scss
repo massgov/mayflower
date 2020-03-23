@@ -56,11 +56,11 @@ h2.ma__section-links__title {
     }
 }
 
-// Bootstrap overrides
-.row {
+// Match row height
+.ma__row--three-up {
   align-items: stretch;
 
-  .col-md {
+  .ma__section-links {
     height: 100%;
   }
 }
