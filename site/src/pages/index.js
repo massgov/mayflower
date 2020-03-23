@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 import { graphql } from "gatsby";
 import Img from 'gatsby-image';
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Section from "../components/section"
-import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, Icon, SectionLinks, DecorativeLink } from "@massds/mayflower-react";
+import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, Icon, SectionLinks, DecorativeLink, CalloutLink } from "@massds/mayflower-react";
 import BannerImage from '../images/massgov.png';
 
 import './index.scss';
@@ -45,7 +45,7 @@ const IndexPage = ({ data: { content } }) => {
               <div class="col-md">
                 <SectionLinks {...sectionLinksProps}>
                   {
-                    items.map((item) => <DecorativeLink {...item} />)
+                    items.map((item) => <CalloutLink {...item} />)
                   }
                 </SectionLinks>
               </div>
@@ -133,6 +133,8 @@ export const query = graphql`
         items {
           text
           href
+          description
+          theme
         }
       }
       projects {

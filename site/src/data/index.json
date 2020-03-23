@@ -43,30 +43,42 @@
     },
     "description": "Use these branding assets to create a cohesive look across Commonwealth web properties.",
     "items": [{
-      "text": "Colors",
-      "href": ""
+      "text": "Color Tokens",
+      "href": "https://mayflower.digital.mass.gov/react/index.html?path=/story/brand-colors--colors",
+      "description": "",
+      "theme": ""
     },{
       "text": "Typography",
-      "href": ""
+      "href": "https://mayflower.digital.mass.gov/react/index.html?path=/story/brand-typography--about",
+      "description": "",
+      "theme": ""
     },{
       "text": "Icons",
-      "href": ""
+      "href": "https://mayflower.digital.mass.gov/react/index.html?path=/story/brand-icons--all-icons",
+      "description": "",
+      "theme": ""
     },{
       "text": "Mayflower Tokens NPM Package",
-      "href": "https://www.npmjs.com/package/@massds/mayflower-tokens"
+      "href": "https://www.npmjs.com/package/@massds/mayflower-tokens",
+      "description": "Download the color token SCSS variables, fonts, icons and other imagery for a Mayflower theme.",
+      "theme": "white"
     }]
   },
   {
     "title": {
       "text": "2. Markup and CSS"
     },
-    "description": "Implement Mayflower HTML markup and its generated static assets.",
+    "description": "Implement Mayflower HTML markup and its generated static assets to .",
     "items": [{
       "text": "Mayflower CSS and JS NPM Package",
-      "href": ""
+      "href": "",
+      "description": "",
+      "theme": ""
     },{
       "text": "Mayflower HTML Starter",
-      "href": ""
+      "href": "",
+      "description": "",
+      "theme": ""
     }]
   },
   {
@@ -74,16 +86,22 @@
       "text": "3. Component Libraries",
       "href": ""
     },
-    "description": "Use Mayflower component libraries help you build fast, accessible, mobile-friendly, cross-browser compatible web products quickly and efficiently.",
+    "description": "Leverage Mayflower component libraries build fast, accessible, mobile-friendly, cross-browser compatible web products efficiently.",
     "items": [{
       "text": "React Component Library",
-      "href": ""
+      "href": "",
+      "description": "",
+      "theme": ""
     },{
       "text": "Mayflower React NPM Package",
-      "href": ""
+      "href": "",
+      "description": "",
+      "theme": ""
     },{
       "text": "Patternlab Component Library",
-      "href": "Mayflower React NPM Package"
+      "href": "Mayflower React NPM Package",
+      "description": "",
+      "theme": ""
     }]
   }],
   "projects": [
