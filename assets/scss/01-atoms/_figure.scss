@@ -1,10 +1,6 @@
 .ma__figure {
 
-  margin: 0;
-
-  @media ($bp-x-small-min) {
-    margin: 0 20px 20px 20px;
-  }
+  margin: 0 0 20px 0;
 
   .page-content > & {
 
@@ -20,6 +16,8 @@
 
   @media ($bp-small-min) {
     margin: 0 30px 30px 30px;
+
+    // support pre-existing figure elements besides dataviz.
 
     &--left,
     &--align-left,
@@ -70,7 +68,7 @@
 
   .no-sidebar &--small.ma__dataviz {
 
-    @media ($bp-x-small-min) {// 481~
+    @media ($bp-small-min) {// 621~
       width: 50%;
     }
 
@@ -97,7 +95,7 @@
 
   .no-sidebar &--medium.ma__dataviz {
 
-    @media ($bp-x-small-min) {// 481~
+    @media ($bp-small-min) {// 621~
       width: 66.66%;
       width: calc(100% / 3 * 2);
     }
@@ -150,16 +148,6 @@
 
   // alignment
 
-  @media ($bp-x-small-max) {
-
-    &--left.ma__dataviz,
-    &--right.ma__dataviz {
-      float: none;
-      margin-right: 0;
-      margin-bottom: 0;
-    }
-  }
-
   &--left.ma__dataviz {
     float: left;
     margin-left: 0;
@@ -168,6 +156,16 @@
   &--right.ma__dataviz {
     float: right;
     margin-right: 0;
+  }
+
+  @media ($bp-small-max) {
+
+    &--left.ma__dataviz,
+    &--right.ma__dataviz {
+      float: none;
+      margin-right: 0;
+      margin-left: 0;
+    }
   }
 
   // No wrapping
@@ -200,7 +198,7 @@
 
   .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz {
 
-    @media ($bp-x-small-min) {// 481~
+    @media ($bp-small-min) {// 621~
 
       padding-left: 50%;
     }
@@ -225,7 +223,7 @@
 
   .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz {
 
-    @media ($bp-x-small-min) {// 481~
+    @media ($bp-small-min) {// 621~
 
       padding-left: 33.33%;
       padding-left: calc(100% / 3);
