@@ -69,10 +69,6 @@
   .no-sidebar &--small.ma__dataviz {
 
     @media ($bp-small-min) {// 621~
-      width: 50%;
-    }
-
-    @media ($bp-medium-min) {// 781~
       width: 33.33%;
       width: calc(100% / 3);
     }
@@ -96,11 +92,6 @@
   .no-sidebar &--medium.ma__dataviz {
 
     @media ($bp-small-min) {// 621~
-      width: 66.66%;
-      width: calc(100% / 3 * 2);
-    }
-
-    @media ($bp-medium-min) {// 781~
       width: 50%;
     }
   }
