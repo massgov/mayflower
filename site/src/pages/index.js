@@ -60,7 +60,7 @@ const IndexPage = ({ data: { content } }) => {
             projects.map(({ title, description, img }) => (
               <div class="col-md">
                 <GenTeaser stacked>
-                  <GenTeaser.Image style={{ height: 200, borderWidth: '1px', borderStyle: 'solid' }}>
+                  <GenTeaser.Image style={{ maxHeight: 200, borderWidth: '1px', borderStyle: 'solid' }}>
                     <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
                   </GenTeaser.Image>
                   <GenTeaser.Details>
