@@ -4,10 +4,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
-console.log(process.env.GATSBY_PATH_PREFIX)
-
 module.exports = {
-  pathPrefix: process.env.GATSBY_PATH_PREFIX || '',
+  pathPrefix: process.env.GATSBY_PATH_PREFIX,
   siteMetadata: {
     title: `Mayflower`,
     description: `A design system for the Commonwealth of Massachusetts`,
