@@ -2,11 +2,11 @@
   "title": "Homepage",
   "header": {
     "pageHeader": {
-      "title": "A design system for the state government"
+      "title": "A design system for Massachusetts state government"
     },
     "category": "Commonwealth of Massachusetts",
     "inverted": true,
-    "paragraph": "We make it easier to build a accessible, mobile-friendly government websites with a consistent look and feel for the state of Massachusetts.",
+    "paragraph": "Mayflower makes it easier to build accessible, mobile-friendly websites with a consistent look and feel for the state of Massachusetts.",
     "bgInfo": "",
     "bgImage": "",
     "buttons": [
@@ -41,7 +41,7 @@
     "title": {
       "text": "1. Branding and Tokens"
     },
-    "description": "Use these branding assets to create a cohesive look across Commonwealth web properties.",
+    "description": "Use these tech agnostic branding assets to create a cohesive look across Commonwealth web properties.",
     "items": [{
       "text": "Color Tokens",
       "href": "https://mayflower.digital.mass.gov/react/index.html?path=/story/brand-colors--colors",
