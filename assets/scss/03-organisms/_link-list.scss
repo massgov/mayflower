@@ -81,11 +81,11 @@
   }
 }
 
-// link group in service page
-.ma__services.ma__services-flexible-link-groups {
+// link group in action finder in service page
+.ma__services.ma__services-flexible-link-groups .ma__action-finder__container {
 
   .ma__link-list__description {
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   .ma__link-list__container {
@@ -96,8 +96,7 @@
   .ma__link-list--no-line .ma__link-list__items {
     margin-bottom: 0;
     padding-left: 20px;
-    border-left: 3px solid $c-bay-blue-lighter;
-
+    border-left: 3px solid $c-primary-lighter;
   }
 
   .ma__link-list__items .ma__link-list__item {
