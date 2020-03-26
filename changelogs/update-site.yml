@@ -1,0 +1,18 @@
+Added:
+  - project: React
+    component: ButtonWithIcon
+    description: Add `href` prop and allow passing `text` as children, allow the ButtonWithIcon component to be rendered as a link. (#992)
+    issue: DP-17662
+    impact: Minor
+Fixed:
+  - project: Site
+    component: Dependency
+    description: Upgrade Mayflower-react to 9.44.2 to fix assets paths. (#992)
+    issue: DP-17662
+    impact: Patch
+Changed:
+  - project: Site
+    component: Homepage
+    description: Update data and fixed images. (#992)
+    issue: DP-17662
+    impact: Patch
