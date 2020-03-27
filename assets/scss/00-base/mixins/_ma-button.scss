@@ -11,7 +11,7 @@
   @if ($color == "transparent") {
 
     @include ma-button-base;
-    
+
     // default
 
     @if ($size == "normal") {
@@ -39,25 +39,25 @@
       background-color: $color;
       border-color: transparent;
 
-      @if $color == $c-highlight {
-        color: $c-black;
-
-        svg {
-          fill: $c-black;
-        }
-      }
-
       @if $color == $c-white {
         color: $c-primary;
 
         svg {
           fill: $c-primary;
         }
+      }
+
+      @if $color == $c-highlight {
+        color: $c-black;
+
+        svg {
+          fill: $c-black;
+        }
       } @else {
         color: $c-font-inverse;
       }
 
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: rgba($color,.75);
       }
     }
@@ -65,10 +65,10 @@
     @else {
       background-color: $c-font-inverse;
       border-color: rgba($color,.5);
-      
+
       @if $color == $c-highlight {
-        color: $c-primary;
-        border-color: rgba($c-primary,.5);
+        color: $c-black;
+        border-color: rgba($c-highlight,.5);
 
         svg {
           fill: $c-primary;
@@ -81,17 +81,17 @@
         }
       }
 
-      &:hover {
-        background-color: rgba($color,1);
-
+      &:hover:not(:disabled) {
         svg {
           fill: $c-white;
         }
 
         @if $color == $c-highlight {
-          color: $c-font-inverse;
+          color: $c-black;
+          background-color: rgba($c-highlight,1);
         } @else {
           color: $c-font-inverse;
+          background-color: rgba($color,1);
         }
       }
     }
