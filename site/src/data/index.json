@@ -21,7 +21,7 @@
       {
         "href": "http://mayflower.digital.mass.gov/styleguide/Mayflower_styleguide.pdf",
         "text": "Digital Style Guide",
-        "usage": "",
+        "usage": "secondary",
         "theme": "c-primary-alt",
         "iconName": "download",
         "iconTitle": "download icon"

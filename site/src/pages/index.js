@@ -117,6 +117,7 @@ export const query = graphql`
           usage
           theme
           iconName
+          iconTitle
         }
       }
       tabs {
