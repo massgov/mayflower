@@ -1,0 +1,6 @@
+Added:
+  - project: Pattternlab
+    component: LinkList
+    description: Add a new style for link list in service page. (#993)
+    issue: DP-17674
+    impact: Patch

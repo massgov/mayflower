@@ -1,6 +1,11 @@
 const path = require('path');
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
+  pathPrefix: process.env.GATSBY_PATH_PREFIX,
   siteMetadata: {
     title: `Mayflower`,
     description: `A design system for the Commonwealth of Massachusetts`,
@@ -12,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: path.resolve(__dirname, './src/images/'),
       },
     },
     {
