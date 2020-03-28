@@ -17,6 +17,14 @@
         "theme": "",
         "iconName": "github",
         "iconTitle": "github icon"
+      },
+      {
+        "href": "http://mayflower.digital.mass.gov/styleguide/Mayflower_styleguide.pdf",
+        "text": "Digital Style Guide",
+        "usage": "",
+        "theme": "c-primary-alt",
+        "iconName": "download",
+        "iconTitle": "download icon"
       }
     ]
   },
@@ -37,6 +45,7 @@
       "href": "https://mayflower.digital.mass.gov/docs"
     }
   ],
+  "paragraph": "To create print or digital assets that will feel like they are in a similar style to Mass.gov and belong to the Commonwealth’s information ecosystem, follow the <a href",
   "links": [{
     "title": {
       "text": "1. Branding and Tokens"

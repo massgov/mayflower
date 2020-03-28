@@ -9,6 +9,9 @@
   margin-top: 1rem;
   display: flex;
   align-items: stretch;
+   & >  * {
+     margin-right: 1rem;
+   }
 }
 
 .ma__search--tabs {
