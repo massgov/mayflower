@@ -8,9 +8,17 @@
 .ma__button-group {
   margin-top: 1rem;
   display: flex;
-  align-items: stretch;
-   & >  * {
-     margin-right: 1rem;
+    flex-direction: column;
+    & >  * ~ * {
+      margin: 1rem 0 0 0;
+      text-align: center;
+    }
+
+   @media($bp-x-small-min) {
+    flex-direction: row;
+    & >  * ~ * {
+      margin: 0 0 0 1rem;
+    }
    }
 }
 
