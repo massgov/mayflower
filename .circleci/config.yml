@@ -324,12 +324,12 @@ jobs:
           key: mfr-dependencies-{{ checksum "site/yarn.lock" }}
       - run:
           name: Validate Package Build
-          command: cd site && npm run build
+          command: cd site && yarn build
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
 
-          
+
   site_deploy_tag:
     <<: *react_defaults
     steps:
@@ -344,9 +344,9 @@ jobs:
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             cd react
-            aws s3 sync public s3://mayflower.digital.mass.gov --delete
+            aws s3 sync public s3://mayflower.digital.mass.gov/home --delete
             aws configure set preview.cloudfront true
-            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/*'
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*'
           fi
 
 workflows:
