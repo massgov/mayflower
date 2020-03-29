@@ -5,13 +5,14 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Section from "../components/section"
+import RichText from "../components/richText"
 import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, Icon, SectionLinks, DecorativeLink, CalloutLink } from "@massds/mayflower-react";
 import BannerImage from '../images/massgov.png';
 
 import './index.scss';
 
 const IndexPage = ({ data: { content } }) => {
-  const { header, projects, channels, tabs, links } = content
+  const { header, projects, channels, tabs, links, intro } = content
   const { paragraph, buttons, ...headerProps } = header;
   headerProps.bgImage = '';
   const iconDimension = 50;
@@ -52,6 +53,9 @@ const IndexPage = ({ data: { content } }) => {
             )
           )}
         </div>
+      </Section>
+      <Section>
+        <RichText htmlTag="p" rawHtml={intro}/>
       </Section>
       <Section bgColor="primary">
         <h2>See Mayflower in Use</h2>
@@ -120,6 +124,7 @@ export const query = graphql`
           iconTitle
         }
       }
+      intro
       tabs {
         value
         label

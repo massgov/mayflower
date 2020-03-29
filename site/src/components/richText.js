@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser, { convertNodeToElement } from 'react-html-parser';
 
-const RichText = () => {
-  const {
-    className, id, htmlTag, rawHtml, vetoLegend, ...rest
-  } = this.props;
+const RichText = ({
+  className, id, htmlTag, rawHtml
+}) => {
   const CustomElement = htmlTag;
   return(
-    <CustomElement ref={(element) => { this.element = element; }} className={className} id={id} {...rest}>
+    <CustomElement ref={(element) => element} className={className} id={id}>
       {ReactHtmlParser(rawHtml)}
     </CustomElement>
   );
