@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHtmlParser, { convertNodeToElement } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 const RichText = ({
   className, id, htmlTag, rawHtml, transform

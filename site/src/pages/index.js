@@ -20,6 +20,11 @@ const IndexPage = ({ data: { content } }) => {
     height: iconDimension,
     minWidth: iconDimension
   };
+  const transform = (node) => {
+    if (node.type === 'tag' && node.name === 'a') {
+    return <DecorativeLink text={node.children[0].data} href={node.attribs.href}/>;
+  }
+  }
   return(
     <Layout>
       <SEO title="Home" />
@@ -55,7 +60,7 @@ const IndexPage = ({ data: { content } }) => {
         </div>
       </Section>
       <Section>
-        <RichText htmlTag="p" rawHtml={intro}/>
+        <RichText htmlTag="p" rawHtml={intro} transform={transform} />
       </Section>
       <Section bgColor="primary">
         <h2>See Mayflower in Use</h2>
