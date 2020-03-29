@@ -1,6 +1,6 @@
 Added:
   - project: Site
     component: CircleCI
-    description: Add CI for site for build and deploy. (#1001)
+    description: Add CI for site build and deploy. (#1001)
     issue: DP-17980
     impact: Patch
