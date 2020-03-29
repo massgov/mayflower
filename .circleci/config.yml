@@ -310,6 +310,44 @@ jobs:
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
             fi
 
+  site_build:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - mfr-dependencies-{{ checksum "site/yarn.lock" }}
+      - run: {name: 'Install packages', command: 'cd site && npm i -g yarn && yarn'}
+      - save_cache:
+          paths:
+            - site/node_modules
+          key: mfr-dependencies-{{ checksum "site/yarn.lock" }}
+      - run:
+          name: Validate Package Build
+          command: cd site && yarn build
+      - persist_to_workspace:
+          root: ~/repo
+          paths: ["*"]
+
+
+  site_deploy_tag:
+    <<: *react_defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            sudo apt-get update && sudo apt-get -y -qq install awscli
+          fi
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            cd react
+            aws s3 sync public s3://mayflower.digital.mass.gov/home --delete
+            aws configure set preview.cloudfront true
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*'
+          fi
 
 workflows:
   version: 2
@@ -322,19 +360,27 @@ workflows:
             branches: { only: /dependabot\/.*/ }
       - assets_test:
           filters:
-            branches: { ignore: /docs\-.*/ }
+            branches: { ignore: /docs.*/ }
+      # patternlab
       - patternlab_build:
           filters:
-            branches: { ignore: /docs\-.*/ }
+            branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_deploy_branch:
           requires: [patternlab_build]
           filters:
-            branches: { ignore: /(docs\-|react\/).*/ }
-      - patternlab_test: {requires: [patternlab_build]}
+            branches: { ignore: /(docs|react\/|site\/).*/ }
+      - patternlab_test:
+          requires: [patternlab_build]
+      # react
       - react_build_storybook:
           filters:
-            branches: { ignore: /docs\-.*/ }
-      - react_test: {requires: [react_build_storybook]}
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+      - react_test:
+          requires: [react_build_storybook]
+      # site
+      - site_build:
+          filters:
+            branches: { ignore: /(docs|patternlab\/|react\/).*/ }
 
   # Release branch automation every Tuesday at 1 p.m. ET
   release:
@@ -392,6 +438,11 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - assets_deploy_tag:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - site_deploy_tag:
+          requires: [site_build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
