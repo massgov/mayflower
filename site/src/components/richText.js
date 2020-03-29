@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import ReactHtmlParser, { convertNodeToElement } from 'react-html-parser';
 
 const RichText = ({
-  className, id, htmlTag, rawHtml
+  className, id, htmlTag, rawHtml, transform
 }) => {
   const CustomElement = htmlTag;
   return(
     <CustomElement ref={(element) => element} className={className} id={id}>
-      {ReactHtmlParser(rawHtml)}
+      {ReactHtmlParser(rawHtml, { transform })}
     </CustomElement>
   );
 }
@@ -21,7 +21,11 @@ RichText.propTypes = {
   /** An id to be rendered on the component. * */
   id: PropTypes.string,
   /** The html tag you want the component to be. By default, this is a `div`. * */
-  htmlTag: PropTypes.string
+  htmlTag: PropTypes.string,
+  /** The transform function will be called for every node that is parsed by ReactHtmlParser.
+    * See documentation of react-html-parser for the transform function: https://www.npmjs.com/package/react-html-parser#transform-function
+  * */
+  transform: PropTypes.func
 };
 
 RichText.defaultProps = {
