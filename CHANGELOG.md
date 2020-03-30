@@ -2,14 +2,15 @@
 All notable changes to this project will be documented in this file.
 
 ## 9.45.0 (3/30/2020)
-### Added 
+### Added
 - (Pattternlab) [LinkList] DP-17674: Add a new style for link list in service page. (#993)
 - (React) [ButtonWithIcon] DP-17662: Add `href` prop and allow passing `text` as children, allow the ButtonWithIcon component to be rendered as a link. (#992)
 
-### Fixed 
+### Fixed
 - (Site) [Dependency] DP-17662: Upgrade Mayflower-react to 9.44.2 to fix assets paths. (#992)
+- (React) [Button] DP-17958: Disabled hover changes when button is disabled. Adjusted colors for a11y for c-highlight theme.
 
-### Changed 
+### Changed
 - (Site) [Homepage] DP-17662: Update data and fixed images. (#992)
 
 ## 9.44.2 (3/20/2020)
