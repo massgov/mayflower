@@ -1,0 +1,7 @@
+Changed:
+  - project: React
+    component: Button
+    description: Disabled hover changes when button is disabled. Adjusted colors for a11y for c-highlight theme.
+    issue: DP-17958
+    impact: Minor
+
