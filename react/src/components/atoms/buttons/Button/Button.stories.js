@@ -14,7 +14,6 @@ storiesOf('atoms/buttons', module)
     'Button', (() => {
       const props = {
         usage: select('usage', buttonOptions.usage),
-        theme: select('theme', buttonOptions.theme),
         type: select('type', buttonOptions.type),
         size: select('size', buttonOptions.size),
         info: text('info', 'this will be the tooltip text on hover'),
@@ -24,6 +23,10 @@ storiesOf('atoms/buttons', module)
         onClick: action('button clicked'),
         classes: array('classes', [])
       };
+      // Tertiary and quaternary usages don't have different themes.
+      if (props.usage === undefined || props.usage === 'primary' || props.usage === 'secondary') {
+        props.theme = select('theme', buttonOptions.theme);
+      }
       return(
         <Button {...props} />
       );
