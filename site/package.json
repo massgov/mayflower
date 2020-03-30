@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Minghua Sun <clairesunstudio@gmail.com>",
   "dependencies": {
-    "@massds/mayflower-react": "9.40.0",
+    "@massds/mayflower-react": "9.44.2",
     "bootstrap": "^4.4.1",
     "classname": "^0.0.0",
     "gatsby": "^2.19.7",
@@ -24,6 +24,8 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^3.0.2",
@@ -39,11 +41,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "cross-env NODE_ENV=production gatsby serve --prefix-paths",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "lint": "./node_modules/.bin/eslint . --config .eslintrc",

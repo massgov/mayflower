@@ -26,17 +26,22 @@ const ButtonWithIcon = (props) => {
     className: buttonClasses,
     tabIndex: 0
   };
+  const Element = props.href ? 'a' : 'button';
   return(
-    <button {...buttonProps} ref={setButtonRef} aria-expanded={expanded}>
-      <span>{text}</span>
-      {icon}
-    </button>
+    <Element {...buttonProps} ref={setButtonRef} aria-expanded={expanded}>
+      <span>{props.children ? props.children : props.text}</span>
+      {icon && icon}
+    </Element>
   );
 };
 
 ButtonWithIcon.propTypes = {
   /** id for the button */
   id: PropTypes.string,
+  /** button or link content rendered in a span */
+  children: PropTypes.element,
+  /** When populated with a url, this component renders a <a> vs a <button> */
+  href: PropTypes.string,
   // Function to run on click of the button.
   onClick: PropTypes.func,
   // Sets a reference to the button onto the passed node.
