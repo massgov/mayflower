@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, number } from '@storybook/addon-knobs';
-import logo from 'SharedAssets/images/stateseal.png';
+import logo from '../../../../assets/images/stateseal.png';
 
 import SiteLogo from '.';
 import SiteLogoDocs from './SiteLogo.md';

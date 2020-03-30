@@ -6,7 +6,7 @@ import { storiesOf } from '@storybook/react';
 import './index.css';
 import './markdown.css';
 
-import Docs from '../README.md';
+import Docs from './README.md';
 
 const md = new MarkdownIt();
 const result = md.render(Docs);
