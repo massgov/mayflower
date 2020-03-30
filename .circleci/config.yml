@@ -279,12 +279,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "assets/package.json" }}
+            - assets-dependencies-{{ checksum "assets/package.json" }}
       - run: cd assets && npm install
       - save_cache:
           paths:
             - assets/node_modules
-          key: mfr-dependencies-{{ checksum "assets/package.json" }}
+          key: assets-dependencies-{{ checksum "assets/package.json" }}
       - run:
           name: Mayflower Style Linter
           command: cd assets && npm run stylelint
@@ -297,7 +297,14 @@ jobs:
     steps:
       - checkout
       - *configure_npm
+      - restore_cache:
+          keys:
+            - assets-dependencies-{{ checksum "assets/package.json" }}
       - run: cd assets && npm i
+      - save_cache:
+          paths:
+            - assets/node_modules
+          key: assets-dependencies-{{ checksum "assets/package.json" }}
       - run: cd assets && npm run build
       - run:
           name: 'Publish mayflower-tokens NPM package'
@@ -316,12 +323,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "site/yarn.lock" }}
-      - run: {name: 'Install packages', command: 'cd site && npm i -g yarn && yarn'}
+            - site-dependencies-{{ checksum "site/yarn.lock" }}
+      - run: {name: 'Install packages', command: 'cd site && yarn'}
       - save_cache:
           paths:
             - site/node_modules
-          key: mfr-dependencies-{{ checksum "site/yarn.lock" }}
+          key: site-dependencies-{{ checksum "site/yarn.lock" }}
       - run:
           name: Validate Package Build
           command: cd site && yarn build
