@@ -32,7 +32,7 @@ export default create({
   inputTextColor: '#141414',
   inputBorderRadius: 4,
 
-  brandTitle: 'Mayflower React222',
+  brandTitle: 'Mayflower React',
   brandUrl: 'https://github.com/massgov/mayflower',
   brandImage: logo,
 });
