@@ -84,18 +84,14 @@ class TabContainer extends React.Component {
             <span id={this.spanId} className="ma__visually-hidden">Use left and right arrows to navigate between tabs, up and down arrows to navigate between active tab and its content.</span>
             {childrenWithProps}
           </ul>
-          {
-            (
-              <div
-                aria-labelledby={this.state.activeTab}
-                className="ma__tab-container-body"
-                tabIndex={0}
-                ref={this.tabBodyRef}
-                role="tabpanel"
-                id={this.state.tabContainerBodyId}
-              />
-            )
-          }
+          <div
+            aria-labelledby={this.state.activeTab}
+            className="ma__tab-container-body"
+            tabIndex={0}
+            ref={this.tabBodyRef}
+            role="tabpanel"
+            id={this.state.tabContainerBodyId}
+          />
         </div>
       </TabContext.Provider>
     );
