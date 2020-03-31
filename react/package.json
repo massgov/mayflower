@@ -40,7 +40,6 @@
     "bourbon": "^5.1.0",
     "bourbon-neat": "^1.7.2",
     "classnames": "^2.2.6",
-    "fsevents": "^2.1.2",
     "fuse.js": "^3.4.5",
     "is": "^3.3.0",
     "moment": "^2.21.0",
