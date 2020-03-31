@@ -131,6 +131,13 @@
       }
     }
 
+    &.cv-alternate-style {
+      background-color: #f7c600;
+
+      &:hover {
+        background-color: #fce387;
+      }
+    }
   }
 
   &__back {
