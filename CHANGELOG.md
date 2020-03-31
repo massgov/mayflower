@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## 9.45.1 (3/31/2020)
 ### Changed
 - (Patternlab) [main-nav] DP-18000: Make top-level nav items clickable. (#1005)
+- (Patternlab) [main-nav] DP-18018: Add alternate style for COVID-19 link. (#1008)
 
 ## 9.45.0 (3/30/2020)
 ### Added
