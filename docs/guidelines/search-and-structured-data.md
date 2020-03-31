@@ -108,8 +108,8 @@ You can include metadata in the HTML of your pages, specifically in the `<head>`
     <meta name="MobileOptimized" content="width" />
     <meta name="HandheldFriendly" content="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://mayflower.digital.mass.gov/css/base-theme-generated.css">
-    <link rel="stylesheet" href="https://mayflower.digital.mass.gov/css/index-generated.css">
+    <link rel="stylesheet" href="https://mayflower.digital.mass.gov/patternlab/css/base-theme-generated.css">
+    <link rel="stylesheet" href="https://mayflower.digital.mass.gov/patternlab/css/index-generated.css">
     <title>Example One Page</title>
     <meta property="og:title" content="Example One Page">
     <meta name="mg_online_contact_url" content="[{"name":"example@sao.state.ma.us","url":"example@sao.state.ma.us"},{"name":"Subscribe to our Enewsletter","url":"http:\/\/example.com\/bL-SjD"},{"name":"Request that Elected Official Speak to Your Group or Event","url":"https:\/\/www.mass.gov\/how-to\/request-that-official-speak-to-your-group-or-event"}]">

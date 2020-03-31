@@ -1,10 +1,12 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs, number, text } from '@storybook/addon-knobs';
+import { withKnobs, number, text, array } from '@storybook/addon-knobs';
 
 import Image from './index';
 import ImageDocs from './Image.md';
+import rectPlaceholder from '../../../../assets/images/placeholder/800x400.png';
+import circPlaceholder from '../../../../assets/images/placeholder/250x250.png';
 
 storiesOf('atoms/media', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -12,13 +14,12 @@ storiesOf('atoms/media', module)
     'Image', (() => {
       const props = {
         alt: text('alt', 'alt text'),
-        src: text('src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/800x400.png'),
+        src: text('src', rectPlaceholder),
         width: number('width', 800),
         height: number('height', 400),
         shape: text('shape', ''),
-        classes: text('classes', '')
+        classes: array('classes', [])
       };
-      props.classes = [props.classes];
       return(<Image {...props} />);
     }),
     { info: ImageDocs }
@@ -27,13 +28,12 @@ storiesOf('atoms/media', module)
     'Image (circular)', (() => {
       const props = {
         alt: text('alt', 'alt text'),
-        src: text('src', 'https://mayflower.digital.mass.gov/assets/images/placeholder/250x250.png'),
+        src: text('src', circPlaceholder),
         width: number('width', 250),
         height: number('height', 250),
-        shape: text('shape', ''),
-        classes: text('classes', 'ma__image circular')
+        shape: text('shape', 'circular'),
+        classes: array('classes', [])
       };
-      props.classes = [props.classes];
 
       return(<Image {...props} />);
     }),

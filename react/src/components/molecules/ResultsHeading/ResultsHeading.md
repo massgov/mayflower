@@ -1,6 +1,6 @@
 This Pattern contains a string of text with a range and total value followed by selected filters and controls for sorting.
 
-@see [@molecules/results-heading](https://mayflower.digital.mass.gov/?p=molecules-results-heading&view=c)
+@see [@molecules/results-heading](https://mayflower.digital.mass.gov/patternlab/?p=molecules-results-heading&view=c)
 
 ###### Pattern Contains
 * Button Toggle (replacing Sort Results in Mayflower react)

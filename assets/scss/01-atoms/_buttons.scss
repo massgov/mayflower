@@ -17,12 +17,12 @@ button {
   @include ma-button("normal");
 }
 
-.ma__button--small { 
+.ma__button--small {
 
   @include ma-button("small");
 }
 
-.ma__button--large { 
+.ma__button--large {
 
   @include ma-button("large");
 }
@@ -74,7 +74,7 @@ button {
   padding: 0;
   text-transform: none;
 
-  &:hover {
+  &:hover:not(:disabled) {
    border-bottom: 3px solid $c-primary;
    background-color: transparent;
   }

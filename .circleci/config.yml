@@ -112,7 +112,7 @@ jobs:
             fi
       - run:
           name: 'Deploy S3 Branch'
-          command: aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/b/$CIRCLE_BRANCH"
+          command: aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH"
 
   patternlab_deploy_tag:
     <<: *patternlab_defaults
@@ -153,10 +153,10 @@ jobs:
       - run:
           name: 'Deploy S3 Tag'
           command: |
-            aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/v/$CIRCLE_TAG"
+            aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/"
+              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
             fi
 
   react_build_storybook:
@@ -197,7 +197,7 @@ jobs:
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
           cd react
-          docker-compose run backstop test --atoms && docker-compose run backstop test
+          docker-compose run backstop test
       - run:
           command: cd react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
           when: always
@@ -232,9 +232,9 @@ jobs:
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             cd react
-            aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete
+            aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete
             aws configure set preview.cloudfront true
-            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/*'
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*'
           fi
 
   auto_changelog:
@@ -344,7 +344,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "00 18 * * 2"
+          cron: "00 18 * * 1"
           filters:
             branches:
               only:

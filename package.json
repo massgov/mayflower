@@ -6,14 +6,13 @@
   "private": true,
   "devDependencies": {
     "@octokit/rest": "^16.35.0",
-    "@storybook/preset-create-react-app": "^1.5.2",
-    "babel-preset-react-app": "^9.1.1",
     "js-yaml": "^3.13.1",
     "semver": "^6.3.0",
     "shelljs": "^0.8.3",
     "simple-git": "^1.126.0"
   },
   "dependencies": {
+    "@massds/mayflower-react": "^9.42.1",
     "@octokit/rest": "^16.35.0"
   }
 }
