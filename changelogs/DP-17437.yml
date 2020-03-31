@@ -1,6 +1,6 @@
 Changed:
   - project: React
     component: Dependency
-    description: Upgrade storybook to lastest version 5.3.14. (#958)
+    description: Upgrade storybook to lastest version 5.3.18. (#958)
     issue: DP-17437
     impact: Patch
