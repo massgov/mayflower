@@ -24,11 +24,9 @@
             </ul>
           </div>
         {% elseif nav.href %}
-          <button id="{{ buttonId }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
-            <a href="{{ nav.href }}">
+          <a href="{{ nav.href }}" class="ma__main-nav__top-link" aria-haspopup="true" aria-expanded="false" tabindex="0">
               <span class="visually-hidden show-label">See all topics under </span>{{ nav.text }}
-            </a>
-          </button>
+          </a>
         {% else %}
           <button id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
         {% endif %}
