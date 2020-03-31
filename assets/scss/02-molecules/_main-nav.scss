@@ -131,6 +131,12 @@
       }
     }
 
+    &.cv-alternate-style {
+      background-color: #f7c600;
+      &:hover {
+        background-color: #fce387;
+      }
+    }
   }
 
   &__back {
@@ -277,6 +283,7 @@
     letter-spacing: letter-spacing-medium;
     text-transform: uppercase;
   }
+
   a {
     color: #141414;
   }
