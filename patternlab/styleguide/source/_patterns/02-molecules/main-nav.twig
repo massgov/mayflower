@@ -29,7 +29,7 @@
           {% if 'covid' in nav.text|lower %}
             {% set altClass = 'cv-alternate-style' %}
           {% endif %}
-          <a href="{{ nav.href }}" class="ma__main-nav__top-link {{ altclass }}" tabindex="0">{{ nav.text }}</a>
+          <a href="{{ nav.href }}" class="ma__main-nav__top-link {{ altClass }}" tabindex="0">{{ nav.text }}</a>
         {% else %}
           <button id="{{ buttonId }}" class="ma__main-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
         {% endif %}
