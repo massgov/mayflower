@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser';
+import ReactDOMServer from 'react-dom/server';
 
 const RichText = ({
-  className, id, htmlTag, rawHtml, transform
+  className, id, htmlTag, rawHtml, transform, children
 }) => {
   const CustomElement = htmlTag;
+  const markup = ReactDOMServer.renderToStaticMarkup(children);
   return(
     <CustomElement ref={(element) => element} className={className} id={id}>
-      {ReactHtmlParser(rawHtml, { transform })}
+      {ReactHtmlParser(markup, { transform })}
     </CustomElement>
   );
 };
 
 RichText.propTypes = {
-  /** The raw html that you want to render. * */
+  /** The raw html nodes that you want to render. * */
+  children: PropTypes.node,
+  /** The stringified raw html that you want to render. * */
   rawHtml: PropTypes.string,
   /** A className that you want to component to reference. * */
   className: PropTypes.string,

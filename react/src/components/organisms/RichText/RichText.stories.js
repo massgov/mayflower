@@ -18,7 +18,22 @@ storiesOf('organisms', module)
         transform: action('transform callback')
       };
       return(
-        <RichText {...props} />);
+        <RichText {...props}>
+          <h1>This is a heading.</h1>
+          <p>
+          An unordered list is a list in which the sequence of items is not important. Sometimes, an unordered list is a bulleted list. And this is a long list item in an unordered list that can wrap onto a new line.
+          Lists can be nested inside of each other.
+          </p>
+          <ul>
+            <li>This is a list item in an unordered list.</li>
+            <ul>
+              <li>This is a nested list item.</li>
+              <li>This is another nested list item in an unordered list.</li>
+            </ul>
+            <li>This is the last list item.</li>
+          </ul>
+        </RichText>
+      );
     },
     { info: RichTextDocs }
   );
