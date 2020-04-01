@@ -7,7 +7,8 @@ const RichText = ({
   className, id, htmlTag, rawHtml, transform, children
 }) => {
   const CustomElement = htmlTag;
-  const markup = ReactDOMServer.renderToStaticMarkup(children);
+  // If chidlren don't exist, expect to render the rawHtml string.
+  const markup = children ? ReactDOMServer.renderToStaticMarkup(children) : rawHtml;
   return(
     <CustomElement ref={(element) => element} className={className} id={id}>
       {ReactHtmlParser(markup, { transform })}
@@ -18,7 +19,7 @@ const RichText = ({
 RichText.propTypes = {
   /** The raw html nodes that you want to render. * */
   children: PropTypes.node,
-  /** The stringified raw html that you want to render. * */
+  /** The stringified raw html that you want to render. If children exist, will render children instead of rawHtml * */
   rawHtml: PropTypes.string,
   /** A className that you want to component to reference. * */
   className: PropTypes.string,
