@@ -36,6 +36,9 @@
     "settings": {
         "import/resolver": {
             "alias": {
+                "map": [
+                    ["SharedAssets", "../assets"]
+                ],
                 "extensions": [".js", ".jsx"]
             }
         }

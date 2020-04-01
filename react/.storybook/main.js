@@ -44,6 +44,13 @@ module.exports = {
       enforce: 'pre',
     });
 
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve.alias,
+        SharedAssets: path.resolve(__dirname, '../../assets/')
+      }};
+
     // Return the altered config
     return config;
   },

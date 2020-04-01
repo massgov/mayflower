@@ -2,7 +2,7 @@ import { create } from '@storybook/theming/create';
 import logo from './mayflower-react-logo.png';
 
 export default create({
-  base: 'dark',
+  base: 'light',
 
   colorPrimary: 'hotpink',
   colorSecondary: '#14558F',
@@ -24,7 +24,7 @@ export default create({
   // Toolbar default and active colors
   barTextColor: '#707070',
   barSelectedColor: '#14558F',
-  barBg: 'red',
+  barBg: '#F2F2F2',
 
   // Form colors
   inputBg: 'white',
