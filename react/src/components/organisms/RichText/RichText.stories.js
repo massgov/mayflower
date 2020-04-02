@@ -12,12 +12,13 @@ storiesOf('organisms', module)
     'RichText', () => {
       const hasChildren = boolean('hasChildren', true);
       const props = {
-        rawHtml: text('rawHtml', '<h1>This is heading 1</h1>'),
         className: text('className', ''),
         id: text('id', ''),
         htmlTag: text('htmlTag', 'div'),
         transform: action('transform callback')
       };
+      // If children exist, disable the rawHtml knob
+      props.rawHtml = hasChildren || text('rawHtml', '<h1>This is heading 1</h1>');
       return(
         <RichText {...props}>
           { hasChildren && (
