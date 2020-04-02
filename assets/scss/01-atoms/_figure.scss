@@ -257,6 +257,12 @@
       padding-left: calc(100% / 3 * 2);
     }
   }
+
+  // caption
+
+  & > .ma__figure__caption > :last-child {
+    margin-bottom: 0;
+  }
 }
 
 //theme
