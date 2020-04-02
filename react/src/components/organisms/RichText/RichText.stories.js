@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import RichText from './index';
@@ -14,7 +14,7 @@ storiesOf('organisms', module)
       const props = {
         className: text('className', ''),
         id: text('id', ''),
-        htmlTag: text('htmlTag', 'div'),
+        htmlTag: select('htmlTag', ['div', 'p', 'section'], 'div'),
         transform: action('transform callback')
       };
       // If children exist, disable the rawHtml knob
