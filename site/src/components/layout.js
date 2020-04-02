@@ -42,13 +42,13 @@ const Layout = ({ children, pre }) => {
   const siteLogo = <SiteLogo {...siteLogoProps} />
 
   const footerProps = {
-    title: 'Massachusetts Executive Office of Technology Security and Services (EOTSS)',
+    title: 'Executive Office of Technology Security and Services (EOTSS)',
     contact: {
       address: '1 Ashburton Place, 8th Floor, Boston, MA 02108',
       phone: '(617) 626-4400',
       online: {
-        href: 'https://mass.gov/EOTSS',
-        title: 'EOTSS Official Website'
+        href: 'https://www.mass.gov/orgs/massachusetts-digital-service',
+        title: 'Massachusetts Digital Service official website'
       }
     },
     siteLogo
