@@ -10,8 +10,8 @@ storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'RichText', () => {
+      const hasChildren = boolean('hasChildren', true);
       const props = {
-        hasChildren: boolean('hasChildren', true),
         rawHtml: text('rawHtml', '<h1>This is heading 1</h1>'),
         className: text('className', ''),
         id: text('id', ''),
@@ -20,7 +20,7 @@ storiesOf('organisms', module)
       };
       return(
         <RichText {...props}>
-          { props.hasChildren && (
+          { hasChildren && (
             <Fragment>
               <h1>This is a heading.</h1>
               <p>
