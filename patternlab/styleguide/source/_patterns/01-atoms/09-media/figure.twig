@@ -1,5 +1,5 @@
 {% set alignmentClass = figure.align ? (figure.size == "x-large" ? "" : " ma__figure--" ~ figure.align) : "" %}
-{% set sizeClass = figure.size ? " ma__figure--" ~ figure.size : "" %}
+{% set sizeClass = figure.size ? (figure.size == 'x-large' ? " ma__figure--full ma__figure--" ~ figure.size : " ma__figure--" ~ figure.size) : "" %}
 {% set wrapClass = not figure.wrap ? " ma__figure--no-wrap" : "" %}
 <figure class="ma__figure{{ alignmentClass }}{{ sizeClass }}{{ figure.class ? " "~ figure.class : "" }}{{ wrapClass }}">
   {% if figure.title %}
