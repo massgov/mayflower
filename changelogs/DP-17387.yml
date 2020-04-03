@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: DecprativeLink
+    description: Adjust css for decorative link in location listing for Chrome. Match the markup of assets/js/templates/locationListingRow.html to 02-molecules/image-promo.twig. (#995)
+    issue: DP-17387
+    impact: Patch
