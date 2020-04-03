@@ -235,13 +235,18 @@ $location-listin--map-min-width: 315px;
         display: block;
       }
 
-      .ma__decorative-link {
-        width: auto;
+      .ma__image-promo__directions {
 
-        a {
-          display: inline-block;
-          padding-bottom: 0;
-          padding-top: 0;
+        .ma__decorative-link {
+          width: auto;
+
+          a {
+            width: auto;
+            min-width: 5em;
+            display: inline-block;
+            padding-bottom: 0;
+            padding-top: 0;
+          }
         }
       }
     }
