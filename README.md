@@ -19,12 +19,12 @@ This project is licensed under the is licensed under the GNU General Public Lice
 
 
 ## Continuous Integration using CircleCI
-By default, each push to a remote branch will trigger build and visual regression tests for React Storybook and Patternlab, deploy the Patternlab site build bundle to S3, as well as run the distribution build for the mayflower-tokens package in the [assets](/assets) folder.
+By default, each push to a remote branch will trigger build and tests for React Storybook and Patternlab, deploy the Patternlab site build bundle to S3, as well as run the distribution build for the mayflower-tokens package in the [assets](/assets) folder.
 For efficiency purposes, we allow CircleCI to bypass certain jobs based on the prefix of the branch name. Please only use these prefixes for the following scenarios:
 
 | Branch name prefix  | Rule | Scenario |
 |---|---|---|
-| `react/`  | This will by pass Patternlab build, deploy and visual regression tests | This prefix should only be used if all your changes are in the [react](/react) folder, and nothing in the shared [assets](/assets) folder that could potentially impact the build of the Patternlab implementation  |
-| `pattern/`  | This will by pass React Storybook build and visual regression tests | This prefix should only be used if all your changes are in the [patternlab](/patternlab) folder, and nothing in the shared [assets](/assets) folder that could potentially impact the build of the React implementation  |
-| `site/`  |   |   |
-| `docs`  |   |   |
+| `react/`  | This will bypass Patternlab build, deploy and tests | This prefix should only be used if all your changes are in the [react](/react) folder, and nothing in the shared [assets](/assets) folder that could potentially impact the build of the Patternlab implementation  |
+| `pattern/`  | This will bypass React Storybook build and tests | This prefix should only be used if all your changes are in the [patternlab](/patternlab) folder, and nothing in the shared [assets](/assets) folder that could potentially impact the build of the React implementation  |
+| `site/`  | This will bypass all React and Patternlab and assets build, deploy and tests. |  Only use this prefix if all the changes are in the [site](/site) folder. e.g. Content changes to the homepage site that won't impact React, Patternlab and shared assets. |
+| `docs`  | This will bypass all React and Patternlab and assets build, deploy and tests, as well as Mayflower site build and tests. | Only use this prefix if all the changes are in the [docs](/docs) folder. e.g. Documentation changes for the repo and the Mayflower Gitbook that won't impact React, Patternlab, shared assets and the homepage static site. |
