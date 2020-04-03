@@ -2,7 +2,6 @@ const path = require("path");
 module.exports = {
   stories: ['../**/*.stories.js'],
   addons: [
-    // '@storybook/preset-create-react-app',
     '@storybook/addon-knobs',
     '@storybook/addon-actions',
     '@storybook/addon-links',
@@ -19,6 +18,7 @@ module.exports = {
       '@babel/proposal-class-properties',
       '@babel/plugin-proposal-object-rest-spread'
     ]);
+
     // Alter the mini-css-extract-plugin to look for asset files relative to
     // the storybook-static directory. Note that we guard this logic because
     // the storybook development server doesn't actually use the
@@ -30,6 +30,7 @@ module.exports = {
         cssFileLoader.options.publicPath = '../../';
       }
     }
+
     // Configure the storysource plugin.
     config.module.rules.push({
       test: /\.stories\.js?$/,
