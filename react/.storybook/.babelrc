@@ -1,3 +1,0 @@
-{
-    "plugins": ["@babel/proposal-export-default-from"]
-}
