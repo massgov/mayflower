@@ -378,12 +378,16 @@ workflows:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_test:
           requires: [patternlab_build]
+          filters:
+            branches: { ignore: /(docs|react\/|site\/).*/ }
       # react
       - react_build_storybook:
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - react_test:
           requires: [react_build_storybook]
+          filters:
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       # site
       - site_build:
           filters:
