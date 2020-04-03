@@ -273,7 +273,7 @@ jobs:
       - run: node scripts/release-tag.js
 
 
-  assets_test:
+  assets_build:
     <<: *react_defaults
     steps:
       - checkout
@@ -365,7 +365,7 @@ workflows:
       - auto_changelog:
           filters:
             branches: { only: /dependabot\/.*/ }
-      - assets_test:
+      - assets_build:
           filters:
             branches: { ignore: /(docs|site\/).*/ }
       # patternlab
