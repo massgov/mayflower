@@ -36,13 +36,7 @@ module.exports = {
       loader: require.resolve('@storybook/addon-storysource/loader'),
       enforce: 'pre',
     });
-    // Not sure what this does?
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...config.resolve.alias,
-        SharedAssets: path.resolve(__dirname, '../../assets/')
-      }};
+
     // Return the altered config
     return config;
   },
