@@ -27,7 +27,7 @@ export default (function (window,document,$,undefined) {
 
       let thisToggleText = $thisToggleLabel.text();
       $thisToggle.toggleClass('toggle-open');
-      $thisToggleLabel.text(thisToggleText === "less" ? "more" : "less");
+      $thisToggleLabel.text(thisToggleText === "fewer" ? "more" : "fewer");
 
       $listItem.each(function() {
         let $item = $(this);
