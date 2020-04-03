@@ -4,18 +4,18 @@ import logo from './mayflower-react-logo.png';
 export default create({
   base: 'light',
 
-  colorPrimary: 'hotpink',
+  // colorPrimary: 'hotpink',
   colorSecondary: '#14558F',
 
   // UI
   appBg: '#F2F2F2',
-  appContentBg: 'silver',
+  // appContentBg: 'silver',
   appBorderColor: '#DCDCDC',
   appBorderRadius: 6,
 
   // Typography
-  fontBase: '"Open Sans", sans-serif',
-  fontCode: 'monospace',
+  // fontBase: '"Open Sans", sans-serif',
+  // fontCode: 'monospace',
 
   // Text colors
   textColor: 'black',
