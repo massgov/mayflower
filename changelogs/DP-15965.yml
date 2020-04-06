@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Contact-item
-    description: Changed capitalization of directions
-    issue: DP-15965
-    impact: Minor

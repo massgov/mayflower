@@ -1,6 +1,15 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.46.0 (4/6/2020)
+### Changed 
+- (Patternlab) [Contact-item] DP-15965: Changed capitalization of directions
+- (Patternlab) [DecprativeLink] DP-17387: Adjust css for decorative link in location listing for Chrome. Match the markup of assets/js/templates/locationListingRow.html to 02-molecules/image-promo.twig. (#995)
+
+### Added 
+- (Site) [Header, RichText] DP-17923: Add links to digital styleguide on the homepage. (#999)
+- (Site) [CircleCI] DP-17980: Add CI for site build and deploy. (#1001)
+
 ## 9.45.2 (3/31/2020)
 ### Changed
 - (Patternlab) [main-nav] DP-18018: Fix typo in Covid-19 link styling. (#1010)
