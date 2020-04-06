@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.46.1 (4/6/2020)
+### Fixed 
+- (Site) [CircleCI] DP-17980: Fixed CircleCI deploy build. (#1016)
+
 ## 9.46.0 (4/6/2020)
 ### Changed 
 - (Patternlab) [Contact-item] DP-15965: Changed capitalization of directions

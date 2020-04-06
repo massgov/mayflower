@@ -1,6 +1,0 @@
-Fixed:
-  - project: Site
-    component: CircleCI
-    description: Fixed CircleCI deploy build. (#1016)
-    issue: DP-17980
-    impact: Patch
