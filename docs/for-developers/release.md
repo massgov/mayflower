@@ -4,10 +4,12 @@ Mayflower Release involves cutting a Github tag following [Semantic Versioning](
 - Build and publish the [@massds/mayflower-tokens](https://www.npmjs.com/package/@massds/mayflower-tokens) NPM packages
 - Build and publish the [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower) NPM package
 - Build and publish the [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) NPM package
-- Build, test and publish the [Mayflower homepage site](https://mayflower.digital.mass.gov/)
-- Build, test and publish the [Patternlab site](https://mayflower.digital.mass.gov/patternlab)
-- Build, test and publish the [Storybook site](https://mayflower.digital.mass.gov/react)
-
+- Build and publish the [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) NPM package
+- Build and publish the [massgov/mayflower-artifacts](https://packagist.org/packages/massgov/mayflower-artifacts) PHP package
+- Build, test and deploy the [Mayflower homepage site](https://mayflower.digital.mass.gov/)
+- Build, test and deploy the [Patternlab site](https://mayflower.digital.mass.gov/patternlab)
+- Build, test and deploy the [Storybook site](https://mayflower.digital.mass.gov/react)
+- Deploy to documentation to the [Mayflower Gitbook](https://mayflower.digital.mass.gov/docs)
 
 
 ## Auto Release
