@@ -66,6 +66,7 @@
 
   // Small
 
+  .no-sidebar &--small,
   .no-sidebar &--small.ma__dataviz {
 
     @media ($bp-small-min) {// 621~
@@ -74,6 +75,7 @@
     }
   }
 
+  .page-content:not(.no-sidebar) &--small,
   .page-content:not(.no-sidebar) &--small.ma__dataviz {
     width: 100%;
 
@@ -101,6 +103,7 @@
 
   // Medium
 
+  .no-sidebar &--medium,
   .no-sidebar &--medium.ma__dataviz {
 
     @media ($bp-small-min) {// 621~
@@ -108,6 +111,7 @@
     }
   }
 
+  .page-content:not(.no-sidebar) &--medium,
   .page-content:not(.no-sidebar) &--medium.ma__dataviz {
     width: 100%;
 
@@ -133,10 +137,12 @@
 
   // Large
 
+  &--large,
   &--large.ma__dataviz {
     width: 100%;
   }
 
+  .no-sidebar &--large,
   .no-sidebar &--large.ma__dataviz {
 
     @media ($bp-large-max) {
@@ -150,6 +156,7 @@
     }
   }
 
+  .page-content:not(.no-sidebar) &--large,
   .page-content:not(.no-sidebar) &--large.ma__dataviz {
 
     @media ($bp-large-min) {
@@ -160,11 +167,13 @@
 
   // alignment
 
+  &--left,
   &--left.ma__dataviz {
     float: left;
     margin-left: 0;
   }
 
+  &--right,
   &--right.ma__dataviz {
     float: right;
     margin-right: 0;
@@ -172,7 +181,9 @@
 
   @media ($bp-small-max) {
 
+    &--left,
     &--left.ma__dataviz,
+    &--right,
     &--right.ma__dataviz {
       float: none;
       margin-right: 0;
