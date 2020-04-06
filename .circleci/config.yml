@@ -273,18 +273,18 @@ jobs:
       - run: node scripts/release-tag.js
 
 
-  assets_test:
+  assets_build:
     <<: *react_defaults
     steps:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "assets/package.json" }}
+            - assets-dependencies-{{ checksum "assets/package.json" }}
       - run: cd assets && npm install
       - save_cache:
           paths:
             - assets/node_modules
-          key: mfr-dependencies-{{ checksum "assets/package.json" }}
+          key: assets-dependencies-{{ checksum "assets/package.json" }}
       - run:
           name: Mayflower Style Linter
           command: cd assets && npm run stylelint
@@ -297,7 +297,14 @@ jobs:
     steps:
       - checkout
       - *configure_npm
+      - restore_cache:
+          keys:
+            - assets-dependencies-{{ checksum "assets/package.json" }}
       - run: cd assets && npm i
+      - save_cache:
+          paths:
+            - assets/node_modules
+          key: assets-dependencies-{{ checksum "assets/package.json" }}
       - run: cd assets && npm run build
       - run:
           name: 'Publish mayflower-tokens NPM package'
@@ -310,6 +317,44 @@ jobs:
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"
             fi
 
+  site_build:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - site-dependencies-{{ checksum "site/yarn.lock" }}
+      - run: {name: 'Install packages', command: 'cd site && yarn'}
+      - save_cache:
+          paths:
+            - site/node_modules
+          key: site-dependencies-{{ checksum "site/yarn.lock" }}
+      - run:
+          name: Validate Package Build
+          command: cd site && yarn build
+      - persist_to_workspace:
+          root: ~/repo
+          paths: ["*"]
+
+
+  site_deploy_tag:
+    <<: *react_defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            sudo apt-get update && sudo apt-get -y -qq install awscli
+          fi
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            cd react
+            aws s3 sync public s3://mayflower.digital.mass.gov/home --delete
+            aws configure set preview.cloudfront true
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*'
+          fi
 
 workflows:
   version: 2
@@ -320,21 +365,33 @@ workflows:
       - auto_changelog:
           filters:
             branches: { only: /dependabot\/.*/ }
-      - assets_test:
+      - assets_build:
           filters:
-            branches: { ignore: /docs\-.*/ }
+            branches: { ignore: /(docs|site\/).*/ }
+      # patternlab
       - patternlab_build:
           filters:
-            branches: { ignore: /docs\-.*/ }
+            branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_deploy_branch:
           requires: [patternlab_build]
           filters:
-            branches: { ignore: /(docs\-|react\/).*/ }
-      - patternlab_test: {requires: [patternlab_build]}
+            branches: { ignore: /(docs|react\/|site\/).*/ }
+      - patternlab_test:
+          requires: [patternlab_build]
+          filters:
+            branches: { ignore: /(docs|react\/|site\/).*/ }
+      # react
       - react_build_storybook:
           filters:
-            branches: { ignore: /docs\-.*/ }
-      - react_test: {requires: [react_build_storybook]}
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+      - react_test:
+          requires: [react_build_storybook]
+          filters:
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+      # site
+      - site_build:
+          filters:
+            branches: { ignore: /(docs|patternlab\/|react\/).*/ }
 
   # Release branch automation every Tuesday at 1 p.m. ET
   release:
@@ -392,6 +449,15 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - assets_deploy_tag:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - site_build:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - site_deploy_tag:
+          requires: [site_build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }

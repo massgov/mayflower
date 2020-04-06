@@ -2,6 +2,7 @@ import { create } from '@storybook/theming';
 import logo from './mayflower-react-logo.png';
 
 // https://storybook.js.org/docs/configurations/theming/
+// Will be updated in 5.3, mostly
 
 export default create({
   base: 'light',
