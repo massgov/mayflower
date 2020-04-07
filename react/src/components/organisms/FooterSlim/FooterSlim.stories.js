@@ -1,10 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object, text, number } from '@storybook/addon-knobs';
-
+import logo from 'SharedAssets/images/stateseal.png';
 import FooterSlim from './index';
 import FooterSlimDocs from './FooterSlim.md';
-import logo from 'SharedAssets/images/stateseal.png';
 import { SiteLogo } from '../../../index';
 
 storiesOf('organisms', module)

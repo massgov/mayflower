@@ -3,10 +3,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number, text, array } from '@storybook/addon-knobs';
 
-import Image from './index';
-import ImageDocs from './Image.md';
 import rectPlaceholder from 'SharedAssets/images/placeholder/800x400.png';
 import circPlaceholder from 'SharedAssets/images/placeholder/250x250.png';
+import Image from './index';
+import ImageDocs from './Image.md';
 
 storiesOf('atoms/media', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

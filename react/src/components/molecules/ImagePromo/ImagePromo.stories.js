@@ -1,14 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, number, boolean } from '@storybook/addon-knobs';
-
+import rectPlaceholder from 'SharedAssets/images/placeholder/190x107.png';
+import sqrPlaceholder from 'SharedAssets/images/placeholder/100x100.png';
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
 import Icon from '../../base/Icon';
-
-import rectPlaceholder from 'SharedAssets/images/placeholder/190x107.png';
-import sqrPlaceholder from 'SharedAssets/images/placeholder/100x100.png';
-
 
 storiesOf('molecules/ImagePromo', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
