@@ -13,7 +13,7 @@ import {
   styles
 } from './typography.json';
 import typographyOptions from './Typography.knobs.options';
-import TypographyDocs from './typography.md';
+import TypographyDocs from '../../../../../docs/style/typography.md';
 
 import './styles.css';
 import '../../../markdown.css';

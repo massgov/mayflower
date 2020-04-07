@@ -7,7 +7,7 @@ import Header from './index';
 import HeaderDocs from './Header.md';
 import MainNavData from '../../molecules/MainNav/MainNav.knob.options';
 import UtilityNavData from '../UtilityNav/UtilityNav.knob.options';
-import logo from '../../../assets/images/stateseal.png';
+import logo from 'SharedAssets/images/stateseal.png';
 
 
 storiesOf('organisms/Header', module)

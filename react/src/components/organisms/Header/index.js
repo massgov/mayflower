@@ -6,7 +6,7 @@ import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
 import SiteLogo from '../../atoms/media/SiteLogo';
-import logo from '../../../assets/images/stateseal.png';
+import logo from 'SharedAssets/images/stateseal.png';
 
 import './styles.css';
 

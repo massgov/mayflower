@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object, boolean, text } from '@storybook/addon-knobs';
 
-import stateSeal from '../../../assets/images/stateseal.png';
+import stateSeal from 'SharedAssets/images/stateseal.png';
 import Footer from './index';
 import FooterDocs from './Footer.md';
 import FooterLinksData from '../../molecules/FooterLinks/FooterLinks.json';

@@ -4,7 +4,7 @@ import { withKnobs, object, text, number } from '@storybook/addon-knobs';
 
 import FooterSlim from './index';
 import FooterSlimDocs from './FooterSlim.md';
-import logo from '../../../assets/images/stateseal.png';
+import logo from 'SharedAssets/images/stateseal.png';
 import { SiteLogo } from '../../../index';
 
 storiesOf('organisms', module)

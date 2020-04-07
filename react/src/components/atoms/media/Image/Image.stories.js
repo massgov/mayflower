@@ -5,8 +5,8 @@ import { withKnobs, number, text, array } from '@storybook/addon-knobs';
 
 import Image from './index';
 import ImageDocs from './Image.md';
-import rectPlaceholder from '../../../../assets/images/placeholder/800x400.png';
-import circPlaceholder from '../../../../assets/images/placeholder/250x250.png';
+import rectPlaceholder from 'SharedAssets/images/placeholder/800x400.png';
+import circPlaceholder from 'SharedAssets/images/placeholder/250x250.png';
 
 storiesOf('atoms/media', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

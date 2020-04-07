@@ -6,8 +6,8 @@ import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
 import Icon from '../../base/Icon';
 
-import rectPlaceholder from '../../../assets/images/placeholder/190x107.png';
-import sqrPlaceholder from '../../../assets/images/placeholder/100x100.png';
+import rectPlaceholder from 'SharedAssets/images/placeholder/190x107.png';
+import sqrPlaceholder from 'SharedAssets/images/placeholder/100x100.png';
 
 
 storiesOf('molecules/ImagePromo', module)
