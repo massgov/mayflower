@@ -350,7 +350,7 @@ jobs:
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            cd react
+            cd site
             aws s3 sync public s3://mayflower.digital.mass.gov/home --delete
             aws configure set preview.cloudfront true
             aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*'
