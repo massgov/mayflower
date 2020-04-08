@@ -8,9 +8,12 @@
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
 
-        <li class="ma__relationship-indicators--term js-term {{ item.class }}">
+        {% set itemLink = item %}
+        {% include "@atoms/item-link.twig" %}
+        {# <li class="ma__relationship-indicators--term js-term {{ item.class }}">
           <a href="{{ item.href }}">{{ item.title }}</a>
-        </li>
+        </li> #}
+
         {# Add the button after the first item as the second item in the list for accessibility purpose. Managing focus order with JS doesn't work in VoiceOver. #}
         {% if loop.first %}
           <li class="ma__relationship-indicators__expand-indicators">
@@ -37,9 +40,11 @@
       {% block secondaryRelationship %}
       {% for item in relationshipIndicators.secondary.tags %}
 
-        <li class="ma__relationship-indicators--term js-term {{ item.class }}">
+        {% set itemLink = item %}
+        {% include "@atoms/item-link.twig" %}
+        {# <li class="ma__relationship-indicators--term js-term {{ item.class }}">
           <a href="{{ item.href }}">{{ item.title }}</a>
-        </li>
+        </li> #}
         {# Add the button after the first item as the second item in the list for accessibility purpose. Managing focus order with JS doesn't work in VoiceOver. #}
         {% if loop.first %}
           <li class="ma__relationship-indicators__expand-indicators">
