@@ -7,56 +7,28 @@
     <ul class="ma__relationship-indicators--terms" aria-labelledby="primary">
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
-
         {% set itemLink = item %}
         {% include "@atoms/item-link.twig" %}
-        {# <li class="ma__relationship-indicators--term js-term {{ item.class }}">
-          <a href="{{ item.href }}">{{ item.title }}</a>
-        </li> #}
-
-        {# Add the button after the first item as the second item in the list for accessibility purpose. Managing focus order with JS doesn't work in VoiceOver. #}
-        {% if loop.first %}
-          <li class="ma__relationship-indicators__expand-indicators">
-            <button type="button" class="js-relationship-indicator-button" aria-pressed="false">
-              show <span class="tag-count"></span> <span class="tag-state">more</span>
-            </button>
-          </li>
-        {% endif %}
-
       {% endfor %}
     {% endblock %}
-
     </ul>
   </div>
 
-  {% if relationshipIndicators.secondary is not empty %}
-    <div class="ma__relationship-indicators--section secondary">
-      <label class="ma__relationship-indicators--label" id="secondary">
-      <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
-        {{ relationshipIndicators.secondary.label }}
-      </span>
-      </label>
-      <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
-      {% block secondaryRelationship %}
+{% if relationshipIndicators.secondary is not empty %}
+  <div class="ma__relationship-indicators--section secondary">
+    <label class="ma__relationship-indicators--label" id="secondary">
+    <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
+      {{ relationshipIndicators.secondary.label }}
+    </span>
+    </label>
+    <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
+    {% block secondaryRelationship %}
       {% for item in relationshipIndicators.secondary.tags %}
-
         {% set itemLink = item %}
         {% include "@atoms/item-link.twig" %}
-        {# <li class="ma__relationship-indicators--term js-term {{ item.class }}">
-          <a href="{{ item.href }}">{{ item.title }}</a>
-        </li> #}
-        {# Add the button after the first item as the second item in the list for accessibility purpose. Managing focus order with JS doesn't work in VoiceOver. #}
-        {% if loop.first %}
-          <li class="ma__relationship-indicators__expand-indicators">
-            <button type="button" class="js-relationship-indicator-button" aria-label="show more" aria-pressed="false">
-              show <span class="tag-count"></span> <span class="tag-state">more</span>
-            </button>
-          </li>
-        {% endif %}
-
       {% endfor %}
-      {% endblock %}
-      </ul>
-    </div>
-  {% endif %}
+    {% endblock %}
+    </ul>
+  </div>
+{% endif %}
 </div>
