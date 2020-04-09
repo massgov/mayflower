@@ -14,11 +14,20 @@ Mayflower Release involves cutting a Github tag following [Semantic Versioning](
 
 
 ## Auto Release
-Mayflower releases are automated using CircleCI and it's scheduled for every Monday at 2pm (EDT). During this process, [compile-changelogs](../../scripts/compile-changelogs.js) gets triggered on the release branch, and all files under the [changelog folder](../../changelogs) gets compiled and added to [CHANGELOG.md](../../CHANGELOG.md).
+Mayflower releases are automated using CircleCI and it's scheduled for every **Monday at 2pm (EDT)** (See the cron time in [CircleCI config](/.circleci/config.yml)).
 
+1. At the scheduled cron time, CircleCI will run release_branch and try to create a release branch from develop. (If no new changelogs, the task will fail and stop.)
+1. A release branch will be created based on the previous release tag, e.g. 9.38.0, and increment based on the impact levels in each new changelogs. E.g. only "patches"
+1. The script [compile-changelogs](/scripts/compile-changelogs.js) gets triggered on the release branch, and all files under the [changelog folder](../../changelogs) gets compiled and added to [CHANGELOG.md](../../CHANGELOG.md).
+1. A pull request gets created into master with descriptions
+1. **Once all the Circle tests are passed in the PR, review and "Merge" the PR into master.**
+1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
+![approve tag release hold](../.gitbook/assets/release-auto.png)
+1. A release will be cut for Mayflower.
+1. Merge `master` back into `develop`.
 
 ## Creating a Hotfix
-To do a hotfix directly into master:
+To do a hotfix directly into `master`:
 1. Create a hotfix branch with the prefix `hotfix/`.
 2. After committing your changes, create a Pull Request into the `master` branch.
 3. Add a changelog following the [changelog template](/changelogs/template.yml).
@@ -27,7 +36,17 @@ To do a hotfix directly into master:
 
 ## Creating a Manual Release
 
-In a case that a manual release is needed, run `$ node scripts/release-branch.js`  on the `develop` branch and a release branch will be created with changelogs compiled and changes committed. More release documentation to come.
+In a case that a manual release from `develop` is needed:
+1. Run `$ node scripts/release-branch.js` from the repo root on `develop` branch
+1. A release branch will be created with changelogs compiled and changes committed.
+1. Push up the branch and create a PR into `master`, add the newly compiled changelogs to the description as the PR description.
+1. **Once all the Circle tests are passed in the PR, review and "Merge" the PR into master.**
+1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
+![approve tag release hold](../.gitbook/assets/release-auto.png)
+1. A release will be cut for Mayflower.
+1. Merge `master` back into `develop`.
 
-
-keeps track of all notable changes in each release within [CHANGELOG.md](../../CHANGELOG.md). This changelog covers changes in all projects under the Maylflower monorepo and it's updated at the time of release from all files (except for [template.yml](../../changelogs/template.yml)) exist under the [changelog folder](../../changelogs).
+>If you have a Github API token that has write access to the Mayflower Repo, instead of the steps above you can also automate the pull request creation by running (Linux):
+```
+DANGER_GITHUB_API_TOKEN=[Your_Github_API_Token] node scripts/release-branch.js
+```
