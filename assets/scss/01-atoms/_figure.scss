@@ -270,8 +270,41 @@
   }
 
   // caption
+  &__caption {
 
-  &__caption > :last-child {
+    color: $c-font-detail;
+    font-weight: bold;
+    font-style: normal;
+    border-bottom: 1px solid $c-black;
+    padding: 10px 0;
+
+    @media ($bp-small-min) {
+      padding: 15px 0;
+    }
+  }
+
+  .ma__rich-text &__caption {
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol,
+    blockquote,
+    article,
+    .ma__table--responsive {
+      margin-bottom: 10px;
+
+      @media ($bp-small-min) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .ma__rich-text &__caption > :last-child {
     margin-bottom: 0;
   }
 }
