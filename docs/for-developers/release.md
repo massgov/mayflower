@@ -29,10 +29,15 @@ Mayflower releases are automated using CircleCI and it's scheduled for every **M
 ## Creating a Hotfix
 To do a hotfix directly into `master`:
 1. Create a hotfix branch with the prefix `hotfix/`.
-2. After committing your changes, create a Pull Request into the `master` branch.
-3. Add a changelog following the [changelog template](/changelogs/template.yml).
-4. Run script `node scripts/compile-changelogs` from the repo root.
-5. Commit the changes and push up to the remote hotfix branch.
+1. After committing your changes, create a Pull Request into the `master` branch.
+1. Add a changelog following the [changelog template](/changelogs/template.yml).
+1. Run script `node scripts/compile-changelogs` from the repo root.
+1. Commit the changes and push up to the remote hotfix branch.
+1. **Once all the Circle tests are passed in the PR, review and "Merge" the PR into master.**
+1. **Upon approving the release PR, release the "hold" on `github_tag` in CircleCI.**
+![approve tag release hold](../.gitbook/assets/release-auto.png)
+1. A release will be cut for Mayflower.
+1. Merge `master` back into `develop`.
 
 ## Creating a Manual Release
 
