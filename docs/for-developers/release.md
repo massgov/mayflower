@@ -55,3 +55,6 @@ In a case that a manual release from `develop` is needed:
 ```
 DANGER_GITHUB_API_TOKEN=[Your_Github_API_Token] node scripts/release-branch.js
 ```
+
+---
+The release automation requires the changelogs being compliant, refer to [Changelog Instructions](./changelog-instructions.md) for more details.
