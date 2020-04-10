@@ -107,7 +107,7 @@
   .no-sidebar &--medium.ma__dataviz {
 
     @media ($bp-small-min) {// 621~
-      width: 50%;
+      width: calc(50% - 30px);
     }
   }
 
@@ -131,7 +131,7 @@
     }
 
     @media ($bp-large-min) {// 910~
-      width: 50%;
+      width: calc(50% - 30px);
     }
   }
 
