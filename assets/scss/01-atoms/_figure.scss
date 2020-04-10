@@ -5,13 +5,6 @@
   .page-content > & {
 
     @include ma-container;
-
-    &--large {
-
-      @media ($bp-large-bridge-min) {
-        width: auto;
-      }
-    }
   }
 
   @media ($bp-small-min) {
@@ -55,8 +48,6 @@
     line-height: 1.57;
   }
 
-  // EXCLURIVE STYLES to dataviz - remove .ma__dataviz to apply all figure elements. Use .ma__dataviz to set dataviz specific styles excluding image and iframe.
-
   &--x-large {
 
     width: 100%;
@@ -66,8 +57,7 @@
 
   // Small
 
-  .no-sidebar &--small,
-  .no-sidebar &--small.ma__dataviz {
+  .no-sidebar &--small {
 
     @media ($bp-small-min) {// 621~
       width: calc(33.33% - 30px);
@@ -75,8 +65,7 @@
     }
   }
 
-  .page-content:not(.no-sidebar) &--small,
-  .page-content:not(.no-sidebar) &--small.ma__dataviz {
+  .page-content:not(.no-sidebar) &--small {
     width: 100%;
 
     @media ($bp-large-max) {
@@ -92,16 +81,14 @@
 
   // Medium
 
-  .no-sidebar &--medium,
-  .no-sidebar &--medium.ma__dataviz {
+  .no-sidebar &--medium {
 
     @media ($bp-small-min) {// 621~
       width: calc(50% - 30px);
     }
   }
 
-  .page-content:not(.no-sidebar) &--medium,
-  .page-content:not(.no-sidebar) &--medium.ma__dataviz {
+  .page-content:not(.no-sidebar) &--medium {
     width: 100%;
 
     @media ($bp-large-max) {
@@ -135,8 +122,7 @@
     }
   }
 
-  .page-content:not(.no-sidebar) &--large,
-  .page-content:not(.no-sidebar) &--large.ma__dataviz {
+  .page-content:not(.no-sidebar) &--large {
 
     @media ($bp-large-min) {
       margin-right: 0;
@@ -146,14 +132,12 @@
 
   // alignment
 
-  &--left,
-  &--left.ma__dataviz {
+  &--left {
     float: left;
     margin-left: 0;
   }
 
-  &--right,
-  &--right.ma__dataviz {
+  &--right {
     float: right;
     margin-right: 0;
   }
@@ -161,9 +145,7 @@
   @media ($bp-small-max) {
 
     &--left,
-    &--left.ma__dataviz,
-    &--right,
-    &--right.ma__dataviz {
+    &--right {
       float: none;
       margin-right: 0;
       margin-left: 0;
@@ -178,8 +160,7 @@
     margin-left: 0;
   }
 
-  &--no-wrap.ma__figure--right,
-  &--no-wrap.ma__figure--right.ma__dataviz {
+  &--no-wrap.ma__figure--right {
     width: 100%;
 
     @media ($bp-small-min) {
@@ -190,15 +171,7 @@
 
   // NO WRAP - Small
 
-  &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz {
-
-    @media ($bp-large-bridge-min) {// 1025~
-
-      padding-left: 50%;
-    }
-  }
-
-  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small.ma__dataviz {
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--small {
 
     @media ($bp-small-min) {// 621~
 
@@ -214,16 +187,7 @@
 
   // NO WRAP - Medium
 
-  &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz {
-
-    @media ($bp-large-bridge-min) {// 1025~
-
-      padding-left: 33.33%;
-      padding-left: calc(100% / 3);
-    }
-  }
-
-  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium.ma__dataviz {
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--medium {
 
     @media ($bp-small-min) {// 621~
 
@@ -239,7 +203,7 @@
 
   // NO WRAP - Large
 
-  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--large.ma__dataviz {
+  .no-sidebar &--no-wrap.ma__figure--right.ma__figure--large {
 
     @media ($bp-large-min) {
 
