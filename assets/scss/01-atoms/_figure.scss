@@ -297,6 +297,8 @@
     article,
     .ma__table--responsive {
       margin-bottom: 10px;
+      padding-top: 0;
+      padding-bottom: 0;
 
       @media ($bp-small-min) {
         margin-bottom: 15px;
