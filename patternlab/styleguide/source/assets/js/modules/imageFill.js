@@ -23,6 +23,9 @@ export default (function (window, document, $, undefined) {
         $thisMedia.css('width', wrapperWidth);
       }
     });
+
+    // Force Tableau iframe to reload when figure size is x-large.
+    $('.ma__figure--x-large').find('iframe').width("100%");
   }
 
   $(window).on('load', function () {
