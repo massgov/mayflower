@@ -1,13 +1,14 @@
 const path = require("path");
 module.exports = {
-  stories: ['../**/*.stories.js'],
+  stories: ['../**/*.stories.js', '../**/*.stories.mdx'],
   addons: [
     '@storybook/addon-knobs',
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-viewport',
     '@storybook/addon-storysource',
-    '@storybook/addon-a11y'
+    '@storybook/addon-a11y',
+    '@storybook/addon-docs'
   ],
   webpackFinal: async (config, { configType }) => {
     // Add special plugins to the babel loader.
