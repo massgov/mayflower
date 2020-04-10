@@ -4,7 +4,6 @@ $bp-xs:   480px;
 $bp-s:    620px;
 $bp-m:    780px;
 $bp-l:    910px;
-$bp-l-m:  1024px;
 $bp-l-ex: 1050px;
 $bp-xl:   1200px;
 
@@ -18,8 +17,6 @@ $bp-medium-min:             "min-width: " + ($bp-m + 1);
 $bp-medium-max:             "max-width:"  +  $bp-m;
 $bp-large-min:              "min-width: " + ($bp-l + 1);
 $bp-large-max:              "max-width:"  +  $bp-l;
-$bp-large-bridge-min:       "min-width:"  +  ($bp-l-m + 1);
-$bp-large-bridge-max:       "max-width:"  +  $bp-l-m;
 $bp-large-extended:         "max-width:"  +  $bp-l-ex;
 $bp-large-extended-min:     "min-width: " + ($bp-l-ex + 1);
 $bp-x-large-min:            "min-width: " + ($bp-xl + 1);

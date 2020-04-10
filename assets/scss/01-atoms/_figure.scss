@@ -70,8 +70,8 @@
   .no-sidebar &--small.ma__dataviz {
 
     @media ($bp-small-min) {// 621~
-      width: 33.33%;
-      width: calc(100% / 3);
+      width: calc(33.33% - 30px);
+      width: calc(100% / 3 - 30px);
     }
   }
 
@@ -79,25 +79,14 @@
   .page-content:not(.no-sidebar) &--small.ma__dataviz {
     width: 100%;
 
-    // TODO: ONCE THEY DECIDE NOT TO USE $bp-large-bridge-max AND $bp-large-bridge-min, REMOVE THEM IN BREAKPOINT.SCSS
-
-    // @media ($bp-large-bridge-max) {
-    //   margin-right: 0;
-    //   margin-left: 0;
-    // }
-
-    // @media ($bp-large-bridge-min) {// 1025~
-    //   width: 50%;
-    // }
-
     @media ($bp-large-max) {
       margin-right: 0;
       margin-left: 0;
     }
 
     @media ($bp-large-min) {// 910~
-      width: 33.33%;
-      width: calc(100% / 3);
+      width: calc(33.33% - 30px);
+      width: calc(100% / 3 - 30px);
     }
   }
 
@@ -114,16 +103,6 @@
   .page-content:not(.no-sidebar) &--medium,
   .page-content:not(.no-sidebar) &--medium.ma__dataviz {
     width: 100%;
-
-    // @media ($bp-large-bridge-max) {
-    //   margin-right: 0;
-    //   margin-left: 0;
-    // }
-
-    // @media ($bp-large-bridge-min) {// 1025~
-    //   width: 66.66%;
-    //   width: calc(100% / 3 * 2);
-    // }
 
     @media ($bp-large-max) {
       margin-right: 0;
