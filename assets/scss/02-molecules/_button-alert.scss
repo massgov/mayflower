@@ -29,7 +29,9 @@
   }
 
   // If the parent of the button-alert is an open accordion, then flip the arrow up.
+
   .js-accordion.is-open & {
+
     &:after {
       transform: translateY(-50%) rotate(-135deg);
     }
