@@ -1,6 +1,15 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.47.0 (4/13/2020)
+### Changed 
+- (Patternalb) [ServicePage] DP-16029: Change the property value to set style for see all link in service page to match Mass.gov production. (#994)
+- (Patternlab) [Featured Item Mosaic] DP-16690: Changed text from less to fewer.
+- (React) [Dependency] DP-17437: Upgrade storybook to lastest version 5.3.18. (#958)
+
+### Added 
+- (Docs) [Release] DP-18180: Add documentation on release and hotfix (#1017)
+
 ## 9.46.1 (4/6/2020)
 ### Fixed 
 - (Site) [CircleCI] DP-17980: Fixed CircleCI deploy build. (#1016)

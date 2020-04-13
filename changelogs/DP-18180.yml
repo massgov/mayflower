@@ -1,6 +1,0 @@
-Added:
-  - project: Docs
-    component: Release
-    description: Add documentation on release and hotfix (#1017)
-    issue: DP-18180
-    impact: Patch

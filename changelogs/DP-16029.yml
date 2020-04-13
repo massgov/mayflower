@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternalb
-    component: ServicePage
-    description: Change the property value to set style for see all link in service page to match Mass.gov production. (#994)
-    issue: DP-16029
-    impact: Patch
