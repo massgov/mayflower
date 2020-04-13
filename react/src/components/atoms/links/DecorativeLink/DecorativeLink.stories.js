@@ -5,13 +5,6 @@ import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
 import Icon from '../../../base/Icon';
 
-export default {
-  info: (value) => text('DecorativeLink: info', value, 'DecorativeLink'),
-  text: (value) => text('DecorativeLink: linkText', value, 'DecorativeLink'),
-  href: (value) => text('DecorativeLink: href', value, 'DecorativeLink'),
-  showFileIcon: (value) => boolean('DecorativeLink: showFileIcon', value, 'DecorativeLink')
-};
-
 storiesOf('atoms/links', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(

@@ -16,6 +16,4 @@ To add a changelog:
 
 ## Compile changelogs during release
 
-Mayflower releases are automated using CircleCI and it's scheduled for every Tuesday at 1pm (EST). During this process, [compile-changelogs](../../scripts/compile-changelogs.js) gets triggered on the release branch, and all files under the [changelog folder](../../changelogs) gets compiled and added to [CHANGELOG.md](../../CHANGELOG.md).
-
-In a case that a manual release is needed, run `$ node scripts/release-branch.js`  on the `develop` branch and a release branch will be created with changelogs compiled and changes committed. More release documentation to come. 
+See [Release Documentation](./release.md) on how changelogs get compiled during releases.
