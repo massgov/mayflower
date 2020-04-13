@@ -2,7 +2,7 @@
 
   margin: 0 0 20px 0;
 
-  .page-content > & {
+  .main-content--full .page-content > & {
 
     @include ma-container;
   }
@@ -213,7 +213,7 @@
   }
 
   // caption
-  
+
   &__caption {
 
     color: $c-font-detail;
