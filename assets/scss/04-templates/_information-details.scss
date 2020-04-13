@@ -1,5 +1,13 @@
 .ma__information-details {
 
+  &__pre-content-media {
+
+    .ma__figure {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
   &__content {
 
     & > * {
