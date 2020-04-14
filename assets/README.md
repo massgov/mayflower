@@ -48,7 +48,7 @@ For more details about Texta's terms of use, please refer to our [web font licen
 1. Wait a few minutes and check [@massds/mayflower-tokens][npm] on the registry.
 
 
-[npm-badge]: https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/@massds/mayflower-tokens.png?style=flat-square
 [npm]: https://www.npmjs.com/package/@massds/mayflower-tokens
 [mayflower-github]: https://github.com/massgov/mayflower
 [mayflower-doc]: https://www.mass.gov/mayflower
