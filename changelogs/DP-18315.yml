@@ -1,0 +1,6 @@
+Added:
+  - project: React, Patternlab, Assets
+    component: Fonts
+    description: Addded fonts for Khmer language support. (#1021)
+    issue: DP-18315
+    impact: Patch
