@@ -23,11 +23,6 @@ html {
   @media ($bp-small-min) {
     font-size: 16px;
   }
-
-
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
 }
 
 body {
@@ -37,10 +32,10 @@ body {
   color: $c-font-base;
   font-family: $fonts;
   font-weight: 400;
+}
 
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
+body:lang(km) {
+  font-family: $fonts-khmer;
 }
 
 a {
