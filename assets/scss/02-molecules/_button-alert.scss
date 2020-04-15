@@ -28,6 +28,15 @@
     border-color: rgba($c-font-inverse,.5);
   }
 
+  // If the parent of the button-alert is an open accordion, then flip the arrow up.
+
+  .js-accordion.is-open & {
+
+    &:after {
+      transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+
   // This is used in mayflower-react specifically, `is-open` class is moved down a level from patternlab
 
   &.is-open {
