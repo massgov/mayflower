@@ -2,6 +2,7 @@ $formTransitions: max-height 0.6s linear, margin 0.1s linear;
 $formQuickTransitions: max-height 0.3s linear;
 
 .ma__mass-feedback-form {
+
   &__form {
     border: 2px solid $c-gray-light;
     background: $c-white;
@@ -50,6 +51,7 @@ $formQuickTransitions: max-height 0.3s linear;
     }
 
     .ma__textarea__wrapper {
+
       textarea {
         resize: none;
         overflow: hidden;
@@ -65,6 +67,7 @@ $formQuickTransitions: max-height 0.3s linear;
     }
 
     &--user-response {
+
       .ma__content-link--chevron {
         padding-left: 0.5rem;
         cursor: pointer;
@@ -88,6 +91,7 @@ $formQuickTransitions: max-height 0.3s linear;
       }
 
       &.is-open {
+
         .ma__content-link--chevron::after {
           top: 0;
           transform: translateY(50%) rotate(-135deg);
@@ -116,12 +120,14 @@ $formQuickTransitions: max-height 0.3s linear;
     }
 
     &.positive {
+
       .feedback-positive {
         display: inline;
       }
     }
 
     &.negative {
+
       .feedback-negative {
         display: inline;
       }
@@ -161,12 +167,14 @@ $formQuickTransitions: max-height 0.3s linear;
     }
 
     &::before {
+
       @media ($bp-feedback-min) {
         left: 40%;
       }
     }
 
     &::after {
+
       @media ($bp-feedback-min) {
         right: 0;
       }
@@ -207,6 +215,7 @@ $formQuickTransitions: max-height 0.3s linear;
       }
 
       .ma__radio-scale__radios {
+
         @media ($bp-feedback-min) {
           width: 60%;
           float: right;
@@ -226,6 +235,7 @@ $formQuickTransitions: max-height 0.3s linear;
     }
 
     &--items {
+
       @media ($bp-feedback-min) {
         display: flex;
         flex-wrap: wrap;
@@ -233,6 +243,7 @@ $formQuickTransitions: max-height 0.3s linear;
       }
 
       .contact-form--item {
+
         @media ($bp-feedback-min) {
           width: 48%;
 
@@ -262,6 +273,7 @@ $formQuickTransitions: max-height 0.3s linear;
 }
 
 .ma__mass-feedback-form--success {
+
   .ma__decorative-link {
     padding-right: 0;
     margin: 25px 0;

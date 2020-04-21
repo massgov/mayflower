@@ -17,7 +17,7 @@
   .page-content &:last-child {
     margin-bottom: -45px; // compensating for main-content margin
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       margin-bottom: -60px; // compensating for main-content margin
     }
   }
@@ -34,6 +34,7 @@
   }
 
   &__container {
+
     @include ma-container;
     padding-bottom: 25px;
     font-size: 1.375rem;
@@ -49,12 +50,14 @@
     text-align: center;
 
     h1 {
+
       @media ($bp-large-min) {
         font-size: 5.313rem;
       }
     }
 
     &__sub-title {
+
       @include ma-h3;
       padding: 0;
       width: 100%;
@@ -62,6 +65,7 @@
   }
 
   // backward compatible with v5.6 - title was replaced with Page Intro
+
   &__title {
     margin-bottom: .4em;
     text-align: center;
@@ -72,7 +76,9 @@
   }
 
   // backward compatible with v5.6 - intro was replaced with Page Intro
+
   &__intro {
+
     @include ma-h3;
     margin-bottom: .5em;
     text-align: center;
@@ -100,6 +106,7 @@
     }
 
     label {
+
       @include ma-visually-hidden;
     }
 
@@ -116,6 +123,7 @@
   }
 
   &__button {
+
     @include ma-button-reset;
     flex-grow: 0;
     flex-shrink: 0;
@@ -146,6 +154,7 @@
       vertical-align: middle;
 
       @media ($bp-small-max) {
+
         @include ma-visually-hidden;
       }
     }
@@ -201,13 +210,16 @@
   }
 
   .ma__banner-credit {
+
     @include ma-container;
     z-index: 3;
     width: 100%;
   }
 
   // Start backward compatible with v5.7 - converted image-credit to new Banner Credit molecule
+
   &__image-credit {
+
     @include ma-container;
     position: absolute;
     bottom: 20px;
@@ -255,6 +267,7 @@
 }
 
 //theme
+
 .ma__search-banner {
   background-position: center center;
   background-size: cover;
@@ -265,6 +278,7 @@
   }
 
   &__container {
+
     @include ma-container;
   }
 
@@ -282,12 +296,14 @@
   }
 
   // backward compatible with v5.6 - title was replaced with Page Intro
+
   &__title {
     color: $c-font-inverse;
     font-weight: 300;
   }
 
   // backward compatible with v5.6 - intro was replaced with Page Intro
+
   &__intro {
     color: $c-font-inverse;
     font-weight: 400;
@@ -380,15 +396,6 @@
     &__image-author {
       color: rgba($c-font-inverse, .5);
     }
-  }
-
-  // Start backward compatible with v5.7 - converted image-credit to new Banner Credit molecule
-  &__image-credit {
-
-  }
-
-  &__credits-container {
-
   }
 
   &__icon {

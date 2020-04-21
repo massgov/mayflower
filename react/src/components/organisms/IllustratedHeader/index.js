@@ -18,7 +18,7 @@ const IllustratedHeader = (illustratedHeader) => {
     <section className={`ma__illustrated-header ${illustratedHeaderClass}`}>
       <div className="ma__illustrated-header__container">
         <div className="ma__illustrated-header__content">
-          { publishState.text && (
+          { publishState && publishState.text && (
             <div className="ma__page-header__publish-state">
               <PublishState {...publishState} />
             </div>

@@ -1,7 +1,9 @@
 $page-header-widget-width: 350px;
 
 .ma__page-header {
+
   @include ma-container;
+
   @include clearfix;
 
   &__tags {
@@ -11,11 +13,11 @@ $page-header-widget-width: 350px;
       flex-wrap: wrap;
       justify-content: space-between;
     overflow: hidden;
-    margin-bottom: -20px;
+    margin-bottom: 20px;
     padding-top: 18px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    margin-bottom: 20px;
+
 
     .ma__header-tags,
     .ma__social-links {
@@ -24,6 +26,7 @@ $page-header-widget-width: 350px;
       min-height: 48px;
       position: relative;
         top: 1px;
+
       @media ($bp-medium-min) {
         border: 0;
       }
@@ -32,6 +35,7 @@ $page-header-widget-width: 350px;
     .ma__header-tags {
       flex-grow: 1;
       margin-bottom: 30px;
+
       @media ($bp-medium-min) {
         margin-bottom: 10px;
       }
@@ -89,15 +93,15 @@ $page-header-widget-width: 350px;
   &__tags ~ &__content {
     padding-top: 30px;
 
-    @media ($bp-medium-min){
+    @media ($bp-medium-min) {
       padding-top: 40px;
     }
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       padding-top: 50px;
     }
 
-    @media ($bp-x-large-min){
+    @media ($bp-x-large-min) {
       padding-top: 60px;
     }
   }
@@ -108,11 +112,11 @@ $page-header-widget-width: 350px;
 
   &--has-widgets &__content {
 
-    @media ($bp-medium-min){
+    @media ($bp-medium-min) {
       padding-bottom: 45px;
     }
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       float: left;
       padding-right: $column;
       max-width: 820px;
@@ -123,14 +127,14 @@ $page-header-widget-width: 350px;
   &__widgets {
     padding-bottom: 40px;
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       float: right;
       padding-top: 75px;
       padding-bottom: 60px;
       width: $page-header-widget-width;
     }
 
-    @media ($bp-x-large-min){
+    @media ($bp-x-large-min) {
       padding-top: 85px;
     }
 
@@ -143,7 +147,8 @@ $page-header-widget-width: 350px;
     }
 
     .ma__image {
-      @media ($bp-large-min){
+
+      @media ($bp-large-min) {
         clear: both;
         float: right;
       }
@@ -152,18 +157,18 @@ $page-header-widget-width: 350px;
 
   &__tags ~ &__widgets {
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       padding-top: 50px;
     }
 
-    @media ($bp-x-large-min){
+    @media ($bp-x-large-min) {
       padding-top: 60px;
     }
   }
 
   .ma__page-banner ~ & &__widgets {
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       padding-top: 20px;
     }
   }
@@ -204,10 +209,11 @@ $page-header-widget-width: 350px;
       margin-bottom: 0;
     }
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       padding-right: $column;
       width: calc(100% - #{$layout-sidebar-width});
     }
+
     @media ($bp-x-large-min) {
       padding-right: $column + ($gutter * 2);
     }
@@ -215,6 +221,7 @@ $page-header-widget-width: 350px;
 
   // Control font size and line height
   // regardless of it's added to page
+
   &__sub-title,
   &__sub-title * {
     font-size: 1.625rem !important;
@@ -223,7 +230,8 @@ $page-header-widget-width: 350px;
   }
 
   &--has-widgets &__sub-title {
-    @media ($bp-large-min){
+
+    @media ($bp-large-min) {
       padding-right: 0;
       width: 100%;
     }
@@ -244,14 +252,17 @@ $page-header-widget-width: 350px;
     .ma__contact-us {
 
       &.js-accordion {
+
         @include clearfix;
 
         // controls for when to activate accordion
+
         &:before {
           content: "true";
         }
 
         @media ($bp-small-min) {
+
           &:before {
             content: "false";
           }
@@ -259,6 +270,7 @@ $page-header-widget-width: 350px;
       }
 
       & > .ma__contact-group:first-child {
+
         @media ($bp-small-min) {
           clear: both;
           padding-bottom: 20px;
@@ -266,7 +278,9 @@ $page-header-widget-width: 350px;
       }
 
       // more than two contacts
+
       .ma__contact-group:nth-child(2):nth-last-child(3) {
+
         @media ($bp-small-min) {
           border-right-width: 1px;
           border-right-style: solid;
@@ -279,6 +293,7 @@ $page-header-widget-width: 350px;
       }
 
       &__extra {
+
         @media ($bp-small-min) {
           border-left-width: 1px;
           border-left-style: solid;
@@ -314,11 +329,11 @@ $page-header-widget-width: 350px;
     clear: both;
     padding-bottom: 30px;
 
-    @media ($bp-medium-min){
+    @media ($bp-medium-min) {
       padding-bottom: 50px;
     }
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       padding-bottom:60px;
     }
 
@@ -331,12 +346,15 @@ $page-header-widget-width: 350px;
 }
 
 //theme
+
 .ma__page-header {
 
   &__tags {
+
     @media ($bp-medium-min) {
       border-color: $c-bd-divider;
     }
+
     .ma__header-tags,
     .ma__social-links {
       border-color: $c-bd-divider;
@@ -353,7 +371,9 @@ $page-header-widget-width: 350px;
   }
 
   &__optional-content {
+
     @media ($bp-small-min) {
+
       .ma__contact-us > .ma__contact-group:nth-child(2):nth-last-child(3),
       .ma__contact-us > .ma__contact-us__extra {
         border-color: $c-bd-divider;

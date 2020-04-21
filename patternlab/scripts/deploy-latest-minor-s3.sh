@@ -79,7 +79,7 @@ checkoutBuildSource "$buildSrc"
 cdStyleguide
 
 # 4. Build pattern to generate prod static assets
-buildMayflower "https://mayflower.digital.mass.gov/$majorVersion"
+buildMayflower "https://mayflower.digital.mass.gov/patternlab/$majorVersion"
 
 # 5. Copy built assets in /public into new tmp directory
 
@@ -110,7 +110,7 @@ if ! gulp s3; then
     log "error" "$line";
     exit 1;
 else
-    line="Woo-hoo! The deploy completed successfully.\n\n    You should be able to browse to your deployed code at:\n\n     https://mayflower.digital.mass.gov/${subDir}/"
+    line="Woo-hoo! The deploy completed successfully.\n\n    You should be able to browse to your deployed code at:\n\n     https://mayflower.digital.mass.gov/patternlab/${subDir}/"
     log "success" "$line";
 fi
 

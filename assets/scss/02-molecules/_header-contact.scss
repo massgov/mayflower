@@ -1,6 +1,7 @@
 .ma__header-contact {
 
   // controls for when to activate accordion
+
   &:before {
     content: "true";
     display: none;
@@ -22,6 +23,7 @@
   }
 
   &__accordion {
+
     @include ma-button-reset;
     border-top: 1px solid;
     display: block;
@@ -49,10 +51,6 @@
       .is-open & {
         transform: translateY(-50%) rotate(135deg);
       }
-    }
-
-    &:hover {
-
     }
 
     @media ($bp-small-min) {
@@ -94,6 +92,7 @@
 }
 
 //theme
+
 .ma__header-contact {
 
   &__accordion {

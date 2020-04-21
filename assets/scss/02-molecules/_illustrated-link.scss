@@ -18,7 +18,7 @@ $illustrated-link-image-width: 130px;
     width: calc(100% - #{$illustrated-link-image-width});
     z-index: 4;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       padding: 30px 0 30px 30px;
     }
 
@@ -73,6 +73,7 @@ $illustrated-link-image-width: 130px;
 }
 
 //theme
+
 .ma__illustrated-link {
   border-color: tint($c-primary,50%);
   box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);

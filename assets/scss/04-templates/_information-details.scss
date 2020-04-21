@@ -3,11 +3,13 @@
   &__content {
 
     & > * {
+
       @include ma-component-spacing;
     }
   }
 }
 //theme
+
 .ma__information-details {
   
   .pre-content .ma__rich-text {
@@ -18,6 +20,7 @@
   &__post-content {
 
     & > * {
+
       @include ma-component-spacing;
     }
   }
@@ -56,4 +59,11 @@
       }
     }
   }
+
+  .page-content.no-sidebar {
+    float: none;
+    padding-right: 0;
+    width: 100%;
+  }
+
 }

@@ -2,7 +2,7 @@
   overflow: auto;
   display: flex;
 
-  &-item{
+  &-item {
     background: $c-bg-subtle;
     border: none;
 
@@ -18,6 +18,11 @@
     border-bottom: 5px solid transparent;
     cursor: pointer;
     font-weight: normal;
+
+    &:hover {
+      border-bottom: 5px solid;
+      border-color: $c-primary-lighter;
+    }
 
     &.is-selected {
       border-bottom: 5px solid;

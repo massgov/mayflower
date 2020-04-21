@@ -1,3 +1,6 @@
+import smPlaceholder from 'SharedAssets/images/placeholder/72x96.png';
+import lgPlaceholder from 'SharedAssets/images/placeholder/172x228.png';
+
 export default {
   teaserListing: {
     stacked: true,
@@ -21,7 +24,7 @@ export default {
     featuredItems: [
       {
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/172x228.png',
+          src: lgPlaceholder,
           alt: 'placeholder image',
           width: '172',
           height: '228'
@@ -41,7 +44,7 @@ export default {
       },
       {
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/172x228.png',
+          src: lgPlaceholder,
           alt: 'placeholder image',
           width: '172',
           height: '228'
@@ -64,7 +67,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: smPlaceholder,
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -86,7 +89,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: smPlaceholder,
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -107,7 +110,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: smPlaceholder,
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -128,7 +131,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: smPlaceholder,
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -149,7 +152,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: smPlaceholder,
           alt: 'placeholder image',
           width: '72',
           height: '96'
@@ -170,7 +173,7 @@ export default {
       {
         layout: 'contents-stacked',
         image: {
-          src: 'https://mayflower.digital.mass.gov/assets/images/placeholder/72x96.png',
+          src: smPlaceholder,
           alt: 'placeholder image',
           width: '72',
           height: '96'

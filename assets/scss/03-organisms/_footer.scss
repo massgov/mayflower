@@ -6,7 +6,8 @@
     padding: 40px 0 50px;
   }
 
-  &__back2top{
+  &__back2top {
+
     @include ma-button("small");
     font-size: 1rem;
     letter-spacing: $letter-spacing-large;
@@ -51,10 +52,12 @@
   }
 
   &__container {
+
     @include ma-container;
+
     @include clearfix;
 
-    @media($bp-large-max) {
+    @media ($bp-large-max) {
       display: flex;
       flex-direction: column;
     } 
@@ -64,6 +67,7 @@
     margin-bottom: 20px;
 
     @media ($bp-large-min) {
+
       @include span-columns(9);
       float: right;
       margin-right: 0;
@@ -73,17 +77,19 @@
 
   &__info {
 
-    @media($bp-large-max) {
+    @media ($bp-large-max) {
       order: 2;
     }
 
     @media ($bp-large-min) {
+
       @include span-columns(3);
     }
   }
 
   &__logo {
     margin-bottom: 20px;
+
     @media ($bp-large-max) {
       text-align: center;
     }
@@ -109,10 +115,12 @@
 }
 
 //theme
+
 .ma__footer {
   background-color: $c-bg-section;
 
-  &__back2top{
+  &__back2top {
+
     @include ma-button("","outline",$c-primary);
     background-color: rgba($c-white, .9);
 
@@ -121,6 +129,7 @@
     }
 
     &:hover {
+
       svg {
         fill: $c-font-inverse;
       }

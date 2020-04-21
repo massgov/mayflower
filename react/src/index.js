@@ -1,18 +1,40 @@
-import FeedbackForm from './components/organisms/FeedbackForm';
+import FeedbackForm from './components/forms/FeedbackForm';
 
 /*
   Since we are package a library of UI components, export each component here
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
 */
-
-//@base
-export Placeholder from './components/base/Placeholder';
+// @forms
+export Form, { FormProvider } from './components/forms/Form';
+export HelperText from './components/forms/HelperText';
+export ErrorMessage from './components/forms/ErrorMessage';
+export InputDate from './components/forms/InputDate';
+export InputText from './components/forms/InputText';
+export SelectBox from './components/forms/SelectBox';
+export InputRadio from './components/forms/InputRadio';
+export InputTextFuzzy from './components/forms/InputTextFuzzy';
+export Input from './components/forms/Input';
+export Error from './components/forms/Input/error';
+export InputSlider from './components/forms/InputSlider';
+export CompoundSlider from './components/forms/CompoundSlider';
+export InputCurrency from './components/forms/InputCurrency';
+export InputCheckBox from './components/forms/InputCheckBox';
+export { InputContext, FormContext } from './components/forms/Input/context';
+export InputNumber from './components/forms/InputNumber';
+export InputRadioGroup from './components/forms/InputRadioGroup';
+export DateRange from './components/forms/DateRange';
+export MultiSelectDropDown from './components/forms/MultiSelectDropDown';
+export OrgSelector from './components/forms/OrgSelector';
+export TypeAheadDropdown from './components/forms/TypeAheadDropdown';
+export FeedbackForm from './components/forms/FeedbackForm';
 
 // @atoms
 export Divider from './components/atoms/Divider';
+export Placeholder from './components/atoms/Placeholder';
 // @atoms/@buttons
 export ArrowButton from './components/atoms/buttons/ArrowButton';
 export Button from './components/atoms/buttons/Button';
+export ButtonCopy from './components/atoms/buttons/ButtonCopy';
 export ButtonSort from './components/atoms/buttons/ButtonSort';
 export ButtonToggle from './components/atoms/buttons/ButtonToggle';
 export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
@@ -25,30 +47,13 @@ export Email from './components/atoms/contact/Email';
 export EventTime from './components/atoms/contact/EventTime';
 export OperationalHours from './components/atoms/contact/OperationalHours';
 export PhoneNumber from './components/atoms/contact/PhoneNumber';
-// @atoms/@forms
-export Form, { FormProvider } from './components/atoms/forms/Form';
-export HelperText from './components/atoms/forms/HelperText';
-export ErrorMessage from './components/atoms/forms/ErrorMessage';
-export InputDate from './components/atoms/forms/InputDate';
-export InputText from './components/atoms/forms/InputText';
-export SelectBox from './components/atoms/forms/SelectBox';
-export InputRadio from './components/atoms/forms/InputRadio';
-export InputTextFuzzy from './components/atoms/forms/InputTextFuzzy';
-export Input from './components/atoms/forms/Input';
-export Error from './components/atoms/forms/Input/error';
-export InputSlider from './components/atoms/forms/InputSlider';
-export CompoundSlider from './components/atoms/forms/CompoundSlider';
-export InputCurrency from './components/atoms/forms/InputCurrency';
-export InputCheckBox from './components/atoms/forms/InputCheckBox';
-export { InputContext, FormContext } from './components/atoms/forms/Input/context';
-export InputNumber from './components/atoms/forms/InputNumber';
 // @atoms/@headings
 export ColoredHeading from './components/atoms/headings/ColoredHeading';
 export CompHeading from './components/atoms/headings/CompHeading';
 export Heading from './components/atoms/headings/Heading';
 export SidebarHeading from './components/atoms/headings/SidebarHeading';
 // @atoms/@icons
-export Icon from './components/atoms/icons/Icon';
+export Icon from './components/base/Icon';
 // @atoms/@links
 export DecorativeLink from './components/atoms/links/DecorativeLink';
 export FootNote from './components/atoms/links/FootNote';
@@ -71,24 +76,20 @@ export LinkDropdown from './components/molecules/LinkDropdown';
 export ArrowNav from './components/molecules/ArrowNav';
 export IconLink from './components/molecules/IconLink';
 export CalloutLink from './components/molecules/CalloutLink';
-export DateRange from './components/molecules/DateRange';
 export FooterLinks from './components/molecules/FooterLinks';
 export HeaderSearch from './components/molecules/HeaderSearch';
 export MainNav from './components/molecules/MainNav';
-export MultiSelectDropDown from './components/molecules/MultiSelectDropDown';
-export OrgSelector from './components/molecules/OrgSelector';
 export Pagination from './components/molecules/Pagination';
 export ResultsHeading from './components/molecules/ResultsHeading';
 export SearchBannerForm from './components/molecules/SearchBannerForm';
+export SectionLinks from './components/molecules/SectionLinks';
 export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';
-export InputRadioGroup from './components/molecules/InputRadioGroup';
 export ImagePromo from './components/molecules/ImagePromo';
 export Tabs from './components/molecules/Tabs';
 export Tags from './components/molecules/Tags';
 export Tooltip from './components/molecules/Tooltip';
-export TypeAheadDropdown from './components/molecules/TypeAheadDropdown';
 export AccordionItem from './components/molecules/AccordionItem';
 export ListingTable from './components/molecules/ListingTable';
 export Breadcrumb from './components/molecules/Breadcrumb';
@@ -97,7 +98,6 @@ export EmergencyAlert from './components/molecules/EmergencyAlert';
 export EmergencyHeader from './components/molecules/EmergencyHeader';
 
 // @organisms
-export FeedbackForm from './components/organisms/FeedbackForm';
 export GenTeaser from './components/organisms/GenTeaser';
 export Footer from './components/organisms/Footer';
 export FooterSlim from './components/organisms/FooterSlim';
@@ -140,7 +140,7 @@ export Collapse from './components/animations/Collapse';
 export DataTable from './components/dataviz/DataTable';
 
 // To archive & remove in version 10
-export InputTextTypeAhead from './components/atoms/forms/InputTextTypeAhead';
+export InputTextTypeAhead from './components/forms/InputTextTypeAhead';
 export PressTeaser from './components/molecules/PressTeaser';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Teaser from './components/organisms/Teaser';

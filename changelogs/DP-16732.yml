@@ -1,5 +1,0 @@
-Fixed:
-  - project: Patternlab, React
-    component: release automation
-    description: Fixed the display for the month and date in the release automation. (#PR)
-    issue: DP-16732

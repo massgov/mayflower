@@ -16,14 +16,14 @@
       content: "";
       position: absolute;
       top: 0;
-      right: 0;
+      right: -25px;
       background: inherit;
       height: 100%;
       width: 50px;
       transform: skew(-.53rad);
-      right: -25px;
     }
   }
+
   .ma__toc--hierarchy__container {
     position: relative;
     top: -20px;
@@ -40,14 +40,16 @@
     .ma__decorative-link {
       padding: 20px;
     }
+
     .ma__download-link {
       padding: 20px;
     }
   }
 
   //react
+
   .ma__accordion-header {
-    
+
     &__button {
       padding-left: 20px;
       padding-right: 20px;
@@ -80,6 +82,7 @@
 }
 
 .ma__toc--hierarchy__accordion {
+
   .ma__toc--hierarchy__accordion-content {
     list-style: none;
     margin-bottom: 0;

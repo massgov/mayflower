@@ -8,48 +8,59 @@ $primarycolors: (
 
 button {
   cursor: pointer;
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+  font-family: $fonts;
   font-weight: 400;
 }
 
 .ma__button {
+
   @include ma-button("normal");
 }
 
-.ma__button--small { 
+.ma__button--small {
+
   @include ma-button("small");
 }
 
-.ma__button--large { 
+.ma__button--large {
+
   @include ma-button("large");
 }
 
 .ma__button {
+
   @include ma-button("normal","solid",$c-primary);
+
   @each $class, $c in $primarycolors {
     &--#{$class} {
+
       @include ma-button("normal","solid",$c);
     }
   }
 }
 
 .ma__button--secondary {
+
   @include ma-button("normal","outline",$c-primary);
 }
 
 .ma__button--secondary.ma__button--c-primary-alt {
+
   @include ma-button("normal","outline",$c-primary-alt);
 }
 
 .ma__button--secondary.ma__button--c-highlight {
+
   @include ma-button("normal","outline",$c-highlight);
 }
 
 .ma__button--secondary.ma__button--c-gray-dark {
+
   @include ma-button("normal","outline",$c-gray-dark);
 }
 
 .ma__button--tertiary {
+
   @include ma-button("normal","solid",$c-gray-light);
   color: $c-black;
 }
@@ -62,7 +73,8 @@ button {
   color: $c-primary;
   padding: 0;
   text-transform: none;
-  &:hover {
+
+  &:hover:not(:disabled) {
    border-bottom: 3px solid $c-primary;
    background-color: transparent;
   }

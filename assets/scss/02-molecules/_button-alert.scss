@@ -1,5 +1,7 @@
 .ma__button-alert {
+
   @include ma-button-reset;
+
   @include ma-chevron;
   font-size: 16px;
   font-weight: 700;
@@ -24,14 +26,21 @@
     transition: transform .5s;
     width: 8px;
     border-color: rgba($c-font-inverse,.5);
+  }
 
-    .is-open & {
-      
+  // If the parent of the button-alert is an open accordion, then flip the arrow up.
+
+  .js-accordion.is-open & {
+
+    &:after {
+      transform: translateY(-50%) rotate(-135deg);
     }
   }
 
   // This is used in mayflower-react specifically, `is-open` class is moved down a level from patternlab
+
   &.is-open {
+
     &:after {
       transform: translateY(-50%) rotate(-135deg);
     }

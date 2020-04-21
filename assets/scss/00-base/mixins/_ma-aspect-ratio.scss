@@ -12,6 +12,7 @@
 
 @mixin ma-aspect-ratio($width, $height) {
   position: relative;
+
   &:before {
     display: block;
     content: "";

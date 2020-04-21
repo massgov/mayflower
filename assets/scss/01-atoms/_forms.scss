@@ -37,7 +37,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+  font-family: $fonts;
   font-weight: 400;
   font-size: 1.375rem;
 }
@@ -112,6 +112,7 @@ select {
 
 // override if an input label combo is added directly to the page-content area
 // This is mainly for Pattern Lab
+
 .main-content .page-content > label:not(.ma__label--hidden) {
 
   & + textarea,
@@ -137,12 +138,14 @@ select {
   border-color: Highlight !important;
 
   // WebKit gets its native focus styles.
+
   @media (-webkit-min-device-pixel-ratio:0) {
     outline-color: -webkit-focus-ring-color;
   }
 }
 
 // Chrome/Opera/Safari.
+
 ::-webkit-input-placeholder {
   color: inherit;
   font-style: italic;
@@ -150,6 +153,7 @@ select {
 }
 
 // Firefox 19+.
+
 ::-moz-placeholder {
   color: inherit;
   font-style: italic;
@@ -157,6 +161,7 @@ select {
 }
 
 // IE 10+.
+
 :-ms-input-placeholder {
   color: inherit;
   font-style: italic;
@@ -164,6 +169,7 @@ select {
 }
 
 // Firefox 18-.
+
 :-moz-placeholder {
   color: inherit;
   font-style: italic;
