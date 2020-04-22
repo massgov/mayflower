@@ -1,6 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: Button alert
-    description: Adjusted scss to rotate button arrow up when accordion opens
-    issue: DP-17792
-    impact: Minor
