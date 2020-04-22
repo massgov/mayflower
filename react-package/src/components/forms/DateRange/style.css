@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__date-range__label {
+  display: block;
+  margin-bottom: .5em; }
+
+.ma__date-range fieldset {
+  border: none;
+  margin: 0;
+  margin-bottom: -20px;
+  padding: 0; }
+
+.ma__date-range__start, .ma__date-range__divider, .ma__date-range__end {
+  display: inline-block;
+  margin-bottom: 20px;
+  vertical-align: middle; }
+  .ma__date-range__start label, .ma__date-range__divider label, .ma__date-range__end label {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0; }
+
+.ma__date-range__divider {
+  font-size: 1.125rem;
+  margin-right: .25em;
+  margin-left: .25em; }
+
+.ma__date-range__label {
+  font-weight: 500; }

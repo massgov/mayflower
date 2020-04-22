@@ -1,0 +1,72 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__tab-container-body:focus, .ma__tab-container .ma__tab-title--active button:focus, .ma__tab-container .ma__tab-container--nested .ma__tab-container-body:focus {
+  outline: none;
+  box-shadow: inset 0px 0px 2px 2px #3e94cf; }
+
+.ma__tab-container {
+  display: flex;
+  flex-direction: column; }
+  .ma__tab-container-head {
+    display: inline-flex;
+    margin-bottom: 0;
+    padding-inline-start: 0;
+    list-style: none;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar; }
+    .ma__tab-container-head::-webkit-scrollbar {
+      display: none; }
+  .ma__tab-container-body {
+    padding: 1rem;
+    border: 1px solid #DCDCDC;
+    margin-top: -1px; }
+  .ma__tab-container .ma__tab-title {
+    border-left: 1px solid #DCDCDC;
+    border-top: 1px solid #DCDCDC;
+    border-right: none;
+    border-bottom: none;
+    margin-bottom: -1px; }
+    .ma__tab-container .ma__tab-title:first-child {
+      border-left-width: 1px; }
+    .ma__tab-container .ma__tab-title:last-child {
+      border-right: 1px solid #DCDCDC; }
+    .ma__tab-container .ma__tab-title button {
+      cursor: pointer;
+      padding: 1.77rem 1.5rem 0.81rem 1.5rem;
+      background-color: unset;
+      white-space: nowrap;
+      border: none;
+      display: block;
+      font-size: 1.25rem; }
+    .ma__tab-container .ma__tab-title--active {
+      border-top: 5px solid #14558f;
+      background-color: white;
+      z-index: 1;
+      outline: #CD0D0D; }
+      .ma__tab-container .ma__tab-title--active button {
+        padding-top: 1.5rem;
+        font-weight: 700;
+        color: #14558f; }
+  .ma__tab-container .ma__tab-container--nested .ma__tab-container-head {
+    border-bottom: 1px solid #DCDCDC; }
+  .ma__tab-container .ma__tab-container--nested .ma__tab-container-body {
+    border: none; }
+  .ma__tab-container .ma__tab-container--nested .ma__tab-title {
+    border: none;
+    border-bottom: 5px solid;
+    border-bottom-color: transparent; }
+    .ma__tab-container .ma__tab-container--nested .ma__tab-title button {
+      padding: 1.5rem 1.5rem 0.8rem 1.5rem; }
+    .ma__tab-container .ma__tab-container--nested .ma__tab-title--active {
+      color: #14558f;
+      border-bottom: 5px solid #14558f; }
+      .ma__tab-container .ma__tab-container--nested .ma__tab-title--active button {
+        padding-bottom: 1.25rem; }

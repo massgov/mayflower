@@ -1,0 +1,166 @@
+@use 'global/base' as *;
+
+.ma__pagination {
+
+  @media ($bp-small-max) {
+    text-align: center;
+  }
+
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+
+    @include ma-component-spacing;
+  }
+  
+  &__container {
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: $c-bd-divider;
+    padding: 20px 0;
+    display: flex;
+  }
+
+  &__prev,
+  &__next,
+  &__page {
+
+    @include ma-button-reset;
+    font-size: 20px;
+    line-height: 1;
+    padding: 8px 10px;
+    position: relative;
+    color: $c-font-link;
+    font-weight: 700;
+
+
+    @media ($bp-small-min) {
+      margin: 0 .1em;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: .5;
+    }
+
+    &.is-active {
+      cursor: default;
+    }
+  }
+
+  &__prev {
+
+    @include ma-chevron('left');
+    
+    @media ($bp-small-max) {
+      margin-right: .5em;
+      min-width: 45%;
+    }
+
+    &:before {
+      border-color: rgba($c-font-link, .5);
+    }
+
+    &:hover:after {
+      border-color: rgba($c-font-link, .5);
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      margin-left: 16px;
+      position: absolute;
+      bottom: 5px;
+      right: 8px;
+      width: calc(100% - 35px);
+      border-color: transparent;
+
+      @media ($bp-small-min) {
+
+        @include ma-link-underline;
+      }
+    }
+
+  }
+
+  &__next {
+
+    @include ma-chevron('right');
+
+    @media ($bp-small-max) {
+      margin-left: .5em;
+      min-width: 45%;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      margin-right: 16px;
+      position: absolute;
+      bottom: 5px;
+      left: 9px;
+      width: calc(100% - 35px);
+      border-color: transparent;
+      
+
+      @media ($bp-small-min) {
+
+        @include ma-link-underline;
+      }
+    }
+
+    &:hover:before {
+      border-color: rgba($c-font-link, .5);
+    }
+
+    &:after {
+      border-color: rgba($c-font-link, .5);
+    }
+  }
+
+  &__page {
+    margin: 0 0.25em;
+
+    @media ($bp-small-max) {
+      display: none;
+    }
+
+    &:after {
+
+      @include ma-link-underline;
+      content: "";
+      display: block;
+      padding: 0;
+      border-color: transparent;
+    }
+
+    &.is-active {
+      background-color: $c-primary;
+      color: #fff;
+
+      &:hover:after {
+        border-color: transparent;
+      }
+    }
+
+    &.is-active:after {
+      display: none;
+    }
+
+    &:hover:after {
+      border-color: rgba($c-font-link, .5);
+    }
+  }
+
+  &__spacer {
+
+    @media ($bp-small-max) {
+      display: none;
+    }
+
+    @media ($bp-small-min) {
+      margin: 0 .25em;
+    }
+  }
+}
+

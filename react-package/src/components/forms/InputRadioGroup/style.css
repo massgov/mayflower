@@ -1,0 +1,128 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__input-group__title {
+  margin-bottom: .25em; }
+
+.ma__input-group--optional .ma__input-group__title:after {
+  content: "(optional)";
+  font-size: .8em;
+  margin-left: .25em; }
+
+.ma__input-group__items--inline {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -30px; }
+
+.ma__input-group__items--inline .ma__input-group__item {
+  margin-left: 30px; }
+
+.ma__input-group__title {
+  font-weight: 500; }
+
+.ma__input-group__title--disabled {
+  opacity: 0.5; }
+
+.ma__input-group__title--error {
+  color: #CD0D0D; }
+
+.ma__input-group__items--outline {
+  margin-left: 0px; }
+  .ma__input-group__items--outline .ma__input-group__item {
+    margin: 5px 5px 0px 5px;
+    width: 100%; }
+
+.ma__input-group__items--inline.ma__input-group__items--outline .item-1 {
+  width: calc(100% / 1 - 10px); }
+
+.ma__input-group__items--inline.ma__input-group__items--outline .item-2 {
+  width: calc(100% / 2 - 10px); }
+
+.ma__input-group__items--inline.ma__input-group__items--outline .item-3 {
+  width: calc(100% / 3 - 10px); }
+
+.ma__input-group__items--inline.ma__input-group__items--outline .item-4 {
+  width: calc(100% / 4 - 10px); }
+
+.ma__input-group__items--inline.ma__input-group__items--outline .item-5 {
+  width: calc(100% / 5 - 10px); }
+
+.ma__input-group__items--inline.ma__input-group__items--outline .item-6 {
+  width: calc(100% / 6 - 10px); }
+
+@media (max-width: 910px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-4 {
+    width: calc(33% - 10px); } }
+
+@media (max-width: 910px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-5 {
+    width: calc(33% - 10px); } }
+
+@media (max-width: 910px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-6 {
+    width: calc(33% - 10px); } }
+
+@media (max-width: 780px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-3 {
+    width: calc(50% - 10px); } }
+
+@media (max-width: 780px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-4 {
+    width: calc(50% - 10px); } }
+
+@media (max-width: 780px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-5 {
+    width: calc(50% - 10px); } }
+
+@media (max-width: 780px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-6 {
+    width: calc(50% - 10px); } }
+
+@media (max-width: 620px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-2 {
+    width: calc(100% - 10px); } }
+
+@media (max-width: 620px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-3 {
+    width: calc(100% - 10px); } }
+
+@media (max-width: 620px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-4 {
+    width: calc(100% - 10px); } }
+
+@media (max-width: 620px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-5 {
+    width: calc(100% - 10px); } }
+
+@media (max-width: 620px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-6 {
+    width: calc(100% - 10px); } }
+
+@media (max-width: 780px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-4.col-medium-1 {
+    width: calc(100% / 1 - 10px); } }
+
+@media (max-width: 910px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-4.col-large-1 {
+    width: calc(100% / 1 - 10px); } }
+
+@media (max-width: 780px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-5.col-medium-1 {
+    width: calc(100% / 1 - 10px); } }
+
+@media (max-width: 910px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-5.col-large-1 {
+    width: calc(100% / 1 - 10px); } }
+
+@media (max-width: 780px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-6.col-medium-1 {
+    width: calc(100% / 1 - 10px); } }
+
+@media (max-width: 910px) {
+  .ma__input-group__items--inline.ma__input-group__items--outline .item-6.col-large-1 {
+    width: calc(100% / 1 - 10px); } }

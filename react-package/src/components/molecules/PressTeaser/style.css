@@ -1,0 +1,133 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__press-teaser::after {
+  clear: both;
+  content: "";
+  display: block; }
+
+.ma__press-teaser--image {
+  display: flex;
+  flex-wrap: wrap; }
+
+.ma__press-teaser + .ma__press-teaser {
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin-top: 30px;
+  padding-top: 30px; }
+  @media (min-width: 911px) {
+    .ma__press-teaser + .ma__press-teaser {
+      margin-top: 45px;
+      padding-top: 45px; } }
+  .sidebar .ma__press-teaser + .ma__press-teaser {
+    margin-top: 20px;
+    padding-top: 20px; }
+
+.pre-content > .ma__press-teaser,
+.post-content > .ma__press-teaser,
+.main-content--full .page-content > .ma__press-teaser {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1320px;
+  padding-left: 20px;
+  padding-right: 20px; }
+  @media (min-width: 781px) {
+    .pre-content > .ma__press-teaser,
+    .post-content > .ma__press-teaser,
+    .main-content--full .page-content > .ma__press-teaser {
+      padding-left: 30px;
+      padding-right: 30px; } }
+  @media (min-width: 911px) {
+    .pre-content > .ma__press-teaser,
+    .post-content > .ma__press-teaser,
+    .main-content--full .page-content > .ma__press-teaser {
+      padding-left: 40px;
+      padding-right: 40px; } }
+  @media (min-width: 911px) and (max-width: 1320px) {
+    .pre-content > .ma__press-teaser,
+    .post-content > .ma__press-teaser,
+    .main-content--full .page-content > .ma__press-teaser {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 820px; } }
+  @media (min-width: 1321px) {
+    .pre-content > .ma__press-teaser,
+    .post-content > .ma__press-teaser,
+    .main-content--full .page-content > .ma__press-teaser {
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 500px; } }
+
+.ma__press-teaser__image {
+  flex-shrink: 1;
+  flex-grow: 0;
+  flex-basis: 400px;
+  font-size: 0;
+  margin-right: 30px;
+  margin-bottom: 10px; }
+  .ma__press-teaser__image span {
+    background-size: cover;
+    display: block;
+    padding-top: 56.25%;
+    width: 100%; }
+
+.ma__press-teaser__image + .ma__press-teaser__details {
+  flex-basis: 300px;
+  flex-shrink: 1;
+  flex-grow: 1; }
+
+.ma__press-teaser__eyebrow {
+  margin-bottom: 5px; }
+  .ma__press-teaser__eyebrow span {
+    font-size: 0.813rem;
+    letter-spacing: 0.1em;
+    padding: 5px 7px;
+    text-transform: uppercase; }
+
+.ma__press-teaser__title {
+  font-size: 1.625rem;
+  line-height: 1.2em;
+  margin-bottom: .25em; }
+  .ma__press-teaser__title .ma__decorative-link {
+    font-size: 1.625rem;
+    line-height: 1.2; }
+
+.ma__press-teaser__details {
+  padding: 2px 0 4px; }
+
+.ma__press-teaser__date, .ma__press-teaser__org {
+  font-size: 18px;
+  line-height: 1;
+  margin-bottom: 1em; }
+
+.ma__press-teaser__date + .ma__press-teaser__org {
+  border-left-style: solid;
+  border-left-width: 1px;
+  margin-left: .75em;
+  padding-left: .75em; }
+
+.ma__press-teaser__description {
+  font-size: 1.25rem; }
+  @media (max-width: 480px) {
+    .ma__press-teaser__description {
+      display: none; } }
+
+.ma__press-teaser + .ma__press-teaser {
+  border-top-color: #DCDCDC; }
+
+.ma__press-teaser__eyebrow span {
+  background-color: #F2F2F2;
+  color: #535353;
+  font-weight: 700; }
+
+.ma__press-teaser__date, .ma__press-teaser__org {
+  font-style: italic;
+  font-weight: 700; }
+
+.ma__press-teaser__org {
+  border-left-color: #DCDCDC; }

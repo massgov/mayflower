@@ -1,0 +1,54 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__error-page {
+  margin-bottom: 40px;
+  text-align: center; }
+  .ma__error-page__label {
+    font-size: 7rem;
+    line-height: 0.72;
+    margin-bottom: 15px;
+    text-transform: uppercase; }
+    @media (min-width: 621px) {
+      .ma__error-page__label {
+        font-size: 12.75rem; } }
+  .ma__error-page__type {
+    font-size: 1.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase; }
+  .ma__error-page__title {
+    font-size: 1.75rem;
+    line-height: 1.31; }
+    @media (min-width: 621px) {
+      .ma__error-page__title {
+        font-size: 2.25rem; } }
+  .ma__error-page__message {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 1.75em; }
+    @media (min-width: 621px) {
+      .ma__error-page__message {
+        font-size: 1.625rem; } }
+
+.ma__error-page:before {
+  background-color: rgba(246, 197, 27, 0.15); }
+
+.ma__error-page__label {
+  color: #f6c51b;
+  font-weight: 900; }
+
+.ma__error-page__type {
+  color: #535353;
+  font-weight: 700; }
+
+.ma__error-page__title {
+  font-weight: 700; }
+
+.ma__error-page__message {
+  color: #141414;
+  font-weight: 300; }

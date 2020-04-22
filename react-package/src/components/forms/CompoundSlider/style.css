@@ -1,0 +1,123 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__input-slider .ma__slider-handle, .ma__input-slider-x .ma__slider-track, .ma__input-slider-y .ma__slider-track {
+  transition-duration: 0.2s; }
+
+.ma__input-slider {
+  left: 13px;
+  margin-left: 20px;
+  margin-right: 20px; }
+  .ma__input-slider .ma__slider-rail {
+    background-color: #DCDCDC;
+    position: absolute; }
+  .ma__input-slider .ma__slider-track {
+    background-color: #8AAAC7;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer; }
+  .ma__input-slider .ma__slider-handle {
+    border: 1px solid white;
+    width: 26px;
+    height: 26px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: #14558f;
+    color: transparent;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 2;
+    transition-property: all; }
+    .ma__input-slider .ma__slider-handle:hover {
+      transform: scale(1.1); }
+    .ma__input-slider .ma__slider-handle:focus {
+      outline: none;
+      box-shadow: 0 0 2px 2px #3e94cf; }
+    .ma__input-slider .ma__slider-handle-value {
+      font-size: 1.1rem;
+      margin: -30px auto 0;
+      position: absolute;
+      left: 0;
+      color: #14558f;
+      font-weight: 500; }
+  .ma__input-slider--disabled {
+    opacity: 0.5; }
+    .ma__input-slider--disabled .ma__slider-track {
+      background-color: #707070;
+      cursor: not-allowed; }
+    .ma__input-slider--disabled .ma__slider-handle {
+      background-color: #535353;
+      cursor: not-allowed;
+      opacity: 1; }
+      .ma__input-slider--disabled .ma__slider-handle:hover {
+        transform: none; }
+      .ma__input-slider--disabled .ma__slider-handle-value {
+        color: #141414; }
+  .ma__input-slider-x {
+    height: 120px;
+    width: calc(100% - 40px); }
+    .ma__input-slider-x .ma__slider {
+      position: relative;
+      width: 100%;
+      height: 80px; }
+      .ma__input-slider-x .ma__slider-rail {
+        width: 100%;
+        height: 10px;
+        margin-top: 35px; }
+      .ma__input-slider-x .ma__slider-handle {
+        margin-left: -15px;
+        margin-top: 25px;
+        text-align: center; }
+      .ma__input-slider-x .ma__slider-track {
+        height: 10px;
+        margin-top: 35px;
+        transition-property: width; }
+      .ma__input-slider-x .ma__slider-tick {
+        position: absolute;
+        font-size: 0.75em; }
+        .ma__input-slider-x .ma__slider-tick--top {
+          margin-top: 52px;
+          margin-left: -0.5px;
+          width: 1px;
+          height: 8px;
+          background-color: #DCDCDC; }
+        .ma__input-slider-x .ma__slider-tick--bottom {
+          margin-top: 60px;
+          font-size: 0.8em;
+          text-align: center; }
+  .ma__input-slider-y {
+    height: 520px;
+    width: calc(100% - 40px); }
+    .ma__input-slider-y .ma__slider {
+      position: relative;
+      height: 400px;
+      margin-left: 45%; }
+      .ma__input-slider-y .ma__slider-rail {
+        width: 14px;
+        height: 100%;
+        cursor: pointer;
+        margin-left: -1px; }
+      .ma__input-slider-y .ma__slider-handle {
+        margin-left: -6px;
+        margin-top: -12px; }
+      .ma__input-slider-y .ma__slider-track {
+        width: 14px;
+        margin-left: -1px;
+        transition-property: height; }
+      .ma__input-slider-y .ma__slider-tick {
+        position: absolute;
+        font-size: 0.75em; }
+        .ma__input-slider-y .ma__slider-tick--top {
+          margin-top: -0.5px;
+          margin-left: 10px;
+          height: 1px;
+          width: 6px;
+          background-color: #DCDCDC; }
+        .ma__input-slider-y .ma__slider-tick--bottom {
+          margin-top: -5px;
+          margin-left: 20px; }

@@ -1,0 +1,202 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__button-search {
+  border: 2px solid;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  min-height: 46px;
+  padding: 0 14px;
+  text-transform: uppercase;
+  transition: background-color .4s, color .4s, border .4s, fill .4s;
+  white-space: nowrap;
+  background-color: #388557;
+  border-color: #388557 !important;
+  color: white;
+  font-size: 14px;
+  font-weight: 700; }
+  .ma__button-search span,
+  .ma__button-search > svg {
+    display: inline-block;
+    vertical-align: middle; }
+  .ma__button-search > svg {
+    height: 20px;
+    transition: fill .4s;
+    width: 20px; }
+  .ma__button-search:hover, .ma__button-search:focus {
+    background-color: white;
+    border-color: #DCDCDC !important;
+    color: #388557; }
+    .ma__button-search:hover > svg, .ma__button-search:focus > svg {
+      fill: #388557; }
+  .ma__button-search > svg {
+    fill: white; }
+  .ma__button-search--secondary {
+    border: 2px solid;
+    display: inline-block;
+    letter-spacing: 0.1em;
+    min-height: 46px;
+    padding: 0 14px;
+    text-transform: uppercase;
+    transition: background-color .4s, color .4s, border .4s, fill .4s;
+    white-space: nowrap;
+    background-color: white;
+    border-color: #DCDCDC !important;
+    color: #388557;
+    font-size: 14px;
+    font-weight: 700; }
+    .ma__button-search--secondary span,
+    .ma__button-search--secondary > svg {
+      display: inline-block;
+      vertical-align: middle; }
+    .ma__button-search--secondary > svg {
+      height: 20px;
+      transition: fill .4s;
+      width: 20px; }
+    .ma__button-search--secondary:hover, .ma__button-search--secondary:focus {
+      background-color: #388557;
+      border-color: #388557 !important;
+      color: white; }
+      .ma__button-search--secondary:hover > svg, .ma__button-search--secondary:focus > svg {
+        fill: white; }
+    .ma__button-search--secondary > svg {
+      fill: #388557; }
+
+.ma__header-search__wrapper {
+  display: flex;
+  position: relative; }
+  .ma__header-search__wrapper .ma__button-icon {
+    border-right: none; }
+  @media (max-width: 780px) {
+    .ma__header-search__wrapper--responsive .ma__header-search__pre-filter, .ma__header-search__wrapper--responsive .ma__header-search__post-filter {
+      display: none; } }
+
+.ma__header-search .ma__form {
+  display: flex; }
+
+.ma__header-search .ma__button-search, .ma__header-search .ma__button-search--secondary {
+  border: 2px solid !important;
+  position: relative !important;
+  margin-left: -2px !important; }
+
+.ma__header-search .ma__button-search {
+  border: 2px solid;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  min-height: 46px;
+  padding: 0 14px;
+  text-transform: uppercase;
+  transition: background-color .4s, color .4s, border .4s, fill .4s;
+  white-space: nowrap;
+  background-color: #388557;
+  border-color: #388557 !important;
+  color: white;
+  font-size: 14px;
+  font-weight: 700; }
+  .ma__header-search .ma__button-search span,
+  .ma__header-search .ma__button-search > svg {
+    display: inline-block;
+    vertical-align: middle; }
+  .ma__header-search .ma__button-search > svg {
+    height: 20px;
+    transition: fill .4s;
+    width: 20px; }
+  .ma__header-search .ma__button-search:hover, .ma__header-search .ma__button-search:focus {
+    background-color: white;
+    border-color: #DCDCDC !important;
+    color: #388557; }
+    .ma__header-search .ma__button-search:hover > svg, .ma__header-search .ma__button-search:focus > svg {
+      fill: #388557; }
+  .ma__header-search .ma__button-search > svg {
+    fill: white; }
+
+.ma__header-search .ma__button-search--secondary {
+  border: 2px solid;
+  display: inline-block;
+  letter-spacing: 0.1em;
+  min-height: 46px;
+  padding: 0 14px;
+  text-transform: uppercase;
+  transition: background-color .4s, color .4s, border .4s, fill .4s;
+  white-space: nowrap;
+  background-color: white;
+  border-color: #DCDCDC !important;
+  color: #388557;
+  font-size: 14px;
+  font-weight: 700; }
+  .ma__header-search .ma__button-search--secondary span,
+  .ma__header-search .ma__button-search--secondary > svg {
+    display: inline-block;
+    vertical-align: middle; }
+  .ma__header-search .ma__button-search--secondary > svg {
+    height: 20px;
+    transition: fill .4s;
+    width: 20px; }
+  .ma__header-search .ma__button-search--secondary:hover, .ma__header-search .ma__button-search--secondary:focus {
+    background-color: #388557;
+    border-color: #388557 !important;
+    color: white; }
+    .ma__header-search .ma__button-search--secondary:hover > svg, .ma__header-search .ma__button-search--secondary:focus > svg {
+      fill: white; }
+  .ma__header-search .ma__button-search--secondary > svg {
+    fill: #388557; }
+
+.ma__header-search__input {
+  padding-right: 0 !important; }
+
+.ma__header-search .ma__select-box {
+  margin-left: -2px; }
+  .ma__header-search .ma__select-box__field {
+    height: 46px; }
+  .ma__header-search .ma__select-box__link {
+    height: 100%;
+    display: flex;
+    align-items: center; }
+  .ma__header-search .ma__select-box label {
+    position: absolute !important; }
+
+.ma__header-search {
+  display: inline-block;
+  max-width: 560px;
+  position: relative;
+  width: 100%; }
+  .ma__header-search__label {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0; }
+  .ma__header-search__input {
+    font-size: 1.25rem;
+    height: 46px;
+    padding-right: 128px;
+    padding-left: 17px;
+    width: 100%; }
+    .ma__header-search__input::-ms-clear {
+      display: none; }
+    @media (max-width: 700px) {
+      .ma__header-search__input {
+        padding-right: 60px; } }
+  .ma__header-search .ma__button-search, .ma__header-search .ma__button-search--secondary {
+    border: 2px solid;
+    display: block;
+    height: 46px;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0; }
+    @media (max-width: 700px) {
+      .ma__header-search .ma__button-search span, .ma__header-search .ma__button-search--secondary span {
+        display: none; } }
+  .ma__narrow-template .ma__header-search {
+    margin-bottom: 75px;
+    max-width: 400px; }

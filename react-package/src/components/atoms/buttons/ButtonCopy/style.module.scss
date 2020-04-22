@@ -1,0 +1,6 @@
+@use '~@massds/assets/dist/scss/00-base/mixins' as *;
+
+.ma__button-copy {
+  margin-left: 0.5em;
+  @include ma_button_reset;
+}

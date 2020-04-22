@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../../base/Icon';
-import './styles.css';
+import style from '../../../styles/stories.module.scss';
 
 const ButtonCopy = ({ content }) => {
   const [copied, setCopied] = useState(false);
@@ -17,7 +17,7 @@ const ButtonCopy = ({ content }) => {
   if ((navigator && navigator.clipboard) || (window.location.search.indexOf('backstop') > -1)) {
     return(
       <button
-        className="ma__button-copy"
+        className={style['ma__button-copy']}
         onClick={copyAction}
         title={copyButtonTitle}
         aria-label={copyButtonTitle}

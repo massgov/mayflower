@@ -1,0 +1,87 @@
+.ma__social-links {
+
+  .ma__page-header__widgets & {
+
+    @media ($bp-large-min) {
+      text-align: right;
+    }
+
+    &:first-child {
+
+      @media ($bp-large-min) {
+        padding-top: 20px;
+      }
+    }
+  }
+
+  &__label {
+    color: $c-font-detail;
+    display: inline-block;
+    font-size: 16px;
+    letter-spacing: $letter-spacing-large;
+    line-height: 1.875rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  &__items {
+
+    @include ma-reset-list;
+    display: flex;
+      justify-content: space-between;
+    width: 100%;
+  }
+
+  &__label + &__items {
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: middle;
+
+    @media ($bp-large-max) {
+      text-align: center;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 0;
+    height: 30px;
+    padding: 5px;
+    transition: opacity .4s;
+    width: 30px;
+    
+    &:hover {
+      opacity: .7;
+    }
+    
+    & > svg {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+//theme
+
+.ma__social-links {
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__link {
+
+    &[data-social-share = blog] > svg path {
+      fill: $c-primary-alt;
+    }
+
+    &[data-social-share = email] > svg path {
+      fill: $c-primary-alt;
+    }
+  }
+}

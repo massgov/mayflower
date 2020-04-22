@@ -1,0 +1,19 @@
+{
+  "items": [{
+    "altText": "Follow us on Facebook",
+    "href": "#",
+    "linkType": "facebook"
+  },{
+    "altText": "Follow us on Twitter",
+    "href": "#",
+    "linkType": "twitter"
+  },{
+    "altText": "Follow us on LinkedIn",
+    "href": "#",
+    "linkType": "linkedin"
+  },{
+    "altText": "Follow us on Youtube",
+    "href": "#",
+    "linkType": "youtube"
+  }]
+}

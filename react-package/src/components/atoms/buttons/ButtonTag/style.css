@@ -1,0 +1,31 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__button-tag {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1.125rem;
+  display: inline-block;
+  line-height: 1em;
+  margin-right: .25em;
+  padding: 8px 11px;
+  white-space: nowrap;
+  background-color: #e8eef4;
+  color: #14558f;
+  font-weight: 700; }
+  .ma__button-tag:after {
+    content: "+";
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 1.125rem;
+    margin-left: .15em;
+    margin-top: -1px;
+    transform: rotate(135deg);
+    vertical-align: middle;
+    color: #14558f; }

@@ -1,0 +1,67 @@
+@use 'global/base' as *;
+
+.ma__back-button {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+  }
+
+  .ma__button {
+
+    @include ma-chevron("left");
+
+    &:before {
+      margin-top: 0;
+    }
+  }
+
+  // backward compatible with v5.6 - replaced link with button atom
+
+  a:not(.ma__button) {
+
+    @include ma-button("small");
+
+    @include ma-chevron("left");
+
+    &:before {
+      margin-top: 0;
+    }
+  }
+}
+
+//theme
+
+.ma__back-button {
+
+  .ma__button {
+
+    &:before {
+      border-color: rgba($c-font-link,.5);
+      transition: all 0.4s ease;    
+    }
+
+    &:hover:before {
+      border-color: $c-font-inverse;
+    }
+  }
+
+  // backward compatible with v5.6 - replaced link with button atom
+
+  a:not(.ma__button) {
+
+    @include ma-button("","",$c-font-link);
+    border-color: rgba($c-font-link,.5);
+
+    &:before {
+      border-color: rgba($c-font-link,.5);
+      transition: all 0.4s ease;    
+    }
+
+    &:hover:before {
+      border-color: $c-font-inverse;
+    }
+  }
+}

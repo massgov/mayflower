@@ -5,7 +5,8 @@
   "main": "dist/scss/index",
   "style": "dist/scss/index",
   "files": [
-    "dist"
+    "dist",
+    "src/scss"
   ],
   "scripts": {
     "test": "stylelint",

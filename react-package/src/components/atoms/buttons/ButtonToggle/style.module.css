@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.ma__button-toggle {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 0;
+  margin: 0 4px;
+  position: relative;
+  white-space: nowrap; }
+
+.ma__button-toggle {
+  color: #14558f; }
+  .ma__button-toggle--selected {
+    color: #141414;
+    font-weight: 700;
+    pointer-events: none; }

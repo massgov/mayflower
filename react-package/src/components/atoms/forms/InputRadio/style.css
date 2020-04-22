@@ -1,0 +1,288 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.ma__input-radio {
+  display: inline-block;
+  position: relative; }
+  .ma__input-radio input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0; }
+  .ma__input-radio__label {
+    font-size: 1.375rem;
+    line-height: 1rem;
+    padding-left: 1.5em;
+    font-weight: 400; }
+    .ma__input-radio__label:before {
+      border: 2px solid;
+      border-radius: 50%;
+      content: "\2022";
+      display: inline-block;
+      height: .45em;
+      font-size: 2.5em;
+      line-height: calc(.45em - 11px);
+      margin-right: .125em;
+      position: absolute;
+      top: -.025em;
+      left: 0;
+      text-align: center;
+      width: .45em;
+      overflow: hidden;
+      background-color: white;
+      border-color: #707070;
+      color: transparent; }
+      .ma__form--light .ma__input-radio__label:before {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(220, 220, 220, 0.5); }
+    .ma__input-radio__label span {
+      line-height: 1.2em; }
+  input:checked ~ .ma__input-radio__label:before {
+    color: #141414; }
+    .ma__form--light input:checked ~ .ma__input-radio__label:before {
+      color: white; }
+  input.has-error ~ .ma__input-radio__label:before {
+    border-color: #CD0D0D; }
+  input ~ .ma__input-radio__label--error, input:checked ~ .ma__input-radio__label--error {
+    color: #CD0D0D; }
+    input ~ .ma__input-radio__label--error::before, input:checked ~ .ma__input-radio__label--error::before {
+      border-color: #CD0D0D; }
+  input:checked ~ .ma__input-radio__label--error::before {
+    color: #CD0D0D; }
+  input:checked ~ .ma__input-radio__label--error:before {
+    color: #CD0D0D; }
+  input:focus ~ .ma__input-radio__label:before {
+    border-color: #535353;
+    box-shadow: 0 0 2px 2px #3e94cf; }
+  input:focus ~ .ma__input-radio__label--error:before {
+    border-color: #CD0D0D;
+    box-shadow: 0 0 2px 2px #CD0D0D; }
+  .ma__input-radio__control:disabled + .ma__input-radio__label {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5; }
+
+.ma__input-radio--outline__control {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0; }
+
+.ma__input-radio--outline__label {
+  display: block;
+  position: relative;
+  min-height: 1.2rem;
+  line-height: 1.2rem;
+  padding: 0.5rem 1rem 0.5rem 2.75rem;
+  cursor: pointer;
+  user-select: none;
+  z-index: 0; }
+  .ma__input-radio--outline__label::before {
+    left: 1rem;
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid; }
+  .ma__input-radio--outline__label::after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    z-index: -1;
+    font-weight: 700;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    border: 1px solid; }
+  .ma__input-radio--outline__label::before, .ma__input-radio--outline__label::after {
+    content: '';
+    position: absolute; }
+
+.ma__input-radio--outline__control + .ma__input-radio--outline__label {
+  color: #14558f; }
+  .ma__input-radio--outline__control + .ma__input-radio--outline__label::before {
+    background-color: white;
+    border-color: #14558f;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control + .ma__input-radio--outline__label::after {
+    background-color: white;
+    border-color: #14558f;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control:checked + .ma__input-radio--outline__label {
+  color: white; }
+  .ma__input-radio--outline__control:checked + .ma__input-radio--outline__label::before {
+    background-color: #14558f;
+    border-color: #14558f;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control:checked + .ma__input-radio--outline__label::after {
+    background-color: #14558f;
+    border-color: #14558f;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control:hover + .ma__input-radio--outline__label {
+  color: #14558f; }
+  .ma__input-radio--outline__control:hover + .ma__input-radio--outline__label::before {
+    background-color: rgba(20, 85, 143, 0.1);
+    border-color: #14558f;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control:hover + .ma__input-radio--outline__label::after {
+    background-color: rgba(20, 85, 143, 0.1);
+    border-color: #14558f;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control:checked:hover + .ma__input-radio--outline__label {
+  color: white; }
+  .ma__input-radio--outline__control:checked:hover + .ma__input-radio--outline__label::before {
+    background-color: rgba(20, 85, 143, 0.8);
+    border-color: rgba(20, 85, 143, 0.8);
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control:checked:hover + .ma__input-radio--outline__label::after {
+    background-color: rgba(20, 85, 143, 0.8);
+    border-color: rgba(20, 85, 143, 0.8);
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control:active + .ma__input-radio--outline__label {
+  color: #14558f; }
+  .ma__input-radio--outline__control:active + .ma__input-radio--outline__label::before {
+    background-color: #14558f;
+    border-color: #14558f;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control:active + .ma__input-radio--outline__label::after {
+    background-color: #14558f;
+    border-color: #14558f;
+    box-shadow: 0 0 2px 2px #3e94cf; }
+
+.ma__input-radio--outline__control:focus + .ma__input-radio--outline__label {
+  color: white; }
+  .ma__input-radio--outline__control:focus + .ma__input-radio--outline__label::before {
+    background-color: #14558f;
+    border-color: #14558f;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control:focus + .ma__input-radio--outline__label::after {
+    background-color: #14558f;
+    border-color: #14558f;
+    box-shadow: 0 0 2px 2px #3e94cf; }
+
+.ma__input-radio--outline__control:disabled + .ma__input-radio--outline__label {
+  color: white; }
+  .ma__input-radio--outline__control:disabled + .ma__input-radio--outline__label::before {
+    background-color: #DCDCDC;
+    border-color: #535353;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control:disabled + .ma__input-radio--outline__label::after {
+    background-color: #DCDCDC;
+    border-color: #535353;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control:checked:disabled + .ma__input-radio--outline__label {
+  color: #535353; }
+  .ma__input-radio--outline__control:checked:disabled + .ma__input-radio--outline__label::before {
+    background-color: #DCDCDC;
+    border-color: #535353;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control:checked:disabled + .ma__input-radio--outline__label::after {
+    background-color: #DCDCDC;
+    border-color: #535353;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control--error + .ma__input-radio--outline__label--error {
+  color: #CD0D0D; }
+  .ma__input-radio--outline__control--error + .ma__input-radio--outline__label--error::before {
+    background-color: white;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control--error + .ma__input-radio--outline__label--error::after {
+    background-color: white;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control--error:hover + .ma__input-radio--outline__label--error {
+  color: #CD0D0D; }
+  .ma__input-radio--outline__control--error:hover + .ma__input-radio--outline__label--error::before {
+    background-color: #FCF3F3;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control--error:hover + .ma__input-radio--outline__label--error::after {
+    background-color: #FCF3F3;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control--error:checked + .ma__input-radio--outline__label--error {
+  color: #CD0D0D; }
+  .ma__input-radio--outline__control--error:checked + .ma__input-radio--outline__label--error::before {
+    background-color: #EEACAC;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control--error:checked + .ma__input-radio--outline__label--error::after {
+    background-color: #EEACAC;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control--error:checked:hover + .ma__input-radio--outline__label--error {
+  color: #CD0D0D; }
+  .ma__input-radio--outline__control--error:checked:hover + .ma__input-radio--outline__label--error::before {
+    background-color: #EEACAC;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control--error:checked:hover + .ma__input-radio--outline__label--error::after {
+    background-color: #EEACAC;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control--error:checked:disabled + .ma__input-radio--outline__label--error {
+  color: #DCDCDC; }
+  .ma__input-radio--outline__control--error:checked:disabled + .ma__input-radio--outline__label--error::before {
+    background-color: #535353;
+    border-color: #DCDCDC;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control--error:checked:disabled + .ma__input-radio--outline__label--error::after {
+    background-color: #535353;
+    border-color: #DCDCDC;
+    box-shadow: 0 0 2px 2px ""; }
+
+.ma__input-radio--outline__control--error:active + .ma__input-radio--outline__label--error {
+  color: #CD0D0D; }
+  .ma__input-radio--outline__control--error:active + .ma__input-radio--outline__label--error::before {
+    background-color: #EEACAC;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control--error:active + .ma__input-radio--outline__label--error::after {
+    background-color: #EEACAC;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 2px 2px #EEACAC; }
+
+.ma__input-radio--outline__control--error:focus + .ma__input-radio--outline__label--error {
+  color: #CD0D0D; }
+  .ma__input-radio--outline__control--error:focus + .ma__input-radio--outline__label--error::before {
+    background-color: #EEACAC;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 0 4px white; }
+  .ma__input-radio--outline__control--error:focus + .ma__input-radio--outline__label--error::after {
+    background-color: #EEACAC;
+    border-color: #CD0D0D;
+    box-shadow: 0 0 2px 2px #EEACAC; }
+
+.ma__input-radio--outline__control:disabled + .ma__input-radio--outline__label {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: #535353;
+  opacity: 0.5; }
+
+.ma__input-radio--outline__control--error:disabled + .ma__input-radio--outline__label--error {
+  pointer-events: none;
+  cursor: not-allowed;
+  color: #535353;
+  opacity: 0.5; }

@@ -1,0 +1,33 @@
+{
+  "name": "@massds/react-package",
+  "version": "1.0.0",
+  "description": "Mayflower React Package",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "sass": "^1.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@massds/assets": "file:../assets-package/massds-assets-1.0.0.tgz",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "core-js": "^3.6.5",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass-magic-importer": "^5.3.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sass": "^1.26.3"
+  }
+}

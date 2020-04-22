@@ -1,0 +1,151 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__footer {
+  padding: 20px 0 30px;
+  position: relative; }
+  @media (min-width: 621px) {
+    .ma__footer {
+      padding: 40px 0 50px; } }
+  .ma__footer__back2top {
+    border: 3px solid;
+    box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+    display: inline-block;
+    letter-spacing: 0.1em;
+    padding: 0.4em 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    opacity: 1;
+    padding: .5em .7em;
+    position: fixed;
+    bottom: 1.3125rem;
+    right: 1.5625rem;
+    transition: all .5s;
+    visibility: visible;
+    z-index: 80; }
+    .ma__footer__back2top:hover:not(:disabled) {
+      text-decoration: none; }
+    @media (max-width: 620px) {
+      .ma__footer__back2top {
+        padding: .4em .4em 0 .4em;
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem; } }
+    .ma__footer__back2top.is-hidden {
+      opacity: 0;
+      visibility: hidden; }
+    .ma__footer__back2top > svg {
+      display: inline-block;
+      width: 16px;
+      height: 18px;
+      transform: rotate(-90deg);
+      transform-origin: center center;
+      transition: all .5s; }
+    .ma__footer__back2top span {
+      display: block;
+      text-align: center; }
+      @media (max-width: 620px) {
+        .ma__footer__back2top span {
+          display: none; } }
+  .ma__footer__container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1320px;
+    padding-left: 20px;
+    padding-right: 20px; }
+    @media (min-width: 781px) {
+      .ma__footer__container {
+        padding-left: 30px;
+        padding-right: 30px; } }
+    @media (min-width: 911px) {
+      .ma__footer__container {
+        padding-left: 40px;
+        padding-right: 40px; } }
+    .ma__footer__container::after {
+      clear: both;
+      content: "";
+      display: block; }
+    @media (max-width: 910px) {
+      .ma__footer__container {
+        display: flex;
+        flex-direction: column; } }
+  .ma__footer__nav {
+    margin-bottom: 20px; }
+    @media (min-width: 911px) {
+      .ma__footer__nav {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 74.41059%;
+        float: right;
+        margin-right: 0;
+        margin-bottom: 20px; }
+        .ma__footer__nav:last-child {
+          margin-right: 0; } }
+  @media (max-width: 910px) {
+    .ma__footer__info {
+      order: 2; } }
+  @media (min-width: 911px) {
+    .ma__footer__info {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .ma__footer__info:last-child {
+        margin-right: 0; } }
+  .ma__footer__logo {
+    margin-bottom: 20px; }
+    @media (max-width: 910px) {
+      .ma__footer__logo {
+        text-align: center; } }
+  .ma__footer__social {
+    margin: 0 auto 20px;
+    max-width: 480px; }
+  .ma__footer__copyright {
+    font-size: 1.063rem;
+    line-height: 1.54; }
+    @media (max-width: 910px) {
+      .ma__footer__copyright {
+        text-align: center; } }
+    .ma__footer__copyright p {
+      margin-bottom: 0.25em; }
+
+.ma__footer {
+  background-color: #F2F2F2; }
+  .ma__footer__back2top {
+    font-weight: 700;
+    background-color: white;
+    border-color: rgba(20, 85, 143, 0.5);
+    color: #14558f;
+    background-color: rgba(255, 255, 255, 0.9); }
+    .ma__footer__back2top svg {
+      fill: #14558f; }
+    .ma__footer__back2top:hover:not(:disabled) {
+      color: white;
+      background-color: #14558f; }
+      .ma__footer__back2top:hover:not(:disabled) svg {
+        fill: white; }
+    .ma__footer__back2top svg {
+      fill: rgba(20, 85, 143, 0.5); }
+    .ma__footer__back2top:hover svg {
+      fill: white; }
+  .ma__footer__copyright {
+    color: #535353;
+    font-weight: 300; }
+    .ma__footer__copyright--date {
+      font-weight: 500; }
+  .ma__footer__social .ma__social-links__link {
+    background-color: #388557; }
+    .ma__footer__social .ma__social-links__link > svg,
+    .ma__footer__social .ma__social-links__link > svg path {
+      fill: white; }

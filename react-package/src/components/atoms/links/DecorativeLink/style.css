@@ -1,0 +1,57 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__decorative-link {
+  padding-right: .8em;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%; }
+  .ma__decorative-link a {
+    border-bottom: 3px solid transparent;
+    padding-top: 3px;
+    padding-bottom: 1px;
+    transition: border 0.4s ease;
+    display: inline; }
+    .ma__decorative-link a:hover {
+      border-bottom-width: 3px;
+      border-bottom-style: solid;
+      text-decoration: none; }
+    .ma__decorative-link a svg {
+      display: inline-block;
+      height: .6em;
+      margin-right: -.8em;
+      width: .6em; }
+  .ma__decorative-link a:hover {
+    border-bottom-color: rgba(20, 85, 143, 0.5); }
+  .ma__decorative-link a:focus {
+    border-bottom-color: rgba(20, 85, 143, 0.5) !important; }
+  .ma__decorative-link svg {
+    fill: rgba(20, 85, 143, 0.5); }
+  .ma__decorative-link.button-link {
+    outline: 1px solid rgba(20, 85, 143, 0.5);
+    display: inline-block;
+    width: auto;
+    padding: .5rem 1.8rem .5rem .8rem;
+    background-color: white; }
+    .ma__decorative-link.button-link:hover, .ma__decorative-link.button-link:focus {
+      outline: 1px solid #14558f; }
+      .ma__decorative-link.button-link:hover a, .ma__decorative-link.button-link:focus a {
+        border-bottom-color: transparent; }
+        .ma__decorative-link.button-link:hover a svg, .ma__decorative-link.button-link:focus a svg {
+          fill: #14558f; }
+  .ma__decorative-link__details {
+    font-weight: 400; }
+  .ma__decorative-link a .ma__download-link--icon {
+    display: inline-flex;
+    align-self: center;
+    top: .3em;
+    position: relative; }
+    .ma__decorative-link a .ma__download-link--icon svg {
+      margin-right: 0;
+      width: 29px;
+      height: 30px; }

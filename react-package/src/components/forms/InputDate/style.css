@@ -1,0 +1,49 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.pika-single {
+  font-family: "Texta", "Helvetica", "Arial", "sans-serif"; }
+  .pika-single abbr[title] {
+    text-decoration: none; }
+
+.pika-label {
+  color: #141414;
+  font-size: 18px; }
+
+.pika-table th {
+  color: #141414;
+  font-size: 14px; }
+
+.pika-button {
+  background-color: #F2F2F2;
+  color: #141414;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center; }
+  .is-today .pika-button {
+    color: #14558f;
+    font-weight: 800; }
+    .is-today .pika-button:hover {
+      color: white; }
+  .is-disabled .pika-button {
+    color: #141414;
+    opacity: .5; }
+  .pika-button:hover {
+    background-color: #8aaac7;
+    border-radius: 0; }
+  .is-selected .pika-button {
+    background-color: #14558f;
+    box-shadow: none;
+    border-radius: 0; }
+  .is-today.is-selected .pika-button {
+    color: white; }
+
+.ma__input-date[type=text] {
+  background-image: url("../../../assets/images/svg-icons/date-picker.svg");
+  background-position: right 8px top 7px;
+  background-repeat: no-repeat; }

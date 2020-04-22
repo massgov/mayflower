@@ -1,0 +1,85 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__footer_slim {
+  background-color: #F2F2F2;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  padding: 20px 0 30px;
+  position: relative; }
+  .ma__footer_slim .ma__container {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1320px;
+    padding-left: 20px;
+    padding-right: 20px; }
+    @media (min-width: 781px) {
+      .ma__footer_slim .ma__container {
+        padding-left: 30px;
+        padding-right: 30px; } }
+    @media (min-width: 911px) {
+      .ma__footer_slim .ma__container {
+        padding-left: 40px;
+        padding-right: 40px; } }
+  .ma__footer_slim--container {
+    position: relative; }
+    .ma__footer_slim--container-inner {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0.5rem; }
+      .ma__footer_slim--container-inner h3 {
+        margin-top: 0.5rem;
+        margin-left: 3.25rem; }
+      @media (min-width: 911px) {
+        .ma__footer_slim--container-inner {
+          flex-direction: row;
+          align-items: flex-start;
+          justify-content: space-between;
+          margin: 0;
+          padding: 0.75rem 0 0 3.5rem; }
+          .ma__footer_slim--container-inner section {
+            margin-right: 2rem;
+            margin-bottom: 0.25rem; }
+          .ma__footer_slim--container-inner h3 {
+            margin-top: inherit;
+            margin-left: auto; } }
+  .ma__footer_slim .ma__site-logo {
+    position: absolute;
+    top: 0; }
+    .ma__footer_slim .ma__site-logo span {
+      display: none; }
+  .ma__footer_slim--info {
+    max-width: 500px; }
+    .ma__footer_slim--info h3 {
+      font-size: 1.25rem; }
+  .ma__footer_slim--details {
+    margin-top: 2rem; }
+    @media (min-width: 911px) {
+      .ma__footer_slim--details {
+        display: block;
+        margin-top: 0; } }
+  .ma__footer_slim--links {
+    margin-bottom: 1em; }
+    .ma__footer_slim--links a {
+      color: #14558f;
+      font-weight: 600; }
+      .ma__footer_slim--links a:after {
+        content: "|";
+        font-weight: 100;
+        margin: 0 0.85rem; }
+      .ma__footer_slim--links a:last-child:after {
+        content: "";
+        margin: 0; }
+  .ma__footer_slim--contact a {
+    font-weight: 500; }
+  .ma__footer_slim--contact > p {
+    display: flex; }
+    .ma__footer_slim--contact > p svg {
+      fill: #388557; }
+    .ma__footer_slim--contact > p span, .ma__footer_slim--contact > p a {
+      padding-left: 0.25rem; }

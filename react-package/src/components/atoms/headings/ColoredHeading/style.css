@@ -1,0 +1,74 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__colored-heading {
+  font-size: 1.375rem;
+  letter-spacing: 0.1em;
+  line-height: 1.39;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 12px 20px 10px 20px;
+  position: relative;
+  text-transform: uppercase; }
+  @media (min-width: 621px) {
+    .ma__colored-heading {
+      margin-bottom: 30px;
+      padding: 18px 25px 14px 25px; } }
+  .ma__colored-heading:after {
+    content: "";
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: rotate(30deg);
+    transform-origin: top left;
+    width: 100%; }
+  .main-content--two .page-content .ma__colored-heading {
+    padding-right: 55px; }
+    @media (min-width: 911px) {
+      .main-content--two .page-content .ma__colored-heading {
+        margin-right: -35px;
+        margin-bottom: 50px; } }
+    @media (min-width: 1201px) {
+      .main-content--two .page-content .ma__colored-heading {
+        margin-right: -55px;
+        padding-right: 75px; } }
+  @media (max-width: 910px) {
+    .sidebar .ma__colored-heading {
+      padding-right: 55px; } }
+  @media (min-width: 911px) {
+    .sidebar .ma__colored-heading {
+      padding-left: 55px;
+      margin-left: -35px; }
+      .sidebar .ma__colored-heading:after {
+        top: auto;
+        right: 100%;
+        bottom: 0;
+        left: auto;
+        transform-origin: bottom right; } }
+  @media (min-width: 1201px) {
+    .sidebar .ma__colored-heading {
+      margin-left: -55px;
+      padding-left: 55px; } }
+  .sidebar .ma__colored-heading {
+    margin-top: 45px; }
+    @media (min-width: 621px) {
+      .sidebar .ma__colored-heading {
+        margin-top: 50px; } }
+    .sidebar .ma__colored-heading:first-child {
+      margin-top: 0; }
+
+.ma__colored-heading {
+  background-color: #535353;
+  color: white; }
+  .ma__colored-heading:after {
+    background-color: white; }
+  .ma__colored-heading--green {
+    background-color: #388557; }
+  .ma__colored-heading--blue {
+    background-color: #14558f; }

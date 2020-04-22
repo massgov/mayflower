@@ -1,0 +1,67 @@
+@use 'global/base' as *;
+
+.ma__emergency-alert {
+  background-color: tint($c-warning,90%);
+  font-size: 1.25rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+
+  & + & {
+    border-top: 1px solid tint($c-warning, 50%);
+  }
+
+  &__time-stamp {
+    font-size: 1.125rem;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  &__link {
+
+    @media ($bp-small-min) {
+      display: inline-block;
+    }
+
+    .ma__content-link {
+
+      span {
+        border-bottom-width: 1px;
+        font-size: 1.25rem;
+        border-bottom-color: rgba($c-font-base, .5);
+        color: $c-font-base;
+
+        &:hover {
+          border-bottom-width: 3px;
+          border-bottom-color: rgba($c-font-base, .5);
+        }
+
+        &:after {
+          border-color: rgba($c-font-base, .5);
+        }
+      }
+    }
+  }
+
+  &__message {
+
+    @media ($bp-small-min) {
+      display: inline;
+    }
+  }
+}
+
+$colors: (
+  "c-warning": $c-warning,
+  "c-primary": $c-primary,
+  "c-primary-alt": $c-primary-alt,
+  "c-error": $c-error,
+  "c-gray": $c-gray
+);
+
+@each $class, $c in $colors {
+  .ma__emergency-alert--#{$class} {
+
+    @include ma-emergency-alert($c);
+  }
+}

@@ -1,0 +1,147 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__comp-heading:not(.ma__comp-heading--sidebar) {
+  position: relative;
+  position: relative;
+  padding-bottom: 15px; }
+  .ma__comp-heading:not(.ma__comp-heading--sidebar):after {
+    content: "";
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0.075em;
+    transform: skew(-30deg);
+    width: 85px; }
+    @media print {
+      .ma__comp-heading:not(.ma__comp-heading--sidebar):after {
+        display: none; } }
+  .ma__comp-heading:not(.ma__comp-heading--sidebar):after {
+    width: 1.85em; }
+
+.ma__comp-heading--sidebar,
+.sidebar .ma__comp-heading {
+  border-bottom: 2px solid;
+  font-size: 1.188rem;
+  letter-spacing: 0.1em;
+  padding-bottom: .5em;
+  text-transform: uppercase; }
+  .ma__comp-heading--sidebar:after,
+  .sidebar .ma__comp-heading:after {
+    display: none; }
+
+.ma__comp-heading--centered:not(.ma__comp-heading--sidebar) {
+  text-align: center; }
+  .ma__comp-heading--centered:not(.ma__comp-heading--sidebar):after {
+    left: 50%;
+    transform: translateX(-50%); }
+
+.sidebar--colored .ma__comp-heading {
+  font-size: 1.375rem;
+  letter-spacing: 0.1em;
+  line-height: 1.39;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding: 12px 20px 10px 20px;
+  position: relative;
+  text-transform: uppercase;
+  border-bottom: none; }
+  @media (min-width: 621px) {
+    .sidebar--colored .ma__comp-heading {
+      margin-bottom: 30px;
+      padding: 18px 25px 14px 25px; } }
+  .sidebar--colored .ma__comp-heading:after {
+    content: "";
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: rotate(30deg);
+    transform-origin: top left;
+    width: 100%; }
+  .main-content--two .page-content .sidebar--colored .ma__comp-heading {
+    padding-right: 55px; }
+    @media (min-width: 911px) {
+      .main-content--two .page-content .sidebar--colored .ma__comp-heading {
+        margin-right: -35px;
+        margin-bottom: 50px; } }
+    @media (min-width: 1201px) {
+      .main-content--two .page-content .sidebar--colored .ma__comp-heading {
+        margin-right: -55px;
+        padding-right: 75px; } }
+  @media (max-width: 910px) {
+    .sidebar .sidebar--colored .ma__comp-heading {
+      padding-right: 55px; } }
+  @media (min-width: 911px) {
+    .sidebar .sidebar--colored .ma__comp-heading {
+      padding-left: 55px;
+      margin-left: -35px; }
+      .sidebar .sidebar--colored .ma__comp-heading:after {
+        top: auto;
+        right: 100%;
+        bottom: 0;
+        left: auto;
+        transform-origin: bottom right; } }
+  @media (min-width: 1201px) {
+    .sidebar .sidebar--colored .ma__comp-heading {
+      margin-left: -55px;
+      padding-left: 55px; } }
+  @media (max-width: 910px) {
+    .sidebar--colored .ma__comp-heading {
+      padding-right: 55px; } }
+  @media (min-width: 911px) {
+    .sidebar--colored .ma__comp-heading {
+      padding-left: 55px;
+      margin-left: -35px; }
+      .sidebar--colored .ma__comp-heading:after {
+        top: auto;
+        right: 100%;
+        bottom: 0;
+        left: auto;
+        transform-origin: bottom right; } }
+  @media (min-width: 1201px) {
+    .sidebar--colored .ma__comp-heading {
+      margin-left: -55px;
+      padding-left: 55px; } }
+  .sidebar--colored .ma__comp-heading:after {
+    display: block; }
+
+.ma__comp-heading--no-line:not(.ma__comp-heading--sidebar) {
+  padding-bottom: 0;
+  margin-bottom: 0; }
+  .ma__comp-heading--no-line:not(.ma__comp-heading--sidebar)::after {
+    display: none; }
+
+.ma__comp-heading:after {
+  background-color: rgba(56, 133, 87, 0.5); }
+  .no-cssgradients .ma__comp-heading:after {
+    background-color: #388557; }
+
+.ma__comp-heading a {
+  border: none;
+  color: #141414; }
+
+.sidebar .ma__comp-heading, .ma__comp-heading--sidebar {
+  border-color: #DCDCDC;
+  color: #141414; }
+
+.sidebar--colored .ma__comp-heading {
+  background-color: #535353;
+  color: white; }
+  .sidebar--colored .ma__comp-heading:after {
+    background-color: white; }
+
+.ma__comp-heading--yellow:after {
+  background-color: #f6c51b; }
+  .no-cssgradients .ma__comp-heading--yellow:after {
+    background-color: #f6c51b; }
+
+.ma__comp-heading--gray:after {
+  background-color: #707070; }
+  .no-cssgradients .ma__comp-heading--gray:after {
+    background-color: #707070; }

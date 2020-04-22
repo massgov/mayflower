@@ -1,0 +1,58 @@
+.ma__category-icon {
+
+  @include ma-valign-block;
+  display: inline-block;
+  font-size: 0;
+  height: 150px;
+  margin: 0 0 28px; // height of the after angled element
+  padding: 40px 10px 12px;
+  position: relative;
+  text-align: center;
+  width: 130px;
+  z-index: 2;
+
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    height: 0;
+    padding-top: 22%;  // twice the degree since it skews in the middle
+    position: absolute;
+      left: 0;
+      top: 100%;
+    transform: skew(0,-11deg) translateY(-50%);
+    width: 100%;
+    z-index: -1;
+  }
+
+  &--small {
+    height: 57px;
+    margin: 0 0 14px; // height of the after angled element
+    padding: 12px;
+    padding-bottom: 0;
+    width: 60px;
+
+    svg {
+      height: 35px;
+      width: 35px;
+    }
+  }
+}
+//theme
+
+.ma__category-icon {
+  background-color: $c-primary-alt;
+
+  svg,
+  svg > g {
+    fill: $c-white;
+  }
+
+  &:after {
+    background-color: $c-primary-alt;
+  }
+}

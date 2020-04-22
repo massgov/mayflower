@@ -1,0 +1,23 @@
+
+// normalize the css across browsers added in npm
+// some variables adjust the settings in Neat
+
+// Base variables
+@forward "../../00-base/paths";
+@forward "../../00-base/variables";
+@forward "../../00-base/breakpoints";
+@forward "../../00-base/mixins";
+@forward "../../00-base/z-index";
+// base theme variables
+@forward "../../00-base/colors";
+@forward "../../00-base/color-tokens";
+
+@forward "~bourbon-neat/app/assets/stylesheets/neat" hide $column, $gutter, $max-width;
+
+
+// Atoms - reusable styles
+//@use "01-atoms/global/elements";
+//@use "01-atoms/forms";
+//@use "01-atoms/content-link";
+
+//@use '01-atoms/**/*.scss';

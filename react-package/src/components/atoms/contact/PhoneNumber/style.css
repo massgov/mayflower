@@ -1,0 +1,11 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__phone-number__number {
+  font-weight: 700;
+  color: #535353; }

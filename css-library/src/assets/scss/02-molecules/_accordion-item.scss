@@ -1,0 +1,191 @@
+.ma__accordion {
+
+  &-item {
+    border: 2px solid $c-gray-light;
+
+    &--borderless {
+      border: none;
+    }
+
+    &--secondary {
+
+     .ma__accordion-content__body {
+          padding-left: 35px;
+      }
+    }
+  }
+
+  &-header {
+
+    &__icon--secondary {
+      font-size: 2.5rem;
+      line-height: .65em;
+      position: absolute;
+        left: 5px;
+        top: 5px;
+      text-align: center;
+      overflow: hidden;
+      transform-origin: center center;
+      transition: transform .2s ease;
+      fill: $c-primary-alt;
+      transform: rotate(-90deg);
+    }
+
+    &__icon--secondary + &__title--secondary {
+      padding-left: 0px;
+    }
+
+    &__button {
+      border: none;
+      display: block;
+      padding: 20px 40px;
+      position: relative;
+      text-align: left;
+      width: 100%;
+      background-color: $c-bg-section;
+
+      &--secondary {
+        display: block;
+        position: relative;
+        width: 100%;
+        text-align: left;
+        border: none;
+        padding-left: 35px;
+
+        &.is-open {
+
+          .ma__accordion-header__icon--secondary {
+            transform: rotate(0deg);
+          }
+        }
+      }
+
+      /* focus specific transitions */
+      -webkit-transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+      transition: border-color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+      -o-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+
+      &:focus {
+        -webkit-box-shadow: 0 0 0 2px #9bdaf1;
+        box-shadow: 0 0 0 2px #9bdaf1;
+      }
+
+      &--trans {
+
+        &.is-open {
+          background-color: transparent;
+        }
+      }
+
+      &--solid {
+
+        &.is-open {
+          margin-bottom: 22px;
+          border-bottom: 2px solid $c-gray-light;
+        }
+      }
+
+      &.is-open {
+
+        &:focus {
+          -webkit-box-shadow: 0 0 0 1px #9bdaf1;
+          box-shadow: 0 0 0 1px #9bdaf1;
+        }
+
+        &:after {
+          transform: rotate(135deg);
+        }
+      }
+
+      &:after {
+        font-size: 2.5rem;
+        content: "+";
+        line-height: .65em;
+        overflow: hidden;
+        position: absolute;
+          right: 15px;
+          top: 25px;
+        transform-origin: center center;
+        transition: transform .2s ease;
+        color: $c-primary-alt;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+        top: 25px;
+        left: 20px;
+      text-align: center;
+
+      & > svg {
+        height: 25px;
+        width: 25px;
+        fill: $c-primary-alt;
+      }
+    }
+
+    &__title {
+
+      @include ma-h5;
+      font-weight: 700;
+      margin-bottom: 0;
+      min-height: 32px;
+
+      &--secondary {
+        font-weight: 500;
+
+        @include ma-h5;
+        margin-bottom: 0;
+      }
+    }
+
+    &__icon + &__title {
+      padding-left: 20px;
+    }
+  }
+
+  &-content {
+
+    &__body {
+
+      padding-left: 60px;
+      padding-right: 40px;
+
+      &.collapsed {
+        visibility: hidden;
+        height: 0px;
+      }
+
+      &.collapsing, &.expanding {
+        position: relative;
+        overflow: hidden;
+        visibility: visible;
+        -webkit-transition-property: height, visibility;
+        transition-property: height, visibility;
+        transition-duration: 0.35s;
+        -webkit-transition-duration: 0.35s;
+        transition-timing-function: ease;
+        -webkit-transition-timing-function: ease;
+      }
+
+      &.expanded {
+       height: auto;
+       visibility: visible;
+       display: block;
+      }
+
+      &--without-icon {
+        padding-left: 40px;
+      }
+
+      & > * {
+        margin-top: 1em;
+      }
+
+      & > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

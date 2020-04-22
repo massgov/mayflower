@@ -1,0 +1,110 @@
+@use 'global/base' as *;
+
+.ma__arrow-nav {
+  min-height: 45px;
+  padding-left: 40px;
+  position: relative;
+  cursor: pointer;
+
+  @media ($bp-small-max) {
+    display: flex;
+      align-items: center;
+  }
+
+  @media ($bp-small-min) {
+    padding-left: 70px;
+  }
+
+  &--right {
+    justify-content: flex-end;
+    padding-left: 0;
+    padding-right: 40px;
+    text-align: right;
+
+    @media ($bp-small-min) {
+      padding-right: 70px;
+    }
+  }
+
+  .ma__arrow-button {
+    height: 100%;
+    position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+    width: 30px;
+
+    @media ($bp-small-min) {
+      width: 50px;
+    }
+  }
+
+  &--right .ma__arrow-button {
+    left: inherit;
+    right: 0;
+  }
+
+  &__title {
+    font-size: 1rem;
+    letter-spacing: $letter-spacing-large;
+    line-height: 1.625rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+
+    &:before {
+      content: attr(data-label) ": ";
+
+      @media ($bp-small-max) {
+        content: attr(data-label);
+      }
+    }
+
+    span {
+
+      @media ($bp-small-max) {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+
+    @media ($bp-small-max) {
+
+      @include ma-visually-hidden;
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+    color: $c-font-link;
+
+    @media ($bp-small-max) {
+
+      @include ma-visually-hidden;
+    }
+  }
+
+  // backward compatible with v.5.6 - replaced with link Atom
+
+  a.ma__arrow-nav__link {
+
+    @include ma-link-underline;
+  }
+}
+
+//theme
+
+.ma__arrow-nav {
+
+  &__title {
+    color: rgba($c-font-link, .7);
+  }
+
+  &__link {
+
+    &:hover {
+      border-color: rgba($c-font-link, .5);
+    }
+  }
+}

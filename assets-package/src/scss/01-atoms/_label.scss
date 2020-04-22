@@ -1,0 +1,32 @@
+// Special label handling
+@use 'global/base' as *;
+
+.ma__legend,
+.ma__label {
+
+  &--optional {
+
+    &:after {
+      content: "(optional)";
+      font-size: .8em;
+      margin-left: .25em;
+    }
+  }
+
+  &--hidden {
+
+    @include ma-visually-hidden;
+
+    & + input {
+      margin-top: inherit;
+    }
+  }
+
+  &--inline {
+    display: inline;
+  }
+
+  &--small {
+    font-size: 18px;
+  }
+}

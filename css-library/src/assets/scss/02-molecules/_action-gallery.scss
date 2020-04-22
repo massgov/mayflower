@@ -1,0 +1,49 @@
+.ma__action-gallery {
+
+  &__items {
+
+    @include ma-reset-list;
+
+    @include clearfix;
+    display: inline-block;
+    height: 80px;
+    max-width: 100%;
+    overflow: hidden;
+    padding-right: 110px;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  &__item {
+    display:inline-block;
+    font-size: 0;
+    margin-right: 15px;
+  }
+
+  &__view-more {
+    height: 100%;
+    padding-left: 20px;
+    position: absolute;
+      right: 0;
+      top: 0;
+
+    & > * {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    a {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+//theme
+
+.ma__action-gallery {
+
+  &__view-more {
+    background-image: linear-gradient(90deg, transparent, $c-white 30%);
+  }
+}

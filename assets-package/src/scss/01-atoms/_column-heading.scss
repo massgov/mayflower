@@ -1,0 +1,6 @@
+@use 'global/base' as *;
+
+.ma__column-heading {
+
+  @include ma-h5;
+}

@@ -1,0 +1,39 @@
+// Change the Neat grid settings.
+$column:                        85px;
+$gutter:                        20px;
+$column-with-gutter:            $column + $gutter;
+// Use @include outer-container() which sets this and centers.
+$layout-sidebar-width:          ($column * 3) + ($gutter * 2);
+$layout-sidebar-width-reversed: 370px;
+
+$l-max-content-width:           820px;
+$l-max-content-wrapper:         1240px;
+$max-width:                     1320px;
+
+$header-mobile-controls-height: 40px;
+
+// These variables control the vertical spacing in MF.
+// No vertical spacing should exceed 70px.
+$standard-spacing--large:    70px;
+$standard-spacing--medium:   55px;
+$standard-spacing--small:    45px;
+$standard-spacing--xsmall:   24px;
+$standard-spacing--xxsmall:  12px;
+$standard-spacing--xxxsmall: 6px;
+
+//letter-spacing for Texta
+$letter-spacing-large:   .1em;
+$letter-spacing-medium:  .05em;
+$letter-spacing-small:   .02em;
+$letter-spacing-default: 0;
+
+// Close icon
+// The close icon is not an actual icon. It is the multiplication
+// symbol displayed in a pseudo element. To display properly,
+// the following string should be used in the CSS `content` setting.
+$close-icon: '\00d7';
+
+
+// font families
+$fonts:      "Texta", "Helvetica", "Arial", "sans-serif";
+$fonts-mono: "Source Code Pro", "Monaco", "monospace";

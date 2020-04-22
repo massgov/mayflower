@@ -1,0 +1,96 @@
+@use 'global/base' as *;
+
+.ma__input-typeahead {
+  font-size: 1.25rem;
+
+  .highlight {
+    color: $c-primary-alt;
+    font-weight: bold;
+  }
+
+  input {
+    width: 100%;
+    -webkit-appearance: none;
+
+    &::-ms-clear {
+      display: none;
+    }
+  }
+
+  ul {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      border: 1px solid $c-gray-light;
+      width: 100%;
+      padding: 0px 18px;
+    }
+  }
+
+  &--boxed {
+    border: 1px solid $c-gray-light;
+
+    input {
+      margin: .75rem;
+      width: calc(100% - 1.5rem);
+    }
+  }
+
+  &--disabled {
+    color: $c-gray;
+
+    input {
+      background-color: $c-gray-lightest;
+      color: $c-gray;
+    }
+  }
+}
+
+input[type=search] {
+  -webkit-appearance: none;
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+    }
+}
+
+.react-autosuggest {
+
+  &__container {
+    width: 100%;
+    position: relative;
+  }
+
+  &__input--focused {
+    outline: none;
+  }
+
+  &__suggestion {
+    cursor: pointer;
+
+    &-list {
+      list-style-type: none;
+    }
+
+    &--highlighted {
+      background-color: $c-gray-lightest;
+    }
+  }
+
+  &__suggestions {
+
+    &-container--open {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      max-height: 15.6em;
+      overflow-y: auto;
+      box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.2);
+      background: $c-white;
+    }
+  }
+}

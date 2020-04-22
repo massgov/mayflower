@@ -1,0 +1,90 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__sidebar-heading {
+  border-bottom: 2px solid;
+  font-size: 1.188rem;
+  letter-spacing: 0.1em;
+  padding-bottom: .5em;
+  text-transform: uppercase; }
+  .sidebar--colored .ma__sidebar-heading {
+    font-size: 1.375rem;
+    letter-spacing: 0.1em;
+    line-height: 1.39;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 12px 20px 10px 20px;
+    position: relative;
+    text-transform: uppercase;
+    border: none; }
+    @media (min-width: 621px) {
+      .sidebar--colored .ma__sidebar-heading {
+        margin-bottom: 30px;
+        padding: 18px 25px 14px 25px; } }
+    .sidebar--colored .ma__sidebar-heading:after {
+      content: "";
+      height: 200%;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      transform: rotate(30deg);
+      transform-origin: top left;
+      width: 100%; }
+    .main-content--two .page-content .sidebar--colored .ma__sidebar-heading {
+      padding-right: 55px; }
+      @media (min-width: 911px) {
+        .main-content--two .page-content .sidebar--colored .ma__sidebar-heading {
+          margin-right: -35px;
+          margin-bottom: 50px; } }
+      @media (min-width: 1201px) {
+        .main-content--two .page-content .sidebar--colored .ma__sidebar-heading {
+          margin-right: -55px;
+          padding-right: 75px; } }
+    @media (max-width: 910px) {
+      .sidebar .sidebar--colored .ma__sidebar-heading {
+        padding-right: 55px; } }
+    @media (min-width: 911px) {
+      .sidebar .sidebar--colored .ma__sidebar-heading {
+        padding-left: 55px;
+        margin-left: -35px; }
+        .sidebar .sidebar--colored .ma__sidebar-heading:after {
+          top: auto;
+          right: 100%;
+          bottom: 0;
+          left: auto;
+          transform-origin: bottom right; } }
+    @media (min-width: 1201px) {
+      .sidebar .sidebar--colored .ma__sidebar-heading {
+        margin-left: -55px;
+        padding-left: 55px; } }
+    @media (max-width: 910px) {
+      .sidebar--colored .ma__sidebar-heading {
+        padding-right: 55px; } }
+    @media (min-width: 911px) {
+      .sidebar--colored .ma__sidebar-heading {
+        padding-left: 55px;
+        margin-left: -35px; }
+        .sidebar--colored .ma__sidebar-heading:after {
+          top: auto;
+          right: 100%;
+          bottom: 0;
+          left: auto;
+          transform-origin: bottom right; } }
+    @media (min-width: 1201px) {
+      .sidebar--colored .ma__sidebar-heading {
+        margin-left: -55px;
+        padding-left: 55px; } }
+
+.ma__sidebar-heading {
+  border-color: #DCDCDC;
+  color: #141414; }
+  .sidebar--colored .ma__sidebar-heading {
+    background-color: #535353;
+    color: white; }
+    .sidebar--colored .ma__sidebar-heading:after {
+      background-color: white; }

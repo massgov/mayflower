@@ -1,0 +1,45 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__publish-state {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em; }
+  @media (min-width: 621px) {
+    .ma__publish-state {
+      font-size: 3rem; } }
+  .pre-content > .ma__publish-state,
+  .post-content > .ma__publish-state,
+  .main-content--full .page-content > .ma__publish-state {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1320px;
+    padding-left: 20px;
+    padding-right: 20px; }
+    @media (min-width: 781px) {
+      .pre-content > .ma__publish-state,
+      .post-content > .ma__publish-state,
+      .main-content--full .page-content > .ma__publish-state {
+        padding-left: 30px;
+        padding-right: 30px; } }
+    @media (min-width: 911px) {
+      .pre-content > .ma__publish-state,
+      .post-content > .ma__publish-state,
+      .main-content--full .page-content > .ma__publish-state {
+        padding-left: 40px;
+        padding-right: 40px; } }
+  .ma__publish-state:before {
+    content: "\2013";
+    margin-right: .25em; }
+  .ma__publish-state:after {
+    content: "\2013";
+    margin-left: .25em; }
+
+.ma__publish-state {
+  color: #707070;
+  font-weight: 700; }

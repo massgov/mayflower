@@ -1,0 +1,66 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+@media (min-width: 911px) {
+  .ma__page-header__widgets .ma__social-links {
+    text-align: right; } }
+
+@media (min-width: 911px) {
+  .ma__page-header__widgets .ma__social-links:first-child {
+    padding-top: 20px; } }
+
+.ma__social-links__label {
+  color: #535353;
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  line-height: 1.875rem;
+  text-transform: uppercase;
+  vertical-align: middle; }
+
+.ma__social-links__items {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%; }
+
+.ma__social-links__label + .ma__social-links__items {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto; }
+
+.ma__social-links__item {
+  display: inline-block;
+  vertical-align: middle; }
+  @media (max-width: 910px) {
+    .ma__social-links__item {
+      text-align: center; } }
+
+.ma__social-links__link {
+  display: inline-block;
+  font-size: 0;
+  height: 30px;
+  padding: 5px;
+  transition: opacity .4s;
+  width: 30px; }
+  .ma__social-links__link:hover {
+    opacity: .7; }
+  .ma__social-links__link > svg {
+    height: 100%;
+    width: 100%; }
+
+.ma__social-links__label {
+  font-weight: 600; }
+
+.ma__social-links__link[data-social-share=blog] > svg path {
+  fill: #388557; }
+
+.ma__social-links__link[data-social-share=email] > svg path {
+  fill: #388557; }

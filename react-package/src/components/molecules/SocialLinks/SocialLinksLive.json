@@ -1,0 +1,23 @@
+{
+  "items": [{
+    "altText": "Follow us on Facebook",
+    "href": "https://www.facebook.com/massgov",
+    "linkType": "facebook"
+  },{
+    "altText": "Follow us on Twitter",
+    "href": "https://twitter.com/massgov",
+    "linkType": "twitter"
+  },{
+    "altText": "Follow us on LinkedIn",
+    "href": "https://www.linkedin.com/company/commonwealth-of-massachusetts",
+    "linkType": "linkedin"
+  },{
+    "altText": "Follow us on Youtube",
+    "href": "https://www.youtube.com/user/massgov",
+    "linkType": "youtube"
+  },{
+    "altText": "Follow us on Instagram",
+    "href": "https://www.instagram.com/massgov",
+    "linkType": "instagram"
+  }]
+}

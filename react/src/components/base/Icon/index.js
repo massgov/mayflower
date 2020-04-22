@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
+import style from '../../styles/stories.module.scss';
 
 export default class Icon extends React.Component {
   static propTypes = {
@@ -42,7 +42,7 @@ export default class Icon extends React.Component {
           const attr = {
             width: svgWidth || null,
             height: svgHeight || null,
-            className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
+            className: (classes && classes.length > 0) ? classes.filter((c) => c).map((c) => style[c]).toString() : null,
             'aria-hidden': ariaHidden || null
           };
           const content = (

@@ -6,6 +6,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
+    "scss",
     "css",
     "es",
     "lib"
@@ -16,7 +17,7 @@
     "backstop:approve": "docker-compose run backstop approve",
     "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/",
     "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/ --watch",
-    "build-nwb": "nwb build-react-component --copy-files",
+    "build-nwb": "nwb build-react-component ",
     "build": "npm-run-all build-css build-nwb",
     "clean": "nwb clean-module",
     "start": "npm-run-all -p watch-css storybook",
@@ -33,6 +34,7 @@
     "lint"
   ],
   "dependencies": {
+    "@massds/assets": "file:../assets-package/massds-assets-1.0.0.tgz",
     "airbnb-prop-types": "^2.13.2",
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",
@@ -69,6 +71,7 @@
     "@storybook/addon-storysource": "^5.3.18",
     "@storybook/addon-viewport": "^5.3.18",
     "@storybook/addons": "^5.3.18",
+    "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^5.3.18",
     "@storybook/source-loader": "^5.3.18",
     "acorn": "^5.7.2",
@@ -80,6 +83,7 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-import-paths": "^1.0.2",
     "cross-env": "^5.2.0",
+    "css-loader": "^3.5.2",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-alias": "^1.1.1",
@@ -90,14 +94,20 @@
     "eslint-plugin-react-hooks": "^1.0.1",
     "github-markdown-css": "^3.0.1",
     "markdown-it": "^10.0.0",
+    "node-sass": "npm:sass@^1.26.3",
     "node-sass-chokidar": "^1.4.0",
+    "node-sass-magic-importer": "^5.3.2",
     "npm-run-all": "^4.1.5",
     "nwb": "^0.24.5",
+    "nwb-sass": "^0.10.0",
     "pre-push": "^0.1.1",
     "prop-types": "^15.7.1",
     "react": "16.8.6",
     "react-dom": "16.9.0",
-    "react-scripts": "^2.1.8"
+    "react-scripts": "^3.4.1",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.4"
   },
   "homepage": "",
   "license": "MIT",

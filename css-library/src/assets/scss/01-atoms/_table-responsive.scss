@@ -1,0 +1,222 @@
+.ma__table--responsive {
+  position: relative;
+  margin-bottom: 1em;
+  overflow: hidden;
+
+  &.has-horizontal-scroll {
+    // to accommodate the sticky nav bar
+    padding-bottom: 50px;
+  }
+}
+
+.ma__table--responsive__wrapper {
+    overflow-x: scroll;
+    width: 100%;
+    position: relative;
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+
+    &::-webkit-scrollbar {
+      display: none;  // Safari and Chrome
+    }
+}
+
+.ma__table--responsive .sticky-thead {
+    background: $c-white;
+    border-collapse: collapse;
+    box-shadow: 0 0 0 2px $c-gray-light;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: all 0.04s ease-in-out;
+    // Prevent table from stretching to full size.
+    width: auto;
+    z-index: 50;
+
+    &:before {
+        background: $c-white;
+        content: '';
+        height: 100vh;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: -100vh;
+        z-index: -1;
+    }
+
+    .sticky-thead-wrapper {
+      overflow-x: auto;
+      -ms-overflow-style: none;  // IE 10+
+      overflow: -moz-scrollbars-none;  // Firefox
+
+      &::-webkit-scrollbar {
+        display: none;  // Safari and Chrome
+      }
+    }
+
+    table {
+      margin-bottom: 0;
+    }
+}
+
+.ma__table--responsive.has-top-visible .sticky-thead {
+    // Force stretch.
+    width: 100%;
+    z-index: 50;
+}
+
+.ma__table--responsive td,
+.ma__table--responsive th {
+    box-sizing: border-box;
+    font-size: 1.125rem;
+    padding: 0.5rem;
+}
+
+.ma__table--responsive thead {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    box-shadow: 0 0 0 2px $c-gray-light;
+}
+
+.ma__table--responsive tbody tr td {
+    border-bottom: 1px solid $c-gray-lightest;
+    vertical-align: top;
+}
+
+.ma__table__horizontal-nav {
+    align-items: center;
+    background-color:$c-white;
+    border-top: 1px solid $c-gray-light;
+    bottom: 0;
+    display: none;
+    height: 50px;
+    justify-content: space-between;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 50;
+
+
+    // Native position is at the bottom of the responsive container;
+    // so show the bar.
+
+    .has-horizontal-scroll & {
+        display: flex;
+    }
+
+    // Bottom is visble, anchor it.
+
+    .has-horizontal-scroll.has-bottom-visible & {
+        bottom: 0;
+        left: auto;
+        position: fixed;
+        right: auto;
+    }
+
+    .is-out-of-view.has-bottom-visible &,
+    .is-out-of-view.has-top-visible & {
+        display: none;
+    }
+
+    button {
+        background:none;
+        border: none;
+        padding: 0;
+
+        &:after {
+            content: "";
+            border-right: 4px solid;
+            border-bottom: 4px solid;
+            display: inline-block;
+            height: 10px;
+            margin-top: 3px;
+            margin-left: .3em;
+            transition: all .2s;
+            vertical-align: middle;
+            width: 10px;
+            border-color: $c-primary;
+            opacity: 0.5;
+        }
+    }
+
+    &__left {
+        margin-right: 15px;
+        visibility: visible;
+        opacity: 1;
+
+        .full-left & {
+          visibility: hidden;
+          opacity: 0;
+          width: 0;
+          margin: 0;
+          transition: 0.3s linear;
+        }
+
+        &:after {
+            transform: translateY(-4px)  translateX(0px) rotate(135deg);
+        }
+    }
+
+    &__right {
+        margin-left: 15px;
+        visibility: visible;
+        opacity: 1;
+
+        .full-right & {
+          visibility: hidden;
+          opacity: 0;
+          width: 0;
+          margin: 0;
+          transition: 0.3s linear;
+        }
+
+        &:after {
+            transform: translateY(-4px) translateX(-6px) rotate(-45deg);
+        }
+    }
+}
+
+.clip-scrollbar {
+  overflow-x: hidden;
+  border: 2px solid rgba($c-primary, 0.5);
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+
+  &::-webkit-scrollbar {
+    display: none;  // Safari and Chrome
+  }
+}
+
+.ma__scroll-indicator {
+    position: relative;
+    overflow-x: auto;
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+
+    &::-webkit-scrollbar {
+      display: none;  // Safari and Chrome
+    }
+
+    .ma__scroll-indicator--bar {
+      height: 8px;
+    }
+
+    .ma__scroll-indicator__button {
+      margin: auto;
+      height: calc(100% + 8px);
+      top: -4px;
+      background: rgba($c-primary, 0.5);
+      cursor: grab;
+    }
+}
+
+.stickNav {
+
+  .ma__table__horizontal-nav {
+    position: fixed;
+    bottom: 0;
+  }
+}

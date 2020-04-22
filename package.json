@@ -12,6 +12,7 @@
     "simple-git": "^1.126.0"
   },
   "dependencies": {
+    "@massds/assets": "file:assets-package",
     "@massds/mayflower-react": "^9.42.1",
     "@octokit/rest": "^16.35.0"
   }

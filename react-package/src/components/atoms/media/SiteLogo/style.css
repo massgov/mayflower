@@ -1,0 +1,45 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__site-logo a {
+  display: flex;
+  font-size: 0px;
+  width: 164px;
+  margin: 0 auto;
+  align-items: center; }
+  @media (max-width: 620px) {
+    .ma__site-logo a {
+      width: 150px; } }
+  .ma__site-logo a img {
+    width: 45px;
+    height: 45px; }
+    @media (max-width: 620px) {
+      .ma__site-logo a img {
+        width: 42px;
+        height: 42px; } }
+  .ma__site-logo a span {
+    font-size: 1.9rem;
+    display: inline-block;
+    width: 112px;
+    margin-left: 0.4rem;
+    line-height: 1;
+    letter-spacing: 0.02em; }
+    @media (max-width: 620px) {
+      .ma__site-logo a span {
+        font-size: 1.7rem;
+        width: 102px;
+        margin-left: 0.3rem; } }
+
+.ma__site-logo a span {
+  font-weight: 400;
+  color: #388557;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #388557; }
+  @media (max-width: 620px) {
+    .ma__site-logo a span {
+      -webkit-text-stroke-width: 0.03rem; } }

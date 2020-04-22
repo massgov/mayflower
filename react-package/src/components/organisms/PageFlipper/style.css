@@ -1,0 +1,94 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.pre-content > .ma__page-flipper,
+.post-content .ma__page-flipper,
+.main-content--full .page-content > .ma__page-flipper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1320px;
+  padding-left: 20px;
+  padding-right: 20px; }
+  @media (min-width: 781px) {
+    .pre-content > .ma__page-flipper,
+    .post-content .ma__page-flipper,
+    .main-content--full .page-content > .ma__page-flipper {
+      padding-left: 30px;
+      padding-right: 30px; } }
+  @media (min-width: 911px) {
+    .pre-content > .ma__page-flipper,
+    .post-content .ma__page-flipper,
+    .main-content--full .page-content > .ma__page-flipper {
+      padding-left: 40px;
+      padding-right: 40px; } }
+
+.post-content .ma__page-flipper:last-child {
+  margin-bottom: 30px; }
+  @media (min-width: 781px) {
+    .post-content .ma__page-flipper:last-child {
+      margin-bottom: 45px; } }
+
+.ma__page-flipper__context-label {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  font-weight: bold; }
+
+.ma__page-flipper__context-label + .ma__decorative-link {
+  margin-bottom: 20px; }
+
+.ma__page-flipper__container {
+  border-top-style: solid;
+  border-top-width: 2px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  width: 100%; }
+
+.ma__page-flipper__blank,
+.ma__page-flipper .ma__arrow-nav {
+  flex-basis: 400px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-top: 20px;
+  max-width: 50%; }
+  @media (min-width: 621px) {
+    .ma__page-flipper__blank,
+    .ma__page-flipper .ma__arrow-nav {
+      margin-top: 30px; } }
+
+.ma__page-flipper__blank {
+  margin-top: 0; }
+
+.ma__page-flipper .ma__arrow-nav:first-child {
+  border-right-style: solid;
+  border-right-width: 1px;
+  margin-right: -1px;
+  padding-right: 20px; }
+  @media (min-width: 621px) {
+    .ma__page-flipper .ma__arrow-nav:first-child {
+      padding-right: 40px; } }
+
+.ma__page-flipper .ma__arrow-nav:nth-child(2) {
+  border-left-style: solid;
+  border-left-width: 1px;
+  margin-left: -1px;
+  padding-left: 20px; }
+  @media (min-width: 621px) {
+    .ma__page-flipper .ma__arrow-nav:nth-child(2) {
+      padding-left: 40px; } }
+
+.ma__page-flipper__container {
+  border-color: #DCDCDC; }
+
+.ma__page-flipper__context-label {
+  color: rgba(20, 85, 143, 0.7); }
+
+.ma__page-flipper__blank,
+.ma__page-flipper .ma__arrow-nav {
+  border-color: #DCDCDC; }

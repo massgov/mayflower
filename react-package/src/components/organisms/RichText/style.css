@@ -1,0 +1,225 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__rich-text {
+  /**
+   * Rich text content can be styled like an outline when a modifier class is added by rich-text.js
+   * 1. Headings will be indented
+   * 2. Content nested under each heading will be further indented
+   */ }
+  .ma__rich-text::after {
+    clear: both;
+    content: "";
+    display: block; }
+  .ma__rich-text__flame {
+    text-transform: uppercase; }
+  .ma__rich-text--description {
+    margin-bottom: 1rem; }
+  .ma__rich-text:last-child {
+    margin-bottom: 0; }
+  .pre-content > .ma__rich-text,
+  .post-content > .ma__rich-text,
+  .main-content--full .page-content > .ma__rich-text {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1320px;
+    padding-left: 20px;
+    padding-right: 20px; }
+    @media (min-width: 781px) {
+      .pre-content > .ma__rich-text,
+      .post-content > .ma__rich-text,
+      .main-content--full .page-content > .ma__rich-text {
+        padding-left: 30px;
+        padding-right: 30px; } }
+    @media (min-width: 911px) {
+      .pre-content > .ma__rich-text,
+      .post-content > .ma__rich-text,
+      .main-content--full .page-content > .ma__rich-text {
+        padding-left: 40px;
+        padding-right: 40px; } }
+    @media (min-width: 911px) and (max-width: 1320px) {
+      .pre-content > .ma__rich-text,
+      .post-content > .ma__rich-text,
+      .main-content--full .page-content > .ma__rich-text {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 820px; } }
+    @media (min-width: 1321px) {
+      .pre-content > .ma__rich-text,
+      .post-content > .ma__rich-text,
+      .main-content--full .page-content > .ma__rich-text {
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 500px; } }
+  .ma__split-columns__column > .ma__rich-text {
+    margin-bottom: 1em;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0; }
+  .ma__rich-text .ma__rich-text__footnote {
+    border-style: solid;
+    border-width: 2px;
+    font-size: .6em;
+    line-height: 1;
+    padding: 0 .3em;
+    position: relative;
+    top: .25em;
+    vertical-align: top;
+    transition: all ease .4s; }
+    .ma__rich-text .ma__rich-text__footnote:hover {
+      border-width: 2px; }
+  .ma__rich-text h2:not(.ma__comp-heading),
+  .ma__rich-text h3:not(.ma__comp-heading),
+  .ma__rich-text h3:not(.ma__sidebar-heading),
+  .ma__rich-text h4 {
+    position: relative;
+    position: relative;
+    padding-bottom: 15px;
+    display: block; }
+    .ma__rich-text h2:not(.ma__comp-heading):after,
+    .ma__rich-text h3:not(.ma__comp-heading):after,
+    .ma__rich-text h3:not(.ma__sidebar-heading):after,
+    .ma__rich-text h4:after {
+      content: "";
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      left: 0.075em;
+      transform: skew(-30deg);
+      width: 85px; }
+      @media print {
+        .ma__rich-text h2:not(.ma__comp-heading):after,
+        .ma__rich-text h3:not(.ma__comp-heading):after,
+        .ma__rich-text h3:not(.ma__sidebar-heading):after,
+        .ma__rich-text h4:after {
+          display: none; } }
+    .ma__rich-text h2:not(.ma__comp-heading):after,
+    .ma__rich-text h3:not(.ma__comp-heading):after,
+    .ma__rich-text h3:not(.ma__sidebar-heading):after,
+    .ma__rich-text h4:after {
+      width: 1.85em; }
+  .ma__rich-text h2 {
+    padding-top: .75em; }
+    .ma__rich-text h2:first-child {
+      padding-top: 0; }
+  .ma__rich-text__indent[data-ma-heading-parent='H2'] {
+    margin-left: 20px; }
+  .ma__rich-text h3.ma__rich-text__indent {
+    margin-left: 20px; }
+  .ma__rich-text__indent[data-ma-heading-parent='H3'] {
+    margin-left: 40px; }
+  .ma__rich-text h4 {
+    margin-bottom: .6em;
+    padding-bottom: .45em; }
+    .ma__rich-text h4:after {
+      width: 1.5em; }
+    .ma__rich-text h4.ma__rich-text__indent {
+      margin-left: 40px; }
+  .ma__rich-text__indent[data-ma-heading-parent='H4'] {
+    margin-left: 60px; }
+  .ma__rich-text h5 {
+    display: block;
+    margin-bottom: 0; }
+    .ma__rich-text h5.ma__rich-text__indent {
+      margin-left: 60px; }
+  .ma__rich-text__indent[data-ma-heading-parent='H5'] {
+    margin-left: 80px; }
+  .ma__rich-text h6 {
+    display: block; }
+    .ma__rich-text h6.ma__rich-text__indent {
+      margin-left: 80px; }
+  .ma__rich-text__indent[data-ma-heading-parent='H6'] {
+    margin-left: 100px; }
+  .ma__rich-text p {
+    margin-bottom: 1.5rem; }
+    @media (min-width: 621px) {
+      .ma__rich-text p {
+        margin-bottom: 1.75rem; } }
+  .ma__rich-text img {
+    width: 100%; }
+  .ma__rich-text figure {
+    margin-bottom: 1.5rem; }
+    @media (min-width: 621px) {
+      .ma__rich-text figure {
+        margin-bottom: 1.75rem; } }
+  .ma__rich-text ul {
+    list-style-type: disc;
+    margin-bottom: 1.5rem;
+    padding-left: 20px; }
+    @media (min-width: 621px) {
+      .ma__rich-text ul {
+        margin-bottom: 1.75rem; } }
+    .ma__rich-text ul:last-child {
+      margin-bottom: 0; }
+  .ma__rich-text ol {
+    margin-bottom: 1.5rem;
+    padding-left: 30px; }
+    @media (min-width: 621px) {
+      .ma__rich-text ol {
+        margin-bottom: 1.75rem; } }
+    .ma__rich-text ol:last-child {
+      margin-bottom: 0; }
+  .ma__rich-text li {
+    margin-bottom: .5em;
+    padding-left: 10px; }
+    .ma__rich-text li:last-child {
+      margin-bottom: 0; }
+  .ma__rich-text a {
+    border-bottom: 3px solid transparent;
+    padding-top: 3px;
+    padding-bottom: 1px;
+    transition: border 0.4s ease;
+    border-bottom-width: 1px;
+    overflow-wrap: break-word;
+    transition: border .3s;
+    word-wrap: break-word;
+    word-break: normal; }
+    .ma__rich-text a:hover {
+      border-bottom-width: 3px;
+      border-bottom-style: solid;
+      text-decoration: none; }
+  .ma__rich-text table {
+    margin-bottom: 1.5rem;
+    min-width: 450px;
+    width: 100%; }
+    @media (min-width: 621px) {
+      .ma__rich-text table {
+        margin-bottom: 1.75rem; } }
+  .ma__rich-text__table-wrapper {
+    margin-bottom: 1em;
+    overflow: auto; }
+    .ma__rich-text__table-wrapper table {
+      margin-bottom: 0; }
+  .ma__rich-text > :last-child {
+    margin-bottom: 0 !important; }
+
+.ma__rich-text__flame {
+  font-weight: bold; }
+
+.ma__rich-text__footnote {
+  border-color: rgba(20, 85, 143, 0.5); }
+  .ma__rich-text__footnote:hover {
+    background-color: #14558f;
+    color: white; }
+
+.ma__rich-text h2:after, .ma__rich-text h3:after, .ma__rich-text h4:after {
+  background-color: rgba(56, 133, 87, 0.5); }
+  .no-cssgradients .ma__rich-text h2:after, .no-cssgradients .ma__rich-text h3:after, .no-cssgradients .ma__rich-text h4:after {
+    background-color: #388557; }
+
+.ma__rich-text h2 a, .ma__rich-text h3 a, .ma__rich-text h4 a {
+  border: none;
+  color: #141414; }
+
+.ma__rich-text h5 {
+  font-weight: 700; }
+
+.ma__rich-text a {
+  border-bottom-color: rgba(20, 85, 143, 0.5); }
+  .ma__rich-text a:hover {
+    border-bottom-width: 3px; }

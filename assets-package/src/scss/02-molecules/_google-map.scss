@@ -1,0 +1,46 @@
+@use 'global/base' as *;
+
+.ma__google-map {
+
+  &__map {
+    height: 360px;
+
+    @media ($bp-x-small-min) {
+      height: 500px;
+    }
+
+    &.static-image {
+      height: auto;
+      display: inline-block;
+      position: relative;
+
+      .ma__google-maps__directions-link {
+        position: absolute;
+        bottom: 0;
+        left:0;
+        width: 100%;
+        background-color: $c-primary-alt;
+        padding: 0.2rem 0.9rem;
+        font-size: 1.5rem;
+
+        span {
+          color: $c-white;
+
+          svg {
+            fill: rgba($c-white, 0.7);
+            width: 12px;
+            height: 12px;
+            margin-bottom: -1px;
+          }
+        }
+      }
+
+      &:hover {
+
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+.ma__contact-group {
+
+  padding-bottom: 20px;
+
+  &__item {
+    margin-bottom: .2em;
+  }
+
+  &__name {
+
+    @include ma-h6;
+
+    & > svg {
+      display: inline-block;
+      height: 20px;
+      margin-right: .25em;
+      vertical-align: middle;
+      width: 20px;
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+
+    @media ($bp-small-min) {
+      font-size: 1.25rem;
+    }
+
+  }
+
+  &__value {
+    display: inline-block;
+    line-height: 1.75;
+
+    @media ($bp-small-min) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__details {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: .35em;
+    margin-top: -.25em;
+  }
+
+  &__address {
+    line-height: 1.5;
+
+    @media ($bp-small-min) {
+      font-size: 1.25rem;
+    }
+  }
+
+  .ma__content-link,
+  .ma__decorative-link {
+    display: inline-block;
+
+    a {
+      overflow-wrap: break-word;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+
+    @media ($bp-small-min) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__directions {
+
+    .ma__content-link {
+      line-height: inherit;
+    }
+  }
+}
+
+//theme
+
+.ma__contact-group {
+
+  &__name {
+
+    svg {
+      fill: $c-primary-alt;
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  &__label {
+    font-weight: 500;
+  }
+
+  &__value {
+    font-weight: 300;
+  }
+
+  .ma__content-link--phone {
+    font-weight: 300;
+  }
+}

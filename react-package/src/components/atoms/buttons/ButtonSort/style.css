@@ -1,0 +1,47 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__button-sort {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 5px 15px 5px 5px;
+  position: relative;
+  white-space: nowrap; }
+  .ma__button-sort:before, .ma__button-sort:after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    content: "";
+    position: absolute;
+    right: 0; }
+  .ma__button-sort:before {
+    border-bottom-style: solid;
+    border-bottom-width: 6px;
+    margin-bottom: 2px;
+    bottom: 50%; }
+  .ma__button-sort:after {
+    border-top-style: solid;
+    border-top-width: 6px;
+    margin-top: 1px;
+    top: 50%; }
+
+.ma__button-sort {
+  color: #14558f;
+  font-weight: 700; }
+  .ma__button-sort--asc, .ma__button-sort--dsc {
+    color: #141414; }
+  .ma__button-sort:before {
+    border-bottom-color: #14558f; }
+  .ma__button-sort--asc:before {
+    border-bottom-color: #707070; }
+  .ma__button-sort:after {
+    border-top-color: #14558f; }
+  .ma__button-sort--dsc:after {
+    border-top-color: #707070; }

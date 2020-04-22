@@ -1,0 +1,40 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__multiselect-dropdown {
+  display: block;
+  width: 100%; }
+  .ma__multiselect-dropdown .ma__multiselect-dropdown-menu {
+    position: relative;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    list-style: none;
+    background-color: white;
+    max-height: 15.6em;
+    overflow-y: auto; }
+    .ma__multiselect-dropdown .ma__multiselect-dropdown-menu--expanded {
+      box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.2); }
+    .ma__multiselect-dropdown .ma__multiselect-dropdown-menu .ma__multiselect-dropdown-item {
+      display: block;
+      width: 100%;
+      padding: 0.5em 18px 0;
+      font-size: 1rem;
+      text-align: inherit;
+      white-space: nowrap;
+      background-color: transparent;
+      border: 0;
+      border: 1px solid #DCDCDC; }
+      .ma__multiselect-dropdown .ma__multiselect-dropdown-menu .ma__multiselect-dropdown-item a, .ma__multiselect-dropdown .ma__multiselect-dropdown-menu .ma__multiselect-dropdown-item a:hover, .ma__multiselect-dropdown .ma__multiselect-dropdown-menu .ma__multiselect-dropdown-item a:hover {
+        border-bottom: none;
+        width: 100%; }
+      .ma__multiselect-dropdown .ma__multiselect-dropdown-menu .ma__multiselect-dropdown-item:hover, .ma__multiselect-dropdown .ma__multiselect-dropdown-menu .ma__multiselect-dropdown-item:focus {
+        background-color: #F2F2F2; }
+      .ma__multiselect-dropdown .ma__multiselect-dropdown-menu .ma__multiselect-dropdown-item .ma__input-checkbox {
+        width: 100%; }

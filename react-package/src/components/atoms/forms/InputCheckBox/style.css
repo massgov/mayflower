@@ -1,0 +1,77 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.ma__input-checkbox {
+  display: inline-block;
+  position: relative; }
+  .ma__input-checkbox input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0; }
+  .ma__input-checkbox > svg {
+    height: 24px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    vertical-align: top;
+    width: 24px; }
+  .ma__input-checkbox label {
+    font-size: 1.375rem;
+    line-height: 1rem;
+    padding-left: 1.25em; }
+    .ma__input-checkbox label:focus {
+      outline: none; }
+    .ma__input-checkbox label:before {
+      border: 2px solid;
+      content: "";
+      display: inline-block;
+      height: 2em;
+      font-size: .5em;
+      line-height: 1.5;
+      padding-top: .25em;
+      position: absolute;
+      top: 0.125em;
+      left: 0;
+      text-align: center;
+      width: 2em; }
+    .ma__input-checkbox label span {
+      line-height: 1.2em; }
+  .ma__input-checkbox--disabled label {
+    opacity: 0.5; }
+  .ma__input-checkbox--disabled svg {
+    opacity: 0.5; }
+  .ma__input-checkbox input:checked ~ label:before {
+    content: url("../../../../assets/images/checkmark.svg"); }
+  .ma__input-checkbox svg ~ label {
+    padding-right: 30px; }
+
+.ma__input-checkbox > svg {
+  fill: #388557; }
+
+.ma__input-checkbox label {
+  font-weight: 400; }
+  .ma__input-checkbox label:before {
+    background-color: white;
+    border-color: #707070; }
+    .ma__form--light .ma__input-checkbox label:before {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(220, 220, 220, 0.5); }
+
+.ma__input-checkbox input.has-error ~ label:before {
+  border-color: #CD0D0D; }
+
+.ma__input-checkbox input:focus ~ label:before {
+  border-color: Highlight !important;
+  /* WebKit gets its native focus styles.
+     */ }
+  @media (-webkit-min-device-pixel-ratio: 0) {
+    .ma__input-checkbox input:focus ~ label:before {
+      outline: -webkit-focus-ring-color auto 5px; } }

@@ -1,0 +1,34 @@
+// $bg is the color of the parent
+// $fg is the color of the line
+@use "../variables" as *;
+@use "../colors" as *;
+
+@mixin ma-border-decorative($fg: transparent, $opacity: .5) {
+
+  @if ($fg == transparent) {
+    position: relative;
+  }
+
+  &:after {
+
+    @if ($fg == transparent) {
+      content: "";
+      height: 3px;
+      position: absolute;
+        bottom: 0;
+        left: 0.075em;
+      transform: skew(-30deg);
+      width: $column;  //85px
+
+      @media print {
+        display: none;
+      }
+    } @else {
+      background-color: rgba($fg,$opacity);
+
+      .no-cssgradients & {
+        background-color: $fg;
+      }
+    }
+  }
+}

@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import './style.css';
+import classNames from 'classnames/bind';
+import style from '../../../styles/stories.module.scss';
+
+const cx = classNames.bind(style);
 
 const ArrowButton = (props) => {
-  const buttonClasses = classNames({
+  const buttonClasses = cx({
     'ma__arrow-button': true,
     [`ma__arrow-button--${props.direction}`]: props.direction,
     'ma__arrow-button--left': !props.direction

@@ -1,0 +1,62 @@
+@use 'global/base' as *;
+
+.ma__button-sort {
+
+  @include ma-button-reset;
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 5px 15px 5px 5px;
+  position: relative;
+  white-space: nowrap;
+
+  &:before,
+  &:after {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    content: "";
+    position: absolute;
+      right: 0;
+  }
+
+  &:before {
+    border-bottom-style: solid;
+    border-bottom-width: 6px;
+    margin-bottom: 2px;
+    bottom: 50%;
+  }
+
+  &:after {
+    border-top-style: solid;
+    border-top-width: 6px;
+    margin-top: 1px;
+    top: 50%;
+  }
+}
+
+//theme
+
+.ma__button-sort {
+  color: $c-font-link;
+  font-weight: 700;
+
+  &--asc,
+  &--dsc {
+    color: $c-font-base;
+  }
+
+  &:before {
+    border-bottom-color: $c-font-link;
+  }
+
+  &--asc:before {
+    border-bottom-color: $c-gray;
+  }
+
+  &:after {
+    border-top-color: $c-font-link;
+  }
+
+  &--dsc:after {
+    border-top-color: $c-gray;
+  }
+}

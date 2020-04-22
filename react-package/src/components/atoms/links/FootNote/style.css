@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__footnote-item {
+  transition: all 0.4s ease;
+  display: flex;
+  background-color: transparent;
+  border: none;
+  padding: 0; }
+  .ma__footnote-item button {
+    background-color: transparent;
+    border: none;
+    padding: 0; }
+  .ma__footnote-item span {
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #14558f; }
+    .ma__footnote-item span a {
+      font-weight: 500;
+      border-bottom: 1px solid; }
+    .ma__footnote-item span:after {
+      content: "\2191";
+      line-height: 1;
+      color: #14558f;
+      margin-left: .25em; }
+    .ma__footnote-item span:hover {
+      border-bottom: 1px solid; }
+      .ma__footnote-item span:hover::after {
+        border: none;
+        opacity: .7; }

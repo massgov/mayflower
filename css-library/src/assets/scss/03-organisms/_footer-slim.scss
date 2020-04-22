@@ -1,0 +1,111 @@
+.ma__footer_slim {
+  background-color: $c-platinum-gray;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  padding: 20px 0 30px;
+  position: relative;
+
+  .ma__container {
+
+    @include ma-container;
+  }
+
+  &--container {
+    position: relative;
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0.5rem;
+
+      h3 {
+        margin-top: 0.5rem;
+        margin-left: 3.25rem;
+      }
+
+      @media ($bp-large-min) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0.75rem 0 0 3.5rem;
+
+        section {
+          margin-right: 2rem;
+          margin-bottom: 0.25rem;
+        }
+
+        h3 {
+          margin-top: inherit;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  .ma__site-logo {
+    position: absolute;
+    top: 0;
+
+    span {
+      display: none;
+    }
+  }
+
+  &--info {
+    max-width: 500px;
+
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  &--details {
+    margin-top: 2rem;
+
+    @media ($bp-large-min) {
+      display: block;
+      margin-top: 0;
+    }
+  }
+
+  &--links {
+    margin-bottom: 1em;
+
+    a {
+      color: $c-primary;
+      font-weight: 600;
+
+      &:after {
+        content: "|";
+        font-weight: 100;
+        margin: 0 0.85rem;
+      }
+
+      &:last-child:after {
+        content: "";
+        margin: 0;
+      }
+    }
+  }
+
+  &--contact {
+
+    a {
+      font-weight: 500;
+    }
+
+    &> p {
+      display: flex;
+
+      svg {
+        fill: $c-primary-alt;
+      }
+
+      span, a {
+        padding-left: 0.25rem;
+      }
+    }
+  }
+
+}

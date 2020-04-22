@@ -1,0 +1,28 @@
+@mixin ma-component-spacing($size:small) {
+
+  @if ($size == large) {
+    margin-top: 40px;
+
+    @media ($bp-small-min) {
+      margin-top: 60px;
+    }
+
+    @media ($bp-medium-min) {
+      margin-top: 70px;
+    }
+
+    @media ($bp-large-min) {
+      margin-top: 90px
+    }
+  } @else {
+    margin-top: 30px;
+
+    @media ($bp-small-min) {
+      margin-top: 45px;
+    }
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

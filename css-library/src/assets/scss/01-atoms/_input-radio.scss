@@ -1,0 +1,228 @@
+// Custom Radio Buttons
+
+.ma__input-radio {
+  display: inline-block;
+  position: relative;
+
+  input {
+
+    @include ma-visually-hidden;
+  }
+
+  &__label {
+    font-size: 1.375rem;
+    line-height: 1rem;
+    padding-left: 1.5em;
+    font-weight: 400;
+
+    &:before {
+      border: 2px solid;
+      border-radius: 50%;
+      content: "\2022";
+      display: inline-block;
+      height: .45em;
+      font-size: 2.5em;
+      line-height: calc(.45em - 11px);
+      margin-right: .125em;
+      position: absolute;
+        top: -.025em;
+        left: 0;
+      text-align: center;
+      width: .45em;
+      overflow: hidden;
+      background-color: $c-white;
+      border-color: $c-bd-input-dark;
+      color: transparent;
+
+      .ma__form--light & {
+        background-color: rgba($c-white, 0.1);
+        border-color: rgba($c-bd-input,.5);
+      }
+
+    }
+
+    span {
+      line-height: 1.2em;
+    }
+  }
+
+
+  input:checked ~ &__label {
+
+    &:before {
+      color: $c-font-base;
+
+      .ma__form--light & {
+        color: $c-font-inverse;
+      }
+    }
+  }
+
+// patternlab
+
+  input.has-error ~ &__label:before {
+    border-color: $c-bd-error;
+  }
+
+// react
+
+  input ~ &__label--error, input:checked ~ &__label--error {
+    color: $c-error;
+
+    &::before {
+      border-color: $c-error;
+    }
+  }
+
+  input:checked ~ &__label--error {
+
+    &::before {
+      color: $c-error;
+    }
+  }
+
+  input:checked ~ &__label--error:before {
+    color: $c-error;
+  }
+
+
+  input:focus ~ &__label:before {
+    border-color: $c-gray-dark;
+    box-shadow: 0 0 2px 2px $c-focus;
+  }
+
+  input:focus ~ &__label--error:before {
+    border-color: $c-error;
+    box-shadow: 0 0 2px 2px $c-error;
+  }
+
+  &__control:disabled + &__label {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+
+// Custom styling for button like radio inputs
+
+$spacing: 1rem;
+$border-radius: 4px;
+$control-height: 1.2rem;
+
+.ma__input-radio--outline {
+
+  &__control {
+
+    @include ma-visually-hidden;
+  }
+
+  &__label {
+    display: block; // so that `label` expands to fill space and respects padding
+    position: relative; // so that pseudoelements are positioned relative to this container
+    min-height: $control-height;
+    line-height: $control-height;
+    padding: 0.5rem $spacing 0.5rem ($spacing * 2.75);
+    cursor: pointer;
+    user-select: none;
+    z-index: 0; // create new stacking context so ::after pseudoelement doesn't go behind document
+
+    &::before {
+      left: $spacing;
+      height: $spacing * 3 / 4;
+      width: $spacing * 3 / 4;
+      border-radius: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 1px solid
+    }
+
+    &::after {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius * 8;
+      z-index: -1; // so that background is behind everything
+      font-weight: 700; //fixed
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      border: 1px solid
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+    }
+
+  }
+
+  @mixin label-appearance($text-color, $background-color, $border-color, $box-shadow:'transparent', $state:'', $suffix:'') {
+    $this-prefix: '&__control'+ $suffix;
+    $this-suffix: ' + &__label' + $suffix;
+    #{$this-prefix}#{$state}#{$this-suffix} {
+      color: $text-color;
+
+      &::before {
+        background-color: $background-color;
+        border-color: $border-color;
+        box-shadow: 0 0 0 4px $c-white;
+      }
+
+      &::after {
+        background-color: $background-color;
+        border-color: $border-color;
+        box-shadow: 0 0 2px 2px $box-shadow;
+      }
+    }
+  }
+
+  @include label-appearance($c-primary, $c-white, $c-primary, '','', '');
+
+  @include label-appearance($c-white, $c-primary, $c-primary, '',':checked', '');
+
+  @include label-appearance($c-primary, rgba($c-primary,0.1), $c-primary, '', ':hover', '');
+
+  @include label-appearance($c-white, rgba($c-primary,0.8), rgba($c-primary,0.8), '', ':checked:hover', '');
+
+  @include label-appearance($c-primary, $c-primary, $c-primary, $c-focus, ':active', '');
+
+  @include label-appearance($c-white, $c-primary, $c-primary, $c-focus, ':focus', '');
+
+  //:disabled
+
+  @include label-appearance($c-white, $c-gray-light, $c-gray-dark, '', ':disabled', '');
+
+  @include label-appearance($c-gray-dark, $c-gray-light, $c-gray-dark, '', ':checked:disabled', '');
+
+  //--error
+
+  @include label-appearance($c-error, $c-white, $c-error, '', '', '--error');
+
+  @include label-appearance($c-error, $c-error-lightest, $c-error, '', ':hover', '--error');
+
+  @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked', '--error');
+
+  @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked:hover', '--error');
+
+  @include label-appearance($c-gray-light, $c-gray-dark, $c-gray-light, '', ':checked:disabled', '--error');
+
+  @include label-appearance($c-error, $c-error-lighter, $c-error, $c-error-lighter, ':active', '--error');
+
+  @include label-appearance($c-error, $c-error-lighter, $c-error, $c-error-lighter, ':focus', '--error');
+
+  &__control:disabled + &__label {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: $c-gray-dark;
+    opacity: 0.5;
+  }
+
+  &__control--error:disabled + &__label--error {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: $c-gray-dark;
+    opacity: 0.5;
+  }
+
+}

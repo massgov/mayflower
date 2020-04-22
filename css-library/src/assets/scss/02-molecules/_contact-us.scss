@@ -1,0 +1,280 @@
+.ma__contact-us {
+
+  & + & {
+    border-top-width: 1px;
+    border-top-style: solid;
+    margin-top: 30px;
+    padding-top: 30px;
+
+    @media ($bp-large-min) {
+
+      .sidebar & {
+        margin-top: 20px;
+        padding-top: 20px;
+      }
+    }
+  }
+
+  &--accordion {
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  & + &--accordion {
+    padding-top: 0;
+  }
+
+  // controls for when to activate accordion
+
+  &:before {
+    content: "true";
+    display: none;
+  }
+
+  &--accordion &__header {
+    border: none;
+    display: block;
+    padding: 20px;
+    padding-right: 30px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+
+    @media ($bp-medium-min) {
+      padding: 20px 30px;
+    }
+
+    .ma__column-heading {
+      margin-bottom: 0;
+    }
+  }
+
+  &--accordion__status {
+    display: block;
+    font-size: 2.5rem;
+    line-height: .65em;
+    overflow: hidden;
+    position: absolute;
+      right: 15px;
+      top: 25px;
+    transform-origin: center center;
+    transition: transform .2s ease;
+  }
+
+  &--accordion.is-open &__header &--accordion__status {
+    transform: rotate(135deg);
+  }
+
+  .js &--accordion &__content {
+    display: none;
+  }
+
+  &--accordion &__content {
+    padding: 0 20px 30px;
+  }
+
+  // Flexible contact group layout
+  // Max 4 column layout, items are no narrower than 18rem & then wrap
+
+  &__content-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-basis: 25%;
+  }
+
+  .js &--accordion &__content &__content-wrap {
+    // width overlaps parent's 1px borders & negates parent padding
+    // This is so we can have divider borders (left border) and since we have a wrapping
+    // flexbox grid, the first item on each show needs its left border hidden.
+    width: calc(100% + 42px);
+    position: relative;
+    left: -21px;
+  }
+
+  &--accordion &__content-wrap {
+    // Always display contact groups stacked when inside accordions
+    display: block;
+
+    .ma__contact-group {
+      max-width: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__content-wrap .ma__contact-group {
+    max-width: 50%;
+    min-width: 18rem;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 20px;
+    border-left: 1px solid $c-bd-divider;
+
+    // Reset if we aren't in an accordion
+
+    .ma__contact-list--view-specific &,
+    .sidebar & {
+      border-left: 0;
+      padding-left: 0;
+      padding-right: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    @media ($bp-small-max) {
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-bottom: 0px;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+    }
+
+
+  }
+
+  &__content-wrap .ma__contact-us__more-info {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &__extra {
+    display: none;
+    padding-top: 20px;
+
+    @media ($bp-small-min) {
+      padding-top: 0;
+    }
+  }
+
+  &--columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    .ma__contact-group,
+    .ma__contact-us__extra {
+      width: 100%;
+
+      @media ($bp-medium-min) {
+        width: calc(36% - 15px); // account for margin on desktop
+      }
+
+      &:first-child {
+        width: 100%;
+      }
+    }
+
+    .ma__contact-us__expand {
+
+      @media ($bp-small-min) {
+        display: none;
+      }
+    }
+
+    .ma__contact-us__extra {
+
+      @media ($bp-small-min) {
+        display: block !important;
+      }
+
+      @media ($bp-medium-min) {
+        padding-left: 30px;
+        margin-left: 30px;
+        border-left: 1px solid $c-bd-divider;
+      }
+
+      .ma__contact-group {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+
+    }
+  }
+
+
+  &__expand {
+    padding-top:20px;
+    text-align: left;
+
+    button {
+
+      @include ma-button-reset;
+
+      @include ma-link-underline;
+
+      @include ma-chevron;
+      font-size: 1.375rem;
+      padding-right: 10px;
+
+      &--accordion__status {
+        margin-left: 0;
+        transform: translateY(-45%) rotate(45deg);
+
+        .is-open & {
+          transform: translateY(-55%) rotate(-135deg);
+        }
+      }
+
+      span:nth-child(2) {
+        display: none;
+
+        .is-open & {
+          display: inline;
+        }
+      }
+
+      .is-open & span:first-child {
+        display: none;
+      }
+    }
+  }
+
+  &__more-info {
+    margin-top: 2rem;
+  }
+
+}
+
+//theme
+
+.ma__contact-us {
+
+  & + & {
+    border-color: $c-bd-divider;
+  }
+
+  &--accordion {
+    border-color: $c-bd-divider;
+  }
+
+  &--accordion:not(.is-open) &__header {
+    background-color: $c-bg-section;
+  }
+
+  &--accordion.is-open &__header {
+    background-color: transparent;
+  }
+
+  &--accordion &__header:after,
+  &--accordion &__header &--accordion__status {
+    color: $c-primary-alt;
+  }
+
+  &__expand {
+
+    button {
+      color: $c-font-link;
+      font-weight: 700;
+
+      &:after {
+        border-color: $c-font-link;
+        opacity: .5;
+      }
+
+      &:hover {
+        border-color: rgba($c-font-link,.5);
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__utility-panel {
+  background-color: #14558f;
+  color: white; }
+  @media (min-width: 841px) {
+    .ma__utility-panel:nth-child(2) {
+      padding-top: 20px;
+      border-top: 2px solid rgba(255, 255, 255, 0.4); } }
+  .ma__utility-panel__description {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    margin-right: 2%; }
+  .ma__utility-panel__items {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    margin-bottom: 1.75em; }
+    @media (min-width: 841px) {
+      .ma__utility-panel__items {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 5px; }
+        .no-flex .ma__utility-panel__items {
+          display: table-cell;
+          vertical-align: middle; } }
+  .ma__utility-panel__item {
+    cursor: pointer;
+    font-size: 0;
+    margin-bottom: 1.5%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center; }
+    .ma__utility-panel__item:nth-child(4n+4) {
+      margin-right: 0; }
+    @media (min-width: 841px) {
+      .ma__utility-panel__item {
+        width: 23%;
+        margin-right: 2.5%;
+        min-height: 70px; }
+        .no-flex .ma__utility-panel__item {
+          display: table-cell; } }
+    .ma__utility-panel__item:hover {
+      opacity: .8; }
+    .ma__utility-panel__item .ma__decorative-link {
+      line-height: 1.125;
+      padding: 10px;
+      padding-right: 28px; }
+    .ma__utility-panel__item a {
+      border: none;
+      font-size: 1.375rem;
+      margin: 0;
+      text-align: left;
+      color: white;
+      font-weight: 500; }
+      @media (min-width: 841px) and (max-width: 1120px) {
+        .ma__utility-panel__item a {
+          font-size: 1.25rem; } }
+      .ma__utility-panel__item a:hover {
+        border: none; }
+    .ma__utility-panel__item svg {
+      fill: white; }

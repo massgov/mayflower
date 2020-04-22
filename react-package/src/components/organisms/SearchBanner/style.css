@@ -1,0 +1,103 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__search-banner__top {
+  background: #F2F2F2;
+  border-top: 1px solid #DCDCDC;
+  border-bottom: 1px solid #DCDCDC;
+  padding-top: 30px;
+  margin-bottom: 50px;
+  position: relative;
+  width: 100%; }
+  @media (max-width: 620px) {
+    .ma__search-banner__top {
+      margin-bottom: 20px; } }
+  @media (max-width: 780px) {
+    .ma__search-banner__top .ma__header-search .ma__button-search span, .ma__search-banner__top .ma__header-search .ma__button-search--secondary span {
+      display: none; } }
+  .ma__search-banner__top--noTabs {
+    text-align: center; }
+    .ma__search-banner__top--noTabs .ma_search-banner__filter-box-container {
+      margin-top: 20px; }
+      @media (min-width: 781px) {
+        .ma__search-banner__top--noTabs .ma_search-banner__filter-box-container {
+          margin-top: 60px; } }
+  .ma__search-banner__top .main-content--two {
+    position: relative; }
+  .ma__search-banner__top .ma__header-search {
+    max-width: none; }
+  .ma__search-banner__top .ma__input-typeahead--boxed {
+    background-color: #F2F2F2; }
+  .ma__search-banner__top .ma__search-banner__filter-box-toggle {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 8px 10px;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #141414;
+    background-color: #E8EEF4;
+    border: 1px solid #8AAAC7;
+    border-width: 1px 0;
+    width: 100%; }
+    .ma__search-banner__top .ma__search-banner__filter-box-toggle > svg {
+      display: inline-block;
+      vertical-align: middle;
+      fill: #141414; }
+    @media (min-width: 911px) {
+      .ma__search-banner__top .ma__search-banner__filter-box-toggle {
+        display: block;
+        position: absolute;
+        bottom: -1px;
+        right: 0;
+        text-align: left;
+        margin-right: 40px;
+        padding: 8px 10px;
+        background-color: #E8EEF4;
+        border: 1px solid  #8AAAC7;
+        border-bottom-color: #E8EEF4;
+        width: auto; }
+        .ma__search-banner__top .ma__search-banner__filter-box-toggle > svg {
+          padding-left: 5px; } }
+    @media (min-width: 781px) {
+      .ma__search-banner__top .ma__search-banner__filter-box-toggle--desktop-hidden {
+        display: none; } }
+    .ma__search-banner__top .ma__search-banner__filter-box-toggle:focus {
+      outline: none; }
+    .ma__search-banner__top .ma__search-banner__filter-box-toggle--expanded {
+      border: 1px solid #8AAAC7;
+      border-width: 1px 0;
+      border-bottom: 0;
+      background-color: #E8EEF4;
+      z-index: 11; }
+      @media (min-width: 911px) {
+        .ma__search-banner__top .ma__search-banner__filter-box-toggle--expanded {
+          border: 1px solid #8AAAC7;
+          border-top: 5px solid #14558f;
+          border-bottom-color: #E8EEF4; }
+          .ma__search-banner__top .ma__search-banner__filter-box-toggle--expanded > svg {
+            padding: 0 5px 0 0; } }
+      .ma__search-banner__top .ma__search-banner__filter-box-toggle--expanded > svg {
+        transform: rotate(180deg); }
+  .ma__search-banner__top .ma__filter-box {
+    text-align: left;
+    width: 100%; }
+    @media (min-width: 911px) {
+      .ma__search-banner__top .ma__filter-box {
+        position: absolute; } }
+    @media (min-width: 781px) {
+      .ma__search-banner__top .ma__filter-box--desktop-hidden {
+        display: none; } }
+  @media (max-width: 910px) {
+    .ma__search-banner__top .ma__search-banner__filter-box-toggle-container.main-content--two {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0; }
+      .ma__search-banner__top .ma__search-banner__filter-box-toggle-container.main-content--two .ma__search-banner__filter-box-toggle {
+        padding: 8px 20px; } }

@@ -1,0 +1,16 @@
+@use "../variables" as *;
+
+@mixin ma-button-base {
+  border: 3px solid;
+  box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
+  display: inline-block;
+  letter-spacing: $letter-spacing-large;
+  padding: 0.4em 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+
+  &:hover:not(:disabled) {
+    text-decoration: none;
+  }
+}

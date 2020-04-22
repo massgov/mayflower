@@ -1,0 +1,93 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__arrow-nav {
+  min-height: 45px;
+  padding-left: 40px;
+  position: relative;
+  cursor: pointer; }
+  @media (max-width: 620px) {
+    .ma__arrow-nav {
+      display: flex;
+      align-items: center; } }
+  @media (min-width: 621px) {
+    .ma__arrow-nav {
+      padding-left: 70px; } }
+  .ma__arrow-nav--right {
+    justify-content: flex-end;
+    padding-left: 0;
+    padding-right: 40px;
+    text-align: right; }
+    @media (min-width: 621px) {
+      .ma__arrow-nav--right {
+        padding-right: 70px; } }
+  .ma__arrow-nav .ma__arrow-button {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 30px; }
+    @media (min-width: 621px) {
+      .ma__arrow-nav .ma__arrow-button {
+        width: 50px; } }
+  .ma__arrow-nav--right .ma__arrow-button {
+    left: inherit;
+    right: 0; }
+  .ma__arrow-nav__title {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    line-height: 1.625rem;
+    margin-bottom: 0;
+    text-transform: uppercase; }
+    .ma__arrow-nav__title:before {
+      content: attr(data-label) ": "; }
+      @media (max-width: 620px) {
+        .ma__arrow-nav__title:before {
+          content: attr(data-label); } }
+    @media (max-width: 620px) {
+      .ma__arrow-nav__title span {
+        display: none; } }
+  @media (max-width: 620px) {
+    .ma__arrow-nav__link {
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0; } }
+  .ma__arrow-nav__text {
+    font-weight: 700;
+    color: #14558f; }
+    @media (max-width: 620px) {
+      .ma__arrow-nav__text {
+        position: absolute;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        width: 1px;
+        margin: -1px;
+        padding: 0;
+        border: 0; } }
+  .ma__arrow-nav a.ma__arrow-nav__link {
+    border-bottom: 3px solid transparent;
+    padding-top: 3px;
+    padding-bottom: 1px;
+    transition: border 0.4s ease; }
+    .ma__arrow-nav a.ma__arrow-nav__link:hover {
+      border-bottom-width: 3px;
+      border-bottom-style: solid;
+      text-decoration: none; }
+
+.ma__arrow-nav__title {
+  color: rgba(20, 85, 143, 0.7); }
+
+.ma__arrow-nav__link:hover {
+  border-color: rgba(20, 85, 143, 0.5); }

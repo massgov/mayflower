@@ -1,0 +1,6 @@
+.ma__form-page {
+  display: flex; }
+  .ma__form-page .align-left {
+    width: 49%; }
+  .ma__form-page .align-right {
+    width: 40%; }

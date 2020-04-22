@@ -1,0 +1,258 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__gen-teaser {
+  position: relative;
+  display: flex;
+  flex-direction: row; }
+  .ma__gen-teaser--image {
+    display: flex;
+    flex-wrap: wrap; }
+  .ma__gen-teaser--clickable {
+    cursor: pointer; }
+  .ma__gen-teaser + .ma__gen-teaser {
+    border-top-width: 1px;
+    border-top-style: solid;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top-color: #DCDCDC; }
+    @media (min-width: 911px) {
+      .ma__gen-teaser + .ma__gen-teaser {
+        margin-top: 30px;
+        padding-top: 30px; } }
+    .sidebar .ma__gen-teaser + .ma__gen-teaser {
+      margin-top: 20px;
+      padding-top: 20px; }
+  .ma__gen-teaser--stacked {
+    flex-direction: column; }
+  .ma__gen-teaser--align-center {
+    align-items: center; }
+  .ma__gen-teaser--align-top {
+    align-items: top; }
+  .ma__gen-teaser__image {
+    font-size: 0;
+    margin-right: 30px;
+    margin-bottom: 10px; }
+    .ma__gen-teaser__image span {
+      background-size: cover;
+      display: block;
+      padding-top: 56.25%;
+      width: 100%; }
+  .ma__gen-teaser__eyebrow {
+    margin-bottom: 5px; }
+    .ma__gen-teaser__eyebrow span {
+      font-size: 0.8125rem;
+      letter-spacing: .1em;
+      padding: 5px 7px;
+      text-transform: uppercase;
+      background-color: #F2F2F2;
+      font-weight: 700; }
+    .ma__gen-teaser__eyebrow svg {
+      height: 12px;
+      top: 1px;
+      left: -2px;
+      position: relative;
+      fill: #535353; }
+  .ma__gen-teaser__title {
+    font-size: 1.625rem;
+    line-height: 1.2em;
+    margin-bottom: .25em; }
+    .ma__gen-teaser__title .ma__decorative-link {
+      font-size: 1.625rem;
+      line-height: 1.2; }
+  .ma__gen-teaser__details {
+    width: 100%;
+    padding: 2px 0 4px;
+    position: relative; }
+    .ma__gen-teaser__details .ma__contact-group__details {
+      font-style: italic;
+      font-size: 0.95rem; }
+    .ma__gen-teaser__details .ma__contact-group__item {
+      font-size: 1.25rem; }
+    .ma__gen-teaser__details .ma__contact-group__name {
+      margin-bottom: 0; }
+      .ma__gen-teaser__details .ma__contact-group__name span {
+        font-size: 1.25rem;
+        color: #535353;
+        font-weight: 550; }
+      .ma__gen-teaser__details .ma__contact-group__name > svg {
+        height: 1.1rem;
+        width: 1.1rem; }
+  .ma__gen-teaser__emphasis {
+    line-height: 1.1; }
+  .ma__gen-teaser__date, .ma__gen-teaser__org {
+    font-size: 1.125rem;
+    line-height: 1;
+    margin-bottom: 1em;
+    color: #141414;
+    font-style: italic;
+    font-weight: 700; }
+  .ma__gen-teaser__date + .ma__gen-teaser__org {
+    border-left: 1px solid #DCDCDC;
+    margin-left: .75em;
+    padding-left: .75em; }
+  .ma__gen-teaser__org .ma__button-icon--quaternary-simple,
+  .ma__gen-teaser__org .ma__button-icon--expanded.ma__button-icon--quaternary-simple,
+  .ma__gen-teaser__org .ma__button-icon:hover.ma__button-icon--quaternary-simple:hover {
+    background-color: transparent;
+    padding: 0px 0px 0px 0.5rem;
+    position: relative;
+    top: -3px; }
+  .ma__gen-teaser__key-action {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: flex-start; }
+    @media (min-width: 621px) {
+      .ma__gen-teaser__key-action {
+        flex-flow: row; } }
+    .ma__gen-teaser__key-action .ma__decorative-link {
+      font-size: 1.1875rem;
+      line-height: 1.4rem;
+      font-style: italic; }
+    .ma__gen-teaser__key-action p {
+      font-size: 1rem;
+      line-height: 1rem;
+      margin-bottom: 0px; }
+    .ma__gen-teaser__key-action-item {
+      margin-bottom: 0.5rem;
+      line-height: 1; }
+    .ma__gen-teaser__key-action-col {
+      padding-right: .75em;
+      display: inline-flex;
+      flex: 1 40%;
+      flex-flow: column; }
+    .ma__gen-teaser__key-action-col + .ma__gen-teaser__key-action-col {
+      display: inline-flex;
+      flex-flow: column;
+      flex: 1 1 100%;
+      padding-left: 0; }
+      @media (min-width: 621px) {
+        .ma__gen-teaser__key-action-col + .ma__gen-teaser__key-action-col {
+          flex: 1 50%;
+          align-content: flex-start;
+          border-left: 1px solid #DCDCDC;
+          margin-left: .75em;
+          padding-left: .75em; } }
+  .ma__gen-teaser__description {
+    font-size: 1.25rem; }
+    @media (max-width: 480px) {
+      .ma__gen-teaser__description {
+        font-size: 1.25rem; } }
+    .ma__gen-teaser__description p {
+      margin-bottom: 0.75em; }
+  .ma__gen-teaser__moreinfo {
+    margin-top: 0;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-content: flex-start; }
+    @media (min-width: 621px) {
+      .ma__gen-teaser__moreinfo {
+        flex-flow: row; } }
+    .ma__gen-teaser__moreinfo .ma__link-dropdown {
+      padding-left: 1em;
+      position: relative;
+      top: -5px; }
+      .ma__gen-teaser__moreinfo .ma__link-dropdown .ma__link-dropdown-menu {
+        position: fixed; }
+  .ma__gen-teaser__pimary {
+    padding-right: .75em;
+    display: inline-flex;
+    flex-flow: column;
+    flex: 1 40%; }
+  .ma__gen-teaser__secondary {
+    display: inline-flex;
+    flex-flow: column;
+    flex: 1 50%; }
+    .ma__gen-teaser__secondary > *:first-child {
+      margin-top: 0.5rem; }
+    .ma__gen-teaser__secondary--border {
+      padding-left: 0;
+      border-left-style: none;
+      border-left-width: 0px;
+      align-content: flex-start;
+      flex: 1 1 100%; }
+    @media (min-width: 621px) {
+      .ma__gen-teaser__secondary {
+        padding-left: .75em;
+        margin-left: .75em;
+        border-left: 1px solid #DCDCDC; }
+        .ma__gen-teaser__secondary > *:first-child {
+          margin-top: 0rem; } }
+  .ma__gen-teaser__secondaryinfo {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.2rem; }
+    .ma__gen-teaser__secondaryinfo .ma__decorative-link {
+      margin-left: .25em; }
+      .ma__gen-teaser__secondaryinfo .ma__decorative-link svg {
+        height: 0.7rem; }
+  .ma__gen-teaser__secondaryicon svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: #388557; }
+  .ma__gen-teaser__infoitem {
+    font-size: 1.125rem;
+    line-height: 1.2rem;
+    display: flex; }
+    .ma__gen-teaser__infoitem + .ma__gen-teaser__infoitem {
+      margin-top: 0.5rem; }
+    .ma__gen-teaser__infoitem .ma__contact__details {
+      font-size: 0.875rem; }
+    .ma__gen-teaser__infoitem-icon svg {
+      display: inline-block;
+      vertical-align: middle;
+      fill: #388557;
+      margin-right: 0.5em; }
+  .ma__gen-teaser__tag {
+    color: #707070;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #DCDCDC;
+    background-color: white;
+    padding: 0px 5px;
+    min-width: 60px;
+    display: inline-block;
+    margin-right: 0.5em; }
+  .ma__gen-teaser__button {
+    top: 0px;
+    right: 0px;
+    position: absolute; }
+    .ma__gen-teaser__button .ma__button-icon--secondary {
+      border-width: 0px; }
+  .ma__gen-teaser__stat {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    font-size: 0.875rem; }
+  .ma__gen-teaser__search {
+    margin-bottom: 10px; }
+    .ma__gen-teaser__search .ma__header-search {
+      max-width: 600px; }
+      .ma__gen-teaser__search .ma__header-search__input {
+        height: 42px;
+        min-height: 42px; }
+      .ma__gen-teaser__search .ma__header-search .ma__button-icon.ma__button-search {
+        height: 42px;
+        min-height: 42px;
+        background-color: white;
+        border-color: #DCDCDC !important;
+        color: #388557; }
+        .ma__gen-teaser__search .ma__header-search .ma__button-icon.ma__button-search svg {
+          fill: #388557;
+          height: 13px;
+          width: 14px; }
+        .ma__gen-teaser__search .ma__header-search .ma__button-icon.ma__button-search span {
+          display: none; }

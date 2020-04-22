@@ -1,0 +1,14 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.ma__helper-text {
+  font-size: 1rem;
+  line-height: 1.438rem;
+  margin-top: 10px; }
+
+.ma__helper-text {
+  font-style: italic;
+  font-weight: normal; }

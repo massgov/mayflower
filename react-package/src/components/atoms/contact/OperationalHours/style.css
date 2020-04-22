@@ -1,0 +1,6 @@
+.ma__operational-hours .ma__operational-hours-row .ma__operational-hours-day {
+  text-transform: capitalize; }
+
+.ma__operational-hours .ma__operational-hours-row--active {
+  text-transform: capitalize;
+  font-weight: bold; }

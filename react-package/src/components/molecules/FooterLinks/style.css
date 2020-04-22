@@ -1,0 +1,86 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.ma__footer-links::after {
+  clear: both;
+  content: "";
+  display: block; }
+
+.ma__footer-links__items {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 480px; }
+  @media (max-width: 620px) {
+    .ma__footer-links__items {
+      border-bottom: 1px solid;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      text-align: center; } }
+  @media (min-width: 621px) {
+    .ma__footer-links__items {
+      float: left;
+      display: block;
+      margin-right: 2.16216%;
+      width: 31.89189%; }
+      .ma__footer-links__items:last-child {
+        margin-right: 0; } }
+  @media (min-width: 1201px) {
+    .ma__footer-links__items {
+      float: left;
+      display: block;
+      margin-right: 2.16216%;
+      width: 20.54054%;
+      margin-left: 11.35135%; }
+      .ma__footer-links__items:last-child {
+        margin-right: 0; } }
+
+.ma__footer-links__item {
+  margin-bottom: 1.125em; }
+  .ma__footer-links__item:last-child {
+    margin-bottom: 0; }
+
+.ma__footer-links__link {
+  border-bottom: 3px solid transparent;
+  padding-top: 3px;
+  padding-bottom: 1px;
+  transition: border 0.4s ease;
+  padding-bottom: 3px; }
+  .ma__footer-links__link:hover {
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    text-decoration: none; }
+
+@media (max-width: 620px) {
+  .ma__footer-links__items {
+    border-bottom-color: #DCDCDC; } }
+
+.ma__footer-links__link {
+  color: #141414;
+  font-weight: 500; }
+  .ma__footer-links__link:hover {
+    border-bottom-color: rgba(20, 20, 20, 0.5); }
+
+.ma__footer-links__items--heading {
+  border-bottom: none; }
+  .ma__footer-links__items--heading .ma__sidebar-heading {
+    color: #707070;
+    font-size: 1rem; }
+
+.ma__footer-links__items ul {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0; }

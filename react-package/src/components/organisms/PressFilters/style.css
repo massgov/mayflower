@@ -1,0 +1,108 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.pre-content > .ma__press-filters,
+.post-content > .ma__press-filters,
+.main-content--full .page-content > .ma__press-filters {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1320px;
+  padding-left: 20px;
+  padding-right: 20px; }
+  @media (min-width: 781px) {
+    .pre-content > .ma__press-filters,
+    .post-content > .ma__press-filters,
+    .main-content--full .page-content > .ma__press-filters {
+      padding-left: 30px;
+      padding-right: 30px; } }
+  @media (min-width: 911px) {
+    .pre-content > .ma__press-filters,
+    .post-content > .ma__press-filters,
+    .main-content--full .page-content > .ma__press-filters {
+      padding-left: 40px;
+      padding-right: 40px; } }
+
+@media (max-width: 620px) {
+  .ma__press-filters {
+    margin-left: -20px;
+    margin-right: -20px; } }
+
+.ma__press-filters__heading .ma__colored-heading {
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px; }
+  @media (min-width: 781px) {
+    .ma__press-filters__heading .ma__colored-heading {
+      padding-left: 30px;
+      padding-right: 30px; } }
+  .ma__press-filters__heading .ma__colored-heading:after {
+    display: none; }
+
+.ma__press-filters__form {
+  padding: 20px 20px 30px; }
+  @media (min-width: 781px) {
+    .ma__press-filters__form {
+      padding: 30px 30px 45px; } }
+
+.ma__press-filters__organizations {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  padding-bottom: 15px;
+  margin-bottom: 15px; }
+  @media (min-width: 621px) {
+    .ma__press-filters__organizations {
+      padding-bottom: 30px;
+      margin-bottom: 30px; } }
+
+.ma__press-filters__topic, .ma__press-filters__type {
+  margin-bottom: 15px; }
+  @media (min-width: 621px) {
+    .ma__press-filters__topic, .ma__press-filters__type {
+      margin-bottom: 30px; } }
+
+.ma__press-filters__date {
+  margin-bottom: 30px; }
+
+.ma__press-filters .ma__select-box {
+  max-width: 500px;
+  width: 100%; }
+
+.ma__press-filters__clear {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1.125rem;
+  display: inline-block;
+  line-height: 1em;
+  margin: 40px 0 0;
+  border-bottom: 3px solid transparent;
+  border-bottom-width: 1px;
+  transition: border 0.2s; }
+  .ma__press-filters__clear:hover {
+    border-bottom-width: 3px; }
+
+.ma__press-filters__container {
+  background-color: #F2F2F2; }
+
+.ma__press-filters__organizations {
+  border-bottom-color: #DCDCDC; }
+
+.ma__press-filters label,
+.ma__press-filters legend {
+  color: #535353; }
+
+.ma__press-filters__clear {
+  color: #141414;
+  font-weight: 700;
+  border-bottom-color: #141414; }
+
+.ma__press-filters__organizations, .ma__press-filters__type {
+  max-width: 500px; }
+  .ma__press-filters__organizations .react-autosuggest__suggestions-container--open, .ma__press-filters__type .react-autosuggest__suggestions-container--open {
+    max-height: 180px;
+    overflow-y: auto; }

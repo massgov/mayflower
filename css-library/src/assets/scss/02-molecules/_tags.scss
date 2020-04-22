@@ -1,0 +1,20 @@
+.ma__tags {
+  margin-bottom: 10px;
+
+  @media ($bp-x-small-min) {
+    clear: left;
+    float: left;
+    margin-bottom: 0;
+  }
+
+  &-clear {
+
+    @include ma-button-reset;
+    font-size: 1.125rem;
+    display: inline-block;
+    line-height: 1em;
+    padding: 9px 11px;
+    color: $c-font-link;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,14 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__address__address {
+  font-weight: 700; }
+
+.ma__contact__details {
+  font-style: italic;
+  margin: .2rem 0 0; }

@@ -1,0 +1,30 @@
+{
+  "name": "@massds/assets",
+  "version": "1.0.0",
+  "description": "Mayflower Assets",
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "node-sass-chokidar --importer node_modules/node-sass-magic-importer/dist/cli.js --include-path src/scss --include-path node_modules src/scss -o dist/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/massgov/mayflower/tree/master/assets"
+  },
+  "author": "Massachusetts Digital Services (MDS)",
+  "license": "MIT",
+  "devDependencies": {
+    "bourbon": "^5.1.0",
+    "bourbon-neat": "^1.7.2",
+    "gulp": "^4.0.2",
+    "gulp-flatmap": "^1.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.13.1",
+    "node-sass-chokidar": "^1.4.0",
+    "node-sass-magic-importer": "^5.3.2",
+    "normalize-scss": "^7.0.1",
+    "sass": "^1.26.3"
+  }
+}

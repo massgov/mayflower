@@ -1,0 +1,48 @@
+{
+  "items": [{
+    "heading": "FooterLinks1",
+    "id": "FooterLinks1",
+    "links": [{
+      "href": "#",
+      "text": "Living"
+    },{
+      "href": "#",
+      "text": "Working"
+    },{
+      "href": "#",
+      "text": "Learning"
+    },{
+      "href": "#",
+      "text": "Visiting & Exploring"
+    },{
+      "href": "#",
+      "text": "Your Government"
+    }]
+  },{
+    "heading": "FooterLinks2",
+    "id": "FooterLinks2",
+    "links": [{
+      "href": "#",
+      "text": "Contact Us"
+    },{
+      "href": "#",
+      "text": "State Data"
+    },{
+      "href": "#",
+      "text": "Feedback"
+    }]
+  },{
+    "heading": "FooterLinks3",
+    "id": "FooterLinks3",
+    "links": [{
+      "href": "#",
+      "text": "Sitemap"
+    },{
+      "href": "#",
+      "text": "Disclaimer"
+    },{
+      "href": "#",
+      "text": "Site Policies"
+    }]
+  }]
+}

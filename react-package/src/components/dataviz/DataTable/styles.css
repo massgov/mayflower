@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ReactTable .rt-tbody {
+  font-family: "Source Code Pro", "Monaco", "monospace";
+  font-size: 1rem; }
+
+.ReactTable .rt-thead input, .ReactTable .rt-thead select, .ReactTable .rt-thead .-btn, .ReactTable .-pagination input, .ReactTable .-pagination select, .ReactTable .-pagination .-btn {
+  border-radius: 0 !important; }
+
+.ReactTable .data-align-left {
+  text-align: left; }
+
+.ReactTable .data-align-center {
+  text-align: center; }
+
+.ReactTable .data-align-right {
+  text-align: right; }

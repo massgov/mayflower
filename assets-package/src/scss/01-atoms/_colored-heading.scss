@@ -1,0 +1,33 @@
+@use 'global/base' as *;
+
+.ma__colored-heading {
+
+  @include ma-heading-colored();
+
+  .sidebar & {
+    margin-top: 45px;
+
+    @media ($bp-small-min) {
+      margin-top: 50px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+//theme
+
+.ma__colored-heading {
+
+  @include ma-heading-colored($c-bg-comp-title);
+
+  &--green {
+    background-color: $c-primary-alt;
+  }
+
+    &--blue {
+    background-color: $c-primary;
+  }
+}

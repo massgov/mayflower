@@ -1,0 +1,165 @@
+// :focus {
+//   outline-width: 2px;
+//   outline-style: solid;
+
+//   // WebKit gets its native focus styles.
+
+//   @media (-webkit-min-device-pixel-ratio:0) {
+//     outline-style: auto;
+//   }
+// }
+
+// WARNING: avoid nesting of elements,
+// because it makes them harder to override.
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 14.5px;
+
+  @media ($bp-small-min) {
+    font-size: 16px;
+  }
+
+
+  // .translated-rtl & {
+  //   direction: rtl;
+  // }
+}
+
+body {
+  margin: 0;
+  font-size: 1.375rem;
+  line-height: 1.5;
+  color: $c-font-base;
+  font-family: $fonts;
+  font-weight: 400;
+
+  // .translated-rtl & {
+  //   direction: rtl;
+  // }
+}
+
+a {
+
+  @include ma-link-transition;
+  text-decoration: none;
+  font-weight: 700;
+  color: $c-font-link;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+svg {
+  overflow: hidden;
+}
+
+ul, ol {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ul ul,
+ol ul {
+  list-style-type: circle;
+  padding-left: 30px;
+  margin-bottom: 1em;
+}
+
+// Custom ol list style types out to 9 levels
+// All decimals after that
+
+ol {
+  list-style-type: decimal;
+
+  ol {
+    list-style-type: lower-alpha;
+
+    ol {
+      list-style-type: lower-roman;
+
+        ol {
+          list-style-type: decimal;
+
+          ol {
+            list-style-type: lower-alpha;
+
+            ol {
+              list-style-type: lower-roman;
+
+              ol {
+                list-style-type: decimal;
+
+                ol {
+                  list-style-type: lower-alpha;
+
+                  ol {
+                    list-style-type: lower-roman;
+
+                    ol {
+                      list-style-type: decimal;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    }
+  }
+}
+
+
+// Heading styles
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    margin-top: 0;
+    color: $c-font-heading;
+    font-weight: 700;
+
+    @include ma-heading($i);
+  }
+}
+
+// end heading styles
+
+.ma__visually-hidden,
+.visually-hidden {
+
+  @include ma-visually-hidden;
+}
+
+// To disabled scrolling (for use when another scrollable container is in the foreground)
+
+.scroll-disabled {
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+main,
+div {
+
+  &[tabindex="-1"]:focus {
+    outline: none;
+  }
+}
+
+b, strong {
+  font-weight: 700;
+}

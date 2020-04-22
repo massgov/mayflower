@@ -1,0 +1,371 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.sg-colors {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .sg-colors li {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    flex-basis: auto;
+    margin: 0 0.5em 0.5em 0;
+    max-width: 14em;
+    min-width: 5em;
+    padding: 0.3em; }
+  .sg-colors--gradient li:first-child {
+    width: 14em; }
+
+.sg-swatch {
+  border-radius: 5px;
+  display: block;
+  height: 4em;
+  margin-bottom: 0.3em; }
+
+.sg-label {
+  font-size: 90%;
+  line-height: 1; }
+
+.sg-info {
+  font-size: 1rem;
+  font-family: "Source Code Pro", "Monaco", "monospace"; }
+  .sg-info span {
+    background-color: #F2F2F2;
+    padding: 0.1em 0.2em; }
+
+.c-duckling-yellow--tint:nth-child(1) .sg-swatch {
+  background: #f6c51b; }
+
+.c-duckling-yellow--tint:nth-child(2) .sg-swatch {
+  background: #f7cb32; }
+
+.c-duckling-yellow--tint:nth-child(3) .sg-swatch {
+  background: #f8d149; }
+
+.c-duckling-yellow--tint:nth-child(4) .sg-swatch {
+  background: #f9d65f; }
+
+.c-duckling-yellow--tint:nth-child(5) .sg-swatch {
+  background: #fadc76; }
+
+.c-duckling-yellow--tint:nth-child(6) .sg-swatch {
+  background: #fbe28d; }
+
+.c-duckling-yellow--tint:nth-child(7) .sg-swatch {
+  background: #fbe8a4; }
+
+.c-duckling-yellow--tint:nth-child(8) .sg-swatch {
+  background: #fceebb; }
+
+.c-duckling-yellow--tint:nth-child(9) .sg-swatch {
+  background: #fdf3d1; }
+
+.c-duckling-yellow--tint:nth-child(10) .sg-swatch {
+  background: #fef9e8; }
+
+.c-duckling-yellow--tint:nth-child(11) .sg-swatch {
+  background: white; }
+
+.c-duckling-yellow--shade:nth-child(1) .sg-swatch {
+  background: #f6c51b; }
+
+.c-duckling-yellow--shade:nth-child(2) .sg-swatch {
+  background: #ddb118; }
+
+.c-duckling-yellow--shade:nth-child(3) .sg-swatch {
+  background: #c59e16; }
+
+.c-duckling-yellow--shade:nth-child(4) .sg-swatch {
+  background: #ac8a13; }
+
+.c-duckling-yellow--shade:nth-child(5) .sg-swatch {
+  background: #947610; }
+
+.c-duckling-yellow--shade:nth-child(6) .sg-swatch {
+  background: #7b630e; }
+
+.c-duckling-yellow--shade:nth-child(7) .sg-swatch {
+  background: #624f0b; }
+
+.c-duckling-yellow--shade:nth-child(8) .sg-swatch {
+  background: #4a3b08; }
+
+.c-duckling-yellow--shade:nth-child(9) .sg-swatch {
+  background: #312705; }
+
+.c-duckling-yellow--shade:nth-child(10) .sg-swatch {
+  background: #191403; }
+
+.c-duckling-yellow--shade:nth-child(11) .sg-swatch {
+  background: black; }
+
+.c-bay-blue--tint:nth-child(1) .sg-swatch {
+  background: #14558f; }
+
+.c-bay-blue--tint:nth-child(2) .sg-swatch {
+  background: #2c669a; }
+
+.c-bay-blue--tint:nth-child(3) .sg-swatch {
+  background: #4377a5; }
+
+.c-bay-blue--tint:nth-child(4) .sg-swatch {
+  background: #5b88b1; }
+
+.c-bay-blue--tint:nth-child(5) .sg-swatch {
+  background: #7299bc; }
+
+.c-bay-blue--tint:nth-child(6) .sg-swatch {
+  background: #8aaac7; }
+
+.c-bay-blue--tint:nth-child(7) .sg-swatch {
+  background: #a1bbd2; }
+
+.c-bay-blue--tint:nth-child(8) .sg-swatch {
+  background: #b9ccdd; }
+
+.c-bay-blue--tint:nth-child(9) .sg-swatch {
+  background: #d0dde9; }
+
+.c-bay-blue--tint:nth-child(10) .sg-swatch {
+  background: #e8eef4; }
+
+.c-bay-blue--tint:nth-child(11) .sg-swatch {
+  background: white; }
+
+.c-bay-blue--shade:nth-child(1) .sg-swatch {
+  background: #14558f; }
+
+.c-bay-blue--shade:nth-child(2) .sg-swatch {
+  background: #124d81; }
+
+.c-bay-blue--shade:nth-child(3) .sg-swatch {
+  background: #104472; }
+
+.c-bay-blue--shade:nth-child(4) .sg-swatch {
+  background: #0e3c64; }
+
+.c-bay-blue--shade:nth-child(5) .sg-swatch {
+  background: #0c3356; }
+
+.c-bay-blue--shade:nth-child(6) .sg-swatch {
+  background: #0a2b48; }
+
+.c-bay-blue--shade:nth-child(7) .sg-swatch {
+  background: #082239; }
+
+.c-bay-blue--shade:nth-child(8) .sg-swatch {
+  background: #061a2b; }
+
+.c-bay-blue--shade:nth-child(9) .sg-swatch {
+  background: #04111d; }
+
+.c-bay-blue--shade:nth-child(10) .sg-swatch {
+  background: #02090e; }
+
+.c-bay-blue--shade:nth-child(11) .sg-swatch {
+  background: black; }
+
+.c-berkshires-green--tint:nth-child(1) .sg-swatch {
+  background: #388557; }
+
+.c-berkshires-green--tint:nth-child(2) .sg-swatch {
+  background: #4c9168; }
+
+.c-berkshires-green--tint:nth-child(3) .sg-swatch {
+  background: #609d79; }
+
+.c-berkshires-green--tint:nth-child(4) .sg-swatch {
+  background: #74aa89; }
+
+.c-berkshires-green--tint:nth-child(5) .sg-swatch {
+  background: #88b69a; }
+
+.c-berkshires-green--tint:nth-child(6) .sg-swatch {
+  background: #9cc2ab; }
+
+.c-berkshires-green--tint:nth-child(7) .sg-swatch {
+  background: #afcebc; }
+
+.c-berkshires-green--tint:nth-child(8) .sg-swatch {
+  background: #c3dacd; }
+
+.c-berkshires-green--tint:nth-child(9) .sg-swatch {
+  background: #d7e7dd; }
+
+.c-berkshires-green--tint:nth-child(10) .sg-swatch {
+  background: #ebf3ee; }
+
+.c-berkshires-green--tint:nth-child(11) .sg-swatch {
+  background: white; }
+
+.c-berkshires-green--shade:nth-child(1) .sg-swatch {
+  background: #388557; }
+
+.c-berkshires-green--shade:nth-child(2) .sg-swatch {
+  background: #32784e; }
+
+.c-berkshires-green--shade:nth-child(3) .sg-swatch {
+  background: #2d6a46; }
+
+.c-berkshires-green--shade:nth-child(4) .sg-swatch {
+  background: #275d3d; }
+
+.c-berkshires-green--shade:nth-child(5) .sg-swatch {
+  background: #225034; }
+
+.c-berkshires-green--shade:nth-child(6) .sg-swatch {
+  background: #1c432c; }
+
+.c-berkshires-green--shade:nth-child(7) .sg-swatch {
+  background: #163523; }
+
+.c-berkshires-green--shade:nth-child(8) .sg-swatch {
+  background: #11281a; }
+
+.c-berkshires-green--shade:nth-child(9) .sg-swatch {
+  background: #0b1b11; }
+
+.c-berkshires-green--shade:nth-child(10) .sg-swatch {
+  background: #060d09; }
+
+.c-berkshires-green--shade:nth-child(11) .sg-swatch {
+  background: black; }
+
+.c-independence-cranberry--tint:nth-child(1) .sg-swatch {
+  background: #680a1d; }
+
+.c-independence-cranberry--tint:nth-child(2) .sg-swatch {
+  background: #772334; }
+
+.c-independence-cranberry--tint:nth-child(3) .sg-swatch {
+  background: #863b4a; }
+
+.c-independence-cranberry--tint:nth-child(4) .sg-swatch {
+  background: #955461; }
+
+.c-independence-cranberry--tint:nth-child(5) .sg-swatch {
+  background: #a46c77; }
+
+.c-independence-cranberry--tint:nth-child(6) .sg-swatch {
+  background: #b4858e; }
+
+.c-independence-cranberry--tint:nth-child(7) .sg-swatch {
+  background: #c39da5; }
+
+.c-independence-cranberry--tint:nth-child(8) .sg-swatch {
+  background: #d2b6bb; }
+
+.c-independence-cranberry--tint:nth-child(9) .sg-swatch {
+  background: #e1ced2; }
+
+.c-independence-cranberry--tint:nth-child(10) .sg-swatch {
+  background: #f0e7e8; }
+
+.c-independence-cranberry--tint:nth-child(11) .sg-swatch {
+  background: white; }
+
+.c-independence-cranberry--shade:nth-child(1) .sg-swatch {
+  background: #680a1d; }
+
+.c-independence-cranberry--shade:nth-child(2) .sg-swatch {
+  background: #5e091a; }
+
+.c-independence-cranberry--shade:nth-child(3) .sg-swatch {
+  background: #530817; }
+
+.c-independence-cranberry--shade:nth-child(4) .sg-swatch {
+  background: #490714; }
+
+.c-independence-cranberry--shade:nth-child(5) .sg-swatch {
+  background: #3e0611; }
+
+.c-independence-cranberry--shade:nth-child(6) .sg-swatch {
+  background: #34050f; }
+
+.c-independence-cranberry--shade:nth-child(7) .sg-swatch {
+  background: #2a040c; }
+
+.c-independence-cranberry--shade:nth-child(8) .sg-swatch {
+  background: #1f0309; }
+
+.c-independence-cranberry--shade:nth-child(9) .sg-swatch {
+  background: #150206; }
+
+.c-independence-cranberry--shade:nth-child(10) .sg-swatch {
+  background: #0a0103; }
+
+.c-independence-cranberry--shade:nth-child(11) .sg-swatch {
+  background: black; }
+
+.c-granite-gray--tint:nth-child(1) .sg-swatch {
+  background: #535353; }
+
+.c-granite-gray--tint:nth-child(2) .sg-swatch {
+  background: #646464; }
+
+.c-granite-gray--tint:nth-child(3) .sg-swatch {
+  background: #757575; }
+
+.c-granite-gray--tint:nth-child(4) .sg-swatch {
+  background: #878787; }
+
+.c-granite-gray--tint:nth-child(5) .sg-swatch {
+  background: #989898; }
+
+.c-granite-gray--tint:nth-child(6) .sg-swatch {
+  background: darkgray; }
+
+.c-granite-gray--tint:nth-child(7) .sg-swatch {
+  background: #bababa; }
+
+.c-granite-gray--tint:nth-child(8) .sg-swatch {
+  background: #cbcbcb; }
+
+.c-granite-gray--tint:nth-child(9) .sg-swatch {
+  background: #dddddd; }
+
+.c-granite-gray--tint:nth-child(10) .sg-swatch {
+  background: #eeeeee; }
+
+.c-granite-gray--tint:nth-child(11) .sg-swatch {
+  background: white; }
+
+.c-granite-gray--shade:nth-child(1) .sg-swatch {
+  background: #535353; }
+
+.c-granite-gray--shade:nth-child(2) .sg-swatch {
+  background: #4b4b4b; }
+
+.c-granite-gray--shade:nth-child(3) .sg-swatch {
+  background: #424242; }
+
+.c-granite-gray--shade:nth-child(4) .sg-swatch {
+  background: #3a3a3a; }
+
+.c-granite-gray--shade:nth-child(5) .sg-swatch {
+  background: #323232; }
+
+.c-granite-gray--shade:nth-child(6) .sg-swatch {
+  background: #2a2a2a; }
+
+.c-granite-gray--shade:nth-child(7) .sg-swatch {
+  background: #212121; }
+
+.c-granite-gray--shade:nth-child(8) .sg-swatch {
+  background: #191919; }
+
+.c-granite-gray--shade:nth-child(9) .sg-swatch {
+  background: #111111; }
+
+.c-granite-gray--shade:nth-child(10) .sg-swatch {
+  background: #080808; }
+
+.c-granite-gray--shade:nth-child(11) .sg-swatch {
+  background: black; }

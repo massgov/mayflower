@@ -1,0 +1,77 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__contact-group {
+  padding-bottom: 20px; }
+  .ma__contact-group__item {
+    margin-bottom: .2em; }
+  .ma__contact-group__name {
+    font-size: 1.375rem;
+    line-height: 1.4;
+    margin-bottom: .25em; }
+    .ma__contact-group__name > svg {
+      display: inline-block;
+      height: 20px;
+      margin-right: .25em;
+      vertical-align: middle;
+      width: 20px; }
+    .ma__contact-group__name span {
+      display: inline-block;
+      vertical-align: middle; }
+  .ma__contact-group__label {
+    display: inline-block; }
+    @media (min-width: 621px) {
+      .ma__contact-group__label {
+        font-size: 1.25rem; } }
+  .ma__contact-group__value {
+    display: inline-block;
+    line-height: 1.75; }
+    @media (min-width: 621px) {
+      .ma__contact-group__value {
+        font-size: 1.25rem; } }
+  .ma__contact-group__details {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: .35em;
+    margin-top: -.25em; }
+  .ma__contact-group__address {
+    line-height: 1.5; }
+    @media (min-width: 621px) {
+      .ma__contact-group__address {
+        font-size: 1.25rem; } }
+  .ma__contact-group .ma__content-link,
+  .ma__contact-group .ma__decorative-link {
+    display: inline-block; }
+    .ma__contact-group .ma__content-link a,
+    .ma__contact-group .ma__decorative-link a {
+      overflow-wrap: break-word;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      word-break: break-word;
+      word-wrap: break-word; }
+    @media (min-width: 621px) {
+      .ma__contact-group .ma__content-link,
+      .ma__contact-group .ma__decorative-link {
+        font-size: 1.25rem; } }
+  .ma__contact-group__directions .ma__content-link {
+    line-height: inherit; }
+
+.ma__contact-group__name svg {
+  fill: #388557; }
+
+.ma__contact-group__name span {
+  font-weight: 700; }
+
+.ma__contact-group__label {
+  font-weight: 500; }
+
+.ma__contact-group__value {
+  font-weight: 300; }
+
+.ma__contact-group .ma__content-link--phone {
+  font-weight: 300; }

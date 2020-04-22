@@ -15,5 +15,20 @@ module.exports = {
       }],
       'babel-plugin-dynamic-import-node'
     ]
+  },
+  webpack: {
+    extractCSS: {
+      esModule: true,
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    },
+    rules: {
+      'sass-css': {
+        modules: true
+      }
+    //   // sass: {
+    //   //   implementation: require('sass')
+    //   // }
+    }
   }
 };

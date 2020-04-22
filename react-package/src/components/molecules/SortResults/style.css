@@ -1,0 +1,15 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* One-off breakpoints (consider consolidation)*/
+/* Mayflower Color Tokens */
+.ma__sort-results {
+  font-size: 0; }
+  .ma__sort-results__label {
+    font-size: 1.25rem;
+    margin-right: 8px; }
+  .ma__sort-results .ma__button-sort {
+    margin-right: 8px; }

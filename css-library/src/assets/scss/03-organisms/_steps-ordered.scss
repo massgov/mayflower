@@ -1,0 +1,90 @@
+$steps-ordered-icon-border: 3px;
+
+.ma__steps-ordered {
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container('restricted');
+  }
+
+  &__items {
+
+    @include ma-reset-list;
+    counter-reset: li; // Initiate a counter
+  }
+
+  &__item {
+    list-style:none; // Disable the normal item numbering
+    margin-bottom: 28px;
+    position: relative;
+
+    @media ($bp-small-min) {
+      padding-left: 60px;
+    }
+
+    &:before {
+      border: $steps-ordered-icon-border solid;
+      border-radius: 50%;
+      content: counter(li); // Use the counter as content
+      counter-increment: li; // Increment the counter by 1
+      font-size: 1.25rem;
+      height: 36px;
+      line-height: 36px - $steps-ordered-icon-border * 2;
+      position: absolute;
+        top: 0;
+        left: 0;
+      text-align: center;
+      width: 36px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .ma__action-step {
+
+    &__header,
+    &__content {
+      padding-left: 0;
+      padding-top: 0;
+    }
+  }
+
+  &__item {
+
+    .ma__action-step {
+      
+      &__header,
+      &__content {
+
+        @media ($bp-small-max) {
+          padding-left: 60px;
+        }
+      }
+    }
+  }
+
+  .ma__action-step__header + .ma__action-step__content {
+    padding-left: 0 !important;
+    
+    @media ($bp-small-max) {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+//theme
+
+.ma__steps-ordered {
+
+  &__item {
+
+    &:before {
+      color: $c-primary-alt;
+      font-weight: 700;
+    }
+  }
+}

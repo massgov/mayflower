@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import { ref } from 'airbnb-prop-types';
 import Icon from '../../../base/Icon';
-import './style.css';
+import style from '../../../styles/stories.module.scss';
+
+const cx = classNames.bind(style);
 
 const ButtonWithIcon = (props) => {
   const {
     classes, iconSize, icon, expanded, capitalized, usage, theme, setButtonRef, text, size, ...rest
   } = props;
-  const buttonClasses = classNames({
+  const buttonClasses = cx({
     'ma__button-icon': true,
     [`ma__button-icon--${size}`]: size,
     'ma__button-icon--expanded': expanded,
