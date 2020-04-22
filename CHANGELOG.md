@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.48.0 (4/20/2020)
+### Changed 
+- (Patternlab) [Button alert] DP-17792: Adjusted scss to rotate button arrow up when accordion opens
+
 ## 9.47.0 (4/13/2020)
 ### Changed 
 - (Patternalb) [ServicePage] DP-16029: Change the property value to set style for see all link in service page to match Mass.gov production. (#994)
