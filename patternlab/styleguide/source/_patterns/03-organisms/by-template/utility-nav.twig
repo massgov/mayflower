@@ -1,7 +1,7 @@
 <div class="ma__utility-nav js-util-nav">
   <ul class="ma__utility-nav__items">
     {% if googleLanguages %}
-      <li class="ma__utility-nav__item">
+      <li class="ma__utility-nav__item nav__translate">
         <div class="ma__utility-nav__translate">
           <div id="google_translate_element"></div>
           <div class="ma__utility-nav__translate-icon">
@@ -11,7 +11,7 @@
       </li>
     {% endif %}
     {% for item in utilityNav.items %}
-      <li class="ma__utility-nav__item{% if not(item.text == 'State Organizations') %} js-util-nav-toggle{% endif %}">
+      <li class="ma__utility-nav__item">
       {% if item.text == 'State Organizations' %}
         {# Get hef value. #}
         {% for panel in item.panels %}
@@ -19,16 +19,20 @@
             <a class="ma__utility-nav__link direct-link" href="{{ link.href }}">
               {{ icon(item.icon) }}
               <span>{{ item.text }}</span>
+{# &nbsp;{{ icon('arrow') }} #}
             </a>
          {% endfor %}
         {% endfor %}
       {% else %}
         <button class="ma__utility-nav__link js-util-nav-toggle"
-            aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
+            aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}"
+aria-haspopup="true" aria-expanded="false"
+            >
             {{ icon(item.icon) }}
             <span>
               {{ item.text }}
             </span>
+<span class="aria-hidden toggle-indicator"></span>
           </button>
           <div aria-hidden="true" class="ma__utility-nav__content js-util-nav-content is-closed">
             <div class="ma__utility-nav__container">
