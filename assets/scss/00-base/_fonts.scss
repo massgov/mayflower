@@ -9,12 +9,12 @@
 $assets-path: '..' !default;
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-light-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-light-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-light-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-light-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-light-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-light-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-Light.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-Light.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-Light.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-Light.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-Light.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-Light.svg#open_sansregular") format("svg");
   font-weight: 300;
   font-style: normal;
   font-display: fallback;
@@ -23,12 +23,12 @@ $assets-path: '..' !default;
 // Light | italic
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-lightitalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-lightitalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-lightitalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-lightitalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-lightitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-lightitalic-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-LightItalic.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-LightItalic.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-LightItalic.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-LightItalic.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-LightItalic.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-LightItalic.svg#open_sansregular") format("svg");
   font-weight: 300;
   font-style: italic;
   font-display: fallback;
@@ -37,12 +37,12 @@ $assets-path: '..' !default;
 // Book | 400
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-book-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-book-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-book-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-book-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-book-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-book-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-Thin.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-Thin.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-Thin.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-Thin.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-Thin.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-Thin.svg#open_sansregular") format("svg");
   font-weight: 400;
   font-style: normal;
 }
@@ -50,12 +50,12 @@ $assets-path: '..' !default;
 // Book | italic
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-bookitalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-bookitalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-bookitalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-bookitalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-bookitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bookitalic-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-ThinItalic.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-ThinItalic.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-ThinItalic.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-ThinItalic.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-ThinItalic.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-ThinItalic.svg#open_sansregular") format("svg");
   font-weight: 400;
   font-style: italic;
   font-display: fallback;
@@ -64,12 +64,12 @@ $assets-path: '..' !default;
 // Medium | 500
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-medium-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-medium-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-medium-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-medium-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-medium-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-medium-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-Medium.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-Medium.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-Medium.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-Medium.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-Medium.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-Medium.svg#open_sansregular") format("svg");
   font-weight: 500;
   font-style: normal;
 }
@@ -77,12 +77,12 @@ $assets-path: '..' !default;
 // Medium | italic
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-mediumitalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-mediumitalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-mediumitalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-mediumitalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-mediumitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-mediumitalic-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-MediumItalic.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-MediumItalic.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-MediumItalic.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-MediumItalic.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-MediumItalic.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-MediumItalic.svg#open_sansregular") format("svg");
   font-weight: 500;
   font-style: italic;
   font-display: fallback;
@@ -91,12 +91,12 @@ $assets-path: '..' !default;
 // Bold | 700
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-bold-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-bold-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-bold-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-bold-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-bold-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bold-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-Bold.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-Bold.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-Bold.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-Bold.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-Bold.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-Bold.svg#open_sansregular") format("svg");
   font-weight: 700;
   font-style: normal;
   font-display: fallback;
@@ -105,12 +105,12 @@ $assets-path: '..' !default;
 // Bold | Italic
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-bolditalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-bolditalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-bolditalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-bolditalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-bolditalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bolditalic-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-BoldItalic.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-BoldItalic.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-BoldItalic.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-BoldItalic.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-BoldItalic.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-BoldItalic.svg#open_sansregular") format("svg");
   font-weight: 700;
   font-style: italic;
   font-display: fallback;
@@ -119,12 +119,12 @@ $assets-path: '..' !default;
 // Black | 800
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-black-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-black-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-black-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-black-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-black-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-black-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-Black.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-Black.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-Black.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-Black.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-Black.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-Black.svg#open_sansregular") format("svg");
   font-weight: 800;
   font-style: normal;
   font-display: fallback;
@@ -133,12 +133,12 @@ $assets-path: '..' !default;
 // Black | Italic
 
 @font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-blackitalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-blackitalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-blackitalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-blackitalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-blackitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-blackitalic-webfont.svg#open_sansregular") format("svg");
+  font-family: 'Public Sans';
+  src: url("#{$assets-path}/fonts/PublicSans-BlackItalic.eot");
+  src: url("#{$assets-path}/fonts/PublicSans-BlackItalic.eot?#iefix") format("embedded-opentype"),
+  url("#{$assets-path}/fonts/PublicSans-BlackItalic.woff2") format("woff2"),
+  url("#{$assets-path}/fonts/PublicSans-BlackItalic.woff") format("woff"),
+  url("#{$assets-path}/fonts/PublicSans-BlackItalic.ttf") format("truetype"), url("#{$assets-path}/fonts/PublicSans-BlackItalic.svg#open_sansregular") format("svg");
   font-weight: 800;
   font-style: italic;
   font-display: fallback;
