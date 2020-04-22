@@ -17,6 +17,19 @@
     &--mono {
       font-family: $fonts-mono;
     }
+    
+    &--muli {
+      font-family: $fonts-muli;
+    }
+    &--raleway {
+      font-family: $fonts-raleway;
+    }
+    &--montserrat {
+      font-family: $fonts-montserrat;
+    }
+    &--public {
+      font-family: $fonts-noto;
+    }
   }
 
   &-grid {

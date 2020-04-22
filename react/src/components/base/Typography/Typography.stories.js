@@ -50,15 +50,33 @@ storiesOf('brand|typography', module)
     return(
       <div className="main-content main-content--two">
         <div className="page-content">
-          <Heading text="Texta" level={1} />
+          <Heading text="Texta Replacements" level={1} />
           <SidebarHeading title="Characters" level={2} />
           <div className="sb-block">
-            <div className="sb-text">{letters.toUpperCase()}</div>
-            <div className="sb-text">{letters}</div>
+            <div className="sb-text">{letters.toUpperCase()} (Pulbic Sans)</div>
+            <div className="sb-text sb-block--raleway">{letters.toUpperCase()} (Raleway)</div>
+            <div className="sb-text sb-block--noto">{letters.toUpperCase()} (Noto)</div>
+            <div className="sb-text sb-block--montserrat">{letters.toUpperCase()} (Montserrat)</div>
+            <div className="sb-text sb-block--muli">{letters.toUpperCase()} (Muli)</div>
             <hr />
-            <div className="sb-text">{numbers}</div>
+            <div className="sb-text">{letters} (Pulbic Sans)</div>
+            <div className="sb-text sb-block--raleway">{letters} (Raleway)</div>
+            <div className="sb-text sb-block--noto">{letters} (Noto)</div>
+            <div className="sb-text sb-block--montserrat">{letters} (Montserrat)</div>
+            <div className="sb-text sb-block--muli">{letters} (Muli)</div>
+            <hr />
+            <div className="sb-text">{numbers} (Pulbic Sans)</div>
+            <div className="sb-text sb-block--raleway">{numbers} (Raleway)</div>
+            <div className="sb-text sb-block--noto">{numbers} (Noto)</div>
+            <div className="sb-text sb-block--montserrat">{numbers} (Montserrat)</div>
+            <div className="sb-text sb-block--muli">{numbers} (Muli)</div>
             <hr />
             <div className="sb-text">{characters}</div>
+            <div className="sb-text">{characters} (Pulbic Sans)</div>
+            <div className="sb-text sb-block--raleway">{characters} (Raleway)</div>
+            <div className="sb-text sb-block--noto">{characters} (Noto)</div>
+            <div className="sb-text sb-block--montserrat">{characters} (Montserrat)</div>
+            <div className="sb-text sb-block--muli">{characters} (Muli)</div>
             <hr />
           </div>
 
