@@ -10,8 +10,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-Light.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-Light.eot?#iefix") format("embedded-opentype"),
+  src:
   url("#{$assets-path}/fonts/PublicSans-Light.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-Light.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-Light.ttf") format("truetype");
@@ -24,8 +23,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-LightItalic.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-LightItalic.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-LightItalic.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-LightItalic.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-LightItalic.ttf") format("truetype");
@@ -38,8 +36,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-Thin.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-Thin.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-Thin.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-Thin.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-Thin.ttf") format("truetype");
@@ -51,8 +48,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-ThinItalic.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-ThinItalic.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-ThinItalic.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-ThinItalic.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-ThinItalic.ttf") format("truetype");
@@ -65,8 +61,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-Medium.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-Medium.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-Medium.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-Medium.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-Medium.ttf") format("truetype");
@@ -78,8 +73,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-MediumItalic.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-MediumItalic.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-MediumItalic.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-MediumItalic.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-MediumItalic.ttf") format("truetype");
@@ -92,8 +86,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-Bold.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-Bold.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-Bold.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-Bold.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-Bold.ttf") format("truetype");
@@ -106,8 +99,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-BoldItalic.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-BoldItalic.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-BoldItalic.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-BoldItalic.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-BoldItalic.ttf") format("truetype");
@@ -120,8 +112,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-Black.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-Black.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-Black.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-Black.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-Black.ttf") format("truetype");
@@ -134,8 +125,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Public Sans';
-  src: url("#{$assets-path}/fonts/PublicSans-BlackItalic.eot");
-  src: url("#{$assets-path}/fonts/PublicSans-BlackItalic.eot?#iefix") format("embedded-opentype"),
+  src: 
   url("#{$assets-path}/fonts/PublicSans-BlackItalic.woff2") format("woff2"),
   url("#{$assets-path}/fonts/PublicSans-BlackItalic.woff") format("woff"),
   url("#{$assets-path}/fonts/PublicSans-BlackItalic.ttf") format("truetype");
