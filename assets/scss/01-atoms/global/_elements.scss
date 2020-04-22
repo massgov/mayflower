@@ -17,31 +17,31 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 html {
+  font-family: $fonts;
+
+  &:lang(km) {
+    font-family: $fonts-khmer, $fonts;
+  }
+
   font-size: 14.5px;
 
   @media ($bp-small-min) {
     font-size: 16px;
   }
-
-
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
 }
+
 
 body {
   margin: 0;
   font-size: 1.375rem;
   line-height: 1.5;
   color: $c-font-base;
-  font-family: $fonts;
   font-weight: 400;
-
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
 }
+
+
 
 a {
 
