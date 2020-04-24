@@ -80,6 +80,19 @@
   &__section--restricted &__title {
     max-width: 820px;
   }
+
+  // margin adjustment for callout-message (feature message)
+
+  // & &__section:first-child .main-content .page-content > section:not(.ma__callout-message__container)
+
+  & &__section:first-child .main-content .page-content > .ma__featured-item-mosaic,
+  & &__section:first-child .main-content .page-content > .ma__contact-list  {
+    margin-top: calc(0.45em + 22px);
+
+    @media ($bp-x-small-min) {
+      margin-bottom: calc(0.45em + 18px);
+    }
+  }
 }
 
 //theme
