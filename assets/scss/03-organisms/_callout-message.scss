@@ -1,18 +1,21 @@
 .ma__callout-message__container {
   position: relative;
+  max-width: $max-width;
 
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
 
     @include ma-container();
-  }
 
-  @media ($bp-large-min) {
+    @media ($bp-large-min) {
+      float:left;
+      padding-right: $column;
+      width: calc(100% - #{$layout-sidebar-width} - 40px);
+    }
 
-    .ma__comp-heading,
-    .ma__contact-row__columns {
-      width: calc(100% - 300px);
+    @media ($bp-x-large-min) {
+      padding-right: $column + ($gutter * 2);
     }
   }
 }
@@ -21,8 +24,6 @@
   border: 3px solid;
   display:block;
   width: 100%;
-  // padding: 15px 20px;
-  // padding: 20px 30px;
   padding: 30px;
   background-color: tint($c-font-link,90%);
   border-color: tint($c-font-link,50%);
