@@ -1,0 +1,10 @@
+{% set calloutMessageTheme = calloutMessage.theme ? "ma__callout-message--" ~ calloutMessage.theme : "" %}
+
+<section class="ma__callout-message__container">
+  <div class="ma__callout-message {{ calloutMessageTheme }}">
+  {% set richText = calloutMessage.message %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+  {% set calloutLink = calloutMessage.link %}
+  {% include "@molecules/callout-link.twig" %}
+  </div>
+</section>
