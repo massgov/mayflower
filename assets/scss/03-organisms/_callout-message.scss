@@ -8,15 +8,6 @@
 
     @include ma-container();
 
-    @media ($bp-large-min) {
-      float:left;
-      padding-right: $column;
-      width: calc(100% - #{$layout-sidebar-width} - 40px);
-    }
-
-    @media ($bp-x-large-min) {
-      padding-right: $column + ($gutter * 2);
-    }
   }
 }
 
@@ -28,6 +19,16 @@
   background-color: tint($c-font-link,90%);
   border-color: tint($c-font-link,50%);
   box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+
+  @media ($bp-large-min) {
+    float:left;
+    margin-right: $column;
+    width: calc(100% - #{$layout-sidebar-width} - 40px);
+  }
+
+  @media ($bp-x-large-min) {
+    margin-right: $column + ($gutter * 2);
+  }
 
   &--white {
     background-color: $c-white;
