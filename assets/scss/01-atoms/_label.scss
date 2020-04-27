@@ -3,6 +3,9 @@
 .ma__legend,
 .ma__label {
 
+  // This class is in use in patternlab
+  // To do: update to render condition label to match Label component in mayflower-react
+
   &--optional {
 
     &:after {
@@ -10,6 +13,10 @@
       font-size: .8em;
       margin-left: .25em;
     }
+  }
+  
+  &-condition {
+    font-size: 1rem;
   }
 
   &--hidden {
