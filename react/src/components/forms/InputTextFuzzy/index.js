@@ -134,7 +134,9 @@ class InputTextFuzzy extends React.Component {
   renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
 
   render() {
-    const { inputId, id, placeholder, disabled, label, boxed, autoFocusInput } = this.props;
+    const {
+      inputId, id, placeholder, disabled, label, boxed, autoFocusInput
+    } = this.props;
     const autoProps = {
       suggestions: this.state.suggestions,
       renderSuggestionsContainer: this.renderItemsContainer,
@@ -147,7 +149,7 @@ class InputTextFuzzy extends React.Component {
       focusInputOnSuggestionClick: false,
       inputProps: {
         type: 'search',
-        placeholder: placeholder,
+        placeholder,
         onChange: this.handleChange,
         value: this.state.value,
         disabled,

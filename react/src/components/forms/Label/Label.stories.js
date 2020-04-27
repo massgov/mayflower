@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
 import Label from './index';
 import LabelDocs from './Label.md';
@@ -16,7 +16,7 @@ storiesOf('forms|atoms', module)
         hidden: boolean('hidden', LabelOptions.hidden),
         conditionText: text('conditionText', LabelOptions.conditionText),
         className: text('className', ''),
-        useLegend: boolean('useLegend', LabelOptions.useLegend),
+        useLegend: boolean('useLegend', LabelOptions.useLegend)
       };
       return(<Label {...props}>{LabelOptions.labelText}</Label>);
     }),

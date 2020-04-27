@@ -43,7 +43,9 @@ class SelectBox extends React.Component {
     }
     const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
     const { selected } = this.state;
-    const { label, id, options, stackLabel } = this.props;
+    const {
+      label, id, options, stackLabel
+    } = this.props;
     const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
     const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
     const getValueByText = (array = [], text) => {
