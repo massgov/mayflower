@@ -1,9 +1,11 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
-## 9.48.1 (4/27/2020)
+## 9.49.0 (4/27/2020)
 ### Added 
 - (React, Patternlab, Assets) [Fonts] DP-18315: Addded fonts for Khmer language support. (#1021)
+### Added 
+- (React) [Label] DP-18462: Added Label component to render label and legend for input and fieldset elements. (#1028)
 
 ## 9.48.0 (4/20/2020)
 ### Changed 
