@@ -17,7 +17,7 @@ const Label = ({
   return(
     <Tag htmlFor={inputId} className={inputLabelClasses}>
       {children}
-      {conditionText && (
+      {conditionText && conditionText.length > 0 && (
         <span className="ma__label-condition">
           {` (${conditionText})`}
         </span>

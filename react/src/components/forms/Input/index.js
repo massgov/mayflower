@@ -17,7 +17,7 @@ const Input = (props) => {
     'ma__input-group--inline': inline,
     [classes && classes.length > 0 && classes.join(' ')]: true
   });
-  const conditionText = required ? null : 'optional';
+  const conditionText = required ? '' : 'optional';
   // InputProvider will get the same props.children as Input.
   return(
     <React.Fragment>
