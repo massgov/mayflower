@@ -5,7 +5,9 @@
 
   // This class is in use in patternlab
   // To do: update to render condition label to match Label component in mayflower-react
+
   &--optional {
+
     &:after {
       content: "(optional)";
       font-size: .8em;
