@@ -17,12 +17,13 @@ const Input = (props) => {
     'ma__input-group--inline': inline,
     [classes && classes.length > 0 && classes.join(' ')]: true
   });
+  const conditionText = required ? null : 'optional'
   // InputProvider will get the same props.children as Input.
   return(
     <React.Fragment>
       <div className={inputClasses}>
         {labelText && (
-          <Label inputId={id} hidden={hiddenLabel} disabled={disabled}>
+          <Label inputId={id} hidden={hiddenLabel} disabled={disabled} conditionText={conditionText}>
             {labelText}
           </Label>
           )
