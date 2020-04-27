@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.48.1 (4/27/2020)
+### Added 
+- (React, Patternlab, Assets) [Fonts] DP-18315: Addded fonts for Khmer language support. (#1021)
+
 ## 9.48.0 (4/20/2020)
 ### Changed 
 - (Patternlab) [Button alert] DP-17792: Adjusted scss to rotate button arrow up when accordion opens
