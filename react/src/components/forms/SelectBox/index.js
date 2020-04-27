@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Label from '../Label';
 import './style.css';
 
 class SelectBox extends React.Component {
@@ -42,7 +43,9 @@ class SelectBox extends React.Component {
     }
     const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
     const { selected } = this.state;
-    const { stackLabel } = this.props;
+    const {
+      label, id, options, stackLabel
+    } = this.props;
     const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
     const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
     const getValueByText = (array = [], text) => {
@@ -50,28 +53,32 @@ class SelectBox extends React.Component {
       const matchedValue = matchedItem && matchedItem.value;
       return matchedValue;
     };
-    const valueInOptions = getValueByText(this.props.options, selected);
-    const selectedValue = valueInOptions || this.props.options[0].value;
+    const valueInOptions = getValueByText(options, selected);
+    const selectedValue = valueInOptions || options[0].value;
     return(
       <section className={classNames}>
-        <label htmlFor={this.props.id} className={labelClassNames}>{this.props.label}</label>
-
+        {label && (
+          <Label inputId={id} className={labelClassNames}>
+            {label}
+          </Label>
+          )
+        }
         <div className={`ma__select-box__field ${selectBoxInline}`}>
           <select
-            name={this.props.id}
-            id={this.props.id}
+            name={id}
+            id={id}
             className={selectClassNames}
             onChange={this.handleOnChange}
             value={selectedValue}
           >
-            {this.props.options.map((option) => (
+            {options.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.text}
               </option>
             ))}
           </select>
           <div className="ma__select-box__link">
-            <span className="js-dropdown-link">{valueInOptions ? selected : this.props.options[0].text}</span>
+            <span className="js-dropdown-link">{valueInOptions ? selected : options[0].text}</span>
             <span className="ma__select-box__icon" />
           </div>
         </div>
@@ -97,7 +104,7 @@ SelectBox.propTypes = {
     text: PropTypes.oneOfType([
       PropTypes.string
     ])
-  })),
+  })).isRequired,
   /** Change handler callback provided by the parent */
   onChangeCallback: PropTypes.func,
   /** Wrapper class for section tag */

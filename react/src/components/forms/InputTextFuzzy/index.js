@@ -6,6 +6,7 @@ import parse from 'autosuggest-highlight/parse';
 import classNames from 'classnames';
 import is from 'is';
 
+import Label from '../Label';
 import './style.css';
 
 class InputTextFuzzy extends React.Component {
@@ -133,6 +134,9 @@ class InputTextFuzzy extends React.Component {
   renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
 
   render() {
+    const {
+      inputId, id, placeholder, disabled, label, boxed, autoFocusInput
+    } = this.props;
     const autoProps = {
       suggestions: this.state.suggestions,
       renderSuggestionsContainer: this.renderItemsContainer,
@@ -145,27 +149,32 @@ class InputTextFuzzy extends React.Component {
       focusInputOnSuggestionClick: false,
       inputProps: {
         type: 'search',
-        placeholder: this.props.placeholder,
+        placeholder,
         onChange: this.handleChange,
         value: this.state.value,
-        disabled: this.props.disabled,
-        id: this.props.inputId,
+        disabled,
+        id: inputId,
         onFocus: this.handleFocus,
-        autoFocus: this.props.autoFocusInput,
+        autoFocus: autoFocusInput,
         onBlur: this.handleBlur,
         onKeyPress: this.handleKeyPress
       },
-      id: this.props.id
+      id
     };
 
     const inputTextTypeAheadClasses = classNames({
       'ma__input-typeahead': true,
-      'ma__input-typeahead--disabled': this.props.disabled,
-      'ma__input-typeahead--boxed': this.props.boxed
+      'ma__input-typeahead--disabled': disabled,
+      'ma__input-typeahead--boxed': boxed
     });
     return(
       <React.Fragment>
-        {this.props.label && (<label htmlFor={this.props.inputId} className="ma__label">{this.props.label}</label>)}
+        {label && (
+          <Label inputId={inputId} disabled={disabled}>
+            {label}
+          </Label>
+          )
+        }
         <div className={inputTextTypeAheadClasses}>
           <Autosuggest {...autoProps} />
         </div>

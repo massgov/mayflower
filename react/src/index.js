@@ -7,6 +7,7 @@ import FeedbackForm from './components/forms/FeedbackForm';
 // @forms
 export Form, { FormProvider } from './components/forms/Form';
 export HelperText from './components/forms/HelperText';
+export Label from './components/forms/Label';
 export ErrorMessage from './components/forms/ErrorMessage';
 export InputDate from './components/forms/InputDate';
 export InputText from './components/forms/InputText';
