@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 import './style.css';
 import { InputContext, FormContext } from './context';
+import Label from '../Label';
 
 /* eslint-disable react/no-unused-state */
 
@@ -16,18 +17,16 @@ const Input = (props) => {
     'ma__input-group--inline': inline,
     [classes && classes.length > 0 && classes.join(' ')]: true
   });
-  const inputLabelClasses = classNames({
-    ma__label: true,
-    'ma__label--hidden': (labelText && hiddenLabel),
-    'ma__label--required': (labelText && required),
-    'ma__label--optional': (labelText && !required),
-    'ma__label--disabled': (labelText && disabled)
-  });
   // InputProvider will get the same props.children as Input.
   return(
     <React.Fragment>
       <div className={inputClasses}>
-        {labelText && <label htmlFor={id} className={inputLabelClasses}>{labelText}</label>}
+        {labelText && (
+          <Label inputId={id} hidden={hiddenLabel} disabled={disabled}>
+            {labelText}
+          </Label>
+          )
+        }
         <InputProvider {...props} />
       </div>
     </React.Fragment>

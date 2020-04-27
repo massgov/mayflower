@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './style.css';
 
-const Label = ({children, inputId, renderState, conditionText, className}) => {
+const Label = ({children, inputId, hidden, disabled, conditionText, className}) => {
   const inputLabelClasses = classNames(className, {
     ma__label: true,
-    [`ma__label--${renderState}`]: renderState
+    'ma__label--hidden': hidden,
+    'ma__label--disabled': disabled
   });
   
   return(
@@ -26,8 +27,10 @@ Label.propTypes = {
   children: PropTypes.string,
   /** The ID of the corresponding input field */
   inputId: PropTypes.string.isRequired,
-  /** The rendering state of the label, allowing one of the options below  */
-  renderState: PropTypes.oneOf['hidden', 'disabled'],
+  /** Render the visually hidden style for label  */
+  hidden: PropTypes.boolean,
+  /** Render the disabled style for label  */
+  disabled: PropTypes.boolean,
   /** The text describing the conditional status of the field */
   conditionText: PropTypes.string,
   /** Additional classNames for label */
