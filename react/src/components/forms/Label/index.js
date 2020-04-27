@@ -3,22 +3,24 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './style.css';
 
-const Label = ({children, inputId, hidden, disabled, conditionText, className}) => {
+const Label = ({children, inputId, hidden, disabled, conditionText, className, useLegend}) => {
   const inputLabelClasses = classNames(className, {
     ma__label: true,
     'ma__label--hidden': hidden,
     'ma__label--disabled': disabled
   });
   
+  const Tag = useLegend ? 'legend' : 'label'
+  
   return(
-    <label htmlFor={inputId} className={inputLabelClasses}>
+    <Tag htmlFor={inputId} className={inputLabelClasses}>
       {children}
       {conditionText && (
         <span className="ma__label-condition">
           {` (${conditionText})`}
         </span>
       )}
-    </label>
+    </Tag>
   )
 };
 
@@ -34,7 +36,9 @@ Label.propTypes = {
   /** The text describing the conditional status of the field */
   conditionText: PropTypes.string,
   /** Additional classNames for label */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /** Use legend tag instead of label. Use legend to caption a <fieldset> */
+  useLegend: PropTypes.boolean
 };
 
 export default Label;

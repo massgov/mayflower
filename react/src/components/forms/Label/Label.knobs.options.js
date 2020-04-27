@@ -3,5 +3,6 @@ export default {
   labelText: 'This is a Label of an input',
   hidden: false,
   disabled: false,
+  useLegend: false,
   conditionText: 'optional'
 };
