@@ -3,13 +3,8 @@
 .ma__legend,
 .ma__label {
 
-  &--optional {
-
-    &:after {
-      content: "(optional)";
-      font-size: .8em;
-      margin-left: .25em;
-    }
+  &-condition {
+    font-size: 1rem;
   }
 
   &--hidden {
