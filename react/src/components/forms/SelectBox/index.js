@@ -104,7 +104,7 @@ SelectBox.propTypes = {
     text: PropTypes.oneOfType([
       PropTypes.string
     ])
-  })),
+  })).isRequired,
   /** Change handler callback provided by the parent */
   onChangeCallback: PropTypes.func,
   /** Wrapper class for section tag */
