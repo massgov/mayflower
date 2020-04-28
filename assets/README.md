@@ -13,6 +13,8 @@ For more details about Texta's terms of use, please refer to our [web font licen
 
 1. Once you're done making changes and ready to publish, run `npm run build`. The provided gulp file will copy over all fonts, images, and scss files to the `dist/` directory for you.
 2. `npm login` — Login to the npm account.
+3. Update `version` in package.json and run `npm publish`. Wait a few minutes and check [@massds/assets](https://www.npmjs.com/package/@massds/assets) on the npm registry.
+
 
 
 ## Setup and Usage (fonts/images)
