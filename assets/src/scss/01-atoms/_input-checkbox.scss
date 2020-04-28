@@ -1,0 +1,110 @@
+// Custom Checkboxes
+@use "00-base/global" as *;
+
+.ma__input-checkbox {
+  display: inline-block;
+  position: relative;
+
+  input {
+
+    @include ma-visually-hidden;
+  }
+
+  & > svg {
+    height: 24px;
+    position: absolute;
+      top: 0;
+      right: 0;
+    vertical-align: top;
+    width: 24px;
+  }
+
+  label {
+    font-size: 1.375rem;
+    line-height: 1rem;
+    padding-left: 1.25em;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:before {
+      border: 2px solid;
+      content: "";
+      display: inline-block;
+      height: 2em;
+      font-size: .5em;
+      line-height: 1.5;
+      padding-top: .25em;
+      position: absolute;
+        top: 0.125em;
+        left: 0;
+      text-align: center;
+      width: 2em;
+    }
+
+    span {
+      line-height: 1.2em;
+    }
+  }
+
+  &--disabled {
+
+    label {
+      opacity: 0.5;
+    }
+
+    svg {
+      opacity: 0.5;
+    }
+  }
+
+  input:checked ~ label {
+
+    &:before {
+      content: url("#{$assets-path}/images/checkmark.svg"); //"✔";
+    }
+  }
+
+  svg ~ label {
+    padding-right: 30px;
+  }
+}
+
+//theme
+
+.ma__input-checkbox {
+
+  & > svg {
+    fill: $c-primary-alt;
+  }
+
+  label {
+    font-weight: 400;
+
+    &:before {
+      background-color: $c-white;
+      border-color: $c-bd-input-dark;
+
+      .ma__form--light & {
+        background-color: rgba($c-white, 0.1);
+        border-color: rgba($c-bd-input,.5);
+      }
+    }
+  }
+
+  input.has-error ~ label:before {
+    border-color: $c-bd-error;
+  }
+
+  input:focus ~ label:before {
+    border-color: Highlight !important;
+
+    /* WebKit gets its native focus styles.
+     */
+
+    @media (-webkit-min-device-pixel-ratio:0) {
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+  }
+}

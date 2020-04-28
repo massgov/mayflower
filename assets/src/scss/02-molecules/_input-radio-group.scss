@@ -1,0 +1,103 @@
+$margin: 5px;
+$total-margin: $margin * 2;
+@use "00-base/global" as *;
+
+@mixin group-responsive-custom($bp, $col) {
+
+  @if ($bp == "large") {
+
+    @media ($bp-large-max) {
+      width: calc(100% / #{$col} - #{$total-margin});
+    }
+  }
+
+  @if ($bp == "medium") {
+
+    @media ($bp-medium-max) {
+      width: calc(100% / #{$col} - #{$total-margin});
+    }
+  }
+
+  @if ($bp == "small") {
+
+    @media ($bp-small-max) {
+      width: calc(100% / #{$col} - #{$total-margin});
+    }
+  }
+}
+
+.ma__input-group {
+
+  &__title {
+
+    &--disabled {
+      opacity: 0.5;
+    }
+
+    &--error {
+      color: $c-error;
+    }
+  }
+
+  &__items {
+
+    &--outline {
+      margin-left: 0px;
+
+      .ma__input-group__item {
+        margin: $margin $margin 0px $margin;
+        width: 100%
+      }
+    }
+
+    &--inline.ma__input-group__items--outline {
+
+      @for $i from 1 to 7 {
+        .item-#{$i} {
+          width: calc(100% / #{$i} - #{$total-margin});
+        }
+      }
+
+      @for $i from 4 to 7 {
+
+        @media ($bp-large-max) {
+          .item-#{$i} {
+            width: calc(33% - #{$total-margin});
+          }
+        }
+      }
+
+      @for $i from 3 to 7 {
+
+        @media ($bp-medium-max) {
+          .item-#{$i} {
+            width: calc(50% - #{$total-margin});
+          }
+        }
+      }
+
+      @for $i from 2 to 7 {
+
+        @media ($bp-small-max) {
+          .item-#{$i} {
+            width: calc(100% - #{$total-margin});
+          }
+        }
+      }
+
+      $breakpoints: medium, large;
+      // custom override default responsive setting, allow to set items to stack at breakpoints ("medium", "large").
+      // add class "col-large-1" or "col-large-1" to items.
+
+      @for $i from 4 to 7 {
+
+        @each $breakpoint in $breakpoints {
+          .item-#{$i}.col-#{$breakpoint}-1 {
+
+            @include group-responsive-custom($breakpoint, 1);
+          }
+        }
+      }
+    }
+  }
+}

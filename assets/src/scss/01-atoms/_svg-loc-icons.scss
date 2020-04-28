@@ -1,0 +1,24 @@
+// heights should all be 40px tall
+// add top padding to compensate
+@use "00-base/global" as *;
+
+.svg-loc-dogs-allowed {
+  height: 35px;
+  padding-top: 5px;
+  width: 41px;
+}
+
+.svg-loc-wheelchair-accessible {
+  height: 41px;
+  width: 40px;
+}
+
+.svg-loc-historic-site {
+  height: 40px;
+  width: 40px;
+}
+
+.svg-loc-mt-park {
+  height: 40px;
+  width: 47px;
+}

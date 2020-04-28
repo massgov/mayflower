@@ -1,0 +1,139 @@
+@use "00-base/global" as *;
+
+.ma__header-tags {
+  font-size: 16px;
+  letter-spacing: $letter-spacing-large;
+  text-transform: uppercase;
+  max-width: $l-max-content-width;
+
+  > span {
+    white-space: nowrap;
+  }
+
+  @media ($bp-medium-min) {
+    display: inline-flex;
+  }
+
+  &__terms {
+    display: inline;
+    letter-spacing: $letter-spacing-default;
+    margin-left: .5em;
+    text-transform: none;
+
+    @media ($bp-x-small-max) {
+      display: block;
+      margin-left: 0;
+      margin-top: .5em;
+    }
+
+    a {
+      border: 2px solid;
+      display: inline-block;
+      font-size: 17px;
+      line-height: 1.3;
+      margin-bottom: .5em;
+      margin-right: .3em;
+      padding: 3px 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:nth-child(n+4) {
+        display: none;
+      }
+
+      @media ($bp-x-small-max) {
+        // On small screens each tag is full width.
+        display: block;
+      }
+    }
+
+    &.is-open {
+
+      a {
+        display: inline-block;
+
+        @media ($bp-x-small-max) {
+          // On small screens each tag is full width.
+          display: block;
+        }
+      }
+
+      > button {
+
+        &:after {
+          transform: translateY(-55%) rotate(-135deg);
+        }
+
+        span:first-child {
+          display: none;
+        }
+
+        span:nth-child(2) {
+          display: inline;
+        }
+      }
+    }
+
+    > button {
+
+      @include ma-button-reset;
+
+      @include ma-link-underline;
+
+      @include ma-chevron;
+      padding-left: 10px;
+      font-size: 19px;
+      display: none;
+
+      &:after {
+        opacity: .5;
+        margin-left: 0;
+        border-width: 3px;
+        height: 8px;
+        width: 8px;
+        transform: translateY(-45%) rotate(45deg);
+      }
+
+      span:first-child {
+        display: inline;
+      }
+
+      span:nth-child(2) {
+        display: none;
+      }
+
+      @media ($bp-x-small-max) {
+        display: block;
+      }
+    }
+  }
+}
+
+//theme
+
+.ma__header-tags {
+  font-weight: 600;
+
+  &__label {
+    color: $c-font-detail;
+  }
+
+  &__terms {
+
+    a {
+      border-color: rgba($c-font-link,.2);
+      font-weight: 500;
+
+      &:hover {
+        border-color: $c-font-link;
+      }
+    }
+
+    > button {
+      color: $c-primary;
+      font-weight: 500;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@use "00-base/global" as *;
+
+.ma__comp-heading {
+
+  &:not(&--sidebar) {
+
+    @include ma-comp-heading;
+  }
+
+  &--sidebar,
+  .sidebar & {
+
+    @include ma-sidebar-heading;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  &--centered:not(&--sidebar) {
+    text-align: center;
+
+    &:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .sidebar--colored & {
+
+    @include ma-heading-colored($direction: left);
+    border-bottom: none;
+
+    &:after {
+      display: block;
+    }
+  }
+
+  &--no-line:not(&--sidebar) {
+    padding-bottom: 0;
+    margin-bottom: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+//theme
+
+.ma__comp-heading {
+
+  @include ma-comp-heading($c-primary-alt);
+
+  .sidebar &,
+  &--sidebar {
+
+    @include ma-sidebar-heading($c-bd-divider,$c-font-base);
+  }
+
+  .sidebar--colored & {
+
+    @include ma-heading-colored($c-bg-comp-title);
+  }
+
+  &--yellow {
+
+    @include ma-border-decorative($c-highlight, 1);
+  }
+
+  &--gray {
+
+    @include ma-border-decorative($c-gray, 1);
+  }
+}

@@ -1,0 +1,16 @@
+@use "00-base/global" as *;
+
+.ma__operational-hours {
+
+  .ma__operational-hours-row {
+
+    .ma__operational-hours-day {
+      text-transform: capitalize;
+    }
+
+    &--active {
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+  }
+}

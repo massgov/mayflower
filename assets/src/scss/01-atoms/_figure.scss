@@ -1,0 +1,64 @@
+@use "00-base/global" as *;
+
+.ma__figure {
+  margin: 0;
+
+  .main-content--full .page-content > & {
+
+    @include ma-container;
+  }
+
+  @media ($bp-small-min) {
+
+    &--left,
+    &--align-left,
+    &.align-left {
+      float: left;
+      margin-right: .5em;
+      margin-bottom: 1em;
+      width: 50%;
+    }
+
+    &--right,
+    &--align-right,
+    &.align-right {
+      float: right;
+      margin-left: .5em;
+      margin-bottom: 1em;
+      width: 50%;
+    }
+  }
+
+  &--full {
+    transition: width 0.2s;
+  }
+
+  .rich-text & {
+    margin-bottom: 1.75em;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &__title {
+
+    @include ma-h2;
+  }
+
+  &__caption {
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.57;
+  }
+
+}
+
+//theme
+
+.ma__figure {
+
+  &__caption {
+    font-weight: 300;
+  }
+}

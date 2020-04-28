@@ -1,0 +1,224 @@
+@use "00-base/global" as *;
+
+$colors: (
+  "c-primary": $c-primary,
+  "c-primary-lightest":  $c-primary-lightest,
+  "c-primary-alt": $c-primary-alt,
+  "c-primary-alt-lightest": $c-primary-alt-lightest,
+  "c-primary-alt-dark": $c-primary-alt-dark,
+  "c-white": $c-white,
+  "c-gray-lightest": $c-gray-lightest,
+);
+
+.ma__key-message {
+  text-align: center;
+
+  &__wrapper {
+    z-index: 10;
+    padding: 40px 20px;
+
+    @media ($bp-small-min) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    &--top {
+      padding: 40px 20px;
+
+      @media ($bp-small-min) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .ma__key-message__cta {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .ma__key-message__sub-title {
+    margin-top: 20px;
+    font-weight: 700;
+
+    @each $class, $c in $colors {
+      &--#{$class} {
+        background: $c;
+      }
+    }
+  }
+
+  .ma__key-message__wrapper header + .ma__key-message__cta {
+    margin-top: 40px;
+  }
+
+  &__inline-image {
+    height: 215px;
+
+    @media ($bp-small-min) {
+      height: 425px;
+    }
+
+    @media ($bp-medium-min) {
+      height: 0px;
+      display: none;
+    }
+  }
+
+  &__inline-image, &--image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    margin-top: 20px;
+  }
+
+  &__block {
+    max-width: 840px;
+
+    @media ($bp-medium-min) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__content + &__cta {
+    margin-top: 20px;
+  }
+
+  &--image {
+
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    z-index: 0;
+
+    &:after {
+      content:'';
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      opacity: 0.8;
+    }
+
+    &-overlay {
+      margin-bottom: 60px;
+
+      @media ($bp-medium-min) {
+        height: 600px;
+
+        &.ma__key-message--top {
+          margin-bottom: 150px;
+        }
+      }
+
+      &:after {
+        opacity: 0;
+      }
+    }
+
+    .ma__key-message__wrapper {
+
+      &--overlay {
+        display: block;
+        height: fit-content;
+        padding: 0px;
+
+        .ma__key-message__block {
+          padding: 20px 20px;
+          transform: translateY(0%);
+
+          @each $class, $c in $colors {
+            &--#{$class} {
+              background: $c;
+            }
+          }
+        }
+
+        @media ($bp-medium-min) {
+
+          @include ma-container();
+          display: flex;
+          flex-flow: column;
+          justify-content: flex-end;
+          height: 100%;
+          position: relative;
+
+          .ma__key-message__block {
+            display: block;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateY(33%);
+            box-shadow: 0 0.25rem 0.5rem rgba(1,1,1,0.25);
+          }
+        }
+      }
+
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  @each $class, $c in $colors {
+    &--#{$class} {
+      background-color: $c;
+
+      .ma__button {
+        width: 100%;
+
+        @media ($bp-small-min) {
+          width: auto;
+        }
+
+        @if ($c == $c-primary or $c == $c-primary-alt or $c == $c-primary-alt-dark) {
+          color: $c;
+        }
+      }
+
+      &.ma__key-message--image:after {
+        background: $c;
+      }
+    }
+
+  }
+
+  &__title, &__sub-title, &__description {
+
+    @each $class, $c in $colors {
+      &--#{$class} {
+
+        @if ($c == $c-primary or $c == $c-primary-alt or $c == $c-primary-alt-dark) {
+          color: $c-white;
+        } @else {
+          color: $c-black
+        }
+      }
+    }
+  }
+}
+
+
+// Get heading level higher styles for sub-title
+
+@for $i from 1 through 5 {
+  h#{$i}.ma__key-message__title + .ma__key-message__sub-title {
+
+    @include ma-heading($i+1);
+  }
+}
+
+// Override the message block max width in the content area only.
+
+.page-content .ma__key-message__block {
+  max-width: 1240px;
+}

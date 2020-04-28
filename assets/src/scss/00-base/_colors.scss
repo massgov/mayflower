@@ -1,0 +1,45 @@
+// Mayflower Color Theme and Usage Mapping
+@forward './color-tokens';
+@use './color-tokens' as *;
+
+// Theme Color Variables
+$c-primary:              $c-bay-blue !default;
+$c-primary-lighter:      $c-bay-blue-lighter !default;
+$c-primary-lightest:     $c-bay-blue-lightest !default;
+$c-primary-alt:          $c-berkshires-green !default;
+$c-primary-alt-lighter:  $c-berkshires-green-lighter !default;
+$c-primary-alt-lightest: $c-berkshires-green-lightest !default;
+$c-primary-alt-dark:     $c-berkshires-green-dark !default;
+$c-highlight:            $c-duckling-yellow !default;
+$c-highlight-lighter:    $c-duckling-yellow-lighter !default;
+$c-highlight-lightest:   $c-duckling-yellow-lightest !default;
+
+// Utility Colors Variables
+$c-error:                $c-error-red !default;
+$c-error-lighter:        $c-error-red-lighter !default;
+$c-error-lightest:       $c-error-red-lightest !default;
+$c-warning:              $c-duckling-yellow !default;
+$c-success:              $c-berkshires-green !default;
+$c-focus:                $c-focus-hightlight !default;
+// Need to add these colors to this listing new to add
+// $c-visited
+
+$c-font-base:            $c-black !default;
+$c-font-detail:          $c-gray-dark !default;
+$c-font-dark:            $c-black !default;
+$c-font-medium:          $c-gray !default;
+
+$c-font-heading:         $c-black !default;
+$c-font-inverse:         $c-white !default;
+$c-font-link:            $c-bay-blue !default;
+$c-font-error:           $c-error !default;
+
+$c-bg-comp-title:        $c-gray-dark !default;
+$c-bg-subtle:            $c-gray-lightest !default;
+$c-bg-section:           $c-gray-lightest !default;
+
+$c-bd-divider:           $c-gray-light !default;
+$c-bd-divider-dark:      $c-gray-dark !default;
+$c-bd-error:             $c-error !default;
+$c-bd-input:             $c-gray-light !default;
+$c-bd-input-dark:        $c-gray !default;

@@ -1,0 +1,164 @@
+@use "00-base/global" as *;
+
+.ma__footer {
+  padding: 20px 0 30px;
+  position: relative;
+
+  @media ($bp-small-min) {
+    padding: 40px 0 50px;
+  }
+
+  &__back2top {
+
+    @include ma-button("small");
+    font-size: 1rem;
+    letter-spacing: $letter-spacing-large;
+    opacity: 1;
+    padding: .5em .7em;
+    position: fixed;
+      bottom: 1.3125rem;
+      right: 1.5625rem;
+    transition: all .5s;
+    visibility: visible;
+    z-index: $z-sticky-content;
+
+    @media ($bp-small-max) {
+      padding: .4em .4em 0 .4em;
+      position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    &.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    & > svg {
+      display: inline-block;
+      width: 16px;
+      height: 18px;
+      transform: rotate(-90deg);
+      transform-origin: center center;
+      transition: all .5s;
+    }
+
+    span {
+      display: block;
+      text-align: center;
+
+      @media ($bp-small-max) {
+        display: none;
+      }
+    }
+  }
+
+  &__container {
+
+    @include ma-container;
+
+    @include clearfix;
+
+    @media ($bp-large-max) {
+      display: flex;
+      flex-direction: column;
+    } 
+  }
+
+  &__nav {
+    margin-bottom: 20px;
+
+    @media ($bp-large-min) {
+
+      @include span-columns(9);
+      float: right;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__info {
+
+    @media ($bp-large-max) {
+      order: 2;
+    }
+
+    @media ($bp-large-min) {
+
+      @include span-columns(3);
+    }
+  }
+
+  &__logo {
+    margin-bottom: 20px;
+
+    @media ($bp-large-max) {
+      text-align: center;
+    }
+  }
+
+  &__social {
+    margin: 0 auto 20px;
+    max-width: 480px;
+  }
+
+  &__copyright {
+    font-size: 1.063rem;
+    line-height: 1.54;
+
+    @media ($bp-large-max) {
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+//theme
+
+.ma__footer {
+  background-color: $c-bg-section;
+
+  &__back2top {
+
+    @include ma-button("","outline",$c-primary);
+    background-color: rgba($c-white, .9);
+
+    svg {
+      fill: rgba($c-primary, .5);
+    }
+
+    &:hover {
+
+      svg {
+        fill: $c-font-inverse;
+      }
+    }
+  }
+
+  &__copyright {
+    color: $c-gray-dark;
+    font-weight: 300;
+
+    &--date {
+      font-weight: 500;
+    }
+  }
+
+  &__social {
+    
+    .ma__social-links {
+
+      &__link {
+        background-color: $c-primary-alt;
+
+        & > svg,
+        & > svg path {
+          fill: $c-white;    
+        }
+      }
+    }
+  }
+}

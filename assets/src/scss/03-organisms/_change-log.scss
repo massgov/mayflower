@@ -1,0 +1,128 @@
+@use "00-base/global" as *;
+
+.ma__change-log {
+
+  @include ma-container;
+
+  &__title {
+
+    @include ma-border-decorative;
+    padding-bottom: 15px;
+  }
+
+  &__items {
+
+    @include ma-reset-list;
+    padding-top: 10px;
+
+    @media ($bp-medium-min) {
+      columns: 2;
+    }
+  }
+
+  &__item {
+    font-size: 1.25rem;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    position: relative;
+
+    @media ($bp-small-min) {
+      padding-left: 95px;
+      padding-top: 0;
+    }
+  }
+
+  &__date {
+    font-size: 1.375rem;
+    line-height: 1.35;
+    position: absolute;
+      top: 0;
+      left: 0;
+  }
+
+  &__view-all {
+    text-align: right;
+
+    a {
+
+      @include ma-chevron;
+
+      @include ma-link-underline;
+      display: inline-block;
+      padding-bottom: 0;
+
+      &:after {
+        height: .5em;
+        width: .5em;
+      }
+    }
+  }
+
+  @media ($bp-medium-max) {
+
+    .ma__split50__container > &:nth-last-child(n+2),
+    .ma__split50__container > *:nth-last-child(n+2) ~ & {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  @media ($bp-medium-min) {
+
+    // left side
+
+    .ma__split50__container > &:nth-child(odd) {
+      padding-left: 0;
+    }
+
+    // right side
+
+    .ma__split50__container > &:nth-child(even) {
+      padding-right: 0;
+    }
+
+    // more than two in a 50/50
+
+    .ma__split50__container > &:nth-last-child(n+2),
+    .ma__split50__container > *:nth-last-child(n+2) ~ & {
+
+      .ma__change-log__title {
+        font-size: 2.188rem;
+        line-height: 1.214287;
+
+        &:after {
+          width: 2.25em;
+        }
+      }
+
+      .ma__change-log__items {
+        columns: 1;
+      }
+    }
+  }
+}
+
+//theme
+
+.ma__change-log {
+
+  &__title {
+
+    @include ma-border-decorative($c-primary-alt);
+  }
+
+  &__date {
+    font-weight: 900;
+  }
+  
+  &__view-all {
+    
+    a {
+      
+      &:hover,
+      &:after {
+        border-color: rgba($c-font-link,.5);
+      }
+    }
+  }
+}

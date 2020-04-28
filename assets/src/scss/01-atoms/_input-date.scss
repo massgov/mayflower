@@ -1,0 +1,8 @@
+// Custom Date input
+@use "00-base/global" as *;
+
+.ma__input-date[type=text] {
+  background-image: url("#{$assets-path}/images/svg-icons/date-picker.svg");
+  background-position: right 8px top 7px;
+  background-repeat: no-repeat;
+}

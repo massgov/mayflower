@@ -1,0 +1,84 @@
+@use "00-base/global" as *;
+
+.ma__press-status {
+  padding: 30px;
+  position: relative;
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+  }
+
+  .main-content--two .page-content > & {
+
+    @media ($bp-large-min) {
+      padding-left: 0;
+
+      &:before {
+        content: "";
+        height: 100%;
+        position: absolute;
+          right: 100%;
+          top: 0;
+        width: 50vw;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: $letter-spacing-large;
+    line-height: 1.875rem;
+    text-transform: uppercase;
+  }
+
+  &__content {
+
+    @include clearfix;
+  }
+
+  &__date {
+    margin-bottom: 5px;
+
+    @media ($bp-small-min) {
+
+      @include span-columns(3 of 8);
+    }
+  }
+
+  &__names {
+
+    @include ma-reset-list;
+
+    @media ($bp-small-min) {
+
+      @include span-columns(5 of 8);
+    }
+  }
+
+  &__name {
+    font-size: 1.25rem;
+    margin-bottom: .5em;
+  }
+}
+
+//theme
+
+.ma__press-status {
+  background-color: $c-bg-section;
+
+  .main-content--two .page-content > & {
+
+    &:before {
+      background-color: $c-bg-section;
+    }
+  }
+
+  &__title {
+    color: $c-font-detail;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,41 @@
+// Mixin also accpets a reduced width version 
+// to limit the number of characters per line
+// @include ma-container('restricted')
+@use "00-base/variables" as *;
+@use "00-base/colors" as *;
+@use "00-base/breakpoints" as *;
+
+@mixin ma-container($narrow:'') {
+  margin-right: auto;
+  margin-left: auto;
+  // grid max width plus the l/r padding for desktop
+  max-width: $max-width;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media ($bp-medium-min) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media ($bp-large-min) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @if ($narrow == 'restricted') {
+
+    @media ($bp-large-min) and ($bp-page-width-max) {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: $l-max-content-width;
+    }
+
+    @media ($bp-page-width-min) {
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: $max-width - $l-max-content-width;
+    }
+
+  }
+}

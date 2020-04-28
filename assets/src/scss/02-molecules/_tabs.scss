@@ -1,0 +1,37 @@
+@use "00-base/global" as *;
+
+.ma__tabs {
+  overflow: auto;
+  display: flex;
+
+  &-item {
+    background: $c-bg-subtle;
+    border: none;
+
+    @media ($bp-small-max) {
+      display: flex;
+        flex-wrap: nowrap;
+        white-space:nowrap;
+    }
+
+    padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+    font-size: 1.25rem;
+    color: inherit;
+    border-bottom: 5px solid transparent;
+    cursor: pointer;
+    font-weight: normal;
+
+    &:hover {
+      border-bottom: 5px solid;
+      border-color: $c-primary-lighter;
+    }
+
+    &.is-selected {
+      border-bottom: 5px solid;
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+      color: $c-primary;
+      font-weight: 700;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@use "00-base/global" as *;
+
+.ma__callout {
+  border-left: 2px solid;
+  padding-left:20px;
+  margin-bottom: 45px;
+
+  @media ($bp-x-small-min) {
+    padding-left:38px;
+  }
+
+  .pre-content > &,
+  .post-content > &,
+  .main-content--full .page-content > & {
+
+    @include ma-container();
+  }
+
+  &__header {
+
+    svg {
+      display: inline-block;
+      height: 45px;
+      vertical-align: middle;
+      width: 60px;
+    }
+  }
+
+  &__text {
+    font-size: rem(25);
+    line-height: 1.46;
+    padding-top:28px;
+    padding-bottom: 10px;
+
+    @media ($bp-x-small-min) {
+      font-size: 1.625rem;
+      line-height: em(40,28);
+      padding-top:38px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__author,
+  &__auth-title {
+    display: block;
+    text-align: right;
+  }
+
+  &__author {
+    font-size: 1.188rem;
+    line-height: 1.79;
+  }
+
+  &__auth-title {
+    font-size: 1.188rem;
+    line-height: 1.37;
+  }
+}
+
+//theme
+
+.ma__callout {
+  border-left-color: $c-highlight;
+  color: $c-font-heading;
+  font-weight: 800;
+
+  &__header {
+
+    svg {
+      fill: $c-highlight; 
+    }
+  }
+}

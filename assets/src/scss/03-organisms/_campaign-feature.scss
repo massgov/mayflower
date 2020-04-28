@@ -1,0 +1,32 @@
+@use "00-base/global" as *;
+
+.ma__campaign-feature {
+
+  @include ma-container();
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  @media ($bp-small-min) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &__primary {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__more-link {
+    margin-top: 0;
+    text-align: center;
+
+    @media ($bp-small-min) {
+      margin-top: 20px;
+    }
+  }
+}
