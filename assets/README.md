@@ -141,3 +141,5 @@ const compileSass = () => {
 exports.default = series(compileSass);
 
 ```
+## Development with Assets Package
+When working on changing styling, you can use `npm link` with another project so that changes made to `.scss` files show up live time. First, run `npm link` under the mayflower repo's assets directory. Next, in your other project's root directory run `npm link ../path/to/mayflower-repo/assets`. This will make it so that under node_modules for your project, this package is symlinked (from @massds/assets) to the mayflower repo's assets directory.
