@@ -1,6 +1,13 @@
 # Mayflower Assets
 The styles provided by this package require compiling with a tool that supports the [npm sass package](https://www.npmjs.com/package/sass). [Bourbon](https://www.npmjs.com/package/bourbon) 5.x is required to use the .scss files in this package and must be installed by the user of it.
 
+## License
+Please note that the fonts and the svg-icons are licensed only for the usage on websites that are **owned by the Commonwealth of Massachusetts**. Mayflower is currently using a licensed web font Texta and purchased [Smashing Icons](https://smashicons.com/) for some icons.
+
+### Texta License
+Fontspring grants Licensee a perpetual, worldwide, non-exclusive and non-transferrable license to install the Texta as webfont on Websites that are owned by the Commonwealth of Massachusetts using the @font-face selector in CSS files. For other usage, you may have to acquire an additional license through Fontsprint.
+For more details about Texta's terms of use, please refer to our [web font license](https://www.fontspring.com/lic/htswufoczd).
+
 ## Setup and Usage (fonts/images)
 If you're using this package only for its fonts and images, you can skip installing bourbon and sass. Assets can be found under `dist/fonts` and `dist/images`.
 
