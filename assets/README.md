@@ -8,6 +8,13 @@ Please note that the fonts and the svg-icons are licensed only for the usage on 
 Fontspring grants Licensee a perpetual, worldwide, non-exclusive and non-transferrable license to install the Texta as webfont on Websites that are owned by the Commonwealth of Massachusetts using the @font-face selector in CSS files. For other usage, you may have to acquire an additional license through Fontsprint.
 For more details about Texta's terms of use, please refer to our [web font license](https://www.fontspring.com/lic/htswufoczd).
 
+## Publishing Instructions
+>To publish the package, you will have to be a collaborator or have access to the [@massds/assets npm package](https://www.npmjs.com/package/@massds/assets).
+
+1. Once you're done making changes and ready to publish, run `npm run build`. The provided gulp file will copy over all fonts, images, and scss files to the `dist/` directory for you.
+2. `npm login` — Login to the npm account.
+
+
 ## Setup and Usage (fonts/images)
 If you're using this package only for its fonts and images, you can skip installing bourbon and sass. Assets can be found under `dist/fonts` and `dist/images`.
 
