@@ -1,8 +1,0 @@
-Added:
-  - project: React
-    component: Label
-    description: Added Label component to render label and legend for input and fieldset elements. (#1028)
-    issue: DP-18462
-    impact: Patch
-    
-    
