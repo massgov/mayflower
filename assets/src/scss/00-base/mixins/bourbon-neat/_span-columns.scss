@@ -49,9 +49,13 @@
 ///   .element .nested-element:last-child {
 ///     margin-right: 0;
 ///   }
+
 @use "00-base/variables" as *;
+
 @use "00-base/colors" as *;
+
 @use "private" as *;
+
 @use "shift" as *;
 
 @mixin span-columns($span: $columns of $container-columns, $display: block) {
@@ -65,7 +69,7 @@
 
   $display-table: is-display-table($container-display-table, $display);
 
-  @if $display-table  {
+  @if $display-table {
     display: table-cell;
     width: percentage($columns / $container-columns);
   } @else {
@@ -76,6 +80,7 @@
     }
 
     @if $display == collapse {
+
       @include -neat-warn("The 'collapse' argument will be deprecated. Use 'block-collapse' instead.");
     }
 

@@ -1,12 +1,15 @@
 @charset "UTF-8";
+
 @use "00-base/variables" as *;
 
 @if $border-box-sizing == true {
+
   html { // http://bit.ly/1qk2tVR
     box-sizing: border-box;
   }
 
   * {
+
     &,
     &::after,
     &::before {

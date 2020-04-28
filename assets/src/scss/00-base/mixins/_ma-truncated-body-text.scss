@@ -1,7 +1,10 @@
 // Include this in the topmost level of any pattern that might
 // contain a truncated body text area
+
 @use "00-base/variables" as *;
+
 @use "00-base/colors" as *;
+
 @use "ma-chevron" as *;
 
 @mixin ma-truncated-body-text {

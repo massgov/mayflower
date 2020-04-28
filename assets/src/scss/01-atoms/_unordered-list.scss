@@ -1,4 +1,5 @@
 // Override :last-child bottom margin.
+
 @use "00-base/global" as *;
 
 .ma__horizontal-list:nth-child(n) {

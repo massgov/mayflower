@@ -1,8 +1,11 @@
 // Mixin also accpets a reduced width version 
 // to limit the number of characters per line
 // @include ma-container('restricted')
+
 @use "00-base/variables" as *;
+
 @use "00-base/colors" as *;
+
 @use "00-base/breakpoints" as *;
 
 @mixin ma-container($narrow:'') {

@@ -2,8 +2,11 @@
 // adds a underline on hover
 // prevents the external or arrow icon from becoming an orphan
 // basic structure expected => <div><a>text&nbsp;<svg></svg></a></div> 
+
 @use "00-base/variables" as *;
+
 @use "00-base/colors" as *;
+
 @use "ma-link-underline" as *;
 
 @mixin ma-link-decorative {

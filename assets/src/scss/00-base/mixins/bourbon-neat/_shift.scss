@@ -1,4 +1,5 @@
 @use "00-base/variables" as *;
+
 @use "private" as *;
 /// Translates an element horizontally by a number of columns. Positive arguments shift the element to the active layout direction, while negative ones shift it to the opposite direction.
 ///
@@ -14,7 +15,9 @@
 ///   .element {
 ///     margin-left: -25.58941%;
 ///   }
+
 @mixin shift($n-columns: 1) {
+
   @include shift-in-context($n-columns);
 }
 
@@ -34,6 +37,7 @@
 ///   .element {
 ///     margin-left: -52.41458%;
 ///   }
+
 @mixin shift-in-context($shift: $columns of $container-columns) {
   $n-columns: nth($shift, 1);
   $parent-columns: container-shift($shift) !global;
