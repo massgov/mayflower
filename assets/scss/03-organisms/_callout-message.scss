@@ -15,15 +15,19 @@
   border: 3px solid;
   display:block;
   width: 100%;
-  padding: 30px;
+  padding: 15px 20px;
   background-color: tint($c-font-link,90%);
   border-color: tint($c-font-link,50%);
   box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
 
+  @media ($bp-small-min) {
+    padding: 30px;
+  }
+
   @media ($bp-large-min) {
     float:left;
     margin-right: $column;
-    width: calc(100% - #{$layout-sidebar-width} - 40px);
+    width: calc(100% - #{$layout-sidebar-width});
   }
 
   @media ($bp-x-large-min) {
@@ -62,7 +66,7 @@
     justify-content: center;
     background: none;
     box-shadow: none;
-    margin-top: 30px;
+    // margin-top: 0; //30px;
     padding: 0;
   }
 }
