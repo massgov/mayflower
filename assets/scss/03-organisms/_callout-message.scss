@@ -27,11 +27,11 @@
   @media ($bp-large-min) {
     float:left;
     margin-right: $column;
-    width: calc(100% - #{$layout-sidebar-width});
+    width: calc(100% - #{$layout-sidebar-width} - #{$column});
   }
 
   @media ($bp-x-large-min) {
-    margin-right: $column + ($gutter * 2);
+    width: calc(100% - #{$layout-sidebar-width} - #{$column} - (#{$gutter} * 2));
   }
 
   &--white {
