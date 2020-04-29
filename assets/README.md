@@ -35,14 +35,14 @@ dist/scss/08-print
 ```
 These include paths allow you to include files with paths like `00-base/name-of-file` in your code.
 
-Many of the components require `00-base/mixins/box-sizing` to be included at least once before their use. It's recommended for your project to create a single .scss file that includes all the shared files for your needs. This file should use `@forward` to forward sass modules that your other files need:
+Many of the components require `00-base/_layout.scss` to be included at least once before their use. It's recommended for your project to create a single .scss file that includes all the shared files for your needs. This file should use `@forward` to forward sass modules that your other files need:
 ```
 // example.scss
 
 // Assuming 'node_modules' is your include paths here...
 // forwards the normalize-scss library's normalize styling.
 @forward "normalize-scss/sass/normalize";
-@forward "00-base/mixins/box-sizing";
+@forward "00-base/layout";
 // Let all your scss files have access to colors without having to remember that.
 @forward "00-base/colors";
 // Grab the fonts from this package for inclusion:

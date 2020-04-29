@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@use "00-base/variables" as *;
+@use "variables" as *;
 
 @if $border-box-sizing == true {
 
