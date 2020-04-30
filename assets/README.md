@@ -1,5 +1,5 @@
 # Mayflower Assets
-The styles provided by this package require compiling with a tool that supports the [npm sass package](https://www.npmjs.com/package/sass). [Bourbon](https://www.npmjs.com/package/bourbon) 5.x is required to use the .scss files in this package and must be installed by the user of it.
+The styles provided by this package require compiling with a tool that supports the [npm sass package](https://www.npmjs.com/package/sass). [Bourbon](https://www.npmjs.com/package/bourbon) 4.x is required to use the .scss files in this package and must be installed by the user of it.
 
 ## License
 Please note that the fonts and the svg-icons are licensed only for the usage on websites that are **owned by the Commonwealth of Massachusetts**. Mayflower is currently using a licensed web font Texta and purchased [Smashing Icons](https://smashicons.com/) for some icons.
@@ -11,31 +11,35 @@ For more details about Texta's terms of use, please refer to our [web font licen
 ## Publishing Instructions
 >To publish the package, you will have to be a collaborator or have access to the [@massds/assets npm package](https://www.npmjs.com/package/@massds/assets).
 
-1. Once you're done making changes and ready to publish, run `npm run build`. The provided gulp file will copy over all fonts, images, and scss files to the `dist/` directory for you.
-2. `npm login` — Login to the npm account.
-3. Update `version` in package.json and run `npm publish`. Wait a few minutes and check [@massds/assets](https://www.npmjs.com/package/@massds/assets) on the npm registry.
+1. Once you're done making changes and ready to publish, run `npm login` to login to the npm account.
+2. Update `version` in package.json and run `npm publish`. Wait a few minutes and check [@massds/assets](https://www.npmjs.com/package/@massds/assets) on the npm registry.
 
 
 
 ## Setup and Usage (fonts/images)
-If you're using this package only for its fonts and images, you can skip installing bourbon and sass. Assets can be found under `dist/fonts` and `dist/images`.
+If you're using this package only for its fonts and images, you can skip installing bourbon and sass. Assets can be found under `fonts` and `images`.
 
 ## Setup and Usage (Sass)
 When using this package for the .scss files, you should set the sass package's include paths to include bourbon's include paths as well as this package's own. This package's include paths are:
 ```
-dist
-dist/scss
-dist/scss/00-base
-dist/scss/00-base/mixins
-dist/scss/01-atoms
-dist/scss/03-organisms
-dist/scss/04-templates
-dist/scss/05-dataviz
-dist/scss/08-print
+scss
+scss/00-base
+scss/00-base/mixins
+scss/01-atoms
+scss/03-organisms
+scss/04-templates
+scss/05-dataviz
+scss/08-print
 ```
 These include paths allow you to include files with paths like `00-base/name-of-file` in your code.
 
-Many of the components require `00-base/_layout.scss` to be included at least once before their use. It's recommended for your project to create a single .scss file that includes all the shared files for your needs. This file should use `@forward` to forward sass modules that your other files need:
+You can also set up your include paths by using an `.env` file at the root of your project. Sass can use the node environment variable `SASS_PATH` for setting your include paths:
+```
+// .env file
+SASS_PATH=./node_modules/@massds/assets/scss:./node_modules/@massds/assets/scss/00-base:./node_modules/@massds/assets/scss/00-base/mixins:./node_modules/@massds/assets/scss/01-atoms:./node_modules/@massds/assets/scss/02-molecules:./node_modules/@massds/assets/scss/03-organisms:./node_modules/@massds/assets/scss/04-templates/./node_modules/@massds/assets/scss/05-dataviz:./node_modules/@massds/assets/scss/08-print:./node_modules/bourbon/app/assets/stylesheets
+```
+
+Many of the components require the file `00-base/_layout.scss` to be included at least once before their use. It's recommended for your project to create a single .scss file that includes all the shared files for your needs. This file should use `@forward` to forward sass modules that your other files need:
 ```
 // example.scss
 
@@ -62,7 +66,7 @@ Many of the components require `00-base/_layout.scss` to be included at least on
 Creating a shared file is NOT required. You can also just ensure that you include the box-sizing styling:
 ```
 // some-other-file.scss
-@use "00-base/mixins/box-sizing";
+@use "00-base/layout";
 .elementClass {
   ... rules go here ...
 }
@@ -151,4 +155,4 @@ exports.default = series(compileSass);
 
 ```
 ## Development with Assets Package
-When working on changing styling, you can use `npm link` with another project so that changes made to `.scss` files show up live time. First, run `npm link` under the mayflower repo's assets directory. Next, in your other project's root directory run `npm link ../path/to/mayflower-repo/assets`. This will make it so that under node_modules for your project, this package is symlinked (from @massds/assets) to the mayflower repo's assets directory.
+When working on changing styling, you can use `npm link` with another project so that changes made to `.scss` files show up live time. First, run `npm link` under the mayflower repo's assets directory. Next, in your other project's root directory run `npm link @massds/assets`. This will make it so that under node_modules for your project, this package is symlinked (from @massds/assets) to the mayflower repo's assets directory.
