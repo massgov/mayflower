@@ -4,7 +4,9 @@
   "description": "Mayflower Assets",
   "main": "index.js",
   "files": [
-    "dist/**/*"
+    "fonts",
+    "images",
+    "scss"
   ],
   "repository": {
     "type": "git",
@@ -20,8 +22,7 @@
   "scripts": {
     "test": "stylelint",
     "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
-    "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose",
-    "build": "gulp"
+    "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose"
   },
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
@@ -30,13 +31,6 @@
     "bourbon": "^5.1.0"
   },
   "devDependencies": {
-    "bourbon": "^5.1.0",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-flatmap": "^1.0.2",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.2",
-    "sass": "^1.26.3",
     "stylelint": "^13.3.3",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",

@@ -9,6 +9,8 @@
 
 @use "00-base/colors" as *;
 
+@use "00-base/color-tokens" as *;
+
 @use "ma-button-base" as *;
 
 @mixin ma-button ($size:"normal", $type:"solid", $color:"transparent") {

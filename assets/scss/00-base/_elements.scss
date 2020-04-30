@@ -12,6 +12,14 @@
 // WARNING: avoid nesting of elements,
 // because it makes them harder to override.
 
+@use "variables" as *;
+
+@use "colors" as *;
+
+@use "breakpoints" as *;
+
+@use "mixins" as *;
+
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

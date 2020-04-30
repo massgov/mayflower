@@ -6,6 +6,8 @@
 
 @use "00-base/colors" as *;
 
+@use "00-base/color-tokens" as *;
+
 @use "00-base/breakpoints" as *;
 
 @mixin ma-heading-colored($c-bg:transparent,$direction:right,$c-page:white) {
