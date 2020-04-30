@@ -4,7 +4,9 @@
 
 @use "colors" as *;
 
-@use "bourbon/library/tint" as *;
+// From Bourbon
+
+@use "functions/tint" as *;
 
 .pika-single {
   font-family: $fonts;

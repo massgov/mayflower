@@ -2,7 +2,7 @@
 
 @use "00-base/colors" as *;
 
-@use "bourbon/library/tint" as *;
+@use "functions/tint" as *;
 
 @mixin ma-emergency-alert ($color) {
   color: $c-font-base;
