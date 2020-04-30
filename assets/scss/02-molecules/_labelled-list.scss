@@ -1,17 +1,25 @@
 .ma__labelled-list {
+  margin-top: 1.875rem !important;
+
+  & + .ma__rich-text {
+    margin-top: 1.875rem !important;
+  }
 
   &__items {
+
     @include ma-reset-list;
   }
 
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
   }
 }
 
 //theme
+
 .ma__labelled-list {
 
   &__label {

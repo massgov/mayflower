@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-unresolved
 import './style.css';
 
-const Tabs = (tabs) => {
+const Tabs = ({ handleClick, tabs, selectedTab }) => {
+  const isClickFunction = typeof handleClick === 'function';
   const handleAllClick = (e) => {
     const selTab = e.target;
-    selTab.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-
+    if (selTab && selTab.scrollIntoView) {
+      selTab.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+    }
     // invokes custom function if passed in the component
-    if (typeof tabs.handleClick === 'function') {
-      const selectedTab = selTab.name;
-      tabs.handleClick(selectedTab);
+    if (isClickFunction) {
+      handleClick(selTab.name);
     }
   };
   return(
@@ -19,21 +20,35 @@ const Tabs = (tabs) => {
       <div className="main-content--two">
         <div className="ma__tabs">
           {
-            tabs.tabs.map((tab) => {
-              const isSelected = tabs.selectedTab === tab.value ? 'is-selected' : '';
-              return(
-                <button
-                  key={`tab_${tab.value}`}
-                  className={`ma__tabs-item ${isSelected}`}
-                  name={tab.value}
-                  onClick={(e) => handleAllClick(e)}
-                  aria-label={tab.ariaLabel || tab.value}
-                >
-                  {tab.label}
-                </button>
+            tabs.map((tab) => {
+              const {
+                value, label, ariaLabel, href
+              } = tab;
+              const isSelected = selectedTab === value ? 'is-selected' : '';
+              if (isClickFunction) {
+                return(
+                  <button
+                    key={`tab_${value}`}
+                    className={`ma__tabs-item ${isSelected}`}
+                    name={value}
+                    onClick={(e) => handleAllClick(e)}
+                    aria-label={ariaLabel || value}
+                  >
+                    {label}
+                  </button>
                 );
-              })
-            }
+              }
+              return(
+                <a
+                  key={`tab_${value}`}
+                  href={href}
+                  className={`ma__tabs-item ${isSelected}`}
+                >
+                  {label}
+                </a>
+              );
+            })
+          }
         </div>
       </div>
     </div>
@@ -41,11 +56,20 @@ const Tabs = (tabs) => {
 };
 
 Tabs.propTypes = {
+  /* handleClick is a custom callback function that returns the selected tab value.
+   * If handleClick is passed in as a function, the tabs will be rendered as buttons, otherwise will be rendered anchor links.
+  */
   handleClick: PropTypes.func,
+  /* default tab value rendered as selected */
   selectedTab: PropTypes.string,
   tabs: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string,
-    label: PropTypes.string,
+    /* href is used as anchor link href for the tab if the handleClick is not passed as a function */
+    value: PropTypes.string.isRequired,
+    /* text rendered for the tab */
+    label: PropTypes.string.isRequired,
+    /* href is used as anchor link href for the tab if the handleClick is not passed as a function */
+    href: PropTypes.string,
+    /* arial-label for the tab button if the handleClick is passed as a function */
     ariaLabel: PropTypes.string
   }))
 };

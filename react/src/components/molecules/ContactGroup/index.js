@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
+import './style.css';
 
 const ContactGroup = (contactGroup) => {
   const icons = {
@@ -19,6 +20,7 @@ const ContactGroup = (contactGroup) => {
       case 'address':
         return(
           <React.Fragment>
+            {/* eslint-disable-next-line react/no-danger */}
             <div className="ma__contact-group__address" dangerouslySetInnerHTML={{ __html: item.address }} />
             { item.link.href && (
             <div className="ma__contact-group__directions">
@@ -40,6 +42,7 @@ const ContactGroup = (contactGroup) => {
         </Element>
       )}
       { contactGroup.items && contactGroup.items.map((item, itemIndex) => (
+        /* eslint-disable-next-line react/no-array-index-key */
         <React.Fragment key={`contactGroup.item.${itemIndex}`}>
           <div className="ma__contact-group__item">
             { item.label && (

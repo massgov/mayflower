@@ -1,8 +1,0 @@
-{
-  "name": "polyfill-init",
-  "main": "index.js",
-  "_source": "/Users/velir/www/SHADAC-CAHPS/web/CAHPS.Web/assets/polyfill/polyfill-init.js",
-  "_target": "*",
-  "_originalSource": "./polyfill-init.js",
-  "_direct": true
-}

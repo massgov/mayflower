@@ -1,17 +1,1069 @@
 # Mayflower Release Notes
-
 All notable changes to this project will be documented in this file.
 
-See [Change Log Instructions](docs/for-developers/changelog-instructions.md) for directions on updating this file.
+## 9.49.1 (4/28/2020)
+### Added
+  - (Patternlab) [CalloutMessage] DP-18422: Add a new copmponent to have rich text and callout link. (#1026)
+### Changed
+  - (Patternlab) [StackedRowTemplate] DP-18422: Adjust margin with/without callout message. (#1026)
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+## 9.49.0 (4/27/2020)
+### Added
+- (React, Patternlab, Assets) [Fonts] DP-18315: Addded fonts for Khmer language support. (#1021)
+### Added
+- (React) [Label] DP-18462: Added Label component to render label and legend for input and fieldset elements. (#1028)
 
-```
-<ticket/issue #>: Human-friendly description, with hyperlinked patterns (<Link to #PR>)
-```
+## 9.48.0 (4/20/2020)
+### Changed
+- (Patternlab) [Button alert] DP-17792: Adjusted scss to rotate button arrow up when accordion opens
 
-**For example**
-- DP-1234: The short description text on a [service detail](http://mayflower.digital.mass.gov/?p=pages-detail-for-service-howto-location) page banner ([@organisms/by-template/page-banner](http://mayflower.digital.mass.gov/?p=organisms-page-banner)) should now render ([PR #493](https://github.com/massgov/mayflower/pull/493))
+## 9.47.0 (4/13/2020)
+### Changed
+- (Patternalb) [ServicePage] DP-16029: Change the property value to set style for see all link in service page to match Mass.gov production. (#994)
+- (Patternlab) [Featured Item Mosaic] DP-16690: Changed text from less to fewer.
+- (React) [Dependency] DP-17437: Upgrade storybook to lastest version 5.3.18. (#958)
+
+### Added
+- (Docs) [Release] DP-18180: Add documentation on release and hotfix (#1017)
+
+## 9.46.1 (4/6/2020)
+### Fixed
+- (Site) [CircleCI] DP-17980: Fixed CircleCI deploy build. (#1016)
+
+## 9.46.0 (4/6/2020)
+### Changed
+- (Patternlab) [Contact-item] DP-15965: Changed capitalization of directions
+- (Patternlab) [DecprativeLink] DP-17387: Adjust css for decorative link in location listing for Chrome. Match the markup of assets/js/templates/locationListingRow.html to 02-molecules/image-promo.twig. (#995)
+
+### Added
+- (Site) [Header, RichText] DP-17923: Add links to digital styleguide on the homepage. (#999)
+- (Site) [CircleCI] DP-17980: Add CI for site build and deploy. (#1001)
+
+## 9.45.2 (3/31/2020)
+### Changed
+- (Patternlab) [main-nav] DP-18018: Fix typo in Covid-19 link styling. (#1010)
+
+## 9.45.1 (3/31/2020)
+### Changed
+- (Patternlab) [main-nav] DP-18000: Make top-level nav items clickable. (#1005)
+- (Patternlab) [main-nav] DP-18018: Add alternate style for COVID-19 link. (#1008)
+
+## 9.45.0 (3/30/2020)
+### Added
+- (Pattternlab) [LinkList] DP-17674: Add a new style for link list in service page. (#993)
+- (React) [ButtonWithIcon] DP-17662: Add `href` prop and allow passing `text` as children, allow the ButtonWithIcon component to be rendered as a link. (#992)
+
+### Fixed
+- (Site) [Dependency] DP-17662: Upgrade Mayflower-react to 9.44.2 to fix assets paths. (#992)
+- (React) [Button] DP-17958: Disabled hover changes when button is disabled. Adjusted colors for a11y for c-highlight theme.
+
+### Changed
+- (Site) [Homepage] DP-17662: Update data and fixed images. (#992)
+
+## 9.44.2 (3/20/2020)
+### Fixed
+- (React) [NPM Package] hotfix: Fix Mayflower-react by updating prepublish hook. Please note: 9.44.1 was not successful, due to the package being overwritten by prepublish build. (#990)
+
+## 9.44.1 (3/19/2020)
+### Fixed
+- (React) [NPM Package] hotfix: Remove package.json from symlinked assets folder in package. (#986)
+
+## 9.44.0 (3/16/2020)
+### Added
+- (React) [Icon] DP-17530: Added github and slack icons. (#970)
+- (React) [SectionLinks] DP-17530: Added SectionLinks component. (#970)
+- (React) [Tabs] DP-17530: Added anchor link option for Tabs. (#970)
+- (React) [GenTeaser] DP-17530: Added GenTeaser.Image. (#970)
+- (React) [Image] DP-17530: Refactored and fixed `shape` and `classes` props. (#970)
+- (Patternlab) [InformationDetails] DP-17625: Visual Story sidebar template and styles adjust. (#969)
+
+### Changed
+- (Site) [New] DP-17530: Added Mayflower site homepage built with Gatsby and Mayflower React. (#970)
+- (React, Patternlab, Assets) [CircleCI] DP-17800: Move release to Monday 1pm EST (#980)
+
+### Fixed
+- (Patternlab) [Listings] DP-17633: Fix geocoding for autocomplete results on location listings. (#972)
+
+## 9.43.0 (3/10/2020)
+### Changed
+- (React, Patternlab) [Testing] DP-17679: Updated BackstopJS to 4.x and added numerous test speed and stability enhancements. (#959)
+
+- (React) [storybook] DP-17662: Changed S3 bucket and storybook site URL, `mayflower-react.digital.mass.gov` → `mayflower.digital.mass.gov/react`. (#957)
+- (React) [patternlab] DP-17662: Changed S3 bucket and storybook site URL, `mayflower.digital.mass.gov` → `mayflower.digital.mass.gov/patternlab`. (#957)
+
+## 9.42.1 (3/3/2020)
+### Fixed
+- (React, Patternlab, Assets) [Auto Release] DP-17652: Revert commiting package.json version bump. (#909)
+
+## 9.42.0 (3/3/2020)
+### Fixed
+- (Patternlab) [Location-listing] DP-15035: Limit pagination output to 10 items
+
+### Changed
+- (Patternlab) [StickyTOC] DP-17258: Fix "see more" button not appearing after the TOC
+
+### Added
+- (Assets) [scripts] DP-17532: Added a build step to map the src to a different structure for distribution `npm run build` and restructured `mayflower-token` package content in a `dist` folder. (#948)
+- (Assets) [SCSS] DP-17532: Added `lighter` `lightest` `darker` `darkest` variables consistently across all brand colors, adjusted the variable labels in the storybook. (#948)
+- (Assets) [CircleCI] DP-17651: Added @massds/mayflower-tokens package to auto release, keeping versioning consistent with other mayflower npm packages.(#949)
+- (React, Patternlab, Assets) [Auto Release] DP-17652: Added step to bump version in package.json. (#956)
+
+## 9.41.0 (2/25/2020)
+### Changed
+- (Assets) [SCSS] DP-17532: Separated color token variable scss from the color usage mapping. (#947)
+
+### Added
+- (Assets) [SCSS] DP-17532: Added and refactored mayflower color gradients into color token stylesheet. (#947)
+- (Assets) [SCSS] DP-17532: Registered a new `mayflower-token` package in npm to include color tokens, fonts and images. (#947)
+
+## 9.40.2 (2/21/2020)
+### Added
+- (Assets) [SCSS] DP-17528: Added style linting for shared SCSS, fixed lint errors and add to circle test. (#939)
+### Changed
+- (Patternlab) [Dependabot] DP-17569: Revert "Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide #875." (#944)
+
+## 9.40.1 (2/18/2020)
+### Changed
+- (React) [Storybook] DP-17473: Customize ordering of stories. (#934)
+### Fixed
+- (Patternlab) [UtilityNav] Fix the mobile version overwrap display issue. (#926)
+
+## 9.40.0 (2/11/2020)
+### Added
+- (React) [ButtonCopy] DP-17435: Addded ButtonCopy atom under buttons. (#929)
+
+### Fixed
+- (React, Patternlab) [SCSS] Align shared scss vars. (#933)
+
+## 9.39.3 (2/7/2020)
+### Added
+- (React) [Typography] DP-17340: Added Typography story and documentation. (#918)
+- (React, Patternlab) [styles] DP-17340: Added `ma-texta-style($weight, $italic)` mixin and Texta font style classes. (#918)
+- (React, Patternlab) [styles] DP-17340: Added `$fonts` and `$fonts-mono` font family variables. (#918)
+- (React) [Icon] DP-17354: Display all icons in a story. (#924)
+
+### Changed
+- (React) [Icon] DP-17354: Move Icon from atoms to base. (#924)
+
+### Fixed
+- (React) [Dependency] DP-17417: Move react-scripts into dev dependencies, and move react-html-parser into prod dependencies. (#927)
+- (React) [Tab, FeedbackForm] DP-17417: Fix tab ref proptype for server side rendering. (#928)
+
+## 9.39.2 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Release tag error. (#922)
+
+## 9.39.1 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Hotfix release tag package install. (#922)
+
+## 9.39.0 (2/4/2020)
+### Changed
+- (Patternlab) [UtilityNav] DP-16804: Change the state organizations menu from a button to a link directly to the page. (#882)
+- (React) [Storybook] DP-17320: Config storybook to add Mayflower theme. (#915)
+- (React) [Storybook] DP-17338: Render welcome page to Mayflower-react. (#916)
+- (React) [Storybook] DP-17338: Display `Color` in category "Brand". (#916)
+- (React) [Storybook] DP-17372: Organize all form components from atoms, molecules and organisms into a forms category. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+- (React) [Storybook] DP-17372: Move Placeholder component into atoms. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+
+### Added
+- (React) [Color] DP-17253: Addded Color stories and color gradients. (#909)
+
+## 9.38.0 (1/21/2020)
+
+### Changed
+- (Patternlab) [Dependency] DP-17156: Replace uglify-js with terser.
+
+### Fixed
+- (Patternlab, React) [release automation] DP-16732: Fixed the display for the month and date in the release automation. (#874)
+
+### Changed
+- (Patternlab) [Dependency] DP-17136: Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide.
+
+## 9.37.0 (1/14/2020)
+
+### Changed
+(Patternlab) [Dependency] Bump node-normalize-scss from 8.0.0 to 8.0.1.
+
+### Changed
+- (Patternlab) [Dependency] DP-16827: Bumps del from 4.0.0 to 5.1.0.
+
+### Security
+- (Patternlab) [Dependency] DP-16828: Update eslint-utils from v.1.3.1 to v.1.4.2.
+
+### Changed
+- (Patternlab) [Dependency] DP-16831: Bump eslint-plugin-react from 7.11.1 to 7.16.0 in /patternlab/styleguide.
+
+### Changed
+- (Patternlab) [Dependency] DP-16832: Bump dotenv from 6.0.0 to 8.2.0 in /patternlab/styleguide.
+
+### Changed
+- (Patternlab) [Dependency] DP-16833: Bump gulp-rename from 1.3.0 to 2.0.0 in /patternlab/styleguide.
+
+### Changed
+- (Patternlab) [Dependency] DP-16834: Bump url-search-params-polyfill from 5.0.0 to 7.0.1 in /patternlab/styleguide.
+
+### Changed
+- (Patternlab) [Dependency] DP-17124: Bump untildify from 3.0.3 to 4.0.0 in /patternlab/styleguide.
+
+### Changed
+- (Patternlab) [Dependency] DP-17125: Bump through2 from 2.0.3 to 3.0.1 in /patternlab/styleguide.
+
+### Changed
+- (Patternlab) [Dependency] DP-17137: Bump gulp from 4.0.0 to 4.0.2 in /patternlab/styleguide.
+
+## 9.36.0 (1/7/2020)
+
+### Security
+- (Patternlab) [Dependency] DP-16925: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782
+
+## 9.35.0 (12/18/2019)
+
+### Fixed
+- (React) [Tab] DP-16678: Fixed PropTypes check console error for `tabRef`.
+
+
+## 9.34.0 (12/11/2019)
+
+### Changed
+- (React) [InputCheckBox] DP-16111: Refactor InputCheckBox to be used for multiple selections. #787
+	- Allow defaultValue to update the component state
+	- Added required `value` prop to input checkbox element (Major)
+	- Added `onKeyDown` prop to allow passing arrow navigation between checkbox options
+	- Added `tabIndex` prop to permit change of tab-index
+	- Added `classes` prop to permit passing in classes to input wrapper div
+
+### Added
+- (React) [MultiSelectDropDown] DP-16111: Added `MultiSelectDropDown` molecule. #787
+- (React) [ButtonTag, Tags] DP-16111: Added `ButtonTag` atom under buttons and `Tags` molecule. #787
+- (React) [Input] DP-16111: Added classes props to Input to pass classNames into input wrapper div. #787
+
+### Added
+- (React) [FilterBox] DP-12168: Added `filterLabel` and `filterNote` props to FilterBox organism. #842
+
+### Changed
+- (React) [FootNote, FootNoteLink] DP-11765: Change FootNoteLink ID to classname to avoid duplicative IDs. Change scroll event on FootNote to go to the start of the FootNoteLink. #839
+
+### Fixed
+- (React) [Header, MainNav] DP-16673: Fixed PropTypes check console error for `navSelected` and `searchRedirect`, and fixed aria-label attribute in Header story. #843
+
+### Fixed
+- (React) [FilterBox, IconLink, PageFlipper, TableofContents] DP-16677: Fix component prop type checks by replacing custom util function `componentPropTypeCheck` with `componentWithName` from 'airbnb-prop-types'. #845
+
+## 9.33.0 (11/26/2019)
+
+### Added
+- (React) [CompHeading] DP-16339: Add `gray` color option. #834
+
+### Fixed
+- (React) [TabContainer] DP-11777: Enable focus in tab container by removing arrowdown and arrowup mgmt at the tab level. #836
+- (Patternlab) [IconLink, IconLinks] DP-16574: Fix icon links display bug. #831
+  - Refactor scss to match IconLink and IconLinks levels
+  - Add wrapper span to fix IconLink molecule in Patternlab
+
+## 9.32.0 (11/19/2019)
+
+### Changed
+- (React) [Header] DP-14222: Enable Header to render with and without UtilityNav and MainNav content. #828
+- (Patternlab) [Video] DP-16313: Removes aria-label from div.ma__video ma__video--new, Remove title from decorative link which is a duplicate to link label context. Replaces aria-label with title in iframe. Replaces obsolete frameborder attribute with css. #821
+
+### Fixed
+- (React) [UtilityNav] DP-11663: set `ariaHidden` on decorative SVG icon. #827
+- (React) [AccordionItem] DP-12195: Adds `id` prop to accordion item component to address a11y issues. #829
+
+
+## 9.31.0 (11/12/2019)
+
+### Fixed
+- (Patternlab) [KeyMessage] DP-16457: Correct semantics of sub title and apply title heading level + 1 styles to it. #818
+- (Patternlab) [KeyMessage] DP-16457: Fix padding bug introduced if only title and button. #824
+- (React) [Collapse] DP-16483: Fixed collapse animation if max dimension passed on IE11. #823
+
+## 9.30.0 (11/05/2019)
+
+### Added
+- (Patternlab) [KeyMessage] DP-16287: Add a logic to assign proper green with or without background image to key message in content area. #811
+
+### Changed
+- (Patternlab) [KeyMessage] DP-16299: Change the width of the content area key message block from 840px to 1240px in desktop display. #810
+- (Patternlab) [KeyMessage] DP-16299: Adjust spacing button and message content container. #810
+- (Patternlab) [KeyMessage] DP-16299: Set a condition to print the keymesage heading only when its value is available. #810
+- (Patternlab) [KeyMessage] DP-16299: Change the opacity of the ovelay color in the content area to 0.8. #810
+- (Patternlab) [FeatureCard] DP-16299: Adjust the bottom spacing for feature card in desktop display with or without more link. #810
+- (Patternlab) [Feature] DP-16299: Adjust margin and padding for feature container. #810
+- (Patternlab) [Video] DP-16299: Adjust margin and padding for video #810
+- (Patternlab) [CampaignLanding] DP-16336: Adjust margin and padding for campaign page components. #810
+- (Patternlab) [Card] DP-16314: Correct closing heading level for feature card. Removed id from secondary cards. Correct the wrong class name for the card and the condition to add the class to the container. #816
+- (Patternlab) [Pages Marketing Campaign] DP-16314: Update landing page jsons to match the change for ID. #816
+Added
+- (Patternlab) [SVG Icons Arrow] DP-16314: Add `focusable='false'` to svg icons. #816
+Fixed
+- (Patternlab) [KeyMessage] DP-16312: Reposition style and script for the background image above the keymessage container. #813
+- (Patternlab) [KeyMessage] DP-16312: Add a condition to add ID only when its value is available to key message section. #813
+- (Patternlab) [KeyMessage] DP-16312: Remove the extra curly brace causing a parse error. #813
+- (Patternlab) [KeyMessage] DP-16312: Add a condition to button link to add title only when its value is available. #813
+- (Patternlab) [KeyMessage] DP-16312: Modify the condition to add the second set of style. #813
+
+### Fixed
+- (React) [Header, MainNav] DP-16413: Fixed MainNav bug on mobile #814
+  - Allow nav item navigation to close main nav on mobile in SPA
+  - Allow passing in custom navigation function into MainNav by adding `onNavigateCallBack` prop to `MainNav`
+  - Update nav item roles to match currently Mass.gov main nav
+  - Separate mouse events and click event on MainNav items for desktop and mobile modes.
+  - Added react class on MainNav back button to avoid display to be impacted by css.
+
+
+## 9.29.0 (10/29/2019)
+
+### Changed
+- (Patternlab) [KeyMessage] DP-16164: Set key message component height to be adjustable based on available content in the container maintaining even padding on top and bottom. #798
+- (React) [Collapse] DP-16257: Extend collapse animation to make a minimum dimension value prop passable - default is a full collapse of the content block to 0px. #805
+- (React, Patternlab) [Headings] DP-16271 Added breakpoints and Increased font size for H2. #799
+
+### Fixed
+- (React) [Icon] BugFix: Fix minor svg issues in icon library (data, linkedin, map, questionmark, refresh, twitter). #806
+
+## 9.28.2 (10/18/2019)
+
+### Fixed
+- (React) [GenTeaser] DP-16106: Fix import statement bug resulting in jest suite failure on consumer side of mayflower-react package. #797
+- (React) [Header] DP-16106: Fix bug in the search bar in header to enable redirect action to take place. #797
+
+## 9.28.0 (10/15/2019)
+
+### Added
+- (React, Patternlab) [CircleCi] Fix auto generated changelog format and separate dependabot changelogs into individual files. #778
+- (Patternlab) [Feedback Form] DP-16115: Update Feedback Form to allow toggling required "legend" items to improve accessibility. #747
+- (Patternlab) [Feedback Form] DP-16115: Add required attribute to radio button. #747
+- (Patternlab) [Feedback Form] DP-16115: Add role="radiogroup" and a condition to add aria-required="true" to fieldset. #747
+- (React) [Icon] DP-15689: Added `mail` and `calendar` svg for Icon options. #766
+- (React) [PhoneNumber] DP-15689: Added PhoneNumber component to library. #766
+- (React) [EventTime] DP-15689: Added EventTime component to library. #766
+- (React) [Email] DP-15689: Added Email component to library. #766
+- (React) [Address] DP-15689: Added Address component to library. #766
+- (React) [GenTeaser] DP-15689: Added GenTeaser component to library. #766
+- (React) [Dependency] DP-15689: Added react-html-parser as dependency. #766
+- (Patternlab) [ServiceFlexibleLinkGroups] DP-15349: Added text fade and collapse/expand functionality to overview text area. #735
+
+### Changed
+- (React) [Dependency] DP-15689: Bumps eslint-plugin-react from 7.11.1 to 7.14.3. #766
+- (React) [ButtonWithIcon] DP-15689: Added `size` prop to component. #766
+- (React) [DecorativeLink] DP-15689: Added `icon` and `details` props to component. #766
+- (React) [Footer] DP-10665: Match the footer logo to Mass.gov site's by adding a link to the Mass.gov home and remove the deprecate alt value. #314
+- (React) [Dependency]: Bump eslint-plugin-react from 7.12.4 to 7.14.3 in /react #689
+- (React) [Dependency]: Bump @storybook/addon-actions, @storybook/addon-a11y, @storybook/addon-info, @storybook/addon-knobs, @storybook/addon-links, @storybook/addon-storysource, @storybook/addon-viewport, @storybook/addons, and @storybook/react from 5.1.9 to 5.2.3 in /react #761
+- (Patternlab) [Dependency] Bump gulp-sass from 4.0.1 to 4.0.2 in /patternlab/styleguide #582
+- (Patternlab) [Dependency] Bump gulp-header from 2.0.5 to 2.0.9 in /patternlab/styleguide #674
+
+### Fixed
+- (React, Patternlab) [CircleCi] Only run auto changelog task on dependabot branches. #788
+- (Patternlab) [KeyMessage] DP-16109: Set a condition to check bgImage and set class for overlay box position to section based on its result. #777
+- (React) [GenTeaser, TeaserSearch] DP-16106: Fixed bug related to query input prop and term in the TeaserSearch component consumed by GenTeaser. #794
+- (Patternlab) [Video] DP-16028: Fix video transcription display to lined up as one line and no overwraping to video. #783
+
+### Removed
+- (React) [PressTeaser, GeneralTeaser, Teaser] DP-15689: Flagged components for removal & archiving in version 10. Removed story from storybook. #766
+
+## 9.27.0 (10/08/2019)
+
+### Changed
+
+- (Patternlab) [CampaignVideo]: Updated background color variables to match color variable names in MF. Added top/bottom padding to the component. #776
+- (React) [Dependency] Bump react-dom from 16.8.6 to 16.9.0 in /react (#740)
+- (React) [Dependency] Bump @storybook/addon-storysource from 5.1.9 to 5.2.1 in /react (#762)
+
+### Fixed
+
+- (React) [EmergencyHeader, DecorativeLink] Fix decorative link wrapping issue in alert header and download link. #775
+- (React, Patternlab) [Circleci] Fix auto generate changelog for dependabot prs (followup #722) #765
+
+### Security
+
+- (React) [Dependency] Bump sshpk from 1.13.1 to 1.16.1 in /react (#592)
+
+## 9.26.0 (10/02/2019)
+
+### Added
+
+- (Patternlab) [Button] DP-15986: Adds primary button theme variant of c-white. #758
+- (Patternlab) [CampaignFeature] DP-4562: Add "more" link to Campaign Features component #759
+
+### Changed
+
+- (Patternlab) [MarketingCampaign]: Updated template so bottom key message lines up with footer. #758
+- (Patternlab) [CampaignFeature]: Update campaign feature to use ma-container mixin gutters. #758
+- (Patternlab) [KeyMessage]: Update key message component to pass color themes. Update to render with boxed callout and solid overlay callout. #758
+Fixed
+- (Patternlab) [KeyMessage] DP-14562: Set received heading level value to 'headingLevel', keyMessage.compHeading.level to headingLevel. Add a filter for banner image URL not to encode "&". #770
+- (Patternlab) [Card] DP-16073: Stack image on primary card on tablet size screen. #772
+
+### Fixed
+
+- (Patternlab) [Search Banner] DP-13660: Fixed spacing on mobile devices to prevent popular search links from overlapping image credit. #753
+- (Patternlab) [Info Details] DP-15262: Updated sidebar handling so the first item is shows full-width when no sidebar content is present. #746
+- (Patternlab) [CampaignFeature2up, Card] DP-15979: Fixed flexbox bug related to layout on small screens. #751
+- (Patternlab) [Video]: Updated iframe video allow params to prevent console error. #758
+- (Patternlab) [CampaignVideo]: Fixes bug related to setting theme of component. #758
+- (Patternlab) [MarketingCampaign] DP-16073: Fix spacing between marketing campaign page sections. #772
+- (Patternlab) [CampaignVideo] DP-16073: Remove heading style override and wrapper top/bottom padding in preference of inheriting margins from page. #772
+
+### Security
+
+- (React) [Dependency] Bump lodash.mergewith from 4.6.1 to 4.6.2 in /react #669
+
+
+## 9.25.0 (09/25/2019)
+
+### Added
+- (Patternlab) [Card] DP-15872: Adds card molecule with primary (default) and secondary usage variant. #742
+- (Patternlab) [CampaignVideo] DP-15813: Added color options and made other styling tweaks #738
+- (Patternlab) [UnorderedList] DP-15731: Added ability to add classes to lists; implemented ma__horizontal-list class #739
+- (React) [LinkDropdown] DP-15689: Created LinkDropdown molecule. #730
+
+### Changed
+- (Patternlab) [CampaignFullWidthFeature] DP-15872: Replaces campaign feature full width molecule with card molecule. #742
+- (Patternlab) [CampaignFeature2up] DP-15872: Updates campaign feature 2up to consume new card molecule in secondary variant and updates molecule scss. #742
+- (Patternlab) [CampaignFeature] DP-15872: Updates campaign feature organism to consume primary card molecule and adds organism scss. #742
+- (React) [ButtonWithIcon] DP-15689: Extended the ButtonWithIcon component to pass multiple themes (c-primary, c-primary-alt, c-highlight, c-gray-dark, c-black) and display for multiple usages per base button atom (primary, secondary, tertiary, quaternary, quaternary-simple, alert). #730
+- (React) [DecorativeLink] DP-15689: Enabled classnames to be passed to DecorativeLink. #730
+- (React) [ListingTable] DP-15689: Updated ListingTable to consume ButtonWithIcon for expand functionality. #730
+- (React) [ButtonAlert] DP-15689: Made ButtonAlert a variant of buttonwithicon. #730
+
+### Fixed
+- (Patternlab) [Locations] DP-15856: Uses google map's viewport biasing when converting user's input into a geocode so that places from and around Massachusetts are returned, thereby fixing previously faulty location filtering. #745
+- (React) [Button, ButtonWithIcon] DP-15689: Fixed color contrast a11y issue of c-highlight theme. #730
+
+### Security
+- (Patternlab) [Dependency] DP-12883: Bumps browser-sync from 2.26.3 to 2.26.7 and handlebars from 4.05 to 4.1.2 to address security vulnerabilities #750
+- (React) [Dependency] Bump lodash.template from 4.4.0 to 4.5.0 in /react #671
+- (React) [Dependency] Bump lodash from 4.17.10 to 4.17.15 in /react #681
+
+## 9.24.0 (09/18/2019)
+
+### Changed
+- (Patternlab) [StickyToc] DP-15605: Add context info to sticky TOC buttons to reflect the state of the TOC display. Switch focus as the flyout toc shows/hides. #731
+- (Patternlab) [HeaderAlert] DP-15896: Makes decorative link in a page alert show inline without unexpected wrapping up. #741
+- (Patternlab) [InformationDetails] DP-14105: Added an overview rich text field to the information-details component. #734
+
+### Security
+- (React) [Dependency] Bump fstream from 1.0.11 to 1.0.12 in /react. #687
+
+## 9.23.0 (09/11/2019)
+
+### Added
+- (React, Patternlab) [Circleci] Automate adding changelog for dependabot prs. Changelog will be added by Circleci on dependabot branches into changelogs/dependabot.md. #722
+- (React) [Icon] DP-15753: Adds catalog, chart, download, expand, map, report, and settings icons. #729
+- (Patternlab) [KeyMessage, MarketingCampaign] DP-15521: Adds key message component and Campaign Marketing Page. #728
+
+### Security
+- (React) [Dependency] Bump is-my-json-valid from 2.17.1 to 2.20.0 in /react (#589)
+- (React) [Dependency] Bump mixin-deep from 1.3.1 to 1.3.2 in /react (#724)
+- (React) [Dependency] Bump eslint-utils from 1.3.1 to 1.4.2 in /react (#721)
+
+## 9.22.0 (08/28/2019)
+
+### Added
+- (Patternlab) [FullWidthCampaignHeader] DP-15512: Version 1 of the Full Width Campaign Full Width Header #715
+- (Patternlab) [CampaignVideo] DP-15564: Add campaign video component #716
+- (Patternlab) [CampaignFeature] DP-15583: Adds campaign feature molecules and organism #717
+- (React) [Icon] DP-15599: Added social media icons into Icon component options and added option to set icon fill color #712
+- (React) [SocialLinks] DP-15599: Replaced `title` with `arial-label` in SocialLinks <a> to follow best practices for Screen Readers. #712
+
+### Changed
+- (React) [SocialLinks] DP-15599: Change hard coded icon svgs to Icon component. #712
+
+## 9.21.0 (08/21/2019)
+
+### Changed
+- (Patternlab) [ContactRow] DP-9085: Added line break to address. #701
+- (Patternlab) [Event] DP-9085: Added line breaks to addresses. #701
+- (Patternlab) [EventEndDateWithTime] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventEndDate] DP-9085: Added line breaks to address. #701
+- (Patternlab) [EventPublicMeeting] DP-9085: Added line break to address. #701
+- (Patternlab) [EventRecurring] DP-9085: Added line break to address. #701
+
+### Fixed
+- (Patternlab) [StickyTOC] DP-14912: reposition stickyTOC on mobile screens #700
+- (Docs) [Metatag] DP-15068: Update the search metatag documentation. #708
+- (React) [SocialLinks] DP-15599: Prevent SVGs in SocialLink from receiving keyboard focus. #709
+
+
+## 9.20.0 (08/14/2019)
+
+### Added
+- (Patternlab) [Link] DP-9274: Added `labelContext` variable for an optional visually-hidden suffix #683
+
+### Changed
+- (Patternlab) [ContactUs] DP-8937: Made contact groups inside accordions always stack vertically. #697
+- (Patternlab) [PressListingAsGrid] DP-9274: Changed JSON to use the `link` component’s new `labelContext` variable in the style guide #683
+
+
+## 9.19.0 (08/07/2019)
+
+### Fixed
+- (React) [InputTextFuzzy] DP-14478: check for event before persist #694
+- (React) [Tabs] DP-14479: Patch Tabs molecule so scrollIntoView action only called if it exists. #693
+- (PatternLab) [Print] DP-15523: Removes sticky TOC from print #692
+- (PatternLab) [HeaderSearch] DP-6174: Removed search field clear button in IE #688
+- (React) [ErrorMessage] Fix success message color #691
+
+
+## 9.18.0 (07/24/2019)
+
+### Added
+- (Patternlab) [ContactRow] DP-15056: Added blocks around contact groups to allow overriding on a field-by-field basis. #684
+
+### Removed
+- (Patternlab) [Template] DP-13005: Remove unused/broken template from Mayflower #653
+
+### Changed
+- (Patternlab) [ImageLink] DP-9262: Add underline to `:hover` and `:focus` states of image links #678
+
+### Security Updates
+- (React) [Security] Bump `lodash-es` from 4.17.11 to 4.17.14 #668
+- (React) [Security] Bump `extend` from 3.0.1 to 3.0.2 #580
+
+
+## 9.17.0 (07/17/2019)
+
+### Added
+- (Patternlab) [PageHeader] DP-13965: MF Change title and H1 on news overflow pages #646
+
+### Removed
+- (Patternlab) [Guide Page, Binder Page] DP-9211: Remove the text alternative for the banner image in Guide and Binder pages #162
+
+### Changed
+- (Patternlab) [How-To Page] DP-11891: Fixed How-to pages printer style being incorrectly indented. #654
+- (Patternlab) [ActionFinder] DP-14173: Add a block for overriding link list loop. #661
+- (Patternlab) [SplitColumns] DP-14173: Add a block for overriding columns. #661
+
+## 9.16.0 (07/10/2019)
+
+### Added
+- (React) [circleCI] DP-14731: Add eslint to mayflower react circle test. #664
+
+### Changed
+- (React) [Header] DP-14439: Adds support for headerSearch prop to optionally be a function. #627
+- (React) [Header] DP-14439: Ports code from Budget sites that fixes bugs related to missing classList functionality and browsers. #627
+- (React) [Header] DP-14439: Allow Header SiteLogo to be overwritten by render prop. #665
+- (React) [MainNav] DP-12214: Updates markup to better handle keyboard/focus events. Also updates roles for a11y functionality. #627
+- (Patternlab, React) [EmergencyAlerts] DP-14741: Allow EmergencyAlerts to render everywhere not just right below header, specify mobile top positioning with `.ma__ajax-pattern` wrapper and fix z-index to not overlay main nav dropdown.  #662
+
+### Fixed
+- (React) [All Organisms] DP-14717: Fixes all lint errors/warnings on organisms in React. #656
+  - Specific organisms impacted [AccordionWrapper, CalloutAlert, EmergencyAlerts, ErrorPage, FeedbackForm, FilterBox, Footer, FooterSlim, GeneralTeaser, Header, HeaderSlim, HelpTip, IllustratedHeader, LinkList, PageFlipper, PageHeader, PressFilters, RichText, SearchBanner, TabContainer, TableofContents, Teaser, TeaserListing, UtilityNav, UtilityPanel]
+
+- (React) [All Molecules] DP-14720: Fixes all lint errors/warnings on molecules in React. #656
+  - Specific molecules impacted [ContactGroup, EmergencyAlert, EmergencyHeader, FooterLinks, InputRadioGroup, Link, ListingTable, MainNav, OrgSelector, Pagination, ResultsHeading, SocialLinks, TypeAheadDropdown]
+
+- (React) [All Atoms, DataViz] DP-14730: Fixes all lint errors/warnings on atoms and dataviz components in React. #657
+  - Specific atoms impacted [CompoundSlider, Form, Input, InputCheckbox, InputCurrency, InputNumber, InputSlider, InputText, InputTextFuzzy, InputTextTypeAhead, Footnote, OrderedList, UnorderedList, Paragrag]
+  - Specific dataviz impacted [DataTable]
+
+## 9.15.0 (07/03/2019)
+
+### Added
+- (Docs) [patternlab/docs] DP-13704: Add accessibility checklist for markup. #558
+- (Docs) DP-14372: Adds masscultural council to list of sites we search. #658
+
+### Changed
+- (Patternlab) [Utility Navigation] DP-13939: Add second panel to utility nav for contextual login links and vanilla js functionality. #639
+- (Patternlab) [Stacked Row Section] DP-14175: Update styles and templates for the Stacked Row Section to resolve inconsistent applications of padding and spacing in parent templates. #630
+- (React) [All] DP-14436: Upgrades storybook to version 5.1.8. #640
+- (React) [ImagePromo] DP-14436: Fixes bug with storybook story caused by repeatedly called knobs. #640
+
+## 9.14.0 (06/27/2019)
+
+### Fixed
+- (Patternlab) [location-banner] DP-12216: Update banner image scss to avoid background repeating. #634
+
+### Changed
+- (React) [Link, DecorativeLink] DP-12128: Remove unused default class. #645
+- (React) [TabContainer] DP-14424: Got rid of the need to track Tab children in state. Refactored TabContainer organism to use React Portals for rendering its children. #637
+- (React) [Tab] DP-14424: Added TabBody component for rendering Tab children directly into TabContainer organism. Removed unused default prop. Converted component to be a class from a function and removed the need for React.forwardRef. #637
+
+## 9.13.0 (06/26/2019)
+
+### Added
+- (Patternlab) [Sticky TOC] DP-13864: Moved arrow icon into the a tag to make clickable within the stickyTOC.js file, styled accordingly in the `_sticky-toc.scss` file #619
+- (Patternlab) [SuggestedPages] DP-13951: Add option for link list instead of more link to suggested pages. #562
+- (Patternlab) [ServicesFlexibleLinkGroups] DP-14173: Service page redesign with grouped links #625
+
+## 9.12.0 (06/19/2019)
+
+### Added
+- (React) [InputCurrency] DP-14078: Pass input id and event type to InputCurrency onBlur callback #629
+- (React) [ButtonAlert] DP-14335: Created ButtonAlert component in Storybook to match button-alert molecule in PatternLab. #622
+- (React) [EmergencyHeader] DP-14339: Adds the EmergencyHeader component. #626
+- (React) [EmergencyAlert] DP-14340: Adds the EmergencyAlert molecule from pattern lab. #621
+- (React) [Link] DP-14340: Adds support for using props.children with Link. #621
+- (React) [Link] DP-14340: Adds support for passing custom classes to Link component. #621
+- (React) [Link] DP-14340: Sets default text to empty string. #621
+- (React) [EmergencyAlerts] DP-14341: Added EmergencyAlerts organism. #631
+
+### Changed
+- (React, PatternLab) [EmergencyAlerts, EmergencyAlert] DP-14341: Updated the emergency alerts organism scss and the emergency alert molecule scss to use tint instead of lighten for background colour. #631
+
+## 9.11.1 (06/07/2019)
+
+### Fixed
+- (React) [TabContext] hotfix: Fixes export of TabContext in react package build. #616
+
+## 9.11.0 (06/07/2019)
+
+### Added
+- (React) [InputTextFuzzy] DP-13800: Adds prop onKeyDownPreventDefault. When set to true, hitting enter without a valid suggestion will trigger event.preventDefault(). #566
+- (React) [TabContext]: Adds TabContainers/Tabs context to expost as TabContext so accessible to external consumers. #608
+
+### Fixed
+- (React) [InputDate] DP-14234: Fixes a bug where the numeric date would be hidden if the current date was today and the date was selected. #613
+
+## 9.10.0 (06/06/2019)
+
+### Fixed
+- (React) [InputTextFuzzy] DP-13924: Fixes bugs caused by either options with a large amount of characters or queries with a large amount of characters. #559
+- (React) [FeedbackForm] DP-14273: Fixes a bug when the FeedbackForm is used with server side rendering caused by b-jsonp not checking for window. #610
+
+## 9.9.1 (06/03/2019)
+
+### Fixed
+- (React) hotfix: Install `airbnb-prop-types` package as direct instead of dev package dependency in Mayflower-React.
+
+## 9.9.0 (06/03/2019)
+
+### Added
+- (React) [FeedbackForm] DP-14085: Added the FeedbackForm component for submissions to Formstack. #599
+- (Patternlab) Added `.nvmrc` file #600
+
+### Changed
+- (React) [Paragraph] DP-14085: Added support for using props.children with the Paragraph component instead of props.text. #599
+- (React) Removed `yarn.lock` file #600
+
+### Fixed
+- (React) [Icon] DP-13970: Removed usage of webpack's require.context in favor of dynamic ES6 imports. #564
+- (React) [DecorativeLink] DP-13970: Fixes warnings appearing related to the title prop when it's not set or passed. #564
+- (React) [Pagination] DP-13970: Reworked props to use destructoring. #564
+- (React) [ListingTable] DP-13970: Fixes the prop type definition for items to remove console warnings. #564
+- (React) [HeaderSearch] DP-13970: Fixed console warning from using postInputFilter when it's not passed. #564
+- (React) [ButtonWithIcon] DP-13970: Changed the storybook story to create Icons within each story instead of outside of them. #564
+
+## 9.8.0 (05/29/2019)
+
+### Added
+- (Patternlab) DP-1379: Set focus state for elements on Topic pages
+- (Patternlab) [Descriptive link wrapper] DP-14006: Add new "Descriptive links wrapper" organism and associated "Descriptive link" molecule to handle when a brief description and an associated link are needed.
+
+### Changed
+- (Patternlab) DP-11737: Downgrades font size from 800 to 700 for event-teaser and publish-state
+- (Patternlab) DP-13088: Change sticky TOC to appear only if there are 3 or more sections not including related and contacts
+- (Patternlab) DP-13967: Fix the heading size for the Related Services and Additional Resources heading from h3 to h2.
+
+### Fixed
+
+## 9.7.0 (05/13/2019)
+
+### Fixed
+- (React) [HelpTip] DP-13672: Fix css for bypassMobileStyle. #551
+- (Docs) Update Mayflower project issue template and fixed links on homepage. #549
+
+### Added
+- (React) [InputCurrency] DP-13672: Add `showButtons` prop to control whether the up/down buttons are shown. #550
+- (React) [HelpTip, CalloutAlert] DP-13672: Add white theme option styles. #552
+- (React) [Button] Add `classes` prop to button to allow appending custom classnames #554
+- (React) [Icon] Add `zoom-in` `zoom-out` `refresh` icons #554
+
+
+## 9.6.0 (05/01/2019)
+
+### Added
+- (Patternlab) [SectionLinks] DP-13100: Changed topic card heading styles, and footer CTA styles #542
+- (React) [InputTextFuzzy] DP-13688: Added option to render all options as suggestions by default, via prop `renderDefaultSuggestion` #544
+- (React) [Storybook Config] DP-13688: Added storybook console addon #544
+
+### Removed
+- (Patternlab) [assets] DP-12475: Remove richText.js. #505
+- (Patternlab) [RichText] Removed js flag classes for richText.js. #505
+
+### Deprecated
+- (React) [InputTextTypeAhead] DP-13688: Deprecate InputTextTypeAhead. #544
+
+### Fixed
+- (React) [FilterBox] Fixed warning caused by using `start` instead of `flex-start` within stying. #543
+
+## 9.5.1 (04/17/2019)
+
+### Security
+- (Patternlab) DP-13509: Update the jQuery from 3.3.0 to 3.4.0.
+
+## 9.5.0 (04/17/2019)
+
+### Fixed
+- (Patternlab) [Footer] DP-1323: remove `<b>` tag from footer. #526
+- (React) [Footer] DP-1323: remove `<b>` tag from footer. #526
+
+### Changed
+- (PatternLab) [MainNav, Header] DP-6198: a11y change keyboard behavior for navigation to be tab based. #488
+- (PatternLab, React) [Pagination] DP-6354: A11y - fix pagination to use links rather than buttons and access accessibility features. #490
+- (Patternlab, React) [Footer] DP-6358: Change tab order in footer. #527
+
+## 9.4.2 (04/10/2019)
+
+### Fixed
+- (React) [InputCurrency] DP-13450: Fixed bug relating to error handling on blur in InputCurrency. #533
+
+## 9.4.1 (04/10/2019)
+
+### Fixed
+- (React) [InputCurrency, InputNumber] DP-13167: Fixed handleAdjust logic so that min/max are not required for up/down buttons to work. #518
+- (React) [InputNumber] DP-13167: Fixed the initial steps when using up/down without a default value and decimal formatting onBlur. #518
+- (React) [Tab] DP-13409: Fixes bug causing the handleClick callback function on Tabs click to not be called. #529
+- (React) [TabContainer] DP-13409: Adds onTabChange prop to the tab container that is triggered if a tab in the container is changed. #529
+- (React) [InputTextFuzzy] DP-13425: Prevent onSuggestionClick being triggered on unexpected keyboard events. #530
+
+## 9.4.0 (03/28/2019)
+
+### Added
+- (Docs) Add an issue template for submitting Mayflower project to the implementation listing #520
+
+### Changed
+- (React) [*] DP-12932: Upgrades storybook and related add-ons to version 5.0.x. #516
+- (React) [*] DP-12932: Adds storysource and a11y add-ons. #516
+
+## 9.3.0 (03/20/2019)
+
+### Changed
+- (Patternlab) DP-8334: Use NPM instead of Bower to pull in front end dependencies #502
+- (Patternlab) [RelatedLocations] DP-12843: Changes to location page to show link to all locations #496
+- (Patternlab) DP-12682: Changes to the details.twig to use the class `sidebar sidebar--colored` in sidebar. #485
+- (React) [InputNumber] DP-12921: Limits the component from changing value between the min and max passed. #503
+- (React) [InputCurrency] DP-12921: Limits the component from changing value between the min and max passed. #503
+- (React) [InputCurrency] DP-12734: Removes placeholder on focus if no value in input. Puts placeholder back if no value in input. #503
+
+### Removed
+- (Patternlab) DP-12682: Removed the social media links on the Howto page. #485
+
+### Added
+- (Patternlab) [TabularData] DP-12682: Added a block to the tabular-data.twig for template mapping. #485
+
+### Fixed
+- (Docs) [Readme] DP-12921: Fixed broken link in Mayflower readme #501
+
+## 9.2.1 (03/13/2019)
+
+### Fixed
+- (React) [TabContainer] DP-10868: Adds a11y support to Tab and TabContainer components.#497
+
+### Added
+- (Patternlab) [OrganizationNavigation] DP-12928: Add link list specific classes: `ma__org-nav-i-want-to__findService`, `ma__org-nav-i-want-to__learnAbout`,`ma__org-nav-i-want-to__login` to sections for GTM. #504
+
+## 9.2.0 (03/05/2019)
+
+### Added
+- (Patternlab) [Header] DP-4562: Set focus state for search on mobile menu in mobileNav module. #473
+- (React) [HelpTip] DP-12875: Add `disabled` prop to disable HelpTip trigger text. #494
+
+### Fixed
+- (React) [InputSlider] DP-12732: Allows slider callback and updates form context on handler drag (Added onUpdate prop) #495
+- (React) [InputSlider] DP-12732: Allows keyboard actions and slider track click to update value (Changed handleChange from using onSlideEnd to onChange) #495
+- (React) [InputCurrency] DP-12807: Prevent InputCurrency returning NaN when default value is set to null #484
+- (React) [ErrorMessage] DP-12806: Fix error message inline styling #484
+- (React) [InputSlider] DP-12875: Disable handle button when InputSlider is disabled. #494
+- (React) [InputCurrency] DP-12890: Fix `NaN` value when defaultValue is null using up/down buttons. #498
+
+### Changed
+- (Patternlab) [SectionLinks] DP-9249: Topic card more links #472
+- (React) [InputCurrency] DP-12890: Pass event type to callback #498
+
+
+## 9.1.1 (02/19/2019)
+
+### Fixed
+- (React) DP-12776: Hotfix value delay in InputNumber callback and event returning all null values. #482
+
+## 9.1.0 (02/15/2019)
+
+### Added
+- (Patternlab) DP-9494: MF Add related orgs/topics to topic page. #429
+- (React) DP-12560: Add input checkbox. #468
+
+### Changed
+- (React) DP-12561: Updates the help tip organism so users can pass multiple help tips in a single span of text. #469
+- (React) DP-12749: Style helptip trigger and add highlight color. #478
+
+### Fixed
+- (React) DP-12724: Fix helptip mobile tray z-index. #474
+- (React) DP-12728: Allow input currency defaultValue to be null. #477
+- (React) DP-12733: Fixed error message responsive styling. #475
+- (React) DP-12733: Fixed icon classes bug. #475
+
+## 9.0.0 (02/13/2019)
+
+### Changed
+- (React) DP-12665: Upgrades react to version 16.8.1 and node to version 10.15.1. #467
+- (React) DP-12458: Updates storybook to version 4.1.1 & related updates to component stories for the withInfo and withKnobs addons. Adds related babel package dependencies as storybook 4 upgrades to Babel 7. Updates storybook webpack config per upgrade to Babel 7. #464
+- (React) DP-12458: Updates nwb to version 0.23.x. #464
+- (React) DP-12458: Updates backstop to version 3.9.2. #464
+- (Patternlab) DP-11507: Remove ll.8-29 where add hooks to table richtext.js. #450
+
+## 8.26.0 (02/07/2019)
+
+### Changed
+- (Patternlab/React) DP-11666: Replace `<section>` with `<div>` for `.ma__header-search`  #417
+- (React) DP-12414: Modifies Table component to make it responsive, using the Table Responsive pattern from pattern lab. #459
+- (React) Refactors Input, InputNumber, InputSlider, InputCurrency to use Form Context and added story Form. #460
+
+## 8.25.0 (02/06/2019)
+
+### Added
+- (PatternLab) DP-11135: Create Mayflower for new feedback form - Option 2a (contact link) #352
+- (PatternLab) DP-11301:  Feedback integration updates and merging to develop #434
+- (PatternLab) DP-12404: Added a formDownloads block to the following twig templates: court-rules.twig, policy-advisory.twig, & executive-order.twig. #440
+- (PatternLab) DP-12464: Added a block to the action-steps.twig for decorativeLink. #451
+- (React) Added options to render value above the InputSlider handle #455
+
+### Fixed
+- (React): DP-12519: Fixed button height for overflow content and added class prop to radioButtons to allow override default breakpoints to stack at medium or large breakpoints. #461
+- (Patternlab) DP-9204: Add a label to the video container. Change the reading order to 1. label, 2. transcript link, 3. video for screenreader users. #433
+
+## 8.24.1 (01/31/2019)
+
+### Fixed
+- (React): Remove will receive props from input component. #454
+- (React) add onBlur to InputNumber and consolidate countDecimal util function and add a default unit prop to InputNumber. #456
+
+## 8.24.0 (01/31/2019)
+
+### Changed
+- (Patternlab) DP-9200: Add labelContext to decorative link #425
+
+### Fixed
+- (React) #449
+  - allow InputNumber to update on defaultValue prop change
+  - fix disabled styling of InputNumber with unit on disabled
+  - make up/down buttons optional
+  - add option to skip the slider
+
+## 8.23.3 (01/30/2019)
+
+### Fixed
+- (React) hotfix: change input buttons positioning from absolute to using flexbox.
+
+## 8.23.2 (01/30/2019)
+
+### Fixed
+- (React) hotfix: preventDefault inputSlider handle onClick.
+
+## 8.23.1 (01/30/2019)
+
+### Fixed
+- (React) hotfix: fix proptype check function name.
+
+## 8.23.0 (01/30/2019)
+
+### Added
+- (React) DP-12303: Adds CompoundSlider, InputSlider, Error components and adds the react-compound-slider package. #431
+- (React) DP-12303: Adds FormContext support, changes the way Input renders to reduce re-renders on context changes. #431
+- (React) DP-12413: Add unit option in InputNumber for rendering percentage. #436
+- (React) DP-12451: Added an inline option for Input and fixed responsiveness. Allow Input labelText to render elements other than a string. #441
+
+### Fixed
+- (React) bugfix: Allow InputNumber up/down button onClick callback to access value from input. #439
+
+## 8.22.0 (01/29/2019)
+
+### Added
+- (React) DP-12338: Added a help tip organism. #432
+- (React) DP-12338: Added a close icon. #432
+- (React) DP-12379: Added InputNumber component. #430
+- (React) DP-12379: Added disabled state to InputCurrency and allow passing custom onChange callback. #430
+- (Patternlab) DP-12387: Added a block to the steps-ordered.twig and action-step.twig to use a view mode on the Drupal twig. #428
+
+### Fixed
+- (React) DP-12428: Fix missing key on the radio button group and id prop issue. #435
+
+## 8.21.0 (01/24/2019)
+
+### Added
+- (React) DP-12318: Adds the form components input radio button (atom) and input radio button group (molecule) to mayflower-react. #424
+- (PatternLab/React) DP-12318: Adds a primary lighter color and error color to scss variables. #424
+- (React) DP-12293: Adds Input, InputCurrency components and InputContext context. Uses Numbro.js library. #419
+- (React) DP-12320: Added Callout Alert pattern and added themes and icon options. #418
+
+### Changed
+- (React) DP-12318: Updates the eslint settings for better handling of jsx syntax. #424
+
+## 8.20.0 (01/23/2019)
+
+### Changed
+- (Patternlab/React) DP-11662: Replace the markup validation flagged elements `<section>` with `<div>` for `.ma__utility-nav` and `.ma__utility-panel`. #415
+- (React/Patternlab) DP-11668: Change to a valid container for `.ma__main-nav`. #416
+- (React/Patternlab) DP-12120: Hide feedback wrapper in print #406
+
+## 8.19.1 (01/17/2019)
+
+### Fixed
+- (Patternlab) DP-12234: Fix the spacing issue after the conditional content for phone in contact item. #410
+- (React) DP-12080: Add capacity to pass an id to the input tag of the InputTextFuzzy atom. #412
+
+## 8.19.0 (01/16/2019)
+
+### Added
+- (React) DP-12114: Add option to render an external link in Utility Nav. #400
+
+### Changed
+- (React) DP-12117: Add option to conditionally render the main nav top level link. #408
+
+### Fixed
+- (React) DP-11128: Fixed image promo title not wrapping in IE11 bug. #404
+- (Patternlab) DP-11437: MF Location search by city/zip fix for autocomplete issue. #401
+- (React) DP-11667: Add search role to HeaderSearch molecule for a11y. #405
+- (React) DP-11683: Set a condition in the decorative link atom to only add title when its value is available. #407
+- (React) DP-11684: Hides arrow in decorative link so not read by the screen reader. #407
+- (React) DP-12183: Fixes alignment issue of download icon in the decorative link react component in IE11 #403
+
+## 8.18.0 (01/08/2019)
+
+### Changed
+- (React) DP-12012: Enable the footnotes atom in react to render raw html if passed a child. Update the footnote style to up arrow. #397
+- (Patternlab) DP-9183: Expand button on alert. #388
+- (Patternlab) DP-9775: MF Adjust print styles for topic and org pages to have less space at top. #392
+- (Patternlab) DP-9186: Change section tags to div tags on rich text pattern for better semantics. #391
+
+### Fixed/Patched
+- (React) DP-11682: Updated the decorative link component in React when showing an icon to resolve a11y issue. Now the icon is included in the a tag part of the link so it is associated with the link for screenreaders. #386
+- (Patternlab) DP-11400: Add more spacing on org page above "More about [name]". #368
+- (Patternlab) DP-5230: Fix print styles: how-to left alignment. #370
+- (Patternlab) DP-5232: Fix print styles: remove feedback button. #390
+- (Patternlab) DP-9185: MF [a11y] Use proper html element for semantics. #389
+
+## 8.17.0 (01/04/2019)
+
+### Changed
+- (React) DP-11888: Adds the ability to pass a function to tabs to run after its default click handler. #394
+
+### Fixed
+- (React) DP-11634: Update the MainNav molecule for better a11y, enabling users to tab through the navigation menu. Also updated the svg-sprite-loader package, enabling aria attributes on the Icon component. #385
+
+## 8.16.0 (12/19/2018)
+
+### Changed
+- (Patternlab) DP-5859: Checkboxes missing from What You Need section on print style for How To Pages #369
+
+### Fixed
+- (Patternlab) DP-10231: bug fix for location pagination #362
+
+## 8.15.0 (12/12/2018)
+
+### Changed
+- (Patternlab) DP-9727: Header and spacing size reductions #363
+
+### Fixed
+- (Patternlab) DP-10447: Pages show excess scroll space to right and bottom in IE11 #367
+
+## 8.14.1 (12/07/2018)
+
+### Fixed
+- (React) DP-11398: Adds the ability to submit without selecting a suggestion, misc bug fixes.
+
+## 8.14.0 (12/05/2018)
+
+### Added
+- (Patternlab) DP-10265: Added a block for the map to the location-banner.twig. #371
+
+### Fixed
+- (Patternlab) DP-11102 and DP-11026: responsive tables obscure stickTOC and final table row #361
+
+## 8.13.0 (12/04/2018)
+
+### Added
+- (React) DP-10789: Ports Teaser Listing Organism to React #324
+
+### Fixed
+- (React) DP-11380: Fix tab scrollIntoView to prevent scrolling vertically #360
+- (React) DP-11402: Fixes a bug in InputTextFuzzy where hitting enter on a suggestion did not pass a suggestion object to the onSuggestionClick prop function. #366
+
+## 8.12.0 (11/28/2018)
+
+### Added
+- (Patternlab) DP-10264: Support Google static maps for locations #344
+
+
+## 8.11.0 (11/09/2018)
+
+### Added
+- (React) DP-11077: Adds Breadcrumb and BreadcrumbItem components. #348
+- (React) DP-11078: Adds InputTextFuzzy component. #349
+
+### Changed
+- (Patternlab) DP-11030: Create a clearer distinction between contact and related in service #343
+- (React) DP-11158: Adds ListingTable to the index.js file. Fixes unique key issues on lists. Adds tbody tag to table. Fixes PropTypes definition for rows prop. #354
+- (Patternlab) DP-9883: Updated the styles of the contact groups in the contact row to display the same number of groups in each column under the "Contact Us" section of the org page. #223
+
+### Fixed
+- (React) DP-11205: Fix FootNote atom bug. #355
+
+## 8.10.0 (10/31/2018)
+
+### Changed
+- (Patternlab) DP-10793: Update video layout on service pages #337
+
+## 8.9.0 (10/26/2018)
+
+### Added
+- (Patternlab) DP-10774: Implements sticky table of contents on Advisory, Decision, Executive Order, Regulation, and Rules of Court content types. It also updated the integration of the stickty table of contents for Information Details, Curated Lists, and Guide pages. #339
+- (React) DP-11038: Add an option for footer component to show footer links category heading. #340
+
+### Changed
+- (React) DP-10244: Componentize SCSS for molecules #297
+- (React) DP-10764: Componentize SCSS for organisms #339
+- (Patternlab) DP-9176: Add aria-label attribute to the table of content accordion button in binder page to override the symbols for screen readers, remove the visually hidden text which aria-label attribute replaces with. #215
+
+### Removed
+
+### Fixed
+- (Patternlab) DP-10362: Makes Org subnav dropdowns keyboard accessible. #308
+- (Patternlab, React) DP-10986: Add font smoothing for Texta font weight accuracy. #336
+
+## 8.8.0 (10/24/2018)
+
+### Added
+- (React) DP-10799: Add FootNote and FootNoteLink atoms to mayflower react. #317
+- (React) DP-10910: Add disabled prop to inputTextTypeAhead and conditionally render filter controls in FilterBox #327
+- (React) DP-10913: Adds Teaser, OperationalHours components. #292
+- (React) DP-10765: Porting Table of Contents Hierarchy component. #311
+
+### Changed
+- (React) Componentize scss for page header organism. #329
+
+### Removed
+- (React) DP-10662: Remove deprecate alt value from site logo image. #315
+- (React) DP-10667: Remove aria-label from search button. Button with icon has aria-label only when it has value. #318
+
+### Fixed
+- (React) DP-10895: Fix bug in page flipper if intro props are not passed. #330
+
+
+## 8.7.0 (10/17/2018)
+
+### Added
+- (React) DP-10784: Port Listing Table in React from PL. #313
+
+### Changed
+- (PatternLab) DP-10756: Modify display of relationship indicators on mobile. #310
+
+### Fixed
+- (Patternlab) DP-10721: Remove duplicated social heading on service page and remove backward compatible sidebar heading to use IconLink comp heading in the template. #316
+
+## 8.6.0 (10/16/2018)
+
+### Added
+- (React) Add react-table as a DataTable component directly using react-table API. #289
+- (React) DP-10649: Add TabContainer and Tab components. #298
+- (React) DP-10693: Add ArrowButton atom component, ArrowNav molecule component and PageFlipper organism component. #301
+
+### changed
+- (React) DP-10770: Update SiteLogo props structure in Header component making it fully configurable and sets default props #312
+- (React) DP-10770: Componentize Header related component styles, including HeaderSearch, MainNav, UtilityNav, UtilityPanel and Header #312
 
 ## 8.5.0 (10/10/2018)
 
@@ -114,7 +1166,7 @@ Note: This will need to be followed up in search and other apps consuming Filter
 - (Patternlab) DP-9255: Add conditions to place 'title' and 'aria-labelledby' only when their values are available. #218
 - (Patternlab)  DP-10084: MF Change to styling of More links on service page
 - (Patternlab) DP-10157: [MF] How-to BM1: Add slight visual emphasis to mobile sticky nav
-- (Patternlab & React) #236:  
+- (Patternlab & React) #236:
 	- Updates base button classnames based on theme prop to reflect new naming variable (c-primary, c-primary-alt, c-highlight, c-dark-gray)
 	- Removes outline prop from button.
 	- Adds usage prop to button to reflect primary, secondary, tertiary, and quaternary designs.
@@ -638,7 +1690,7 @@ Monorepo with shared assets and synced releases going forward ;)
 ## 5.13.0 (2/16/2018)
 
 ### Changed
-- DP-7907: Adds support for details to  [@molecules/callout-link](https://mayflower.digital.mass.gov/?p=molecules-callout-link-with-details&view=c) (e.g calls to action on a location page header). This includes adding an eyebrow, white theme variant, time note, and emphasized text to the callout link molecule. #703
+- DP-7907: Adds support for details to  [@molecules/callout-link](https://mayflower.digital.mass.gov/patternlab/?p=molecules-callout-link-with-details&view=c) (e.g calls to action on a location page header). This includes adding an eyebrow, white theme variant, time note, and emphasized text to the callout link molecule. #703
 
 ### Added
 
@@ -679,12 +1731,12 @@ Monorepo with shared assets and synced releases going forward ;)
 ## 5.12.0 (2/7/2018)
 
 ### Changed
-- DP-7718: Adds support for Description text to [@molecules/callout-link](https://mayflower.digital.mass.gov/?p=molecules-callout-link-as-description&view=c) (e.g calls to action on a location page header).
-- D-7725: Adds Support for Blue Variant of [@atoms/colored-heading](https://mayflower.digital.mass.gov/?p=atoms-colored-heading-blue&view=c) (e.g. header in the press filter organism)
+- DP-7718: Adds support for Description text to [@molecules/callout-link](https://mayflower.digital.mass.gov/patternlab/?p=molecules-callout-link-as-description&view=c) (e.g calls to action on a location page header).
+- D-7725: Adds Support for Blue Variant of [@atoms/colored-heading](https://mayflower.digital.mass.gov/patternlab/?p=atoms-colored-heading-blue&view=c) (e.g. header in the press filter organism)
 
 ## Fixed
-- DP-7359: Make line breaks on word in [richtext](https://mayflower.digital.mass.gov/?p=organisms-rich-text) links compatible with non-chrome browsers.
-- DP-7490: Adjust the [page banner](https://mayflower.digital.mass.gov/?p=organisms-page-banner-as-overlay) and its children for flexble height.
+- DP-7359: Make line breaks on word in [richtext](https://mayflower.digital.mass.gov/patternlab/?p=organisms-rich-text) links compatible with non-chrome browsers.
+- DP-7490: Adjust the [page banner](https://mayflower.digital.mass.gov/patternlab/?p=organisms-page-banner-as-overlay) and its children for flexble height.
 
 ## Added
 - (For Devs): Adds shell scripts and circle config to deploy feature branches and production tags to mayflower.digital.mass.gov [s3 bucket|https://github.com/massgov/mayflower/blob/dev/docs/s3-architecture.md] AND to publish static assets on [NPM|https://www.npmjs.com/package/@massds/mayflower]. See new [release process|https://github.com/massgov/mayflower/blob/dev/docs/release.md]
@@ -696,7 +1748,7 @@ Monorepo with shared assets and synced releases going forward ;)
 - DP-7193 - Contact Accordians now have a more flexible layout for better experience on wider widths.
 
 ### Added
-- DP-7265 - Add new 'Mosaic Grid' organism with 'Featured Item' molecules for use on ['Organization Elected Official' pages](https://mayflower.digital.mass.gov/?p=pages-organization-elected-official).
+- DP-7265 - Add new 'Mosaic Grid' organism with 'Featured Item' molecules for use on ['Organization Elected Official' pages](https://mayflower.digital.mass.gov/patternlab/?p=pages-organization-elected-official).
 
 ## 5.10.1 (1/3/2018)
 
@@ -706,19 +1758,19 @@ Monorepo with shared assets and synced releases going forward ;)
 ## 5.10.0 (12/13/2017)
 
 ### Added
-- DP-5817 - Give a warm welcome our newest Mayflower page type: [Rules of Court](https://mayflower.digital.mass.gov/?p=pages-rules-of-court).  This page can be used by legal professionals to publish court rulings, standing orders, and evidence guides.  Notice the new optional javascript functionality added to the [rich text](http://mayflower.digital.mass.gov/?p=organisms-rich-text&view=c) pattern to provide heading indentation and anchor links (as seen on the [Rules of Court](https://mayflower.digital.mass.gov/?p=pages-rules-of-court) page).  Also note the new accordion functionality added to the [listing table](http://mayflower.digital.mass.gov/?p=molecules-listing-table) pattern (as seen on the [Rules of Court](https://mayflower.digital.mass.gov/?p=pages-rules-of-court) page).
-- DP-5991 - We've added an event page with [Public Meeting Notice](https://mayflower.digital.mass.gov/?p=pages-event-public-meeting) functionality: posted/updated information, public testimony callout, agenda, minutes, and participating organizations.  Related, we've also added a full page display for [event minutes](https://mayflower.digital.mass.gov/?p=pages-event-public-meeting-minutes) and [event agendas](https://mayflower.digital.mass.gov/?p=pages-event-public-meeting-agenda).
-- DP-6517 - We've added a nifty new pattern to our family: [Ajax Pattern](https://mayflower.digital.mass.gov/?p=organisms-ajax-pattern&view=c). With this pattern, you can render dynamic content in any existing Mayflower pattern client side with the help of the TwigJS library. Read the [pattern docs](https://mayflower.digital.mass.gov/?p=organisms-ajax-pattern&view=c) to learn more and see it in action on the [Park Location page](https://mayflower.digital.mass.gov/?p=pages-location-park-content&view=c) -- the site and page alerts are all rendered using this new pattern!
+- DP-5817 - Give a warm welcome our newest Mayflower page type: [Rules of Court](https://mayflower.digital.mass.gov/patternlab/?p=pages-rules-of-court).  This page can be used by legal professionals to publish court rulings, standing orders, and evidence guides.  Notice the new optional javascript functionality added to the [rich text](http://mayflower.digital.mass.gov/?p=organisms-rich-text&view=c) pattern to provide heading indentation and anchor links (as seen on the [Rules of Court](https://mayflower.digital.mass.gov/patternlab/?p=pages-rules-of-court) page).  Also note the new accordion functionality added to the [listing table](http://mayflower.digital.mass.gov/?p=molecules-listing-table) pattern (as seen on the [Rules of Court](https://mayflower.digital.mass.gov/patternlab/?p=pages-rules-of-court) page).
+- DP-5991 - We've added an event page with [Public Meeting Notice](https://mayflower.digital.mass.gov/patternlab/?p=pages-event-public-meeting) functionality: posted/updated information, public testimony callout, agenda, minutes, and participating organizations.  Related, we've also added a full page display for [event minutes](https://mayflower.digital.mass.gov/patternlab/?p=pages-event-public-meeting-minutes) and [event agendas](https://mayflower.digital.mass.gov/patternlab/?p=pages-event-public-meeting-agenda).
+- DP-6517 - We've added a nifty new pattern to our family: [Ajax Pattern](https://mayflower.digital.mass.gov/patternlab/?p=organisms-ajax-pattern&view=c). With this pattern, you can render dynamic content in any existing Mayflower pattern client side with the help of the TwigJS library. Read the [pattern docs](https://mayflower.digital.mass.gov/patternlab/?p=organisms-ajax-pattern&view=c) to learn more and see it in action on the [Park Location page](https://mayflower.digital.mass.gov/patternlab/?p=pages-location-park-content&view=c) -- the site and page alerts are all rendered using this new pattern!
 
 ### Changed
 - DP-5916 - We've increased the vertical spacing between the phone number and description on the [Image Promo](http://mayflower.digital.mass.gov/?p=molecules-image-promo-with-map-link&view=c) pattern as it appears on [location listing pages](http://mayflower.digital.mass.gov/?p=pages-location-listing).
 - DP-6916 - We've fixed the bug where long sidebar contact "learn more" links (i.e. on [How To pages](http://mayflower.digital.mass.gov/?p=pages-howto) were being hyphenated.
 
 ### Migrate Path
-- DP-5817 - To implement this new page type, follow the [content type template pattern](https://mayflower.digital.mass.gov/?p=templates-court-rules&view=c).  Note the [backwards compatible extension of the listing table molecule](https://github.com/massgov/mayflower/pull/651/files#diff-831775c0ca12ca6116f93daaa9958ee0R7) to provide accordion function using the existing accordion js module and the [extension of the rich text organism](https://github.com/massgov/mayflower/pull/651/files#diff-085d4a2070c5f2bff38e4817c382b3beR4) (and new [JS](https://github.com/massgov/mayflower/pull/651/files#diff-e8d7776e501f946139bb194df89bef71R10)) to add "outline" indentation and heading anchor links.
+- DP-5817 - To implement this new page type, follow the [content type template pattern](https://mayflower.digital.mass.gov/patternlab/?p=templates-court-rules&view=c).  Note the [backwards compatible extension of the listing table molecule](https://github.com/massgov/mayflower/pull/651/files#diff-831775c0ca12ca6116f93daaa9958ee0R7) to provide accordion function using the existing accordion js module and the [extension of the rich text organism](https://github.com/massgov/mayflower/pull/651/files#diff-085d4a2070c5f2bff38e4817c382b3beR4) (and new [JS](https://github.com/massgov/mayflower/pull/651/files#diff-e8d7776e501f946139bb194df89bef71R10)) to add "outline" indentation and heading anchor links.
 - DP-5916 - You'll get [this style patch (from PR#645)](https://github.com/massgov/mayflower/pull/645/files) just by updating your css files!
 - DP-5991 - See the [event content template](http://mayflower.digital.mass.gov/?p=templates-event&view=c) for instructions on implementing this new pattern variation.
-- DP-6517 - Follow the [usage guidelines in the pattern docs](https://mayflower.digital.mass.gov/?p=organisms-ajax-pattern&view=c) to implement this new client side rendering feature.  See [an example implementation](https://github.com/massgov/mayflower/pull/644/files#diff-6619abb22969d972a21c93eb45ce97beR3) with a data transform function.
+- DP-6517 - Follow the [usage guidelines in the pattern docs](https://mayflower.digital.mass.gov/patternlab/?p=organisms-ajax-pattern&view=c) to implement this new client side rendering feature.  See [an example implementation](https://github.com/massgov/mayflower/pull/644/files#diff-6619abb22969d972a21c93eb45ce97beR3) with a data transform function.
 - DP-6916 - You'll get [this style patch (from PR#646)](https://github.com/massgov/mayflower/pull/646/files) just by updating your css files!
 
 ## 5.9.1 (11/29/2017)
@@ -777,7 +1829,7 @@ We hope to see you all around in code. :)
 
 - DP-4968 - The [Location page](http://mayflower.digital.mass.gov/?p=pages-location-general-content) now supports a "Downloads" section which could be helpful for adding a pdf map, for example.
 - DP-4581 / 5023 - We've added sort and filter functionality to the [Event Listing](http://mayflower.digital.mass.gov/?p=pages-event-listing) page! Now you can enter a town or zip to sort events by proximity and you can filter events by a future date time frame.  (Also, developers will notice that the Event and Location listing js is shared, since the functionality is so similar.) ([PR #589](https://github.com/massgov/mayflower/pull/589))
-- DP-5341 - We've created a new pattern called [Collapsible Content](http://mayflower.digital.mass.gov/?p=organisms-collapsible-content)!  Eventually this pattern could be used for functionality like [Contact Us as accordion](https://mayflower.digital.mass.gov/?p=molecules-contact-us-collapsed-with-more-link) where it will accept child patterns using the `path / data` construct similar to Rich Text, sidebar widgets, etc. ([PR #581](https://github.com/massgov/mayflower/pull/581))
+- DP-5341 - We've created a new pattern called [Collapsible Content](http://mayflower.digital.mass.gov/?p=organisms-collapsible-content)!  Eventually this pattern could be used for functionality like [Contact Us as accordion](https://mayflower.digital.mass.gov/patternlab/?p=molecules-contact-us-collapsed-with-more-link) where it will accept child patterns using the `path / data` construct similar to Rich Text, sidebar widgets, etc. ([PR #581](https://github.com/massgov/mayflower/pull/581))
 - DP-4323 / 4325 - We've finished documenting all the patterns! (PRs [#545](https://github.com/massgov/mayflower/pull/545), [#546](https://github.com/massgov/mayflower/pull/546)).
 
 ### Changed

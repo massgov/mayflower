@@ -1,0 +1,84 @@
+@mixin ma__input--button($type) {
+  .ma__input-#{$type} {
+    display: inline-flex;
+      flex-direction: row;
+    position: relative;
+
+
+    &-unit {
+      border: 2px solid $c-bd-input;
+      padding-right: 5px;
+      padding-top: 4px;
+      border-left: none;
+      color: $c-gray-dark;
+
+      &--showButtons {
+        border-right: none;
+      }
+    }
+
+    &__control {
+    	text-align: right;
+      padding-right: 5px;
+
+      @media ($bp-small-max) {
+        width: 100%;
+      }
+
+      &--showButtons {
+        border-right: none;
+      }
+
+      &-buttons {
+        display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        position: relative;
+      }
+
+  	  input.has-error {
+  	    border-color: $c-bd-error;
+  	  }
+
+  	  &-plus,
+  	  &-minus {
+
+  	    @include ma-button-reset;
+  	    border: 2px solid $c-bd-input;
+  	    border-bottom: none;
+  	    height: 50%;
+  	    width: 40px;
+
+  	    &:after {
+  	      border: 5px solid $c-black;
+  	      border-top: none;
+  	      border-bottom-width: 6px;
+  	      content: "";
+          padding: 2px 0;
+  	      display: block;
+  	      height: 0;
+  	      margin: 0 auto;
+  	      vertical-align: bottom;
+  	      width: 0;
+  	      border-left-color: transparent;
+  	      border-right-color: transparent;
+  	    }
+
+  	    &:focus:after {
+  	      bottom: 1px;
+  	    }
+  	  }
+
+  	  &-plus {
+  	    bottom: 50%;
+  	  }
+
+  	  &-minus {
+  	    top: 50%;
+  	    transform: rotate(180deg);
+  	  }
+    }
+
+  }
+}

@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { componentWithName } from 'airbnb-prop-types';
 import classNames from 'classnames';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
-import { validateFilters } from '../../utilities/componentPropTypeCheck';
 import './style.css';
 
 const FilterBox = (props) => {
   const {
-    action, submitButton, clearButton, active, fields
+    action, submitButton, clearButton, active, fields, filterLabel, filterNote
   } = props;
   const handleClear = () => {
     if (typeof props.clearButton.onClearCallback === 'function') {
@@ -27,27 +27,46 @@ const FilterBox = (props) => {
   return(
     <section className={filterBoxClasses} id={props.id}>
       <div className="ma__filter-box__container">
-        <form className={filterBoxFormClasses} action={action}>
+        <form
+          className={filterBoxFormClasses}
+          action={action}
+          aria-describedby={filterNote ? `${props.id}-note` : null}
+          aria-label={filterLabel || null}
+        >
+          {
+            filterNote && (
+              <div id={`${props.id}-note`} aria-hidden="true" className="ma-visually-hidden">
+                {filterNote}
+              </div>
+            )
+          }
           <div className="main-content--two">
             <div className="ma__filter-box__filters">
               { fields.map((field, i) => (
+                /* eslint-disable-next-line react/no-array-index-key */
                 <div className={field.class} key={`filterbox-field-${i}`}>
                   { field.component }
                 </div>
               ))}
             </div>
-            <div className="ma__filter-box__controls">
-              <div className="ma__filter-box__button">
-                <Button {...submitButton} />
-              </div>
-              {clearButton && (
-              <React.Fragment>
-                <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
-                  {clearButton.text}
-                </button>
-              </React.Fragment>
-            )}
-            </div>
+            {
+              (submitButton || clearButton) && (
+                <div className="ma__filter-box__controls">
+                  {submitButton && (
+                    <div className="ma__filter-box__button">
+                      <Button {...submitButton} />
+                    </div>
+                  )}
+                  {clearButton && (
+                    <React.Fragment>
+                      <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
+                        {clearButton.text}
+                      </button>
+                    </React.Fragment>
+                  )}
+                </div>
+              )
+            }
           </div>
         </form>
       </div>
@@ -62,7 +81,11 @@ FilterBox.propTypes = {
   active: PropTypes.bool,
   /** The form action  */
   action: PropTypes.string,
-  /** @atoms/forms/Button */
+  /** The aria-label for the filter form element  */
+  filterLabel: PropTypes.string,
+  /** An additional note for the SR users describing the functionality of the filter  */
+  filterNote: PropTypes.string,
+  /** @forms/Button */
   submitButton: PropTypes.shape(Button.PropTypes),
   /** Clear all button at the bottom of the filter */
   clearButton: PropTypes.shape({
@@ -73,14 +96,17 @@ FilterBox.propTypes = {
   /** Controls if we allow filterbox to render only on mobile */
   filterDesktopHidden: PropTypes.bool,
   /** An array of filter fields */
-  fields: (props, propName, componentName) => (
-    validateFilters(props, propName, componentName, [
-      'SelectBox',
-      'InputTextTypeAhead',
-      'DateRange'
+  fields: PropTypes.arrayOf(PropTypes.shape({
+    class: PropTypes.string,
+    component: PropTypes.oneOfType([
+      componentWithName('SelectBox'),
+      componentWithName('InputTextTypeAhead'),
+      componentWithName('InputTextFuzzy'),
+      componentWithName('DateRange')
     ])
-  )
+  }))
 };
+
 
 FilterBox.defaultProps = {
   id: 'filter-box',

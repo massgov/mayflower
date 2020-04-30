@@ -18,8 +18,8 @@
     </div>
   </div>
   <div class="ma__court-rules__content">
-    {% if jumpLinks %}
-      {% include "@organisms/by-template/jump-links.twig" %}
+    {% if stickyTOC %}
+      {% include "@organisms/by-template/sticky-toc.twig" %}
     {% endif %}
     <div class="main-content main-content--two">
       <div class="page-content">
@@ -31,10 +31,12 @@
           {% include "@base/placeholder.twig" with {'placeholder':{'text':'Page Content'}} %}
         {% endblock %}
 
-        {% if mainContent.formDownloads %}
-          {% set formDownloads = mainContent.formDownloads %}
-          {% include "@organisms/by-author/form-downloads.twig" %}
-        {% endif %}
+        {% block formDownloadLinks %}
+          {% if mainContent.formDownloads %}
+            {% set formDownloads = mainContent.formDownloads %}
+            {% include "@organisms/by-author/form-downloads.twig" %}
+          {% endif %}
+        {% endblock %}
 
         {% if mainContent.contactList %}
           {% set contactList = mainContent.contactList %}

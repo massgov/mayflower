@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // import child components
 import Paragraph from '../../atoms/text/Paragraph';
 import PublishState from '../../atoms/text/PublishState';
+import './style.css';
 
 const PageHeader = (pageHeader) => {
   const {
@@ -25,8 +26,8 @@ const PageHeader = (pageHeader) => {
         )}
         <h1 className="ma__page-header__title">
           { category && (
-          <span className="visually-hidden">{ category }&nbsp;</span>
-        )}{title}
+            <span className="visually-hidden">{ category }&nbsp;</span>
+          )}{title}
         </h1>
         { subTitle && (
           <div className="ma__page-header__sub-title">{subTitle}</div>
@@ -35,7 +36,9 @@ const PageHeader = (pageHeader) => {
           <div className="ma__page-header__optional-content">
             <div className="main-content main-content--two">
               <div className="page-content">
-                { optionalContents.map((p) => (<Paragraph {...p.paragraph} />))
+                {
+                  /* eslint-disable react/no-array-index-key */
+                  optionalContents.map((p, index) => (<Paragraph key={`page-header-optional-content${index}`}{...p.paragraph} />))
                 }
               </div>
             </div>
@@ -48,7 +51,7 @@ const PageHeader = (pageHeader) => {
 
 PageHeader.propTypes = {
   /** render publish state above category */
-  publishState: PropTypes.shape(PublishState.PropTypes),
+  publishState: PropTypes.shape(PublishState.propTypes),
   /** render category/prefix above title */
   category: PropTypes.string,
   /** Render title text */
@@ -56,7 +59,7 @@ PageHeader.propTypes = {
   /** Render subTitle text */
   subTitle: PropTypes.string,
   /** optional array of paragraphs @atoms/headings/CompHeading */
-  optionalContents: PropTypes.arrayOf(Paragraph.PropTypes)
+  optionalContents: PropTypes.arrayOf(PropTypes.shape(Paragraph.propTypes))
 };
 
 export default PageHeader;

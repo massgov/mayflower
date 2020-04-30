@@ -14,7 +14,7 @@ Each checkbox needs a label and, optionally, can include an icon. All options ne
 | :--- | :--- | :--- |
 | ![](../../.gitbook/assets/form_input_checkbox.png) | Standard |  |
 | ![](../../.gitbook/assets/form_input_checkbox_checked.png) | Checked |  |
-| ![](../../.gitbook/assets/checkbox-disabled-state-small.png)  | Disabled |  |
+| ![](../../.gitbook/assets/checkbox-disabled-state-small.png) | Disabled |  |
 |  | Error |  |
 |  | Focus |  |
 
@@ -50,7 +50,7 @@ Currently Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Input Checkbox in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-input-checkbox)
+[Input Checkbox in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-input-checkbox)
 {% endtab %}
 {% endtabs %}
 
@@ -63,6 +63,4 @@ Currently Not Available
 | Base Checkbox | `.ma__input-checkbox` |
 | Checkbox with Error | `.ma__input-checkbox--error` \(_work in progress_\) |
 | Checkbox Disabled | `.ma__input-checkbox--disabled` \(_work in progress_\) |
-
-
 

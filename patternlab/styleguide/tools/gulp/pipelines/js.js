@@ -1,11 +1,10 @@
-const uglify         = require("gulp-uglify"),
+const terser         = require("gulp-terser"),
     rename         = require("gulp-rename"),
     sourcemaps     = require("gulp-sourcemaps"),
     browserify     = require("browserify"),
     gulpIf         = require("gulp-if"),
     concat         = require("gulp-concat"),
     filter         = require("gulp-filter"),
-    minimatch      = require("minimatch"),
     lazypipe       = require("lazypipe"),
     through        = require("through2");
 
@@ -25,7 +24,7 @@ module.exports = {
             .pipe(sourcemaps.init, {loadMaps: true})
             .pipe(concat, "vendor.js", {newLine: ";"})
             .pipe(function() {
-                return gulpIf(minify, uglify());
+                return gulpIf(minify, terser());
             })
             .pipe(rename, {suffix: "-generated"})
             .pipe(sourcemaps.write, "./")();
@@ -38,7 +37,7 @@ module.exports = {
             .pipe(browserifyNoExternals, browserifyOptions)
             .pipe(sourcemaps.init, { loadMaps: true })
             .pipe(function() {
-                return gulpIf(minify, uglify());
+                return gulpIf(minify, terser());
             })
             .pipe(rename, {suffix: "-generated"})
             .pipe(sourcemaps.write, "./")();
@@ -53,13 +52,6 @@ function browserifyNoExternals(options) {
         const b = browserify(options || {}) // pass options
             .add(file.path) // this file
             .transform("babelify", {presets: ["babel-preset-env"]});
-
-        b.on("file", function(file) {
-            // Exclude vendor files from node_modules and bower_components.
-            if(minimatch(file, "**/node_modules/**") || minimatch(file, "**/bower_components/**")) {
-                b.external(file);
-            }
-        });
 
         b.bundle(function(err, res){
             if (err){

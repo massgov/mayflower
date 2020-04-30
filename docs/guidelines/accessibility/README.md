@@ -44,5 +44,3 @@ Here, you'll find resources for web accessibility from basic concepts to technic
 * [Wikipedia: Web accessibility](https://en.wikipedia.org/wiki/Web_accessibility)
 * [WUHCAG: What is web accessibility?](https://www.wuhcag.com/what-is-web-accessibility/)
 
-
-

@@ -22,27 +22,12 @@ const dirList = listDirs(componentsPath)
 const testComponents = storyBookBackstop.listComponents(dirList);
 
 // Map discovered Component dirs to Backstop scenarios.
-let scenarios = storyBookBackstop.mapComponents(testComponents, debug);
-
-// The Error and example Template pages need a delay to allow the background
-// animation to complete.
-scenarios = scenarios.map((item) => {
-  const delays = [
-    'Error',
-    'NarrowTemplate',
-    'GeneralTeaser'
-  ];
-  // eslint-disable-next-line prefer-const
-  let result = { ...item };
-  if (delays.some((value) => item.label.indexOf(value) > -1)) {
-    result.delay = 5000;
-  }
-  return result;
-});
+const scenarios = storyBookBackstop.mapComponents(testComponents, debug);
 
 module.exports = {
   id: 'vrt',
   viewports,
+  onBeforeScript: 'onBefore.js',
   onReadyScript: 'onReady.js',
   scenarios,
   paths: {
@@ -52,13 +37,18 @@ module.exports = {
     html_report: path.resolve(__dirname, './data/html_report'),
     ci_report: path.resolve(__dirname, './data/ci_report')
   },
+  // Use 'storyRendered' being printed to the console as the trigger to start
+  // taking the snapshot. This is something Storybook prints on its own. This
+  // prevents us from having to add a manual delay to compensate for Storybook's
+  // slow boot time.
+  readyEvent: 'storyRendered',
   report: ['browser', 'CI'],
   engine: 'puppeteer',
   engineOptions: {
     args: ['--no-sandbox']
   },
-  asyncCaptureLimit: 5,
-  asyncCompareLimit: 50,
+  asyncCaptureLimit: 3,
+  asyncCompareLimit: 20,
   debug: false,
   debugWindow: false
 };

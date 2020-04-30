@@ -1,4 +1,5 @@
-$contact-row-image-max-width: 300px;
+//Custom breakpoint for contact row
+$accordion-break: 720px;
 
 .ma__contact-row {
   position: relative;
@@ -6,46 +7,50 @@ $contact-row-image-max-width: 300px;
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
   }
 
   @media ($bp-large-min) {
+
     .ma__comp-heading,
-    .ma__contact-row__primary,
-    .ma__contact-row__additional {
-      width: calc(100% - #{$contact-row-image-max-width});
+    .ma__contact-row__columns {
+      width: calc(100% - 300px);
     }
   }
 
-  .ma__contact-row__primary {
-    margin-bottom: 20px;
-    @media ($bp-medium-min) {
-      margin-bottom: 40px;
-    }
-  }
+  .ma__contact-row__columns {
 
-  .ma__contact-row__additional {
-    &.has-many {
-      @media ($bp-medium-min) {
-        @include clearfix;
-        .ma__contact-group:first-child:not(:last-child) {
-          width: 50%;
-          float: left;
-        }
-        .ma__contact-group:not(:first-child) {
-          width: 50%;
-          margin-left: calc(50% + 40px);
-          border-left: 1px solid $c-bd-divider;
-          padding-left: 40px;
+    @media (min-width: $accordion-break) {
+      column-count: 2; 
+      column-gap: 40px; 
+      column-rule: 1px solid $c-bd-divider;
+
+      
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+
+        .ma__contact-set {
+          overflow: hidden;
         }
       }
-    }
+      
 
+      .ma__contact-group {
+        break-inside: avoid;
+        will-change: transform;
+      }
+    }
+  }
+
+  .ma__contact-group--more-link {
+    width: 100%;
+    clear: both;
   }
 
   .ma__image {
     margin-bottom: 1rem;
-    max-width: $contact-row-image-max-width;
+    width: auto;
+    max-width: 300px;
 
     @media ($bp-large-min) {
       position: absolute;
@@ -59,35 +64,14 @@ $contact-row-image-max-width: 300px;
   }
 
   .ma__contact-row__expand {
-    padding-top:20px;
-    text-align: left;
     display: none;
-
-    button {
-      @include ma-button-reset;
-      @include ma-link-underline;
-      @include ma-chevron;
-      font-size: 1.375rem;
-      font-weight: 500;
-      padding-right: 10px;
-
-      span:nth-child(2) {
-        display: none;
-      }
-
-      &:after {
-        transform: translateY(-45%) rotate(45deg);
-      }
-    }
   }
 
-
   // Accordion behavior for mobile
-  // note: We only need accordion behavior if we have a 'has-many' class.
-  // Otherwise we have at most 2 items.
-  @media ($bp-medium-max) {
 
-    .ma__contact-row__additional.has-many .ma__contact-group:not(:first-child) {
+  @media (max-width: $accordion-break) {
+
+    .ma__contact-row__columns.has-many  .ma__contact-set:nth-child(n+3) {
       max-height: 0;
       overflow: hidden;
       opacity: 0;
@@ -95,54 +79,65 @@ $contact-row-image-max-width: 300px;
       transition: all 350ms ease-in-out;
     }
 
-    .ma__contact-row__additional.has-many {
-      &  ~ .ma__contact-row__expand {
-        display: block;
-      }
 
-    }
-
-    &.is-open {
-
-      .ma__contact-row__additional.has-many .ma__contact-group:not(:first-child) {
+      .ma__contact-row__columns.is-open .ma__contact-set:nth-child(n+3) {
         max-height: 100vh; //arbitrarily large max height for contact groups to avoid clipping
         opacity: 1;
-        padding-bottom: 20px;
+        padding-top: 20px;
       }
 
       // button text
-      .ma__contact-row__expand button {
-        span:first-child {
-          display: none;
-        }
-        span:nth-child(2) {
+
+      .ma__contact-row__expand {
+        
+        &.toggle-sets {
           display: inline;
+
+          button {
+
+            @include ma-button-reset;
+
+            @include ma-link-underline;
+
+            @include ma-chevron;
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: $c-font-link;
+            padding-right: 10px;
+
+            span:first-child {
+              display: inline;
+            }
+
+            span:nth-child(2) {
+              display: none;
+            }
+
+            &:after {
+              transform: translateY(-45%) rotate(45deg);
+              border-color: $c-font-link;
+              opacity: .5;
+            }
+          }
         }
-        &:after {
-          transform: translateY(-45%) rotate(-135deg);
+
+        &.is-open {
+
+          button {
+
+            span:first-child {
+              display: none;
+            }
+
+            span:nth-child(2) {
+              display: inline;
+            }
+
+            &:after {
+              transform: translateY(-45%) rotate(-135deg);
+            }
+          }
         }
       }
-    }
-
-  }
-}
-
-//theme
-.ma__contact-row {
-
-  .ma__contact-row__expand {
-    button {
-      color: $c-font-link;
-      font-weight: 700;
-
-      &:after {
-          border-color: $c-font-link;
-          opacity: .5;
-      }
-
-      &:hover {
-          border-color: rgba($c-font-link,.5);
-      }
-    }
   }
 }

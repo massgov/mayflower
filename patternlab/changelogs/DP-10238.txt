@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Change
-Patch
-- patternlab / DP-10238: MF Modify map pins to include link to location and directions

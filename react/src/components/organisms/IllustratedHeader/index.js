@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import PageHeader from '../PageHeader';
 import PublishState from '../../atoms/text/PublishState';
 
+import './style.css';
+
 const IllustratedHeader = (illustratedHeader) => {
   const {
     bgInfo, bgImage, inverted, category, pageHeader, publishState, children
@@ -16,7 +18,7 @@ const IllustratedHeader = (illustratedHeader) => {
     <section className={`ma__illustrated-header ${illustratedHeaderClass}`}>
       <div className="ma__illustrated-header__container">
         <div className="ma__illustrated-header__content">
-          { publishState.text && (
+          { publishState && publishState.text && (
             <div className="ma__page-header__publish-state">
               <PublishState {...publishState} />
             </div>

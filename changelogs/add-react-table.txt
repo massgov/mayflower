@@ -1,4 +1,0 @@
-___DESCRIPTION___
-Added
-Minor
-- (React) Add react-table as a DataTable component directly using react-table API.

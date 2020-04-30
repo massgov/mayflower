@@ -21,6 +21,7 @@ Displays a collection of components to help describe an available Service on Mas
 
 ### Variant options
 * Most of the elements on the page are optional.  The Page Banner, Intro text, and Google Map are required on this template.
+* The services page can include a different layout (flexible-link-groups).
 
 
 ### Notes
@@ -30,6 +31,9 @@ Displays a collection of components to help describe an available Service on Mas
 ### Variables
 ~~~
 {
+  flexibleLinkGroup:
+    type: boolean / optional
+
   pageBanner:
     type: pageBanner / required
 

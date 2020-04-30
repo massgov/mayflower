@@ -16,6 +16,8 @@ inputRadio {
     type: string / required
   label:
     type: string / required
+  required:
+    type: boolean / required
   checked:
     type: boolean
 }

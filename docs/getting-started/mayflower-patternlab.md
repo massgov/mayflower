@@ -1,6 +1,6 @@
 # Mayflower Patternlab
 
-[Mayflower Patternlab](https://github.com/massgov/mayflower/tree/master/patternlab) is a Twig based component library under the enterprise design system for the Commonwealth of Massachusetts built with [Patternlab](http://patternlab.io/). Its generated static assets are published as a npm package [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower-react). Refer to [Mayflower PatternLab Static Site](https://mayflower.digital.mass.gov) for a complete list of its UI components.
+[Mayflower Patternlab](https://github.com/massgov/mayflower/tree/master/patternlab) is a Twig based component library under the enterprise design system for the Commonwealth of Massachusetts built with [Patternlab](http://patternlab.io/). Its generated static assets are published as a npm package [@massds/mayflower](https://www.npmjs.com/package/@massds/mayflower-react). Refer to [Mayflower PatternLab Static Site](https://mayflower.digital.mass.gov/patternlab) for a complete list of its UI components.
 
 ## Getting Started
 

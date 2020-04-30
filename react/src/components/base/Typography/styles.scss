@@ -1,0 +1,29 @@
+@import 'global';
+@import "01-atoms/global/fonts-styles";
+
+.sb {
+  &-text {
+    overflow-wrap: break-word;
+  }
+
+  &-block {
+    margin-top: 0 !important;
+    margin-bottom: 2rem;
+
+    hr {
+      border: 1px solid $c-gray-lightest;
+    }
+
+    &--mono {
+      font-family: $fonts-mono;
+    }
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 300px auto;
+    @media ($bp-small-max){
+      grid-template-columns: auto;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+// Include this in the topmost level of any pattern that might
+// contain a truncated body text area
+
+@mixin ma-truncated-body-text {
+
+  .ma-truncated-body-text {
+    display: flex;
+    flex-direction: column;
+
+    &.expanded {
+
+      .ma-truncated-body-text__contents {
+        max-height: none;
+      }
+
+      .ma-truncated-body-text__fade-overlay {
+        display: none;
+      }
+
+      .ma-truncated-body-text__button::after {
+        transform: translateY(-55%) rotate(-135deg);
+      }
+    }
+  }
+
+  .ma-truncated-body-text__contents {
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s height;
+  }
+
+  .ma-truncated-body-text__fade-overlay {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 60px;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba($c-white, 0) 0%,
+      rgba($c-white, 1) 100%
+    );
+  }
+
+  .ma-truncated-body-text__button {
+
+    @include ma-chevron;
+    order: 2;
+    width: 100%;
+    position: relative;
+    z-index: 3;
+    height: 60px;
+    background: transparent;
+    border: 0;
+    font-weight: 700;
+    color: $c-primary;
+
+    &::after {
+      transform: translateY(-35%) rotate(45deg);
+      color: $c-primary-lighter;
+    }
+  }
+}

@@ -6,7 +6,7 @@ export default {
   info: 'Description on link for screen',
   title: 'Title',
   level: {
-    2: 'h2',
-    3: 'h3'
+    h2: 2,
+    h3: 3
   }
 };

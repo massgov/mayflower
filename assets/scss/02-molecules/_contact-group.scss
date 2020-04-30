@@ -2,15 +2,12 @@
 
   padding-bottom: 20px;
 
-  &:last-child {
-    padding-bottom: 0;
-  }
-
   &__item {
     margin-bottom: .2em;
   }
 
   &__name {
+
     @include ma-h6;
 
     & > svg {
@@ -30,7 +27,7 @@
   &__label {
     display: inline-block;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
 
@@ -40,7 +37,7 @@
     display: inline-block;
     line-height: 1.75;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
   }
@@ -55,7 +52,7 @@
   &__address {
     line-height: 1.5;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
   }
@@ -72,12 +69,13 @@
       word-wrap: break-word;
     }
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
   }
 
   &__directions {
+
     .ma__content-link {
       line-height: inherit;
     }
@@ -85,6 +83,7 @@
 }
 
 //theme
+
 .ma__contact-group {
 
   &__name {

@@ -7,6 +7,8 @@ An `<ul>`  element with its child `<li>` elements and optional nested child `<ul
 
 ### Variables:
 ~~~
+class:
+  type: string / optional
 unorderedList [{
   text:
     type: string / required

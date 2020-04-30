@@ -3,7 +3,9 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
+    margin-top: 0px;
   }
 
   .ma__rich-text {

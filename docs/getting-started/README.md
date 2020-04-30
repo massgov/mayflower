@@ -26,22 +26,22 @@ If you have full access to front end code but are not able to implement either o
 The current version of Mayflower generated static assets:
 
 * Compiled CSS:
-  * [https://mayflower.digital.mass.gov/assets/css/index-generated.css](https://mayflower.digital.mass.gov/assets/css/index-generated.css)
+  * [https://mayflower.digital.mass.gov/patternlab/assets/css/index-generated.css](https://mayflower.digital.mass.gov/patternlab/assets/css/index-generated.css)
 * Compiled JS:
-  * [https://mayflower.digital.mass.gov/assets/js/vendor-generated.js](https://mayflower.digital.mass.gov/assets/js/vendor-generated.js)
-  * [https://mayflower.digital.mass.gov/assets/js/index-generated.js](https://mayflower.digital.mass.gov/assets/js/index-generated.js)
+  * [https://mayflower.digital.mass.gov/patternlab/assets/js/vendor-generated.js](https://mayflower.digital.mass.gov/patternlab/assets/js/vendor-generated.js)
+  * [https://mayflower.digital.mass.gov/patternlab/assets/js/index-generated.js](https://mayflower.digital.mass.gov/patternlab/assets/js/index-generated.js)
 
-All Mayflower assets are version-controlled and are published following this convention:[`https://mayflower.digital.mass.gov`](https://mayflower.digital.mass.gov/)`/v/[version]`
+All Mayflower assets are version-controlled and are published following this convention:[`https://mayflower.digital.mass.gov/patternlab`](https://mayflower.digital.mass.gov/patternlab/)`/v/[version]`
 
 We recommend that you point to a stable version of the CSS and JS to avoid unexpected changes and update it whenever you are ready. Please refer to the [Mayflower Changelog](https://github.com/massgov/mayflower/blob/develop/CHANGELOG.md) to determine whether you want to upgrade Mayflower: E.g. Mayflower v6.0.0
 
 * Compiled CSS for v6.0.0:
-  * [https://mayflower.digital.mass.gov/v/6.0.0/assets/css/index-generated.css](https://mayflower.digital.mass.gov/v/5.31.0/assets/css/index-generated.css)
+  * [https://mayflower.digital.mass.gov/patternlab/v/6.0.0/assets/css/index-generated.css](https://mayflower.digital.mass.gov/patternlab/v/5.31.0/assets/css/index-generated.css)
 * Compiled JS for v6.0.0
-  * [https://mayflower.digital.mass.gov/v/6.0.0/assets/js/vendor-generated.js](https://mayflower.digital.mass.gov/assets/js/vendor-generated.js)
-  * [https://mayflower.digital.mass.gov/v/6.0.0/assets/js/index-generated.js](https://mayflower.digital.mass.gov/assets/js/index-generated.js)
+  * [https://mayflower.digital.mass.gov/patternlab/v/6.0.0/assets/js/vendor-generated.js](https://mayflower.digital.mass.gov/patternlab/assets/js/vendor-generated.js)
+  * [https://mayflower.digital.mass.gov/patternlab/v/6.0.0/assets/js/index-generated.js](https://mayflower.digital.mass.gov/patternlab/assets/js/index-generated.js)
 
-Add the CSS file in the `<head>` and JS files right before the closing `</body>` you should be able to use the html markup from our [Mayflower PatternLab component library](https://mayflower.digital.mass.gov/?view=c) \(switch from Twig tab to HTML tab in the code view\) to render Mayflower UI.
+Add the CSS file in the `<head>` and JS files right before the closing `</body>` you should be able to use the html markup from our [Mayflower PatternLab component library](https://mayflower.digital.mass.gov/patternlab/?view=c) \(switch from Twig tab to HTML tab in the code view\) to render Mayflower UI.
 
 Use [**Mayflower Starters**](mayflower-starters.md) to kick-start a custom HTML page using Mayflower markup and generated assets and follow the instructions on how to host the page using Github Pages if you need a free hosting option or want to embed the widget as an iframe on Mass.gov.
 

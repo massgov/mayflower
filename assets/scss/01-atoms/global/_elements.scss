@@ -10,35 +10,41 @@
 // }
 
 // WARNING: avoid nesting of elements,
-// because it makes them harder to override
+// because it makes them harder to override.
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 
 html {
-  @media ($bp-small-max){
-    font-size: 14.5px;
+  font-family: $fonts;
+
+  &:lang(km) {
+    font-family: $fonts-khmer, $fonts;
   }
 
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
+  font-size: 14.5px;
+
+  @media ($bp-small-min) {
+    font-size: 16px;
+  }
 }
+
 
 body {
   margin: 0;
   font-size: 1.375rem;
   line-height: 1.5;
   color: $c-font-base;
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
   font-weight: 400;
-  // for IE weirdness 
-  -ms-overflow-style: none;
-  
-
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
 }
 
+
+
 a {
+
   @include ma-link-transition;
   text-decoration: none;
   font-weight: 700;
@@ -50,9 +56,17 @@ img {
   max-width: 100%;
 }
 
-p,
+svg {
+  overflow: hidden;
+}
+
 ul, ol {
   margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 ul ul,
@@ -107,38 +121,27 @@ ol {
 
 
 // Heading styles
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  color: $c-font-heading;
-  font-weight: 700;
-}
-h1 {
-  @include ma-h1;
-}
-h2 {
-  @include ma-h2;
-}
-h3 {
-  @include ma-h3;
-}
-h4 {
-  @include ma-h4;
-}
-h5 {
-  @include ma-h5;
-}
-h6 {
-  @include ma-h6;
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    margin-top: 0;
+    color: $c-font-heading;
+    font-weight: 700;
+
+    @include ma-heading($i);
+  }
 }
 
 // end heading styles
 
 .ma__visually-hidden,
 .visually-hidden {
+
   @include ma-visually-hidden;
 }
 
 // To disabled scrolling (for use when another scrollable container is in the foreground)
+
 .scroll-disabled {
   height: 100vh;
   overflow: hidden;
@@ -151,11 +154,11 @@ h4,
 p,
 main,
 div {
+
   &[tabindex="-1"]:focus {
     outline: none;
   }
 }
-
 
 b, strong {
   font-weight: 700;

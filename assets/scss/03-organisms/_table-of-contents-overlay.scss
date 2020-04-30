@@ -1,4 +1,5 @@
 .ma__toc--overlay {
+
   @include ma-container();
   margin-top: 20px;
   transition: background .2s ease;
@@ -6,9 +7,9 @@
   .ma__toc--overlay__container .ma__toc__toc__title,
   .ma__toc__toc__title {
     border: 0;
-    padding-top: 20px;
+    padding-top: 12px;
     padding-right: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 12px;
     padding-left: 20px;
     display: block;
     text-align: left;
@@ -20,6 +21,7 @@
     }
 
   }
+
   .ma__toc__subtitle {
     text-transform: uppercase;
     font-size: 1rem;
@@ -38,9 +40,11 @@
   }
 
   .ma__toc--hierarchy__accordion {
+
     .ma__toc--hierarchy__title {
       padding-left: 16px;
       border-left: 10px solid transparent;
+
       &:focus {
         border-left-color: transparent !important;
       }
@@ -54,6 +58,7 @@
     border: 0;
     margin-bottom: 0;
   }
+
   .ma__toc--hierarchy {
     margin-top: 4rem;
   }
@@ -69,7 +74,9 @@
     z-index: 100;
     display: flex;
     flex-direction: column;
+
     > * {
+
       @include ma-container();
       display: none;
       width: 100%;
@@ -100,9 +107,11 @@
     border: none;
     background: transparent;
     transition: all 0.2s ease;
+
     @media ($bp-small-min) {
       line-height: 0.95;
     }
+
     > * {
       transition: transform 1s ease;
       display: inline-block;
@@ -111,12 +120,14 @@
   }
 
   .ma__toc__toc__toggle[aria-expanded="false"] {
+
     .hide {
       display: none;
     }
   }
 
   .ma__toc__toc__toggle[aria-expanded="true"] {
+
     .show {
       display: none;
     }
@@ -142,6 +153,7 @@
   }
 
   // current page indicator
+
   .ma__toc--hierarchy__container li {
     position: relative;
 
@@ -154,6 +166,7 @@
         width: 10px;
         height:100%;
     }
+
     .ma__toc--hierarchy__accordion-content .is-current:before {
       left: -20px;
     }
@@ -161,12 +174,14 @@
 }
 
 //theme
+
 .ma__toc--overlay {
 
   .ma__toc__toc__title {
     background: $c-gray-lightest;
     color: $c-primary;
   }
+
   .ma__toc--hierarchy {
     border-bottom: 1px solid $c-gray-light;
   }
@@ -174,6 +189,7 @@
   .ma__toc__toc__toggle[aria-expanded="false"] {
     color: $c-primary;
   }
+
   .ma__toc__toc__toggle[aria-expanded="true"] {
     color: $c-white;
     background: $c-primary;
@@ -182,10 +198,13 @@
   .ma__toc__subtitle {
     color: $c-gray-dark;
   }
+
   .ma__toc--hierarchy__accordion {
+
     .ma__toc--hierarchy__title {
       border-left-color: transparent;
     }
+
     .ma__toc--hierarchy__title.is-current {
       border-left-color: rgba($c-primary-alt, 0.5) !important;
     }

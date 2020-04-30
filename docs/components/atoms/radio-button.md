@@ -14,7 +14,7 @@ This is a unit to present a radio button. Each radio button needs its label to d
 | :--- | :--- | :--- |
 | ![](../../.gitbook/assets/form_input_radio.png) | Standard |  |
 | ![](../../.gitbook/assets/form_input_radio_checked.png) | Checked |  |
-| ![](../../.gitbook/assets/radio-button-disabled-small.png)  | Disabled |  |
+| ![](../../.gitbook/assets/radio-button-disabled-small.png) | Disabled |  |
 |  | Error |  |
 |  | Focus |  |
 

@@ -8,6 +8,8 @@ import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
 import Paragraph from '../../atoms/text/Paragraph';
 import UnorderedList from '../../atoms/lists/UnorderedList';
 
+import './style.css';
+
 const RichText = (props) => {
   if (!Object.entries) {
     entries.shim();
@@ -68,7 +70,9 @@ RichText.propTypes = {
   sidebarHeading: PropTypes.instanceOf(SidebarHeading),
   /** @atoms/links/DecorativeLink */
   decorativeLink: PropTypes.instanceOf(DecorativeLink),
-  rteElements: PropTypes.arrayOf(PropTypes.object)
+  rteElements: PropTypes.arrayOf(PropTypes.object),
+  /** Children passed to rich text. */
+  children: PropTypes.node
 };
 
 RichText.defaultProps = {

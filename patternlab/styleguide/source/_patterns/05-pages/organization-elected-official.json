@@ -272,47 +272,43 @@
           }
         }
       ],
-      "sideBar": [
-
-      ]
+      "sideBar": []
     },
     {
       "title": "",
       "id": "",
       "pageContent": [
         {
-         "path": "@organisms/by-author/contact-row.twig",
+          "path": "@organisms/by-author/contact-row.twig",
           "data": {
-          "contactRow": {
-            "compHeading": {
-              "title": "Contact Us",
-              "sub": "",
-              "color": "",
-              "id": "contact us",
-              "centered": ""
-            },
-            "image": {
-              "alt": "eohhs logo",
-              "src": "../../assets/images/placeholder/230x130.png",
-              "height": "130",
-              "width": "230"
-            },
-            "primaryContact": {
-              "icon": "marker",
-              "name": "Address",
-              "items": [
-                {
-                  "type": "address",
-                  "label": "",
-                  "value": "One Ashburton Place, 11th Floor, Boston, MA 02108",
-                  "link": "https://www.google.com/maps/place/1+Ashburton+Pl,+Boston,+MA+02108",
-                  "details": ""
-                }
-              ]
-            },
-            "hasManyAdditional": true,
-            "additionalContacts": [
-              {
+            "contactRow": {
+              "compHeading": {
+                "title": "Contact Us",
+                "sub": "",
+                "color": "",
+                "id": "contact us",
+                "centered": ""
+              },
+              "image": {
+                "alt": "eohhs logo",
+                "src": "../../assets/images/placeholder/230x130.png",
+                "height": "130",
+                "width": "230"
+              },
+              "addressContactGroup": {
+                "icon": "marker",
+                "name": "Address",
+                "items": [
+                  {
+                    "type": "address",
+                    "label": "",
+                    "value": "One Ashburton Place, 11th Floor, Boston, MA 02108",
+                    "link": "https://www.google.com/maps/place/1+Ashburton+Pl,+Boston,+MA+02108",
+                    "details": ""
+                  }
+                ]
+              },
+              "phoneContactGroup": {
                 "icon": "phone",
                 "name": "Phone",
                 "items": [
@@ -366,7 +362,7 @@
                   }
                 ]
               },
-              {
+              "onlineContactGroup": {
                 "icon": "laptop",
                 "name": "Online",
                 "hidden": "",
@@ -397,7 +393,7 @@
                   }
                 ]
               },
-              {
+              "faxContactGroup": {
                 "icon": "fax-icon",
                 "name": "Fax",
                 "items": [
@@ -415,9 +411,8 @@
                   }
                 ]
               }
-            ]
+            }
           }
-        }
         },
         {
           "path": "@organisms/by-author/image-link-list.twig",
@@ -1003,7 +998,7 @@
                 "href": "#",
                 "text": "See all news and announcements",
                 "chevron": true,
-                "label": "See all news and announcements for the Executive Office of Health and Human Services"
+                "labelContext": "for the Executive Office of Health and Human Services"
               }
             }
           }
@@ -1025,8 +1020,8 @@
               "events": null,
               "pastMore": {
                 "href": "#",
-                "text": "See all events, agendas, and meeting minutes",
-                "info": "view all past events for Office of the Treasurer & Receiver General",
+                "text": "See all past events, agendas, and meeting minutes",
+                "labelContext": "for the Office of the Treasurer & Receiver General",
                 "chevron": true
               }
             }
@@ -1138,8 +1133,8 @@
       },
       "disambiguatingDescription": "EOHHS oversees health and general support services to help people in Massacheusetts - from young children to seniors - meet basic needs.",
       "description": "The Executive Office of Health and Human Services is responsible through its member agencies for the delivery of a wide range of services to people with financial, health, social, protective, rehabilitation, and correctional needs. Online information is available for consumers, providers, researchers, and social workers to find out what types of assistance are offered.",
-      "logo": "https://mayflower.digital.mass.gov/assets/images/images/placeholder/230x130.png",
-      "url": "https://mayflower.digital.mass.gov/?p=templates-org-landing-page",
+      "logo": "https://mayflower.digital.mass.gov/patternlab/assets/images/images/placeholder/230x130.png",
+      "url": "https://mayflower.digital.mass.gov/patternlab/?p=templates-org-landing-page",
       "contactInfo": {
         "address": "One Ashburton Place, 11th Floor, Boston, MA 02108",
         "telephone": "+14134994262",

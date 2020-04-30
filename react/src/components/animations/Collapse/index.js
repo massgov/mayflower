@@ -52,7 +52,12 @@ class Collapse extends React.Component {
 
   // Expanding
   handleEnter(elem) {
-    elem.style[this.getDimension()] = '0'; // eslint-disable-line no-param-reassign
+    const { minDimension } = this.props;
+    const dimension = this.getDimension();
+    const currentDim = parseInt(css(elem, dimension), 10);
+    const setDim = (minDimension <= currentDim) ? minDimension : currentDim;
+    elem.style[dimension] = `${setDim}px`; // eslint-disable-line no-param-reassign
+    elem.style[`max${capitalize(dimension)}`] = 'none'; // eslint-disable-line no-param-reassign
   }
 
   handleEntering(elem) {
@@ -72,7 +77,11 @@ class Collapse extends React.Component {
   }
 
   handleExiting(elem) {
-    elem.style[this.getDimension()] = '0'; // eslint-disable-line no-param-reassign
+    const { minDimension } = this.props;
+    const dimension = this.getDimension();
+    const currentDim = parseInt(css(elem, dimension), 10);
+    const setDim = (minDimension <= currentDim) ? minDimension : currentDim;
+    elem.style[dimension] = `${setDim}px`; // eslint-disable-line no-param-reassign
   }
 
   render() {
@@ -84,19 +93,22 @@ class Collapse extends React.Component {
       onExiting,
       className,
       children,
+      minDimension,
+      minDimensionOnMount,
       ...props
     } = this.props;
 
     const collapseStyles = {
       [EXITED]: 'collapsed',
-      [EXITING]: 'expanding',
-      [ENTERING]: 'collapsing',
+      [EXITING]: 'collapsing',
+      [ENTERING]: 'expanding',
       [ENTERED]: 'expanded'
     };
 
+    const dimension = this.getDimension();
+
     delete props.dimension;
     delete props.getDimensionValue;
-
     return(
       <Transition
         {...props}
@@ -110,11 +122,14 @@ class Collapse extends React.Component {
         {(state, innerProps) =>
           React.cloneElement(children, {
             ...innerProps,
+            style: {
+              [`max${capitalize(dimension)}`]: minDimensionOnMount ? `${minDimension}px` : 'none'
+            },
             className: classNames(
               className,
               children.props.className,
               collapseStyles[state],
-              this.getDimension() === 'width' && 'width'
+              dimension === 'width' && 'width',
             )
           })
         }
@@ -157,8 +172,16 @@ Collapse.propTypes = {
   getDimensionValue: PropTypes.func,
   /** ARIA role of collapsible element */
   role: PropTypes.string,
+  /** classNames for direct children */
   className: PropTypes.string,
-  children: PropTypes.node
+  /** child node */
+  children: PropTypes.node,
+  /** The minimum dimension, height or width, that you want the animation to collapse to.
+   *  This should be in number of pixels (i.e. pass 200 if you want it to collapse to a height of 200px.
+      The default value is 0. */
+  minDimension: PropTypes.number,
+  /** Whether you want to set the minimum height of the child on its initial mount */
+  minDimensionOnMount: PropTypes.bool
 };
 
 Collapse.defaultProps = {
@@ -166,9 +189,11 @@ Collapse.defaultProps = {
   timeout: 300,
   mountOnEnter: false,
   unmountOnExit: false,
-  appear: false,
+  appear: true,
   dimension: 'height',
-  getDimensionValue
+  getDimensionValue,
+  minDimension: 0,
+  minDimensionOnMount: false
 };
 
 export default Collapse;

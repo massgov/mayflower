@@ -36,7 +36,12 @@ const listItem = (props, itemIndex, ulIndex) => {
     __html: props.text
   };
   const key = `li.${ulIndex}.${itemIndex}`;
+  /* eslint-disable-next-line react/no-danger */
   return(<li key={key} dangerouslySetInnerHTML={raw} />);
+};
+
+listItem.propTypes = {
+  text: PropTypes.string
 };
 
 const subList = (props) => {

@@ -1,5 +1,5 @@
 .ma__organization-navigation {
-  
+
   &__items {
     position: relative;
     padding: 0 20px;
@@ -33,13 +33,14 @@
       transition: 0.8s ease-out;
 
       button {
+
         @include ma-chevron;
-        
+
         &::after {
           float: right;
           border-color: $c-primary-alt;
           transition: 0.5s ease-out;
-          
+
           @media ($bp-large-min) {
             transform: translateY(20%) rotate(45deg);
           }
@@ -56,18 +57,18 @@
           float: right;
           padding-left: 10px;
         }
-  
+
         .subnav-toggle::after {
           transform: translateY(-30%) rotate(135deg);
           transition: 0.5s ease-out;
         }
       }
-     
+
       @media ($bp-large-min) {
         background-color: $c-white;
         transition: 0.5s ease-out;
         box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
-      } 
+      }
     }
 
     .subnav-toggle,
@@ -150,7 +151,7 @@
       background-color: $c-white;
       box-shadow: 0 0.25rem 0.5rem rgba($c-black, 0.25);
       z-index: 0;
-      
+
       .item-open & {
         max-height: 100vh;
         transition: max-height 0.6s ease-in-out;
@@ -159,7 +160,7 @@
     }
   }
 
-  
+
 
   &__subitem {
     padding: 0 20px;
@@ -169,6 +170,7 @@
     }
 
     .ma__comp-heading {
+
       @include ma-h4;
     }
   }
@@ -188,13 +190,13 @@
       color: $c-primary;
       margin-bottom: 0;
       padding-bottom: 1rem;
-      
+
       &::after {
         display: none;
       }
 
       &::before {
-        content: '\00d7';
+        content: $close-icon;
         font-size: 2.1rem;
         font-weight: 200;
         line-height: 0;
@@ -226,6 +228,7 @@
     }
 
     @media ($bp-large-min) {
+
       @include ma-auto-size(1, 3);
 
       @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -305,7 +308,7 @@
       }
 
       .ma__decorative-link {
-      
+
         @media ($bp-large-min) {
           width: auto;
         }
@@ -320,6 +323,7 @@
           }
 
           @media ($bp-large-min) {
+
             &:hover {
               border-bottom-color: transparent;
             }
@@ -380,8 +384,9 @@
     @media ($bp-large-min) {
       display: flex;
       flex-direction: column;
+
       @include ma-auto-size(1, 3);
-      
+
       &:not(:first-child) {
         border-left: 1px solid $c-gray-light;
         padding-left: 2.125rem;
@@ -407,6 +412,7 @@
   .ma__contact-group:not(:first-child),
   .ma__contact-group:first-child:not(:last-child) {
     // these styles are defined multiple places for page level contact groups
+
     @media ($bp-medium-min) {
       width: auto !important;
       margin-left: 0 !important;
@@ -427,13 +433,14 @@
   }
 
   .custom-option-item {
-    margin-top: 1rem; 
+    margin-top: 1rem;
     padding-top: 1rem;
 
     @media ($bp-large-min) {
       flex-grow: 1;
       flex-basis: 0;
       max-width: 33%;
+
       @include ma-auto-size(1, 3);
 
       &:not(:first-child) {
@@ -471,6 +478,7 @@
 }
 
 // IE hacks
+/* stylelint-disable selector-type-no-unknown */
 
 _:-ms-lang(x), .ma__org-nav-contact-us__contact-row .wrappedGroup {
   flex: 1 1 auto;

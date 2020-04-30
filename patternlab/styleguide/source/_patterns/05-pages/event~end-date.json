@@ -46,7 +46,7 @@
             "items": [{
               "type": "address",
               "label": "",
-              "address": "Halibut Point State Park, Gott Avenue, Rockport, MA 01966",
+              "address": "Halibut Point State Park\nGott Avenue\nRockport, MA 01966",
               "link": {
                 "href": "https://www.google.com/maps/place/Halibut+Point+State+Park",
                 "text": "directions",

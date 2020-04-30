@@ -2,11 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import RichText from '../../organisms/RichText';
+import './style.css';
 
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';
   const Element = `h${pressTeaser.level || 2}`;
-
+  if (process.env.NODE_ENV === 'development') {
+    /* eslint-disable-next-line no-console */
+    console.warn('This component is deprecated and will be archived in v10. Use the GenTeaser Organism instead.');
+  }
   return(
     <section className={imageClass}>
       { pressTeaser.image && pressTeaser.image.src && (
@@ -64,7 +68,7 @@ PressTeaser.propTypes = {
   /** The short for tag that will appear in the eyebrow, e.g. press release */
   eyebrow: PropTypes.string,
   /** A linked title for the teaser content, @atoms/links/DecorativeLink */
-  title: PropTypes.instanceOf(DecorativeLink).isRequired,
+  title: PropTypes.shape(DecorativeLink.propTypes).isRequired,
   /** The heading level */
   level: PropTypes.number,
   /** The date the teaser content represents */
@@ -72,7 +76,7 @@ PressTeaser.propTypes = {
   /** The author/publishing entity of the teaser content */
   org: PropTypes.string,
   /** A short description of the teaser content, rendered as a paragraph */
-  description: PropTypes.instanceOf(RichText)
+  description: PropTypes.shape(RichText.propTypes)
 };
 
 export default PressTeaser;

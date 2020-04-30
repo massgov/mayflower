@@ -13,8 +13,9 @@
     }
 
     .ma__page-header__content {
+
         @media ($bp-medium-min) {
-            padding-top: 40px;
+            padding-top: 1.625rem;
         }
     }
 }

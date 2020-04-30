@@ -3,6 +3,9 @@
 {% block preContent %}
   {% include "@molecules/relationship-indicators.twig" %}
   {% include "@organisms/by-template/page-header.twig" %}
+  {% if stickyTOC %}
+    {% include "@organisms/by-template/sticky-toc.twig" %}
+  {% endif %}
 {% endblock %}
 
 {% block postContent %}{% endblock %}

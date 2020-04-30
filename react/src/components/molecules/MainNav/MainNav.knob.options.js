@@ -1,15 +1,14 @@
 const mainNav = [
   {
-    href: '#',
     text: 'Living',
     active: '',
     subNav: [
       {
-        href: '#',
+        href: 'https://mass.gov',
         text: 'Health & Social Services'
       },
       {
-        href: '#',
+        href: '/patterns/05-pages-topic/05-pages-topic.html',
         text: 'Family & Children'
       },
       {
@@ -102,7 +101,7 @@ const mainNav = [
         text: 'Recreational Licenses & Permits'
       },
       {
-        href: '/patterns/05-pages-topic/05-pages-topic.html',
+        href: '#',
         text: 'State Parks & Recreation'
       },
       {
@@ -151,4 +150,3 @@ const mainNav = [
 export default {
   mainNav
 };
-

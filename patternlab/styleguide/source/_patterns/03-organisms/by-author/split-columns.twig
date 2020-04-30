@@ -1,12 +1,14 @@
 <section class="ma__split-columns">
   <div class="ma__split-columns__container">
     {# only styled to handle three columns #}
-    {% for column in splitColumns.columns %}
-      <div class="ma__split-columns__column">
-        {% for item in column.items %}
-          {% include item.path with item.data %}
-        {% endfor %}
-      </div>
-    {% endfor %}
+    {% block columns %}
+      {% for column in splitColumns.columns %}
+        <div class="ma__split-columns__column">
+          {% for item in column.items %}
+            {% include item.path with item.data %}
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endblock %}
   </div>
 </section>

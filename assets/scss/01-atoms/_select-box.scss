@@ -48,6 +48,7 @@
   }
 
   &__icon {
+
     @include ma-chevron;
     border-left: 2px solid;
     height: 100%;
@@ -70,6 +71,7 @@
 
     /* WebKit gets its native focus styles.
      */
+
     @media (-webkit-min-device-pixel-ratio:0) {
       outline-style: auto;
     }
@@ -77,6 +79,7 @@
 }
 
 //theme
+
 .ma__select-box {
 
   &__label {
@@ -119,6 +122,7 @@
 
     /* WebKit gets its native focus styles.
      */
+
     @media (-webkit-min-device-pixel-ratio:0) {
       outline-color: -webkit-focus-ring-color;
     }

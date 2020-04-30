@@ -1,4 +1,4 @@
-import { text, boolean, select } from '@storybook/addon-knobs/react';
+import { text, boolean, select } from '@storybook/addon-knobs';
 
 const levelOptions = {
   1: 1,
@@ -10,12 +10,12 @@ const levelOptions = {
 };
 
 export default {
-  title: () => text('compHeading.title', 'Title text'),
-  titleContext: (value) => text('compHeading.titleContext', value),
-  id: (value) => text('compHeading.id', value),
-  sub: (value) => boolean('compHeading.sub', value),
-  level: (value) => select('compHeading.level', levelOptions, value),
-  color: (value) => select('compHeading.color', { '': 'green (default)', yellow: 'yellow' }, value),
-  centered: (value) => boolean('compHeading.centered', value),
-  sidebar: (value) => boolean('compHeading.sidebar', value)
+  title: () => text('CompHeading: title', 'Title text', 'CompHeading'),
+  titleContext: (value) => text('CompHeading: titleContext', value, 'CompHeading'),
+  id: (value) => text('CompHeading: id', value, 'CompHeading'),
+  sub: (value) => boolean('CompHeading: sub', value, 'CompHeading'),
+  level: (value) => select('CompHeading: level', levelOptions, value, 'CompHeading'),
+  color: (value) => select('CompHeading: color', { 'green (default)': '', yellow: 'yellow', gray: 'gray' }, value, 'CompHeading'),
+  centered: (value) => boolean('CompHeading: centered', value, 'CompHeading'),
+  sidebar: (value) => boolean('CompHeading: sidebar', value, 'CompHeading')
 };

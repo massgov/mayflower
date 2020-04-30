@@ -1,4 +1,4 @@
-import { text } from '@storybook/addon-knobs/react';
+import { text } from '@storybook/addon-knobs';
 
 const list = [{
   text: 'This is a list item in an unordered list'
@@ -21,11 +21,11 @@ export default {
     const newList = [];
     unorderedList.forEach((listItem, idx) => {
       const newItem = listItem;
-      newItem.text = text(`List Item ${idx}`, listItem.text);
+      newItem.text = text(`UnorderedList Item${idx}: text`, listItem.text, 'UnorderedList');
       if (listItem.sublist) {
         listItem.sublist.forEach((subItem, subIdx) => {
           newItem.sublist[subIdx] = subItem;
-          newItem.sublist[subIdx].text = text(`Sub Item ${subIdx}`, subItem.text);
+          newItem.sublist[subIdx].text = text(`UnorderedList SubItem${subIdx}: text`, subItem.text, 'UnorderedList');
         });
       }
       newList.push(newItem);

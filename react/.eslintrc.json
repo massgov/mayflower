@@ -3,6 +3,7 @@
         "browser": true
     },
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "rules": {
         "arrow-parens": ["warn", "always"],
         "comma-dangle": ["error", "never"],

@@ -46,11 +46,11 @@ The pagination molecule includes:
 {% endtab %}
 
 {% tab title="React" %}
-[Pagination in React](https://mayflower-react.digital.mass.gov/?knob-pagination.next.text=Next&knob-pagination.next.ariaLabel=Go%20to%20Next%20Search%20Results%20Page&knob-pagination.prev.text=Previous&knob-pagination.prev.ariaLabel=Go%20to%20Previous%20Search%20Results%20Page&knob-pagination.pages=%5B%7B%22active%22%3Afalse%2C%22text%22%3A%221%22%2C%22ariaLabel%22%3A%22Go%20to%20Search%20Results%20Page%201%22%7D%2C%7B%22active%22%3Atrue%2C%22text%22%3A%22spacer%22%7D%2C%7B%22active%22%3Afalse%2C%22text%22%3A%223%22%2C%22ariaLabel%22%3A%22Go%20to%20Search%20Results%20Page%203%22%7D%2C%7B%22active%22%3Atrue%2C%22text%22%3A%224%22%2C%22ariaLabel%22%3A%22Go%20to%20Search%20Results%20Page%204%22%7D%2C%7B%22active%22%3Afalse%2C%22text%22%3A%225%22%2C%22ariaLabel%22%3A%22Go%20to%20Search%20Results%20Page%205%22%7D%2C%7B%22active%22%3Afalse%2C%22text%22%3A%22spacer%22%7D%2C%7B%22active%22%3Afalse%2C%22text%22%3A%2210%22%2C%22ariaLabel%22%3A%22Go%20to%20Search%20Results%20Page%2010%22%7D%5D&selectedKind=molecules&selectedStory=Pagination&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+[Pagination in React](https://mayflower.digital.mass.gov/react/?knob-pagination.next.text=Next&knob-pagination.next.ariaLabel=Go%20to%20Next%20Search%20Results%20Page&knob-pagination.prev.text=Previous&knob-pagination.prev.ariaLabel=Go%20to%20Previous%20Search%20Results%20Page&knob-pagination.pages=[{"active"%3Afalse%2C"text"%3A"1"%2C"ariaLabel"%3A"Go%20to%20Search%20Results%20Page%201"}%2C{"active"%3Atrue%2C"text"%3A"spacer"}%2C{"active"%3Afalse%2C"text"%3A"3"%2C"ariaLabel"%3A"Go%20to%20Search%20Results%20Page%203"}%2C{"active"%3Atrue%2C"text"%3A"4"%2C"ariaLabel"%3A"Go%20to%20Search%20Results%20Page%204"}%2C{"active"%3Afalse%2C"text"%3A"5"%2C"ariaLabel"%3A"Go%20to%20Search%20Results%20Page%205"}%2C{"active"%3Afalse%2C"text"%3A"spacer"}%2C{"active"%3Afalse%2C"text"%3A"10"%2C"ariaLabel"%3A"Go%20to%20Search%20Results%20Page%2010"}]&selectedKind=molecules&selectedStory=Pagination&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Pagination in Pattern Lab](https://mayflower.digital.mass.gov/?p=molecules-pagination)
+[Pagination in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=molecules-pagination)
 {% endtab %}
 {% endtabs %}
 

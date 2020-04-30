@@ -20,18 +20,23 @@ This Pattern shows a collection of images and links to other pages on the site.
 ### Variables
 ~~~
 "suggestedPages": {
-  "title": 
+  "title":
     type: string / required,
-  "titleContext": 
+  "titleContext":
     type: string / optional,
-  "view": 
+  "view":
     type: string ('', 'guide') / optional,
   "pages": [{
-    "image": 
+    "image":
       type: image / required,
     "link": {
       type: decorativeLink / required
     }
+  }]
+  "moreLinks": [{
+    "links": [{
+      'type': linkList / optional
+    }]
   }]
   "more": {
     type: link / optional

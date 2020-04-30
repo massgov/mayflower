@@ -10,6 +10,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container;
   }
 
@@ -25,7 +26,8 @@
 }
 
 //theme
+
 .ma__publish-state {
   color: $c-font-medium;
-  font-weight: 800;
+  font-weight: 700;
 }

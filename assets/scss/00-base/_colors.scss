@@ -1,73 +1,45 @@
-// Theme colors
+// Mayflower Color Theme and Usage Mapping
 
-// Primary Color
-$c-bay-blue: #14558f;
-$c-bay-blue-lighter: #8AAAC7;
-$c-bay-blue-lightest: #E7EEF4;
+@import './color-tokens';
 
-// Primary Alt Color
-$c-berkshires-green: #388557;
-$c-berkshires-green-lighter: #97C2A9;
-$c-berkshires-green-lightest: #D6E7DD;
+// Theme Color Variables
+$c-primary:              $c-bay-blue !default;
+$c-primary-lighter:      $c-bay-blue-lighter !default;
+$c-primary-lightest:     $c-bay-blue-lightest !default;
+$c-primary-alt:          $c-berkshires-green !default;
+$c-primary-alt-lighter:  $c-berkshires-green-lighter !default;
+$c-primary-alt-lightest: $c-berkshires-green-lightest !default;
+$c-primary-alt-dark:     $c-berkshires-green-dark !default;
+$c-highlight:            $c-duckling-yellow !default;
+$c-highlight-lighter:    $c-duckling-yellow-lighter !default;
+$c-highlight-lightest:   $c-duckling-yellow-lightest !default;
 
-// Highlight and Warning Color
-$c-duckling-yellow: #f6c51b;
-$c-duckling-yellow-lighter: #FBE28D;
-$c-duckling-yellow-lightest: #FEF9E8;
-
-// Government to Government Color. Currently not in use.
-$c-independence-cranberry: #680A1D;
-$c-independence-cranberry-lighter: #AD7E88;
-
-// Base Gray Scale Colors
-$c-revolution-gray: #141414;
-$c-granite-gray: #535353;
-$c-overcast-gray: #DCDCDC;
-$c-platinum-gray: #F2F2F2;
-$c-atlantic-gray: #707070;
-
-// Error Colors
-$c-error-red: #CD0D0D;
-$c-error-red-lightest: #FCF3F3;
-
-// Full Gray Scale
-$c-black: $c-revolution-gray;
-$c-gray-dark: $c-granite-gray;
-$c-gray: $c-atlantic-gray;
-$c-gray-light: $c-overcast-gray;
-$c-gray-lightest: $c-platinum-gray;
-$c-white: white;
-
-// Additional Global Colors Representing Special States
-$c-error: $c-error-red;
-$c-warning: $c-duckling-yellow;
+// Utility Colors Variables
+$c-error:                $c-error-red !default;
+$c-error-lighter:        $c-error-red-lighter !default;
+$c-error-lightest:       $c-error-red-lightest !default;
+$c-warning:              $c-duckling-yellow !default;
+$c-success:              $c-berkshires-green !default;
+$c-focus:                $c-focus-hightlight !default;
 // Need to add these colors to this listing new to add
-// $c-success $c-focus $c-visited
+// $c-visited
 
+$c-font-base:            $c-black !default;
+$c-font-detail:          $c-gray-dark !default;
+$c-font-dark:            $c-black !default;
+$c-font-medium:          $c-gray !default;
 
-// Theme Color Usage Variables
-$c-primary: $c-bay-blue !default;
-$c-primary-lighter: $c-bay-blue-lighter !default;
-$c-primary-alt: $c-berkshires-green !default;
-$c-highlight: $c-duckling-yellow !default;
+$c-font-heading:         $c-black !default;
+$c-font-inverse:         $c-white !default;
+$c-font-link:            $c-bay-blue !default;
+$c-font-error:           $c-error !default;
 
+$c-bg-comp-title:        $c-gray-dark !default;
+$c-bg-subtle:            $c-gray-lightest !default;
+$c-bg-section:           $c-gray-lightest !default;
 
-$c-font-base: $c-black;
-$c-font-detail: $c-gray-dark;
-$c-font-dark: $c-black;
-$c-font-medium: $c-gray;
-
-$c-font-heading: $c-black;
-$c-font-inverse: $c-white;
-$c-font-link: $c-bay-blue;
-$c-font-error: $c-error;
-
-$c-bg-comp-title: $c-gray-dark;
-$c-bg-subtle: $c-gray-lightest;
-$c-bg-section: $c-gray-lightest;
-
-$c-bd-divider: $c-gray-light;
-$c-bd-divider-dark: $c-gray-dark;
-$c-bd-error: $c-error;
-$c-bd-input: $c-gray-light;
-$c-bd-input-dark: $c-gray;
+$c-bd-divider:           $c-gray-light !default;
+$c-bd-divider-dark:      $c-gray-dark !default;
+$c-bd-error:             $c-error !default;
+$c-bd-input:             $c-gray-light !default;
+$c-bd-input-dark:        $c-gray !default;

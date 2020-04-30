@@ -56,7 +56,6 @@ Tooltip should be recognized by assisitive technologies. The user should be able
     </section>
   </div>
 </div>
-
 ```
 {% endtab %}
 
@@ -65,7 +64,7 @@ Current Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Tooltip in Pattern Lab](https://mayflower.digital.mass.gov/?p=molecules-tooltip)
+[Tooltip in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=molecules-tooltip)
 {% endtab %}
 {% endtabs %}
 

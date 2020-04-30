@@ -2,6 +2,7 @@
   min-height: 45px;
   padding-left: 40px;
   position: relative;
+  cursor: pointer;
 
   @media ($bp-small-max) {
     display: flex;
@@ -57,25 +58,41 @@
     }
 
     span {
+
       @media ($bp-small-max) {
         display: none;
       }
     }
   }
-  
+
   &__link {
+
     @media ($bp-small-max) {
+
+      @include ma-visually-hidden;
+    }
+  }
+
+  &__text {
+    font-weight: 700;
+    color: $c-font-link;
+
+    @media ($bp-small-max) {
+
       @include ma-visually-hidden;
     }
   }
 
   // backward compatible with v.5.6 - replaced with link Atom
+
   a.ma__arrow-nav__link {
+
     @include ma-link-underline;
   }
 }
 
 //theme
+
 .ma__arrow-nav {
 
   &__title {

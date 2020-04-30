@@ -1,7 +1,9 @@
 .ma_stacked-row-external-sidebar {
+
   @include ma-container();
 
   .stacked-row-column {
+
     @media ($bp-large-min) {
       float: left;
       padding-right: 85px;
@@ -9,8 +11,12 @@
     }
   }
 
+  // If this is being called, then it needs to
+  // take precedence over all other stacked row
+  // container padding styles.
+
   .ma__stacked-row__container {
-    padding: 0;
+    padding: 0 !important;
   }
 }
 

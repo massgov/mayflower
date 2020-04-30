@@ -21,7 +21,7 @@ When you are ready to commit your work, you will want to update the reference sc
 ```bash
 docker-compose run backstop test # Capture screenshots of the current state
 docker-compose run backstop approve # Accept these screenshots as the new references.
-git add backstopjs/references
+git add backstopjs/reference
 git commit -m "Updating reference screenshots"
 ```
 

@@ -24,7 +24,7 @@
         }
       }
     }],
-    
+
     "sideBar": [{
       "path": "@base/placeholder.twig",
       "data": {
@@ -44,7 +44,7 @@
         }
       }
     }],
-    
+
     "sideBar": []
   },{
     "title": "Mix and match as desired",
@@ -57,7 +57,7 @@
         }
       }
     }],
-    
+
     "sideBar": [{
       "path": "@base/placeholder.twig",
       "data": {

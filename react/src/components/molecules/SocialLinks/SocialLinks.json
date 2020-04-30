@@ -2,26 +2,18 @@
   "items": [{
     "altText": "Follow us on Facebook",
     "href": "#",
-    "icon": "@atoms/05-icons/svg-facebook.twig",
-    "component": "Facebook",
     "linkType": "facebook"
   },{
     "altText": "Follow us on Twitter",
     "href": "#",
-    "icon": "@atoms/05-icons/svg-twitter.twig",
-    "component": "Twitter",
     "linkType": "twitter"
   },{
     "altText": "Follow us on LinkedIn",
     "href": "#",
-    "icon": "@atoms/05-icons/svg-linkedin.twig",
-    "component": "LinkedIn",
     "linkType": "linkedin"
   },{
     "altText": "Follow us on Youtube",
     "href": "#",
-    "icon": "@atoms/05-icons/svg-youtube.twig",
-    "component": "YouTube",
     "linkType": "youtube"
   }]
 }

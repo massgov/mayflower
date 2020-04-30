@@ -1,69 +1,70 @@
-export default (function (window,document,$,undefined) {
+export default (function (window, document, $, undefined) {
+  let $panels = $('.js-util-nav-content');
+  let $utilityButtons = $('.js-util-nav-toggle');
 
-  $('.js-util-nav').each(function() {
-    let openClass = "is-open",
-        closeClass = "is-closed",
-        submenuClass = "show-utilmenu",
-        $parent = $(this),
-        waitForIt = null;
+  $panels.each(function () {
+    const $panel = $(this);
+    const height = $panel.height();
+    const $closeButton = $panel.find('.js-close-util-nav');
 
-    $('.js-close-sub-nav').on('click', function(){
-      let $openContent = $parent.find('.js-util-nav-content.' + openClass);
-      hide($openContent);
-    });
+    $panel.css('top', '-' + height + 'px');
 
-    $parent.find('.js-util-nav-toggle > a').on('click', function(e) {
-      e.preventdefault;
-
-      let open = $(this).hasClass(openClass),
-        $content = $(this).next('.js-util-nav-content'),
-        $openContent = $parent.find('.js-util-nav-content.' + openClass);
-
-      // hide other content
-      hide($openContent);
-
-      if(open) {
-        return;
+    $(window).on('resized', function () {
+      if ($(window).width() > 840) {
+        $panel.css('top', '-' + height + 'px');
       }
-      // add open class to this item
-      $(this).addClass(openClass);
-      // add open class to the correct content based on index
-      $content.attr("aria-hidden","false");
-
-      setTimeout(function(){
-        $content
-          .removeClass(closeClass)
-          .addClass(openClass);
-        $('body').addClass(submenuClass)
-      }, .1);
-    });
-
-    $parent.find('.js-close-util-nav').on('click', function(e){
-      e.preventDefault;
-
-      hide( $(this).closest('.js-util-nav-content') );
-    });
-
-    $('.js-header-menu-button, .js-close-sub-nav').on('click', function(){
-      let $openContent = $parent.find('.js-util-nav-content.' + openClass);
-      hide($openContent);
-    });
-
-    function hide($content) {
-      $('body').removeClass(submenuClass)
-      $parent.find("." + openClass).removeClass(openClass);
-      $content
-        .removeClass(openClass)
-        .addClass(closeClass);
-
-      if(waitForIt) {
-        clearTimeout(waitForIt);
+      else {
+        $panel.removeAttr('style')
       }
-      waitForIt = setTimeout(function(){
-        $content.attr("aria-hidden","true");
-      }, 1000);
-    }
+    });
 
+    $closeButton.on('click', function () {
+      $panel.css('top', '-' + height + 'px');
+      $panel.toggleClass('is-closed');
+      $panel.attr("aria-hidden", "true");
+    });
+
+    $panel.on('keydown', function (e) {
+      if (e.key == "Escape") {
+        $panel.css('top', '-' + height + 'px');
+        $panel.toggleClass('is-closed');
+        $panel.attr("aria-hidden", "true");
+      }
+    });
   });
 
-})(window,document,jQuery);
+  $utilityButtons.each(function () {
+    const $thisButton = $(this);
+    const $thisPanel = $thisButton.next('.js-util-nav-content');
+    const $closePanel = $thisPanel.find('.js-close-util-nav');
+
+    $thisButton.on('click', function () {
+      $thisPanel.removeClass('is-closed');
+      $thisPanel.removeAttr('style');
+      $thisPanel.attr("aria-hidden", "false");
+
+      $('body').addClass('show-submenu');
+
+      setTimeout(function () {
+        $closePanel.focus();
+      }, 250);
+
+    });
+  });
+
+  $('.js-close-sub-nav').on('click', function () {
+    $('.js-util-nav-content').addClass('is-closed');
+    $('.js-util-nav-content').removeAttr('style');
+    $('body').removeClass('show-submenu');
+  });
+
+  // debouncer
+  var resize_timeout;
+  $(window).on('resize orientationchange', function () {
+    clearTimeout(resize_timeout);
+
+    resize_timeout = setTimeout(function () {
+      $(window).trigger('resized');
+    }, 150);
+  });
+})(window, document, jQuery);

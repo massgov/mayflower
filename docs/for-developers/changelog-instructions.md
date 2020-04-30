@@ -1,21 +1,19 @@
 # Changelog Instructions
 
-This documentation outlines a simple series of steps to keep `CHANGELOG.md` up-to-date, avoid merge conflicts, and better surface post deply steps.
+Mayflower keeps track of all notable changes in each release within [CHANGELOG.md](../../CHANGELOG.md). This changelog covers changes in all projects under the Maylflower monorepo and it's updated at the time of release from all files (except for [template.yml](../../changelogs/template.yml)) exist under the [changelog folder](../../changelogs).
 
-## Dev: Before You Submit a PR for a Feature Branch or Hot Fix
 
-1. Make a copy of `changelogs/template.txt` with the ticket number as the name \(example: `DP-1234.txt`\). If there is no ticket number for the contribution, just use the branch name and your initials \(`awesome- feature-branch.txt`\).
-2. Write a plain language description of the feature you're contributing. It needs to include the name, what changed, and who it impacts.
-3. Write down any post deploy steps that need to be performed \(Examples: `This change will effect the local build. Make sure all developers know what steps to take after this gets in to dev`\).
-4. Commit the file and open your PR.
 
-## Release Master: When you are Releasing
+## Add a changelog for your PR (mandatory)
 
-Do this after your open your release branch:
+Every PR must have a changelog file committed before getting merged into the `develop` branch. It's required for the every PR to have a changelog that comply with the format specified in [template.yml](../../changelogs/template.yml) in order to get compiled into the [CHANGELOG.md](../../CHANGELOG.md), using the [automated release script](../../scripts/compile-changelogs.js).
 
-1. In `CHANGELOG.md`, create a new section for the release with "Added", "Changed", and "Removed" sub-sections.
-2. Go through each `changelogs/*.txt` file and copy the description into the appropriate sub-section of `CHANGELOG.md`.
-3. Keep a list of post deployment steps handy for yourself.
-4. After the last description is copied and you have all the post deployment steps, delete all files in `changelogs/` except for `changelogs/template.txt.`
-5. Commit changes to the release branch.
+To add a changelog:
+1. make a copy of [template.yml](../../changelogs/template.yml), name it with the ticket number, e.g. `DP-1234.yml`. If there is no ticket number for the contribution, just use the branch name, e.g. `awesome-feature-branch.md`.
+2. Follow the instructions in the template file.
+3. For any breaking changes, add a comment in the PR describing the necessary changes on the consumer side and link that comment in the changelog.
+4. Commit the file and update your PR.
 
+## Compile changelogs during release
+
+See [Release Documentation](./release.md) on how changelogs get compiled during releases.

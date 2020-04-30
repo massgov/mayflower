@@ -56,6 +56,11 @@
     }],
     "widgets": null
   },
+  "stickyTOC": {
+    "title": "Table of Contents",
+    "parent": ".ma__policy-advisory__content",
+    "sections": ".page-content h2.ma__comp-heading"
+  },
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
@@ -99,28 +104,6 @@
         "title": "Biking"
       }]
     }
-  },
-  "jumpLinks": {
-    "title": "In this section",
-    "links": [{
-      "text": "6.01: Statutory Authority to Promulgate Exemptions",
-      "href": "link1"
-    },{
-      "text": "6.02: Exemptions to Encourage Volunteer Public Service, and to Promote Education, Training, and Professional Development",
-      "href": "link2"
-    },{
-      "text": "6.03: Exemption to Permit Public Employees Who Are Parents to Advocate for Their Children",
-      "href": "link3"
-    },{
-      "text": "6.04: Exemption for the National Guard and Volunteer Medical or Rescue Organizations in Exigent Circumstances",
-      "href": "link4"
-    },{
-      "text": "Downloads",
-      "href": "downloads"
-    },{
-      "text": "Contact",
-      "href": "contact"
-    }]
   },
 
   "mainContent": {

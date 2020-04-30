@@ -1,5 +1,3 @@
-{% set imageAlt = illustratedHeader.bgInfo ? illustratedHeader.bgInfo : '' %}
-
 {# backward compatible to v5.5 #}
 {% if illustratedHeader.bgTitle %}
   {% set imageAlt = illustratedHeader.bgTitle %}
@@ -38,10 +36,7 @@
       }
       {% endif %}
     </style>
-    <div
-      class="ma__illustrated-header__image"
-      role="img"
-      aria-label="{{ imageAlt }}">
+    <div class="ma__illustrated-header__image">
     </div>
   {% else %}
     <div class="ma__illustrated-header__image ma__illustrated-header__image--empty"></div>

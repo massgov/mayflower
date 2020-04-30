@@ -1,34 +1,35 @@
 .ma__fixed-feedback-button {
-  position: fixed;
-  width: 40px;
   bottom: 0;
-  right: 0;
   height: 300px;
   pointer-events: none;
-  // set without variable to ensure coverage
-  z-index: 9999;
-  
+  position: fixed;
+  right: 0;
+  width: 40px;
+  // The highest posible value.
+  z-index: $z-skyline;
+
   a {
-    display: block;
-    position: absolute;
-    top: 115px;
-    left: -40px;
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 0.15rem;
-    color: $c-primary-alt;
     background-color: $c-white;
     border-style: solid;
     border-width: 4px 4px 0 4px;
     border-radius: 5px 5px 0 0;
     border-color: rgba($c-primary-alt, 0.5);
+    color: $c-primary-alt;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    left: -40px;
+    letter-spacing: 0.15rem;
     padding: 0 10px;
+    position: absolute;
+    pointer-events: auto;
+    top: 115px;
     transform: rotate(270deg);
     z-index: $z-sticky-content;
-    pointer-events: auto;
   }
 
   &.hide-button {
     display: none;
   }
 } 
+

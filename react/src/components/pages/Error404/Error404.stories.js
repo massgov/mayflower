@@ -1,9 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 
 import Error404 from '.';
-import Error404Readme from './Error404.md';
+import Error404Docs from './Error404.md';
 
 storiesOf('pages', module)
-  .add('Error404', withInfo(`<div>${Error404Readme}</div>`)(() => (<Error404 />)));
+  .add(
+    'Error404', (() => (
+      <Error404 />
+    )),
+    { info: Error404Docs }
+  );

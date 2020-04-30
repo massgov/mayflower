@@ -3,6 +3,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container;
   }
 
@@ -11,6 +12,7 @@
   }
 
   &__container {
+
     @include clearfix;
   }
 
@@ -19,6 +21,7 @@
     padding-left: 20px;
 
     .sidebar & {
+
       @include ma-reset-list;
     }
 
@@ -26,6 +29,7 @@
     &:first-child:nth-last-child(2) ~ & {
 
       @media ($bp-medium-min) {
+
         @include span-columns(6);
       }
     }
@@ -68,6 +72,7 @@
   }
 
   &--image-links {
+
     .sidebar & .ma__link-list__item + .ma__link-list__item {
       border-top: none;
       margin-top: 0px;
@@ -76,7 +81,61 @@
   }
 }
 
+// link group in action finder in service page
+
+.ma__services.ma__services-flexible-link-groups .ma__action-finder__container {
+
+  .ma__link-list__description {
+    margin-top: 15px;
+  }
+
+  .ma__link-list__container {
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+
+  .ma__link-list--no-line .ma__link-list__items {
+    margin-bottom: 0;
+    padding-left: 20px;
+    border-left: 3px solid $c-primary-lighter;
+  }
+
+  .ma__link-list__items .ma__link-list__item {
+    padding-top: 0;
+    padding-bottom: 14px; // makes 25px adding to a's border-bottom: 3px + padding-bottom: 1px
+
+    a {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  @media ($bp-small-min) {
+
+    .ma__link-list__description {
+      margin-top: 20px;
+    }
+
+    .ma__link-list__container {
+      margin-top: 30px;
+      margin-bottom: 54px;
+    }
+
+    .ma__link-list--no-line .ma__link-list__items {
+      padding-left: 30px;
+    }
+
+    .ma__link-list__items .ma__link-list__item {
+      padding-bottom: 26px; // makes 30px adding to a's border-bottom: 3px + padding-bottom: 1px
+    }
+  }
+}
+
 //theme
+
 .ma__link-list {
 
   &__item {
@@ -85,5 +144,20 @@
 
   .sidebar &__item + &__item {
     border-color: $c-bd-divider;
+  }
+
+  &--no-line {
+
+    .ma__comp-heading--no-line {
+      margin-bottom: 5px;
+    }
+
+    .ma__link-list__description {
+      margin-bottom: 0;
+    }
+
+    .ma__link-list__items {
+      margin-bottom: 2rem;
+    }
   }
 }

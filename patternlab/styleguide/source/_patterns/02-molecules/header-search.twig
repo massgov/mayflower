@@ -1,5 +1,5 @@
-<section class="ma__header-search">
-  <form action="#" class="ma__form js-header-search-form">
+<div class="ma__header-search">
+  <form action="#" class="ma__form js-header-search-form" role="search">
     <label
         for="{{headerSearch.id}}"
         class="ma__header-search__label">{{headerSearch.label}}</label>
@@ -11,4 +11,4 @@
     {% set buttonSearch = headerSearch.buttonSearch %}
     {% include "@atoms/01-buttons/button-search.twig" %}
   </form>
-</section>
+</div>

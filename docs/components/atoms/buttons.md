@@ -24,7 +24,7 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 | ![](../../.gitbook/assets/screen-shot-2018-08-09-at-2.35.05-pm.png) ![](../../.gitbook/assets/screen-shot-2018-08-09-at-2.34.59-pm.png) | Disabled Button | Box shadow on default buttons are used to accentuate the actions. For disabled buttons, box shadow is removed and opacity for the button is set to 0.5 for a muted look and no hover or focus state is provided. |
 | ![](../../.gitbook/assets/primarybutton.png) | [Link Button](buttons.md#link-button) | Link buttons are used to navigate to another page |
 | ![](../../.gitbook/assets/iconbutton.png) | [Icon Button](buttons.md#icon-button) | When words are not enough, icons can be used in buttons to better communicate what the button does. Icons are always paired with text. |
-| ![](../../.gitbook/assets/searchbutton.png) | [Search Button](buttons.md#search-button) | The search button is a variant of the icon button. It is a submit button included in the search bar, for the form to reduce the number of keystrokes required to use the form. On mobile, it will reduced to the icon. The magnifying glass is universally recognized by users as an indicator of search, and doesn’t need to be visually paired with the word "Search" as long as it remains for screen readers. |
+| ![](../../.gitbook/assets/searchbutton%20%281%29.png) | [Search Button](buttons.md#search-button) | The search button is a variant of the icon button. It is a submit button included in the search bar, for the form to reduce the number of keystrokes required to use the form. On mobile, it will reduced to the icon. The magnifying glass is universally recognized by users as an indicator of search, and doesn’t need to be visually paired with the word "Search" as long as it remains for screen readers. |
 
 ### Accessibility & Best Practices
 
@@ -63,11 +63,11 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 {% endtab %}
 
 {% tab title="React" %}
-[Primary Button in Storybook](http://mayflower-react.digital.mass.gov/?knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-button.text=button&knob-button.href=&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+[Primary Button in Storybook](https://mayflower.digital.mass.gov/react/?knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-button.text=button&knob-button.href=&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Primary Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button)​
+[Primary Button in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button)​
 {% endtab %}
 {% endtabs %}
 
@@ -75,7 +75,7 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 
 {% tabs %}
 {% tab title="Visual" %}
-![](../../.gitbook/assets/screen-shot-2018-08-09-at-2.39.01-pm.png)
+![](../../.gitbook/assets/screen-shot-2018-08-09-at-2.39.01-pm%20%281%29.png)
 {% endtab %}
 
 {% tab title="HTML" %}
@@ -87,11 +87,11 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 {% endtab %}
 
 {% tab title="React" %}
-[Secondary Button in Storybook](http://mayflower-react.digital.mass.gov/?knob-button.theme=secondary&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-button.text=button&knob-button.href=&knob-button.outline=true&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Secondary Button in Storybook](https://mayflower.digital.mass.gov/react/?knob-button.theme=secondary&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-button.text=button&knob-button.href=&knob-button.outline=true&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Secondary Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button-as-secondary-color)
+[Secondary Button in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button-as-secondary-color)
 {% endtab %}
 {% endtabs %}
 
@@ -99,7 +99,7 @@ Buttons are vital for creating a smooth conversational flow on the web, and shou
 
 {% tabs %}
 {% tab title="Visual" %}
-![](../../.gitbook/assets/screen-shot-2018-08-09-at-2.22.08-pm.png)
+![](../../.gitbook/assets/screen-shot-2018-08-09-at-2.22.08-pm%20%281%29.png)
 {% endtab %}
 
 {% tab title="HTML" %}
@@ -131,11 +131,11 @@ Work in Progress
 {% endtab %}
 
 {% tab title="React" %}
-[Link Button in Storybook](https://mayflower-react.digital.mass.gov/?knob-button.href=https%3A%2F%2Fmass.gov&knob-button.text=button&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-ButtonWithIcon.text=BUTTON&knob-ButtonWithIcon.icon=chevron&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Link Button in Storybook](https://mayflower.digital.mass.gov/react/?knob-button.href=https%3A%2F%2Fmass.gov&knob-button.text=button&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-ButtonWithIcon.text=BUTTON&knob-ButtonWithIcon.icon=chevron&selectedKind=atoms%2Fbuttons&selectedStory=Button&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Link Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button-as-link)
+[Link Button in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button-as-link)
 {% endtab %}
 {% endtabs %}
 
@@ -143,7 +143,7 @@ Work in Progress
 
 {% tabs %}
 {% tab title="Visual" %}
-![](../../.gitbook/assets/iconbutton.png)
+![](../../.gitbook/assets/iconbutton%20%281%29.png)
 {% endtab %}
 
 {% tab title="HTML" %}
@@ -156,7 +156,7 @@ Work in Progress
 {% endtab %}
 
 {% tab title="React" %}
-[Icon Button in Storybook](https://mayflower-react.digital.mass.gov/?knob-ButtonWithIcon.canExpand=true&knob-button.href=&knob-button.text=button&knob-ButtonWithIcon.capitalized=true&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-ButtonWithIcon.text=BUTTON&knob-ButtonWithIcon.icon=chevron&knob-ButtonWithIcon.expanded=true&selectedKind=atoms%2Fbuttons&selectedStory=ButtonWithIcon&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Icon Button in Storybook](https://mayflower.digital.mass.gov/react/?knob-ButtonWithIcon.canExpand=true&knob-button.href=&knob-button.text=button&knob-ButtonWithIcon.capitalized=true&knob-button.info=this%20will%20be%20the%20tooltip%20text%20on%20hover&knob-ButtonWithIcon.text=BUTTON&knob-ButtonWithIcon.icon=chevron&knob-ButtonWithIcon.expanded=true&selectedKind=atoms%2Fbuttons&selectedStory=ButtonWithIcon&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
@@ -183,11 +183,11 @@ Not Available
 {% endtab %}
 
 {% tab title="React" %}
-[Search Button In Storybook](https://mayflower-react.digital.mass.gov/?selectedKind=atoms%2Fbuttons&selectedStory=ButtonSearch)
+[Search Button In Storybook](https://mayflower.digital.mass.gov/react/?selectedKind=atoms%2Fbuttons&selectedStory=ButtonSearch)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Search Button in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-button-search)
+[Search Button in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button-search)
 {% endtab %}
 {% endtabs %}
 

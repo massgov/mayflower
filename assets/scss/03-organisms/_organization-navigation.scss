@@ -54,6 +54,7 @@ $menu-transition-time: 0.3s;
   }
 
   &__mobile-toggle {
+
     @include ma-container;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -107,7 +108,7 @@ $menu-transition-time: 0.3s;
       transition: $menu-transition-time;
 
       &::after {
-        content: '\00d7';
+        content: $close-icon;
         font-size: 2.1rem;
         font-weight: 500;
         line-height: 0;
@@ -265,15 +266,15 @@ $menu-transition-time: 0.3s;
         font-weight: 500;
 
         &::after {
-          content: '\00d7';
+          color: $c-primary-alt;
+          content: $close-icon;
           font-size: 2.1rem;
           font-weight: 600;
           line-height: 0;
           position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
           right: 0;
-          color: $c-primary-alt;
+          transform: translateY(-50%);
+          top: 50%;
         }
 
         svg {

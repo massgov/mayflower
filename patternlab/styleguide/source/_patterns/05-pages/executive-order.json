@@ -8,6 +8,11 @@
     "optionalContents": null,
     "widgets": null
   },
+  "stickyTOC": {
+    "title": "Table of Contents",
+    "parent": ".page-content",
+    "sections": "h2"
+  },
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
@@ -101,7 +106,7 @@
         "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph" : {
-            "text": "WHEREAS, the Commonwealth of Massachusetts gives thanks for the selfless service of our veterans, who put their own lives at risk to secure our nation’s freedom and safety;"
+            "text": "<h2>Test Heading</h2>WHEREAS, the Commonwealth of Massachusetts gives thanks for the selfless service of our veterans, who put their own lives at risk to secure our nation’s freedom and safety;"
           }
         }
       },{

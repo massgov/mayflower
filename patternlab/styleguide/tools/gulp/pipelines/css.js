@@ -7,6 +7,7 @@ var sass          = require("gulp-sass"),
     sourcemaps    = require("gulp-sourcemaps"),
     normalizePaths= require("node-normalize-scss").includePaths,
     neatPaths     = require("node-neat").includePaths,
+    path          = require('path'),
     gulpIf        = require("gulp-if"),
     lazypipe      = require("lazypipe");
 
@@ -25,6 +26,7 @@ module.exports = function(minify, root) {
         includePaths: [].concat(
             normalizePaths,
             neatPaths,
+            [path.join(path.dirname(require.resolve('pikaday')), 'scss')],
             absRoot + "assets/scss"
         )
     };

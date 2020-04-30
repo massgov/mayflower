@@ -1,4 +1,5 @@
 @mixin ma-auto-size($min, $max) {
+
   @for $i from $min through $max {
     &:first-child:nth-last-child(#{$i}),
     &:first-child:nth-last-child(#{$i}) ~ & {

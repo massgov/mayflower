@@ -3,7 +3,7 @@
   {% set linkList = linkList|merge({"compHeading": { "title": linkList.sidebarHeading.title, "sidebar" : true }}) %}
 {% endif %}
 
-<section class="ma__link-list{% if linkList.sectionClass %} {{linkList.sectionClass}}{% endif %}">
+<section class="ma__link-list{% if linkList.sectionClass %} {{linkList.sectionClass}}{% endif %} {% if linkList.hideLine == 'true' or linkList.hideLine == 1 %} ma__link-list--no-line {% endif %}">
   {% if linkList.compHeading %}
     {% set compHeading = linkList.compHeading %}
     {% include "@atoms/04-headings/comp-heading.twig" %}
@@ -23,7 +23,10 @@
         {% block linkListDecorativeLink %}
           {% for decorativeLink in linkList.links %}
             <li class="ma__link-list__item">
-              {% if decorativeLink.href %}
+              {% if decorativeLink.icon %}
+                {% set downloadLink = decorativeLink %}
+                {% include "@molecules/download-link.twig" %}
+              {% elseif decorativeLink.href %}
                 {% include "@atoms/decorative-link.twig" %}
               {% else %}
                 {{ decorativeLink.text }}
@@ -38,7 +41,10 @@
       <ul class="ma__link-list__items {{ bulletClass }}">
         {% for decorativeLink in linkList.links[start:half] %}
           <li class="ma__link-list__item">
-            {% if decorativeLink.href %}
+            {% if decorativeLink.icon %}
+              {% set downloadLink = decorativeLink %}
+              {% include "@molecules/download-link.twig" %}
+            {% elseif decorativeLink.href %}
               {% include "@atoms/decorative-link.twig" %}
             {% else %}
               {{ decorativeLink.text }}
@@ -49,7 +55,10 @@
       <ul class="ma__link-list__items {{ bulletClass }}">
         {% for decorativeLink in linkList.links[half:length] %}
           <li class="ma__link-list__item">
-            {% if decorativeLink.href %}
+            {% if decorativeLink.icon %}
+              {% set downloadLink = decorativeLink %}
+              {% include "@molecules/download-link.twig" %}
+            {% elseif decorativeLink.href %}
               {% include "@atoms/decorative-link.twig" %}
             {% else %}
               {{ decorativeLink.text }}

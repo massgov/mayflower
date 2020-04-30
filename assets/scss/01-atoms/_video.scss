@@ -1,8 +1,20 @@
 .ma__video {
+
   @include clearfix;
 
   &__container {
     padding: 13px;
+    position: relative;
+    padding-bottom: 12px + 29px + 13px;// 12px + 1.5rem + 13px
+    background-color: rgba($c-primary,.1);
+
+    @media ($bp-large-min) {
+      padding-bottom: 12px + 32px + 13px;
+    }
+
+    iframe {
+      border: none;
+    }
   }
 
   @media ($bp-small-min) {
@@ -15,17 +27,40 @@
     }
   }
 
+  .ma__services & {
+
+    @media ($bp-small-min) {
+      width: 80%;
+    }
+
+    @media ($bp-large-min) {
+      width: 100%;
+    }
+
+    @media ($bp-large-extended-min) {
+      width: 70%;
+    }
+
+  }
+
   // Backward Compatible - had to add the --new as a variant for the new styling
+
   .main-content--full .page-content > & {
+
     @include ma-container('restricted');
   }
 
   &__link {
     margin-top: 12px;
+    position: absolute;
+    bottom: 13px;
+    font-size: 1.25rem;
+    width: calc(100% - 26px);
   }
 }
 
 // Backward Compatible - had to add the --new as a variant for the new styling
+
 .ma__video:not(.ma__video--new) {
   padding: 13px;
 
@@ -54,6 +89,7 @@
   }
 
   .main-content--full .page-content > &--right {
+
     @media ($bp-small-min) {
       margin-left: 1em;
     }
@@ -63,7 +99,7 @@
     }
 
     @media ($bp-page-width-min) {
-      margin-right: calc(50vw - (#{$max-width}/2) + 40px);
+      margin-right: calc(50vw - (#{$max-width} / 2) + 40px);
     }
   }
 
@@ -73,19 +109,8 @@
   }
 }
 
-//theme
-.ma__video {
-
-  &__container {
-    background-color: rgba($c-primary,.1);
-  }
-
-  &__link {
-    font-size: 1.25rem;
-  }
-}
-
 // Backward Compatible - had to add the --new as a variant for the new styling
+
 .ma__video:not(.ma__video--new) {
   background-color: rgba($c-primary,.1);
 }

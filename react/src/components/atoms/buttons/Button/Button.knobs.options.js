@@ -3,24 +3,24 @@
  */
 export default {
   theme: {
-    '': 'no theme i.e. primary (default)',
+    'no theme i.e. primary (default)': '',
     'c-primary-alt': 'c-primary-alt',
     'c-highlight': 'c-highlight',
     'c-gray-dark': 'c-gray-dark'
   },
   type: {
-    '': 'no type (default)',
+    'no type (default)': '',
     submit: 'submit',
     reset: 'reset',
     button: 'button'
   },
   size: {
-    '': 'no size (default)',
+    'no size (default)': '',
     small: 'small',
     large: 'large'
   },
   usage: {
-    '': 'primary (default)',
+    'primary (default)': '',
     secondary: 'secondary',
     tertiary: 'tertiary',
     quaternary: 'quaternary'

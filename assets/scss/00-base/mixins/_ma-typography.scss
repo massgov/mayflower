@@ -2,25 +2,26 @@
   font-size: 3rem;
   line-height: 1.07;
 
-  @media ($bp-medium-min){
+  @media ($bp-medium-min) {
     font-size: 3.25rem;
   }
 
-  @media ($bp-large-min){
-    font-size: 4rem;
-  }
-
-  @media ($bp-x-large-min){
-    font-size: 4.375rem;
+  @media ($bp-x-large-min) {
+    font-size: 3.5rem;
   }
 }
 
 @mixin ma-h2 {
   font-size: 2.25rem;
-  line-height: 1.222222;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 
-  @media ($bp-small-min){
-    font-size: 2.688rem;
+  @media ($bp-medium-min) {
+    font-size: 2.5rem;
+  }
+
+  @media ($bp-x-large-min) {
+    font-size: 2.75rem;
   }
 }
 
@@ -29,8 +30,7 @@
   line-height: 1.2;
   margin-bottom: .75em;
 
-  @media ($bp-small-min){
-    font-size: 2.188rem;
+  @media ($bp-small-min) {
     margin-bottom: 1em;
   }
 }
@@ -47,6 +47,85 @@
 }
 
 @mixin ma-h6 {
-  font-size: 1.4rem;
+  font-size: 1.375rem;
+  line-height: 1.4;
   margin-bottom: .25em;
+}
+
+@mixin ma-heading($level: 1) {
+
+  @if ($level == 1) {
+
+    @include ma-h1;
+  }
+
+  @if ($level == 2) {
+
+    @include ma-h2;
+  }
+
+  @if ($level == 3) {
+
+    @include ma-h3;
+  }
+
+  @if ($level == 4) {
+
+    @include ma-h4;
+  }
+
+  @if ($level == 5) {
+
+    @include ma-h5;
+  }
+
+  @if ($level == 6) {
+
+    @include ma-h6;
+  }
+}
+
+// Texta styles
+
+@mixin ma-texta-style($weight: 'Light', $italic: false) {
+
+  @if ($weight == 'Light') {
+    font-weight: 300;
+
+    @if ($italic == true) {
+      font-style: italic;
+    }
+  }
+
+  @if ($weight == 'Book') {
+    font-weight: 400;
+
+    @if ($italic == true) {
+      font-style: italic;
+    }
+  }
+
+  @if ($weight == 'Medium') {
+    font-weight: 500;
+
+    @if ($italic == true) {
+      font-style: italic;
+    }
+  }
+
+  @if ($weight == 'Bold') {
+    font-weight: 700;
+
+    @if ($italic == true) {
+      font-style: italic;
+    }
+  }
+
+  @if ($weight == 'Black') {
+    font-weight: 800;
+
+    @if ($italic == true) {
+      font-style: italic;
+    }
+  }
 }

@@ -5,7 +5,11 @@
 {% endblock %}
 <main
   id="main-content"
-  class="ma__services"
+  {% if flexibleLinkGroup %}
+    class="ma__services ma__services-flexible-link-groups"
+  {% else %}
+    class="ma__services"
+  {% endif %}
   tabindex="-1"
   {% if schemaPageType %} typeof="{{schemaPageType}}"{% endif %}>
   <div class="pre-content">
@@ -15,7 +19,7 @@
     {% endblock %}
   </div>
   <div class="stacked-row-content">
-    <section class="ma__stacked-row-section">
+    <section class="ma__stacked-row__section">
       <div class="main-content {{ mainContentClass }}">
         <div class="page-content page-content--intro">
           {% if introSidebar.logo %}
@@ -23,20 +27,25 @@
             {% include "@atoms/09-media/image.twig" %}
           {% endif %}
           {% block pageContentIntro %}
+
+            {% set richText = introPageContent.intro %}
+            {% include "@organisms/by-author/rich-text.twig" %}
+
             {% if introPageContent.video %}
               {% set video = introPageContent.video %}
               {% include "@atoms/09-media/video.twig" %}
             {% endif %}
 
-            {% set richText = introPageContent.intro %}
-            {% include "@organisms/by-author/rich-text.twig" %}
-
-            {% if introPageContent.keyActions %}
-              {% set keyActions = introPageContent.keyActions %}
-              {% include "@organisms/by-author/key-actions.twig" %}
+            {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
+                {% if introPageContent.keyActions %}
+                  {% set keyActions = introPageContent.keyActions %}
+                  {% include "@organisms/by-author/key-actions.twig" %}
+                {% endif %}
             {% endif %}
+
           {% endblock %}
         </div>
+
         {% if introSidebar %}
           <aside class="sidebar sidebar--intro">
             {% block sidebarIntro %}
@@ -44,12 +53,13 @@
                 {% set image = introSidebar.logo %}
                 {% include "@atoms/09-media/image.twig" %}
               {% endif %}
-              {% if introSidebar.social %}
-                {# Backward Compatible with v5.7 - added heading to iconLinks so this heading isn't needed #}
-                {% if introSidebar.social.sidebarHeading %}
-                  {% set sidebarHeading = introSidebar.social.sidebarHeading %}
-                  {% include "@atoms/04-headings/sidebar-heading.twig" %}
+              {% if flexibleLinkGroup %}
+                {% if introSidebar.login %}
+                  {% set iconLinks = introSidebar.login.iconLinks %}
+                  {% include "@molecules/icon-links.twig" %}
                 {% endif %}
+              {% endif %}
+              {% if introSidebar.social %}
                 {% set iconLinks = introSidebar.social.iconLinks %}
                 {% include "@molecules/icon-links.twig" %}
               {% endif %}
@@ -62,34 +72,53 @@
         {% endif %}
       </div>
     </section>
-    <section class="ma__stacked-row-section">
-      <div class="main-content main-content--full">
-        <div class="page-content">
-          {% block pageContent %}
-            {% if doActionFinder %}
-              {% set actionFinder = doActionFinder.actionFinder %}
-              {% include "@organisms/by-author/action-finder.twig" %}
-            {% endif %}
-            {% if learnActionFinder %}
-              {% set actionFinder = learnActionFinder.actionFinder %}
-              {% include "@organisms/by-author/action-finder.twig" %}
-            {% endif %}
-            {% if contactList %}
-              {% include "@organisms/by-author/contact-list.twig" %}
-            {% endif %}
-            {% if mappedLocations %}
-              {% include "@organisms/by-author/mapped-locations.twig" %}
-            {% endif %}
-            {% if eventListing %}
-              {% include "@organisms/by-author/event-listing.twig" %}
-            {% endif %}
-            {% if splitColumns %}
-              {% include "@organisms/by-author/split-columns.twig" %}
-            {% endif %}
-          {% endblock %}
+
+      <section class="ma__stacked-row__section">
+        <div class="main-content main-content--full">
+          <div class="page-content">
+            {% block pageContent %}
+              {% if doActionFinder %}
+                {% set actionFinder = doActionFinder.actionFinder %}
+                {% include "@organisms/by-author/action-finder.twig" %}
+              {% endif %}
+              {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
+                {% if learnActionFinder %}
+                  {% set actionFinder = learnActionFinder.actionFinder %}
+                  {% include "@organisms/by-author/action-finder.twig" %}
+                {% endif %}
+              {% endif %}
+              {% if contactList %}
+                {% include "@organisms/by-author/contact-list.twig" %}
+              {% endif %}
+              {% if mappedLocations %}
+                {% include "@organisms/by-author/mapped-locations.twig" %}
+              {% endif %}
+              {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
+                {% if eventListing %}
+                  {% include "@organisms/by-author/event-listing.twig" %}
+                {% endif %}
+              {% endif %}
+              {% if flexibleLinkGroup is not defined or flexibleLinkGroup is null or flexibleLinkGroup is sameas(false) %}
+                {% if splitColumns %}
+                  <div class="more-info-header">
+                    <h2 class="ma__comp-heading">More Information</h2>
+                  </div>
+                  {% include "@organisms/by-author/split-columns.twig" %}
+                {% endif %}
+              {% endif %}
+              {% if flexibleLinkGroup %}
+                {% if splitColumns %}
+                  <div class="more-info-header">
+                    <h2 class="ma__comp-heading">Related Services</h2>
+                  </div>
+                  {% include "@organisms/by-author/split-columns.twig" %}
+                {% endif %}
+              {% endif %}
+            {% endblock %}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
   </div>
   {% block schemaContent %}
 
@@ -99,4 +128,3 @@
 {% block footer %}
 
 {% endblock %}
-

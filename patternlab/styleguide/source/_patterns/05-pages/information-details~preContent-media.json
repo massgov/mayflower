@@ -9,6 +9,11 @@
       "title": "Why is habitat management needed?",
       "subTitle": "MassWildlife's Habitat Programs are designed to help wildlife that rely on open habitats (grassland, shrubland, and young forests).",
       "widgets": null
+    },
+    "stickyTOC": {
+      "title": "Table of Contents",
+      "parent": "#main-content",
+      "sections": ".ma__information-details__content h2"
     }
   },
   "relationshipIndicators": {

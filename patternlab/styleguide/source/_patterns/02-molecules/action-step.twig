@@ -24,14 +24,18 @@
   <div class="ma__action-step__content {{ accordion ? 'js-accordion-content' : '' }}">
   {% set richText = actionStep.richText %}
   {% include "@organisms/by-author/rich-text.twig" %}
-  {% if actionStep.downloadLinks %}
-    {% set formDownloads = { "downloadLinks": actionStep.downloadLinks } %}
-    {% include "@organisms/by-author/form-downloads.twig" %}
-  {% endif %}
+  {% block formDownloads %}
+    {% if actionStep.downloadLinks %}
+      {% set formDownloads = { "downloadLinks": actionStep.downloadLinks } %}
+      {% include "@organisms/by-author/form-downloads.twig" %}
+      {% endif %}
+  {% endblock %}
+  {% block decorativeLink %}
   {% if actionStep.decorativeLink %}
     <div class="ma__action-step__more">
       {% set decorativeLink = actionStep.decorativeLink %}
       {% include "@atoms/decorative-link.twig" %}
     </div>
   {% endif %}
+  {% endblock %}
 </section>

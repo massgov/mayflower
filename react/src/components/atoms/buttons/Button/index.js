@@ -9,7 +9,8 @@ const Button = (button) => {
     [`ma__button--${button.usage}`]: button.usage,
     [`ma__button--${button.size}`]: button.size,
     [`ma__button--${button.theme}`]: button.theme,
-    'ma__button--disabled': button.disabled
+    'ma__button--disabled': button.disabled,
+    [button.classes.join(' ')]: button.classes
   });
   const Element = button.href ? 'a' : 'button';
   const onClickCallback = (e) => {
@@ -29,7 +30,7 @@ const Button = (button) => {
       onClick={(e) => onClickCallback(e)}
       disabled={button.disabled}
     >
-      {button.text}
+      {button.children ? button.children : button.text}
     </Element>
   );
 };
@@ -52,7 +53,9 @@ Button.propTypes = {
   /** Button usage */
   usage: PropTypes.oneOf(['', 'secondary', 'tertiary', 'quaternary']),
   /** Set button to disabled */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** Custom classnames appending to the button */
+  classes: PropTypes.arrayOf(PropTypes.string)
 };
 
 // Only set defaults for the configuration variables which need to be opted in to activate.
@@ -62,7 +65,8 @@ Button.defaultProps = {
   size: '',
   theme: '',
   usage: '',
-  disabled: false
+  disabled: false,
+  classes: ['']
 };
 
 export default Button;

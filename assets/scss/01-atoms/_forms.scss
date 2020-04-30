@@ -1,5 +1,27 @@
 input {
-  border: 2px solid;
+
+  &.has-error:not(:focus) {
+    background-image: url('#{$assets-path}/images/svg-icons/input-error.svg');
+    border-color: $c-bd-error;
+  }
+
+  .ma__form--light & {
+    background-color: rgba($c-white, 0.1);
+    border-color: rgba($c-bd-input,.5);
+    color: $c-font-inverse;
+
+    &.has-error {
+      border-color: $c-bd-error;
+    }
+  }
+}
+
+input {
+  background-color: $c-white;
+  border: 2px solid $c-bd-input;
+  color: $c-font-base;
+  font-size: 1.375rem;
+  font-weight: 400;
   max-width: 100%;
   min-height: 40px;
   padding: 0 18px;
@@ -9,6 +31,20 @@ input {
     background-repeat: no-repeat;
     padding-right: 40px;
   }
+}
+
+input,
+optgroup,
+select,
+textarea {
+  font-family: $fonts;
+  font-weight: 400;
+  font-size: 1.375rem;
+}
+
+[type="radio"] {
+  height: 18px;
+  width: 18px;
 }
 
 input[type=file] {
@@ -24,13 +60,32 @@ input[type=number] {
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
-  margin: 0; /* Removes leftover margin */
+  // Removes leftover margin.
+  margin: 0;
 }
 
 textarea {
-  border: 2px solid;
+  background-color: $c-white;
+  border: 2px solid $c-bd-input;
+  font-size: 1.375rem;
+  font-weight: 400;
+  max-width: 100%;
   min-height: 135px;
   padding: 18px;
+
+  &.has-error {
+    border-color: $c-bd-error;
+  }
+
+  .ma__form--light & {
+    background-color: rgba($c-white, 0.1);
+    border-color: rgba($c-bd-input, 0.5);
+    color: $c-font-inverse;
+
+    &.has-error {
+      border-color: $c-bd-error;
+    }
+  }
 }
 
 legend,
@@ -48,8 +103,16 @@ fieldset {
   padding: 0;
 }
 
+optgroup,
+select {
+  font-weight: 400;
+  font-size: 1.375rem;
+  max-width: 100%;
+}
+
 // override if an input label combo is added directly to the page-content area
 // This is mainly for Pattern Lab
+
 .main-content .page-content > label:not(.ma__label--hidden) {
 
   & + textarea,
@@ -71,83 +134,44 @@ fieldset {
   }
 }
 
-//theme
 :focus {
   border-color: Highlight !important;
 
-  /* WebKit gets its native focus styles.
-   */
+  // WebKit gets its native focus styles.
+
   @media (-webkit-min-device-pixel-ratio:0) {
     outline-color: -webkit-focus-ring-color;
   }
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: inherit;
-  font-style: italic;
-  opacity: 1;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: inherit;
-  font-style: italic;
-  opacity: 1;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: inherit;
-  font-style: italic;
-  opacity: 1;
-}
-:-moz-placeholder { /* Firefox 18- */
+// Chrome/Opera/Safari.
+
+::-webkit-input-placeholder {
   color: inherit;
   font-style: italic;
   opacity: 1;
 }
 
-input,
-optgroup,
-select,
-textarea {
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
-  font-weight: 400;
-  font-size: 1.375rem;
+// Firefox 19+.
+
+::-moz-placeholder {
+  color: inherit;
+  font-style: italic;
+  opacity: 1;
 }
 
-input {
-  background-color: $c-white;
-  border-color: $c-bd-input;
-  color: $c-font-base;
+// IE 10+.
 
-  &.has-error:not(:focus) {
-    background-image: url('#{$assets-path}/images/svg-icons/input-error.svg');
-    border-color: $c-bd-error;
-  }
-
-  .ma__form--light & {
-    background-color: rgba($c-white, 0.1);
-    border-color: rgba($c-bd-input,.5);
-    color: $c-font-inverse;
-
-    &.has-error {
-      border-color: $c-bd-error;
-    }
-  }
+:-ms-input-placeholder {
+  color: inherit;
+  font-style: italic;
+  opacity: 1;
 }
 
-textarea {
-  background-color: $c-white;
-  border-color: $c-bd-input;
+// Firefox 18-.
 
-  &.has-error {
-    border-color: $c-bd-error;
-  }
-
-  .ma__form--light & {
-    background-color: rgba($c-white, 0.1);
-    border-color: rgba($c-bd-input,.5);
-    color: $c-font-inverse;
-
-    &.has-error {
-      border-color: $c-bd-error;
-    }
-  }
+:-moz-placeholder {
+  color: inherit;
+  font-style: italic;
+  opacity: 1;
 }

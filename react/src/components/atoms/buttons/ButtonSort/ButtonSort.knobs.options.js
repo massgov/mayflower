@@ -3,7 +3,7 @@
  */
 export default {
   direction: {
-    '': 'do not sort (default)',
+    'do not sort (default)': '',
     asc: 'ascending',
     dsc: 'descending'
   }

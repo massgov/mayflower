@@ -1,29 +1,29 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, number, text } from '@storybook/addon-knobs/react';
-import logo from '../../../assets/images/stateseal.png';
+import { withKnobs, number, text } from '@storybook/addon-knobs';
+
+import logo from 'SharedAssets/images/stateseal.png';
 import HeaderSlim from '.';
 import { SiteLogo } from '../../../index';
 
-storiesOf('organisms', module).addDecorator(withKnobs)
-  .add('HeaderSlim', withInfo('<div></div>')(() => {
+storiesOf('organisms', module)
+  .addDecorator(withKnobs({ escapeHTML: false }))
+  .add('HeaderSlim', () => {
     const siteLogoProps = {
       url: {
-        domain: text('siteLogo.url.domain', 'https://www.mass.gov/')
+        domain: text('HeaderSlim siteLogo: url domain', 'https://www.mass.gov/')
       },
       image: {
-        src: text('siteLogo.image.src', logo),
-        alt: text('siteLogo.image.alt', 'Massachusetts state seal'),
-        width: number('siteLogo.image.width', 45),
-        height: number('siteLogo.image.height', 45)
+        src: text('HeaderSlim siteLogo: image src', logo),
+        alt: text('HeaderSlim siteLogo: image alt', 'Massachusetts state seal'),
+        width: number('HeaderSlim siteLogo: image width', 45),
+        height: number('HeaderSlim siteLogo: image height', 45)
       },
-      siteName: text('siteLogo.siteName', 'Mass.gov'),
-      title: text('siteLogo.title', 'Mass.gov homepage')
+      siteName: text('HeaderSlim siteLogo: siteName', 'Mass.gov'),
+      title: text('HeaderSlim siteLogo: title', 'Mass.gov homepage')
     };
     const headerProps = {
       siteLogo: <SiteLogo {...siteLogoProps} />
     };
     return(<HeaderSlim {...headerProps} />);
-  }));
+  });

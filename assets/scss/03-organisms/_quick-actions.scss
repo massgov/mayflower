@@ -1,6 +1,7 @@
 .ma__quick-actions {
 
   .sidebar & {
+
     @media ($bp-large-max) {
       display: none;
 
@@ -9,6 +10,7 @@
       }
     }
   }
+
   .page-content & {
     margin-bottom: 40px;
 
@@ -22,6 +24,7 @@
   }
 
   &__items {
+
     @include ma-reset-list;
   }
 
@@ -41,10 +44,11 @@
 }
 
 //theme
+
 .ma__quick-actions {
   margin-bottom: 45px;
 
-  @media ($bp-small-min){
+  @media ($bp-small-min) {
     margin-bottom: 50px;
   }
 

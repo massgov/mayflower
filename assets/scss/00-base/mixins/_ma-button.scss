@@ -7,21 +7,26 @@
 
 @mixin ma-button ($size:"normal", $type:"solid", $color:"transparent") {
   // layout
-  @if($color == "transparent") {
+
+  @if ($color == "transparent") {
+
     @include ma-button-base;
-    
+
     // default
-    @if($size == "normal") {
+
+    @if ($size == "normal") {
       font-size: 1.25rem;
       line-height: 1.4;
     }
     // small
-    @if($size == "small") {
+
+    @if ($size == "small") {
       font-size: 1rem;
       line-height: 1.2;
     }
     // large
-    @if($size == "large") {
+
+    @if ($size == "large") {
       font-size: 1.375rem;
       line-height: 1.61;
     }
@@ -30,12 +35,29 @@
   @else {
     font-weight: 700;
 
-    @if($type == "solid") {
+    @if ($type == "solid") {
       background-color: $color;
       border-color: transparent;
-      color: $c-font-inverse;
 
-      &:hover {
+      @if $color == $c-white {
+        color: $c-primary;
+
+        svg {
+          fill: $c-primary;
+        }
+      }
+
+      @if $color == $c-highlight {
+        color: $c-black;
+
+        svg {
+          fill: $c-black;
+        }
+      } @else {
+        color: $c-font-inverse;
+      }
+
+      &:hover:not(:disabled) {
         background-color: rgba($color,.75);
       }
     }
@@ -43,11 +65,35 @@
     @else {
       background-color: $c-font-inverse;
       border-color: rgba($color,.5);
-      color: $color;
 
-      &:hover {
-        background-color: rgba($color,1);
-        color: $c-font-inverse;
+      @if $color == $c-highlight {
+        color: $c-black;
+        border-color: rgba($c-highlight,.5);
+
+        svg {
+          fill: $c-primary;
+        }
+      } @else {
+        color: $color;
+
+        svg {
+          fill: $color;
+        }
+      }
+
+      &:hover:not(:disabled) {
+
+        svg {
+          fill: $c-white;
+        }
+
+        @if $color == $c-highlight {
+          color: $c-black;
+          background-color: rgba($c-highlight,1);
+        } @else {
+          color: $c-font-inverse;
+          background-color: rgba($color,1);
+        }
       }
     }
   }

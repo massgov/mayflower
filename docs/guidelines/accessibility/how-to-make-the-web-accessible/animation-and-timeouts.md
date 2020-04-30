@@ -2,7 +2,7 @@
 
 ## **Providing sufficient time to complete a task**
 
-Some people need more time than others to read and use the content. For instance, some people require more time to type text, understand instructions, operate controls, or to otherwise complete tasks on a website. Make sure users are given enough time to complete tasks, such as to fill out online forms. 
+Some people need more time than others to read and use the content. For instance, some people require more time to type text, understand instructions, operate controls, or to otherwise complete tasks on a website. Make sure users are given enough time to complete tasks, such as to fill out online forms.
 
 Examples of providing enough time include providing mechanisms to:
 

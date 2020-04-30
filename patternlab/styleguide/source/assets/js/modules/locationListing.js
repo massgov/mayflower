@@ -307,7 +307,9 @@ export default (function (window, document, $) {
     if (listings.hasFilter(filteredData.resultsHeading.tags, "location")) {
       place = listings.getFilterValues(filteredData.resultsHeading.tags, "location")[0]; // returns array
       // If place argument was selected from the locationFilter autocomplete (initiated on the zipcode text input).
-      let autocompletePlace = ma.autocomplete.getPlace();
+      if (typeof ma.autocomplete !== "undefined") {
+        let autocompletePlace = ma.autocomplete.getPlace();
+      }
       // Geocode the address, then sort the markers and instance of locationListing masterData.
       ma.geocoder = ma.geocoder ? ma.geocoder : new google.maps.Geocoder();
       if (typeof autocompletePlace !== "undefined" && autocompletePlace.hasOwnProperty("place_id")) {
@@ -322,7 +324,8 @@ export default (function (window, document, $) {
       // If place argument was populated from locationFilter (zipcode text input) but not from Place autocomplete.
       else {
         // This is an asynchronous function
-        listings.geocodeAddressString(place, function (result) {
+        var reasonable_formatted_location = place + " MA, USA";
+        listings.geocodeAddressString(reasonable_formatted_location, function (result) {
           transformReturn.data = sortDataAroundPlace(result, filteredData);
           transformReturn.geocode = result;
           // Return the data sorted by location and the geocoded place object

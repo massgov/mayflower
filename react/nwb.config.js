@@ -12,7 +12,8 @@ module.exports = {
         alias: {
           SharedAssets: './src/assets'
         }
-      }]
+      }],
+      'babel-plugin-dynamic-import-node'
     ]
   }
 };

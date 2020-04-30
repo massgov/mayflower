@@ -2,8 +2,11 @@
 
   .pre-content > &,
   .post-content > &,
-  .main-content--full .page-content > & {
+  .main-content.main-content--full .page-content > & {
+
     @include ma-container('restricted');
+
+    @include ma-component-spacing('large');
   }
 
   .rich-text & {
@@ -17,7 +20,7 @@
     padding-left: 65px;
     position: relative;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       padding: 30px;
       padding-left: 100px;
     }
@@ -30,7 +33,7 @@
       left:20px;
     transform: translateY(-50%);
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       left: 30px;
     }
 
@@ -38,7 +41,7 @@
       height: 48px;
       width: 44px;
 
-      @media ($bp-small-max){
+      @media ($bp-small-max) {
         height: 36px;
         width: 34px;
       }
@@ -51,6 +54,7 @@
     padding-right: 18px;
 
     & > span {
+
       @include ma-link-underline;
       display: inline;
 
@@ -70,8 +74,11 @@
 }
 
 //theme
+
 .ma__callout-alert {
-  
+
+  //default
+
   &__content {
     background-color: tint($c-warning, 90%);
     border-color: tint($c-warning, 50%);
@@ -94,4 +101,65 @@
   &:hover &__link span {
     border-color: rgba($c-font-base,.5);
   }
+
+  //c-primary
+
+  &--c-primary &__content {
+    background-color: tint($c-primary, 90%);
+    border-color: tint($c-primary, 50%);
+    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  }
+
+  &--c-primary &__icon svg {
+    fill: $c-primary;
+  }
+
+  //c-primary-alt
+
+  &--c-primary-alt &__content {
+    background-color: tint($c-primary-alt, 90%);
+    border-color: tint($c-primary-alt, 50%);
+    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  }
+
+  &--c-primary-alt &__icon svg {
+    fill: $c-primary-alt;
+  }
+
+  //c-gray-dark
+
+  &--c-gray-dark &__content {
+    background-color: tint($c-gray-dark, 90%);
+    border-color: tint($c-gray-dark, 50%);
+    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  }
+
+  &--c-gray-dark &__icon svg {
+    fill: $c-gray-dark;
+  }
+
+  //c-error-red
+
+  &--c-error-red &__content {
+    background-color: tint($c-error-red, 90%);
+    border-color: tint($c-error-red, 50%);
+    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  }
+
+  &--c-error-red &__icon svg {
+    fill: $c-error-red;
+  }
+
+  //c-white
+
+  &--c-white &__content {
+    background-color: tint($c-white, 90%);
+    border-color: tint($c-gray-dark, 50%);
+    box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+  }
+
+  &--c-white &__icon svg {
+    fill: $c-white;
+  }
+
 }

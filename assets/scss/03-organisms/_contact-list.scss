@@ -1,4 +1,5 @@
 .ma__contact-list {
+
   &:not(.ma__contact-list--view-specific) {
     overflow: visible;
   }
@@ -10,7 +11,13 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
+  }
+
+  .main-content--full .page-content > & {
+
+    @include ma-component-spacing();
   }
 
   &--view-specific {
@@ -38,12 +45,14 @@
     }
 
     .main-content--two .page-content &:first-child ~ & + * {
+
       @media ($bp-large-min) {
         margin-top: 0;
       }
     }
 
     .sidebar &:first-child ~ & + * {
+
       @media ($bp-large-max) {
         margin-top: 0;
       }
@@ -52,6 +61,7 @@
 
   .ma__image {
     margin-bottom: 1rem;
+
     @media ($bp-medium-min) {
       float: right;
     }

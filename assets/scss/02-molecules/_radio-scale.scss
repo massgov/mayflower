@@ -1,0 +1,92 @@
+// Radio Scale
+//
+// Custom radio set that displays the otions in a block'd scale.
+
+.ma__radio-scale {
+
+  &__radios {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    @media ($bp-small-max) {
+      flex-wrap: wrap;
+    }
+
+    // The `content:` is provdided via data source.
+
+    &::before,
+    &::after {
+      flex: 1 1 50%;
+      line-height: 1;
+      margin-bottom: $standard-spacing--xxxsmall;
+      text-align: center;
+
+      @media ($bp-small-min) {
+        flex: 0;
+        margin-bottom: 0;
+      }
+
+      @media ($bp-small-max) {
+        font-size: 16px;
+        order: -1;
+      }
+    }
+
+    &::before {
+      margin-right: 1rem;
+
+      @media ($bp-small-max) {
+        margin-right: 0;
+        padding-right: 1rem;
+        text-align: left;
+      }
+    }
+
+    &::after {
+      margin-left: 1rem;
+
+      @media ($bp-small-max) {
+        margin-left: 0;
+        padding-left: 1rem;
+        text-align: right;
+      }
+    }
+  }
+
+  // Label element.
+
+  &__label {
+    border-bottom: 2px solid $c-overcast-gray;
+    border-left: 2px solid $c-overcast-gray;
+    border-top: 2px solid $c-overcast-gray;
+    cursor: pointer;
+    flex: 1;
+    height: $standard-spacing--small;
+    margin: 0;
+
+    &:last-child {
+      border-right: 2px solid $c-overcast-gray;
+    }
+  }
+
+  // input[type=radio] element.
+
+  &__radio {
+    display: none;
+  }
+
+  &__radio:checked + &__text {
+    background-color: $c-bay-blue;
+    color: $c-white;
+  }
+
+  // Element that wraps the content, but is located after the input.
+
+  &__text {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+  }
+}

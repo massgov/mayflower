@@ -14,6 +14,12 @@ In order to run Mayflower locally, you need to have some things installed and se
 
 Please follow the steps in [Contributing docs](.github/CONTRIBUTING.md) to set up your fork and repo for *development* and *contribution* purposes.
 
+## Coding Resources
+
+### [Accessibility Reference/Checklist](docs/a11y-checklist/a11y-checklist.md)
+
+Element base accessibility resource. It can be used while coding or after coding to check your markup for accessibility.
+
 ## Deployment
 
 ### Developer Deployment

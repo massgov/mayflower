@@ -1,0 +1,10 @@
+# Ignore OSX system file
+.DS_Store
+
+# Dependency directories
+node_modules
+
+.env
+
+# Distribution folder
+dist

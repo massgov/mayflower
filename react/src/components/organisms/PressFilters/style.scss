@@ -1,3 +1,6 @@
+@import 'global';
+@import '03-organisms/press-filters';
+
 .ma__press-filters {
   &__organizations, &__type {
     max-width: 500px;

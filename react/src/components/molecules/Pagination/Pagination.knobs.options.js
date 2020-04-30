@@ -7,8 +7,7 @@ export default {
   pages: [{
     active: false,
     text: '1',
-    onClick: action('1 Link clicked.'),
-    ariaLabel: 'Go to Search Results Page 1'
+    onClick: action('1 Link clicked.')
   }, {
     active: true,
     text: 'spacer',
@@ -16,18 +15,15 @@ export default {
   }, {
     active: false,
     text: '3',
-    onClick: action('3 Link clicked.'),
-    ariaLabel: 'Go to Search Results Page 3'
+    onClick: action('3 Link clicked.')
   }, {
     active: true,
     text: '4',
-    onClick: action('4 Link clicked.'),
-    ariaLabel: 'Go to Search Results Page 4'
+    onClick: action('4 Link clicked.')
   }, {
     active: false,
     text: '5',
-    onClick: action('5 Link clicked.'),
-    ariaLabel: 'Go to Search Results Page 5'
+    onClick: action('5 Link clicked.')
   }, {
     active: false,
     text: 'spacer',
@@ -35,7 +31,6 @@ export default {
   }, {
     active: false,
     text: '10',
-    onClick: action('10 Link clicked.'),
-    ariaLabel: 'Go to Search Results Page 10'
+    onClick: action('10 Link clicked.')
   }]
 };

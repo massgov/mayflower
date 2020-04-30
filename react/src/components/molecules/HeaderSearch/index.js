@@ -1,22 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import is from 'is';
+import { componentWithName } from 'airbnb-prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import TypeAheadDropdown from '../../molecules/TypeAheadDropdown';
-import componentPropTypeCheck from '../../utilities/componentPropTypeCheck';
-import './HeaderSearch.css';
+import TypeAheadDropdown from '../../forms/TypeAheadDropdown';
+import './style.css';
 
 class HeaderSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: this.props.defaultText };
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.defaultText });
-  }
-
-  handleChange(event) {
+  handleChange = (event) => {
     const query = event.target.value;
     this.setState({ value: query });
     // invokes custom function if passed in the component
@@ -24,40 +20,51 @@ class HeaderSearch extends React.Component {
       this.props.onChange(query);
     }
   }
+  handleSubmit = (event) => {
+    if (is.fn(this.props.onSubmit)) {
+      this.props.onSubmit(event);
+    }
+  };
 
   render() {
     const headerSearch = this.props;
     const orgDropdown = headerSearch.orgDropdown;
     const shouldShowTypeAhead = (orgDropdown && orgDropdown.dropdownButton && orgDropdown.inputText);
+    const inputProps = {
+      id: headerSearch.id,
+      className: 'ma__header-search__input',
+      placeholder: headerSearch.placeholder,
+      onChange: this.handleChange,
+      type: 'search',
+      value: this.state.value
+    };
+    if (this.props.inputRef) {
+      inputProps.ref = this.props.inputRef;
+    }
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
-        {shouldShowTypeAhead && 
+        {shouldShowTypeAhead &&
           <div className="ma__header-search__pre-filter">
             <TypeAheadDropdown {...orgDropdown} />
           </div>
         }
-        <section className="ma__header-search">
-          <form action="#" className="ma__form" onSubmit={headerSearch.onSubmit}>
+        <div className="ma__header-search">
+          <form action="#" className="ma__form" onSubmit={this.handleSubmit} role="search">
             <label
               htmlFor={headerSearch.id}
               className="ma__header-search__label"
             >{headerSearch.label}
             </label>
-            <input
-              id={headerSearch.id}
-              className="ma__header-search__input"
-              placeholder={headerSearch.placeholder}
-              onChange={this.handleChange}
-              type="search"
-              value={this.state.value}
-            />
+            <input {...inputProps} />
             {this.props.suggestions && this.props.suggestions}
-            <div className="ma__header-search__post-filter">
-              {this.props.postInputFilter}
-            </div>
+            {this.props.postInputFilter && (
+              <div className="ma__header-search__post-filter">
+                {this.props.postInputFilter}
+              </div>
+            )}
             <ButtonWithIcon {...headerSearch.buttonSearch} />
           </form>
-        </section>
+        </div>
       </div>
     );
   }
@@ -83,7 +90,12 @@ HeaderSearch.propTypes = {
   /** @molecules/TypeAheadDropdown */
   orgDropdown: PropTypes.shape(PropTypes.TypeAheadDropdown),
   /** postInputFilter passable component */
-  postInputFilter: (props, propName, componentName) => componentPropTypeCheck(props, propName, componentName, 'SelectBox')
+  postInputFilter: componentWithName('SelectBox'),
+  /** A ref object as created by React.createRef(). Will be applied to the input element. */
+  inputRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
+  ])
 };
 
 HeaderSearch.defaultProps = {
@@ -91,7 +103,7 @@ HeaderSearch.defaultProps = {
   label: 'Search terms',
   placeholder: 'Search Mass.gov',
   buttonSearch: {
-    ariaLabel: 'search',
+    'aria-label': '',
     usage: 'secondary'
   }
 };

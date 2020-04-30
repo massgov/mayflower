@@ -135,7 +135,7 @@
                 "height": "130",
                 "width": "230"
               },
-              "primaryContact": {
+              "addressContactGroup": {
                 "icon": "marker",
                 "name": "Address",
                 "items": [
@@ -148,112 +148,109 @@
                   }
                 ]
               },
-              "hasManyAdditional": true,
-              "additionalContacts": [
-                {
-                  "icon": "phone",
-                  "name": "Phone",
-                  "items": [
-                    {
-                      "type": "phone",
-                      "property": "",
-                      "label": "Main:",
-                      "link": {
-                        "href": "+14134994262",
-                        "text": "(413) 499-4262",
-                        "info": "",
-                        "property": ""
-                      },
-                      "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+              "phoneContactGroup": {
+                "icon": "phone",
+                "name": "Phone",
+                "items": [
+                  {
+                    "type": "phone",
+                    "property": "",
+                    "label": "Main:",
+                    "link": {
+                      "href": "+14134994262",
+                      "text": "(413) 499-4262",
+                      "info": "",
+                      "property": ""
                     },
-                    {
-                      "type": "phone",
-                      "property": "",
-                      "label": "Toll Free:",
-                      "link": {
-                        "href": "+18004324321",
-                        "text": "(800) 432-4321",
-                        "info": "",
-                        "property": ""
-                      },
-                      "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                    "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                  },
+                  {
+                    "type": "phone",
+                    "property": "",
+                    "label": "Toll Free:",
+                    "link": {
+                      "href": "+18004324321",
+                      "text": "(800) 432-4321",
+                      "info": "",
+                      "property": ""
                     },
-                    {
-                      "type": "phone",
-                      "property": "",
-                      "label": "TTY:",
-                      "link": {
-                        "href": "+16175557777",
-                        "text": "(617) 555-7777",
-                        "info": "",
-                        "property": ""
-                      },
-                      "details": "For those who need accessible services"
+                    "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                  },
+                  {
+                    "type": "phone",
+                    "property": "",
+                    "label": "TTY:",
+                    "link": {
+                      "href": "+16175557777",
+                      "text": "(617) 555-7777",
+                      "info": "",
+                      "property": ""
                     },
-                    {
-                      "type": "phone",
-                      "property": "",
-                      "label": "Voice Relay:",
-                      "link": {
-                        "href": "16175555255",
-                        "text": "(617) 555-5255",
-                        "info": "",
-                        "property": ""
-                      },
-                      "details": ""
-                    }
-                  ]
-                },
-                {
-                  "icon": "laptop",
-                  "name": "Online",
-                  "hidden": "",
-                  "items": [
-                    {
-                      "type": "email",
-                      "property": "",
-                      "label": "Email:",
-                      "link": {
-                        "href": "email@email.com",
-                        "text": "email@email.com",
-                        "info": "",
-                        "property": ""
-                      },
-                      "details": ""
+                    "details": "For those who need accessible services"
+                  },
+                  {
+                    "type": "phone",
+                    "property": "",
+                    "label": "Voice Relay:",
+                    "link": {
+                      "href": "16175555255",
+                      "text": "(617) 555-5255",
+                      "info": "",
+                      "property": ""
                     },
-                    {
-                      "type": "online",
-                      "property": "",
-                      "label": "Web:",
-                      "link": {
-                        "href": "#",
-                        "text": "Contact Form",
-                        "info": "",
-                        "property": ""
-                      },
-                      "details": ""
-                    }
-                  ]
-                },
-                {
-                  "icon": "fax-icon",
-                  "name": "Fax",
-                  "items": [
-                    {
-                      "type": "fax",
-                      "property": "",
-                      "label": "Main:",
-                      "link": {
-                        "href": "+14134994262",
-                        "text": "(413) 499-4262",
-                        "info": "",
-                        "property": ""
-                      },
-                      "details": "Please allow 24 hours for a response"
-                    }
-                  ]
-                }
-              ]
+                    "details": ""
+                  }
+                ]
+              },
+              "onlineContactGroup": {
+                "icon": "laptop",
+                "name": "Online",
+                "hidden": "",
+                "items": [
+                  {
+                    "type": "email",
+                    "property": "",
+                    "label": "Email:",
+                    "link": {
+                      "href": "email@email.com",
+                      "text": "email@email.com",
+                      "info": "",
+                      "property": ""
+                    },
+                    "details": ""
+                  },
+                  {
+                    "type": "online",
+                    "property": "",
+                    "label": "Web:",
+                    "link": {
+                      "href": "#",
+                      "text": "Contact Form",
+                      "info": "",
+                      "property": ""
+                    },
+                    "details": ""
+                  }
+                ]
+              },
+              "faxContactGroup": {
+                "icon": "fax-icon",
+                "name": "Fax",
+                "items": [
+                  {
+                    "type": "fax",
+                    "property": "",
+                    "label": "Main:",
+                    "link": {
+                      "href": "+14134994262",
+                      "text": "(413) 499-4262",
+                      "info": "",
+                      "property": ""
+                    },
+                    "details": "Please allow 24 hours for a response"
+                  }
+                ]
+              }
             }
           }
         }
@@ -1415,8 +1412,8 @@
       },
       "disambiguatingDescription": "EOHHS oversees health and general support services to help people in Massacheusetts - from young children to seniors - meet basic needs.",
       "description": "The Executive Office of Health and Human Services is responsible through its member agencies for the delivery of a wide range of services to people with financial, health, social, protective, rehabilitation, and correctional needs. Online information is available for consumers, providers, researchers, and social workers to find out what types of assistance are offered.",
-      "logo": "https://mayflower.digital.mass.gov/assets/images/images/placeholder/230x72.png",
-      "url": "https://mayflower.digital.mass.gov/?p=templates-org-landing-page",
+      "logo": "https://mayflower.digital.mass.gov/patternlab/assets/images/images/placeholder/230x72.png",
+      "url": "https://mayflower.digital.mass.gov/patternlab/?p=templates-org-landing-page",
       "contactInfo": {
         "address": "One Ashburton Place, 11th Floor, Boston, MA 02108",
         "telephone": "+14134994262",

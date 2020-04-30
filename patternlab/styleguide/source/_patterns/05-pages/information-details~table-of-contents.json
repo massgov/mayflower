@@ -3,7 +3,7 @@
     "contentTitle": "",
     "titleContext": ""
   },
-   "preContent": {
+  "preContent": {
     "pageHeader": {
       "divider": false,
       "title": "Why is habitat management needed?",
@@ -12,11 +12,8 @@
     },
     "stickyTOC": {
       "title": "Table of Contents",
-      "seeAll": {
-        "href": "#",
-        "text": "See More",
-        "info": ""
-      }
+      "parent": "#main-content",
+      "sections": ".ma__information-details__content h2"
     }
   },
   "relationshipIndicators": {

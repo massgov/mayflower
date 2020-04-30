@@ -11,3 +11,6 @@ storybook-static
 
 backstop/data/bitmaps_test/
 backstop/data/*report/
+
+.DS_Store
+**/.DS_Store

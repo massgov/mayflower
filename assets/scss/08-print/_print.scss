@@ -15,7 +15,6 @@
     color: $c-font-heading !important;
   }
 
-  .ma__stacked-row-section .main-content .page-content > *,
   .main-content--two .page-content > *,
   .main-content--full .page-content > * {
     margin-top: 0;
@@ -34,7 +33,8 @@
   .ma__content-eyebrow__tags,
   .ma__page-header__tags,
   .ma__footer,
-  #feedback,
+  .ma__fixed-feedback-button,
+  .post-content #feedback,
   .messages--error,
   *[aria-hidden="true"],
   .ma__download-link__icon,
@@ -57,20 +57,22 @@
   .ma__page-banner--small .ma__page-banner__icon,
   .ma__banner-carousel,
   .ma__quick-actions,
-  .ma__wait-time {
+  .ma__wait-time,
+  .ma__video,
+  .ma__sticky-toc__stuck {
     display: none !important;
   }
 
   a::after {
-    content: "("attr(href)")";
+    content: " ("attr(href)")";
     font-size: 0.8em;
     font-weight: normal;
     width: 100%;
     white-space: nowrap;
   }
 
-  .pre-content::after, 
-  .main-content::after, 
+  .pre-content::after,
+  .main-content::after,
   .post-content::after {
     display: none;
     clear: none;
@@ -94,27 +96,13 @@
       padding: 0;
     }
 
-    .ma__stacked-row-section:first-of-type {
-      padding: 0;
-      margin: 0;
-    }
-
-    .ma__stacked-row-section:last-child {
-      padding-top: 0;
-    }
-
-    .ma__stacked-row-section {
-      padding-top: 70px;
-      border-width: 0;
-    }
-
-    .ma__stacked-row-section ~ .ma__stacked-row-section .ma__stacked-row-section__container::before {
-      padding: 0 !important;
-    }
-
     article img {
       display: none;
     }
+  }
+
+  .ma__organization-navigation {
+    display: none !important;
   }
 
   .sidebar--colored .ma__comp-heading {
@@ -145,11 +133,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     -webkit-print-color-adjust: exact;
+  }
 
+  .ma__relationship-indicators {
+    display: none !important;
   }
 
   .ma__page-banner {
     margin-bottom: 0;
+    margin-top: 0 !important;
     padding: 0;
     min-height: 0;
     height: auto;
@@ -180,11 +172,10 @@
       padding: 0;
       margin: 0;
       position: relative;
-      max-width: none;
+      max-width: none !important;
       width: 100%;
       height: auto;
       top: 0;
-      max-width: none;
       color: $c-font-heading;
 
       &::before, {
@@ -195,6 +186,36 @@
     &::after {
       display: none !important;
     }
+  }
+
+  .ma__page-banner--columns {
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    .ma__page-banner__content {
+      height: auto !important;
+      top: auto !important;
+    }
+
+    .ma__page-banner__container {
+      min-height: 0 !important;
+    }
+
+    .ma__page-banner__description {
+      padding: 0 !important;
+      float: none !important;
+      width: 100% !important;
+      max-width: none;
+    }
+  }
+
+  .ma__page-banner--large {
+    height: auto !important;
+    width: 100% !important;
+    max-width: none;
+    margin-right: 0 !important;
+    margin-bottom: 20px;
   }
 
   .main-content {
@@ -212,15 +233,16 @@
   .ma__section-links,
   .ma__about-section-person,
   .ma__location-banner__image {
-    page-break-before: auto; 
+    page-break-before: auto;
     page-break-after: auto;
-    page-break-inside: avoid !important; 
+    page-break-inside: avoid !important;
     break-inside: avoid !important;
   }
 
-  .ma__colored-heading {
-    padding: 0;
-    color: $c-font-heading;
+  .ma__colored-heading,
+  .ma__comp-heading {
+    padding: 0 !important;
+    color: $c-font-heading !important;
   }
 
   .ma__rich-text,
@@ -232,14 +254,14 @@
     margin: 2rem 0;
   }
 
-  .ma__callout-link  {
+  .ma__callout-link {
     border-width: 0 !important;
     break-inside: avoid;
     page-break-inside: avoid;
     width: 100% !important;
 
     a {
-      padding: 0;
+      padding: 0 !important;
     }
   }
 
@@ -256,7 +278,7 @@
   }
 
   .ma__contact-us--accordion {
-    border-width: 0;
+    border-width: 0 !important;
 
     .ma__contact-us--accordion__status {
       display: none;
@@ -286,6 +308,10 @@
     padding: 0;
   }
 
+  .ma__contact-us__expand {
+    display: none;
+  }
+
   .ma__action-step {
     border-width: 0;
 
@@ -297,7 +323,7 @@
     .ma__action-step__icon {
       display: none;
     }
-    
+
     .ma__action-step__content {
       display: inline !important;
       border-width: 0;
@@ -306,8 +332,7 @@
   }
 
   .ma__steps-ordered__item {
-    padding-left: 0;
-    list-style-type: decimal;
+    padding-left: 0 !important;
 
     .ma__action-step__header::after {
       display: none;
@@ -336,12 +361,12 @@
       border-width: 0;
       margin: 0;
       text-align: left;
-  
-      a, 
+
+      a,
       .ma__image {
         display: none;
       }
-  
+
       .ma__decorative-link a {
         display: block !important;
       }
@@ -369,7 +394,9 @@
   }
 
   .ma__link-list__items {
-    
+    // important to over write custom html styles.
+    padding-left: 0 !important;
+
     .ma__link-list__item {
       width: 100%;
       flex-basis: 100% !important;
@@ -397,7 +424,7 @@
     width: 100%;
     max-width: none;
 
-    .ma__image{
+    .ma__image {
      display: none;
     }
 
@@ -410,7 +437,7 @@
       height: auto;
       padding-left: 0;
       font-size: 1.4rem;
-      page-break-inside: avoid !important; 
+      page-break-inside: avoid !important;
       break-inside: avoid !important;
     }
 
@@ -428,5 +455,51 @@
   .ma__press-listing__more,
   .ma__link-list__toggle {
     display: none;
+  }
+
+  .ma__details__stick-nav {
+    display: none;
+  }
+
+  .ma__details__content {
+    margin-left: 0 !important;
+  }
+
+  .ma__callout-time__text {
+    padding-left: 0 !important;
+  }
+
+  .ma__action-step--accordion {
+    border-width: 0 !important;
+
+    button::after {
+      display: none;
+    }
+
+    .ma__action-step__header {
+      padding: 0 !important;
+    }
+  }
+
+  .ma__fixed-feedback-button {
+    display: none;
+  }
+
+  // Page level custom print styles
+
+  .ma__details__content .ma__rich-text {
+
+    ul li {
+      list-style-type: none;
+      padding-left: 2em;
+      text-indent: -2em;
+
+      &::before {
+        // checkbox
+        content: "\2610";
+        margin-right:5px;
+        font-size: 2.5rem;
+      }
+    }
   }
 }

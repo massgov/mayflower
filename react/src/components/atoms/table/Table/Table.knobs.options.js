@@ -2,6 +2,7 @@
  * Option definitions for the Tables's enumerable properties (imported in stories)
  */
 export default {
+  id: 'responsive-table',
   feeTable: {
     head: {
       rows: [{
@@ -44,7 +45,7 @@ export default {
           text: '$27.50'
         }]
       }, {
-        rowSpanOffset: true,
+        rowSpanOffset: false,
         cells: [{
           heading: false,
           colspan: '',

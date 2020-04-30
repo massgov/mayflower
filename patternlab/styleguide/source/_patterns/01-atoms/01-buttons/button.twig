@@ -8,7 +8,7 @@
   <a 
     href="{{ button.href }}" 
     class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}}"
-    title="{{ button.info }}">{{ button.text }}</a>
+    {% if button.info %} title="{{ button.info }}"{% endif %}>{{ button.text }}</a>
 {% else %}
   <button type="{{ button.type }}" class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}}" aria-label="{{ button.info }}">{{ button.text }}</button>
 {% endif %}

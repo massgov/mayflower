@@ -22,6 +22,11 @@
     }],
     "widgets": null
   },
+  "stickyTOC": {
+    "title": "Table of Contents",
+    "parent": "#main-content",
+    "sections": ".ma__stacked-row__section h2.ma__comp-heading"
+  },
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
@@ -65,25 +70,6 @@
         "title": "Biking"
       }]
     }
-  },
-  "jumpLinks": {
-    "title": "In this List",
-    "links": [{
-      "text": "List One",
-      "href": "list-one"
-    },{
-      "text": "Curated Person 1",
-      "href": "contact-1"
-    },{
-      "text": "List Two",
-      "href": "list-two"
-    },{
-      "text": "Curated Person 2",
-      "href": "contact-2"
-    },{
-      "text": "List Three",
-      "href": "list-three"
-    }]
   },
 
   "stackedRows": [{

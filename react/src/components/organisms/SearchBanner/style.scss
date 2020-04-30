@@ -13,6 +13,18 @@
     margin-bottom: 20px;
   }
 
+  .ma__header-search {
+    .ma__button-search {
+      &, &--secondary {
+        @media($bp-medium-max) {
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
   &--noTabs {
     text-align: center;
 

@@ -1,6 +1,8 @@
 
 //theme
+
 .ma__about-section {
+
   @include ma-container();
 
   @media ($bp-large-extended-min) {
@@ -11,6 +13,7 @@
   &__title {
 
     @media ($bp-large-extended-min) {
+
       @include ma-container();
     }
   }
@@ -21,13 +24,9 @@
       background-color: $c-bg-section;
     }
 
-    .ma__content-link  {
+    .ma__content-link {
       display: inline-block;
       margin: 5px 0 40px;
-    }
-
-    .ma__person-card__links .ma__content-link {
-      margin: 0;
     }
   }
 
@@ -35,6 +34,7 @@
     position: relative;
 
     @media ($bp-large-extended-min) {
+
       @include ma-container();
       padding-top: 3rem;
     }
@@ -59,6 +59,7 @@
   &__people {
 
     @media ($bp-large-extended-min) {
+
       @include ma-container();
       margin-top: 2rem;
       display: flex;
@@ -82,6 +83,7 @@
     margin-top: 20px;
 
     @media ($bp-large-extended-min) {
+
       @include ma-container();
     }
 
@@ -106,11 +108,11 @@
 
       .ma__icon-links__item {
         margin-left: 1rem;
-        max-width: 45%;
       }
     }
 
     .ma__comp-heading {
+
       @include ma-h5;
       text-transform: uppercase;
       color: $c-primary-alt;

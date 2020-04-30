@@ -4,6 +4,19 @@
   class="ma__google-map"
   aria-hidden="true"
   role="presentation">
+  {# for static maps #}
+  {% if googleMap.static %}
+  <div class="ma__google-map__map static-image">
+    <a href="{{ googleMap.link.href }}" title="Get Directions">
+      {% set picture = googleMap.picture %}
+      {% include "@atoms/09-media/picture-element.twig" %}
+      <div class="ma__google-maps__directions-link">
+        <span>Get Directions&nbsp;{{ icon('arrow') }}</span>
+      </div>
+    </a>
+  </div>
+  {% else %}
+  {# for google maps #}
   <div class="ma__google-map__map js-google-map"></div>
   {# user editable data used in this specific map #}
   <script>
@@ -41,4 +54,5 @@
       ]
     });
   </script>
+  {% endif %}
 </div>
