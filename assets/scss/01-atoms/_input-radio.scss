@@ -181,11 +181,11 @@ $control-height: 1.2rem;
 
   @include label-appearance($c-white, $c-primary, $c-primary, '',':checked', '');
 
-  @include label-appearance($c-primary, rgba($c-primary,0.1), $c-primary, '', ':hover', '');
+  @include label-appearance($c-primary, $c-primary-lightest, $c-primary, '', ':hover', '');
 
   @include label-appearance($c-white, rgba($c-primary,0.8), rgba($c-primary,0.8), '', ':checked:hover', '');
 
-  @include label-appearance($c-primary, $c-primary, $c-primary, $c-focus, ':active', '');
+  @include label-appearance($c-white, $c-primary, $c-primary, $c-focus, ':active', '');
 
   @include label-appearance($c-white, $c-primary, $c-primary, $c-focus, ':focus', '');
 
