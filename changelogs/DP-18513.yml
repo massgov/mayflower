@@ -1,6 +1,0 @@
-Fixed:
-  - project: React, Assets
-    component: InputRadio
-    description: Fix InputRadio outline style behavior. (#1034)
-    issue: DP-18513
-    impact: Patch
