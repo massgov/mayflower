@@ -20,7 +20,7 @@
     "fonts"
   ],
   "scripts": {
-    "test": "stylelint",
+    "test": "npm run stylelint",
     "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
     "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose"
   },
