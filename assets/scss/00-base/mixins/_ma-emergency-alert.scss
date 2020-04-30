@@ -1,3 +1,9 @@
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "functions/tint" as *;
+
 @mixin ma-emergency-alert ($color) {
   color: $c-font-base;
   background-color: tint($color, 90%);

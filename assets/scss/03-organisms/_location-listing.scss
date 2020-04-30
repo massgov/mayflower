@@ -2,6 +2,8 @@ $location-listing--gutter-width: 30px;
 $location-listing--tags-size: 25px;
 $location-listin--map-min-width: 315px;
 
+@use "00-base/global" as *;
+
 .ma__location-listing {
   position: relative;
 

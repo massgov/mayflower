@@ -288,9 +288,6 @@ jobs:
       - run:
           name: Mayflower Style Linter
           command: cd assets && npm run stylelint
-      - run:
-          name: Validate Package Build
-          command: cd assets && npm run build
 
   assets_deploy_tag:
     <<: *react_defaults
@@ -305,13 +302,12 @@ jobs:
           paths:
             - assets/node_modules
           key: assets-dependencies-{{ checksum "assets/package.json" }}
-      - run: cd assets && npm run build
       - run:
-          name: 'Publish mayflower-tokens NPM package'
+          name: 'Publish mayflower-assets NPM package'
           command: |
             cd assets
             npm version --no-git-tag-version "$CIRCLE_TAG"
-            if test -z "$(npm show @massds/mayflower-tokens@$CIRCLE_TAG)"; then
+            if test -z "$(npm show @massds/mayflower-assets@$CIRCLE_TAG)"; then
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"

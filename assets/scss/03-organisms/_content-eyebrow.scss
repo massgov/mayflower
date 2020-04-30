@@ -1,4 +1,6 @@
 
+@use "00-base/global" as *;
+
 .ma__content-eyebrow {
 
   @include ma-container;

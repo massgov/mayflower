@@ -1,6 +1,8 @@
 $formTransitions: max-height 0.6s linear, margin 0.1s linear;
 $formQuickTransitions: max-height 0.3s linear;
 
+@use "00-base/global" as *;
+
 .ma__mass-feedback-form {
 
   &__form {

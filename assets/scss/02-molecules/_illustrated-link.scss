@@ -1,5 +1,7 @@
 $illustrated-link-image-width: 130px;
 
+@use "00-base/global" as *;
+
 .ma__illustrated-link {
   border: 3px solid;
   display: flex;

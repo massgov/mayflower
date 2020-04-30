@@ -1,3 +1,9 @@
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "ma-border-decorative" as *;
+
 @mixin ma-comp-heading($c-underline:transparent) {
   
   @if ($c-underline == transparent) {

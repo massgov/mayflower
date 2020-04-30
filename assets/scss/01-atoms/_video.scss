@@ -1,3 +1,9 @@
+@use "sass:selector";
+
+@use "sass:meta";
+
+@use "00-base/global" as *;
+
 .ma__video {
 
   @include clearfix;
@@ -88,7 +94,7 @@
     }
   }
 
-  .main-content--full .page-content > &--right {
+  .main-content--full .page-content > #{selector.unify("--right", &)} {
 
     @media ($bp-small-min) {
       margin-left: 1em;

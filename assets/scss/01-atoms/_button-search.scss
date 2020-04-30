@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 @mixin ma-button-search ($background-color, $color) {
   border: 2px solid;
   display: inline-block;

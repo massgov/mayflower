@@ -2,6 +2,14 @@
 // $c-bg is the color you want the title background to be
 // $c-page is the color of the page it is being rendered on
 
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "00-base/color-tokens" as *;
+
+@use "00-base/breakpoints" as *;
+
 @mixin ma-heading-colored($c-bg:transparent,$direction:right,$c-page:white) {
   $offset: 55px;
   

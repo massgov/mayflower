@@ -1,6 +1,8 @@
 // Texta styles.
 // See @mixin ma-texta-style in 00-base/mixins/_ma-typography.scss
 
+@use "mixins" as *;
+
 $styles: (
   "light": 'Light',
   "book": 'Book',
@@ -14,10 +16,11 @@ $styles: (
   @each $class, $s in $styles {
     &-#{$class} {
 
-      @include ma-texta-style($s)
+      @include ma-texta-style($s);
+
       &--italic {
 
-        @include ma-texta-style($s, true)
+        @include ma-texta-style($s, true);
       }
     }
   }

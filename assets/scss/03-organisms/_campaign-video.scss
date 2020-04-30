@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 $colors: (
   "c-primary": $c-primary,
   "c-primary-lightest":  $c-primary-lightest,

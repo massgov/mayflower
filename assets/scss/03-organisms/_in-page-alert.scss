@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 .ma__in-page-alert {
   background-color: $c-warning;
   font-size: 0;

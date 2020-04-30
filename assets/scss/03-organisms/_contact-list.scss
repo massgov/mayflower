@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 .ma__contact-list {
 
   &:not(.ma__contact-list--view-specific) {

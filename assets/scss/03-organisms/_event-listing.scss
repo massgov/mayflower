@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 $event-listing-bp-show-grid: $bp-medium-min;
 
 .ma__event-listing {

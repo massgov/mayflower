@@ -1,5 +1,7 @@
 $header-search-height: 46px;
 
+@use "00-base/global" as *;
+
 .ma__keyword-search {
   display: inline-block;
   max-width: 400px;

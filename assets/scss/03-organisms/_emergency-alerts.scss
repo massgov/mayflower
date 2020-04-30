@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 $emergency-alerts-half-max: $max-width / 2;
 
 /* parent class should be 0px tall

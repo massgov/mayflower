@@ -1,18 +1,13 @@
 {
-  "name": "@massds/mayflower-tokens",
-  "version": "1.4.2",
-  "description": "Mayflower design tokens — it includes color token SCSS variables, fonts, icons and other imagery",
-  "main": "dist/scss/index",
-  "style": "dist/scss/index",
+  "name": "@massds/mayflower-assets",
+  "version": "1.0.0",
+  "description": "Mayflower Assets",
+  "main": "index.js",
   "files": [
-    "dist"
+    "fonts",
+    "images",
+    "scss"
   ],
-  "scripts": {
-    "test": "stylelint",
-    "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
-    "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose",
-    "build": "node scripts/build_tokens"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/massgov/mayflower/tree/master/assets"
@@ -24,12 +19,21 @@
     "icons",
     "fonts"
   ],
+  "scripts": {
+    "test": "npm run stylelint",
+    "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
+    "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose"
+  },
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
+  "peerDependencies": {
+    "sass": "^1.26.3",
+    "bourbon": "^4.3.4"
+  },
   "devDependencies": {
-    "stylelint": "^13.2.0",
+    "stylelint": "^13.3.3",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-recommended-scss": "^4.2.0",
-    "stylelint-scss": "^3.14.2"
+    "stylelint-scss": "^3.17.1"
   }
 }

@@ -1,5 +1,13 @@
 //pikaday is a JS plugin for date inputs
 
+@use "variables" as *;
+
+@use "colors" as *;
+
+// From Bourbon
+
+@use "functions/tint" as *;
+
 .pika-single {
   font-family: $fonts;
 
