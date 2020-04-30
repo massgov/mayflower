@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 $colors: (
   "c-highlight": $c-highlight,
   "c-primary": $c-primary,
@@ -12,6 +14,7 @@ $quaternary-colors: (
   "c-gray-dark": $c-gray-dark,
   "c-white": $c-white
 );
+
 
 .ma__button-icon {
   background-color: $c-white;

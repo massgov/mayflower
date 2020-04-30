@@ -2,6 +2,8 @@
 // $column: 85px;
 // $gutter: 20px;
 
+@use "00-base/global" as *;
+
 .ma__action-details {
 
   &__title {

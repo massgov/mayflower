@@ -1,114 +1,112 @@
-/* Mayflower Color Tokens */
-
 // Bay Blue (#14558f)
-$c-bay-blue-90-tint:                #E8EEF4;
-$c-bay-blue-80-tint:                #D0DDE9;
-$c-bay-blue-70-tint:                #B9CCDD;
-$c-bay-blue-60-tint:                #A1BBD2;
-$c-bay-blue-50-tint:                #8AAAC7;
-$c-bay-blue-40-tint:                #7299BC;
-$c-bay-blue-30-tint:                #5B88B1;
-$c-bay-blue-20-tint:                #4377A5;
-$c-bay-blue-10-tint:                #2C669A;
-$c-bay-blue:                        #14558f;
-$c-bay-blue-10-shade:               #124D81;
-$c-bay-blue-20-shade:               #104472;
-$c-bay-blue-30-shade:               #0E3C64;
-$c-bay-blue-40-shade:               #0C3356;
-$c-bay-blue-50-shade:               #0A2B48;
+$c-bay-blue-90-tint:                #E8EEF4 !default;
+$c-bay-blue-80-tint:                #D0DDE9 !default;
+$c-bay-blue-70-tint:                #B9CCDD !default;
+$c-bay-blue-60-tint:                #A1BBD2 !default;
+$c-bay-blue-50-tint:                #8AAAC7 !default;
+$c-bay-blue-40-tint:                #7299BC !default;
+$c-bay-blue-30-tint:                #5B88B1 !default;
+$c-bay-blue-20-tint:                #4377A5 !default;
+$c-bay-blue-10-tint:                #2C669A !default;
+$c-bay-blue:                        #14558f !default;
+$c-bay-blue-10-shade:               #124D81 !default;
+$c-bay-blue-20-shade:               #104472 !default;
+$c-bay-blue-30-shade:               #0E3C64 !default;
+$c-bay-blue-40-shade:               #0C3356 !default;
+$c-bay-blue-50-shade:               #0A2B48 !default;
 
-$c-bay-blue-lighter:                $c-bay-blue-50-tint; //Commonly used in outlines
-$c-bay-blue-lightest:               $c-bay-blue-90-tint; //Commonly used in background
-$c-bay-blue-darker:                 $c-bay-blue-30-shade;
-$c-bay-blue-darkest:                $c-bay-blue-50-shade;
+$c-bay-blue-lighter:                $c-bay-blue-50-tint !default; //Commonly used in outlines
+$c-bay-blue-lightest:               $c-bay-blue-90-tint !default; //Commonly used in background
+$c-bay-blue-darker:                 $c-bay-blue-30-shade !default;
+$c-bay-blue-darkest:                $c-bay-blue-50-shade !default;
 
 // Berkshires Green (#388557)
-$c-berkshires-green-90-tint:        #EBF3EE;
-$c-berkshires-green-80-tint:        #D7E7DD;
-$c-berkshires-green-70-tint:        #C3DACD;
-$c-berkshires-green-60-tint:        #AFCEBC;
-$c-berkshires-green-50-tint:        #9CC2AB;
-$c-berkshires-green-40-tint:        #88B69A;
-$c-berkshires-green-30-tint:        #74AA89;
-$c-berkshires-green-20-tint:        #609D79;
-$c-berkshires-green-10-tint:        #4C9168;
-$c-berkshires-green:                #388557;
-$c-berkshires-green-10-shade:       #32784E;
-$c-berkshires-green-20-shade:       #2D6A46;
-$c-berkshires-green-30-shade:       #275D3D;
-$c-berkshires-green-40-shade:       #225034;
-$c-berkshires-green-50-shade:       #1C432C;
+$c-berkshires-green-90-tint:        #EBF3EE !default;
+$c-berkshires-green-80-tint:        #D7E7DD !default;
+$c-berkshires-green-70-tint:        #C3DACD !default;
+$c-berkshires-green-60-tint:        #AFCEBC !default;
+$c-berkshires-green-50-tint:        #9CC2AB !default;
+$c-berkshires-green-40-tint:        #88B69A !default;
+$c-berkshires-green-30-tint:        #74AA89 !default;
+$c-berkshires-green-20-tint:        #609D79 !default;
+$c-berkshires-green-10-tint:        #4C9168 !default;
+$c-berkshires-green:                #388557 !default;
+$c-berkshires-green-10-shade:       #32784E !default;
+$c-berkshires-green-20-shade:       #2D6A46 !default;
+$c-berkshires-green-30-shade:       #275D3D !default;
+$c-berkshires-green-40-shade:       #225034 !default;
+$c-berkshires-green-50-shade:       #1C432C !default;
 
-$c-berkshires-green-lighter:        $c-berkshires-green-50-tint; //Commonly used in outlines
-$c-berkshires-green-lightest:       $c-berkshires-green-80-tint; //Commonly used in background
-$c-berkshires-green-dark:           #214F34; // Followup needed: should be replaced with one of the gradient colors
-$c-berkshires-green-darker:         $c-berkshires-green-30-shade;
-$c-berkshires-green-darkest:        $c-berkshires-green-50-shade;
+$c-berkshires-green-lighter:        $c-berkshires-green-50-tint !default; //Commonly used in outlines
+$c-berkshires-green-lightest:       $c-berkshires-green-80-tint !default; //Commonly used in background
+$c-berkshires-green-dark:           #214F34 !default; // Followup needed: should be replaced with one of the gradient colors
+$c-berkshires-green-darker:         $c-berkshires-green-30-shade !default;
+$c-berkshires-green-darkest:        $c-berkshires-green-50-shade !default;
 
 // Duckling Yellow (#f6c51b)
-$c-duckling-yellow-90-tint:         #FEF9E8;
-$c-duckling-yellow-80-tint:         #FDF3D1;
-$c-duckling-yellow-70-tint:         #FCEEBB;
-$c-duckling-yellow-60-tint:         #FBE8A4;
-$c-duckling-yellow-50-tint:         #FBE28D;
-$c-duckling-yellow-40-tint:         #FADC76;
-$c-duckling-yellow-30-tint:         #F9D65F;
-$c-duckling-yellow-20-tint:         #F8D149;
-$c-duckling-yellow-10-tint:         #F7CB32;
-$c-duckling-yellow:                 #f6c51b;
-$c-duckling-yellow-10-shade:        #DDB118;
-$c-duckling-yellow-20-shade:        #C59E16;
-$c-duckling-yellow-30-shade:        #AC8A13;
-$c-duckling-yellow-40-shade:        #947610;
-$c-duckling-yellow-50-shade:        #7B630E;
+$c-duckling-yellow-90-tint:         #FEF9E8 !default;
+$c-duckling-yellow-80-tint:         #FDF3D1 !default;
+$c-duckling-yellow-70-tint:         #FCEEBB !default;
+$c-duckling-yellow-60-tint:         #FBE8A4 !default;
+$c-duckling-yellow-50-tint:         #FBE28D !default;
+$c-duckling-yellow-40-tint:         #FADC76 !default;
+$c-duckling-yellow-30-tint:         #F9D65F !default;
+$c-duckling-yellow-20-tint:         #F8D149 !default;
+$c-duckling-yellow-10-tint:         #F7CB32 !default;
+$c-duckling-yellow:                 #f6c51b !default;
+$c-duckling-yellow-10-shade:        #DDB118 !default;
+$c-duckling-yellow-20-shade:        #C59E16 !default;
+$c-duckling-yellow-30-shade:        #AC8A13 !default;
+$c-duckling-yellow-40-shade:        #947610 !default;
+$c-duckling-yellow-50-shade:        #7B630E !default;
 
-$c-duckling-yellow-lighter:         $c-duckling-yellow-50-tint; //Commonly used in outlines
-$c-duckling-yellow-lightest:        $c-duckling-yellow-90-tint; //Commonly used in background
-$c-duckling-yellow-darker:          $c-duckling-yellow-30-shade;
-$c-duckling-yellow-darkest:         $c-duckling-yellow-50-shade;
+$c-duckling-yellow-lighter:         $c-duckling-yellow-50-tint !default; //Commonly used in outlines
+$c-duckling-yellow-lightest:        $c-duckling-yellow-90-tint !default; //Commonly used in background
+$c-duckling-yellow-darker:          $c-duckling-yellow-30-shade !default;
+$c-duckling-yellow-darkest:         $c-duckling-yellow-50-shade !default;
 
 // Independence Cranberry (#680A1D)
-$c-independence-cranberry-90-tint:  #F0E7E8;
-$c-independence-cranberry-80-tint:  #E1CED2;
-$c-independence-cranberry-70-tint:  #D2B6BB;
-$c-independence-cranberry-60-tint:  #C39DA5;
-$c-independence-cranberry-50-tint:  #B4858E;
-$c-independence-cranberry-40-tint:  #A46C77;
-$c-independence-cranberry-30-tint:  #955461;
-$c-independence-cranberry-20-tint:  #863B4A;
-$c-independence-cranberry-10-tint:  #772334;
-$c-independence-cranberry:          #680A1D;
-$c-independence-cranberry-10-shade: #5E091A;
-$c-independence-cranberry-20-shade: #530817;
-$c-independence-cranberry-30-shade: #490714;
-$c-independence-cranberry-40-shade: #3E0611;
-$c-independence-cranberry-50-shade: #34050F;
+$c-independence-cranberry-90-tint:  #F0E7E8 !default;
+$c-independence-cranberry-80-tint:  #E1CED2 !default;
+$c-independence-cranberry-70-tint:  #D2B6BB !default;
+$c-independence-cranberry-60-tint:  #C39DA5 !default;
+$c-independence-cranberry-50-tint:  #B4858E !default;
+$c-independence-cranberry-40-tint:  #A46C77 !default;
+$c-independence-cranberry-30-tint:  #955461 !default;
+$c-independence-cranberry-20-tint:  #863B4A !default;
+$c-independence-cranberry-10-tint:  #772334 !default;
+$c-independence-cranberry:          #680A1D !default;
+$c-independence-cranberry-10-shade: #5E091A !default;
+$c-independence-cranberry-20-shade: #530817 !default;
+$c-independence-cranberry-30-shade: #490714 !default;
+$c-independence-cranberry-40-shade: #3E0611 !default;
+$c-independence-cranberry-50-shade: #34050F !default;
 
-$c-independence-cranberry-lighter:  $c-independence-cranberry-50-tint;  //Commonly used in outlines
-$c-independence-cranberry-lightest: $c-independence-cranberry-90-tint;  //Commonly used in outlines
-$c-independence-cranberry-darker:   $c-independence-cranberry-30-shade;
-$c-independence-cranberry-darkest:  $c-independence-cranberry-50-shade;
+$c-independence-cranberry-lighter:  $c-independence-cranberry-50-tint !default;  //Commonly used in outlines
+$c-independence-cranberry-lightest: $c-independence-cranberry-90-tint !default;  //Commonly used in outlines
+$c-independence-cranberry-darker:   $c-independence-cranberry-30-shade !default;
+$c-independence-cranberry-darkest:  $c-independence-cranberry-50-shade !default;
 
 // Base Gray Scale Colors
-$c-revolution-gray:                 #141414;
-$c-granite-gray:                    #535353;
-$c-atlantic-gray:                   #707070;
-$c-overcast-gray:                   #DCDCDC;
-$c-platinum-gray:                   #F2F2F2;
+$c-revolution-gray:                 #141414 !default;
+$c-granite-gray:                    #535353 !default;
+$c-atlantic-gray:                   #707070 !default;
+$c-overcast-gray:                   #DCDCDC !default;
+$c-platinum-gray:                   #F2F2F2 !default;
 
 // Gray Scale Spectrum Mapping
-$c-black:                           $c-revolution-gray;
-$c-gray-dark:                       $c-granite-gray;
-$c-gray:                            $c-atlantic-gray;
-$c-gray-light:                      $c-overcast-gray;
-$c-gray-lighter:                    #CCCCCC; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
-$c-gray-lightest:                   $c-platinum-gray;
-$c-white:                           white;
+$c-black:                           $c-revolution-gray !default;
+$c-gray-dark:                       $c-granite-gray !default;
+$c-gray:                            $c-atlantic-gray !default;
+$c-gray-light:                      $c-overcast-gray !default;
+$c-gray-lighter:                    #CCCCCC !default; // Followup needed: should be added as a base color or be replaced as a gradient color from granite gray
+$c-gray-lightest:                   $c-platinum-gray !default;
+$c-white:                           white !default;
 
 // Error Red (#CD0D0D)
-$c-error-red:                       #CD0D0D;
-$c-error-red-lighter:               #EEACAC; //Commonly used in outlines
-$c-error-red-lightest:              #FCF3F3; //Commonly used in background
+$c-error-red:                       #CD0D0D !default;
+$c-error-red-lighter:               #EEACAC !default; //Commonly used in outlines
+$c-error-red-lightest:              #FCF3F3 !default; //Commonly used in background
 
 // Focus Highlight (#3e94cf)
-$c-focus-hightlight:                #3e94cf;
+$c-focus-hightlight:                #3e94cf !default;

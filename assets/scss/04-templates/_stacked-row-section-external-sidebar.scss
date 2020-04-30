@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 .ma_stacked-row-external-sidebar {
 
   @include ma-container();

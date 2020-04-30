@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 input {
 
   &.has-error:not(:focus) {

@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 .ma__callout-message__container {
   position: relative;
   max-width: $max-width;

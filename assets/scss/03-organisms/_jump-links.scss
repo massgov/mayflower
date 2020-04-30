@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 .ma__jump-links {
   margin-bottom: 30px;
   //position: relative // can't have position relative here or the links won't stick for the height of page-content
@@ -5,7 +7,7 @@
   &__skip-link__container {
     margin: 0 auto;
 
-    @include ma-container
+    @include ma-container;
     position: relative;
     top: -50px;
 

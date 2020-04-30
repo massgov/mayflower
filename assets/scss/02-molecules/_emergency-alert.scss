@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 .ma__emergency-alert {
   background-color: tint($c-warning,90%);
   font-size: 1.25rem;

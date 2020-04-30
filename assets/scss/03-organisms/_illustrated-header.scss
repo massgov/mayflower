@@ -2,6 +2,7 @@ $bp-illustrated-header-columns-min: "min-width: 1001px";
 $bp-illustrated-header-columns-max: "max-width: 1000px";
 $bp-illustrated-header-image-width: 360px;
 
+@use "00-base/global" as *;
 
 .ma__illustrated-header {
   margin-bottom: 40px;

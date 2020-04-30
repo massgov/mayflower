@@ -4,6 +4,8 @@ $narrow-template-bg-offset-narrow: calc(50% - 125px);
 $narrow-template-max-width: 670px;
 $narrow-template-header-height: 170px;
 
+@use "00-base/global" as *;
+
 @keyframes narrow-template-bg-full-left {
 
   0% { 

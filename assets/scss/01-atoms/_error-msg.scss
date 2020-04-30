@@ -1,5 +1,7 @@
 // error message
 
+@use "00-base/global" as *;
+
 .ma__error-msg {
   display: none;
   align-items: flex-start;

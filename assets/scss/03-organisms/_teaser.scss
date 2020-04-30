@@ -1,9 +1,7 @@
-@import "../00-base/colors";
-
-@import "../00-base/breakpoints";
-
 $c-gray-dcdcdc: #dcdcdc;
 $c-theme-green: #43956f;
+
+@use "00-base/global" as *;
 
 .ma__results-list-container {
 

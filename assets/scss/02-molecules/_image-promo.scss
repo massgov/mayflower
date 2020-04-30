@@ -1,5 +1,7 @@
 $image-promo-bp-x-large-min: "min-width: 1160px";
 
+@use "00-base/global" as *;
+
 .ma__image-promo {
 
   @include clearfix();
