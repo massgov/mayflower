@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.49.2 (4/30/2020)
+### Fixed 
+- (React, Assets) [InputRadio] DP-18513: Fix InputRadio outline style behavior. (#1034)
+
 ## 9.49.1 (4/28/2020)
 ### Added
   - (Patternlab) [CalloutMessage] DP-18422: Add a new copmponent to have rich text and callout link. (#1026)
