@@ -9,10 +9,10 @@ Fontspring grants Licensee a perpetual, worldwide, non-exclusive and non-transfe
 For more details about Texta's terms of use, please refer to our [web font license](https://www.fontspring.com/lic/htswufoczd).
 
 ## Publishing Instructions
->To publish the package, you will have to be a collaborator or have access to the [@massds/assets npm package](https://www.npmjs.com/package/@massds/assets).
+>To publish the package, you will have to be a collaborator or have access to the [@massds/mayflower-assets npm package](https://www.npmjs.com/package/@massds/mayflower-assets).
 
 1. Once you're done making changes and ready to publish, run `npm login` to login to the npm account.
-2. Update `version` in package.json and run `npm publish`. Wait a few minutes and check [@massds/assets](https://www.npmjs.com/package/@massds/assets) on the npm registry.
+2. Update `version` in package.json and run `npm publish`. Wait a few minutes and check [@massds/mayflower-assets](https://www.npmjs.com/package/@massds/mayflower-assets) on the npm registry.
 
 
 
@@ -36,7 +36,7 @@ These include paths allow you to include files with paths like `00-base/name-of-
 You can also set up your include paths by using an `.env` file at the root of your project. Sass can use the node environment variable `SASS_PATH` for setting your include paths:
 ```
 // .env file
-SASS_PATH=./node_modules/@massds/assets/scss:./node_modules/@massds/assets/scss/00-base:./node_modules/@massds/assets/scss/00-base/mixins:./node_modules/@massds/assets/scss/01-atoms:./node_modules/@massds/assets/scss/02-molecules:./node_modules/@massds/assets/scss/03-organisms:./node_modules/@massds/assets/scss/04-templates/./node_modules/@massds/assets/scss/05-dataviz:./node_modules/@massds/assets/scss/08-print:./node_modules/bourbon/app/assets/stylesheets
+SASS_PATH=./node_modules/@massds/mayflower-assets/scss:./node_modules/@massds/mayflower-assets/scss/00-base:./node_modules/@massds/mayflower-assets/scss/00-base/mixins:./node_modules/@massds/mayflower-assets/scss/01-atoms:./node_modules/@massds/mayflower-assets/scss/02-molecules:./node_modules/@massds/mayflower-assets/scss/03-organisms:./node_modules/@massds/mayflower-assets/scss/04-templates/./node_modules/@massds/mayflower-assets/scss/05-dataviz:./node_modules/@massds/mayflower-assets/scss/08-print:./node_modules/bourbon/app/assets/stylesheets
 ```
 
 Many of the components require the file `00-base/_layout.scss` to be included at least once before their use. It's recommended for your project to create a single .scss file that includes all the shared files for your needs. This file should use `@forward` to forward sass modules that your other files need:
@@ -155,4 +155,4 @@ exports.default = series(compileSass);
 
 ```
 ## Development with Assets Package
-When working on changing styling, you can use `npm link` with another project so that changes made to `.scss` files show up live time. First, run `npm link` under the mayflower repo's assets directory. Next, in your other project's root directory run `npm link @massds/assets`. This will make it so that under node_modules for your project, this package is symlinked (from @massds/assets) to the mayflower repo's assets directory.
+When working on changing styling, you can use `npm link` with another project so that changes made to `.scss` files show up live time. First, run `npm link` under the mayflower repo's assets directory. Next, in your other project's root directory run `npm link @massds/mayflower-assets`. This will make it so that under node_modules for your project, this package is symlinked (from @massds/mayflower-assets) to the mayflower repo's assets directory.
