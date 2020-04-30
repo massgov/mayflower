@@ -179,12 +179,12 @@ $control-height: 1.2rem;
 
 //label-appearance(text-color, background-color, border-color, box-shadow, control-state, class-modifier)
   @include label-appearance($c-primary, $c-white, $c-primary, '','', '');
+  
+  @include label-appearance($c-primary, $c-primary-lightest, $c-primary, '', ':hover', '');
 
   @include label-appearance($c-white, $c-primary, $c-primary, '',':checked', '');
 
-  @include label-appearance($c-primary, $c-primary-lightest, $c-primary, '', ':hover', '');
-
-  @include label-appearance($c-white, $c-primary-light, $c-primary-light, '', ':checked:hover', '');
+  @include label-appearance($c-white, $c-primary-light, $c-primary, '', ':checked:hover', '');
 
   @include label-appearance($c-white, $c-primary, $c-primary, $c-focus, ':active', '');
 
@@ -205,8 +205,6 @@ $control-height: 1.2rem;
   @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked', '--error');
 
   @include label-appearance($c-error, $c-error-lighter, $c-error, '', ':checked:hover', '--error');
-
-  @include label-appearance($c-gray-light, $c-gray-dark, $c-gray-light, '', ':checked:disabled', '--error');
 
   @include label-appearance($c-error, $c-error-lighter, $c-error, $c-error-lighter, ':active', '--error');
 
