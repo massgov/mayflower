@@ -7,6 +7,6 @@
       "url": "https://public.tableau.com/views/diversity_update_v11/with_headline?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true"
     },
     "title": "This is an option data visualization title",
-    "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
+    "caption": "This is an optional caption that can wrap to multiple lines."
   }
 }
