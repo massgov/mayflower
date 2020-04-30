@@ -157,9 +157,9 @@ $control-height: 1.2rem;
 
   }
 
-  @mixin label-appearance($text-color, $background-color, $border-color, $box-shadow:'transparent', $state:'', $suffix:'') {
-    $this-prefix: '&__control'+ $suffix;
-    $this-suffix: ' + &__label' + $suffix;
+  @mixin label-appearance($text-color, $background-color, $border-color, $box-shadow:'transparent', $state:'', $modifier:'') {
+    $this-prefix: '&__control'+ $modifier;
+    $this-suffix: ' + &__label' + $modifier;
     #{$this-prefix}#{$state}#{$this-suffix} {
       color: $text-color;
 
@@ -177,13 +177,14 @@ $control-height: 1.2rem;
     }
   }
 
+//label-appearance(text-color, background-color, border-color, box-shadow, control-state, class-modifier)
   @include label-appearance($c-primary, $c-white, $c-primary, '','', '');
 
   @include label-appearance($c-white, $c-primary, $c-primary, '',':checked', '');
 
   @include label-appearance($c-primary, $c-primary-lightest, $c-primary, '', ':hover', '');
 
-  @include label-appearance($c-white, rgba($c-primary,0.8), rgba($c-primary,0.8), '', ':checked:hover', '');
+  @include label-appearance($c-white, $c-primary-light, $c-primary-light, '', ':checked:hover', '');
 
   @include label-appearance($c-white, $c-primary, $c-primary, $c-focus, ':active', '');
 
