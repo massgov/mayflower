@@ -1,6 +1,0 @@
-Added:
-  - project: Site
-    component: Header, RichText
-    description: Add links to digital styleguide on the homepage. (#999)
-    issue: DP-17923
-    impact: Patch

@@ -1,5 +1,5 @@
-import smPlaceholder from '../../../assets/images/placeholder/72x96.png';
-import lgPlaceholder from '../../../assets/images/placeholder/172x228.png';
+import smPlaceholder from 'SharedAssets/images/placeholder/72x96.png';
+import lgPlaceholder from 'SharedAssets/images/placeholder/172x228.png';
 
 export default {
   teaserListing: {

@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import logo from 'SharedAssets/images/stateseal.png';
 import './style.css';
-
-
-import logo from '../../../../assets/images/stateseal.png';
 import Image from '../Image';
 
 const SiteLogo = (siteLogo) => (

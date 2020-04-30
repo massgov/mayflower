@@ -1,7 +1,7 @@
 {% set calloutLinkTheme = calloutLink.theme ? "ma__callout-link--" ~ calloutLink.theme : "" %}
 
 {# <div > #}
-  <a href="{{ calloutLink.href }}" 
+  <a href="{{ calloutLink.href }}"
   class="ma__callout-link {{calloutLinkTheme}}"
   {% if alloutLink.info %} title="{{ calloutLink.info }}"{% endif %}
   target="">
@@ -15,9 +15,11 @@
       {% endif %}
     </div>
    {% endif %}
+      {% if calloutLink.text %}
     	<span class="ma__callout-link__container">
     		<span class="ma__callout-link__text" >{{ calloutLink.text }}&nbsp;{{ icon('arrow') }}</span>
     	</span>
+      {% endif %}
     {% if calloutLink.emphasized %}
       <span class="ma__callout-link__emphasized">{{ calloutLink.emphasized }}</span>
     {% endif %}

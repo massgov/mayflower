@@ -1,6 +1,44 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.49.1 (4/28/2020)
+### Added
+  - (Patternlab) [CalloutMessage] DP-18422: Add a new copmponent to have rich text and callout link. (#1026)
+### Changed
+  - (Patternlab) [StackedRowTemplate] DP-18422: Adjust margin with/without callout message. (#1026)
+
+## 9.49.0 (4/27/2020)
+### Added
+- (React, Patternlab, Assets) [Fonts] DP-18315: Addded fonts for Khmer language support. (#1021)
+### Added
+- (React) [Label] DP-18462: Added Label component to render label and legend for input and fieldset elements. (#1028)
+
+## 9.48.0 (4/20/2020)
+### Changed
+- (Patternlab) [Button alert] DP-17792: Adjusted scss to rotate button arrow up when accordion opens
+
+## 9.47.0 (4/13/2020)
+### Changed
+- (Patternalb) [ServicePage] DP-16029: Change the property value to set style for see all link in service page to match Mass.gov production. (#994)
+- (Patternlab) [Featured Item Mosaic] DP-16690: Changed text from less to fewer.
+- (React) [Dependency] DP-17437: Upgrade storybook to lastest version 5.3.18. (#958)
+
+### Added
+- (Docs) [Release] DP-18180: Add documentation on release and hotfix (#1017)
+
+## 9.46.1 (4/6/2020)
+### Fixed
+- (Site) [CircleCI] DP-17980: Fixed CircleCI deploy build. (#1016)
+
+## 9.46.0 (4/6/2020)
+### Changed
+- (Patternlab) [Contact-item] DP-15965: Changed capitalization of directions
+- (Patternlab) [DecprativeLink] DP-17387: Adjust css for decorative link in location listing for Chrome. Match the markup of assets/js/templates/locationListingRow.html to 02-molecules/image-promo.twig. (#995)
+
+### Added
+- (Site) [Header, RichText] DP-17923: Add links to digital styleguide on the homepage. (#999)
+- (Site) [CircleCI] DP-17980: Add CI for site build and deploy. (#1001)
+
 ## 9.45.2 (3/31/2020)
 ### Changed
 - (Patternlab) [main-nav] DP-18018: Fix typo in Covid-19 link styling. (#1010)

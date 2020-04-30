@@ -74,7 +74,7 @@ By default, ``npm start`` will kick off a develop environment that hot reloads a
 
 $ ``npm i -g http-server``
 
-$ ``npm run storybook-static``
+$ ``npm run build-storybook``
 
 $ ``http-server storybook-static``
 
@@ -109,7 +109,7 @@ We are tracking versions of this project in the package.json, which means when c
 1. $ `npm run build-storybook`. This will build storybook static site into /storybook-static
 2. From project root, $ ``aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete`` (Deploys build to S3 bucket)
 3. $ ``aws configure set preview.cloudfront true`` (Enables CloudFront invalidation commands)
-4. $ ``aws cloudfront create-invalidation --distribution-id 	
+4. $ ``aws cloudfront create-invalidation --distribution-id
 [!!PROD_DISTRIBUTION_ID_HERE!!] --paths '/*'`` (Invalidates CloudFront for prod box)
 
 You should see your changes live at [mayflower-react storybook][react-storybook] within a few minutes!

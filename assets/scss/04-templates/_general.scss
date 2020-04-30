@@ -13,6 +13,20 @@
   }
 }
 
+.ma__short-description.main-content {
+  margin-bottom: 45px;
+  margin-bottom: 20px;
+
+  .ma__page-header__sub-title .ma__rich-text h4 {
+    padding-bottom: 0;
+  }
+
+  @media ($bp-x-small-min) {
+    margin-bottom: 60px;
+    margin-bottom: 40px;
+  }
+}
+
 // two column template
 
 .main-content--two {
