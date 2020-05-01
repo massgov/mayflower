@@ -141,5 +141,4 @@ export Collapse from './components/animations/Collapse';
 export DataTable from './components/dataviz/DataTable';
 
 // To archive & remove in version 10
-export InputTextTypeAhead from './components/forms/InputTextTypeAhead';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
