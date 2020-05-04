@@ -73,7 +73,7 @@
               "size": "",
               "dataviz": {
                 "id": "1234",
-                "url": "https://public.tableau.com/views/diversity_update_v11/with_headline?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true"
+                "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
               },
               "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
             }
@@ -96,7 +96,7 @@
               "size": "",
               "dataviz": {
                 "id": "4567",
-                "url": "https://public.tableau.com/views/diversity_update_v11/with_headline?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true"
+                "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
               },
               "caption": "Data Source: <a href='http://www.mass.gov'>Mass.gov</a>"
             }
@@ -119,7 +119,7 @@
               "size": "",
               "dataviz": {
                 "id": "6789",
-                "url": "https://public.tableau.com/views/diversity_update_v11/with_headline?%3Aembed=y&%3AshowVizHome=no&%3Adisplay_count=y&%3Adisplay_static_image=y&%3AbootstrapWhenNotified=true"
+                "url": "https://public.tableau.com/views/SampleTableauvisualizationsforMass_gov/Sample1"
               },
               "caption": "<b>I am caption.</b> Images have optional custom captions. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
             }
