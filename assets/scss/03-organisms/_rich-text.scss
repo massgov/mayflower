@@ -18,18 +18,30 @@ $heading-indent: $gutter;
     margin-bottom: 0;
   }
 
+  .pre-content > &__container,
   .pre-content > &,
-  .post-content > &,
+  .post-content > &__container,
+  .main-content--full .page-content > &__container,
   .main-content--full .page-content > & {
 
     @include ma-container('restricted');
   }
 
+  .ma__split-columns__column > &__container,
   .ma__split-columns__column > & {
     margin-bottom: 1em;
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .ma__comp-heading + & {
+    margin-top: 0;
+  }
+
+  .page-content.ma__announcement__page-content &__container & {
+
+    @include ma-component-spacing;
   }
 
   // extra specificity was needed to override & a { ... }
@@ -61,7 +73,8 @@ $heading-indent: $gutter;
     display: block;
   }
 
-  h2 {
+  & h2,
+  &__container h2 {
     padding-top: .75em;
 
     &:first-child {
@@ -142,14 +155,6 @@ $heading-indent: $gutter;
 
   img {
     width: 100%;
-  }
-
-  figure {
-    margin-bottom: $rich-text-spacing-mobile;
-
-    @media ($bp-small-min) {
-      margin-bottom: $rich-text-spacing;
-    }
   }
 
   // List styles
@@ -242,7 +247,7 @@ $heading-indent: $gutter;
   &__flame {
     font-weight: bold;
   }
-  
+
   &__footnote {
     border-color: rgba($c-font-link,.5);
 

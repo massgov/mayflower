@@ -15,6 +15,10 @@ This shows an Image using a `<figure>` elements with an optional caption
 figure: {
   align:
     type: string ('left', 'right') / optional
+  wrap:
+    type: boolean
+  size:
+    type: string('small', 'medium', 'large') / optional
   image: {
     alt:
       type: string / required
@@ -24,6 +28,22 @@ figure: {
       type: string
     width:
       type: string
+  }
+  iframe: {
+    src:
+      type: string (url) / required
+    title:
+      type: string / required
+    height:
+      type: string
+    width:
+      type: string
+  }
+  dataviz: {
+    id:
+      type: string / optional
+    url:
+      type: string (url) / required
   }
   title:
     type: string

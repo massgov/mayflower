@@ -585,10 +585,11 @@
               }
             }
           },{
-            "path": "@atoms/09-media/figure.twig",
+            "path": "@atoms/09-media/figure--image.twig",
             "data": {
               "figure": {
                 "align": "",
+                "wrap": false,
                 "image": {
                   "alt": "alt text",
                   "src": "../../assets/images/placeholder/800x400.png",
@@ -677,7 +678,7 @@
               }
             }
           },{
-            "path": "@atoms/09-media/figure.twig",
+            "path": "@atoms/09-media/figure--image.twig",
             "data": {
               "figure": {
                 "align": "align-right",
