@@ -1,8 +1,9 @@
 {
   "figure": {
     "align": "right",
-    "image": { 
-      "alt": "alt text", 
+    "wrap": true,
+    "image": {
+      "alt": "alt text",
       "src": "../../assets/images/placeholder/800x400.png",
       "height": "",
       "width": ""

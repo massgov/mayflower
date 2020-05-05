@@ -1,6 +1,14 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.49.3 (5/5/2020)
+### Added 
+- (Patternlab) [Figure] DP-17483: Add datavisualization iframe to figure. (#975)
+
+### Changed 
+- (Patternlab) [Figure] DP-17634: Add a link to sample caption content. (#975)
+- (Patternlab) [InformaionDetails] DP-17634: Add a link to sample caption content. (#975)
+
 ## 9.49.2 (4/30/2020)
 ### Fixed 
 - (React, Assets) [InputRadio] DP-18513: Fix InputRadio outline style behavior. (#1034)

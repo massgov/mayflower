@@ -54,7 +54,8 @@
     margin-bottom: 0;
   }
 
-  .main-content--two &  > * {
+  .main-content--two &  > *,
+  .main-content--two & .ma__rich-text__container {
 
     @include ma-component-spacing;
   }
