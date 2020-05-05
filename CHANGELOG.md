@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## 9.49.3 (5/5/2020)
 ### Added 
-- (Patternlab) [Figure] DP-17483: Add datavisualization iframe to figure. (#950)
+- (Patternlab) [Figure] DP-17483: Add datavisualization iframe to figure. (#988)
 
 ### Changed 
 - (Patternlab) [Figure] DP-17634: Add a link to sample caption content. (#988)
