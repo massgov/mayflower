@@ -1,6 +1,0 @@
-Added:
-  - project: Patternlab
-    component: Figure
-    description: Add datavisualization iframe to figure. (#950)
-    issue: DP-17483
-    impact: Patch
