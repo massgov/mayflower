@@ -4,8 +4,7 @@
   "description": "Mayflower Assets",
   "main": "index.js",
   "files": [
-    "fonts",
-    "images",
+    "static",
     "scss"
   ],
   "repository": {
