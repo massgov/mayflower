@@ -1,0 +1,11 @@
+Removed:
+  - project: React
+    component: PressTeaser
+    description: Remove PressTeaser molecule from mayflower-react npm package. (#1049)
+    issue: DP-18263
+    impact: Major
+  - project: React
+    component: GeneralTeaser
+    description: Remove GeneralTeaser organism from mayflower-react npm package. (#)
+    issue: DP-18263
+    impact: Major
