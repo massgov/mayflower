@@ -5,6 +5,6 @@
 node_modules
 
 .env
-
+!react/.env
 # Distribution folder
 dist
