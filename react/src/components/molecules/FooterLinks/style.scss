@@ -1,7 +1,7 @@
-@import 'global';
+@use "styles/global" as *;
 // Import Neat for the mixins.
-@import "bourbon-neat/app/assets/stylesheets/neat";
-@import '02-molecules/footer-links';
+@use "bourbon-neat/app/assets/stylesheets/neat";
+@use '02-molecules/footer-links';
 
 .ma__footer-links {
   &__items {

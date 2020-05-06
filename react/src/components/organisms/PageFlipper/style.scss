@@ -1,2 +1,2 @@
-@import 'global';
-@import '03-organisms/page-flipper';
+@use "styles/global" as *;
+@use '03-organisms/page-flipper';

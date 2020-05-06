@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number, text } from '@storybook/addon-knobs';
 
-import logo from 'SharedAssets/images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import HeaderSlim from '.';
 import { SiteLogo } from '../../../index';
 

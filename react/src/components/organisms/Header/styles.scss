@@ -1,6 +1,6 @@
-@import 'global';
-@import "bourbon-neat/app/assets/stylesheets/neat";
-@import "03-organisms/header";
+@use "styles/global" as *;
+@use "bourbon-neat/app/assets/stylesheets/neat";
+@use "03-organisms/header";
 
 // .ma__header__container {
 //   .ma__header-search {

@@ -1,2 +1,2 @@
-@import 'global';
-@import '03-organisms/rich-text';
+@use "styles/global" as *;
+@use '03-organisms/rich-text';

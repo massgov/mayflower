@@ -1,2 +1,2 @@
-@import 'global';
-@import '01-atoms/button-toggle';
+@use "styles/global" as *;
+@use '01-atoms/button-toggle';

@@ -1,4 +1,4 @@
-@import 'global';
+@use "styles/global" as *;
 
 $margin: 20px;
 %transition {

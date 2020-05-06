@@ -5,6 +5,7 @@
   "version": "9.44.2",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "sideEffects": false,
   "files": [
     "css",
     "es",
@@ -14,8 +15,8 @@
     "backstop:test": "docker-compose run backstop test --rm",
     "backstop": "npm-run-all build-storybook backstop:test",
     "backstop:approve": "docker-compose run backstop approve",
-    "build-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/",
-    "watch-css": "node-sass-chokidar --include-path ./src/components/styles --include-path ../assets/scss src/ --include-path node_modules src/ -o src/ --watch",
+    "build-css": "env-cmd sass src",
+    "watch-css": "env-cmd sass src --watch",
     "build-nwb": "nwb build-react-component --copy-files",
     "build": "npm-run-all build-css build-nwb",
     "clean": "nwb clean-module",
@@ -26,17 +27,18 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
     "prepublishOnly": "npm run build && ./scripts/cleanup-package.sh",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets/static",
+    "build-storybook": "build-storybook -s ./node_modules/@massds/mayflower-assets/static"
   },
   "pre-push": [
     "lint"
   ],
   "dependencies": {
+    "@massds/mayflower-assets": "^0.1.0",
     "airbnb-prop-types": "^2.13.2",
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",
-    "bourbon": "^5.1.0",
+    "bourbon": "^4.3.4",
     "bourbon-neat": "^1.7.2",
     "classnames": "^2.2.6",
     "fuse.js": "^3.4.5",
@@ -80,6 +82,7 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-import-paths": "^1.0.2",
     "cross-env": "^5.2.0",
+    "env-cmd": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-alias": "^1.1.1",
@@ -97,7 +100,8 @@
     "prop-types": "^15.7.1",
     "react": "16.8.6",
     "react-dom": "16.9.0",
-    "react-scripts": "^2.1.8"
+    "react-scripts": "^2.1.8",
+    "sass": "^1.26.5"
   },
   "homepage": "",
   "license": "MIT",

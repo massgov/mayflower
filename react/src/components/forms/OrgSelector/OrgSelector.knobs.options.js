@@ -2,7 +2,7 @@
  * Option definitions for the Button's enumerable properties (imported in stories)
  */
 
-import sqrPlaceholder from 'SharedAssets/images/placeholder/100x100.png';
+import sqrPlaceholder from '@massds/mayflower-assets/static/images/placeholder/100x100.png';
 
 export default {
   organizations: [

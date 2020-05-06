@@ -1,2 +1,2 @@
-@import 'global';
-@import '01-atoms/global/elements';
+@use "styles/global" as *;
+@use '00-base/elements';

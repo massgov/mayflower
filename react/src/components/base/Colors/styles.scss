@@ -1,4 +1,5 @@
-@import 'global';
+@use "styles/global" as *;
+@use 'bourbon/app/assets/stylesheets/functions/shade' as *;
 // import color variables
 // import bourbon library "tint" and "shade" functions
 

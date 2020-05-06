@@ -10,7 +10,7 @@ module.exports = {
       ['module-resolver', {
         root: ['./src'],
         alias: {
-          SharedAssets: './src/assets'
+          SharedAssets: '@massds/mayflower-assets/static'
         }
       }],
       'babel-plugin-dynamic-import-node'

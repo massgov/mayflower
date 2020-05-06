@@ -1,4 +1,4 @@
-import rectPlaceholder from 'SharedAssets/images/placeholder/600x450.png';
+import rectPlaceholder from '@massds/mayflower-assets/static/images/placeholder/600x450.png';
 
 export default {
   illustratedHeader: {

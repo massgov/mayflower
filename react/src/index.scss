@@ -1,50 +1,48 @@
 // normalize the css across browsers added in npm
-@import "normalize-scss/sass/normalize";
+@forward "normalize-scss/sass/normalize";
 
-// Sass frameworks added in npm
-@import "bourbon/core/bourbon";
-
+@forward "00-base/layout";
 // some variables adjust the settings in Neat
-@import "00-base/variables";
-@import "bourbon-neat/app/assets/stylesheets/neat";
+@forward "00-base/variables";
 
 // Bower vendors
-@import "pikaday/scss/pikaday";
+@forward "pikaday/scss/pikaday";
 
 // Path to Mayflower shared assets.
-$assets-path: './assets';
+//$assets-path: './assets';
 
 // Base variables
-@import "00-base/breakpoints";
-@import "00-base/mixins";
-@import "00-base/z-index";
+@forward "00-base/global" with(
+  $assets-path: ''
+);
+@forward "00-base/z-index";
 
 // base theme variables
-@import "00-base/colors";
-@import "00-base/fonts";
-@import "00-base/fonts-fallback";
-@import "00-base/pikaday";
+@forward '00-base/fonts';
+@forward "00-base/fonts-fallback";
+@forward "00-base/pikaday";
 
 // Print styles
-@import "08-print/print";
+@forward "08-print/print";
 
 // Atoms - reusable styles
-@import "01-atoms/global/elements";
-@import "01-atoms/forms";
-@import "01-atoms/content-link";
+@forward "00-base/elements";
+@forward "00-base/layout";
+@forward "01-atoms/forms";
+@forward "01-atoms/content-link";
 
-@import "02-molecules/general-teaser";
+@forward "02-molecules/general-teaser";
 
 // Templates - page content types
-@import "04-templates/binder-page";
-@import "04-templates/bio";
-@import "04-templates/court-rules";
-@import "04-templates/details";
-@import "04-templates/form-page";
-@import "04-templates/general";
-@import "04-templates/information-details";
-@import "04-templates/organization-details";
-@import "04-templates/policy-advisory";
-@import "04-templates/press";
-@import "04-templates/services";
-@import "04-templates/stacked-row-section-external-sidebar.scss";
+@forward "04-templates/binder-page";
+@forward "04-templates/bio";
+@forward "04-templates/court-rules";
+@forward "04-templates/details";
+@forward "04-templates/form-page";
+@forward "04-templates/general";
+@forward "04-templates/information-details";
+@forward "04-templates/organization-details";
+@forward "04-templates/policy-advisory";
+@forward "04-templates/press";
+@forward "04-templates/services";
+@forward "04-templates/stacked-row-section-external-sidebar.scss";

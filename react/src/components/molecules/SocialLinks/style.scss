@@ -1,2 +1,2 @@
-@import 'global';
-@import "02-molecules/social-links";
+@use "styles/global" as *;
+@use "02-molecules/social-links";

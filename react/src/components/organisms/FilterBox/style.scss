@@ -1,7 +1,7 @@
-@import "global";
+@use "styles/global" as *;
 //include form styles here to export input styling
-$assets-path: '../../../assets';
-@import "01-atoms/forms";
+//$assets-path: '../../../assets';
+@use "01-atoms/forms" as *;
 
 .ma__filter-box{
 		z-index: 10;
