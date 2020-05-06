@@ -3,6 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, object, boolean, number } from '@storybook/addon-knobs';
 
 import { DecorativeLink, Paragraph } from '../../../index';
+import SidebarHeading from '../../atoms/headings/SidebarHeading';
+import CompHeading from '../../atoms/headings/CompHeading';
 import TeaserListing from '.';
 import TeaserListingDocs from './TeaserListing.md';
 import TeaserListingData from './TeaserListing.knob.options';
@@ -35,8 +37,12 @@ storiesOf('organisms', module)
         };
       });
       const props = {
-        compHeading: object('TeaserListing compHeading', TeaserListingData.teaserListing.compHeading, 'CompHeading'),
-        sidebarHeading: object('TeaserListing sidebarHeading', TeaserListingData.teaserListing.sidebarHeading, 'SidebarHeading'),
+        heading: () => (
+          <>
+            <CompHeading {...TeaserListingData.teaserListing.compHeading} />
+            <SidebarHeading {...TeaserListingData.teaserListing.sidebarHeading} />
+          </>
+        ),
         description: {
           text: text('TeaserListing description: text', TeaserListingData.teaserListing.description.text)
         },

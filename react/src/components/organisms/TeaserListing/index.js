@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Collapse from '../../animations/Collapse';
-import SidebarHeading from '../../atoms/headings/SidebarHeading';
-import CompHeading from '../../atoms/headings/CompHeading';
 import Paragraph from '../../atoms/text/Paragraph';
 import Link from '../../molecules/Link';
 import GeneralTeaser from '../GeneralTeaser';
@@ -26,39 +24,37 @@ class TeaserListing extends React.Component {
    };
 
    render() {
-     const teaser = this.props;
+     const {
+       heading, description, stacked, contained, gridTwoColumns, featuredItems, showItems, items, lessLabel, moreLabel, more
+     } = this.props;
      const featuredClasses = classNames({
        'ma__teaser-listing__featured-items': true,
-       stacked: teaser.stacked,
-       'side-by-side': !teaser.stacked
+       stacked: stacked,
+       'side-by-side': !stacked
      });
-     const columnCount = (teaser.contained && teaser.gridTwoColumns) ? 2 : 3;
+     const columnCount = (contained && gridTwoColumns) ? 2 : 3;
      const itemsClasses = classNames({
        'ma__teaser-listing__items': true,
        'ma__teaser-listing__2-col-grid': columnCount === 2,
        'ma__teaser-listing__3-col-grid': columnCount === 3
      });
-     const shownNumber = teaser.shownItems || null;
-     const shownItems = shownNumber ? teaser.items.slice(0, shownNumber) : null;
-     const invisibleItems = (shownNumber) ? teaser.items.slice(shownNumber) : [];
-
-     let teaserHeading = 2;
-     teaserHeading = parseInt(((teaser.compHeading && teaser.compHeading.level) ? teaser.compHeading.level : teaserHeading), 10) + 1;
-     teaserHeading = parseInt(((teaser.sidebarHeading && teaser.sidebarHeading.level) ? teaser.sidebarHeading.level : teaserHeading), 10) + 1;
+     const shownNumber = shownItems || null;
+     const shownItems = shownNumber ? items.slice(0, shownNumber) : null;
+     const invisibleItems = (shownNumber) ? items.slice(shownNumber) : [];
+     const teaserHeading = 2;
 
      return(
        <section className="ma__teaser-listing">
          <div className="ma__teaser-listing__container">
-           {(teaser.compHeading) && (<CompHeading {...teaser.compHeading} />)}
-           {(teaser.sidebarHeading) && (<SidebarHeading {...teaser.sidebarHeading} />)}
-           {(teaser.description) && (
+           {heading && heading()}
+           {(description) && (
              <div className="ma__teaser-listing__description">
-               <Paragraph {...teaser.description} />
+               <Paragraph {...description} />
              </div>
            )}
-           {(teaser.featuredItems) && (
+           {(featuredItems) && (
              <div className={featuredClasses}>
-               {teaser.featuredItems.map((item, index) => {
+               {featuredItems.map((item, index) => {
                  const key = `featured-listing--item-${index}`;
                  const teaserProps = {
                    key,
@@ -97,19 +93,19 @@ class TeaserListing extends React.Component {
                </Collapse>
                <button
                  className="ma__content-link ma__content-link--chevron ma__content-link__acordion-toggle js-accordion-link"
-                 aria-label={(this.state.open) ? teaser.lessLabel : teaser.moreLabel}
+                 aria-label={(this.state.open) ? lessLabel : moreLabel}
                  onClick={this.handleClick}
                >
                  {(this.state.open)
-                   ? (<span className="less">{teaser.lessLabel}</span>)
-                   : (<span className="more">{teaser.moreLabel}</span>)
+                   ? (<span className="less">{lessLabel}</span>)
+                   : (<span className="more">{moreLabel}</span>)
                  }
                </button>
              </React.Fragment>
            )}
            {(invisibleItems.length === 0) && (
              <ul className={itemsClasses}>
-               {teaser.items.map((item, index) => {
+               {items.map((item, index) => {
                  const key = `teaser-listing--item-${index}`;
                  return(
                    <li key={key} className="ma__teaser-listing__item">
@@ -119,9 +115,9 @@ class TeaserListing extends React.Component {
                })}
              </ul>
            )}
-           {(teaser.more) && (
+           {(more) && (
              <div className="ma__teaser-listing__more">
-               <Link {...teaser.more} />
+               <Link {...more} />
              </div>
            )}
          </div>
@@ -131,10 +127,6 @@ class TeaserListing extends React.Component {
 }
 
 TeaserListing.propTypes = {
-  /** Optional CompHeading component */
-  compHeading: PropTypes.shape(CompHeading.propTypes),
-  /** Optional SidebarHeading component */
-  sidebarHeading: PropTypes.shape(SidebarHeading.propTypes),
   /** Descriptive paragraph */
   description: PropTypes.shape({
     text: PropTypes.string
