@@ -1,0 +1,6 @@
+Removed:
+  - project: React
+    component: PressTeaser
+    description: Remove from package. (#)
+    issue: DP-17833
+    impact: Major
