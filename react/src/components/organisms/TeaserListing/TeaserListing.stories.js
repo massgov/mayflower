@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, object, boolean, number } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
 
-import { DecorativeLink, Paragraph, GenTeaser, Collapse } from '../../../index';
-import SidebarHeading from '../../atoms/headings/SidebarHeading';
-import CompHeading from '../../atoms/headings/CompHeading';
+import { GenTeaser, CompHeading, Paragraph, Collapse, ButtonWithIcon, Icon } from '../../../index';
 import TeaserListing from '.';
 import TeaserListingDocs from './TeaserListing.md';
 import TeaserListingData from './TeaserListing.knob.options';
@@ -66,16 +63,23 @@ storiesOf('organisms/TeaserListing', module)
   )
   .add(
     'TeaserListing with More', () => {
+      const [open, setOpen] = useState(false);
       const itemsProps = {
         columns: number('columns', 2, 'Items')
       };
       const moreProps = {
-        shownItems: number('TeaserListing shownItems', 4),
-        moreLabel: text('TeaserListing moreLabel', 'More'),
-        lessLabel: text('TeaserListing lessLabel', 'Less'),
-        more: object('TeaserListing more', TeaserListingData.more)
+        moreLabel: text('TeaserListing moreLabel', 'Show More Teasers', 'More'),
+        lessLabel: text('TeaserListing lessLabel', 'Show Less Teasers', 'More')
       };
-      const [open, setOpen] = useState(false);
+      const toggleProps = {
+        onClick: () => setOpen(!open),
+        text: open ? moreProps.lessLabel : moreProps.moreLabel,
+        theme: 'c-primary',
+        usage: 'quaternary-simple',
+        capitalized: true,
+        expanded: open,
+        icon: <Icon name="chevron" svgWidth={16} svgHeight="16" />
+      };
       return(
         <TeaserListing>
           <CompHeading {...TeaserListingData.compHeading} />
@@ -114,16 +118,7 @@ storiesOf('organisms/TeaserListing', module)
               </TeaserListing.Items>
             </div>
           </Collapse>
-          <button
-            className="ma__content-link ma__content-link--chevron ma__content-link__acordion-toggle js-accordion-link"
-            aria-label={(open) ? moreProps.lessLabel : moreProps.moreLabel}
-            onClick={() => setOpen(!open)}
-          >
-            {(open)
-              ? (<span className="less">{moreProps.lessLabel}</span>)
-              : (<span className="more">{moreProps.moreLabel}</span>)
-            }
-          </button>
+          <ButtonWithIcon {...toggleProps} />
         </TeaserListing>
       );
     },
