@@ -3,6 +3,7 @@ $header-logo-width: 150px;
 $bp-header-logo-min: "min-width: 1000px";
 
 @use "00-base/global" as *;
+
 @use "sass:color" as *;
 
 body {
