@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, object, boolean, number } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
 import { GenTeaser, CompHeading, Paragraph, Collapse, ButtonWithIcon, Icon } from '../../../index';
 import TeaserListing from '.';
