@@ -80,12 +80,11 @@ TeaserListing.Features.displayName = 'TeaserListing.Features';
   List Items wrapper
   */
 
-const TeaserListingItems = ({ contained, gridTwoColumns, children }) => {
-  const columnCount = (contained && gridTwoColumns) ? 2 : 3;
+const TeaserListingItems = ({ gridTwoColumns, children }) => {
+  const columnCount = (gridTwoColumns) ? 2 : 3;
   const itemsClasses = classNames({
     'ma__teaser-listing__items': true,
-    'ma__teaser-listing__2-col-grid': columnCount === 2,
-    'ma__teaser-listing__3-col-grid': columnCount === 3
+    [`ma__teaser-listing__${columnCount}-col-grid`]: columnCount
   });
   return(
     <ul className={itemsClasses}>
@@ -95,8 +94,6 @@ const TeaserListingItems = ({ contained, gridTwoColumns, children }) => {
 };
 
 TeaserListingItems.propTypes = {
-  /** Grid display of secondary items or three column grid. */
-  contained: PropTypes.bool,
   /** Set for an alternative two column layout for large screens. (Both display the same at smaller screen widths) */
   gridTwoColumns: PropTypes.bool,
   /** React children to render */

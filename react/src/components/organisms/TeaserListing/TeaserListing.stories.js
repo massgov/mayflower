@@ -13,21 +13,24 @@ storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'TeaserListing', () => {
-      const props = {
-        stacked: boolean('TeaserListing stacked', false, 'Features'),
-        contained: boolean('TeaserListing contained', true),
-        gridTwoColumns: boolean('TeaserListing gridTwoColumns', true),
+      const featuresProps = {
+        stacked: boolean('TeaserListing stacked', false, 'Features')
+      };
+      const itemsProps = {
+        gridTwoColumns: boolean('TeaserListing gridTwoColumns', true, 'Items')
+      };
+      const othersProps = {
         shownItems: number('TeaserListing shownItems', 4),
         moreLabel: text('TeaserListing moreLabel', 'More'),
         lessLabel: text('TeaserListing lessLabel', 'Less'),
         more: object('TeaserListing more', TeaserListingData.teaserListing.more)
       };
       return(
-        <TeaserListing {...props}>
+        <TeaserListing>
           <CompHeading {...TeaserListingData.teaserListing.compHeading} />
           <SidebarHeading {...TeaserListingData.teaserListing.sidebarHeading} />
           <Paragraph {...TeaserListingData.teaserListing.description} />
-          <TeaserListing.Features stacked={props.stacked}>
+          <TeaserListing.Features {...featuresProps}>
             {
               TeaserListingData.teaserListing.featuredItems.map((item, i) => (
                 // eslint-disable-next-line react/no-array-index-key
@@ -47,7 +50,7 @@ storiesOf('organisms', module)
             }
           </TeaserListing.Features>
 
-          <TeaserListing.Items stacked={props.stacked}>
+          <TeaserListing.Items {...itemsProps}>
             {
               TeaserListingData.teaserListing.items.map((item, i) => (
                 // eslint-disable-next-line react/no-array-index-key
