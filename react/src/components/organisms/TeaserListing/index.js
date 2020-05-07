@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Collapse from '../../animations/Collapse';
-import Paragraph from '../../atoms/text/Paragraph';
-import Link from '../../molecules/Link';
-
 import './style.css';
+
+/**
+  List wrapper
+  */
 
 class TeaserListing extends React.Component {
   constructor(props) {
@@ -25,11 +25,6 @@ class TeaserListing extends React.Component {
    render() {
      const { children } = this.props;
 
-     // const shownNumber = shownItems || null;
-     // const shownItems = shownNumber ? items.slice(0, shownNumber) : null;
-     // const invisibleItems = (shownNumber) ? items.slice(shownNumber) : [];
-     // const teaserHeading = 2;
-
      return(
        <section className="ma__teaser-listing">
          <div className="ma__teaser-listing__container">
@@ -43,33 +38,16 @@ class TeaserListing extends React.Component {
 
 
 TeaserListing.propTypes = {
-  /** Descriptive paragraph */
-  description: PropTypes.shape({
-    text: PropTypes.string
-  }),
-  /** Number of items to show. If set, Collapse is used to make an accordion. */
-  shownItems: PropTypes.number,
-  /** Accordion Label */
-  moreLabel: PropTypes.string,
-  /** Items Label */
-  lessLabel: PropTypes.string,
-  /** Array of Featured GeneralTeaser Components. */
-  /** Array of GeneralTeaser Componets */
-  /** Optional Link for more. */
-  more: PropTypes.shape(Link.propTypes)
-};
-
-TeaserListing.defaultProps = {
-  contained: true,
-  gridTwoColumns: true,
-  moreLabel: 'More',
-  lessLabel: 'Less',
-  items: []
+  /** React children to render */
+  children: PropTypes.node.isRequired
 };
 
 TeaserListing.displayName = 'TeaserListing';
 export default TeaserListing;
 
+/**
+  Feature Items wrapper
+  */
 
 const TeaserListingFeatures = ({ children, stacked }) => {
   const featuredClasses = classNames({
@@ -98,6 +76,10 @@ TeaserListingFeatures.defaultProps = {
 TeaserListing.Features = TeaserListingFeatures;
 TeaserListing.Features.displayName = 'TeaserListing.Features';
 
+/**
+  List Items wrapper
+  */
+
 const TeaserListingItems = ({ contained, gridTwoColumns, children }) => {
   const columnCount = (contained && gridTwoColumns) ? 2 : 3;
   const itemsClasses = classNames({
@@ -123,3 +105,21 @@ TeaserListingItems.propTypes = {
 
 TeaserListing.Items = TeaserListingItems;
 TeaserListing.Items.displayName = 'TeaserListing.Items';
+
+/**
+  List Item
+  */
+
+const TeaserListingItem = ({ children }) => (
+  <li className="ma__teaser-listing__item">
+    {children}
+  </li>
+);
+
+TeaserListingItem.propTypes = {
+  /** React children to render */
+  children: PropTypes.node.isRequired
+};
+
+TeaserListing.Item = TeaserListingItem;
+TeaserListing.Item.displayName = 'TeaserListing.Item';
