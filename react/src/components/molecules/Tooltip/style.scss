@@ -1,6 +1,4 @@
 @use "styles/global" as *;
-@use '00-base/mixins';
-@use '00-base/z-index';
 @use '02-molecules/tooltip';
 
 .ma__tooltip {

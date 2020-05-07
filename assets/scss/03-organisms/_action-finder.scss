@@ -1,6 +1,7 @@
 $action-finder-bp: 900px;
 
 @use "00-base/global" as *;
+@use "sass:color" as *;
 
 .ma__action-finder {
   background-size: cover;
@@ -205,8 +206,8 @@ $action-finder-bp: 900px;
 }
 
 //theme
-$action-finder-bg-color: tint($c-primary,89%);
-$action-finder-border-color: tint($c-primary,50%);
+$action-finder-bg-color: mix(#fff, $c-primary,89%);
+$action-finder-border-color: mix(#fff, $c-primary,50%);
 
 .ma__action-finder {
 

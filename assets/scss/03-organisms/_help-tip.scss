@@ -3,6 +3,7 @@ $border-radius: 4px;
 $border-width: 1px;
 
 @use "00-base/global" as *;
+@use "sass:color" as *;
 
 .ma_help-tip__label-a11y {
   display: none;
@@ -74,7 +75,7 @@ $border-width: 1px;
       color: $c-white;
 
       svg {
-        fill: tint($c-font-link, 70%);
+        fill: mix(#fff, $c-font-link, 70%);
       }
     }
 

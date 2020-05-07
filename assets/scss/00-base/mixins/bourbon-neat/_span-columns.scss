@@ -52,13 +52,10 @@
 
 @use "00-base/variables" as *;
 
-@use "00-base/colors" as *;
-
 @use "private" as *;
 
-@use "shift" as *;
-
 @mixin span-columns($span: $columns of $container-columns, $display: block) {
+
   $columns: nth($span, 1);
   $container-columns: container-span($span);
 

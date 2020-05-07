@@ -1,4 +1,5 @@
 @use "00-base/global" as *;
+@use "sass:color" as *;
 
 .ma__callout-message__container {
   position: relative;
@@ -18,8 +19,8 @@
   display:block;
   width: 100%;
   padding: 15px 20px;
-  background-color: tint($c-font-link,90%);
-  border-color: tint($c-font-link,50%);
+  background-color: mix(#fff, $c-font-link,90%);
+  border-color: mix(#fff, $c-font-link,50%);
   box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
 
   @media ($bp-small-min) {
@@ -38,7 +39,7 @@
 
   &--white {
     background-color: $c-white;
-    border-color: tint($c-font-detail,70%);
+    border-color: mix(#fff, $c-font-detail,70%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 

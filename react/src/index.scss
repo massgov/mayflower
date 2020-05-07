@@ -1,48 +1,7 @@
-// normalize the css across browsers added in npm
-@forward "normalize-scss/sass/normalize";
-
-@forward "00-base/layout";
-// some variables adjust the settings in Neat
-@forward "00-base/variables";
-
-// Bower vendors
-@forward "pikaday/scss/pikaday";
-
-// Path to Mayflower shared assets.
-//$assets-path: './assets';
-
-// Base variables
-@forward "00-base/global" with(
-  $assets-path: ''
-);
-@forward "00-base/z-index";
-
-// base theme variables
-@forward '00-base/fonts';
-@forward "00-base/fonts-fallback";
-@forward "00-base/pikaday";
-
-// Print styles
-@forward "08-print/print";
-
-// Atoms - reusable styles
-@forward "00-base/elements";
-@forward "00-base/layout";
-@forward "01-atoms/forms";
-@forward "01-atoms/content-link";
-
-@forward "02-molecules/general-teaser";
-
-// Templates - page content types
-@forward "04-templates/binder-page";
-@forward "04-templates/bio";
-@forward "04-templates/court-rules";
-@forward "04-templates/details";
-@forward "04-templates/form-page";
-@forward "04-templates/general";
-@forward "04-templates/information-details";
-@forward "04-templates/organization-details";
-@forward "04-templates/policy-advisory";
-@forward "04-templates/press";
-@forward "04-templates/services";
-@forward "04-templates/stacked-row-section-external-sidebar.scss";
+@use "normalize-scss/sass/normalize";
+@use "components/styles/global" as *;
+@use "00-base/elements";
+@use "00-base/layout";
+@use "00-base/fonts";
+@use "00-base/fonts-fallback";
+@use "00-base/fonts-styles";

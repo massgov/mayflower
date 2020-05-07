@@ -1,6 +1,4 @@
 @use "styles/global" as *;
-// Import Neat for the mixins.
-@use "bourbon-neat/app/assets/stylesheets/neat";
 @use '02-molecules/footer-links';
 
 .ma__footer-links {

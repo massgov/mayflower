@@ -38,8 +38,6 @@
     "airbnb-prop-types": "^2.13.2",
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",
-    "bourbon": "^4.3.4",
-    "bourbon-neat": "^1.7.2",
     "classnames": "^2.2.6",
     "fuse.js": "^3.4.5",
     "is": "^3.3.0",

@@ -3,7 +3,6 @@ import ReactHtmlParser from 'react-html-parser';
 import MarkdownIt from 'markdown-it';
 import { storiesOf } from '@storybook/react';
 
-import './index.css';
 import './markdown.css';
 
 import Docs from '../README.md';

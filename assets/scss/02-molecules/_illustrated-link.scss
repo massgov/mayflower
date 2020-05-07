@@ -1,6 +1,7 @@
 $illustrated-link-image-width: 130px;
 
 @use "00-base/global" as *;
+@use "sass:color" as *;
 
 .ma__illustrated-link {
   border: 3px solid;
@@ -77,14 +78,14 @@ $illustrated-link-image-width: 130px;
 //theme
 
 .ma__illustrated-link {
-  border-color: tint($c-primary,50%);
+  border-color: mix(#fff, $c-primary,50%);
   box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
 
   &__content {
-    background-color: tint($c-primary,89%);
+    background-color: mix(#fff, $c-primary,89%);
 
     &:after {
-      background-color: tint($c-primary,89%);
+      background-color: mix(#fff, $c-primary,89%);
     }
   }
 
@@ -107,6 +108,6 @@ $illustrated-link-image-width: 130px;
   }
 
   &__image {
-    background-color: tint($c-primary,50%);
+    background-color: mix(#fff, $c-primary,50%);
   }
 }
