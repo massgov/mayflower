@@ -142,4 +142,3 @@ export DataTable from './components/dataviz/DataTable';
 
 // To archive & remove in version 10
 export InputTextTypeAhead from './components/forms/InputTextTypeAhead';
-export Teaser from './components/organisms/Teaser';
