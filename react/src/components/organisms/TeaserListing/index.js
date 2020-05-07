@@ -30,8 +30,7 @@ export default TeaserListing;
   */
 
 const TeaserListingFeatures = ({ children, stacked }) => {
-  const featuredClasses = classNames({
-    'ma__teaser-listing__featured-items',
+  const featuredClasses = classNames('ma__teaser-listing__featured-items', {
     stacked,
     'side-by-side': !stacked
   });
