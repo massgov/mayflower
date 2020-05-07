@@ -8,33 +8,13 @@ import './style.css';
   List wrapper
   */
 
-class TeaserListing extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false
-    };
-  }
-   handleClick = (e) => {
-     e.preventDefault();
-     this.setState((currentState) => ({
-       open: !currentState.open
-     }));
-   };
-
-   render() {
-     const { children } = this.props;
-
-     return(
-       <section className="ma__teaser-listing">
-         <div className="ma__teaser-listing__container">
-           {children}
-
-         </div>
-       </section>
-     );
-   }
-}
+const TeaserListing = ({ children }) => (
+  <section className="ma__teaser-listing">
+    <div className="ma__teaser-listing__container">
+      {children}
+    </div>
+  </section>
+);
 
 
 TeaserListing.propTypes = {
