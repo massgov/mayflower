@@ -38,9 +38,7 @@ export default {
         },
         org: 'Health & Human Services, Public Safety',
         date: '4/4/2017',
-        description: {
-          text: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
-        }
+        description: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
       },
       {
         image: {
@@ -58,9 +56,7 @@ export default {
         },
         org: 'Org Name',
         date: '4/3/2017',
-        description: {
-          text: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
-        }
+        description: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
       }
     ],
     items: [
@@ -82,9 +78,7 @@ export default {
         emphasizedText: [
           'Awesome board member'
         ],
-        description: {
-          text: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
-        }
+        description: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
       },
       {
         layout: 'contents-stacked',
@@ -103,9 +97,7 @@ export default {
         emphasizedText: [
           "Member's title"
         ],
-        description: {
-          text: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
-        }
+        description: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
       },
       {
         layout: 'contents-stacked',
@@ -124,9 +116,7 @@ export default {
         emphasizedText: [
           "Board Member's Title"
         ],
-        description: {
-          text: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
-        }
+        description: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
       },
       {
         layout: 'contents-stacked',
@@ -145,9 +135,7 @@ export default {
         emphasizedText: [
           "Board Member's Title"
         ],
-        description: {
-          text: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
-        }
+        description: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
       },
       {
         layout: 'contents-stacked',
@@ -166,9 +154,7 @@ export default {
         emphasizedText: [
           "Board Member's Title"
         ],
-        description: {
-          text: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
-        }
+        description: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
       },
       {
         layout: 'contents-stacked',
@@ -187,9 +173,7 @@ export default {
         emphasizedText: [
           "Board Member's Title"
         ],
-        description: {
-          text: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
-        }
+        description: 'Optional descriptive text. Vel impetus tamquam equidem cu, ei possit possim constituam eos, mea ut rebum iudico. Soluta bonorum partiendo est ne, nominati postulant argumentum ius no, quo ne quaeque sanctus.'
       }
     ],
     more: {

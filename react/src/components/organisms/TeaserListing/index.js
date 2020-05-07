@@ -23,94 +23,18 @@ class TeaserListing extends React.Component {
    };
 
    render() {
-     const {
-       heading, description, stacked, contained, gridTwoColumns, featuredItems, showItems, items, lessLabel, moreLabel, more
-     } = this.props;
-     const featuredClasses = classNames({
-       'ma__teaser-listing__featured-items': true,
-       stacked: stacked,
-       'side-by-side': !stacked
-     });
-     const columnCount = (contained && gridTwoColumns) ? 2 : 3;
-     const itemsClasses = classNames({
-       'ma__teaser-listing__items': true,
-       'ma__teaser-listing__2-col-grid': columnCount === 2,
-       'ma__teaser-listing__3-col-grid': columnCount === 3
-     });
-     const shownNumber = shownItems || null;
-     const shownItems = shownNumber ? items.slice(0, shownNumber) : null;
-     const invisibleItems = (shownNumber) ? items.slice(shownNumber) : [];
-     const teaserHeading = 2;
+     const { children } = this.props;
+
+     // const shownNumber = shownItems || null;
+     // const shownItems = shownNumber ? items.slice(0, shownNumber) : null;
+     // const invisibleItems = (shownNumber) ? items.slice(shownNumber) : [];
+     // const teaserHeading = 2;
 
      return(
        <section className="ma__teaser-listing">
          <div className="ma__teaser-listing__container">
-           {heading && heading()}
-           {(description) && (
-             <div className="ma__teaser-listing__description">
-               <Paragraph {...description} />
-             </div>
-           )}
-           {(featuredItems) && (
-             <div className={featuredClasses}>
-               FeatureTeaser
-             </div>
-           )}
-           {(invisibleItems.length > 0) && (
-             <React.Fragment>
-               <ul className={itemsClasses}>
-                 {shownItems.map((item, index) => {
-                   const key = `teaser-listing--item-${index}`;
-                   return(
-                     <li className="ma__teaser-listing__item" key={key}>
-                       Teaser
-                     </li>
-                   );
-                 })}
-               </ul>
-               <Collapse in={this.state.open} dimension="height">
-                 <div className="ma__teaser-listing__extra">
-                   <ul className={itemsClasses}>
-                     {invisibleItems.map((item, index) => {
-                       const key = `hidden-teaser-listing--item-${index}`;
-                       return(
-                         <li className="ma__teaser-listing__item" key={key}>
-                           Teaser
-                         </li>
-                       );
-                     })}
-                   </ul>
-                 </div>
-               </Collapse>
-               <button
-                 className="ma__content-link ma__content-link--chevron ma__content-link__acordion-toggle js-accordion-link"
-                 aria-label={(this.state.open) ? lessLabel : moreLabel}
-                 onClick={this.handleClick}
-               >
-                 {(this.state.open)
-                   ? (<span className="less">{lessLabel}</span>)
-                   : (<span className="more">{moreLabel}</span>)
-                 }
-               </button>
-             </React.Fragment>
-           )}
-           {(invisibleItems.length === 0) && (
-             <ul className={itemsClasses}>
-               {items.map((item, index) => {
-                 const key = `teaser-listing--item-${index}`;
-                 return(
-                   <li key={key} className="ma__teaser-listing__item">
-                     Teaser
-                   </li>
-                 );
-               })}
-             </ul>
-           )}
-           {(more) && (
-             <div className="ma__teaser-listing__more">
-               <Link {...more} />
-             </div>
-           )}
+           {children}
+
          </div>
        </section>
      );
@@ -123,10 +47,6 @@ TeaserListing.propTypes = {
   description: PropTypes.shape({
     text: PropTypes.string
   }),
-  /** Grid display of secondary items or three column grid. */
-  contained: PropTypes.bool,
-  /** Set for an alternative two column layout for large screens. (Both display the same at smaller screen widths) */
-  gridTwoColumns: PropTypes.bool,
   /** Number of items to show. If set, Collapse is used to make an accordion. */
   shownItems: PropTypes.number,
   /** Accordion Label */
@@ -140,7 +60,6 @@ TeaserListing.propTypes = {
 };
 
 TeaserListing.defaultProps = {
-  stacked: false,
   contained: true,
   gridTwoColumns: true,
   moreLabel: 'More',
@@ -148,11 +67,11 @@ TeaserListing.defaultProps = {
   items: []
 };
 
+TeaserListing.displayName = 'TeaserListing';
 export default TeaserListing;
 
 
-const TeaserListingFeatures = (props) => {
-  const { children, stacked } = props;
+const TeaserListingFeatures = ({ children, stacked }) => {
   const featuredClasses = classNames({
     'ma__teaser-listing__featured-items': true,
     stacked,
@@ -178,3 +97,29 @@ TeaserListingFeatures.defaultProps = {
 
 TeaserListing.Features = TeaserListingFeatures;
 TeaserListing.Features.displayName = 'TeaserListing.Features';
+
+const TeaserListingItems = ({ contained, gridTwoColumns, children }) => {
+  const columnCount = (contained && gridTwoColumns) ? 2 : 3;
+  const itemsClasses = classNames({
+    'ma__teaser-listing__items': true,
+    'ma__teaser-listing__2-col-grid': columnCount === 2,
+    'ma__teaser-listing__3-col-grid': columnCount === 3
+  });
+  return(
+    <ul className={itemsClasses}>
+      {children}
+    </ul>
+  );
+};
+
+TeaserListingItems.propTypes = {
+  /** Grid display of secondary items or three column grid. */
+  contained: PropTypes.bool,
+  /** Set for an alternative two column layout for large screens. (Both display the same at smaller screen widths) */
+  gridTwoColumns: PropTypes.bool,
+  /** React children to render */
+  children: PropTypes.node.isRequired
+};
+
+TeaserListing.Items = TeaserListingItems;
+TeaserListing.Items.displayName = 'TeaserListing.Items';
