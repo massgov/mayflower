@@ -13,15 +13,6 @@ storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'TeaserListing', () => {
-      const itemsOptions = TeaserListingData.teaserListing.items.map((item, index) => {
-        const newItem = Object.assign({}, item);
-        const title = object(`TeaserListing item${index}: title`, { ...newItem.title }, `Item ${index}`);
-        const description = object(`TeaserListing item${index}: description`, { ...newItem.description }, `Item ${index}`);
-        return{
-          title: <DecorativeLink {...title} />,
-          description: <Paragraph {...description} />
-        };
-      });
       const props = {
         stacked: boolean('TeaserListing stacked', false, 'Features'),
         contained: boolean('TeaserListing contained', true),
@@ -29,7 +20,6 @@ storiesOf('organisms', module)
         shownItems: number('TeaserListing shownItems', 4),
         moreLabel: text('TeaserListing moreLabel', 'More'),
         lessLabel: text('TeaserListing lessLabel', 'Less'),
-        items: itemsOptions,
         more: object('TeaserListing more', TeaserListingData.teaserListing.more)
       };
       return(
@@ -42,8 +32,8 @@ storiesOf('organisms', module)
               TeaserListingData.teaserListing.featuredItems.map((item, i) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <GenTeaser key={`teaser_feature_${i}`}>
+                  <GenTeaser.Image img={item.image} />
                   <GenTeaser.Details>
-                    <GenTeaser.Image img={item.image} />
                     <GenTeaser.Eyebrow eyebrow={item.eyebrow} />
                     <GenTeaser.Title title={item.title} />
                     <GenTeaser.Emphasis>
@@ -56,6 +46,22 @@ storiesOf('organisms', module)
               ))
             }
           </TeaserListing.Features>
+
+          <TeaserListing.Items stacked={props.stacked}>
+            {
+              TeaserListingData.teaserListing.items.map((item, i) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <TeaserListing.Item key={`teaser_item_${i}`}>
+                  <GenTeaser>
+                    <GenTeaser.Details>
+                      <GenTeaser.Title title={item.title} />
+                      <GenTeaser.Description description={item.description} />
+                    </GenTeaser.Details>
+                  </GenTeaser>
+                </TeaserListing.Item>
+              ))
+            }
+          </TeaserListing.Items>
         </TeaserListing>
       );
     },
