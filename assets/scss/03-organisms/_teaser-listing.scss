@@ -63,6 +63,7 @@
   }
 
   &__featured-items.side-by-side .ma__general-teaser,
+  &__featured-items.side-by-side .ma__gen-teaser,
   &__items .ma__teaser-listing__item {
 
     @media ($bp-small-min) {
@@ -82,7 +83,7 @@
 
     &.side-by-side {
 
-      .ma__general-teaser {
+      .ma__general-teaser, .ma__gen-teaser {
         flex-wrap: nowrap;
 
         @media ($bp-small-min) {
@@ -292,7 +293,9 @@
     border-color: $c-bd-divider;
   }
 
-  &__featured-items .ma__general-teaser, &__item {
+  &__featured-items .ma__general-teaser,
+  &__featured-items .ma__gen-teaser,
+  &__item {
 
     &, &:after {
       border-color: $c-bd-divider;

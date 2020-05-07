@@ -1,56 +1,126 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, object, boolean, number } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 
-import { DecorativeLink, Paragraph } from '../../../index';
+import { GenTeaser, CompHeading, Paragraph, Collapse, ButtonWithIcon, Icon } from '../../../index';
 import TeaserListing from '.';
 import TeaserListingDocs from './TeaserListing.md';
 import TeaserListingData from './TeaserListing.knob.options';
 
-storiesOf('organisms', module)
+storiesOf('organisms/TeaserListing', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
-    'TeaserListing', () => {
-      const featuredOptions = TeaserListingData.teaserListing.featuredItems.map((item, index) => {
-        const newItem = Object.assign({}, item);
-        const title = object(`TeaserListing featuredItem${index}: title`, { ...newItem.title }, `Featured Item ${index}`);
-        const description = object(`TeaserListing featuredItem${index}: description`, { ...newItem.description }, `Featured Item ${index}`);
-        return{
-          image: item.image,
-          eyebrow: item.eyebrow,
-          org: item.org,
-          date: item.date,
-          title: <DecorativeLink {...title} />,
-          description: <Paragraph {...description} />
-
-        };
-      });
-      const itemsOptions = TeaserListingData.teaserListing.items.map((item, index) => {
-        const newItem = Object.assign({}, item);
-        const title = object(`TeaserListing item${index}: title`, { ...newItem.title }, `Item ${index}`);
-        const description = object(`TeaserListing item${index}: description`, { ...newItem.description }, `Item ${index}`);
-        return{
-          title: <DecorativeLink {...title} />,
-          description: <Paragraph {...description} />
-        };
-      });
-      const props = {
-        compHeading: object('TeaserListing compHeading', TeaserListingData.teaserListing.compHeading, 'CompHeading'),
-        sidebarHeading: object('TeaserListing sidebarHeading', TeaserListingData.teaserListing.sidebarHeading, 'SidebarHeading'),
-        description: {
-          text: text('TeaserListing description: text', TeaserListingData.teaserListing.description.text)
-        },
-        stacked: boolean('TeaserListing stacked', false),
-        contained: boolean('TeaserListing contained', true),
-        gridTwoColumns: boolean('TeaserListing gridTwoColumns', true),
-        shownItems: number('TeaserListing shownItems', 4),
-        moreLabel: text('TeaserListing moreLabel', 'More'),
-        lessLabel: text('TeaserListing lessLabel', 'Less'),
-        featuredItems: featuredOptions,
-        items: itemsOptions,
-        more: object('TeaserListing more', TeaserListingData.teaserListing.more)
+    'TeaserListing with Features', () => {
+      const featuresProps = {
+        stacked: boolean('stacked', false, 'Features')
       };
-      return(<TeaserListing {...props} />);
+      const itemsProps = {
+        columns: number('columns', 2, 'Items')
+      };
+      return(
+        <TeaserListing>
+          <CompHeading {...TeaserListingData.compHeading} />
+          <Paragraph {...TeaserListingData.description} />
+          <TeaserListing.Features {...featuresProps}>
+            {
+              TeaserListingData.featuredItems.map((item, i) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <GenTeaser key={`teaser_feature_${i}`}>
+                  <GenTeaser.Image img={item.image} />
+                  <GenTeaser.Details>
+                    <GenTeaser.Eyebrow eyebrow={item.eyebrow} />
+                    <GenTeaser.Title title={item.title} />
+                    <GenTeaser.Emphasis>
+                      <GenTeaser.Date date={item.date} />
+                      <GenTeaser.Orgs orgs={item.org} />
+                    </GenTeaser.Emphasis>
+                    <GenTeaser.Description description={item.description} />
+                  </GenTeaser.Details>
+                </GenTeaser>
+              ))
+            }
+          </TeaserListing.Features>
+
+          <TeaserListing.Items {...itemsProps}>
+            {
+              TeaserListingData.items.map((item, i) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <TeaserListing.Item key={`teaser_item_${i}`}>
+                  <GenTeaser>
+                    <GenTeaser.Details>
+                      <GenTeaser.Title title={item.title} />
+                      <GenTeaser.Description description={item.description} />
+                    </GenTeaser.Details>
+                  </GenTeaser>
+                </TeaserListing.Item>
+              ))
+            }
+          </TeaserListing.Items>
+        </TeaserListing>
+      );
+    },
+    { info: TeaserListingDocs }
+  )
+  .add(
+    'TeaserListing with More', () => {
+      const [open, setOpen] = useState(false);
+      const itemsProps = {
+        columns: number('columns', 2, 'Items')
+      };
+      const moreProps = {
+        moreLabel: text('TeaserListing moreLabel', 'Show More Teasers', 'More'),
+        lessLabel: text('TeaserListing lessLabel', 'Show Less Teasers', 'More')
+      };
+      const toggleProps = {
+        onClick: () => setOpen(!open),
+        text: open ? moreProps.lessLabel : moreProps.moreLabel,
+        theme: 'c-primary',
+        usage: 'quaternary-simple',
+        capitalized: true,
+        expanded: open,
+        icon: <Icon name="chevron" svgWidth={16} svgHeight="16" />
+      };
+      return(
+        <TeaserListing>
+          <CompHeading {...TeaserListingData.compHeading} />
+          <Paragraph {...TeaserListingData.description} />
+          <TeaserListing.Items {...itemsProps}>
+            {
+              TeaserListingData.items.map((item, i) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <TeaserListing.Item key={`teaser_item_${i}`}>
+                  <GenTeaser>
+                    <GenTeaser.Details>
+                      <GenTeaser.Title title={item.title} />
+                      <GenTeaser.Description description={item.description} />
+                    </GenTeaser.Details>
+                  </GenTeaser>
+                </TeaserListing.Item>
+              ))
+            }
+          </TeaserListing.Items>
+          <Collapse in={open} dimension="height">
+            <div className="ma__teaser-listing__extra">
+              <TeaserListing.Items {...itemsProps}>
+                {
+                  TeaserListingData.items.map((item, i) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <TeaserListing.Item key={`teaser_item_${i}`}>
+                      <GenTeaser>
+                        <GenTeaser.Details>
+                          <GenTeaser.Title title={item.title} />
+                          <GenTeaser.Description description={item.description} />
+                        </GenTeaser.Details>
+                      </GenTeaser>
+                    </TeaserListing.Item>
+                  ))
+                }
+              </TeaserListing.Items>
+            </div>
+          </Collapse>
+          <ButtonWithIcon {...toggleProps} />
+        </TeaserListing>
+      );
     },
     { info: TeaserListingDocs }
   );
