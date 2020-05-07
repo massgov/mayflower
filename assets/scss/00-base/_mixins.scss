@@ -1,12 +1,14 @@
+@forward "mixins/bourbon/clearfix";
+
 @forward "mixins/bourbon-neat/private";
 
 @forward "mixins/bourbon-neat/span-columns";
 
 @forward "mixins/bourbon-neat/shift";
 
-@forward "mixins/bourbon-neat/omega";
-
 @forward "mixins/bourbon-neat/neat-warn";
+
+@forward "mixins/bourbon-neat/omega";
 
 @forward "mixins/ma-aspect-ratio";
 
@@ -14,9 +16,9 @@
 
 @forward "mixins/ma-border-decorative";
 
-@forward "mixins/ma-button";
-
 @forward "mixins/ma-button-base";
+
+@forward "mixins/ma-button";
 
 @forward "mixins/ma-button-reset";
 
@@ -36,11 +38,11 @@
 
 @forward "mixins/ma-link-arrow";
 
+@forward "mixins/ma-link-underline";
+
 @forward "mixins/ma-link-decorative";
 
 @forward "mixins/ma-link-transition";
-
-@forward "mixins/ma-link-underline";
 
 @forward "mixins/ma-reset-list";
 

@@ -1,5 +1,7 @@
 @use "00-base/global" as *;
 
+@use "sass:color" as *;
+
 $emergency-alerts-half-max: $max-width / 2;
 
 /* parent class should be 0px tall
@@ -71,7 +73,7 @@ $colors: (
   }
 
   &__content {
-    background-color: tint($c-warning, 90%);
+    background-color: mix(#fff, $c-warning, 90%);
 
     .js & {
       display: none;
@@ -136,7 +138,7 @@ $colors: (
       transition: background-color .5s;
 
       .is-open & {
-        background-color: tint($c-warning, 90%);
+        background-color: mix(#fff, $c-warning, 90%);
       }
 
       .ma__button-alert, .ma__button-icon--alert {
@@ -184,7 +186,7 @@ $colors: (
       }
     }
     &__content--#{$class} {
-      background-color: tint($c, 90%);
+      background-color: mix(#fff, $c, 90%);
     }
     &__header--#{$class} {
       background-color: rgba($c, 1);
@@ -192,7 +194,7 @@ $colors: (
     &__interface--#{$class} {
 
       &.open {
-       background-color: tint($c, 90%);
+       background-color: mix(#fff, $c, 90%);
       }
 
       &.closed {

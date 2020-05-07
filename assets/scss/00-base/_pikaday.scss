@@ -4,9 +4,7 @@
 
 @use "colors" as *;
 
-// From Bourbon
-
-@use "functions/tint" as *;
+@use "sass:color" as *;
 
 .pika-single {
   font-family: $fonts;
@@ -51,7 +49,7 @@
   }
 
   &:hover {
-    background-color: tint($c-primary, 50%);
+    background-color: mix(#fff, $c-primary, 50%);
     border-radius: 0;
   }
 
