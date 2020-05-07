@@ -14,10 +14,10 @@ storiesOf('organisms', module)
   .add(
     'TeaserListing', () => {
       const featuresProps = {
-        stacked: boolean('TeaserListing stacked', false, 'Features')
+        stacked: boolean('stacked', false, 'Features')
       };
       const itemsProps = {
-        gridTwoColumns: boolean('TeaserListing gridTwoColumns', true, 'Items')
+        columns: number('columns', 2, 'Items')
       };
       const othersProps = {
         shownItems: number('TeaserListing shownItems', 4),
