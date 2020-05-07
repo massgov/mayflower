@@ -1,7 +1,63 @@
-#### Description
-A styles list of General Teasers. A variant pattern showing a list of General Teasers followed by a secondary grid of General Teasers can also be generate using this component.
+# TeaserListing
 
-##### Variant Generation
-* Set the `stacked` variable to false for displaying primary items side-by-side. Default is stacked.
-* Set the `contained` variable to true for a grid display of secondary items. Defaults to a three column grid.
-* Set the `gridTwoColumns` variable to true for an alternative two column layout for large screens. (Both display the same at smaller screen widths)
+TeaserListing is a flexible and extensible layout component that lets you compose your own variant of a list of Teasers.
+
+## Usage:
+```
+<TeaserListing>
+  <CompHeading />
+  <Paragraph />
+  <TeaserListing.Features {...featuresProps}>
+    <GenTeaser>
+      <GenTeaser.Image img={item.image} />
+      <GenTeaser.Details>
+        <GenTeaser.Eyebrow eyebrow={item.eyebrow} />
+        <GenTeaser.Title title={item.title} />
+        <GenTeaser.Emphasis>
+          <GenTeaser.Date date={item.date} />
+          <GenTeaser.Orgs orgs={item.org} />
+        </GenTeaser.Emphasis>
+        <GenTeaser.Description description={item.description} />
+      </GenTeaser.Details>
+    </GenTeaser>
+  </TeaserListing.Features>
+
+  <TeaserListing.Items {...itemsProps}>
+    <TeaserListing.Item >
+      <GenTeaser>
+        <GenTeaser.Details>
+          <GenTeaser.Title title={item.title} />
+          <GenTeaser.Description description={item.description} />
+        </GenTeaser.Details>
+      </GenTeaser>
+    </TeaserListing.Item>
+    <TeaserListing.Item >
+      <GenTeaser>
+        <GenTeaser.Details>
+          <GenTeaser.Title title={item.title} />
+          <GenTeaser.Description description={item.description} />
+        </GenTeaser.Details>
+      </GenTeaser>
+    </TeaserListing.Item>
+  </TeaserListing.Items>
+</TeaserListing>
+```
+
+
+----
+## SubTypes:
+
+### Features
+
+A wrapper around featured teasers.
+Pass in one or more compositions of GenTeaser as `children`, and use the `stacked` prop to configure the stack layout option of the featured items.
+
+### Items
+
+A wrapper around the list of teaser items.
+Pass `<TeaserListing.Item>` inside `<TeaserListing.Items>`, and use the `columns` prop to configure the column layout option of the teaser items.
+
+### Item
+
+A wrapper around the list item teaser.
+Pass in a composition of GenTeaser as `children`.
