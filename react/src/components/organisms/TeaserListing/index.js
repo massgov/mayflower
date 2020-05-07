@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import Collapse from '../../animations/Collapse';
 import Paragraph from '../../atoms/text/Paragraph';
 import Link from '../../molecules/Link';
-import GeneralTeaser from '../GeneralTeaser';
 
 import './style.css';
 
@@ -54,15 +53,7 @@ class TeaserListing extends React.Component {
            )}
            {(featuredItems) && (
              <div className={featuredClasses}>
-               {featuredItems.map((item, index) => {
-                 const key = `featured-listing--item-${index}`;
-                 const teaserProps = {
-                   key,
-                   level: teaserHeading,
-                   ...item
-                 };
-                 return<GeneralTeaser {...teaserProps} />;
-               })}
+               FeatureTeaser
              </div>
            )}
            {(invisibleItems.length > 0) && (
@@ -72,7 +63,7 @@ class TeaserListing extends React.Component {
                    const key = `teaser-listing--item-${index}`;
                    return(
                      <li className="ma__teaser-listing__item" key={key}>
-                       <GeneralTeaser level={teaserHeading} {...item} />
+                       Teaser
                      </li>
                    );
                  })}
@@ -84,7 +75,7 @@ class TeaserListing extends React.Component {
                        const key = `hidden-teaser-listing--item-${index}`;
                        return(
                          <li className="ma__teaser-listing__item" key={key}>
-                           <GeneralTeaser level={teaserHeading} {...item} />
+                           Teaser
                          </li>
                        );
                      })}
@@ -109,7 +100,7 @@ class TeaserListing extends React.Component {
                  const key = `teaser-listing--item-${index}`;
                  return(
                    <li key={key} className="ma__teaser-listing__item">
-                     <GeneralTeaser {...item} />
+                     Teaser
                    </li>
                  );
                })}
@@ -126,13 +117,12 @@ class TeaserListing extends React.Component {
    }
 }
 
+
 TeaserListing.propTypes = {
   /** Descriptive paragraph */
   description: PropTypes.shape({
     text: PropTypes.string
   }),
-  /** Stacked if true, side-by-side if false. */
-  stacked: PropTypes.bool,
   /** Grid display of secondary items or three column grid. */
   contained: PropTypes.bool,
   /** Set for an alternative two column layout for large screens. (Both display the same at smaller screen widths) */
@@ -144,9 +134,7 @@ TeaserListing.propTypes = {
   /** Items Label */
   lessLabel: PropTypes.string,
   /** Array of Featured GeneralTeaser Components. */
-  featuredItems: PropTypes.arrayOf(PropTypes.shape(GeneralTeaser.propTypes)),
   /** Array of GeneralTeaser Componets */
-  items: PropTypes.arrayOf(PropTypes.shape(GeneralTeaser.propTypes)),
   /** Optional Link for more. */
   more: PropTypes.shape(Link.propTypes)
 };
@@ -161,3 +149,32 @@ TeaserListing.defaultProps = {
 };
 
 export default TeaserListing;
+
+
+const TeaserListingFeatures = (props) => {
+  const { children, stacked } = props;
+  const featuredClasses = classNames({
+    'ma__teaser-listing__featured-items': true,
+    stacked,
+    'side-by-side': !stacked
+  });
+  return(
+    <div className={featuredClasses}>
+      {children}
+    </div>
+  );
+};
+
+TeaserListingFeatures.propTypes = {
+  /** Stacked if true, side-by-side if false. */
+  stacked: PropTypes.bool,
+  /** React children to render */
+  children: PropTypes.node.isRequired
+};
+
+TeaserListingFeatures.defaultProps = {
+  stacked: false
+};
+
+TeaserListing.Features = TeaserListingFeatures;
+TeaserListing.Features.displayName = 'TeaserListing.Features';
