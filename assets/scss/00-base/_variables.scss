@@ -1,51 +1,50 @@
-// Change the Neat grid settings.
-$column:                        85px !default;
-$gutter:                        20px !default;
-$column-with-gutter:            $column + $gutter !default;
+$column: 85px;
+$gutter: 20px;
+/// Sets the total number of columns in the grid. Its value can be overridden inside a media query using the `media()` mixin.
+$grid-columns: 12;
+$max-width: 1320px;
+$column-with-gutter:            $column + $gutter;
 // Use @include outer-container() which sets this and centers.
-$layout-sidebar-width:          ($column * 3) + ($gutter * 2) !default;
-$layout-sidebar-width-reversed: 370px !default;
+$layout-sidebar-width:          ($column * 3) + ($gutter * 2);
+$layout-sidebar-width-reversed: 370px;
 
-$l-max-content-width:           820px !default;
-$l-max-content-wrapper:         1240px !default;
-$max-width:                     1320px !default;
+$l-max-content-width:           820px;
+$l-max-content-wrapper:         1240px;
 
-$header-mobile-controls-height: 40px !default;
+$header-mobile-controls-height: 40px;
 
 // These variables control the vertical spacing in MF.
 // No vertical spacing should exceed 70px.
-$standard-spacing--large:    70px !default;
-$standard-spacing--medium:   55px !default;
-$standard-spacing--small:    45px !default;
-$standard-spacing--xsmall:   24px !default;
-$standard-spacing--xxsmall:  12px !default;
-$standard-spacing--xxxsmall: 6px !default;
+$standard-spacing--large:    70px;
+$standard-spacing--medium:   55px;
+$standard-spacing--small:    45px;
+$standard-spacing--xsmall:   24px;
+$standard-spacing--xxsmall:  12px;
+$standard-spacing--xxxsmall: 6px;
 
 //letter-spacing for Texta
-$letter-spacing-large:   .1em !default;
-$letter-spacing-medium:  .05em !default;
-$letter-spacing-small:   .02em !default;
-$letter-spacing-default: 0 !default;
+$letter-spacing-large:   .1em;
+$letter-spacing-medium:  .05em;
+$letter-spacing-small:   .02em;
+$letter-spacing-default: 0;
 
 // Close icon
 // The close icon is not an actual icon. It is the multiplication
 // symbol displayed in a pseudo element. To display properly,
 // the following string should be used in the CSS `content` setting.
-$close-icon: '\00d7' !default;
+$close-icon: '\00d7';
 
 
 // font families
-$fonts:      "Texta", "Helvetica", "Arial", sans-serif !default;
-$fonts-mono: "Source Code Pro", "Monaco", monospace !default;
-$fonts-khmer: "Hanuman" !default;
+$fonts:      "Texta", "Helvetica", "Arial", sans-serif;
+$fonts-mono: "Source Code Pro", "Monaco", monospace;
+$fonts-khmer: "Hanuman";
 
 // Legacy Bourbon Neat Variables
 ///Sets the default layout direction of the grid. Can be `LTR` or `RTL`.
 $default-layout-direction: LTR !default;
 $layout-direction: LTR !default;
 $container-display-table: false !default;
-/// Sets the total number of columns in the grid. Its value can be overridden inside a media query using the `media()` mixin.
-$grid-columns: 12 !default;
 /// When set to true, it sets the box-sizing property of all elements to `border-box`.
 /// @example css - CSS Output
 ///   html {

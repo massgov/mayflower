@@ -1,5 +1,7 @@
 @use "00-base/global" as *;
 
+@use "sass:color" as *;
+
 .ma__callout-alert {
 
   .pre-content > &,
@@ -82,8 +84,8 @@
   //default
 
   &__content {
-    background-color: tint($c-warning, 90%);
-    border-color: tint($c-warning, 50%);
+    background-color: mix(#fff, $c-warning, 90%);
+    border-color: mix(#fff, $c-warning, 50%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 
@@ -107,8 +109,8 @@
   //c-primary
 
   &--c-primary &__content {
-    background-color: tint($c-primary, 90%);
-    border-color: tint($c-primary, 50%);
+    background-color: mix(#fff, $c-primary, 90%);
+    border-color: mix(#fff, $c-primary, 50%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 
@@ -119,8 +121,8 @@
   //c-primary-alt
 
   &--c-primary-alt &__content {
-    background-color: tint($c-primary-alt, 90%);
-    border-color: tint($c-primary-alt, 50%);
+    background-color: mix(#fff, $c-primary-alt, 90%);
+    border-color: mix(#fff, $c-primary-alt, 50%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 
@@ -131,8 +133,8 @@
   //c-gray-dark
 
   &--c-gray-dark &__content {
-    background-color: tint($c-gray-dark, 90%);
-    border-color: tint($c-gray-dark, 50%);
+    background-color: mix(#fff, $c-gray-dark, 90%);
+    border-color: mix(#fff, $c-gray-dark, 50%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 
@@ -143,8 +145,8 @@
   //c-error-red
 
   &--c-error-red &__content {
-    background-color: tint($c-error-red, 90%);
-    border-color: tint($c-error-red, 50%);
+    background-color: mix(#fff, $c-error-red, 90%);
+    border-color: mix(#fff, $c-error-red, 50%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 
@@ -155,8 +157,8 @@
   //c-white
 
   &--c-white &__content {
-    background-color: tint($c-white, 90%);
-    border-color: tint($c-gray-dark, 50%);
+    background-color: mix(#fff, $c-white, 90%);
+    border-color: mix(#fff, $c-gray-dark, 50%);
     box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
   }
 

@@ -1,14 +1,16 @@
 @use "00-base/global" as *;
 
+@use "sass:color" as *;
+
 .ma__emergency-alert {
-  background-color: tint($c-warning,90%);
+  background-color: mix(#fff, $c-warning,90%);
   font-size: 1.25rem;
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 0;
 
   & + & {
-    border-top: 1px solid tint($c-warning, 50%);
+    border-top: 1px solid mix(#fff, $c-warning, 50%);
   }
 
   &__time-stamp {

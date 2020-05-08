@@ -1,5 +1,7 @@
 @use "00-base/global" as *;
 
+@use "sass:color" as *;
+
 .ma__event-teaser {
   display: flex;
   align-items: flex-start;
@@ -134,7 +136,7 @@
   }
 
   &__graphic {
-    background-color: tint($c-primary-alt, 80%);
+    background-color: mix(#fff, $c-primary-alt, 80%);
   }
 
   &__spacer {

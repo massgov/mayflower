@@ -1,5 +1,7 @@
 @use "00-base/global" as *;
 
+@use "sass:color" as *;
+
 .ma__error-list {
   
   form & {
@@ -68,7 +70,7 @@
 .ma__error-list {
 
   &__container {
-    background-color: tint($c-error, 95%);
+    background-color: mix(#fff, $c-error, 95%);
     border-color: $c-bd-error;
     color: $c-font-error;
   }
