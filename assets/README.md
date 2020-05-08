@@ -1,5 +1,5 @@
 # Mayflower Assets
-The styles provided by this package require compiling with a tool that supports the [npm sass package](https://www.npmjs.com/package/sass). [Bourbon](https://www.npmjs.com/package/bourbon) 4.x is required to use the .scss files in this package and must be installed by the user of it.
+The styles provided by this package require compiling with a tool that supports the [npm sass package](https://www.npmjs.com/package/sass). 
 
 ## License
 Please note that the fonts and the svg-icons are licensed only for the usage on websites that are **owned by the Commonwealth of Massachusetts**. Mayflower is currently using a licensed web font Texta and purchased [Smashing Icons](https://smashicons.com/) for some icons.
@@ -36,7 +36,7 @@ These include paths allow you to include files with paths like `00-base/name-of-
 You can also set up your include paths by using an `.env` file at the root of your project. Sass can use the node environment variable `SASS_PATH` for setting your include paths:
 ```
 // .env file
-SASS_PATH=./node_modules/@massds/mayflower-assets/scss:./node_modules/@massds/mayflower-assets/scss/00-base:./node_modules/@massds/mayflower-assets/scss/00-base/mixins:./node_modules/@massds/mayflower-assets/scss/01-atoms:./node_modules/@massds/mayflower-assets/scss/02-molecules:./node_modules/@massds/mayflower-assets/scss/03-organisms:./node_modules/@massds/mayflower-assets/scss/04-templates/./node_modules/@massds/mayflower-assets/scss/05-dataviz:./node_modules/@massds/mayflower-assets/scss/08-print:./node_modules/bourbon/app/assets/stylesheets
+SASS_PATH=./node_modules/@massds/mayflower-assets/scss:./node_modules/@massds/mayflower-assets/scss/00-base:./node_modules/@massds/mayflower-assets/scss/00-base/mixins:./node_modules/@massds/mayflower-assets/scss/01-atoms:./node_modules/@massds/mayflower-assets/scss/02-molecules:./node_modules/@massds/mayflower-assets/scss/03-organisms:./node_modules/@massds/mayflower-assets/scss/04-templates/./node_modules/@massds/mayflower-assets/scss/05-dataviz:./node_modules/@massds/mayflower-assets/scss/08-print
 ```
 
 Many of the components require the file `00-base/_layout.scss` to be included at least once before their use. It's recommended for your project to create a single .scss file that includes all the shared files for your needs. This file should use `@forward` to forward sass modules that your other files need:
@@ -145,7 +145,7 @@ const compileSass = () => {
         path.join(__dirname, 'src/scss/05-dataviz'),
         path.join(__dirname, 'src/scss/08-print'),
         'node_modules',
-      ].concat(bourbon.includePaths),
+      ],
     }).on('error', sass.logError))
     .on('error', (err) => console.log(err))
   }))
