@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import logo from 'SharedAssets/images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
 import Icon from '../../base/Icon';

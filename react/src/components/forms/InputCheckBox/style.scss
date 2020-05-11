@@ -1,3 +1,2 @@
-@import 'global';
-$assets-path: '../../../assets';
-@import '01-atoms/input-checkbox';
+@use "styles/global" as *;
+@use '01-atoms/input-checkbox';

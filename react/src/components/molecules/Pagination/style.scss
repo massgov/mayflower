@@ -1,2 +1,2 @@
-@import 'global';
-@import '02-molecules/pagination';
+@use "styles/global" as *;
+@use '02-molecules/pagination';

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from 'SharedAssets/images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import './style.css';
 import Image from '../Image';
 

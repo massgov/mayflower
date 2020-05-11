@@ -1,3 +1,2 @@
-@import 'global';
-@import '00-base/mixins';
-@import '02-molecules/arrow-nav';
+@use "styles/global" as *;
+@use '02-molecules/arrow-nav';

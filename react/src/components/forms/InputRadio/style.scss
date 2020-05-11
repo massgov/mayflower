@@ -1,3 +1,2 @@
-@import 'global';
-@import '00-base/mixins';
-@import '01-atoms/input-radio';
+@use "styles/global" as *;
+@use '01-atoms/input-radio';

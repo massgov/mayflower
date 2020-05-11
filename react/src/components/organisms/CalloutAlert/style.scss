@@ -1,5 +1,5 @@
-@import 'global';
-@import '03-organisms/callout-alert';
+@use "styles/global" as *;
+@use '03-organisms/callout-alert';
 
 
 .ma__callout-alert__content--no-icon {

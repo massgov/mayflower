@@ -1,7 +1,5 @@
-@import 'global';
-@import '00-base/mixins';
-@import '00-base/z-index';
-@import '02-molecules/tooltip';
+@use "styles/global" as *;
+@use '02-molecules/tooltip';
 
 .ma__tooltip {
   &__open {

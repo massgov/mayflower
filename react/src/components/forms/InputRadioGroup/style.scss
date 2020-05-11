@@ -1,4 +1,3 @@
-@import 'global';
-@import '00-base/mixins';
-@import '01-atoms/input-group';
-@import '02-molecules/input-radio-group';
+@use "styles/global" as *;
+@use '01-atoms/input-group';
+@use '02-molecules/input-radio-group';

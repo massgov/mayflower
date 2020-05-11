@@ -1,2 +1,2 @@
-@import 'global';
-@import '02-molecules/multiselect-dropdown';
+@use "styles/global" as *;
+@use '02-molecules/multiselect-dropdown';

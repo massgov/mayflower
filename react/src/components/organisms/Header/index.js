@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import classNames from 'classnames';
-import logo from 'SharedAssets/images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';

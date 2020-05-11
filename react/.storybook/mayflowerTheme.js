@@ -1,6 +1,5 @@
 import { create } from '@storybook/theming/create';
 import logo from './mayflower-react-logo.png';
-
 export default create({
   base: 'light',
 
@@ -14,8 +13,8 @@ export default create({
   appBorderRadius: 6,
 
   // Typography
-  // fontBase: '"Open Sans", sans-serif',
-  // fontCode: 'monospace',
+  fontBase: '"Texta", "Helvetica", "Arial", sans-serif',
+  fontCode: '"Source Code Pro", "Monaco", monospace',
 
   // Text colors
   textColor: 'black',

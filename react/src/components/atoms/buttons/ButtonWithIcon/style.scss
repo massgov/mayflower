@@ -1,6 +1,5 @@
-@import 'global';
-@import '00-base/mixins';
-@import "01-atoms/button-with-icon";
-@import "01-atoms/button-search";
+@use "styles/global" as *;
+@use "01-atoms/button-with-icon";
+@use "01-atoms/button-search";
 
 

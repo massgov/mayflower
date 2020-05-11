@@ -1,50 +1,7 @@
-// normalize the css across browsers added in npm
-@import "normalize-scss/sass/normalize";
-
-// Sass frameworks added in npm
-@import "bourbon/core/bourbon";
-
-// some variables adjust the settings in Neat
-@import "00-base/variables";
-@import "bourbon-neat/app/assets/stylesheets/neat";
-
-// Bower vendors
-@import "pikaday/scss/pikaday";
-
-// Path to Mayflower shared assets.
-$assets-path: './assets';
-
-// Base variables
-@import "00-base/breakpoints";
-@import "00-base/mixins";
-@import "00-base/z-index";
-
-// base theme variables
-@import "00-base/colors";
-@import "00-base/fonts";
-@import "00-base/fonts-fallback";
-@import "00-base/pikaday";
-
-// Print styles
-@import "08-print/print";
-
-// Atoms - reusable styles
-@import "01-atoms/global/elements";
-@import "01-atoms/forms";
-@import "01-atoms/content-link";
-
-@import "02-molecules/general-teaser";
-
-// Templates - page content types
-@import "04-templates/binder-page";
-@import "04-templates/bio";
-@import "04-templates/court-rules";
-@import "04-templates/details";
-@import "04-templates/form-page";
-@import "04-templates/general";
-@import "04-templates/information-details";
-@import "04-templates/organization-details";
-@import "04-templates/policy-advisory";
-@import "04-templates/press";
-@import "04-templates/services";
-@import "04-templates/stacked-row-section-external-sidebar.scss";
+@use "normalize-scss/sass/normalize";
+@use "components/styles/global" as *;
+@use "00-base/elements";
+@use "00-base/layout";
+@use "00-base/fonts";
+@use "00-base/fonts-fallback";
+@use "00-base/fonts-styles";
