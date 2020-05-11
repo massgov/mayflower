@@ -99,7 +99,7 @@ class DistRegistry extends DefaultRegistry {
                 .pipe(gulp.dest(self.resolvePatternlab()));
         });
 
-        taker.task("patternlab:build", taker.series("dist:build", patterns, copyDist));
+        taker.task("patternlab:build", taker.series("dist:build", copyDist, patterns ));
         taker.task("patternlab:serve", taker.series("patternlab:build", task("server", () => {
             const sync = browserSync.create();
             sync.init({
