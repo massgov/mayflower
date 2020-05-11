@@ -88,7 +88,9 @@ class DistRegistry extends DefaultRegistry {
             return del(self.resolvePatternlab('patterns'))
         })
         const patterns = taker.series(cleanPatterns, task("patternlab:patterns", function() {
-            return exec(`php -d "display_errors=0" ${e(self.resolveRoot("core/console"))} --generate --patternsonly`, {verbose: 3});
+            return exec(`php ${e(self.resolveRoot("core/console"))} --generate --patternsonly`, {verbose: 3}).catch(function (err) {
+                console.error('ERROR: ', err);
+            });
         }));
         patterns.watchFiles = sources.patterns;
 
@@ -97,7 +99,7 @@ class DistRegistry extends DefaultRegistry {
                 .pipe(gulp.dest(self.resolvePatternlab()));
         });
 
-        taker.task("patternlab:build", taker.series(taker.parallel("dist:build", patterns), copyDist));
+        taker.task("patternlab:build", taker.series("dist:build", patterns, copyDist));
         taker.task("patternlab:serve", taker.series("patternlab:build", task("server", () => {
             const sync = browserSync.create();
             sync.init({

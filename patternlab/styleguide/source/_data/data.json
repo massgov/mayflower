@@ -5,6 +5,6 @@
   "bodyClass": "",
   "directory": "assets",
   "googleLanguages": "ar,es,fr,pt,ht,it,km,ko,ru,vi,zh-CN",
-  "sealImage": "../../assets/images/stateseal.png",
+  "sealImage": "/assets/images/stateseal.png",
   "comment": "See \\PatternLab\\DynamicDataListener for further dynamic properties."
 }

@@ -5,16 +5,13 @@
  */
 
  // Sass frameworks added in npm
- @import "bourbon";
 
  // some variables adjust the settings in Neat
- @import "00-base/variables";
- @import "neat";
-
- // Base variables
- @import "00-base/breakpoints";
- @import "00-base/mixins";
- @import "00-base/z-index";
+@use "00-base/global" with(
+  $assets-path: '/assets'
+);
+@use "00-base/z-index";
+@use "00-base/layout";
 
 #sg-patterns {
   box-sizing: border-box !important;
