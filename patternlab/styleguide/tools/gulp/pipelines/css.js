@@ -1,16 +1,17 @@
 
-var sass          = require("gulp-sass"),
+var gulpSass          = require("gulp-sass"),
     autoprefixer  = require("gulp-autoprefixer"),
     pixrem        = require("gulp-pixrem"),
     rename        = require("gulp-rename"),
     header        = require("gulp-header"),
     sourcemaps    = require("gulp-sourcemaps"),
-    normalizePaths= require("node-normalize-scss").includePaths,
-    neatPaths     = require("node-neat").includePaths,
-    path          = require('path'),
+    normalizePaths = require("node-normalize-scss").includePaths,
+    assetsPaths   = require("@massds/mayflower-assets").includePaths,
+    path          = require("path"),
     gulpIf        = require("gulp-if"),
     lazypipe      = require("lazypipe");
-
+    
+gulpSass.compiler = require("sass");
 /**
  * Contains pipeline definitions for transforming CSS.
  *
@@ -19,20 +20,23 @@ var sass          = require("gulp-sass"),
  * destination specification from the specification of the pipeline, and
  * reuse the pipeline as many times as we want.
  */
+
 module.exports = function(minify, root) {
-    const absRoot = root.replace(/patternlab\/styleguide/g, "");
     var sassOptions = {
         outputStyle: minify ? "compressed" : "nested",
-        includePaths: [].concat(
-            normalizePaths,
-            neatPaths,
-            [path.join(path.dirname(require.resolve('pikaday')), 'scss')],
-            absRoot + "assets/scss"
-        )
+        sourceMap: process.env.NODE_ENV !== "production",
+        sourceComments: process.env.NODE_ENV !== "production",
+        includePaths: assetsPaths
+            .concat([normalizePaths])
+            .concat(
+                [path.join(path.dirname(require.resolve("pikaday")), "scss")]
+            )
+            .concat([`${root}/node_modules`])
     };
     return lazypipe()
-        .pipe(sourcemaps.init)
-        .pipe(sass, sassOptions)
+        .pipe(sourcemaps.init, { loadMaps: true, largeFile: true})
+        .pipe(sourcemaps.identityMap)
+        .pipe(gulpSass, sassOptions)
         .pipe(autoprefixer)
         .pipe(pixrem, "16px",{atrules: true, html: true})
         .pipe(rename, {suffix: "-generated"})
