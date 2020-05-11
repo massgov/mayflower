@@ -1,2 +1,2 @@
-@import 'global';
-@import "04-templates/narrow-template";
+@use "styles/global" as *;
+@use "04-templates/narrow-template";

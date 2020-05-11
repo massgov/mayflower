@@ -1,3 +1,2 @@
-@import "global";
-@import '00-base/mixins';
-@import '02-molecules/accordion-item';
+@use "styles/global";
+@use '02-molecules/accordion-item';

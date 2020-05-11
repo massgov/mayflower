@@ -1,7 +1,7 @@
-@import 'global';
-@import "01-atoms/label";
-@import "01-atoms/select-box";
-@import "02-molecules/results-heading";
+@use "styles/global" as *;
+@use "01-atoms/label";
+@use "01-atoms/select-box";
+@use "02-molecules/results-heading";
 
 @media ($bp-small-min){
   .ma__results-heading__tags+.ma__results-heading__sort.ma__results-heading__sort-selecBox {

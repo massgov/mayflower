@@ -1,3 +1,2 @@
-@import 'global';
-@import '00-base/z-index';
-@import "01-atoms/fixed-feedback-button";
+@use "styles/global" as *;
+@use "01-atoms/fixed-feedback-button";

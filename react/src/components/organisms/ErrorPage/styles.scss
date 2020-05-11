@@ -1,2 +1,2 @@
-@import 'global';
-@import "03-organisms/error-page";
+@use "styles/global" as *;
+@use "03-organisms/error-page";

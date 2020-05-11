@@ -1,5 +1,6 @@
-@import 'global';
-@import "01-atoms/button-search";
+@use "sass:meta";
+@use "styles/global" as *;
+@use "01-atoms/button-search" as *;
 
 .ma__header-search {
   &__wrapper{
@@ -62,5 +63,4 @@
     }
   }
 }
-
-@import "02-molecules/header-search";
+@include meta.load-css("02-molecules/header-search");

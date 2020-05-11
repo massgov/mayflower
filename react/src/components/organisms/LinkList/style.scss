@@ -1,2 +1,2 @@
-@import 'global';
-@import '03-organisms/link-list';
+@use "styles/global" as *;
+@use '03-organisms/link-list';

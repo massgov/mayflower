@@ -1,6 +1,5 @@
-@import 'global';
-@import '00-base/mixins';
-@import '01-atoms/buttons';
+@use "styles/global" as *;
+@use '01-atoms/buttons';
 
 .ma__button.ma__button--secondary {
   &.ma__button--c-primary-alt{

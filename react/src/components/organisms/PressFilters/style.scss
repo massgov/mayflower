@@ -1,5 +1,5 @@
-@import 'global';
-@import '03-organisms/press-filters';
+@use "styles/global" as *;
+@use '03-organisms/press-filters';
 
 .ma__press-filters {
   &__organizations, &__type {

@@ -1,5 +1,5 @@
-@import 'global';
-@import "01-atoms/global/fonts-styles";
+@use "styles/global" as *;
+@use "04-templates/general";
 
 .sb {
   &-text {
