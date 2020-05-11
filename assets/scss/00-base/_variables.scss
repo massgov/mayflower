@@ -56,7 +56,8 @@ $default-feature: min-width !default; // Default @media feature for the breakpoi
 
 // font families
 $fonts:      "Texta", "Helvetica", "Arial", sans-serif;
-$fonts-mono: "Source Code Pro", "Monaco", monospace;
+$fonts-noto: "Noto Sans VF","Noto Sans",sans-serif;
+$fonts-mono: "Noto Sans Mono VF","Noto Sans Mono",monospace;
 $fonts-khmer: "Hanuman";
 $fonts-vietnamese: "Muli";
 

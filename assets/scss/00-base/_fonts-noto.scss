@@ -8,138 +8,95 @@
 // Set $assets-path to form the correct links to the parent folder of fonts/ based on the location of the compiled css
 $assets-path: '..' !default;
 
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-light-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-light-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-light-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-light-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-light-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-light-webfont.svg#open_sansregular") format("svg");
-  font-weight: 300;
-  font-style: normal;
-  font-display: fallback;
-}
-//
-// Light | italic
+@supports ( font-variation-settings: 'wdth' 200 ) {
+  /* The variable font of Noto Sans */
+  @font-face {
+    font-family: 'Noto Sans VF';
+    src:  url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.woff') format('woff'),
+          url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.ttf') format('truetype'),
+          url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.svg#NotoSans-Regular') format('svg');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  /* The variable font of Noto Sans Italic */
 
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-lightitalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-lightitalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-lightitalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-lightitalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-lightitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-lightitalic-webfont.svg#open_sansregular") format("svg");
-  font-weight: 300;
-  font-style: italic;
-  font-display: fallback;
-}
+  @font-face {
+    font-family: 'Noto Sans Italic VF';
+    src:  url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.woff') format('woff'),
+          url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.ttf') format('truetype'),
+          url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.svg#NotoSans-Italic') format('svg');
+    font-weight: 100 900;
+    font-style: italic;
+  }
+  /* The variable font of Noto Sans Mono */
 
-// Book | 400
+  @font-face {
+    font-family: 'Noto Sans Mono VF';
+    src:  url('#{$assets-path}/fonts/noto/latin/variable/Mono/NotoSansMono-VF.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/latin/variable/Mono/NotoSansMono-VF.woff') format('woff'),
+          url('#{$assets-path}/fonts/noto/latin/variable/Mono/NotoSansMono-VF.ttf') format('truetype'),
+          url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.svg#NotoSans-Mono') format('svg');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  /* The variable font of Noto Sans Khmer */
 
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-book-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-book-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-book-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-book-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-book-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-book-webfont.svg#open_sansregular") format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
-
-// Book | italic
-
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-bookitalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-bookitalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-bookitalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-bookitalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-bookitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bookitalic-webfont.svg#open_sansregular") format("svg");
-  font-weight: 400;
-  font-style: italic;
-  font-display: fallback;
+  @font-face {
+    font-family: 'Noto Sans Khmer VF';
+    src:  url('#{$assets-path}/fonts/noto/khmer/NotoSansKhmer-VF.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/khmer/NotoSansKhmer-VF.woff') format('woff'),
+          url('#{$assets-path}/fonts/noto/khmer/NotoSansKhmer-VF.ttf') format('truetype'),
+          url('#{$assets-path}/fonts/noto/khmer/NotoSansKhmer-VF.svg#NotoSansKhmer-Regular') format('svg');
+    font-weight: 100 900;
+    font-style: normal;
+  }
 }
 
-// Medium | 500
-
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-medium-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-medium-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-medium-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-medium-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-medium-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-medium-webfont.svg#open_sansregular") format("svg");
-  font-weight: 500;
-  font-style: normal;
+/* font family for normal, all weights */
+.font-noto-sans {
+  font-family: "Noto Sans VF","Noto Sans Regular",sans-serif;
+}
+/* font familiy for italic, all weights */
+.font-noto-sans-italic {
+  font-family: "Noto Sans Italic VF","Noto Sans Italic",sans-serif
+}
+/* font familiy for Mono, all weights */
+.font-noto-sans-mono {
+  font-family: "Noto Sans Mono VF","Noto Sans Mono",monospace;
 }
 
-// Medium | italic
-
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-mediumitalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-mediumitalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-mediumitalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-mediumitalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-mediumitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-mediumitalic-webfont.svg#open_sansregular") format("svg");
-  font-weight: 500;
-  font-style: italic;
-  font-display: fallback;
+/* languages */
+*:lang(km).font-noto-sans {
+  font-family: "Noto Sans Khmer VF",sans-serif;
 }
 
-// Bold | 700
-
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-bold-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-bold-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-bold-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-bold-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-bold-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bold-webfont.svg#open_sansregular") format("svg");
-  font-weight: 700;
-  font-style: normal;
-  font-display: fallback;
+/* Add these classes for other weights of either normal or italic at the normal width */
+.vf-normal-thin {
+  font-variation-settings: 'wdth' 100, 'wght' 100;
 }
-
-// Bold | Italic
-
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-bolditalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-bolditalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-bolditalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-bolditalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-bolditalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bolditalic-webfont.svg#open_sansregular") format("svg");
-  font-weight: 700;
-  font-style: italic;
-  font-display: fallback;
+.vf-normal-extralight {
+  font-variation-settings: 'wdth' 100, 'wght' 200;
 }
-
-// Black | 800
-
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-black-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-black-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-black-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-black-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-black-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-black-webfont.svg#open_sansregular") format("svg");
-  font-weight: 800;
-  font-style: normal;
-  font-display: fallback;
+.vf-normal-light {
+  font-variation-settings: 'wdth' 100, 'wght' 300;
 }
-
-// Black | Italic
-
-@font-face {
-  font-family: 'Texta';
-  src: url("#{$assets-path}/fonts/texta-blackitalic-webfont.eot");
-  src: url("#{$assets-path}/fonts/texta-blackitalic-webfont.eot?#iefix") format("embedded-opentype"),
-  url("#{$assets-path}/fonts/texta-blackitalic-webfont.woff2") format("woff2"),
-  url("#{$assets-path}/fonts/texta-blackitalic-webfont.woff") format("woff"),
-  url("#{$assets-path}/fonts/texta-blackitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-blackitalic-webfont.svg#open_sansregular") format("svg");
-  font-weight: 800;
-  font-style: italic;
-  font-display: fallback;
+.vf-normal-regular {
+  font-variation-settings: 'wdth' 100, 'wght' 400;
+}
+.vf-normal-medium {
+  font-variation-settings: 'wdth' 100, 'wght' 500;
+}
+.vf-normal-semibold {
+  font-variation-settings: 'wdth' 100, 'wght' 600;
+}
+.vf-normal-bold {
+  font-variation-settings: 'wdth' 100, 'wght' 700;
+}
+.vf-normal-extrabold {
+  font-variation-settings: 'wdth' 100, 'wght' 800;
+}
+.vf-normal-black {
+  font-variation-settings: 'wdth' 100, 'wght' 900;
 }

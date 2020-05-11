@@ -26,7 +26,7 @@
 }
 
 html {
-  font-family: $fonts;
+  font-family: $fonts-noto;
 
   &:lang(km) {
     font-family: $fonts-khmer, $fonts;
