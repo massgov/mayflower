@@ -13,12 +13,12 @@
   span {
     margin-bottom: 0px;
     cursor: pointer;
-    font-weight: 400;
+    font-weight: $fonts-light;
     font-size: 1.25rem;
     color: $c-font-link;
 
     a {
-      font-weight: 500;
+      font-weight: $fonts-normal;
       border-bottom: 1px solid;
     }
 

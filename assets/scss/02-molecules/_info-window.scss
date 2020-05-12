@@ -40,7 +40,7 @@
   font-family: $fonts;
 
   &__label {
-    font-weight: 500;
+    font-weight: $fonts-normal;
   }
 
   &__phone {

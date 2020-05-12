@@ -8,7 +8,7 @@
 
     @include ma-button-reset;
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     line-height: .65;
     overflow: hidden;
     position: absolute;

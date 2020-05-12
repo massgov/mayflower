@@ -17,7 +17,7 @@ $quaternary-colors: (
   background-color: $c-white;
   border: 2px solid $c-gray-light;
   display: inline-block;
-  font-weight: 700;
+  font-weight: $fonts-bold;
   letter-spacing: $letter-spacing-large;
   padding: 10px 14px;
   text-transform: uppercase;
@@ -200,7 +200,7 @@ $quaternary-colors: (
 
   &--alert {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     letter-spacing: $letter-spacing-large;
     line-height: 1;
     padding: .4em;
