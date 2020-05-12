@@ -32,7 +32,7 @@
   }
 
   &__label {
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     letter-spacing: $letter-spacing-large;
     line-height: 1em;
     margin-right: .4em;
@@ -41,7 +41,7 @@
   }
 
   &__message {
-    font-size: 1.5rem;
+    font-size: $fonts-largee;
     line-height: 1.3em;
 
     .ma__decorative-link, a {

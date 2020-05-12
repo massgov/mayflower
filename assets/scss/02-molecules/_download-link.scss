@@ -49,13 +49,13 @@
   }
 
   &__file-spec {
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     line-height: 2.14;
     white-space: nowrap;
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-top: 10px;
   }
 

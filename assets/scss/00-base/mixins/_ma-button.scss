@@ -15,13 +15,13 @@
     // default
 
     @if ($size == "normal") {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
       line-height: 1.4;
     }
     // small
 
     @if ($size == "small") {
-      font-size: 1rem;
+      font-size: $fonts-2xsmall;
       line-height: 1.2;
     }
     // large

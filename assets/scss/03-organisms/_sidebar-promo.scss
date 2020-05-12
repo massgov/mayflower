@@ -14,7 +14,7 @@
     margin-bottom: 1em;
 
     @media ($bp-small-min) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
   }
 

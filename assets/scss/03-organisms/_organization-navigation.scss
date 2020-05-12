@@ -61,7 +61,7 @@ $menu-transition-time: 0.3s;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     font-weight: $fonts-bold;
     line-height: 1.2;
     color: $c-font-dark;
@@ -172,7 +172,7 @@ $menu-transition-time: 0.3s;
     .ma__form {
       display: flex;
       width: 100%;
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
 
     .visuallyhidden {
@@ -245,13 +245,13 @@ $menu-transition-time: 0.3s;
       border: 0;
       background-color: transparent;
       border-left: 1px solid $c-gray-light;
-      font-size: 1rem;
+      font-size: $fonts-2xsmall;
       font-weight: $fonts-bold;
       padding-left: 35px;
 
       @media ($bp-large-min) {
         display: block;
-        font-size: 1.125rem;
+        font-size: $fonts-xsmall;
         white-space: nowrap;
       }
 
@@ -260,7 +260,7 @@ $menu-transition-time: 0.3s;
       }
 
       .form-open & {
-        font-size: 1.125rem;
+        font-size: $fonts-xsmall;
         padding-right: 1.5rem;
         padding-left: 1rem;
         font-weight: $fonts-normal;

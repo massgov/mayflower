@@ -218,11 +218,11 @@ $location-listin--map-min-width: 315px;
     }
 
     &__location-subtitle {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
 
     &__location {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
       font-weight: $fonts-normal;
       line-height: 1.15;
       padding-bottom: 0;

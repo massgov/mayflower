@@ -101,14 +101,14 @@
       }
 
       &__item {
-        font-size: 1.25rem;
+        font-size: $fonts-small;
       }
 
       &__name {
          margin-bottom: 0;
 
          span {
-          font-size: 1.25rem;
+          font-size: $fonts-small;
           color: $c-gray-dark;
           font-weight: 550;
          }
@@ -128,7 +128,7 @@
 
   &__date,
   &__org {
-    font-size: 1.125rem;
+    font-size: $fonts-xsmall;
     line-height: 1;
     margin-bottom: 1em;
     color: $c-font-dark;
@@ -174,7 +174,7 @@
     }
 
     p {
-      font-size: 1rem;
+      font-size: $fonts-2xsmall;
       line-height: 1rem;
       margin-bottom: 0px;
     }
@@ -208,10 +208,10 @@
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
 
     @media ($bp-x-small-max) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
 
     p {
@@ -282,7 +282,7 @@
         flex-flow: row;
         align-items: flex-start;
         margin-bottom: 0.5rem;
-        font-size: 1.25rem;
+        font-size: $fonts-small;
         line-height: 1.2rem;
 
       .ma__decorative-link {
@@ -301,7 +301,7 @@
   }
 
   &__infoitem {
-    font-size: 1.125rem;
+    font-size: $fonts-xsmall;
 
     & + & {
       margin-top: 0.5rem;

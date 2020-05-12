@@ -14,13 +14,13 @@
   }
 
   &__type {
-    font-size: 1.75rem;
+    font-size: $fonts-xlarge;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
   }
 
   &__title {
-    font-size: 1.75rem;
+    font-size: $fonts-xlarge;
     line-height: 1.31;
 
     @media ($bp-small-min) {
@@ -29,7 +29,7 @@
   }
 
   &__message {
-    font-size: 1.5rem;
+    font-size: $fonts-largee;
     line-height: 1.5;
     margin-bottom: 1.75em;
 

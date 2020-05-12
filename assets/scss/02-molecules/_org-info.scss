@@ -30,12 +30,12 @@
   }
 
   &__name {
-    font-size: 1.5rem;
+    font-size: $fonts-largee;
     margin-bottom: 0;
   }
 
   &__job-title {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-top: .5em;
     margin-bottom: 0;
   }

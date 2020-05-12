@@ -112,7 +112,7 @@
 
     input {
       border: none;
-      font-size: 1.5rem;
+      font-size: $fonts-largee;
       height: 100%;
       width: 100%;
 
@@ -128,7 +128,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: auto;
-    font-size: 1.125rem;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     height: 40px;
     padding-left: 15px;
@@ -196,7 +196,7 @@
     }
 
     .ma__content-link {
-      font-size: 1.5rem;
+      font-size: $fonts-largee;
 
       span {
         border-bottom-width: 1px;
@@ -254,7 +254,7 @@
   }
 
   &__image-name {
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     line-height: 1.125rem;
   }
 

@@ -42,7 +42,7 @@ $fonts-khmer: "Hanuman";
 
 
 // font weights
-$fonts-lightest: 100; // use only to style non text font weights, e.g. separator |
+$fonts-lightest: 100; // only used for styling non text font weights, e.g. separator |
 $fonts-lighter:  300;
 $fonts-light:    400;
 $fonts-normal:   500;
@@ -50,7 +50,6 @@ $fonts-bold:     700;
 $fonts-bolder:   800;
 
 //font sizes
-$fonts-3xsmall: 0.8rem;
 $fonts-2xsmall: 1rem;
 $fonts-xsmall:  1.125rem;
 $fonts-small:   1.25rem;

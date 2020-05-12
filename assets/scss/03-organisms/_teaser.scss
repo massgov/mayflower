@@ -103,7 +103,7 @@ $c-theme-green: #43956f;
         margin-bottom: 0;
 
         span {
-          font-size: 1.25rem;
+          font-size: $fonts-small;
           color: $c-gray-dark;
           font-weight: 550;
         }
@@ -164,7 +164,7 @@ $c-theme-green: #43956f;
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
 
     @media ($bp-x-small-max) {
       font-size: 1.24rem;

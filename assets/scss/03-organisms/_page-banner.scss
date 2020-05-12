@@ -153,7 +153,7 @@ $page-banner-height: 330px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     max-width: 1050px;
     padding: 30px 25px 45px 0;
     z-index: 1;
@@ -378,7 +378,7 @@ $page-banner-height: 330px;
   }
 
   &--columns &__description {
-    font-size: 1.5rem;
+    font-size: $fonts-largee;
     margin-top: 0;
     padding: 25px 0 20px;
     width: 95%;

@@ -14,7 +14,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     font-weight: $fonts-lighter;
     line-height: 1.5;
     margin-bottom: 15px;
@@ -79,7 +79,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       font-weight: $fonts-normal;
 
       @media ($bp-header-toggle-min) and ($bp-utility-panel-reduce-links-max) {
-        font-size: 1.25rem;
+        font-size: $fonts-small;
       }
 
       &:hover {

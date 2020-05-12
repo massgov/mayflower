@@ -94,7 +94,7 @@
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
 
     @media ($bp-x-small-max) {
       display: none;

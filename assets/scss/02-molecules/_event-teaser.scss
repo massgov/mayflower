@@ -90,7 +90,7 @@
   &__location,
   &__date,
   &__time {
-    font-size: 1.125rem;
+    font-size: $fonts-xsmall;
 
     .ma__page-header & {
       font-size: 1.625rem;
@@ -99,7 +99,7 @@
   }
 
   &__location {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-bottom: .25em;
   }
 
@@ -114,7 +114,7 @@
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-top: 18px;
 
     @media ($bp-x-small-max) {

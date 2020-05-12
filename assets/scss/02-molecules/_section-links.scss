@@ -48,7 +48,7 @@
     margin-bottom: 25px;
 
     @media ($bp-small-min) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
   }
 
@@ -56,7 +56,7 @@
     align-self: flex-end;
     border-top: 1px solid;
     display: block;
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     padding: 5px 0;
     width: 100%;
 
@@ -79,7 +79,7 @@
 
   &__mobile-title {
     border-bottom: 1px solid;
-    font-size: 1.5rem;
+    font-size: $fonts-largee;
     margin-bottom: .75em;
     padding: 0 16px .75em 0;
 
