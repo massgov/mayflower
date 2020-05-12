@@ -185,7 +185,7 @@
   .ma__comp-heading {
 
     @media ($bp-large-max) {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       font-weight: fonts-normal;
       color: $c-primary;
       margin-bottom: 0;
@@ -268,7 +268,7 @@
     .ma__link-list__container a {
 
       @media ($bp-large-max) {
-        font-size: 1.375rem;
+        font-size: $fonts-medium;
         font-weight: fonts-normal;
       }
     }
@@ -318,7 +318,7 @@
           white-space: nowrap;
 
           @media ($bp-large-max) {
-            font-size: 1.375rem;
+            font-size: $fonts-medium;
             font-weight: fonts-normal;
           }
 

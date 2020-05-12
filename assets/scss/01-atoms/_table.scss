@@ -76,7 +76,7 @@
     td,
     th {
       display: block;
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       padding-left: 40% !important;
       padding-bottom: 0;
       position: relative;
@@ -92,7 +92,7 @@
     }
 
     th {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       color: $c-font-heading;
       background-color: $c-bg-subtle;
     }
@@ -147,7 +147,7 @@
     }
 
     th {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       color: $c-font-heading;
       background-color: $c-bg-subtle;
     }

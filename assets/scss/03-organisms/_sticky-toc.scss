@@ -477,7 +477,7 @@
     align-items: center;
     justify-content: space-between;
     border: 0;
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
     font-weight: fonts-normal;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
@@ -509,7 +509,7 @@
 
     a {
       font-weight: fonts-bold;
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       display: flex;
 
       svg {

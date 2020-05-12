@@ -284,7 +284,7 @@ $location-listin--map-min-width: 315px;
 
     &__phone {
       // Matches font-size defined on <body>.
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
 
       svg {
         height: 25px;

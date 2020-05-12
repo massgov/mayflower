@@ -530,7 +530,7 @@ body {
       font-size: 1.25rem;
 
       @media ($bp-large-min) {
-        font-size: 1.375rem;
+        font-size: $fonts-medium;
       }
 
       &:focus {

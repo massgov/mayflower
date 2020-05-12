@@ -87,7 +87,7 @@
 
     @media ($bp-header-toggle-min) {
       display: inline-block;
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       padding: 14px 12px;
       vertical-align: middle;
     }

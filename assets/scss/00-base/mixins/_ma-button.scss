@@ -27,7 +27,7 @@
     // large
 
     @if ($size == "large") {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       line-height: 1.61;
     }
   }
