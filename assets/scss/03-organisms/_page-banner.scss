@@ -307,11 +307,11 @@ $page-banner-height: 330px;
   &--small &__title {
 
     @media ($bp-small-min) {
-      font-size: 3.25rem;
+      font-size: $fonts-6xlarge;
     }
 
     @media ($bp-large-min) {
-      font-size: 3.5rem;
+      font-size: $fonts-7xlarge;
     }
 
     @media ($bp-x-large-min) {

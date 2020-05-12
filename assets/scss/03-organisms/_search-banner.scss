@@ -117,7 +117,7 @@
       width: 100%;
 
       @media ($bp-small-min) {
-        font-size: 2rem;
+        font-size: $fonts-2xlarge;
       }
     }
   }

@@ -188,7 +188,7 @@
 
     @include ma-button-reset;
     color: $c-primary-alt;
-    font-size: 3rem;
+    font-size: $fonts-5xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;

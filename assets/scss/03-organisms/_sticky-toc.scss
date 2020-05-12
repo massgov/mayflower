@@ -94,7 +94,7 @@
   &__toggle-link {
 
     @include ma-button-reset;
-    font-size: 2.5rem;
+    font-size: $fonts-3xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;

@@ -1,13 +1,13 @@
 @mixin ma-h1 {
-  font-size: 3rem;
+  font-size: $fonts-5xlarge;
   line-height: 1.07;
 
   @media ($bp-medium-min) {
-    font-size: 3.25rem;
+    font-size: $fonts-6xlarge;
   }
 
   @media ($bp-x-large-min) {
-    font-size: 3.5rem;
+    font-size: $fonts-7xlarge;
   }
 }
 
@@ -17,16 +17,16 @@
   margin-bottom: 1rem;
 
   @media ($bp-medium-min) {
-    font-size: 2.5rem;
+    font-size: $fonts-3xlarge;
   }
 
   @media ($bp-x-large-min) {
-    font-size: 2.75rem;
+    font-size: $fonts-4xlarge;
   }
 }
 
 @mixin ma-h3 {
-  font-size: 2rem;
+  font-size: $fonts-2xlarge;
   line-height: 1.2;
   margin-bottom: .75em;
 

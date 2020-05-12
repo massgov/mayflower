@@ -122,7 +122,7 @@ $collage-header-bp-min: "min-width: 701px";
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: $fonts-7xlarge;
       margin-bottom: 0;
 
       @media ($collage-header-bp-min) {
@@ -131,7 +131,7 @@ $collage-header-bp-min: "min-width: 701px";
       }
 
       @media ($bp-medium-min) {
-        font-size: 4rem;
+        font-size: $fonts-8xlarge;
         width: 550px;
       }
 
