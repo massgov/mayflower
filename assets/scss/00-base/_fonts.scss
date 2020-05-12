@@ -70,7 +70,7 @@ $assets-path: '..' !default;
   url("#{$assets-path}/fonts/texta-medium-webfont.woff2") format("woff2"),
   url("#{$assets-path}/fonts/texta-medium-webfont.woff") format("woff"),
   url("#{$assets-path}/fonts/texta-medium-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-medium-webfont.svg#open_sansregular") format("svg");
-  font-weight: fonts-normal;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -83,7 +83,7 @@ $assets-path: '..' !default;
   url("#{$assets-path}/fonts/texta-mediumitalic-webfont.woff2") format("woff2"),
   url("#{$assets-path}/fonts/texta-mediumitalic-webfont.woff") format("woff"),
   url("#{$assets-path}/fonts/texta-mediumitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-mediumitalic-webfont.svg#open_sansregular") format("svg");
-  font-weight: fonts-normal;
+  font-weight: 500;
   font-style: italic;
   font-display: fallback;
 }
@@ -97,7 +97,7 @@ $assets-path: '..' !default;
   url("#{$assets-path}/fonts/texta-bold-webfont.woff2") format("woff2"),
   url("#{$assets-path}/fonts/texta-bold-webfont.woff") format("woff"),
   url("#{$assets-path}/fonts/texta-bold-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bold-webfont.svg#open_sansregular") format("svg");
-  font-weight: fonts-bold;
+  font-weight: 700;
   font-style: normal;
   font-display: fallback;
 }
@@ -111,7 +111,7 @@ $assets-path: '..' !default;
   url("#{$assets-path}/fonts/texta-bolditalic-webfont.woff2") format("woff2"),
   url("#{$assets-path}/fonts/texta-bolditalic-webfont.woff") format("woff"),
   url("#{$assets-path}/fonts/texta-bolditalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-bolditalic-webfont.svg#open_sansregular") format("svg");
-  font-weight: fonts-bold;
+  font-weight: 700;
   font-style: italic;
   font-display: fallback;
 }
@@ -125,7 +125,7 @@ $assets-path: '..' !default;
   url("#{$assets-path}/fonts/texta-black-webfont.woff2") format("woff2"),
   url("#{$assets-path}/fonts/texta-black-webfont.woff") format("woff"),
   url("#{$assets-path}/fonts/texta-black-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-black-webfont.svg#open_sansregular") format("svg");
-  font-weight: fonts-bolder;
+  font-weight: 800;
   font-style: normal;
   font-display: fallback;
 }
@@ -139,7 +139,7 @@ $assets-path: '..' !default;
   url("#{$assets-path}/fonts/texta-blackitalic-webfont.woff2") format("woff2"),
   url("#{$assets-path}/fonts/texta-blackitalic-webfont.woff") format("woff"),
   url("#{$assets-path}/fonts/texta-blackitalic-webfont.ttf") format("truetype"), url("#{$assets-path}/fonts/texta-blackitalic-webfont.svg#open_sansregular") format("svg");
-  font-weight: fonts-bolder;
+  font-weight: 800;
   font-style: italic;
   font-display: fallback;
 }
