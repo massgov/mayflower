@@ -4,7 +4,7 @@
 
   &__label {
     display: block;
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
   }
 
   &--optional &__label {
