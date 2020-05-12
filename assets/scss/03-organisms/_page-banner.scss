@@ -315,7 +315,7 @@ $page-banner-height: 330px;
     }
 
     @media ($bp-x-large-min) {
-      font-size: 3.875rem;
+      font-size: $fonts-8xlarge;
     }
   }
 

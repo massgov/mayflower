@@ -136,7 +136,7 @@ $collage-header-bp-min: "min-width: 701px";
       }
 
       @media ($bp-large-min) {
-        font-size: 4.75rem;
+        font-size: $fonts-9xlarge;
         width: 620px;
       }
     }
@@ -152,7 +152,7 @@ $collage-header-bp-min: "min-width: 701px";
   @media ($collage-header-bp-min) {
 
     &__description {
-      font-size: 1.625rem;
+      font-size: $fonts-large;
     }
   }
 

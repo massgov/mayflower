@@ -34,7 +34,7 @@
     margin-bottom: 1.75em;
 
     @media ($bp-small-min) {
-      font-size: 1.625rem;
+      font-size: $fonts-large;
     }
   }
 }

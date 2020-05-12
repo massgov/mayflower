@@ -65,12 +65,12 @@
   }
 
   &__title {
-    font-size: 1.625rem;
+    font-size: $fonts-large;
     line-height: 1.2em;
     margin-bottom: .25em;
 
     .ma__decorative-link {
-      font-size: 1.625rem;
+      font-size: $fonts-large;
       line-height: 1.2;
     }
   }
