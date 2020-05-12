@@ -79,7 +79,7 @@
       border: 0;
       background-color: transparent;
       padding: 1rem 0;
-      font-weight: 700;
+      font-weight: fonts-bold;
       font-size: 1rem;
       color: $c-black;
 
@@ -186,7 +186,7 @@
 
     @media ($bp-large-max) {
       font-size: 1.375rem;
-      font-weight: 500;
+      font-weight: fonts-normal;
       color: $c-primary;
       margin-bottom: 0;
       padding-bottom: 1rem;
@@ -269,7 +269,7 @@
 
       @media ($bp-large-max) {
         font-size: 1.375rem;
-        font-weight: 500;
+        font-weight: fonts-normal;
       }
     }
 
@@ -285,7 +285,7 @@
 
       @media ($bp-large-min) {
         display: inline-block;
-        font-weight: 700;
+        font-weight: fonts-bold;
         background-color: $c-white;
         outline: 3px solid rgba($c-primary, 0.5);
         padding: 0.2rem 0.5rem;
@@ -319,7 +319,7 @@
 
           @media ($bp-large-max) {
             font-size: 1.375rem;
-            font-weight: 500;
+            font-weight: fonts-normal;
           }
 
           @media ($bp-large-min) {
@@ -467,7 +467,7 @@
     white-space: nowrap;
     display: inline-block;
     width: 100%;
-    font-weight: 700;
+    font-weight: fonts-bold;
   }
 
   .custom-option-item__label svg {

@@ -15,7 +15,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
 
   &__description {
     font-size: 1.25rem;
-    font-weight: 300;
+    font-weight: fonts-lighter;
     line-height: 1.5;
     margin-bottom: 15px;
     margin-right: 2%;
@@ -76,7 +76,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       margin: 0;
       text-align: left;
       color: $c-font-inverse;
-      font-weight: 500;
+      font-weight: fonts-normal;
 
       @media ($bp-header-toggle-min) and ($bp-utility-panel-reduce-links-max) {
         font-size: 1.25rem;

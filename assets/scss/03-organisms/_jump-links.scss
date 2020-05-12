@@ -236,7 +236,7 @@
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
     color: $c-white;
-    font-weight: 700;
+    font-weight: fonts-bold;
   }
 
   &__links {
@@ -267,12 +267,12 @@
     @media ($bp-small-max) {
 
       a {
-        font-weight: 500;
+        font-weight: fonts-normal;
       }
 
       &.is-active a {
         color: $c-font-base;
-        font-weight: 700;
+        font-weight: fonts-bold;
       }
 
       &.is-active:hover a {

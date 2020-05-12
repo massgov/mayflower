@@ -114,12 +114,12 @@
 
   &__eyebrow span {
     background-color: $c-bg-section;
-    font-weight: 700;
+    font-weight: fonts-bold;
   }
 
   &__emph-text {
     font-style: italic;
-    font-weight: 700;
+    font-weight: fonts-bold;
     border-left-color: $c-bd-divider;
   }
 }

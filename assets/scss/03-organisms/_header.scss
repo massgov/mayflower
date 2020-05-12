@@ -251,7 +251,7 @@ body {
       text-transform: uppercase;
       transition: left .5s, visibility .5s;
       z-index: $z-dropdown;
-      font-weight: 700;
+      font-weight: fonts-bold;
       color: $c-font-inverse;
 
       .translated-rtl &,
@@ -476,7 +476,7 @@ body {
   }
 
   &__menu-button {
-    font-weight: 700;
+    font-weight: fonts-bold;
     color: $c-font-inverse;
 
     span:first-child {
@@ -522,7 +522,7 @@ body {
   &__backto {
 
     a {
-      font-weight: 500;
+      font-weight: fonts-normal;
       background-color: tint($c-font-link, 90%);
       border-color: tint($c-font-link, 50%);
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);

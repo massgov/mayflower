@@ -53,7 +53,7 @@
     display: none;
     padding-top: 10px;
     font-size: 1.25rem;
-    font-weight: 400;
+    font-weight: fonts-light;
     color: rgba($c-font-link,1);
 
     @media ($bp-x-small-min) {
@@ -65,7 +65,7 @@
 
   &__eyebrow {
     background-color: $c-bg-section;
-    font-weight: 700;
+    font-weight: fonts-bold;
   }
 
   &__header {
@@ -94,7 +94,7 @@
     padding-top: 15px;
     display: flex;
     color: $c-font-base;
-    font-weight: 700;
+    font-weight: fonts-bold;
   }
 
   &--white {

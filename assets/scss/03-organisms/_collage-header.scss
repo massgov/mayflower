@@ -180,15 +180,15 @@ $collage-header-bp-max: "max-width: 700px";
 
     h1 {
       color: $c-font-inverse;
-      font-weight: 400;
+      font-weight: fonts-light;
     }
   }
 
   &__description {
-    font-weight: 300;
+    font-weight: fonts-lighter;
   }
 
   &__lead {
-    font-weight: 400;
+    font-weight: fonts-light;
   }
 }

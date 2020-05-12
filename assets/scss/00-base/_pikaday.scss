@@ -25,12 +25,12 @@
   background-color: $c-bg-section;
   color: $c-font-base;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: fonts-normal;
   text-align: center;
 
   .is-today & {
     color: $c-primary;
-    font-weight: 800;
+    font-weight: fonts-bolder;
 
     &:hover {
       color: $c-font-inverse;

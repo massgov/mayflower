@@ -80,7 +80,7 @@ $bp-illustrated-header-image-width: 360px;
 
   &__category {
     font-size: 1.375rem;
-    font-weight: 700;
+    font-weight: fonts-bold;
     color: $c-font-detail;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
@@ -145,7 +145,7 @@ $bp-illustrated-header-image-width: 360px;
   }
 
   &__category {
-    font-weight: 700;
+    font-weight: fonts-bold;
   }
 }
 
