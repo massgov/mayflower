@@ -16,7 +16,7 @@
 
   &--selected {
     color: $c-font-base;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
     pointer-events: none;
   }
 }

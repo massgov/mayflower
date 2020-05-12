@@ -79,8 +79,8 @@ $bp-illustrated-header-image-width: 360px;
   }
 
   &__category {
-    font-size: $fonts-medium;
-    font-weight: fonts-bold;
+    font-size: 1.375rem;
+    font-weight: $fonts-bold;
     color: $c-font-detail;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
@@ -145,7 +145,7 @@ $bp-illustrated-header-image-width: 360px;
   }
 
   &__category {
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 }
 

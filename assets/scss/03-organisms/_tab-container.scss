@@ -73,7 +73,7 @@
 
       button {
         padding-top: 1.5rem;
-        font-weight: fonts-bold;
+        font-weight: $fonts-bold;
         color: $c-primary;
 
         @extend %focus;

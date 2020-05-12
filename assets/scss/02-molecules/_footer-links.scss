@@ -57,7 +57,7 @@
 
   &__link {
     color: $c-font-base;
-    font-weight: fonts-normal;
+    font-weight: $fonts-normal;
 
     &:hover {
       border-bottom-color: rgba($c-font-dark,.5);

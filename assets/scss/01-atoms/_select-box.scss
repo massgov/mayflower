@@ -4,7 +4,7 @@
 
   &__label {
     display: block;
-    font-size: $fonts-medium;
+    font-size: 1.375rem;
   }
 
   &--optional &__label {
@@ -83,12 +83,12 @@
 .ma__select-box {
 
   &__label {
-    font-weight: fonts-normal;
+    font-weight: $fonts-normal;
   }
 
   &__select {
     color: $c-font-base;
-    font-weight: fonts-lighter;
+    font-weight: $fonts-lighter;
   }
 
   &__link {

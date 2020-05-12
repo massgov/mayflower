@@ -10,10 +10,10 @@
   }
 
   &__label {
-    font-size: $fonts-medium;
+    font-size: 1.375rem;
     line-height: 1rem;
     padding-left: 1.5em;
-    font-weight: fonts-light;
+    font-weight: $fonts-light;
 
     &:before {
       border: 2px solid;
@@ -144,7 +144,7 @@ $control-height: 1.2rem;
       height: 100%;
       border-radius: $border-radius * 8;
       z-index: -1; // so that background is behind everything
-      font-weight: fonts-bold; //fixed
+      font-weight: $fonts-bold; //fixed
       transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
       border: 1px solid
     }

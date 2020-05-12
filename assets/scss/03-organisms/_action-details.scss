@@ -159,7 +159,7 @@
 
     @include ma-heading-colored($c-primary-alt);
     color: $c-font-inverse;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__anchor-links {
@@ -176,11 +176,11 @@
     }
 
     a {
-      font-weight: fonts-normal;
+      font-weight: $fonts-normal;
 
       &.is-active {
         color: $c-font-base;
-        font-weight: fonts-bold;
+        font-weight: $fonts-bold;
       }
 
       &:hover {

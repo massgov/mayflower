@@ -21,14 +21,17 @@ $standard-spacing--xsmall:   24px;
 $standard-spacing--xxsmall:  12px;
 $standard-spacing--xxxsmall: 6px;
 
+//letter-spacing for Texta
+$letter-spacing-large:   .1em;
+$letter-spacing-medium:  .05em;
+$letter-spacing-small:   .02em;
+$letter-spacing-default: 0;
 
 // Close icon
 // The close icon is not an actual icon. It is the multiplication
 // symbol displayed in a pseudo element. To display properly,
 // the following string should be used in the CSS `content` setting.
 $close-icon: '\00d7';
-
-
 
 /* FONT */
 
@@ -39,11 +42,12 @@ $fonts-khmer: "Hanuman";
 
 
 // font weights
-$fonts-lighter: 300;
-$fonts-light:   400;
-$fonts-normal:  500;
-$fonts-bold:    700;
-$fonts-bolder:  800;
+$fonts-lightest: 100; // use only to style non text font weights, e.g. separator |
+$fonts-lighter:  300;
+$fonts-light:    400;
+$fonts-normal:   500;
+$fonts-bold:     700;
+$fonts-bolder:   800;
 
 //font sizes
 $fonts-2xsmall: 1rem;

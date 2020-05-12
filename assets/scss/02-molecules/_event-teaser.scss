@@ -140,22 +140,22 @@
   }
 
   &__month {
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__day {
     color: $c-primary-alt;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__location,
   &__time,
   &__date {
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__location {
     font-style: italic;
-    font-weight: fonts-normal;
+    font-weight: $fonts-normal;
   }
 }

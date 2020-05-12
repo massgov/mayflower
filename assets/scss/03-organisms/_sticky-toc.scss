@@ -184,7 +184,7 @@
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
     color: $c-white;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__links {
@@ -230,12 +230,12 @@
     @media ($bp-x-small-max) {
 
       a {
-        font-weight: fonts-normal;
+        font-weight: $fonts-normal;
       }
 
       &.is-active a {
         color: $c-font-base;
-        font-weight: fonts-bold;
+        font-weight: $fonts-bold;
       }
 
       &.is-active:hover a {
@@ -268,7 +268,7 @@
     button {
       position: relative;
       color: $c-primary;
-      font-weight: fonts-bold;
+      font-weight: $fonts-bold;
       background-color: transparent;
       border: none;
       padding: 3px 20px 1px;
@@ -372,7 +372,7 @@
         display: block;
         text-transform: uppercase;
         font-size: 0.75rem;
-        font-weight: fonts-bold;
+        font-weight: $fonts-bold;
         color: $c-primary;
         letter-spacing: $letter-spacing-large;
         margin-top: -4px;
@@ -395,7 +395,7 @@
 
 .ma__sticky-toc__secondary-label {
   font-size: 20px;
-  font-weight: fonts-bold;
+  font-weight: $fonts-bold;
   line-height: 1.2;
   padding: 10px 35px 10px 15px;
   border: 1px solid $c-bd-divider;
@@ -437,7 +437,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-weight: fonts-bold;
+  font-weight: $fonts-bold;
   color: $c-black;
   margin-bottom: 0;
   display: none;
@@ -477,8 +477,8 @@
     align-items: center;
     justify-content: space-between;
     border: 0;
-    font-size: $fonts-medium;
-    font-weight: fonts-normal;
+    font-size: 1.375rem;
+    font-weight: $fonts-normal;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
     color: $c-gray-dark;
@@ -508,8 +508,8 @@
     margin: 0 20px;
 
     a {
-      font-weight: fonts-bold;
-      font-size: $fonts-medium;
+      font-weight: $fonts-bold;
+      font-size: 1.375rem;
       display: flex;
 
       svg {

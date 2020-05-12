@@ -11,7 +11,7 @@
       @include ma-link-underline;
 
       @include ma-chevron;
-      font-size: $fonts-medium;
+      font-size: 1.375rem;
       padding-right: 10px;
 
       .less {
@@ -126,7 +126,7 @@
 
 .ma__featured-item-mosaic__toggle {
   color: $c-font-link;
-  font-weight: fonts-bold;
+  font-weight: $fonts-bold;
 
   &:after {
     border-color: $c-font-link;

@@ -100,8 +100,8 @@ $accordion-break: 720px;
             @include ma-link-underline;
 
             @include ma-chevron;
-            font-size: $fonts-medium;
-            font-weight: fonts-bold;
+            font-size: 1.375rem;
+            font-weight: $fonts-bold;
             color: $c-font-link;
             padding-right: 10px;
 

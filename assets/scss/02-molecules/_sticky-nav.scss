@@ -129,7 +129,7 @@
 
       a {
         color: $c-font-base;
-        font-weight: fonts-bold;
+        font-weight: $fonts-bold;
       }
 
       &:hover a {
@@ -149,7 +149,7 @@
     a {
 
       @include ma-link-underline;
-      font-weight: fonts-normal;
+      font-weight: $fonts-normal;
     }
   }
 

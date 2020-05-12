@@ -20,8 +20,8 @@ input {
   background-color: $c-white;
   border: 2px solid $c-bd-input;
   color: $c-font-base;
-  font-size: $fonts-medium;
-  font-weight: fonts-light;
+  font-size: 1.375rem;
+  font-weight: $fonts-light;
   max-width: 100%;
   min-height: 40px;
   padding: 0 18px;
@@ -38,8 +38,8 @@ optgroup,
 select,
 textarea {
   font-family: $fonts;
-  font-weight: fonts-light;
-  font-size: $fonts-medium;
+  font-weight: $fonts-light;
+  font-size: 1.375rem;
 }
 
 [type="radio"] {
@@ -67,8 +67,8 @@ input[type=number]::-webkit-outer-spin-button {
 textarea {
   background-color: $c-white;
   border: 2px solid $c-bd-input;
-  font-size: $fonts-medium;
-  font-weight: fonts-light;
+  font-size: 1.375rem;
+  font-weight: $fonts-light;
   max-width: 100%;
   min-height: 135px;
   padding: 18px;
@@ -93,7 +93,7 @@ label {
   display: block;
   margin-bottom: .25em;
   padding: 0;
-  font-weight: fonts-normal;
+  font-weight: $fonts-normal;
 }
 
 
@@ -105,8 +105,8 @@ fieldset {
 
 optgroup,
 select {
-  font-weight: fonts-light;
-  font-size: $fonts-medium;
+  font-weight: $fonts-light;
+  font-size: 1.375rem;
   max-width: 100%;
 }
 

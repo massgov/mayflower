@@ -72,12 +72,12 @@
   }
 
   &__title {
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__label {
     border-color: $c-bd-error;
     color: $c-font-error;
-    font-weight: fonts-light;
+    font-weight: $fonts-light;
   }
 }
