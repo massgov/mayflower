@@ -8,7 +8,7 @@
   a {
     transition: all 0.4s ease;
     text-decoration: none;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
     color: $c-primary;
   }
 
@@ -49,7 +49,7 @@
       width: 100%;
 
       & span {
-        font-weight: fonts-light;
+        font-weight: $fonts-light;
         color: $c-primary-alt;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: $c-primary-alt;

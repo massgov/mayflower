@@ -138,10 +138,10 @@
 
   &__copyright {
     color: $c-gray-dark;
-    font-weight: fonts-lighter;
+    font-weight: $fonts-lighter;
 
     &--date {
-      font-weight: fonts-normal;
+      font-weight: $fonts-normal;
     }
   }
 

@@ -9,7 +9,7 @@ $primarycolors: (
 button {
   cursor: pointer;
   font-family: $fonts;
-  font-weight: fonts-light;
+  font-weight: $fonts-light;
 }
 
 .ma__button {

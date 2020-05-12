@@ -104,7 +104,7 @@
 
   &__clear {
     color: $c-font-base;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
     border-bottom-color: $c-font-base;
   }
 }

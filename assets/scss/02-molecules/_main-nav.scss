@@ -310,7 +310,7 @@
   }
 
   &__top-link {
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
 
     .has-subnav & {
   // chevron
@@ -357,7 +357,7 @@
 
   &__link {
     color: $c-font-base;
-    font-weight: fonts-normal;
+    font-weight: $fonts-normal;
 
     &:hover,
     &:focus {
@@ -367,13 +367,13 @@
 
   &__subitem:first-child &__link {
     color: $c-font-base;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__subitem:last-child &__link {
     background-color: $c-bg-subtle;
     color: $c-font-link;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
 
     &:hover {
       background-color: $c-gray-light;

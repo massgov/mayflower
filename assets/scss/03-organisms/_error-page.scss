@@ -54,15 +54,15 @@
 
   &__type {
     color: $c-font-detail;
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__title {
-    font-weight: fonts-bold;
+    font-weight: $fonts-bold;
   }
 
   &__message {
     color: $c-font-base;
-    font-weight: fonts-lighter;
+    font-weight: $fonts-lighter;
   }
 }
