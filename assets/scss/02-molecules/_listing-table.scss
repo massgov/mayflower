@@ -39,7 +39,7 @@
   }
 
   td, th {
-    font-size: 16px;
+    font-size: $fonts-2xsmall;
     line-height: 1.5;
     padding: 10px 0;
     vertical-align: top;
@@ -64,7 +64,7 @@
   }
 
   td {
-    font-size: 20px;
+    font-size: $fonts-small;
   }
 
   &__data-item {
@@ -105,7 +105,7 @@
 
       &.ma__button-icon--expanded, &.ma__button-icon--quaternary-simple, &.ma__button-icon--quaternary-simple:hover {
         padding: 0px;
-        font-size: 19px;
+        font-size: $fonts-small;
         background-color: transparent
       }
     }
@@ -120,7 +120,7 @@
       @include ma-link-underline;
 
       @include ma-chevron;
-      font-size: 19px;
+      font-size: $fonts-small;
 
       &:after {
         opacity: .5;

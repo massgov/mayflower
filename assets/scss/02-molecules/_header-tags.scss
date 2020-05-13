@@ -1,5 +1,5 @@
 .ma__header-tags {
-  font-size: 16px;
+  font-size: $fonts-2xsmall;
   letter-spacing: $letter-spacing-large;
   text-transform: uppercase;
   max-width: $l-max-content-width;
@@ -27,7 +27,7 @@
     a {
       border: 2px solid;
       display: inline-block;
-      font-size: 17px;
+      font-size: $fonts-2xsmall;
       line-height: 1.3;
       margin-bottom: .5em;
       margin-right: .3em;
@@ -82,7 +82,7 @@
 
       @include ma-chevron;
       padding-left: 10px;
-      font-size: 19px;
+      font-size: $fonts-small;
       display: none;
 
       &:after {

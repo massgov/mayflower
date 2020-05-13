@@ -146,7 +146,7 @@
 
     @media ($bp-x-small-max) {
       display: none;
-      font-size: 20px;
+      font-size: $fonts-small;
       line-height: 1.2;
       padding: 10px 35px 10px 15px;
 
@@ -274,7 +274,7 @@
       padding: 3px 20px 1px;
       border-bottom: 3px solid transparent;
       transition: border 0.4s ease;
-      font-size: 19px;
+      font-size: $fonts-small;
 
       &::after {
         content: "";
@@ -394,7 +394,7 @@
 }
 
 .ma__sticky-toc__secondary-label {
-  font-size: 20px;
+  font-size: $fonts-small;
   font-weight: $fonts-bold;
   line-height: 1.2;
   padding: 10px 35px 10px 15px;

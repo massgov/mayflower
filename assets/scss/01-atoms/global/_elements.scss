@@ -25,10 +25,10 @@ html {
     font-family: $fonts-khmer, $fonts;
   }
 
-  font-size: $font-base-mobile;
+  font-size: $fonts-base-mobile;
 
   @media ($bp-small-min) {
-    font-size: $font-base;
+    font-size: $fonts-base;
   }
 }
 

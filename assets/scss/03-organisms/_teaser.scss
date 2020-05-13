@@ -37,12 +37,12 @@ $c-theme-green: #43956f;
 
   .ma__quality__wrapper {
     font-family: $fonts;
-    font-size: 19.2px;
+    font-size: $fonts-small;
     line-height: 23px;
   }
 
   .ma__address {
-    font-size: 18.2px;
+    font-size: $fonts-xsmall;
     line-height: 27px;
   }
 
@@ -118,7 +118,7 @@ $c-theme-green: #43956f;
 
   &__date,
   &__org {
-    font-size: 18px;
+    font-size: $fonts-xsmall;
     line-height: 1;
     margin-bottom: 1em;
     color: $c-font-dark;
@@ -191,7 +191,7 @@ $c-theme-green: #43956f;
     padding-right: 0.75em;
     flex: 1 40%;
     flex-grow: 2;
-    font-size: 18.2px;
+    font-size: $fonts-xsmall;
     line-height: 27px;
     margin-bottom: 10px;
 
@@ -228,7 +228,7 @@ $c-theme-green: #43956f;
     display: flex;
     flex-flow: row;
     align-items: center;
-    font-size: 18px;
+    font-size: $fonts-xsmall;
     line-height: 22px;
 
     .ma__decorative-link {
@@ -287,7 +287,7 @@ $c-theme-green: #43956f;
   }
 
   .ma__phone {
-    font-size: 18px;
+    font-size: $fonts-xsmall;
     line-height: 27px;
 
     a {

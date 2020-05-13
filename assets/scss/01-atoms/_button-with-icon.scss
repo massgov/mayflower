@@ -25,7 +25,7 @@ $quaternary-colors: (
   white-space: nowrap;
   color: $c-primary-alt;
   min-height: 46px;
-  font-size: 14px;
+  font-size: $fonts-3xsmall;
 
   @each $class, $c in $colors {
     &--#{$class} {
@@ -57,7 +57,7 @@ $quaternary-colors: (
   &--capitalized {
     text-transform: capitalize;
     letter-spacing: $letter-spacing-small;
-    font-size: 16px;
+    font-size: $fonts-2xsmall;
   }
 
   &--expanded {
@@ -199,7 +199,7 @@ $quaternary-colors: (
   }
 
   &--alert {
-    font-size: 16px;
+    font-size: $fonts-2xsmall;
     font-weight: $fonts-bold;
     letter-spacing: $letter-spacing-large;
     line-height: 1;
