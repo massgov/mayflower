@@ -118,13 +118,13 @@
     @media ($bp-x-small-max) {
       align-self: flex-start;
       cursor: pointer;
-      font-size: 1.25rem;
+      font-size: 1.25em;
       padding-right: 1em;
 
       &:after {
         content: "+";
         display: block;
-        font-size: 1.5rem;
+        font-size: 1.5em;
         line-height: .75em;
         position: absolute;
           top: 15px;
