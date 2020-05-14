@@ -1,4 +1,5 @@
 @mixin ma-accordion-icon() {
+
     &:after {
         content: "+";
         color: $c-primary-alt;
@@ -12,7 +13,9 @@
         transition: transform .5s ease;
         transform-origin: center center;
     }
+
     .is-open & {
+
         &:after {
             transform: rotate(135deg);
         }

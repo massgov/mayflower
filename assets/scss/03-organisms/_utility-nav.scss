@@ -10,7 +10,8 @@
 
     @include ma-reset-list;
 
-    @media ($bp-header-toggle-min){
+    @media ($bp-header-toggle-min) {
+
       @include ma-valign-block;
       height:43px;
       text-align: right;
@@ -87,8 +88,9 @@
     border: 0;
 
     @media ($bp-header-toggle-max) {
+
       @include ma-chevron;
-      padding: 11px 20px 9px 45px;
+
       width: 100%;
       text-align: left;
       font-size: 1.25rem;
@@ -98,10 +100,8 @@
       padding: 15px 20px 15px 45px;
       text-transform: uppercase;
       transition: all 0.4s ease;
-      text-align: left;
-      width: 100%;
       border-bottom: 2px solid $c-gray-light;
-      
+
       &::after {
         display: none;
       }
@@ -141,9 +141,11 @@
     }
 
     .toggle-indicator {
+
       @include ma-accordion-icon;
-    
+
       .submenu-open & {
+
         &::after {
           transform: rotate(135deg);
         }
@@ -280,7 +282,7 @@
       }
     }
 
-    
+
 
     .ma__rich-text {
       max-width: 720px;
@@ -369,7 +371,7 @@
 
   &__content-title {
     display: none;
-    
+
     h2 {
       display: inline-block;
       vertical-align: middle;

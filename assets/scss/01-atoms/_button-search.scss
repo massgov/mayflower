@@ -70,10 +70,11 @@
 .ma__header__search-bar {
 
   @media ($bp-small-max) {
+
     .ma__button-search__label {
       display: none !important;
     }
-  
+
     .ma__button-search--secondary {
       background-color: transparent;
       border-color: transparent !important;
@@ -83,7 +84,7 @@
       height: 25px !important;
       min-height: 20px !important;
     }
-  
+
     svg {
       fill: $c-white;
     }

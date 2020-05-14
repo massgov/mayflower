@@ -51,12 +51,12 @@
             flex-flow: row nowrap;
         }
 
-        @media($bp-large-min) {
-          padding: 1px 5px;
+        @media ($bp-large-min) {
+            padding: 1px 5px;
         }
 
-        @media($bp-large-min) {
-          padding-top: 15px;
+        @media ($bp-large-min) {
+            padding-top: 15px;
         }
 
         &:first-child {
@@ -64,7 +64,6 @@
         }
 
         &.primary {
-        
             @media ($bp-medium-min) {
                 padding-right: 1.5rem;
             }
@@ -86,11 +85,11 @@
                     flex-direction: initial;
                 }
             }
-        
+
             // Only hide tags if secondary tags present.
 
             &:not(.single) .ma__relationship-indicators--term {
-              
+
               &:nth-child(n+2) {
                 display: none;
               }
@@ -155,7 +154,7 @@
 
         a {
           width: 100%;
-      
+
           @media ($bp-x-small-min) {
            width: auto;
           }
@@ -176,11 +175,11 @@
             font-weight: 600;
             white-space: nowrap;
             display: none;
-            
+
             .tag-state {
                 text-transform: none;
             }
-            
+
             &:after {
                 opacity: 0.5;
                 border-width: 3px;
@@ -188,7 +187,7 @@
                 width: 8px;
                 transform: translateY(-45%) rotate(45deg);
             }
-            
+
             &.is-open::after {
                 transform: translateY(-55%) rotate(-135deg);
             }
