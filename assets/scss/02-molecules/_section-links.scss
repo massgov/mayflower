@@ -118,6 +118,7 @@
     @media ($bp-x-small-max) {
       align-self: flex-start;
       cursor: pointer;
+      font-size: $fonts-xlarge;
       padding-right: 1em;
 
       &:after {
