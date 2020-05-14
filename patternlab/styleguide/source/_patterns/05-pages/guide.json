@@ -1,67 +1,63 @@
 {
   "urlPath": "/?p=pages-ACTION-get-a-state-park-pass",
+
   "floatingAction": null,
+
   "backToTopButton": true,
+
   "ajaxEmergencyAlerts": {
-    "endpoint": "../../assets/data/ajax-alerts.json",
-    "renderPattern": "@organisms/by-template/emergency-alerts.twig",
+    "endpoint":"../../assets/data/ajax-alerts.json",
+    "renderPattern":"@organisms/by-template/emergency-alerts.twig",
     "customSelector": "js-ajax-pattern-override"
   },
-  "COMMENT": "****PRECONTENT COMPONENTS****",
+
+  "COMMENT":"****PRECONTENT COMPONENTS****",
+
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
-      "label": "part of",
-      "tags": [
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Department of Conservation and Recreation"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Other agency or organization"
-        }
-      ]
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Department of Conservation and Recreation"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Other agency or organization"
+      }]
     },
     "secondary": {
       "position": "",
       "label": "related to",
-      "tags": [
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Snowmobile in the Parks"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Cross-Country Skiing"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Accessible Hiking"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Scenic Viewing Areas"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Hunting"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Biking"
-        }
-      ]
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
+      }]
     }
   },
+
   "illustratedHeader": {
     "bgTitle": "Forest of the Berkshires",
     "bgImage": "../../assets/images/placeholder/800x450.png",
@@ -71,496 +67,523 @@
       "title": "Moving to Massachusetts: Planning Your Move",
       "subTitle": "",
       "headerTags": null,
-      "optionalContents": [
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "atoms-paragraph",
-                  "data": {
-                    "paragraph": {
-                      "text": "The Commonwealth of Massachusetts welcomes new residents to enjoy all the state has to offer. To help make your move to the Bay State as smooth as possible, this guide provides instructions for changing your license, tips for settling in, and other useful information."
-                    }
-                  }
+      "optionalContents": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "atoms-paragraph",
+              "data": {
+                "paragraph" : {
+                  "text": "The Commonwealth of Massachusetts welcomes new residents to enjoy all the state has to offer. To help make your move to the Bay State as smooth as possible, this guide provides instructions for changing your license, tips for settling in, and other useful information."
                 }
-              ]
-            }
+              }
+            }]
           }
         }
-      ],
+      }],
       "widgets": null
     }
   },
+
   "stickyTOC": {
     "title": "Table of Contents",
     "parent": "#main-content",
     "sections": ".ma__stacked-row__title h2"
   },
-  "COMMENT": "****PAGE CONTENT COMPONENTS****",
-  "stackedRows": [
-    {
-      "title": "Buying or Renting a Home",
-      "id": "buying-or-renting-a-home",
-      "pageContent": [
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "If you are renting a home or an apartment, the Office of Consumer Affairs & Business Regulation (OCABR) emphasizes the importance of knowing <a href=\"#\">your tenant rights and responsibilities</a>, such as:"
-                    }
-                  }
-                },
-                {
-                  "path": "@atoms/08-lists/unordered-list.twig",
-                  "data": {
-                    "unorderedList": [
-                      {
-                        "text": "Protection from unlawful discrimination"
-                      },
-                      {
-                        "text": "Rental agreements for leases and tenancy-at-will"
-                      },
-                      {
-                        "text": "Rent withholding and deductions for repairs"
-                      },
-                      {
-                        "text": "Lease termination, eviction, and moving out"
-                      }
-                    ]
-                  }
-                },
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "If you will be buying a home in Massachusetts, make sure you consider all the steps you will need to take, whether or not you’re a <a href=\"#\">first-time home buyer</a>."
-                    }
-                  }
-                }
-              ]
+
+  "COMMENT":"****PAGE CONTENT COMPONENTS****",
+
+  "stackedRows": [{
+    "title":"Buying or Renting a Home",
+    "id":"buying-or-renting-a-home",
+    "pageContent": [{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "If you are renting a home or an apartment, the Office of Consumer Affairs & Business Regulation (OCABR) emphasizes the importance of knowing <a href=\"#\">your tenant rights and responsibilities</a>, such as:"
+              }
             }
-          }
+          },{
+            "path": "@atoms/08-lists/unordered-list.twig",
+            "data": {
+              "unorderedList": [{
+                "text": "Protection from unlawful discrimination"
+              },{
+                "text": "Rental agreements for leases and tenancy-at-will"
+              },{
+                "text": "Rent withholding and deductions for repairs"
+              },{
+                "text": "Lease termination, eviction, and moving out"
+              }]
+            }
+          },{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "If you will be buying a home in Massachusetts, make sure you consider all the steps you will need to take, whether or not you’re a <a href=\"#\">first-time home buyer</a>."
+              }
+            }
+          }]
         }
-      ],
-      "sideBar": [
-        {
-          "path": "@organisms/by-author/contact-list.twig",
-          "data": {
-            "contactList": {
-              "viewSpecific": false,
-              "sidebarHeading": {
-                "title": "Key Agencies",
-                "titleContext": "for Buying or Renting a Home",
-                "level": 3
+      }
+    }],
+
+    "sideBar": [{
+      "path": "@organisms/by-author/contact-list.twig",
+      "data": {
+        "contactList": {
+          "viewSpecific": false,
+          "sidebarHeading": {
+            "title": "Key Agencies",
+            "titleContext": "for Buying or Renting a Home",
+            "level": 3
+          },
+          "contacts": [{
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": {
+              "href":"#",
+              "text": "Office of Consumer Affairs & Business Regulation (OCABR)",
+              "chevron":""
+            },
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": "",
+                  "property": ""
+                },
+                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "email",
+                "label":"Email:",
+                "link": {
+                  "href": "email@email.com",
+                  "text": "email@email.com",
+                  "info": "",
+                  "property": ""
+                },
+                "details":""
+              }]
+            }]
+          }]
+        }
+      }
+    }]
+  },{
+    "title": "Bringing Leased Vehicles to MA",
+    "id": "bringing-leased-vehicles-to-ma",
+    "pageContent": [{
+      "path": "@molecules/callout-stats.twig",
+      "data": {
+        "statsCallout": {
+          "pull": "right",
+          "stat": "$75+",
+          "content": "this includes a title and registration fee"
+        }
+      }
+    },{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "In general, leased vehicles must be registered and titled in Massachusetts. However, there are exceptions, so check with the RMV to determine what steps you need to take. If the leased vehicle needs to be titled in Massachusetts, the leasee must bring the Form RMV-1, the current out-of-state title, a $75 title fee, and <a href=\"#\">registration fee</a> to an <a href=\"#\">RMV branch office</a>."
+              }
+            }
+          }]
+        }
+      }
+    },{
+      "path":"@organisms/by-author/form-downloads.twig",
+      "data":{
+        "formDownloads": {
+          "compHeading": {
+            "title": "Forms",
+            "sub": true,
+            "titleContext": "for Bringing Leased Vehicles to MA "
+          },
+          "downloadLinks": [{
+            "downloadLink": {
+              "iconSize": "",
+              "icon": "doc-pdf",
+              "decorativeLink": {
+                "text": "RMV-1 Form",
+                "href": "#",
+                "info": "",
+                "property": ""
               },
-              "contacts": [
-                {
-                  "accordion": false,
-                  "isExpanded": false,
-                  "subTitle": {
-                    "href": "#",
-                    "text": "Office of Consumer Affairs & Business Regulation (OCABR)",
-                    "chevron": ""
-                  },
-                  "groups": [
-                    {
-                      "icon": "phone",
-                      "name": "Phone",
-                      "items": [
-                        {
-                          "type": "phone",
-                          "label": "Main:",
-                          "link": {
-                            "href": "+14134994262",
-                            "text": "(413) 499-4262",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
-                        }
-                      ]
-                    },
-                    {
-                      "icon": "laptop",
-                      "name": "Online",
-                      "items": [
-                        {
-                          "type": "email",
-                          "label": "Email:",
-                          "link": {
-                            "href": "email@email.com",
-                            "text": "email@email.com",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": ""
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+              "size": "259KB",
+              "format": "PDF"
             }
-          }
+          }]
         }
-      ]
-    },
-    {
-      "title": "Bringing Leased Vehicles to MA",
-      "id": "bringing-leased-vehicles-to-ma",
-      "pageContent": [
-        {
-          "path": "@molecules/callout-stats.twig",
-          "data": {
-            "statsCallout": {
-              "pull": "right",
-              "stat": "$75+",
-              "content": "this includes a title and registration fee"
-            }
-          }
-        },
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "In general, leased vehicles must be registered and titled in Massachusetts. However, there are exceptions, so check with the RMV to determine what steps you need to take. If the leased vehicle needs to be titled in Massachusetts, the leasee must bring the Form RMV-1, the current out-of-state title, a $75 title fee, and <a href=\"#\">registration fee</a> to an <a href=\"#\">RMV branch office</a>."
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        },
-        {
-          "path": "@organisms/by-author/form-downloads.twig",
-          "data": {
-            "formDownloads": {
-              "compHeading": {
-                "title": "Forms",
-                "sub": true,
-                "titleContext": "for Bringing Leased Vehicles to MA "
-              },
-              "downloadLinks": [
-                {
-                  "downloadLink": {
-                    "iconSize": "",
-                    "icon": "doc-pdf",
-                    "decorativeLink": {
-                      "text": "RMV-1 Form",
-                      "href": "#",
-                      "info": "",
-                      "property": ""
-                    },
-                    "size": "259KB",
-                    "format": "PDF"
-                  }
-                }
-              ]
-            }
-          }
+      }
+    }],
+
+    "sideBar": [{
+      "path": "@organisms/by-author/contact-list.twig",
+      "data": {
+        "contactList": {
+          "viewSpecific": false,
+          "sidebarHeading": {
+            "title": "Key Agencies",
+            "titleContext": "for Bringing Leased Vehicles to MA",
+            "level": 3
+          },
+          "contacts": [{
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": {
+              "href":"#",
+              "text": "Massachusetts Registry of Motor Vehicles (RMV)",
+              "chevron":""
+            },
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": "",
+                  "property": ""
+                },
+                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "online",
+                "label":"",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
+                },
+                "details":""
+              }]
+            }]
+          }]
         }
-      ],
-      "sideBar": [
-        {
-          "path": "@organisms/by-author/contact-list.twig",
-          "data": {
-            "contactList": {
-              "viewSpecific": false,
-              "sidebarHeading": {
-                "title": "Key Agencies",
-                "titleContext": "for Bringing Leased Vehicles to MA",
-                "level": 3
-              },
-              "contacts": [
-                {
-                  "accordion": false,
-                  "isExpanded": false,
-                  "subTitle": {
-                    "href": "#",
-                    "text": "Massachusetts Registry of Motor Vehicles (RMV)",
-                    "chevron": ""
-                  },
-                  "groups": [
-                    {
-                      "icon": "phone",
-                      "name": "Phone",
-                      "items": [
-                        {
-                          "type": "phone",
-                          "label": "Main:",
-                          "link": {
-                            "href": "+14134994262",
-                            "text": "(413) 499-4262",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
-                        }
-                      ]
-                    },
-                    {
-                      "icon": "laptop",
-                      "name": "Online",
-                      "items": [
-                        {
-                          "type": "online",
-                          "label": "",
-                          "link": {
-                            "href": "#",
-                            "text": "Contact Form",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": ""
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+      }
+    }]
+  },{
+    "title": "Moving Day",
+    "id": "moving-day",
+    "pageContent": [{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph": {
+                "text": "Follow these tips to ease your move on the big day:"
+              }
             }
-          }
+          },{
+            "path": "@atoms/04-headings/heading-3.twig",
+            "data": {
+              "heading3": {
+                "text": "Choose a Reputable Mover"
+              }
+            }
+          },{
+            "path": "@atoms/06-rich-text/icon-list.twig",
+            "data": {
+              "iconList": [{
+                "text": "The <a href=\"#\">Executive Office of Energy and Environmental Affairs (EEA)</a> recommends <a href=\"#\">selecting a reputable mover</a>."
+              },{
+                "text": "Make sure that any in-state moving company you use is properly licensed with the <a href=\"http://www.mass.gov\">Massachusetts Department of Public Utilities (DPU)</a>."
+              },{
+                "text": "Follow the <a href=\"#\">Federal Motor Carrier Safety Administration (FMCSA)</a> guidelines to protect yourself from moving fraud."
+              }]
+            }
+          },{
+            "path": "@atoms/04-headings/heading-3.twig",
+            "data": {
+              "heading3": {
+                "text": "Observe Parking Restrictions"
+              }
+            }
+          },{
+            "path": "@atoms/06-rich-text/icon-list.twig",
+            "data": {
+              "iconList": [{
+                "text": "Research <a href=\"#\">parking restrictions</a> before moving to find out where you are allowed to unload vehicles."
+              },{
+                "text": "<a href=\"http://www.mass.gov\">Contact your city or town</a> for information on obtaining a moving permit, or talk to your landlord or property owner."
+              }]
+            }
+          }]
         }
-      ]
-    },
-    {
-      "title": "Moving Day",
-      "id": "moving-day",
-      "pageContent": [
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "Follow these tips to ease your move on the big day:"
-                    }
-                  }
+      }
+    }],
+
+    "sideBar": [{
+      "path": "@organisms/by-author/contact-list.twig",
+      "data": {
+        "contactList": {
+          "viewSpecific": false,
+          "sidebarHeading": {
+            "title": "Key Agencies",
+            "titleContext": "for Moving Day",
+            "level": 3
+          },
+          "contacts": [{
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": {
+              "href":"#",
+              "text": "Executive Office of Energy and Environmental Affairs (EEA)",
+              "chevron":""
+            },
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+16176251250",
+                  "text": "(617) 625-1250",
+                  "info": "",
+                  "property": ""
                 },
-                {
-                  "path": "@atoms/04-headings/heading-3.twig",
-                  "data": {
-                    "heading3": {
-                      "text": "Choose a Reputable Mover"
-                    }
-                  }
+                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "online",
+                "label":"",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
                 },
-                {
-                  "path": "@atoms/06-rich-text/icon-list.twig",
-                  "data": {
-                    "iconList": [
-                      {
-                        "text": "The <a href=\"#\">Executive Office of Energy and Environmental Affairs (EEA)</a> recommends <a href=\"#\">selecting a reputable mover</a>."
-                      },
-                      {
-                        "text": "Make sure that any in-state moving company you use is properly licensed with the <a href=\"http://www.mass.gov\">Massachusetts Department of Public Utilities (DPU)</a>."
-                      },
-                      {
-                        "text": "Follow the <a href=\"#\">Federal Motor Carrier Safety Administration (FMCSA)</a> guidelines to protect yourself from moving fraud."
-                      }
-                    ]
-                  }
+                "details":""
+              }]
+            }]
+          },{
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": {
+              "href":"#",
+              "text": "Massachusetts Department of Public Utilities (DPU)",
+              "chevron":""
+            },
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+16176251250",
+                  "text": "(617) 625-1250",
+                  "info": "",
+                  "property": ""
                 },
-                {
-                  "path": "@atoms/04-headings/heading-3.twig",
-                  "data": {
-                    "heading3": {
-                      "text": "Observe Parking Restrictions"
-                    }
-                  }
+                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "online",
+                "label":"",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
                 },
-                {
-                  "path": "@atoms/06-rich-text/icon-list.twig",
-                  "data": {
-                    "iconList": [
-                      {
-                        "text": "Research <a href=\"#\">parking restrictions</a> before moving to find out where you are allowed to unload vehicles."
-                      },
-                      {
-                        "text": "<a href=\"http://www.mass.gov\">Contact your city or town</a> for information on obtaining a moving permit, or talk to your landlord or property owner."
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          }
+                "details":""
+              }]
+            }]
+          }]
         }
-      ],
-      "sideBar": [
-        {
-          "path": "@organisms/by-author/contact-list.twig",
-          "data": {
-            "contactList": {
-              "viewSpecific": false,
-              "sidebarHeading": {
-                "title": "Key Agencies",
-                "titleContext": "for Moving Day",
-                "level": 3
-              },
-              "contacts": [
-                {
-                  "accordion": false,
-                  "isExpanded": false,
-                  "subTitle": {
-                    "href": "#",
-                    "text": "Executive Office of Energy and Environmental Affairs (EEA)",
-                    "chevron": ""
-                  },
-                  "groups": [
-                    {
-                      "icon": "phone",
-                      "name": "Phone",
-                      "items": [
-                        {
-                          "type": "phone",
-                          "label": "Main:",
-                          "link": {
-                            "href": "+16176251250",
-                            "text": "(617) 625-1250",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
-                        }
-                      ]
-                    },
-                    {
-                      "icon": "laptop",
-                      "name": "Online",
-                      "items": [
-                        {
-                          "type": "online",
-                          "label": "",
-                          "link": {
-                            "href": "#",
-                            "text": "Contact Form",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": ""
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "accordion": false,
-                  "isExpanded": false,
-                  "subTitle": {
-                    "href": "#",
-                    "text": "Massachusetts Department of Public Utilities (DPU)",
-                    "chevron": ""
-                  },
-                  "groups": [
-                    {
-                      "icon": "phone",
-                      "name": "Phone",
-                      "items": [
-                        {
-                          "type": "phone",
-                          "label": "Main:",
-                          "link": {
-                            "href": "+16176251250",
-                            "text": "(617) 625-1250",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
-                        }
-                      ]
-                    },
-                    {
-                      "icon": "laptop",
-                      "name": "Online",
-                      "items": [
-                        {
-                          "type": "online",
-                          "label": "",
-                          "link": {
-                            "href": "#",
-                            "text": "Contact Form",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": ""
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
+      }
+    }]
+  },{
+    "title": "Moving with Pets",
+    "id": "moving-with-pets",
+    "pageContent": [{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph": {
+                "text": "Be aware of any regulations that may affect moving with a pet, and keep these guidelines in mind as you plan your move:"
+              }
             }
-          }
+          },{
+            "path": "@atoms/06-rich-text/icon-list.twig",
+            "data": {
+              "iconList": [{
+                "text": "<a href=\"#\">Contact your town or city</a> for information on local protocols, such as pet licensing. <a href=\"http://www.mass.gov\">Dog licenses are required by state law</a>."
+              },{
+                "text": "<a href=\"#\">Observe Centers for Disease Control and Prevention (CDC)</a> restrictions when <a href=\"http://www.mass.gov\">moving pets to the United States from a different country</a>."
+              },{
+                "text": "Make sure your pet is comfortable during the move, and that you use the right size kennel or crate."
+              },{
+                "text": "Ensure your pet’s vaccines are up to date. <a href=\"#\">Dogs, cats, and ferrets must be vaccinated against rabies in Massachusetts.</a>"
+              },{
+                "text": "Dogs should have secure identification tags or a microchip installed - <a href=\"http://www.mass.gov\">contact a local veterinarian’s office for more information</a>."
+              }]
+            }
+          }]
         }
-      ]
-    },
-    {
-      "title": "Moving with Pets",
-      "id": "moving-with-pets",
-      "pageContent": [
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "Be aware of any regulations that may affect moving with a pet, and keep these guidelines in mind as you plan your move:"
-                    }
-                  }
-                },
-                {
-                  "path": "@atoms/06-rich-text/icon-list.twig",
-                  "data": {
-                    "iconList": [
-                      {
-                        "text": "<a href=\"#\">Contact your town or city</a> for information on local protocols, such as pet licensing. <a href=\"http://www.mass.gov\">Dog licenses are required by state law</a>."
-                      },
-                      {
-                        "text": "<a href=\"#\">Observe Centers for Disease Control and Prevention (CDC)</a> restrictions when <a href=\"http://www.mass.gov\">moving pets to the United States from a different country</a>."
-                      },
-                      {
-                        "text": "Make sure your pet is comfortable during the move, and that you use the right size kennel or crate."
-                      },
-                      {
-                        "text": "Ensure your pet’s vaccines are up to date. <a href=\"#\">Dogs, cats, and ferrets must be vaccinated against rabies in Massachusetts.</a>"
-                      },
-                      {
-                        "text": "Dogs should have secure identification tags or a microchip installed - <a href=\"http://www.mass.gov\">contact a local veterinarian’s office for more information</a>."
-                      }
-                    ]
-                  }
-                }
-              ]
+      }
+    },{
+      "path":"@organisms/by-author/callout-alert.twig",
+      "data":{
+        "calloutAlert": {
+          "href": "",
+          "text": "Massachusetts requires you to license your dog"
+        }
+      }
+    }],
+
+    "sideBar": null
+  },{
+    "title": "Another Section Name",
+    "id": "another-section-name1",
+    "pageContent": [{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
+              }
             }
-<<<<<<< HEAD
-          }
-        },
-        {
-          "path": "@organisms/by-author/callout-alert.twig",
-          "data": {
-            "calloutAlert": {
-              "href": "",
-              "text": "Massachusetts requires you to license your dog"
-=======
+          }]
+        }
+      }
+    },{
+      "path":"@organisms/by-author/key-actions.twig",
+      "data":{
+        "keyActions": {
+          "compHeading": {
+            "title": "Key Actions",
+            "titleContext": "for Another Section Name",
+            "level": 3
+          },
+          "links":[{
+            "text": "Related Action to important Page Name",
+            "type": "",
+            "href": "#"
+          },{
+            "text": "Related Action this Page Name",
+            "type": "",
+            "href": "#"
+          },{
+            "text": "Exciting Action Page Name",
+            "type": "",
+            "href": "#"
+          },{
+            "text": "Related Action Page Name",
+            "type": "",
+            "href": "#"
+          }]
+        }
+      }
+    }],
+
+    "sideBar": [{
+      "path": "@organisms/by-author/contact-list.twig",
+      "data": {
+        "contactList": {
+          "viewSpecific": false,
+          "sidebarHeading": {
+            "title": "Key Agencies",
+            "titleContext": "for Another Section Name",
+            "level": 3
+          },
+          "contacts": [{
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": {
+              "href":"#",
+              "text": "Massachusetts Registry of Motor Vehicles (RMV)",
+              "chevron":""
+            },
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+16176251250",
+                  "text": "(617) 625-1250",
+                  "info": "",
+                  "property": ""
+                },
+                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "online",
+                "label":"",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
+                },
+                "details":""
+              }]
+            }]
+          }]
+        }
+      }
+    }]
+  },{
+    "title": "Another Section Name",
+    "id": "another-section-name2",
+    "pageContent": [{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing</a> elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
+              }
+            }
           },{
             "path": "@atoms/09-media/figure--image.twig",
             "data": {
@@ -575,150 +598,85 @@
                 },
                 "caption": ""
               }
->>>>>>> develop
             }
-          }
+          }]
         }
-      ],
-      "sideBar": null
-    },
-    {
-      "title": "Another Section Name",
-      "id": "another-section-name1",
-      "pageContent": [
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        },
-        {
-          "path": "@organisms/by-author/key-actions.twig",
-          "data": {
-            "keyActions": {
-              "compHeading": {
-                "title": "Key Actions",
-                "titleContext": "for Another Section Name",
-                "level": 3
-              },
-              "links": [
-                {
-                  "text": "Related Action to important Page Name",
-                  "type": "",
-                  "href": "#"
+      }
+    }],
+
+    "sideBar": [{
+      "path": "@organisms/by-author/contact-list.twig",
+      "data": {
+        "contactList": {
+          "viewSpecific": false,
+          "sidebarHeading": {
+            "title": "Key Agencies",
+            "titleContext": "for Another Section Name",
+            "level": 3
+          },
+          "contacts": [{
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": {
+              "href":"#",
+              "text": "Massachusetts Registry of Motor Vehicles (RMV)",
+              "chevron":""
+            },
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+16176251250",
+                  "text": "(617) 625-1250",
+                  "info": "",
+                  "property": ""
                 },
-                {
-                  "text": "Related Action this Page Name",
-                  "type": "",
-                  "href": "#"
+                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "online",
+                "label":"",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
                 },
-                {
-                  "text": "Exciting Action Page Name",
-                  "type": "",
-                  "href": "#"
-                },
-                {
-                  "text": "Related Action Page Name",
-                  "type": "",
-                  "href": "#"
-                }
-              ]
-            }
-          }
+                "details":""
+              }]
+            }]
+          }]
         }
-      ],
-      "sideBar": [
-        {
-          "path": "@organisms/by-author/contact-list.twig",
-          "data": {
-            "contactList": {
-              "viewSpecific": false,
-              "sidebarHeading": {
-                "title": "Key Agencies",
-                "titleContext": "for Another Section Name",
-                "level": 3
-              },
-              "contacts": [
-                {
-                  "accordion": false,
-                  "isExpanded": false,
-                  "subTitle": {
-                    "href": "#",
-                    "text": "Massachusetts Registry of Motor Vehicles (RMV)",
-                    "chevron": ""
-                  },
-                  "groups": [
-                    {
-                      "icon": "phone",
-                      "name": "Phone",
-                      "items": [
-                        {
-                          "type": "phone",
-                          "label": "Main:",
-                          "link": {
-                            "href": "+16176251250",
-                            "text": "(617) 625-1250",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
-                        }
-                      ]
-                    },
-                    {
-                      "icon": "laptop",
-                      "name": "Online",
-                      "items": [
-                        {
-                          "type": "online",
-                          "label": "",
-                          "link": {
-                            "href": "#",
-                            "text": "Contact Form",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": ""
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-<<<<<<< HEAD
-          }
+      }
+    }]
+  },{
+    "title": "Converting Your Out-of-Country Driver’s License",
+    "id": "converting-your-out-of-country-drivers-license",
+    "pageContent": [{
+      "path": "@organisms/by-author/callout-time.twig",
+      "data": {
+        "calloutTime": {
+          "icon": "wait-time",
+          "text": "This usually takes approximately 4 weeks"
         }
-      ]
-    },
-    {
-      "title": "Another Section Name",
-      "id": "another-section-name2",
-      "pageContent": [
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing</a> elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
-                    }
-                  }
-=======
+      }
+    },{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "If you are <a href=\"#\">converting a license from a foreign country</a>, you must take the full driver’s test, which includes the written, road, and vision exams, and present identification documents similar to those outlined in the previous section. You may also need a sponsor depending on the country that issued your license. However, if you are a foreign visitor with a valid license from one of the <a href=\"#\">countries or territories approved by the RMV</a>, you may legally drive in Massachusetts for up to one year. The year begins on the date of your arrival, and you must be at least 18 years old and drive only the vehicle type covered by your license."
+              }
+            }
           },{
             "path": "@atoms/09-media/figure--image.twig",
             "data": {
@@ -729,407 +687,242 @@
                   "src": "../../assets/images/placeholder/400x300.png",
                   "height": "",
                   "width": ""
->>>>>>> develop
                 },
-                {
-                  "path": "@atoms/09-media/figure.twig",
-                  "data": {
-                    "figure": {
-                      "align": "",
-                      "image": {
-                        "alt": "alt text",
-                        "src": "../../assets/images/placeholder/800x400.png",
-                        "height": "",
-                        "width": ""
-                      },
-                      "caption": ""
-                    }
-                  }
-                }
-              ]
+                "caption": ""
+              }
             }
-          }
+          },{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "You may be eligible to convert your out-of-state license into a Massachusetts one if you currently carry a <a href=\"#\">valid license from a U.S. territory, Canada, or Mexico</a>. The license must meet the RMV’s identification requirements."
+              }
+            }
+          },{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "International driving permits cannot be converted to a Massachusetts driver’s license, and do not give you any driving privileges."
+              }
+            }
+          }]
         }
-      ],
-      "sideBar": [
-        {
-          "path": "@organisms/by-author/contact-list.twig",
-          "data": {
-            "contactList": {
-              "viewSpecific": false,
-              "sidebarHeading": {
-                "title": "Key Agencies",
-                "titleContext": "for Another Section Name",
-                "level": 3
-              },
-              "contacts": [
-                {
-                  "accordion": false,
-                  "isExpanded": false,
-                  "subTitle": {
-                    "href": "#",
-                    "text": "Massachusetts Registry of Motor Vehicles (RMV)",
-                    "chevron": ""
-                  },
-                  "groups": [
-                    {
-                      "icon": "phone",
-                      "name": "Phone",
-                      "items": [
-                        {
-                          "type": "phone",
-                          "label": "Main:",
-                          "link": {
-                            "href": "+16176251250",
-                            "text": "(617) 625-1250",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
-                        }
-                      ]
-                    },
-                    {
-                      "icon": "laptop",
-                      "name": "Online",
-                      "items": [
-                        {
-                          "type": "online",
-                          "label": "",
-                          "link": {
-                            "href": "#",
-                            "text": "Contact Form",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": ""
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          }
+      }
+    }],
+
+    "sideBar": [{
+      "path": "@organisms/by-author/contact-list.twig",
+      "data": {
+        "contactList": {
+          "viewSpecific": false,
+          "sidebarHeading": {
+            "title": "Key Agencies",
+            "titleContext": "for Converting Your Out-of-Country Driver’s License",
+            "level": 3
+          },
+          "contacts": [{
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": {
+              "href":"#",
+              "text": "Massachusetts Registry of Motor Vehicles (RMV)",
+              "chevron":""
+            },
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+16176251250",
+                  "text": "(617) 625-1250",
+                  "info": "",
+                  "property": ""
+                },
+                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "online",
+                "label":"",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
+                },
+                "details":""
+              }]
+            }]
+          }]
         }
-      ]
-    },
-    {
-      "title": "Converting Your Out-of-Country Driver’s License",
-      "id": "converting-your-out-of-country-drivers-license",
-      "pageContent": [
-        {
-          "path": "@organisms/by-author/callout-time.twig",
-          "data": {
-            "calloutTime": {
-              "icon": "wait-time",
-              "text": "This usually takes approximately 4 weeks"
-            }
-          }
-        },
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "If you are <a href=\"#\">converting a license from a foreign country</a>, you must take the full driver’s test, which includes the written, road, and vision exams, and present identification documents similar to those outlined in the previous section. You may also need a sponsor depending on the country that issued your license. However, if you are a foreign visitor with a valid license from one of the <a href=\"#\">countries or territories approved by the RMV</a>, you may legally drive in Massachusetts for up to one year. The year begins on the date of your arrival, and you must be at least 18 years old and drive only the vehicle type covered by your license."
-                    }
-                  }
-                },
-                {
-                  "path": "@atoms/09-media/figure.twig",
-                  "data": {
-                    "figure": {
-                      "align": "align-right",
-                      "image": {
-                        "alt": "alt text",
-                        "src": "../../assets/images/placeholder/400x300.png",
-                        "height": "",
-                        "width": ""
-                      },
-                      "caption": ""
-                    }
-                  }
-                },
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "You may be eligible to convert your out-of-state license into a Massachusetts one if you currently carry a <a href=\"#\">valid license from a U.S. territory, Canada, or Mexico</a>. The license must meet the RMV’s identification requirements."
-                    }
-                  }
-                },
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "International driving permits cannot be converted to a Massachusetts driver’s license, and do not give you any driving privileges."
-                    }
-                  }
+      }
+    }]
+  },{
+    "title": "Another Section Name",
+    "id": "another-section-name5",
+    "pageContent": [{
+      "path": "@organisms/by-author/split-columns.twig",
+      "data": {
+        "splitColumns": {
+          "columns": [{
+            "items": [{
+              "path": "@atoms/04-headings/column-heading.twig",
+              "data": {
+                "columnHeading" : {
+                  "text": "Subheading Section Name 1"
                 }
-              ]
-            }
-          }
+              }
+            },{
+              "path": "@organisms/by-author/rich-text.twig",
+              "data": {
+                "richText": {
+                  "rteElements": [{
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph" : {
+                        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate."
+                      }
+                    }
+                  }]
+                }
+              }
+            }]
+          },{
+            "items": [{
+              "path": "@atoms/04-headings/column-heading.twig",
+              "data": {
+                "columnHeading" : {
+                  "text": "Subheading Section Name 2"
+                }
+              }
+            },{
+              "path": "@organisms/by-author/rich-text.twig",
+              "data": {
+                "richText": {
+                  "rteElements": [{
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph" : {
+                        "text": "Consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus <a href=\"#\">accumsan et viverra justo commodo</a>."
+                      }
+                    }
+                  },{
+                    "path": "@atoms/08-lists/unordered-list.twig",
+                    "data": {
+                      "unorderedList": [{
+                        "text": "Bulleted item"
+                      },{
+                        "text": "Bulleted item"
+                      },{
+                        "text": "Bulleted item"
+                      }]
+                    }
+                  }]
+                }
+              }
+            }]
+          },{
+            "items": [{
+              "path": "@atoms/04-headings/column-heading.twig",
+              "data": {
+                "columnHeading" : {
+                  "text": "Subheading Section Name 3"
+                }
+              }
+            },{
+              "path": "@organisms/by-author/rich-text.twig",
+              "data": {
+                "richText": {
+                  "rteElements": [{
+                    "path": "@atoms/11-text/paragraph.twig",
+                    "data": {
+                      "paragraph" : {
+                        "text": "Lorem ipsum dolor sit amet. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien."
+                      }
+                    }
+                  }]
+                }
+              }
+            }]
+          }]
         }
-      ],
-      "sideBar": [
-        {
-          "path": "@organisms/by-author/contact-list.twig",
-          "data": {
-            "contactList": {
-              "viewSpecific": false,
-              "sidebarHeading": {
-                "title": "Key Agencies",
-                "titleContext": "for Converting Your Out-of-Country Driver’s License",
-                "level": 3
-              },
-              "contacts": [
-                {
-                  "accordion": false,
-                  "isExpanded": false,
-                  "subTitle": {
-                    "href": "#",
-                    "text": "Massachusetts Registry of Motor Vehicles (RMV)",
-                    "chevron": ""
-                  },
-                  "groups": [
-                    {
-                      "icon": "phone",
-                      "name": "Phone",
-                      "items": [
-                        {
-                          "type": "phone",
-                          "label": "Main:",
-                          "link": {
-                            "href": "+16176251250",
-                            "text": "(617) 625-1250",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
-                        }
-                      ]
-                    },
-                    {
-                      "icon": "laptop",
-                      "name": "Online",
-                      "items": [
-                        {
-                          "type": "online",
-                          "label": "",
-                          "link": {
-                            "href": "#",
-                            "text": "Contact Form",
-                            "info": "",
-                            "property": ""
-                          },
-                          "details": ""
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          }
+      }
+    },{
+      "path":"@organisms/by-author/key-actions.twig",
+      "data":{
+        "keyActions": {
+          "compHeading": {
+            "title": "Key Actions",
+            "titleContext": "for Another Section Name",
+            "level": 3
+          },
+          "links":[{
+            "text": "Related Action to important Page Name",
+            "type": "",
+            "href": "#"
+          }]
         }
-      ]
-    },
-    {
-      "title": "Another Section Name",
-      "id": "another-section-name5",
-      "pageContent": [
-        {
-          "path": "@organisms/by-author/split-columns.twig",
-          "data": {
-            "splitColumns": {
-              "columns": [
-                {
-                  "items": [
-                    {
-                      "path": "@atoms/04-headings/column-heading.twig",
-                      "data": {
-                        "columnHeading": {
-                          "text": "Subheading Section Name 1"
-                        }
-                      }
-                    },
-                    {
-                      "path": "@organisms/by-author/rich-text.twig",
-                      "data": {
-                        "richText": {
-                          "rteElements": [
-                            {
-                              "path": "@atoms/11-text/paragraph.twig",
-                              "data": {
-                                "paragraph": {
-                                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate."
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "items": [
-                    {
-                      "path": "@atoms/04-headings/column-heading.twig",
-                      "data": {
-                        "columnHeading": {
-                          "text": "Subheading Section Name 2"
-                        }
-                      }
-                    },
-                    {
-                      "path": "@organisms/by-author/rich-text.twig",
-                      "data": {
-                        "richText": {
-                          "rteElements": [
-                            {
-                              "path": "@atoms/11-text/paragraph.twig",
-                              "data": {
-                                "paragraph": {
-                                  "text": "Consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus <a href=\"#\">accumsan et viverra justo commodo</a>."
-                                }
-                              }
-                            },
-                            {
-                              "path": "@atoms/08-lists/unordered-list.twig",
-                              "data": {
-                                "unorderedList": [
-                                  {
-                                    "text": "Bulleted item"
-                                  },
-                                  {
-                                    "text": "Bulleted item"
-                                  },
-                                  {
-                                    "text": "Bulleted item"
-                                  }
-                                ]
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                },
-                {
-                  "items": [
-                    {
-                      "path": "@atoms/04-headings/column-heading.twig",
-                      "data": {
-                        "columnHeading": {
-                          "text": "Subheading Section Name 3"
-                        }
-                      }
-                    },
-                    {
-                      "path": "@organisms/by-author/rich-text.twig",
-                      "data": {
-                        "richText": {
-                          "rteElements": [
-                            {
-                              "path": "@atoms/11-text/paragraph.twig",
-                              "data": {
-                                "paragraph": {
-                                  "text": "Lorem ipsum dolor sit amet. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien."
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        },
-        {
-          "path": "@organisms/by-author/key-actions.twig",
-          "data": {
-            "keyActions": {
-              "compHeading": {
-                "title": "Key Actions",
-                "titleContext": "for Another Section Name",
-                "level": 3
-              },
-              "links": [
-                {
-                  "text": "Related Action to important Page Name",
-                  "type": "",
-                  "href": "#"
-                }
-              ]
-            }
-          }
-        }
-      ],
-      "sideBar": null
-    }
+      }
+    }],
+
+    "sideBar": null
+  }
   ],
-  "COMMENT": "****POSTCONTENT COMPONENTS****",
+
+  "COMMENT":"****POSTCONTENT COMPONENTS****",
+
   "suggestedPages": {
     "title": "Related Guides",
     "titleContext": "to Moving to Massachusetts: Planning Your Move",
-    "view": "guide",
-    "buttonMinor": {
+    "view":"guide",
+    "buttonMinor" : {
       "href": "#",
       "text": "See All Guides"
     },
-    "pages": [
-      {
-        "image": {
-          "alt": "Place Holder Image",
-          "src": "../../assets/images/placeholder/130x160.png",
-          "height": "160",
-          "width": "130"
-        },
-        "link": {
-          "type": "",
-          "href": "#",
-          "text": "Buying Your First Home",
-          "label": "Guide:"
-        }
+    "pages": [{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../assets/images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
       },
-      {
-        "image": {
-          "alt": "Place Holder Image",
-          "src": "../../assets/images/placeholder/130x160.png",
-          "height": "160",
-          "width": "130"
-        },
-        "link": {
-          "type": "",
-          "href": "#",
-          "text": "Shopping for Auto Insurance",
-          "label": "Guide:"
-        }
-      },
-      {
-        "image": {
-          "alt": "Place Holder Image",
-          "src": "../../assets/images/placeholder/130x160.png",
-          "height": "160",
-          "width": "130"
-        },
-        "link": {
-          "type": "",
-          "href": "#",
-          "text": "Education in Massachusetts",
-          "label": "Guide:"
-        }
+      "link": {
+        "type": "",
+        "href": "#",
+        "text": "Buying Your First Home",
+        "label": "Guide:"
       }
-    ]
+    },{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../assets/images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
+      },
+      "link": {
+        "type": "",
+        "href": "#",
+        "text": "Shopping for Auto Insurance",
+        "label": "Guide:"
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../assets/images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
+      },
+      "link": {
+        "type": "",
+        "href": "#",
+        "text": "Education in Massachusetts",
+        "label": "Guide:"
+      }
+    }]
   }
+
 }

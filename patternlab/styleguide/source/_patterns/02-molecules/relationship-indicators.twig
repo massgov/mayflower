@@ -1,10 +1,9 @@
 <div class="ma__relationship-indicators">
   <div class="ma__relationship-indicators--section primary{% if relationshipIndicators.secondary is empty %} single{% endif %}">
-    <label class="ma__relationship-indicators--label" id="primary">
-      <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
+    <span class="ma__relationship-indicators--label">
       {{ relationshipIndicators.primary.label }}
-    </label>
-    <ul class="ma__relationship-indicators--terms" aria-labelledby="primary">
+    </span>
+    <div class="ma__relationship-indicators--terms">
     {% block primaryRelationship %}
       {% for item in relationshipIndicators.primary.tags %}
      
@@ -13,22 +12,19 @@
       
       {% endfor %}
     {% endblock %}
-    <li class="ma__relationship-indicators__expand-indicators">
-    <button type="button" class="js-relationship-indicator-button" role="button" aria-pressed="false">
-      show <span class="tag-count"></span> <span class="tag-state">more</span>
+    <button type="button" class="js-relationship-indicator-button">
+      show <span class="tag-count"></span> <span class="tag-state">more</span
     </button>
-    </li>
-    </ul>
+    </div>
   </div>
 
   {% if relationshipIndicators.secondary is not empty %}
     <div class="ma__relationship-indicators--section secondary">
-      <label class="ma__relationship-indicators--label" id="secondary">
-      <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
+      <span class="ma__relationship-indicators--label">
         {{ relationshipIndicators.secondary.label }}
       </span>
-      </label>
-      <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
+      </span>
+      <div class="ma__relationship-indicators--terms">
       {% block secondaryRelationship %}
       {% for item in relationshipIndicators.secondary.tags %}
       
@@ -37,10 +33,10 @@
         
       {% endfor %}
       {% endblock %}
-      <button type="button" class="js-relationship-indicator-button" role="button" aria-label="show more" aria-pressed="false">
+      <button type="button" class="js-relationship-indicator-button">
         show <span class="tag-count"></span> <span class="tag-state">more</span>
       </button>
-      </ul>
+      </div>
     </div>
   {% endif %}
 </div>

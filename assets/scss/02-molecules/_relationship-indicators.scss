@@ -3,9 +3,10 @@
     @include clearfix;
     display: flex;
     flex-direction: column;
-    padding: 10px 0px;
+    padding: 18px 0;
     font-weight: 600;
     font-size: 16px;
+    border-bottom: 1px solid $c-bd-divider;
     margin: 0 20px 10px;
 
     @media ($bp-medium-min) {
@@ -34,11 +35,10 @@
         letter-spacing: $letter-spacing-large;
         margin-right: 10px;
         white-space: nowrap;
-        margin-top: -1px;
-    }
 
-    &__expand-indicators {
-      list-style: none;
+        @media ($bp-medium-min) {
+            padding-top: 6px;
+        }
     }
 
     &--section {
@@ -51,22 +51,10 @@
             flex-flow: row nowrap;
         }
 
-        @media ($bp-large-min) {
-            padding: 1px 5px;
-        }
-
-        @media ($bp-large-min) {
-            padding-top: 15px;
-        }
-
-        &:first-child {
-          padding: 15px 0;
-        }
-
         &.primary {
-
+        
             @media ($bp-medium-min) {
-                padding-right: 1.5rem;
+                padding-right: 2rem;
             }
 
             .ma__relationship-indicators--term {
@@ -86,27 +74,27 @@
                     flex-direction: initial;
                 }
             }
-
+        
             // Only hide tags if secondary tags present.
 
             &:not(.single) .ma__relationship-indicators--term {
-
+              
               &:nth-child(n+2) {
                 display: none;
               }
             }
 
             a {
-                color: $c-primary;
-                box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary, 0.4);
+                color: $c-primary-alt;
+                border-color: rgba($c-primary-alt, 0.2);
 
                 &:hover {
-                  box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary, 0.7);
+                    border-color: $c-primary-alt;
                 }
             }
 
             button {
-                color:$c-primary;
+                color: $c-primary-alt;
 
                 &.is-open {
 
@@ -122,6 +110,11 @@
         }
 
         &.secondary {
+            padding-top: 15px;
+
+            @media ($bp-large-min) {
+                padding-top: 0;
+            }
 
             .ma__relationship-indicators--term {
 
@@ -131,34 +124,29 @@
             }
 
             a {
-              color: $c-primary-alt;
-              box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary-alt, 0.4);
+                border-color: rgba($c-primary, 0.2);
 
-              &:hover {
-                box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary-alt, 0.7);
-            }
+                &:hover {
+                    border-color: $c-primary;
+                }
             }
 
             button {
-                color: $c-primary-alt;
+                color: $c-primary;
             }
         }
 
-        .ma__relationship-indicators--term {
-          margin-bottom: 12px;
-          margin-right: 10px;
-          line-height: 22px;
-          font-size: 16px;
-          padding-right: 5px;
-          list-style: none;
-        }
-
         a {
-          width: 100%;
-
-          @media ($bp-x-small-min) {
-           width: auto;
-          }
+            display: block;
+            border: 2px solid;
+            padding: 1px 5px;
+            line-height: 1.2;
+            width: 100%;
+        
+            @media ($bp-x-small-min) {
+                width: auto;
+                display: inline-block;
+            }
         }
 
         button {
@@ -170,17 +158,27 @@
             @include ma-chevron;
             text-transform: capitalize;
             align-self: flex-start;
-            padding: 0;
-            line-height: 22px;
-            font-size: 16px;
+            margin-top: 5px;
+            padding-top: 0;
+            padding-left: 0;
+            font-size: 1rem;
             font-weight: 600;
             white-space: nowrap;
             display: none;
-
+            
+            @media ($bp-small-min) {
+                margin-top: 3px;
+            }
+            
+            @media ($bp-medium-min) {
+                align-self: baseline;
+                margin-top: 8px;
+            }
+            
             .tag-state {
                 text-transform: none;
             }
-
+            
             &:after {
                 opacity: 0.5;
                 border-width: 3px;
@@ -188,7 +186,7 @@
                 width: 8px;
                 transform: translateY(-45%) rotate(45deg);
             }
-
+            
             &.is-open::after {
                 transform: translateY(-55%) rotate(-135deg);
             }
@@ -203,6 +201,16 @@
 
         @media ($bp-x-small-min) {
             flex-flow: row wrap;
+        }
+    }
+
+    &--term {
+        margin: 0 5px 5px 0;
+        width: auto;
+
+        @media ($bp-medium-min) {
+            margin-top: 5px;
+            margin-bottom: 0;
         }
     }
 
