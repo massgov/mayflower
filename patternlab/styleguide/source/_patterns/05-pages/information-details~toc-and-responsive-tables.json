@@ -20,7 +20,7 @@
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
-      "label": "part of",
+      "label": "offered by",
       "tags": [
         {
           "class": "ma__relationship-indicators--term",
