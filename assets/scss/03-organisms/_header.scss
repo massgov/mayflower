@@ -4,6 +4,7 @@ $bp-header-logo-min: "min-width: 1000px";
 
 body.show-menu {
   overflow: hidden;
+
   @media ($bp-header-toggle-max) {
     position: fixed !important;
   }
@@ -27,6 +28,7 @@ body.show-menu {
   }
   
   @media($bp-header-toggle-min) {
+
     top: 43px;
   }
 }
@@ -37,10 +39,11 @@ body.show-menu {
   background-color: $c-bg-section;
   
   @media ($bp-medium-min) {
-      padding-top: 43px;
+    padding-top: 43px;
   }
 
   &--slim {
+
     @media ($bp-large-min) {
       padding-top: 0px;
     }
@@ -48,6 +51,7 @@ body.show-menu {
 
   &--slim-mobile {
     padding-top: 15px; // height of thin banner on mobile
+
     @media ($bp-large-min) {
       padding-top: 0px;
     }
@@ -60,6 +64,7 @@ body.show-menu {
     text-align: center;
 
     &:not(:focus) {
+
       @include ma-visually-hidden;
       width: 240px;
     }
@@ -75,14 +80,17 @@ body.show-menu {
   &-wrapper {
     
     @media ($bp-medium-min) {
-        @include ma-container;
+
+      @include ma-container;
         display: flex;
         justify-content: space-between;
     }
   }
    
   &__container {
+
     @include ma-valign-block;
+
     @include ma-container;
     font-size: 0; // inline-block fix
     height: 100px;
@@ -91,6 +99,7 @@ body.show-menu {
 
     & .ma__header-search__wrapper {
       float: right;
+    
       @media ($bp-small-min) {
         justify-content: flex-end;
         float: none;
@@ -113,12 +122,14 @@ body.show-menu {
     }
     
     @media ($bp-small-min) {
+
       @include span-columns(4);
       display: inline-block;
       float: none;
     }
     
     @media ($bp-header-logo-min) {
+
       @include span-columns(3);
       display: inline-block;
       float: none;
@@ -143,6 +154,7 @@ body.show-menu {
       }
     }
   }
+
   &__search {
     display: inline-block;
     text-align: right;
@@ -158,6 +170,7 @@ body.show-menu {
     }
     
     @media ($bp-small-max) {
+
       .ma__header-search {
         
         &__input {
@@ -169,11 +182,14 @@ body.show-menu {
         }
         
         // not the button in navigation
+
         .ma__button-search {
+
           &,
           &--secondary {
         
             @media ($bp-small-max) {
+
               @include ma-valign-block;
               border-width: 2px;
               border-style: solid;
@@ -202,6 +218,7 @@ body.show-menu {
     z-index: 90;
 
     @media($bp-header-toggle-min) {
+
       top: 43px;
     }
 
@@ -328,19 +345,24 @@ body.show-menu {
   }
 
   &__utility-nav {
-      &--narrow {
-          @media ($bp-header-toggle-min) {
+
+    &--narrow {
+
+        @media ($bp-header-toggle-min) {
               display: none;
           }
       }
+
       &--wide {
-          @media ($bp-header-toggle-max) {
+
+        @media ($bp-header-toggle-max) {
               display: none;
           }
       }
   }
 
   &__backto {
+
     @include ma-container;
     display: block;
     height: 0;
@@ -353,6 +375,7 @@ body.show-menu {
     }
 
     a {
+
       @include ma-chevron("left");
       border: 3px solid;
       border-top: none;
