@@ -20,6 +20,7 @@
     vertical-align: middle;
 
     label {
+
       @include ma-visually-hidden;
     }
   }
@@ -32,9 +33,10 @@
 }
 
 //theme
+
 .ma__date-range {
 
   &__label {
-    font-weight: 500;
+    font-weight: $fonts-normal;
   }
 }

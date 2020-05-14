@@ -5,6 +5,7 @@
     .pre-content > &,
     .post-content > &,
     .main-content--full .page-content > & {
+
       @include ma-container();
     }
   }
@@ -19,12 +20,14 @@
   }
 
   tbody {
+
     @media ($bp-small-max) {
       display: block;
     }
   }
 
   tr {
+
     @media ($bp-small-max) {
       display: block;
     }
@@ -97,7 +100,9 @@
   }
 
   &__expand-button {
+
     .ma__button-icon, .ma__button-icon:hover {
+
       &.ma__button-icon--expanded, &.ma__button-icon--quaternary-simple, &.ma__button-icon--quaternary-simple:hover {
         padding: 0px;
         font-size: 19px;
@@ -107,9 +112,13 @@
   }
 
   &__expand {
+
     > button {
+
       @include ma-button-reset;
+
       @include ma-link-underline;
+
       @include ma-chevron;
       font-size: 19px;
 
@@ -135,12 +144,15 @@
       }
 
       td.is-open & {
+
         &:after {
           transform: translateY(-55%) rotate(-135deg);
         }
+
         span:first-child {
           display: none;
         }
+
         span:nth-child(2) {
           display: inline;
         }
@@ -155,6 +167,7 @@
 }
 
 //theme
+
 .ma__listing-table {
 
   tr + tr {
@@ -162,9 +175,10 @@
   }
 
   &__expand {
+
     > button {
       color: $c-primary;
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
   }
 

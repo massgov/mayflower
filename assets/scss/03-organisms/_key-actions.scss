@@ -4,6 +4,7 @@
   .pre-content > & &__container,
   .post-content > & &__container,
   .main-content--full .page-content > & &__container {
+
     @include ma-container();
   }
 
@@ -22,6 +23,7 @@
     }
 
     .main-content--two & {
+
       @media ($bp-medium-min) {
         margin-left: -2.43902%;
       }
@@ -36,6 +38,7 @@
     width: 100%;
 
     @media ($bp-medium-max) {
+
       &:last-child {
         margin-bottom: 0;
       }
@@ -60,6 +63,7 @@
     }
 
     .main-content--two & {
+
       @media ($bp-medium-min) {
         //@include span-columns(4 of 8);
         margin-left: 2.43902%;
@@ -67,6 +71,7 @@
       }
 
       // stacked (two column was too narrow)
+
       @media ($bp-large-min) and ($bp-x-large-max) {
         width: 100% - 2.43902%;
       }

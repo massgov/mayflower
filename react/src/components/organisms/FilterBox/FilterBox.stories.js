@@ -8,8 +8,8 @@ import FilterBox from '.';
 import sharedProps from './FilterBox.props';
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
-import selectBoxOptions from '../../atoms/forms/SelectBox/SelectBox.knobs.options';
-import inputOptions from '../../atoms/forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
+import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

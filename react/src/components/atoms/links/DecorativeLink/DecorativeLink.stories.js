@@ -3,14 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
-import Icon from '../../icons/Icon';
-
-export default {
-  info: (value) => text('DecorativeLink: info', value, 'DecorativeLink'),
-  text: (value) => text('DecorativeLink: linkText', value, 'DecorativeLink'),
-  href: (value) => text('DecorativeLink: href', value, 'DecorativeLink'),
-  showFileIcon: (value) => boolean('DecorativeLink: showFileIcon', value, 'DecorativeLink')
-};
+import Icon from '../../../base/Icon';
 
 storiesOf('atoms/links', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

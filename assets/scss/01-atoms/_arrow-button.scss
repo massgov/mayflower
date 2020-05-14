@@ -1,5 +1,7 @@
 .ma__arrow-button {
+
   @include ma-button;
+
   @include ma-chevron;
   display: inline-block;
   min-height: 45px;
@@ -32,7 +34,9 @@
 }
 
 //theme
+
 .ma__arrow-button {
+
   @include ma-button("","solid",$c-primary);
 
   &:after {

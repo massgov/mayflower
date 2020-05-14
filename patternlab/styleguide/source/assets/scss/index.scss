@@ -16,11 +16,13 @@
 // Base theme variables
 @import "00-base/colors";
 @import "00-base/fonts";
+@import "00-base/fonts-fallback";
 @import "00-base/pikaday";
 // Print styles
 @import "08-print/print";
 // Atoms - reusable styles
 @import "01-atoms/global/elements";
+@import "01-atoms/global/fonts-styles";
 @import "01-atoms/arrow-button";
 @import "01-atoms/button-search";
 @import "01-atoms/button-sort";
@@ -134,6 +136,7 @@
 @import "03-organisms/breadcrumbs";
 @import "03-organisms/callout";
 @import "03-organisms/callout-alert";
+@import "03-organisms/callout-message";
 @import "03-organisms/callout-time";
 @import "03-organisms/campaign-feature";
 @import "03-organisms/campaign-video";

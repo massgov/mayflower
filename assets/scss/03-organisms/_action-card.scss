@@ -1,7 +1,9 @@
 .ma__action-card {
+
   @include ma-container;
 
   &__title {
+
     @include ma-border-decorative;
     padding-bottom: 15px;
 
@@ -23,6 +25,7 @@
     }
 
     @media ($bp-large-min) {
+
       .ma__rich-text {
         margin-left: auto;
         margin-right: auto;
@@ -32,10 +35,12 @@
   }
 
   &__items {
+
     @include clearfix;
   }
 
   &__item {
+
     @include ma-valign-block;
     cursor: pointer;
     font-size: 0;  //valign fix
@@ -48,7 +53,9 @@
     }
 
     @media ($bp-medium-min) {
+
       @include span-columns(6);
+
       @include omega(2n);
       height: 215px;
       padding: 40px 20px;
@@ -128,6 +135,7 @@
   }
 
   &__link {
+
     @include ma-link-decorative;
     line-height: 1;
     margin-bottom: 0;
@@ -144,13 +152,16 @@
 }
 
 //theme
+
 .ma__action-card {
 
   &__title {
+
     @include ma-border-decorative($c-primary-alt);
   }
 
   &__item {
+
     @include ma-link-transition;
     background-color: $c-bg-subtle;
     box-shadow: 0 0.25rem 0.5rem rgba(1, 1, 1, 0.25);
@@ -220,7 +231,7 @@
 
   &__category {
     color: rgba($c-font-base,.85);
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__item--blue &__category,

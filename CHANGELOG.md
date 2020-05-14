@@ -1,60 +1,251 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.49.3 (5/5/2020)
+### Added 
+- (Patternlab) [Figure] DP-17483: Add datavisualization iframe to figure. (#975)
+
+### Changed 
+- (Patternlab) [Figure] DP-17634: Add a link to sample caption content. (#975)
+- (Patternlab) [InformaionDetails] DP-17634: Add a link to sample caption content. (#975)
+
+## 9.49.2 (4/30/2020)
+### Fixed 
+- (React, Assets) [InputRadio] DP-18513: Fix InputRadio outline style behavior. (#1034)
+
+## 9.49.1 (4/28/2020)
+### Added
+  - (Patternlab) [CalloutMessage] DP-18422: Add a new copmponent to have rich text and callout link. (#1026)
+### Changed
+  - (Patternlab) [StackedRowTemplate] DP-18422: Adjust margin with/without callout message. (#1026)
+
+## 9.49.0 (4/27/2020)
+### Added
+- (React, Patternlab, Assets) [Fonts] DP-18315: Addded fonts for Khmer language support. (#1021)
+### Added
+- (React) [Label] DP-18462: Added Label component to render label and legend for input and fieldset elements. (#1028)
+
+## 9.48.0 (4/20/2020)
+### Changed
+- (Patternlab) [Button alert] DP-17792: Adjusted scss to rotate button arrow up when accordion opens
+
+## 9.47.0 (4/13/2020)
+### Changed
+- (Patternalb) [ServicePage] DP-16029: Change the property value to set style for see all link in service page to match Mass.gov production. (#994)
+- (Patternlab) [Featured Item Mosaic] DP-16690: Changed text from less to fewer.
+- (React) [Dependency] DP-17437: Upgrade storybook to lastest version 5.3.18. (#958)
+
+### Added
+- (Docs) [Release] DP-18180: Add documentation on release and hotfix (#1017)
+
+## 9.46.1 (4/6/2020)
+### Fixed
+- (Site) [CircleCI] DP-17980: Fixed CircleCI deploy build. (#1016)
+
+## 9.46.0 (4/6/2020)
+### Changed
+- (Patternlab) [Contact-item] DP-15965: Changed capitalization of directions
+- (Patternlab) [DecprativeLink] DP-17387: Adjust css for decorative link in location listing for Chrome. Match the markup of assets/js/templates/locationListingRow.html to 02-molecules/image-promo.twig. (#995)
+
+### Added
+- (Site) [Header, RichText] DP-17923: Add links to digital styleguide on the homepage. (#999)
+- (Site) [CircleCI] DP-17980: Add CI for site build and deploy. (#1001)
+
+## 9.45.2 (3/31/2020)
+### Changed
+- (Patternlab) [main-nav] DP-18018: Fix typo in Covid-19 link styling. (#1010)
+
+## 9.45.1 (3/31/2020)
+### Changed
+- (Patternlab) [main-nav] DP-18000: Make top-level nav items clickable. (#1005)
+- (Patternlab) [main-nav] DP-18018: Add alternate style for COVID-19 link. (#1008)
+
+## 9.45.0 (3/30/2020)
+### Added
+- (Pattternlab) [LinkList] DP-17674: Add a new style for link list in service page. (#993)
+- (React) [ButtonWithIcon] DP-17662: Add `href` prop and allow passing `text` as children, allow the ButtonWithIcon component to be rendered as a link. (#992)
+
+### Fixed
+- (Site) [Dependency] DP-17662: Upgrade Mayflower-react to 9.44.2 to fix assets paths. (#992)
+- (React) [Button] DP-17958: Disabled hover changes when button is disabled. Adjusted colors for a11y for c-highlight theme.
+
+### Changed
+- (Site) [Homepage] DP-17662: Update data and fixed images. (#992)
+
+## 9.44.2 (3/20/2020)
+### Fixed
+- (React) [NPM Package] hotfix: Fix Mayflower-react by updating prepublish hook. Please note: 9.44.1 was not successful, due to the package being overwritten by prepublish build. (#990)
+
+## 9.44.1 (3/19/2020)
+### Fixed
+- (React) [NPM Package] hotfix: Remove package.json from symlinked assets folder in package. (#986)
+
+## 9.44.0 (3/16/2020)
+### Added
+- (React) [Icon] DP-17530: Added github and slack icons. (#970)
+- (React) [SectionLinks] DP-17530: Added SectionLinks component. (#970)
+- (React) [Tabs] DP-17530: Added anchor link option for Tabs. (#970)
+- (React) [GenTeaser] DP-17530: Added GenTeaser.Image. (#970)
+- (React) [Image] DP-17530: Refactored and fixed `shape` and `classes` props. (#970)
+- (Patternlab) [InformationDetails] DP-17625: Visual Story sidebar template and styles adjust. (#969)
+
+### Changed
+- (Site) [New] DP-17530: Added Mayflower site homepage built with Gatsby and Mayflower React. (#970)
+- (React, Patternlab, Assets) [CircleCI] DP-17800: Move release to Monday 1pm EST (#980)
+
+### Fixed
+- (Patternlab) [Listings] DP-17633: Fix geocoding for autocomplete results on location listings. (#972)
+
+## 9.43.0 (3/10/2020)
+### Changed
+- (React, Patternlab) [Testing] DP-17679: Updated BackstopJS to 4.x and added numerous test speed and stability enhancements. (#959)
+
+- (React) [storybook] DP-17662: Changed S3 bucket and storybook site URL, `mayflower-react.digital.mass.gov` → `mayflower.digital.mass.gov/react`. (#957)
+- (React) [patternlab] DP-17662: Changed S3 bucket and storybook site URL, `mayflower.digital.mass.gov` → `mayflower.digital.mass.gov/patternlab`. (#957)
+
+## 9.42.1 (3/3/2020)
+### Fixed
+- (React, Patternlab, Assets) [Auto Release] DP-17652: Revert commiting package.json version bump. (#909)
+
+## 9.42.0 (3/3/2020)
+### Fixed
+- (Patternlab) [Location-listing] DP-15035: Limit pagination output to 10 items
+
+### Changed
+- (Patternlab) [StickyTOC] DP-17258: Fix "see more" button not appearing after the TOC
+
+### Added
+- (Assets) [scripts] DP-17532: Added a build step to map the src to a different structure for distribution `npm run build` and restructured `mayflower-token` package content in a `dist` folder. (#948)
+- (Assets) [SCSS] DP-17532: Added `lighter` `lightest` `darker` `darkest` variables consistently across all brand colors, adjusted the variable labels in the storybook. (#948)
+- (Assets) [CircleCI] DP-17651: Added @massds/mayflower-tokens package to auto release, keeping versioning consistent with other mayflower npm packages.(#949)
+- (React, Patternlab, Assets) [Auto Release] DP-17652: Added step to bump version in package.json. (#956)
+
+## 9.41.0 (2/25/2020)
+### Changed
+- (Assets) [SCSS] DP-17532: Separated color token variable scss from the color usage mapping. (#947)
+
+### Added
+- (Assets) [SCSS] DP-17532: Added and refactored mayflower color gradients into color token stylesheet. (#947)
+- (Assets) [SCSS] DP-17532: Registered a new `mayflower-token` package in npm to include color tokens, fonts and images. (#947)
+
+## 9.40.2 (2/21/2020)
+### Added
+- (Assets) [SCSS] DP-17528: Added style linting for shared SCSS, fixed lint errors and add to circle test. (#939)
+### Changed
+- (Patternlab) [Dependabot] DP-17569: Revert "Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide #875." (#944)
+
+## 9.40.1 (2/18/2020)
+### Changed
+- (React) [Storybook] DP-17473: Customize ordering of stories. (#934)
+### Fixed
+- (Patternlab) [UtilityNav] Fix the mobile version overwrap display issue. (#926)
+
+## 9.40.0 (2/11/2020)
+### Added
+- (React) [ButtonCopy] DP-17435: Addded ButtonCopy atom under buttons. (#929)
+
+### Fixed
+- (React, Patternlab) [SCSS] Align shared scss vars. (#933)
+
+## 9.39.3 (2/7/2020)
+### Added
+- (React) [Typography] DP-17340: Added Typography story and documentation. (#918)
+- (React, Patternlab) [styles] DP-17340: Added `ma-texta-style($weight, $italic)` mixin and Texta font style classes. (#918)
+- (React, Patternlab) [styles] DP-17340: Added `$fonts` and `$fonts-mono` font family variables. (#918)
+- (React) [Icon] DP-17354: Display all icons in a story. (#924)
+
+### Changed
+- (React) [Icon] DP-17354: Move Icon from atoms to base. (#924)
+
+### Fixed
+- (React) [Dependency] DP-17417: Move react-scripts into dev dependencies, and move react-html-parser into prod dependencies. (#927)
+- (React) [Tab, FeedbackForm] DP-17417: Fix tab ref proptype for server side rendering. (#928)
+
+## 9.39.2 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Release tag error. (#922)
+
+## 9.39.1 (2/4/2020)
+### Fixed
+- (React, Patternlab) [Circle] Hotfix release tag package install. (#922)
+
+## 9.39.0 (2/4/2020)
+### Changed
+- (Patternlab) [UtilityNav] DP-16804: Change the state organizations menu from a button to a link directly to the page. (#882)
+- (React) [Storybook] DP-17320: Config storybook to add Mayflower theme. (#915)
+- (React) [Storybook] DP-17338: Render welcome page to Mayflower-react. (#916)
+- (React) [Storybook] DP-17338: Display `Color` in category "Brand". (#916)
+- (React) [Storybook] DP-17372: Organize all form components from atoms, molecules and organisms into a forms category. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+- (React) [Storybook] DP-17372: Move Placeholder component into atoms. (#919) \n- Import paths from mayflower-react stay the same. No impact on the consumer side.
+
+### Added
+- (React) [Color] DP-17253: Addded Color stories and color gradients. (#909)
+
+## 9.38.0 (1/21/2020)
+
+### Changed
+- (Patternlab) [Dependency] DP-17156: Replace uglify-js with terser.
+
+### Fixed
+- (Patternlab, React) [release automation] DP-16732: Fixed the display for the month and date in the release automation. (#874)
+
+### Changed
+- (Patternlab) [Dependency] DP-17136: Bump twig from 1.13.2 to 1.14.0 in /patternlab/styleguide.
+
 ## 9.37.0 (1/14/2020)
 
 ### Changed
 (Patternlab) [Dependency] Bump node-normalize-scss from 8.0.0 to 8.0.1.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16827: Bumps del from 4.0.0 to 5.1.0.
 
-### Security 
+### Security
 - (Patternlab) [Dependency] DP-16828: Update eslint-utils from v.1.3.1 to v.1.4.2.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16831: Bump eslint-plugin-react from 7.11.1 to 7.16.0 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16832: Bump dotenv from 6.0.0 to 8.2.0 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16833: Bump gulp-rename from 1.3.0 to 2.0.0 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-16834: Bump url-search-params-polyfill from 5.0.0 to 7.0.1 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-17124: Bump untildify from 3.0.3 to 4.0.0 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-17125: Bump through2 from 2.0.3 to 3.0.1 in /patternlab/styleguide.
 
-### Changed 
+### Changed
 - (Patternlab) [Dependency] DP-17137: Bump gulp from 4.0.0 to 4.0.2 in /patternlab/styleguide.
 
 ## 9.36.0 (1/7/2020)
 
-### Security 
-- (Patternlab) [Dependency] DP-16925: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782 
+### Security
+- (Patternlab) [Dependency] DP-16925: Bump handlebars from 4.1.2 to 4.4.2 in /patternlab/styleguide. #782
 
 ## 9.35.0 (12/18/2019)
 
-### Fixed 
+### Fixed
 - (React) [Tab] DP-16678: Fixed PropTypes check console error for `tabRef`.
 
 
 ## 9.34.0 (12/11/2019)
 
-### Changed 
-- (React) [InputCheckBox] DP-16111: Refactor InputCheckBox to be used for multiple selections. #787 
-	- Allow defaultValue to update the component state 
-	- Added required `value` prop to input checkbox element (Major) 
-	- Added `onKeyDown` prop to allow passing arrow navigation between checkbox options 
-	- Added `tabIndex` prop to permit change of tab-index 
+### Changed
+- (React) [InputCheckBox] DP-16111: Refactor InputCheckBox to be used for multiple selections. #787
+	- Allow defaultValue to update the component state
+	- Added required `value` prop to input checkbox element (Major)
+	- Added `onKeyDown` prop to allow passing arrow navigation between checkbox options
+	- Added `tabIndex` prop to permit change of tab-index
 	- Added `classes` prop to permit passing in classes to input wrapper div
 
-### Added 
+### Added
 - (React) [MultiSelectDropDown] DP-16111: Added `MultiSelectDropDown` molecule. #787
 - (React) [ButtonTag, Tags] DP-16111: Added `ButtonTag` atom under buttons and `Tags` molecule. #787
 - (React) [Input] DP-16111: Added classes props to Input to pass classNames into input wrapper div. #787
@@ -62,13 +253,13 @@ All notable changes to this project will be documented in this file.
 ### Added
 - (React) [FilterBox] DP-12168: Added `filterLabel` and `filterNote` props to FilterBox organism. #842
 
-### Changed 
+### Changed
 - (React) [FootNote, FootNoteLink] DP-11765: Change FootNoteLink ID to classname to avoid duplicative IDs. Change scroll event on FootNote to go to the start of the FootNoteLink. #839
 
-### Fixed 
+### Fixed
 - (React) [Header, MainNav] DP-16673: Fixed PropTypes check console error for `navSelected` and `searchRedirect`, and fixed aria-label attribute in Header story. #843
 
-### Fixed 
+### Fixed
 - (React) [FilterBox, IconLink, PageFlipper, TableofContents] DP-16677: Fix component prop type checks by replacing custom util function `componentPropTypeCheck` with `componentWithName` from 'airbnb-prop-types'. #845
 
 ## 9.33.0 (11/26/2019)
@@ -987,7 +1178,7 @@ Note: This will need to be followed up in search and other apps consuming Filter
 - (Patternlab) DP-9255: Add conditions to place 'title' and 'aria-labelledby' only when their values are available. #218
 - (Patternlab)  DP-10084: MF Change to styling of More links on service page
 - (Patternlab) DP-10157: [MF] How-to BM1: Add slight visual emphasis to mobile sticky nav
-- (Patternlab & React) #236:  
+- (Patternlab & React) #236:
 	- Updates base button classnames based on theme prop to reflect new naming variable (c-primary, c-primary-alt, c-highlight, c-dark-gray)
 	- Removes outline prop from button.
 	- Adds usage prop to button to reflect primary, secondary, tertiary, and quaternary designs.
@@ -1511,7 +1702,7 @@ Monorepo with shared assets and synced releases going forward ;)
 ## 5.13.0 (2/16/2018)
 
 ### Changed
-- DP-7907: Adds support for details to  [@molecules/callout-link](https://mayflower.digital.mass.gov/?p=molecules-callout-link-with-details&view=c) (e.g calls to action on a location page header). This includes adding an eyebrow, white theme variant, time note, and emphasized text to the callout link molecule. #703
+- DP-7907: Adds support for details to  [@molecules/callout-link](https://mayflower.digital.mass.gov/patternlab/?p=molecules-callout-link-with-details&view=c) (e.g calls to action on a location page header). This includes adding an eyebrow, white theme variant, time note, and emphasized text to the callout link molecule. #703
 
 ### Added
 
@@ -1552,12 +1743,12 @@ Monorepo with shared assets and synced releases going forward ;)
 ## 5.12.0 (2/7/2018)
 
 ### Changed
-- DP-7718: Adds support for Description text to [@molecules/callout-link](https://mayflower.digital.mass.gov/?p=molecules-callout-link-as-description&view=c) (e.g calls to action on a location page header).
-- D-7725: Adds Support for Blue Variant of [@atoms/colored-heading](https://mayflower.digital.mass.gov/?p=atoms-colored-heading-blue&view=c) (e.g. header in the press filter organism)
+- DP-7718: Adds support for Description text to [@molecules/callout-link](https://mayflower.digital.mass.gov/patternlab/?p=molecules-callout-link-as-description&view=c) (e.g calls to action on a location page header).
+- D-7725: Adds Support for Blue Variant of [@atoms/colored-heading](https://mayflower.digital.mass.gov/patternlab/?p=atoms-colored-heading-blue&view=c) (e.g. header in the press filter organism)
 
 ## Fixed
-- DP-7359: Make line breaks on word in [richtext](https://mayflower.digital.mass.gov/?p=organisms-rich-text) links compatible with non-chrome browsers.
-- DP-7490: Adjust the [page banner](https://mayflower.digital.mass.gov/?p=organisms-page-banner-as-overlay) and its children for flexble height.
+- DP-7359: Make line breaks on word in [richtext](https://mayflower.digital.mass.gov/patternlab/?p=organisms-rich-text) links compatible with non-chrome browsers.
+- DP-7490: Adjust the [page banner](https://mayflower.digital.mass.gov/patternlab/?p=organisms-page-banner-as-overlay) and its children for flexble height.
 
 ## Added
 - (For Devs): Adds shell scripts and circle config to deploy feature branches and production tags to mayflower.digital.mass.gov [s3 bucket|https://github.com/massgov/mayflower/blob/dev/docs/s3-architecture.md] AND to publish static assets on [NPM|https://www.npmjs.com/package/@massds/mayflower]. See new [release process|https://github.com/massgov/mayflower/blob/dev/docs/release.md]
@@ -1569,7 +1760,7 @@ Monorepo with shared assets and synced releases going forward ;)
 - DP-7193 - Contact Accordians now have a more flexible layout for better experience on wider widths.
 
 ### Added
-- DP-7265 - Add new 'Mosaic Grid' organism with 'Featured Item' molecules for use on ['Organization Elected Official' pages](https://mayflower.digital.mass.gov/?p=pages-organization-elected-official).
+- DP-7265 - Add new 'Mosaic Grid' organism with 'Featured Item' molecules for use on ['Organization Elected Official' pages](https://mayflower.digital.mass.gov/patternlab/?p=pages-organization-elected-official).
 
 ## 5.10.1 (1/3/2018)
 
@@ -1579,19 +1770,19 @@ Monorepo with shared assets and synced releases going forward ;)
 ## 5.10.0 (12/13/2017)
 
 ### Added
-- DP-5817 - Give a warm welcome our newest Mayflower page type: [Rules of Court](https://mayflower.digital.mass.gov/?p=pages-rules-of-court).  This page can be used by legal professionals to publish court rulings, standing orders, and evidence guides.  Notice the new optional javascript functionality added to the [rich text](http://mayflower.digital.mass.gov/?p=organisms-rich-text&view=c) pattern to provide heading indentation and anchor links (as seen on the [Rules of Court](https://mayflower.digital.mass.gov/?p=pages-rules-of-court) page).  Also note the new accordion functionality added to the [listing table](http://mayflower.digital.mass.gov/?p=molecules-listing-table) pattern (as seen on the [Rules of Court](https://mayflower.digital.mass.gov/?p=pages-rules-of-court) page).
-- DP-5991 - We've added an event page with [Public Meeting Notice](https://mayflower.digital.mass.gov/?p=pages-event-public-meeting) functionality: posted/updated information, public testimony callout, agenda, minutes, and participating organizations.  Related, we've also added a full page display for [event minutes](https://mayflower.digital.mass.gov/?p=pages-event-public-meeting-minutes) and [event agendas](https://mayflower.digital.mass.gov/?p=pages-event-public-meeting-agenda).
-- DP-6517 - We've added a nifty new pattern to our family: [Ajax Pattern](https://mayflower.digital.mass.gov/?p=organisms-ajax-pattern&view=c). With this pattern, you can render dynamic content in any existing Mayflower pattern client side with the help of the TwigJS library. Read the [pattern docs](https://mayflower.digital.mass.gov/?p=organisms-ajax-pattern&view=c) to learn more and see it in action on the [Park Location page](https://mayflower.digital.mass.gov/?p=pages-location-park-content&view=c) -- the site and page alerts are all rendered using this new pattern!
+- DP-5817 - Give a warm welcome our newest Mayflower page type: [Rules of Court](https://mayflower.digital.mass.gov/patternlab/?p=pages-rules-of-court).  This page can be used by legal professionals to publish court rulings, standing orders, and evidence guides.  Notice the new optional javascript functionality added to the [rich text](http://mayflower.digital.mass.gov/?p=organisms-rich-text&view=c) pattern to provide heading indentation and anchor links (as seen on the [Rules of Court](https://mayflower.digital.mass.gov/patternlab/?p=pages-rules-of-court) page).  Also note the new accordion functionality added to the [listing table](http://mayflower.digital.mass.gov/?p=molecules-listing-table) pattern (as seen on the [Rules of Court](https://mayflower.digital.mass.gov/patternlab/?p=pages-rules-of-court) page).
+- DP-5991 - We've added an event page with [Public Meeting Notice](https://mayflower.digital.mass.gov/patternlab/?p=pages-event-public-meeting) functionality: posted/updated information, public testimony callout, agenda, minutes, and participating organizations.  Related, we've also added a full page display for [event minutes](https://mayflower.digital.mass.gov/patternlab/?p=pages-event-public-meeting-minutes) and [event agendas](https://mayflower.digital.mass.gov/patternlab/?p=pages-event-public-meeting-agenda).
+- DP-6517 - We've added a nifty new pattern to our family: [Ajax Pattern](https://mayflower.digital.mass.gov/patternlab/?p=organisms-ajax-pattern&view=c). With this pattern, you can render dynamic content in any existing Mayflower pattern client side with the help of the TwigJS library. Read the [pattern docs](https://mayflower.digital.mass.gov/patternlab/?p=organisms-ajax-pattern&view=c) to learn more and see it in action on the [Park Location page](https://mayflower.digital.mass.gov/patternlab/?p=pages-location-park-content&view=c) -- the site and page alerts are all rendered using this new pattern!
 
 ### Changed
 - DP-5916 - We've increased the vertical spacing between the phone number and description on the [Image Promo](http://mayflower.digital.mass.gov/?p=molecules-image-promo-with-map-link&view=c) pattern as it appears on [location listing pages](http://mayflower.digital.mass.gov/?p=pages-location-listing).
 - DP-6916 - We've fixed the bug where long sidebar contact "learn more" links (i.e. on [How To pages](http://mayflower.digital.mass.gov/?p=pages-howto) were being hyphenated.
 
 ### Migrate Path
-- DP-5817 - To implement this new page type, follow the [content type template pattern](https://mayflower.digital.mass.gov/?p=templates-court-rules&view=c).  Note the [backwards compatible extension of the listing table molecule](https://github.com/massgov/mayflower/pull/651/files#diff-831775c0ca12ca6116f93daaa9958ee0R7) to provide accordion function using the existing accordion js module and the [extension of the rich text organism](https://github.com/massgov/mayflower/pull/651/files#diff-085d4a2070c5f2bff38e4817c382b3beR4) (and new [JS](https://github.com/massgov/mayflower/pull/651/files#diff-e8d7776e501f946139bb194df89bef71R10)) to add "outline" indentation and heading anchor links.
+- DP-5817 - To implement this new page type, follow the [content type template pattern](https://mayflower.digital.mass.gov/patternlab/?p=templates-court-rules&view=c).  Note the [backwards compatible extension of the listing table molecule](https://github.com/massgov/mayflower/pull/651/files#diff-831775c0ca12ca6116f93daaa9958ee0R7) to provide accordion function using the existing accordion js module and the [extension of the rich text organism](https://github.com/massgov/mayflower/pull/651/files#diff-085d4a2070c5f2bff38e4817c382b3beR4) (and new [JS](https://github.com/massgov/mayflower/pull/651/files#diff-e8d7776e501f946139bb194df89bef71R10)) to add "outline" indentation and heading anchor links.
 - DP-5916 - You'll get [this style patch (from PR#645)](https://github.com/massgov/mayflower/pull/645/files) just by updating your css files!
 - DP-5991 - See the [event content template](http://mayflower.digital.mass.gov/?p=templates-event&view=c) for instructions on implementing this new pattern variation.
-- DP-6517 - Follow the [usage guidelines in the pattern docs](https://mayflower.digital.mass.gov/?p=organisms-ajax-pattern&view=c) to implement this new client side rendering feature.  See [an example implementation](https://github.com/massgov/mayflower/pull/644/files#diff-6619abb22969d972a21c93eb45ce97beR3) with a data transform function.
+- DP-6517 - Follow the [usage guidelines in the pattern docs](https://mayflower.digital.mass.gov/patternlab/?p=organisms-ajax-pattern&view=c) to implement this new client side rendering feature.  See [an example implementation](https://github.com/massgov/mayflower/pull/644/files#diff-6619abb22969d972a21c93eb45ce97beR3) with a data transform function.
 - DP-6916 - You'll get [this style patch (from PR#646)](https://github.com/massgov/mayflower/pull/646/files) just by updating your css files!
 
 ## 5.9.1 (11/29/2017)
@@ -1650,7 +1841,7 @@ We hope to see you all around in code. :)
 
 - DP-4968 - The [Location page](http://mayflower.digital.mass.gov/?p=pages-location-general-content) now supports a "Downloads" section which could be helpful for adding a pdf map, for example.
 - DP-4581 / 5023 - We've added sort and filter functionality to the [Event Listing](http://mayflower.digital.mass.gov/?p=pages-event-listing) page! Now you can enter a town or zip to sort events by proximity and you can filter events by a future date time frame.  (Also, developers will notice that the Event and Location listing js is shared, since the functionality is so similar.) ([PR #589](https://github.com/massgov/mayflower/pull/589))
-- DP-5341 - We've created a new pattern called [Collapsible Content](http://mayflower.digital.mass.gov/?p=organisms-collapsible-content)!  Eventually this pattern could be used for functionality like [Contact Us as accordion](https://mayflower.digital.mass.gov/?p=molecules-contact-us-collapsed-with-more-link) where it will accept child patterns using the `path / data` construct similar to Rich Text, sidebar widgets, etc. ([PR #581](https://github.com/massgov/mayflower/pull/581))
+- DP-5341 - We've created a new pattern called [Collapsible Content](http://mayflower.digital.mass.gov/?p=organisms-collapsible-content)!  Eventually this pattern could be used for functionality like [Contact Us as accordion](https://mayflower.digital.mass.gov/patternlab/?p=molecules-contact-us-collapsed-with-more-link) where it will accept child patterns using the `path / data` construct similar to Rich Text, sidebar widgets, etc. ([PR #581](https://github.com/massgov/mayflower/pull/581))
 - DP-4323 / 4325 - We've finished documenting all the patterns! (PRs [#545](https://github.com/massgov/mayflower/pull/545), [#546](https://github.com/massgov/mayflower/pull/546)).
 
 ### Changed

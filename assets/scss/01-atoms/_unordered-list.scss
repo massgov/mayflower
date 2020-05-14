@@ -1,11 +1,12 @@
 // Override :last-child bottom margin.
+
 .ma__horizontal-list:nth-child(n) {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     line-height: 1.2;
 
     li:nth-child(n) {

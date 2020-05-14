@@ -72,11 +72,11 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="React" %}
-[Heading Levels 1-6 in Storybook](https://mayflower-react.digital.mass.gov/?knob-text=Title%20text&knob-level=1&selectedKind=atoms%2Fheadings&selectedStory=Heading)
+[Heading Levels 1-6 in Storybook](https://mayflower.digital.mass.gov/react/?knob-text=Title%20text&knob-level=1&selectedKind=atoms%2Fheadings&selectedStory=Heading)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Heading Levels 1-6 Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-heading-1)
+[Heading Levels 1-6 Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-heading-1)
 {% endtab %}
 {% endtabs %}
 
@@ -92,11 +92,11 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="React" %}
-[Grey Colored Heading in Storybook](https://mayflower-react.digital.mass.gov/?knob-text=Title%20text&knob-level=1&knob-coloredHeading.text=Title%20text&knob-coloredHeading.level=2&selectedKind=atoms%2Fheadings&selectedStory=ColoredHeading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
+[Grey Colored Heading in Storybook](https://mayflower.digital.mass.gov/react/?knob-text=Title%20text&knob-level=1&knob-coloredHeading.text=Title%20text&knob-coloredHeading.level=2&selectedKind=atoms%2Fheadings&selectedStory=ColoredHeading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Factions%2Factions-panel)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Grey Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-colored-heading)
+[Grey Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-colored-heading)
 {% endtab %}
 {% endtabs %}
 
@@ -112,11 +112,11 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="React" %}
-[Green Colored Heading in Storybook](https://mayflower-react.digital.mass.gov/?knob-text=Title%20text&knob-level=1&knob-coloredHeading.text=Title%20text&knob-coloredHeading.level=2&knob-coloredHeading.color=green&selectedKind=atoms%2Fheadings&selectedStory=ColoredHeading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Green Colored Heading in Storybook](https://mayflower.digital.mass.gov/react/?knob-text=Title%20text&knob-level=1&knob-coloredHeading.text=Title%20text&knob-coloredHeading.level=2&knob-coloredHeading.color=green&selectedKind=atoms%2Fheadings&selectedStory=ColoredHeading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Green Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-colored-heading-green)
+[Green Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-colored-heading-green)
 {% endtab %}
 {% endtabs %}
 
@@ -132,11 +132,11 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="React" %}
-[Blue Colored Heading in Storybook](https://mayflower-react.digital.mass.gov/?knob-text=Title%20text&knob-level=1&knob-coloredHeading.text=Title%20text&knob-coloredHeading.level=2&knob-coloredHeading.color=blue&selectedKind=atoms%2Fheadings&selectedStory=ColoredHeading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Blue Colored Heading in Storybook](https://mayflower.digital.mass.gov/react/?knob-text=Title%20text&knob-level=1&knob-coloredHeading.text=Title%20text&knob-coloredHeading.level=2&knob-coloredHeading.color=blue&selectedKind=atoms%2Fheadings&selectedStory=ColoredHeading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Blue Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-colored-heading-blue)
+[Blue Colored Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-colored-heading-blue)
 {% endtab %}
 {% endtabs %}
 
@@ -152,11 +152,11 @@ Navigating through the `<h1>` and `<h2>` elements allows the user to understand 
 {% endtab %}
 
 {% tab title="React" %}
-[Component Heading in Storybook](https://mayflower-react.digital.mass.gov/?knob-coloredHeading.text=Title%20text&knob-text=Title%20text&knob-compHeading.title=Title%20text&knob-compHeading.titleContext=&knob-coloredHeading.color=blue&knob-compHeading.id=&knob-level=1&knob-coloredHeading.level=2&knob-compHeading.color=&knob-compHeading.level=2&selectedKind=atoms%2Fheadings&selectedStory=Comp%20Heading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Component Heading in Storybook](https://mayflower.digital.mass.gov/react/?knob-coloredHeading.text=Title%20text&knob-text=Title%20text&knob-compHeading.title=Title%20text&knob-compHeading.titleContext=&knob-coloredHeading.color=blue&knob-compHeading.id=&knob-level=1&knob-coloredHeading.level=2&knob-compHeading.color=&knob-compHeading.level=2&selectedKind=atoms%2Fheadings&selectedStory=Comp%20Heading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Component Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-comp-heading)
+[Component Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-comp-heading)
 {% endtab %}
 {% endtabs %}
 
@@ -176,7 +176,7 @@ Not Available
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Column Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-column-heading)
+[Column Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-column-heading)
 {% endtab %}
 {% endtabs %}
 
@@ -192,11 +192,11 @@ Not Available
 {% endtab %}
 
 {% tab title="React" %}
-[Sidebar Heading in Storybook](https://mayflower-react.digital.mass.gov/?knob-coloredHeading.text=Title%20text&knob-text=Title%20text&knob-compHeading.title=Title%20text&knob-sidebarHeading.title=Key%20Agencies&knob-compHeading.titleContext=&knob-coloredHeading.color=blue&knob-compHeading.id=&knob-level=1&knob-coloredHeading.level=2&knob-compHeading.color=&knob-compHeading.level=2&knob-sidebarHeading.level=2&selectedKind=atoms%2Fheadings&selectedStory=SidebarHeading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
+[Sidebar Heading in Storybook](https://mayflower.digital.mass.gov/react/?knob-coloredHeading.text=Title%20text&knob-text=Title%20text&knob-compHeading.title=Title%20text&knob-sidebarHeading.title=Key%20Agencies&knob-compHeading.titleContext=&knob-coloredHeading.color=blue&knob-compHeading.id=&knob-level=1&knob-coloredHeading.level=2&knob-compHeading.color=&knob-compHeading.level=2&knob-sidebarHeading.level=2&selectedKind=atoms%2Fheadings&selectedStory=SidebarHeading&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybooks%2Fstorybook-addon-knobs)
 {% endtab %}
 
 {% tab title="Twig PL" %}
-[Sidebar Heading in Pattern Lab](https://mayflower.digital.mass.gov/?p=atoms-sidebar-heading)
+[Sidebar Heading in Pattern Lab](https://mayflower.digital.mass.gov/patternlab/?p=atoms-sidebar-heading)
 {% endtab %}
 {% endtabs %}
 

@@ -5,7 +5,7 @@ import moment from 'moment';
 import logo from 'SharedAssets/images/stateseal.png';
 import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
 
 import './style.css';
 

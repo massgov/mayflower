@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonWithIcon from '../ButtonWithIcon';
-import Icon from '../../icons/Icon';
+import Icon from '../../../base/Icon';
 // import './style.css';
 
 const ButtonAlert = (props) => {

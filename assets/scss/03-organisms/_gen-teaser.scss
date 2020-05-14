@@ -1,6 +1,8 @@
 .ma__gen-teaser {
 
   position: relative;
+  display: flex;
+    flex-direction: row;
 
   &--image {
     display: flex;
@@ -18,7 +20,7 @@
     padding-top: 20px;
     border-top-color: $c-bd-divider;
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       margin-top: 30px;
       padding-top: 30px;
     }
@@ -29,10 +31,19 @@
     }
   }
 
+  &--stacked {
+    flex-direction: column;
+  }
+
+  &--align-center {
+    align-items: center;
+  }
+
+  &--align-top {
+    align-items: top;
+  }
+
   &__image {
-    flex-shrink: 1;
-    flex-grow: 0;
-    flex-basis: 400px;
     font-size: 0;
     margin-right: 30px;
     margin-bottom: 10px;
@@ -45,12 +56,6 @@
     }
   }
 
-  &__image + &__details {
-    flex-basis: 300px;
-    flex-shrink: 1;
-    flex-grow: 1;
-  }
-
   &__eyebrow {
     margin-bottom: 5px;
 
@@ -60,7 +65,7 @@
       padding: 5px 7px;
       text-transform: uppercase;
       background-color: $c-bg-section;
-      font-weight: 700;
+      font-weight: $fonts-bold;
     }
 
     svg {
@@ -84,24 +89,31 @@
   }
 
   &__details {
+    width: 100%;
     padding: 2px 0 4px;
     position: relative;
+
     .ma__contact-group {
-      &__details{
+
+      &__details {
         font-style: italic;
         font-size: 0.95rem;
       }
-      &__item{
+
+      &__item {
         font-size: 1.25rem;
       }
-      &__name{
+
+      &__name {
          margin-bottom: 0;
+
          span {
           font-size: 1.25rem;
           color: $c-gray-dark;
           font-weight: 550;
          }
-         >svg{
+
+         >svg {
           height: 1.1rem;
           width: 1.1rem;
          }
@@ -121,7 +133,7 @@
     margin-bottom: 1em;
     color: $c-font-dark;
     font-style: italic;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__date + &__org {
@@ -131,6 +143,7 @@
   }
 
   &__org {
+
     .ma__button-icon--quaternary-simple,
     .ma__button-icon--expanded.ma__button-icon--quaternary-simple,
     .ma__button-icon:hover.ma__button-icon--quaternary-simple:hover {
@@ -146,13 +159,11 @@
     margin-bottom: 0.25rem;
 
     display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      flex-flow: column;
+      flex-flow: column wrap;
       justify-content: flex-start;
       align-content: flex-start;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       flex-flow: row;
     }
 
@@ -161,28 +172,32 @@
       line-height: 1.4rem;
       font-style: italic;
     }
+
     p {
       font-size: 1rem;
       line-height: 1rem;
       margin-bottom: 0px;
     }
+
     &-item {
       margin-bottom: 0.5rem;
       line-height: 1;
     }
+
     &-col {
       padding-right: .75em;
       display: inline-flex;
       flex: 1 40%;
       flex-flow: column;
     }
+
     &-col + &-col {
       display: inline-flex;
       flex-flow: column;
       flex: 1 1 100%;
       padding-left: 0;
 
-      @media ($bp-small-min){
+      @media ($bp-small-min) {
         flex: 1 50%;
         align-content: flex-start;
         border-left: 1px solid $c-bd-divider;
@@ -207,19 +222,19 @@
  &__moreinfo {
     margin-top: 0;
     display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      flex-flow: column;
+      flex-flow: column wrap;
       justify-content: flex-start;
       align-content: flex-start;
 
-      @media ($bp-small-min){
+      @media ($bp-small-min) {
         flex-flow: row;
       }
+
     .ma__link-dropdown {
       padding-left: 1em;
       position: relative;
       top: -5px;
+
       .ma__link-dropdown-menu {
         position: fixed;
       }
@@ -243,7 +258,7 @@
       margin-top: 0.5rem;
     }
 
-    &--border{
+    &--border {
       padding-left: 0;
       border-left-style: none;
       border-left-width: 0px;
@@ -251,10 +266,11 @@
       flex: 1 1 100%;
     }
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       padding-left: .75em;
       margin-left: .75em;
       border-left: 1px solid $c-gray-light;
+
       & > *:first-child {
         margin-top: 0rem;
       }
@@ -286,17 +302,22 @@
 
   &__infoitem {
     font-size: 1.125rem;
+
     & + & {
       margin-top: 0.5rem;
     }
+
     .ma__contact {
+
       &__details {
         font-size: 0.875rem;
       }
     }
     line-height: 1.2rem;
     display: flex;
+
     &-icon {
+
       svg {
         display: inline-block;
         vertical-align: middle;
@@ -325,6 +346,7 @@
     top: 0px;
     right: 0px;
     position: absolute;
+
     .ma__button-icon--secondary {
       border-width: 0px;
     }
@@ -343,21 +365,25 @@
 
     .ma__header-search {
       max-width: 600px;
+
       &__input {
         height: 42px;
         min-height: 42px;
       }
+
       .ma__button-icon.ma__button-search {
         height: 42px;
         min-height: 42px;
         background-color: $c-white;
         border-color: $c-gray-light !important;
         color: $c-primary-alt;
+
         svg {
           fill: $c-primary-alt;
           height: 13px;
           width: 14px;
         }
+
         span {
           display: none;
         }

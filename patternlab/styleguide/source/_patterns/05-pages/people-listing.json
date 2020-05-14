@@ -23,6 +23,7 @@
           }
         }
       }
+<<<<<<< HEAD
     ],
     "widgets": [
       {
@@ -37,6 +38,22 @@
               "width": ""
             },
             "caption": "This is an optional caption that can wrap to multiple lines."
+=======
+    }],
+    "widgets": [{
+      "path": "@atoms/09-media/figure--image.twig",
+      "data": {
+        "figure": {
+          "align": "",
+          "wrap": false,
+          "image": {
+            "alt": "alt text",
+            "src": "../../assets/images/placeholder/500x300.png",
+            "height": "",
+            "width": ""
+          },
+          "caption": "This is an optional caption that can wrap to multiple lines."
+>>>>>>> develop
           }
         }
       }

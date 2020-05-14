@@ -1,9 +1,11 @@
 // Custom Checkboxes
+
 .ma__input-checkbox {
   display: inline-block;
   position: relative;
 
   input {
+
     @include ma-visually-hidden;
   }
 
@@ -45,7 +47,8 @@
     }
   }
 
-  &--disabled{
+  &--disabled {
+
     label {
       opacity: 0.5;
     }
@@ -68,6 +71,7 @@
 }
 
 //theme
+
 .ma__input-checkbox {
 
   & > svg {
@@ -75,7 +79,7 @@
   }
 
   label {
-    font-weight: 400;
+    font-weight: $fonts-light;
 
     &:before {
       background-color: $c-white;
@@ -97,6 +101,7 @@
 
     /* WebKit gets its native focus styles.
      */
+
     @media (-webkit-min-device-pixel-ratio:0) {
       outline: -webkit-focus-ring-color auto 5px;
     }

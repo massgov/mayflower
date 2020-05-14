@@ -1,7 +1,7 @@
 //pikaday is a JS plugin for date inputs
 
 .pika-single {
-  font-family: "Texta", "Helvetica", "Arial", "sans-serif";
+  font-family: $fonts;
 
   abbr[title] {
     text-decoration: none;
@@ -14,7 +14,7 @@
 }
 
 .pika-table {
-  
+
   th {
     color: $c-font-dark;
     font-size: 14px;
@@ -25,12 +25,12 @@
   background-color: $c-bg-section;
   color: $c-font-base;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: $fonts-normal;
   text-align: center;
 
   .is-today & {
     color: $c-primary;
-    font-weight: 800;
+    font-weight: $fonts-bolder;
 
     &:hover {
       color: $c-font-inverse;
@@ -52,6 +52,7 @@
     box-shadow: none;
     border-radius: 0;
   }
+
   .is-today.is-selected & {
     color: $c-font-inverse;
   }

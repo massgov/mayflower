@@ -1,7 +1,9 @@
+import rectPlaceholder from 'SharedAssets/images/placeholder/600x450.png';
+
 export default {
   illustratedHeader: {
     bgInfo: 'Forest of the Berkshires',
-    bgImage: 'https://mayflower.digital.mass.gov/assets/images/placeholder/600x450.png',
+    bgImage: rectPlaceholder,
     category: 'Guide',
     inverted: false,
     publishState: {

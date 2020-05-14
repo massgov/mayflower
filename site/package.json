@@ -1,0 +1,62 @@
+{
+  "name": "mayflower-site",
+  "private": true,
+  "description": "Mayflower homepage",
+  "version": "0.1.0",
+  "author": "Minghua Sun <clairesunstudio@gmail.com>",
+  "dependencies": {
+    "@massds/mayflower-react": "9.44.2",
+    "bootstrap": "^4.4.1",
+    "classname": "^0.0.0",
+    "gatsby": "^2.19.7",
+    "gatsby-image": "^2.2.43",
+    "gatsby-plugin-manifest": "^2.2.39",
+    "gatsby-plugin-offline": "^3.0.32",
+    "gatsby-plugin-react-helmet": "^3.1.21",
+    "gatsby-plugin-sass": "^2.1.30",
+    "gatsby-plugin-sharp": "^2.4.3",
+    "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-transformer-json": "^2.2.27",
+    "gatsby-transformer-sharp": "^2.3.13",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "react-html-parser": "^2.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "esm": "^3.2.25",
+    "prettier": "^1.19.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build --prefix-paths",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "cross-env NODE_ENV=production gatsby serve --prefix-paths",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "lint": "./node_modules/.bin/eslint . --config .eslintrc",
+    "lint-fix": "./node_modules/.bin/eslint --fix . --config .eslintrc; exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

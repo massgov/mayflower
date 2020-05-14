@@ -80,7 +80,7 @@ class EmergencyAlerts extends React.Component {
                   aria-label="hide alert"
                   onClick={this.handleClose}
                 >
-                    +
+                  +
                 </button>
               )
               )}
