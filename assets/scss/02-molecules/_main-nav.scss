@@ -8,7 +8,6 @@
   }
   
   &__items {
-
     @include ma-reset-list;
   }
   
@@ -17,7 +16,6 @@
   }
   
   &__top-link {
-
     @include ma-button-reset;
     position: relative;
     display: block;
@@ -71,7 +69,6 @@
   }
   
   &__container {
-
     @include ma-reset-list;
     transition: opacity 0.2s;
 
@@ -81,7 +78,6 @@
   }
  
   &__link {
-
     @include ma-button-reset;
     width: 100%;
     text-align: left;

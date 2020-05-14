@@ -58,7 +58,6 @@
     }
 
     &.is-open {
-
       a {
         display: inline-block;
 
@@ -69,15 +68,12 @@
       }
 
       > button {
-
         &:after {
           transform: translateY(-55%) rotate(-135deg);
         }
-
         span:first-child {
           display: none;
         }
-
         span:nth-child(2) {
           display: inline;
         }
@@ -85,11 +81,8 @@
     }
 
     > button {
-
       @include ma-button-reset;
-
       @include ma-link-underline;
-
       @include ma-chevron;
       color: $c-primary;
       font-weight: 500;

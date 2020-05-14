@@ -15,7 +15,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
   }
 
   &__label {
-
     @include ma-visually-hidden;
   }
 
@@ -36,7 +35,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
   }
 
   .ma__button-search {
-
     &, &--secondary {
       border: 2px solid;
       //border-left: 2px solid;
@@ -49,7 +47,6 @@ $bp-header-search-reduce-button: "max-width: 700px";
         top: 0;
 
       @media ($bp-header-search-reduce-button) {
-
         span {
           display: none;
         }

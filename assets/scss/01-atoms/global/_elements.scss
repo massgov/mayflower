@@ -49,10 +49,6 @@ a {
   text-decoration: none;
   font-weight: $fonts-bold;
   color: $c-font-link;
-
-  &:focus {
-    outline-color: -webkit-focus-ring-color;
-  }
 }
 
 img {

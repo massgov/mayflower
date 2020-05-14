@@ -1,3 +1,5 @@
+$utility-nav-height: 43px;
+
 .ma__utility-nav {
   position: relative;
 
@@ -10,9 +12,17 @@
 
     @include ma-reset-list;
 
-    @media ($bp-header-toggle-min){
+    @include ma-container;
+
+    @media ($bp-header-toggle-max) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    @media ($bp-header-toggle-min) {
+
       @include ma-valign-block;
-      height:43px;
+      height: $utility-nav-height;
       text-align: right;
     }
   }
@@ -20,7 +30,13 @@
   &__item {
 
     @media ($bp-header-toggle-max) {
+      padding-right: 15px;
       position: relative;
+
+      &:hover {
+        background-color: $c-white;
+        box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
+      }
     }
 
     @media ($bp-header-toggle-min) {
@@ -82,32 +98,25 @@
   }
 
   &__link {
-    position: relative;
-    background-color: transparent;
     border: 0;
+    background-color: transparent;
 
     @media ($bp-header-toggle-max) {
-      @include ma-chevron;
       padding: 11px 20px 9px 45px;
       width: 100%;
       text-align: left;
-      font-size: 1.25rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      line-height: 1.45;
-      padding: 15px 20px 15px 45px;
-      text-transform: uppercase;
-      transition: all 0.4s ease;
-      text-align: left;
-      width: 100%;
-      border-bottom: 2px solid $c-gray-light;
-      
-      &::after {
-        display: none;
-      }
+    }
 
-      &:focus {
-        background-color: $c-bd-divider;
+    @media ($bp-header-toggle-max) {
+
+      @include ma-chevron;
+
+      &:after {
+        position: absolute;
+        right: 20px;
+        top: 18px;
+        border-right-color: $c-primary-alt;
+      border-bottom-color: $c-primary-alt;
       }
     }
 
@@ -123,12 +132,9 @@
 
       @media ($bp-header-toggle-max) {
         position: absolute;
-        top: 50%;
-        left: 20px;
+          top: 50%;
+          left: 20px;
         transform: translateY(-50%);
-        height: 20px;
-        width: 20px;
-        fill: rgba($c-primary, 0.5);
       }
     }
 
@@ -136,21 +142,6 @@
 
       @media ($bp-header-toggle-max) {
         display: block;
-        font-weight: inherit;
-      }
-    }
-
-    .toggle-indicator {
-      @include ma-accordion-icon;
-    
-      .submenu-open & {
-        &::after {
-          transform: rotate(135deg);
-        }
-      }
-
-      @media ($bp-header-toggle-min) {
-        display: none;
       }
     }
   }
@@ -261,9 +252,14 @@
 
   &__content {
     display: block;
+    margin-top: $header-mobile-controls-height;
     padding-left: 20px;
+    position: fixed;
+    top: 0;
+    right: -300px;
     text-align: left;
     transition: visibility .5s ease, right .5s ease;
+    width: 300px;
     z-index: $z-modal;
     color: $c-font-inverse;
 
@@ -272,15 +268,18 @@
       top: 40px;
     }
 
-    &.is-closed {
-      visibility: hidden;
-
-      a {
-        pointer-events: none;
-      }
+    .show-menu & {
+      right: 0;
     }
 
-    
+    &.is-closed {
+      visibility: hidden;
+      right: -300px;
+    }
+
+    a {
+      color: $c-font-inverse;
+    }
 
     .ma__rich-text {
       max-width: 720px;
@@ -291,12 +290,11 @@
     }
 
     @media ($bp-header-toggle-min) {
-      margin-top: $header-mobile-controls-height;
       margin-top: 0;
       overflow: visible;
       background-color: $c-primary;
       padding-left: 0;
-      position: fixed;
+      position: absolute;
       left: 0;
       top: 0;
       transition: visibility .6s, top .6s;
@@ -306,10 +304,6 @@
       &.is-closed {
         right: 0;
         transition: visibility .3s, top .3s;
-      }
-
-      a {
-        color: $c-font-inverse;
       }
     }
   }
@@ -328,6 +322,18 @@
       padding-bottom: 0;
       padding-top: 0;
       margin-top: 10px;
+    }
+
+    @media ($bp-header-toggle-max) {
+      height: calc(100vh - #{$header-mobile-controls-height});
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: $c-primary;
+
+      .translated-rtl &,
+      .translated-ltr & {
+        height: calc(100vh - #{$header-mobile-controls-height * 2});
+      }
     }
   }
 
@@ -368,8 +374,7 @@
   }
 
   &__content-title {
-    display: none;
-    
+
     h2 {
       display: inline-block;
       vertical-align: middle;
@@ -381,7 +386,6 @@
     }
 
     @media ($bp-header-toggle-min) {
-      display: inline-block;
       padding-bottom: 5px;
     }
 

@@ -2,10 +2,9 @@ $bp-utility-panel-medium-min: "min-width:1121px";
 $bp-utility-panel-reduce-links-max: "max-width:1120px";
 
 .ma__utility-panel {
-  
 
   @media ($bp-header-toggle-min) {
-    background-color: $c-primary; 
+    background-color: $c-primary;
     color: $c-font-inverse;
 
     &:nth-child(2) {
@@ -22,14 +21,14 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
     margin-right: 2%;
 
     @media ($bp-header-toggle-max) {
-      display: none; 
+      display: none;
     }
   }
 
   &__items {
 
     @include ma-reset-list;
-    
+
 
     @media ($bp-header-toggle-min) {
       display: flex;
@@ -63,7 +62,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
       width: 23%;
       margin-right: 2.5%;
       min-height: 70px;
-      
+
       .no-flex & {
         display: table-cell;
       }
@@ -89,7 +88,7 @@ $bp-utility-panel-reduce-links-max: "max-width:1120px";
 
       @media ($bp-header-toggle-max) {
         color: $c-black;
-        font-weight: 400;
+        font-weight: $fonts-normal;
 
         svg {
           fill: rgba($c-primary, 0.5);
