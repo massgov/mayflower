@@ -28,7 +28,7 @@
       }
 
       @media ($bp-small-max) {
-        font-size: 16px;
+        font-size: $fonts-2xsmall;
         order: -1;
       }
     }

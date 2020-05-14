@@ -26,8 +26,8 @@
   }
 
   &__title {
-    font-weight: 700;
-    font-size: 1rem;
+    font-weight: $fonts-bold;
+    font-size: $fonts-2xsmall;
     letter-spacing: $letter-spacing-large;
     line-height: 1.875rem;
     text-transform: uppercase;
@@ -58,7 +58,7 @@
   }
 
   &__name {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-bottom: .5em;
   }
 }
@@ -77,6 +77,6 @@
 
   &__title {
     color: $c-font-detail;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 }

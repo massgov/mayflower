@@ -31,7 +31,7 @@
     padding-bottom: 10px;
 
     @media ($bp-x-small-min) {
-      font-size: 1.625rem;
+      font-size: $fonts-large;
       line-height: em(40,28);
       padding-top:38px;
       padding-bottom: 20px;
@@ -60,7 +60,7 @@
 .ma__callout {
   border-left-color: $c-highlight;
   color: $c-font-heading;
-  font-weight: 800;
+  font-weight: $fonts-bolder;
 
   &__header {
 

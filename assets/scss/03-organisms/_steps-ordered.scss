@@ -29,7 +29,7 @@ $steps-ordered-icon-border: 3px;
       border-radius: 50%;
       content: counter(li); // Use the counter as content
       counter-increment: li; // Increment the counter by 1
-      font-size: 1.25rem;
+      font-size: $fonts-small;
       height: 36px;
       line-height: 36px - $steps-ordered-icon-border * 2;
       position: absolute;
@@ -84,7 +84,7 @@ $steps-ordered-icon-border: 3px;
 
     &:before {
       color: $c-primary-alt;
-      font-weight: 700;
+      font-weight: $fonts-bold;
     }
   }
 }

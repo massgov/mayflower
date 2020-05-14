@@ -12,7 +12,7 @@
   }
 
   &__message {
-    font-size: 1.75rem;
+    font-size: $fonts-xlarge;
     line-height: 1.31;
 
     @media ($bp-small-min) {
@@ -47,6 +47,6 @@
   }
 
   &__message {
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 }

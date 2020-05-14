@@ -32,7 +32,7 @@
   }
 
   &__title {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
   }
 
   &__icon {
@@ -42,7 +42,7 @@
 
 
   &__messages {
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     margin-bottom: 0;
     padding-left: 53px;
   }
@@ -51,7 +51,7 @@
     border-bottom-style: solid;
     border-bottom-width: 1px;
     display: inline-block;
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-bottom: 2px;
 
     &:hover {
@@ -72,12 +72,12 @@
   }
 
   &__title {
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__label {
     border-color: $c-bd-error;
     color: $c-font-error;
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 }

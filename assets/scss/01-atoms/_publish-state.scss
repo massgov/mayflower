@@ -1,10 +1,10 @@
 .ma__publish-state {
-  font-size: 2rem;
+  font-size: $fonts-2xlarge;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-large;
 
   @media ($bp-small-min) {
-    font-size: 3rem;
+    font-size: $fonts-5xlarge;
   }
 
   .pre-content > &,
@@ -29,5 +29,5 @@
 
 .ma__publish-state {
   color: $c-font-medium;
-  font-weight: 700;
+  font-weight: $fonts-bold;
 }

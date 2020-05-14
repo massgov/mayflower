@@ -65,12 +65,12 @@
   }
 
   &__title {
-    font-size: 1.625rem;
+    font-size: $fonts-large;
     line-height: 1.2em;
     margin-bottom: .25em;
 
     .ma__decorative-link {
-      font-size: 1.625rem;
+      font-size: $fonts-large;
       line-height: 1.2;
     }
   }
@@ -81,7 +81,7 @@
 
   &__date,
   &__org {
-    font-size: 18px;
+    font-size: $fonts-xsmall;
     line-height: 1;
     margin-bottom: 1em;
   }
@@ -94,7 +94,7 @@
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
 
     @media ($bp-x-small-max) {
       display: none;
@@ -113,13 +113,13 @@
   &__eyebrow span {
     background-color: $c-bg-section;
     color: $c-font-detail;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__date,
   &__org {
     font-style: italic;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__org {

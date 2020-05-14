@@ -21,7 +21,7 @@
     h2 {
       margin-bottom: 0;
       padding-bottom: 5px;
-      font-weight: 500;
+      font-weight: $fonts-normal;
 
       @media ($bp-small-min) {
         font-size: 2.25rem;
@@ -61,8 +61,8 @@
       span {
         display: block;
         line-height: 1;
-        font-weight: 500;
-        font-size: 1.25rem;
+        font-weight: $fonts-normal;
+        font-size: $fonts-small;
       }
     }
 

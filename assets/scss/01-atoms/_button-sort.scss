@@ -1,7 +1,7 @@
 .ma__button-sort {
 
   @include ma-button-reset;
-  font-size: 18px;
+  font-size: $fonts-xsmall;
   line-height: 1.2;
   padding: 5px 15px 5px 5px;
   position: relative;
@@ -35,7 +35,7 @@
 
 .ma__button-sort {
   color: $c-font-link;
-  font-weight: 700;
+  font-weight: $fonts-bold;
 
   &--asc,
   &--dsc {

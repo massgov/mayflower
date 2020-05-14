@@ -7,8 +7,8 @@
   &__hide {
 
     @include ma-button-reset;
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: $fonts-5xlarge;
+    font-weight: $fonts-bold;
     line-height: .65;
     overflow: hidden;
     position: absolute;
@@ -29,7 +29,7 @@
     overflow: hidden;
     max-width: 100%;
     vertical-align: baseline;
-    font-size: 1.5rem;
+    font-size: $fonts-large;
     line-height: 1.3em;
 
     a {

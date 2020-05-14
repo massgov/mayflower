@@ -130,7 +130,7 @@
     text-transform: uppercase;
 
     @media ($bp-large-min) {
-      font-size: 1rem;
+      font-size: $fonts-2xsmall;
     }
   }
 
@@ -142,10 +142,10 @@
     margin-top: 5px;
 
     a {
-      font-size: 1.75rem;
+      font-size: $fonts-xlarge;
 
       @media ($bp-large-min) {
-        font-size: 1.75rem;
+        font-size: $fonts-xlarge;
       }
     }
   }
@@ -231,7 +231,7 @@
 
   &__category {
     color: rgba($c-font-base,.85);
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__item--blue &__category,

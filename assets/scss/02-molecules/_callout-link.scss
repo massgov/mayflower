@@ -30,7 +30,7 @@
   }
 
   &__container {
-    font-size: 1.625rem;
+    font-size: $fonts-large;
     line-height: 1.3;
     vertical-align: middle;
     padding-right: .8em;
@@ -52,8 +52,8 @@
   &__description {
     display: none;
     padding-top: 10px;
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: $fonts-small;
+    font-weight: $fonts-light;
     color: rgba($c-font-link,1);
 
     @media ($bp-x-small-min) {
@@ -65,7 +65,7 @@
 
   &__eyebrow {
     background-color: $c-bg-section;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__header {
@@ -89,12 +89,12 @@
   }
 
   &__emphasized {
-    font-size: 18px;
+    font-size: $fonts-xsmall;
     line-height: 1;
     padding-top: 15px;
     display: flex;
     color: $c-font-base;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &--white {

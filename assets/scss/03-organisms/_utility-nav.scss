@@ -62,7 +62,7 @@ $utility-nav-height: 43px;
   &__link,
   &__translate {
     display: block;
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     line-height: 1.45;
     color: $c-font-base;
 
@@ -93,7 +93,7 @@ $utility-nav-height: 43px;
 
     span {
       font-family: $fonts;
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
   }
 
@@ -150,15 +150,15 @@ $utility-nav-height: 43px;
     position: relative;
 
     .goog-te-gadget {
-      font-size: 1.25rem;
-      font-weight: 400;
+      font-size: $fonts-small;
+      font-weight: $fonts-light;
     }
 
     .goog-te-gadget-simple {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
       background-color: transparent;
       border: none;
-      font-weight: 500;
+      font-weight: $fonts-normal;
 
       @media ($bp-header-toggle-max) {
         padding: 11px 0 9px 45px;
@@ -341,8 +341,8 @@ $utility-nav-height: 43px;
 
     @include ma-button-reset;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: $fonts-2xsmall;
+    font-weight: $fonts-bold;
     position: absolute;
     top: 0;
     right: 35px;
@@ -366,11 +366,11 @@ $utility-nav-height: 43px;
   }
 
   &__close-icon {
-    font-size: 2.5rem;
+    font-size: $fonts-3xlarge;
     line-height: .5em;
     margin-left: .2em;
     transform: rotate(45deg);
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 
   &__content-title {
@@ -378,9 +378,9 @@ $utility-nav-height: 43px;
     h2 {
       display: inline-block;
       vertical-align: middle;
-      font-size: 1.625rem;
+      font-size: $fonts-large;
       line-height: 1.45;
-      font-weight: 500;
+      font-weight: $fonts-normal;
       margin-bottom: 0;
       color: $c-white;
     }

@@ -17,7 +17,7 @@
   &__label {
     color: $c-font-detail;
     display: inline-block;
-    font-size: 16px;
+    font-size: $fonts-2xsmall;
     letter-spacing: $letter-spacing-large;
     line-height: 1.875rem;
     text-transform: uppercase;

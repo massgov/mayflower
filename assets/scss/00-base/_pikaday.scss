@@ -10,27 +10,27 @@
 
 .pika-label {
   color: $c-font-dark;
-  font-size: 18px;
+  font-size: $fonts-xsmall;
 }
 
 .pika-table {
 
   th {
     color: $c-font-dark;
-    font-size: 14px;
+    font-size: $fonts-3xsmall;
   }
 }
 
 .pika-button {
   background-color: $c-bg-section;
   color: $c-font-base;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: $fonts-3xsmall;
+  font-weight: $fonts-normal;
   text-align: center;
 
   .is-today & {
     color: $c-primary;
-    font-weight: 800;
+    font-weight: $fonts-bolder;
 
     &:hover {
       color: $c-font-inverse;

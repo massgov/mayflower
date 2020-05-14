@@ -86,7 +86,7 @@
   &__link {
     cursor: pointer;
     display: none;
-    font-size: 20px;
+    font-size: $fonts-small;
     line-height: 1.2;
     padding: 10px 15px;
     min-height: 47px;
@@ -129,7 +129,7 @@
 
       a {
         color: $c-font-base;
-        font-weight: 700;
+        font-weight: $fonts-bold;
       }
 
       &:hover a {
@@ -149,7 +149,7 @@
     a {
 
       @include ma-link-underline;
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
   }
 
@@ -188,7 +188,7 @@
 
     @include ma-button-reset;
     color: $c-primary-alt;
-    font-size: 3rem;
+    font-size: $fonts-5xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;

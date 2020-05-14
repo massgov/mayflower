@@ -1,7 +1,7 @@
 .ma__button-tag {
 
   @include ma-button-reset;
-  font-size: 1.125rem;
+  font-size: $fonts-xsmall;
   display: inline-block;
   line-height: 1em;
   margin-right: .25em;
@@ -9,7 +9,7 @@
   white-space: nowrap;
   background-color: tint($c-font-link,90%);
   color: $c-font-link;
-  font-weight: 700;
+  font-weight: $fonts-bold;
 
   &:after {
     content: "+";

@@ -116,7 +116,7 @@
   &__toggle-link {
 
     @include ma-button-reset;
-    font-size: 2.5rem;
+    font-size: $fonts-3xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;
@@ -198,7 +198,7 @@
 
     @media ($bp-small-max) {
       display: none;
-      font-size: 20px;
+      font-size: $fonts-small;
       line-height: 1.2;
       padding: 10px 35px 10px 15px;
 
@@ -236,7 +236,7 @@
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
     color: $c-white;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__links {
@@ -267,12 +267,12 @@
     @media ($bp-small-max) {
 
       a {
-        font-weight: 500;
+        font-weight: $fonts-normal;
       }
 
       &.is-active a {
         color: $c-font-base;
-        font-weight: 700;
+        font-weight: $fonts-bold;
       }
 
       &.is-active:hover a {

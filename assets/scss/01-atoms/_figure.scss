@@ -45,7 +45,7 @@
   }
 
   &__caption {
-    font-size: 1.125rem;
+    font-size: $fonts-xsmall;
     font-style: italic;
     line-height: 1.57;
   }
@@ -262,6 +262,6 @@
 .ma__figure {
 
   &__caption {
-    font-weight: 300;
+    font-weight: $fonts-lighter;
   }
 }

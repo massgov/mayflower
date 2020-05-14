@@ -61,8 +61,8 @@ $formQuickTransitions: max-height 0.3s linear;
         bottom: 8px;
         right: 5px;
         top: auto;
-        font-size: 1rem;
-        font-weight: 400;
+        font-size: $fonts-2xsmall;
+        font-weight: $fonts-light;
       }
     }
 
@@ -188,7 +188,7 @@ $formQuickTransitions: max-height 0.3s linear;
       &::after {
         position: absolute;
         bottom: 45px;
-        font-size: 1rem;
+        font-size: $fonts-2xsmall;
 
         @media ($bp-feedback-min) {
           display: none;

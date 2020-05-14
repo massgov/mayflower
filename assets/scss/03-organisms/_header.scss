@@ -240,7 +240,7 @@ body {
     &, &--react {
 
       @include ma-button-reset;
-      font-size: 1.125rem;
+      font-size: $fonts-xsmall;
       height: 33px;
       letter-spacing: $letter-spacing-large;
       margin-left: 20px;
@@ -251,7 +251,7 @@ body {
       text-transform: uppercase;
       transition: left .5s, visibility .5s;
       z-index: $z-dropdown;
-      font-weight: 700;
+      font-weight: $fonts-bold;
       color: $c-font-inverse;
 
       .translated-rtl &,
@@ -305,7 +305,7 @@ body {
   &__menu-button {
     background-color: transparent;
     border: none;
-    font-size: 1.125rem;
+    font-size: $fonts-xsmall;
     height: 35px;
     letter-spacing: $letter-spacing-large;
     line-height: 35px;
@@ -476,7 +476,7 @@ body {
   }
 
   &__menu-button {
-    font-weight: 700;
+    font-weight: $fonts-bold;
     color: $c-font-inverse;
 
     span:first-child {
@@ -522,15 +522,15 @@ body {
   &__backto {
 
     a {
-      font-weight: 500;
+      font-weight: $fonts-normal;
       background-color: tint($c-font-link, 90%);
       border-color: tint($c-font-link, 50%);
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
       color: $c-font-link;
-      font-size: 1.25rem;
+      font-size: $fonts-small;
 
       @media ($bp-large-min) {
-        font-size: 1.375rem;
+        font-size: $fonts-medium;
       }
 
       &:focus {

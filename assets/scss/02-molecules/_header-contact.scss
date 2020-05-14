@@ -27,7 +27,7 @@
     @include ma-button-reset;
     border-top: 1px solid;
     display: block;
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     letter-spacing: $letter-spacing-large;
     margin: 1em 0;
     padding: 10px 30px 10px 0;
@@ -39,7 +39,7 @@
     &:after {
       content: "+";
       display: block;
-      font-size: 1.75rem;
+      font-size: $fonts-xlarge;
       line-height: .75em;
       position: absolute;
         top: 50%;
@@ -98,7 +98,7 @@
   &__accordion {
     border-top-color: $c-bd-divider;
     color: $c-primary;
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     &:after {
       color: $c-primary;

@@ -19,7 +19,7 @@
   }
 
   label {
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
     line-height: 1rem;
     padding-left: 1.25em;
 
@@ -79,7 +79,7 @@
   }
 
   label {
-    font-weight: 400;
+    font-weight: $fonts-light;
 
     &:before {
       background-color: $c-white;

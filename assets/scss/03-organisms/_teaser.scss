@@ -37,12 +37,12 @@ $c-theme-green: #43956f;
 
   .ma__quality__wrapper {
     font-family: $fonts;
-    font-size: 19.2px;
+    font-size: $fonts-small;
     line-height: 23px;
   }
 
   .ma__address {
-    font-size: 18.2px;
+    font-size: $fonts-xsmall;
     line-height: 27px;
   }
 
@@ -79,7 +79,7 @@ $c-theme-green: #43956f;
       padding: 5px 7px;
       text-transform: uppercase;
       background-color: $c-bg-section;
-      font-weight: 700;
+      font-weight: $fonts-bold;
     }
   }
 
@@ -103,7 +103,7 @@ $c-theme-green: #43956f;
         margin-bottom: 0;
 
         span {
-          font-size: 1.25rem;
+          font-size: $fonts-small;
           color: $c-gray-dark;
           font-weight: 550;
         }
@@ -118,12 +118,12 @@ $c-theme-green: #43956f;
 
   &__date,
   &__org {
-    font-size: 18px;
+    font-size: $fonts-xsmall;
     line-height: 1;
     margin-bottom: 1em;
     color: $c-font-dark;
     font-style: italic;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__date + &__org {
@@ -164,7 +164,7 @@ $c-theme-green: #43956f;
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
 
     @media ($bp-x-small-max) {
       font-size: 1.24rem;
@@ -191,7 +191,7 @@ $c-theme-green: #43956f;
     padding-right: 0.75em;
     flex: 1 40%;
     flex-grow: 2;
-    font-size: 18.2px;
+    font-size: $fonts-xsmall;
     line-height: 27px;
     margin-bottom: 10px;
 
@@ -228,7 +228,7 @@ $c-theme-green: #43956f;
     display: flex;
     flex-flow: row;
     align-items: center;
-    font-size: 18px;
+    font-size: $fonts-xsmall;
     line-height: 22px;
 
     .ma__decorative-link {
@@ -276,7 +276,7 @@ $c-theme-green: #43956f;
   .ma__website {
 
     a {
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
 
     svg {
@@ -287,11 +287,11 @@ $c-theme-green: #43956f;
   }
 
   .ma__phone {
-    font-size: 18px;
+    font-size: $fonts-xsmall;
     line-height: 27px;
 
     a {
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
 
     svg {

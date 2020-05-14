@@ -25,20 +25,20 @@ html {
     font-family: $fonts-khmer, $fonts;
   }
 
-  font-size: 14.5px;
+  font-size: $fonts-base-mobile;
 
   @media ($bp-small-min) {
-    font-size: 16px;
+    font-size: $fonts-base;
   }
 }
 
 
 body {
   margin: 0;
-  font-size: 1.375rem;
+  font-size: $fonts-medium;
   line-height: 1.5;
   color: $c-font-base;
-  font-weight: 400;
+  font-weight: $fonts-light;
 }
 
 
@@ -47,7 +47,7 @@ a {
 
   @include ma-link-transition;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: $fonts-bold;
   color: $c-font-link;
 }
 
@@ -126,7 +126,7 @@ ol {
   h#{$i} {
     margin-top: 0;
     color: $c-font-heading;
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     @include ma-heading($i);
   }
@@ -161,5 +161,5 @@ div {
 }
 
 b, strong {
-  font-weight: 700;
+  font-weight: $fonts-bold;
 }

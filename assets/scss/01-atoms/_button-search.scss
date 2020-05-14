@@ -29,8 +29,8 @@
     border-color: $background-color !important;
   }
   color: $color;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: $fonts-3xsmall;
+  font-weight: $fonts-bold;
 
   &:hover,
   &:focus {

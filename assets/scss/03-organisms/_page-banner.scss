@@ -153,7 +153,7 @@ $page-banner-height: 330px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     max-width: 1050px;
     padding: 30px 25px 45px 0;
     z-index: 1;
@@ -307,15 +307,15 @@ $page-banner-height: 330px;
   &--small &__title {
 
     @media ($bp-small-min) {
-      font-size: 3.25rem;
+      font-size: $fonts-6xlarge;
     }
 
     @media ($bp-large-min) {
-      font-size: 3.5rem;
+      font-size: $fonts-7xlarge;
     }
 
     @media ($bp-x-large-min) {
-      font-size: 3.875rem;
+      font-size: $fonts-8xlarge;
     }
   }
 
@@ -362,7 +362,7 @@ $page-banner-height: 330px;
 
   .ma__decorative-link a,
   &__unlinked-title {
-    font-weight: 500;
+    font-weight: $fonts-normal;
   }
 
   .ma__decorative-link + &__description,
@@ -378,7 +378,7 @@ $page-banner-height: 330px;
   }
 
   &--columns &__description {
-    font-size: 1.5rem;
+    font-size: $fonts-large;
     margin-top: 0;
     padding: 25px 0 20px;
     width: 95%;
@@ -493,17 +493,17 @@ $page-banner-inner-width: 612px;
   }
 
   &__title {
-    font-weight: 400;
+    font-weight: $fonts-light;
     color: $c-font-inverse;
   }
 
   &__description {
     color: $c-font-inverse;
-    font-weight: 500;
+    font-weight: $fonts-normal;
 
     .ma__page-banner__descriptionSubText {
       display: block;
-      font-weight: 300;
+      font-weight: $fonts-lighter;
     }
   }
 
@@ -529,6 +529,6 @@ $page-banner-inner-width: 612px;
 
   &--columns &__description {
     color: $c-font-base;
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 }

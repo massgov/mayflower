@@ -37,7 +37,7 @@
 
     @include ma-container;
     padding-bottom: 25px;
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
     position: relative;
     z-index: 2;
 
@@ -112,12 +112,12 @@
 
     input {
       border: none;
-      font-size: 1.5rem;
+      font-size: $fonts-large;
       height: 100%;
       width: 100%;
 
       @media ($bp-small-min) {
-        font-size: 2rem;
+        font-size: $fonts-2xlarge;
       }
     }
   }
@@ -128,7 +128,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: auto;
-    font-size: 1.125rem;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     height: 40px;
     padding-left: 15px;
@@ -179,7 +179,7 @@
     max-width: 706px;
 
     .ma__comp-heading {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       letter-spacing: $letter-spacing-large;
       margin-bottom: .75em;
       text-transform: uppercase;
@@ -196,7 +196,7 @@
     }
 
     .ma__content-link {
-      font-size: 1.5rem;
+      font-size: $fonts-large;
 
       span {
         border-bottom-width: 1px;
@@ -254,7 +254,7 @@
   }
 
   &__image-name {
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     line-height: 1.125rem;
   }
 
@@ -286,12 +286,12 @@
 
     h1 {
       color: $c-font-inverse;
-      font-weight: 300;
+      font-weight: $fonts-lighter;
     }
 
     &__sub-title {
       color: $c-font-inverse;
-      font-weight: 400;
+      font-weight: $fonts-light;
     }
   }
 
@@ -299,44 +299,44 @@
 
   &__title {
     color: $c-font-inverse;
-    font-weight: 300;
+    font-weight: $fonts-lighter;
   }
 
   // backward compatible with v5.6 - intro was replaced with Page Intro
 
   &__intro {
     color: $c-font-inverse;
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 
   &__input {
 
     input {
       background-color: rgba(255, 255, 255, 0.75);
-      font-weight: 300;
+      font-weight: $fonts-lighter;
     }
 
     &::-webkit-input-placeholder {
       color: $c-font-medium;
-      font-weight: 300;
+      font-weight: $fonts-lighter;
       font-style: italic;
     }
 
     &:-moz-placeholder { /* Firefox 18- */
       color: $c-font-medium;
-      font-weight: 300;
+      font-weight: $fonts-lighter;
       font-style: italic;
     }
 
     &::-moz-placeholder {  /* Firefox 19+ */
       color: $c-font-medium;
-      font-weight: 300;
+      font-weight: $fonts-lighter;
       font-style: italic;
     }
 
     &:-ms-input-placeholder {
       color: $c-font-medium;
-      font-weight: 300;
+      font-weight: $fonts-lighter;
       font-style: italic;
     }
   }
@@ -344,7 +344,7 @@
   &__button {
     background-color: rgba(255, 255, 255, 0.75);
     color: $c-font-base;
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     & > svg {
       fill: $c-font-dark;
@@ -368,7 +368,7 @@
 
     .ma__decorative-link a {
       color: $c-font-inverse;
-      font-weight: 400;
+      font-weight: $fonts-light;
 
       &:hover {
         border-bottom-color: rgba($c-font-inverse, .5);
@@ -407,12 +407,12 @@
 
   &__image-name {
     color: rgba($c-font-inverse,.9);
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 
   &__image-author {
     color: rgba($c-font-inverse, .5);
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
   // End backward compatible with v5.7 - converted image-credit to new Banner Credit molecule
 }

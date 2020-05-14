@@ -7,7 +7,7 @@
   &__hide {
 
     @include ma-button-reset;
-    font-size: 3rem;
+    font-size: $fonts-5xlarge;
     line-height: .65;
     overflow: hidden;
     position: absolute;
@@ -32,7 +32,7 @@
   }
 
   &__label {
-    font-size: 1rem;
+    font-size: $fonts-2xsmall;
     letter-spacing: $letter-spacing-large;
     line-height: 1em;
     margin-right: .4em;
@@ -41,7 +41,7 @@
   }
 
   &__message {
-    font-size: 1.5rem;
+    font-size: $fonts-large;
     line-height: 1.3em;
 
     .ma__decorative-link, a {
@@ -56,12 +56,12 @@
   background-color: $c-warning;
 
   &__hide {
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__label {
     color: rgba($c-font-base, .7);
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__message {

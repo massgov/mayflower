@@ -5,7 +5,7 @@
     flex-direction: column;
     padding: 18px 0;
     font-weight: 600;
-    font-size: 16px;
+    font-size: $fonts-2xsmall;
     border-bottom: 1px solid $c-bd-divider;
     margin: 0 20px 10px;
 
@@ -161,7 +161,7 @@
             margin-top: 5px;
             padding-top: 0;
             padding-left: 0;
-            font-size: 1rem;
+            font-size: $fonts-2xsmall;
             font-weight: 600;
             white-space: nowrap;
             display: none;
