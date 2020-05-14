@@ -3,6 +3,7 @@
   .pre-content > &,
   .post-content &,
   .main-content--full .page-content > & {
+
     @include ma-container();
   }
 
@@ -75,13 +76,14 @@
 }
 
 //theme
+
 .ma__page-flipper {
 
   &__container {
     border-color: $c-bd-divider;
   }
 
-  &__context-label  {
+  &__context-label {
     color: rgba($c-font-link, .7);
   }
 

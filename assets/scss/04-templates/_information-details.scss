@@ -1,15 +1,25 @@
 .ma__information-details {
 
+  &__pre-content-media {
+
+    .ma__figure {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+
   &__content {
 
     & > * {
+
       @include ma-component-spacing;
     }
   }
 }
 //theme
+
 .ma__information-details {
-  
+
   .pre-content .ma__rich-text {
     margin-bottom: 30px;
   }
@@ -18,16 +28,9 @@
   &__post-content {
 
     & > * {
+
       @include ma-component-spacing;
     }
-  }
-
-  .ma__figure__caption {
-    color: $c-font-detail;
-    font-weight: bold;
-    font-style: normal;
-    padding: 1rem 0;
-    border-bottom: 1px solid $c-black;
   }
 
   .ma__image-credit__container {
@@ -56,4 +59,11 @@
       }
     }
   }
+
+  .page-content.no-sidebar {
+    float: none;
+    padding-right: 0;
+    width: 100%;
+  }
+
 }

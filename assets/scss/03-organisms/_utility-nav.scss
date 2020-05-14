@@ -7,6 +7,7 @@
   }
 
   &__items {
+
     @include ma-reset-list;
 
     @media ($bp-header-toggle-min){
@@ -26,6 +27,19 @@
       display: inline-block;
       padding-left: 30px;
       vertical-align: middle;
+    }
+
+    // Adjusting the style to match other items.
+    // Separate this style from react.
+
+    a.direct-link {
+      padding: 1px 7px 2px 7px;
+
+      @media ($bp-header-toggle-max) {
+        padding: 11px 20px 9px 45px;
+        width: 100%;
+        text-align: left;
+      }
     }
   }
 
@@ -60,10 +74,10 @@
         stroke: transparent;
       }
     }
-    
+
     span {
-      font-family: "Texta", "Helvetica", "Arial", "sans-serif";
-      font-weight: 500;
+      font-family: $fonts;
+      font-weight: $fonts-normal;
     }
   }
 
@@ -119,7 +133,7 @@
     }
 
     & > span {
-      
+
       @media ($bp-header-toggle-max) {
         display: block;
         font-weight: inherit;
@@ -146,14 +160,14 @@
 
     .goog-te-gadget {
       font-size: 1.25rem;
-      font-weight: 400;
+      font-weight: $fonts-light;
     }
 
     .goog-te-gadget-simple {
       font-size: 1.25rem;
       background-color: transparent;
       border: none;
-      font-weight: 500;
+      font-weight: $fonts-normal;
 
       @media ($bp-header-toggle-max) {
         padding: 11px 0 9px 45px;
@@ -178,6 +192,7 @@
     }
 
     .goog-te-gadget-simple .goog-te-menu-value {
+
       @include ma-chevron;
       color: $c-font-base;
 
@@ -209,13 +224,13 @@
 
       &:after {
         margin-left: .25em;
-        transform: rotate(45deg) translateY(-45%); 
+        transform: rotate(45deg) translateY(-45%);
 
         @media ($bp-header-toggle-max) {
           position: absolute;
             top: 45%;
             right: 10px;
-        }     
+        }
       }
     }
   }
@@ -231,12 +246,12 @@
     transition-delay: .5s;
 
     @media ($bp-header-toggle-max) {
-      left: 20px;    
+      left: 20px;
     }
 
     & > svg {
       height: 18px;
-      width: 20px;    
+      width: 20px;
     }
   }
 
@@ -300,13 +315,14 @@
   }
 
   &__container {
+
     @include ma-container;
     overflow-y: auto;
     padding-bottom: 20px;
     padding-top: 15px;
     position: relative;
     z-index: $z-dropdown;
-    
+
     @media ($bp-header-toggle-min) {
       height: auto;
       padding-bottom: 0;
@@ -316,13 +332,14 @@
   }
 
   &__close {
+
     @include ma-button-reset;
     cursor: pointer;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     position: absolute;
     top: 0;
-    right: 35px;;
+    right: 35px;
 
     @media ($bp-header-toggle-max) {
       display: none;
@@ -347,7 +364,7 @@
     line-height: .5em;
     margin-left: .2em;
     transform: rotate(45deg);
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 
   &__content-title {
@@ -358,7 +375,7 @@
       vertical-align: middle;
       font-size: 1.625rem;
       line-height: 1.45;
-      font-weight: 500;
+      font-weight: $fonts-normal;
       margin-bottom: 0;
       color: $c-white;
     }
@@ -390,3 +407,4 @@
     }
   }
 }
+

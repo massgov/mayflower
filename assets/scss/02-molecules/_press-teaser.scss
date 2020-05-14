@@ -1,4 +1,5 @@
 .ma__press-teaser {
+
   @include clearfix();
   
   &--image {
@@ -12,7 +13,7 @@
     margin-top: 30px;
     padding-top: 30px;
 
-    @media ($bp-large-min){
+    @media ($bp-large-min) {
       margin-top: 45px;
       padding-top: 45px;
     }
@@ -26,6 +27,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container('restricted');
   }
 
@@ -101,6 +103,7 @@
 }
 
 //theme
+
 .ma__press-teaser {
 
   & + & {
@@ -110,13 +113,13 @@
   &__eyebrow span {
     background-color: $c-bg-section;
     color: $c-font-detail;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__date,
   &__org {
     font-style: italic;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__org {

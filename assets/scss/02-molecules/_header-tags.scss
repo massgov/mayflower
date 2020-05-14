@@ -58,6 +58,7 @@
     }
 
     &.is-open {
+
       a {
         display: inline-block;
 
@@ -68,12 +69,15 @@
       }
 
       > button {
+
         &:after {
           transform: translateY(-55%) rotate(-135deg);
         }
+
         span:first-child {
           display: none;
         }
+
         span:nth-child(2) {
           display: inline;
         }
@@ -81,8 +85,11 @@
     }
 
     > button {
+
       @include ma-button-reset;
+
       @include ma-link-underline;
+
       @include ma-chevron;
       color: $c-primary;
       font-weight: 500;
@@ -110,6 +117,33 @@
       @media ($bp-x-small-max) {
         display: block;
       }
+    }
+  }
+}
+
+//theme
+
+.ma__header-tags {
+  font-weight: 600;
+
+  &__label {
+    color: $c-font-detail;
+  }
+
+  &__terms {
+
+    a {
+      border-color: rgba($c-font-link,.2);
+      font-weight: $fonts-normal;
+
+      &:hover {
+        border-color: $c-font-link;
+      }
+    }
+
+    > button {
+      color: $c-primary;
+      font-weight: $fonts-normal;
     }
   }
 }

@@ -6,6 +6,7 @@ $location-listin--map-min-width: 315px;
   position: relative;
 
   &__container {
+
     @include ma-container;
   }
 
@@ -222,24 +223,30 @@ $location-listin--map-min-width: 315px;
 
     &__location {
       font-size: 1.25rem;
-      font-weight: 500;
+      font-weight: $fonts-normal;
       line-height: 1.15;
       padding-bottom: 0;
 
       // Location street address, and city-state-zip, should be wrapped
       // in separate <span> elements. This allows the transition between
       // block and inline styling for the address better than a <br>.
+
       > .street {
         display: block;
       }
 
-      .ma__decorative-link {
-        width: auto;
+      .ma__image-promo__directions {
 
-        a {
-          display: inline-block;
-          padding-bottom: 0;
-          padding-top: 0;
+        .ma__decorative-link {
+          width: auto;
+
+          a {
+            width: auto;
+            min-width: 5em;
+            display: inline-block;
+            padding-bottom: 0;
+            padding-top: 0;
+          }
         }
       }
     }
@@ -268,11 +275,11 @@ $location-listin--map-min-width: 315px;
     }
 
     &__label {
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
 
     &__contact-info {
-      font-weight: 400;
+      font-weight: $fonts-light;
     }
 
     &__phone {

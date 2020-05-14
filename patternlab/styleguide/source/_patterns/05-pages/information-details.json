@@ -1,4 +1,5 @@
 {
+  "no_sidebar": false,
   "details": {
     "contentTitle": "",
     "titleContext": ""
@@ -66,10 +67,11 @@
           }
         },
         {
-          "path": "@atoms/09-media/figure.twig",
+          "path": "@atoms/09-media/figure--image.twig",
           "data": {
             "figure": {
               "align": "full",
+              "wrap": false,
               "image": {
                 "alt": "alt text",
                 "src": "../../assets/images/placeholder/1600x600.png",

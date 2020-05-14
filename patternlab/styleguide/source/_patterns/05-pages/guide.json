@@ -551,6 +551,7 @@
                 }
               ]
             }
+<<<<<<< HEAD
           }
         },
         {
@@ -559,6 +560,22 @@
             "calloutAlert": {
               "href": "",
               "text": "Massachusetts requires you to license your dog"
+=======
+          },{
+            "path": "@atoms/09-media/figure--image.twig",
+            "data": {
+              "figure": {
+                "align": "",
+                "wrap": false,
+                "image": {
+                  "alt": "alt text",
+                  "src": "../../assets/images/placeholder/800x400.png",
+                  "height": "",
+                  "width": ""
+                },
+                "caption": ""
+              }
+>>>>>>> develop
             }
           }
         }
@@ -680,6 +697,7 @@
                 }
               ]
             }
+<<<<<<< HEAD
           }
         }
       ]
@@ -700,6 +718,18 @@
                       "text": "Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing</a> elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
                     }
                   }
+=======
+          },{
+            "path": "@atoms/09-media/figure--image.twig",
+            "data": {
+              "figure": {
+                "align": "align-right",
+                "image": {
+                  "alt": "alt text",
+                  "src": "../../assets/images/placeholder/400x300.png",
+                  "height": "",
+                  "width": ""
+>>>>>>> develop
                 },
                 {
                   "path": "@atoms/09-media/figure.twig",

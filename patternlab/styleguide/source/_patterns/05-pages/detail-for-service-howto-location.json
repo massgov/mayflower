@@ -255,6 +255,7 @@
               }
             }
           },
+<<<<<<< HEAD
           {
             "path": "atoms-paragraph",
             "data": {
@@ -262,6 +263,35 @@
                 "text": "Municipalities may choose to adopt the Stretch Code in lieu of the base building energy code. Stretch code adoption is mandatory for designation as a \"<a href=\"http://www.mass.gov/eea/energy-utilities-clean-tech/green-communities/\">Green Community</a>\" under the GCA. As of October 4, 2016, 180 municipalities have adopted the Stretch Code, with more expected in the upcoming months. Building code officials have received free code training."
               }
             }
+=======
+          "size": "",
+          "format": "form"
+        }
+      }]
+    }
+  },{
+    "richText": {
+      "rteElements": [{
+        "path": "atoms-heading-2",
+        "data": {
+          "heading2" : {
+            "text":"Stretch code \"Residential Cash Flow Analysis\""
+          }
+        }
+      },{
+        "path": "@atoms/09-media/figure--image.twig",
+        "data": {
+          "figure": {
+            "align": "right",
+            "wrap": true,
+            "image": {
+              "alt": "alt text",
+              "src": "../../assets/images/placeholder/400x300.png",
+              "height": "",
+              "width": ""
+            },
+            "caption": ""
+>>>>>>> develop
           }
         ]
       },

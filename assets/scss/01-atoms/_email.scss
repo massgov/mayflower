@@ -1,8 +1,10 @@
 .ma__email {
+
   &__email {
-    font-weight: 700;
+    font-weight: $fonts-bold;
     color: $c-font-detail;
   }
+
   &__details {
     font-style: italic;
     font-size: 1rem;

@@ -7,6 +7,7 @@
     width: 100%;
     display: flex;
       flex-flow: column;
+
     @media ($bp-medium-min) {
       flex-flow: row;
     }
@@ -14,6 +15,7 @@
 
   &--secondary {
     background-color: $c-gray-lightest;
+
     @media ($bp-small-min) {
       flex-flow: column;
       flex: 1 1 auto;
@@ -35,6 +37,7 @@
   }
 
   &__details {
+
     &--secondary {
       flex-flow: row;
       display: flex;
@@ -42,6 +45,7 @@
        @media ($bp-small-min) {
          flex-flow: column;
        }
+
        @media ($bp-large-min) {
          flex-flow: row;
        }
@@ -49,13 +53,16 @@
       .ma__card__thumbnail {
         flex-basis: 40%;
         padding-right: 20px;
+
         @media ($bp-small-max) {
           display: none;
           flex-basis: 0%;
         }
       }
+
       .ma__card__text {
         flex-basis: 60%;
+
         @media ($bp-small-max) {
           flex: 1 1 auto;
         }
@@ -65,18 +72,22 @@
 
   &__title {
     text-decoration: none;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     color: $c-font-link;
+
     span {
       border: 3px solid transparent;
       transition: border 0.4s ease;
       display: inline;
+
       &:hover {
         border-bottom-color: rgba($c-font-link,.5);
       }
+
       &:focus {
         border-bottom-color: rgba($c-font-link,.5) !important;
       }
+
       svg {
         display: inline-block;
         height: .6em;
@@ -95,13 +106,16 @@
 
     @media ($bp-medium-min) {
       flex-basis: 60%;
+
       @include ma-aspect-ratio(4,3);
+
       img {
         display: none;
       }
     }
     
     @media ($bp-medium-max) {
+
       img {
         display: block;
         width: 100%;
@@ -109,6 +123,7 @@
     }
 
     &--secondary {
+
       @media ($bp-small-min) {
         display: none
       }

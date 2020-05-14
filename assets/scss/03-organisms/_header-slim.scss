@@ -1,23 +1,23 @@
 .ma__header_slim {
-  
+
   .ma__container {
+
     @include ma-container;
   }
 
   a {
     transition: all 0.4s ease;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     color: $c-primary;
   }
 
   @media (min-width: 1000px) {
+
     &__logo {
-      float: left;
-      display: block;
-      margin-right: 1.6129%;
-      display: inline-block;
       float: none;
+      display: inline-block;
+      margin-right: 1.6129%;
 
       &:last-child {
         margin-right: 0;
@@ -26,14 +26,13 @@
   }
 
   @media (min-width: 621px) {
-    &__logo {
-      float: left;
-      display: block;
-      margin-right: 1.6129%;
-      display: inline-block;
-      float: none;
 
-      &:last-child{
+    &__logo {
+      float: none;
+      display: inline-block;
+      margin-right: 1.6129%;
+
+      &:last-child {
         margin-right: 0;
       }
     }
@@ -50,7 +49,7 @@
       width: 100%;
 
       & span {
-        font-weight: 400;
+        font-weight: $fonts-light;
         color: $c-primary-alt;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: $c-primary-alt;
@@ -79,6 +78,7 @@
       font-size: 0;
       padding-top: 20px;
       padding-bottom: 20px;
+
       &:before {
         content: "";
         display: inline-block;

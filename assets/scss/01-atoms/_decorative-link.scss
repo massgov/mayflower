@@ -1,4 +1,5 @@
 .ma__decorative-link {
+
   @include ma-link-decorative;
   display: inline-block;
   vertical-align: middle;
@@ -39,10 +40,11 @@
   }
 
   &__details {
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 
   a {
+
     .ma__download-link--icon {
       display: inline-flex;
       align-self: center;

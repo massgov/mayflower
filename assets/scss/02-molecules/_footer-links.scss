@@ -1,7 +1,9 @@
 .ma__footer-links {
+
   @include clearfix;
 
   &__items {
+
     @include ma-reset-list;
     margin-left: auto;
     margin-right: auto;
@@ -15,11 +17,14 @@
     }
 
     @media ($bp-small-min) {
+
       @include span-columns(3 of 9);
     }
 
     @media ($bp-x-large-min) {
+
       @include span-columns(2 of 9);
+
       @include shift(1 of 9);
     }
   }
@@ -33,12 +38,14 @@
   }
 
   &__link {
+
     @include ma-link-underline;
     padding-bottom: 3px;
   }
 }
 
 //theme
+
 .ma__footer-links {
 
   &__items {
@@ -50,7 +57,7 @@
 
   &__link {
     color: $c-font-base;
-    font-weight: 500;
+    font-weight: $fonts-normal;
 
     &:hover {
       border-bottom-color: rgba($c-font-dark,.5);

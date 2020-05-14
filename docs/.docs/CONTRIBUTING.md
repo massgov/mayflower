@@ -1,13 +1,13 @@
 Contributing to Mayflower Documentation
 =========================
 
-Documentation for the overall Mayflower design system, including guiding principles hosted by Gitbook. 
+Documentation for the overall Mayflower design system, including guiding principles hosted by Gitbook.
 
 
 From Gitbook Editor:
 ------------------------------------
 
-1. [Create](https://www.gitbook.com/join) a Gitbook account and ask Minghua or Sienna for edit permission.
+1. [Create](https://www.gitbook.com/join) a Gitbook account and ask Minghua for edit permission.
 2. Go to https://massds.gitbook.io/mayflower/.
 3. Click on `master` version dropdown and switch to the `docs/integration` version.
 4. Click on the `Edit` button to start making changes.
@@ -36,7 +36,7 @@ From Github:
     git commit -m "Add foos to bars"
     git push origin docs-my_feature
     ```
-5. Follow the [Changelog Instructions](../for-developers/change-log-instructions.md) to add a changelog.
+5. Follow the [Changelog Instructions](../for-developers/changelog-instructions.md) to add a changelog.
 6. Open a [Pull Request](https://github.com/massgov/mayflower/compare/docs-integration...) and set "compare" to your feature branch to have your code reviewed.
 
 

@@ -7,6 +7,7 @@
   }
 
   &__name {
+
     @include ma-h6;
 
     & > svg {
@@ -26,7 +27,7 @@
   &__label {
     display: inline-block;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
 
@@ -36,7 +37,7 @@
     display: inline-block;
     line-height: 1.75;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
   }
@@ -51,7 +52,7 @@
   &__address {
     line-height: 1.5;
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
   }
@@ -68,12 +69,13 @@
       word-wrap: break-word;
     }
 
-    @media ($bp-small-min){
+    @media ($bp-small-min) {
       font-size: 1.25rem;
     }
   }
 
   &__directions {
+
     .ma__content-link {
       line-height: inherit;
     }
@@ -81,6 +83,7 @@
 }
 
 //theme
+
 .ma__contact-group {
 
   &__name {
@@ -90,19 +93,19 @@
     }
 
     span {
-      font-weight: 700;
+      font-weight: $fonts-bold;
     }
   }
 
   &__label {
-    font-weight: 500;
+    font-weight: $fonts-normal;
   }
 
   &__value {
-    font-weight: 300;
+    font-weight: $fonts-lighter;
   }
 
   .ma__content-link--phone {
-    font-weight: 300;
+    font-weight: $fonts-lighter;
   }
 }

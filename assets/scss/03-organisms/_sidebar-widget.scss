@@ -7,7 +7,9 @@
     text-align: right;
 
     a {
+
       @include ma-chevron;
+
       @include ma-link-underline;
       padding-bottom: 3px;
 
@@ -22,6 +24,7 @@
   }
 }
 //theme
+
 .ma__sidebar-widget {
 
   &__more {

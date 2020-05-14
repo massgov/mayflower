@@ -8,7 +8,7 @@
   text-transform: uppercase;
   transition: all 0.4s ease;
 
-  &:hover {
+  &:hover:not(:disabled) {
     text-decoration: none;
   }
 }
