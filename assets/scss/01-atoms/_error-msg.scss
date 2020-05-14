@@ -1,18 +1,19 @@
 // error message
+
 .ma__error-msg {
   display: none;
   align-items: flex-start;
   font-size: 1.125rem;
   line-height: 1.2rem;
   margin: .3em 0;
-  font-weight: 500;
+  font-weight: $fonts-normal;
 
  svg {
    flex: 0 0 1.2rem;
    margin-right: 3px;
  }
 
- &.has-error{
+ &.has-error {
    display: flex;
    color: $c-font-error;
 

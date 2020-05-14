@@ -112,7 +112,7 @@ jobs:
             fi
       - run:
           name: 'Deploy S3 Branch'
-          command: aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/b/$CIRCLE_BRANCH"
+          command: aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/b/$CIRCLE_BRANCH"
 
   patternlab_deploy_tag:
     <<: *patternlab_defaults
@@ -153,10 +153,10 @@ jobs:
       - run:
           name: 'Deploy S3 Tag'
           command: |
-            aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/v/$CIRCLE_TAG"
+            aws s3 sync patternlab/styleguide/public "s3://mayflower.digital.mass.gov/patternlab/v/$CIRCLE_TAG"
             if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               # Use cp instead of sync for root copy.  sync lists all keys and is too slow.
-              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/"
+              aws s3 cp --recursive patternlab/styleguide/public/ "s3://mayflower.digital.mass.gov/patternlab"
             fi
 
   react_build_storybook:
@@ -197,7 +197,7 @@ jobs:
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
           cd react
-          docker-compose run backstop test --atoms && docker-compose run backstop test
+          docker-compose run backstop test
       - run:
           command: cd react && docker cp $(docker-compose ps -q backstop):/src/backstop/. ./backstop/
           when: always
@@ -214,7 +214,7 @@ jobs:
           at: ~/repo
       - *configure_npm
       - run:
-          name: 'Publish NPM package'
+          name: 'Publish mayflower-react NPM package'
           command: |
             cd react
             npm version --no-git-tag-version "$CIRCLE_TAG"
@@ -232,9 +232,9 @@ jobs:
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             cd react
-            aws s3 sync storybook-static s3://mayflower-react.digital.mass.gov/ --delete
+            aws s3 sync storybook-static s3://mayflower.digital.mass.gov/react --delete
             aws configure set preview.cloudfront true
-            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID_REACT --paths '/*'
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/react*'
           fi
 
   auto_changelog:
@@ -259,20 +259,102 @@ jobs:
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run:
-          command: 'node scripts/release-branch.js'
+      - run: node scripts/release-branch.js
 
   github_tag:
     <<: *patternlab_defaults
     steps:
       - checkout
       - *no_host_check
+      - run: { name: 'NPM Install', command: 'npm install' }
       # Identify the committer i.e. CircleCI deployment bot
       - run: git config --global user.email "circleci@example.com"
       - run: git config --global user.name "CircleCI Deployment Bot"
-      - run:
-          command: 'scripts/github-tag'
+      - run: node scripts/release-tag.js
 
+
+  assets_build:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - assets-dependencies-{{ checksum "assets/package.json" }}
+      - run: cd assets && npm install
+      - save_cache:
+          paths:
+            - assets/node_modules
+          key: assets-dependencies-{{ checksum "assets/package.json" }}
+      - run:
+          name: Mayflower Style Linter
+          command: cd assets && npm run stylelint
+      - run:
+          name: Validate Package Build
+          command: cd assets && npm run build
+
+  assets_deploy_tag:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - *configure_npm
+      - restore_cache:
+          keys:
+            - assets-dependencies-{{ checksum "assets/package.json" }}
+      - run: cd assets && npm i
+      - save_cache:
+          paths:
+            - assets/node_modules
+          key: assets-dependencies-{{ checksum "assets/package.json" }}
+      - run: cd assets && npm run build
+      - run:
+          name: 'Publish mayflower-tokens NPM package'
+          command: |
+            cd assets
+            npm version --no-git-tag-version "$CIRCLE_TAG"
+            if test -z "$(npm show @massds/mayflower-tokens@$CIRCLE_TAG)"; then
+              npm publish
+            else
+              echo "Skipping NPM publish - $CIRCLE_TAG already exists"
+            fi
+
+  site_build:
+    <<: *react_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - site-dependencies-{{ checksum "site/yarn.lock" }}
+      - run: {name: 'Install packages', command: 'cd site && yarn'}
+      - save_cache:
+          paths:
+            - site/node_modules
+          key: site-dependencies-{{ checksum "site/yarn.lock" }}
+      - run:
+          name: Validate Package Build
+          command: cd site && yarn build
+      - persist_to_workspace:
+          root: ~/repo
+          paths: ["*"]
+
+
+  site_deploy_tag:
+    <<: *react_defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            sudo apt-get update && sudo apt-get -y -qq install awscli
+          fi
+      - run: |
+          # Only sync to S3 for stable tags.
+          if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            cd site
+            aws s3 sync public s3://mayflower.digital.mass.gov/home --delete
+            aws configure set preview.cloudfront true
+            aws cloudfront create-invalidation --distribution-id $AWS_DISTRIBUTION_ID --paths '/home*'
+          fi
 
 workflows:
   version: 2
@@ -283,18 +365,33 @@ workflows:
       - auto_changelog:
           filters:
             branches: { only: /dependabot\/.*/ }
+      - assets_build:
+          filters:
+            branches: { ignore: /(docs|site\/).*/ }
+      # patternlab
       - patternlab_build:
           filters:
-            branches: { ignore: /docs\-.*/ }
+            branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_deploy_branch:
           requires: [patternlab_build]
           filters:
-            branches: { ignore: /(docs\-|react\/).*/ }
-      - patternlab_test: {requires: [patternlab_build]}
+            branches: { ignore: /(docs|react\/|site\/).*/ }
+      - patternlab_test:
+          requires: [patternlab_build]
+          filters:
+            branches: { ignore: /(docs|react\/|site\/).*/ }
+      # react
       - react_build_storybook:
           filters:
-            branches: { ignore: /docs\-.*/ }
-      - react_test: {requires: [react_build_storybook]}
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+      - react_test:
+          requires: [react_build_storybook]
+          filters:
+            branches: { ignore: /(docs|patternlab\/|site\/).*/ }
+      # site
+      - site_build:
+          filters:
+            branches: { ignore: /(docs|patternlab\/|react\/).*/ }
 
   # Release branch automation every Tuesday at 1 p.m. ET
   release:
@@ -304,7 +401,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "00 18 * * 2"
+          cron: "00 16 * * 2"
           filters:
             branches:
               only:
@@ -348,6 +445,19 @@ workflows:
             tags: { only: /.*/ }
       - react_deploy_tag:
           requires: [react_build_storybook]
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - assets_deploy_tag:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - site_build:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
+      - site_deploy_tag:
+          requires: [site_build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }

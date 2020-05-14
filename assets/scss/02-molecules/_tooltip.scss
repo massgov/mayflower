@@ -20,6 +20,7 @@
   }
 
   &__control {
+
     @include ma-visually-hidden;
   }
 
@@ -51,6 +52,7 @@
   }
 
   &__control:not(:focus) ~ &__modal {
+
     @include ma-visually-hidden;
   }
 
@@ -86,6 +88,7 @@
   }
 
   &__title {
+
     @include ma-h6;
     margin: 15px 20px 0;
   }
@@ -98,6 +101,7 @@
 }
 
 //theme
+
 .ma__tooltip {
 
   &__open {
@@ -145,7 +149,7 @@
     font-weight: bold;
 
     &:after {
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
   }
 
@@ -154,6 +158,7 @@
 
     /* WebKit gets its native focus styles.
      */
+
     @media (-webkit-min-device-pixel-ratio:0) {
       outline-color: -webkit-focus-ring-color;
     }

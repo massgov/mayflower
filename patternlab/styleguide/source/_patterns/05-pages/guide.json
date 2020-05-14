@@ -551,14 +551,20 @@
                 }
               ]
             }
-          }
-        },
-        {
-          "path": "@organisms/by-author/callout-alert.twig",
-          "data": {
-            "calloutAlert": {
-              "href": "",
-              "text": "Massachusetts requires you to license your dog"
+          },{
+            "path": "@atoms/09-media/figure--image.twig",
+            "data": {
+              "figure": {
+                "align": "",
+                "wrap": false,
+                "image": {
+                  "alt": "alt text",
+                  "src": "../../assets/images/placeholder/800x400.png",
+                  "height": "",
+                  "width": ""
+                },
+                "caption": ""
+              }
             }
           }
         }
@@ -682,24 +688,28 @@
             }
           }
         }
-      ]
-    },
-    {
-      "title": "Another Section Name",
-      "id": "another-section-name2",
-      "pageContent": [
-        {
-          "path": "@organisms/by-author/rich-text.twig",
-          "data": {
-            "richText": {
-              "rteElements": [
-                {
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph": {
-                      "text": "Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing</a> elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
-                    }
-                  }
+      }
+    },{
+      "path": "@organisms/by-author/rich-text.twig",
+      "data": {
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "If you are <a href=\"#\">converting a license from a foreign country</a>, you must take the full driver’s test, which includes the written, road, and vision exams, and present identification documents similar to those outlined in the previous section. You may also need a sponsor depending on the country that issued your license. However, if you are a foreign visitor with a valid license from one of the <a href=\"#\">countries or territories approved by the RMV</a>, you may legally drive in Massachusetts for up to one year. The year begins on the date of your arrival, and you must be at least 18 years old and drive only the vehicle type covered by your license."
+              }
+            }
+          },{
+            "path": "@atoms/09-media/figure--image.twig",
+            "data": {
+              "figure": {
+                "align": "align-right",
+                "image": {
+                  "alt": "alt text",
+                  "src": "../../assets/images/placeholder/400x300.png",
+                  "height": "",
+                  "width": ""
                 },
                 {
                   "path": "@atoms/09-media/figure.twig",

@@ -43,6 +43,7 @@
 
   	  &-plus,
   	  &-minus {
+
   	    @include ma-button-reset;
   	    border: 2px solid $c-bd-input;
   	    border-bottom: none;

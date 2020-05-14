@@ -6,21 +6,24 @@
   }
 
   &__items {
+
     @include ma-reset-list;
   }
 
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
   }
 }
 
 //theme
+
 .ma__labelled-list {
 
   &__label {
     color: $c-font-detail;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 }

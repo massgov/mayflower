@@ -334,18 +334,6 @@
             "centered": false,
             "hideLine": true
           },
-          "description": {
-            "rteElements": [
-              {
-                "path": "@atoms/11-text/paragraph.twig",
-                "data": {
-                  "paragraph": {
-                    "text": "Optional description 2"
-                  }
-                }
-              }
-            ]
-          },
           "stacked": true,
           "hideBullets": true,
           "hideLine": true,

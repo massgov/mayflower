@@ -1,5 +1,6 @@
 .ma__link-list--image-blocks {
   // grid stuff
+
   .ma__link-list__items {
     display: flex;
     flex-wrap: wrap;
@@ -21,20 +22,22 @@
       }
 
       // Always show first three on mobile
+
       &:nth-child(-n+3) {
         display: list-item !important;
       }
 
-      @media($bp-medium-min) {
+      @media ($bp-medium-min) {
         flex-basis: calc(50% - 0.5rem);
 
         // Always show first 6 on tablet
+
         &:nth-child(-n+6) {
           display: list-item !important;
         }
       }
 
-      @media($bp-x-large-min) {
+      @media ($bp-x-large-min) {
         // Always show all on desktop
         display: list-item;
         flex-basis: calc(33% - 1rem);
@@ -76,8 +79,11 @@
 .ma__link-list--image-blocks {
 
   .ma__link-list__toggle {
+
     @include ma-button-reset;
+
     @include ma-link-underline;
+
     @include ma-chevron;
     font-size: 1.375rem;
     padding-right: 10px;
@@ -88,14 +94,14 @@
       transform: translateY(-45%) rotate(45deg);
     }
 
-    &.toggle-open::after  {
+    &.toggle-open::after {
       transform: translateY(-65%) rotate(225deg);
     }
 
     &.show-toggle {
       display: block;
 
-      @media($bp-x-large-min) {
+      @media ($bp-x-large-min) {
         display: none;
       }
     }
@@ -106,9 +112,10 @@
 
 .ma__link-list--image-links,
 .ma__link-list--image-blocks {
+
   .ma__link-list__toggle {
     color: $c-font-link;
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     &:after {
     border-color: $c-font-link;

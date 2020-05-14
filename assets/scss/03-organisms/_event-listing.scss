@@ -4,6 +4,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
 
   .pre-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
 
     .ma__event-teaser {
@@ -12,6 +13,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
   }
 
   .main-content--full .page-content > .ma__results-heading + & {
+
     @include ma-component-spacing;
   }
 
@@ -32,6 +34,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
   }
 
   &__items {
+
     @include ma-reset-list;
   }
 
@@ -158,7 +161,9 @@ $event-listing-bp-show-grid: $bp-medium-min;
 
   // the post-content styles should be revisted to see if &--grid can be used instead
   // Jonathan Dallas - 06/29/2017
+
   .post-content > & &__container {
+
     @include ma-container;
     padding-top: 60px;
 
@@ -225,11 +230,12 @@ $event-listing-bp-show-grid: $bp-medium-min;
 }
 
 //theme
+
 .ma__event-listing {
 
   &__empty {
     font-style: italic;
-    font-weight: 500;
+    font-weight: $fonts-normal;
   }
 
   &--grid &__item {
@@ -268,6 +274,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
 }
 
 // IE11 spacing hacks
+/* stylelint-disable selector-type-no-unknown */
 
 @media ($bp-medium-min) {
 
@@ -276,7 +283,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
     flex-basis: 50%;
   }
 
-  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(even){
+  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(even) {
     padding-left: 30px;
     flex-basis: 45%;
   }
@@ -288,10 +295,10 @@ $event-listing-bp-show-grid: $bp-medium-min;
     padding-right: 0px;
   }
 
-  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(even){
+  _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(even) {
     padding-left: 40px;
   }
-  
+
   _:-ms-fullscreen, :root .post-content>.ma__event-listing .ma__event-listing__item:not(:only-of-type):nth-child(odd) .ma__event-teaser {
     padding-right: 20px;
   }

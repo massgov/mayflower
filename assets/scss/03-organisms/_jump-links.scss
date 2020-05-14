@@ -4,6 +4,7 @@
 
   &__skip-link__container {
     margin: 0 auto;
+
     @include ma-container
     position: relative;
     top: -50px;
@@ -17,7 +18,6 @@
     width: 100%;
     display: block;
     padding: 3px 14px;
-    width: 100%;
 
     @media ($bp-small-min) {
       width: 100%;
@@ -28,6 +28,7 @@
     }
 
     &:not(:focus) {
+
       @include ma-visually-hidden;
       width: calc(100% - 380px);
     }
@@ -50,10 +51,12 @@
   }
 
   &__container {
+
     @include ma-container;
   }
 
   &__title {
+
     @include ma-heading-colored;
     margin-bottom: 0;
     position: relative;
@@ -73,6 +76,7 @@
   }
 
   &__links {
+
     @include clearfix;
     position: relative;
     transition: top .3s;
@@ -110,6 +114,7 @@
   }
 
   &__toggle-link {
+
     @include ma-button-reset;
     font-size: 2.5rem;
     line-height: .65em;
@@ -133,6 +138,7 @@
   &__column {
 
     @media ($bp-small-max) {
+
       .is-open &:last-child {
         border-top-width: 1px;
         border-top-style: solid;
@@ -155,6 +161,7 @@
     }
 
     @media ($bp-medium-min) {
+
       &:nth-child(odd) {
         padding-left: 90px;
       }
@@ -181,6 +188,7 @@
     }
 
     a {
+
       @include ma-link-underline;
 
       @media ($bp-small-min) {
@@ -215,6 +223,7 @@
 }
 
 //theme
+
 .ma__jump-links {
 
   &__inner {
@@ -227,7 +236,7 @@
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
     color: $c-white;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__links {
@@ -256,13 +265,14 @@
     }
 
     @media ($bp-small-max) {
+
       a {
-        font-weight: 500;
+        font-weight: $fonts-normal;
       }
 
       &.is-active a {
         color: $c-font-base;
-        font-weight: 700;
+        font-weight: $fonts-bold;
       }
 
       &.is-active:hover a {

@@ -1,93 +1,18 @@
+const fs = require('fs');
+const path = require('path');
 // Added shelljs to use maybe in the script "npm install shelljs"
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');
-
-const Octokit = require("@octokit/rest");
-const octokit = new Octokit({
-  auth: process.env.DANGER_GITHUB_API_TOKEN
-});
-
-// Added semver to use for increment the version "npm install semver"
-// https://github.com/npm/node-semver
-const semver = require('semver');
-
-// Used for the file system for changelog.
-const path = require('path');
-const fs = require('fs');
-const yaml = require('js-yaml');
 
 // Added simple-git to use for git add "npm install simple-git"
 // Could not use the shell.exec to git add the remove changelogs.
 const git = require('simple-git/promise')();
 
-// Find out the latest release tag and display it in the command line.
-const latest = shell.exec('git tag  | grep -E "^[0-9]" | sort -V | tail -1');
-
-// Display the latest tag.
-console.log(`Display the latest tag: ${latest}`);
-
-// Increment the release branch.
-const minor = semver.inc(latest.toString(), 'minor');
-
-// Print out the new minor version
-console.log(`New release tag: ${minor}`);
-
-// Update the changelog.md file
-const today = new Date();
-// Changed from getDay() was giving the wrong day of the week adjusted to use getDate() instead.
-const day = today.getDate();
-// Need to increase getMonth() by one.
-const month = today.getMonth() +1;
-const year = today.getFullYear();
-
-// Changelog.md title for each release
-const title = `## ${minor} (${month}/${day}/${year})`;
-
-// Look at the changelog files
-
-const directoryPath = path.resolve(__dirname, '../changelogs');
-const changelogPath = `${path.resolve(__dirname, '../')}/CHANGELOG.md`;
-
-let newLogs = [];
-// Read directory path and exclude the template.yml file.
-const changelogs = fs.readdirSync(directoryPath).filter(function(file) {
-  return file.match(/^.*\.yml$/g) && file!== "template.yml";
-});
-
-changelogs.forEach((fileName) => {
-  const content = yaml.safeLoad(fs.readFileSync(`${directoryPath}/${fileName}`, 'utf8'));
-  Object.keys(content).forEach((changeType, i) => {
-    newLogs.push(`\n### ${changeType} \n`)
-    content[changeType].forEach((change) => {
-      const newChange = `- (${change.project}) [${change.component}] ${change.issue}: ${change.description}\n`
-      newLogs.push(newChange);
-    });
-  });
-});
-
-const fd = fs.readFileSync(changelogPath).toString().split("\n");
-fd.splice(3, 0, title, newLogs.join(''));
-var allLogs = fd.join('\n');
-
-
-// Remove the changelog files
-for (var i=0; i<changelogs.length; i++) {
-  var changeLogFilePath = directoryPath + "/" + changelogs[i];
-  fs.unlink(changeLogFilePath, (err) => {
-    if (err) {
-        console.log("failed to delete changelog:"+err);
-    } else {
-        console.log('successfully deleted changelog');
-    }
-  });
-}
-
-fs.writeFileSync(changelogPath, allLogs, (err) => {
-  if (err) throw err;
-})
+const { octokit } = require('./release-vars');
+const { newLogsWithTitle, changelogs, version } = require('./compile-changelogs');
 
 // Checkout the branch.
-const releaseBranch = 'release/' + minor;
+const releaseBranch = 'release/' + version;
 
 (async function() {
   // This asynchronous logic will happen sequentially.
@@ -107,9 +32,10 @@ const releaseBranch = 'release/' + minor;
   await octokit.pulls.create({
     owner: 'massgov',
     repo: 'mayflower',
-    title: `Release ${minor}`,
+    title: `Release ${version}`,
     head: releaseBranch,
-    base: 'master'
+    base: 'master',
+    body: newLogsWithTitle
   });
 })().catch(function(err) {
   console.error(`There was an error thrown during the cutting of the release PR: ${err.toString()}`);

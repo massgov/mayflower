@@ -1,4 +1,5 @@
 .ma__campaign-feature {
+
   @include ma-container();
 
   padding-top: 40px;
@@ -13,6 +14,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
   &__title {
     text-align: center;
   }
@@ -20,6 +22,7 @@
   &__more-link {
     margin-top: 0;
     text-align: center;
+
     @media ($bp-small-min) {
       margin-top: 20px;
     }

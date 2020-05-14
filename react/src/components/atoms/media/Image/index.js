@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import './style.css';
 
 const Image = (props) => {
   const { classes, shape, ...imgProps } = props;
-  if (shape && shape.length > 0) {
-    classes.push(shape);
-  }
+  const imageClasses = classNames({
+    ma__image: true,
+    [shape]: shape,
+    [classes && classes.join(' ')]: classes
+  });
   // eslint-disable-next-line jsx-a11y/alt-text
-  return(<img className={classes.join(' ')} {...imgProps} />);
+  return(<img className={imageClasses} {...imgProps} />);
 };
 
 Image.propTypes = {
@@ -21,9 +24,6 @@ Image.propTypes = {
 };
 
 Image.defaultProps = {
-  classes: [
-    'ma__image'
-  ],
   alt: '',
   shape: ''
 };

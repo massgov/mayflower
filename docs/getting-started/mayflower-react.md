@@ -4,7 +4,7 @@
 
 [![](https://img.shields.io/npm/v/@massds/mayflower-react.png?style=flat-square)](https://www.npmjs.com/package/@massds/mayflower-react)
 
-[Mayflower-react](https://github.com/massgov/mayflower/tree/master/react) is a React component library under the enterprise design system for the Commonwealth of Massachusetts. Mayflower-react is a published npm package [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) that is dependent on static assets generate by [Mayflower PatternLab](https://github.com/massgov/mayflower). Refer to [Mayflower React Storybook](https://mayflower-react.digital.mass.gov/) for a complete list of its UI components.
+[Mayflower-react](https://github.com/massgov/mayflower/tree/master/react) is a React component library under the enterprise design system for the Commonwealth of Massachusetts. Mayflower-react is a published npm package [@massds/mayflower-react](https://www.npmjs.com/package/@massds/mayflower-react) that is dependent on static assets generate by [Mayflower PatternLab](https://github.com/massgov/mayflower). Refer to [Mayflower React Storybook](https://mayflower.digital.mass.gov/react/) for a complete list of its UI components.
 
 ## How to use Mayflower-React in your Project!
 
@@ -108,5 +108,5 @@ We are tracking versions of this project in the package.json, which means when c
 
    \[!!PROD\_DISTRIBUTION\_ID\_HERE!!\] --paths '/\*'\`\` \(Invalidates CloudFront for prod box\)
 
-You should see your changes live at [Mayflower React Storybook](https://mayflower-react.digital.mass.gov) within a few minutes!
+You should see your changes live at [Mayflower React Storybook](https://mayflower.digital.mass.gov/react) within a few minutes!
 

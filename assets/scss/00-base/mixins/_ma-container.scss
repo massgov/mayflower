@@ -20,7 +20,8 @@
     padding-right: 40px;
   }
 
-  @if($narrow == 'restricted') {
+  @if ($narrow == 'restricted') {
+
     @media ($bp-large-min) and ($bp-page-width-max) {
       margin-left: 0;
       margin-right: 0;

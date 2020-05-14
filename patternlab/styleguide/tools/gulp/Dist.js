@@ -84,9 +84,12 @@ class DistRegistry extends DefaultRegistry {
             taker.watch(assets.watchFiles, assets);
         })));
 
-        const patterns = task("patternlab:patterns", function() {
-            return exec(`php ${e(self.resolveRoot("core/console"))} --generate --patternsonly`, {verbose: 3});
-        });
+        const cleanPatterns = task('patternlab:clean-patterns', function() {
+            return del(self.resolvePatternlab('patterns'))
+        })
+        const patterns = taker.series(cleanPatterns, task("patternlab:patterns", function() {
+            return exec(`php -d "display_errors=0" ${e(self.resolveRoot("core/console"))} --generate --patternsonly`, {verbose: 3});
+        }));
         patterns.watchFiles = sources.patterns;
 
         const copyDist = task("dist:copy", function() {

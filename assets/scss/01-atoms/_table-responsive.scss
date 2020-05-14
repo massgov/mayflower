@@ -16,7 +16,7 @@
     -ms-overflow-style: none;  // IE 10+
     overflow: -moz-scrollbars-none;  // Firefox
 
-    &::-webkit-scrollbar { 
+    &::-webkit-scrollbar {
       display: none;  // Safari and Chrome
     }
 }
@@ -51,7 +51,7 @@
       -ms-overflow-style: none;  // IE 10+
       overflow: -moz-scrollbars-none;  // Firefox
 
-      &::-webkit-scrollbar { 
+      &::-webkit-scrollbar {
         display: none;  // Safari and Chrome
       }
     }
@@ -99,14 +99,16 @@
     right: 0;
     z-index: 50;
 
-   
+
     // Native position is at the bottom of the responsive container;
     // so show the bar.
+
     .has-horizontal-scroll & {
         display: flex;
     }
 
     // Bottom is visble, anchor it.
+
     .has-horizontal-scroll.has-bottom-visible & {
         bottom: 0;
         left: auto;
@@ -178,12 +180,12 @@
 }
 
 .clip-scrollbar {
-  overflow: hidden;
+  overflow-x: hidden;
   border: 2px solid rgba($c-primary, 0.5);
   -ms-overflow-style: none;  // IE 10+
   overflow: -moz-scrollbars-none;  // Firefox
 
-  &::-webkit-scrollbar { 
+  &::-webkit-scrollbar {
     display: none;  // Safari and Chrome
   }
 }
@@ -194,7 +196,7 @@
     -ms-overflow-style: none;  // IE 10+
     overflow: -moz-scrollbars-none;  // Firefox
 
-    &::-webkit-scrollbar { 
+    &::-webkit-scrollbar {
       display: none;  // Safari and Chrome
     }
 
@@ -212,7 +214,7 @@
 }
 
 .stickNav {
-  
+
   .ma__table__horizontal-nav {
     position: fixed;
     bottom: 0;

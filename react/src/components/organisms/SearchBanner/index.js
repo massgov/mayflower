@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import FilterBox from '../../organisms/FilterBox';
 import HeaderSearch from '../../molecules/HeaderSearch';
-import Icon from '../../atoms/icons/Icon';
+import Icon from '../../base/Icon';
 import Tabs from '../../molecules/Tabs';
 // eslint-disable-next-line import/no-unresolved
 import './style.css';

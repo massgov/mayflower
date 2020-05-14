@@ -263,7 +263,55 @@
               }
             }
           }
-        ]
+        }
+      },{
+        "path": "@atoms/09-media/figure--image.twig",
+        "data": {
+          "figure": {
+            "align": "right",
+            "wrap": true,
+            "image": {
+              "alt": "alt text",
+              "src": "../../assets/images/placeholder/400x300.png",
+              "height": "",
+              "width": ""
+            },
+            "caption": ""
+          }
+        }
+      },{
+        "path": "atoms-paragraph",
+        "data": {
+          "paragraph": {
+            "text": "In 2015-2016, DOER hired an independent building energy consulting firm to look at the cost-benefit trade-off of building new single-family and multi-family homes to the 2015 Stretch Code update.  There are examples of both natural gas heated and non-gas heated homes, all of which show that homeowners see a positive cash-flow from day 1 from purchasing a 2015 stretch code home vs. a 2015 base code compliant home."
+          }
+        }
+      }]
+    }
+  },{
+    "richText": {
+      "rteElements": [{
+        "path": "atoms-heading-2",
+        "data": {
+          "heading2" : {
+            "text":"Stretch Code Adoption by Community"
+          }
+        }
+      },{
+        "path": "atoms-paragraph",
+        "data": {
+          "paragraph": {
+            "text": "Municipalities may choose to adopt the Stretch Code in lieu of the base building energy code. Stretch code adoption is mandatory for designation as a \"<a href=\"http://www.mass.gov/eea/energy-utilities-clean-tech/green-communities/\">Green Community</a>\" under the GCA. As of October 4, 2016, 180 municipalities have adopted the Stretch Code, with more expected in the upcoming months. Building code officials have received free code training."
+          }
+        }
+      }]
+    },
+
+    "formDownloads": {
+      "compHeading": {
+        "title": "Additional resources",
+        "sub": true,
+        "titleContext": "for Stretch Code Adoption by Community"
       },
       "formDownloads": {
         "compHeading": {

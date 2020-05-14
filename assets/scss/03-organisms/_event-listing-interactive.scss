@@ -3,6 +3,7 @@
   position: relative;
 
   &__results {
+
     @include ma-container;
 
     .ma__results-heading {

@@ -1,6 +1,6 @@
 This is the standard button pattern (with variants)
 
-@see [@atoms/buttons/button](https://mayflower.digital.mass.gov/?p=atoms-button&view=c)
+@see [@atoms/buttons/button](https://mayflower.digital.mass.gov/patternlab/?p=atoms-button&view=c)
 
 **Prop variant recipes**
 1. Button as "small"
