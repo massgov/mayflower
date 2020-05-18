@@ -11,6 +11,7 @@
 // Base theme variables
 @use "00-base/fonts";
 @use "00-base/fonts-fallback";
+@use "00-base/fonts-noto";
 @use "00-base/pikaday" as pik;
 // Print styles
 @use "08-print/print";
