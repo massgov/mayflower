@@ -8,15 +8,38 @@
 // Set $assets-path to form the correct links to the parent folder of fonts/ based on the location of the compiled css
 $assets-path: '..' !default;
 
+/* The fallback non-variable Noto Sans font */
+@font-face {
+  font-family: 'Noto Sans';
+  src:  url('#{$assets-path}/fonts/noto/latin/static/regular/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$assets-path}/fonts/noto/latin/static/regular/NotoSans-Regular.woff') format('woff'),
+        url('#{$assets-path}/fonts/noto/latin/static/regular/NotoSans-Regular.ttf') format('truetype'),
+        url('#{$assets-path}/fonts/noto/latin/static/regular/NotoSans-Regular.svg#NotoSans-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* The fallback non-variable Noto Sans Italic font */
+@font-face {
+  font-family: 'Noto Sans Italic';
+  src:  url('#{$assets-path}/fonts/noto/latin/static/italic/NotoSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('#{$assets-path}/fonts/noto/latin/static/italic/NotoSans-Italic.woff') format('woff'),
+        url('#{$assets-path}/fonts/noto/latin/static/italic/NotoSans-Italic.ttf') format('truetype'),
+        url('#{$assets-path}/fonts/noto/latin/static/italic/NotoSans-Italic.svg#NotoSans-Italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 @supports ( font-variation-settings: 'wdth' 200 ) {
   /* The variable font of Noto Sans */
+
   @font-face {
     font-family: 'Noto Sans VF';
     src:  url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.eot?#iefix') format('embedded-opentype'),
           url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.woff') format('woff'),
           url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.ttf') format('truetype'),
           url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.svg#NotoSans-Regular') format('svg');
-    font-weight: 100 900;
+    font-weight: 100;
     font-style: normal;
   }
   /* The variable font of Noto Sans Italic */
@@ -34,9 +57,9 @@ $assets-path: '..' !default;
 
   @font-face {
     font-family: 'Noto Sans Mono VF';
-    src:  url('#{$assets-path}/fonts/noto/latin/variable/Mono/NotoSansMono-VF.eot?#iefix') format('embedded-opentype'),
-          url('#{$assets-path}/fonts/noto/latin/variable/Mono/NotoSansMono-VF.woff') format('woff'),
-          url('#{$assets-path}/fonts/noto/latin/variable/Mono/NotoSansMono-VF.ttf') format('truetype'),
+    src:  url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.eot?#iefix') format('embedded-opentype'),
+          url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.woff') format('woff'),
+          url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.ttf') format('truetype'),
           url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.svg#NotoSans-Mono') format('svg');
     font-weight: 100 900;
     font-style: normal;
@@ -54,23 +77,6 @@ $assets-path: '..' !default;
   }
 }
 
-/* font family for normal, all weights */
-.font-noto-sans {
-  font-family: "Noto Sans VF","Noto Sans Regular",sans-serif;
-}
-/* font familiy for italic, all weights */
-.font-noto-sans-italic {
-  font-family: "Noto Sans Italic VF","Noto Sans Italic",sans-serif
-}
-/* font familiy for Mono, all weights */
-.font-noto-sans-mono {
-  font-family: "Noto Sans Mono VF","Noto Sans Mono",monospace;
-}
-
-/* languages */
-*:lang(km).font-noto-sans {
-  font-family: "Noto Sans Khmer VF",sans-serif;
-}
 
 /* Add these classes for other weights of either normal or italic at the normal width */
 .vf-normal-thin {
