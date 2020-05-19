@@ -33,11 +33,6 @@ html {
     font-size: 14px;
   }
 
-  &:lang(vi) {
-    font-family: $fonts-vietnamese, sans-serif;
-    font-size: 14px;
-  }
-
   font-size: $fonts-base-mobile;
 
   @media ($bp-small-min) {
