@@ -6,7 +6,7 @@ $narrow-template-header-height: 170px;
 
 @keyframes narrow-template-bg-full-left {
 
-  0% { 
+  0% {
     left: 150%;
   }
 
@@ -17,7 +17,7 @@ $narrow-template-header-height: 170px;
 
 @keyframes narrow-template-bg-narrow-left {
 
-  0% { 
+  0% {
     left: 150%;
   }
 
@@ -28,7 +28,7 @@ $narrow-template-header-height: 170px;
 
 @keyframes narrow-template-bg-full-right {
 
-  0% { 
+  0% {
     right: 150%;
   }
 
@@ -39,7 +39,7 @@ $narrow-template-header-height: 170px;
 
 @keyframes narrow-template-bg-narrow-right {
 
-  0% { 
+  0% {
     right: 150%;
   }
 
@@ -87,6 +87,9 @@ $narrow-template-header-height: 170px;
   &--right:before {
     transform: rotate(-30deg);
     transform-origin: top left;
+    // DP-18704 Fix flickering issue.
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
 
     @media ($bp-small-max) {
       animation: 3s narrow-template-bg-narrow-left;
@@ -126,14 +129,14 @@ $narrow-template-header-height: 170px;
 
   &__content {
     flex-grow: 0;
-    padding-bottom: 170px;  // helps vertically align the page content 
+    padding-bottom: 170px;  // helps vertically align the page content
     position: relative;
     text-align: center;
   }
 
   .ma__helpful-links .ma__comp-heading {
     text-align: center;
-    
+
     &:after {
       left: 50%;
       transform: translateX(-50%);
