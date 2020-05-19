@@ -9,24 +9,24 @@
 $assets-path: '..' !default;
 
 /* The fallback non-variable Noto Sans font */
+
 @font-face {
   font-family: 'Noto Sans';
   src:  url('#{$assets-path}/fonts/noto/latin/static/regular/NotoSans-Regular.eot?#iefix') format('embedded-opentype'),
         url('#{$assets-path}/fonts/noto/latin/static/regular/NotoSans-Regular.woff') format('woff'),
         url('#{$assets-path}/fonts/noto/latin/static/regular/NotoSans-Regular.ttf') format('truetype'),
         url('#{$assets-path}/fonts/noto/latin/static/regular/NotoSans-Regular.svg#NotoSans-Regular') format('svg');
-  font-weight: normal;
   font-style: normal;
 }
 /* The fallback non-variable Noto Sans Italic font */
+
 @font-face {
-  font-family: 'Noto Sans Italic';
+  font-family: 'Noto Sans';
   src:  url('#{$assets-path}/fonts/noto/latin/static/italic/NotoSans-Italic.eot?#iefix') format('embedded-opentype'),
         url('#{$assets-path}/fonts/noto/latin/static/italic/NotoSans-Italic.woff') format('woff'),
         url('#{$assets-path}/fonts/noto/latin/static/italic/NotoSans-Italic.ttf') format('truetype'),
         url('#{$assets-path}/fonts/noto/latin/static/italic/NotoSans-Italic.svg#NotoSans-Italic') format('svg');
-  font-weight: normal;
-  font-style: normal;
+  font-style: italic;
 }
 
 
@@ -63,7 +63,6 @@ $assets-path: '..' !default;
           url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.svg#NotoSans-Mono') format('svg');
     font-weight: 100 900;
     font-style: normal;
-    font-variant-numeric: tabular-nums;
   }
   /* The variable font of Noto Sans Khmer */
 
