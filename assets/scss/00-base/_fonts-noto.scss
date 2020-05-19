@@ -30,7 +30,7 @@ $assets-path: '..' !default;
 }
 
 
-@supports ( font-variation-settings: 'wdth' 200 ) {
+@supports ( font-variation-settings: 'wdth' 100 ) {
   /* The variable font of Noto Sans */
 
   @font-face {
@@ -39,13 +39,13 @@ $assets-path: '..' !default;
           url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.woff') format('woff'),
           url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.ttf') format('truetype'),
           url('#{$assets-path}/fonts/noto/latin/variable/regular/NotoSans-VF.svg#NotoSans-Regular') format('svg');
-    font-weight: 100;
+    font-weight: 100 900;
     font-style: normal;
   }
   /* The variable font of Noto Sans Italic */
 
   @font-face {
-    font-family: 'Noto Sans Italic VF';
+    font-family: 'Noto Sans VF';
     src:  url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.eot?#iefix') format('embedded-opentype'),
           url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.woff') format('woff'),
           url('#{$assets-path}/fonts/noto/latin/variable/italic/NotoSansItalic-VF.ttf') format('truetype'),
@@ -63,6 +63,7 @@ $assets-path: '..' !default;
           url('#{$assets-path}/fonts/noto/latin/variable/mono/NotoSansMono-VF.svg#NotoSans-Mono') format('svg');
     font-weight: 100 900;
     font-style: normal;
+    font-variant-numeric: tabular-nums;
   }
   /* The variable font of Noto Sans Khmer */
 
@@ -75,34 +76,4 @@ $assets-path: '..' !default;
     font-weight: 100 900;
     font-style: normal;
   }
-}
-
-
-/* Add these classes for other weights of either normal or italic at the normal width */
-.vf-normal-thin {
-  font-variation-settings: 'wdth' 100, 'wght' 100;
-}
-.vf-normal-extralight {
-  font-variation-settings: 'wdth' 100, 'wght' 200;
-}
-.vf-normal-light {
-  font-variation-settings: 'wdth' 100, 'wght' 300;
-}
-.vf-normal-regular {
-  font-variation-settings: 'wdth' 100, 'wght' 400;
-}
-.vf-normal-medium {
-  font-variation-settings: 'wdth' 100, 'wght' 500;
-}
-.vf-normal-semibold {
-  font-variation-settings: 'wdth' 100, 'wght' 600;
-}
-.vf-normal-bold {
-  font-variation-settings: 'wdth' 100, 'wght' 700;
-}
-.vf-normal-extrabold {
-  font-variation-settings: 'wdth' 100, 'wght' 800;
-}
-.vf-normal-black {
-  font-variation-settings: 'wdth' 100, 'wght' 900;
 }

@@ -40,7 +40,7 @@ storiesOf('brand|typography', module)
     </div>
   )
   ))
-  .add('Texta (Main Font)', (() => {
+  .add('Noto Sans', (() => {
     const props = {
       text: text('custom text', 'Type something in the text knob, and use other knobs to change text styles.'),
       style: select('custom style', styles, 'Medium Italic'),
@@ -50,7 +50,7 @@ storiesOf('brand|typography', module)
     return(
       <div className="main-content main-content--two">
         <div className="page-content">
-          <Heading text="Texta" level={1} />
+          <Heading text="Noto Sans" level={1} />
           <SidebarHeading title="Characters" level={2} />
           <div className="sb-block">
             <div className="sb-text">{letters.toUpperCase()}</div>
@@ -99,10 +99,10 @@ storiesOf('brand|typography', module)
       </div>
     );
   }))
-  .add('Source Code Pro (Monospace Font)', (() => (
+  .add('Noto Mono', (() => (
     <div className="main-content main-content--two">
       <div className="page-content">
-        <Heading text="Source Code Pro" level={1} />
+        <Heading text="Noto Mono" level={1} />
         <SidebarHeading title="Characters" level={2} />
         <div className="sb-block sb-block--mono">
           <div className="sb-text">{letters.toUpperCase()}</div>
@@ -114,7 +114,7 @@ storiesOf('brand|typography', module)
           <hr />
         </div>
         <div className="sb-block">
-          Source Code Pro is an open source font available on Google Fonts.
+          Noto Mono is an open source font available on Google Fonts.
           <DecorativeLink
             text="Download the fonts or see more information on Google Fonts"
             href="https://fonts.google.com/specimen/Source+Code+Pro"
