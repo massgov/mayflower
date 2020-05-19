@@ -6,7 +6,9 @@
 // Black => 800
 
 // Set $assets-path to form the correct links to the parent folder of fonts/ based on the location of the compiled css
-$assets-path: '..' !default;
+@forward "paths";
+
+@use "paths" as *;
 
 /* The fallback non-variable Noto Sans font */
 
