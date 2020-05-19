@@ -35,8 +35,8 @@ $close-icon: '\00d7';
 
 /* FONT */
 $fonts: "Noto Sans VF","Noto Sans",sans-serif;
-$fonts-khmer: "Noto Sans Khmer VF",sans-serif;
 $fonts-mono: "Noto Sans Mono VF","Noto Sans Mono",monospace;
+$fonts-khmer: "Noto Sans Khmer VF",sans-serif;
 
 // font families
 $fonts:      "Texta", "Helvetica", "Arial", sans-serif !default;
@@ -45,6 +45,7 @@ $fonts-khmer: "Hanuman" !default;
 
 
 // font weights
+// Noto
 $fonts-lightest: 150; // only used for styling non text font weights, e.g. separator |
 $fonts-lighter:  250;
 $fonts-light:    350;
