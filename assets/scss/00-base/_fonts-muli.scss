@@ -1,0 +1,50 @@
+// Designer to Developer translations
+// Light => 300
+// Book => 400
+// Medium => 500
+// Bold => 700
+// Black => 800
+
+// Set $assets-path to form the correct links to the parent folder of fonts/ based on the location of the compiled css
+$assets-path: '..' !default;
+
+/* The fallback non-variable Muli font */
+
+@font-face {
+  font-family: 'Muli';
+  src:  url('#{$assets-path}/fonts/muli/latin/static/regular/Muli-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$assets-path}/fonts/muli/latin/static/regular/Muli-Regular.woff') format('woff'),
+        url('#{$assets-path}/fonts/muli/latin/static/regular/Muli-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+/* The fallback non-variable Muli Italic font */
+
+@font-face {
+  font-family: 'Muli';
+  src:  url('#{$assets-path}/fonts/muli/latin/static/italic/Muli-Italic.eot?#iefix') format('embedded-opentype'),
+        url('#{$assets-path}/fonts/muli/latin/static/italic/Muli-Italic.woff') format('woff'),
+        url('#{$assets-path}/fonts/muli/latin/static/italic/Muli-Italic.ttf') format('truetype');
+  font-style: italic;
+}
+
+
+@supports ( font-variation-settings: 'wdth' 100 ) {
+  /* The variable font of Muli */
+
+  @font-face {
+    font-family: 'Muli VF';
+    src:
+          url('#{$assets-path}/fonts/muli/latin/variable/regular/Muli-VF.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+  }
+  /* The variable font of Muli Italic */
+
+  @font-face {
+    font-family: 'Muli VF';
+    src:
+          url('#{$assets-path}/fonts/muli/latin/variable/italic/MuliItalic-VF.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+  }
+}
