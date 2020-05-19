@@ -3,15 +3,15 @@
   "letters": "abcdefghijklmnopqrstuvwxyz",
   "numbers": "0123456789",
   "styles": [
-    "Light",
-    "Light Italic",
-    "Book",
-    "Book Italic",
-    "Medium",
-    "Medium Italic",
-    "Bold",
-    "Bold Italic",
-    "Black",
-    "Black Italic"
+    "lighter",
+    "lighter italic",
+    "light",
+    "light italic",
+    "normal",
+    "normal italic",
+    "bold",
+    "bold italic",
+    "bolder",
+    "bolder italic"
   ]
 }
