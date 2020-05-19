@@ -4,11 +4,11 @@
 @use "mixins" as *;
 
 $styles: (
-  "light": 'Light',
-  "book": 'Book',
-  "medium": 'Medium',
-  "bold": 'Bold',
-  "black": 'Black'
+  "lighter": $fonts-lighter,
+  "light": $fonts-light,
+  "normal": $fonts-normal,
+  "bold": $fonts-bold,
+  "bolder": $fonts-bolder
 );
 
 .ma-texta {
@@ -21,6 +21,23 @@ $styles: (
       &--italic {
 
         @include ma-texta-style($s, true);
+      }
+    }
+  }
+}
+
+
+// Noto styles
+
+.ma-noto {
+
+  @each $class, $s in $styles {
+    &-#{$class} {
+      font-weight: $s;
+
+      &--italic {
+        font-weight: $s;
+        font-style: italic;
       }
     }
   }

@@ -64,7 +64,7 @@ storiesOf('brand|typography', module)
 
           <SidebarHeading title="Custom Sentence" level={2} />
           <div className="sb-block">
-            <CustomElement className={`ma-texta-${slugifyStyle(props.style)}`}>
+            <CustomElement className={`ma-noto-${slugifyStyle(props.style)}`}>
               {props.text}
             </CustomElement>
           </div>
@@ -73,7 +73,7 @@ storiesOf('brand|typography', module)
           <div className="sb-block sb-grid">
             {
               styles.map((style) => {
-                const className = `ma-texta-${slugifyStyle(style)}`;
+                const className = `ma-noto-${slugifyStyle(style)}`;
                 return(
                   <React.Fragment>
                     <span className={className}>{style}</span>
