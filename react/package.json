@@ -10,7 +10,7 @@
     "**/*.scss"
   ],
   "files": [
-    "css",
+    "scss",
     "es",
     "lib"
   ],
@@ -18,12 +18,10 @@
     "backstop:test": "docker-compose run backstop test --rm",
     "backstop": "npm-run-all build-storybook backstop:test",
     "backstop:approve": "docker-compose run backstop approve",
-    "build-css": "env-cmd sass --no-source-map src",
-    "watch-css": "env-cmd sass src --watch",
     "build-nwb": "nwb build-react-component --copy-files",
-    "build": "npm-run-all build-css build-nwb",
+    "build": "npm run build-nwb",
     "clean": "nwb clean-module",
-    "start": "npm-run-all -p watch-css storybook",
+    "start": "npm run storybook",
     "lint": "./node_modules/.bin/eslint .",
     "lint-fix": "./node_modules/.bin/eslint --fix .; exit 0",
     "test": "nwb test-react",
