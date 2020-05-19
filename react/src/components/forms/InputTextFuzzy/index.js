@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import is from 'is';
 
 import Label from '../Label';
-import './style.css';
+import './style.scss';
 
 class InputTextFuzzy extends React.Component {
   constructor(props) {

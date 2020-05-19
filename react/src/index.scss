@@ -1,5 +1,5 @@
 @use "normalize-scss/sass/normalize";
-@use "components/styles/global" as *;
+@use "./components/styles/global";
 @use "00-base/elements";
 @use "00-base/layout";
 @use "00-base/fonts";

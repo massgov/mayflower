@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { DecorativeLink, AccordionItem } from '../../../index';
 
-import './style.css';
+import './style.scss';
 
 class SectionCard extends React.Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Image from '../../atoms/media/Image';
 import Paragraph from '../../atoms/text/Paragraph';
 import Icon from '../../base/Icon';
-import './style.css';
+import './style.scss';
 
 const ImagePromo = (props) => {
   const HeadingElement = `h${props.title.level || 2}`;

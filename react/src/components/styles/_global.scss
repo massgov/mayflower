@@ -1,4 +1,4 @@
 @forward "00-base/global" with (
-  $assets-path: ''
+  $assets-path: "~@massds/mayflower-assets/static" !default,
 );
 @forward "00-base/z-index";

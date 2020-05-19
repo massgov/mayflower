@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'react-html-parser';
-import './style.css';
+import './style.scss';
 
 const timeFormat = new Intl.DateTimeFormat('en-US', {
   hour12: true,

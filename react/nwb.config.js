@@ -12,8 +12,7 @@ module.exports = {
         alias: {
           SharedAssets: '@massds/mayflower-assets/static'
         }
-      }],
-      'babel-plugin-dynamic-import-node'
+      }]
     ]
   }
 };

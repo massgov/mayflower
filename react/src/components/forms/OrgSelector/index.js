@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SelectBox from '../SelectBox/index';
 import InputTextTypeAhead from '../InputTextTypeAhead';
 import ImagePromo from '../../molecules/ImagePromo';
-import './style.css';
+import './style.scss';
 
 class OrgSelector extends React.Component {
   constructor(props) {

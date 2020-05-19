@@ -5,7 +5,7 @@ import is from 'is';
 import { componentWithName } from 'airbnb-prop-types';
 import Icon from '../../base/Icon';
 
-import './style.css';
+import './style.scss';
 
 const EmergencyHeader = (props) => {
   const {

@@ -8,7 +8,7 @@ import { themeColors, grayScaleColors, utilityColors, primaryColors, primaryAltC
 
 import ColorGradientsDocs from './ColorGradients.md';
 
-import './styles.css';
+import './styles.scss';
 
 storiesOf('brand|colors', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

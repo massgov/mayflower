@@ -9,7 +9,7 @@ import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
 import { countDecimals } from '../Input/utility';
 import { numberCharacterPropTypeCheck } from '../../utilities/componentPropTypeCheck';
-import './style.css';
+import './style.scss';
 
 const NumberInput = (props) => {
   const ref = React.createRef();

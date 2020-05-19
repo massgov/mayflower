@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
 
 const HeaderSlim = (props) => (
   <div className="ma__header_slim">

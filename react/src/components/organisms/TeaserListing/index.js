@@ -9,7 +9,7 @@ import Paragraph from '../../atoms/text/Paragraph';
 import Link from '../../molecules/Link';
 import GeneralTeaser from '../GeneralTeaser';
 
-import './style.css';
+import './style.scss';
 
 class TeaserListing extends React.Component {
   constructor(props) {

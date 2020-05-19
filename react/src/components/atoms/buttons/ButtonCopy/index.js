@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../../base/Icon';
-import './styles.css';
+import './styles.scss';
 
 const ButtonCopy = ({ content }) => {
   const [copied, setCopied] = useState(false);

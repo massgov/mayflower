@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.css';
+import './styles.scss';
 
 const ErrorPage = (errorPage) => (
   <section className="ma__error-page">

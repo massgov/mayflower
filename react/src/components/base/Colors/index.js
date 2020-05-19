@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ButtonCopy from '../../atoms/buttons/ButtonCopy';
-import './styles.css';
+import './styles.scss';
 
 const ColorSwatch = ({ name, value, variable }) => {
   const hexValue = value.toUpperCase();

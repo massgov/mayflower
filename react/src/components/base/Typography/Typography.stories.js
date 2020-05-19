@@ -13,10 +13,10 @@ import {
   styles
 } from './typography.json';
 import typographyOptions from './Typography.knobs.options';
-import TypographyDocs from '../../../../../docs/style/typography.md';
+import TypographyDocs from './typography.md';
 
-import './styles.css';
-import '../../../markdown.css';
+import './styles.scss';
+import '../../../markdown.scss';
 
 const slugifyStyle = (style) => {
   const [weight, italic] = style.split(' ');

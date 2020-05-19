@@ -6,7 +6,7 @@ import Collapse from '../../animations/Collapse';
 import ButtonAlert from '../../atoms/buttons/ButtonAlert';
 import EmergencyAlert from '../../molecules/EmergencyAlert';
 import EmergencyHeader from '../../molecules/EmergencyHeader';
-import './style.css';
+import './style.scss';
 
 class EmergencyAlerts extends React.Component {
   constructor(props) {

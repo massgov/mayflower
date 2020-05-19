@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'react-html-parser';
 import DecorativeLink from '../../links/DecorativeLink';
-import './style.css';
+import './style.scss';
 
 const Address = (props) => {
   const { address, directionLink, details } = props;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './style.css';
+import './style.scss';
 import { InputContext, FormContext } from './context';
 import Label from '../Label';
 
