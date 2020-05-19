@@ -23,7 +23,7 @@
     letter-spacing: $letter-spacing-large;
     white-space: nowrap;
     color: rgba($c-font-base,.8);
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     @media ($bp-large-max) {
       margin-bottom: 10px;
@@ -68,7 +68,7 @@
     font-size: 1.5rem;
     line-height: 1.4;
     margin-bottom: 0;
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     .ma__decorative-link {
       display: inline;

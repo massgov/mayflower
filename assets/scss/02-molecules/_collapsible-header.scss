@@ -75,6 +75,6 @@
   &__title {
 
     @include ma-h4;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 }

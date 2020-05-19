@@ -62,7 +62,7 @@ $menu-transition-time: 0.3s;
     justify-content: space-between;
     align-items: center;
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     line-height: 1.2;
     color: $c-font-dark;
     border-bottom: 1px solid $c-gray-light;
@@ -110,7 +110,7 @@ $menu-transition-time: 0.3s;
       &::after {
         content: $close-icon;
         font-size: 2.1rem;
-        font-weight: 500;
+        font-weight: $fonts-normal;
         line-height: 0;
         position: absolute;
         top: 50%;
@@ -246,7 +246,7 @@ $menu-transition-time: 0.3s;
       background-color: transparent;
       border-left: 1px solid $c-gray-light;
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: $fonts-bold;
       padding-left: 35px;
 
       @media ($bp-large-min) {
@@ -263,7 +263,7 @@ $menu-transition-time: 0.3s;
         font-size: 1.125rem;
         padding-right: 1.5rem;
         padding-left: 1rem;
-        font-weight: 500;
+        font-weight: $fonts-normal;
 
         &::after {
           color: $c-primary-alt;

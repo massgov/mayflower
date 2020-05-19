@@ -139,7 +139,7 @@
 .ma__link-list {
 
   &__item {
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   .sidebar &__item + &__item {

@@ -93,7 +93,7 @@ $utility-nav-height: 43px;
 
     span {
       font-family: $fonts;
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
   }
 
@@ -151,14 +151,14 @@ $utility-nav-height: 43px;
 
     .goog-te-gadget {
       font-size: 1.25rem;
-      font-weight: 400;
+      font-weight: $fonts-light;
     }
 
     .goog-te-gadget-simple {
       font-size: 1.25rem;
       background-color: transparent;
       border: none;
-      font-weight: 500;
+      font-weight: $fonts-normal;
 
       @media ($bp-header-toggle-max) {
         padding: 11px 0 9px 45px;
@@ -342,7 +342,7 @@ $utility-nav-height: 43px;
     @include ma-button-reset;
     cursor: pointer;
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     position: absolute;
     top: 0;
     right: 35px;
@@ -370,7 +370,7 @@ $utility-nav-height: 43px;
     line-height: .5em;
     margin-left: .2em;
     transform: rotate(45deg);
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 
   &__content-title {
@@ -380,7 +380,7 @@ $utility-nav-height: 43px;
       vertical-align: middle;
       font-size: 1.625rem;
       line-height: 1.45;
-      font-weight: 500;
+      font-weight: $fonts-normal;
       margin-bottom: 0;
       color: $c-white;
     }

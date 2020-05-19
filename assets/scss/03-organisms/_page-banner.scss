@@ -362,7 +362,7 @@ $page-banner-height: 330px;
 
   .ma__decorative-link a,
   &__unlinked-title {
-    font-weight: 500;
+    font-weight: $fonts-normal;
   }
 
   .ma__decorative-link + &__description,
@@ -493,17 +493,17 @@ $page-banner-inner-width: 612px;
   }
 
   &__title {
-    font-weight: 400;
+    font-weight: $fonts-light;
     color: $c-font-inverse;
   }
 
   &__description {
     color: $c-font-inverse;
-    font-weight: 500;
+    font-weight: $fonts-normal;
 
     .ma__page-banner__descriptionSubText {
       display: block;
-      font-weight: 300;
+      font-weight: $fonts-lighter;
     }
   }
 
@@ -529,6 +529,6 @@ $page-banner-inner-width: 612px;
 
   &--columns &__description {
     color: $c-font-base;
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 }

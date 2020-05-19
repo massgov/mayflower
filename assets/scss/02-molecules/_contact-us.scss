@@ -265,7 +265,7 @@
 
     button {
       color: $c-font-link;
-      font-weight: 700;
+      font-weight: $fonts-bold;
 
       &:after {
         border-color: $c-font-link;
