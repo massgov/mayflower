@@ -1,5 +1,0 @@
-Security:
-  - project: Patternlab
-    description: Update jquery from 3.4.0 to 3.5.1
-    issue: DP-18543
-    impact: Minor

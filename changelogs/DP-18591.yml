@@ -1,6 +1,0 @@
-Added:
-  - project: Assets
-    component: Font
-    description: Consolidate font weights into variables. (#1054)
-    issue: DP-18591
-    impact: Minor

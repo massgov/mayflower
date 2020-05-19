@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.50.0 (5/19/2020)
+### Security 
+- (Patternlab) [undefined] DP-18543: Update jquery from 3.4.0 to 3.5.1
+
+### Added 
+- (Assets) [Font] DP-18591: Consolidate font weights into variables. (#1054)
+
 ## 9.49.3 (5/5/2020)
 ### Added 
 - (Patternlab) [Figure] DP-17483: Add datavisualization iframe to figure. (#975)
