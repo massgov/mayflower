@@ -21,8 +21,7 @@ $assets-path: '..' !default;
 
 @font-face {
   font-family: 'Muli';
-  src:  url('#{$assets-path}/fonts/muli/latin/static/italic/Muli-Italic.eot?#iefix') format('embedded-opentype'),
-        url('#{$assets-path}/fonts/muli/latin/static/italic/Muli-Italic.woff') format('woff'),
+  src:
         url('#{$assets-path}/fonts/muli/latin/static/italic/Muli-Italic.ttf') format('truetype');
   font-style: italic;
 }
