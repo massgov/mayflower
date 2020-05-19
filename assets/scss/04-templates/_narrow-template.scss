@@ -94,11 +94,17 @@ $narrow-template-header-height: 170px;
     @media ($bp-small-max) {
       animation: 3s narrow-template-bg-narrow-left;
       left: $narrow-template-bg-offset-narrow;
+      // DP-18704 Fix flickering issue.
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
     }
 
     @media ($bp-small-min) {
       animation: 3s narrow-template-bg-full-left;
       left: $narrow-template-bg-offset-full;
+      // DP-18704 Fix flickering issue.
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
     }
   }
 
