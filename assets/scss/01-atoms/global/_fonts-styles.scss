@@ -9,24 +9,10 @@ $styles: (
   "bolder": $fonts-bolder
 );
 
-.ma-texta {
 
-  @each $class, $s in $styles {
-    &-#{$class} {
+// Font weight classes
 
-      @include ma-texta-style($s)
-      &--italic {
-
-        @include ma-texta-style($s, true)
-      }
-    }
-  }
-}
-
-
-// Noto styles
-
-.ma-noto {
+.ma-fonts {
 
   @each $class, $s in $styles {
     &-#{$class} {
