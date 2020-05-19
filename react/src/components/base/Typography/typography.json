@@ -13,5 +13,9 @@
     "bold italic",
     "bolder",
     "bolder italic"
-  ]
+  ],
+  "names": {
+    "default": "Noto Sans",
+    "mono": "Noto Mono"
+  }
 }
