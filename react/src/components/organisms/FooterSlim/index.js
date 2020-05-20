@@ -4,7 +4,6 @@ import moment from 'moment';
 
 import Icon from '../../base/Icon';
 
-import './style.scss';
 
 const FooterSlim = (props) => (
   <footer className="ma__footer_slim" id="footer">

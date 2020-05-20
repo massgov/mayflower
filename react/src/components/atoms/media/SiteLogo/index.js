@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
-import './style.scss';
 import Image from '../Image';
 
 const SiteLogo = (siteLogo) => (
