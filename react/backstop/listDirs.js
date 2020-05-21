@@ -7,12 +7,12 @@ const path = require('path');
  * @param {string} dir
  */
 const listDirs = (dir) => {
-  const fileNames = fs.readdirSync(dir);
+  // Set withFileTypes for symlink support.
+  const fileNames = fs.readdirSync(dir, { withFileTypes: true });
   let dirList = [];
-
   fileNames.forEach((fileName) => {
-    const absFilePath = path.join(dir, fileName);
-    if (fs.statSync(absFilePath).isDirectory()) {
+    const absFilePath = path.join(dir, fileName.name);
+    if (fileName.isDirectory()) {
       dirList.push(absFilePath);
       dirList = dirList.concat(listDirs(absFilePath));
     }
