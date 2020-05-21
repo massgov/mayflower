@@ -83,7 +83,6 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-import-paths": "^1.0.2",
     "cross-env": "^5.2.0",
-    "css-loader": "^3.5.3",
     "env-cmd": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -103,9 +102,7 @@
     "react": "16.8.6",
     "react-dom": "16.9.0",
     "react-scripts": "^2.1.8",
-    "sass": "^1.26.5",
-    "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1"
+    "sass": "^1.26.5"
   },
   "homepage": "",
   "license": "MIT",
