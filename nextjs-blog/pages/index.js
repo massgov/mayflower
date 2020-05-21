@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import HeaderSlim from '@massds/mayflower-react/lib/components/organisms/HeaderSlim';
-import SiteLogo from '@massds/mayflower-react/lib/components/atoms/media/SiteLogo';
+import HeaderSlim from '@massds/mayflower-react/es/components/organisms/HeaderSlim';
+import FooterSlim from '@massds/mayflower-react/es/components/organisms/FooterSlim';
+import SiteLogo from '@massds/mayflower-react/es/components/atoms/media/SiteLogo';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
-
 export default function Home() {
   const siteLogoProps = {
     url: {
@@ -18,6 +18,23 @@ export default function Home() {
     title: 'Mass.gov homepage'
   };
   const headerProps = {
+    siteLogo: <SiteLogo {...siteLogoProps} />
+  };
+  const footerProps = {
+    title: 'Massachusetts Executive Office of Eductation (EDU)',
+    description: "The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families",
+    links: [
+      { href: '#', title: 'Lead Agencies Policies' },
+      { href: '#', title: 'Child Care Licensing Procedures' }
+    ],
+    contact: {
+      address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
+      phone: '(617) 988-6600',
+      online: {
+        href: '#',
+        title: 'EEC Official Website'
+      }
+    },
     siteLogo: <SiteLogo {...siteLogoProps} />
   };
   return (
@@ -66,17 +83,7 @@ export default function Home() {
           </a>
         </div>
       </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
+      <FooterSlim {...footerProps} />
     </div>
   )
 }

@@ -1,8 +1,8 @@
 const path = require('path')
 const assets = require('@massds/mayflower-assets');
-
+const withTM = require('next-transpile-modules')(['@massds/mayflower-react']);
 module.exports = (phase, { defaultConfig }) => {
-  return {
+  return withTM({
       sassOptions: {
         includePaths: [
           path.resolve(__dirname, './pages'),
@@ -12,9 +12,9 @@ module.exports = (phase, { defaultConfig }) => {
       },
       webpack(config, options) {
         const { isServer } = options;
-  
+        // File asset support.
         config.module.rules.push({
-          test: /\.(jpe?g|png|svg|gif|ico|webp|jp2)$/,
+          test: /\.(jpe?g|png|gif|ico|webp|jp2)$/,
           issuer: {
             // Next.js already handles url() in css/sass/scss files
             test: /\.\w+(?<!(s?c|sa)ss)$/i,
@@ -34,13 +34,7 @@ module.exports = (phase, { defaultConfig }) => {
             }
           ]
         });
-        //config.resolve.symlinks = false;
-        //config.resolveLoader.symlinks = false;
-        //config.resolveLoader.alias['@massds/mayflower-assets'] = path.resolve(__dirname, './node_modules/@massds/mayflower-assets');
-        // if (typeof defaultConfig.webpack === 'function') {
-        //   return defaultConfig.webpack(config, options)
-        // }
-        
+        // Modify sass settings to use sass and not node-sass.
         config.module.rules.forEach(rule => {
           if (rule.oneOf) {
             const nestedScss = rule.oneOf.find((one) => {
@@ -52,14 +46,15 @@ module.exports = (phase, { defaultConfig }) => {
             });
             if (nestedScss) {
               const sassLoader = nestedScss.use.find(u => u.loader.includes('sass-loader'));
+              // Fixes bug where next doesn't choose between node-sass and sass
+              // if both are installed.
               sassLoader.options.implementation = require('sass');
+              // Prevents styles from being deleted on build.
               nestedScss.sideEffects = true;
             }
           }
         })
-        //console.log(config.module.rules);
-        //config.module.rules.forEach(rule => rule.oneOf && console.log(rule.oneOf));
         return config;
       },
-    }
+    })
 };
