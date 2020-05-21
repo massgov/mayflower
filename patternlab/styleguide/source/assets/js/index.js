@@ -12,6 +12,7 @@ import dropdown from "./modules/dropdown.js";
 import emergencyAlerts from "./modules/emergencyAlerts.js";
 import eventFilters from "./modules/eventFilters";
 import eventListingInteractive from "./modules/eventListingInteractive";
+import expandClickable from "./modules/expandClickable";
 import feedbackForm from "./modules/feedbackForm.js";
 import footnote from "./modules/footnote.js";
 import formValidation from "./modules/formValidation.js";
