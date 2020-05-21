@@ -25,7 +25,6 @@ export InputNumber from './components/forms/InputNumber';
 export InputRadioGroup from './components/forms/InputRadioGroup';
 export DateRange from './components/forms/DateRange';
 export MultiSelectDropDown from './components/forms/MultiSelectDropDown';
-export OrgSelector from './components/forms/OrgSelector';
 export TypeAheadDropdown from './components/forms/TypeAheadDropdown';
 export FeedbackForm from './components/forms/FeedbackForm';
 
