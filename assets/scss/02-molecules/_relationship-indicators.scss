@@ -5,9 +5,13 @@
     flex-direction: column;
     padding: 18px 0;
     font-weight: 600;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     border-bottom: 1px solid $c-bd-divider;
     margin: 0 20px 10px;
+
+    @media ($bp-small-min) {
+      font-size: $fonts-2xsmall;
+    }
 
     @media ($bp-medium-min) {
         margin-left: 30px;
@@ -52,7 +56,7 @@
         }
 
         &.primary {
-        
+
             @media ($bp-medium-min) {
                 padding-right: 2rem;
             }
@@ -74,11 +78,11 @@
                     flex-direction: initial;
                 }
             }
-        
+
             // Only hide tags if secondary tags present.
 
             &:not(.single) .ma__relationship-indicators--term {
-              
+
               &:nth-child(n+2) {
                 display: none;
               }
@@ -142,7 +146,7 @@
             padding: 1px 5px;
             line-height: 1.2;
             width: 100%;
-        
+
             @media ($bp-x-small-min) {
                 width: auto;
                 display: inline-block;
@@ -165,20 +169,20 @@
             font-weight: 600;
             white-space: nowrap;
             display: none;
-            
+
             @media ($bp-small-min) {
                 margin-top: 3px;
             }
-            
+
             @media ($bp-medium-min) {
                 align-self: baseline;
                 margin-top: 8px;
             }
-            
+
             .tag-state {
                 text-transform: none;
             }
-            
+
             &:after {
                 opacity: 0.5;
                 border-width: 3px;
@@ -186,7 +190,7 @@
                 width: 8px;
                 transform: translateY(-45%) rotate(45deg);
             }
-            
+
             &.is-open::after {
                 transform: translateY(-55%) rotate(-135deg);
             }
