@@ -41,10 +41,10 @@ module.exports = {
       babelRule.options.plugins = babelRule.options.plugins.concat([
         "@babel/proposal-export-default-from",
       ]);
-      // Remove preset-env as preset-react-app already defines it.
-      babelRule.options.presets = babelRule.options.presets.filter(plugin => !plugin.includes('/preset-env/'));
-      // Remove preset-react as preset-react-app already defines it.
-      babelRule.options.presets = babelRule.options.presets.filter(plugin => !plugin.includes('/preset-react/'));
+      // Remove preset-env and preset-react as preset-react-app already defines it.
+      babelRule.options.presets = babelRule.options.presets.filter((plugin) => {
+        return !plugin.includes('/preset-env/') && !plugin.includes('/preset-react/');
+      });
     }
     const sassRule = groupedRules.oneOf.find((nestedRule) => nestedRule.test && 'some.scss'.match(nestedRule.test))
     if (sassRule) {
