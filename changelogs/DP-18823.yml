@@ -1,0 +1,6 @@
+Fixed:
+  - project: Assets
+    component: Fonts
+    description: Add font support for Vietnamese. (#1068)
+    issue: DP-18823
+    impact: Patch
