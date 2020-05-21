@@ -101,7 +101,6 @@ export EmergencyHeader from './components/molecules/EmergencyHeader';
 export GenTeaser from './components/organisms/GenTeaser';
 export Footer from './components/organisms/Footer';
 export FooterSlim from './components/organisms/FooterSlim';
-export PressFilters from './components/organisms/PressFilters';
 export RichText from './components/organisms/RichText';
 export UtilityPanel from './components/organisms/UtilityPanel';
 export UtilityNav from './components/organisms/UtilityNav';
