@@ -37,6 +37,12 @@
       border-top: 1px solid $c-gray-light;
     }
 
+    // Visual cue for the clicable area.
+    
+    & li:hover {
+      cursor: pointer;
+    }
+
     .ma__decorative-link {
       padding: 20px;
     }
