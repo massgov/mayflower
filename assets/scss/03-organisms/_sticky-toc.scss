@@ -196,6 +196,10 @@
 
   &__link {
 
+    &:hover {
+      cursor: pointer;
+    }
+
     a {
 
     & > svg {

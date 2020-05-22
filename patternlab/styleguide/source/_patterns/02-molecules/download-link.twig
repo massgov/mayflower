@@ -12,7 +12,7 @@
       {% include "@atoms/decorative-link.twig" %}
     {% else %}
       <a
-        class="ma__download-link__file-link js-clickable-link"
+        class="ma__download-link__file-link"
         href="{{ downloadLink.decorativeLink.href}}">
         <span class="visually-hidden">Open {{ downloadLink.format }} file{% if downloadLink.size %}, {{ downloadLink.size }},{% endif %} for</span>
           {{ downloadLink.decorativeLink.text }}
