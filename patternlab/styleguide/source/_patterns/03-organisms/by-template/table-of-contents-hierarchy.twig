@@ -15,13 +15,12 @@
             {% include "@molecules/expandable-section.twig" %}
           {% endblock %}
         {% elseif section.icon %}
-          <li class="js-clickable" data-link="{{ section.decorativeLink.href }}">
+          <li class="js-clickable">
             {% set downloadLink = section %}
             {% include "@molecules/download-link.twig" %}
           </li>
         {% else %}
-          <li class="{{ section.isCurrent ? ' is-current ': ''}}js-clickable"
-          data-link="{{ section.href }}">
+          <li class="{{ section.isCurrent ? ' is-current ': ''}}js-clickable">
             {% set decorativeLink = section %}
             {% include "@atoms/decorative-link.twig" %}
           </li>
