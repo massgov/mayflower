@@ -1,33 +1,24 @@
-// export default (function (window, document) { // NEITHER OF THEM WORK WITH THIS.
+// export default (function (window, document, $) {
+// // ****** Make the whole TOC link's parent container a hotspot ******
 
-// ****** Make the whole TOC link's parent container a hotspot ******
+// 	// Once getting rid of data-link:
+// 	// $(".ma__sticky-toc__link").each(function(){
 
-	// TEST 1 --
-	// THIS WORKS WITH:
-	// - http://localhost:3000/patterns/03-organisms-by-template-sticky-toc/03-organisms-by-template-sticky-toc.html#sectionLink
-	// - http://localhost:3000/patterns/03-organisms-by-template-table-of-contents-hierarchy/03-organisms-by-template-table-of-contents-hierarchy.html
+// 	$("div[data-link]").each(function(){
+// 		// if the this is clicked
+//     $(this).click(function(event){
 
-	// BUT DOESN'T WORK (= DOES NOTHING) WITH:
-	// - http://localhost:3000/patterns/05-pages-information-details/05-pages-information-details.html
-		$("[data-link]").click(function (event) {
-			window.open(this.getAttribute("data-link"), "_self");
+// 			if ($(this).hasAttribute("data-link")) {
+// 				event.preventDefault();
 
-			// TEST MARKER.
-			$(this).css("background-color", "orange");
-		});
+// 				// TEST MARKER
+// 				$(this).css("background-color", "pink");
 
+// 				// window.location = $(this).data("link");
 
-	// TEST 2 --
-	// THIS DOES NOTHING WITH:
-	// - http://localhost:3000/patterns/03-organisms-by-template-sticky-toc/03-organisms-by-template-sticky-toc.html#sectionLink
-	// - http://localhost:3000/patterns/03-organisms-by-template-table-of-contents-hierarchy/03-organisms-by-template-table-of-contents-hierarchy.html
-
-	// IT DOESN'T EVEN RENDER TOC CONTENT WITH
-	// - http://localhost:3000/patterns/05-pages-information-details/05-pages-information-details.html
-	// const tocLinks = document.querySelectorAll("[data-link]");
-	// tocLinks.addEventListner("click", (e) => {
-	// 	// TEST MARKER.
-	// 	event.target.css("background-color", "purple");
-	// }, false);
-
-// })(window, document);
+// 				// Once getting rid of data-link:
+// 				// window.location = $(this).find("a").prop("href");
+// 			}
+//     });
+//   });
+// })(window,document,jQuery);

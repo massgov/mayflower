@@ -4,6 +4,9 @@ export default (function (window,document,$,undefined) {
     $(this).click(function(event){
       event.preventDefault();
 
+      // TEST MARKER FOR http://localhost:3000/patterns/05-pages-information-details/05-pages-information-details.html#section1
+      $(this).css("background-color", "purple");
+
       var $el = $(this).find('.js-clickable-link').first();
       // find the destination
       var dest = $el.attr("href");
