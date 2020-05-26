@@ -125,6 +125,9 @@ export default (function (window, document) {
 
       // Toggle mobile TOC open.
       toc.querySelector(".ma__sticky-toc__toggle-link").addEventListener("click", () => {
+
+this.style("background-color", "orange");
+
         tocContent.classList.toggle("is-open");
         // Update aria-expanded.
         const tocButton  = document.querySelector(".ma__sticky-toc__toggle-link");
