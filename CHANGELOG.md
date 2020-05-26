@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.51.0 (5/26/2020)
+### Fixed 
+- (React, Patternlab) [ErrorPage] DP-18704: Fix the flickering issue with animation in Error page. (#1065)
+
 ## 9.50.0 (5/19/2020)
 ### Security 
 - (Patternlab) [undefined] DP-18543: Update jquery from 3.4.0 to 3.5.1
