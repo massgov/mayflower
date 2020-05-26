@@ -123,14 +123,6 @@ export default (function (window, document) {
         }
       }, true);
 
-      // Expand the hot spot to the link parent div.
-      // THIS DOESN'T WORK. (= NOTHING HAPPENS)
-      toc.querySelectorAll(".ma__sticky-toc__link").addEventListener("click", (e) => {
-
-	      // TEST MARKER.
-        this.css("background-color", "pink");
-      }, false);
-
       // Toggle mobile TOC open.
       toc.querySelector(".ma__sticky-toc__toggle-link").addEventListener("click", () => {
         tocContent.classList.toggle("is-open");
