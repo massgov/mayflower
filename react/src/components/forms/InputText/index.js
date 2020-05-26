@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ErrorMessage from '../ErrorMessage';
-import './style.css';
+import './style.scss';
 
 class InputText extends React.Component {
   constructor(props) {

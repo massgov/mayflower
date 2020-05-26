@@ -7,7 +7,7 @@ import UtilityNav from '../UtilityNav';
 import MainNav from '../../molecules/MainNav';
 import HeaderSearch from '../../molecules/HeaderSearch';
 import SiteLogo from '../../atoms/media/SiteLogo';
-import './styles.css';
+import './styles.scss';
 
 class Header extends Component {
   constructor(props) {

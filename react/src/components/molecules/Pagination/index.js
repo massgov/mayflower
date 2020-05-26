@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
-import './style.css';
+import './style.scss';
 
 const Pagination = (props) => {
   const { prev, next, pages } = props;

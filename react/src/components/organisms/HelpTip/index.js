@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Collapse from '../../animations/Collapse';
 import Icon from '../../base/Icon';
 import Paragraph from '../../atoms/text/Paragraph';
-import './style.css';
+import './style.scss';
 
 class HelpTip extends Component {
   constructor(props) {

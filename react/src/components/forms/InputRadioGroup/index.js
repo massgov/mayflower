@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import InputRadio from '../InputRadio';
 import ErrorMessage from '../ErrorMessage';
-import './style.css';
+import './style.scss';
 
 class InputRadioGroup extends React.Component {
   constructor(props) {

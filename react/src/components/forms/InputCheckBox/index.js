@@ -7,7 +7,7 @@ import Input from '../Input';
 import Error from '../Input/error';
 import Icon from '../../base/Icon';
 import { InputContext } from '../Input/context';
-import './style.css';
+import './style.scss';
 
 const CheckBox = (props) => {
   const context = useContext(InputContext);

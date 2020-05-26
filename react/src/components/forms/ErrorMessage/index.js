@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../base/Icon';
-import './style.css';
+import './style.scss';
 
 const ErrorMessage = ({
   inputId, error, success, status

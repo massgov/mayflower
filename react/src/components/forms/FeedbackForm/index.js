@@ -4,7 +4,7 @@ import CharacterCounter from 'react-character-counter';
 import classNames from 'classnames';
 import is from 'is';
 import Paragraph from '../../atoms/text/Paragraph';
-import './style.css';
+import './style.scss';
 
 // These components exist to make it clear in FeedbackForm's render what's going on.
 const RefererField = (props) => <input type="hidden" {...props} />;

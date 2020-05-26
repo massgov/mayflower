@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { componentWithName } from 'airbnb-prop-types';
 import classNames from 'classnames';
-import './style.css';
+import './style.scss';
 
 class Teaser extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputDate from '../InputDate';
-import './style.css';
+import './style.scss';
 
 class DateRange extends React.Component {
   constructor(props) {

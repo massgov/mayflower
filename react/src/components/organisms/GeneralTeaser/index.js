@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '../../../index';
-import './style.css';
+import './style.scss';
 
 class TeaserOrg extends Component {
   constructor(props) {

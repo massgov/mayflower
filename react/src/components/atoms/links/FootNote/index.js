@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
+import './style.scss';
 
 class FootNote extends React.Component {
   handleScroll() {

@@ -10,7 +10,7 @@ import InputSliderOptions from '../InputSlider/InputSlider.knobs.options';
 import InputSlider from '../InputSlider';
 import InputCurrency from '../InputCurrency';
 import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
-import './styles.css';
+import './styles.scss';
 
 storiesOf('forms|context', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

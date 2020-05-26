@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.css';
+import './style.scss';
 
 const ArrowButton = (props) => {
   const buttonClasses = classNames({

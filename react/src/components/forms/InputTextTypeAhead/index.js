@@ -4,7 +4,7 @@ import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.css';
+import './style.scss';
 
 class InputTextTypeAhead extends Component {
   constructor(props) {

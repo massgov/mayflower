@@ -1,2 +1,2 @@
-@use "styles/global" as *;
-@use '03-organisms/header-slim';
+@forward "styles/global";
+@forward '03-organisms/header-slim';

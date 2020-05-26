@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { componentWithName } from 'airbnb-prop-types';
-import './style.css';
+import './style.scss';
 
 const TableofContents = (props) => (
   <nav className="ma__toc--hierarchy">
