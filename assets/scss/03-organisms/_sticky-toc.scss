@@ -540,6 +540,13 @@
         position: fixed;
         z-index: 9999;
       }
+
+      @media ($bp-medium-max) {
+
+        & + .ma__sticky-toc__link {
+          margin-top: 75px;
+        }
+      }
     }
   }
 }
