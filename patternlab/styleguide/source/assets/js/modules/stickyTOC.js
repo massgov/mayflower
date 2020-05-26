@@ -113,6 +113,19 @@ export default (function (window, document) {
 
     // Add the event listeners to handle all of the interaction.
     function setEventListeners() {
+
+
+      // TEST MARKER.
+      document.querySelector(".ma__sticky-toc__toggle-link").addEventListener("click", function(e) {
+        e.target.style("background-color", "puple");
+      });
+
+      // TEST MARKER.
+      // document.querySelector(".ma__sticky-toc__toggle-link").style("background-color", "orange");
+      // e.target.style("background-color", "orange");
+
+
+
       // Update the sticky header text when a link is clicked, even if another header is visible.
       tocParent.addEventListener("click", (e) => {
         if (e.target.matches(".ma__sticky-toc__link a").textContent) {
@@ -125,9 +138,6 @@ export default (function (window, document) {
 
       // Toggle mobile TOC open.
       toc.querySelector(".ma__sticky-toc__toggle-link").addEventListener("click", () => {
-
-this.style("background-color", "orange");
-
         tocContent.classList.toggle("is-open");
         // Update aria-expanded.
         const tocButton  = document.querySelector(".ma__sticky-toc__toggle-link");
