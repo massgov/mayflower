@@ -1,0 +1,11 @@
+@use "styles/global";
+@use "01-atoms/select-box";
+
+.ma__select-box__field.ma__select-box__field--inline {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ma__label--inline {
+  margin-right: .5rem;
+}

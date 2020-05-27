@@ -1,0 +1,20 @@
+@use "styles/global" as *;
+@use '02-molecules/footer-links';
+
+.ma__footer-links {
+  &__items {
+    &--heading {
+      border-bottom: none;
+
+      .ma__sidebar-heading {
+        color: $c-gray;
+        font-size: 1rem;
+      }
+
+
+    }
+    ul {
+      @include ma-reset-list;
+    }
+  }
+}

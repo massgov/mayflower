@@ -1,0 +1,3 @@
+@use "styles/global" as *;
+@use '01-atoms/_input--button' as *;
+@include ma__input--button('number');

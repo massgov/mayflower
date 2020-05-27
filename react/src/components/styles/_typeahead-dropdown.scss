@@ -1,0 +1,12 @@
+.ma__input-typeahead {
+  &-toggle {
+    display: inline-block;
+  }
+
+  &--boxed {
+    position: absolute;
+    top: 45px;
+    width: 100%;
+    z-index: 100;
+  }
+}
