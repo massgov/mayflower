@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ButtonTag from '../../atoms/buttons/ButtonTag';
-import './style.scss';
 
 class Tags extends Component {
   constructor(props) {

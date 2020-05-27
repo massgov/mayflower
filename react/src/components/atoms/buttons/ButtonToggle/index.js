@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './style.scss';
 
 class ButtonToggle extends Component {
   constructor(props) {

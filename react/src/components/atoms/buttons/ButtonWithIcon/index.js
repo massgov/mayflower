@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ref } from 'airbnb-prop-types';
 import Icon from '../../../base/Icon';
-import './style.scss';
 
 const ButtonWithIcon = (props) => {
   const {

@@ -1,3 +1,4 @@
+import path from 'path';
 import FeedbackForm from './components/forms/FeedbackForm';
 
 /*
@@ -145,3 +146,7 @@ export InputTextTypeAhead from './components/forms/InputTextTypeAhead';
 export PressTeaser from './components/molecules/PressTeaser';
 export GeneralTeaser from './components/organisms/GeneralTeaser';
 export Teaser from './components/organisms/Teaser';
+
+export const includePaths = [
+  path.join(__dirname, 'components/styles')
+];

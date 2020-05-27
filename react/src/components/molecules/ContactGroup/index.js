@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from '../../atoms/links/DecorativeLink';
 import Icon from '../../base/Icon';
-import './style.scss';
 
 const ContactGroup = (contactGroup) => {
   const icons = {

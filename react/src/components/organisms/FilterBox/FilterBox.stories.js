@@ -2,7 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select, object, optionsKnob } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { InputTextTypeAhead, SelectBox, DateRange } from '../../../index';
+import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
+import SelectBox from '../../forms/SelectBox';
+import DateRange from '../../forms/DateRange';
 
 import FilterBox from '.';
 import sharedProps from './FilterBox.props';

@@ -49,13 +49,20 @@ module.exports = {
     const sassRule = groupedRules.oneOf.find((nestedRule) => nestedRule.test && 'some.scss'.match(nestedRule.test))
     if (sassRule) {
       const sassLoader = sassRule.use.find(loader => loader.loader && loader.loader.includes('sass-loader'));      
+      const cssLoader = sassRule.use.find(loader => loader.loader && loader.loader.includes('css-loader'));
+      if (cssLoader) {
+        cssLoader.options.sourceMap = configType !== 'PRODUCTION';
+      }      
+
       if (sassLoader) {
         sassLoader.options = {
           sourceMap: configType !== 'PRODUCTION',
           implementation: require('sass'),
           sassOptions: {
             includePaths: [
+              path.resolve(__dirname, '../src'),
               path.resolve(__dirname, '../src/components'),
+              path.resolve(__dirname, '../src/components/styles'),
             ].concat(assets.includePaths)
           }
         }

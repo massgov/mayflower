@@ -6,8 +6,6 @@ import Collapse from '../../animations/Collapse';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import Icon from '../../base/Icon';
 
-import './style.scss';
-
 class ListingTableItem extends React.Component {
   constructor(props) {
     super(props);

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Label from '../Label';
-import './style.scss';
 
 class SelectBox extends React.Component {
   constructor(props) {

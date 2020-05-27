@@ -1,5 +1,9 @@
 import React from 'react';
-import { DecorativeLink, Link, ContactGroup, IconLink, Icon, OperationalHours } from '../../../index';
+import DecorativeLink from '../../atoms/links/DecorativeLink';
+import Link from '../../molecules/Link';
+import Icon from '../../base/Icon';
+import IconLink from '../../molecules/IconLink';
+import OperationalHours from '../../atoms/contact/OperationalHours';
 
 const getLink = (text = 'Sample Link') => {
   const linkProps = {

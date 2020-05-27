@@ -4,7 +4,6 @@ import shortid from 'shortid';
 
 import UtilityPanel from '../UtilityPanel';
 import Icon from '../../base/Icon';
-import './styles.scss';
 
 class UtilityNav extends Component {
   constructor(props) {

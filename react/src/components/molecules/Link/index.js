@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.scss';
 
-import { Icon } from '../../../index';
+import Icon from '../../base/Icon';
 
 const Link = (props) => {
   const icon = props.icon ? (<Icon name={props.icon} svgWidth={13.2} svgHeight={13.2} />) : '';

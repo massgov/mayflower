@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.scss';
-
 const ButtonSort = (buttonSort) => {
   const buttonSortClass = buttonSort.direction ? ` ma__button-sort--${buttonSort.direction}` : '';
   const classNames = `ma__button-sort js-button-sort${buttonSortClass}`;

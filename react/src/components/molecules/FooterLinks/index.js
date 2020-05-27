@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.scss';
-import { SidebarHeading } from '../../../index';
+import SidebarHeading from '../../atoms/headings/SidebarHeading';
 
 const FooterLinks = (footerLinks) => (
   <section className="ma__footer-links">

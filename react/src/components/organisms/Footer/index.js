@@ -7,8 +7,6 @@ import FooterLinks from '../../molecules/FooterLinks';
 import SocialLinks from '../../molecules/SocialLinks';
 import Icon from '../../base/Icon';
 
-import './style.scss';
-
 const Footer = ({
   footerLinks, socialLinks, backToTopButton, footerText, footerLogo, showNavHeading
 }) => (

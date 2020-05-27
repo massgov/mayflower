@@ -4,7 +4,6 @@ import is from 'is';
 import { componentWithName } from 'airbnb-prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 import TypeAheadDropdown from '../../forms/TypeAheadDropdown';
-import './style.scss';
 
 class HeaderSearch extends React.Component {
   constructor(props) {

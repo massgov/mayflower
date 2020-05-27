@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import InputText from '../../forms/InputText';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
 
-import './style.scss';
-
 const SearchBannerForm = (searchBannerForm) => {
   let { classes = [] } = searchBannerForm.buttonSearch;
   classes = classes.concat(['ma__search-banner__button']);

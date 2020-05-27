@@ -1,7 +1,6 @@
 import React from 'react';
 import NarrowTemplate from '../../templates/NarrowTemplate';
 import ErrorPage from '../../organisms/ErrorPage';
-import '../styles.scss';
 
 const Error404 = () => (
   <NarrowTemplate side="right" color="yellow">

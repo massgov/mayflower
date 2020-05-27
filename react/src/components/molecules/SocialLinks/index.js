@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../base/Icon';
 
-import './style.scss';
-
 const SocialLinks = (socialLinks) => (
   <section className="ma__social-links">
     {socialLinks.label && <span className="ma__social-links__label">{socialLinks.label}</span>}

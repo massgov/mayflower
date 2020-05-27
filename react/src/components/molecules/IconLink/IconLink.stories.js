@@ -4,7 +4,8 @@ import { withKnobs, text, select, array } from '@storybook/addon-knobs';
 
 import { svgOptions } from '../../base/Icon/Icon.knob.options';
 import IconLink from '.';
-import { Icon, Link } from '../../../index';
+import Icon from '../../base/Icon';
+import Link from '../Link';
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

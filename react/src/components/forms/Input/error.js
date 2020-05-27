@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.scss';
 import { InputContext } from './context';
 import ErrorMessage from '../ErrorMessage';
 

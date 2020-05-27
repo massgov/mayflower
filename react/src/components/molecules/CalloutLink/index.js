@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../base/Icon';
-import './style.scss';
 
 const CalloutLink = (calloutLink) => {
   const calloutLinkTheme = calloutLink.theme ? ` ma__callout-link--${calloutLink.theme}` : '';

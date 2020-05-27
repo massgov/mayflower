@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonWithIcon from '../ButtonWithIcon';
 import Icon from '../../../base/Icon';
-// import './style.scss';
 
 const ButtonAlert = (props) => {
   const {

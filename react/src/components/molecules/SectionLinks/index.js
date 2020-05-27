@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DecorativeLink, AccordionItem } from '../../../index';
-
-import './style.scss';
+import DecorativeLink from '../../atoms/links/DecorativeLink';
+import AccordionItem from '../AccordionItem';
 
 class SectionCard extends React.Component {
   constructor(props) {

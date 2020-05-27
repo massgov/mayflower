@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 // import child components
 import Button from '../../atoms/buttons/Button';
-import './style.scss';
 
 const FilterBox = (props) => {
   const {

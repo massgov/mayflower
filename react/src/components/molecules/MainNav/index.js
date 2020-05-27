@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
 import Icon from '../../base/Icon';
-import './style.scss';
-
 
 class MainNav extends Component {
   constructor(props) {

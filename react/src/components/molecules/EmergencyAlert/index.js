@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import './style.scss';
 
 const EmergencyAlert = (props) => {
   const {

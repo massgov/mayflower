@@ -15,7 +15,6 @@ import Address from '../../atoms/contact/Address';
 import TeaserSearch from './TeaserSearch';
 import TeaserOrgs from './TeaserOrgs';
 import { buildUrl } from './utils';
-import './style.scss';
 
 const GenTeaser = (props) => {
   const {

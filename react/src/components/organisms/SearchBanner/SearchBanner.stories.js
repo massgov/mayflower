@@ -2,8 +2,9 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-
-import { SelectBox, InputTextTypeAhead, DateRange } from '../../../index';
+import SelectBox from '../../forms/SelectBox';
+import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
+import DateRange from '../../forms/DateRange';
 import SearchBanner from './index';
 import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 import tabsOptions from '../../molecules/Tabs/Tabs.knobs.options';

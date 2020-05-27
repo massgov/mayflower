@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../../base/Icon';
 // eslint-disable-next-line import/no-unresolved
-import './style.scss';
 
 const Tooltip = (tooltip) => {
   const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;

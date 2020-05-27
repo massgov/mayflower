@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import { SelectBox } from '../../../index';
+import SelectBox from '../../forms/SelectBox';
 import selectOptions from '../../forms/SelectBox/SelectBox.knobs.options';
 import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 import HeaderSearch from '.';

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-unresolved
-import './style.scss';
 
 const Tabs = ({ handleClick, tabs, selectedTab }) => {
   const isClickFunction = typeof handleClick === 'function';

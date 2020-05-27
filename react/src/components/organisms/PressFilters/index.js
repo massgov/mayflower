@@ -8,7 +8,6 @@ import DateRange from '../../forms/DateRange';
 import OrgSelector from '../../forms/OrgSelector';
 import SelectBox from '../../forms/SelectBox';
 import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
-import './style.scss';
 
 const PressFilters = (props) => {
   const {

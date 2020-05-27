@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shortid from 'shortid';
 import is from 'is';
-import './style.scss';
 import TabContext from './context';
 
 class TabContainer extends React.Component {

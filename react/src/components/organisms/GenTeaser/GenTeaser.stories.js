@@ -5,7 +5,7 @@ import { withKnobs, array, text, select, boolean, object } from '@storybook/addo
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import GenTeaser from './index';
 import GenTeaserDocs from './GenTeaser.md';
-import { Icon } from '../../../index';
+import Icon from '../../base/Icon';
 
 storiesOf('organisms/GenTeaser', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

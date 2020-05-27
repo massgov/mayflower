@@ -5,7 +5,6 @@ import numbro from 'numbro';
 import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
 import { InputContext } from '../Input/context';
 import { countDecimals } from '../Input/utility';
-import './style.scss';
 
 const Handle = (props) => {
   const {

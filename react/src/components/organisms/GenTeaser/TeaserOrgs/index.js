@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ButtonWithIcon, Icon } from '../../../../index';
+import Icon from '../../../base/Icon';
+import ButtonWithIcon from '../../../atoms/buttons/ButtonWithIcon';
 
 class TeaserOrgs extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { HeaderSearch } from '../../../../index';
+import HeaderSearch from '../../../molecules/HeaderSearch';
 
 class TeaserSearch extends Component {
   constructor(props) {

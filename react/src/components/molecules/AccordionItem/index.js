@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import Icon from '../../base/Icon';
 import Heading from '../../atoms/headings/Heading';
 import Collapse from '../../animations/Collapse';
-import './style.scss';
 
 class AccordionItem extends React.Component {
   constructor(props) {

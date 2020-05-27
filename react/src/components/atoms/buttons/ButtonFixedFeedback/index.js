@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.scss';
-
 const ButtonFixedFeedback = (props) => (
   <div
     className="ma__fixed-feedback-button"

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Icon from '../../../base/Icon';
-import './style.scss';
 
 const DecorativeLink = (props) => {
   const {

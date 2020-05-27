@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ButtonToggle from '../../atoms/buttons/ButtonToggle';
 import SelectBox from '../../forms/SelectBox';
 import Tags from '../../molecules/Tags';
-import './style.scss';
 
 const ResultsHeading = (resultsHeading) => {
   const resultsHeadingTotal = resultsHeading.totalResults ? ` of ${resultsHeading.totalResults} for: ` : '';

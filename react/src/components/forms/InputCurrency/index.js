@@ -10,7 +10,6 @@ import { countDecimals } from '../Input/utility';
 import Error from '../Input/error';
 import { InputContext } from '../Input/context';
 import { validNumber } from '../Input/validate';
-import './style.scss';
 
 const Currency = (props) => {
   const ref = React.createRef();

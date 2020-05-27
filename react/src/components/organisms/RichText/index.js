@@ -7,7 +7,6 @@ import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
 import Paragraph from '../../atoms/text/Paragraph';
 import UnorderedList from '../../atoms/lists/UnorderedList';
 
-import './style.scss';
 
 const RichText = (props) => {
   // if (!Object.entries) {

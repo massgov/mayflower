@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.scss';
-
 const Breadcrumb = (props) => (
   <nav aria-label="breadcrumb">
     <ol className="ma__breadcrumb">
