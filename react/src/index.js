@@ -137,6 +137,3 @@ export Collapse from './components/animations/Collapse';
 
 // @dataviz
 export DataTable from './components/dataviz/DataTable';
-
-// To archive & remove in version 10
-export InputTextTypeAhead from './components/forms/InputTextTypeAhead';

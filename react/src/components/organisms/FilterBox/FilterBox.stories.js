@@ -1,15 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select, object, optionsKnob } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, select, object, optionsKnob, array } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { InputTextTypeAhead, SelectBox, DateRange } from '../../../index';
+import { InputTextFuzzy, SelectBox, DateRange } from '../../../index';
 
 import FilterBox from '.';
 import sharedProps from './FilterBox.props';
 // import knob options for child patterns
 import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
 import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
-import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import inputOptions from '../../forms/InputTextFuzzy/InputTextFuzzy.knobs.options';
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -17,16 +17,15 @@ storiesOf('organisms', module)
     const organization = {
       label: text('Filterbox organization: label', 'State organization', 'Organization'),
       id: text('Filterbox organization: id', 'state-organization', 'Organization'),
-      options: object('Filterbox organization: options', inputOptions.options.orgSelector, 'Organization'),
-      selected: optionsKnob(
-        'Filterbox organization: selected',
-        Object.assign({}, ...inputOptions.options.orgSelector.map((option) => ({ [option.text]: option.text })).values()),
-        inputOptions.options.orgSelector[0].text,
-        { display: 'select' },
-        'Organization'
+      options: object('Filterbox organization: options', inputOptions.options.orgSelector.filter((option) => option.text !== ''), 'Organization'),
+      keys: array('keys', ['text']),
+      selected: select(
+        'selected',
+        inputOptions.options.orgSelector.map((option) => option.text),
+        ''
       ),
       placeholder: text('Filterbox organization: placeholder', 'All Organizations', 'Organization'),
-      onChange: action('Filterbox organization typeahead onChange')
+      onChange: action('Filterbox organization onChange')
     };
     const topic = {
       label: text('Filterbox topic: label', 'Filter by Topic', 'Topic'),
@@ -50,15 +49,15 @@ storiesOf('organisms', module)
     const type = {
       label: text('Filterbox pressType: label', 'Filter by Type', 'Press Type'),
       id: text('Filterbox pressType: id', 'press-type', 'Press Type'),
+      keys: array('keys', ['text']),
       options: object('Filterbox pressType: options', inputOptions.options.pressTypes, 'Press Type'),
       selected: select(
-        'Filterbox pressType: selected',
-        [''].concat(inputOptions.options.pressTypes.map((option) => option.text)),
-        '',
-        'Press Type'
+        'selected',
+        inputOptions.options.pressTypes.map((option) => option.text),
+        ''
       ),
       placeholder: text('Filterbox pressType: placeholder', 'All Types', 'Press Type'),
-      onChange: action('Filterbox pressType typeahead onChange')
+      onChange: action('Filterbox pressType onChange')
     };
     const props = {
       active: boolean('Filterbox active', true),
@@ -83,7 +82,7 @@ storiesOf('organisms', module)
       fields: [
         {
           class: 'ma__filter-box__organizations ma__filter-box--desktop-hidden',
-          component: <InputTextTypeAhead {...organization} />
+          component: <InputTextFuzzy {...organization} />
         },
         {
           class: 'ma__filter-box__topic',
@@ -91,7 +90,7 @@ storiesOf('organisms', module)
         },
         {
           class: 'ma__filter-box__type',
-          component: <InputTextTypeAhead {...type} />
+          component: <InputTextFuzzy {...type} />
         },
         {
           class: 'ma__filter-box__date',
