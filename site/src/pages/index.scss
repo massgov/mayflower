@@ -1,8 +1,15 @@
-@import '../styles/bootstrap-grid';
-@import '../styles/global';
+@use "../styles/globe" as *;
+@use "illustrated-header";
+@use "button-with-icon";
+@use "gen-teaser";
+@use "tabs"; 
+@use "icon";
+@use "section-links";
+@use "decorative-link";
+@use "callout-link";
 
 .ma__illustrated-header {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .ma__button-group {
@@ -35,37 +42,7 @@ h2.ma__section-links__title {
   margin-bottom: 0;
 }
 
-.ma__callout-link{
-    line-height: 1.3;
-    @media ($bp-medium-min) {
-        width: 33%;
-    }
-    @media ($bp-large-min) {
-        width: 100%;
-    }
-    @media ($bp-x-large-min) {
-        width: 33%;
-    }
-    @media ($bp-small-min) {
-      padding: 15px 20px;
-    }
 
-    a {
-      display: contents;
-    }
-
-    &__container {
-      font-size: 1.3rem;
-      padding-right: 0;
-    }
-
-    &__description {
-        font-size: 1rem;
-        @media ($bp-x-large-max) {
-            display: none;
-        }
-    }
-}
 
 // Match row height
 .ma__row--three-up {

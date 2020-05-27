@@ -1,5 +1,5 @@
 const path = require('path');
-
+const assets = require('@massds/mayflower-assets');
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
@@ -44,13 +44,20 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sass',
       options: {
+        sourceMap: true,
+        useResolveUrlLoader: {
+          sourceMap: true
+        },
+        cssLoaderOptions: {
+          sourceMap: true,
+          esModule: true
+        },
         includePaths: [
-          path.resolve(__dirname, './node_modules/@massds/mayflower-react/es/assets/scss'),
-          path.resolve(__dirname, './node_modules'),
-          path.resolve(__dirname, './src')
-        ]
+          path.dirname(require.resolve('@massds/mayflower-react')) + '/components',
+          path.dirname(require.resolve('@massds/mayflower-react')) + '/components/styles'
+        ].concat(assets.includePaths)
       }
-    },
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

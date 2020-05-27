@@ -1,8 +1,20 @@
-@import "~@massds/mayflower-react/es/assets/scss/01-atoms/global/elements";
+@use './bootstrap-grid';
 
-@import "~@massds/mayflower-react/es/assets/scss/04-templates/general";
+@use "./globe" as *;
 
-@import "~@massds/mayflower-react/es/assets/scss/08-print/print";
+@use "00-base/layout";
+
+@use "00-base/fonts";
+@use "00-base/fonts-fallback";
+@use "00-base/fonts-styles";
+
+@use "00-base/elements";
+
+@use "04-templates/general";
+@use "08-print/print";
+@use "header-slim";
+@use "site-logo";
+@use "footer-slim";
 
 html {
 
@@ -125,4 +137,36 @@ label {
 
 .ma__link--icon {
   fill: $c-primary-lighter;
+}
+
+.ma__callout-link {
+  line-height: 1.3;
+  @media ($bp-medium-min) {
+      width: 33%;
+  }
+  @media ($bp-large-min) {
+      width: 100%;
+  }
+  @media ($bp-x-large-min) {
+      width: 33%;
+  }
+  @media ($bp-small-min) {
+    padding: 15px 20px;
+  }
+
+  a {
+    display: contents;
+  }
+
+  &__container {
+    font-size: 1.3rem !important;
+    padding-right: 0 !important;
+  }
+  
+  &__description {
+    font-size: 1rem !important;
+    @media ($bp-x-large-max) {
+        display: none !important;
+    }
+  }
 }
