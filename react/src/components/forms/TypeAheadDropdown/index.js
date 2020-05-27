@@ -80,7 +80,7 @@ class TypeAheadDropdown extends React.Component {
       this.closeDropdown();
     }
   }
-  handleSelect({ event, suggestion }) {
+  handleSelect(event, { suggestion }) {
     // Stop the filters form submission if enter is pressed in the selector.
     event.preventDefault();
     // Update this component state and pass the event out to the calling code.
@@ -91,7 +91,7 @@ class TypeAheadDropdown extends React.Component {
         buttonExpand: false
       });
       if (typeof this.props.inputText.onChange === 'function') {
-        this.props.inputText.onSuggestionClick(event, suggestion);
+        this.props.inputText.onSuggestionClick(event, { suggestion });
       }
     }
   }

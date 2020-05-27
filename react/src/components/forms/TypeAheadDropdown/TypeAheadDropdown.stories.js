@@ -38,7 +38,6 @@ storiesOf('forms|molecules', module)
           maxPatternLength: 300
         }),
         onKeyDown: action('onKeyDown event'),
-        onKeyUp: action('onKeyUp event'),
         onFocus: action('onFocus event'),
         onBlur: action('onBlur event'),
         onSuggestionClick: action('onSuggestionClick called'),
