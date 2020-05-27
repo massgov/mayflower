@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: TableOfContents
+    description: Make the parent container of TOC link function like a link by expanding clickable area. (#1070)
+    issue: DP-15628
+    impact: Patch
