@@ -36,7 +36,7 @@ class InputTextFuzzy extends React.Component {
     if (is.fn(this.props.onSuggestionClick)) {
       event.persist();
       // Suggestion is an object that can contain info on score, matches, etc.
-      this.props.onSuggestionClick(event, { suggestion, method });
+      this.props.onSuggestionClick({ event, suggestion, method });
     }
   }
   getSuggestionValue = (suggestion) => suggestion.item.text;
