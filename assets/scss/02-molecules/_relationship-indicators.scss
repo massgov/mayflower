@@ -78,11 +78,11 @@
 
     .ma__relationship-indicators--term,
     .ma__relationship-indicators__expand-indicators {
-      margin-bottom: 2px;
+      // margin-bottom: 2px;
 
-      @media ($bp-x-small-min) {
+      // @media ($bp-x-small-min) {
         margin-bottom: 5px;
-      }
+      // }
 
       @media ($bp-large-max) {
         // margin-bottom: 5px;
@@ -90,6 +90,14 @@
 
       @media ($bp-large-min) {
         margin-bottom: 10px;//12px;
+      }
+    }
+
+    .ma__relationship-indicators__expand-indicators {
+
+      @media ($bp-large-min) {
+
+        margin-bottom: 5px;
       }
     }
 
