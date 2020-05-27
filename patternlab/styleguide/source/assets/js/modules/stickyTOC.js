@@ -113,26 +113,15 @@ export default (function (window, document) {
 
     // Add the event listeners to handle all of the interaction.
     function setEventListeners() {
-
-
-      // TEST MARKER.
-      document.querySelector(".ma__sticky-toc__toggle-link").addEventListener("click", function(e) {
-        e.target.style("background-color", "puple");
-      });
-
-      // TEST MARKER.
-      // document.querySelector(".ma__sticky-toc__toggle-link").style("background-color", "orange");
-      // e.target.style("background-color", "orange");
-
-
-
       // Update the sticky header text when a link is clicked, even if another header is visible.
       tocParent.addEventListener("click", (e) => {
-        if (e.target.matches(".ma__sticky-toc__link a").textContent) {
-          pauseScroll = true;
-          setTimeout(() => { pauseScroll = false; }, 20);
-          stickyToc.innerHTML = e.target.innerHTML;
-          toc.classList.add("stuck");
+        if (e.target.hasAttribute("data-link")) {
+          if (e.target.matches(".ma__sticky-toc__link a").textContent) {
+            pauseScroll = true;
+            setTimeout(() => { pauseScroll = false; }, 20);
+            stickyToc.innerHTML = e.target.innerHTML;
+            toc.classList.add("stuck");
+          }
         }
       }, true);
 
@@ -252,6 +241,7 @@ export default (function (window, document) {
       document.body.addEventListener("click", (e) => {
         if (!e.target.matches(".ma__sticky-toc__stuck-menu")
           && (e.target.closest(".ma__sticky-toc__stuck-menu") === null
+          || e.target.matches(".ma__sticky-toc__stuck-menu .ma__sticky-toc__link")
           || e.target.matches(".ma__sticky-toc__stuck-menu a"))) {
           if (typeof stuckMenu !== "undefined" && stuckMenu.matches(".sticky-nav-open")) {
             menuToggle();
