@@ -4,6 +4,7 @@ import Link from '../../molecules/Link';
 import Icon from '../../base/Icon';
 import IconLink from '../../molecules/IconLink';
 import OperationalHours from '../../atoms/contact/OperationalHours';
+import ContactGroup from '../../molecules/ContactGroup';
 
 const getLink = (text = 'Sample Link') => {
   const linkProps = {
