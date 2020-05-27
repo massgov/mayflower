@@ -542,8 +542,9 @@
       }
 
       @media ($bp-medium-max) {
-        
+
         // Fix the toc label covering top 2 toc links.
+
         & + .ma__sticky-toc__link {
           margin-top: 75px;
         }
