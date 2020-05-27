@@ -103,16 +103,16 @@
 
     &.is-title {
 
-      // div {
-      //   color: $c-gray-dark;
-      //   border-bottom: 3px solid transparent;
-      //   padding-top: 3px;
-      //   padding-bottom: 1px;
-      //   -webkit-transition: border 0.4s ease;
-      //   -o-transition: border 0.4s ease;
-      //   transition: border 0.4s ease;
-      //   font-weight: 500;
-      // }
+      div {
+        color: $c-gray-dark;
+        border-bottom: 3px solid transparent;
+        padding-top: 3px;
+        padding-bottom: 1px;
+        -webkit-transition: border 0.4s ease;
+        -o-transition: border 0.4s ease;
+        transition: border 0.4s ease;
+        font-weight: 500;
+      }
 
       a {
         color: $c-gray-dark !important;
