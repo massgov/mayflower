@@ -103,7 +103,7 @@
 
     &.is-title {
 
-      div {
+      span {
         color: $c-gray-dark;
         border-bottom: 3px solid transparent;
         padding-top: 3px;
@@ -112,6 +112,8 @@
         -o-transition: border 0.4s ease;
         transition: border 0.4s ease;
         font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
       }
 
       a {
