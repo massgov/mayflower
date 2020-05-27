@@ -242,7 +242,8 @@ export default (function (window, document) {
         if (!e.target.matches(".ma__sticky-toc__stuck-menu")
           && (e.target.closest(".ma__sticky-toc__stuck-menu") === null
           || e.target.matches(".ma__sticky-toc__stuck-menu .ma__sticky-toc__link")
-          || e.target.matches(".ma__sticky-toc__stuck-menu a"))) {
+          || e.target.matches(".ma__sticky-toc__stuck-menu a")
+          || e.target.matches(".ma__sticky-toc__stuck-menu a svg"))) {
           if (typeof stuckMenu !== "undefined" && stuckMenu.matches(".sticky-nav-open")) {
             menuToggle();
           }
