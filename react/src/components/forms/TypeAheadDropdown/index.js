@@ -85,7 +85,7 @@ class TypeAheadDropdown extends React.Component {
     event.preventDefault();
     // Update this component state and pass the event out to the calling code.
     const { text } = suggestion.item;
-    if (text !== '') {
+    if (text.length > 0) {
       this.setState({
         buttonText: text,
         buttonExpand: false
