@@ -83,7 +83,7 @@ class InputTextFuzzy extends React.Component {
   handleFocus = (event) => {
     if (is.fn(this.props.onFocus)) {
       event.persist();
-      this.props.onFocus(event, { value: this.state.value, suggestions: this.state.suggestions });
+      this.props.onFocus(event, { event, value: this.state.value, suggestions: this.state.suggestions });
     }
   }
   optionsToSuggestions = (options) => {
