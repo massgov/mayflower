@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## 9.51.2 (5/29/2020)
 ### Fixed
 - (Assets) [Fonts] DP-18894: Remove param from font import statement to fix Drupal css aggregation issue. (#1077)
+- (Patternlab) [Dependency] DP-18036: Update handlebars and node-sass. (#1069)
 
 ## 9.51.1 (5/27/2020)
 ### Fixed
