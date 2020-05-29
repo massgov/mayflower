@@ -1,34 +1,38 @@
-<div class="ma__relationship-indicators">
-  <div class="ma__relationship-indicators--section primary{% if relationshipIndicators.secondary is empty %} single{% endif %}">
-    <label class="ma__relationship-indicators--label" id="primary">
-      <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
-      {{ relationshipIndicators.primary.label }}
-    </label>
-    <ul class="ma__relationship-indicators--terms" aria-labelledby="primary">
-    {% block primaryRelationship %}
-      {% for item in relationshipIndicators.primary.tags %}
-        {% set itemLink = item %}
-        {% include "@atoms/item-link.twig" %}
-      {% endfor %}
-    {% endblock %}
-    </ul>
-  </div>
+{% if elationshipIndicators.primary or relationshipIndicators.secondary %}
+  <div class="ma__relationship-indicators">
+  {% if relationshipIndicators.primary.tags %}
+    <div class="ma__relationship-indicators--section primary{% if relationshipIndicators.secondary is empty %} single{% endif %}">
+      <label class="ma__relationship-indicators--label" id="primary">
+        <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
+        {{ relationshipIndicators.primary.label }}
+      </label>
+      <ul class="ma__relationship-indicators--terms" aria-labelledby="primary">
+      {% block primaryRelationship %}
+        {% for item in relationshipIndicators.primary.tags %}
+          {% set itemLink = item %}
+          {% include "@atoms/item-link.twig" %}
+        {% endfor %}
+      {% endblock %}
+      </ul>
+    </div>
+  {% endif %}
 
-{% if relationshipIndicators.secondary is not empty %}
-  <div class="ma__relationship-indicators--section secondary">
-    <label class="ma__relationship-indicators--label" id="secondary">
-    <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
-      {{ relationshipIndicators.secondary.label }}
-    </span>
-    </label>
-    <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
-    {% block secondaryRelationship %}
-      {% for item in relationshipIndicators.secondary.tags %}
-        {% set itemLink = item %}
-        {% include "@atoms/item-link.twig" %}
-      {% endfor %}
-    {% endblock %}
-    </ul>
+  {% if relationshipIndicators.secondary is not empty %}
+    <div class="ma__relationship-indicators--section secondary">
+      <label class="ma__relationship-indicators--label" id="secondary">
+      <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
+        {{ relationshipIndicators.secondary.label }}
+      </span>
+      </label>
+      <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
+      {% block secondaryRelationship %}
+        {% for item in relationshipIndicators.secondary.tags %}
+          {% set itemLink = item %}
+          {% include "@atoms/item-link.twig" %}
+        {% endfor %}
+      {% endblock %}
+      </ul>
+    </div>
+  {% endif %}
   </div>
 {% endif %}
-</div>
