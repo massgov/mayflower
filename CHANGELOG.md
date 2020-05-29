@@ -1,10 +1,6 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
-## 9.51.1 (5/27/2020)
-### Fixed 
-- (Assets) [Fonts] DP-18823: Add font support for Vietnamese. (#1068)
-
 ## 9.51.0 (5/26/2020)
 ### Fixed 
 - (React, Patternlab) [ErrorPage] DP-18704: Fix the flickering issue with animation in Error page. (#1065)
