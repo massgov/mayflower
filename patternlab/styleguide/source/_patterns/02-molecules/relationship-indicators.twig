@@ -1,6 +1,6 @@
-{# {% if relationshipIndicators.primary or relationshipIndicators.secondary %} #}
+{% if relationshipIndicators.primary or relationshipIndicators.secondary %}
   <div class="ma__relationship-indicators">
-  {% if relationshipIndicators.primary.tags %}
+  {% if relationshipIndicators.primary %}
     <div class="ma__relationship-indicators--section primary{% if relationshipIndicators.secondary is empty %} single{% endif %}">
       <span class="ma__relationship-indicators--label" id="primary">
         <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
@@ -35,4 +35,4 @@
     </div>
   {% endif %}
   </div>
-{# {% endif %} #}
+{% endif %}
