@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import classNames from 'classnames';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Icon from '../../base/Icon';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Icon from 'MayflowerReactBase/Icon';
 
 class LinkDropdown extends React.Component {
   constructor(props) {

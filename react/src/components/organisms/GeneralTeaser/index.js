@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
-class TeaserOrg extends Component {
+class TeaserOrg extends React.Component {
   constructor(props) {
     super(props);
     const allOrgs = props.orgs.split(',');

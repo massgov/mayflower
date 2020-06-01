@@ -4,12 +4,12 @@ import { object, withKnobs, text, number, array } from '@storybook/addon-knobs';
 
 import Form, { FormProvider } from './index';
 import FormDocs from './Form.md';
-import InputNumber from '../InputNumber';
-import InputNumberOptions from '../InputNumber/InputNumber.knobs.options';
-import InputSliderOptions from '../InputSlider/InputSlider.knobs.options';
-import InputSlider from '../InputSlider';
-import InputCurrency from '../InputCurrency';
-import InputCurrencyOptions from '../InputCurrency/InputCurrency.knobs.options';
+import InputNumber from 'MayflowerReactForms/InputNumber';
+import InputNumberOptions from 'MayflowerReactForms/InputNumber/InputNumber.knobs.options';
+import InputSliderOptions from 'MayflowerReactForms/InputSlider/InputSlider.knobs.options';
+import InputSlider from 'MayflowerReactForms/InputSlider';
+import InputCurrency from 'MayflowerReactForms/InputCurrency';
+import InputCurrencyOptions from 'MayflowerReactForms/InputCurrency/InputCurrency.knobs.options';
 
 storiesOf('forms|context', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

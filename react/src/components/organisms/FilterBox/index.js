@@ -4,7 +4,7 @@ import { componentWithName } from 'airbnb-prop-types';
 import classNames from 'classnames';
 
 // import child components
-import Button from '../../atoms/buttons/Button';
+import Button from 'MayflowerReactButtons/Button';
 
 const FilterBox = (props) => {
   const {

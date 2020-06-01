@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormContext } from '../Input/context';
 
@@ -20,7 +20,7 @@ Form.propTypes = {
   children: PropTypes.node
 };
 
-class FormProvider extends Component {
+class FormProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

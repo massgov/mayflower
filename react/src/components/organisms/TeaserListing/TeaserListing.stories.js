@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, object, boolean, number } from '@storybook/addon-knobs';
 
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Paragraph from '../../atoms/text/Paragraph';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Paragraph from 'MayflowerReactText/Paragraph';
 import TeaserListing from '.';
 import TeaserListingDocs from './TeaserListing.md';
 import TeaserListingData from './TeaserListing.knob.options';

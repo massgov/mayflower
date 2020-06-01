@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import AccordionItem from '../AccordionItem';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import AccordionItem from 'MayflowerReactMolecules/AccordionItem';
 
 class SectionCard extends React.Component {
   constructor(props) {

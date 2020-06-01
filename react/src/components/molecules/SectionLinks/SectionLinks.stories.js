@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, number, text } from '@storybook/addon-knobs';
 
 import SectionLinks from './index';
-import CalloutLink from '../CalloutLink';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
+import CalloutLink from 'MayflowerReactMolecules/CalloutLink';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

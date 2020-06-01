@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from '../Input';
-import CompoundSlider from '../CompoundSlider';
+import Input from 'MayflowerReactForms/Input';
+import CompoundSlider from 'MayflowerReactForms/CompoundSlider';
 
 const InputSlider = (props) => {
   const {

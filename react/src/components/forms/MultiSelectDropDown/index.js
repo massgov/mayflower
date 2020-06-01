@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import InputCheckBox from '../InputCheckBox';
-import Tags from '../../molecules/Tags';
+import InputCheckBox from 'MayflowerReactForms/InputCheckBox';
+import Tags from 'MayflowerReactMolecules/Tags';
 
 export const getObjByValue = (arr, value, key) => {
   let i = 0;

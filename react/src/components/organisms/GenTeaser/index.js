@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser/src';
 import classNames from 'classnames';
 
-import LinkDropdown from '../../molecules/LinkDropdown';
-import Icon from '../../base/Icon';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Email from '../../atoms/contact/Email';
-import Image from '../../atoms/media/Image';
-import EventTime from '../../atoms/contact/EventTime';
-import PhoneNumber from '../../atoms/contact/PhoneNumber';
-import Address from '../../atoms/contact/Address';
-import TeaserSearch from './TeaserSearch';
-import TeaserOrgs from './TeaserOrgs';
+import LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
+import Icon from 'MayflowerReactBase/Icon';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Email from 'MayflowerReactContact/Email';
+import Image from 'MayflowerReactMedia/Image';
+import EventTime from 'MayflowerReactContact/EventTime';
+import PhoneNumber from 'MayflowerReactContact/PhoneNumber';
+import Address from 'MayflowerReactContact/Address';
+import TeaserSearch from 'MayflowerReactGenTeaser/TeaserSearch';
+import TeaserOrgs from 'MayflowerReactGenTeaser/TeaserOrgs';
 import { buildUrl } from './utils';
 
 const GenTeaser = (props) => {

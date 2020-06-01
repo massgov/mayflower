@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import css from 'dom-helpers/style';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Transition, { EXITED, ENTERED, ENTERING, EXITING } from 'react-transition-group/Transition';
+import Transition from 'react-transition-group/Transition';
 
 function capitalize(string) {
   return(
@@ -99,10 +99,10 @@ class Collapse extends React.Component {
     } = this.props;
 
     const collapseStyles = {
-      [EXITED]: 'collapsed',
-      [EXITING]: 'collapsing',
-      [ENTERING]: 'expanding',
-      [ENTERED]: 'expanded'
+      [Transition.EXITED]: 'collapsed',
+      [Transition.EXITING]: 'collapsing',
+      [Transition.ENTERING]: 'expanding',
+      [Transition.ENTERED]: 'expanded'
     };
 
     const dimension = this.getDimension();

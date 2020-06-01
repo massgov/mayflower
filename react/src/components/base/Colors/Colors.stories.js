@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import SidebarHeading from '../../atoms/headings/SidebarHeading';
@@ -13,7 +13,7 @@ import './styles.scss';
 storiesOf('brand|colors', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Colors', (() => (
-    <Fragment>
+    <React.Fragment>
       <SidebarHeading title="Mayflower Brand Colors" level={2} />
       <ul className="sg-colors">
         {
@@ -54,11 +54,11 @@ storiesOf('brand|colors', module)
           utilityColors.map((color, i) => <ColorSwatch key={`utilityColors${i}`} {...color} />)
         }
       </ul>
-    </Fragment>
+    </React.Fragment>
   )))
   .add(
     'Gradients (Light)', (() => (
-      <Fragment>
+      <React.Fragment>
         {
           themeColors.map(({ token, name }, i) => {
             const props = {
@@ -72,13 +72,13 @@ storiesOf('brand|colors', module)
             );
           })
         }
-      </Fragment>
+      </React.Fragment>
     )),
     { info: ColorGradientsDocs }
   )
   .add(
     'Gradients (Dark)', (() => (
-      <Fragment>
+      <React.Fragment>
         {
           themeColors.map(({ token, name }, i) => {
             const props = {
@@ -92,7 +92,7 @@ storiesOf('brand|colors', module)
             );
           })
         }
-      </Fragment>
+      </React.Fragment>
     )),
     { info: ColorGradientsDocs }
   );

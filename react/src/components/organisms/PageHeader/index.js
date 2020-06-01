@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // import child components
-import Paragraph from '../../atoms/text/Paragraph';
-import PublishState from '../../atoms/text/PublishState';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import PublishState from 'MayflowerReactText/PublishState';
 
 const PageHeader = (pageHeader) => {
   const {

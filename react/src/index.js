@@ -1,151 +1,151 @@
 import path from 'path';
-import FeedbackForm from './components/forms/FeedbackForm';
+import FeedbackForm from 'MayflowerReactForms/FeedbackForm';
 
 /*
   Since we are package a library of UI components, export each component here
   @see https://github.com/insin/nwb/blob/master/docs/guides/ReactComponents.md#libraries
 */
 // @forms
-export Form, { FormProvider } from './components/forms/Form';
-export HelperText from './components/forms/HelperText';
-export Label from './components/forms/Label';
-export ErrorMessage from './components/forms/ErrorMessage';
-export InputDate from './components/forms/InputDate';
-export InputText from './components/forms/InputText';
-export SelectBox from './components/forms/SelectBox';
-export InputRadio from './components/forms/InputRadio';
-export InputTextFuzzy from './components/forms/InputTextFuzzy';
-export Input from './components/forms/Input';
-export Error from './components/forms/Input/error';
-export InputSlider from './components/forms/InputSlider';
-export CompoundSlider from './components/forms/CompoundSlider';
-export InputCurrency from './components/forms/InputCurrency';
-export InputCheckBox from './components/forms/InputCheckBox';
-export { InputContext, FormContext } from './components/forms/Input/context';
-export InputNumber from './components/forms/InputNumber';
-export InputRadioGroup from './components/forms/InputRadioGroup';
-export DateRange from './components/forms/DateRange';
-export MultiSelectDropDown from './components/forms/MultiSelectDropDown';
-export OrgSelector from './components/forms/OrgSelector';
-export TypeAheadDropdown from './components/forms/TypeAheadDropdown';
-export FeedbackForm from './components/forms/FeedbackForm';
+export Form, { FormProvider } from 'MayflowerReactForms/Form';
+export HelperText from 'MayflowerReactForms/HelperText';
+export Label from 'MayflowerReactForms/Label';
+export ErrorMessage from 'MayflowerReactForms/ErrorMessage';
+export InputDate from 'MayflowerReactForms/InputDate';
+export InputText from 'MayflowerReactForms/InputText';
+export SelectBox from 'MayflowerReactForms/SelectBox';
+export InputRadio from 'MayflowerReactForms/InputRadio';
+export InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
+export Input from 'MayflowerReactForms/Input';
+export Error from 'MayflowerReactForms/Input/error';
+export InputSlider from 'MayflowerReactForms/InputSlider';
+export CompoundSlider from 'MayflowerReactForms/CompoundSlider';
+export InputCurrency from 'MayflowerReactForms/InputCurrency';
+export InputCheckBox from 'MayflowerReactForms/InputCheckBox';
+export { InputContext, FormContext } from 'MayflowerReactForms/Input/context';
+export InputNumber from 'MayflowerReactForms/InputNumber';
+export InputRadioGroup from 'MayflowerReactForms/InputRadioGroup';
+export DateRange from 'MayflowerReactForms/DateRange';
+export MultiSelectDropDown from 'MayflowerReactForms/MultiSelectDropDown';
+export OrgSelector from 'MayflowerReactForms/OrgSelector';
+export TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
+export FeedbackForm from 'MayflowerReactForms/FeedbackForm';
 
 // @atoms
-export Divider from './components/atoms/Divider';
-export Placeholder from './components/atoms/Placeholder';
+export Divider from 'MayflowerReactAtoms/Divider';
+export Placeholder from 'MayflowerReactAtoms/Placeholder';
 // @atoms/@buttons
-export ArrowButton from './components/atoms/buttons/ArrowButton';
-export Button from './components/atoms/buttons/Button';
-export ButtonCopy from './components/atoms/buttons/ButtonCopy';
-export ButtonSort from './components/atoms/buttons/ButtonSort';
-export ButtonToggle from './components/atoms/buttons/ButtonToggle';
-export ButtonWithIcon from './components/atoms/buttons/ButtonWithIcon';
-export ButtonFixedFeedback from './components/atoms/buttons/ButtonFixedFeedback';
-export ButtonAlert from './components/atoms/buttons/ButtonAlert';
-export ButtonTag from './components/atoms/buttons/ButtonTag';
+export ArrowButton from 'MayflowerReactButtons/ArrowButton';
+export Button from 'MayflowerReactButtons/Button';
+export ButtonCopy from 'MayflowerReactButtons/ButtonCopy';
+export ButtonSort from 'MayflowerReactButtons/ButtonSort';
+export ButtonToggle from 'MayflowerReactButtons/ButtonToggle';
+export ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+export ButtonFixedFeedback from 'MayflowerReactButtons/ButtonFixedFeedback';
+export ButtonAlert from 'MayflowerReactButtons/ButtonAlert';
+export ButtonTag from 'MayflowerReactButtons/ButtonTag';
 // @atoms/@contact
-export Address from './components/atoms/contact/Address';
-export Email from './components/atoms/contact/Email';
-export EventTime from './components/atoms/contact/EventTime';
-export OperationalHours from './components/atoms/contact/OperationalHours';
-export PhoneNumber from './components/atoms/contact/PhoneNumber';
+export Address from 'MayflowerReactContact/Address';
+export Email from 'MayflowerReactContact/Email';
+export EventTime from 'MayflowerReactContact/EventTime';
+export OperationalHours from 'MayflowerReactContact/OperationalHours';
+export PhoneNumber from 'MayflowerReactContact/PhoneNumber';
 // @atoms/@headings
-export ColoredHeading from './components/atoms/headings/ColoredHeading';
-export CompHeading from './components/atoms/headings/CompHeading';
-export Heading from './components/atoms/headings/Heading';
-export SidebarHeading from './components/atoms/headings/SidebarHeading';
+export ColoredHeading from 'MayflowerReactHeadings/ColoredHeading';
+export CompHeading from 'MayflowerReactHeadings/CompHeading';
+export Heading from 'MayflowerReactHeadings/Heading';
+export SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
 // @atoms/@icons
-export Icon from './components/base/Icon';
+export Icon from 'MayflowerReactBase/Icon';
 // @atoms/@links
-export DecorativeLink from './components/atoms/links/DecorativeLink';
-export FootNote from './components/atoms/links/FootNote';
-export FootNoteLink from './components/atoms/links/FootNoteLink';
+export DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+export FootNote from 'MayflowerReactLinks/FootNote';
+export FootNoteLink from 'MayflowerReactLinks/FootNoteLink';
 // @atoms/@lists
-export OrderedList from './components/atoms/lists/OrderedList';
-export UnorderedList from './components/atoms/lists/UnorderedList';
+export OrderedList from 'MayflowerReactLists/OrderedList';
+export UnorderedList from 'MayflowerReactLists/UnorderedList';
 // @atoms/@media
-export Image from './components/atoms/media/Image';
-export SiteLogo from './components/atoms/media/SiteLogo';
+export Image from 'MayflowerReactMedia/Image';
+export SiteLogo from 'MayflowerReactMedia/SiteLogo';
 // @atoms/@table
-export Table from './components/atoms/table/Table';
+export Table from 'MayflowerReactTable/Table';
 // @atoms/@text
-export Paragraph from './components/atoms/text/Paragraph';
-export PublishState from './components/atoms/text/PublishState';
+export Paragraph from 'MayflowerReactText/Paragraph';
+export PublishState from 'MayflowerReactText/PublishState';
 
 // @molecules
-export Link from './components/molecules/Link';
-export LinkDropdown from './components/molecules/LinkDropdown';
-export ArrowNav from './components/molecules/ArrowNav';
-export IconLink from './components/molecules/IconLink';
-export CalloutLink from './components/molecules/CalloutLink';
-export FooterLinks from './components/molecules/FooterLinks';
-export HeaderSearch from './components/molecules/HeaderSearch';
-export MainNav from './components/molecules/MainNav';
-export Pagination from './components/molecules/Pagination';
-export ResultsHeading from './components/molecules/ResultsHeading';
-export SearchBannerForm from './components/molecules/SearchBannerForm';
-export SectionLinks from './components/molecules/SectionLinks';
-export SocialLinks from './components/molecules/SocialLinks';
-export SortResults from './components/molecules/SortResults';
-export ContactGroup from './components/molecules/ContactGroup';
-export ImagePromo from './components/molecules/ImagePromo';
-export Tabs from './components/molecules/Tabs';
-export Tags from './components/molecules/Tags';
-export Tooltip from './components/molecules/Tooltip';
-export AccordionItem from './components/molecules/AccordionItem';
-export ListingTable from './components/molecules/ListingTable';
-export Breadcrumb from './components/molecules/Breadcrumb';
-export BreadcrumbItem from './components/molecules/Breadcrumb/item';
-export EmergencyAlert from './components/molecules/EmergencyAlert';
-export EmergencyHeader from './components/molecules/EmergencyHeader';
+export Link from 'MayflowerReactMolecules/Link';
+export LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
+export ArrowNav from 'MayflowerReactMolecules/ArrowNav';
+export IconLink from 'MayflowerReactMolecules/IconLink';
+export CalloutLink from 'MayflowerReactMolecules/CalloutLink';
+export FooterLinks from 'MayflowerReactMolecules/FooterLinks';
+export HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
+export MainNav from 'MayflowerReactMolecules/MainNav';
+export Pagination from 'MayflowerReactMolecules/Pagination';
+export ResultsHeading from 'MayflowerReactMolecules/ResultsHeading';
+export SearchBannerForm from 'MayflowerReactMolecules/SearchBannerForm';
+export SectionLinks from 'MayflowerReactMolecules/SectionLinks';
+export SocialLinks from 'MayflowerReactMolecules/SocialLinks';
+export SortResults from 'MayflowerReactMolecules/SortResults';
+export ContactGroup from 'MayflowerReactMolecules/ContactGroup';
+export ImagePromo from 'MayflowerReactMolecules/ImagePromo';
+export Tabs from 'MayflowerReactMolecules/Tabs';
+export Tags from 'MayflowerReactMolecules/Tags';
+export Tooltip from 'MayflowerReactMolecules/Tooltip';
+export AccordionItem from 'MayflowerReactMolecules/AccordionItem';
+export ListingTable from 'MayflowerReactMolecules/ListingTable';
+export Breadcrumb from 'MayflowerReactMolecules/Breadcrumb';
+export BreadcrumbItem from 'MayflowerReactMolecules/Breadcrumb/item';
+export EmergencyAlert from 'MayflowerReactMolecules/EmergencyAlert';
+export EmergencyHeader from 'MayflowerReactMolecules/EmergencyHeader';
 
 // @organisms
-export GenTeaser from './components/organisms/GenTeaser';
-export Footer from './components/organisms/Footer';
-export FooterSlim from './components/organisms/FooterSlim';
-export PressFilters from './components/organisms/PressFilters';
-export RichText from './components/organisms/RichText';
-export UtilityPanel from './components/organisms/UtilityPanel';
-export UtilityNav from './components/organisms/UtilityNav';
-export Header from './components/organisms/Header';
-export HeaderSlim from './components/organisms/HeaderSlim';
-export ErrorPage from './components/organisms/ErrorPage';
-export LinkList from './components/organisms/LinkList';
-export PageFlipper from './components/organisms/PageFlipper';
-export PageHeader from './components/organisms/PageHeader';
-export IllustratedHeader from './components/organisms/IllustratedHeader';
-export FilterBox from './components/organisms/FilterBox';
-export SearchBanner from './components/organisms/SearchBanner';
-export AccordionWrapper from './components/organisms/AccordionWrapper';
-export TableofContents from './components/organisms/TableofContents';
-export Tab from './components/organisms/TabContainer/tab';
-export TabContainer from './components/organisms/TabContainer';
-export TabBody from './components/organisms/TabContainer/tab-body';
-export TabContext from './components/organisms/TabContainer/context';
-export TeaserListing from './components/organisms/TeaserListing';
-export CalloutAlert from './components/organisms/CalloutAlert';
-export HelpTip from './components/organisms/HelpTip';
-export EmergencyAlerts from './components/organisms/EmergencyAlerts';
+export GenTeaser from 'MayflowerReactOrganisms/GenTeaser';
+export Footer from 'MayflowerReactOrganisms/Footer';
+export FooterSlim from 'MayflowerReactOrganisms/FooterSlim';
+export PressFilters from 'MayflowerReactOrganisms/PressFilters';
+export RichText from 'MayflowerReactOrganisms/RichText';
+export UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
+export UtilityNav from 'MayflowerReactOrganisms/UtilityNav';
+export Header from 'MayflowerReactOrganisms/Header';
+export HeaderSlim from 'MayflowerReactOrganisms/HeaderSlim';
+export ErrorPage from 'MayflowerReactOrganisms/ErrorPage';
+export LinkList from 'MayflowerReactOrganisms/LinkList';
+export PageFlipper from 'MayflowerReactOrganisms/PageFlipper';
+export PageHeader from 'MayflowerReactOrganisms/PageHeader';
+export IllustratedHeader from 'MayflowerReactOrganisms/IllustratedHeader';
+export FilterBox from 'MayflowerReactOrganisms/FilterBox';
+export SearchBanner from 'MayflowerReactOrganisms/SearchBanner';
+export AccordionWrapper from 'MayflowerReactOrganisms/AccordionWrapper';
+export TableofContents from 'MayflowerReactOrganisms/TableofContents';
+export Tab from 'MayflowerReactOrganisms/TabContainer/tab';
+export TabContainer from 'MayflowerReactOrganisms/TabContainer';
+export TabBody from 'MayflowerReactOrganisms/TabContainer/tab-body';
+export TabContext from 'MayflowerReactOrganisms/TabContainer/context';
+export TeaserListing from 'MayflowerReactOrganisms/TeaserListing';
+export CalloutAlert from 'MayflowerReactOrganisms/CalloutAlert';
+export HelpTip from 'MayflowerReactOrganisms/HelpTip';
+export EmergencyAlerts from 'MayflowerReactOrganisms/EmergencyAlerts';
 
 // @templates
-export NarrowTemplate from './components/templates/NarrowTemplate';
+export NarrowTemplate from 'MayflowerReactTemplates/NarrowTemplate';
 
 // @pages
-export Error403 from './components/pages/Error403';
-export Error404 from './components/pages/Error404';
-export Error500 from './components/pages/Error500';
+export Error403 from 'MayflowerReactPages/Error403';
+export Error404 from 'MayflowerReactPages/Error404';
+export Error500 from 'MayflowerReactPages/Error500';
 
 // @animations
-export Collapse from './components/animations/Collapse';
+export Collapse from 'MayflowerReactAnimations/Collapse';
 
 // @dataviz
-export DataTable from './components/dataviz/DataTable';
+export DataTable from 'MayflowerReactDataviz/DataTable';
 
 // To archive & remove in version 10
-export InputTextTypeAhead from './components/forms/InputTextTypeAhead';
-export PressTeaser from './components/molecules/PressTeaser';
-export GeneralTeaser from './components/organisms/GeneralTeaser';
-export Teaser from './components/organisms/Teaser';
+export InputTextTypeAhead from 'MayflowerReactForms/InputTextTypeAhead';
+export PressTeaser from 'MayflowerReactMolecules/PressTeaser';
+export GeneralTeaser from 'MayflowerReactOrganisms/GeneralTeaser';
+export Teaser from 'MayflowerReactOrganisms/Teaser';
 
 export const includePaths = [
   path.join(__dirname, 'components/styles')

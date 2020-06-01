@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean, select } from '@storybook/addon-knobs';
 import ButtonAlert from './index';
 import ButtonAlertDocs from './ButtonAlert.md';
-import buttonWithIconOptions from '../ButtonWithIcon/ButtonWithIcon.knobs.options';
+import buttonWithIconOptions from 'MayflowerReactButtons/ButtonWithIcon/ButtonWithIcon.knobs.options';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

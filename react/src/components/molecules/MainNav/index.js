@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import Icon from '../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
-class MainNav extends Component {
+class MainNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

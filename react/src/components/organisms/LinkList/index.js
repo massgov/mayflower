@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // import child components
-import CompHeading from '../../atoms/headings/CompHeading';
-import Paragraph from '../../atoms/text/Paragraph';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
+import CompHeading from 'MayflowerReactHeadings/CompHeading';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 
 const LinkList = (props) => {
   const {

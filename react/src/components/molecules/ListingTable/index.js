@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
-import Collapse from '../../animations/Collapse';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import Icon from '../../base/Icon';
+import Collapse from 'MayflowerReactAnimations/Collapse';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import Icon from 'MayflowerReactBase/Icon';
 
 class ListingTableItem extends React.Component {
   constructor(props) {

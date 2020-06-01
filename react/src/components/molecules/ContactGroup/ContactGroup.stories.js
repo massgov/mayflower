@@ -4,7 +4,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import ContactGroup from './index';
 import ContactGroupDocs from './ContactGroup.md';
-import levelOptions from '../../atoms/headings/Headings.knobs.options';
+import levelOptions from 'MayflowerReactHeadings/Headings.knobs.options';
 import contactGroupOptions from './ContactGroup.knobs.options';
 
 storiesOf('molecules', module)

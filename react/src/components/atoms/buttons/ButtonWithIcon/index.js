@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { ref } from 'airbnb-prop-types';
-import Icon from '../../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ButtonWithIcon = (props) => {
   const {

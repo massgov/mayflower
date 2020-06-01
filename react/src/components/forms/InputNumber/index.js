@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
 
-import Input from '../Input';
-import Error from '../Input/error';
-import { InputContext } from '../Input/context';
-import { validNumber } from '../Input/validate';
-import { countDecimals } from '../Input/utility';
-import { numberCharacterPropTypeCheck } from '../../utilities/componentPropTypeCheck';
+import Input from 'MayflowerReactForms/Input';
+import Error from 'MayflowerReactForms/Input/error';
+import { InputContext } from 'MayflowerReactForms/Input/context';
+import { validNumber } from 'MayflowerReactForms/Input/validate';
+import { countDecimals } from 'MayflowerReactForms/Input/utility';
+import { numberCharacterPropTypeCheck } from 'MayflowerReactComponents/utilities/componentPropTypeCheck';
 
 const NumberInput = (props) => {
   const ref = React.createRef();

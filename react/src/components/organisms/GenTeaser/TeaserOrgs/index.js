@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../../base/Icon';
-import ButtonWithIcon from '../../../atoms/buttons/ButtonWithIcon';
+import Icon from 'MayflowerReactBase/Icon';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 
-class TeaserOrgs extends Component {
+class TeaserOrgs extends React.Component {
   constructor(props) {
     super(props);
     const { orgs } = props;

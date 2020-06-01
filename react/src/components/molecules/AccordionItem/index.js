@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon from '../../base/Icon';
-import Heading from '../../atoms/headings/Heading';
-import Collapse from '../../animations/Collapse';
+import Icon from 'MayflowerReactBase/Icon';
+import Heading from 'MayflowerReactHeadings/Heading';
+import Collapse from 'MayflowerReactAnimations/Collapse';
 
 class AccordionItem extends React.Component {
   constructor(props) {

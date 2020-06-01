@@ -8,8 +8,8 @@ import { action } from '@storybook/addon-actions';
 import InputCheckBox from './index';
 import inputCheckBoxDocs from './InputCheckBox.md';
 
-import Icon from '../../base/Icon';
-import { svgOptions } from '../../base/Icon/Icon.knob.options';
+import Icon from 'MayflowerReactBase/Icon';
+import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
 
 storiesOf('forms|atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
-import UtilityPanel from '../UtilityPanel';
-import Icon from '../../base/Icon';
+import UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
+import Icon from 'MayflowerReactBase/Icon';
 
-class UtilityNav extends Component {
+class UtilityNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

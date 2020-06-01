@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import CharacterCounter from 'react-character-counter';
 import classNames from 'classnames';
 import is from 'is';
-import Paragraph from '../../atoms/text/Paragraph';
+import Paragraph from 'MayflowerReactText/Paragraph';
 
 // These components exist to make it clear in FeedbackForm's render what's going on.
 const RefererField = (props) => <input type="hidden" {...props} />;
@@ -20,7 +20,7 @@ HiddenFields.propTypes = {
   formId: PropTypes.number
 };
 
-export default class FeedbackForm extends Component {
+export default class FeedbackForm extends React.Component {
   static propTypes = {
     /** A ref object as created by React.createRef(). Will be applied to the form element. */
     formRef: PropTypes.oneOfType([

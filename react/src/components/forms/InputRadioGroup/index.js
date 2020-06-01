@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import InputRadio from '../InputRadio';
-import ErrorMessage from '../ErrorMessage';
+import InputRadio from 'MayflowerReactForms/InputRadio';
+import ErrorMessage from 'MayflowerReactForms/ErrorMessage';
 
 class InputRadioGroup extends React.Component {
   constructor(props) {

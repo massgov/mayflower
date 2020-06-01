@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ButtonCopy = ({ content }) => {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = React.useState(false);
   const copyAction = () => {
     setCopied(true);
     navigator.clipboard.writeText(content);

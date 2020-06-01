@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectBox from '../SelectBox/index';
-import InputTextTypeAhead from '../InputTextTypeAhead';
-import ImagePromo from '../../molecules/ImagePromo';
+import SelectBox from 'MayflowerReactForms/SelectBox/index';
+import InputTextTypeAhead from 'MayflowerReactForms/InputTextTypeAhead';
+import ImagePromo from 'MayflowerReactMolecules/ImagePromo';
 
 class OrgSelector extends React.Component {
   constructor(props) {

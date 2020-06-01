@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from './index';
-import ButtonCopy from '../../atoms/buttons/ButtonCopy';
+import ButtonCopy from 'MayflowerReactButtons/ButtonCopy';
 
 const IconDisplay = (props) => {
   const { name } = props;

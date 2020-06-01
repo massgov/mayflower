@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import FilterBox from '../../organisms/FilterBox';
-import HeaderSearch from '../../molecules/HeaderSearch';
-import Icon from '../../base/Icon';
-import Tabs from '../../molecules/Tabs';
+import FilterBox from 'MayflowerReactOrganisms/FilterBox';
+import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
+import Icon from 'MayflowerReactBase/Icon';
+import Tabs from 'MayflowerReactMolecules/Tabs';
 // eslint-disable-next-line import/no-unresolved
 
-class SearchBanner extends Component {
+class SearchBanner extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

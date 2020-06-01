@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import InputTextTypeAhead from '../InputTextTypeAhead';
-import Icon from '../../base/Icon';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import InputTextTypeAhead from 'MayflowerReactForms/InputTextTypeAhead';
+import Icon from 'MayflowerReactBase/Icon';
 
 class TypeAheadDropdown extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonSort from '../../atoms/buttons/ButtonSort';
+import ButtonSort from 'MayflowerReactButtons/ButtonSort';
 
 const SortResults = (sortResults) => (
   <div className="ma__sort-results js-sort-results">

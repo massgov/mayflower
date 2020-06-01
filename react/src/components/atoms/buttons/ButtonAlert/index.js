@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ButtonWithIcon from '../ButtonWithIcon';
-import Icon from '../../../base/Icon';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ButtonAlert = (props) => {
   const {

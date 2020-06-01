@@ -1,6 +1,6 @@
 import React from 'react';
-import NarrowTemplate from '../../templates/NarrowTemplate';
-import ErrorPage from '../../organisms/ErrorPage';
+import NarrowTemplate from 'MayflowerReactTemplates/NarrowTemplate';
+import ErrorPage from 'MayflowerReactOrganisms/ErrorPage';
 
 const Error403 = () => (
   <NarrowTemplate side="right" color="yellow">

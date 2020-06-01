@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Paragraph from '../../atoms/text/Paragraph';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 
 const UtilityPanel = (utilityPanel) => {
   const descriptionClasses = ['ma__utility-panel__description'];

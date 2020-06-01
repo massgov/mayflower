@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SidebarHeading from '../../atoms/headings/SidebarHeading';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
 
 const FooterLinks = (footerLinks) => (
   <section className="ma__footer-links">

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Image from '../../atoms/media/Image';
-import Paragraph from '../../atoms/text/Paragraph';
-import Icon from '../../base/Icon';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Image from 'MayflowerReactMedia/Image';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ImagePromo = (props) => {
   const HeadingElement = `h${props.title.level || 2}`;

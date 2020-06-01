@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Collapse from '../../animations/Collapse';
-import SidebarHeading from '../../atoms/headings/SidebarHeading';
-import CompHeading from '../../atoms/headings/CompHeading';
-import Paragraph from '../../atoms/text/Paragraph';
-import Link from '../../molecules/Link';
-import GeneralTeaser from '../GeneralTeaser';
+import Collapse from 'MayflowerReactAnimations/Collapse';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import CompHeading from 'MayflowerReactHeadings/CompHeading';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import Link from 'MayflowerReactMolecules/Link';
+import GeneralTeaser from 'MayflowerReactOrganisms/GeneralTeaser';
 
 class TeaserListing extends React.Component {
   constructor(props) {

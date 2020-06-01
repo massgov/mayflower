@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
-import FooterLinks from '../../molecules/FooterLinks';
-import SocialLinks from '../../molecules/SocialLinks';
-import Icon from '../../base/Icon';
+import FooterLinks from 'MayflowerReactMolecules/FooterLinks';
+import SocialLinks from 'MayflowerReactMolecules/SocialLinks';
+import Icon from 'MayflowerReactBase/Icon';
 
 const Footer = ({
   footerLinks, socialLinks, backToTopButton, footerText, footerLogo, showNavHeading

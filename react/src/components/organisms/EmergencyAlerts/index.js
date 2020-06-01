@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import Collapse from '../../animations/Collapse';
-import ButtonAlert from '../../atoms/buttons/ButtonAlert';
-import EmergencyAlert from '../../molecules/EmergencyAlert';
-import EmergencyHeader from '../../molecules/EmergencyHeader';
+import Collapse from 'MayflowerReactAnimations/Collapse';
+import ButtonAlert from 'MayflowerReactButtons/ButtonAlert';
+import EmergencyAlert from 'MayflowerReactMolecules/EmergencyAlert';
+import EmergencyHeader from 'MayflowerReactMolecules/EmergencyHeader';
 
 class EmergencyAlerts extends React.Component {
   constructor(props) {

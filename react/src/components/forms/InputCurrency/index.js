@@ -5,11 +5,11 @@ import numbro from 'numbro';
 import languages from 'numbro/dist/languages.min';
 import is from 'is';
 
-import Input from '../Input';
-import { countDecimals } from '../Input/utility';
-import Error from '../Input/error';
-import { InputContext } from '../Input/context';
-import { validNumber } from '../Input/validate';
+import Input from 'MayflowerReactForms/Input';
+import { countDecimals } from 'MayflowerReactForms/Input/utility';
+import Error from 'MayflowerReactForms/Input/error';
+import { InputContext } from 'MayflowerReactForms/Input/context';
+import { validNumber } from 'MayflowerReactForms/Input/validate';
 
 const Currency = (props) => {
   const ref = React.createRef();

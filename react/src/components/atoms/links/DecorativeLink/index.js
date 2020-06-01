@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Icon from '../../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
 const DecorativeLink = (props) => {
   const {

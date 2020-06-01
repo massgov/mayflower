@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, array } from '@storybook/addon-knobs';
 
-import { svgOptions } from '../../base/Icon/Icon.knob.options';
+import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
 import IconLink from '.';
-import Icon from '../../base/Icon';
-import Link from '../Link';
+import Icon from 'MayflowerReactBase/Icon';
+import Link from 'MayflowerReactMolecules/Link';
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

@@ -4,10 +4,10 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
 import AccordionWrapper from './index';
 import AccordionWrapperDocs from './AccordionWrapper.md';
-import AccordionItem from '../../molecules/AccordionItem';
-import Icon from '../../base/Icon';
-import Paragraph from '../../atoms/text/Paragraph';
-import OrderedList from '../../atoms/lists/OrderedList';
+import AccordionItem from 'MayflowerReactMolecules/AccordionItem';
+import Icon from 'MayflowerReactBase/Icon';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import OrderedList from 'MayflowerReactLists/OrderedList';
 
 const getIcon = (iconProps) => <Icon {...iconProps} />;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 // eslint-disable-next-line import/no-unresolved
 
 const Tooltip = (tooltip) => {

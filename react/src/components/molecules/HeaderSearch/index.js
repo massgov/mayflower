@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import { componentWithName } from 'airbnb-prop-types';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import TypeAheadDropdown from '../../forms/TypeAheadDropdown';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
 
 class HeaderSearch extends React.Component {
   constructor(props) {

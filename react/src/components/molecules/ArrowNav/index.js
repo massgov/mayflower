@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ArrowButton from '../../atoms/buttons/ArrowButton';
+import ArrowButton from 'MayflowerReactButtons/ArrowButton';
 
 const ArrowNav = (props) => {
   const sectionClasses = classNames({

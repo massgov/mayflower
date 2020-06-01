@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 
-import Paragraph from '../../atoms/text/Paragraph';
+import Paragraph from 'MayflowerReactText/Paragraph';
 import AccordionItem from './index';
 import AccordionItemDocs from './AccordionItem.md';
-import Icon from '../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
 const getIcon = (iconProps) => <Icon {...iconProps} />;
 

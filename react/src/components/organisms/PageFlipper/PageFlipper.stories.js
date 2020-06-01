@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 
-import ArrowNav from '../../molecules/ArrowNav';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
+import ArrowNav from 'MayflowerReactMolecules/ArrowNav';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import PageFlipper from './index';
 import PageFlipperDocs from './PageFlipper.md';
 

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import HeaderSearch from '../../../molecules/HeaderSearch';
+import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
 
-class TeaserSearch extends Component {
+class TeaserSearch extends React.Component {
   constructor(props) {
     super(props);
     this.inputRef = React.createRef();

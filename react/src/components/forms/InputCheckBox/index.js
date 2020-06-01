@@ -1,21 +1,21 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
 
-import Input from '../Input';
-import Error from '../Input/error';
-import Icon from '../../base/Icon';
-import { InputContext } from '../Input/context';
+import Input from 'MayflowerReactForms/Input';
+import Error from 'MayflowerReactForms/Input/error';
+import Icon from 'MayflowerReactBase/Icon';
+import { InputContext } from 'MayflowerReactForms/Input/context';
 
 const CheckBox = (props) => {
-  const context = useContext(InputContext);
+  const context = React.useContext(InputContext);
   const { value } = context;
   const {
     icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex
   } = props;
 
-  useEffect(() => {
+  React.useEffect(() => {
     context.updateState({ value: defaultValue });
   }, [defaultValue]);
 

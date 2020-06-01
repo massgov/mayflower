@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select, array } from '@storybook/addon-knobs/react';
 
 import HelpTip from './index';
-import CalloutAlert from '../CalloutAlert';
-import Paragraph from '../../atoms/text/Paragraph';
+import CalloutAlert from 'MayflowerReactOrganisms/CalloutAlert';
+import Paragraph from 'MayflowerReactText/Paragraph';
 
 const themeOptions = {
   'c-highlight': 'c-highlight',

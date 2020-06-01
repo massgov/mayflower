@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import classNames from 'classnames';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
-import UtilityNav from '../UtilityNav';
-import MainNav from '../../molecules/MainNav';
-import HeaderSearch from '../../molecules/HeaderSearch';
-import SiteLogo from '../../atoms/media/SiteLogo';
+import UtilityNav from 'MayflowerReactOrganisms/UtilityNav';
+import MainNav from 'MayflowerReactMolecules/MainNav';
+import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 
-class Header extends Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

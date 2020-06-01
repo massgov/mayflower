@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // import child components
-import Button from '../../atoms/buttons/Button';
-import ColoredHeading from '../../atoms/headings/ColoredHeading';
-import DateRange from '../../forms/DateRange';
-import OrgSelector from '../../forms/OrgSelector';
-import SelectBox from '../../forms/SelectBox';
-import InputTextTypeAhead from '../../forms/InputTextTypeAhead';
+import Button from 'MayflowerReactButtons/Button';
+import ColoredHeading from 'MayflowerReactHeadings/ColoredHeading';
+import DateRange from 'MayflowerReactForms/DateRange';
+import OrgSelector from 'MayflowerReactForms/OrgSelector';
+import SelectBox from 'MayflowerReactForms/SelectBox';
+import InputTextTypeAhead from 'MayflowerReactForms/InputTextTypeAhead';
 
 const PressFilters = (props) => {
   const {

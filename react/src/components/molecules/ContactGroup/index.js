@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Icon from '../../base/Icon';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ContactGroup = (contactGroup) => {
   const icons = {

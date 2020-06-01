@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Icon from '../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
 const FooterSlim = (props) => (
   <footer className="ma__footer_slim" id="footer">

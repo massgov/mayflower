@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonTag from '../../atoms/buttons/ButtonTag';
+import ButtonTag from 'MayflowerReactButtons/ButtonTag';
 
-class Tags extends Component {
+class Tags extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

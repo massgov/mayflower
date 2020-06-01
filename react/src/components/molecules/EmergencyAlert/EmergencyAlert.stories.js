@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 import EmergencyAlert from './index';
-import Link from '../Link';
+import Link from 'MayflowerReactMolecules/Link';
 
 /* eslint-disable react/prop-types */
 storiesOf('molecules', module)

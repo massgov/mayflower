@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { InputContext, FormContext } from './context';
-import Label from '../Label';
+import Label from 'MayflowerReactForms/Label';
 
 /* eslint-disable react/no-unused-state */
 

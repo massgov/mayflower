@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Collapse from '../../animations/Collapse';
+import Collapse from 'MayflowerReactAnimations/Collapse';
 import Icon from '../../base/Icon';
 import Paragraph from '../../atoms/text/Paragraph';
 
-class HelpTip extends Component {
+class HelpTip extends React.Component {
   constructor(props) {
     super(props);
     const openArray = this.props.triggerText.map(() => false);

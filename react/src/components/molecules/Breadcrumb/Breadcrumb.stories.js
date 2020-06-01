@@ -4,7 +4,7 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 
 import Breadcrumb from './index';
 import BreadcrumbItem from './item';
-import Link from '../Link';
+import Link from 'MayflowerReactMolecules/Link';
 
 const getLink = (sampleText = 'Sample Link', index) => {
   const linkProps = {

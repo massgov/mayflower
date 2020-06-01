@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import RichText from '../../organisms/RichText';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import RichText from 'MayflowerReactOrganisms/RichText';
 
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';

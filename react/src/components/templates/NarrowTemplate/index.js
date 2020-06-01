@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SiteLogo from '../../atoms/media/SiteLogo';
-import Placeholder from '../../atoms/Placeholder';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
+import Placeholder from 'MayflowerReactAtoms/Placeholder';
 
 const NarrowTemplate = (narrowTemplate) => {
   const sideClass = narrowTemplate.side ? ` ma__narrow-template--${narrowTemplate.side}` : '';

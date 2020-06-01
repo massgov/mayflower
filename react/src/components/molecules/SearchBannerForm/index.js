@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import InputText from '../../forms/InputText';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
+import InputText from 'MayflowerReactForms/InputText';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 
 const SearchBannerForm = (searchBannerForm) => {
   let { classes = [] } = searchBannerForm.buttonSearch;

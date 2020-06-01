@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class InputTextTypeAhead extends Component {
+class InputTextTypeAhead extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

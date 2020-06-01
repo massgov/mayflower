@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // import child components
-import PageHeader from '../PageHeader';
-import PublishState from '../../atoms/text/PublishState';
+import PageHeader from 'MayflowerReactOrganisms/PageHeader';
+import PublishState from 'MayflowerReactText/PublishState';
 
 const IllustratedHeader = (illustratedHeader) => {
   const {

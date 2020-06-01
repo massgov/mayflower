@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import child components
-import DecorativeLink from '../../atoms/links/DecorativeLink/index';
-import CompHeading from '../../atoms/headings/CompHeading/index';
-import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
-import Paragraph from '../../atoms/text/Paragraph';
-import UnorderedList from '../../atoms/lists/UnorderedList';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink/index';
+import CompHeading from 'MayflowerReactHeadings/CompHeading/index';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading/index';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import UnorderedList from 'MayflowerReactLists/UnorderedList';
 
 
 const RichText = (props) => {

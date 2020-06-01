@@ -5,7 +5,7 @@ import rectPlaceholder from '@massds/mayflower-assets/static/images/placeholder/
 import sqrPlaceholder from '@massds/mayflower-assets/static/images/placeholder/100x100.png';
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
-import Icon from '../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
 storiesOf('molecules/ImagePromo', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
