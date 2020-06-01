@@ -29,11 +29,11 @@
 <section class="ma__page-header{{ widgetsClass }}">
   {% if pageHeader.headerTags.taxonomyTerms or pageHeader.socialLinks.items %}
     <div class="ma__page-header__tags">
-{# REMOVE #}<p style="color: orange;">REMOVE</p>
-      {% if pageHeader.headerTags.taxonomyTerms %}
+{# REMOVE: replaced with relationship indicator. #}
+      {# {% if pageHeader.headerTags.taxonomyTerms %}
         {% set headerTags = pageHeader.headerTags %}
         {% include "@molecules/header-tags.twig" %}
-      {% endif %}
+      {% endif %} #}
 {# END: REMOVE #}
       {% if pageHeader.socialLinks.items %}
         {% set socialLinks = pageHeader.socialLinks %}
