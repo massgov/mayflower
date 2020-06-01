@@ -1,11 +1,11 @@
-{% if relationshipIndicators.primary or relationshipIndicators.secondary %}
+{# {% if relationshipIndicators.primary or relationshipIndicators.secondary %} #}
   <div class="ma__relationship-indicators">
   {% if relationshipIndicators.primary.tags %}
     <div class="ma__relationship-indicators--section primary{% if relationshipIndicators.secondary is empty %} single{% endif %}">
-      <label class="ma__relationship-indicators--label" id="primary">
+      <span class="ma__relationship-indicators--label" id="primary">
         <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
         {{ relationshipIndicators.primary.label }}
-      </label>
+      </span>
       <ul class="ma__relationship-indicators--terms" aria-labelledby="primary">
       {% block primaryRelationship %}
         {% for item in relationshipIndicators.primary.tags %}
@@ -19,11 +19,11 @@
 
   {% if relationshipIndicators.secondary is not empty %}
     <div class="ma__relationship-indicators--section secondary">
-      <label class="ma__relationship-indicators--label" id="secondary">
+      <span class="ma__relationship-indicators--label" id="secondary">
       <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
         {{ relationshipIndicators.secondary.label }}
       </span>
-      </label>
+      </span>
       <ul class="ma__relationship-indicators--terms" aria-labelledby="secondary">
       {% block secondaryRelationship %}
         {% for item in relationshipIndicators.secondary.tags %}
@@ -35,4 +35,4 @@
     </div>
   {% endif %}
   </div>
-{% endif %}
+{# {% endif %} #}
