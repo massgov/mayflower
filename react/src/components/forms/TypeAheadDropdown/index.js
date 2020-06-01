@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import InputTextTypeAhead from '../InputTextTypeAhead';
+import InputTextFuzzy from '../InputTextFuzzy';
 import Icon from '../../base/Icon';
 import './style.css';
 
@@ -80,17 +80,18 @@ class TypeAheadDropdown extends React.Component {
       this.closeDropdown();
     }
   }
-  handleSelect(event, input) {
+  handleSelect(event, { suggestion }) {
     // Stop the filters form submission if enter is pressed in the selector.
     event.preventDefault();
     // Update this component state and pass the event out to the calling code.
-    if (input.suggestion.text !== '') {
+    const { text } = suggestion.item;
+    if (text.length > 0) {
       this.setState({
-        buttonText: input.suggestion.text,
+        buttonText: text,
         buttonExpand: false
       });
       if (typeof this.props.inputText.onChange === 'function') {
-        this.props.inputText.onChange(event, input);
+        this.props.inputText.onSuggestionClick(event, { suggestion });
       }
     }
   }
@@ -113,12 +114,12 @@ class TypeAheadDropdown extends React.Component {
       size: '',
       ...this.props.dropdownButton
     };
-    dropdownButton.text = this.state.buttonText || 'All Organizations';
+    dropdownButton.text = this.state.buttonText || dropdownButton.text;
 
-    const inputTextTypeAheadProps = {
+    const inputTextFuzzyProps = {
       ...this.props.inputText,
       onKeyDown: this.handleKeyDown,
-      onChange: this.handleSelect,
+      onSuggestionClick: this.handleSelect,
       onBlur: this.handleInputBlur,
       autoFocusInput: true
     };
@@ -127,7 +128,7 @@ class TypeAheadDropdown extends React.Component {
       <div ref={this.wrapperRef}>
         <ButtonWithIcon {...dropdownButton} />
         {this.state.buttonExpand && (
-          <InputTextTypeAhead {...inputTextTypeAheadProps} />
+          <InputTextFuzzy {...inputTextFuzzyProps} />
         )}
       </div>
     );
@@ -137,8 +138,8 @@ class TypeAheadDropdown extends React.Component {
 TypeAheadDropdown.propTypes = {
   /** The props to set up the dropdown button */
   dropdownButton: PropTypes.shape(ButtonWithIcon.propTypes).isRequired,
-  /** The props to set up the inputTextTypeAhead */
-  inputText: PropTypes.shape(InputTextTypeAhead.propTypes).isRequired,
+  /** The props to set up the inputTextFuzzy */
+  inputText: PropTypes.shape(InputTextFuzzy.propTypes).isRequired,
   /** Custom keydown callback */
   onKeyDown: PropTypes.func
 };
