@@ -33,6 +33,7 @@
     text-transform: uppercase;
     letter-spacing: $letter-spacing-large;
     margin-right: 10px;
+    margin-bottom: .25em;
     white-space: nowrap;
 
     @media ($bp-x-small-min) {
