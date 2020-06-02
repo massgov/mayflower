@@ -27,7 +27,8 @@
 {% endif %}
 
 <section class="ma__page-header{{ widgetsClass }}">
-  {% if pageHeader.headerTags.taxonomyTerms or pageHeader.socialLinks.items %}
+  {% if pageHeader.socialLinks.items %}
+  {# {% if pageHeader.headerTags.taxonomyTerms or pageHeader.socialLinks.items %} #}
     <div class="ma__page-header__tags">
 {# REMOVE: replaced with relationship indicator. #}
       {# {% if pageHeader.headerTags.taxonomyTerms %}
