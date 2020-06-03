@@ -1,6 +1,0 @@
-Fixed:
-  - project: React, Patternlab
-    component: ErrorPage
-    description: Fix the flickering issue with animation in Error page. (#1065)
-    issue: DP-18704
-    impact: Minor
