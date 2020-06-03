@@ -1,0 +1,7 @@
+Changed:
+  - project: React
+    component: HelperText
+    description: Use node instead of string for `message` proptype
+    issue:
+    impact: Minor
+
