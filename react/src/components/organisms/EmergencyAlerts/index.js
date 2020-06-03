@@ -1,3 +1,10 @@
+/**
+ * EmergencyAlerts module.
+ * @module @massds/mayflower-react/EmergencyAlerts
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/emergency-alerts
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/emergency-alert
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/emergency-header
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

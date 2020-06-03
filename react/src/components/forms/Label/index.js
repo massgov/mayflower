@@ -1,3 +1,8 @@
+/**
+ * Label module.
+ * @module @massds/mayflower-react/Label
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

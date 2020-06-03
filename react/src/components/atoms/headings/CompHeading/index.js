@@ -1,3 +1,9 @@
+/**
+ * CompHeading module.
+ * @module @massds/mayflower-react/CompHeading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 

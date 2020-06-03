@@ -1,3 +1,13 @@
+/**
+ * MultiSelectDropDown module.
+ * @module @massds/mayflower-react/MultiSelectDropDown
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/multiselect-dropdown
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-checkbox
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tags
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-tag
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

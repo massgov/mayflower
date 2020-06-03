@@ -1,3 +1,8 @@
+/**
+ * TabContainer module.
+ * @module @massds/mayflower-react/TabContainer
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/tab-container
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

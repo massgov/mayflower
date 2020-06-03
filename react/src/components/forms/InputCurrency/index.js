@@ -1,3 +1,10 @@
+/**
+ * InputCurrency module.
+ * @module @massds/mayflower-react/InputCurrency
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/_input--button
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/01-atoms/helper-text
+ * @requires ma__input--button('currency');
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

@@ -1,3 +1,13 @@
+/**
+ * ImagePromo module.
+ * @module @massds/mayflower-react/ImagePromo
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/image-promo
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/org-info
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/image
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

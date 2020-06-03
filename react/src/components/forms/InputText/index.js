@@ -1,3 +1,10 @@
+/**
+ * InputText module.
+ * @module @massds/mayflower-react/InputText
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/error-msg
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ErrorMessage from 'MayflowerReactForms/ErrorMessage';

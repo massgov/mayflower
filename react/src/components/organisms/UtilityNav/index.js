@@ -1,3 +1,12 @@
+/**
+ * UtilityNav module.
+ * @module @massds/mayflower-react/UtilityNav
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-nav
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-panel
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';

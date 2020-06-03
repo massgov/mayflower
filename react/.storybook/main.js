@@ -80,6 +80,7 @@ module.exports = {
       ...config.resolve,
       alias: {
         ...config.resolve.alias,
+        MayflowerReactComponents: path.resolve(__dirname, '../src/components'),
         MayflowerReactAtoms: path.resolve(__dirname, '../src/components/atoms'),
         MayflowerReactAnimations: path.resolve(__dirname, '../src/components/animations'),
         MayflowerReactButtons: path.resolve(__dirname, '../src/components/atoms/buttons'),

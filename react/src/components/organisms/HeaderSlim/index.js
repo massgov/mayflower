@@ -1,3 +1,8 @@
+/**
+ * HeaderSlim module.
+ * @module @massds/mayflower-react/HeaderSlim
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/header-slim
+ */
 import React from 'react';
 
 const HeaderSlim = (props) => (

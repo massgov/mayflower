@@ -1,3 +1,12 @@
+/**
+ * ContactGroup module.
+ * @module @massds/mayflower-react/ContactGroup
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/01-atoms/content-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/02-molecules/contact-group
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';

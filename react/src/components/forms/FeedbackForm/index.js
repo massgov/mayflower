@@ -1,3 +1,7 @@
+/**
+ * FeedbackForm module.
+ * @module @massds/mayflower-react/FeedbackForm
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import CharacterCounter from 'react-character-counter';

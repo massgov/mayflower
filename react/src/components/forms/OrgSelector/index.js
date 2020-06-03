@@ -1,3 +1,18 @@
+/**
+ * OrgSelector module.
+ * @module @massds/mayflower-react/OrgSelector
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/org-selector
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/select-box
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/image-promo
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/org-info
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import SelectBox from 'MayflowerReactForms/SelectBox/index';

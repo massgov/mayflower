@@ -1,3 +1,10 @@
+/**
+ * InputTextFuzzy module.
+ * @module @massds/mayflower-react/InputTextFuzzy
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-fuzzy
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ */
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';

@@ -1,3 +1,8 @@
+/**
+ * PublishState module.
+ * @module @massds/mayflower-react/PublishState
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/publish-state
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

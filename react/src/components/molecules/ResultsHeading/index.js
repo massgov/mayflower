@@ -1,3 +1,15 @@
+/**
+ * ResultsHeading module.
+ * @module @massds/mayflower-react/ResultsHeading
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/results-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/select-box
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/label
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-toggle
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/select-box
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tags
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-tag
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonToggle from 'MayflowerReactButtons/ButtonToggle';

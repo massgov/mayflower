@@ -1,3 +1,8 @@
+/**
+ * ButtonToggle module.
+ * @module @massds/mayflower-react/ButtonToggle
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-toggle
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,3 +1,10 @@
+/**
+ * CalloutLink module.
+ * @module @massds/mayflower-react/CalloutLink
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/callout-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'MayflowerReactBase/Icon';

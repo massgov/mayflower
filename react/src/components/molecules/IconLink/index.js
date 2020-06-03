@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { componentWithName } from 'airbnb-prop-types';
+import componentWithName from 'airbnb-prop-types/src/componentWithName';
 
 const IconLink = (props) => (
   <span className={props.wrapperClasses.join(' ')}>

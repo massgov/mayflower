@@ -1,3 +1,10 @@
+/**
+ * SocialLinks module.
+ * @module @massds/mayflower-react/SocialLinks
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/social-links
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'MayflowerReactBase/Icon';

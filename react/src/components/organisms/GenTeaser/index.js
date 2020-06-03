@@ -1,3 +1,19 @@
+/**
+ * GenTeaser module.
+ * @module @massds/mayflower-react/GenTeaser
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/gen-teaser
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/email
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/image
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/event-time
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/phone-number
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/address
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'react-html-parser/src';

@@ -1,3 +1,8 @@
+/**
+ * AccordionWrapper module.
+ * @module @massds/mayflower-react/AccordionWrapper
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/accordion-wrapper
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,3 +1,8 @@
+/**
+ * Breadcrumb module.
+ * @module @massds/mayflower-react/Breadcrumb
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/breadcrumb
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

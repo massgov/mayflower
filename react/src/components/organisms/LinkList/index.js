@@ -1,3 +1,10 @@
+/**
+ * LinkList module.
+ * @module @massds/mayflower-react/LinkList
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/link-list
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

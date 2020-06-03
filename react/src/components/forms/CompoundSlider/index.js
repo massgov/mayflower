@@ -1,3 +1,7 @@
+/**
+ * CompoundSlider module.
+ * @module @massds/mayflower-react/CompoundSlider
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

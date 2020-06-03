@@ -1,3 +1,8 @@
+/**
+ * EventTime module.
+ * @module @massds/mayflower-react/EventTime
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/event-time
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'react-html-parser';

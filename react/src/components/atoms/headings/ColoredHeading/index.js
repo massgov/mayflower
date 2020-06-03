@@ -1,3 +1,8 @@
+/**
+ * ColoredHeading module.
+ * @module @massds/mayflower-react/ColoredHeading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/colored-heading
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,3 +1,10 @@
+/**
+ * FooterSlim module.
+ * @module @massds/mayflower-react/FooterSlim
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/footer-slim
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';

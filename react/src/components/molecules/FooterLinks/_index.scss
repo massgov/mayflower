@@ -1,5 +1,7 @@
 @use "styles/global" as *;
-@use '02-molecules/footer-links';
+
+@use "02-molecules/footer-links";
+@use "01-atoms/sidebar-heading";
 
 .ma__footer-links {
   &__items {

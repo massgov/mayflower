@@ -1,3 +1,11 @@
+/**
+ * RichText module.
+ * @module @massds/mayflower-react/RichText
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/rich-text
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 // import child components

@@ -1,6 +1,11 @@
+/**
+ * PageFlipper module.
+ * @module @massds/mayflower-react/PageFlipper
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/page-flipper
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { componentWithName } from 'airbnb-prop-types';
+import componentWithName from 'airbnb-prop-types/src/componentWithName';
 
 const PageFlipper = (props) => {
   const blank = (<div className="ma__page-flipper__blank">&nbsp;</div>);

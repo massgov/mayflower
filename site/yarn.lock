@@ -1125,7 +1125,7 @@
 
 "@massds/mayflower-react@file:massds-mayflower-react-9.44.2.tgz":
   version "9.44.2"
-  resolved "file:massds-mayflower-react-9.44.2.tgz#61d2f896f85d262df4797eef74f88ddcf1cb3a75"
+  resolved "file:massds-mayflower-react-9.44.2.tgz#a1b1baac700073a45f32d32e8ca9853593932c9a"
   dependencies:
     "@massds/mayflower-assets" "^0.1.2"
     airbnb-prop-types "^2.13.2"

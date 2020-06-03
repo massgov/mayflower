@@ -1,3 +1,7 @@
+/**
+ * OrderedList module.
+ * @module @massds/mayflower-react/OrderedList
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

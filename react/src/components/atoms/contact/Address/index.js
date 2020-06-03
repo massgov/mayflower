@@ -1,3 +1,9 @@
+/**
+ * Address module.
+ * @module @massds/mayflower-react/Address
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/address
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'react-html-parser';

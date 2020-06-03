@@ -3,7 +3,6 @@ const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const del = require('del');
 const path = require('path');
-const { resolvePath } = require('babel-plugin-module-resolver');
 
 function clean() {
   return del(['dist']);
@@ -14,13 +13,61 @@ function styles() {
     .pipe(dest('dist/styles'));
 }
 
+function icons() {
+  return src(['src/components/base/Icon/assets/*.svg'])
+    .pipe(dest('dist/Icon/assets'));
+}
+
+const aliases = {
+  "MayflowerReactGenTeaser/(.*)$": "./\\1",
+  "MayflowerReactComponents/(.*)$": "./\\1",
+  "MayflowerReactAtoms/(.*)$": "./\\1",
+  "MayflowerReactAnimations/(.*)$": "./\\1",
+  "MayflowerReactButtons/(.*)$": "./\\1",
+  "MayflowerReactContact/(.*)$": "./\\1",
+  "MayflowerReactDivider/(.*)$": "./\\1",
+  "MayflowerReactHeadings/(.*)$": "./\\1",
+  "MayflowerReactLinks/(.*)$": "./\\1",
+  "MayflowerReactLists/(.*)$": "./\\1",
+  "MayflowerReactMedia/(.*)$": "./\\1",
+  "MayflowerReactPlaceholder/(.*)$": "./\\1",
+  "MayflowerReactTable/(.*)$": "./\\1",
+  "MayflowerReactText/(.*)$": "./\\1",
+  "MayflowerReactBase/(.*)$": "./\\1",
+  "MayflowerReactDataviz/(.*)$": "./\\1",
+  "MayflowerReactForms/(.*)$": "./\\1",
+  "MayflowerReactMolecules/(.*)$": "./\\1",
+  "MayflowerReactOrganisms/(.*)$": "./\\1",
+  "MayflowerReactPages/(.*)$": "./\\1",
+  "MayflowerReactTemplates/(.*)$": "./\\1",
+  "MayflowerReactUtilities/(.*)$": "./\\1",
+};
+
+const sources = [
+  'src/**/*.js',
+  '!src/**/*.stories.js',
+  '!src/**/*.knobs.options.js',
+  '!src/**/*.knob.options.js',
+  '!src/**/Colors/**',
+  '!src/**/storyutils.js'
+];
+
+function resolvePath(sourcePath, currentFile, opts) {
+  const entryPoint = path.resolve(__dirname, './src/index.js');
+  const rootPath = currentFile === entryPoint ? './' : '../';
+  let resolvedPath = null;
+  Object.keys(opts.alias).forEach((alias) => {
+    const check = new RegExp(alias);
+    if (check.test(sourcePath)) {
+      const matches = check.exec(sourcePath);
+      resolvedPath = `${rootPath}${matches[1]}`;
+    }
+  });
+  return resolvedPath || sourcePath;
+}
+
 function transpileES5() {
-  return src([
-    'src/**/*.js',
-    '!src/**/*.stories.js',
-    '!src/**/*.knobs.options.js',
-    '!src/**/*.knob.options.js'
-  ])
+  return src(sources)
     .pipe(rename((p) => {
       const splitPath = p.dirname.split('/');
       p.dirname = splitPath[splitPath.length - 1];
@@ -56,44 +103,8 @@ function transpileES5() {
         [
           'module-resolver',
           {
-            resolvePath(sourcePath, currentFile, opts) {
-
-              const entryPoint = path.resolve(__dirname, './src/index.js');
-              const rootPath = currentFile === entryPoint ? './' : '../';
-              let resolvedPath = null;
-              Object.keys(opts.alias).forEach((alias) => {
-                const check = new RegExp(alias);
-                if (check.test(sourcePath)) {
-                  const matches = check.exec(sourcePath);
-                  resolvedPath = `${rootPath}${matches[1]}`;
-                }
-              });
-              return resolvedPath || sourcePath;
-            },
-            alias: {
-              "MayflowerReactGenTeaser/(.*)$": "./\\1",
-              "MayflowerReactComponents/(.*)$": "./\\1",
-              "MayflowerReactAtoms/(.*)$": "./\\1",
-              "MayflowerReactAnimations/(.*)$": "./\\1",
-              "MayflowerReactButtons/(.*)$": "./\\1",
-              "MayflowerReactContact/(.*)$": "./\\1",
-              "MayflowerReactDivider/(.*)$": "./\\1",
-              "MayflowerReactHeadings/(.*)$": "./\\1",
-              "MayflowerReactLinks/(.*)$": "./\\1",
-              "MayflowerReactLists/(.*)$": "./\\1",
-              "MayflowerReactMedia/(.*)$": "./\\1",
-              "MayflowerReactPlaceholder/(.*)$": "./\\1",
-              "MayflowerReactTable/(.*)$": "./\\1",
-              "MayflowerReactText/(.*)$": "./\\1",
-              "MayflowerReactBase/(.*)$": "./\\1",
-              "MayflowerReactDataviz/(.*)$": "./\\1",
-              "MayflowerReactForms/(.*)$": "./\\1",
-              "MayflowerReactMolecules/(.*)$": "./\\1",
-              "MayflowerReactOrganisms/(.*)$": "./\\1",
-              "MayflowerReactPages/(.*)$": "./\\1",
-              "MayflowerReactTemplates/(.*)$": "./\\1",
-              "MayflowerReactUtilities/(.*)$": "./\\1",
-            }
+            resolvePath,
+            alias: aliases
           }
         ],
         '@babel/plugin-proposal-optional-chaining',
@@ -118,12 +129,7 @@ function transpileES5() {
     .pipe(dest('dist'));
 }
 function transpileES6() {
-  return src([
-    'src/**/*.js',
-    '!src/**/*.stories.js',
-    '!src/**/*.knobs.options.js',
-    '!src/**/*.knob.options.js'
-  ])
+  return src(sources)
     .pipe(babel({
       presets: [
         [
@@ -155,44 +161,8 @@ function transpileES6() {
         [
           'module-resolver',
           {
-            resolvePath(sourcePath, currentFile, opts) {
-
-              const entryPoint = path.resolve(__dirname, './src/index.js');
-              const rootPath = currentFile === entryPoint ? './' : '../';
-              let resolvedPath = null;
-              Object.keys(opts.alias).forEach((alias) => {
-                const check = new RegExp(alias);
-                if (check.test(sourcePath)) {
-                  const matches = check.exec(sourcePath);
-                  resolvedPath = `${rootPath}${matches[1]}`;
-                }
-              });
-              return resolvedPath || sourcePath;
-            },
-            alias: {
-              "MayflowerReactGenTeaser/(.*)$": "./\\1",
-              "MayflowerReactComponents/(.*)$": "./\\1",
-              "MayflowerReactAtoms/(.*)$": "./\\1",
-              "MayflowerReactAnimations/(.*)$": "./\\1",
-              "MayflowerReactButtons/(.*)$": "./\\1",
-              "MayflowerReactContact/(.*)$": "./\\1",
-              "MayflowerReactDivider/(.*)$": "./\\1",
-              "MayflowerReactHeadings/(.*)$": "./\\1",
-              "MayflowerReactLinks/(.*)$": "./\\1",
-              "MayflowerReactLists/(.*)$": "./\\1",
-              "MayflowerReactMedia/(.*)$": "./\\1",
-              "MayflowerReactPlaceholder/(.*)$": "./\\1",
-              "MayflowerReactTable/(.*)$": "./\\1",
-              "MayflowerReactText/(.*)$": "./\\1",
-              "MayflowerReactBase/(.*)$": "./\\1",
-              "MayflowerReactDataviz/(.*)$": "./\\1",
-              "MayflowerReactForms/(.*)$": "./\\1",
-              "MayflowerReactMolecules/(.*)$": "./\\1",
-              "MayflowerReactOrganisms/(.*)$": "./\\1",
-              "MayflowerReactPages/(.*)$": "./\\1",
-              "MayflowerReactTemplates/(.*)$": "./\\1",
-              "MayflowerReactUtilities/(.*)$": "./\\1",
-            }
+            resolvePath,
+            alias: aliases
           }
         ],
         '@babel/plugin-proposal-optional-chaining',
@@ -220,4 +190,4 @@ function transpileES6() {
     }))
     .pipe(dest('dist'));
 }
-exports.default = series(clean, parallel(transpileES5, transpileES6, styles));
+exports.default = series(clean, parallel(transpileES5, transpileES6, styles, icons));

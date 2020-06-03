@@ -1,3 +1,7 @@
+/**
+ * UnorderedList module.
+ * @module @massds/mayflower-react/UnorderedList
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

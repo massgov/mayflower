@@ -1,3 +1,8 @@
+/**
+ * InputRadio module.
+ * @module @massds/mayflower-react/InputRadio
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-radio
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

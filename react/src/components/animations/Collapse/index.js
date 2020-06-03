@@ -1,3 +1,7 @@
+/**
+ * Collapse module.
+ * @module @massds/mayflower-react/Collapse
+ */
 import classNames from 'classnames';
 import css from 'dom-helpers/style';
 import React from 'react';
@@ -99,10 +103,10 @@ class Collapse extends React.Component {
     } = this.props;
 
     const collapseStyles = {
-      [Transition.EXITED]: 'collapsed',
-      [Transition.EXITING]: 'collapsing',
-      [Transition.ENTERING]: 'expanding',
-      [Transition.ENTERED]: 'expanded'
+      exited: 'collapsed',
+      exiting: 'collapsing',
+      entering: 'expanding',
+      entered: 'expanded'
     };
 
     const dimension = this.getDimension();

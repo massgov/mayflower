@@ -1,3 +1,9 @@
+/**
+ * FooterLinks module.
+ * @module @massds/mayflower-react/FooterLinks
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/footer-links
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';

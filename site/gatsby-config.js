@@ -53,6 +53,8 @@ module.exports = {
           esModule: true
         },
         includePaths: [
+          'src',
+          'node_modules',
           path.dirname(require.resolve('@massds/mayflower-react')) + '/styles'
         ].concat(assets.includePaths)
       }

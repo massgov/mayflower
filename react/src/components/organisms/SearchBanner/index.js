@@ -1,3 +1,15 @@
+/**
+ * SearchBanner module.
+ * @module @massds/mayflower-react/SearchBanner
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/forms
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/buttons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tabs
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

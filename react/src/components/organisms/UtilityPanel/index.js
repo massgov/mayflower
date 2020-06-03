@@ -1,3 +1,9 @@
+/**
+ * UtilityPanel module.
+ * @module @massds/mayflower-react/UtilityPanel
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-panel
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

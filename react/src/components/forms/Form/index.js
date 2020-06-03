@@ -1,3 +1,9 @@
+/**
+ * Form module.
+ * @module @massds/mayflower-react/Form
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/forms
+ * @requires module:@massds/mayflower-assets/scss/04-templates/form-page
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormContext } from '../Input/context';

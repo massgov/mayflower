@@ -1,3 +1,10 @@
+/**
+ * MainNav module.
+ * @module @massds/mayflower-react/MainNav
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/main-nav
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

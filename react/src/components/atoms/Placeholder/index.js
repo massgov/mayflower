@@ -1,3 +1,7 @@
+/**
+ * Placeholder module.
+ * @module @massds/mayflower-react/Placeholder
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

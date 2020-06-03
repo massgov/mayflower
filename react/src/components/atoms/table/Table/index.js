@@ -1,3 +1,8 @@
+/**
+ * Table module.
+ * @module @massds/mayflower-react/Table
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/table
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';

@@ -1,3 +1,9 @@
+/**
+ * Tags module.
+ * @module @massds/mayflower-react/Tags
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tags
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-tag
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonTag from 'MayflowerReactButtons/ButtonTag';

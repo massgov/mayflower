@@ -1,3 +1,13 @@
+/**
+ * InputRadioGroup module.
+ * @module @massds/mayflower-react/InputRadioGroup
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-group
+ * @requires module:@massds/mayflower-assets/scss/input-radio-group
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-radio
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/error-msg
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

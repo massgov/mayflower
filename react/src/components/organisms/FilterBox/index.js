@@ -1,6 +1,12 @@
+/**
+ * FilterBox module.
+ * @module @massds/mayflower-react/FilterBox
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/forms
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/buttons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { componentWithName } from 'airbnb-prop-types';
+import componentWithName from 'airbnb-prop-types/src/componentWithName';
 import classNames from 'classnames';
 
 // import child components

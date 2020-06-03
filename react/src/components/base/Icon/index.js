@@ -1,3 +1,9 @@
+/**
+ * Icon module.
+ * @module @massds/mayflower-react/Icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,3 +1,10 @@
+/**
+ * InputDate module.
+ * @module @massds/mayflower-react/InputDate
+ * @requires module:pikaday/scss/pikaday
+ * @requires module:@massds/mayflower-assets/scss/00-base/pikaday
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-date
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Pikaday from 'pikaday';

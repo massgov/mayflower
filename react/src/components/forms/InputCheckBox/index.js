@@ -1,3 +1,11 @@
+/**
+ * InputCheckBox module.
+ * @module @massds/mayflower-react/InputCheckBox
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-checkbox
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';

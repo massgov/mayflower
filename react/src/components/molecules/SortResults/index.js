@@ -1,3 +1,9 @@
+/**
+ * SortResults module.
+ * @module @massds/mayflower-react/SortResults
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/sort-results
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-sort
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonSort from 'MayflowerReactButtons/ButtonSort';

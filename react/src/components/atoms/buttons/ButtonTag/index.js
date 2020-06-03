@@ -1,3 +1,8 @@
+/**
+ * ButtonTag module.
+ * @module @massds/mayflower-react/ButtonTag
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-tag
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

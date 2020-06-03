@@ -1,3 +1,8 @@
+/**
+ * Pagination module.
+ * @module @massds/mayflower-react/Pagination
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/pagination
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
