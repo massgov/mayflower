@@ -115,29 +115,19 @@ export default (function (window, document) {
     function setEventListeners() {
       // Update the sticky header text when a link is clicked, even if another header is visible.
       tocParent.addEventListener("click", (e) => {
-          if (e.target.matches(".ma__sticky-toc__link a").textContent) {
-            pauseScroll = true;
-            setTimeout(() => { pauseScroll = false; }, 20);
-            stickyToc.innerHTML = e.target.innerHTML;
-            toc.classList.add("stuck");
-          }
-          // When .ma__sticky-toc__link or icon is clicked.
-          if (e.target.hasAttribute("data-link") || e.target.matches(".ma__sticky-toc__link a svg")) {
-            let linkLabel = "";
-            if (e.target.matches(".ma__sticky-toc__link a svg")) {
-              linkLabel = e.target.parentNode.textContent;
-
-              //TEST MARKER.
-              console.log("You clicked the icon: " + linkLabel);
-
-            } else {
-              linkLabel = e.target.querySelector("a").textContent;
-            }
-            pauseScroll = true;
-            setTimeout(() => { pauseScroll = false; }, 20);
-            stickyToc.innerHTML = linkLabel;
-            toc.classList.add("stuck");
-          }
+        if (e.target.matches(".ma__sticky-toc__link a").textContent) {
+          pauseScroll = true;
+          setTimeout(() => { pauseScroll = false; }, 20);
+          stickyToc.innerHTML = e.target.innerHTML;
+          toc.classList.add("stuck");
+        }
+        // When .ma__sticky-toc__link or icon is clicked.
+        if (e.target.hasAttribute("data-link")) {
+          pauseScroll = true;
+          setTimeout(() => { pauseScroll = false; }, 20);
+          stickyToc.innerHTML = e.target.querySelector("a").textContent;
+          toc.classList.add("stuck");
+        }
       }, true);
 
       // Toggle mobile TOC open.
