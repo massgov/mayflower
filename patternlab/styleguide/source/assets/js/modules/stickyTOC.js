@@ -115,14 +115,29 @@ export default (function (window, document) {
     function setEventListeners() {
       // Update the sticky header text when a link is clicked, even if another header is visible.
       tocParent.addEventListener("click", (e) => {
-        if (e.target.hasAttribute("data-link")) {
           if (e.target.matches(".ma__sticky-toc__link a").textContent) {
             pauseScroll = true;
             setTimeout(() => { pauseScroll = false; }, 20);
             stickyToc.innerHTML = e.target.innerHTML;
             toc.classList.add("stuck");
           }
-        }
+          // When .ma__sticky-toc__link or icon is clicked.
+          if (e.target.hasAttribute("data-link") || e.target.matches(".ma__sticky-toc__link a svg")) {
+            let linkLabel = "";
+            if (e.target.matches(".ma__sticky-toc__link a svg")) {
+              linkLabel = e.target.parentNode.textContent;
+
+              //TEST MARKER.
+              console.log("You clicked the icon: " + linkLabel);
+
+            } else {
+              linkLabel = e.target.querySelector("a").textContent;
+            }
+            pauseScroll = true;
+            setTimeout(() => { pauseScroll = false; }, 20);
+            stickyToc.innerHTML = linkLabel;
+            toc.classList.add("stuck");
+          }
       }, true);
 
       // Toggle mobile TOC open.
@@ -240,11 +255,15 @@ export default (function (window, document) {
       // Close sticky menu on click off or link click.
       document.body.addEventListener("click", (e) => {
         if (!e.target.matches(".ma__sticky-toc__stuck-menu")
-          && (e.target.closest(".ma__sticky-toc__stuck-menu") === null
-          || e.target.matches(".ma__sticky-toc__stuck-menu .ma__sticky-toc__link")
-          || e.target.matches(".ma__sticky-toc__stuck-menu a")
-          || e.target.matches(".ma__sticky-toc__stuck-menu a svg"))) {
+        && (e.target.closest(".ma__sticky-toc__stuck-menu") === null
+        || e.target.matches(".ma__sticky-toc__stuck-menu a")
+        || e.target.matches(".ma__sticky-toc__stuck-menu .ma__sticky-toc__link"))) {
           if (typeof stuckMenu !== "undefined" && stuckMenu.matches(".sticky-nav-open")) {
+            // Add a open-link feature with clicking item container.
+            const clicked = e.target;
+            if ( clicked.matches(".ma__sticky-toc__link")) {
+              window.location = clicked.getAttribute("data-link");
+            }
             menuToggle();
           }
         }
