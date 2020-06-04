@@ -521,6 +521,7 @@
         display: block;
         margin-top: 7px;
         margin-left: 20px;
+        z-index: -3;
 
         @media ($bp-x-small-min) {
           margin: 0 0 0 20px;
