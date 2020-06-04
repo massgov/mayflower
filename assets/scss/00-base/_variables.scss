@@ -35,5 +35,16 @@ $close-icon: '\00d7';
 
 
 // font families
-$fonts:      "Texta", "Helvetica", "Arial", "sans-serif";
-$fonts-mono: "Source Code Pro", "Monaco", "monospace";
+$fonts:      "Texta", "Helvetica", "Arial", sans-serif;
+$fonts-mono: "Source Code Pro", "Monaco", monospace;
+$fonts-khmer: "Hanuman";
+$fonts-vietnamese: "Muli";
+
+
+// font weights
+$fonts-lightest: 100; // use only to style non text font weights, e.g. separator |
+$fonts-lighter:  300;
+$fonts-light:    400;
+$fonts-normal:   500;
+$fonts-bold:     700;
+$fonts-bolder:   800;

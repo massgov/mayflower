@@ -1,4 +1,5 @@
 .ma__emergency-header {
+
   @include ma-container;
   margin: 0;
   padding: 12px;
@@ -22,7 +23,7 @@
     letter-spacing: $letter-spacing-large;
     white-space: nowrap;
     color: rgba($c-font-base,.8);
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     @media ($bp-large-max) {
       margin-bottom: 10px;
@@ -37,6 +38,7 @@
     }
 
     // icon
+
     & > svg {
       height: 24px;
       margin-right: 7px;
@@ -51,6 +53,7 @@
     }
 
     // text
+
     span {
       display: inline-block;
       font-size: 1rem;
@@ -65,7 +68,7 @@
     font-size: 1.5rem;
     line-height: 1.4;
     margin-bottom: 0;
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     .ma__decorative-link {
       display: inline;
@@ -85,6 +88,7 @@ $colors: (
 
 @each $class, $c in $colors {
   .ma__emergency-header--#{$class} {
+
     @include ma-emergency-header($c);
   }
 }

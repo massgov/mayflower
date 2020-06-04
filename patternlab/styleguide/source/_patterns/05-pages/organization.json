@@ -366,6 +366,42 @@
       "id": "",
       "pageContent": [
         {
+          "path": "@organisms/by-author/callout-message.twig",
+          "data": {
+            "calloutMessage": {
+              "theme": "white",
+              "message": {
+                "compHeading": {
+                  "title": "Rich Text Editor with a Comp Heading",
+                  "level": "2",
+                  "id": "rich-text-editor",
+                  "sub": false
+                },
+                "sidebarHeading": null,
+                "rteElements": [{
+                  "path": "@atoms/11-text/paragraph.twig",
+                  "data": {
+                    "paragraph" : {
+                      "text": "<p>A paragraph (from the Greek paragraphos, 'to write beside' or 'written beside') is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p><ol><li>This is a list item in an ordered list</li><li>An ordered list is a list in which the sequence of items is important.</li><li>Lists can be nested inside of each other</li><ol><li>This is a nested list item</li><li>This is another nested list item in an ordered list</li></ol><li>This is the last list item</li></ol>"
+                    }
+                  }
+                }]
+              },
+              "link": {
+                "text": "Link to another page",
+                "href": "#",
+                "info": ""
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "",
+      "id": "",
+      "pageContent": [
+        {
           "path": "@organisms/by-author/featured-item-mosaic.twig",
           "data": {
             "featuredItemMosaic": {
@@ -1350,8 +1386,8 @@
       },
       "disambiguatingDescription": "EOHHS oversees health and general support services to help people in Massacheusetts - from young children to seniors - meet basic needs.",
       "description": "The Executive Office of Health and Human Services is responsible through its member agencies for the delivery of a wide range of services to people with financial, health, social, protective, rehabilitation, and correctional needs. Online information is available for consumers, providers, researchers, and social workers to find out what types of assistance are offered.",
-      "logo": "https://mayflower.digital.mass.gov/assets/images/images/placeholder/230x130.png",
-      "url": "https://mayflower.digital.mass.gov/?p=templates-org-landing-page",
+      "logo": "https://mayflower.digital.mass.gov/patternlab/assets/images/images/placeholder/230x130.png",
+      "url": "https://mayflower.digital.mass.gov/patternlab/?p=templates-org-landing-page",
       "contactInfo": {
         "address": "One Ashburton Place, 11th Floor, Boston, MA 02108",
         "telephone": "+14134994262",

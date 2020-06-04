@@ -3,6 +3,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
   }
 
@@ -68,6 +69,7 @@
   }
 
   &__clear {
+
     @include ma-button-reset;
     font-size: 1.125rem;
     display: inline-block;
@@ -84,6 +86,7 @@
 }
 
 //theme
+
 .ma__press-filters {
 
   &__container {
@@ -101,7 +104,7 @@
 
   &__clear {
     color: $c-font-base;
-    font-weight: 700;
+    font-weight: $fonts-bold;
     border-bottom-color: $c-font-base;
   }
 }

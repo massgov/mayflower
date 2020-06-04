@@ -7,6 +7,7 @@ import FeedbackForm from './components/forms/FeedbackForm';
 // @forms
 export Form, { FormProvider } from './components/forms/Form';
 export HelperText from './components/forms/HelperText';
+export Label from './components/forms/Label';
 export ErrorMessage from './components/forms/ErrorMessage';
 export InputDate from './components/forms/InputDate';
 export InputText from './components/forms/InputText';
@@ -82,6 +83,7 @@ export MainNav from './components/molecules/MainNav';
 export Pagination from './components/molecules/Pagination';
 export ResultsHeading from './components/molecules/ResultsHeading';
 export SearchBannerForm from './components/molecules/SearchBannerForm';
+export SectionLinks from './components/molecules/SectionLinks';
 export SocialLinks from './components/molecules/SocialLinks';
 export SortResults from './components/molecules/SortResults';
 export ContactGroup from './components/molecules/ContactGroup';

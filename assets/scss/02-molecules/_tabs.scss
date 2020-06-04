@@ -2,7 +2,7 @@
   overflow: auto;
   display: flex;
 
-  &-item{
+  &-item {
     background: $c-bg-subtle;
     border: none;
 
@@ -19,12 +19,17 @@
     cursor: pointer;
     font-weight: normal;
 
+    &:hover {
+      border-bottom: 5px solid;
+      border-color: $c-primary-lighter;
+    }
+
     &.is-selected {
       border-bottom: 5px solid;
       padding-left: 1.4rem;
       padding-right: 1.4rem;
       color: $c-primary;
-      font-weight: 700;
+      font-weight: $fonts-bold;
     }
   }
 }

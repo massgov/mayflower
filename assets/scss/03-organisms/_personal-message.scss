@@ -8,6 +8,7 @@
   }
 
   .main-content--two .page-content > & {
+
     @media ($bp-large-min) {
       padding-left: 0;
 
@@ -27,6 +28,7 @@
     .pre-content > &,
     .post-content > &,
     .main-content--full .page-content > & {
+
       @include ma-container('restricted');
     }
   }
@@ -41,6 +43,7 @@
 }
 
 //theme
+
 .ma__personal-message {
   background-color: $c-bg-subtle;
 

@@ -5,36 +5,44 @@ $narrow-template-max-width: 670px;
 $narrow-template-header-height: 170px;
 
 @keyframes narrow-template-bg-full-left {
-  0% { 
+
+  0% {
     left: 150%;
   }
+
   100% {
     left: $narrow-template-bg-offset-full;
   }
 }
 
 @keyframes narrow-template-bg-narrow-left {
-  0% { 
+
+  0% {
     left: 150%;
   }
+
   100% {
     left: $narrow-template-bg-offset-narrow;
   }
 }
 
 @keyframes narrow-template-bg-full-right {
-  0% { 
+
+  0% {
     right: 150%;
   }
+
   100% {
     right: $narrow-template-bg-offset-full;
   }
 }
 
 @keyframes narrow-template-bg-narrow-right {
-  0% { 
+
+  0% {
     right: 150%;
   }
+
   100% {
     right: $narrow-template-bg-offset-narrow;
   }
@@ -79,19 +87,29 @@ $narrow-template-header-height: 170px;
   &--right:before {
     transform: rotate(-30deg);
     transform-origin: top left;
+    // DP-18704 Fix flickering issue.
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
 
     @media ($bp-small-max) {
       animation: 3s narrow-template-bg-narrow-left;
       left: $narrow-template-bg-offset-narrow;
+      // DP-18704 Fix flickering issue.
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
     }
 
     @media ($bp-small-min) {
       animation: 3s narrow-template-bg-full-left;
       left: $narrow-template-bg-offset-full;
+      // DP-18704 Fix flickering issue.
+      -webkit-transform-style: preserve-3d;
+      -webkit-backface-visibility: hidden;
     }
   }
 
   &__header {
+
     @include ma-container;
     height: $narrow-template-header-height;
     font-size: 0;
@@ -101,6 +119,7 @@ $narrow-template-header-height: 170px;
   }
 
   &__container {
+
     @include ma-container;
     display: flex;
       flex-direction: column;
@@ -116,14 +135,14 @@ $narrow-template-header-height: 170px;
 
   &__content {
     flex-grow: 0;
-    padding-bottom: 170px;  // helps vertically align the page content 
+    padding-bottom: 170px;  // helps vertically align the page content
     position: relative;
     text-align: center;
   }
 
   .ma__helpful-links .ma__comp-heading {
     text-align: center;
-    
+
     &:after {
       left: 50%;
       transform: translateX(-50%);

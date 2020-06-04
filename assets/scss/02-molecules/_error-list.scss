@@ -11,6 +11,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container;
   }
 
@@ -61,6 +62,7 @@
 }
 
 //theme
+
 .ma__error-list {
 
   &__container {
@@ -70,12 +72,12 @@
   }
 
   &__title {
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__label {
     border-color: $c-bd-error;
     color: $c-font-error;
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 }

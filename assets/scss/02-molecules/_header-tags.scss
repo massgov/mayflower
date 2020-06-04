@@ -48,6 +48,7 @@
     }
 
     &.is-open {
+
       a {
         display: inline-block;
 
@@ -58,12 +59,15 @@
       }
 
       > button {
+
         &:after {
           transform: translateY(-55%) rotate(-135deg);
         }
+
         span:first-child {
           display: none;
         }
+
         span:nth-child(2) {
           display: inline;
         }
@@ -71,8 +75,11 @@
     }
 
     > button {
+
       @include ma-button-reset;
+
       @include ma-link-underline;
+
       @include ma-chevron;
       padding-left: 10px;
       font-size: 19px;
@@ -103,6 +110,7 @@
 }
 
 //theme
+
 .ma__header-tags {
   font-weight: 600;
 
@@ -114,7 +122,7 @@
 
     a {
       border-color: rgba($c-font-link,.2);
-      font-weight: 500;
+      font-weight: $fonts-normal;
 
       &:hover {
         border-color: $c-font-link;
@@ -123,7 +131,7 @@
 
     > button {
       color: $c-primary;
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
   }
 }

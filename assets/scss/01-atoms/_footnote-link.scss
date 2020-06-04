@@ -1,10 +1,11 @@
 .ma__footnote-link {
+
   @include ma-button-reset;
 
   transition: all 0.4s ease;
   display: inline-flex;
   color: $c-font-link;
   font-size: 1.25rem;
-  font-weight: 700;
+  font-weight: $fonts-bold;
   line-height: 1; 
 }

@@ -1,4 +1,5 @@
 .ma__action-image {
+
   @include clearfix;
 
   &__title {
@@ -7,10 +8,11 @@
 }
 
 //theme
+
 .ma__action-image {
   
   &__title {
     margin-bottom: 15px;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 }

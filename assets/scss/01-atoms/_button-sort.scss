@@ -1,4 +1,5 @@
 .ma__button-sort {
+
   @include ma-button-reset;
   font-size: 18px;
   line-height: 1.2;
@@ -31,9 +32,10 @@
 }
 
 //theme
+
 .ma__button-sort {
   color: $c-font-link;
-  font-weight: 700;
+  font-weight: $fonts-bold;
 
   &--asc,
   &--dsc {

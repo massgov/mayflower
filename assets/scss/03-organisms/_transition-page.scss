@@ -35,6 +35,7 @@
 }
 
 //theme
+
 .ma__transition-page {
 
   &:before {
@@ -46,6 +47,6 @@
   }
 
   &__message {
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 }

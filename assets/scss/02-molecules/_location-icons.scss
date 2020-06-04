@@ -38,6 +38,7 @@
 }
 
 //theme
+
 .ma__location-icons {
 
   &__icon {
@@ -49,6 +50,6 @@
 
   &__name {
     color: $c-font-medium;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 }

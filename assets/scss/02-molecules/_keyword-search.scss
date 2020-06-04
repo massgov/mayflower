@@ -7,6 +7,7 @@ $header-search-height: 46px;
   width: 100%;
 
   &__label {
+
     @include ma-visually-hidden;
   }
 
@@ -20,6 +21,7 @@ $header-search-height: 46px;
 
   &__reset,
   .ma__button-search {
+
     @include ma-button-reset;
     height: $header-search-height;
     position: absolute;
@@ -75,6 +77,7 @@ $header-search-height: 46px;
 }
 
 //theme
+
 .ma__keyword-search {
 
   .ma__button-search {
@@ -98,6 +101,6 @@ $header-search-height: 46px;
 
   &__reset {
     color: $c-primary-alt;
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 }

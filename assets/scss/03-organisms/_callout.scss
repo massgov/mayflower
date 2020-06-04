@@ -10,6 +10,7 @@
   .pre-content > &,
   .post-content > &,
   .main-content--full .page-content > & {
+
     @include ma-container();
   }
 
@@ -59,7 +60,7 @@
 .ma__callout {
   border-left-color: $c-highlight;
   color: $c-font-heading;
-  font-weight: 800;
+  font-weight: $fonts-bolder;
 
   &__header {
 

@@ -26,6 +26,7 @@ body {
   position: relative;
 
   &--slim {
+
     @media ($bp-large-min) {
       padding-top: 0px;
     }
@@ -33,6 +34,7 @@ body {
 
   &--slim-mobile {
     padding-top: 15px; // height of thin banner on mobile
+
     @media ($bp-large-min) {
       padding-top: 0px;
     }
@@ -45,13 +47,16 @@ body {
     text-align: center;
 
     &:not(:focus) {
+
       @include ma-visually-hidden;
       width: 240px;
     }
   }
 
   &__container {
+
     @include ma-valign-block;
+
     @include ma-container;
     font-size: 0; // inline-block fix
     height: 100px;
@@ -60,6 +65,7 @@ body {
 
     & .ma__header-search__wrapper {
       float: right;
+
       @media ($bp-small-min) {
         justify-content: flex-end;
         float: none;
@@ -82,12 +88,14 @@ body {
     }
 
     @media ($bp-small-min) {
+
       @include span-columns(4);
       display: inline-block;
       float: none;
     }
 
     @media ($bp-header-logo-min) {
+
       @include span-columns(3);
       display: inline-block;
       float: none;
@@ -99,11 +107,13 @@ body {
   }
 
   &__banner {
+
     @media ($bp-large-min) {
       height: 15px;
       background-color: $c-primary;
       color: $c-white;
     }
+
     &--mobile {
       height: 15px;
       background-color: $c-primary;
@@ -114,6 +124,7 @@ body {
       text-align: right;
       width: 100%;
       z-index: $z-dropdown;
+
       @media ($bp-large-min) {
         display: none;
       }
@@ -135,6 +146,7 @@ body {
     }
 
     @media ($bp-small-max) {
+
       .ma__header-search {
 
         &__input {
@@ -146,9 +158,13 @@ body {
         }
 
         // not the button in navigation
+
         .ma__button-search {
+
           &, &--secondary {
+
             @media ($bp-small-max) {
+
               @include ma-valign-block;
               border-width: 2px;
               border-style: solid;
@@ -171,7 +187,7 @@ body {
 
   &__nav-container {
 
-    @media ($bp-header-toggle-max){
+    @media ($bp-header-toggle-max) {
       height: calc(100vh - #{$header-mobile-controls-height});
       overflow-y: auto;
       position: fixed;
@@ -199,6 +215,7 @@ body {
   }
 
   &__button-container {
+
     @include ma-container;
     height: $header-mobile-controls-height;
     position: fixed;
@@ -213,13 +230,15 @@ body {
       top: 40px;
     }
 
-    @media ($bp-header-toggle-min){
+    @media ($bp-header-toggle-min) {
       display: none;
     }
   }
 
   &__back-button {
+
     &, &--react {
+
       @include ma-button-reset;
       font-size: 1.125rem;
       height: 33px;
@@ -232,7 +251,7 @@ body {
       text-transform: uppercase;
       transition: left .5s, visibility .5s;
       z-index: $z-dropdown;
-      font-weight: 700;
+      font-weight: $fonts-bold;
       color: $c-font-inverse;
 
       .translated-rtl &,
@@ -258,20 +277,24 @@ body {
         border-left-color: $c-font-inverse;
         border-top-color: $c-font-inverse;
       }
+
       span {
         display: inline-block;
         vertical-align: middle;
         opacity: 0.7;
       }
     }
+
     & {
       visibility: hidden;
+
       .show-menu.show-utilmenu &,
       .show-menu.show-submenu & {
         left: calc(100vw - 280px);
         visibility: visible;
       }
     }
+
     &--react {
       left: calc(100vw - 280px);
       visibility: visible;
@@ -315,6 +338,7 @@ body {
       transition: all 500ms ease-in-out;
       width: 20px;
     }
+
     &:before {
       top: -8px;
 
@@ -323,6 +347,7 @@ body {
         transform: rotate(45deg);
       }
     }
+
     &:after {
       bottom: -8px;
 
@@ -352,7 +377,7 @@ body {
   &__nav-search,
   &__main-nav {
 
-    @media ($bp-header-toggle-max){
+    @media ($bp-header-toggle-max) {
       border-bottom: 2px solid; // $c-gray-light;
       margin-bottom: 15px;
       padding-bottom: 15px;
@@ -362,7 +387,8 @@ body {
   &__utility-nav {
 
     &--narrow {
-      @media ($bp-header-toggle-min){
+
+      @media ($bp-header-toggle-min) {
         display: none;
       }
     }
@@ -379,6 +405,7 @@ body {
   }
 
   &__backto {
+
     @include ma-container;
     display: block;
     height: 0;
@@ -391,6 +418,7 @@ body {
     }
 
     a {
+
       @include ma-chevron("left");
       border: 3px solid;
       border-top: none;
@@ -404,7 +432,7 @@ body {
         margin-left: -20px;
       }
 
-      @media ($bp-header-toggle-min){
+      @media ($bp-header-toggle-min) {
         position: absolute;
           top: -$header-mobile-controls-height - 4px;
       }
@@ -429,23 +457,26 @@ body {
 }
 
 //theme
+
 .ma__header {
   background-color: $c-bg-section;
 
   &__nav-container {
+
     @media ($bp-header-toggle-max) {
       background-color: $c-bg-section;
     }
   }
 
   &__button-container {
+
     @media ($bp-header-toggle-max) {
       background-color: $c-primary;
     }
   }
 
   &__menu-button {
-    font-weight: 700;
+    font-weight: $fonts-bold;
     color: $c-font-inverse;
 
     span:first-child {
@@ -466,11 +497,14 @@ body {
     }
 
     &:before {
+
       .show-menu & {
         background-color: $c-font-inverse;
       }
     }
+
     &:after {
+
       .show-menu & {
         background-color: $c-font-inverse;
       }
@@ -479,6 +513,7 @@ body {
 
   &__nav-search,
   &__main-nav {
+
     @media ($bp-header-toggle-max) {
       border-bottom-color: $c-bd-divider;
     }
@@ -487,7 +522,7 @@ body {
   &__backto {
 
     a {
-      font-weight: 500;
+      font-weight: $fonts-normal;
       background-color: tint($c-font-link, 90%);
       border-color: tint($c-font-link, 50%);
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);

@@ -4,7 +4,9 @@ $collage-header-bp-min: "min-width: 701px";
   overflow: hidden;
 
   &__container {
+
     @include ma-container;
+
     @include clearfix;
     padding-bottom: 20px;
     position: relative;
@@ -16,11 +18,13 @@ $collage-header-bp-min: "min-width: 701px";
   }
 
   &__images {
+
     @include clearfix;
     margin-left: -20px;
     width: calc(100% + 40px);
 
     @media ($collage-header-bp-min) {
+
       @include ma-container;
       height: 100%;
       margin: 0;
@@ -49,6 +53,7 @@ $collage-header-bp-min: "min-width: 701px";
 
 
       @media ($bp-large-min) {
+
         @include span-columns(5 of 8);
         height: 30%;
         margin-bottom: 0;
@@ -60,6 +65,7 @@ $collage-header-bp-min: "min-width: 701px";
         margin-right: 0;
 
         @media ($bp-large-min) {
+
           @include span-columns(8 of 8);
           height: 68%;
         }
@@ -69,6 +75,7 @@ $collage-header-bp-min: "min-width: 701px";
         margin-bottom: 0;
 
         @media ($bp-large-min) {
+
           @include span-columns(3 of 8);
         }
       }
@@ -94,6 +101,7 @@ $collage-header-bp-min: "min-width: 701px";
     }
 
     &:before {
+
       @media ($collage-header-bp-min) {
         content: "";
         height: 100%;
@@ -135,17 +143,21 @@ $collage-header-bp-min: "min-width: 701px";
   }
 
   &__details {
+
     @media ($collage-header-bp-min) {
       width: 370px;
     }
   }
 
   @media ($collage-header-bp-min) {
+
     &__description {
       font-size: 1.625rem;
     }
   }
+
     &__lead {
+
       @include ma-h3;
     }
 }
@@ -168,15 +180,15 @@ $collage-header-bp-max: "max-width: 700px";
 
     h1 {
       color: $c-font-inverse;
-      font-weight: 400;
+      font-weight: $fonts-light;
     }
   }
 
   &__description {
-    font-weight: 300;
+    font-weight: $fonts-lighter;
   }
 
   &__lead {
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 }

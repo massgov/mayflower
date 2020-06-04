@@ -1,6 +1,7 @@
 $image-promo-bp-x-large-min: "min-width: 1160px";
 
 .ma__image-promo {
+
   @include clearfix();
   border-color: $c-bd-divider;
   display: flex;
@@ -39,6 +40,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   }
 
   &__title {
+
     @include ma-h5;
     margin-bottom: 0;
   }
@@ -84,7 +86,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
       align-items: center;
       color: $c-font-base;
       display: flex;
-      font-weight: 400;
+      font-weight: $fonts-light;
     }
 
     svg {
