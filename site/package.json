@@ -6,7 +6,7 @@
   "author": "Minghua Sun <clairesunstudio@gmail.com>",
   "dependencies": {
     "@massds/mayflower-assets": "^0.1.2",
-    "@massds/mayflower-react": "file:massds-mayflower-react-9.44.2.tgz",
+    "@massds/mayflower-react": "9.44.2",
     "bootstrap": "^4.4.1",
     "classname": "^0.0.0",
     "gatsby": "^2.19.7",
