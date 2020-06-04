@@ -9,7 +9,7 @@ function clean() {
 }
 
 function styles() {
-  return src(['src/components/styles/*.scss'])
+  return src(['src/components/styles/_global.scss'])
     .pipe(dest('dist/styles'));
 }
 

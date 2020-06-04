@@ -56,4 +56,3 @@ addDecorator(
 );
 
 addDecorator(withA11y);
-addDecorator(withKnobs({ escapeHTML: false }));
