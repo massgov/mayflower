@@ -1,4 +1,5 @@
 .ma__relationship-indicators {
+
   @include clearfix;
   display: flex;
   flex-direction: column;
@@ -38,10 +39,6 @@
 
     @media ($bp-x-small-min) {
       min-width: 6.5em;
-    }
-
-    @media ($bp-medium-min) {
-      // padding-top: 6px;
     }
 
     @media($bp-large-min) {
@@ -200,8 +197,11 @@
     }
 
     button {
+
       @include ma-button-reset;
+
       @include ma-link-underline;
+
       @include ma-chevron;
       text-transform: capitalize;
       align-self: flex-start;
