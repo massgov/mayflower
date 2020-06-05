@@ -41,7 +41,7 @@
       min-width: 6.5em;
     }
 
-    @media($bp-large-min) {
+    @media ($bp-large-min) {
       min-width: unset;
     }
   }
@@ -126,6 +126,7 @@
       }
 
       // Only hide tags if secondary tags present.
+
       &:not(.single) .ma__relationship-indicators--term {
 
         &:nth-child(n+2) {
