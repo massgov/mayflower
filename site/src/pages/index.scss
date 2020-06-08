@@ -1,12 +1,23 @@
 @use "../styles/globe" as *;
-@use "illustrated-header";
-@use "button-with-icon";
-@use "gen-teaser";
-@use "tabs"; 
-@use "icon";
-@use "section-links";
-@use "decorative-link";
-@use "callout-link";
+@use "03-organisms/illustrated-header";
+@use "03-organisms/page-header";
+@use "01-atoms/publish-state";
+@use "01-atoms/button-with-icon";
+@use "01-atoms/button-search";
+@use "03-organisms/gen-teaser";
+@use "01-atoms/decorative-link";
+@use "01-atoms/email";
+@use "01-atoms/image";
+@use "01-atoms/event-time";
+@use "01-atoms/phone-number";
+@use "01-atoms/address";
+@use "01-atoms/input-typeahead";
+@use "02-molecules/tabs"; 
+@use "01-atoms/svg-icons";
+@use "01-atoms/svg-loc-icons";
+@use "02-molecules/accordion-item";
+@use "02-molecules/callout-link";
+@use "SectionLinks";
 
 .ma__illustrated-header {
   margin: 0 !important;

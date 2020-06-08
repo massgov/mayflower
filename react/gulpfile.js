@@ -11,12 +11,17 @@ function clean() {
 }
 
 function styles() {
-  return src(['src/components/styles/_global.scss'])
-    .pipe(dest('dist/styles'));
+  return src(['./src/components/**/*.scss'])
+    .pipe(rename((p) => {
+      const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
+      p.dirname = splitPath[splitPath.length - 1];
+    }))
+    .pipe(dest('dist'));
 }
 
 function icons() {
-  return src(['src/components/base/Icon/assets/*.svg'])
+  return src(['./src/components/base/Icon/assets/*.svg'])
     .pipe(dest('dist/Icon/assets'));
 }
 
