@@ -6,3 +6,5 @@ storybook-static/
 tests/
 umd/
 src/index.js
+src/**/*.stories.js
+src/**/*.knob*
