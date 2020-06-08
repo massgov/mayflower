@@ -1,4 +1,6 @@
-const { src, dest, series, parallel } = require('gulp');
+const {
+  src, dest, series, parallel
+} = require('gulp');
 const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const del = require('del');
@@ -19,28 +21,28 @@ function icons() {
 }
 
 const aliases = {
-  "MayflowerReactGenTeaser/(.*)$": "./\\1",
-  "MayflowerReactComponents/(.*)$": "./\\1",
-  "MayflowerReactAtoms/(.*)$": "./\\1",
-  "MayflowerReactAnimations/(.*)$": "./\\1",
-  "MayflowerReactButtons/(.*)$": "./\\1",
-  "MayflowerReactContact/(.*)$": "./\\1",
-  "MayflowerReactDivider/(.*)$": "./\\1",
-  "MayflowerReactHeadings/(.*)$": "./\\1",
-  "MayflowerReactLinks/(.*)$": "./\\1",
-  "MayflowerReactLists/(.*)$": "./\\1",
-  "MayflowerReactMedia/(.*)$": "./\\1",
-  "MayflowerReactPlaceholder/(.*)$": "./\\1",
-  "MayflowerReactTable/(.*)$": "./\\1",
-  "MayflowerReactText/(.*)$": "./\\1",
-  "MayflowerReactBase/(.*)$": "./\\1",
-  "MayflowerReactDataviz/(.*)$": "./\\1",
-  "MayflowerReactForms/(.*)$": "./\\1",
-  "MayflowerReactMolecules/(.*)$": "./\\1",
-  "MayflowerReactOrganisms/(.*)$": "./\\1",
-  "MayflowerReactPages/(.*)$": "./\\1",
-  "MayflowerReactTemplates/(.*)$": "./\\1",
-  "MayflowerReactUtilities/(.*)$": "./\\1",
+  'MayflowerReactGenTeaser/(.*)$': './\\1',
+  'MayflowerReactComponents/(.*)$': './\\1',
+  'MayflowerReactAtoms/(.*)$': './\\1',
+  'MayflowerReactAnimations/(.*)$': './\\1',
+  'MayflowerReactButtons/(.*)$': './\\1',
+  'MayflowerReactContact/(.*)$': './\\1',
+  'MayflowerReactDivider/(.*)$': './\\1',
+  'MayflowerReactHeadings/(.*)$': './\\1',
+  'MayflowerReactLinks/(.*)$': './\\1',
+  'MayflowerReactLists/(.*)$': './\\1',
+  'MayflowerReactMedia/(.*)$': './\\1',
+  'MayflowerReactPlaceholder/(.*)$': './\\1',
+  'MayflowerReactTable/(.*)$': './\\1',
+  'MayflowerReactText/(.*)$': './\\1',
+  'MayflowerReactBase/(.*)$': './\\1',
+  'MayflowerReactDataviz/(.*)$': './\\1',
+  'MayflowerReactForms/(.*)$': './\\1',
+  'MayflowerReactMolecules/(.*)$': './\\1',
+  'MayflowerReactOrganisms/(.*)$': './\\1',
+  'MayflowerReactPages/(.*)$': './\\1',
+  'MayflowerReactTemplates/(.*)$': './\\1',
+  'MayflowerReactUtilities/(.*)$': './\\1'
 };
 
 const sources = [
@@ -70,6 +72,7 @@ function transpileES5() {
   return src(sources)
     .pipe(rename((p) => {
       const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
       p.dirname = splitPath[splitPath.length - 1];
     }))
     .pipe(babel({
@@ -185,7 +188,9 @@ function transpileES6() {
     }))
     .pipe(rename((p) => {
       const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
       p.dirname = splitPath[splitPath.length - 1];
+      // eslint-disable-next-line no-param-reassign
       p.extname = '.mjs';
     }))
     .pipe(dest('dist'));

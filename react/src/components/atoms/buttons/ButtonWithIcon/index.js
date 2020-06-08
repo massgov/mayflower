@@ -33,10 +33,10 @@ const ButtonWithIcon = (props) => {
     className: buttonClasses,
     tabIndex: 0
   };
-  const Element = props.href ? 'a' : 'button';
+  const Element = rest.href ? 'a' : 'button';
   return(
     <Element {...buttonProps} ref={setButtonRef} aria-expanded={expanded}>
-      <span>{props.children ? props.children : props.text}</span>
+      <span>{rest.children ? rest.children : text}</span>
       {icon && icon}
     </Element>
   );
