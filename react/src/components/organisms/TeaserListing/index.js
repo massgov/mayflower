@@ -7,7 +7,7 @@
  * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
  * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
  * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
- * 
+ *
  */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -27,6 +27,7 @@ class TeaserListing extends React.Component {
       open: false
     };
   }
+
    handleClick = (e) => {
      e.preventDefault();
      this.setState((currentState) => ({
@@ -79,7 +80,7 @@ class TeaserListing extends React.Component {
              </div>
            )}
            {(invisibleItems.length > 0) && (
-             <React.Fragment>
+             <>
                <ul className={itemsClasses}>
                  {shownItems.map((item, index) => {
                    const key = `teaser-listing--item-${index}`;
@@ -111,10 +112,9 @@ class TeaserListing extends React.Component {
                >
                  {(this.state.open)
                    ? (<span className="less">{teaser.lessLabel}</span>)
-                   : (<span className="more">{teaser.moreLabel}</span>)
-                 }
+                   : (<span className="more">{teaser.moreLabel}</span>)}
                </button>
-             </React.Fragment>
+             </>
            )}
            {(invisibleItems.length === 0) && (
              <ul className={itemsClasses}>

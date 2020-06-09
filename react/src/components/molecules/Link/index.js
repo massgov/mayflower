@@ -20,7 +20,10 @@ const Link = (props) => {
       href={props.href}
       className={classes || null}
       title={props.info}
-    >{ (props.children) ? props.children : props.text }&nbsp;{ icon }
+    >
+      { (props.children) ? props.children : props.text }
+&nbsp;
+      { icon }
     </a>
   );
 };

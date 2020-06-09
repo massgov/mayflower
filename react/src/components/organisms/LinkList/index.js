@@ -35,7 +35,7 @@ const LinkList = (props) => {
             ))}
           </ul>
         ) : (
-          <React.Fragment>
+          <>
             <ul className={`ma__link-list__items ${bulletClass}`}>
               { links.slice(0, halfLength).map((link, index) => (
                 /* eslint-disable-next-line react/no-array-index-key */
@@ -52,7 +52,7 @@ const LinkList = (props) => {
                 </li>
               ))}
             </ul>
-          </React.Fragment>
+          </>
         )}
       </div>
       <div className="ma__link-list__see-all">

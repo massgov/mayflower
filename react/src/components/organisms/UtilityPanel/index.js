@@ -24,7 +24,7 @@ const UtilityPanel = (utilityPanel) => {
       <ul className="ma__utility-panel__items">
         {links.map((decorativeLink, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <li className="ma__utility-panel__item js-clickable" key={index} >
+          <li className="ma__utility-panel__item js-clickable" key={index}>
             <DecorativeLink {...decorativeLink} />
           </li>
         ))}

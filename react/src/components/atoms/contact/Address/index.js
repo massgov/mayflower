@@ -18,10 +18,9 @@ const Address = (props) => {
           <div className="ma__address__part">{address.streetAddress}</div>
           <div className="ma__address__part">{`${address.muni}, ${address.state} ${address.zip}`}</div>
         </div>
-        ) : (
-          <div className="ma__address__address">{parse(address)}</div>
-        )
-      }
+      ) : (
+        <div className="ma__address__address">{parse(address)}</div>
+      )}
       { details && (
         <p className="ma__contact__details">{parse(details)}</p>
       )}

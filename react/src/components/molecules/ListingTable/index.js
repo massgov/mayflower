@@ -102,7 +102,7 @@ const ListingTable = (props) => {
             {rows.map((row, index) => (
               /* eslint-disable-next-line react/no-array-index-key */
               <ListingTableItem key={`listing-table-item-${index}`} row={row} />
-              ))}
+            ))}
           </tbody>
         </table>
       </div>

@@ -37,7 +37,7 @@ class SectionCard extends React.Component {
       description, index, title, children, seeAll
     } = this.props;
     return(
-      <React.Fragment>
+      <>
         <nav className={mobile ? 'ma__section-links__toggle-content-mobile' : 'ma__section-links__toggle-content'} aria-labelledby={mobile ? null : `sectionCard${index}`} id={mobile ? null : `sectionCardContent${index}`}>
           { description && <p className="ma__section-links__description">{description}</p>}
           <div className="ma__section-links__mobile-title">
@@ -64,7 +64,7 @@ class SectionCard extends React.Component {
           <DecorativeLink href={seeAll.href} text={seeAll.text} />
         </div>
         )}
-      </React.Fragment>
+      </>
     );
   };
 

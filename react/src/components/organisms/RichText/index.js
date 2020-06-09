@@ -37,7 +37,7 @@ const RichText = (props) => {
       }
       return Object.entries(element.data).map(([eleIndex, eleValue]) => {
         if (Object.prototype.hasOwnProperty.call(elementProperties, eleIndex)) {
-          const newEleValue = Object.assign({}, eleValue);
+          const newEleValue = { ...eleValue };
           newEleValue.key = `element.${eleIndex}`;
           return elementProperties[eleIndex](newEleValue);
         }
@@ -59,12 +59,14 @@ const RichText = (props) => {
       {optionalElements.CompHeading}
       {optionalElements.SidebarHeading}
       {requiredElements}
-      {decorative &&
+      {decorative
+      && (
       <div className="ma__rich-text__more">
         {decorative}
       </div>
-      }
-    </section>);
+      )}
+    </section>
+  );
 };
 
 RichText.propTypes = {

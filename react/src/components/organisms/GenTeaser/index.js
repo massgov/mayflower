@@ -121,7 +121,7 @@ GenTeaser.Image.displayName = 'GenTeaser.Image';
 const GenTeaserEyebrow = (props) => {
   const { eyebrow, children, ...rest } = props;
   return(
-    <div className="ma__gen-teaser__eyebrow" {...rest} >
+    <div className="ma__gen-teaser__eyebrow" {...rest}>
       {children || <span>{eyebrow}</span>}
     </div>
   );
@@ -198,7 +198,7 @@ const GenTeaserTitle = (props) => {
   }
   const Element = `h${level || 2}`;
   return(
-    <Element className="ma__gen-teaser__title" {...rest} >
+    <Element className="ma__gen-teaser__title" {...rest}>
       {children || <DecorativeLink {...title} />}
     </Element>
   );
@@ -342,14 +342,14 @@ const GenTeaserSubLinks = (props) => {
   return(
     <div className="ma__gen-teaser__key-action" {...rest}>
       {children.length > 2 ? (
-        <React.Fragment>
+        <>
           <div className="ma__gen-teaser__key-action-col">
             {children.slice(0, 2)}
           </div>
           <div className="ma__gen-teaser__key-action-col">
             {children.slice(2, 4)}
           </div>
-        </React.Fragment>
+        </>
       ) : <div className="ma__gen-teaser__key-action-col">{children}</div>}
     </div>
   );
@@ -372,12 +372,12 @@ const GenTeaserKeyAction = (props) => {
     description, href, text, info, children, ...rest
   } = props;
   return(
-    <div className="ma__gen-teaser__key-action-item" {...rest} >
+    <div className="ma__gen-teaser__key-action-item" {...rest}>
       {children || (
-        <React.Fragment>
+        <>
           {text && href && <DecorativeLink href={href} text={text} info={info} />}
           {description && <p>{ReactHtmlParser(description)}</p>}
-        </React.Fragment>
+        </>
       )}
     </div>
   );
@@ -607,7 +607,7 @@ const GenTeaserEvent = (props) => {
     return itemVals;
   });
   return(
-    <React.Fragment>
+    <>
       <div className="ma__gen-teaser__infoitem" {...rest}>
         <span className="ma__gen-teaser__infoitem-icon">
           <Icon name="calendar" svgWidth={15} svgHeight={15} />
@@ -615,7 +615,7 @@ const GenTeaserEvent = (props) => {
         <EventTime {...eventProps} />
       </div>
       <LinkDropdown {...dropdownProps} />
-    </React.Fragment>
+    </>
   );
 };
 

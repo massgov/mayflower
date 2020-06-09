@@ -45,14 +45,16 @@ class InputText extends React.Component {
       inputClasses.push('js-is-required');
     }
     return(
-      <React.Fragment>
-        {labelText &&
+      <>
+        {labelText
+        && (
         <label
           htmlFor={id}
           className={inputLabelClasses.join(' ')}
         >
           {labelText}
-        </label>}
+        </label>
+        )}
         <input
           className={inputClasses.join(' ')}
           name={name}
@@ -67,10 +69,9 @@ class InputText extends React.Component {
           required={required}
           value={this.state.value}
         />
-        {errorMsg &&
-          (<ErrorMessage error={errorMsg} inputId={id} />)
-        }
-      </React.Fragment>
+        {errorMsg
+          && (<ErrorMessage error={errorMsg} inputId={id} />)}
+      </>
     );
   }
 }

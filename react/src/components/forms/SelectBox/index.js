@@ -16,9 +16,11 @@ class SelectBox extends React.Component {
     };
     this.handleOnChange = this.handleOnChange.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ selected: nextProps.selected });
   }
+
   /**
    * Default event handler which renders selected item in the patter div.
    *
@@ -66,8 +68,7 @@ class SelectBox extends React.Component {
           <Label inputId={id} className={labelClassNames}>
             {label}
           </Label>
-          )
-        }
+        )}
         <div className={`ma__select-box__field ${selectBoxInline}`}>
           <select
             name={id}

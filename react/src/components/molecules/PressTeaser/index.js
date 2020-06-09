@@ -32,13 +32,14 @@ const PressTeaser = (pressTeaser) => {
             role="img"
             style={{ backgroundImage: `url(${pressTeaser.image.src})` }}
           />
-        </a>)}
+        </a>
+      )}
       <div className="ma__press-teaser__details">
         { pressTeaser.eyebrow && (
           <div className="ma__press-teaser__eyebrow">
             <span>{pressTeaser.eyebrow}</span>
-          </div>)
-        }
+          </div>
+        )}
         <Element className="ma__press-teaser__title">
           <DecorativeLink {...pressTeaser.title} />
         </Element>
@@ -46,20 +47,17 @@ const PressTeaser = (pressTeaser) => {
           <div className="ma__press-teaser__details">
             { pressTeaser.date && (
               <span className="ma__press-teaser__date">{pressTeaser.date}</span>
-              )
-            }
+            )}
             { pressTeaser.org && (
               <span className="ma__press-teaser__org">{pressTeaser.org}</span>
-              )
-            }
+            )}
           </div>
         )}
         { pressTeaser.description && (
         <div className="ma__press-teaser__description">
           <RichText {...pressTeaser.description} />
         </div>
-          )
-        }
+        )}
       </div>
     </section>
   );

@@ -23,7 +23,11 @@ const CalloutLink = (calloutLink) => {
           </div>
         )}
         <span className="ma__callout-link__container">
-          <span className="ma__callout-link__text" >{calloutLink.text}&nbsp;<Icon name="arrow" /></span>
+          <span className="ma__callout-link__text">
+            {calloutLink.text}
+&nbsp;
+            <Icon name="arrow" />
+          </span>
         </span>
         { calloutLink.emphasized && (<span className="ma__callout-link__emphasized">{calloutLink.emphasized}</span>)}
         { calloutLink.description && (<p className="ma__callout-link__description">{calloutLink.description}</p>)}

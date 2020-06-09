@@ -28,6 +28,7 @@ class OrgSelector extends React.Component {
     this.handleOrgSelectChange = this.handleOrgSelectChange.bind(this);
     this.handleOrgTypeAheadChange = this.handleOrgTypeAheadChange.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     const input = (nextProps.selectBox) ? nextProps.selectBox : nextProps.typeAhead;
     const selectValue = input.options.find((element) => element.text === input.selected);
@@ -49,6 +50,7 @@ class OrgSelector extends React.Component {
       });
     }
   }
+
   /**
    * Sets the selectedOrg to the item selected from the input, so <OrgInfo/>
    * knows what to render.
@@ -80,6 +82,7 @@ class OrgSelector extends React.Component {
       this.props.onChangeOrgCallback(input);
     }
   }
+
   handleOrgTypeAheadChange(event, input) {
     // Stop the filters form submission if enter is pressed in the selector.
     event.preventDefault();

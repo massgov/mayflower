@@ -22,6 +22,7 @@ class EmergencyAlerts extends React.Component {
       close: false
     };
   }
+
   handleClick = (e) => {
     const { currentTarget } = e;
     this.setState({
@@ -31,6 +32,7 @@ class EmergencyAlerts extends React.Component {
       this.props.onButtonAlertClick({ open: !this.state.open, currentTarget });
     }
   }
+
   handleClose = (e) => {
     const { currentTarget } = e;
     this.setState({
@@ -40,6 +42,7 @@ class EmergencyAlerts extends React.Component {
       this.props.onButtonCloseClick({ close: !this.state.close, currentTarget });
     }
   }
+
   render() {
     const {
       id, emergencyHeader, buttonAlert, alerts, theme, buttonClose
@@ -93,7 +96,7 @@ class EmergencyAlerts extends React.Component {
             </div>
           </div>
           { alerts && (
-            <React.Fragment>
+            <>
               <Collapse in={this.state.open} dimension="height">
                 <div className={alertsWrapperClasses}>
                   <div className="ma__emergency-alerts__container">
@@ -107,7 +110,7 @@ class EmergencyAlerts extends React.Component {
               <div className={interfaceClasses}>
                 {buttonAlert && <ButtonAlert {...buttonAlert} onClick={this.handleClick} isOpen={this.state.open} />}
               </div>
-            </React.Fragment>
+            </>
           )}
         </section>
       </Collapse>

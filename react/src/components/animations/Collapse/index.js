@@ -23,9 +23,9 @@ function getDimensionValue(dimension, elem) {
   const margins = MARGINS[dimension];
 
   return(
-    value +
-    parseInt(css(elem, margins[0]), 10) +
-    parseInt(css(elem, margins[1]), 10)
+    value
+    + parseInt(css(elem, margins[0]), 10)
+    + parseInt(css(elem, margins[1]), 10)
   );
 }
 
@@ -123,20 +123,18 @@ class Collapse extends React.Component {
         onExit={this.handleExit}
         onExiting={this.handleExiting}
       >
-        {(state, innerProps) =>
-          React.cloneElement(children, {
-            ...innerProps,
-            style: {
-              [`max${capitalize(dimension)}`]: minDimensionOnMount ? `${minDimension}px` : 'none'
-            },
-            className: classNames(
-              className,
-              children.props.className,
-              collapseStyles[state],
-              dimension === 'width' && 'width',
-            )
-          })
-        }
+        {(state, innerProps) => React.cloneElement(children, {
+          ...innerProps,
+          style: {
+            [`max${capitalize(dimension)}`]: minDimensionOnMount ? `${minDimension}px` : 'none'
+          },
+          className: classNames(
+            className,
+            children.props.className,
+            collapseStyles[state],
+            dimension === 'width' && 'width'
+          )
+        })}
       </Transition>
     );
   }

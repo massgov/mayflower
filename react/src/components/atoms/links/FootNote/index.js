@@ -11,6 +11,7 @@ class FootNote extends React.Component {
     const element = document.getElementsByClassName(`footnoteref${this.props.index}`)[0];
     element.scrollIntoView({ block: 'start', behavior: 'smooth' });
   }
+
   render() {
     const { children, index } = this.props;
     return(

@@ -30,8 +30,8 @@ const CompHeading = (props) => {
         // Allows compHeading to render custom children component (this feature is used in rideshare report and it's not in Mayflower PatternLab)
         compHeading.children
       }
-      {compHeading.titleContext &&
-      <span className="visually-hidden" >{compHeading.titleContext}</span>}
+      {compHeading.titleContext
+      && <span className="visually-hidden">{compHeading.titleContext}</span>}
     </Element>
   );
 };

@@ -25,21 +25,26 @@ class LinkDropdown extends React.Component {
     this.setDropDownButtonRef = this.setDropDownButtonRef.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
   }
+
   componentDidMount() {
     this.buttonClicked = false;
     document.addEventListener('mousedown', this.handleClickOutside);
     this.dropDownButtonRef.addEventListener('mousedown', this.handleRefMouseDown);
   }
+
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
     this.dropDownButtonRef.removeEventListener('mousedown', this.handleRefMouseDown);
   }
+
   setDropDownButtonRef(node) {
     this.dropDownButtonRef = node;
   }
+
   closeDropdown() {
     this.setState({ buttonExpand: false });
   }
+
   handleSelect = (event) => {
     const { target } = event;
     this.setState({ buttonExpand: false });
@@ -47,6 +52,7 @@ class LinkDropdown extends React.Component {
       this.props.onItemSelect({ target });
     }
   }
+
   handleClickOutside = (event) => {
     // Close the panel if the user clicks outside the component.
     const node = this.wrapperRef.current;
@@ -56,12 +62,14 @@ class LinkDropdown extends React.Component {
       }
     }
   }
+
   handleKeyDown = (event) => {
     // If the user pressed escape collapse list.
     if (event.key === 'Escape') {
       this.closeDropdown();
     }
   }
+
   handleClick = (event) => {
     const { target } = event;
     this.setState((prevState) => ({ buttonExpand: !prevState.buttonExpand }));
@@ -69,6 +77,7 @@ class LinkDropdown extends React.Component {
       this.props.onButtonClick({ target });
     }
   }
+
   render() {
     const { dropdownItems, dropdownButton } = this.props;
     const dropdownButtonProps = {

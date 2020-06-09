@@ -32,7 +32,8 @@
         "no-underscore-dangle": ["off"],
         "no-use-before-define": ["off"],
         "jsx-a11y/anchor-is-valid": ["warn"],
-        "react/jsx-props-no-spreading": ["off"]
+        "react/jsx-props-no-spreading": ["off"],
+        "react/destructuring-assignment": ["off"]
     },
     "settings": {
         "import/resolver": {

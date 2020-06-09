@@ -39,6 +39,7 @@ class TypeAheadDropdown extends React.Component {
     document.addEventListener('mousedown', this.handleClickOutside);
     this.dropDownButtonRef.addEventListener('mousedown', this.handleRefMouseDown);
   }
+
   componentWillReceiveProps(nextProps) {
     const selectedValue = nextProps.inputText.selected;
     if (selectedValue !== undefined) {
@@ -48,9 +49,11 @@ class TypeAheadDropdown extends React.Component {
       });
     }
   }
+
   componentDidUpdate() {
     this.buttonClicked = false;
   }
+
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
     this.dropDownButtonRef.removeEventListener('mousedown', this.handleRefMouseDown);
@@ -59,9 +62,11 @@ class TypeAheadDropdown extends React.Component {
   setDropDownButtonRef(node) {
     this.dropDownButtonRef = node;
   }
+
   closeDropdown() {
     this.setState({ buttonExpand: false });
   }
+
   handleRefMouseDown() {
     this.buttonClicked = true;
   }
@@ -69,11 +74,12 @@ class TypeAheadDropdown extends React.Component {
   handleClick() {
     this.setState((prevState) => ({ buttonExpand: !prevState.buttonExpand }));
   }
+
   handleKeyDown(event) {
     // If the user pressed escape, or pressed enter with nothing selected close
     // the panel.
-    if ((event.key === 'Escape') ||
-        (event.key === 'Enter' && event.target.value === '')) {
+    if ((event.key === 'Escape')
+        || (event.key === 'Enter' && event.target.value === '')) {
       this.closeDropdown();
     }
     if (event.key === 'Escape' && this.dropDownButtonRef) {
@@ -83,11 +89,13 @@ class TypeAheadDropdown extends React.Component {
       this.props.onKeyDown(event);
     }
   }
+
   handleInputBlur() {
     if (!this.buttonClicked) {
       this.closeDropdown();
     }
   }
+
   handleSelect(event, input) {
     // Stop the filters form submission if enter is pressed in the selector.
     event.preventDefault();
@@ -102,6 +110,7 @@ class TypeAheadDropdown extends React.Component {
       }
     }
   }
+
   handleClickOutside(event) {
     // Close the panel if the user clicks outside the component.
     const node = this.wrapperRef.current;

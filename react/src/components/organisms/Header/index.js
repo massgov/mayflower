@@ -76,6 +76,7 @@ class Header extends React.Component {
       navSelected: -1
     });
   };
+
   // Puts focus on the mobile search input after the menu is opened via the search button.
   afterButtonSearch = () => {
     document.getElementById('nav-search').focus();
@@ -84,6 +85,7 @@ class Header extends React.Component {
       headerSearch.buttonSearch.onClick();
     }
   };
+
   // On click action used for both top and bottom buttons.
   defaultButtonSearchOnClick = (e) => {
     e.preventDefault();
@@ -128,14 +130,17 @@ class Header extends React.Component {
       }
     }
   }
+
   handleChangeSearchTop = () => {
     const shouldNavigateTop = (this.searchInputTop.current.value.length > 0);
     this.setState({ shouldNavigateTop });
   }
+
   handleChangeSearchBottom = () => {
     const shouldNavigateBottom = (this.searchInputBottom.current.value.length > 0);
     this.setState({ shouldNavigateBottom });
   }
+
   topHeaderSearch = () => {
     const { headerSearch } = this.props;
     const headerSearchProps = {
@@ -150,6 +155,7 @@ class Header extends React.Component {
     };
     return(<HeaderSearch {...headerSearchProps} />);
   };
+
   bottomHeaderSearch = () => {
     const { headerSearch } = this.props;
     const headerSearchProps = {
@@ -181,7 +187,8 @@ class Header extends React.Component {
         {!hideBackTo && (
           <div className="ma__header__backto">
             <a href="http://www.mass.gov">Go to classic Mass.gov</a>
-          </div>)}
+          </div>
+        )}
         <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
         <div className="ma__header__utility-nav ma__header__utility-nav--wide">
           {utilityNav ? <UtilityNav {...utilityNav} isOpen={utilNavOpen} /> : <div className="ma__header__banner" />}
@@ -192,11 +199,12 @@ class Header extends React.Component {
               is.fn(siteLogo) ? siteLogo() : <SiteLogo {...siteLogo} />
             }
           </div>
-          {!hideHeaderSearch &&
+          {!hideHeaderSearch
+          && (
           <div className="ma__header__search js-header-search-menu">
             {is.fn(headerSearch) ? headerSearch() : this.topHeaderSearch()}
           </div>
-          }
+          )}
         </div>
         <nav className="ma__header__nav" aria-labelledby="main_navigation" id="main-navigation">
           <h2 id="main_navigation" className="visually-hidden">Main Navigation</h2>
@@ -222,16 +230,18 @@ class Header extends React.Component {
                 className="ma__header__menu-button js-header-menu-button"
                 onClick={() => this.menuButtonClicked(false)}
               >
-                <span>Menu</span><span className="ma__header__menu-icon" />
+                <span>Menu</span>
+                <span className="ma__header__menu-icon" />
               </button>
             </div>
           ) : <div className="ma__header__banner ma__header__banner--mobile" />}
           <div className="ma__header__nav-container">
-            {!hideHeaderSearch &&
+            {!hideHeaderSearch
+            && (
             <div className="ma__header__nav-search">
               {is.fn(headerSearch) ? headerSearch() : this.bottomHeaderSearch()}
             </div>
-            }
+            )}
             { mainNav && (
               <div className="ma__header__main-nav">
                 <MainNav

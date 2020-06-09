@@ -20,40 +20,49 @@ const FooterSlim = (props) => (
           <h3>{props.title }</h3>
           <p>{props.description }</p>
           <p className="ma__footer_slim--copyright">
-            &copy; {moment().year()} Commonwealth of Massachusetts
+            &copy;
+            {' '}
+            {moment().year()}
+            {' '}
+            Commonwealth of Massachusetts
           </p>
         </section>
         <section className="ma__footer_slim--details">
-          {props.links &&
+          {props.links
+            && (
             <div className="ma__footer_slim--links">
               {props.links.map((link, linkIndex) => (
                 /* eslint-disable-next-line react/no-array-index-key */
                 <a href={link.href} key={`footslimlinks-${linkIndex}`}>{link.title}</a>
               ))}
             </div>
-          }
-          {props.contact &&
+            )}
+          {props.contact
+            && (
             <div className="ma__footer_slim--contact">
-              {props.contact.address &&
+              {props.contact.address
+              && (
               <p>
                 <Icon name="marker" svgWidth={20} svgHeight={20} />
                 <span>{props.contact.address}</span>
               </p>
-              }
-              {props.contact.phone &&
+              )}
+              {props.contact.phone
+              && (
               <p>
                 <Icon name="phone" svgWidth={20} svgHeight={20} />
                 <span>{props.contact.phone}</span>
               </p>
-              }
-              {props.contact.online && props.contact.online.href && props.contact.online.title &&
+              )}
+              {props.contact.online && props.contact.online.href && props.contact.online.title
+              && (
               <p>
                 <Icon name="laptop" svgWidth={20} svgHeight={20} />
                 <a href={props.contact.online.href}>{props.contact.online.title}</a>
               </p>
-              }
+              )}
             </div>
-          }
+            )}
         </section>
       </div>
     </div>

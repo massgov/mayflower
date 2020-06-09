@@ -48,6 +48,7 @@ class TabContainer extends React.Component {
       tabBodyRef: this.tabBodyRef
     };
   }
+
   setActiveTab = (tabId) => {
     const state = {
       activeTab: tabId
@@ -61,6 +62,7 @@ class TabContainer extends React.Component {
       this.state.tabRefs[tabId].current.focus();
     }
   };
+
   render() {
     const classes = classNames({
       'ma__tab-container': true,

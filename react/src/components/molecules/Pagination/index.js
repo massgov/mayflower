@@ -47,7 +47,7 @@ const Pagination = (props) => {
           return page.text === 'spacer' ? (
             <span key={key} className="ma__pagination__spacer">&hellip;</span>
           ) : (
-              // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
               className={page.active ? 'ma__pagination__page is-active' : 'ma__pagination__page'}
               role="button"
@@ -61,7 +61,7 @@ const Pagination = (props) => {
             >
               {page.text}
             </a>
-            );
+          );
         })}
         {!next.hide && (
           // eslint-disable-next-line jsx-a11y/anchor-is-valid

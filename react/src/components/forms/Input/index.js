@@ -7,8 +7,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { InputContext, FormContext } from './context';
 import Label from 'MayflowerReactForms/Label';
+import { InputContext, FormContext } from './context';
 
 /* eslint-disable react/no-unused-state */
 
@@ -24,17 +24,16 @@ const Input = (props) => {
   const conditionText = required ? '' : 'optional';
   // InputProvider will get the same props.children as Input.
   return(
-    <React.Fragment>
+    <>
       <div className={inputClasses}>
         {labelText && (
           <Label inputId={id} hidden={hiddenLabel} disabled={disabled} conditionText={conditionText}>
             {labelText}
           </Label>
-          )
-        }
+        )}
         <InputProvider {...props} />
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -66,13 +65,17 @@ class InputProvider extends React.Component {
       inline: this.props.inline
     };
   }
+
   getValue = () => this.state.value;
+
   setValue = (value, afterUpdate) => {
     this.setState({ value }, afterUpdate);
   };
+
   updateState = (newState, afterUpdate) => {
     this.setState(newState, afterUpdate);
   };
+
   checkFormContext = (formContext) => {
     if (formContext.isActive) {
       // By giving the form getters and setters and not the input value,
@@ -84,6 +87,7 @@ class InputProvider extends React.Component {
       }
     }
   };
+
   render() {
     return(
       <InputContext.Provider value={this.state}>

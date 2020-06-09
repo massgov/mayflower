@@ -28,8 +28,8 @@ const OperationalHours = (props) => {
     <div className="ma__operational-hours">
       <table className={`ma__operational-hours-table${listing}`}>
         <tbody>
-          {props.hours &&
-            Object.entries(props.hours).map(([key, value]) => {
+          {props.hours
+            && Object.entries(props.hours).map(([key, value]) => {
               const active = (props.showActive && key === props.currentDay) ? '--active' : '';
               const rowKey = props.listKey
                 ? `${props.listKey}-row-${key}`

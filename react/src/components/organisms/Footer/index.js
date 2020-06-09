@@ -32,7 +32,10 @@ const Footer = ({
           <SocialLinks {...socialLinks} />
         </div>
         <div className="ma__footer__copyright">
-          <p className="ma__footer__copyright--date">&copy; {footerText.copyright}</p>
+          <p className="ma__footer__copyright--date">
+            &copy;
+            {footerText.copyright}
+          </p>
           <p>{footerText.description}</p>
           <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
         </div>
@@ -41,12 +44,14 @@ const Footer = ({
         <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
       </div>
     </div>
-    { backToTopButton &&
+    { backToTopButton
+    && (
     <button className="ma__footer__back2top js-back2top is-hidden">
       <Icon name="arrow" />
       <span aria-hidden="true">Top</span>
       <span className="visually-hidden">Go to the top of the page</span>
-    </button> }
+    </button>
+    ) }
   </footer>
 );
 

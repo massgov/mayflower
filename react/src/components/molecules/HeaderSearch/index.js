@@ -28,6 +28,7 @@ class HeaderSearch extends React.Component {
       this.props.onChange(query);
     }
   }
+
   handleSubmit = (event) => {
     if (is.fn(this.props.onSubmit)) {
       this.props.onSubmit(event);
@@ -51,17 +52,19 @@ class HeaderSearch extends React.Component {
     }
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
-        {shouldShowTypeAhead &&
+        {shouldShowTypeAhead
+          && (
           <div className="ma__header-search__pre-filter">
             <TypeAheadDropdown {...orgDropdown} />
           </div>
-        }
+          )}
         <div className="ma__header-search">
           <form action="#" className="ma__form" onSubmit={this.handleSubmit} role="search">
             <label
               htmlFor={headerSearch.id}
               className="ma__header-search__label"
-            >{headerSearch.label}
+            >
+              {headerSearch.label}
             </label>
             <input {...inputProps} />
             {this.props.suggestions && this.props.suggestions}

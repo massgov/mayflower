@@ -13,9 +13,11 @@ class ButtonToggle extends React.Component {
       selected: props.defaultValue
     };
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ selected: nextProps.defaultValue });
   }
+
   onToggleClick(event) {
     const selected = event.target.value;
     if (typeof this.props.onChangeCallback === 'function') {
@@ -23,6 +25,7 @@ class ButtonToggle extends React.Component {
     }
     this.setState({ selected });
   }
+
   render() {
     const {
       id, labelText, option1, option2
@@ -31,7 +34,9 @@ class ButtonToggle extends React.Component {
     return(
       <span>
         <label htmlFor={id} className="ma__label--inline ma__label--small">{ labelText }</label>
-        <button onClick={(e) => this.onToggleClick(e)} value={option1.value} type="button" className={`ma__button-toggle ${(option1.value === selected) && 'ma__button-toggle--selected'}`}>{ option1.text }</button> |
+        <button onClick={(e) => this.onToggleClick(e)} value={option1.value} type="button" className={`ma__button-toggle ${(option1.value === selected) && 'ma__button-toggle--selected'}`}>{ option1.text }</button>
+        {' '}
+        |
         <button onClick={(e) => this.onToggleClick(e)} value={option2.value} type="button" className={`ma__button-toggle ${(option2.value === selected) && 'ma__button-toggle--selected'}`}>{ option2.text }</button>
       </span>
     );

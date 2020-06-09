@@ -28,18 +28,21 @@ class SearchBanner extends React.Component {
     };
     this.toggleFilterBox = this.toggleFilterBox.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     const { filterBoxExpanded } = nextProps;
     if (this.state.filterBoxExpanded !== filterBoxExpanded) {
       this.setState({ filterBoxExpanded });
     }
   }
+
   toggleFilterBox() {
     this.setState((prevState) => ({ filterBoxExpanded: !prevState.filterBoxExpanded }));
     if (typeof this.props.toggleButtonOnClick === 'function') {
       this.props.toggleButtonOnClick(this.state.filterBoxExpanded);
     }
   }
+
   render() {
     const {
       tabs, searchBox, filterBox, filterToggleText

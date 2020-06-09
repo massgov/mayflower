@@ -35,14 +35,12 @@ const ResultsHeading = (resultsHeading) => {
           <div className="ma__results-heading__sort ma__results-heading__sort-selecBox">
             <SelectBox {...selectBoxProps} />
           </div>
-          )
-        }
+        )}
         { buttonToggleProps && (
           <div className="ma__results-heading__sort">
             <ButtonToggle {...buttonToggleProps} />
           </div>
-         )
-        }
+        )}
       </div>
     </div>
   );

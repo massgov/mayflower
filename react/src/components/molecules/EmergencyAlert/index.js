@@ -25,11 +25,16 @@ const EmergencyAlert = (props) => {
     <p className={pClasses}>
       <span className="ma__emergency-alert__message">
         {message}
-        {(timeStamp) && (<span className="ma__emergency-alert__time-stamp">&nbsp;{timeStamp}</span>)}
+        {(timeStamp) && (
+        <span className="ma__emergency-alert__time-stamp">
+          {timeStamp}
+        </span>
+        )}
       </span>
       {is.fn(link) && (
         <span className="ma__emergency-alert__link">
-          &nbsp;{link({ ...linkArgs })}
+          &nbsp;
+          {link({ ...linkArgs })}
         </span>
       )}
     </p>

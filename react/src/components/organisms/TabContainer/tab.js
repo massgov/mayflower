@@ -19,11 +19,11 @@ class Tab extends React.Component {
       const body = document.getElementById(this.context.tabContainerBodyId);
       if (this.context.tabRefs[nextIdent]) {
         this.context.setActiveTab(nextIdent);
-      } else if (!body.getElementsByClassName('ma__tab-container--nested')[0] && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
-            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
+      } else if (!body.getElementsByClassName('ma__tab-container--nested')[0] && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
+            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
         // If the TabContainer has a parent TabContainer, and that container has a next selectable sibling.
-        if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
-            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
+        if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
+            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].nextElementSibling) {
           const nextTab = e.currentTarget
             .closest('div.ma__tab-container')
             .parentElement
@@ -42,8 +42,8 @@ class Tab extends React.Component {
         this.context.setActiveTab(prevIdent);
       } else if (!body.getElementsByClassName('ma__tab-container--nested')[0]) {
         // If the TabContainer has a parent TabContainer, and that container has a previous selectable sibling.
-        if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container') &&
-            e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].previousElementSibling) {
+        if (e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container')
+            && e.currentTarget.closest('div.ma__tab-container').parentElement.closest('div.ma__tab-container').getElementsByClassName('ma__tab-title--active')[0].previousElementSibling) {
           const prevTab = e.currentTarget
             .closest('div.ma__tab-container')
             .parentElement
@@ -57,6 +57,7 @@ class Tab extends React.Component {
       }
     }
   };
+
   render() {
     const { tabIdent, active, tabRef } = this.props;
     const { setActiveTab, activeTab } = this.context;
@@ -84,7 +85,7 @@ class Tab extends React.Component {
       tabIndex: active ? 0 : -1
     };
     return(
-      <React.Fragment>
+      <>
         <li role="presentation" className={tabClasses}>
           <button {...buttonProps}>{this.props.title}</button>
         </li>
@@ -93,7 +94,7 @@ class Tab extends React.Component {
             {this.props.children}
           </TabBody>
         )}
-      </React.Fragment>
+      </>
     );
   }
 }

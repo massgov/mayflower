@@ -53,9 +53,18 @@ const DecorativeLink = (props) => {
         href={href}
         title={info || null}
       >
-        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}
+        {decIcon && (
+        <span className="ma__download-link--icon">
+          {decIcon}
+&nbsp;
+        </span>
+        )}
         {text}
-        {details && <span className="ma__decorative-link__details">&nbsp;{details}</span>}
+        {details && (
+        <span className="ma__decorative-link__details">
+          {details}
+        </span>
+        )}
         &nbsp;
         {icon || <Icon name="arrow" aria-hidden="true" />}
       </a>

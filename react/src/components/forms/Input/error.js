@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputContext } from './context';
 import ErrorMessage from 'MayflowerReactForms/ErrorMessage';
+import { InputContext } from './context';
 
 class Error extends React.Component {
   displayErrorMessage = (inputContext) => {
@@ -14,6 +14,7 @@ class Error extends React.Component {
     }
     return null;
   };
+
   render() {
     return(
       <InputContext.Consumer>

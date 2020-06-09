@@ -24,19 +24,23 @@ class TeaserOrgs extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     const { orgs } = nextProps;
     const allOrgs = orgs.split(',');
     this.setState({ shouldTruncate: (allOrgs.length > 3), truncateOrgs: (allOrgs.length > 3), showAll: false });
   }
+
   handleClick() {
     this.setState((prevState) => ({ showAll: !prevState.showAll, truncateOrgs: !prevState.truncateOrgs }));
   }
+
   handleKeyPress(e) {
     if (e.key === 'Enter') {
       this.setState((prevState) => ({ showAll: !prevState.showAll, truncateOrgs: !prevState.truncateOrgs }));
     }
   }
+
   render() {
     const { orgs } = this.props;
     const teaserOrgs = orgs.split(',');
@@ -60,8 +64,10 @@ class TeaserOrgs extends React.Component {
     const displayedOrgs = (this.state.showAll) ? teaserOrgs.join(', ') : shownOrgs.join(', ');
     return(
       <span className="ma__gen-teaser__org">
-        { displayedOrgs }{toggle}
-      </span>);
+        { displayedOrgs }
+        {toggle}
+      </span>
+    );
   }
 }
 

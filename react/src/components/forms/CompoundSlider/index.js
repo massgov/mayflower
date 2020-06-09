@@ -6,7 +6,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import numbro from 'numbro';
-import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider/es';
+import {
+  Slider, Rail, Handles, Tracks, Ticks
+} from 'react-compound-slider/es';
 import { InputContext } from 'MayflowerReactForms/Input/context';
 import { countDecimals } from 'MayflowerReactForms/Input/utility';
 
@@ -42,8 +44,7 @@ const Handle = (props) => {
         <div className="ma__slider-handle-value">
           { displayValueFormat === 'percentage' ? numbro(value).format({ output: 'percent', mantissa: 0 }) : roundedValue }
         </div>
-      )
-      }
+      )}
 
     </button>
   );
@@ -122,10 +123,10 @@ const Tick = (props) => {
     };
   }
   return(
-    <React.Fragment>
+    <>
       <div className="ma__slider-tick ma__slider-tick--top" {...top} />
       <div className="ma__slider-tick ma__slider-tick--bottom" {...bottom}><label htmlFor={id}>{tick.value}</label></div>
-    </React.Fragment>
+    </>
   );
 };
 
@@ -288,8 +289,7 @@ class CompoundSlider extends React.Component {
                         );
                       }
                       return null;
-                    }
-                    }
+                    }}
                   </Ticks>
                 </Slider>
               </div>

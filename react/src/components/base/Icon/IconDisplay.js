@@ -7,13 +7,13 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from './index';
 import ButtonCopy from 'MayflowerReactButtons/ButtonCopy';
+import Icon from './index';
 
 const IconDisplay = (props) => {
   const { name } = props;
   return(
-    <li style={{ width: 180, margin: 10, padding: 10 }} >
+    <li style={{ width: 180, margin: 10, padding: 10 }}>
       <div className="sg-icons-info">
         <Icon {...props} />
         <div>

@@ -40,6 +40,7 @@ class MultiSelectDropDown extends React.Component {
     document.addEventListener('mousedown', (e) => this.handleClickOutside(e));
     this.wrapperRef.addEventListener('keydown', (e) => this.handleKeyDown(e));
   }
+
   componentWillUnmount() {
     document.removeEventListener('mousedown', () => this.handleClickOutside());
     this.wrapperRef.removeEventListener('keydown', () => this.handleKeyDown());
@@ -169,6 +170,7 @@ class MultiSelectDropDown extends React.Component {
   toggleDropDown = () => {
     this.setState((prevState) => ({ dropwDownExpand: !prevState.dropwDownExpand }));
   }
+
   closeDropDown = () => {
     this.setState({ dropwDownExpand: false });
   }
@@ -246,7 +248,8 @@ class MultiSelectDropDown extends React.Component {
                       defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
                       tabIndex={-1}
                     />
-                  ))}
+                  ))
+}
               </div>
             )
           }

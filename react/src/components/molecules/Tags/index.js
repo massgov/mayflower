@@ -15,20 +15,24 @@ class Tags extends React.Component {
       tags: this.props.tags ? this.props.tags : null
     };
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ tags: nextProps.tags });
   }
+
   handleClearAll() {
     if (typeof this.props.onClearCallback === 'function') {
       this.props.onClearCallback();
     }
     this.setState({ tags: null });
   }
+
   handleClearThis(event) {
     if (typeof this.props.onClearThisCallback === 'function') {
       this.props.onClearThisCallback(event.target, event);
     }
   }
+
   render() {
     const { tags } = this.state;
     return(
@@ -43,11 +47,12 @@ class Tags extends React.Component {
             /* eslint-disable-next-line react/no-array-index-key */
             key={`resultsHeading.tag.${tagIndex}`}
           />
-         ))}
+        ))}
         { tags.length > 1 && (
         <button type="button" className="ma__tags-clear js-results-heading-clear" onClick={() => this.handleClearAll()}>Clear all</button>
-          )}
-      </div>)
+        )}
+      </div>
+      )
     );
   }
 }

@@ -11,6 +11,7 @@ class FootNoteLink extends React.Component {
     const element = document.getElementById(`footnotemsg${this.props.index}`);
     element.scrollIntoView({ block: 'end', behavior: 'smooth' });
   }
+
   render() {
     const { index } = this.props;
     return(
@@ -22,7 +23,13 @@ class FootNoteLink extends React.Component {
         tabIndex="0"
         role="link"
       >
-        <span><sup>[{index}]</sup></span>
+        <span>
+          <sup>
+            [
+            {index}
+            ]
+          </sup>
+        </span>
       </button>
     );
   }

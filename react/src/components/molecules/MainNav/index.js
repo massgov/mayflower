@@ -205,9 +205,9 @@ class MainNav extends React.Component {
                 onClick={this.openSubNav}
               >
                 {itemBody}
-              </li>);
-            })
-          }
+              </li>
+            );
+          })}
         </ul>
       </div>
     );

@@ -10,9 +10,8 @@ import ButtonSort from 'MayflowerReactButtons/ButtonSort';
 
 const SortResults = (sortResults) => (
   <div className="ma__sort-results js-sort-results">
-    {sortResults.label &&
-        (<span className="ma__sort-results__label">{sortResults.label}</span>)
-      }
+    {sortResults.label
+        && (<span className="ma__sort-results__label">{sortResults.label}</span>)}
     {sortResults.sortButtons.map((buttonSort, index) => {
       const buttonProps = buttonSort;
       buttonProps.key = `ButtonSort.${index}`;

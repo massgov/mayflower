@@ -48,7 +48,7 @@ listItem.propTypes = {
 };
 
 const subList = (props) => {
-  const newProps = Object.assign({}, props);
+  const newProps = { ...props };
   if (!Object.prototype.hasOwnProperty.call(newProps, 'olIndex')) {
     newProps.olIndex = 0;
   }
@@ -65,7 +65,8 @@ const subList = (props) => {
         }
         return listItem(item, itemIndex, olId);
       })}
-    </ol>);
+    </ol>
+  );
 };
 
 export default OrderedList;

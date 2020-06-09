@@ -63,11 +63,11 @@ const FilterBox = (props) => {
                     </div>
                   )}
                   {clearButton && (
-                    <React.Fragment>
+                    <>
                       <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
                         {clearButton.text}
                       </button>
-                    </React.Fragment>
+                    </>
                   )}
                 </div>
               )

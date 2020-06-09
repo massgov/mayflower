@@ -46,7 +46,7 @@ const NumberInput = (props) => {
                 showError: true,
                 errorMsg
               };
-            } else if (is.number(val)) {
+            } if (is.number(val)) {
               const { showError, errorMsg } = validNumber(val, min, max);
               return{
                 showError, errorMsg

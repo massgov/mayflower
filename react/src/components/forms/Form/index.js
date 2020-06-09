@@ -17,7 +17,7 @@ const Form = (props) => (
           <form className="ma__form-page" action="#">
             {props.children(formContext)}
           </form>
-          )
+        )
       }
   </FormContext.Consumer>
 );
@@ -39,6 +39,7 @@ class FormProvider extends React.Component {
       getValues: this.getValues
     };
   }
+
   getValues = () => {
     const values = {};
     Object.keys(this.state.value).forEach((inputId) => {
@@ -46,19 +47,24 @@ class FormProvider extends React.Component {
     });
     return values;
   };
+
   getValue = (inputId) => {
     if (this.hasId(inputId)) {
       return this.state.value[inputId].getValue();
     }
     return null;
   };
+
   setValue = (input, afterUpdate) => {
     if (Object.prototype.hasOwnProperty.call(this.state.value, input.id)) {
       this.state.value[input.id].setValue(input.value, afterUpdate);
     }
   };
+
   hasId = (inputId) => Object.prototype.hasOwnProperty.call(this.state.value, inputId);
+
   updateState = (newState) => { this.setState(newState); };
+
   render() {
     return(
       <FormContext.Provider value={this.state}>

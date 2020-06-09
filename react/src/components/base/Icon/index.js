@@ -17,10 +17,12 @@ export default class Icon extends React.Component {
     ariaHidden: PropTypes.bool,
     fill: PropTypes.string
   };
+
   static defaultProps = {
     title: null,
     classes: []
   }
+
   state = {
     content: null,
     loaded: null
@@ -51,7 +53,7 @@ export default class Icon extends React.Component {
             'aria-hidden': ariaHidden || null
           };
           const content = (
-            <svg {...attr} {...rest} >
+            <svg {...attr} {...rest}>
               {title && <title>{title}</title>}
               <use xlinkHref={`#${name}`} fill={fill} />
             </svg>

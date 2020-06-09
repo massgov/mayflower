@@ -38,7 +38,7 @@ const ImagePromo = (props) => {
         {props.title ? (
           <DecorativeLink {...props.title} />
         ) : (
-          <React.Fragment>{props.title.text}</React.Fragment>
+          <>{props.title.text}</>
         )}
       </HeadingElement>
 
@@ -74,7 +74,8 @@ const ImagePromo = (props) => {
 
         {props.phone && (
           <div className="ma__image-promo__phone">
-            <Icon name="phone" />&nbsp;
+            <Icon name="phone" />
+&nbsp;
             {props.phone.href ? (
               <a href={`tel:${props.phone.href}`}>{props.phone.text}</a>
             ) : (

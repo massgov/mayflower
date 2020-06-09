@@ -24,18 +24,22 @@ class TeaserOrg extends React.Component {
       console.warn('This component is deprecated and will be archived in v10. Use the GenTeaser Organism instead.');
     }
   }
+
   componentWillReceiveProps(nextProps) {
     const allOrgs = nextProps.orgs.split(',');
     this.setState({ shouldTruncate: (allOrgs.length > 3), truncateOrgs: (allOrgs.length > 3), showAll: false });
   }
+
   handleClick() {
     this.setState((prevState) => ({ showAll: !prevState.showAll, truncateOrgs: !prevState.truncateOrgs }));
   }
+
   handleKeyPress(e) {
     if (e.key === 'Enter') {
       this.setState((prevState) => ({ showAll: !prevState.showAll, truncateOrgs: !prevState.truncateOrgs }));
     }
   }
+
   render() {
     const { orgs } = this.props;
     const teaserOrgs = orgs.split(',');
@@ -56,12 +60,20 @@ class TeaserOrg extends React.Component {
     if (!this.state.truncateOrgs) {
       toggleProps.className += ' show-fewer';
     }
-    const toggle = <span {...toggleProps}>{toggleText} <Icon name="chevron" svgWidth="16" svgHeight="16" /></span>;
+    const toggle = (
+      <span {...toggleProps}>
+        {toggleText}
+        {' '}
+        <Icon name="chevron" svgWidth="16" svgHeight="16" />
+      </span>
+    );
     const displayedOrgs = (this.state.showAll) ? teaserOrgs.join(', ') : shownOrgs.join(', ');
     return(
       <span className="ma__general-teaser__org">
-        { displayedOrgs }{toggle}
-      </span>);
+        { displayedOrgs }
+        {toggle}
+      </span>
+    );
   }
 }
 TeaserOrg.propTypes = {

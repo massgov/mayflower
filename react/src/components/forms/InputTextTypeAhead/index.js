@@ -34,15 +34,18 @@ class InputTextTypeAhead extends React.Component {
       console.warn('This component is deprecated and will be archived in v10. Use InputTextFuzzy instead.');
     }
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.selected });
     this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.text === nextProps.selected);
   }
+
   onKeyDown(event) {
     if (typeof this.props.onKeyDown === 'function') {
       this.props.onKeyDown(event);
     }
   }
+
   onChange(event, { newValue }) {
     this.setState({
       value: newValue
@@ -53,27 +56,32 @@ class InputTextTypeAhead extends React.Component {
       this.props.onChange(event, { suggestion });
     }
   }
+
   onBlur(event) {
     if (typeof this.props.onBlur === 'function') {
       this.props.onBlur(event);
     }
   }
+
   onSuggestionsFetchRequested({ value }) {
     this.setState({
       suggestions: this.getSuggestions(value)
     });
   }
+
   onSuggestionsClearRequested() {
     this.setState({
       suggestions: []
     });
   }
+
   onSuggestionSelected(event, { suggestion }) {
     // invokes custom function if passed in the component
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(event, { suggestion });
     }
   }
+
   getSuggestions(value) {
     const escapeRegexCharacters = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const escapedValue = escapeRegexCharacters(value.trim());
@@ -129,7 +137,7 @@ class InputTextTypeAhead extends React.Component {
       'ma__input-typeahead--disabled': disabled
     });
     return(
-      <React.Fragment>
+      <>
         {label && (<label htmlFor={id} className="ma__label">{label}</label>)}
         <div className={inputTextTypeAheadClasses}>
           <Autosuggest
@@ -145,7 +153,7 @@ class InputTextTypeAhead extends React.Component {
             ref={(select) => { this.selectTag = select; }}
           />
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

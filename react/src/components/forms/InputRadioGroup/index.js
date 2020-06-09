@@ -46,7 +46,7 @@ class InputRadioGroup extends React.Component {
     });
 
     return(
-      <React.Fragment>
+      <>
         <fieldset>
           <div className="ma__input-group">
             <legend className={titleClasses}>
@@ -54,32 +54,32 @@ class InputRadioGroup extends React.Component {
             </legend>
             <div className={itemsClasses}>
               {this.props.radioButtons.map((radioButton, index) => {
-              const isChecked = radioButton.value === this.state.selected;
-              const buttonId = radioButton.id || radioButton.value;
-              return(
+                const isChecked = radioButton.value === this.state.selected;
+                const buttonId = radioButton.id || radioButton.value;
+                return(
                 /* eslint-disable-next-line react/no-array-index-key */
-                <div className={`ma__input-group__item item-${this.props.radioButtons.length} ${radioButton.class}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
-                  <InputRadio
-                    {...radioButton}
-                    name={this.props.name}
-                    onChange={this.handleChange}
-                    checked={isChecked}
-                    required={this.props.required}
-                    outline={this.props.outline}
-                    error={this.props.error}
-                    disabled={this.props.disabled}
+                  <div className={`ma__input-group__item item-${this.props.radioButtons.length} ${radioButton.class}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
+                    <InputRadio
+                      {...radioButton}
+                      name={this.props.name}
+                      onChange={this.handleChange}
+                      checked={isChecked}
+                      required={this.props.required}
+                      outline={this.props.outline}
+                      error={this.props.error}
+                      disabled={this.props.disabled}
                     /* eslint-disable-next-line react/no-array-index-key */
-                    key={`InputRadioGroup-${buttonId}-${index}`}
-                  />
-                </div>
-              );
-            })}
+                      key={`InputRadioGroup-${buttonId}-${index}`}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </fieldset>
-        {this.props.errorMsg && this.props.error &&
-        <ErrorMessage status error={this.props.errorMsg} inputID={this.props.name} />}
-      </React.Fragment>
+        {this.props.errorMsg && this.props.error
+        && <ErrorMessage status error={this.props.errorMsg} inputID={this.props.name} />}
+      </>
     );
   }
 }
