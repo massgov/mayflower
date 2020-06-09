@@ -39,7 +39,7 @@
 
     // Visual cue for the clickable area.
 
-    & li:hover {
+    > li[data-link]:hover {
       cursor: pointer;
 
       a {
@@ -102,6 +102,18 @@
     padding: 10px 0 10px 20px;
     background: $c-white;
     border-top: 2px solid $c-gray-light;
+
+    // Visual cue for the clickable area.
+
+    li:hover {
+      cursor: pointer;
+
+      a {
+        border-bottom-width: 3px;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(20,85,143,0.5);
+      }
+    }
   }
 
   .ma__toc--hierarchy__title {
