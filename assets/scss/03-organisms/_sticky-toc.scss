@@ -196,6 +196,10 @@
 
   &__link {
 
+    &:hover {
+      cursor: pointer;
+    }
+
     a {
 
     & > svg {
@@ -504,8 +508,9 @@
 
   .ma__sticky-toc__link {
     display: block;
-    padding-left: 40px;
-    margin: 0 20px;
+    padding-right: 20px;
+    padding-left: 60px;
+    margin: 0; // 20px;
 
     a {
       font-weight: $fonts-bold;
@@ -515,9 +520,11 @@
       svg {
         display: block;
         margin-top: 7px;
+        margin-left: 20px;
+        z-index: -3;
 
         @media ($bp-x-small-min) {
-          margin: 0;
+          margin: 0 0 0 20px;
         }
       }
     }
@@ -535,6 +542,15 @@
         transition: right 0.3s ease-out;
         position: fixed;
         z-index: 9999;
+      }
+
+      @media ($bp-medium-max) {
+
+        // Fix the toc label covering top 2 toc links.
+
+        & + .ma__sticky-toc__link {
+          margin-top: 75px;
+        }
       }
     }
   }
