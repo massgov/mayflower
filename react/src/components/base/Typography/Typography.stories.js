@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import MarkdownIt from 'markdown-it';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import Heading from '../../atoms/headings/Heading';
-import SidebarHeading from '../../atoms/headings/SidebarHeading';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
+import Heading from 'MayflowerReactHeadings/Heading';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import {
   characters,
   letters,
@@ -75,12 +75,12 @@ storiesOf('brand|typography', module)
               styles.map((style) => {
                 const className = `ma-texta-${slugifyStyle(style)}`;
                 return(
-                  <Fragment>
+                  <React.Fragment>
                     <span className={className}>{style}</span>
                     <span className="markdown-body">
                       <code>{`.${className}`}</code>
                     </span>
-                  </Fragment>
+                  </React.Fragment>
                 );
               })
             }

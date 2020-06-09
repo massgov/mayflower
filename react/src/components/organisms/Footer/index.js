@@ -1,13 +1,21 @@
+/**
+ * Footer module.
+ * @module @massds/mayflower-react/Footer
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/footer
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/footer-links
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/social-links
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
-import FooterLinks from '../../molecules/FooterLinks';
-import SocialLinks from '../../molecules/SocialLinks';
-import Icon from '../../base/Icon';
-
-import './style.scss';
+import FooterLinks from 'MayflowerReactMolecules/FooterLinks';
+import SocialLinks from 'MayflowerReactMolecules/SocialLinks';
+import Icon from 'MayflowerReactBase/Icon';
 
 const Footer = ({
   footerLinks, socialLinks, backToTopButton, footerText, footerLogo, showNavHeading
@@ -24,7 +32,10 @@ const Footer = ({
           <SocialLinks {...socialLinks} />
         </div>
         <div className="ma__footer__copyright">
-          <p className="ma__footer__copyright--date">&copy; {footerText.copyright}</p>
+          <p className="ma__footer__copyright--date">
+            &copy;
+            {footerText.copyright}
+          </p>
           <p>{footerText.description}</p>
           <a href={footerText.privacyPolicy.url}>{footerText.privacyPolicy.text}</a>
         </div>
@@ -33,12 +44,14 @@ const Footer = ({
         <FooterLinks {...footerLinks} showNavHeading={showNavHeading} />
       </div>
     </div>
-    { backToTopButton &&
+    { backToTopButton
+    && (
     <button className="ma__footer__back2top js-back2top is-hidden">
       <Icon name="arrow" />
       <span aria-hidden="true">Top</span>
       <span className="visually-hidden">Go to the top of the page</span>
-    </button> }
+    </button>
+    ) }
   </footer>
 );
 

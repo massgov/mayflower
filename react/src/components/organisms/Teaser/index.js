@@ -1,8 +1,12 @@
+/**
+ * Teaser module.
+ * @module @massds/mayflower-react/Teaser
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/teaser
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { componentWithName } from 'airbnb-prop-types';
+import componentWithName from 'airbnb-prop-types/src/componentWithName';
 import classNames from 'classnames';
-import './style.scss';
 
 class Teaser extends React.Component {
   constructor(props) {

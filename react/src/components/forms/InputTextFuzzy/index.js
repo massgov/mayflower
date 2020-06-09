@@ -1,3 +1,10 @@
+/**
+ * InputTextFuzzy module.
+ * @module @massds/mayflower-react/InputTextFuzzy
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-fuzzy
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ */
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import PropTypes from 'prop-types';
@@ -7,7 +14,6 @@ import classNames from 'classnames';
 import is from 'is';
 
 import Label from '../Label';
-import './style.scss';
 
 class InputTextFuzzy extends React.Component {
   constructor(props) {
@@ -20,17 +26,20 @@ class InputTextFuzzy extends React.Component {
     fuseOptions.keys = this.props.keys;
     this.fuse = new Fuse(this.props.options, fuseOptions);
   }
+
   onSuggestionsFetchRequested = ({ value }) => {
     const suggestions = is.empty(value) ? this.optionsToSuggestions(this.props.options) : this.fuse.search(value);
     this.setState({
       suggestions
     });
   };
+
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: []
     });
   };
+
   onSuggestionSelected = (event, { suggestion, method }) => {
     // invokes custom function if passed in the component
     if (is.fn(this.props.onSuggestionClick)) {
@@ -39,7 +48,9 @@ class InputTextFuzzy extends React.Component {
       this.props.onSuggestionClick(event, { suggestion, method });
     }
   }
+
   getSuggestionValue = (suggestion) => suggestion.item.text;
+
   handleChange = (event, { newValue, method }) => {
     if (event && event.persist()) {
       event.persist();
@@ -56,6 +67,7 @@ class InputTextFuzzy extends React.Component {
       }
     });
   };
+
   handleBlur = (event) => {
     if (is.fn(this.props.onBlur)) {
       if (event && event.persist()) {
@@ -64,6 +76,7 @@ class InputTextFuzzy extends React.Component {
       this.props.onBlur({ event, value: this.state.value, suggestions: this.state.suggestions });
     }
   }
+
   // handleChange and onSuggestionSelected both do not fire when enter is hit.
   // This is a workaround for that. Use handleChange for keyboard presses.
   handleKeyPress = (event) => {
@@ -76,12 +89,14 @@ class InputTextFuzzy extends React.Component {
       }
     }
   }
+
   handleFocus = (event) => {
     if (is.fn(this.props.onFocus)) {
       event.persist();
       this.props.onFocus({ event, value: this.state.value, suggestions: this.state.suggestions });
     }
   }
+
   optionsToSuggestions = (options) => {
     const suggestions = options.map((item) => ({
       item: {
@@ -97,7 +112,9 @@ class InputTextFuzzy extends React.Component {
     }));
     return suggestions;
   }
+
   shouldRenderSuggestions = (value) => ((this.props.renderDefaultSuggestion === true) ? (value.trim().length >= 0) : (value.trim().length > 0))
+
   renderItem = (suggestion) => {
     const { item, matches } = suggestion;
     let renderItems = [];
@@ -168,17 +185,16 @@ class InputTextFuzzy extends React.Component {
       'ma__input-typeahead--boxed': boxed
     });
     return(
-      <React.Fragment>
+      <>
         {label && (
           <Label inputId={inputId} disabled={disabled}>
             {label}
           </Label>
-          )
-        }
+        )}
         <div className={inputTextTypeAheadClasses}>
           <Autosuggest {...autoProps} />
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -1,12 +1,18 @@
+/**
+ * EmergencyAlerts module.
+ * @module @massds/mayflower-react/EmergencyAlerts
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/emergency-alerts
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/emergency-alert
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/emergency-header
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import Collapse from '../../animations/Collapse';
-import ButtonAlert from '../../atoms/buttons/ButtonAlert';
-import EmergencyAlert from '../../molecules/EmergencyAlert';
-import EmergencyHeader from '../../molecules/EmergencyHeader';
-import './style.scss';
+import Collapse from 'MayflowerReactAnimations/Collapse';
+import ButtonAlert from 'MayflowerReactButtons/ButtonAlert';
+import EmergencyAlert from 'MayflowerReactMolecules/EmergencyAlert';
+import EmergencyHeader from 'MayflowerReactMolecules/EmergencyHeader';
 
 class EmergencyAlerts extends React.Component {
   constructor(props) {
@@ -16,6 +22,7 @@ class EmergencyAlerts extends React.Component {
       close: false
     };
   }
+
   handleClick = (e) => {
     const { currentTarget } = e;
     this.setState({
@@ -25,6 +32,7 @@ class EmergencyAlerts extends React.Component {
       this.props.onButtonAlertClick({ open: !this.state.open, currentTarget });
     }
   }
+
   handleClose = (e) => {
     const { currentTarget } = e;
     this.setState({
@@ -34,6 +42,7 @@ class EmergencyAlerts extends React.Component {
       this.props.onButtonCloseClick({ close: !this.state.close, currentTarget });
     }
   }
+
   render() {
     const {
       id, emergencyHeader, buttonAlert, alerts, theme, buttonClose
@@ -87,7 +96,7 @@ class EmergencyAlerts extends React.Component {
             </div>
           </div>
           { alerts && (
-            <React.Fragment>
+            <>
               <Collapse in={this.state.open} dimension="height">
                 <div className={alertsWrapperClasses}>
                   <div className="ma__emergency-alerts__container">
@@ -101,7 +110,7 @@ class EmergencyAlerts extends React.Component {
               <div className={interfaceClasses}>
                 {buttonAlert && <ButtonAlert {...buttonAlert} onClick={this.handleClick} isOpen={this.state.open} />}
               </div>
-            </React.Fragment>
+            </>
           )}
         </section>
       </Collapse>

@@ -1,6 +1,10 @@
+/**
+ * ColoredHeading module.
+ * @module @massds/mayflower-react/ColoredHeading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/colored-heading
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.scss';
 
 const ColoredHeading = (coloredHeading) => {
   const Element = `h${coloredHeading.level}`;

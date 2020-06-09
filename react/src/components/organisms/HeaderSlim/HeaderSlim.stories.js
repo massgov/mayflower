@@ -4,7 +4,7 @@ import { withKnobs, number, text } from '@storybook/addon-knobs';
 
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import HeaderSlim from '.';
-import { SiteLogo } from '../../../index';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

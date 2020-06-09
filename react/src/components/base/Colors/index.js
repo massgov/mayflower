@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonCopy from '../../atoms/buttons/ButtonCopy';
+import ButtonCopy from 'MayflowerReactButtons/ButtonCopy';
 import './styles.scss';
 
 const ColorSwatch = ({ name, value, variable }) => {
@@ -29,9 +29,9 @@ ColorSwatch.propTypes = {
 };
 
 const GradientTile = (props) => {
-  const colorRef = useRef(null);
-  const [rgb, setRgb] = useState('');
-  useEffect(() => {
+  const colorRef = React.useRef(null);
+  const [rgb, setRgb] = React.useState('');
+  React.useEffect(() => {
     const computedStyles = window.getComputedStyle(colorRef.current).getPropertyValue('background-color');
     setRgb(() => computedStyles);
   });

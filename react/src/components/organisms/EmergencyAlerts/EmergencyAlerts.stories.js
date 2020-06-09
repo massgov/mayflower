@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs/react';
 
 import EmergencyAlerts from './index';
-import Icon from '../../base/Icon';
-import { svgOptions } from '../../base/Icon/Icon.knob.options';
-import Link from '../../molecules/Link';
+import Icon from 'MayflowerReactBase/Icon';
+import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
+import Link from 'MayflowerReactMolecules/Link';
 
 const themeOptions = {
   'c-warning (default)': 'c-warning',

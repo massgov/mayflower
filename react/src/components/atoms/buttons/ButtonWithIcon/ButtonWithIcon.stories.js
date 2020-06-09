@@ -1,14 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, array, select, boolean } from '@storybook/addon-knobs';
+import {
+  withKnobs, text, array, select, boolean
+} from '@storybook/addon-knobs';
 
+import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
+import Icon from 'MayflowerReactBase/Icon';
 import ButtonWithIcon from '.';
 import ButtonWithIconDocs from './ButtonWithIcon.md';
 import buttonWithIconOptions from './ButtonWithIcon.knobs.options';
 
-import Icon from '../../../base/Icon';
-import { svgOptions } from '../../../base/Icon/Icon.knob.options';
 
 storiesOf('atoms/buttons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
 
-import round from '../helper';
+import round from 'MayflowerReactDataviz/helper';
 import countyData from './DataTableCounty.json';
 import townData from './DataTableTown.json';
 import DataTable from './index';

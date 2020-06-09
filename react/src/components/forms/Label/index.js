@@ -1,7 +1,11 @@
+/**
+ * Label module.
+ * @module @massds/mayflower-react/Label
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.scss';
 
 const Label = ({
   children, inputId, hidden, disabled, conditionText, className, useLegend

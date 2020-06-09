@@ -2,14 +2,16 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, select, object, optionsKnob } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { InputTextTypeAhead, SelectBox, DateRange } from '../../../index';
+import InputTextTypeAhead from 'MayflowerReactForms/InputTextTypeAhead';
+import SelectBox from 'MayflowerReactForms/SelectBox';
+import DateRange from 'MayflowerReactForms/DateRange';
 
 import FilterBox from '.';
 import sharedProps from './FilterBox.props';
 // import knob options for child patterns
-import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
-import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
-import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
+import selectBoxOptions from 'MayflowerReactForms/SelectBox/SelectBox.knobs.options';
+import inputOptions from 'MayflowerReactForms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

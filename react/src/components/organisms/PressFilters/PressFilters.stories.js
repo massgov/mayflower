@@ -6,12 +6,12 @@ import { action } from '@storybook/addon-actions';
 import PressFilters from './index';
 import PressFiltersDocs from './PressFilters.md';
 // import knob options for child patterns
-import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
-import headingOptions from '../../atoms/headings/Headings.knobs.options';
-import coloredHeadingOptions from '../../atoms/headings/ColoredHeading/ColoredHeading.knobs.options';
-import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
-import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
-import orgSelectorOptions from '../../forms/OrgSelector/OrgSelector.knobs.options';
+import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
+import headingOptions from 'MayflowerReactHeadings/Headings.knobs.options';
+import coloredHeadingOptions from 'MayflowerReactHeadings/ColoredHeading/ColoredHeading.knobs.options';
+import selectBoxOptions from 'MayflowerReactForms/SelectBox/SelectBox.knobs.options';
+import inputOptions from 'MayflowerReactForms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import orgSelectorOptions from 'MayflowerReactForms/OrgSelector/OrgSelector.knobs.options';
 
 storiesOf('organisms/PressFilters', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

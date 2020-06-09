@@ -1,15 +1,26 @@
-import React, { Component } from 'react';
+/**
+ * SearchBanner module.
+ * @module @massds/mayflower-react/SearchBanner
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/forms
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/buttons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tabs
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import FilterBox from '../../organisms/FilterBox';
-import HeaderSearch from '../../molecules/HeaderSearch';
-import Icon from '../../base/Icon';
-import Tabs from '../../molecules/Tabs';
+import FilterBox from 'MayflowerReactOrganisms/FilterBox';
+import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
+import Icon from 'MayflowerReactBase/Icon';
+import Tabs from 'MayflowerReactMolecules/Tabs';
 // eslint-disable-next-line import/no-unresolved
-import './style.scss';
 
-class SearchBanner extends Component {
+class SearchBanner extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,18 +28,21 @@ class SearchBanner extends Component {
     };
     this.toggleFilterBox = this.toggleFilterBox.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     const { filterBoxExpanded } = nextProps;
     if (this.state.filterBoxExpanded !== filterBoxExpanded) {
       this.setState({ filterBoxExpanded });
     }
   }
+
   toggleFilterBox() {
     this.setState((prevState) => ({ filterBoxExpanded: !prevState.filterBoxExpanded }));
     if (typeof this.props.toggleButtonOnClick === 'function') {
       this.props.toggleButtonOnClick(this.state.filterBoxExpanded);
     }
   }
+
   render() {
     const {
       tabs, searchBox, filterBox, filterToggleText

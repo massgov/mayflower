@@ -1,11 +1,16 @@
+/**
+ * FilterBox module.
+ * @module @massds/mayflower-react/FilterBox
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/forms
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/buttons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { componentWithName } from 'airbnb-prop-types';
+import componentWithName from 'airbnb-prop-types/src/componentWithName';
 import classNames from 'classnames';
 
 // import child components
-import Button from '../../atoms/buttons/Button';
-import './style.scss';
+import Button from 'MayflowerReactButtons/Button';
 
 const FilterBox = (props) => {
   const {
@@ -58,11 +63,11 @@ const FilterBox = (props) => {
                     </div>
                   )}
                   {clearButton && (
-                    <React.Fragment>
+                    <>
                       <button type="button" aria-label={clearButton.info} className="ma__filter-box__clear js-filter-box-clear" onClick={() => handleClear()}>
                         {clearButton.text}
                       </button>
-                    </React.Fragment>
+                    </>
                   )}
                 </div>
               )

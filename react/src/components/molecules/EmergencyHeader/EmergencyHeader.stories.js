@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import EmergencyHeader from '.';
-import Icon from '../../base/Icon';
-import { svgOptions } from '../../base/Icon/Icon.knob.options';
+import Icon from 'MayflowerReactBase/Icon';
+import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
 
 /* eslint-disable react/prop-types */
 storiesOf('molecules', module)

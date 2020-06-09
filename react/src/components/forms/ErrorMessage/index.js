@@ -1,7 +1,13 @@
+/**
+ * ErrorMessage module.
+ * @module @massds/mayflower-react/ErrorMessage
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/error-msg
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../base/Icon';
-import './style.scss';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ErrorMessage = ({
   inputId, error, success, status

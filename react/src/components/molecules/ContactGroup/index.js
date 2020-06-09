@@ -1,8 +1,16 @@
+/**
+ * ContactGroup module.
+ * @module @massds/mayflower-react/ContactGroup
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/01-atoms/content-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/02-molecules/contact-group
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Icon from '../../base/Icon';
-import './style.scss';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ContactGroup = (contactGroup) => {
   const icons = {
@@ -19,15 +27,15 @@ const ContactGroup = (contactGroup) => {
         return(<a href={`mailto:${item.link.href}`} className="ma__content-link">{item.link.text}</a>);
       case 'address':
         return(
-          <React.Fragment>
+          <>
             {/* eslint-disable-next-line react/no-danger */}
             <div className="ma__contact-group__address" dangerouslySetInnerHTML={{ __html: item.address }} />
             { item.link.href && (
             <div className="ma__contact-group__directions">
               <DecorativeLink {...item.link} />
             </div>
-                 )}
-          </React.Fragment>
+            )}
+          </>
         );
       default:
         return(<span className="ma__contact-group__value">{item.link.text}</span>);
@@ -47,12 +55,12 @@ const ContactGroup = (contactGroup) => {
           <div className="ma__contact-group__item">
             { item.label && (
             <span className="ma__contact-group__label">{item.label}</span>
-          )}
+            )}
             {createItems(item)}
           </div>
           { item.details && (
           <p className="ma__contact-group__details">{item.details}</p>
-        )}
+          )}
         </React.Fragment>
       ))}
     </div>

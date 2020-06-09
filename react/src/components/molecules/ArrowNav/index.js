@@ -1,8 +1,13 @@
+/**
+ * ArrowNav module.
+ * @module @massds/mayflower-react/ArrowNav
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/arrow-nav
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/arrow-button
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ArrowButton } from '../../../index';
-import './style.scss';
+import ArrowButton from 'MayflowerReactButtons/ArrowButton';
 
 const ArrowNav = (props) => {
   const sectionClasses = classNames({

@@ -1,10 +1,19 @@
+/**
+ * SearchBannerForm module.
+ * @module @massds/mayflower-react/SearchBannerForm
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/search-banner
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/error-msg
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import InputText from '../../forms/InputText';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-
-import './style.scss';
+import InputText from 'MayflowerReactForms/InputText';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 
 const SearchBannerForm = (searchBannerForm) => {
   let { classes = [] } = searchBannerForm.buttonSearch;

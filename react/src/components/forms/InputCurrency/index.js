@@ -1,3 +1,10 @@
+/**
+ * InputCurrency module.
+ * @module @massds/mayflower-react/InputCurrency
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/_input--button
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/01-atoms/helper-text
+ * @requires ma__input--button('currency');
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -5,12 +12,11 @@ import numbro from 'numbro';
 import languages from 'numbro/dist/languages.min';
 import is from 'is';
 
-import Input from '../Input';
-import { countDecimals } from '../Input/utility';
-import Error from '../Input/error';
-import { InputContext } from '../Input/context';
-import { validNumber } from '../Input/validate';
-import './style.scss';
+import Input from 'MayflowerReactForms/Input';
+import { countDecimals } from 'MayflowerReactForms/Input/utility';
+import Error from 'MayflowerReactForms/Input/error';
+import { InputContext } from 'MayflowerReactForms/Input/context';
+import { validNumber } from 'MayflowerReactForms/Input/validate';
 
 const Currency = (props) => {
   const ref = React.createRef();
@@ -59,7 +65,7 @@ const Currency = (props) => {
                 showError: true,
                 errorMsg
               };
-            } else if (is.number(val)) {
+            } if (is.number(val)) {
               const { showError, errorMsg } = validNumber(val, min, max);
               return{
                 showError, errorMsg
@@ -215,7 +221,8 @@ const Currency = (props) => {
                       ref={downRef}
                     />
                   </div>
-              )}
+                )
+}
             </div>
           );
         }

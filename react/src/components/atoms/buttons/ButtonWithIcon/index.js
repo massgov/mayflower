@@ -1,9 +1,16 @@
+/**
+ * ButtonWithIcon module.
+ * @module @massds/mayflower-react/ButtonWithIcon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { ref } from 'airbnb-prop-types';
-import Icon from '../../../base/Icon';
-import './style.scss';
+import ref from 'airbnb-prop-types/src/ref';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ButtonWithIcon = (props) => {
   const {
@@ -26,10 +33,10 @@ const ButtonWithIcon = (props) => {
     className: buttonClasses,
     tabIndex: 0
   };
-  const Element = props.href ? 'a' : 'button';
+  const Element = rest.href ? 'a' : 'button';
   return(
     <Element {...buttonProps} ref={setButtonRef} aria-expanded={expanded}>
-      <span>{props.children ? props.children : props.text}</span>
+      <span>{rest.children ? rest.children : text}</span>
       {icon && icon}
     </Element>
   );

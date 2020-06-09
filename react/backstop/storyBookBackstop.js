@@ -131,9 +131,9 @@ const mapComponents = (components, debug) => components.map((component) => {
 const isAtom = (component) => {
   const { filePath } = component;
   // Skip table and media/Image; they need to be tested with larger viewports.
-  return(filePath.indexOf('/atoms/') > -1) &&
-    (filePath.indexOf('table') === -1) &&
-    (path.basename(filePath) !== 'Image');
+  return(filePath.indexOf('/atoms/') > -1)
+    && (filePath.indexOf('table') === -1)
+    && (path.basename(filePath) !== 'Image');
 };
 
 /**
@@ -142,8 +142,7 @@ const isAtom = (component) => {
  * @param component
  * @return {boolean}
  */
-const isFixedFeedback = (component) =>
-  path.basename(component.filePath) === 'ButtonFixedFeedback';
+const isFixedFeedback = (component) => path.basename(component.filePath) === 'ButtonFixedFeedback';
 
 /**
  * Creates a Backstop scenario object from the passed label and url.

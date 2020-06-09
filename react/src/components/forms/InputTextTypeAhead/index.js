@@ -1,12 +1,20 @@
-import React, { Component } from 'react';
+/**
+ * InputTextTypeAhead module.
+ * @module @massds/mayflower-react/InputTextTypeAhead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.scss';
 
-class InputTextTypeAhead extends Component {
+class InputTextTypeAhead extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,15 +34,18 @@ class InputTextTypeAhead extends Component {
       console.warn('This component is deprecated and will be archived in v10. Use InputTextFuzzy instead.');
     }
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ value: nextProps.selected });
     this.selectTag.selectedIndex = nextProps.options.findIndex((option) => option.text === nextProps.selected);
   }
+
   onKeyDown(event) {
     if (typeof this.props.onKeyDown === 'function') {
       this.props.onKeyDown(event);
     }
   }
+
   onChange(event, { newValue }) {
     this.setState({
       value: newValue
@@ -45,27 +56,32 @@ class InputTextTypeAhead extends Component {
       this.props.onChange(event, { suggestion });
     }
   }
+
   onBlur(event) {
     if (typeof this.props.onBlur === 'function') {
       this.props.onBlur(event);
     }
   }
+
   onSuggestionsFetchRequested({ value }) {
     this.setState({
       suggestions: this.getSuggestions(value)
     });
   }
+
   onSuggestionsClearRequested() {
     this.setState({
       suggestions: []
     });
   }
+
   onSuggestionSelected(event, { suggestion }) {
     // invokes custom function if passed in the component
     if (typeof this.props.onChange === 'function') {
       this.props.onChange(event, { suggestion });
     }
   }
+
   getSuggestions(value) {
     const escapeRegexCharacters = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const escapedValue = escapeRegexCharacters(value.trim());
@@ -121,7 +137,7 @@ class InputTextTypeAhead extends Component {
       'ma__input-typeahead--disabled': disabled
     });
     return(
-      <React.Fragment>
+      <>
         {label && (<label htmlFor={id} className="ma__label">{label}</label>)}
         <div className={inputTextTypeAheadClasses}>
           <Autosuggest
@@ -137,7 +153,7 @@ class InputTextTypeAhead extends Component {
             ref={(select) => { this.selectTag = select; }}
           />
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

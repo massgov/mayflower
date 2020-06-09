@@ -4,10 +4,10 @@ import { withKnobs, object, boolean, text } from '@storybook/addon-knobs';
 import stateSeal from '@massds/mayflower-assets/static/images/stateseal.png';
 import Footer from './index';
 import FooterDocs from './Footer.md';
-import FooterLinksData from '../../molecules/FooterLinks/FooterLinks.json';
-import SocialLinksData from '../../molecules/SocialLinks/SocialLinks.json';
-import FooterLinksLiveData from '../../molecules/FooterLinks/FooterLinksLive.json';
-import SocialLinksLiveData from '../../molecules/SocialLinks/SocialLinksLive.json';
+import FooterLinksData from 'MayflowerReactMolecules/FooterLinks/FooterLinks.json';
+import SocialLinksData from 'MayflowerReactMolecules/SocialLinks/SocialLinks.json';
+import FooterLinksLiveData from 'MayflowerReactMolecules/FooterLinks/FooterLinksLive.json';
+import SocialLinksLiveData from 'MayflowerReactMolecules/SocialLinks/SocialLinksLive.json';
 
 
 storiesOf('organisms/Footer', module)

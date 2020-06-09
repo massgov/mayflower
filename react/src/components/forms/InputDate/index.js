@@ -1,8 +1,13 @@
+/**
+ * InputDate module.
+ * @module @massds/mayflower-react/InputDate
+ * @requires module:pikaday/scss/pikaday
+ * @requires module:@massds/mayflower-assets/scss/00-base/pikaday
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-date
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Pikaday from 'pikaday';
-
-import './style.scss';
 
 class InputDate extends React.Component {
   constructor(props) {
@@ -11,18 +16,22 @@ class InputDate extends React.Component {
     this.startPikaday = this.startPikaday.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
   componentDidMount() {
     this.startPikaday();
     this.picker.setDate(this.props.defaultDate, true);
   }
+
   componentWillReceiveProps(nextProps) {
     this.picker.setDate(nextProps.defaultDate, true);
   }
+
   handleChange(date) {
     if (typeof this.props.onChangeCallback === 'function') {
       this.props.onChangeCallback({ date });
     }
   }
+
   startPikaday() {
     const restrict = this.props.restrict;
     const pickerOptions = {
@@ -48,7 +57,7 @@ class InputDate extends React.Component {
   render() {
     const classNames = this.props.required ? 'ma__input-date js-input-date js-is-required' : 'ma__input-date js-input-date ';
     return(
-      <React.Fragment>
+      <>
         <label htmlFor={this.props.id}>{this.props.labelText}</label>
         <input
           className={classNames}
@@ -62,7 +71,7 @@ class InputDate extends React.Component {
           required={this.props.required}
           format={this.props.format}
         />
-      </React.Fragment>
+      </>
     );
   }
 }

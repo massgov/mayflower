@@ -1,9 +1,23 @@
+/**
+ * OrgSelector module.
+ * @module @massds/mayflower-react/OrgSelector
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/org-selector
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/select-box
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/image-promo
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/org-info
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectBox from '../SelectBox/index';
-import InputTextTypeAhead from '../InputTextTypeAhead';
-import ImagePromo from '../../molecules/ImagePromo';
-import './style.scss';
+import SelectBox from 'MayflowerReactForms/SelectBox/index';
+import InputTextTypeAhead from 'MayflowerReactForms/InputTextTypeAhead';
+import ImagePromo from 'MayflowerReactMolecules/ImagePromo';
 
 class OrgSelector extends React.Component {
   constructor(props) {
@@ -14,6 +28,7 @@ class OrgSelector extends React.Component {
     this.handleOrgSelectChange = this.handleOrgSelectChange.bind(this);
     this.handleOrgTypeAheadChange = this.handleOrgTypeAheadChange.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     const input = (nextProps.selectBox) ? nextProps.selectBox : nextProps.typeAhead;
     const selectValue = input.options.find((element) => element.text === input.selected);
@@ -35,6 +50,7 @@ class OrgSelector extends React.Component {
       });
     }
   }
+
   /**
    * Sets the selectedOrg to the item selected from the input, so <OrgInfo/>
    * knows what to render.
@@ -66,6 +82,7 @@ class OrgSelector extends React.Component {
       this.props.onChangeOrgCallback(input);
     }
   }
+
   handleOrgTypeAheadChange(event, input) {
     // Stop the filters form submission if enter is pressed in the selector.
     event.preventDefault();

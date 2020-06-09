@@ -1,7 +1,10 @@
+/**
+ * ButtonFixedFeedback module.
+ * @module @massds/mayflower-react/ButtonFixedFeedback
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/fixed-feedback-button
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import './style.scss';
 
 const ButtonFixedFeedback = (props) => (
   <div

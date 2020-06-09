@@ -1,7 +1,12 @@
+/**
+ * InputSlider module.
+ * @module @massds/mayflower-react/InputSlider
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/01-atoms/helper-text
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from '../Input';
-import CompoundSlider from '../CompoundSlider';
+import Input from 'MayflowerReactForms/Input';
+import CompoundSlider from 'MayflowerReactForms/CompoundSlider';
 
 const InputSlider = (props) => {
   const {

@@ -1,8 +1,12 @@
+/**
+ * CalloutAlert module.
+ * @module @massds/mayflower-react/CalloutAlert
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/callout-alert
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon from '../../base/Icon';
-import './style.scss';
+import Icon from 'MayflowerReactBase/Icon';
 
 const CalloutAlert = (props) => {
   const calloutAlertClasses = classNames({

@@ -1,7 +1,12 @@
+/**
+ * SelectBox module.
+ * @module @massds/mayflower-react/SelectBox
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/select-box
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Label from '../Label';
-import './style.scss';
+import Label from 'MayflowerReactForms/Label';
 
 class SelectBox extends React.Component {
   constructor(props) {
@@ -11,9 +16,11 @@ class SelectBox extends React.Component {
     };
     this.handleOnChange = this.handleOnChange.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ selected: nextProps.selected });
   }
+
   /**
    * Default event handler which renders selected item in the patter div.
    *
@@ -61,8 +68,7 @@ class SelectBox extends React.Component {
           <Label inputId={id} className={labelClassNames}>
             {label}
           </Label>
-          )
-        }
+        )}
         <div className={`ma__select-box__field ${selectBoxInline}`}>
           <select
             name={id}

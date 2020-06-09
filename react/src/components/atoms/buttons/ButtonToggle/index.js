@@ -1,17 +1,23 @@
-import React, { Component } from 'react';
+/**
+ * ButtonToggle module.
+ * @module @massds/mayflower-react/ButtonToggle
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-toggle
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
-import './style.scss';
 
-class ButtonToggle extends Component {
+class ButtonToggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selected: props.defaultValue
     };
   }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ selected: nextProps.defaultValue });
   }
+
   onToggleClick(event) {
     const selected = event.target.value;
     if (typeof this.props.onChangeCallback === 'function') {
@@ -19,6 +25,7 @@ class ButtonToggle extends Component {
     }
     this.setState({ selected });
   }
+
   render() {
     const {
       id, labelText, option1, option2
@@ -27,7 +34,9 @@ class ButtonToggle extends Component {
     return(
       <span>
         <label htmlFor={id} className="ma__label--inline ma__label--small">{ labelText }</label>
-        <button onClick={(e) => this.onToggleClick(e)} value={option1.value} type="button" className={`ma__button-toggle ${(option1.value === selected) && 'ma__button-toggle--selected'}`}>{ option1.text }</button> |
+        <button onClick={(e) => this.onToggleClick(e)} value={option1.value} type="button" className={`ma__button-toggle ${(option1.value === selected) && 'ma__button-toggle--selected'}`}>{ option1.text }</button>
+        {' '}
+        |
         <button onClick={(e) => this.onToggleClick(e)} value={option2.value} type="button" className={`ma__button-toggle ${(option2.value === selected) && 'ma__button-toggle--selected'}`}>{ option2.text }</button>
       </span>
     );

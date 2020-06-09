@@ -1,3 +1,7 @@
+/**
+ * Heading module.
+ * @module @massds/mayflower-react/Heading
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

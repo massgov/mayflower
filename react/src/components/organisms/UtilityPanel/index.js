@@ -1,9 +1,14 @@
+/**
+ * UtilityPanel module.
+ * @module @massds/mayflower-react/UtilityPanel
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-panel
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Paragraph from '../../atoms/text/Paragraph';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import './styles.scss';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 
 const UtilityPanel = (utilityPanel) => {
   const descriptionClasses = ['ma__utility-panel__description'];
@@ -19,7 +24,7 @@ const UtilityPanel = (utilityPanel) => {
       <ul className="ma__utility-panel__items">
         {links.map((decorativeLink, index) => (
           // eslint-disable-next-line react/no-array-index-key
-          <li className="ma__utility-panel__item js-clickable" key={index} >
+          <li className="ma__utility-panel__item js-clickable" key={index}>
             <DecorativeLink {...decorativeLink} />
           </li>
         ))}

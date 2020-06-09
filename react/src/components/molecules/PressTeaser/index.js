@@ -1,8 +1,16 @@
+/**
+ * PressTeaser module.
+ * @module @massds/mayflower-react/PressTeaser
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/press-teaser
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/rich-text
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import RichText from '../../organisms/RichText';
-import './style.scss';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import RichText from 'MayflowerReactOrganisms/RichText';
 
 const PressTeaser = (pressTeaser) => {
   const imageClass = pressTeaser.image ? 'ma__press-teaser ma__press-teaser--image' : 'ma__press-teaser';
@@ -24,13 +32,14 @@ const PressTeaser = (pressTeaser) => {
             role="img"
             style={{ backgroundImage: `url(${pressTeaser.image.src})` }}
           />
-        </a>)}
+        </a>
+      )}
       <div className="ma__press-teaser__details">
         { pressTeaser.eyebrow && (
           <div className="ma__press-teaser__eyebrow">
             <span>{pressTeaser.eyebrow}</span>
-          </div>)
-        }
+          </div>
+        )}
         <Element className="ma__press-teaser__title">
           <DecorativeLink {...pressTeaser.title} />
         </Element>
@@ -38,20 +47,17 @@ const PressTeaser = (pressTeaser) => {
           <div className="ma__press-teaser__details">
             { pressTeaser.date && (
               <span className="ma__press-teaser__date">{pressTeaser.date}</span>
-              )
-            }
+            )}
             { pressTeaser.org && (
               <span className="ma__press-teaser__org">{pressTeaser.org}</span>
-              )
-            }
+            )}
           </div>
         )}
         { pressTeaser.description && (
         <div className="ma__press-teaser__description">
           <RichText {...pressTeaser.description} />
         </div>
-          )
-        }
+        )}
       </div>
     </section>
   );

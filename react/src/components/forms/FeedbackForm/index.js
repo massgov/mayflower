@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+/**
+ * FeedbackForm module.
+ * @module @massds/mayflower-react/FeedbackForm
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
 import CharacterCounter from 'react-character-counter';
 import classNames from 'classnames';
 import is from 'is';
-import Paragraph from '../../atoms/text/Paragraph';
-import './style.scss';
+import Paragraph from 'MayflowerReactText/Paragraph';
 
 // These components exist to make it clear in FeedbackForm's render what's going on.
 const RefererField = (props) => <input type="hidden" {...props} />;
@@ -21,7 +24,7 @@ HiddenFields.propTypes = {
   formId: PropTypes.number
 };
 
-export default class FeedbackForm extends Component {
+export default class FeedbackForm extends React.Component {
   static propTypes = {
     /** A ref object as created by React.createRef(). Will be applied to the form element. */
     formRef: PropTypes.oneOfType([
@@ -47,6 +50,7 @@ export default class FeedbackForm extends Component {
     /** A function whose return value is rendered under the no textarea. */
     noDisclaimer: PropTypes.func
   }
+
   static defaultProps = {
     formId: 2521317,
     radioId: 47054416,
@@ -54,6 +58,7 @@ export default class FeedbackForm extends Component {
     noFeedbackId: 47054414,
     refererId: 47056299
   };
+
   state = {
     yesText: '',
     noText: '',
@@ -63,6 +68,7 @@ export default class FeedbackForm extends Component {
     success: false,
     formSubmitted: false
   };
+
   componentDidMount() {
     if (window) {
       // We don't have the FormStack class available, but we can fake like we do:
@@ -82,16 +88,30 @@ export default class FeedbackForm extends Component {
       };
     }
   }
+
   yesRadio = React.createRef();
+
   yesTextArea = React.createRef();
+
   noRadio = React.createRef();
+
   noTextArea = React.createRef();
+
   submitButton = React.createRef();
+
   defaultDisclaimer = () => (
-    <div id="feedback-note" className="ma__disclaimer">We use your feedback to help us improve this site but we are not able to respond directly. <strong>Please do not include personal or contact information.</strong> If you need a response, please locate the contact information elsewhere on this page or in the footer.</div>
+    <div id="feedback-note" className="ma__disclaimer">
+      We use your feedback to help us improve this site but we are not able to respond directly.
+      <strong>Please do not include personal or contact information.</strong>
+      {' '}
+      If you need a response, please locate the contact information elsewhere on this page or in the footer.
+    </div>
   );
+
   prefixLabel = (id) => `label${id}`;
+
   prefixField = (id) => `field${id}`;
+
   handleRadioChange = (e) => {
     if (e.currentTarget === this.yesRadio.current) {
       return{ feedbackChoice: true };
@@ -101,6 +121,7 @@ export default class FeedbackForm extends Component {
     }
     return{};
   }
+
   // Handles the onChange event for the yes/no radio buttons as well as the yes/no textareas.
   handleChange = (e) => {
     let newState = {};
@@ -122,7 +143,9 @@ export default class FeedbackForm extends Component {
     }
     this.setState(newState, this.checkForErrors);
   }
+
   removeError = (errors, idToRemove) => errors.filter((fieldId) => !is.equal(fieldId, idToRemove));
+
   checkForErrors = () => {
     let hasError = [...this.state.hasError];
     const { radioId, noFeedbackId } = this.props;
@@ -150,6 +173,7 @@ export default class FeedbackForm extends Component {
     }
     return hasError;
   };
+
   handleSubmit = (e) => {
     e.preventDefault();
     // Update the component state to know that the form was just submitted,
@@ -179,6 +203,7 @@ export default class FeedbackForm extends Component {
       }
     });
   };
+
   render() {
     const {
       yesFeedbackId, yesDisclaimer, noFeedbackId, noDisclaimer, refererId, formId, formRef, radioId, nodeId, successMessage
@@ -278,7 +303,12 @@ export default class FeedbackForm extends Component {
           <NodeIdField id="field57432673" name="field57432673" value={nodeId} />
           <fieldset className={radiosClassNames}>
             <legend className="fsLabel requiredLabel fsLabelVertical">
-              Did you find what you were looking for on this webpage?<span> * <span className="visually-hidden">required</span></span>
+              Did you find what you were looking for on this webpage?
+              <span>
+                {' '}
+                *
+                <span className="visually-hidden">required</span>
+              </span>
             </legend>
             <div className="ma__input-group__items ma__input-group__items--inline">
               <div className="ma__input-group__item">
@@ -297,10 +327,17 @@ export default class FeedbackForm extends Component {
             </div>
           </fieldset>
 
-          {(feedbackChoice === false) &&
-          (
+          {(feedbackChoice === false)
+          && (
             <fieldset className={noFieldSetClassNames}>
-              <label htmlFor={noId}>If &#34;No,&#34; please tell us what you were looking for:<span> * <span className="visually-hidden">required</span></span></label>
+              <label htmlFor={noId}>
+                If &#34;No,&#34; please tell us what you were looking for:
+                <span>
+                  {' '}
+                  *
+                  <span className="visually-hidden">required</span>
+                </span>
+              </label>
               <div className="ma__textarea__wrapper">
                 <CharacterCounter value={noText} {...characterCounterProps}>
                   <textarea

@@ -1,7 +1,14 @@
+/**
+ * DateRange module.
+ * @module @massds/mayflower-react/DateRange
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/date-range
+ * @requires external:pikaday/scss/pikaday
+ * @requires module:@massds/mayflower-assets/scss/00-base/pikaday
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-date
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputDate from '../InputDate';
-import './style.scss';
+import InputDate from 'MayflowerReactForms/InputDate';
 
 class DateRange extends React.Component {
   constructor(props) {

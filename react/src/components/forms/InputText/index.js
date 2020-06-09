@@ -1,7 +1,13 @@
+/**
+ * InputText module.
+ * @module @massds/mayflower-react/InputText
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/error-msg
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ErrorMessage from '../ErrorMessage';
-import './style.scss';
+import ErrorMessage from 'MayflowerReactForms/ErrorMessage';
 
 class InputText extends React.Component {
   constructor(props) {
@@ -39,14 +45,16 @@ class InputText extends React.Component {
       inputClasses.push('js-is-required');
     }
     return(
-      <React.Fragment>
-        {labelText &&
+      <>
+        {labelText
+        && (
         <label
           htmlFor={id}
           className={inputLabelClasses.join(' ')}
         >
           {labelText}
-        </label>}
+        </label>
+        )}
         <input
           className={inputClasses.join(' ')}
           name={name}
@@ -61,10 +69,9 @@ class InputText extends React.Component {
           required={required}
           value={this.state.value}
         />
-        {errorMsg &&
-          (<ErrorMessage error={errorMsg} inputId={id} />)
-        }
-      </React.Fragment>
+        {errorMsg
+          && (<ErrorMessage error={errorMsg} inputId={id} />)}
+      </>
     );
   }
 }

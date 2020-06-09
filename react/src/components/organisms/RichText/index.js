@@ -1,13 +1,20 @@
+/**
+ * RichText module.
+ * @module @massds/mayflower-react/RichText
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/rich-text
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 // import child components
-import DecorativeLink from '../../atoms/links/DecorativeLink/index';
-import CompHeading from '../../atoms/headings/CompHeading/index';
-import SidebarHeading from '../../atoms/headings/SidebarHeading/index';
-import Paragraph from '../../atoms/text/Paragraph';
-import UnorderedList from '../../atoms/lists/UnorderedList';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink/index';
+import CompHeading from 'MayflowerReactHeadings/CompHeading/index';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading/index';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import UnorderedList from 'MayflowerReactLists/UnorderedList';
 
-import './style.scss';
 
 const RichText = (props) => {
   // if (!Object.entries) {
@@ -30,7 +37,7 @@ const RichText = (props) => {
       }
       return Object.entries(element.data).map(([eleIndex, eleValue]) => {
         if (Object.prototype.hasOwnProperty.call(elementProperties, eleIndex)) {
-          const newEleValue = Object.assign({}, eleValue);
+          const newEleValue = { ...eleValue };
           newEleValue.key = `element.${eleIndex}`;
           return elementProperties[eleIndex](newEleValue);
         }
@@ -52,12 +59,14 @@ const RichText = (props) => {
       {optionalElements.CompHeading}
       {optionalElements.SidebarHeading}
       {requiredElements}
-      {decorative &&
+      {decorative
+      && (
       <div className="ma__rich-text__more">
         {decorative}
       </div>
-      }
-    </section>);
+      )}
+    </section>
+  );
 };
 
 RichText.propTypes = {

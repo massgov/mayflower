@@ -1,7 +1,12 @@
+/**
+ * FooterLinks module.
+ * @module @massds/mayflower-react/FooterLinks
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/footer-links
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.scss';
-import { SidebarHeading } from '../../../index';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
 
 const FooterLinks = (footerLinks) => (
   <section className="ma__footer-links">

@@ -1,9 +1,20 @@
+/**
+ * ResultsHeading module.
+ * @module @massds/mayflower-react/ResultsHeading
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/results-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/select-box
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/label
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-toggle
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/select-box
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tags
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-tag
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonToggle from '../../atoms/buttons/ButtonToggle';
-import SelectBox from '../../forms/SelectBox';
-import Tags from '../../molecules/Tags';
-import './style.scss';
+import ButtonToggle from 'MayflowerReactButtons/ButtonToggle';
+import SelectBox from 'MayflowerReactForms/SelectBox';
+import Tags from 'MayflowerReactMolecules/Tags';
 
 const ResultsHeading = (resultsHeading) => {
   const resultsHeadingTotal = resultsHeading.totalResults ? ` of ${resultsHeading.totalResults} for: ` : '';
@@ -24,14 +35,12 @@ const ResultsHeading = (resultsHeading) => {
           <div className="ma__results-heading__sort ma__results-heading__sort-selecBox">
             <SelectBox {...selectBoxProps} />
           </div>
-          )
-        }
+        )}
         { buttonToggleProps && (
           <div className="ma__results-heading__sort">
             <ButtonToggle {...buttonToggleProps} />
           </div>
-         )
-        }
+        )}
       </div>
     </div>
   );

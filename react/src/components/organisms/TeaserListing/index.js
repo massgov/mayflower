@@ -1,15 +1,24 @@
+/**
+ * TeaserListing module.
+ * @module @massds/mayflower-react/TeaserListing
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/teaser
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/teaser-listing
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/sidebar-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ *
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Collapse from '../../animations/Collapse';
-import SidebarHeading from '../../atoms/headings/SidebarHeading';
-import CompHeading from '../../atoms/headings/CompHeading';
-import Paragraph from '../../atoms/text/Paragraph';
-import Link from '../../molecules/Link';
-import GeneralTeaser from '../GeneralTeaser';
-
-import './style.scss';
+import Collapse from 'MayflowerReactAnimations/Collapse';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import CompHeading from 'MayflowerReactHeadings/CompHeading';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import Link from 'MayflowerReactMolecules/Link';
+import GeneralTeaser from 'MayflowerReactOrganisms/GeneralTeaser';
 
 class TeaserListing extends React.Component {
   constructor(props) {
@@ -18,6 +27,7 @@ class TeaserListing extends React.Component {
       open: false
     };
   }
+
    handleClick = (e) => {
      e.preventDefault();
      this.setState((currentState) => ({
@@ -70,7 +80,7 @@ class TeaserListing extends React.Component {
              </div>
            )}
            {(invisibleItems.length > 0) && (
-             <React.Fragment>
+             <>
                <ul className={itemsClasses}>
                  {shownItems.map((item, index) => {
                    const key = `teaser-listing--item-${index}`;
@@ -102,10 +112,9 @@ class TeaserListing extends React.Component {
                >
                  {(this.state.open)
                    ? (<span className="less">{teaser.lessLabel}</span>)
-                   : (<span className="more">{teaser.moreLabel}</span>)
-                 }
+                   : (<span className="more">{teaser.moreLabel}</span>)}
                </button>
-             </React.Fragment>
+             </>
            )}
            {(invisibleItems.length === 0) && (
              <ul className={itemsClasses}>

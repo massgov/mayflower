@@ -1,7 +1,16 @@
+/**
+ * NarrowTemplate module.
+ * @module @massds/mayflower-react/NarrowTemplate
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/site-logo
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import SiteLogo from '../../atoms/media/SiteLogo';
-import Placeholder from '../../atoms/Placeholder';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
+import Placeholder from 'MayflowerReactAtoms/Placeholder';
 
 const NarrowTemplate = (narrowTemplate) => {
   const sideClass = narrowTemplate.side ? ` ma__narrow-template--${narrowTemplate.side}` : '';

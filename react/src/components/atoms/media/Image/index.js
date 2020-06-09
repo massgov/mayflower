@@ -1,7 +1,11 @@
+/**
+ * Image module.
+ * @module @massds/mayflower-react/Image
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/image
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.scss';
 
 const Image = (props) => {
   const { classes, shape, ...imgProps } = props;

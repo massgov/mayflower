@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
-import Icon from '../../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 
 storiesOf('atoms/links', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

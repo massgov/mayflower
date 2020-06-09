@@ -1,12 +1,17 @@
+/**
+ * LinkList module.
+ * @module @massds/mayflower-react/LinkList
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/link-list
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/comp-heading
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 // import child components
-import CompHeading from '../../atoms/headings/CompHeading';
-import Paragraph from '../../atoms/text/Paragraph';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-
-import './style.scss';
+import CompHeading from 'MayflowerReactHeadings/CompHeading';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 
 const LinkList = (props) => {
   const {
@@ -30,7 +35,7 @@ const LinkList = (props) => {
             ))}
           </ul>
         ) : (
-          <React.Fragment>
+          <>
             <ul className={`ma__link-list__items ${bulletClass}`}>
               { links.slice(0, halfLength).map((link, index) => (
                 /* eslint-disable-next-line react/no-array-index-key */
@@ -47,7 +52,7 @@ const LinkList = (props) => {
                 </li>
               ))}
             </ul>
-          </React.Fragment>
+          </>
         )}
       </div>
       <div className="ma__link-list__see-all">

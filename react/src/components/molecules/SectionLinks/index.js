@@ -1,8 +1,15 @@
+/**
+ * SectionLinks module.
+ * @module @massds/mayflower-react/SectionLinks
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/accordion-item
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DecorativeLink, AccordionItem } from '../../../index';
-
-import './style.scss';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import AccordionItem from 'MayflowerReactMolecules/AccordionItem';
 
 class SectionCard extends React.Component {
   constructor(props) {
@@ -30,7 +37,7 @@ class SectionCard extends React.Component {
       description, index, title, children, seeAll
     } = this.props;
     return(
-      <React.Fragment>
+      <>
         <nav className={mobile ? 'ma__section-links__toggle-content-mobile' : 'ma__section-links__toggle-content'} aria-labelledby={mobile ? null : `sectionCard${index}`} id={mobile ? null : `sectionCardContent${index}`}>
           { description && <p className="ma__section-links__description">{description}</p>}
           <div className="ma__section-links__mobile-title">
@@ -57,7 +64,7 @@ class SectionCard extends React.Component {
           <DecorativeLink href={seeAll.href} text={seeAll.text} />
         </div>
         )}
-      </React.Fragment>
+      </>
     );
   };
 

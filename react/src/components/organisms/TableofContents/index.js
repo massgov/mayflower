@@ -1,7 +1,11 @@
+/**
+ * TableofContents module.
+ * @module @massds/mayflower-react/TableofContents
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/table-of-contents-hierarchy
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { componentWithName } from 'airbnb-prop-types';
-import './style.scss';
+import componentWithName from 'airbnb-prop-types/src/componentWithName';
 
 const TableofContents = (props) => (
   <nav className="ma__toc--hierarchy">

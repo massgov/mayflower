@@ -1,12 +1,19 @@
+/**
+ * ListingTable module.
+ * @module @massds/mayflower-react/ListingTable
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/listing-table
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
 
-import Collapse from '../../animations/Collapse';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import Icon from '../../base/Icon';
-
-import './style.scss';
+import Collapse from 'MayflowerReactAnimations/Collapse';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import Icon from 'MayflowerReactBase/Icon';
 
 class ListingTableItem extends React.Component {
   constructor(props) {
@@ -95,7 +102,7 @@ const ListingTable = (props) => {
             {rows.map((row, index) => (
               /* eslint-disable-next-line react/no-array-index-key */
               <ListingTableItem key={`listing-table-item-${index}`} row={row} />
-              ))}
+            ))}
           </tbody>
         </table>
       </div>

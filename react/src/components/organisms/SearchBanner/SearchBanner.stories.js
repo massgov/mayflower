@@ -2,15 +2,16 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, object, select, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-
-import { SelectBox, InputTextTypeAhead, DateRange } from '../../../index';
+import SelectBox from 'MayflowerReactForms/SelectBox';
+import InputTextTypeAhead from 'MayflowerReactForms/InputTextTypeAhead';
+import DateRange from 'MayflowerReactForms/DateRange';
 import SearchBanner from './index';
-import inputOptions from '../../forms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
-import tabsOptions from '../../molecules/Tabs/Tabs.knobs.options';
-import filterBoxSharedProps from '../FilterBox/FilterBox.props';
+import inputOptions from 'MayflowerReactForms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import tabsOptions from 'MayflowerReactMolecules/Tabs/Tabs.knobs.options';
+import filterBoxSharedProps from 'MayflowerReactOrganisms/FilterBox/FilterBox.props';
 // import knob options for child patterns
-import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
-import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
+import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
+import selectBoxOptions from 'MayflowerReactForms/SelectBox/SelectBox.knobs.options';
 
 storiesOf('organisms/SearchBanner', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
