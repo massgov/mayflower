@@ -33,7 +33,9 @@
         "no-use-before-define": ["off"],
         "jsx-a11y/anchor-is-valid": ["warn"],
         "react/jsx-props-no-spreading": ["off"],
-        "react/destructuring-assignment": ["off"]
+        "react/destructuring-assignment": ["off"],
+        "react/static-property-placement": ["off"],
+        "react/state-in-constructor": ["off"]
     },
     "settings": {
         "import/resolver": {

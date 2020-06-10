@@ -106,6 +106,7 @@ class TeaserListing extends React.Component {
                  </div>
                </Collapse>
                <button
+                 type="button"
                  className="ma__content-link ma__content-link--chevron ma__content-link__acordion-toggle js-accordion-link"
                  aria-label={(this.state.open) ? teaser.lessLabel : teaser.moreLabel}
                  onClick={this.handleClick}

@@ -1,3 +1,5 @@
+/* eslint jsx-a11y/label-has-associated-control: 0 */
+
 /**
  * FeedbackForm module.
  * @module @massds/mayflower-react/FeedbackForm
@@ -69,26 +71,6 @@ export default class FeedbackForm extends React.Component {
     formSubmitted: false
   };
 
-  componentDidMount() {
-    if (window) {
-      // We don't have the FormStack class available, but we can fake like we do:
-      window[`form${this.props.formId}`] = {
-        onSubmitError: (err) => {
-          if (err) {
-            const hasError = [...this.state.hasError];
-            hasError.push(this.props.radioId);
-            hasError.push(this.props.noFeedbackId);
-            const errorMessage = <Paragraph className="error">{err.error}</Paragraph>;
-            this.setState({ hasError, errorMessage });
-          }
-        },
-        onPostSubmit: () => {
-          this.setState({ success: true });
-        }
-      };
-    }
-  }
-
   yesRadio = React.createRef();
 
   yesTextArea = React.createRef();
@@ -98,6 +80,30 @@ export default class FeedbackForm extends React.Component {
   noTextArea = React.createRef();
 
   submitButton = React.createRef();
+
+  componentDidMount() {
+    if (window) {
+      // We don't have the FormStack class available, but we can fake like we do:
+      window[`form${this.props.formId}`] = {
+        onSubmitError: (err) => {
+          if (err) {
+            this.setState((state, props) => {
+              const hasError = [...state.hasError];
+              hasError.push(props.radioId);
+              hasError.push(props.noFeedbackId);
+              const errorMessage = <Paragraph className="error">{err.error}</Paragraph>;
+              return{
+                hasError, errorMessage
+              };
+            });
+          }
+        },
+        onPostSubmit: () => {
+          this.setState({ success: true });
+        }
+      };
+    }
+  }
 
   defaultDisclaimer = () => (
     <div id="feedback-note" className="ma__disclaimer">
