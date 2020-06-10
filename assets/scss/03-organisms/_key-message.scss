@@ -118,6 +118,7 @@ $colors: (
       }
 
       @media ($bp-medium-max) {
+        
         &.ma__key-message--top {
           background-image: none !important;
         }
