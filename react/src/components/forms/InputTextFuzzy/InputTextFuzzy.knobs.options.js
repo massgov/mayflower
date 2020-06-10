@@ -4,7 +4,7 @@
 export default {
   options: {
     orgSelector: [
-      { text: '', value: '' },
+      { text: 'All Organizations', value: '' },
       { text: 'Org Having (Parentheses in the Name)', value: 'org-having-parentheses-in-the-name' },
       { text: "Attorney General's Office", value: 'attorney-general-office' },
       { text: "Governor's Office", value: 'governors-office' },

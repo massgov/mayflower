@@ -25,10 +25,11 @@
       },
       "richText": {
         "rteElements": [{
-          "path": "@atoms/09-media/figure.twig",
+          "path": "@atoms/09-media/figure--image.twig",
           "data": {
             "figure": {
               "align": "align-right",
+              "wrap": true,
               "image": {
                 "alt": "alt text",
                 "src": "../../assets/images/placeholder/400x300.png",
@@ -97,7 +98,7 @@
       },
       "richText": {
         "rteElements": [{
-          "path": "@atoms/09-media/figure.twig",
+          "path": "@atoms/09-media/figure--image.twig",
           "data": {
             "figure": {
               "align": "align-left",

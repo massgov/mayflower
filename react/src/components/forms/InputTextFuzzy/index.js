@@ -45,7 +45,7 @@ class InputTextFuzzy extends React.Component {
     if (is.fn(this.props.onSuggestionClick)) {
       event.persist();
       // Suggestion is an object that can contain info on score, matches, etc.
-      this.props.onSuggestionClick(event, { suggestion, method });
+      this.props.onSuggestionClick(event, { suggestion, method, suggestions: this.state.suggestions });
     }
   }
 
@@ -80,11 +80,15 @@ class InputTextFuzzy extends React.Component {
   // handleChange and onSuggestionSelected both do not fire when enter is hit.
   // This is a workaround for that. Use handleChange for keyboard presses.
   handleKeyPress = (event) => {
-    const { value } = this.state;
+    const { value, suggestions } = this.state;
+    if (is.fn(this.props.onKeyDown)) {
+      this.props.onKeyDown(event);
+    }
+    const match = suggestions.find((el) => el.item.text === value);
     if (event.key === 'Enter') {
       event.persist();
       event.preventDefault();
-      if (is.fn(this.props.onSuggestionClick)) {
+      if (is.fn(this.props.onSuggestionClick) && match) {
         this.props.onSuggestionClick(event, { method: 'enter', suggestion: { item: { text: value } } });
       }
     }
@@ -93,7 +97,7 @@ class InputTextFuzzy extends React.Component {
   handleFocus = (event) => {
     if (is.fn(this.props.onFocus)) {
       event.persist();
-      this.props.onFocus({ event, value: this.state.value, suggestions: this.state.suggestions });
+      this.props.onFocus(event, { event, value: this.state.value, suggestions: this.state.suggestions });
     }
   }
 
@@ -223,6 +227,8 @@ InputTextFuzzy.propTypes = {
   onBlur: PropTypes.func,
   /** Function that runs after a suggestion has been clicked. */
   onSuggestionClick: PropTypes.func,
+  /** Custom keydown callback */
+  onKeyDown: PropTypes.func,
   /** The default value for the select box. */
   selected: PropTypes.string,
   /** The id of the the input tag */

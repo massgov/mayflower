@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs';
+import { withKnobs, text, boolean, object, select, array } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import SelectBox from 'MayflowerReactForms/SelectBox';
 import selectOptions from 'MayflowerReactForms/SelectBox/SelectBox.knobs.options';
-import inputOptions from 'MayflowerReactForms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
+import inputOptions from 'MayflowerReactForms/InputTextFuzzy/InputTextFuzzy.knobs.options';
 import HeaderSearch from '.';
 import HeaderSearchDocs from './HeaderSearch.md';
 
@@ -41,6 +41,7 @@ storiesOf('molecules/HeaderSearch', module)
             label: null,
             placeholder: 'Search an organization...',
             id: 'org-typeahead',
+            keys: array('keys', ['text']),
             options,
             selected: '',
             onChange: action('orgDropdown onChange')
@@ -93,6 +94,7 @@ storiesOf('molecules/HeaderSearch', module)
             label: null,
             placeholder: 'Search an organization...',
             id: 'org-typeahead',
+            keys: array('keys', ['text']),
             options,
             selected: '',
             onChange: action('orgDropdown onChange')

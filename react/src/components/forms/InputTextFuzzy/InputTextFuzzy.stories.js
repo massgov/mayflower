@@ -34,7 +34,6 @@ storiesOf('forms|atoms', module)
           maxPatternLength: 300
         }),
         onKeyDown: action('onKeyDown event'),
-        onKeyUp: action('onKeyUp event'),
         onChange: action('onChange event'),
         onFocus: action('onFocus event'),
         onBlur: action('onBlur event'),
