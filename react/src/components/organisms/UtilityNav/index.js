@@ -32,10 +32,10 @@ class UtilityNav extends React.Component {
 
   onClick(divId, e) {
     e.preventDefault();
-    this.setState({
-      navSelected: (this.state.navSelected === -1) ? divId : -1,
+    this.setState((state) => ({
+      navSelected: (state.navSelected === -1) ? divId : -1,
       isOpen: true
-    });
+    }));
   }
 
   render() {
