@@ -26,7 +26,6 @@ export InputNumber from 'MayflowerReactForms/InputNumber';
 export InputRadioGroup from 'MayflowerReactForms/InputRadioGroup';
 export DateRange from 'MayflowerReactForms/DateRange';
 export MultiSelectDropDown from 'MayflowerReactForms/MultiSelectDropDown';
-export OrgSelector from 'MayflowerReactForms/OrgSelector';
 export TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
 export FeedbackForm from 'MayflowerReactForms/FeedbackForm';
 
@@ -104,7 +103,6 @@ export EmergencyHeader from 'MayflowerReactMolecules/EmergencyHeader';
 export GenTeaser from 'MayflowerReactOrganisms/GenTeaser';
 export Footer from 'MayflowerReactOrganisms/Footer';
 export FooterSlim from 'MayflowerReactOrganisms/FooterSlim';
-export PressFilters from 'MayflowerReactOrganisms/PressFilters';
 export RichText from 'MayflowerReactOrganisms/RichText';
 export UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
 export UtilityNav from 'MayflowerReactOrganisms/UtilityNav';
@@ -141,10 +139,3 @@ export Collapse from 'MayflowerReactAnimations/Collapse';
 
 // @dataviz
 export DataTable from 'MayflowerReactDataviz/DataTable';
-
-// To archive & remove in version 10
-export InputTextTypeAhead from 'MayflowerReactForms/InputTextTypeAhead';
-export PressTeaser from 'MayflowerReactMolecules/PressTeaser';
-export GeneralTeaser from 'MayflowerReactOrganisms/GeneralTeaser';
-export Teaser from 'MayflowerReactOrganisms/Teaser';
-

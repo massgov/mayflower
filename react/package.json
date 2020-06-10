@@ -13,8 +13,8 @@
     "dist"
   ],
   "exports": {
-    "require": "dist/index.js",
-    "default": "dist/index.mjs"
+    "require": "./dist/index.js",
+    "default": "./dist/index.mjs"
   },
   "scripts": {
     "backstop:test": "docker-compose run backstop test --rm",
