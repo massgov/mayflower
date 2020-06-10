@@ -54,6 +54,7 @@ class AccordionItem extends React.Component {
       <div className={accordionClasses}>
         <header className="ma__accordion-header">
           <button
+            type="button"
             className={buttonClasses}
             aria-label={info}
             onClick={this.handleClick}

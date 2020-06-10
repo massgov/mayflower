@@ -32,6 +32,7 @@ const Tabs = ({ handleClick, tabs, selectedTab }) => {
               if (isClickFunction) {
                 return(
                   <button
+                    type="button"
                     key={`tab_${value}`}
                     className={`ma__tabs-item ${isSelected}`}
                     name={value}
