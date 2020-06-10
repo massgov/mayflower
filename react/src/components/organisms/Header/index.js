@@ -213,6 +213,7 @@ class Header extends React.Component {
               {
                 (navSelected !== -1) && (
                   <button
+                    type="button"
                     onClick={() => {
                       this.updateSubNav({
                         navSelected: -1
@@ -227,6 +228,7 @@ class Header extends React.Component {
                 )
               }
               <button
+                type="button"
                 className="ma__header__menu-button js-header-menu-button"
                 onClick={() => this.menuButtonClicked(false)}
               >

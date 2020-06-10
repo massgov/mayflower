@@ -23,6 +23,7 @@ const ButtonCopy = ({ content }) => {
   if ((navigator && navigator.clipboard) || (window.location.search.indexOf('backstop') > -1)) {
     return(
       <button
+        type="button"
         className="ma__button-copy"
         onClick={copyAction}
         title={copyButtonTitle}

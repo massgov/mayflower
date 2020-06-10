@@ -135,7 +135,7 @@ class MainNav extends React.Component {
                 'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
                 key: buttonId
               };
-              itemBody.push(<button {...buttonProps}>{item.text}</button>);
+              itemBody.push(<button type="button" {...buttonProps}>{item.text}</button>);
               const navItemClasses = classNames({
                 'ma__main-nav__subitems': true,
                 'is-open-react': isExpanded,
@@ -147,6 +147,7 @@ class MainNav extends React.Component {
                   <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
                     <li role="menuitem" className="ma__main-nav__subitem">
                       <button
+                        type="button"
                         onClick={(e) => this.onNavigate({ e, href: item.href })}
                         className="ma__main-nav__link"
                         tabIndex={!isExpanded ? -1 : null}
@@ -158,6 +159,7 @@ class MainNav extends React.Component {
                       /* eslint-disable-next-line react/no-array-index-key */
                       <li className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`}>
                         <button
+                          type="button"
                           onClick={(e) => this.onNavigate({ e, href: subItem.href })}
                           className="ma__main-nav__link"
                         >
@@ -169,6 +171,7 @@ class MainNav extends React.Component {
                       item.href && (
                         <li role="menuitem" className="ma__main-nav__subitem ma__main-nav__subitem--main">
                           <button
+                            type="button"
                             onClick={(e) => this.onNavigate({ e, href: item.href })}
                             className="ma__main-nav__link"
                           >
@@ -189,7 +192,7 @@ class MainNav extends React.Component {
                 role: 'menuitem',
                 'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
               };
-              itemBody.push(<button {...buttonProps}>{item.text}</button>);
+              itemBody.push(<button type="button" {...buttonProps}>{item.text}</button>);
             }
             return(
               /* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */

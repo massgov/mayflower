@@ -41,9 +41,6 @@ class LinkDropdown extends React.Component {
     this.dropDownButtonRef = node;
   }
 
-  closeDropdown() {
-    this.setState({ buttonExpand: false });
-  }
 
   handleSelect = (event) => {
     const { target } = event;
@@ -76,6 +73,10 @@ class LinkDropdown extends React.Component {
     if (is.fn(this.props.onItemSelect)) {
       this.props.onButtonClick({ target });
     }
+  }
+
+  closeDropdown() {
+    this.setState({ buttonExpand: false });
   }
 
   render() {

@@ -46,7 +46,7 @@ const Footer = ({
     </div>
     { backToTopButton
     && (
-    <button className="ma__footer__back2top js-back2top is-hidden">
+    <button type="button" className="ma__footer__back2top js-back2top is-hidden">
       <Icon name="arrow" />
       <span aria-hidden="true">Top</span>
       <span className="visually-hidden">Go to the top of the page</span>

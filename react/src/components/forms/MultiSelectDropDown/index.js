@@ -27,6 +27,8 @@ export const getObjByValue = (arr, value, key) => {
 };
 
 class MultiSelectDropDown extends React.Component {
+  _timeoutID;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -61,7 +63,6 @@ class MultiSelectDropDown extends React.Component {
     }, 0);
   }
 
-  _timeoutID;
 
   handleTagClick = (target, e) => {
     e.stopPropagation();

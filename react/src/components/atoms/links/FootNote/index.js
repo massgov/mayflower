@@ -17,6 +17,7 @@ class FootNote extends React.Component {
     return(
       <div className="ma__footnote-item">
         <button
+          type="button"
           id={`footnotemsg${index}`}
           onClick={() => this.handleScroll()}
         >
