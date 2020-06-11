@@ -30,6 +30,7 @@ export OrgSelector from 'MayflowerReactForms/OrgSelector';
 export TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
 export FeedbackForm from 'MayflowerReactForms/FeedbackForm';
 
+
 // @atoms
 export Divider from 'MayflowerReactAtoms/Divider';
 export Placeholder from 'MayflowerReactAtoms/Placeholder';
@@ -147,6 +148,3 @@ export PressTeaser from 'MayflowerReactMolecules/PressTeaser';
 export GeneralTeaser from 'MayflowerReactOrganisms/GeneralTeaser';
 export Teaser from 'MayflowerReactOrganisms/Teaser';
 
-export const includePaths = [
-  path.join(__dirname, 'components/styles')
-];

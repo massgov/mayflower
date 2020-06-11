@@ -62,6 +62,7 @@ const DecorativeLink = (props) => {
         {text}
         {details && (
         <span className="ma__decorative-link__details">
+          &nbsp;
           {details}
         </span>
         )}

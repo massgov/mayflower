@@ -231,6 +231,11 @@ $page-header-widget-width: 350px;
     margin-bottom: 1em;
   }
 
+  &__sub-title .ma__rich-text__container {
+    margin-bottom: 0;
+  }
+
+
   &--has-widgets &__sub-title {
 
     @media ($bp-large-min) {

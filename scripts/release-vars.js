@@ -2,7 +2,8 @@
 // https://github.com/shelljs/shelljs
 const shell = require('shelljs');
 
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest")
+
 const octokit = new Octokit({
   auth: process.env.DANGER_GITHUB_API_TOKEN
 });

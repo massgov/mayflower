@@ -1,10 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, object, optionsKnob } from '@storybook/addon-knobs';
+import {
+  withKnobs, text, boolean, object, array, select
+} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import inputOptions from 'MayflowerReactForms/InputTextFuzzy/InputTextFuzzy.knobs.options';
 
 import TypeAheadDropdown from '.';
-import inputOptions from 'MayflowerReactForms/InputTextTypeAhead/InputTextTypeAhead.knobs.options';
 
 storiesOf('forms|molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -18,20 +20,31 @@ storiesOf('forms|molecules', module)
       },
       inputText: {
         boxed: true,
-        label: text('TypeAheadDropdown inputText: label', null, 'InputTextTypeAhead'),
-        placeholder: text('TypeAheadDropdown inputText: placeholder', 'Search an organization...', 'InputTextTypeAhead'),
-        id: text('TypeAheadDropdown inputText: id', 'org-typeahead', 'InputTextTypeAhead'),
-        options: object('TypeAheadDropdown inputText: options', options, 'InputTextTypeAhead Options'),
-        selected: optionsKnob(
-          'TypeAheadDropdown inputText: selected',
-          Object.assign({}, ...(options.map((option) => ({ [option.text]: option.text })).values())),
-          '',
-          { display: 'select' },
-          'InputTextTypeAhead'
+        disabled: boolean('disabled', false),
+        keys: array('keys', ['text']),
+        options: inputOptions.options.orgSelector.filter((option) => option.text !== ''),
+        placeholder: text('placeholder', 'All Organizations'),
+        id: text('id', 'org-typeahead'),
+        inputId: text('inputId', 'input-org-typeahead'),
+        selected: select(
+          'selected',
+          options.map((option) => option.text),
+          ''
         ),
-        onChange: action('TypeAheadDropdown inputText.onChange')
-      },
-      onKeyDown: action('TypeAheadDropdown onKeyDown')
+        fuseOptions: object('fuseOptions', {
+          shouldSort: true,
+          findAllMatches: true,
+          includeMatches: true,
+          threshold: 0.3,
+          minMatchCharLength: 1,
+          maxPatternLength: 300
+        }),
+        onKeyDown: action('onKeyDown event'),
+        onFocus: action('onFocus event'),
+        onBlur: action('onBlur event'),
+        onSuggestionClick: action('onSuggestionClick called'),
+        renderDefaultSuggestion: boolean('fuzzy renderDefaultSuggestion', true)
+      }
     };
     return(
       <TypeAheadDropdown {...props} />
