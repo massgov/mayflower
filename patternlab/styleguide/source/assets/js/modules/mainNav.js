@@ -1,11 +1,11 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
-const menuButton = document.querySelector(".js-header-menu-button");
-let menuButtonText = menuButton.querySelector('.js-header__menu-text');
+const menuButton = document.querySelector(".js-header-menu-hamburger-button");
+let menuButtonText = menuButton.querySelector('.js-header__menu__hamburger-text');
 let buttonLabel = menuButtonText.textContent;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
-const mainMenu = document.querySelector('.js-main-nav');
-let menuItems = document.querySelectorAll('.js-main-nav-toggle');
+const mainMenu = document.querySelector('.js-main-nav-hamburger');
+let menuItems = document.querySelectorAll('.js-main-nav-toggle-hamburger');
 const menuOverlay = document.querySelector('.menu-overlay');
 const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
 
@@ -30,7 +30,7 @@ if (null !== menuButton) {
 
       if (window.innerWidth > 620) {
         setTimeout(function timeoutFunction() {
-          menuItems[0].querySelector(".js-main-nav__top-link").focus();
+          menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
         }, 500);
       } else {
         setTimeout(function timeoutFunction() {
@@ -73,10 +73,10 @@ if (null !== searchForm) {
 
 [].forEach.call(menuItems, function (item) {
 
-  const itemButton = item.querySelector('.js-main-nav__top-link');
-  const subMenu = item.querySelector('.js-main-nav-content');
-  const subItems = subMenu.querySelector('.js-main-nav__container');
-  let subMenuItems = subMenu.querySelectorAll('.js-main-nav__subitem');
+  const itemButton = item.querySelector('.js-main-nav-hamburger__top-link');
+  const subMenu = item.querySelector('.js-main-nav-hamburger-content');
+  const subItems = subMenu.querySelector('.js-main-nav-hamburger__container');
+  let subMenuItems = subMenu.querySelectorAll('.js-main-nav-hamburger__subitem');
 
   subItems.style.opacity = "0";
 
@@ -145,7 +145,7 @@ if (null !== searchForm) {
 
     if (e.code == 'ArrowDown') {
       let first = subItems.getElementsByTagName("li")[0];
-      first.querySelector('.js-main-nav__link').focus()
+      first.querySelector('.js-main-nav-hamburger__link').focus()
     }
 
     if (e.code == 'Escape' || e.which == '27') {
@@ -196,13 +196,13 @@ if (null !== searchForm) {
         case 'ArrowUp':
         case 'ArrowLeft':
           if (subItem = prevSib) {
-            prevSib.querySelector('.js-main-nav__link').focus();
+            prevSib.querySelector('.js-main-nav-hamburger__link').focus();
           }
           break;
         case 'ArrowDown':
         case 'ArrowRight':
           if (subItem = nextSib) {
-            nextSib.querySelector('.js-main-nav__link').focus();
+            nextSib.querySelector('.js-main-nav-hamburger__link').focus();
           }
           break;
         case 'Escape':
@@ -251,12 +251,12 @@ function closeSubMenus(item) {
     if (siblings[i].classList.contains('submenu-open')) {
 
       setTimeout(function timeoutFunction() {
-        siblings[i].querySelector('.js-main-nav-content').style.height = "0";
-        siblings[i].querySelector('.js-main-nav-content').classList.add('is-closed');
-        siblings[i].querySelector('.js-main-nav__container').style.opacity = "0";
+        siblings[i].querySelector('.js-main-nav-hamburger-content').style.height = "0";
+        siblings[i].querySelector('.js-main-nav-hamburger-content').classList.add('is-closed');
+        siblings[i].querySelector('.js-main-nav-hamburger__container').style.opacity = "0";
         siblings[i].classList.remove('submenu-open');
-        siblings[i].querySelector('.js-main-nav__top-link').setAttribute('aria-expanded', 'false');
-        siblings[i].querySelector('.js-main-nav__top-link').setAttribute('aria-label', 'show menu');
+        siblings[i].querySelector('.js-main-nav-hamburger__top-link').setAttribute('aria-expanded', 'false');
+        siblings[i].querySelector('.js-main-nav-hamburger__top-link').setAttribute('aria-label', 'show menu');
         
       }, 500);
 

@@ -33,7 +33,7 @@ body.show-menu {
   }
 }
 
-.ma__header {
+.ma__header__hamburger {
   padding-top: 37px;
   position: relative;
   background-color: $c-bg-section;
@@ -97,7 +97,7 @@ body.show-menu {
     padding-top: 8px;
     padding-bottom: 8px;
 
-    & .ma__header-search__wrapper {
+    & .ma__header__hamburger-search__wrapper {
       float: right;
 
       @media ($bp-small-min) {
@@ -171,7 +171,7 @@ body.show-menu {
 
     @media ($bp-small-max) {
 
-      .ma__header-search {
+      .ma__header__hamburger-search {
 
         &__input {
           display: none;
@@ -331,7 +331,7 @@ body.show-menu {
   &__nav-search {
     padding: 15px 20px 15px;
 
-    .ma__header-search {
+    .ma__header__hamburger-search {
 
       span {
         display: none;

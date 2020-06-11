@@ -15,7 +15,7 @@ This is a pattern for the site header.
 * Header Search (js/modules/mobileNav.js)
 * Scrolling Nav (js/modules/scrollAnchors.js)
 * Utility Nav (js/modules/utilNav.js)
-* Main Nav Hamburger (js/modules/mainNav.js)
+* Main Nav (js/modules/mainNavHorizontal.js)
 * Google Translate (code is in the footer.twig)
 
 ### Variables
