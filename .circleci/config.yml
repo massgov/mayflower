@@ -50,12 +50,12 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
-            - pl-npm-v3-
+            - pl-npm-v4-{{ checksum "patternlab/styleguide/package-lock.json" }}
+            - pl-npm-v4-
       - run: { name: 'NPM Install', command: 'cd patternlab/styleguide && npm install' }
       - save_cache:
           name: Save NPM cache
-          key: pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
+          key: pl-npm-v4-{{ checksum "patternlab/styleguide/package-lock.json" }}
           paths: [ patternlab/styleguide/node_modules ]
       - run: { name: 'Build', command: 'cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build'}
       - persist_to_workspace:
