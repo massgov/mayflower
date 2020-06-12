@@ -27,6 +27,7 @@ import locationListing from "./modules/locationListing.js";
 import locationFilters from "./modules/locationFilters.js";
 import mainNav from "./modules/mainNav.js";
 import mainNavHorizontal from "./modules/mainNavHorizontal.js";
+import mobileNavHorizontal from "./modules/mobileNavHorizontal.js";
 import orgSelector from "./modules/orgSelector.js";
 import organizationNavigation from "./modules/organizationNavigation.js";
 import pagination from "./modules/pagination.js";

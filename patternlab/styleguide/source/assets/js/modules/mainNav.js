@@ -1,14 +1,18 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
-const menuButton = document.querySelector(".js-header-menu-button");
-let menuButtonText = menuButton.querySelector('.js-header__menu-text');
-let buttonLabel = menuButtonText.textContent;
+const menuButton = document.querySelector(".ma__header .js-header-menu-button");
+let menuButtonText = document.querySelector('.ma__header .js-header__menu-text');
+let buttonLabel;
 const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
-const mainMenu = document.querySelector('.js-main-nav');
-let menuItems = document.querySelectorAll('.js-main-nav-toggle');
+const mainMenu = document.querySelector('.ma__header .js-main-nav');
+let menuItems = document.querySelectorAll('.ma__header .js-main-nav-toggle');
 const menuOverlay = document.querySelector('.menu-overlay');
-const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
+const searchForm = document.querySelector(".ma__header .js-header-search-menu .js-header-search-form");
 
+
+if (null !== menuButtonText) {
+  buttonLabel = menuButtonText.textContent;
+}
 // Open and close the menu
 if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {

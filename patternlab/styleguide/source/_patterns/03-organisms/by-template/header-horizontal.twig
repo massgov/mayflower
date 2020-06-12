@@ -14,7 +14,7 @@
       {% include "@atoms/09-media/site-logo.twig" %}
     </div>
     {% if not hideHeaderSearch %}
-      <div class="ma__header__horizontal__search js-header-search-menu">
+      <div class="ma__header__horizontal__search js-header-search-menu-horizontal">
         {% include "@molecules/header-search.twig" %}
       </div>
     {% endif %}
@@ -22,7 +22,7 @@
   <nav class="ma__header__horizontal__nav" aria-label="main navigation" id="main-navigation" role="navigation">
     <div class="ma__header__horizontal__button-container js-sticky-header">
       <button class="ma__header__horizontal__back-button js-close-sub-nav"><span>Back</span></button>
-      <button class="ma__header__horizontal__menu-button js-header-menu-button">
+      <button class="ma__header__horizontal__menu-button js-header-menu-horizontal-button">
         <span>Menu</span><span class="ma__header__horizontal__menu-icon"></span>
       </button>
     </div>
@@ -33,7 +33,7 @@
           {% include "@molecules/header-search.twig" %}
         </div>
       {% endif %}
-      <div class="ma__header__horizontal__main-nav">
+      <div class="ma__header__horizontal__main-nav js-utility-nav--wide">
         {% include "@molecules/main-nav-horizontal.twig" %}
       </div>
       <div class="ma__header__horizontal__utility-nav ma__header__horizontal__utility-nav--narrow">
