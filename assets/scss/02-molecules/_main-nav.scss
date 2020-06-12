@@ -8,6 +8,7 @@
   }
   
   &__items {
+
     @include ma-reset-list;
   }
   
@@ -16,6 +17,7 @@
   }
   
   &__top-link {
+
     @include ma-button-reset;
     position: relative;
     display: block;
@@ -31,9 +33,11 @@
     width: 100%;
     
     .toggle-indicator {
+
       @include ma-accordion-icon;
     
       .submenu-open & {
+
         &::after {
           transform: rotate(135deg);
         }
@@ -53,6 +57,7 @@
     transition: height 0.4s;
   
     &.is-closed {
+
       @include ma-visually-hidden;
       display: none !important;
       transition: height 0.6s;
@@ -69,6 +74,7 @@
   }
   
   &__container {
+
     @include ma-reset-list;
     transition: opacity 0.2s;
 
@@ -78,6 +84,7 @@
   }
  
   &__link {
+
     @include ma-button-reset;
     width: 100%;
     text-align: left;
