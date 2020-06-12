@@ -11,7 +11,7 @@ body {
     transition: left 0.5s ease;
     width: 100%;
 
-    &.show-menu {
+    &.show-menu-horizontal {
       left: -$header-mobile-menu-width;
       overflow: hidden;
       position: relative;
@@ -19,7 +19,6 @@ body {
     }
   }
 }
-
 
 .ma__header__horizontal {
   padding-top: 43px; // height of the util nav
@@ -147,7 +146,7 @@ body {
 
     @media ($bp-small-max) {
 
-      .ma__header__horizontal-search {
+      .ma__header-search {
 
         &__input {
           display:none;
@@ -173,7 +172,7 @@ body {
               transition: opacity .4s;
               vertical-align: middle;
 
-              .show-menu & {
+              .show-menu-horizontal & {
                 opacity: 0;
               }
             }
@@ -203,7 +202,7 @@ body {
         height: calc(100vh - #{$header-mobile-controls-height * 2});
       }
 
-      .show-menu & {
+      .show-menu-horizontal & {
         right: 0;
       }
 
@@ -288,8 +287,8 @@ body {
     & {
       visibility: hidden;
 
-      .show-menu.show-utilmenu &,
-      .show-menu.show-submenu & {
+      .show-menu-horizontal.show-utilmenu &,
+      .show-menu-horizontal.show-submenu & {
         left: calc(100vw - 280px);
         visibility: visible;
       }
@@ -342,7 +341,7 @@ body {
     &:before {
       top: -8px;
 
-      .show-menu & {
+      .show-menu-horizontal & {
         top: 0;
         transform: rotate(45deg);
       }
@@ -351,7 +350,7 @@ body {
     &:after {
       bottom: -8px;
 
-      .show-menu & {
+      .show-menu-horizontal & {
         top: 0;
         transform: rotate(-45deg);
       }
@@ -361,12 +360,12 @@ body {
   &__nav-search {
     padding: 15px 20px 15px;
 
-    .ma__header__horizontal-search {
-
+    .ma__header-search {
+      position: relative;
       span {
         display: none;
       }
-
+      
     }
 
     @media ($bp-small-min) {
@@ -492,20 +491,20 @@ body {
       background-color: $c-font-inverse;
     }
 
-    .show-menu & {
+    .show-menu-horizontal & {
       background-color: transparent;
     }
 
     &:before {
 
-      .show-menu & {
+      .show-menu-horizontal & {
         background-color: $c-font-inverse;
       }
     }
 
     &:after {
 
-      .show-menu & {
+      .show-menu-horizontal & {
         background-color: $c-font-inverse;
       }
     }
