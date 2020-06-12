@@ -1,7 +1,7 @@
 {% if relationshipIndicators.primary or relationshipIndicators.secondary %}
   <div class="ma__relationship-indicators">
   {% if relationshipIndicators.primary %}
-    <div class="ma__relationship-indicators--section primary{% if relationshipIndicators.secondary is empty %} single{% endif %}">
+    <div class="ma__relationship-indicators--section primary{{ relationshipIndicators.secondary ? '' : ' single' }}">
       <span class="ma__relationship-indicators--label" id="primary">
         <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
         {{ relationshipIndicators.primary.label }}
@@ -18,7 +18,7 @@
   {% endif %}
 
   {% if relationshipIndicators.secondary is not empty %}
-    <div class="ma__relationship-indicators--section secondary">
+    <div class="ma__relationship-indicators--section {{ relationshipIndicators.primary ? 'secondary' : 'single' }}">
       <span class="ma__relationship-indicators--label" id="secondary">
       <span class="ma__visually-hidden">This page, {{ relationshipIndicators.pageTitle }}, is </span>
         {{ relationshipIndicators.secondary.label }}
