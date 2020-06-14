@@ -1,5 +1,5 @@
 // ****** Menu button ******
-let menuButton = document.querySelector(".js-header-menu-button");
+let menuButton = document.querySelector(".ma__header .js-header-menu-button");
 let feedbackButton = document.querySelector('.ma__fixed-feedback-button');
 
 if (null !== menuButton) {
@@ -13,7 +13,7 @@ if (null !== menuButton) {
 }
 
 // ****** Main Header Search button on mobile should open the mobile menu  ******
-let searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
+let searchForm = document.querySelector(".ma__header .js-header-search-menu .js-header-search-form");
 
 if (null !== searchForm) {
   searchForm.addEventListener("submit", function (event) {
