@@ -2,8 +2,7 @@
 {% set  maxItems = maxItems ? maxItems : googleMap.markers|length %}
 <div
   class="ma__google-map"
-  aria-hidden="true"
-  role="presentation">
+  {{ googleMap.static ? "" : 'aria-hidden="true" role="presentation"' }}>
   {# for static maps #}
   {% if googleMap.static %}
   <div class="ma__google-map__map static-image">
