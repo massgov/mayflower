@@ -7,11 +7,11 @@
   {# for static maps #}
   {% if googleMap.static %}
   <div class="ma__google-map__map static-image">
-    <a href="{{ googleMap.link.href }}" title="Get Directions">
+    <a href="{{ googleMap.link.href }}">
       {% set picture = googleMap.picture %}
       {% include "@atoms/09-media/picture-element.twig" %}
       <div class="ma__google-maps__directions-link">
-        <span>Get Directions&nbsp;{{ icon('arrow') }}</span>
+        <span>Get Directions<span class="ma__visually-hidden"> to {{ googleMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
       </div>
     </a>
   </div>
