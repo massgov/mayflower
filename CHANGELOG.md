@@ -1,6 +1,17 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.52.0 (6/15/2020)
+### Added
+- (Patternlab) [KeyMessage] DP-18940: Adjusted the key-message template and styles to stop BG image display problem.
+
+### Changed
+- (Patternlab) [TableOfContents] DP-15628: Make the parent container of TOC link function like a link by expanding clickable area. (#1070)
+- (React) [HelperText] #1080: Use node instead of string for `message` proptype.
+
+### Fixed
+- (React, Patternlab) [OrganizationNavigation] DP-17612: Adjust z-index of open search box to fix style issue on Firefox.
+
 ## 9.51.2 (5/29/2020)
 ### Fixed
 - (Assets) [Fonts] DP-18894: Remove param from font import statement to fix Drupal css aggregation issue. (#1077)
