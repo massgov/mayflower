@@ -1,0 +1,83 @@
+<!-- Begin .header -->
+<header class="ma__header__mixed" id="header">
+  {% if not header.hideBackTo %}
+    <div class="ma__header__mixed__backto">
+      <a href="{{ header.backTo ? header.backTo.url : 'https://www.mass.gov' }}">{{ header.backTo ? header.backTo.text : 'Go to classic Mass.gov' }}</a>
+    </div>
+  {% endif %}
+
+  <a class="ma__header__mixed__skip-nav" href="#main-content">skip to main content</a>
+
+  <nav class="ma__header__mixed__nav" aria-label="main navigation" id="main-navigation" role="navigation">
+    <div class="ma__header__mixed-wrapper">
+
+      <div class="ma__header__mixed__button-container js-sticky-header">
+        <button type="button"
+                aria-label="Menu"
+                aria-popup="true"
+                aria-expanded="false"
+                class="ma__header__mixed__menu-button js-header-menu-button">
+          <span class="ma__header__mixed__menu-icon"></span>
+          <span class="ma__header__mixed__menu-text js-header__menu-text">Menu</span>
+        </button>
+      </div>
+      <div class="ma__header__mixed__nav-container">
+        <div class="ma__header__mixed__logo ma__header__mixed__logo--mobile">
+          {% include "@atoms/09-media/site-logo.twig" %}
+        </div>
+        {% if not hideHeaderSearch %}
+          <div class="ma__header__mixed__nav-search js-header__nav-search">
+            {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
+            {% include "@molecules/header-search.twig" %}
+          </div>
+        {% endif %}
+        <div class="ma__header__mixed__main-nav">
+          {% include "@molecules/main-nav-hamburger.twig" %}
+        </div>
+        <div class="ma__header__mixed__utility-nav ma__header__mixed__utility-nav--narrow js-utility-nav--narrow">
+          {% include "@organisms/by-template/utility-nav.twig" %}
+        </div>
+      </div>
+      <div class="ma__header__mixed__utility-nav ma__header__mixed__utility-nav--wide js-utility-nav--wide">
+        {% include "@organisms/by-template/utility-nav.twig" %}
+      </div>
+    </div>
+
+
+  </nav>
+
+  <div class="ma__header__mixed__container">
+    <div class="ma__header__mixed__logo" tabindex="-1">
+      {% include "@atoms/09-media/site-logo.twig" %}
+    </div>
+    {% if not hideHeaderSearch %}
+      <div class="ma__header__mixed__search ma__header__mixed__search-bar js-header-search-menu">
+        {% include "@molecules/header-search.twig" %}
+      </div>
+    {% endif %}
+  </div>
+
+  <nav class="ma__header__nav" aria-label="main navigation" id="main-navigation" role="navigation">
+    <div class="ma__header__button-container js-sticky-header">
+      <button class="ma__header__back-button js-close-sub-nav"><span>Back</span></button>
+      <button class="ma__header__menu-button js-header-menu-button">
+        <span>Menu</span><span class="ma__header__menu-icon"></span>
+      </button>
+    </div>
+    <div class="ma__header__nav-container">
+      {% if not hideHeaderSearch %}
+        <div class="ma__header__nav-search">
+          {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
+          {% include "@molecules/header-search.twig" %}
+        </div>
+      {% endif %}
+      <div class="ma__header__main-nav">
+        {% include "@molecules/main-nav.twig" %}
+      </div>
+      <div class="ma__header__utility-nav ma__header__utility-nav--narrow">
+        {% include "@organisms/by-template/utility-nav.twig" %}
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- end .header -->

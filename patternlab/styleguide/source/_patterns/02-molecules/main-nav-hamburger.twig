@@ -6,7 +6,8 @@
       <li  role="menuitem" class="ma__main__hamburger-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-hamburger-toggle' : 'js-main-nav-hamburger-top-link' }}" tabindex="-1">
         {% if nav.subNav %}
           <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" aria-expanded="false" aria-label="show submenu" tabindex="0">
-          <span class="visually-hidden show-label">Show the sub topics of </span>{{ nav.text }}
+          <span class="visually-hidden show-label">Show the sub topics of </span>
+              {{ nav.text }}
           <span class="aria-hidden toggle-indicator"></span>
           </button>
           <div class="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
