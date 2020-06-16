@@ -255,4 +255,15 @@
   & + .ma__page-banner {
     margin-top: -11px;
   }
+
+  & + .ma__page-banner--columns {
+
+    @media ($bp-medium-min) {
+      padding-top: 25px;
+    }
+
+    @media ($bp-large-min) {
+      padding-top: 45px;
+    }
+  }
 }
