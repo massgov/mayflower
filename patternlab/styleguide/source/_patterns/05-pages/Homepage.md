@@ -1,5 +1,5 @@
 ### Description
-This is an example page of a typical home page with a large serach input and quick links.
+This is an example page of a typical home page with a large search input and quick links.
 
 ### Status
 * Stable as of 5.0.0
