@@ -457,3 +457,17 @@ body.show-menu-hamburger {
   }
 }
 
+.ma__header__mixed {
+  .ma__header__mixed__nav {
+    .ma__header__mixed__button-container {
+      @media ($bp-header-toggle-min) {
+        visibility: hidden;
+      }
+    }
+  }
+  .ma__header__nav {
+    @media ($bp-header-toggle-max) {
+      display: none;
+    }
+  }
+}
