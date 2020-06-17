@@ -48,6 +48,15 @@
       background-color: $c-bd-divider;
       outline: 2px solid $c-black;
     }
+
+    &.cv-alternate-style {
+      background-color: #f7c600;
+      color: inherit;
+
+      &:hover {
+        background-color: #fce387;
+      }
+    }
   }
   
   &__subitems {
