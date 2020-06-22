@@ -1,5 +1,0 @@
-Changed:
-  - project: Patternlab
-    component: RelationsipIndicator
-    description: Change the label of the secondary set. Change the width of each set. Adjust spacing. #911
-    issue: DP-17150

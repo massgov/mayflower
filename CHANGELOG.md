@@ -1,6 +1,15 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.52.1 (6/22/2020)
+### Changed 
+- (Patternlab) [RelationsipIndicator] DP-17150: Change the label of the secondary set. Change the width of each set. Adjust spacing.
+- (Patternlab) [RelationshipIndicator] DP-17404: Match spacing with the current prod(develop) version. (#938)
+- (Patternlab) [RelationsipIndicator] DP-17404: Align relationship the first terms in primary and secondary sets. (#938)
+- (Patternlab) [BinderInternalPage] DP-17404: Position the TOC below the relationship indicator. (#938)
+- (Patternlab) [MobileNav] DP-17404: Put back missing mobileNav.js in index.js. (#938)
+- (Mayflower) [GoogleMap] DP-19085: Modify google-map.twig to print googleMap.link.info value and set it visualy hidden as context info for screen reader users. (#1089)
+
 ## 9.52.0 (6/15/2020)
 ### Added
 - (Patternlab) [KeyMessage] DP-18940: Adjusted the key-message template and styles to stop BG image display problem. (#1082)

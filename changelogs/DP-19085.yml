@@ -1,6 +1,0 @@
-Changed:
-  - project: Mayflower
-    component: GoogleMap
-    description: Modify google-map.twig to print googleMap.link.info value and set it visualy hidden as context info for screen reader users. (#1089)
-    issue: DP-19085
-    impact: Patch
