@@ -19,10 +19,10 @@ if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    if (body.classList.contains("show-menu-hamburger")) {
+    if (body.classList.contains("show-menu")) {
       closeMenu();
     } else {
-      menuButton.focus();
+      // menuButton.focus();
       openMenu();
     }
   });
@@ -164,7 +164,7 @@ if (null !== searchForm) {
         setTimeout(function timeoutFunction() {
           subMenu.classList.add('is-closed');
         }, 500);
-        
+
       }
       else {
         closeMenu();
@@ -184,7 +184,7 @@ if (null !== searchForm) {
     }
 
     if (width > 840 && e.key == 'Tab') {
-      if (!itemButton.parentElement.nextElementSibling 
+      if (!itemButton.parentElement.nextElementSibling
       && !itemButton.parentElement.classList.contains('submenu-open')) {
         closeMenu();
       }
@@ -196,7 +196,7 @@ if (null !== searchForm) {
     const nextSib = subItem.nextElementSibling;
 
     subItem.addEventListener('keydown', function (e) {
-      
+
       switch (e.code) {
         case 'ArrowUp':
         case 'ArrowLeft':
@@ -220,7 +220,7 @@ if (null !== searchForm) {
 });
 
 function closeMenu() {
-  body.classList.remove("show-menu-hamburger");
+  body.classList.remove("show-menu");
   menuOverlay.classList.remove("overlay-open");
   menuButtonText.textContent = "Menu";
   menuButton.setAttribute('aria-pressed', 'false');
@@ -231,7 +231,7 @@ function closeMenu() {
 }
 
 function openMenu() {
-  body.classList.add("show-menu-hamburger");
+  body.classList.add("show-menu");
   menuOverlay.classList.add("overlay-open");
   menuButtonText.textContent = "Close";
   buttonLabel = "Close";
@@ -262,7 +262,7 @@ function closeSubMenus(item) {
         siblings[i].classList.remove('submenu-open');
         siblings[i].querySelector('.js-main-nav-hamburger__top-link').setAttribute('aria-expanded', 'false');
         siblings[i].querySelector('.js-main-nav-hamburger__top-link').setAttribute('aria-label', 'show menu');
-        
+
       }, 500);
 
     }
