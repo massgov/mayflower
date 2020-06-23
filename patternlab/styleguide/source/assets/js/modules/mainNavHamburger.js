@@ -19,6 +19,9 @@ if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    document.querySelector(".ma__header__hamburger__button-container").toggleAttribute("aria-hidden");
+
     if (body.classList.contains("show-menu")) {
       closeMenu();
     } else {

@@ -226,22 +226,13 @@ body.show-menu {
     top: 37px;
     overflow-y: auto;
     position: absolute;
-    // left: -320px;
-    // visibility: hidden;
+    left: -320px;
+    // visibility for keyboard and screen reader users are managed with toggling aria-hidden value with js.
+    visibility: hidden;
     margin-top: 0;
-    // transition: left 0.3s ease, display 0.3s;
-    // width: 320px;
-    // z-index: 90;
-
-    // &:not(.show-menu .ma__header__hamburger__nav-container) {
-      // display: none;
-      // opacity: 0;
-      width: 0;
-      // font-size: 0;
-      transition: ease 0.3s;
-      -webkit-transition: ease 3s;
-      -o-transition: ease 3s;
-    // }
+    transition: left 0.3s ease, visibility 0.3s;
+    width: 320px;
+    z-index: 90;
 
     @media ($bp-header-toggle-min) {
 
@@ -249,15 +240,9 @@ body.show-menu {
     }
 
     .show-menu & {
-
-      // display: block;// visibility: visible;
-      // opacity: 1;
-      width: 320px;
-      // font-size: 1.375rem;
-      // transition: left 0.6s ease, display 0.8s;
-      transition: ease 0.8s;
-
+      visibility: visible;
       left: 0;
+      transition: left 0.6s ease, visibility 0.8s;
 
       // @media ($bp-header-toggle-max) {
 
@@ -367,6 +352,9 @@ body.show-menu {
   }
 
   &__menu-text {
+    position: relative;
+    display: inline-block;
+    top: -2px;
     padding-left: 25px;
   }
 
