@@ -2,12 +2,10 @@ const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = document.querySelector(".js-header__menu-text");
-let buttonLabel = "";
+let buttonLabel;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
-const mainMenu = document.querySelector(".js-main-nav-hamburger");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 const menuOverlay = document.querySelector(".menu-overlay");
-// const searchForm = document.querySelector(".js-header-search-menu .js-header-search-form");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
@@ -247,9 +245,13 @@ function openMenu() {
 }
 
 function openMenuJumpToSearch() {
+
+  // Set focus on the search input field.
+  document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
+  // document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("placeholder", "panda");
+
   commonOpenMenuTasks();
   jumpToSearchButton.setAttribute("aria-pressed", "true");
-  // Set focus on the search input field.
 }
 
 function commonOpenMenuTasks() {
