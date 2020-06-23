@@ -68,6 +68,31 @@ function resolvePath(sourcePath, currentFile, opts) {
     if (check.test(sourcePath)) {
       const matches = check.exec(sourcePath);
       resolvedPath = `${rootPath}${matches[1]}`;
+      // ES Modules need to list out the extension on the end of the path,
+      // otherwise index.js will be used instead of index.mjs.
+      if (opts.hasOwnProperty('isES5') && opts.isES5 === false) {
+        // List of exports that are files and not directories.
+        const excludes = [
+          'Input/error',
+          'Input/context',
+          'Input/utility',
+          'Input/validate',
+          'TabContainer/tab',
+          'TabContainer/tab-body',
+          'TabContainer/context',
+          'utilities/componentPropTypeCheck',
+          'Breadcrumb/item',
+          'GenTeaser/utils'
+        ];
+        // If the current path is a file and not a directory...
+        if (excludes.some((rule) => sourcePath.includes(rule))) {
+          // Add the .mjs extension.
+          resolvedPath = `${resolvedPath}.mjs`;
+        } else {
+          // Else, add the path to the index.mjs file the ES module needs.
+          resolvedPath = `${resolvedPath}/index.mjs`;
+        }
+      }
     }
   });
   return resolvedPath || sourcePath;
@@ -112,7 +137,8 @@ function transpileES5() {
           'module-resolver',
           {
             resolvePath,
-            alias: aliases
+            alias: aliases,
+            isES5: true
           }
         ],
         '@babel/plugin-proposal-optional-chaining',
@@ -170,7 +196,8 @@ function transpileES6() {
           'module-resolver',
           {
             resolvePath,
-            alias: aliases
+            alias: aliases,
+            isES5: false
           }
         ],
         '@babel/plugin-proposal-optional-chaining',

@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormContext } from '../Input/context';
+import { FormContext } from 'MayflowerReactForms/Input/context';
 
 /* eslint-disable react/no-unused-state */
 
