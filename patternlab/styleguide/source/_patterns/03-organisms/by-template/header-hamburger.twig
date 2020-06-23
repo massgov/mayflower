@@ -20,7 +20,7 @@
   <nav class="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
     <div class="ma__header__hamburger-wrapper">
 
-      <div class="ma__header__hamburger__button-container js-sticky-header" aria-hidden="true">
+      <div class="ma__header__hamburger__button-container js-sticky-header">
         <button type="button"
                 aria-popup="true"
                 aria-expanded="false"
@@ -28,19 +28,17 @@
         <span class="ma__header__hamburger__menu-icon"></span>
         <span class="ma__header__hamburger__menu-text js-header__menu-text">Menu</span>
         </button>
-
+        {# Skip button to search. #}
         <button type="button"
                 aria-popup="true"
                 aria-expanded="false"
                 class="ma__header__hamburger__search-access-button js-header-search-access-button">
-        {# <span class="ma__header__hamburger__menu-icon"></span>
-        <span class="ma__header__hamburger__menu-text js-header__menu-text">Search</span> #}
-        <span class="ma__visually-hidden">Access to search</span>
-        <svg aria-hidden="true" focusable="false"><use xlink:href="#14e1b460ef079153e6f06ccb3f49d13b.8"></use></svg>
+          <span class="ma__visually-hidden">Access to search</span>
+          <svg aria-hidden="true" focusable="false"><use xlink:href="#14e1b460ef079153e6f06ccb3f49d13b.8"></use></svg>
         </button>
       </div>{# .ma__header__hamburger__button-container #}
 
-      <div class="ma__header__hamburger__nav-container">
+      <div class="ma__header__hamburger__nav-container" aria-hidden="true">
         <div class="ma__header__hamburger__logo ma__header__hamburger__logo--mobile">
           {% include "@atoms/09-media/site-logo.twig" %}
         </div>{# .ma__header__hamburger__logo #}
