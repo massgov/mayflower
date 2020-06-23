@@ -47,10 +47,11 @@ if (null !== menuButton) {
       }
     }
 
-    if (e.code == 'Tab') {
-      e.preventDefault();
-      document.querySelector('.ma__header__hamburger-search__input').focus();
-    }
+    // NOTE: This causes a keyboard trap at the menu open/close button.
+    // if (e.code == 'Tab') {
+    //   e.preventDefault();
+    //   document.querySelector('.ma__header__hamburger-search__input').focus();
+    // }
 
     if (e.shiftKey && e.code == 'Tab') {
       closeMenu();
