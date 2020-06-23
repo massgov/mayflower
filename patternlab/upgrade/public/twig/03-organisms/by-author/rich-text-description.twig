@@ -1,0 +1,5 @@
+<section class="ma__rich-text ma__rich-text--description js-ma-rich-text">
+  {% for element in richText.rteElements %}
+    {% include element.path with element.data %}
+  {% endfor %}  
+</section>

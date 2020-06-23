@@ -1,0 +1,13 @@
+{
+  "downloadLink": {
+    "iconSize": "",
+    "icon": "doc-docx",
+    "decorativeLink": {
+      "text": "Link to a file for download",
+      "href": "#",
+      "info": ""
+    },
+    "size": "40kb",
+    "format": "DOCX"
+  }
+}

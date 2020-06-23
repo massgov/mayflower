@@ -1,0 +1,44 @@
+{# backward compatible to v5.5 #}
+{% if illustratedHeader.bgTitle %}
+  {% set imageAlt = illustratedHeader.bgTitle %}
+{% endif %}
+
+{% set illustratedHeaderClass = "ma__illustrated-header" %}
+{% if illustratedHeader.inverted %}
+  {% set illustratedHeaderClass = "ma__illustrated-header ma__illustrated-header--inverted" %}
+{% endif %}
+{% if illustratedHeader.bgCentered %}
+  {% set illustratedHeaderClass = "ma__illustrated-header ma__illustrated-header--centered" %}
+{% endif %}
+
+<section class="{{illustratedHeaderClass}}">
+  <div class="ma__illustrated-header__container">
+    <div class="ma__illustrated-header__content">
+      <div class="ma__illustrated-header__category" aria-hidden="true">
+        {{illustratedHeader.category}}
+      </div>
+      {% set pageHeader = illustratedHeader.pageHeader %}
+      {% set pageHeader = pageHeader|merge({ 'prefix': illustratedHeader.category }) %}
+      {% include "@organisms/by-template/page-header.twig" %}
+    </div>
+  </div>
+  {% if illustratedHeader.bgImage %}
+    <style>
+      .ma__illustrated-header__image {
+        background-image: url('{{ illustratedHeader.bgImage }}');
+      }
+
+      {% if illustratedHeader.retinaBgImage %}
+      @media (-webkit-min-device-pixel-ratio: 2) {
+        .ma__illustrated-header__image {
+          background-image: url('{{ illustratedHeader.retinaBgImage }}');
+        }
+      }
+      {% endif %}
+    </style>
+    <div class="ma__illustrated-header__image">
+    </div>
+  {% else %}
+    <div class="ma__illustrated-header__image ma__illustrated-header__image--empty"></div>
+  {% endif %}
+</section>

@@ -1,0 +1,122 @@
+{
+  "collapsibleContent": {
+    "compHeading": {
+      "title": "Collapsible Content as Contacts",
+      "sub": "",
+      "color": "",
+      "id": "GUID2095-25478",
+      "centered": ""
+    },
+    "description": null,
+
+    "items": [{
+      "expanded": false,
+      "collapsibleHeader": {
+        "info": "Click here to expand this thing",
+        "title": "Department of Conservation and Recreation",
+        "icon": ""
+      },
+      "more": null,
+      "includes": [{
+        "path": "@molecules/contact-us.twig",
+        "data": {
+          "contactUs": {
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": null,
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": ""
+                },
+                "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+              },{
+                "type": "phone",
+                "label":"Toll Free:",
+                "link":{
+                  "href": "+18004324321",
+                  "text": "(800) 432-4321",
+                  "info": ""
+                },
+                "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+              },{
+                "type": "phone",
+                "label":"TTY:",
+                "link": {
+                  "href":"+16175557777",
+                  "text": "(617) 555-7777",
+                  "info": ""
+                },
+                "details":"For those who need accessible services"
+              },{
+                "type": "phone",
+                "label":"Voice Relay:",
+                "link":{
+                  "href":"16175555255",
+                  "text": "(617) 555-5255",
+                  "info": ""
+                },
+                "details":""
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "email",
+                "label":"Email:",
+                "link": {
+                  "href":"email@email.com",
+                  "text": "email@email.com",
+                  "info": ""
+                },
+                "details":""
+              },{
+                "type": "online",
+                "label":"Web:",
+                "link": {
+                  "href":"#",
+                  "text": "Contact Form",
+                  "info": ""
+                },
+                "details":""
+              }]
+            },{
+              "icon": "fax-icon",
+              "name": "Fax",
+              "items": [{
+                "type": "fax",
+                "label":"Main:",
+                "link": {
+                  "href":"+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": ""
+                },
+                "details":"Please allow 24 hours for a response"
+              }]
+            },{
+              "icon": "marker",
+              "name": "Address",
+              "items": [{
+                "type": "address",
+                "label": "",
+                "address": "555 Park Drive\nBoston, MA 02231",
+                "link": {
+                  "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                  "text": "directions",
+                  "info": ""
+                },
+                "details": ""
+              }]
+            }]
+          }
+        }
+      }]    
+    }]
+  }
+}

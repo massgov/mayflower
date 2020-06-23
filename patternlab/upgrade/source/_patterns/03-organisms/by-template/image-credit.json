@@ -1,0 +1,24 @@
+{
+  "imageCredit": {
+    "items":[{
+      "caption": "What Would You Like to Do",
+      "link": "",
+      "source": "Source Name"
+    },
+    {
+      "caption":"Guide: Getting OutDoors",
+      "link": {
+        "href": "#",
+        "target": "",
+        "text":"Source Name",
+        "chevron": ""
+      },
+      "source":"Source Name"
+    },
+    {
+      "caption": "Guide: Fall Activities",
+      "link": "",
+      "source": "Source Name"
+    }]
+  }
+}

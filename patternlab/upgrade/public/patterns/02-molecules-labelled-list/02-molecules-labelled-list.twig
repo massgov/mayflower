@@ -1,0 +1,15 @@
+<div class="ma__labelled-list">
+  {% if labelledList.items|length > 1 %}
+    <ul class="ma__labelled-list__items">
+      {% for item in labelledList.items %}
+        <li class="ma__labelled-list__item">
+          <span class="ma__labelled-list__label">{{ item.label }}</span>
+          <span class="ma__labelled-list__text">{{ item.text }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <span class="ma__labelled-list__label">{{ labelledList.items[0].label }}</span>
+    <span class="ma__labelled-list__text">{{ labelledList.items[0].text }}</span>
+  {% endif %}
+</div>

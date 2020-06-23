@@ -1,0 +1,161 @@
+{
+  "collapsibleContent": {
+    "compHeading": {
+      "title": "Collapsible Content as Steps",
+      "sub": "",
+      "color": "",
+      "id": "GUID2095-254293850",
+      "centered": ""
+    },
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+          }
+        }
+      }]
+    },
+
+    "items": [{
+      "expanded": true,
+      "collapsibleHeader": {
+        "info": "Expand step for doing this in person",
+        "title": "In Person at State Parks",
+        "icon": "profile"
+      },
+      "more": null,
+      "includes": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "Most parks and beaches that charge daily parking fees sell MassParks Passes at their contact stations during their paid parking seasons. Just ask to purchase a MassParks Pass and show your driver’s license or proof of residency. Please note: most parks cannot accept credit cards, so you’ll have to pay with cash or a check."
+                }
+              }
+            }]
+          }
+        }
+      }]    
+    },{
+      "expanded": false,
+      "collapsibleHeader": {
+        "info": "",
+        "title":"Some Other Method",
+        "icon":"circle-chevron"
+      },
+      "more": null,
+      "includes": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "If you concentrate really hard, a pass might magically appear in front of you"
+                }
+              }
+            }]
+          }
+        }
+      }]    
+    },{
+      "expanded": false,
+      "collapsibleHeader": {
+        "info": "",
+        "icon":"laptop",
+        "title":"Online"
+      },
+      "more": null,
+      "includes": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imaperdiet purus pellentesque vel."
+                }
+              }
+            }]
+          }
+        }
+      }]    
+    },{
+      "expanded": false,
+      "collapsibleHeader": {
+        "info": "",
+        "icon":"phone",
+        "title":"By Phone"
+      },
+      "more": null,
+      "includes": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imaperdiet purus pellentesque vel."
+                }
+              }
+            }]
+          }
+        }
+      }]    
+    },{
+      "expanded": false,
+      "collapsibleHeader": {
+        "info": "",
+        "icon":"mail",
+        "title":"By Mail"
+      },
+      "more": null,
+      "includes": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imaperdiet purus pellentesque vel."
+                }
+              }
+            }]
+          }
+        }
+      }]    
+    },{
+      "expanded": false,
+      "collapsibleHeader": {
+        "info": "",
+        "icon":"fax-icon",
+        "title":"By Fax"
+      },
+      "more": null,
+      "includes": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph": {
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imaperdiet purus pellentesque vel."
+                }
+              }
+            }]
+          }
+        }
+      }]    
+    }]
+  }
+}

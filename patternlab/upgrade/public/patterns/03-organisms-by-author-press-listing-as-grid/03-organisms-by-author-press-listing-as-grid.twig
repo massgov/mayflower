@@ -1,0 +1,44 @@
+{% set teaserHeading = 2 %}
+
+<section class="ma__press-listing">
+  <div class="ma__press-listing__container">
+    {% if pressListing.compHeading %}
+      {% set compHeading = pressListing.compHeading %}
+      {% include "@atoms/04-headings/comp-heading.twig" %}
+      {% set teaserHeading = (compHeading.level ? : teaserHeading) + 1 %}
+    {% endif %}
+    {% if pressListing.sidebarHeading %}
+      {% set sidebarHeading = pressListing.sidebarHeading %}
+      {% include "@atoms/04-headings/sidebar-heading.twig" %}
+      {% set teaserHeading = (sidebarHeading.level ? : teaserHeading) + 1 %}
+    {% endif %}
+    {% if pressListing.items %}
+      <div class="ma__press-listing__items">
+        {% block featuredItems %}
+          {% for pressTeaser in pressListing.items %}
+            {% set pressTeaser = pressTeaser|merge({"level":teaserHeading}) %}
+            {% include "@molecules/press-teaser.twig" %}
+          {% endfor %}
+        {% endblock %}
+      </div>
+    {% endif %}
+    {% if pressListing.secondaryItems %}
+      <ul class="ma__press-listing__secondary-items">
+        {% block secondaryItems %}
+          {% for pressTeaser in pressListing.secondaryItems %}
+            <li class="ma__press-listing__secondary-item">
+              {% set pressTeaser = pressTeaser|merge({"level":teaserHeading}) %}
+              {% include "@molecules/press-teaser.twig" %}
+            </li>
+          {% endfor %}
+        {% endblock %}
+      </ul>
+    {% endif %}
+    {% if pressListing.more %}
+      <div class="ma__press-listing__more">
+        {% set link = pressListing.more %}
+        {% include "@atoms/11-text/link.twig" %}
+      </div>
+    {% endif %}
+  </div>
+</section>

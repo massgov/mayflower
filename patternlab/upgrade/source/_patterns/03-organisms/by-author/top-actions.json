@@ -1,0 +1,34 @@
+{
+  "topActions": {
+    "title": "Common Actions & Guides",
+    "links": [{
+      "calloutLink": {
+        "type": "",
+        "href": "#",
+        "text": "Get a State Park Pass",
+        "quickaction": "false"
+      }
+    },{
+      "calloutLink": {
+        "type": "",
+        "href": "#",
+        "text": "Reserve an Athletic Field",
+        "quickaction": "false"
+      }
+    },{
+      "calloutLink": {
+        "type": "",
+        "href": "#",
+        "text": "Download a Trail Map",
+        "quickaction": "false"
+      }
+    },{
+      "calloutLink": {
+        "type": "",
+        "href": "#",
+        "text": "Find a Campground",
+        "quickaction": "false"
+      }
+    }]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "relatedLocations": {
+    "customTitle": true,
+    "titleContext": "",
+    "pages": [
+      {
+        "image": {
+          "alt": "Place Holder Image",
+          "src": "../../images/placeholder/230x130.png",
+          "height": "130",
+          "width": "230"
+        },
+        "link": {
+          "href": "#",
+          "text": "Ashuwillticook Rail Trail ",
+          "info": ""
+        }
+      },
+      {
+        "image": {
+          "alt": "Place Holder Image",
+          "src": "../../images/placeholder/230x130.png",
+          "height": "130",
+          "width": "230"
+        },
+        "link": {
+          "href": "#",
+          "text": "October Mountain State Forest ",
+          "info": ""
+        }
+      },
+      {
+        "image": {
+          "alt": "Place Holder Image",
+          "src": "../../images/placeholder/230x130.png",
+          "height": "130",
+          "width": "230"
+        },
+        "link": {
+          "href": "#",
+          "text": "Sandisfield State Forest (York Lake) ",
+          "info": ""
+        }
+      }
+    ],
+    "linkList": {
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "Related Location #1"
+        },
+        {
+          "href": "#",
+          "text": "Related Location #2"
+        },
+        {
+          "href": "#",
+          "text": "Related Location #3"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "preContent": {
+    "keyMessage": {
+      "id": "abc1",
+      "positionTop": true,
+      "compHeading": {
+        "title": "Technology Careers at the Commonwealth of Massachusetts",
+        "level": "1"
+      },
+      "textOverlay": "c-gray-lightest",
+      "bgImage": "../../images/placeholder/1920x1080-sign.jpg",
+      "mobileBgImage": "../../images/placeholder/1600x600-lighthouse.jpg",
+      "subtitle": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work.",
+      "description": {
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "From education, to healthcare and beyond, the work of more than 150 agencies across Massachusetts touches every aspect of our lives. We are a diverse team of mission-driven IT professionals supporting this vital work."
+            }
+          }
+        }]
+      },
+      "button":{
+        "text":"Find your job",
+        "href":"#"
+      }
+    }
+  },
+  "pageContent": {
+    "campaignVideo": {
+      "id": "qwe1",
+      "positionTop": true,
+      "backgroundColor": "c-primary-lightest",
+      "textColor": "",
+      "title": "Why work for the commonwealth",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "video": {
+        "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
+        "link": {
+          "href": "#",
+          "text": "View transcript",
+          "info": "",
+          "labelContext": " of Why work for the commonwealth",
+          "property": ""
+        }
+      }
+    },
+    "campaignFeature": {
+      "compHeading": {
+        "title": "Learn about our projects and the people behind them",
+        "level": "2"
+      },
+      "positionTop": false,
+      "campaignFullWidthFeature": {
+        "id": "dfg1234",
+        "link": "#",
+        "thumbnail": "../../images/placeholder/400x300.png",
+        "title": "Improving emergency response with mapping technology",
+        "text": "<p>“The work we do at MassGIS supports dispatch, police, fire, and medical professionals who respond to emergency situations. It could benefit all of those who live, visit, and work in the Commonwealth.”</p><p><b>John Smith Doe</b>, GIS Analyst</p>"
+      },
+      "campaignFeature2up": [{
+        "id": "",
+        "link": "#",
+        "thumbnail": "../../images/placeholder/400x300.png",
+        "title": "From an IT training program to EOTSS Team Lead",
+        "text": "<p>“I’m really impressed with the people who work here. I’ve met individuals who have mentored me and helped me build the skills needed to be successful.”</p><p><b>John Smith</b>, Identity & Access Management Specialist</p>"
+      },
+      {
+        "id": "",
+        "link": "#",
+        "thumbnail": "../../images/placeholder/400x300.png",
+        "title": "How a Texas transplant makes Mass.gov work for content authors",
+        "text": "<p>“It’s fun and exciting to have an opportunity to work hand-in-hand with partner agencies who want to understand and improve the constituent experience.”</p><p><b>Jane Doe</b>, Project Manager</p>"
+      }],
+      "moreLink": {
+        "text": "See more featured items",
+        "href": "#"
+      }
+    },
+    "keyMessage": {
+      "id": "abc2",
+      "positionTop": false,
+      "backgroundColor": "c-primary",
+      "compHeading": {
+        "title": "Benefits of working for the Commonwealth",
+        "level": "2"
+      },
+      "bgImage": "",
+      "mobileBgImage": "",
+      "subtitle": "",
+      "description": {
+        "rteElements": [
+          {
+            "path": "@atoms/08-lists/unordered-list.twig",
+            "data": {
+              "class": "ma__horizontal-list",
+              "unorderedList" : [
+                {
+                  "text": "Comprehensize health plans"
+                },
+                {
+                  "text": "Retirement plans"
+                },
+                {
+                  "text": "Culture of learning"
+                },
+                {
+                  "text": "Pre-tax benefits"
+                },
+                {
+                  "text": "Flexible work arrangements"
+                },
+                {
+                  "text": "Tuition remission"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "button":{
+        "text":"Find your job",
+        "href":"#"
+      }
+    }
+  }
+}

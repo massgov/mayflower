@@ -6,6 +6,7 @@
  * an element, you can probably deal with it here.
  */
 module.exports = async function(page, scenario, vp) {
+    await page.addScriptTag({url: 'https://code.jquery.com/jquery-3.5.1.min.js'})
 
     // Wait for all visible fonts to complete loading.
     await page.evaluate(async function() {

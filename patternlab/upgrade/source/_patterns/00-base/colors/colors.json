@@ -1,0 +1,92 @@
+{
+  "rows": [{
+    "items": [
+      {
+        "name": "$c-primary",
+        "color": "Bay Blue",
+        "value": "#14558f"
+      },
+      {
+        "name": "$c-bay-blue-lighter",
+        "color": "50% Bay Blue",
+        "value": "#8aaac7"
+      },
+      {
+        "name": "$c-bay-blue-lightest",
+        "color": "10% Bay Blue",
+        "value": "#e7eef4"
+      }]
+    },{
+    "items": [
+      {
+        "name": "$c-primary-alt",
+        "color": "Berkshires Green",
+        "value": "#388557"
+      },
+      {
+        "name": "$c-berkshires-green-lighter",
+        "color": "50% Berkshires Green",
+        "value": "#97c2a9"
+      },
+      {
+        "name": "$c-berkshires-green-lightest",
+        "color": "20% Berkshires Green",
+        "value": "#d6E7dd"
+      }]
+    },{
+    "items": [
+      {
+        "name": "$c-highlight",
+        "color": "Duckling Yellow",
+        "value": "#f6c51b"
+      },
+      {
+        "name": "$c-duckling-yellow-lighter",
+        "color": "50% Duckling Yellow",
+        "value": "#fbe28d"
+      },
+      {
+        "name": "$c-duckling-yellow-lightest",
+        "color": "10% Duckling Yellow",
+        "value": "#fef9e8"
+      }]
+    },{
+    "items": [
+      {
+        "name": "$c-black",
+        "color": "Revolution Gray",
+        "value": "#141414"
+      },
+      {
+        "name": "$c-gray-dark",
+        "color": "Granite Gray",
+        "value": "#535353"
+      },
+      {
+        "name": "$c-gray",
+        "color": "Atlantic Gray",
+        "value": "#707070"
+      },
+      {
+        "name": "$c-gray-light",
+        "color": "Overcast Gray",
+        "value": "#dcdcdc"
+      },
+      {
+        "name": "$c-gray-lightest",
+        "color": "Platinum Gray",
+        "value": "#f2f2f2"
+      }]
+    },{
+    "items": [
+      {
+        "name": "$c-error",
+        "color": "Error Red",
+        "value": "#cd0d0d"
+      }
+    ]
+  }],
+  "meta": {
+    "description": ""
+  }
+}

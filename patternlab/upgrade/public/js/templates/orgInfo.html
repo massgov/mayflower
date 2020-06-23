@@ -1,0 +1,41 @@
+<section class="ma__org-info">
+  <div class="ma__org-info__header">
+    {{#if image.src}}
+      <div class="ma__org-info__image">
+        <a href="{{ image.href }}">
+          <img
+            alt="{{ image.alt }}" 
+            src="{{ image.src }}" 
+            height="{{ image.height }}" 
+            width="{{ image.width }}" />
+        </a>
+      </div>
+    {{/if}}
+    <div class="ma__org-info__title">
+      <h2 class="ma__org-info__name">
+        <span class="ma__decorative-link">
+          <a href="{{ name.href }}">{{ name.text }}&nbsp;<svg aria-hidden="true" id="SvgjsSvg1000" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="16" height="18" viewBox="0 0 16 18"><defs id="SvgjsDefs1001"></defs><path id="SvgjsPath1007" d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)"></path></svg></a>
+        </span>
+      </h2>
+      {{#if jobTitle}}
+        <h3 class="ma__org-info__job-title">
+          {{ jobTitle }}
+        </h3>
+      {{/if}}
+    </div>
+  </div>
+  <div class="ma__org-info__content">
+    <div class="ma__rich-text">
+      {{ message }}
+    </div>
+    {{#if moreLink.href}}
+      <div class="ma__org-info__link">
+        <span class="ma__decorative-link">
+          <a 
+            href="{{ moreLink.href }}"
+            aria-label="{{ moreLink.info }}">{{ moreLink.text }}&nbsp;<svg aria-hidden="true" id="SvgjsSvg1000" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="16" height="18" viewBox="0 0 16 18"><defs id="SvgjsDefs1001"></defs><path id="SvgjsPath1007" d="M983.721 1887.28L983.721 1887.28L986.423 1890L986.423 1890L986.423 1890L983.721 1892.72L983.721 1892.72L978.318 1898.17L975.617 1895.45L979.115 1891.92L971.443 1891.92L971.443 1888.0700000000002L979.103 1888.0700000000002L975.617 1884.5500000000002L978.318 1881.8300000000002Z " transform="matrix(1,0,0,1,-971,-1881)"></path></svg></a>
+        </span>
+      </div>
+    {{/if}}
+  </div>
+</section>

@@ -1,0 +1,51 @@
+<section class="ma__feedback-form" id="GUID8317417813234325">
+  <style>
+    #GUID8317417813234325 {
+      background-image: url('{{feedbackForm.bgNarrow}}');
+    }
+
+    @media (min-width: 801px) {
+      #GUID8317417813234325 {
+        background-image: url('{{feedbackForm.bgWide}}');
+      }
+    }
+  </style>
+  <div class="ma__feedback-form__overlay">
+    <div class="ma__feedback-form__container">
+      <header class="ma__feedback-form__header">
+        <h2 class="ma__feedback-form__title">{{feedbackForm.title}}</h2>
+        <p class="ma__feedback-form__description">{{feedbackForm.description}}</p>
+      </header>
+      <form action="#" class="ma__form ma__form--light">
+        <div class="ma__feedback-form__name">
+          {% set inputText = feedbackForm.inputText %}
+          {% include "@atoms/03-forms/input-text.twig" %}
+        </div>
+        <div class="ma__feedback-form__email">
+          {% set inputText = feedbackForm.email %}
+          {% include "@atoms/03-forms/input-text.twig" %}
+        </div>
+        <div class="ma__feedback-form__feedback">
+          {% set textarea = feedbackForm.textarea %}
+          {% include "@atoms/03-forms/textarea.twig" %}
+        </div>
+        <div class="ma__feedback-form__type">
+          {% set selectBox = feedbackForm.selectBox %}
+          {% include "@atoms/03-forms/select-box.twig" %}
+        </div>
+        <fieldset class="ma__feedback-form__permission">
+          <legend>{{feedbackForm.permissionLegend}}</legend>
+          {% for inputRadio in feedbackForm.radioButtons %}
+            {% include "@atoms/03-forms/input-radio.twig" with inputRadio %}
+          {% endfor %}
+        </fieldset>
+        <div class="ma__feedback-form__controls">
+          <div class="ma__feedback-form__error-message js-error-msg" hidden>
+            {{feedbackForm.errorMsg}}
+          </div>
+          <button type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,274 @@
+{
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Other agency or organization"
+        }
+      ]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Snowmobile in the Parks"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Cross-Country Skiing"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Accessible Hiking"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Scenic Viewing Areas"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Hunting"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Biking"
+        }
+      ]
+    }
+  },
+  "pageBanner": {
+    "bgWide": "../../images/placeholder/820x460.png",
+    "bgNarrow": "../../images/placeholder/800x400.png",
+    "size": "columns",
+    "icon": "lg-picnic-table",
+    "title": "State Parks & Recreation",
+    "description": "First line of this Topic that feeds description on cards.  This description can span multiple lines."
+  },
+  "sectionThreeUp": {
+    "compHeading": null,
+    "sections": [
+      {
+        "id": "GUIDasjdhf1",
+        "catIcon": "",
+        "title": {
+          "href": "#",
+          "text": "Recreation Service"
+        },
+        "description": "First line of this Service that helps users know it's right.",
+        "type": "callout",
+        "links": [
+          {
+            "href": "#",
+            "text": "Service How-To 1"
+          },
+          {
+            "href": "#",
+            "text": "Service Task 2"
+          }
+        ],
+        "seeAll": {
+          "href": "#",
+          "text": "More about this service",
+          "info": "learn more about the Recreation Service"
+        }
+      },
+      {
+        "id": "GUIDasjdhf2",
+        "catIcon": "",
+        "title": {
+          "href": "#",
+          "text": "Active & Team Sports"
+        },
+        "description": "First line of this Topic that feeds descriptions on cards.  Additional overview information augue ante, egestas nec semper.",
+        "links": [
+          {
+            "href": "#",
+            "text": "Ice Skating"
+          },
+          {
+            "href": "#",
+            "text": "Golfing"
+          },
+          {
+            "href": "#",
+            "text": "Reserve an Athletic Field"
+          }
+        ],
+        "seeAll": {
+          "href": "#",
+          "text": "More about this topic",
+          "info": "learn more about Active & Team Sports"
+        }
+      },
+      {
+        "id": "GUIDasjdhf3",
+        "catIcon": "",
+        "title": {
+          "href": "/patterns/05-pages-L2-nature-and-outdoor-activities/05-pages-L2-nature-and-outdoor-activities.html",
+          "text": "Nature & Outdoor Activities"
+        },
+        "description": "First line of this Topic that feeds descriptions on cards.  Additional overview information augue ante, egestas nec semper.",
+        "links": [
+          {
+            "href": "#",
+            "text": "Camping"
+          },
+          {
+            "href": "#",
+            "text": "Hiking"
+          },
+          {
+            "href": "#",
+            "text": "Biking"
+          }
+        ],
+        "seeAll": {
+          "href": "#",
+          "text": "More about this topic",
+          "info": "learn more about Nature & Outdoor Activities"
+        }
+      },
+      {
+        "id": "GUIDasjdhf4",
+        "catIcon": "",
+        "title": {
+          "href": "#",
+          "text": "Water Related Activities"
+        },
+        "description": "First line of this Topic that feeds descriptions on cards.  Additional overview information augue ante, egestas nec semper.",
+        "links": [
+          {
+            "href": "#",
+            "text": "Boating"
+          },
+          {
+            "href": "#",
+            "text": "Lifeguarding"
+          },
+          {
+            "href": "#",
+            "text": "Canoeing"
+          }
+        ],
+        "seeAll": {
+          "href": "#",
+          "text": "More about this topic"
+        }
+      }
+    ],
+    "seeAll": {
+      "href": "#",
+      "text": "More about this",
+      "info": "learn more about Water Related Activities"
+    }
+  },
+  "relatedOrgsAndTopics": {
+    "header": {
+      "title": "Related Information",
+      "level": "2"
+    },
+    "columns": [
+      {
+        "column_title": "Organizations",
+        "linkList": {
+          "compHeading": {
+            "title": "Organizations",
+            "level": "3"
+          },
+          "stacked": true,
+          "links": [
+            {
+              "href": "#",
+              "text": "Related Organization #1"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #2"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #3"
+            },
+            {
+              "href": "#",
+              "text": "Executive Office of Health and Human Services"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #5"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #6"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #7"
+            },
+            {
+              "href": "#",
+              "text": "Board of Registration in Allied Mental Health and Human Services Professions"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #9"
+            },
+            {
+              "href": "#",
+              "text": "Board of Registration of Professional Engineers and Professional Land Surveyors "
+            },
+            {
+              "href": "#",
+              "text": "Massachusetts Commission on Lesbian, Gay, Bisexual, Transgender, Queer and Questioning Youth"
+            },
+            {
+              "href": "#",
+              "text": "Related Organization #12"
+            }
+          ]
+        }
+      },
+      {
+        "column_title": "Topics",
+        "linkList": {
+          "compHeading": {
+            "title": "Topics",
+            "level": "3"
+          },
+          "stacked": true,
+          "links": [
+            {
+              "href": "#",
+              "text": "Related Topic #1"
+            },
+            {
+              "href": "#",
+              "text": "Related Topic #2"
+            },
+            {
+              "href": "#",
+              "text": "Related Topic #3"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+<style>
+  .ma__radio-scale__items::before,
+  .ma__radio-scale::before {
+    content: "{{ radioScalesGroups.startScaleLabel }}";
+  }
+
+  .ma__radio-scale__items::after,
+  .ma__radio-scale::after {
+    content: "{{ radioScalesGroups.endScaleLabel }}";
+  }
+</style>
+
+<fieldset class="ma__radio-scale-groups">
+  {% if radioScalesGroups.title %}
+    <legend>{{ radioScalesGroups.title }}</legend>
+  {% endif %}
+  <div class="ma__radio-scale__items" >
+  {% for group in radioScalesGroups.groups %}
+    <div class="ma__radio-scale__item">
+      {% include group.path with group.data %}
+    </div>
+  {% endfor %}
+  </div>
+</fieldset>

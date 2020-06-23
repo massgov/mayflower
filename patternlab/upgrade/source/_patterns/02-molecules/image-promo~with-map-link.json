@@ -1,0 +1,44 @@
+{
+  "imagePromo": {
+    "title": {
+      "text": "Activity Title",
+      "href": "#",
+      "type": ""
+    },
+    "tags": [{
+      "label": "handicapped accessible",
+      "icon": "wheelchair"
+    },{
+      "label": "open now",
+      "icon": "open-now"
+    }],
+    "image": {
+      "src":"../../images/placeholder/190x107.png",
+      "alt": "placeholder image",
+      "href": "#"
+    },
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+          }
+        }
+      }]
+    },
+    "link": {
+      "text": "Directions",
+      "href": "#",
+      "info": "Directions to Activity Title"
+    },
+    "location": {
+      "text": "89 Summer St, Malden, MA 02148",
+      "map": true
+    },
+    "phone": {
+      "text": "(781) 322-7500",
+      "href": "+17813227500"
+    }
+  }
+}

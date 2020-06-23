@@ -1,0 +1,18 @@
+{
+  "sidebarPromo":{
+    "sidebarHeading": {
+      "title": "Cross Promotional Component Name"
+    },
+    "image": {
+      "alt" : "promo copy", 
+      "src" : "http://placehold.it/320x180"
+    },
+    "content":"This could link to another relevant page, such as the in court bail process or bail for juveniles. We can have variations for cross promo components. Some wouldn't need an image or description, as seen in the components below this one. Com sociis natoque penatibus et magnis dis.",
+    "link":{
+      "href": "#",
+      "target": "",
+      "text":"Clear Call to Action",
+      "chevron": "true"
+    }
+  }
+}

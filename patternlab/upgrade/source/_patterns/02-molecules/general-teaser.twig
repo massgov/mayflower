@@ -1,0 +1,80 @@
+{% set imageClass = generalTeaser.image ? 'ma__general-teaser--image' : '' %}
+{% set layout = generalTeaser.layout ?: 'side-by-side' %}
+
+<section class="ma__general-teaser {{ imageClass }} {{ layout }}">
+  {% block teaserImage %}
+    {% if generalTeaser.image.src %}
+
+      {% if generalTeaser.title.href %}
+        <a
+        class="ma__general-teaser__image-wrapper"
+        href="{{ generalTeaser.title.href }}"
+        title="{{ generalTeaser.title.text }}">
+      {% else %}
+        <span class="ma__general-teaser__image-wrapper">
+      {% endif %}
+
+      {% set image = generalTeaser.image %}
+      {% include "@atoms/09-media/image.twig" %}
+
+      {% if generalTeaser.title.href %}
+        </a>
+      {% else %}
+        </span>
+      {% endif %}
+
+    {% endif %}
+  {% endblock %}
+
+  {% if layout == 'inline-image' %}
+    <div class="ma__general-teaser__header">
+  {% else %}
+    <div class="ma__general-teaser__details">
+  {% endif %}
+
+  {% block eyebrow %}
+    {% if generalTeaser.eyebrow %}
+      {% set eyebrow = generalTeaser.eyebrow %}
+      {% include "@molecules/general-teaser-eyebrow.twig" %}
+    {% endif %}
+  {% endblock %}
+
+  {% block title %}
+    {% if generalTeaser.title.text %}
+      {% set title = generalTeaser.title %}
+      {% set headingLevel = generalTeaser.level ? : 2 %}
+      {% include "@molecules/general-teaser-title.twig" %}
+    {% endif %}
+  {% endblock %}
+
+  {% block emphasizedText %}
+    {% if generalTeaser.emphasizedText %}
+      {% set emphasizedText = generalTeaser.emphasizedText %}
+      {% include "@molecules/general-teaser-emphasizedText.twig" %}
+    {% endif %}
+  {% endblock %}
+
+  {% if layout == 'inline-image' %}
+    </div><!-- end ma__general-teaser__header -->
+    <div class="ma__general-teaser__details">
+  {% endif %}
+
+    {% if generalTeaser.contents and layout != 'contents-stacked' %}
+      <div class="ma__general-teaser__contents">
+        {% for content in generalTeaser.contents %}
+          {% include content.path with content.data %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    </div><!-- ma__general-teaser__details -->
+
+  {% if generalTeaser.contents and layout == 'contents-stacked' %}
+    <div class="ma__general-teaser__contents">
+      {% for content in generalTeaser.contents %}
+        {% include content.path with content.data %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</section>

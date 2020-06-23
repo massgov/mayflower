@@ -1,0 +1,10 @@
+{
+  "figure": {
+    "align": "",
+    "wrap": false,
+    "size": "",
+    "content": "",
+    "title": "This is an option title",
+    "caption": "This is an optional caption that can wrap to multiple lines."
+  }
+}

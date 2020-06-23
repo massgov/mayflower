@@ -1,0 +1,117 @@
+{
+  "pageHeader": {
+    "category": "transcript",
+    "divider": false,
+    "title": "Governor Charlie Baker: The state of our Commonwealth is strong",
+    "subTitle": "",
+    "headerTags": null,
+    "socialLinks": null,
+    "optionalContents": null,
+    "widgets": null
+  },
+
+  "video": {
+    "src": "https://www.youtube.com/embed/sBd6GWvCLX0",
+    "label": "Governor Charlie Baker: The state of our Commonwealth is strong",
+    "height": "315",
+    "width": "560",
+    "link": null,
+    "position": ""
+  },
+
+  "backButton": {
+    "link": {
+      "href": "#",
+      "text": "Back to previous page",
+      "info": "Back to page about Blah"
+    }
+  },
+
+  "richText": {
+    "rteElements": [{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“Mr. Speaker. Mr. President. Members of the House and Senate. Fellow Constitutional Officers. And Members of the Governor's Council."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“Mr. Chief Justice and Members of the Judiciary. Members of the Cabinet and my Administration."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“Senators Warren and Markey. Members of Congress. Sheriffs. District Attorneys. Mayors. Distinguished Local Officials. Reverend Clergy. Distinguished Guests. And fellow Citizens."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“I want to begin by expressing my gratitude to some special people. For the support and encouragement they’ve extended to Karyn and me over the past year."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“To my cabinet and staff – for their willingness to serve & their collaborative brilliance. Thank you."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“To the thousands of front line employees in state and local government, who make a real difference every day in the lives of our citizens. Thank you."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“To the people I’ve met &mdash; and maybe even taken a selfie with &mdash; thank you for sharing your stories. Your dreams. Your passion. And your encouragement."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“We are joined tonight by Corporal John Dawson’s parents and Gunnery Sergeant Tom Sullivan’s parents. Last year both lost their sons in service to our country."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“Every man and woman who serves in combat is special. And their families serve right alongside them."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“Your presence reminds us what service, sacrifice and loss is really all about."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“We are who we are, as a Commonwealth and a country, because of families like yours. I know I speak for everyone here tonight and across the Commonwealth when I say thank you and God Bless."
+        }
+      }
+    },{
+      "path": "@atoms/11-text/paragraph.twig",
+      "data": {
+        "paragraph" : {
+          "text": "“To the Speaker, Senate President and the members of the legislature. Thank you for putting partisanship aside and for engaging with us in good faith and good humor as we work to solve some very challenging problems."
+        }
+      }
+    }]
+  }
+}

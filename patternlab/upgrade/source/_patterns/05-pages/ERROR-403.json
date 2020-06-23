@@ -1,0 +1,38 @@
+{
+  "narrowTemplate": {
+    "side": "right",
+    "color": "yellow"
+  },
+  
+  "errorPage": {
+    "type": "403",
+    "label": "Oh no",
+    "title": "This page is forbidden",
+    "message": "Sorry, you don't have access to this page"
+  },
+
+  "linkList": {
+    "compHeading": {
+      "title": "Helpful Links",
+      "level": 3,
+      "color": "yellow",
+      "centered": true
+    },
+    "description": null,
+    "stacked": false,
+    "hideBullets": true,
+    "links" : [{
+      "href": "#",
+      "text":"Helpful link",
+      "chevron": "true"
+    },{
+      "href": "#",
+      "text":"Another helpful link",
+      "chevron": "true"
+    },{
+      "href": "#",
+      "text":"Yet another helpful link",
+      "chevron": "true"
+    }]
+  }
+}

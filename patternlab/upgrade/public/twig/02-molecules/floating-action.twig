@@ -1,0 +1,6 @@
+{% set buttonClassAlignment = floatingAction.alignment ? "ma__floating-action--" ~ floatingAction.alignment : "" %}
+
+<div class="ma__floating-action {{buttonClassAlignment}}">
+  {% set button = floatingAction.button %}
+  {% include "@atoms/01-buttons/button.twig" %}
+</div>

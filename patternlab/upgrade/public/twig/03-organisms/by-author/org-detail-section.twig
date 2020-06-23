@@ -1,0 +1,30 @@
+<section class="ma__organization-detail__section">
+  {% if divider %}
+    {% include "@atoms/divider.twig" %}
+  {% endif %}
+  <div class="main-content main-content--two">
+    <div class="ma__organization-detail__title">
+      {% set compHeading = {
+        "title": stackedRow.title,
+      }
+      %}
+      {% include "@atoms/04-headings/comp-heading.twig" %}
+    </div>
+    <div class="page-content">
+      {% block sectionContent %}
+        {% for content in stackedRow.pageContent %}
+          {% include content.path with content.data %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+    {% if stackedRow.sideBar|length %}
+      <aside class="sidebar">
+        {% block sectionSidebar %}
+          {% for sidebar in stackedRow.sideBar %}
+            {% include sidebar.path with sidebar.data %}
+          {% endfor %}
+        {% endblock %}
+      </aside>
+    {% endif %}
+  </div>
+</section>

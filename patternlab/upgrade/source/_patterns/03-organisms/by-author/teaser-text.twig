@@ -1,0 +1,8 @@
+<section class="ma__teaser-text">
+  {% set richText = teaserText.richText %}
+  {% include "@organisms/by-author/rich-text.twig" %}
+  {% if teaserText.decorativeLink %}
+    {% set decorativeLink = teaserText.decorativeLink %}
+    {% include "@atoms/decorative-link.twig" %}
+  {% endif %}
+</section>

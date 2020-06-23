@@ -1,0 +1,15 @@
+{
+  "locationIcons": {
+    "title": "payment options",
+    "icons": [{
+      "path":"credit",
+      "name":"credit card"
+    },{
+      "path":"check",
+      "name":"check"
+    },{
+      "path":"cash",
+      "name":"cash"
+    }]
+  }
+}

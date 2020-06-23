@@ -1,0 +1,339 @@
+{
+  "urlPath": "/?p=pages-GUIDE-section-example",
+
+  "emergencyAlerts": {
+    "id":"GUID18378923w38789",
+    "buttonAlert": {
+      "hideText": "Hide",
+      "showText": "Show",
+      "text": "Updates"
+    },
+    "emergencyHeader": {
+      "title": "The State is experiencing severe weather due to the winter storm Paula."
+    },
+    "alerts": [{
+      "message": "MassPort is operating with limited flights due to road closures.",
+      "timeStamp": "02.15.16, 5:00 p.m.",
+      "link": {
+        "href": "#",
+        "text":"Read full alert",
+        "chevron": "true"
+      }
+    },{
+      "message": "The MTBA is operating at a lighter service level, and experiencing delays.",
+      "timeStamp": "02.15.16, 3:00 p.m.",
+      "link": {
+        "href": "#",
+        "text":"Read full alert",
+        "chevron": "true"
+      }
+    },{
+      "message": "The Governor directs non-emergency executive branch state employees to not come in to work.",
+      "timeStamp": "02.13.16, 10:00 a.m.",
+      "link": {
+        "href": "#",
+        "text":"Read full alert",
+        "chevron": "true"
+      }
+    }]
+  },
+  "illustratedHeader": {
+    "bgTitle": "Forest of the Berkshires",
+    "bgImage": "../../images/placeholder/800x450.png",
+    "category": "Guide",
+    "pageHeader": {
+      "divider": false,
+      "title": "Moving to Massachusetts: Planning Your Move",
+      "subTitle": "",
+      "headerTags": null,
+      "optionalContents": [{
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "rteElements": [{
+              "path": "@atoms/paragraph.twig",
+              "data": {
+                "paragraph" : {
+                  "text": "The Commonwealth of Massachusetts welcomes new residents to enjoy all the state has to offer. To help make your move to the Bay State as smooth as possible, this guide provides instructions for changing your license, tips for settling in, and other useful information."
+                }
+              }
+            }]
+          }
+        }
+      }],
+      "widgets": null
+    }
+  },
+
+  "jumpLinks": {
+    "title": "In this guide",
+    "links": [{
+      "text": "Section with Everything",
+      "href": "section-with-everything"
+    }]
+  },
+
+  "stackedRows": [{
+      "title": "Section with Everything",
+      "id": "another-section-name6",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/callout-time.twig",
+          "data": {
+            "calloutTime": {
+              "icon": "wait-time",
+              "text": "This usually takes approximately 4 weeks"
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/rich-text.twig",
+          "data": {
+            "richText": {
+              "rteElements": [{
+                "path": "@molecules/callout-stats.twig",
+                "data": {
+                  "statsCallout": {
+                    "pull": "right",
+                    "stat": "$75+",
+                    "content": "this includes a title and registration fee"
+                  }
+                }
+              },{
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph" : {
+                    "text": "Lorem ipsum dolor sit amet, <a href=\"#\">consectetur adipiscing</a> elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget."
+                  }
+                }
+              },{
+                "path": "@atoms/09-media/figure--image.twig",
+                "data": {
+                  "figure": {
+                    "align": "",
+                    "wrap": false,
+                    "image": {
+                      "alt": "alt text",
+                      "src": "../../images/placeholder/800x400.png",
+                      "height": "",
+                      "width": ""
+                    },
+                    "caption": ""
+                  }
+                }
+              }]
+            }
+          }
+        },
+        {
+          "path":"@organisms/by-author/callout-alert.twig",
+          "data":{
+            "calloutAlert": {
+              "href": "",
+              "text": "Massachusetts requires you to license your dog"
+            }
+          }
+        },
+        {
+          "path":"@organisms/by-author/key-actions.twig",
+          "data":{
+            "keyActions": {
+              "compHeading": {
+                "title": "Key Actions",
+                "sub":true,
+                "titleContext": "for Section with Everything"
+              },
+              "links":[{
+                "text": "Related Action to important Page Name",
+                "type": "",
+                "href": "#"
+              }]
+            }
+          }
+        },
+        {
+          "path":"@organisms/by-author/form-downloads.twig",
+          "data":{
+            "formDownloads": {
+              "compHeading": {
+                "title": "Downloads & Links",
+                "sub": true,
+                "titleContext": "for Section with Everything"
+              },
+              "downloadLinks": [{
+                "downloadLink": {
+                  "iconSize": "",
+                  "icon": "laptop",
+                  "decorativeLink": {
+                    "text": "Online Form: Out-of-Country Driver's License Conversion",
+                    "href": "#",
+                    "info": "",
+                    "property": ""
+                  },
+                  "size": "",
+                  "format": "form"
+                }
+              },{
+                "downloadLink": {
+                  "iconSize": "",
+                  "icon": "laptop",
+                  "decorativeLink": {
+                    "text": "Online Form: External link",
+                    "href": "#",
+                    "info": "",
+                    "property": ""
+                  },
+                  "size": "",
+                  "format": "form"
+                }
+              },{
+                "downloadLink": {
+                  "iconSize": "",
+                  "icon": "doc-docx",
+                  "decorativeLink": {
+                    "text": "Word download item",
+                    "href": "#",
+                    "info": "",
+                    "property": ""
+                  },
+                  "size": "40kb",
+                  "format": "DOCX"
+                }
+              },{
+                "downloadLink": {
+                  "iconSize": "",
+                  "icon": "doc-generic",
+                  "decorativeLink": {
+                    "text": "Generic download item",
+                    "href": "#",
+                    "info": "",
+                    "property": ""
+                  },
+                  "size": "120kb",
+                  "format": "CSV"
+                }
+              },{
+                "downloadLink": {
+                  "iconSize": "",
+                  "icon": "doc-pdf",
+                  "decorativeLink": {
+                    "text": "RMV-1 Form",
+                    "href": "#",
+                    "info": "",
+                    "property": ""
+                  },
+                  "size": "259KB",
+                  "format": "PDF"
+                }
+              }]
+            }
+          }
+        }
+      ],
+
+      "sideBar": [{
+      "path": "@organisms/by-author/contact-list.twig",
+      "data": {
+        "contactList": {
+          "viewSpecific": false,
+          "sidebarHeading": {
+            "title": "Key Agencies",
+            "titleContext": "for Section with Everything"
+          },
+          "contacts": [{
+            "accordion": false,
+            "isExpanded": false,
+            "subTitle": {
+              "href":"#",
+              "text": "Massachusetts Registry of Motor Vehicles (RMV)",
+              "chevron":""
+            },
+            "groups": [{
+              "icon": "phone",
+              "name": "Phone",
+              "items": [{
+                "type": "phone",
+                "label":"Main:",
+                "link": {
+                  "href": "+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": "",
+                  "property": ""
+                },
+                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+              }]
+            },{
+              "icon": "laptop",
+              "name": "Online",
+              "items": [{
+                "type": "online",
+                "label":"",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
+                },
+                "details":""
+              }]
+            }]
+          }]
+        }
+      }
+    }]
+    }
+  ],
+
+  "COMMENT":"****POSTCONTENT COMPONENTS****",
+
+  "suggestedPages": {
+    "title": "Related Guides",
+    "titleContext": "to Moving to Massachusetts: Planning Your Move",
+    "view":"guide",
+    "buttonMinor" : {
+      "href": "#",
+      "text": "See All Guides"
+    },
+    "pages": [{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
+      },
+      "link": {
+        "type": "",
+        "href": "#",
+        "text": "Buying Your First Home",
+        "label": "Guide:"
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
+      },
+      "link": {
+        "type": "",
+        "href": "#",
+        "text": "Shopping for Auto Insurance",
+        "label": "Guide:"
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../images/placeholder/130x160.png",
+        "height": "160",
+        "width": "130"
+      },
+      "link": {
+        "type": "",
+        "href": "#",
+        "text": "Education in Massachusetts",
+        "label": "Guide:"
+      }
+    }]
+  }
+
+}

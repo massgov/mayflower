@@ -1,0 +1,19 @@
+<div class="ma__error-list js-error-list" tabindex="-1">
+  <div class="ma__error-list__container">
+    <div class="ma__error-list__header">
+      <span class="ma__error-list__icon">
+        {{ icon('input-error') }}
+      </span>
+      <span class="ma__error-list__title">
+        {{ errorList.title }}
+      </span>
+    </div>
+    <ul class="ma__error-list__messages">
+      {% for label in errorList.labels %}
+        <li class="ma__error-list__message">
+          <label class="ma__error-list__label" for="{{ label.inputId }}" aria-label="{{ label.info }}">{{ label.text }}</label>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

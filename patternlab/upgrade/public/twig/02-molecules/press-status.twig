@@ -1,0 +1,15 @@
+<section class="ma__press-status">
+  <div class="ma__press-status__title">
+    {{ pressStatus.title }}
+  </div>
+  <div class="ma__press-status__content">
+    <div class="ma__press-status__date">
+      {{ pressStatus.date }}
+    </div>
+    <ul class="ma__press-status__names">
+      {% for name in pressStatus.names %}
+        <li class="ma__press-status__name">{{ name.text }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

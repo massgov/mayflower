@@ -1,0 +1,16 @@
+{
+  "sortResults": {
+    "label": "Sort by:",
+    "sortButtons": [{
+      "text": "Date",
+      "direction": "dsc"
+    },{
+      "text": "Price",
+      "direction": ""
+    },{
+      "text": "Color",
+      "direction": ""
+    }]
+  }
+}
+

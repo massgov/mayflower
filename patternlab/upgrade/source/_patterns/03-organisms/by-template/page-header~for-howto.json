@@ -1,0 +1,41 @@
+{
+  "pageHeader": {
+    "divider": false,
+    "title": "Apply for unemployment benefits",
+    "subTitle": "Have you lost your job?  You may qualify for temporary income to support you while you look for a new one",
+    "headerTags": {
+      "label": "More about:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Unemployment Benefits"
+      }]
+    },
+    "socialLinks": null,
+    "publishState": null,
+    "optionalContents": [{
+      "path": "@organisms/by-author/callout-time.twig",
+      "data": {
+        "calloutTime": {
+          "icon": "wait-time",
+          "text": "Most applicants hear back within 4-6 weeks of applying"
+        }
+      }
+    },{
+      "path": "@organisms/by-author/key-actions.twig",
+      "data": {
+        "keyActions": {
+          "links":[{
+            "text": "Apply online",
+            "type": "",
+            "href": "#"
+          },{
+            "text": "Check eligibility",
+            "type": "",
+            "href": "#"
+          }]
+        }
+      }
+    }],
+    "widgets": null
+  }
+}

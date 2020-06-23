@@ -1,0 +1,100 @@
+{
+  "pageHeader": {
+    "category": "Rule of Court Category",
+    "subCategory": {
+      "title": "Rule of Court Optional Sub-category",
+      "level": "",
+      "color": "",
+      "id": "",
+      "centered": ""
+    },
+    "divider": false,
+    "prefix": "",
+    "title": "The Name of a Court Rule",
+    "subTitle": "",
+    "headerTags": {
+      "label": "Related to:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Term 1"
+      },{
+        "href": "#",
+        "text": "Term 2"
+      },{
+        "href": "#",
+        "text": "Term 3"
+      },{
+        "href": "#",
+        "text": "Term 4"
+      }]
+    },
+    "socialLinks": null,
+    "publishState": null,
+    "optionalContents": [
+      {
+        "path": "@molecules/listing-table.twig",
+        "data": {
+          "listingTable": {
+            "rows": [
+              {
+                "label": "Courts:",
+                "items": [{
+                  "text": "This whole list is Optional"
+                }]
+              },
+              {
+                "label": "Adopted Date:",
+                "items": [{
+                  "text": "November 11, 2011"
+                }]
+              },
+              {
+                "label": "Effective Date:",
+                "items": [{
+                  "text":  "November 11, 2011"
+                }]
+              },
+              {
+                "label": "Referenced Sources:",
+                "visibleItems": 2,
+                "items": [{
+                  "text": "760 CMR 4.00: M.G.L. c. 121B, §§ 26, 29, 31 and 34;"
+                },{
+                  "text": "M.G.L. c. 23B; E.O. 227, 390, 246, and 253"
+                }]
+              },{
+                "label": "Updates:",
+                "visibleItems": 2,
+                "moreLabel": "show more updates",
+                "lessLabel": "show less updates",
+                "items": [{
+                  "text": "<a href=\"#\">Amended September 24, 2015, effective January 1, 2016</a>"
+                },{
+                  "text": "Amended July 17, 2007 effective October 1, 2007"
+                },{
+                  "text": "Amended June 2, 2003 effective October 18, 2003"
+                }]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "property": "",
+            "rteElements": [{
+              "path": "@atoms/11-text/paragraph.twig",
+              "data": {
+                "paragraph" : {
+                  "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                }
+              }
+            }]
+          }
+        }
+      }],
+    "widgets": null
+  }
+}

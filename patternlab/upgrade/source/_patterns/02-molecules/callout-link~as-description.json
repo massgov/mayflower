@@ -1,0 +1,8 @@
+{
+  "calloutLink": {
+    "text": "Link to another page",
+    "href": "#",
+    "info": "Find out more about this thing on our blah page",
+    "description": "This is some more important information about the text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imperdiet purus pellentesque vel."
+  }
+}

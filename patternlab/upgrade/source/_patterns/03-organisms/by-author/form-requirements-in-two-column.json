@@ -1,0 +1,49 @@
+{
+  "formRequirements": {
+    "rteTitle": {
+      "text": "You will need:",
+      "href": "",
+      "info": ""
+    },
+
+    "richText": {
+      "rteElements": [{
+        "path": "@atoms/08-lists/unordered-list.twig",
+        "data": {
+          "unorderedList": [{ 
+            "text": "Vestibulum ornare feugiat sodales" 
+          },{ 
+            "text": "Suspendisse fermentum augue eget semper feugiat"
+          },{ 
+            "text": "Ut risus nibh, sodales sit amet mollis pharetra, elementum vitae sapien"
+          },{
+            "text":"Integer quis suscipit dui"
+          },{
+            "text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit"
+          }]
+        }
+      }]
+    },
+
+    "payment": {
+      "title": {
+        "text": "Payment accepted:",
+        "href": "",
+        "info": ""
+      },
+
+      "locationIcons": {
+        "icons": [{
+          "path":"credit",
+          "name":"credit card"
+        },{
+          "path":"check",
+          "name":"check"
+        },{
+          "path":"cash",
+          "name":"cash"
+        }]
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="ma__teaser-listing-group js-teaser-listing-group" data-total-visible="{{ teaserListingGroup.totalShown }}">
+  {% block teaserListingGroupItems %}
+    {% for teaserListing in teaserListingGroup.teaserListings %}
+      {% include "@organisms/by-author/teaser-listing.twig" %}
+    {% endfor %}
+  {% endblock %}
+
+  <button
+      class="ma__teaser-listing-group__toggle ma__content-link ma__content-link--chevron ma__content-link__acordion-toggle  js-teaser-listing-group-toggle"
+      aria-label="{{ teaserListingGroup.moreItemsLabel }}">
+    <div class="more">{{ teaserListingGroup.moreItemsLabel }}</div>
+    <div class="less">{{ teaserListingGroup.lessItemsLabel }}</div>
+  </button>
+</div>

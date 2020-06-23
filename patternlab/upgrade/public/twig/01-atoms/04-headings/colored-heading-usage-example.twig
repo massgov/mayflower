@@ -1,0 +1,19 @@
+{% extends '@templates/two-column.twig' %}
+
+{% block header %}{% endblock %}
+
+{% block preContent %}{% endblock %}
+
+{% block pageContent %}
+  {% set coloredHeading = coloredHeading1 %}
+  {% include "@atoms/04-headings/colored-heading.twig" %}
+{% endblock %}
+
+{% block sidebar %}
+  {% set coloredHeading = coloredHeading2 %}
+  {% include "@atoms/04-headings/colored-heading.twig" %}
+{% endblock %}
+
+{% block postContent %} {% endblock %}
+
+{% block footer %} {% endblock %}

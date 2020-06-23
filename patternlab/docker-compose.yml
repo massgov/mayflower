@@ -3,16 +3,16 @@ version: '3.1'
 services:
   # BackstopJS.
   backstop:
-    image: backstopjs/backstopjs:4.5.0
+    image: backstopjs/backstopjs:4.5.1
     volumes:
       - ./:/src
     depends_on:
       - web
-    shm_size: 1gb
+    shm_size: 2gb
     entrypoint: [backstop, --config=/src/backstopjs/backstop.js]
 
   # Static file server.
   web:
     image: nginx:stable-alpine
     volumes:
-      - ./styleguide/public:/usr/share/nginx/html
+      - ./upgrade/public:/usr/share/nginx/html

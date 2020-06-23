@@ -1,0 +1,69 @@
+{
+  "locationFilters": {
+    "zipcode": {
+      "inputText": {
+        "labelText": "Show closest",
+        "required": false,
+        "id": "find-nearby",
+        "name": "find-nearby",
+        "type": "text",
+        "placeholder": "City, town, or ZIP code"
+      },
+      "placeAutocomplete": {
+        "bounds": {
+          "sw": {
+            "lat": 40.727093,
+            "lng": -73.97864
+          },
+          "ne": {
+            "lat": 43.004778,
+            "lng": -69.845299
+          }
+        }
+      }
+    },
+    "activity": {
+      "label":"Filter by activity / service",
+      "id":"activity-service",
+      "options":[{
+        "value":"",
+        "text":"Select"
+      },{
+        "value":"criminal-matters",
+        "text":"Criminal Matters"
+      },{
+        "value":"housing-cases",
+        "text":"Housing Cases"
+      }]
+    },
+    "keyword": {
+      "inputText": {
+        "labelText": "Filter by keyword",
+        "required": false,
+        "id": "filter-by-keyword",
+        "name": "filter-by-keyword",
+        "type": "text",
+        "placeholder": ""
+      }
+    },
+    "tags": [{
+      "value": "handicapped",
+      "id": "handicapped",
+      "label": "Wheelchair accessible",
+      "checked": "false",
+      "icon": "wheelchair"
+    },{
+      "value": "open",
+      "id": "open",
+      "label": "Open now",
+      "checked": "false",
+      "icon": "open-now"
+    }],
+    "buttons": [{
+      "text": "Submit",
+      "type": "submit",
+      "theme": "",
+      "outline": false
+    }] 
+  }
+}

@@ -1,0 +1,16 @@
+{% if imageLink.block %}
+  <a class="ma__image-link--block" href="{{imageLink.href}}" title="{{ imageLink.info }}">
+    {% if imageLink.image %}
+      <img class="ma__image-link__image" src="{{imageLink.image.src}}" alt="{{imageLink.image.alt}}">
+    {% endif %}
+    <span class="ma__image-link__text">{{imageLink.text}}&nbsp;{{ icon('arrow') }}</span>
+  </a>
+{% else %}
+  <div class="ma__image-link">
+    {% if imageLink.image %}
+      <img class="ma__image-link__image" src="{{imageLink.image.src}}" alt="{{imageLink.image.alt}}">
+    {% endif %}
+    {% set decorativeLink = imageLink %}
+    {% include "@atoms/decorative-link.twig" %}
+  </div>
+{% endif %}

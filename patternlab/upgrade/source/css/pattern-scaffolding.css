@@ -1,0 +1,67 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+/**
+ * This stylesheet is for styles you want to include only when displaying demo
+ * styles for grids, animations, color swatches, etc.
+ * These styles will not be your production CSS.
+ */
+#sg-patterns {
+  box-sizing: border-box !important;
+  max-width: 100%;
+  padding: 0 0.5em;
+}
+
+.demo-animate {
+  background: #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 1em;
+  padding: 1em;
+  text-align: center;
+}
+
+.sg-colors {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.sg-colors li {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  flex-basis: auto;
+  margin: 0 0.5em 0.5em 0;
+  max-width: 14em;
+  min-width: 5em;
+  padding: 0.3em;
+}
+
+.sg-swatch {
+  border-radius: 5px;
+  display: block;
+  height: 4em;
+  margin-bottom: 0.3em;
+}
+
+.sg-label {
+  font-size: 90%;
+  line-height: 1;
+}
+
+.sg-tabs-content,
+.sg-tabs,
+.sg-pattern-extra-code,
+.sg-pattern-extra-inner,
+.sg-modal-content-inner {
+  display: block;
+  width: 100%;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL25vZGVfbW9kdWxlcy9AbWFzc2RzL21heWZsb3dlci1hc3NldHMvc2Nzcy8wMC1iYXNlL19sYXlvdXQuc2NzcyIsImNzcy9wYXR0ZXJuLXNjYWZmb2xkaW5nLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBTUU7RUFDRTs7O0FBS0E7RUFHRTs7O0FDZk47QUFBQTtBQUFBO0FBQUE7QUFBQTtBQWVBO0VBQ0U7RUFDQTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTs7O0FBR0Y7RUFDRTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFFRjtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7RUFDQTtFQUNBOzs7QUFHRjtFQUNFO0VBQ0E7OztBQVFGO0FBQUE7QUFBQTtBQUFBO0FBQUE7RUFLRTtFQUNBIiwiZmlsZSI6ImNzcy9wYXR0ZXJuLXNjYWZmb2xkaW5nLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcblxuQHVzZSBcInZhcmlhYmxlc1wiIGFzICo7XG5cbkBpZiAkYm9yZGVyLWJveC1zaXppbmcgPT0gdHJ1ZSB7XG5cbiAgaHRtbCB7IC8vIGh0dHA6Ly9iaXQubHkvMXFrMnRWUlxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIH1cblxuICAqIHtcblxuICAgICYsXG4gICAgJjo6YWZ0ZXIsXG4gICAgJjo6YmVmb3JlIHtcbiAgICAgIGJveC1zaXppbmc6IGluaGVyaXQ7XG4gICAgfVxuICB9XG59IiwiLyoqXG4gKiBUaGlzIHN0eWxlc2hlZXQgaXMgZm9yIHN0eWxlcyB5b3Ugd2FudCB0byBpbmNsdWRlIG9ubHkgd2hlbiBkaXNwbGF5aW5nIGRlbW9cbiAqIHN0eWxlcyBmb3IgZ3JpZHMsIGFuaW1hdGlvbnMsIGNvbG9yIHN3YXRjaGVzLCBldGMuXG4gKiBUaGVzZSBzdHlsZXMgd2lsbCBub3QgYmUgeW91ciBwcm9kdWN0aW9uIENTUy5cbiAqL1xuXG4gLy8gU2FzcyBmcmFtZXdvcmtzIGFkZGVkIGluIG5wbVxuXG4gLy8gc29tZSB2YXJpYWJsZXMgYWRqdXN0IHRoZSBzZXR0aW5ncyBpbiBOZWF0XG5AdXNlIFwiMDAtYmFzZS9nbG9iYWxcIiB3aXRoKFxuICAkYXNzZXRzLXBhdGg6ICcnXG4pO1xuQHVzZSBcIjAwLWJhc2Uvei1pbmRleFwiO1xuQHVzZSBcIjAwLWJhc2UvbGF5b3V0XCI7XG5cbiNzZy1wYXR0ZXJucyB7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3ggIWltcG9ydGFudDtcbiAgbWF4LXdpZHRoOiAxMDAlO1xuICBwYWRkaW5nOiAwIDAuNWVtO1xufVxuXG4uZGVtby1hbmltYXRlIHtcbiAgYmFja2dyb3VuZDogI2RkZDtcbiAgYm9yZGVyLXJhZGl1czogOHB4O1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIG1hcmdpbi1ib3R0b206IDFlbTtcbiAgcGFkZGluZzogMWVtO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5zZy1jb2xvcnMge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIGxpc3Qtc3R5bGU6IG5vbmUgIWltcG9ydGFudDtcbiAgbWFyZ2luOiAwICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmc6IDAgIWltcG9ydGFudDtcbn1cbi5zZy1jb2xvcnMgbGkge1xuICBib3JkZXI6IDFweCBzb2xpZCAjZGRkO1xuICBib3JkZXItcmFkaXVzOiA4cHg7XG4gIGZsZXgtYmFzaXM6IGF1dG87XG4gIG1hcmdpbjogMCAwLjVlbSAwLjVlbSAwO1xuICBtYXgtd2lkdGg6IDE0ZW07XG4gIG1pbi13aWR0aDogNWVtO1xuICBwYWRkaW5nOiAwLjNlbTtcbn1cblxuLnNnLXN3YXRjaCB7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGhlaWdodDogNGVtO1xuICBtYXJnaW4tYm90dG9tOiAwLjNlbTtcbn1cblxuLnNnLWxhYmVsIHtcbiAgZm9udC1zaXplOiA5MCU7XG4gIGxpbmUtaGVpZ2h0OiAxO1xufVxuXG4uc2ctcGF0dGVybi1leHRyYS5hY3RpdmUge1xuXG59XG5cbi8vIG92ZXJyaWRpbmcgRmxleCBib3ggY29kZSAtIElFMTEgYnVnIHdpdGggaGVpZ2h0ID0gMFxuLnNnLXRhYnMtY29udGVudCxcbi5zZy10YWJzLFxuLnNnLXBhdHRlcm4tZXh0cmEtY29kZSxcbi5zZy1wYXR0ZXJuLWV4dHJhLWlubmVyLFxuLnNnLW1vZGFsLWNvbnRlbnQtaW5uZXIge1xuICBkaXNwbGF5OiBibG9jaztcbiAgd2lkdGg6IDEwMCU7XG59XG4iXX0= */

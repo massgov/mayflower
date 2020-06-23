@@ -1,0 +1,46 @@
+  <script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: '{{ languages }}', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    document.querySelector('#google_translate_element') !== null ? document.querySelector('#google_translate_element').classList.add('has-rendered') : '';
+  }
+  (function() {
+    var script = document.createElement('script');
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    var element = document.getElementsByTagName('head')[0];
+    element.appendChild(script);
+  })();
+</script>
+  <!--DO NOT REMOVE-->
+  {{ patternLabFoot | raw }}
+  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyD5HXUVAA4VyRXVX50taVe2hDY8hy2JSdA&v=3&libraries={{ mapLibraries }}"></script>
+
+  <script src="../../js/index.mjs" type="module"></script>
+  <script src="../../js/index.js" nomodule></script>
+
+
+    {% set mapLibraries = 'geometry,places,geocoder' %}
+    <!-- Set google map libraries for event page -->
+    {% if mainContent.eventListingInteractive %}
+      {% set mapLibraries = 'places' %}
+    {% endif %}
+
+    <!-- Set Tableau libraries -->
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.3.0.min.js"></script>
+
+    <script>
+      try {
+        if($('.main-content').length === 0){
+          var json = JSON.parse($("#sg-pattern-data-footer").html()),
+
+          data = json.patternBreadcrumb.patternType;
+
+          if(data !== 'templates' && data !== 'pages') {
+            $('body').addClass('page-content');
+            $('html').addClass('main-content').addClass('main-content--full');
+          }
+        }
+      } catch(e) {}
+    </script>
+  </body>
+</html>

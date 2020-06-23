@@ -1,0 +1,88 @@
+{
+  "pageBanner": {
+    "bgWide": "../../images/placeholder/1600x400.png",
+    "bgNarrow": "../../images/placeholder/800x400.png",
+    "size": "large",
+    "icon": null,
+    "title": "Organization Detail Banner",
+    "titleSubText": ""
+  },
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Department of Conservation and Recreation"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Other agency or organization"
+      }]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
+      }]
+    }
+  },
+  "stackedRows": [{
+    "title": "Row with image",
+    "id": "row-with-sidebar",
+    "pageContent": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text":"Section Content"
+        }
+      }
+    }],
+
+    "sideBar": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text":"Optional Image"
+        }
+      }
+    }]
+  },{
+    "title": "Row with no image",
+    "id": "full-width-row",
+    "pageContent": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text":"Section content"
+        }
+      }
+    }],
+
+    "sideBar": []
+  }]
+}

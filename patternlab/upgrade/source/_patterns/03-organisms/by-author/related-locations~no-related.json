@@ -1,0 +1,24 @@
+{
+  "relatedLocations": {
+    "customTitle": true,
+    "titleContext": "",
+    "pages": [],
+    "linkList": {
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "Related Location #1"
+        },
+        {
+          "href": "#",
+          "text": "Related Location #2"
+        },
+        {
+          "href": "#",
+          "text": "Related Location #3"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "textarea":  {
+    "labelText": "Text Area",
+    "hiddenLabel": false,
+    "required": false,
+    "maxlength": null,
+    "id": "textarea",
+    "name": "textarea"
+  }
+}

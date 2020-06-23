@@ -1,0 +1,15 @@
+{
+  "inputText": {
+    "hiddenLabel": true,
+    "labelText": "Text Input",
+    "required": true,
+    "id": "hidden-label",
+    "name": "hidden-label",
+    "type": "text",
+    "width": "",
+    "maxlength": "",
+    "pattern": "",
+    "placeholder": "hidden label",
+    "errorMsg": ""
+  }
+}

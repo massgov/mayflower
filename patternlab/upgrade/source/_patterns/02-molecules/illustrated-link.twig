@@ -1,0 +1,24 @@
+<div class="ma__illustrated-link">
+  <div class="ma__illustrated-link__content">
+    <div class="ma__illustrated-link__title">
+      {% if illustratedLink.label %}
+        <span class="ma__illustrated-link__label">{{ illustratedLink.label }}</span>
+      {% endif %}
+      <div class="ma__illustrated-link__link">
+        {% set decorativeLink = {
+          "text": illustratedLink.text,
+          "type": illustratedLink.type,
+          "href": illustratedLink.href }
+        %}
+        {% include "@atoms/decorative-link.twig" %}
+      </div>
+    </div>
+  </div>
+    {% if illustratedLink.image %}
+      <div 
+        class="ma__illustrated-link__image" 
+        style="background-image: url('{{ illustratedLink.image }}')"></div>
+    {% else %}
+      <div class="ma__illustrated-link__image"></div>
+    {% endif %}
+</div>

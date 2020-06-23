@@ -1,0 +1,21 @@
+{
+  "actionSection": {
+    "title":"Overview",
+    "titleContext": "",
+    "id":"overview:",
+    "path":"@organisms/rich-text.twig",
+    "data": {
+      "richText": {
+      "property": "description",
+        "rteElements": [{
+          "path": "@atoms/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla. Etiam sodales at nibh at convallis. Curabitur eleifend auctor eleifend. Donec condimentum justo in blandit ornare."
+            }
+          }
+        }]
+      }
+    }
+  }
+}

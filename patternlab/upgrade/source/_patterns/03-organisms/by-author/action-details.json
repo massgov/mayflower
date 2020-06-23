@@ -1,0 +1,245 @@
+{
+  "titleContext": "",
+  "actionDetails" : {
+    "sections": [{
+      "title":"Overview",
+      "titleContext": "",
+      "intro": "",
+      "id":"overview",
+      "path": "@organisms/rich-text.twig",
+      "data": {
+        "richText": {
+          "property": "description",
+          "rteElements": [{
+            "path": "@molecules/callout-stats.twig",
+            "data": {
+              "statsCallout": {
+                "pull": "right",
+                "stat": "$12",
+                "content": "standard fee for residents"
+              }
+            }
+          },{
+            "path": "@atoms/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "The Annual MassParks Pass allows you free parking for one vehicle, during daytime hours, at all State Parks except Quabbin Reservoir. It’s valid for one calendar year, from January through December, so you’ll need to buy a new one each year."
+              }
+            }
+          },
+          {
+            "path": "@atoms/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "The parking pass costs <b>$60 for Massachusetts residents</b> and <b>$85 dollars for non-Massachusetts residents</b>. If you have two cars, you can pay an additional $25 for a second car sticker that will allow you to park either car for free (only one at a time, though!)."
+              }
+            }
+          },
+          {
+            "path": "@atoms/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "If you’re a Massachusetts resident 62 years old or older, you can get a special lifetime Senior MassParks Pass for a one-time fee of only $10."
+              }
+            }
+          }]
+        }
+      }
+    },
+    {
+      "title":"Fees",
+      "titleContext": "",
+      "intro": "",
+      "id":"fees",
+      "path": "@organisms/rich-text.twig",
+      "data": {
+        "property": "",
+        "richText":{
+          "rteElements": [{
+            "path": "@atoms/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "The parking pass costs $60 for Massachusetts residents and $85 for non-Massachusetts residents. If you have two cars, you can pay an additional $25 for a second car sticker that will allow you to park either car for free (only one at a time, though!)."
+              }
+            }
+          },{
+            "path": "@atoms/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "If you're a Massachusetts resident 62 years old or older, you can get a special lifetime Senior MassParks Pass for a one-time fee of only $10."
+              }
+            }
+          }]
+        }
+      }
+    },
+    {
+      "title":"Eligibility",
+      "titleContext": "",
+      "intro": "",
+      "id":"fees",
+      "path": "@organisms/rich-text.twig",
+      "data": {
+        "property": "",
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Lorem ipsum blah blah (there's no eligibility for state park pass)"
+              }
+            }
+          }]
+        }
+      }
+    },
+    {
+      "title":"Get it Done",
+      "titleContext": "",
+      "intro": "",
+      "id":"get-it-done",
+      "path": "@organisms/by-author/steps-unordered.twig",
+      "data": {
+        "stepsUnordered": {
+          "steps": [{
+            "icon":"profile",
+            "title":"In Person at State Parks",
+            "richText": {
+              "rteElements": [{
+                "path": "@atoms/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Most parks and beaches that charge daily parking fees sell MassParks Passes at their contact stations during their paid parking seasons. Just ask to purchase a MassParks Pass and show your driver’s license or proof of residency. Please note: most parks cannot accept credit cards, so you’ll have to pay with cash or a check."
+                  }
+                }
+              }]
+            }
+          },
+          {
+            "icon":"laptop",
+            "title":"Online",
+            "richText":{
+              "rteElements": [{
+                "path": "@atoms/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "You can also <a href=\"#\">order a MassParks pass online through Reserve America</a>. There is an additional $2.75 charge to use this online service. Your pass will be mailed to your home within seven days."
+                  }
+                }
+              },{
+                "path": "@molecules/callout-link.twig",
+                "data": {
+                  "calloutLink": {
+                    "text": "Order a MassParks Pass online through Reserve America",
+                    "type": "",
+                    "href": "#",
+                    "quickaction": "false"
+                  }
+                }
+              }]
+            }
+          },
+          {
+            "icon":"phone",
+            "title":"By Phone",
+            "richText":{
+              "rteElements": [{
+                "path": "@atoms/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imaperdiet purus pellentesque vel."
+                  }
+                }
+              }]
+            }
+          },
+          {
+            "icon":"mail",
+            "title":"By Mail",
+            "richText": {
+              "rteElements": [{
+                "path": "@atoms/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "<i>(only if you're purchasing a Senior MassParks Pass)</i><br />Senior MassParks Passes can be purchased by mail by writing to the following address:</p><p>DCR MassParks<br />251 Causeway Street<br />Boston, MA 02114<br />Attn: Senior MassParks Pass Coordinator</p><p>and including a photocopy of your MA driver’s license or other official proof of MA residency and age, and a check for $10 made payable to the Commonwealth of Massachusetts."
+                  }
+                }
+              }]
+            }
+          }]
+        }
+      }
+    },
+    {
+      "title":"Forms",
+      "titleContext": "",
+      "intro": "Here are some helpful downloads to get you started.",
+      "id":"downloads",
+      "path": "@organisms/by-author/form-downloads.twig",
+      "data": {
+        "formDownloads": {
+          "downloadLinks": [{
+            "downloadLink": {
+              "iconSize": "",
+              "icon": "doc-pdf",
+              "decorativeLink": {
+                "text": "Park Pass Application",
+                "href": "#",
+                "info": "",
+                "property": ""
+              },
+              "size": "305kb",
+              "format": "PDF"
+            }
+          },{
+            "downloadLink": {
+              "iconSize": "",
+              "icon": "doc-docx",
+              "decorativeLink": {
+                "text": "Park Pass Application",
+                "href": "#",
+                "info": "",
+                "property": ""
+              },
+              "size": "280kb",
+              "format": "DOCX"
+            }
+          },{
+            "downloadLink": {
+              "iconSize": "",
+              "icon": "doc-xlsx",
+              "decorativeLink": {
+                "text": "Calculate your personal return on investment with a seasonal pass.",
+                "href": "#",
+                "info": "",
+                "property": ""
+              },
+              "size": "220kb",
+              "format": "XLSX"
+            }
+          }]
+        }
+      }
+    },
+    {
+      "title":"Additonal Information",
+      "titleContext": "",
+      "intro": "",
+      "id":"additional-info",
+      "path": "@organisms/rich-text.twig",
+      "data": {
+        "property": "",
+        "richText": {
+          "rteElements": [{
+            "path": "@atoms/paragraph.twig",
+            "data": {
+              "paragraph" : {
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imaperdiet purus pellentesque vel."
+              }
+            }
+          }]
+        }
+      }
+    }]
+  }
+}

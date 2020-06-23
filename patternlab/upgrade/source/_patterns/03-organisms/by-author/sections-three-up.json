@@ -1,0 +1,96 @@
+{
+  "sectionThreeUp" : {
+    "compHeading": {
+      "title": "More in Visiting & Exploring",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": "true"
+    },
+    "sections": [{
+      "id": "GUIDasjdhf1",
+      "catIcon": {
+        "icon":"lg-fishing",
+        "small": true
+      },
+      "title" : {
+        "href" : "#",
+        "text" : "Recreational Licenses & Permits"
+      },
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imperdiet purus pellentesque vel.",
+      "type": "callout",
+      "links" : [{
+        "href" : "#",
+        "text" : "Boating"
+      },
+      {
+        "href" : "#",
+        "text" : "Fishing"
+      }],
+      "seeAll" : {
+        "href" : "#",
+        "text" : "more"
+      }
+    },
+    {
+      "id": "GUIDasjdhf2",
+      "catIcon": {
+        "icon":"lg-picnic-table",
+        "small": true
+      },
+      "title" : {
+        "href" : "#",
+        "text" : "State Parks & Recreation"
+      },
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imperdiet purus pellentesque vel.",
+      "links" : [{
+        "href" : "#",
+        "text" : "Accessible Recreation"
+      },
+      {
+        "href" : "#",
+        "text" : "Active & Team Sports"
+      },
+      {
+        "href" : "#",
+        "text" : "Nature & Outdoor Activities"
+      },
+      {
+        "href" : "#",
+        "text" : "Water Related Activities"
+      }]
+    }, 
+    {
+      "id": "GUIDasjdhf3",
+      "catIcon": {
+        "icon":"lg-map-location",
+        "small": true
+      },
+      "title" : {
+        "href" : "#",
+        "text" : "Travel & Tourism"
+      },
+      "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imperdiet purus pellentesque vel.",
+      "links" : [{
+        "href" : "#",
+        "text" : "Family Friendly Activities"
+      },
+      {
+        "href" : "#",
+        "text" : "Seasonal Activities"
+      },
+      {
+        "href" : "#",
+        "text" : "Sightseeing"
+      },
+      {
+        "href" : "#",
+        "text" : "Traveling to Massachusetts"
+      }],
+      "seeAll" : {
+        "href" : "#",
+        "text" : "more"
+      }
+    }]
+  }
+}

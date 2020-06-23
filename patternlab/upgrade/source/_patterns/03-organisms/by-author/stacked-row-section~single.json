@@ -1,0 +1,16 @@
+{
+  "stackedRowSection": {
+    "title":"Title for the Row of Content",
+    "id":"row-title-single-column",
+    "pageContent": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text": "Full Width Content"
+        }
+      }
+    }],
+
+    "sideBar": null
+  }
+}

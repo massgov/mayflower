@@ -1,0 +1,10 @@
+{% if sidebarContact.items|length %}
+  {% if sidebarContact.coloredHeading %}
+    {% set coloredHeading = sidebarContact.coloredHeading %}
+    {% include "@atoms/04-headings/colored-heading.twig" %}
+  {% endif %}
+  {% for item in sidebarContact.items %}
+    {% set contactUs = item.contactUs %}
+    {% include "@molecules/contact-us.twig" %}
+  {% endfor %}
+{% endif %}

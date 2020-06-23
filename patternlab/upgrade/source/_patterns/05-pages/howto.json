@@ -1,0 +1,890 @@
+{
+  "details": {
+    "contentTitle": "The Details",
+    "titleContext": "to Apply for unemployment benefits"
+  },
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Other agency or organization"
+        }
+      ]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Snowmobile in the Parks"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Cross-Country Skiing"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Accessible Hiking"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Scenic Viewing Areas"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Hunting"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Biking"
+        }
+      ]
+    }
+  },
+  "pageHeader": {
+    "divider": false,
+    "title": "Apply for unemployment benefits",
+    "subTitle": "Have you lost your job?  You may qualify for temporary income to support you while you look for a new one.",
+    "optionalContents": [
+      {
+        "path": "@organisms/by-author/callout-time.twig",
+        "data": {
+          "calloutTime": {
+            "icon": "wait-time",
+            "text": "Most applicants hear back within 4-6 weeks of applying"
+          }
+        }
+      },
+      {
+        "path": "@organisms/by-author/key-actions.twig",
+        "data": {
+          "keyActions": {
+            "links": [
+              {
+                "text": "Apply online",
+                "type": "",
+                "href": "#"
+              },
+              {
+                "text": "Check eligibility",
+                "type": "",
+                "href": "#"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "widgets": null
+  },
+  "stickyNav": {
+    "titleContext": "Apply for unemployment benefits",
+    "anchorLinks": [
+      {
+        "href": "what-you-need",
+        "text": "What you need",
+        "info": ""
+      },
+      {
+        "href": "fees",
+        "text": "Fees",
+        "info": ""
+      },
+      {
+        "href": "how-to-apply",
+        "text": "How to apply",
+        "info": ""
+      },
+      {
+        "href": "next-steps",
+        "text": "Next steps",
+        "info": ""
+      },
+      {
+        "href": "more-info",
+        "text": "More info",
+        "info": ""
+      },
+      {
+        "href": "manage-your-account",
+        "text": "Manage your account",
+        "info": ""
+      },
+      {
+        "href": "downloads",
+        "text": "Downloads",
+        "info": ""
+      },
+      {
+        "href": "contact",
+        "text": "Contact",
+        "info": ""
+      }
+    ]
+  },
+  "pageContent": {
+    "intro": {
+      "compHeading": {
+        "title": "What you need",
+        "titleContext": "to Apply for unemployment benefits",
+        "level": 3,
+        "color": "",
+        "id": "what-you-need",
+        "centered": ""
+      },
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "To apply for unemployment, you need to provide personal information including your Social Security number, birth date, home address, email address, and phone number."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "You also need information about your employment history from the last 15 months, including:"
+            }
+          }
+        },
+        {
+          "path": "@atoms/08-lists/unordered-list.twig",
+          "data": {
+            "unorderedList": [
+              {
+                "text": "Names of all employers, plus addresses and phone numbers"
+              },
+              {
+                "text": "Reasons for leaving those jobs"
+              },
+              {
+                "text": "Work start and end dates"
+              },
+              {
+                "text": "Recall date (if you were laid off but have a set date to return to work)"
+              }
+            ]
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "You may need additional information in certain situations:"
+            }
+          }
+        },
+        {
+          "path": "@atoms/08-lists/unordered-list.twig",
+          "data": {
+            "unorderedList": [
+              {
+                "text": "If you are not a U.S. citizen — your Alien Registration number"
+              },
+              {
+                "text": "If you have children or other dependents — their birth dates and Social Security numbers"
+              },
+              {
+                "text": "If you’re in a union — your union name and local number"
+              },
+              {
+                "text": "If you were in the military — your DD-214 Member 4 form (optional). If you don’t have it, you can request your DD-214 online."
+              },
+              {
+                "text": "If you worked for the federal government — your SF8 form (optional)"
+              }
+            ]
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "To receive payments by direct deposit, you’ll also need your bank account details and routing number. Otherwise, DUA will send you a debit card."
+            }
+          }
+        }
+      ]
+    },
+    "tabularData": {
+      "compHeading": {
+        "title": "Fees",
+        "titleContext": "to Apply for unemployment benefits",
+        "level": 3,
+        "color": "",
+        "id": "fees",
+        "centered": ""
+      },
+      "description": {
+        "property": "",
+        "rteElements": [
+          {
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph": {
+                "text": "This is an optional description. Lorem ipsum ..."
+              }
+            }
+          }
+        ]
+      },
+      "table": {
+        "head": {
+          "rows": [
+            {
+              "rowSpanOffset": false,
+              "cells": [
+                {
+                  "heading": true,
+                  "colspan": "",
+                  "rowspan": "",
+                  "text": "Name"
+                },
+                {
+                  "heading": true,
+                  "colspan": "",
+                  "rowspan": "",
+                  "text": "Fee"
+                },
+                {
+                  "heading": true,
+                  "colspan": "",
+                  "rowspan": "",
+                  "text": "Unit"
+                }
+              ]
+            }
+          ]
+        },
+        "bodies": [
+          {
+            "rows": [
+              {
+                "rowSpanOffset": false,
+                "cells": [
+                  {
+                    "heading": false,
+                    "colspan": "",
+                    "rowspan": "",
+                    "text": "Parking"
+                  },
+                  {
+                    "heading": false,
+                    "colspan": "",
+                    "rowspan": "",
+                    "text": "$2.00"
+                  },
+                  {
+                    "heading": false,
+                    "colspan": "",
+                    "rowspan": "",
+                    "text": "per day"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "stepsUnordered": {
+      "compHeading": {
+        "title": "How to apply",
+        "level": 3,
+        "color": "",
+        "id": "how-to-apply",
+        "centered": ""
+      },
+      "richText": {
+        "rteElements": [
+          {
+            "path": "@atoms/11-text/paragraph.twig",
+            "data": {
+              "paragraph": {
+                "text": "You must submit a form. Morbi euismod enim eget neque. Donec sagittis massa. Vestibulum quis augue sit amet ipsum laoreet pretium."
+              }
+            }
+          }
+        ]
+      },
+      "steps": [
+        {
+          "accordion": true,
+          "isExpanded": false,
+          "accordionLabel": "Expand step for doing this online",
+          "icon": "laptop",
+          "title": "Online",
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "To apply online, you can create an account on the <a href=\"#\">UI Online portal</a>. The website will walk you through filling out your application. Once you file your initial application, you'll be able to log into your account to check your status."
+                  }
+                }
+              },
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Don't have a compute?  Visit a <a href=\"#\">One-Stop Career Center</a> where you can use one of theirs to file your claim and get help finding a job."
+                  }
+                }
+              },
+              {
+                "path": "@atoms/08-lists/ordered-list.twig",
+                "data": {
+                  "orderedList": [
+                    {
+                      "text": "Ordered list example"
+                    },
+                    {
+                      "text": "Use this if there are multiple steps within a how to area"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "accordion": true,
+          "isExpanded": false,
+          "accordionLabel": "By Phone",
+          "icon": "phone",
+          "title": "By Phone",
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imaperdiet purus pellentesque vel."
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "stepsOrdered": {
+      "compHeading": {
+        "title": "Next steps",
+        "titleContext": "to Apply for unemployment benefits",
+        "level": 3,
+        "color": "",
+        "id": "next-steps",
+        "centered": ""
+      },
+      "steps": [
+        {
+          "accordion": false,
+          "isExpanded": true,
+          "accordionLabel": "",
+          "icon": "",
+          "title": "Immediately log job search (required)",
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "You must start requesting weekly benefits on the Sunday after you submit your application form. Every time you request weekly benefits, you’ll be asked  3 questions for the previous week, Saturday to Saturday:"
+                  }
+                }
+              },
+              {
+                "path": "@atoms/08-lists/ordered-list.twig",
+                "data": {
+                  "orderedList": [
+                    {
+                      "text": "If you looked for work that week"
+                    },
+                    {
+                      "text": "If you were able to work and available for work that week"
+                    },
+                    {
+                      "text": "If you worked during that week"
+                    }
+                  ]
+                }
+              },
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "You have to complete this step every week to make sure you get your benefits. You must do this step online."
+                  }
+                }
+              }
+            ]
+          },
+          "downloadLinks": [
+            {
+              "downloadLink": {
+                "iconSize": "small",
+                "icon": "doc-pdf",
+                "decorativeLink": {
+                  "text": "Work Search Activity Log",
+                  "href": "#",
+                  "info": "",
+                  "property": ""
+                },
+                "size": "1MB",
+                "format": "PDF"
+              }
+            }
+          ],
+          "decorativeLink": {
+            "href": "#",
+            "text": "Learn more about job search support",
+            "info": "",
+            "property": ""
+          }
+        },
+        {
+          "accordion": false,
+          "isExpanded": true,
+          "accordionLabel": "",
+          "icon": "",
+          "title": "Another next step",
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "If there is only one next step, the number icons are not needed. This could also be just a bulleted list if they aren’t as robust."
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "moreInfo": {
+      "compHeading": {
+        "title": "More info",
+        "titleContext": "to Apply for unemployment benefits",
+        "level": 3,
+        "color": "",
+        "id": "more-info",
+        "centered": ""
+      },
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "This is an optional section that is used in a variety of ways. Aliquam et nisl vel ligula consectetuer suscipit. Morbi euismod enim eget neque. Donec sagittis massa. Vestibulum quis augue sit amet ipsum laoreet pretium. Nulla facilisi. Duis tincidunt, felis et luctus placerat, ipsum libero vestibulum sem, vitae elementum wisi ipsum a metus. Nulla a enim sed dui hendrerit lobortis."
+            }
+          }
+        }
+      ]
+    },
+    "descriptiveLinks": {
+      "compHeading": {
+        "title": "Manage Your Account",
+        "sub": "true",
+        "color": "",
+        "id": "manage-your-account",
+        "centered": ""
+      },
+      "links": [
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Check your status",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
+        },
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Log in to your account",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
+        },
+        {
+          "richText": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+                  }
+                }
+              }
+            ]
+          },
+          "link": {
+            "href": "#",
+            "text": "Lorem ipsum dolor sit amet.",
+            "context": "",
+            "button": false,
+            "info": ""
+          }
+        }
+      ]
+    },
+    "formDownloads": {
+      "compHeading": {
+        "title": "Downloads",
+        "titleContext": "to Apply for unemployment benefits",
+        "level": 3,
+        "color": "",
+        "id": "downloads",
+        "centered": ""
+      },
+      "downloadLinks": [
+        {
+          "downloadLink": {
+            "iconSize": "",
+            "icon": "doc-pdf",
+            "decorativeLink": {
+              "text": "Work Search Activity Log",
+              "href": "#",
+              "info": "",
+              "property": ""
+            },
+            "size": "1MB",
+            "format": "PDF"
+          }
+        }
+      ]
+    },
+    "contactList": {
+      "compHeading": {
+        "title": "Contact",
+        "titleContext": "to Apply for unemployment benefits",
+        "level": 3,
+        "color": "",
+        "id": "contact",
+        "centered": ""
+      },
+      "contacts": [
+        {
+          "accordion": true,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Department of Unemployment Assistance",
+            "info": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "email@state.ma.us",
+                    "text": "email@state.ma.us",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "fax-icon",
+              "name": "Fax",
+              "items": [
+                {
+                  "type": "fax",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "Please allow 24 hours for a response"
+                }
+              ]
+            },
+            {
+              "icon": "marker",
+              "name": "Address",
+              "items": [
+                {
+                  "type": "address",
+                  "property": "",
+                  "label": "",
+                  "address": "555 Park Drive\nBoston, MA 02231",
+                  "link": {
+                    "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                    "text": "directions",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ],
+          "decorativeLink": {
+            "href": "#",
+            "text": "Learn more about this organization",
+            "info": "Learn more about this generic"
+          }
+        },
+        {
+          "accordion": true,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Benefits Claims Customer Service",
+            "info": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "email@state.ma.us",
+                    "text": "email@state.ma.us",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "fax-icon",
+              "name": "Fax",
+              "items": [
+                {
+                  "type": "fax",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "Please allow 24 hours for a response"
+                }
+              ]
+            },
+            {
+              "icon": "marker",
+              "name": "Address",
+              "items": [
+                {
+                  "type": "address",
+                  "property": "",
+                  "label": "",
+                  "address": "555 Park Drive\nBoston, MA 02231",
+                  "link": {
+                    "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                    "text": "directions",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ],
+          "decorativeLink": {
+            "href": "#",
+            "text": "Learn more about this organization",
+            "info": "Learn more about this generic"
+          }
+        }
+      ]
+    }
+  },
+  "sidebar": {
+    "coloredHeadings": true,
+    "contactList": {
+      "viewSpecific": true,
+      "sidebarHeading": {
+        "title": "Contact",
+        "titleContext": "to Apply for unemployment benefits"
+      },
+      "contacts": [
+        {
+          "accordion": false,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "#",
+            "text": "Department of Unemployment Assistance",
+            "chevron": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+16174438765",
+                    "text": "(617) 443-8765",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "online",
+                  "property": "",
+                  "label": "Web:",
+                  "link": {
+                    "href": "#",
+                    "text": "Contact Form",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "linkList": {
+      "compHeading": {
+        "title": "Related",
+        "titleContext": "to Apply for unemployment benefits"
+      },
+      "sidebarHeading": {
+        "title": "Related",
+        "titleContext": ""
+      },
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "Log in to UI Online for recipients",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Appeal UI decision",
+          "info": "",
+          "property": ""
+        },
+        {
+          "href": "#",
+          "text": "Apply for a job training program",
+          "info": "",
+          "property": ""
+        }
+      ]
+    }
+  }
+}

@@ -2,7 +2,7 @@
 var walk = require('./walk-dir');
 var path = require('path');
 
-var patternPath = `${__dirname}/../styleguide/public/patterns/`;
+var patternPath = path.resolve(__dirname, `../upgrade/public/patterns/`);
 
 /**
  * Scan for page and template patterns.
@@ -19,19 +19,21 @@ var files = walk(patternPath)
             && !f.match(/05-pages-readme2.html$/)
     });
 
+
 /**
  * Map discovered HTML files to Backstop scenarios.
  */
 var scenarios = files.map(function(file) {
+  console.log(path.relative(patternPath, file))
     return {
-        label: path.basename(file, '.html').replace('05-pages-', 'page-').replace('04-templates-', 'template-').replace('-', ' '),
+        label: path.basename(file, '.rendered.html').replace('05-pages-', 'page-').replace('04-templates-', 'template-').replace('-', ' '),
         url: `http://web/patterns/${path.relative(patternPath, file)}`,
         misMatchThreshold: 0.15
     }
 });
 
 
-
+console.log(scenarios);
 module.exports = {
   "id": "regression",
   "viewports": [
@@ -50,11 +52,11 @@ module.exports = {
   "onReadyScript": "onReady.js",
   "scenarios": scenarios,
   "paths": {
-    "bitmaps_reference": `${__dirname}/reference`,
-    "bitmaps_test": `${__dirname}/runs`,
-    "engine_scripts": `${__dirname}/scripts`,
-    "html_report": `${__dirname}/reports/html`,
-    "ci_report": `${__dirname}/reports/ci`,
+    "bitmaps_reference": 'backstopjs/reference',
+    "bitmaps_test": `backstopjs/runs`,
+    "engine_scripts": `backstopjs/scripts`,
+    "html_report": `backstopjs/reports/html`,
+    "ci_report": `backstopjs/reports/ci`,
   },
   "report": ["browser", "CI"],
   "engine": "puppeteer",

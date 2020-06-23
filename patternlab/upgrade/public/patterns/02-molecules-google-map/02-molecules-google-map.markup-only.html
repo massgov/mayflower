@@ -1,0 +1,55 @@
+<div
+  class="ma__google-map"
+  aria-hidden="true"
+  role="presentation">
+        <div class="ma__google-map__map js-google-map"></div>
+    <script>
+    // Make googleMap data object available in google map module js.
+    var ma = ma || {};
+    ma.googleMapData = ma.googleMapData || [];
+    ma.googleMapData.push({
+      map: {
+        center: {
+          lat: 42.366565,
+          lng: -71.05894
+        },
+        zoom: 16
+      },
+      maxItems: 2,
+      markers: [
+              {
+          position: {
+            lat: 42.366565,
+            lng: -71.05894
+          },
+          label: "A", // single character only
+          infoWindow: {
+            name: "Department\u0020of\u0020Conservation\u0020and\u0020Recreation",
+            link: "\u0023",
+            phone: "16176261250",
+            fax: "16176261351",
+            email: "mass.parks\u0040state.ma.us",
+            address: "251\u0020Causeway\u0020Street,\u0020Suite\u0020900\u003Cbr\u003EBoston,\u0020MA\u002002114\u002D2104",
+            directions: "https\u003A\/\/www.google.com\/maps\/place\/251\u002BCauseway\u002BSt\u002BBoston\u002BMA\u002B02114"
+          }
+        },
+              {
+          position: {
+            lat: 42.358795,
+            lng: -71.063858
+          },
+          label: "B", // single character only
+          infoWindow: {
+            name: "Department\u0020of\u0020Recreation\u0020and\u0020Fun",
+            link: "",
+            phone: "16176261250",
+            fax: "",
+            email: "mass.parks\u0040state.ma.us",
+            address: "24\u0020Beacon\u0020St\u003Cbr\u003EBoston,\u0020MA\u002002133",
+            directions: ""
+          }
+        }
+            ]
+    });
+  </script>
+  </div>

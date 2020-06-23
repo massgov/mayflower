@@ -1,0 +1,77 @@
+{# backward compatible for version 5.5 #}
+{% if linkList.sidebarHeading %}
+  {% set linkList = linkList|merge({"compHeading": { "title": linkList.sidebarHeading.title, "sidebar" : true }}) %}
+{% endif %}
+
+<section class="ma__link-list{% if linkList.sectionClass %} {{linkList.sectionClass}}{% endif %} {% if linkList.hideLine == 'true' or linkList.hideLine == 1 %} ma__link-list--no-line {% endif %}">
+  {% if linkList.compHeading %}
+    {% set compHeading = linkList.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% endif %}
+
+  {% if linkList.description %}
+    <div class="ma__link-list__description">
+      {% set richText = linkList.description %}
+      {% include "@organisms/by-author/rich-text.twig" %}
+    </div>
+  {% endif %}
+
+  <div class="ma__link-list__container">
+    {% set bulletClass = linkList.hideBullets ? "ma__link-list__items--no-bullets": "" %}
+    {% if linkList.stacked or linkList.links|length < 4 %}
+      <ul class="ma__link-list__items {{ bulletClass }}">
+        {% block linkListDecorativeLink %}
+          {% for decorativeLink in linkList.links %}
+            <li class="ma__link-list__item">
+              {% if decorativeLink.icon %}
+                {% set downloadLink = decorativeLink %}
+                {% include "@molecules/download-link.twig" %}
+              {% elseif decorativeLink.href %}
+                {% include "@atoms/decorative-link.twig" %}
+              {% else %}
+                {{ decorativeLink.text }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        {% endblock %}
+      </ul>
+    {% else %}
+      {% set length = linkList.links|length/2 %}
+      {% set half = length|round(0,'ceil') %}
+      <ul class="ma__link-list__items {{ bulletClass }}">
+        {% for decorativeLink in linkList.links[start:half] %}
+          <li class="ma__link-list__item">
+            {% if decorativeLink.icon %}
+              {% set downloadLink = decorativeLink %}
+              {% include "@molecules/download-link.twig" %}
+            {% elseif decorativeLink.href %}
+              {% include "@atoms/decorative-link.twig" %}
+            {% else %}
+              {{ decorativeLink.text }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class="ma__link-list__items {{ bulletClass }}">
+        {% for decorativeLink in linkList.links[half:length] %}
+          <li class="ma__link-list__item">
+            {% if decorativeLink.icon %}
+              {% set downloadLink = decorativeLink %}
+              {% include "@molecules/download-link.twig" %}
+            {% elseif decorativeLink.href %}
+              {% include "@atoms/decorative-link.twig" %}
+            {% else %}
+              {{ decorativeLink.text }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+  {% if linkList.more %}
+    <div class="ma__link-list__see-all">
+      {% set decorativeLink = linkList.more %}
+      {% include "@atoms/decorative-link.twig" %}
+    </div>
+  {% endif %}
+</section>

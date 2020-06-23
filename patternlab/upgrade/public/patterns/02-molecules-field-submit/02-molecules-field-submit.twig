@@ -1,0 +1,17 @@
+<fieldset class="ma__field-submit">
+  {% if fieldSubmit.inputText.labelText %}
+    <label for="{{ fieldSubmit.inputText.id }}">{{ fieldSubmit.inputText.labelText }}</label>
+  {% endif %}
+  <div class="ma__field-submit__inputs">
+    <input 
+      class="{{ fieldSubmit.inputText.required ? 'js-is-required' : ''}}" 
+      name="{{ fieldSubmit.inputText.name }}" 
+      id="{{ fieldSubmit.inputText.id }}" 
+      type="text" 
+      placeholder="{{ fieldSubmit.inputText.placeholder }}" 
+      data-type="text"
+      {% if fieldSubmit.inputText.required %} required {% endif %}/>
+    {% set buttonSearch = fieldSubmit.buttonSearch %}
+    {% include "@atoms/01-buttons/button-search.twig" %}
+  </div>  
+</fieldset>

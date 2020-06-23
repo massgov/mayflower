@@ -1,0 +1,29 @@
+<section class="ma__collapsible-content">
+  {% if collapsibleContent.compHeading %}
+    {% set compHeading = collapsibleContent.compHeading %}
+    {% include "@atoms/04-headings/comp-heading.twig" %}
+  {% endif %}
+  {% if collapsibleContent.description %}
+    {% set richText = collapsibleContent.description %}
+    {% include "@organisms/by-author/rich-text.twig" %}
+  {% endif %}  
+  <div class="ma__collapsible-content__items">
+    {% for item in collapsibleContent.items %}
+      <div class="ma__collapsible-content__item js-accordion {{ item.expanded ? 'is-open' : '' }}">
+        {% set collapsibleHeader = item.collapsibleHeader %}
+        {% include "@molecules/collapsible-header.twig" %}
+        <div class="ma__collapsible-content__body js-accordion-content {{ collapsibleHeader.icon ? '' : 'ma__collapsible-content__body--without-icon' }}">
+          {% for pattern in item.includes %}
+            {% include pattern.path with pattern.data %}
+          {% endfor %}
+          {% if item.more %}
+            <div class="ma__collapsible-content__link">
+              {% set decorativeLink = item.more %}
+              {% include "@atoms/decorative-link.twig" %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

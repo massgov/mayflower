@@ -1,0 +1,45 @@
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@id": "{{ governmentOrganization.url }}/#governmentOrganization",
+        "@type": "governmentOrganization",
+        "name": "{{ governmentOrganization.name }}",
+        "memberOf": {
+          "@id": "{{ governmentOrganization.memberOf.id }}"
+        },
+      {% if governmentOrganization.alternateName %}
+        "alternateName": "{{ governmentOrganization.alternateName }}",
+      {% endif %}
+      {% if governmentOrganization.disambiguatingDescription %}
+        "disambiguatingDescription": "{{ governmentOrganization.disambiguatingDescription }}",
+      {% endif %}
+      {% if governmentOrganization.description %}
+        "description": "{{ governmentOrganization.description }}",
+      {% endif %}
+      {% if governmentOrganization.logo %}
+        "logo": "{{ governmentOrganization.logo }}",
+      {% endif %}
+      {% if governmentOrganization.contactInfo.address %}
+        "address": "{{ governmentOrganization.contactInfo.address }}",
+      {% endif %}
+      {% if governmentOrganization.contactInfo.telephone %}
+        "telephone": "{{ governmentOrganization.contactInfo.telephone }}",
+      {% endif %}
+      {% if governmentOrganization.contactInfo.faxNumber %}
+        "faxNumber": "{{ governmentOrganization.contactInfo.faxNumber }}",
+      {% endif %}
+      {% if governmentOrganization.contactInfo.email %}
+        "email": "{{ governmentOrganization.contactInfo.email }}",
+      {% endif %}
+      {% if governmentOrganization.sameAs %}
+        "sameAs": [
+        {% for link in governmentOrganization.sameAs[:last-1] %}
+          "{{ link }}",
+        {% endfor %}
+        {% set lastLink = governmentOrganization.sameAs|last %}
+          "{{ lastLink }}"
+        ],
+      {% endif %}
+        "url": "{{ governmentOrganization.url }}"
+    }
+</script>

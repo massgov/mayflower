@@ -1,0 +1,82 @@
+{
+  "suggestedPages": {
+    "title": "Related Locations",
+    "titleContext": "",
+    "view":"",
+    "buttonMinor" : {
+      "href": "#",
+      "text": "Do Something"
+    },
+    "pages": [{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../images/placeholder/230x130.png",
+        "height": "130",
+        "width": "230"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link I",
+        "info": ""
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../images/placeholder/230x130.png",
+        "height": "130",
+        "width": "230"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link II",
+        "info": ""
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../images/placeholder/230x130.png",
+        "height": "130",
+        "width": "230"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link III",
+        "info": ""
+      }
+    },{
+      "image": {
+        "alt": "Place Holder Image",
+        "src": "../../images/placeholder/230x130.png",
+        "height": "130",
+        "width": "230"
+      },
+      "link": {
+        "href": "#",
+        "text": "Title Link IV",
+        "info": ""
+      }
+    }],
+    "moreLinks":{
+      "compHeading": {
+        "title": "More Locations",
+        "titleContext": "",
+        "sub": 7
+      },
+      "links": [{
+          "href": "#",
+          "text": "More link 1",
+          "info": ""
+        },{
+          "href": "#",
+          "text": "More link 2",
+          "info": ""
+      }]
+    },
+    "more":{
+      "href": "#",
+      "text": "See all related pages",
+      "info": "",
+      "chevron": true
+    }
+  }
+}
