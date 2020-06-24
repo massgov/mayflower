@@ -3,8 +3,9 @@
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
   "version": "10.0.0",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "type": "module",
   "sideEffects": [
     "**/*.css",
     "**/*.scss"
@@ -13,9 +14,9 @@
     "dist"
   ],
   "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js",
-    "default": "./dist/index.mjs"
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.js"
   },
   "scripts": {
     "backstop:test": "docker-compose run backstop test --rm",
