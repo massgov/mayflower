@@ -9,6 +9,23 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
+// const utilButton = document.querySelector(".js-util-nav-toggle");
+
+// utilButton.addEventListener("click", function(e) {
+
+//   alert(this.getAttribute("aria-haspopup"));
+//   // Open.
+//   if (e.target.getAttribute("aria-expanded") === false) {
+//     e.target.setAttribute("aria-expanded", "true");
+//     e.target.setAttribute("aria-pressed", "true");
+//   }
+//   // Close.
+//   if (e.target.getAttribute("aria-expanded") === true) {
+//     e.target.setAttribute("aria-expanded", "false");
+//     e.target.setAttribute("aria-pressed", "false");
+//   }
+
+// });
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
@@ -230,13 +247,14 @@ function closeMenuJumpToSearch() {
 
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
-  menuOverlay.classList.remove("overlay-open");
+
   menuButtonText.textContent = "Menu";
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
-  buttonLabel = "Menu";
+
   feedbackButton.classList.remove("hide-button");
   jumpToSearchButton.setAttribute("aria-expanded", "false");
+  menuOverlay.classList.remove("overlay-open");
 }
 
 function openMenu() {
@@ -256,13 +274,14 @@ function openMenuJumpToSearch() {
 
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
-  menuOverlay.classList.add("overlay-open");
+
   menuButtonText.textContent = "Close";
-  buttonLabel = "Close";
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   feedbackButton.classList.add("hide-button");
+
   jumpToSearchButton.setAttribute("aria-expanded", "true");
+  menuOverlay.classList.add("overlay-open");
 }
 
 function closeSubMenus(item) {
