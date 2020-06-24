@@ -358,6 +358,20 @@ body.show-menu {
     padding-left: 25px;
   }
 
+  &__desktop-label {
+
+    @media ($bp-small-max) {
+      display: none;
+    }
+  }
+
+  &__mobile-label {
+
+    @media ($bp-small-min) {
+      display: none;
+    }
+  }
+
   .ma__header__hamburger__search-access-button {
     padding: 0 20px;
     border: 0;
@@ -505,10 +519,18 @@ body.show-menu {
   }
 }
 
+// ".ma__header__hamburger__nav +" is necessary to avoid to override the original .ma__header__container
+.ma__header__hamburger__nav + .ma__header__container {
+
+  @media ($bp-small-max) {
+    display: none;
+  }
+}
+
 
 // TEST STYLES
 *:focus {
-  border: 4px solid yellowgreen !important;;
+  // border: 4px solid yellowgreen !important;;
   background-color: yellowgreen !important;
   outline: yellowgreen !important;;
 }

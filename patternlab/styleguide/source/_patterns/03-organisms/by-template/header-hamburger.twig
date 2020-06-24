@@ -24,9 +24,13 @@
         <button type="button"
                 aria-popup="true"
                 aria-expanded="false"
+                aria-label="Open the main menu for mass.gov"
                 class="ma__header__hamburger__menu-button js-header-menu-button">
-        <span class="ma__header__hamburger__menu-icon"></span>
-        <span class="ma__header__hamburger__menu-text js-header__menu-text">Menu</span>
+          <span class="ma__header__hamburger__menu-icon"></span>
+          {# Menu label with screen size greater than 620px. #}
+          <span class="ma__header__hamburger__menu-text ma__header__hamburger__desktop-label js-header__menu-text">Menu</span>
+          {# Menu label with screen size less than 620px. #}
+          <span class="ma__header__hamburger__menu-text ma__header__hamburger__mobile-label js-header__menu-text">Mass.gov</span>
         </button>
         {# Skip button to search. #}
         <button type="button"
