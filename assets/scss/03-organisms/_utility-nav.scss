@@ -56,21 +56,6 @@ $utility-nav-height: 43px;
         width: 100%;
         text-align: left;
       }
-
-      // TEST: Added with hamburger menu.
-      @media ($bp-header-toggle-max) {
-
-        @include ma-chevron;
-
-        &:after {
-          position: absolute;
-          right: 20px;
-          top: 18px;
-          border-right-color: $c-primary-alt;
-        border-bottom-color: $c-primary-alt;
-        }
-      }
-      // END-TEST: Added with hamburger menu.
     }
   }
 
@@ -147,20 +132,6 @@ $utility-nav-height: 43px;
       }
     }
   }
-
-  // TEST: Added with hamburger menu.
-  @media ($bp-header-toggle-max) {
-
-    &__link .toggle-indicator {
-
-      @include ma-accordion-icon;
-    }
-
-    &__link.open .toggle-indicator::after {
-      transform: rotate(135deg);
-    }
-  }
-  // END-TEST: Added with hamburger menu.
 
   &__translate {
     position: relative;
