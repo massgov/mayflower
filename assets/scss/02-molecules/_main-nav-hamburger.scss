@@ -6,16 +6,16 @@
   @media ($bp-header-toggle-max) {
     border-top: 2px solid $c-bd-divider;
   }
-  
+
   &__items {
 
     @include ma-reset-list;
   }
-  
+
   &__item {
     border-bottom: 2px solid $c-bd-divider;
   }
-  
+
   &__top-link {
 
     @include ma-button-reset;
@@ -31,11 +31,11 @@
     text-align: left;
     background-color: $c-gray-lightest;
     width: 100%;
-    
+
     .toggle-indicator {
 
       @include ma-accordion-icon;
-    
+
       .submenu-open & {
 
         &::after {
@@ -43,7 +43,7 @@
         }
       }
     }
-    
+
     &:focus {
       background-color: $c-bd-divider;
       outline: 2px solid $c-black;
@@ -53,35 +53,46 @@
       background-color: #f7c600;
       color: inherit;
 
+      // Adding chevron for direct link.
+      @include ma-chevron;
+
+      &:after {
+        position: absolute;
+        right: 20px;
+        top: 22px;
+        border-right-color: $c-primary-alt;
+        border-bottom-color: $c-primary-alt;
+      }
+
       &:hover {
         background-color: #fce387;
       }
     }
   }
-  
+
   &__subitems {
     text-align: left;
     z-index: $z-dropdown;
     background-color: $c-bg-section;
     transition: height 0.4s;
-  
+
     &.is-closed {
 
       @include ma-visually-hidden;
       display: none !important;
       transition: height 0.6s;
     }
-  
+
     &.is-closed-react {
       display: none !important;
     }
-  
+
     .ma__main__hamburger-nav__item:last-child & {
       left: inherit;
       right: 0;
     }
   }
-  
+
   &__container {
 
     @include ma-reset-list;
@@ -91,7 +102,7 @@
       transition: opacity 0.2s;
     }
   }
- 
+
   &__link {
 
     @include ma-button-reset;
@@ -104,18 +115,18 @@
     line-height: 1.33;
     padding: 10px 20px 10px 30px;
     color: $c-black;
-    
+
     &:hover {
       text-decoration: underline;
     }
-    
+
     &>svg,
     &>span {
       display: inline-block;
       vertical-align: middle;
     }
   }
-  
+
   &__subitem:last-child &__link {
     font-size: 1.125rem;
     letter-spacing: letter-spacing-medium;
@@ -130,10 +141,10 @@
     &>span {
       border-bottom: 2px solid transparent;
     }
-    
+
     &:hover {
       text-decoration: none;
-    
+
       &>span {
           border-bottom: 2px solid $c-black;
       }
