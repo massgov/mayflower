@@ -24,11 +24,15 @@
         {% endfor %}
       {% else %}
         <button class="ma__utility-nav__link js-util-nav-toggle"
-            aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}">
+            aria-haspopup="true"
+            aria-label="{% if item.ariaLabelText %}{{ item.ariaLabelText }}{% else %}{{ item.text }}{% endif %}"
+            aria-expanded="false">
             {{ icon(item.icon) }}
             <span>
               {{ item.text }}
             </span>
+            {# Add toggle icon for hamburger menu item. #}
+            <span class="toggle-indicator" aria-hidden="true"></span>
           </button>
           <div aria-hidden="true" class="ma__utility-nav__content js-util-nav-content is-closed">
             <div class="ma__utility-nav__container">

@@ -9,23 +9,24 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
-// const utilButton = document.querySelector(".js-util-nav-toggle");
+const utilButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
 
-// utilButton.addEventListener("click", function(e) {
+utilButton.addEventListener("click", function(e) {
 
-//   alert(this.getAttribute("aria-haspopup"));
-//   // Open.
-//   if (e.target.getAttribute("aria-expanded") === false) {
-//     e.target.setAttribute("aria-expanded", "true");
-//     e.target.setAttribute("aria-pressed", "true");
-//   }
-//   // Close.
-//   if (e.target.getAttribute("aria-expanded") === true) {
-//     e.target.setAttribute("aria-expanded", "false");
-//     e.target.setAttribute("aria-pressed", "false");
-//   }
+  let thisButton = e.target.closest(".js-util-nav-toggle");
 
-// });
+  // Open.
+  if (thisButton.getAttribute("aria-expanded") === "false") {
+    thisButton.setAttribute("aria-expanded", "true");
+    thisButton.setAttribute("aria-pressed", "true");
+    thisButton.classList.add("open");
+  } else {
+    thisButton.setAttribute("aria-expanded", "false");
+    thisButton.setAttribute("aria-pressed", "false");
+    thisButton.classList.remove("open");
+  }
+
+});
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
