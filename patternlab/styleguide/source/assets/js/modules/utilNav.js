@@ -3,12 +3,14 @@ export default (function (window, document, $, undefined) {
   let $utilityButtons = $('.js-util-nav-toggle');
 
   $panels.each(function () {
-    const $panel = $(this);
+    // Distinguish util. nav content from one for hamburger nav's.
+    if ($(this).closest(".ma__header__hamburger__utility-nav--narrow") !== true) {
+      const $panel = $(this);
+    }
     const height = $panel.height();
     const $closeButton = $panel.find('.js-close-util-nav');
 
     $panel.css('top', '-' + height + 'px');
-
     $(window).on('resized', function () {
       if ($(window).width() > 840) {
         $panel.css('top', '-' + height + 'px');

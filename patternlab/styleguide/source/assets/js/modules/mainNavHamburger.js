@@ -10,6 +10,9 @@ let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
 const utilButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+const utilContent = document.querySelector(".ma__header__hamburger__utility-nav--narrow .js-util-nav-content");
+
+utilContent.classList.remove("is-closed");
 
 utilButton.addEventListener("click", function(e) {
 
