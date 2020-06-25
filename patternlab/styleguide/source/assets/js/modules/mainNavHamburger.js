@@ -9,21 +9,23 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
+// Utility nav elements
 const utilButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
 const utilContent = document.querySelector(".ma__header__hamburger__utility-nav--narrow .js-util-nav-content");
 
-utilContent.classList.remove("is-closed");
+// utilContent.classList.remove("is-closed");
 
 utilButton.addEventListener("click", function(e) {
 
   let thisButton = e.target.closest(".js-util-nav-toggle");
 
-  // Open.
   if (thisButton.getAttribute("aria-expanded") === "false") {
+    // Open
     thisButton.setAttribute("aria-expanded", "true");
     thisButton.setAttribute("aria-pressed", "true");
     thisButton.classList.add("open");
   } else {
+    // Close
     thisButton.setAttribute("aria-expanded", "false");
     thisButton.setAttribute("aria-pressed", "false");
     thisButton.classList.remove("open");
@@ -338,3 +340,151 @@ window.onresize = function () {
     width = body.clientWidth;
   }, 100);
 };
+
+
+
+// Utility nav in hamburger menu
+let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-toggle");
+
+[].forEach.call(utilMenuItems, function (item) {
+
+  const itemButton = item.querySelector(".js-utility-nav--narrow .js-util-nav-toggle");
+  const utilContent = item.querySelector(".js-utility-nav--narrow .js-util-nav-content");
+  const utilContentContainer = utilContent.querySelector(".ma__utility-nav__container");
+  let utilContentLinkListItems = utilContent.querySelectorAll(".js-utility-nav--narrow .js-clickable");
+
+  utilContentContainer.style.opacity = "0";
+
+  itemButton.addEventListener("focus", function(e){
+    closeSubMenus(item);
+  });
+
+  itemButton.addEventListener("click", function (e) {
+
+    closeSubMenus(item);
+
+
+    if (item.classList.contains("submenu-open")) {
+      item.classList.remove("submenu-open");
+      itemButton.setAttribute("aria-expanded", "false");
+      itemButton.setAttribute("aria-label", "show menu");
+      item.style.pointerEvents = "none";
+
+      setTimeout(function timeoutFunction() {
+        item.removeAttribute("style");
+      }, 700);
+    } else {
+      item.classList.add("submenu-open");
+      itemButton.setAttribute("aria-expanded", "true");
+      item.style.pointerEvents = "none";
+      itemButton.setAttribute("aria-label", "hide menu");
+      setTimeout(function timeoutFunction() {
+        item.removeAttribute("style");
+      }, 700);
+    }
+
+
+    if (utilContent.classList.contains("is-closed")) {
+
+      /** Show the subMenu. */
+
+      utilContent.classList.remove("is-closed");
+      utilContent.style.height = "auto";
+
+      /** Get the computed height of the subMenu. */
+      var height = utilContent.clientHeight + "px";
+
+
+      /** Set the height of the submenu as 0px, */
+      /** so we can trigger the slide down animation. */
+      utilContent.style.height = "0";
+
+      setTimeout(function timeoutFunction() {
+        utilContent.style.height = height;
+        utilContentContainer.style.opacity = "1";
+      }, 50);
+
+      /** Slide up. */
+    } else {
+      utilContent.style.height = "0";
+      utilContentContainer.style.opacity = "0";
+
+      setTimeout(function timeoutFunction() {
+        utilContent.classList.add("is-closed");
+
+      }, 500);
+    }
+  });
+
+  itemButton.addEventListener("keydown", function (e) {
+
+    if (e.code == "ArrowDown") {
+      let first = utilContentContainer.getElementsByTagName("li")[0];
+      first.querySelector(".js-main-nav-hamburger__link").focus()
+    }
+
+    if (e.code == "Escape" || e.which == "27") {
+      if (item.classList.contains("submenu-open")) {
+        utilContentContainer.style.opacity = "0";
+        utilContent.style.height = "0";
+        itemButton.parentElement.classList.remove("submenu-open");
+        itemButton.setAttribute("aria-expanded", "false");
+        itemButton.setAttribute("aria-label", "show menu");
+
+        setTimeout(function timeoutFunction() {
+          utilContent.classList.add("is-closed");
+        }, 500);
+
+      }
+      else {
+        closeMenu();
+      }
+    }
+
+    if (e.shiftKey && e.code == "Tab") {
+      utilContentContainer.style.opacity = "0";
+      utilContent.style.height = "0";
+      item.classList.remove("submenu-open");
+      itemButton.setAttribute("aria-expanded", "false");
+      itemButton.setAttribute("aria-label", "show menu");
+
+      setTimeout(function timeoutFunction() {
+        utilContent.classList.add("is-closed");
+      }, 500);
+    }
+
+    if (width > 840 && e.key == "Tab") {
+      if (!itemButton.parentElement.nextElementSibling
+      && !itemButton.parentElement.classList.contains("submenu-open")) {
+        closeMenu();
+      }
+    }
+  });
+
+  [].forEach.call(utilContentLinkListItems, function (subItem) {
+    const prevSib = subItem.previousElementSibling;
+    const nextSib = subItem.nextElementSibling;
+
+    subItem.addEventListener("keydown", function (e) {
+
+      switch (e.code) {
+        case "ArrowUp":
+        case "ArrowLeft":
+          if (subItem = prevSib) {
+            prevSib.querySelector(".js-main-nav-hamburger__link").focus();
+          }
+          break;
+        case "ArrowDown":
+        case "ArrowRight":
+          if (subItem = nextSib) {
+            nextSib.querySelector(".js-main-nav-hamburger__link").focus();
+          }
+          break;
+        case "Escape":
+          itemButton.focus();
+
+           break;
+      }
+    });
+  });
+});
