@@ -238,9 +238,9 @@ body.show-menu {
   &__nav-container {
     background-color: $c-gray-lightest;
     height: 95vh;
-    top: 37px;
+    top: 40px;
     overflow-y: auto;
-    position: absolute;
+    position: fixed;
     left: -320px;
     // visibility for keyboard and screen reader users are managed with toggling aria-hidden value with js.
     visibility: hidden;
@@ -288,9 +288,9 @@ body.show-menu {
     font-size: 1.2rem;
     font-weight: 700;
     color: $c-font-inverse;
-    height: 35px;
+    height: 40px;
     line-height: 35px;
-    margin-top: 2px;
+    margin-top: 0;
     padding-right: 30px;
     padding-left: 20px;
     transition: transform 0.5s ease;
@@ -328,7 +328,7 @@ body.show-menu {
     position: absolute;
     transition: all 500ms ease-in-out;
     width: 15px;
-    top: 17px;
+    top: 19px;
 
     &:before,
     &:after {
