@@ -1,13 +1,11 @@
-import gulp from 'gulp';
-import babel from 'gulp-babel';
-import rename from 'gulp-rename';
-import del from 'del';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
 const {
   src, dest, series, parallel
-} = gulp;
+} = require('gulp');
+const babel = require('gulp-babel');
+const rename = require('gulp-rename');
+const del = require('del');
+const path = require('path');
+
 function clean() {
   return del(['dist']);
 }
@@ -62,7 +60,7 @@ const sources = [
 ];
 
 function resolvePath(sourcePath, currentFile, opts) {
-  const entryPoint = path.resolve(path.dirname(fileURLToPath(import.meta.url)), './src/index.js');
+  const entryPoint = path.resolve(__dirname, './src/index.js');
   const rootPath = currentFile === entryPoint ? './' : '../';
   let resolvedPath = null;
   Object.keys(opts.alias).forEach((alias) => {
@@ -72,7 +70,7 @@ function resolvePath(sourcePath, currentFile, opts) {
       resolvedPath = `${rootPath}${matches[1]}`;
       // ES Modules need to list out the extension on the end of the path,
       // otherwise index.js will be used instead of index.mjs.
-      if (opts.hasOwnProperty('isES5') && opts.isES5 === true) {
+      if (opts.hasOwnProperty('isES5') && opts.isES5 === false) {
         // List of exports that are files and not directories.
         const excludes = [
           'Input/error',
@@ -89,10 +87,10 @@ function resolvePath(sourcePath, currentFile, opts) {
         // If the current path is a file and not a directory...
         if (excludes.some((rule) => sourcePath.includes(rule))) {
           // Add the .mjs extension.
-          resolvedPath = `${resolvedPath}.cjs`;
+          resolvedPath = `${resolvedPath}.mjs`;
         } else {
           // Else, add the path to the index.mjs file the ES module needs.
-          resolvedPath = `${resolvedPath}/index.cjs`;
+          resolvedPath = `${resolvedPath}/index.mjs`;
         }
       }
     }
@@ -102,7 +100,11 @@ function resolvePath(sourcePath, currentFile, opts) {
 
 function transpileES5() {
   return src(sources)
-    
+    .pipe(rename((p) => {
+      const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
+      p.dirname = splitPath[splitPath.length - 1];
+    }))
     .pipe(babel({
       presets: [
         [
@@ -158,22 +160,10 @@ function transpileES5() {
         'babel-plugin-add-module-exports'
       ]
     }))
-    .pipe(rename((p) => {
-      const splitPath = p.dirname.split('/');
-      // eslint-disable-next-line no-param-reassign
-      p.dirname = splitPath[splitPath.length - 1];
-      // eslint-disable-next-line no-param-reassign
-      p.extname = '.cjs';
-    }))
     .pipe(dest('dist'));
 }
 function transpileES6() {
   return src(sources)
-  .pipe(rename((p) => {
-    const splitPath = p.dirname.split('/');
-    // eslint-disable-next-line no-param-reassign
-    p.dirname = splitPath[splitPath.length - 1];
-  }))
     .pipe(babel({
       presets: [
         [
@@ -228,7 +218,13 @@ function transpileES6() {
         ]
       ]
     }))
-    
+    .pipe(rename((p) => {
+      const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
+      p.dirname = splitPath[splitPath.length - 1];
+      // eslint-disable-next-line no-param-reassign
+      p.extname = '.mjs';
+    }))
     .pipe(dest('dist'));
 }
-export default series(clean, parallel(transpileES5, transpileES6, styles, icons));
+exports.default = series(clean, parallel(transpileES5, transpileES6, styles, icons));
