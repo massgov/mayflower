@@ -214,7 +214,7 @@ body.show-menu-hamburger {
 
       @include ma-container;
       height: $header-mobile-controls-height;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -225,7 +225,7 @@ body.show-menu-hamburger {
   &__nav-container {
     background-color: $c-gray-lightest;
     height: 95vh;
-    top: 37px;
+    top: 40px;
     overflow-y: auto;
     position: absolute;
     left: -320px;
@@ -268,9 +268,9 @@ body.show-menu-hamburger {
     font-size: 1.2rem;
     font-weight: 700;
     color: $c-font-inverse;
-    height: 35px;
-    line-height: 35px;
-    margin-top: 2px;
+    height: 40px;
+    line-height: 38px;
+    margin-top: 0;
     padding-right: 30px;
     padding-left: 20px;
     transition: transform 0.5s ease;
@@ -304,7 +304,7 @@ body.show-menu-hamburger {
     position: absolute;
     transition: all 500ms ease-in-out;
     width: 15px;
-    top: 17px;
+    top: 19px;
 
     &:before,
     &:after {
@@ -377,11 +377,12 @@ body.show-menu-hamburger {
         .ma__button-search--secondary {
           background-color: transparent;
           border-color: transparent !important;
-          position: absolute !important;
-          top: 5px !important;
+          position: fixed !important;
+          top: 7px !important;
           right: 5px;
           height: 25px !important;
           min-height: 20px !important;
+          z-index: $z-dropdown;
         }
 
         svg {
