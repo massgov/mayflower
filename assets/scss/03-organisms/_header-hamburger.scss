@@ -452,11 +452,6 @@ body.show-menu {
     }
   }
 
-
-  // .ma__utility-nav__item
-
-  // ma__header__hamburger__utility-nav
-  // ma__header__hamburger__utility-nav--narrow
   &__utility-nav {
 
     & .ma__utility-nav {
@@ -582,7 +577,7 @@ body.show-menu {
       }
 
       // Override styles for desktop version utility nav content.
-      .show-menu  & .ma__utility-nav__content {
+      .show-menu & .ma__utility-nav__content {
 
         @media ($bp-header-toggle-max) {
 
@@ -608,20 +603,14 @@ body.show-menu {
             padding: 0;
             background-color: $c-gray-lightest;
 
-            // @media ($bp-header-toggle-max) {
-
-              .translated-rtl &,
-              .translated-ltr & {
-                height: calc(100vh - #{$header-mobile-controls-height * 2});
-              }
-            // }
+            .translated-rtl &,
+            .translated-ltr & {
+              height: calc(100vh - #{$header-mobile-controls-height * 2});
+            }
           }
 
           & .ma__utility-nav__container__close {
-
-            // @media ($bp-header-toggle-max) {
-              display: none;
-            // }
+            display: none;
           }
 
           & .ma__utility-panel {
@@ -635,7 +624,6 @@ body.show-menu {
             color: $c-black;
             margin: 0;
             display: block;
-
           }
 
           & .ma__utility-panel__item .ma__decorative-link {
@@ -645,6 +633,7 @@ body.show-menu {
           & .ma__utility-panel__item .ma__decorative-link a {
 
             @include ma-button-reset;
+
             width: 100%;
             text-align: left;
             display: block;
@@ -755,7 +744,6 @@ body.show-menu {
     display: none;
   }
 }
-
 
 // TEST STYLES
 // *:focus {
