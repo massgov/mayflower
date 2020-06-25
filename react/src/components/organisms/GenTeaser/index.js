@@ -30,7 +30,7 @@ import PhoneNumber from 'MayflowerReactContact/PhoneNumber';
 import Address from 'MayflowerReactContact/Address';
 import TeaserSearch from 'MayflowerReactGenTeaser/TeaserSearch';
 import TeaserOrgs from 'MayflowerReactGenTeaser/TeaserOrgs';
-import { buildUrl } from './utils';
+import { buildUrl } from 'MayflowerReactOrganisms/GenTeaser/utils';
 
 const GenTeaser = (props) => {
   const {
