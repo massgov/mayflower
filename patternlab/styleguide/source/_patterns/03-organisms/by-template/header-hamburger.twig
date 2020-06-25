@@ -8,15 +8,6 @@
 
   <a class="ma__header__hamburger__skip-nav" href="#main-content">skip to main content</a>
 
-{# Q: How do we present the hamburger menu, especially for screen reader users?
-      Global nav?
-      Global menu?
-      Something else?
-
-      AFFECTED ELEMETNS:
-        - NAV.ma__header__hamburger__nav (aria-label)
-        - BUTTON.ma__header__hamburger__menu-button (span.ma__visually-hidden necessary?)
-#}
   <nav class="ma__header__hamburger__nav" aria-label="main navigation" id="main-navigation" role="navigation">
     <div class="ma__header__hamburger-wrapper">
 
@@ -41,9 +32,11 @@
           <svg aria-hidden="true" focusable="false"><use xlink:href="#14e1b460ef079153e6f06ccb3f49d13b.8"></use></svg>
         </button>
       </div>{# .ma__header__hamburger__button-container #}
+
       <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
         {% include "@organisms/by-template/utility-nav.twig" %}
       </div>
+
       <div class="ma__header__hamburger__nav-container">
       <div class="ma__header__hamburger__logo ma__header__hamburger__logo--mobile">
         {% include "@atoms/09-media/site-logo.twig" %}
@@ -56,9 +49,6 @@
       {% endif %}
       <div class="ma__header__hamburger__main-nav">
         {% include "@molecules/main-nav-hamburger.twig" %}
-      </div>
-      <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--narrow js-utility-nav--narrow">
-        {% include "@organisms/by-template/utility-nav.twig" %}
       </div>
     </div>
 
@@ -84,11 +74,6 @@
           {% include "@organisms/by-template/utility-nav.twig" %}
         </div>{# .ma__header__hamburger__utility-nav #}
       </div>{# .ma__header__hamburger__nav-container #}
-
-      <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
-      {% include "@organisms/by-template/utility-nav.twig" %}
-      </div>{# .ma__header__hamburger__utility-nav #}
-
     </div>{# . ma__header__hamburger-wrapper #}
   </nav>
 
