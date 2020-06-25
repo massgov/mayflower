@@ -40,7 +40,7 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-debug": "^4.0.0",
-    "gulp-environments": "^0.1.2",
+    "gulp-environments": "^1.0.1",
     "gulp-filter": "^5.1.0",
     "gulp-header": "^2.0.5",
     "gulp-if": "^2.0.2",

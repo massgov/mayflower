@@ -221,6 +221,20 @@ body.show-menu {
     }
   }
 
+  // &__button-container {
+
+  //   @media ($bp-header-toggle-max) {
+
+  //     @include ma-container;
+  //     height: $header-mobile-controls-height;
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     z-index: $z-dropdown;
+  //   }
+  // }
+
   &__nav-container {
     background-color: $c-gray-lightest;
     height: 95vh;

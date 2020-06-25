@@ -6,6 +6,7 @@ export default (function (window,document,$,undefined) {
     let $el = $(this),
         $showHideButton = $('.js-header-tag-button', $el),
         $dynamicItems = $('a:nth-child(n+4)', $el),
+        $focusItem = $('a:nth-child(4)', $el),
         id = $el.attr('id') || 'headerTags' + (index + 1),
         open = $el.hasClass('is-open');
 
@@ -25,6 +26,7 @@ export default (function (window,document,$,undefined) {
         if ($el.hasClass('is-open')) {
           $showHideButton.attr('aria-expanded', 'true');
           $dynamicItems.show();
+          $focusItem.focus();
         }
         else {
           $showHideButton.attr('aria-expanded', 'false');
@@ -34,10 +36,12 @@ export default (function (window,document,$,undefined) {
   });
 
   $('.ma__relationship-indicators--terms').each(function() {
+
     let $tagWrapper = $(this);
     let $button = $tagWrapper.find('.js-relationship-indicator-button');
     let $buttonCounter = $button.find('.tag-count');
-    let $hiddenTag = $tagWrapper.find('.ma__relationship-indicators--term:hidden');
+    let $hiddenTag = $tagWrapper.find('.js-term:hidden');
+    let $focusTag = $hiddenTag.first().find('a');
     let tagCount = $hiddenTag.length;
     let $tagState = $button.find('.tag-state');
 
@@ -59,6 +63,9 @@ export default (function (window,document,$,undefined) {
 
       // Change button text.
       $tagState.text($tagStateText === 'fewer' ? 'more' : 'fewer');
+
+      $button.attr('aria-pressed', function(_, attr) { return !(attr == 'true') });
+
     });
 
     $(window).resize(function () {
@@ -68,7 +75,7 @@ export default (function (window,document,$,undefined) {
 
       setTimeout(function(){
         let windowWidth = $(window).width();
-        
+
         // recount the hidden tags.
         $hiddenTag = $tagWrapper.find('.ma__relationship-indicators--term:hidden');
         tagCount = $hiddenTag.length;
@@ -76,15 +83,15 @@ export default (function (window,document,$,undefined) {
         // Update button text.
         $buttonCounter.text(tagCount);
         $tagState.text('more');
-        
+
         // Reset the button visibility.
         if(tagCount >= 1 && windowWidth < 910) {
           $button.show();
-        } 
+        }
         else if (tagCount == 0) {
           $button.hide();
         }
-        
+
       }, 500);
 
     });
