@@ -21,6 +21,9 @@
           <span class="ma__header__mixed__menu-text js-header__menu-text">Menu</span>
         </button>
       </div>
+      <div class="ma__header__mixed__utility-nav ma__header__mixed__utility-nav--wide js-utility-nav--wide">
+        {% include "@organisms/by-template/utility-nav.twig" %}
+      </div>
       <div class="ma__header__mixed__nav-container">
         <div class="ma__header__mixed__logo ma__header__mixed__logo--mobile">
           {% include "@atoms/09-media/site-logo.twig" %}
@@ -38,9 +41,7 @@
           {% include "@organisms/by-template/utility-nav.twig" %}
         </div>
       </div>
-      <div class="ma__header__mixed__utility-nav ma__header__mixed__utility-nav--wide js-utility-nav--wide">
-        {% include "@organisms/by-template/utility-nav.twig" %}
-      </div>
+
     </div>
 
 
@@ -58,12 +59,6 @@
   </div>
 
   <nav class="ma__header__nav" aria-label="main navigation" id="main-navigation" role="navigation">
-    <div class="ma__header__button-container js-sticky-header">
-      <button class="ma__header__back-button js-close-sub-nav"><span>Back</span></button>
-      <button class="ma__header__menu-button js-header-menu-button">
-        <span>Menu</span><span class="ma__header__menu-icon"></span>
-      </button>
-    </div>
     <div class="ma__header__nav-container">
       {% if not hideHeaderSearch %}
         <div class="ma__header__nav-search">

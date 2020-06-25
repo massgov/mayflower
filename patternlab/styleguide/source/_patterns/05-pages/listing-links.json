@@ -4,22 +4,26 @@
     "divider": false,
     "title": "Link listing page",
     "subTitle": "",
-    "optionalContents": [{
-      "path": "@organisms/by-author/rich-text.twig",
-      "data": {
-        "richText": {
-          "property": "",
-          "rteElements": [{
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph" : {
-                "text": "This is a page which implements the stacked row template.  It can be used to create a curated list of links to other pages, web forms, and various document downloads."
+    "optionalContents": [
+      {
+        "path": "@organisms/by-author/rich-text.twig",
+        "data": {
+          "richText": {
+            "property": "",
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "This is a page which implements the stacked row template.  It can be used to create a curated list of links to other pages, web forms, and various document downloads."
+                  }
+                }
               }
-            }
-          }]
+            ]
+          }
         }
       }
-    }],
+    ],
     "widgets": null
   },
   "stickyTOC": {
@@ -28,941 +32,1077 @@
     "sections": ".ma__stacked-row__section h2.ma__comp-heading"
   },
   "relationshipIndicators": {
+    "pageTitle": "Link listing page",
     "primary": {
       "position": "primary",
-      "label": "offered by",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Department of Conservation and Recreation"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Other agency or organization"
-      }]
+      "label": "part of",
+      "tags": [
+        {
+          "class": "",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Other agency or organization"
+        }
+      ]
     },
     "secondary": {
       "position": "",
-      "label": "related to",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Snowmobile in the Parks"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Cross-Country Skiing"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Accessible Hiking"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Scenic Viewing Areas"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Hunting"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Biking"
-      }]
+      "label": "offered by",
+      "tags": [
+        {
+          "class": "",
+          "href": "#",
+          "title": "Snowmobile in the Parks"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Cross-Country Skiing"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Accessible Hiking"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Scenic Viewing Areas"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Hunting"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Biking"
+        }
+      ]
     }
   },
-
-  "stackedRows": [{
-    "borderless": true,
-    "title": "List One",
-    "id": "list-one",
-    "pageContent": [{
-      "path": "@organisms/by-author/form-downloads.twig",
-      "data": {
-        "formDownloads": {
-          "listing": true,
-          "compHeading": null,
-          "downloadLinks": [{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-pdf",
-              "decorativeLink": {
-                "text": "PDF download item",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "30kb",
-              "format": "PDF",
-              "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+  "stackedRows": [
+    {
+      "borderless": true,
+      "title": "List One",
+      "id": "list-one",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/form-downloads.twig",
+          "data": {
+            "formDownloads": {
+              "listing": true,
+              "compHeading": null,
+              "downloadLinks": [
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-pdf",
+                    "decorativeLink": {
+                      "text": "PDF download item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "30kb",
+                    "format": "PDF",
+                    "description": {
+                      "rteElements": [
+                        {
+                          "path": "@atoms/11-text/paragraph.twig",
+                          "data": {
+                            "paragraph": {
+                              "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
-                }]
-              }
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-docx",
-              "decorativeLink": {
-                "text": "Word download item",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "40kb",
-              "format": "DOCX"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-generic",
-              "decorativeLink": {
-                "text": "Generic type of download",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "40kb",
-              "format": "???"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "laptop",
-              "decorativeLink": {
-                "text": "Link to an online form",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "",
-              "format": "form"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "",
-              "decorativeLink": {
-                "text": "Link to another page",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "",
-              "format": "form",
-              "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-docx",
+                    "decorativeLink": {
+                      "text": "Word download item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "40kb",
+                    "format": "DOCX"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-generic",
+                    "decorativeLink": {
+                      "text": "Generic type of download",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "40kb",
+                    "format": "???"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "laptop",
+                    "decorativeLink": {
+                      "text": "Link to an online form",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "",
+                    "decorativeLink": {
+                      "text": "Link to another page",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form",
+                    "description": {
+                      "rteElements": [
+                        {
+                          "path": "@atoms/11-text/paragraph.twig",
+                          "data": {
+                            "paragraph": {
+                              "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
-                }]
-              }
+                }
+              ]
             }
-          }]
+          }
         }
-      }
-    }],
-    "contactList": {
-      "viewSpecific": false,
-      "compHeading":{
-        "title": "Contact",
-        "sub": false,
-        "color": "",
-        "id": "contact",
-        "centered": "",
-        "titleContext": "for No. 573: Reaffirming and restructuring the Governor's advisory council on veterans' services"
-      },
-      "contacts":[{
-        "accordion": true,
-        "isExpanded": false,
-        "subTitle": {
-          "href":"",
-          "text": "Office of the Governor"
+      ],
+      "contactList": {
+        "viewSpecific": false,
+        "compHeading": {
+          "title": "Contact",
+          "sub": false,
+          "color": "",
+          "id": "contact",
+          "centered": "",
+          "titleContext": "for No. 573: Reaffirming and restructuring the Governor's advisory council on veterans' services"
         },
-        "groups": [{
-          "icon": "phone",
-          "name": "Phone",
-          "hidden": "",
-          "items": [{
-            "type": "phone",
-            "property": "telephone",
-            "label":"Main:",
-            "link": {
-              "href":"+16176245293",
-              "text":"(617) 624-5293"
-            },
-            "details":"This line is open from 9 a.m. - 5 p.m., M-F"
-          }]
-        },{
-          "icon": "laptop",
-          "name": "Online",
-          "hidden": "",
-          "items": [{
-            "type": "online",
-            "property": "",
-            "label":"Web:",
-            "link": {
-              "href":"#",
-              "text": "Contact Form",
-              "info": "",
-              "property": ""
-            },
-            "details":""
-          }]
-        }]
-      }]
-    },
-    "sideBar": []
-  },{
-    "borderless": true,
-    "title": "Curated Contact List",
-    "id": "contact-1",
-    "pageContent": [
-      {
-        "path": "@organisms/by-author/curated-person.twig",
-        "data": {
-          "curatedPerson": {
-            "name" : {
-              "text": "Curated Contact Name as Link",
-              "href": "#",
-              "info": "",
-              "level": ""
-            },
-            "title" : {
-              "text": "Title"
-            },
-            "org": {
-              "text": "Organization"
-            },
-            "desc" : {
-              "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-            },
-            "org_link": {
-              "href": "#",
-              "text": "Optional Custom Learn More Link",
-              "info": ""
-            },
-            "groups": [{
-              "icon": "marker",
-              "name": "Address",
-              "items": [{
-                "type": "address",
-                "label": "",
-                "address": "555 Park Drive\nBoston, MA 02231",
-                "link": {
-                  "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
-                  "text": "directions",
-                  "info": ""
-                },
-                "details": ""
-              }]
-            },{
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
-              },{
-                "type": "fax",
-                "label":"Fax:",
-                "link": {
-                  "href":"+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":"Please allow 24 hours for a response"
-              }]
-            },{
-              "icon": "laptop",
-              "name": "Online",
-              "items": [{
-                "type": "email",
-                "label":"Email:",
-                "link": {
-                  "href":"email@email.com",
-                  "text": "email@email.com",
-                  "info": ""
-                },
-                "details":""
-              },{
-                "type": "online",
-                "label":"Web:",
-                "link": {
-                  "href":"#",
-                  "text": "Contact Form",
-                  "info": ""
-                },
-                "details":""
-              }]
-            }]
-          }
-        }
-      },
-      {
-        "path": "@organisms/by-author/curated-person.twig",
-        "data": {
-          "curatedPerson": {
-            "name" : {
-              "text": "Curated Contact Name as Link",
-              "href": "#",
-              "info": "",
-              "level": ""
-            },
-            "title" : {
-              "text": "Title"
-            },
-            "org": {
-              "text": "Organization"
-            },
-            "desc" : {
-              "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-            },
-            "org_link": {
-              "href": "#",
-              "text": "Optional Custom Learn More Link",
-              "info": ""
-            },
-            "groups": [{
-              "icon": "marker",
-              "name": "Address",
-              "items": [{
-                "type": "address",
-                "label": "",
-                "address": "555 Park Drive\nBoston, MA 02231",
-                "link": {
-                  "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
-                  "text": "directions",
-                  "info": ""
-                },
-                "details": ""
-              }]
-            },{
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
-              },{
-                "type": "fax",
-                "label":"Fax:",
-                "link": {
-                  "href":"+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":"Please allow 24 hours for a response"
-              }]
-            },{
-              "icon": "laptop",
-              "name": "Online",
-              "items": [{
-                "type": "email",
-                "label":"Email:",
-                "link": {
-                  "href":"email@email.com",
-                  "text": "email@email.com",
-                  "info": ""
-                },
-                "details":""
-              },{
-                "type": "online",
-                "label":"Web:",
-                "link": {
-                  "href":"#",
-                  "text": "Contact Form",
-                  "info": ""
-                },
-                "details":""
-              }]
-            }]
-          }
-        }
-      },
-      {
-        "path": "@organisms/by-author/curated-person.twig",
-        "data": {
-          "curatedPerson": {
-            "name" : {
-              "text": "Curated Contact Name as Link",
-              "href": "#",
-              "info": "",
-              "level": ""
-            },
-            "title" : {
-              "text": "Title"
-            },
-            "org": {
-              "text": "Organization"
-            },
-            "desc" : {
-              "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
-            },
-            "org_link": {
-              "href": "#",
-              "text": "Optional Custom Learn More Link",
-              "info": ""
-            },
-            "groups": [{
-              "icon": "marker",
-              "name": "Address",
-              "items": [{
-                "type": "address",
-                "label": "",
-                "address": "555 Park Drive\nBoston, MA 02231",
-                "link": {
-                  "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
-                  "text": "directions",
-                  "info": ""
-                },
-                "details": ""
-              }]
-            },{
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
-              },{
-                "type": "fax",
-                "label":"Fax:",
-                "link": {
-                  "href":"+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":"Please allow 24 hours for a response"
-              }]
-            },{
-              "icon": "laptop",
-              "name": "Online",
-              "items": [{
-                "type": "email",
-                "label":"Email:",
-                "link": {
-                  "href":"email@email.com",
-                  "text": "email@email.com",
-                  "info": ""
-                },
-                "details":""
-              },{
-                "type": "online",
-                "label":"Web:",
-                "link": {
-                  "href":"#",
-                  "text": "Contact Form",
-                  "info": ""
-                },
-                "details":""
-              }]
-            }]
-          }
-        }
-      }
-    ],
-    "sideBar": []
-  },{
-    "borderless": true,
-    "title": "List Two",
-    "id": "list-two",
-    "pageContent": [{
-      "path": "@organisms/by-author/form-downloads.twig",
-      "data": {
-        "formDownloads": {
-          "listing": true,
-          "compHeading": null,
-          "downloadLinks": [{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-pdf",
-              "decorativeLink": {
-                "text": "PDF download item",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "30kb",
-              "format": "PDF",
-              "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
-                    }
-                  }
-                }]
-              }
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-docx",
-              "decorativeLink": {
-                "text": "Word download item",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "40kb",
-              "format": "DOCX"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-generic",
-              "decorativeLink": {
-                "text": "Generic type of download",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "40kb",
-              "format": "???"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "laptop",
-              "decorativeLink": {
-                "text": "Link to an online form",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "",
-              "format": "form"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "",
-              "decorativeLink": {
-                "text": "Link to another page",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "",
-              "format": "form",
-              "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
-                    }
-                  }
-                }]
-              }
-            }
-          }]
-        }
-      }
-    }],
-
-    "sideBar": []
-  },{
-    "borderless": true,
-    "title": "Second Curated Contact List",
-    "id": "contact-2",
-    "pageContent": [
-      {
-        "path": "@organisms/by-author/curated-person.twig",
-        "data": {
-          "curatedPerson": {
-            "name" : {
-              "text": "Curated Contact Name",
-              "href": "",
-              "info": "",
-              "level": ""
-            },
-            "title" : {
-              "text": "Title"
-            },
-            "groups": [{
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":""
-              }]
-            },{
-              "icon": "laptop",
-              "name": "Online",
-              "items": [{
-                "type": "email",
-                "label":"Email:",
-                "link": {
-                  "href":"email@email.com",
-                  "text": "email@email.com",
-                  "info": ""
-                },
-                "details":""
-              },{
-                "type": "online",
-                "label":"Web:",
-                "link": {
-                  "href":"#",
-                  "text": "Contact Form",
-                  "info": ""
-                },
-                "details":""
-              }]
-            }]
-          }
-        }
-      },
-      {
-        "path": "@organisms/by-author/curated-person.twig",
-        "data": {
-          "curatedPerson": {
-            "name" : {
-              "text": "Curated Contact Name",
-              "href": "",
-              "info": "",
-              "level": ""
-            },
-            "title" : {
-              "text": "Title"
-            },
-            "groups": [{
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":""
-              }]
-            },{
-              "icon": "laptop",
-              "name": "Online",
-              "items": [{
-                "type": "email",
-                "label":"Email:",
-                "link": {
-                  "href":"email@email.com",
-                  "text": "email@email.com",
-                  "info": ""
-                },
-                "details":""
-              },{
-                "type": "online",
-                "label":"Web:",
-                "link": {
-                  "href":"#",
-                  "text": "Contact Form",
-                  "info": ""
-                },
-                "details":""
-              }]
-            }]
-          }
-        }
-      },
-      {
-        "path": "@organisms/by-author/curated-person.twig",
-        "data": {
-          "curatedPerson": {
-            "name" : {
-              "text": "Curated Contact Name",
-              "href": "",
-              "info": "",
-              "level": ""
-            },
-            "title" : {
-              "text": "Title"
-            },
-            "groups": [{
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":""
-              }]
-            },{
-              "icon": "laptop",
-              "name": "Online",
-              "items": [{
-                "type": "email",
-                "label":"Email:",
-                "link": {
-                  "href":"email@email.com",
-                  "text": "email@email.com",
-                  "info": ""
-                },
-                "details":""
-              },{
-                "type": "online",
-                "label":"Web:",
-                "link": {
-                  "href":"#",
-                  "text": "Contact Form",
-                  "info": ""
-                },
-                "details":""
-              }]
-            }]
-          }
-        }
-      }
-    ],
-    "sideBar": []
-  },{
-    "borderless": true,
-    "title": "List Three",
-    "id": "list-three",
-    "pageContent": [{
-      "path": "@organisms/by-author/form-downloads.twig",
-      "data": {
-        "formDownloads": {
-          "listing": true,
-          "compHeading": null,
-          "downloadLinks": [{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-pdf",
-              "decorativeLink": {
-                "text": "PDF download item",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "30kb",
-              "format": "PDF",
-              "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
-                    }
-                  }
-                }]
-              }
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-docx",
-              "decorativeLink": {
-                "text": "Word download item",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "40kb",
-              "format": "DOCX"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "doc-generic",
-              "decorativeLink": {
-                "text": "Generic type of download",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "40kb",
-              "format": "???"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "laptop",
-              "decorativeLink": {
-                "text": "Link to an online form",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "",
-              "format": "form"
-            }
-          },{
-            "downloadLink": {
-              "iconSize": "",
-              "icon": "",
-              "decorativeLink": {
-                "text": "Link to another page",
-                "href": "#",
-                "info": "",
-                "property": ""
-              },
-              "size": "",
-              "format": "form",
-              "description": {
-                "rteElements": [{
-                  "path": "@atoms/11-text/paragraph.twig",
-                  "data": {
-                    "paragraph" : {
-                      "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
-                    }
-                  }
-                }]
-              }
-            }
-          }]
-        }
-      }
-    }],
-
-    "sideBar": []
-  }, {
-    "borderless": true,
-    "pageContent": [{
-      "path": "@organisms/by-author/contact-list.twig",
-      "data": {
-        "contactList": {
-          "viewSpecific": false,
-          "compHeading":{
-            "title": "Contact",
-            "sub": false,
-            "color": "",
-            "id": "",
-            "centered": "",
-            "titleContext": ""
-          },
-          "contacts":[{
-            "accordion": true,
-            "isExpanded": false,
-            "subTitle": {
-              "href":"",
-              "text": "Rules & Regulations Bureau"
-            },
-            "groups": [{
-              "icon": "laptop",
-              "name": "Online",
-              "hidden": "",
-              "items": [{
-                "type": "email",
-                "property": "",
-                "label":"Email:",
-                "link": {
-                  "href":"Rulesandregulations@DOR.State.MA.US",
-                  "text": "Rulesandregulations@DOR.State.MA.US",
-                  "info": "",
-                  "property": ""
-                },
-                "details":""
-              }]
-            },
-            {
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
-              },{
-                "type": "fax",
-                "label":"Fax:",
-                "link": {
-                  "href":"+14134994262",
-                  "text": "(413) 499-4262",
-                  "info": ""
-                },
-                "details":"Please allow 24 hours for a response"
-              }]
-            }]
-          },
+        "contacts": [
           {
             "accordion": true,
             "isExpanded": false,
             "subTitle": {
-              "href":"",
-              "text": "Massachusetts Registry of Motor Vehicles (RMV)",
-              "chevron":""
+              "href": "",
+              "text": "Office of the Governor"
             },
-            "groups": [{
-              "icon": "phone",
-              "name": "Phone",
-              "items": [{
-                "type": "phone",
-                "label":"Main:",
-                "link": {
-                  "href": "+16176251250",
-                  "text": "(617) 625-1250",
-                  "info": "",
-                  "property": ""
+            "groups": [
+              {
+                "icon": "phone",
+                "name": "Phone",
+                "hidden": "",
+                "items": [
+                  {
+                    "type": "phone",
+                    "property": "telephone",
+                    "label": "Main:",
+                    "link": {
+                      "href": "+16176245293",
+                      "text": "(617) 624-5293"
+                    },
+                    "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                  }
+                ]
+              },
+              {
+                "icon": "laptop",
+                "name": "Online",
+                "hidden": "",
+                "items": [
+                  {
+                    "type": "online",
+                    "property": "",
+                    "label": "Web:",
+                    "link": {
+                      "href": "#",
+                      "text": "Contact Form",
+                      "info": "",
+                      "property": ""
+                    },
+                    "details": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sideBar": []
+    },
+    {
+      "borderless": true,
+      "title": "Curated Contact List",
+      "id": "contact-1",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/curated-person.twig",
+          "data": {
+            "curatedPerson": {
+              "name": {
+                "text": "Curated Contact Name as Link",
+                "href": "#",
+                "info": "",
+                "level": ""
+              },
+              "title": {
+                "text": "Title"
+              },
+              "org": {
+                "text": "Organization"
+              },
+              "desc": {
+                "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+              },
+              "org_link": {
+                "href": "#",
+                "text": "Optional Custom Learn More Link",
+                "info": ""
+              },
+              "groups": [
+                {
+                  "icon": "marker",
+                  "name": "Address",
+                  "items": [
+                    {
+                      "type": "address",
+                      "label": "",
+                      "address": "555 Park Drive\nBoston, MA 02231",
+                      "link": {
+                        "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                        "text": "directions",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
                 },
-                "details":"This line is open from 9 a.m. - 5 p.m., M-F"
-              }]
-            },
-            {
-              "icon": "laptop",
-              "name": "Online",
-              "items": [{
-                "type": "online",
-                "label":"",
-                "link": {
-                  "href": "#",
-                  "text": "Contact Form",
-                  "info": "",
-                  "property": ""
+                {
+                  "icon": "phone",
+                  "name": "Phone",
+                  "items": [
+                    {
+                      "type": "phone",
+                      "label": "Main:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                    },
+                    {
+                      "type": "fax",
+                      "label": "Fax:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": "Please allow 24 hours for a response"
+                    }
+                  ]
                 },
-                "details":""
-              }]
-            }]
-          }]
+                {
+                  "icon": "laptop",
+                  "name": "Online",
+                  "items": [
+                    {
+                      "type": "email",
+                      "label": "Email:",
+                      "link": {
+                        "href": "email@email.com",
+                        "text": "email@email.com",
+                        "info": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "label": "Web:",
+                      "link": {
+                        "href": "#",
+                        "text": "Contact Form",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/curated-person.twig",
+          "data": {
+            "curatedPerson": {
+              "name": {
+                "text": "Curated Contact Name as Link",
+                "href": "#",
+                "info": "",
+                "level": ""
+              },
+              "title": {
+                "text": "Title"
+              },
+              "org": {
+                "text": "Organization"
+              },
+              "desc": {
+                "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+              },
+              "org_link": {
+                "href": "#",
+                "text": "Optional Custom Learn More Link",
+                "info": ""
+              },
+              "groups": [
+                {
+                  "icon": "marker",
+                  "name": "Address",
+                  "items": [
+                    {
+                      "type": "address",
+                      "label": "",
+                      "address": "555 Park Drive\nBoston, MA 02231",
+                      "link": {
+                        "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                        "text": "directions",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                },
+                {
+                  "icon": "phone",
+                  "name": "Phone",
+                  "items": [
+                    {
+                      "type": "phone",
+                      "label": "Main:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                    },
+                    {
+                      "type": "fax",
+                      "label": "Fax:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": "Please allow 24 hours for a response"
+                    }
+                  ]
+                },
+                {
+                  "icon": "laptop",
+                  "name": "Online",
+                  "items": [
+                    {
+                      "type": "email",
+                      "label": "Email:",
+                      "link": {
+                        "href": "email@email.com",
+                        "text": "email@email.com",
+                        "info": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "label": "Web:",
+                      "link": {
+                        "href": "#",
+                        "text": "Contact Form",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/curated-person.twig",
+          "data": {
+            "curatedPerson": {
+              "name": {
+                "text": "Curated Contact Name as Link",
+                "href": "#",
+                "info": "",
+                "level": ""
+              },
+              "title": {
+                "text": "Title"
+              },
+              "org": {
+                "text": "Organization"
+              },
+              "desc": {
+                "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+              },
+              "org_link": {
+                "href": "#",
+                "text": "Optional Custom Learn More Link",
+                "info": ""
+              },
+              "groups": [
+                {
+                  "icon": "marker",
+                  "name": "Address",
+                  "items": [
+                    {
+                      "type": "address",
+                      "label": "",
+                      "address": "555 Park Drive\nBoston, MA 02231",
+                      "link": {
+                        "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                        "text": "directions",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                },
+                {
+                  "icon": "phone",
+                  "name": "Phone",
+                  "items": [
+                    {
+                      "type": "phone",
+                      "label": "Main:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                    },
+                    {
+                      "type": "fax",
+                      "label": "Fax:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": "Please allow 24 hours for a response"
+                    }
+                  ]
+                },
+                {
+                  "icon": "laptop",
+                  "name": "Online",
+                  "items": [
+                    {
+                      "type": "email",
+                      "label": "Email:",
+                      "link": {
+                        "href": "email@email.com",
+                        "text": "email@email.com",
+                        "info": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "label": "Web:",
+                      "link": {
+                        "href": "#",
+                        "text": "Contact Form",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          }
         }
-      }
-    }]
-  }],
-
+      ],
+      "sideBar": []
+    },
+    {
+      "borderless": true,
+      "title": "List Two",
+      "id": "list-two",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/form-downloads.twig",
+          "data": {
+            "formDownloads": {
+              "listing": true,
+              "compHeading": null,
+              "downloadLinks": [
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-pdf",
+                    "decorativeLink": {
+                      "text": "PDF download item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "30kb",
+                    "format": "PDF",
+                    "description": {
+                      "rteElements": [
+                        {
+                          "path": "@atoms/11-text/paragraph.twig",
+                          "data": {
+                            "paragraph": {
+                              "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-docx",
+                    "decorativeLink": {
+                      "text": "Word download item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "40kb",
+                    "format": "DOCX"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-generic",
+                    "decorativeLink": {
+                      "text": "Generic type of download",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "40kb",
+                    "format": "???"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "laptop",
+                    "decorativeLink": {
+                      "text": "Link to an online form",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "",
+                    "decorativeLink": {
+                      "text": "Link to another page",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form",
+                    "description": {
+                      "rteElements": [
+                        {
+                          "path": "@atoms/11-text/paragraph.twig",
+                          "data": {
+                            "paragraph": {
+                              "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "sideBar": []
+    },
+    {
+      "borderless": true,
+      "title": "Second Curated Contact List",
+      "id": "contact-2",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/curated-person.twig",
+          "data": {
+            "curatedPerson": {
+              "name": {
+                "text": "Curated Contact Name",
+                "href": "",
+                "info": "",
+                "level": ""
+              },
+              "title": {
+                "text": "Title"
+              },
+              "groups": [
+                {
+                  "icon": "phone",
+                  "name": "Phone",
+                  "items": [
+                    {
+                      "type": "phone",
+                      "label": "Main:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                },
+                {
+                  "icon": "laptop",
+                  "name": "Online",
+                  "items": [
+                    {
+                      "type": "email",
+                      "label": "Email:",
+                      "link": {
+                        "href": "email@email.com",
+                        "text": "email@email.com",
+                        "info": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "label": "Web:",
+                      "link": {
+                        "href": "#",
+                        "text": "Contact Form",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/curated-person.twig",
+          "data": {
+            "curatedPerson": {
+              "name": {
+                "text": "Curated Contact Name",
+                "href": "",
+                "info": "",
+                "level": ""
+              },
+              "title": {
+                "text": "Title"
+              },
+              "groups": [
+                {
+                  "icon": "phone",
+                  "name": "Phone",
+                  "items": [
+                    {
+                      "type": "phone",
+                      "label": "Main:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                },
+                {
+                  "icon": "laptop",
+                  "name": "Online",
+                  "items": [
+                    {
+                      "type": "email",
+                      "label": "Email:",
+                      "link": {
+                        "href": "email@email.com",
+                        "text": "email@email.com",
+                        "info": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "label": "Web:",
+                      "link": {
+                        "href": "#",
+                        "text": "Contact Form",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "path": "@organisms/by-author/curated-person.twig",
+          "data": {
+            "curatedPerson": {
+              "name": {
+                "text": "Curated Contact Name",
+                "href": "",
+                "info": "",
+                "level": ""
+              },
+              "title": {
+                "text": "Title"
+              },
+              "groups": [
+                {
+                  "icon": "phone",
+                  "name": "Phone",
+                  "items": [
+                    {
+                      "type": "phone",
+                      "label": "Main:",
+                      "link": {
+                        "href": "+14134994262",
+                        "text": "(413) 499-4262",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                },
+                {
+                  "icon": "laptop",
+                  "name": "Online",
+                  "items": [
+                    {
+                      "type": "email",
+                      "label": "Email:",
+                      "link": {
+                        "href": "email@email.com",
+                        "text": "email@email.com",
+                        "info": ""
+                      },
+                      "details": ""
+                    },
+                    {
+                      "type": "online",
+                      "label": "Web:",
+                      "link": {
+                        "href": "#",
+                        "text": "Contact Form",
+                        "info": ""
+                      },
+                      "details": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "sideBar": []
+    },
+    {
+      "borderless": true,
+      "title": "List Three",
+      "id": "list-three",
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/form-downloads.twig",
+          "data": {
+            "formDownloads": {
+              "listing": true,
+              "compHeading": null,
+              "downloadLinks": [
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-pdf",
+                    "decorativeLink": {
+                      "text": "PDF download item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "30kb",
+                    "format": "PDF",
+                    "description": {
+                      "rteElements": [
+                        {
+                          "path": "@atoms/11-text/paragraph.twig",
+                          "data": {
+                            "paragraph": {
+                              "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-docx",
+                    "decorativeLink": {
+                      "text": "Word download item",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "40kb",
+                    "format": "DOCX"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "doc-generic",
+                    "decorativeLink": {
+                      "text": "Generic type of download",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "40kb",
+                    "format": "???"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "laptop",
+                    "decorativeLink": {
+                      "text": "Link to an online form",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form"
+                  }
+                },
+                {
+                  "downloadLink": {
+                    "iconSize": "",
+                    "icon": "",
+                    "decorativeLink": {
+                      "text": "Link to another page",
+                      "href": "#",
+                      "info": "",
+                      "property": ""
+                    },
+                    "size": "",
+                    "format": "form",
+                    "description": {
+                      "rteElements": [
+                        {
+                          "path": "@atoms/11-text/paragraph.twig",
+                          "data": {
+                            "paragraph": {
+                              "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "sideBar": []
+    },
+    {
+      "borderless": true,
+      "pageContent": [
+        {
+          "path": "@organisms/by-author/contact-list.twig",
+          "data": {
+            "contactList": {
+              "viewSpecific": false,
+              "compHeading": {
+                "title": "Contact",
+                "sub": false,
+                "color": "",
+                "id": "",
+                "centered": "",
+                "titleContext": ""
+              },
+              "contacts": [
+                {
+                  "accordion": true,
+                  "isExpanded": false,
+                  "subTitle": {
+                    "href": "",
+                    "text": "Rules & Regulations Bureau"
+                  },
+                  "groups": [
+                    {
+                      "icon": "laptop",
+                      "name": "Online",
+                      "hidden": "",
+                      "items": [
+                        {
+                          "type": "email",
+                          "property": "",
+                          "label": "Email:",
+                          "link": {
+                            "href": "Rulesandregulations@DOR.State.MA.US",
+                            "text": "Rulesandregulations@DOR.State.MA.US",
+                            "info": "",
+                            "property": ""
+                          },
+                          "details": ""
+                        }
+                      ]
+                    },
+                    {
+                      "icon": "phone",
+                      "name": "Phone",
+                      "items": [
+                        {
+                          "type": "phone",
+                          "label": "Main:",
+                          "link": {
+                            "href": "+14134994262",
+                            "text": "(413) 499-4262",
+                            "info": ""
+                          },
+                          "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                        },
+                        {
+                          "type": "fax",
+                          "label": "Fax:",
+                          "link": {
+                            "href": "+14134994262",
+                            "text": "(413) 499-4262",
+                            "info": ""
+                          },
+                          "details": "Please allow 24 hours for a response"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "accordion": true,
+                  "isExpanded": false,
+                  "subTitle": {
+                    "href": "",
+                    "text": "Massachusetts Registry of Motor Vehicles (RMV)",
+                    "chevron": ""
+                  },
+                  "groups": [
+                    {
+                      "icon": "phone",
+                      "name": "Phone",
+                      "items": [
+                        {
+                          "type": "phone",
+                          "label": "Main:",
+                          "link": {
+                            "href": "+16176251250",
+                            "text": "(617) 625-1250",
+                            "info": "",
+                            "property": ""
+                          },
+                          "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                        }
+                      ]
+                    },
+                    {
+                      "icon": "laptop",
+                      "name": "Online",
+                      "items": [
+                        {
+                          "type": "online",
+                          "label": "",
+                          "link": {
+                            "href": "#",
+                            "text": "Contact Form",
+                            "info": "",
+                            "property": ""
+                          },
+                          "details": ""
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
   "sidebar": {
     "contactList": {
       "viewSpecific": true,
-      "sidebarHeading":{
+      "sidebarHeading": {
         "title": "Contact",
         "sub": false,
         "color": "",
@@ -970,131 +1110,150 @@
         "centered": "",
         "titleContext": ""
       },
-      "contacts":[{
-        "subTitle": {
-          "href":"",
-          "text": "Rules & Regulations Bureau"
-        },
-        "groups": [{
-          "icon": "laptop",
-          "name": "Online",
-          "hidden": "",
-          "items": [{
-            "type": "email",
-            "property": "",
-            "label":"Email:",
-            "link": {
-              "href":"Rulesandregulations@DOR.State.MA.US",
-              "text": "Rulesandregulations@DOR.State.MA.US",
-              "info": "",
-              "property": ""
+      "contacts": [
+        {
+          "subTitle": {
+            "href": "",
+            "text": "Rules & Regulations Bureau"
+          },
+          "groups": [
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "Rulesandregulations@DOR.State.MA.US",
+                    "text": "Rulesandregulations@DOR.State.MA.US",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
             },
-            "details":""
-          }]
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": ""
+                  },
+                  "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+                },
+                {
+                  "type": "fax",
+                  "label": "Fax:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262",
+                    "info": ""
+                  },
+                  "details": "Please allow 24 hours for a response"
+                }
+              ]
+            }
+          ]
         },
         {
-          "icon": "phone",
-          "name": "Phone",
-          "items": [{
-            "type": "phone",
-            "label": "Main:",
-            "link": {
-              "href": "+14134994262",
-              "text": "(413) 499-4262",
-              "info": ""
+          "accordion": false,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Massachusetts Registry of Motor Vehicles (RMV)",
+            "chevron": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "items": [
+                {
+                  "type": "phone",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+16176251250",
+                    "text": "(617) 625-1250",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                }
+              ]
             },
-            "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
-          },{
-            "type": "fax",
-            "label":"Fax:",
-            "link": {
-              "href":"+14134994262",
-              "text": "(413) 499-4262",
-              "info": ""
-            },
-            "details":"Please allow 24 hours for a response"
-          }]
-        }]
-      },
-      {
-        "accordion": false,
-        "isExpanded": false,
-        "subTitle": {
-          "href":"",
-          "text": "Massachusetts Registry of Motor Vehicles (RMV)",
-          "chevron":""
-        },
-        "groups": [{
-          "icon": "phone",
-          "name": "Phone",
-          "items": [{
-            "type": "phone",
-            "label":"Main:",
-            "link": {
-              "href": "+16176251250",
-              "text": "(617) 625-1250",
-              "info": "",
-              "property": ""
-            },
-            "details":"This line is open from 9 a.m. - 5 p.m., M-F"
-          }]
-        },
-        {
-          "icon": "laptop",
-          "name": "Online",
-          "items": [{
-            "type": "online",
-            "label":"",
-            "link": {
-              "href": "#",
-              "text": "Contact Form",
-              "info": "",
-              "property": ""
-            },
-            "details":""
-          }]
-        }]
-      }]
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "items": [
+                {
+                  "type": "online",
+                  "label": "",
+                  "link": {
+                    "href": "#",
+                    "text": "Contact Form",
+                    "info": "",
+                    "property": ""
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     "pressListing": {
       "sidebarHeading": {
         "title": "Related",
         "titleContext": "to PH-07-539 Department of Public Health v. Deli Market"
       },
-      "items": [{
-        "eyebrow": "Letter Ruling",
-        "title" : {
-          "url":"#",
-          "text":"LR 12-3: Internet-Based Marketing and Customer-Communications Solutions",
-          "info": "",
-          "property": ""
+      "items": [
+        {
+          "eyebrow": "Letter Ruling",
+          "title": {
+            "url": "#",
+            "text": "LR 12-3: Internet-Based Marketing and Customer-Communications Solutions",
+            "info": "",
+            "property": ""
+          },
+          "date": "3/12/2016",
+          "org": "",
+          "description": null
         },
-        "date": "3/12/2016",
-        "org": "",
-        "description": null
-      },{
-        "eyebrow": "Regulation",
-        "title" : {
-          "url":"#",
-          "text":"830 CMR 64H.1.3",
-          "info": "",
-          "property": ""
+        {
+          "eyebrow": "Regulation",
+          "title": {
+            "url": "#",
+            "text": "830 CMR 64H.1.3",
+            "info": "",
+            "property": ""
+          },
+          "date": "4/17/2016",
+          "org": "",
+          "description": null
         },
-        "date": "4/17/2016",
-        "org": "",
-        "description": null
-      },{
-        "eyebrow": "",
-        "title" : {
-          "url":"#",
-          "text":"Related Non News, Announcements, Reg, or Law Here",
-          "info": "",
-          "property": ""
-        },
-        "date": "",
-        "org": "",
-        "description": null
-      }]
+        {
+          "eyebrow": "",
+          "title": {
+            "url": "#",
+            "text": "Related Non News, Announcements, Reg, or Law Here",
+            "info": "",
+            "property": ""
+          },
+          "date": "",
+          "org": "",
+          "description": null
+        }
+      ]
     }
   }
 }

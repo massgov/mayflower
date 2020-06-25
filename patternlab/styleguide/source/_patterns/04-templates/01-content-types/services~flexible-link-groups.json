@@ -1,17 +1,18 @@
 {
   "flexibleLinkGroup": 1,
   "relationshipIndicators": {
+    "pageTitle": "",
     "primary": {
       "position": "primary",
       "label": "offered by",
       "tags": [
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
           "title": "Department of Conservation and Recreation"
         },
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
           "title": "Other agency or organization"
         }
@@ -22,32 +23,32 @@
       "label": "related to",
       "tags": [
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
           "title": "Snowmobile in the Parks"
         },
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
           "title": "Cross-Country Skiing"
         },
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
           "title": "Accessible Hiking"
         },
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
           "title": "Scenic Viewing Areas"
         },
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
           "title": "Hunting"
         },
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
           "title": "Biking"
         }
@@ -84,12 +85,12 @@
         "label": "related services",
         "tags": [
           {
-            "class": "ma__relationship-indicators--term",
+            "class": "",
             "href": "#",
             "title": "Department of Conservation and Recreation"
           },
           {
-            "class": "ma__relationship-indicators--term",
+            "class": "",
             "href": "#",
             "title": "Other agency or organization"
           }
