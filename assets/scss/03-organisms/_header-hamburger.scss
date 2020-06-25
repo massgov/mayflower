@@ -208,6 +208,18 @@ body.show-menu-hamburger {
     }
   }
 
+  &__button-container {
+    @media ($bp-header-toggle-max) {
+      @include ma-container;
+      height: $header-mobile-controls-height;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: $z-dropdown;
+    }
+  }
+
   &__nav-container {
     background-color: $c-gray-lightest;
     height: 95vh;
@@ -368,6 +380,7 @@ body.show-menu-hamburger {
           right: 5px;
           height: 25px !important;
           min-height: 20px !important;
+          z-index: $z-dropdown;
         }
 
         svg {
