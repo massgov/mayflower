@@ -382,7 +382,7 @@ body.show-menu {
       display: none;
     }
 
-    svg {
+    & svg {
       fill: $c-white;
       height: 20px;
       -webkit-transition: fill .4s;
