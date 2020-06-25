@@ -3,10 +3,10 @@ $utility-nav-height: 43px;
 .ma__utility-nav {
   position: relative;
 
-  @media ($bp-header-toggle-min) {
-    background-color: $c-primary;
-    color: $c-font-inverse;
-  }
+  // @media ($bp-header-toggle-min) {
+  //   background-color: $c-primary;
+  //   color: $c-font-inverse;
+  // }
 
   &__items {
 
