@@ -11,6 +11,7 @@ const jumpToSearchButton = document.querySelector(".js-header-search-access-butt
 
 // Utility nav elements
 const utilButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+// const utilContentContaier = document.querySelector(".ma__header__hamburger__utility-nav--narrow .ma__utility-nav__container");
 const utilContent = document.querySelector(".ma__header__hamburger__utility-nav--narrow .js-util-nav-content");
 
 // utilContent.classList.remove("is-closed");
@@ -19,11 +20,14 @@ utilButton.addEventListener("click", function(e) {
 
   let thisButton = e.target.closest(".js-util-nav-toggle");
 
+  // utilContentContaier.classList.toggle("open");
+
   if (thisButton.getAttribute("aria-expanded") === "false") {
     // Open
     thisButton.setAttribute("aria-expanded", "true");
     thisButton.setAttribute("aria-pressed", "true");
     thisButton.classList.add("open");
+
   } else {
     // Close
     thisButton.setAttribute("aria-expanded", "false");
@@ -386,10 +390,10 @@ let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-
 
     if (utilContent.classList.contains("is-closed")) {
 
-      /** Show the subMenu. */
+      /** Show the utility container. */
 
       utilContent.classList.remove("is-closed");
-      utilContent.style.height = "auto";
+      utilContentContainer.style.height = "auto";
 
       /** Get the computed height of the subMenu. */
       var height = utilContent.clientHeight + "px";
@@ -397,16 +401,16 @@ let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-
 
       /** Set the height of the submenu as 0px, */
       /** so we can trigger the slide down animation. */
-      utilContent.style.height = "0";
+      utilContentContainer.style.height = "0";
 
       setTimeout(function timeoutFunction() {
-        utilContent.style.height = height;
+        utilContentContainer.style.height = height;
         utilContentContainer.style.opacity = "1";
       }, 50);
 
       /** Slide up. */
     } else {
-      utilContent.style.height = "0";
+      utilContentContainer.style.height = "0";
       utilContentContainer.style.opacity = "0";
 
       setTimeout(function timeoutFunction() {
