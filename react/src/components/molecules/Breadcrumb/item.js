@@ -1,3 +1,7 @@
+/**
+ * BreadcrumbItem module.
+ * @module @massds/mayflower-react/BreadcrumbItem
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

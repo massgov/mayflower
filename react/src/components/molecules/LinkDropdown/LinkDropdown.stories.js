@@ -4,7 +4,7 @@ import { withKnobs, text, boolean, object, select } from '@storybook/addon-knobs
 import { action } from '@storybook/addon-actions';
 
 import LinkDropdown from '.';
-import buttonWithIconOptions from '../../atoms/buttons/ButtonWithIcon/ButtonWithIcon.knobs.options';
+import buttonWithIconOptions from 'MayflowerReactButtons/ButtonWithIcon/ButtonWithIcon.knobs.options';
 
 storiesOf('molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

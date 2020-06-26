@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 .ma__sticky-toc {
   margin-bottom: 30px;
   //position: relative // can't have position relative here or the links won't stick for the height of page-content

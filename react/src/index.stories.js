@@ -3,10 +3,9 @@ import ReactHtmlParser from 'react-html-parser';
 import MarkdownIt from 'markdown-it';
 import { storiesOf } from '@storybook/react';
 
-import './index.css';
-import './markdown.css';
+import './markdown.scss';
 
-import Docs from '../README.md';
+import Docs from './README.md';
 
 const md = new MarkdownIt();
 const result = md.render(Docs);

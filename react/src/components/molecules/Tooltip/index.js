@@ -1,8 +1,14 @@
+/**
+ * Tooltip module.
+ * @module @massds/mayflower-react/Tooltip
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tooltip
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../base/Icon';
+import Icon from 'MayflowerReactBase/Icon';
 // eslint-disable-next-line import/no-unresolved
-import './style.css';
 
 const Tooltip = (tooltip) => {
   const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;

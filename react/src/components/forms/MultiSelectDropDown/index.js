@@ -1,9 +1,18 @@
+/**
+ * MultiSelectDropDown module.
+ * @module @massds/mayflower-react/MultiSelectDropDown
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/multiselect-dropdown
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-checkbox
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tags
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-tag
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import InputCheckBox from '../InputCheckBox';
-import Tags from '../../molecules/Tags';
-import './style.css';
+import InputCheckBox from 'MayflowerReactForms/InputCheckBox';
+import Tags from 'MayflowerReactMolecules/Tags';
 
 export const getObjByValue = (arr, value, key) => {
   let i = 0;
@@ -18,6 +27,8 @@ export const getObjByValue = (arr, value, key) => {
 };
 
 class MultiSelectDropDown extends React.Component {
+  _timeoutID;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +42,7 @@ class MultiSelectDropDown extends React.Component {
     document.addEventListener('mousedown', (e) => this.handleClickOutside(e));
     this.wrapperRef.addEventListener('keydown', (e) => this.handleKeyDown(e));
   }
+
   componentWillUnmount() {
     document.removeEventListener('mousedown', () => this.handleClickOutside());
     this.wrapperRef.removeEventListener('keydown', () => this.handleKeyDown());
@@ -51,7 +63,6 @@ class MultiSelectDropDown extends React.Component {
     }, 0);
   }
 
-  _timeoutID;
 
   handleTagClick = (target, e) => {
     e.stopPropagation();
@@ -160,6 +171,7 @@ class MultiSelectDropDown extends React.Component {
   toggleDropDown = () => {
     this.setState((prevState) => ({ dropwDownExpand: !prevState.dropwDownExpand }));
   }
+
   closeDropDown = () => {
     this.setState({ dropwDownExpand: false });
   }
@@ -237,7 +249,8 @@ class MultiSelectDropDown extends React.Component {
                       defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
                       tabIndex={-1}
                     />
-                  ))}
+                  ))
+}
               </div>
             )
           }

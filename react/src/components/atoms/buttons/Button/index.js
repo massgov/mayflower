@@ -1,7 +1,10 @@
+/**
+ * Button module.
+ * @module @massds/mayflower-react/Button
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.css';
 
 const Button = (button) => {
   const buttonClasses = classNames({

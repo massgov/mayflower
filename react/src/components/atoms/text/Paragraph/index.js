@@ -1,3 +1,7 @@
+/**
+ * Paragraph module.
+ * @module @massds/mayflower-react/Paragraph
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

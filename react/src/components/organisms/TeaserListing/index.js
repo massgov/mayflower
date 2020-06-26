@@ -1,8 +1,11 @@
+/**
+ * TeaserListing module.
+ * @module @massds/mayflower-react/TeaserListing
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/teaser-listing
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
-import './style.css';
 
 /**
   List wrapper

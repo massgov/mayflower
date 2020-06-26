@@ -1,5 +1,7 @@
 $menu-transition-time: 0.3s;
 
+@use "00-base/global" as *;
+
 .ma__organization-navigation {
   background-color: $c-gray-lightest;
   margin-top: -20px;

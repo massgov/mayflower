@@ -1,7 +1,12 @@
+/**
+ * SiteLogo module.
+ * @module @massds/mayflower-react/SiteLogo
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/site-logo
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/image
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from 'SharedAssets/images/stateseal.png';
-import './style.css';
+import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import Image from '../Image';
 
 const SiteLogo = (siteLogo) => (

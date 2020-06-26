@@ -1,9 +1,13 @@
+/**
+ * TabContainer module.
+ * @module @massds/mayflower-react/TabContainer
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/tab-container
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shortid from 'shortid';
 import is from 'is';
-import './style.css';
 import TabContext from './context';
 
 class TabContainer extends React.Component {
@@ -44,6 +48,7 @@ class TabContainer extends React.Component {
       tabBodyRef: this.tabBodyRef
     };
   }
+
   setActiveTab = (tabId) => {
     const state = {
       activeTab: tabId
@@ -57,6 +62,7 @@ class TabContainer extends React.Component {
       this.state.tabRefs[tabId].current.focus();
     }
   };
+
   render() {
     const classes = classNames({
       'ma__tab-container': true,

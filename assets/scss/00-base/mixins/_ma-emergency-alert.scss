@@ -1,9 +1,15 @@
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "sass:color" as *;
+
 @mixin ma-emergency-alert ($color) {
   color: $c-font-base;
-  background-color: tint($color, 90%);
+  background-color: mix(#fff, $color, 90%);
 
     & + & {
-    border-top-color: tint($color, 50%);
+    border-top-color: mix(#fff, $color, 50%);
   }
 
   .ma__emergency-alert__link {
@@ -25,7 +31,7 @@
       }
 
       svg {
-        fill: tint($c-font-base, 50%);
+        fill: mix(#fff, $c-font-base, 50%);
       }
 
       &:hover {

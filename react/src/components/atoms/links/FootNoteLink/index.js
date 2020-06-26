@@ -1,16 +1,22 @@
+/**
+ * FootNoteLink module.
+ * @module @massds/mayflower-react/FootNoteLink
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/footnote-link
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
 
 class FootNoteLink extends React.Component {
   handleScroll() {
     const element = document.getElementById(`footnotemsg${this.props.index}`);
     element.scrollIntoView({ block: 'end', behavior: 'smooth' });
   }
+
   render() {
     const { index } = this.props;
     return(
       <button
+        type="button"
         className={`ma__footnote-link footnoteref${index}`}
         aria-describedby={`footnotemsg${index}`}
         aria-label={`see footnote ${index}`}
@@ -18,7 +24,13 @@ class FootNoteLink extends React.Component {
         tabIndex="0"
         role="link"
       >
-        <span><sup>[{index}]</sup></span>
+        <span>
+          <sup>
+            [
+            {index}
+            ]
+          </sup>
+        </span>
       </button>
     );
   }

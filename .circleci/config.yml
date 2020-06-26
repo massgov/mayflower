@@ -12,8 +12,7 @@ references:
 react_defaults: &react_defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:10.15.1
-
+    - image: circleci/node:12.18.0
 patternlab_defaults: &patternlab_defaults
   working_directory: /var/www/code
   docker:
@@ -165,12 +164,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - mfr-dependencies-{{ checksum "react/package.json" }}
+            - mfr-dependencies-{{ checksum "react/package.json" }}-0
       - run: cd react && npm install
       - save_cache:
           paths:
             - react/node_modules
-          key: mfr-dependencies-{{ checksum "react/package.json" }}
+          key: mfr-dependencies-{{ checksum "react/package.json" }}-0
       - run:
           name: Mayflower React Build
           command: cd react && npm run build
@@ -194,6 +193,7 @@ jobs:
           docker-compose up --no-start web backstop
           docker cp ./ $(docker-compose ps -q backstop):/src/
           docker cp ../assets $(docker-compose ps -q backstop):/src/assets
+          docker cp ../docs $(docker-compose ps -q backstop):/src/docs
           docker cp ./storybook-static/. $(docker-compose ps -q web):/usr/share/nginx/html
       - run: |
           cd react
@@ -288,9 +288,6 @@ jobs:
       - run:
           name: Mayflower Style Linter
           command: cd assets && npm run stylelint
-      - run:
-          name: Validate Package Build
-          command: cd assets && npm run build
 
   assets_deploy_tag:
     <<: *react_defaults
@@ -305,13 +302,12 @@ jobs:
           paths:
             - assets/node_modules
           key: assets-dependencies-{{ checksum "assets/package.json" }}
-      - run: cd assets && npm run build
       - run:
-          name: 'Publish mayflower-tokens NPM package'
+          name: 'Publish mayflower-assets NPM package'
           command: |
             cd assets
             npm version --no-git-tag-version "$CIRCLE_TAG"
-            if test -z "$(npm show @massds/mayflower-tokens@$CIRCLE_TAG)"; then
+            if test -z "$(npm show @massds/mayflower-assets@$CIRCLE_TAG)"; then
               npm publish
             else
               echo "Skipping NPM publish - $CIRCLE_TAG already exists"

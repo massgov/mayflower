@@ -1,7 +1,4 @@
-@import "bourbon/core/bourbon";
-@import "bourbon-neat/app/assets/stylesheets/neat";
-@import '00-base/variables';
-@import '00-base/breakpoints';
-@import '00-base/colors';
-@import '00-base/mixins';
-@import "00-base/z-index";
+@forward "00-base/global" with (
+  $assets-path: "~@massds/mayflower-assets/static" !default,
+);
+@forward "00-base/z-index";

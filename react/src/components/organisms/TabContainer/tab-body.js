@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Portal } from 'react-portal';
+import { Portal } from 'react-portal/es';
 
 class TabBody extends React.Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class TabBody extends React.Component {
       });
     }
   }
+
   componentDidMount() {
     const nodeList = document.getElementById(this.props.tabContainerBodyId);
     if (nodeList) {
@@ -34,11 +35,13 @@ class TabBody extends React.Component {
       this.observer.observe(document, { attributes: true, childList: true, subtree: true });
     }
   }
+
   componentWillUnmount() {
     if (global.MutationObserver) {
       this.observer.disconnect();
     }
   }
+
   render() {
     if (this.state.nodeList.length > 0 && this.props.active) {
       return(

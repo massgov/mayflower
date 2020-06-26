@@ -1,17 +1,23 @@
+/**
+ * FootNote module.
+ * @module @massds/mayflower-react/FootNote
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/footnote
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
 
 class FootNote extends React.Component {
   handleScroll() {
     const element = document.getElementsByClassName(`footnoteref${this.props.index}`)[0];
     element.scrollIntoView({ block: 'start', behavior: 'smooth' });
   }
+
   render() {
     const { children, index } = this.props;
     return(
       <div className="ma__footnote-item">
         <button
+          type="button"
           id={`footnotemsg${index}`}
           onClick={() => this.handleScroll()}
         >

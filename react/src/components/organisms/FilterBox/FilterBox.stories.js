@@ -1,15 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select, object, optionsKnob, array } from '@storybook/addon-knobs';
+import {
+  withKnobs, text, boolean, select, object, optionsKnob, array
+} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { InputTextFuzzy, SelectBox, DateRange } from '../../../index';
-
+import InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
+import SelectBox from 'MayflowerReactForms/SelectBox';
+import DateRange from 'MayflowerReactForms/DateRange';
+// import knob options for child patterns
+import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
+import selectBoxOptions from 'MayflowerReactForms/SelectBox/SelectBox.knobs.options';
+import inputOptions from 'MayflowerReactForms/InputTextFuzzy/InputTextFuzzy.knobs.options';
 import FilterBox from '.';
 import sharedProps from './FilterBox.props';
-// import knob options for child patterns
-import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
-import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
-import inputOptions from '../../forms/InputTextFuzzy/InputTextFuzzy.knobs.options';
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

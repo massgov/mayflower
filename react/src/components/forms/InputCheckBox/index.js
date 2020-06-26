@@ -1,22 +1,29 @@
-import React, { useContext, useEffect } from 'react';
+/**
+ * InputCheckBox module.
+ * @module @massds/mayflower-react/InputCheckBox
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-checkbox
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
 
-import Input from '../Input';
-import Error from '../Input/error';
-import Icon from '../../base/Icon';
-import { InputContext } from '../Input/context';
-import './style.css';
+import Input from 'MayflowerReactForms/Input';
+import Error from 'MayflowerReactForms/Input/error';
+import Icon from 'MayflowerReactBase/Icon';
+import { InputContext } from 'MayflowerReactForms/Input/context';
 
 const CheckBox = (props) => {
-  const context = useContext(InputContext);
+  const context = React.useContext(InputContext);
   const { value } = context;
   const {
     icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex
   } = props;
 
-  useEffect(() => {
+  React.useEffect(() => {
     context.updateState({ value: defaultValue });
   }, [defaultValue]);
 
@@ -55,7 +62,7 @@ const CheckBox = (props) => {
     <span className={checkboxClasses}>
       <input {...inputProps} />
       {icon && icon.name && icon}
-      <label htmlFor={id} tabIndex={-1} ><span>{ label }</span></label>
+      <label htmlFor={id} tabIndex={-1}><span>{ label }</span></label>
     </span>
 
   );

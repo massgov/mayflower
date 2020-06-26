@@ -1,10 +1,16 @@
+/**
+ * AccordionItem module.
+ * @module @massds/mayflower-react/AccordionItem
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/accordion-item
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon from '../../base/Icon';
-import Heading from '../../atoms/headings/Heading';
-import Collapse from '../../animations/Collapse';
-import './style.css';
+import Icon from 'MayflowerReactBase/Icon';
+import Heading from 'MayflowerReactHeadings/Heading';
+import Collapse from 'MayflowerReactAnimations/Collapse';
 
 class AccordionItem extends React.Component {
   constructor(props) {
@@ -48,6 +54,7 @@ class AccordionItem extends React.Component {
       <div className={accordionClasses}>
         <header className="ma__accordion-header">
           <button
+            type="button"
             className={buttonClasses}
             aria-label={info}
             onClick={this.handleClick}

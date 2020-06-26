@@ -1,3 +1,5 @@
+@use "00-base/global" as *;
+
 .ma__decorative-link {
 
   @include ma-link-decorative;

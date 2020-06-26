@@ -1,7 +1,11 @@
+/**
+ * Tabs module.
+ * @module @massds/mayflower-react/Tabs
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/tabs
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line import/no-unresolved
-import './style.css';
 
 const Tabs = ({ handleClick, tabs, selectedTab }) => {
   const isClickFunction = typeof handleClick === 'function';
@@ -28,6 +32,7 @@ const Tabs = ({ handleClick, tabs, selectedTab }) => {
               if (isClickFunction) {
                 return(
                   <button
+                    type="button"
                     key={`tab_${value}`}
                     className={`ma__tabs-item ${isSelected}`}
                     name={value}

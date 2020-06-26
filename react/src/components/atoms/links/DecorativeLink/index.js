@@ -1,9 +1,15 @@
+/**
+ * DecorativeLink module.
+ * @module @massds/mayflower-react/DecorativeLink
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Icon from '../../../base/Icon';
-import './style.css';
+import Icon from 'MayflowerReactBase/Icon';
 
 const DecorativeLink = (props) => {
   const {
@@ -47,9 +53,19 @@ const DecorativeLink = (props) => {
         href={href}
         title={info || null}
       >
-        {decIcon && <span className="ma__download-link--icon">{decIcon}&nbsp;</span>}
+        {decIcon && (
+        <span className="ma__download-link--icon">
+          {decIcon}
+&nbsp;
+        </span>
+        )}
         {text}
-        {details && <span className="ma__decorative-link__details">&nbsp;{details}</span>}
+        {details && (
+        <span className="ma__decorative-link__details">
+          &nbsp;
+          {details}
+        </span>
+        )}
         &nbsp;
         {icon || <Icon name="arrow" aria-hidden="true" />}
       </a>

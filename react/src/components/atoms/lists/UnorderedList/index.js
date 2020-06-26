@@ -1,6 +1,9 @@
+/**
+ * UnorderedList module.
+ * @module @massds/mayflower-react/UnorderedList
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
 
 const UnorderedList = (props) => subList(props);
 
@@ -45,7 +48,7 @@ listItem.propTypes = {
 };
 
 const subList = (props) => {
-  const newProps = Object.assign({}, props);
+  const newProps = { ...props };
   if (!Object.prototype.hasOwnProperty.call(newProps, 'ulIndex')) {
     newProps.ulIndex = 0;
   }
@@ -62,7 +65,8 @@ const subList = (props) => {
         }
         return listItem(item, itemIndex, ulId);
       })}
-    </ul>);
+    </ul>
+  );
 };
 
 export default UnorderedList;

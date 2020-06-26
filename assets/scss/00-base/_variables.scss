@@ -1,6 +1,8 @@
-// Change the Neat grid settings.
-$column:                        85px;
-$gutter:                        20px;
+$column: 85px;
+$gutter: 20px;
+/// Sets the total number of columns in the grid. Its value can be overridden inside a media query using the `media()` mixin.
+$grid-columns: 12;
+$max-width: 1320px;
 $column-with-gutter:            $column + $gutter;
 // Use @include outer-container() which sets this and centers.
 $layout-sidebar-width:          ($column * 3) + ($gutter * 2);
@@ -8,7 +10,6 @@ $layout-sidebar-width-reversed: 370px;
 
 $l-max-content-width:           820px;
 $l-max-content-wrapper:         1240px;
-$max-width:                     1320px;
 
 $header-mobile-controls-height: 40px;
 
@@ -38,3 +39,20 @@ $close-icon: '\00d7';
 $fonts:      "Texta", "Helvetica", "Arial", sans-serif;
 $fonts-mono: "Source Code Pro", "Monaco", monospace;
 $fonts-khmer: "Hanuman";
+
+// Legacy Bourbon Neat Variables
+///Sets the default layout direction of the grid. Can be `LTR` or `RTL`.
+$default-layout-direction: LTR !default;
+$layout-direction: LTR !default;
+$container-display-table: false !default;
+/// When set to true, it sets the box-sizing property of all elements to `border-box`.
+/// @example css - CSS Output
+///   html {
+///     box-sizing: border-box !default; }
+///
+///   *, *::after, *::before {
+///     box-sizing: inherit !default;
+///   }
+$border-box-sizing: true !default;
+/// Sets the default [media feature](http://www.w3.org/TR/css3-mediaqueries/#media) that `media()` and `new-breakpoint()` revert to when only a breakpoint value is passed.
+$default-feature: min-width !default; // Default @media feature for the breakpoint() mixin

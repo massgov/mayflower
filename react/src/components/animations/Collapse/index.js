@@ -1,8 +1,12 @@
+/**
+ * Collapse module.
+ * @module @massds/mayflower-react/Collapse
+ */
 import classNames from 'classnames';
 import css from 'dom-helpers/style';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Transition, { EXITED, ENTERED, ENTERING, EXITING } from 'react-transition-group/Transition';
+import Transition from 'react-transition-group/Transition';
 
 function capitalize(string) {
   return(
@@ -19,9 +23,9 @@ function getDimensionValue(dimension, elem) {
   const margins = MARGINS[dimension];
 
   return(
-    value +
-    parseInt(css(elem, margins[0]), 10) +
-    parseInt(css(elem, margins[1]), 10)
+    value
+    + parseInt(css(elem, margins[0]), 10)
+    + parseInt(css(elem, margins[1]), 10)
   );
 }
 
@@ -99,10 +103,10 @@ class Collapse extends React.Component {
     } = this.props;
 
     const collapseStyles = {
-      [EXITED]: 'collapsed',
-      [EXITING]: 'collapsing',
-      [ENTERING]: 'expanding',
-      [ENTERED]: 'expanded'
+      exited: 'collapsed',
+      exiting: 'collapsing',
+      entering: 'expanding',
+      entered: 'expanded'
     };
 
     const dimension = this.getDimension();
@@ -119,20 +123,18 @@ class Collapse extends React.Component {
         onExit={this.handleExit}
         onExiting={this.handleExiting}
       >
-        {(state, innerProps) =>
-          React.cloneElement(children, {
-            ...innerProps,
-            style: {
-              [`max${capitalize(dimension)}`]: minDimensionOnMount ? `${minDimension}px` : 'none'
-            },
-            className: classNames(
-              className,
-              children.props.className,
-              collapseStyles[state],
-              dimension === 'width' && 'width',
-            )
-          })
-        }
+        {(state, innerProps) => React.cloneElement(children, {
+          ...innerProps,
+          style: {
+            [`max${capitalize(dimension)}`]: minDimensionOnMount ? `${minDimension}px` : 'none'
+          },
+          className: classNames(
+            className,
+            children.props.className,
+            collapseStyles[state],
+            dimension === 'width' && 'width'
+          )
+        })}
       </Transition>
     );
   }

@@ -1,10 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, object, array, select } from '@storybook/addon-knobs';
+import {
+  withKnobs, text, boolean, object, array, select
+} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import inputOptions from 'MayflowerReactForms/InputTextFuzzy/InputTextFuzzy.knobs.options';
 
 import TypeAheadDropdown from '.';
-import inputOptions from '../InputTextFuzzy/InputTextFuzzy.knobs.options';
 
 storiesOf('forms|molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

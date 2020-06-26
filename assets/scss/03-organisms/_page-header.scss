@@ -1,5 +1,7 @@
 $page-header-widget-width: 350px;
 
+@use "00-base/global" as *;
+
 .ma__page-header {
 
   @include ma-container;

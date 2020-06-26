@@ -1,21 +1,36 @@
+/**
+ * GenTeaser module.
+ * @module @massds/mayflower-react/GenTeaser
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/gen-teaser
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/email
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/image
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/event-time
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/phone-number
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/address
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactHtmlParser from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser/src';
 import classNames from 'classnames';
 
-import LinkDropdown from '../../molecules/LinkDropdown';
-import Icon from '../../base/Icon';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Email from '../../atoms/contact/Email';
-import Image from '../../atoms/media/Image';
-import EventTime from '../../atoms/contact/EventTime';
-import PhoneNumber from '../../atoms/contact/PhoneNumber';
-import Address from '../../atoms/contact/Address';
-import TeaserSearch from './TeaserSearch';
-import TeaserOrgs from './TeaserOrgs';
-import { buildUrl } from './utils';
-import './style.css';
+import LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
+import Icon from 'MayflowerReactBase/Icon';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Email from 'MayflowerReactContact/Email';
+import Image from 'MayflowerReactMedia/Image';
+import EventTime from 'MayflowerReactContact/EventTime';
+import PhoneNumber from 'MayflowerReactContact/PhoneNumber';
+import Address from 'MayflowerReactContact/Address';
+import TeaserSearch from 'MayflowerReactGenTeaser/TeaserSearch';
+import TeaserOrgs from 'MayflowerReactGenTeaser/TeaserOrgs';
+import { buildUrl } from 'MayflowerReactOrganisms/GenTeaser/utils';
 
 const GenTeaser = (props) => {
   const {
@@ -106,7 +121,7 @@ GenTeaser.Image.displayName = 'GenTeaser.Image';
 const GenTeaserEyebrow = (props) => {
   const { eyebrow, children, ...rest } = props;
   return(
-    <div className="ma__gen-teaser__eyebrow" {...rest} >
+    <div className="ma__gen-teaser__eyebrow" {...rest}>
       {children || <span>{eyebrow}</span>}
     </div>
   );
@@ -183,7 +198,7 @@ const GenTeaserTitle = (props) => {
   }
   const Element = `h${level || 2}`;
   return(
-    <Element className="ma__gen-teaser__title" {...rest} >
+    <Element className="ma__gen-teaser__title" {...rest}>
       {children || <DecorativeLink {...title} />}
     </Element>
   );
@@ -327,14 +342,14 @@ const GenTeaserSubLinks = (props) => {
   return(
     <div className="ma__gen-teaser__key-action" {...rest}>
       {children.length > 2 ? (
-        <React.Fragment>
+        <>
           <div className="ma__gen-teaser__key-action-col">
             {children.slice(0, 2)}
           </div>
           <div className="ma__gen-teaser__key-action-col">
             {children.slice(2, 4)}
           </div>
-        </React.Fragment>
+        </>
       ) : <div className="ma__gen-teaser__key-action-col">{children}</div>}
     </div>
   );
@@ -357,12 +372,12 @@ const GenTeaserKeyAction = (props) => {
     description, href, text, info, children, ...rest
   } = props;
   return(
-    <div className="ma__gen-teaser__key-action-item" {...rest} >
+    <div className="ma__gen-teaser__key-action-item" {...rest}>
       {children || (
-        <React.Fragment>
+        <>
           {text && href && <DecorativeLink href={href} text={text} info={info} />}
           {description && <p>{ReactHtmlParser(description)}</p>}
-        </React.Fragment>
+        </>
       )}
     </div>
   );
@@ -592,7 +607,7 @@ const GenTeaserEvent = (props) => {
     return itemVals;
   });
   return(
-    <React.Fragment>
+    <>
       <div className="ma__gen-teaser__infoitem" {...rest}>
         <span className="ma__gen-teaser__infoitem-icon">
           <Icon name="calendar" svgWidth={15} svgHeight={15} />
@@ -600,7 +615,7 @@ const GenTeaserEvent = (props) => {
         <EventTime {...eventProps} />
       </div>
       <LinkDropdown {...dropdownProps} />
-    </React.Fragment>
+    </>
   );
 };
 

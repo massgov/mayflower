@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
+/**
+ * TeaserOrgs module.
+ * @module @massds/mayflower-react/TeaserOrgs
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonWithIcon, Icon } from '../../../../index';
+import Icon from 'MayflowerReactBase/Icon';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 
-class TeaserOrgs extends Component {
+class TeaserOrgs extends React.Component {
   constructor(props) {
     super(props);
     const { orgs } = props;
@@ -15,19 +24,23 @@ class TeaserOrgs extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
+
   componentWillReceiveProps(nextProps) {
     const { orgs } = nextProps;
     const allOrgs = orgs.split(',');
     this.setState({ shouldTruncate: (allOrgs.length > 3), truncateOrgs: (allOrgs.length > 3), showAll: false });
   }
+
   handleClick() {
     this.setState((prevState) => ({ showAll: !prevState.showAll, truncateOrgs: !prevState.truncateOrgs }));
   }
+
   handleKeyPress(e) {
     if (e.key === 'Enter') {
       this.setState((prevState) => ({ showAll: !prevState.showAll, truncateOrgs: !prevState.truncateOrgs }));
     }
   }
+
   render() {
     const { orgs } = this.props;
     const teaserOrgs = orgs.split(',');
@@ -51,8 +64,10 @@ class TeaserOrgs extends Component {
     const displayedOrgs = (this.state.showAll) ? teaserOrgs.join(', ') : shownOrgs.join(', ');
     return(
       <span className="ma__gen-teaser__org">
-        { displayedOrgs }{toggle}
-      </span>);
+        { displayedOrgs }
+        {toggle}
+      </span>
+    );
   }
 }
 

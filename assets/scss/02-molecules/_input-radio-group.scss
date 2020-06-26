@@ -1,6 +1,8 @@
 $margin: 5px;
 $total-margin: $margin * 2;
 
+@use "00-base/global" as *;
+
 @mixin group-responsive-custom($bp, $col) {
 
   @if ($bp == "large") {

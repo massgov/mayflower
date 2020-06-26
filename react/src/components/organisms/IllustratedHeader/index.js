@@ -1,11 +1,16 @@
+/**
+ * IllustratedHeader module.
+ * @module @massds/mayflower-react/IllustratedHeader
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/illustrated-header
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/page-header
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/publish-state
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 // import child components
-import PageHeader from '../PageHeader';
-import PublishState from '../../atoms/text/PublishState';
-
-import './style.css';
+import PageHeader from 'MayflowerReactOrganisms/PageHeader';
+import PublishState from 'MayflowerReactText/PublishState';
 
 const IllustratedHeader = (illustratedHeader) => {
   const {

@@ -5,6 +5,14 @@
 //
 // passing a color value will return the code for the theme instead of the code for layout
 
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "00-base/color-tokens" as *;
+
+@use "ma-button-base" as *;
+
 @mixin ma-button ($size:"normal", $type:"solid", $color:"transparent") {
   // layout
 

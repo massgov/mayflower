@@ -5,9 +5,9 @@ import { action } from '@storybook/addon-actions';
 
 import ResultsHeading from './index';
 import ResultsHeadingDocs from './ResultsHeading.md';
-import TagsData from '../../molecules/Tags/Tags.knobs.options';
+import TagsData from 'MayflowerReactMolecules/Tags/Tags.knobs.options';
 import { SortData } from './ResultsHeading.knobs.options';
-import buttonToggleOptions from '../../atoms/buttons/ButtonToggle/ButtonToggle.knobs.options';
+import buttonToggleOptions from 'MayflowerReactButtons/ButtonToggle/ButtonToggle.knobs.options';
 
 storiesOf('molecules/ResultsHeading', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

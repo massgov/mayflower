@@ -1,6 +1,8 @@
 $bp-section-3up-large-min: "min-width:951px";
 $bp-section-3up-large-max: "max-width:950px";
 
+@use "00-base/global" as *;
+
 .ma__sections-3up {
   
   &__title {

@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, object, select, array } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import { SelectBox } from '../../../index';
-import selectOptions from '../../forms/SelectBox/SelectBox.knobs.options';
-import inputOptions from '../../forms/InputTextFuzzy/InputTextFuzzy.knobs.options';
+import SelectBox from 'MayflowerReactForms/SelectBox';
+import selectOptions from 'MayflowerReactForms/SelectBox/SelectBox.knobs.options';
+import inputOptions from 'MayflowerReactForms/InputTextFuzzy/InputTextFuzzy.knobs.options';
 import HeaderSearch from '.';
 import HeaderSearchDocs from './HeaderSearch.md';
 

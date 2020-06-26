@@ -10,6 +10,8 @@
 //  }
 //
 
+@use "00-base/variables" as *;
+
 @mixin ma-aspect-ratio($width, $height) {
   position: relative;
 

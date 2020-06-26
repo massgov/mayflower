@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
+import {
+  withKnobs, text, boolean, number
+} from '@storybook/addon-knobs';
 
-import { GenTeaser, CompHeading, Paragraph, Collapse, ButtonWithIcon, Icon } from '../../../index';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import GenTeaser from 'MayflowerReactOrganisms/GenTeaser';
+import Icon from 'MayflowerReactBase/Icon';
+import ButtonWithIcon from 'MayflowerReactAtoms/buttons/ButtonWithIcon';
+import Collapse from 'MayflowerReactAnimations/Collapse';
+import CompHeading from 'MayflowerReactAtoms/headings/CompHeading';
 import TeaserListing from '.';
 import TeaserListingDocs from './TeaserListing.md';
 import TeaserListingData from './TeaserListing.knob.options';

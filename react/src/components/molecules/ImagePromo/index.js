@@ -1,11 +1,20 @@
+/**
+ * ImagePromo module.
+ * @module @massds/mayflower-react/ImagePromo
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/image-promo
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/org-info
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/image
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Image from '../../atoms/media/Image';
-import Paragraph from '../../atoms/text/Paragraph';
-import Icon from '../../base/Icon';
-import './style.css';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Image from 'MayflowerReactMedia/Image';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ImagePromo = (props) => {
   const HeadingElement = `h${props.title.level || 2}`;
@@ -29,7 +38,7 @@ const ImagePromo = (props) => {
         {props.title ? (
           <DecorativeLink {...props.title} />
         ) : (
-          <React.Fragment>{props.title.text}</React.Fragment>
+          <>{props.title.text}</>
         )}
       </HeadingElement>
 
@@ -65,7 +74,8 @@ const ImagePromo = (props) => {
 
         {props.phone && (
           <div className="ma__image-promo__phone">
-            <Icon name="phone" />&nbsp;
+            <Icon name="phone" />
+&nbsp;
             {props.phone.href ? (
               <a href={`tel:${props.phone.href}`}>{props.phone.text}</a>
             ) : (

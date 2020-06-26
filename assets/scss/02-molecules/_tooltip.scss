@@ -1,3 +1,7 @@
+@use "00-base/global" as *;
+
+@use "sass:color" as *;
+
 .ma__tooltip {
 
   &__inner {
@@ -113,7 +117,7 @@
     }
 
     & > svg {
-      fill: tint($c-font-link, 50%);  
+      fill: mix(#fff, $c-font-link, 50%);  
     }
   }
 

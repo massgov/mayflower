@@ -1,3 +1,9 @@
+@use "00-base/variables" as *;
+
+@use "00-base/colors" as *;
+
+@use "00-base/breakpoints" as *;
+
 @mixin ma-component-spacing($size:small) {
 
   @if ($size == large) {

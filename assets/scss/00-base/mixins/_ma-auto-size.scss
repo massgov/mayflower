@@ -1,3 +1,5 @@
+@use "00-base/variables" as *;
+
 @mixin ma-auto-size($min, $max) {
 
   @for $i from $min through $max {

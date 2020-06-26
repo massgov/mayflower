@@ -1,0 +1,8 @@
+@use "styles/global" as *;
+@use '01-atoms/table';
+
+.ma__table--responsive {
+  .no-left-pad {
+    padding-left: 0;
+  }
+}

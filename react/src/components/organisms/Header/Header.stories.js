@@ -2,11 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, object, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import logo from 'SharedAssets/images/stateseal.png';
+import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import Header from './index';
 import HeaderDocs from './Header.md';
-import MainNavData from '../../molecules/MainNav/MainNav.knob.options';
-import UtilityNavData from '../UtilityNav/UtilityNav.knob.options';
+import MainNavData from 'MayflowerReactMolecules/MainNav/MainNav.knob.options';
+import UtilityNavData from 'MayflowerReactOrganisms/UtilityNav/UtilityNav.knob.options';
 
 storiesOf('organisms/Header', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

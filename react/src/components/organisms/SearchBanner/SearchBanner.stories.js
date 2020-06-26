@@ -1,16 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, object, select, text, boolean, array } from '@storybook/addon-knobs';
+import {
+  withKnobs, object, select, text, boolean, array
+} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-
-import { SelectBox, InputTextFuzzy, DateRange } from '../../../index';
-import SearchBanner from './index';
-import inputOptions from '../../forms/InputTextFuzzy/InputTextFuzzy.knobs.options';
-import tabsOptions from '../../molecules/Tabs/Tabs.knobs.options';
-import filterBoxSharedProps from '../FilterBox/FilterBox.props';
+import SelectBox from 'MayflowerReactForms/SelectBox';
+import InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
+import DateRange from 'MayflowerReactForms/DateRange';
+import inputOptions from 'MayflowerReactForms/InputTextFuzzy/InputTextFuzzy.knobs.options';
+import tabsOptions from 'MayflowerReactMolecules/Tabs/Tabs.knobs.options';
+import filterBoxSharedProps from 'MayflowerReactOrganisms/FilterBox/FilterBox.props';
 // import knob options for child patterns
-import buttonOptions from '../../atoms/buttons/Button/Button.knobs.options';
-import selectBoxOptions from '../../forms/SelectBox/SelectBox.knobs.options';
+import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
+import selectBoxOptions from 'MayflowerReactForms/SelectBox/SelectBox.knobs.options';
+import SearchBanner from './index';
 
 storiesOf('organisms/SearchBanner', module)
   .addDecorator(withKnobs({ escapeHTML: false }))

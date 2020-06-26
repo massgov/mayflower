@@ -1,10 +1,15 @@
+/**
+ * PageHeader module.
+ * @module @massds/mayflower-react/PageHeader
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/page-header
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/publish-state
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
 // import child components
-import Paragraph from '../../atoms/text/Paragraph';
-import PublishState from '../../atoms/text/PublishState';
-import './style.css';
+import Paragraph from 'MayflowerReactText/Paragraph';
+import PublishState from 'MayflowerReactText/PublishState';
 
 const PageHeader = (pageHeader) => {
   const {
@@ -26,8 +31,12 @@ const PageHeader = (pageHeader) => {
         )}
         <h1 className="ma__page-header__title">
           { category && (
-            <span className="visually-hidden">{ category }&nbsp;</span>
-          )}{title}
+            <span className="visually-hidden">
+              { category }
+&nbsp;
+            </span>
+          )}
+          {title}
         </h1>
         { subTitle && (
           <div className="ma__page-header__sub-title">{subTitle}</div>
@@ -38,7 +47,7 @@ const PageHeader = (pageHeader) => {
               <div className="page-content">
                 {
                   /* eslint-disable react/no-array-index-key */
-                  optionalContents.map((p, index) => (<Paragraph key={`page-header-optional-content${index}`}{...p.paragraph} />))
+                  optionalContents.map((p, index) => (<Paragraph key={`page-header-optional-content${index}`} {...p.paragraph} />))
                 }
               </div>
             </div>

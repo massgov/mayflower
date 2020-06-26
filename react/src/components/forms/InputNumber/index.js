@@ -1,15 +1,21 @@
+/**
+ * InputNumber module.
+ * @module @massds/mayflower-react/InputNumber
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/_input--button
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/01-atoms/helper-text
+ * @requires ma__input--button('number');
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
 
-import Input from '../Input';
-import Error from '../Input/error';
-import { InputContext } from '../Input/context';
-import { validNumber } from '../Input/validate';
-import { countDecimals } from '../Input/utility';
-import { numberCharacterPropTypeCheck } from '../../utilities/componentPropTypeCheck';
-import './style.css';
+import Input from 'MayflowerReactForms/Input';
+import Error from 'MayflowerReactForms/Input/error';
+import { InputContext } from 'MayflowerReactForms/Input/context';
+import { validNumber } from 'MayflowerReactForms/Input/validate';
+import { countDecimals } from 'MayflowerReactForms/Input/utility';
+import { numberCharacterPropTypeCheck } from 'MayflowerReactComponents/utilities/componentPropTypeCheck';
 
 const NumberInput = (props) => {
   const ref = React.createRef();
@@ -40,7 +46,7 @@ const NumberInput = (props) => {
                 showError: true,
                 errorMsg
               };
-            } else if (is.number(val)) {
+            } if (is.number(val)) {
               const { showError, errorMsg } = validNumber(val, min, max);
               return{
                 showError, errorMsg

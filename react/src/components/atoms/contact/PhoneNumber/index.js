@@ -1,7 +1,11 @@
+/**
+ * PhoneNumber module.
+ * @module @massds/mayflower-react/PhoneNumber
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/phone-number
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import parse from 'react-html-parser';
-import './style.css';
 
 const formatPhoneNumber = (number) => {
   const clean = number.replace(/\D/g, '');

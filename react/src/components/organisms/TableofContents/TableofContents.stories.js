@@ -5,7 +5,11 @@ import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 
 import TableofContents from '.';
 import TableofContentsDocs from './TableofContents.md';
-import { ColoredHeading, SidebarHeading, DecorativeLink, AccordionItem, Link } from '../../../index';
+import ColoredHeading from '../../atoms/headings/ColoredHeading';
+import SidebarHeading from '../../atoms/headings/SidebarHeading';
+import DecorativeLink from '../../atoms/links/DecorativeLink';
+import AccordionItem from '../../molecules/AccordionItem';
+import Link from '../../molecules/Link';
 
 const getDecorativeLink = (index) => {
   const props = {

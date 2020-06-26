@@ -7,8 +7,7 @@ const DistRegistry = require("./Dist");
 
 const root = path.resolve(__dirname, "../../");
 const source = path.resolve(root, "source");
-const shared = path.resolve(__dirname, "../../../../assets");
-
+const shared = path.dirname(require.resolve("@massds/mayflower-assets"));
 const defaults = {
     dest: {
         // The path of the Pattern Lab public directory.
@@ -24,8 +23,8 @@ const defaults = {
         // be copied to the artifact, etc.
         patterns: path.resolve(source, "_patterns/**"),
         // Assets (see Base.js):
-        fonts: path.resolve(shared, "fonts/**"),
-        images: path.resolve(shared, "images/**"),
+        fonts: path.resolve(shared, "static", "fonts/**"),
+        images: path.resolve(shared, "static", "images/**"),
         data: path.resolve(source, "assets/data/**"),
         templates: path.resolve(source, "assets/js/templates/**"),
         modernizr: path.resolve(source, "assets/js/vendor/modernizr.js"),
@@ -53,7 +52,7 @@ const defaults = {
             // Hidden files too.
             path.resolve(source, "_dist/.*"),
             path.resolve(root, "package.json"),
-            path.resolve(root, "LICENSE"),
+            path.resolve(root, "LICENSE")
         ]
     },
     // Show verbose output in tasks.

@@ -1,15 +1,30 @@
-import React, { Component } from 'react';
+/**
+ * Header module.
+ * @module @massds/mayflower-react/Header
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/header
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-nav
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-panel
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/main-nav
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/site-logo
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/image
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import classNames from 'classnames';
-import logo from 'SharedAssets/images/stateseal.png';
-import UtilityNav from '../UtilityNav';
-import MainNav from '../../molecules/MainNav';
-import HeaderSearch from '../../molecules/HeaderSearch';
-import SiteLogo from '../../atoms/media/SiteLogo';
-import './styles.css';
+import logo from '@massds/mayflower-assets/static/images/stateseal.png';
+import UtilityNav from 'MayflowerReactOrganisms/UtilityNav';
+import MainNav from 'MayflowerReactMolecules/MainNav';
+import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 
-class Header extends Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -61,6 +76,7 @@ class Header extends Component {
       navSelected: -1
     });
   };
+
   // Puts focus on the mobile search input after the menu is opened via the search button.
   afterButtonSearch = () => {
     document.getElementById('nav-search').focus();
@@ -69,6 +85,7 @@ class Header extends Component {
       headerSearch.buttonSearch.onClick();
     }
   };
+
   // On click action used for both top and bottom buttons.
   defaultButtonSearchOnClick = (e) => {
     e.preventDefault();
@@ -113,14 +130,17 @@ class Header extends Component {
       }
     }
   }
+
   handleChangeSearchTop = () => {
     const shouldNavigateTop = (this.searchInputTop.current.value.length > 0);
     this.setState({ shouldNavigateTop });
   }
+
   handleChangeSearchBottom = () => {
     const shouldNavigateBottom = (this.searchInputBottom.current.value.length > 0);
     this.setState({ shouldNavigateBottom });
   }
+
   topHeaderSearch = () => {
     const { headerSearch } = this.props;
     const headerSearchProps = {
@@ -135,6 +155,7 @@ class Header extends Component {
     };
     return(<HeaderSearch {...headerSearchProps} />);
   };
+
   bottomHeaderSearch = () => {
     const { headerSearch } = this.props;
     const headerSearchProps = {
@@ -166,7 +187,8 @@ class Header extends Component {
         {!hideBackTo && (
           <div className="ma__header__backto">
             <a href="http://www.mass.gov">Go to classic Mass.gov</a>
-          </div>)}
+          </div>
+        )}
         <a className="ma__header__skip-nav" href="#main-content">skip to main content</a>
         <div className="ma__header__utility-nav ma__header__utility-nav--wide">
           {utilityNav ? <UtilityNav {...utilityNav} isOpen={utilNavOpen} /> : <div className="ma__header__banner" />}
@@ -177,11 +199,12 @@ class Header extends Component {
               is.fn(siteLogo) ? siteLogo() : <SiteLogo {...siteLogo} />
             }
           </div>
-          {!hideHeaderSearch &&
+          {!hideHeaderSearch
+          && (
           <div className="ma__header__search js-header-search-menu">
             {is.fn(headerSearch) ? headerSearch() : this.topHeaderSearch()}
           </div>
-          }
+          )}
         </div>
         <nav className="ma__header__nav" aria-labelledby="main_navigation" id="main-navigation">
           <h2 id="main_navigation" className="visually-hidden">Main Navigation</h2>
@@ -190,6 +213,7 @@ class Header extends Component {
               {
                 (navSelected !== -1) && (
                   <button
+                    type="button"
                     onClick={() => {
                       this.updateSubNav({
                         navSelected: -1
@@ -204,19 +228,22 @@ class Header extends Component {
                 )
               }
               <button
+                type="button"
                 className="ma__header__menu-button js-header-menu-button"
                 onClick={() => this.menuButtonClicked(false)}
               >
-                <span>Menu</span><span className="ma__header__menu-icon" />
+                <span>Menu</span>
+                <span className="ma__header__menu-icon" />
               </button>
             </div>
           ) : <div className="ma__header__banner ma__header__banner--mobile" />}
           <div className="ma__header__nav-container">
-            {!hideHeaderSearch &&
+            {!hideHeaderSearch
+            && (
             <div className="ma__header__nav-search">
               {is.fn(headerSearch) ? headerSearch() : this.bottomHeaderSearch()}
             </div>
-            }
+            )}
             { mainNav && (
               <div className="ma__header__main-nav">
                 <MainNav

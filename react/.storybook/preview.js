@@ -1,6 +1,7 @@
 import { addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import '../src/index.scss';
 
 const storyKindOrder = [
   'about', // storyKindOrder.indexOf -1 follow alphabetical order

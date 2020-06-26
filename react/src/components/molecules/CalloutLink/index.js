@@ -1,7 +1,13 @@
+/**
+ * CalloutLink module.
+ * @module @massds/mayflower-react/CalloutLink
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/callout-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../base/Icon';
-import './style.css';
+import Icon from 'MayflowerReactBase/Icon';
 
 const CalloutLink = (calloutLink) => {
   const calloutLinkTheme = calloutLink.theme ? ` ma__callout-link--${calloutLink.theme}` : '';
@@ -17,7 +23,11 @@ const CalloutLink = (calloutLink) => {
           </div>
         )}
         <span className="ma__callout-link__container">
-          <span className="ma__callout-link__text" >{calloutLink.text}&nbsp;<Icon name="arrow" /></span>
+          <span className="ma__callout-link__text">
+            {calloutLink.text}
+&nbsp;
+            <Icon name="arrow" />
+          </span>
         </span>
         { calloutLink.emphasized && (<span className="ma__callout-link__emphasized">{calloutLink.emphasized}</span>)}
         { calloutLink.description && (<p className="ma__callout-link__description">{calloutLink.description}</p>)}

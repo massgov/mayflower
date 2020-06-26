@@ -1,7 +1,11 @@
+/**
+ * ArrowButton module.
+ * @module @massds/mayflower-react/ArrowButton
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/arrow-button
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.css';
 
 const ArrowButton = (props) => {
   const buttonClasses = classNames({

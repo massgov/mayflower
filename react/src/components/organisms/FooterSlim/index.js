@@ -1,10 +1,15 @@
+/**
+ * FooterSlim module.
+ * @module @massds/mayflower-react/FooterSlim
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/footer-slim
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Icon from '../../base/Icon';
-
-import './style.css';
+import Icon from 'MayflowerReactBase/Icon';
 
 const FooterSlim = (props) => (
   <footer className="ma__footer_slim" id="footer">
@@ -15,40 +20,49 @@ const FooterSlim = (props) => (
           <h3>{props.title }</h3>
           <p>{props.description }</p>
           <p className="ma__footer_slim--copyright">
-            &copy; {moment().year()} Commonwealth of Massachusetts
+            &copy;
+            {' '}
+            {moment().year()}
+            {' '}
+            Commonwealth of Massachusetts
           </p>
         </section>
         <section className="ma__footer_slim--details">
-          {props.links &&
+          {props.links
+            && (
             <div className="ma__footer_slim--links">
               {props.links.map((link, linkIndex) => (
                 /* eslint-disable-next-line react/no-array-index-key */
                 <a href={link.href} key={`footslimlinks-${linkIndex}`}>{link.title}</a>
               ))}
             </div>
-          }
-          {props.contact &&
+            )}
+          {props.contact
+            && (
             <div className="ma__footer_slim--contact">
-              {props.contact.address &&
+              {props.contact.address
+              && (
               <p>
                 <Icon name="marker" svgWidth={20} svgHeight={20} />
                 <span>{props.contact.address}</span>
               </p>
-              }
-              {props.contact.phone &&
+              )}
+              {props.contact.phone
+              && (
               <p>
                 <Icon name="phone" svgWidth={20} svgHeight={20} />
                 <span>{props.contact.phone}</span>
               </p>
-              }
-              {props.contact.online && props.contact.online.href && props.contact.online.title &&
+              )}
+              {props.contact.online && props.contact.online.href && props.contact.online.title
+              && (
               <p>
                 <Icon name="laptop" svgWidth={20} svgHeight={20} />
                 <a href={props.contact.online.href}>{props.contact.online.title}</a>
               </p>
-              }
+              )}
             </div>
-          }
+            )}
         </section>
       </div>
     </div>

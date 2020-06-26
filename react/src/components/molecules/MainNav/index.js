@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
+/**
+ * MainNav module.
+ * @module @massds/mayflower-react/MainNav
+ * @requires module:@massds/mayflower-assets/scss/02-molecules/main-nav
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import Icon from '../../base/Icon';
-import './style.css';
+import Icon from 'MayflowerReactBase/Icon';
 
-
-class MainNav extends Component {
+class MainNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -130,7 +135,7 @@ class MainNav extends Component {
                 'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
                 key: buttonId
               };
-              itemBody.push(<button {...buttonProps}>{item.text}</button>);
+              itemBody.push(<button type="button" {...buttonProps}>{item.text}</button>);
               const navItemClasses = classNames({
                 'ma__main-nav__subitems': true,
                 'is-open-react': isExpanded,
@@ -142,6 +147,7 @@ class MainNav extends Component {
                   <ul role="menu" aria-label={`Submenu of ${buttonId}`} className="ma__main-nav__container">
                     <li role="menuitem" className="ma__main-nav__subitem">
                       <button
+                        type="button"
                         onClick={(e) => this.onNavigate({ e, href: item.href })}
                         className="ma__main-nav__link"
                         tabIndex={!isExpanded ? -1 : null}
@@ -153,6 +159,7 @@ class MainNav extends Component {
                       /* eslint-disable-next-line react/no-array-index-key */
                       <li className="ma__main-nav__subitem" key={`liProps.${index}.${subItemIndex}`}>
                         <button
+                          type="button"
                           onClick={(e) => this.onNavigate({ e, href: subItem.href })}
                           className="ma__main-nav__link"
                         >
@@ -164,6 +171,7 @@ class MainNav extends Component {
                       item.href && (
                         <li role="menuitem" className="ma__main-nav__subitem ma__main-nav__subitem--main">
                           <button
+                            type="button"
                             onClick={(e) => this.onNavigate({ e, href: item.href })}
                             className="ma__main-nav__link"
                           >
@@ -184,7 +192,7 @@ class MainNav extends Component {
                 role: 'menuitem',
                 'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`
               };
-              itemBody.push(<button {...buttonProps}>{item.text}</button>);
+              itemBody.push(<button type="button" {...buttonProps}>{item.text}</button>);
             }
             return(
               /* eslint-disable-next-line jsx-a11y/mouse-events-have-key-events */
@@ -200,9 +208,9 @@ class MainNav extends Component {
                 onClick={this.openSubNav}
               >
                 {itemBody}
-              </li>);
-            })
-          }
+              </li>
+            );
+          })}
         </ul>
       </div>
     );

@@ -1,6 +1,11 @@
+/**
+ * Icon module.
+ * @module @massds/mayflower-react/Icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
 
 export default class Icon extends React.Component {
   static propTypes = {
@@ -12,10 +17,12 @@ export default class Icon extends React.Component {
     ariaHidden: PropTypes.bool,
     fill: PropTypes.string
   };
+
   static defaultProps = {
     title: null,
     classes: []
   }
+
   state = {
     content: null,
     loaded: null
@@ -46,7 +53,7 @@ export default class Icon extends React.Component {
             'aria-hidden': ariaHidden || null
           };
           const content = (
-            <svg {...attr} {...rest} >
+            <svg {...attr} {...rest}>
               {title && <title>{title}</title>}
               <use xlinkHref={`#${name}`} fill={fill} />
             </svg>

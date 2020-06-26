@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+/**
+ * ButtonCopy module.
+ * @module @massds/mayflower-react/ButtonCopy
+ * @requires module:@massds/mayflower-assets/scss/00-base/mixins/ma-button-reset
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../../base/Icon';
-import './styles.css';
+import Icon from 'MayflowerReactBase/Icon';
 
 const ButtonCopy = ({ content }) => {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = React.useState(false);
   const copyAction = () => {
     setCopied(true);
     navigator.clipboard.writeText(content);
@@ -17,6 +23,7 @@ const ButtonCopy = ({ content }) => {
   if ((navigator && navigator.clipboard) || (window.location.search.indexOf('backstop') > -1)) {
     return(
       <button
+        type="button"
         className="ma__button-copy"
         onClick={copyAction}
         title={copyButtonTitle}

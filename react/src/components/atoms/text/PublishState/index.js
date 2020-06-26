@@ -1,6 +1,10 @@
+/**
+ * PublishState module.
+ * @module @massds/mayflower-react/PublishState
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/publish-state
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
 
 const PublishState = (publishState) => (
   <div className="ma__publish-state">{ publishState.text }</div>

@@ -1,11 +1,19 @@
+/**
+ * LinkDropdown module.
+ * @module @massds/mayflower-react/LinkDropdown
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import classNames from 'classnames';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import DecorativeLink from '../../atoms/links/DecorativeLink';
-import Icon from '../../base/Icon';
-import './style.css';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Icon from 'MayflowerReactBase/Icon';
 
 class LinkDropdown extends React.Component {
   constructor(props) {
@@ -17,21 +25,23 @@ class LinkDropdown extends React.Component {
     this.setDropDownButtonRef = this.setDropDownButtonRef.bind(this);
     this.closeDropdown = this.closeDropdown.bind(this);
   }
+
   componentDidMount() {
     this.buttonClicked = false;
     document.addEventListener('mousedown', this.handleClickOutside);
     this.dropDownButtonRef.addEventListener('mousedown', this.handleRefMouseDown);
   }
+
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.handleClickOutside);
     this.dropDownButtonRef.removeEventListener('mousedown', this.handleRefMouseDown);
   }
+
   setDropDownButtonRef(node) {
     this.dropDownButtonRef = node;
   }
-  closeDropdown() {
-    this.setState({ buttonExpand: false });
-  }
+
+
   handleSelect = (event) => {
     const { target } = event;
     this.setState({ buttonExpand: false });
@@ -39,6 +49,7 @@ class LinkDropdown extends React.Component {
       this.props.onItemSelect({ target });
     }
   }
+
   handleClickOutside = (event) => {
     // Close the panel if the user clicks outside the component.
     const node = this.wrapperRef.current;
@@ -48,12 +59,14 @@ class LinkDropdown extends React.Component {
       }
     }
   }
+
   handleKeyDown = (event) => {
     // If the user pressed escape collapse list.
     if (event.key === 'Escape') {
       this.closeDropdown();
     }
   }
+
   handleClick = (event) => {
     const { target } = event;
     this.setState((prevState) => ({ buttonExpand: !prevState.buttonExpand }));
@@ -61,6 +74,11 @@ class LinkDropdown extends React.Component {
       this.props.onButtonClick({ target });
     }
   }
+
+  closeDropdown() {
+    this.setState({ buttonExpand: false });
+  }
+
   render() {
     const { dropdownItems, dropdownButton } = this.props;
     const dropdownButtonProps = {

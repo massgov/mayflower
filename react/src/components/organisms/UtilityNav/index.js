@@ -1,12 +1,20 @@
-import React, { Component } from 'react';
+/**
+ * UtilityNav module.
+ * @module @massds/mayflower-react/UtilityNav
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-nav
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/utility-panel
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/decorative-link
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
-import UtilityPanel from '../UtilityPanel';
-import Icon from '../../base/Icon';
-import './styles.css';
+import UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
+import Icon from 'MayflowerReactBase/Icon';
 
-class UtilityNav extends Component {
+class UtilityNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,17 +24,20 @@ class UtilityNav extends Component {
     this.onClick = this.onClick.bind(this);
     this.ident = shortid.generate();
   }
+
   componentWillReceiveProps(nextProps) {
     const { isOpen } = nextProps;
     this.setState({ isOpen, navSelected: -1 });
   }
+
   onClick(divId, e) {
     e.preventDefault();
-    this.setState({
-      navSelected: (this.state.navSelected === -1) ? divId : -1,
+    this.setState((state) => ({
+      navSelected: (state.navSelected === -1) ? divId : -1,
       isOpen: true
-    });
+    }));
   }
+
   render() {
     const { navSelected } = this.state;
     const { googleLanguages, items } = this.props;
@@ -35,7 +46,7 @@ class UtilityNav extends Component {
         <ul className="ma__utility-nav__items">
           {googleLanguages && <GoogleLanguages />}
           {items.map((item, itemIndex) => {
-            const newItem = Object.assign({}, item);
+            const newItem = { ...item };
             newItem.navSelected = navSelected;
             // Use utility nav ident to make unique item ids.
             newItem.navIdent = this.ident;
@@ -81,14 +92,14 @@ const NavItem = (obj) => {
   };
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
-      <button onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
+      <button type="button" onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
         <Icon {...iconProps} />
         <span>{item.text}</span>
       </button>
       <div {...divProps}>
         <div className="ma__utility-nav__container">
           <div className="ma__utility-nav__content-title">
-            <button onClick={(e) => obj.handleClick(divId, e)} className="ma__utility-nav__close js-close-util-nav">
+            <button type="button" onClick={(e) => obj.handleClick(divId, e)} className="ma__utility-nav__close js-close-util-nav">
               <span>{item.closeText}</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>

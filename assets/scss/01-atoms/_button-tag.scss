@@ -1,3 +1,7 @@
+@use "00-base/global" as *;
+
+@use "sass:color" as *;
+
 .ma__button-tag {
 
   @include ma-button-reset;
@@ -7,7 +11,7 @@
   margin-right: .25em;
   padding: 8px 11px;
   white-space: nowrap;
-  background-color: tint($c-font-link,90%);
+  background-color: mix(#fff, $c-font-link,90%);
   color: $c-font-link;
   font-weight: 700;
 

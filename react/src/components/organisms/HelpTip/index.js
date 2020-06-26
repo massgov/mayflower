@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+/**
+ * HelpTip module.
+ * @module @massds/mayflower-react/HelpTip
+ * @requires module:@massds/mayflower-assets/scss/03-organisms/help-tip
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Collapse from '../../animations/Collapse';
-import Icon from '../../base/Icon';
-import Paragraph from '../../atoms/text/Paragraph';
-import './style.css';
+import Collapse from 'MayflowerReactAnimations/Collapse';
+import Icon from 'MayflowerReactBase/Icon';
+import Paragraph from 'MayflowerReactText/Paragraph';
 
-class HelpTip extends Component {
+class HelpTip extends React.Component {
   constructor(props) {
     super(props);
     const openArray = this.props.triggerText.map(() => false);

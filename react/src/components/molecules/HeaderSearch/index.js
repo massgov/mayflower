@@ -1,10 +1,18 @@
+/**
+ * HeaderSearch module.
+ * @module @massds/mayflower-react/HeaderSearch
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
-import { componentWithName } from 'airbnb-prop-types';
-import ButtonWithIcon from '../../atoms/buttons/ButtonWithIcon';
-import TypeAheadDropdown from '../../forms/TypeAheadDropdown';
-import './style.css';
+import componentWithName from 'airbnb-prop-types/src/componentWithName';
+import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+import TypeAheadDropdown from 'MayflowerReactForms/TypeAheadDropdown';
 
 class HeaderSearch extends React.Component {
   constructor(props) {
@@ -20,6 +28,7 @@ class HeaderSearch extends React.Component {
       this.props.onChange(query);
     }
   }
+
   handleSubmit = (event) => {
     if (is.fn(this.props.onSubmit)) {
       this.props.onSubmit(event);
@@ -43,17 +52,19 @@ class HeaderSearch extends React.Component {
     }
     return(
       <div className="ma__header-search__wrapper ma__header-search__wrapper--responsive">
-        {shouldShowTypeAhead &&
+        {shouldShowTypeAhead
+          && (
           <div className="ma__header-search__pre-filter">
             <TypeAheadDropdown {...orgDropdown} />
           </div>
-        }
+          )}
         <div className="ma__header-search">
           <form action="#" className="ma__form" onSubmit={this.handleSubmit} role="search">
             <label
               htmlFor={headerSearch.id}
               className="ma__header-search__label"
-            >{headerSearch.label}
+            >
+              {headerSearch.label}
             </label>
             <input {...inputProps} />
             {this.props.suggestions && this.props.suggestions}

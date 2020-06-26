@@ -1,5 +1,11 @@
 //pikaday is a JS plugin for date inputs
 
+@use "variables" as *;
+
+@use "colors" as *;
+
+@use "sass:color" as *;
+
 .pika-single {
   font-family: $fonts;
 
@@ -43,7 +49,7 @@
   }
 
   &:hover {
-    background-color: tint($c-primary, 50%);
+    background-color: mix(#fff, $c-primary, 50%);
     border-radius: 0;
   }
 
