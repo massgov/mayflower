@@ -2,7 +2,7 @@
   "name": "@massds/mayflower-react",
   "description": "React versions of Mayflower design system UI components",
   "author": "Massachusetts Digital Services (MDS)",
-  "version": "10.0.0",
+  "version": "10.0.0-alpha",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "sideEffects": [
@@ -28,7 +28,7 @@
     "lint"
   ],
   "dependencies": {
-    "@massds/mayflower-assets": "^0.1.2",
+    "@massds/mayflower-assets": "^0.2.0",
     "airbnb-prop-types": "^2.13.2",
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",
