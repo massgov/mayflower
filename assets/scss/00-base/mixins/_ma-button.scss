@@ -41,7 +41,7 @@
   }
   // theme
   @else {
-    font-weight: $fonts-bold;
+    font-weight: 700;
 
     @if ($type == "solid") {
       background-color: $color;

@@ -115,13 +115,13 @@
   &__eyebrow span {
     background-color: $c-bg-section;
     color: $c-font-detail;
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__date,
   &__org {
     font-style: italic;
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__org {

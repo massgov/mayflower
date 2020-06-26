@@ -237,7 +237,7 @@ $event-listing-bp-show-grid: $bp-medium-min;
 
   &__empty {
     font-style: italic;
-    font-weight: $fonts-normal;
+    font-weight: 500;
   }
 
   &--grid &__item {

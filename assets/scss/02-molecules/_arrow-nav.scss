@@ -76,7 +76,7 @@
   }
 
   &__text {
-    font-weight: $fonts-bold;
+    font-weight: 700;
     color: $c-font-link;
 
     @media ($bp-small-max) {

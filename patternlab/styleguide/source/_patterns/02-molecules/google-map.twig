@@ -2,15 +2,16 @@
 {% set  maxItems = maxItems ? maxItems : googleMap.markers|length %}
 <div
   class="ma__google-map"
-  {{ googleMap.static ? "" : 'aria-hidden="true" role="presentation"' }}>
+  aria-hidden="true"
+  role="presentation">
   {# for static maps #}
   {% if googleMap.static %}
   <div class="ma__google-map__map static-image">
-    <a href="{{ googleMap.link.href }}">
+    <a href="{{ googleMap.link.href }}" title="Get Directions">
       {% set picture = googleMap.picture %}
       {% include "@atoms/09-media/picture-element.twig" %}
       <div class="ma__google-maps__directions-link">
-        <span>Get Directions<span class="ma__visually-hidden"> to {{ googleMap.link.info }}</span>&nbsp;{{ icon('arrow') }}</span>
+        <span>Get Directions&nbsp;{{ icon('arrow') }}</span>
       </div>
     </a>
   </div>

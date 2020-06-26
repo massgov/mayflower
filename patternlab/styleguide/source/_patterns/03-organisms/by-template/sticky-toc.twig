@@ -17,8 +17,8 @@
           <div class="ma__sticky-toc__secondary-label">{{ stickyTOC.title }} <button class="secondary-label-close" aria-expanded="true"><span class="ma__visually-hidden">Hide Table of contents</span><span aria-hidden="true">x</span></button></div>
 
           {% for link in stickyTOC.links %}
-          <div class="ma__sticky-toc__link" data-link="#{{ link.href }}">
-            <a href="#{{ link.href }}" {{ link.info ? 'title="{{ link.info }}"' : '' }}>{{ link.text }}</a>
+          <div class="ma__sticky-toc__link">
+            <a href="#{{ link.href }}" title="{{ link.info }}">{{ link.text }}</a>
           </div>
           {% endfor %}
 

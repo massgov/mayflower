@@ -225,7 +225,7 @@ $location-listin--map-min-width: 315px;
 
     &__location {
       font-size: 1.25rem;
-      font-weight: $fonts-normal;
+      font-weight: 500;
       line-height: 1.15;
       padding-bottom: 0;
 
@@ -277,11 +277,11 @@ $location-listin--map-min-width: 315px;
     }
 
     &__label {
-      font-weight: $fonts-normal;
+      font-weight: 500;
     }
 
     &__contact-info {
-      font-weight: $fonts-light;
+      font-weight: 400;
     }
 
     &__phone {
