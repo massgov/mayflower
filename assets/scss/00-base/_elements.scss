@@ -58,12 +58,6 @@ body {
   font-weight: $fonts-light;
 }
 
-
-  // .translated-rtl & {
-  //   direction: rtl;
-  // }
-}
-
 a {
 
   @include ma-link-transition;
