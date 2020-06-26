@@ -236,7 +236,7 @@ body.show-menu-hamburger {
     z-index: 90;
 
     @media ($bp-header-toggle-min) {
-
+      position: absolute;
       top: 43px;
     }
 
