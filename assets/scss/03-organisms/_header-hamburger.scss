@@ -369,7 +369,7 @@ body.show-menu {
   &__menu-text {
     position: relative;
     display: inline-block;
-    top: -2px;
+    // top: -2px;
     padding-left: 25px;
   }
 
@@ -577,7 +577,7 @@ body.show-menu {
       }
 
       // Override styles for desktop version utility nav content.
-      
+
       .show-menu & .ma__utility-nav__content {
 
         @media ($bp-header-toggle-max) {
@@ -610,7 +610,7 @@ body.show-menu {
             }
           }
 
-          & .ma__utility-nav__container__close {
+          & .ma__utility-nav__container__close {// close window button in the dropdown.
             display: none;
           }
 
