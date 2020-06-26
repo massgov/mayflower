@@ -456,32 +456,32 @@ body.show-menu {
 
     & .ma__utility-nav {
 
-      @media ($bp-header-toggle-min) {
+      // @media ($bp-header-toggle-min) {
 
-        background-color: $c-primary;
-        color: $c-font-inverse;
-      }
+      //   background-color: $c-primary;
+      //   color: $c-font-inverse;
+      // }
 
-      &__items {
+      // &__items {
 
-        @media ($bp-header-toggle-max) {
+        // @media ($bp-header-toggle-max) {
 
-          padding-left: 0;
-          padding-right: 0;
-        }
+        //   padding-left: 0;
+        //   padding-right: 0;
+        // }
 
-        @media ($bp-header-toggle-min) {
+        // @media ($bp-header-toggle-min) {
 
-          @include ma-valign-block;
+        //   @include ma-valign-block;
 
-          height: $utility-nav-height;
-          text-align: right;
-        }
-      }
+        //   height: $utility-nav-height;
+        //   text-align: right;
+        // }
+      // }
 
       &__item {
 
-        @media ($bp-header-toggle-min) {
+        @media ($bp-header-toggle-min) {// Override original.
           display: inline-block;
           padding-left: 30px;
           vertical-align: middle;
@@ -511,6 +511,7 @@ body.show-menu {
           &__item {
 
             border-bottom: 2px solid $c-bd-divider;
+            padding: 0;
 
             // @media ($bp-header-toggle-min) {
             //   display: inline-block;
@@ -536,7 +537,7 @@ body.show-menu {
             width: 100%;
 
             &:hover {
-              background-color: $c-white;
+              // background-color: $c-white;
               box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
             }
 
@@ -558,6 +559,28 @@ body.show-menu {
             @media ($bp-header-toggle-max) {
               width: 100%;
               text-align: left;
+            }
+
+            & > svg {
+
+              @media ($bp-header-toggle-max) {// Override the original styles.
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+              }
+            }
+
+            & > span {
+              display: inline-block;
+            }
+          }
+
+          &__link:after {// Remove chevron.
+
+            @media ($bp-header-toggle-max) {
+
+              border: none;
             }
           }
 
