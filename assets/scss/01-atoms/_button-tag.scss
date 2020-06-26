@@ -13,7 +13,7 @@
   white-space: nowrap;
   background-color: mix(#fff, $c-font-link,90%);
   color: $c-font-link;
-  font-weight: 700;
+  font-weight: $fonts-bold;
 
   &:after {
     content: "+";

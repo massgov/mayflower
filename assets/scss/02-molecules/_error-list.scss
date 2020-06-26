@@ -76,12 +76,12 @@
   }
 
   &__title {
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__label {
     border-color: $c-bd-error;
     color: $c-font-error;
-    font-weight: 400;
+    font-weight: $fonts-light;
   }
 }

@@ -247,7 +247,7 @@ $action-finder-border-color: mix(#fff, $c-primary,50%);
 
   &__category {
     color: $c-font-inverse;
-    font-weight: 500;
+    font-weight: $fonts-normal;
   }
 
   &--no-background &__category {
