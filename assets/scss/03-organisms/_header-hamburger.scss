@@ -577,6 +577,7 @@ body.show-menu {
       }
 
       // Override styles for desktop version utility nav content.
+      
       .show-menu & .ma__utility-nav__content {
 
         @media ($bp-header-toggle-max) {
@@ -737,6 +738,7 @@ body.show-menu {
 }
 
 // ".ma__header__hamburger__nav +" is necessary to avoid to override the original .ma__header__container
+
 .ma__header__hamburger__nav + .ma__header__container {
 
   @media ($bp-small-max) {
