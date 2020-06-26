@@ -354,10 +354,10 @@ let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-
 
   const itemButton = item.querySelector(".js-utility-nav--narrow .js-util-nav-toggle");
   const utilContent = item.querySelector(".js-utility-nav--narrow .js-util-nav-content");
-  const utilContentContainer = utilContent.querySelector(".ma__utility-nav__container");
   let utilContentLinkListItems = utilContent.querySelectorAll(".js-utility-nav--narrow .js-clickable");
 
-  utilContentContainer.style.opacity = "0";
+  utilContent.style.opacity = "0";
+  utilContent.style.height = "0";
 
   itemButton.addEventListener("focus", function(e){
     closeSubMenus(item);
@@ -393,7 +393,7 @@ let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-
       /** Show the utility container. */
 
       utilContent.classList.remove("is-closed");
-      utilContentContainer.style.height = "auto";
+      utilContent.style.height = "auto";
 
       /** Get the computed height of the subMenu. */
       var height = utilContent.clientHeight + "px";
@@ -401,17 +401,17 @@ let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-
 
       /** Set the height of the submenu as 0px, */
       /** so we can trigger the slide down animation. */
-      utilContentContainer.style.height = "0";
+      utilContent.style.height = "0";
 
       setTimeout(function timeoutFunction() {
-        utilContentContainer.style.height = height;
-        utilContentContainer.style.opacity = "1";
+        utilContent.style.height = height;
+        utilContent.style.opacity = "1";
       }, 50);
 
       /** Slide up. */
     } else {
-      utilContentContainer.style.height = "0";
-      utilContentContainer.style.opacity = "0";
+      utilContent.style.height = "0";
+      utilContent.style.opacity = "0";
 
       setTimeout(function timeoutFunction() {
         utilContent.classList.add("is-closed");
@@ -423,13 +423,13 @@ let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-
   itemButton.addEventListener("keydown", function (e) {
 
     if (e.code == "ArrowDown") {
-      let first = utilContentContainer.getElementsByTagName("li")[0];
+      let first = utilContent.getElementsByTagName("li")[0];
       first.querySelector(".js-main-nav-hamburger__link").focus()
     }
 
     if (e.code == "Escape" || e.which == "27") {
       if (item.classList.contains("submenu-open")) {
-        utilContentContainer.style.opacity = "0";
+        utilContent.style.opacity = "0";
         utilContent.style.height = "0";
         itemButton.parentElement.classList.remove("submenu-open");
         itemButton.setAttribute("aria-expanded", "false");
@@ -446,7 +446,7 @@ let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-
     }
 
     if (e.shiftKey && e.code == "Tab") {
-      utilContentContainer.style.opacity = "0";
+      utilContent.style.opacity = "0";
       utilContent.style.height = "0";
       item.classList.remove("submenu-open");
       itemButton.setAttribute("aria-expanded", "false");
