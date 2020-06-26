@@ -58,12 +58,12 @@
   background-color: $c-warning;
 
   &__hide {
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__label {
     color: rgba($c-font-base, .7);
-    font-weight: 700;
+    font-weight: $fonts-bold;
   }
 
   &__message {

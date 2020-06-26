@@ -88,7 +88,7 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
       align-items: center;
       color: $c-font-base;
       display: flex;
-      font-weight: 400;
+      font-weight: $fonts-light;
     }
 
     svg {

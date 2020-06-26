@@ -130,12 +130,12 @@
     &__title {
 
       @include ma-h5;
-      font-weight: 700;
+      font-weight: $fonts-bold;
       margin-bottom: 0;
       min-height: 32px;
 
       &--secondary {
-        font-weight: 500;
+        font-weight: $fonts-normal;
 
         @include ma-h5;
         margin-bottom: 0;
