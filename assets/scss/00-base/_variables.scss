@@ -56,3 +56,13 @@ $container-display-table: false !default;
 $border-box-sizing: true !default;
 /// Sets the default [media feature](http://www.w3.org/TR/css3-mediaqueries/#media) that `media()` and `new-breakpoint()` revert to when only a breakpoint value is passed.
 $default-feature: min-width !default; // Default @media feature for the breakpoint() mixin
+$fonts-vietnamese: "Muli";
+
+
+// font weights
+$fonts-lightest: 100; // use only to style non text font weights, e.g. separator |
+$fonts-lighter:  300;
+$fonts-light:    400;
+$fonts-normal:   500;
+$fonts-bold:     700;
+$fonts-bolder:   800;
