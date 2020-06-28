@@ -9,33 +9,6 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
-// Utility nav elements
-const utilButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-// const utilContentContaier = document.querySelector(".ma__header__hamburger__utility-nav--narrow .ma__utility-nav__container");
-const utilContent = document.querySelector(".ma__header__hamburger__utility-nav--narrow .js-util-nav-content");
-
-// utilContent.classList.remove("is-closed");
-
-utilButton.addEventListener("click", function(e) {
-
-  let thisButton = e.target.closest(".js-util-nav-toggle");
-
-  // utilContentContaier.classList.toggle("open");
-
-  if (thisButton.getAttribute("aria-expanded") === "false") {
-    // Open
-    thisButton.setAttribute("aria-expanded", "true");
-    thisButton.setAttribute("aria-pressed", "true");
-    thisButton.classList.add("open");
-
-  } else {
-    // Close
-    thisButton.setAttribute("aria-expanded", "false");
-    thisButton.setAttribute("aria-pressed", "false");
-    thisButton.classList.remove("open");
-  }
-
-});
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
@@ -324,9 +297,7 @@ function closeSubMenus(item) {
 
 // Close menu when utility nav is clicked
 if (null !== utilNavWide) {
-  utilNavWide.addEventListener("click", function () {
     closeMenu();
-  });
 }
 
 
@@ -346,149 +317,229 @@ window.onresize = function () {
 };
 
 
+// Utility nav wide
+// REF: let utilNavWide = document.querySelector(".js-utility-nav--wide");
+const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
+const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
+const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
+
+// Open
+utilWideButton.addEventListener("click", function (e) {
+
+  e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
+
+  // Content state
+  utilWideContent.classList.toggle("is-closed");
+  utilWideContent.toggleAttribute("aria-hidden");
+
+  if (utilWideContent.classList.contains("is-closed")) {
+    // Button state
+    utilWideButton.setAttribute("aria-expanded", "false");
+    utilWideButton.setAttribute("aria-pressed", "false");
+  }
+  else {
+    // Button state
+    utilWideButton.setAttribute("aria-expanded", "true");
+    utilWideButton.setAttribute("aria-pressed", "true");
+  }
+
+});
+
+// Close
+// TODO: esc key to close the content.
+utilWideCloseButton.addEventListener("click", function (e) {
+
+  // Content state
+  utilWideContent.classList.add("is-closed");
+  utilWideContent.setAttribute("aria-hidden", "true");
+
+  // Close button state
+  utilWideCloseButton.setAttribute("aria-expanded", "false");
+
+  // Utility button state
+  utilWideButton.setAttribute("aria-expanded", "false");
+  utilWideButton.setAttribute("aria-pressed", "false");
+
+
+  e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
+});
+
+// ====================
+
+
+// Utility nav elements
+const utilButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+// const utilContentContaier = document.querySelector(".ma__header__hamburger__utility-nav--narrow .ma__utility-nav__container");
+const utilContent = document.querySelector(".ma__header__hamburger__utility-nav--narrow .js-util-nav-content");
+
+// utilContent.classList.remove("is-closed");
+
+// utilButton.addEventListener("click", function(e) {
+
+//   let thisButton = e.target.closest(".js-util-nav-toggle");
+
+//   // utilContentContaier.classList.toggle("open");
+
+//   if (thisButton.getAttribute("aria-expanded") === "false") {
+//     // Open
+//     thisButton.setAttribute("aria-expanded", "true");
+//     thisButton.setAttribute("aria-pressed", "true");
+//     thisButton.classList.add("open");
+
+//   } else {
+//     // Close
+//     thisButton.setAttribute("aria-expanded", "false");
+//     thisButton.setAttribute("aria-pressed", "false");
+//     thisButton.classList.remove("open");
+//   }
+
+// });
+
+
+// ====================
 
 // Utility nav in hamburger menu
-let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-toggle");
+// let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-toggle");
 
-[].forEach.call(utilMenuItems, function (item) {
+// [].forEach.call(utilMenuItems, function (item) {
 
-  const itemButton = item.querySelector(".js-utility-nav--narrow .js-util-nav-toggle");
-  const utilContent = item.querySelector(".js-utility-nav--narrow .js-util-nav-content");
-  let utilContentLinkListItems = utilContent.querySelectorAll(".js-utility-nav--narrow .js-clickable");
+//   const itemButton = item.querySelector(".js-utility-nav--narrow .js-util-nav-toggle");
+//   const utilContent = item.querySelector(".js-utility-nav--narrow .js-util-nav-content");
+//   let utilContentLinkListItems = utilContent.querySelectorAll(".js-utility-nav--narrow .js-clickable");
 
-  utilContent.style.opacity = "0";
-  utilContent.style.height = "0";
+//   utilContent.style.opacity = "0";
+//   utilContent.style.height = "0";
 
-  itemButton.addEventListener("focus", function(e){
-    closeSubMenus(item);
-  });
+//   itemButton.addEventListener("focus", function(e){
+//     closeSubMenus(item);
+//   });
 
-  itemButton.addEventListener("click", function (e) {
+//   itemButton.addEventListener("click", function (e) {
 
-    closeSubMenus(item);
-
-
-    if (item.classList.contains("submenu-open")) {
-      item.classList.remove("submenu-open");
-      itemButton.setAttribute("aria-expanded", "false");
-      itemButton.setAttribute("aria-label", "show menu");
-      item.style.pointerEvents = "none";
-
-      setTimeout(function timeoutFunction() {
-        item.removeAttribute("style");
-      }, 700);
-    } else {
-      item.classList.add("submenu-open");
-      itemButton.setAttribute("aria-expanded", "true");
-      item.style.pointerEvents = "none";
-      itemButton.setAttribute("aria-label", "hide menu");
-      setTimeout(function timeoutFunction() {
-        item.removeAttribute("style");
-      }, 700);
-    }
+//     closeSubMenus(item);
 
 
-    if (utilContent.classList.contains("is-closed")) {
+//     if (item.classList.contains("submenu-open")) {
+//       item.classList.remove("submenu-open");
+//       itemButton.setAttribute("aria-expanded", "false");
+//       itemButton.setAttribute("aria-label", "show menu");
+//       item.style.pointerEvents = "none";
 
-      /** Show the utility container. */
+//       setTimeout(function timeoutFunction() {
+//         item.removeAttribute("style");
+//       }, 700);
+//     } else {
+//       item.classList.add("submenu-open");
+//       itemButton.setAttribute("aria-expanded", "true");
+//       item.style.pointerEvents = "none";
+//       itemButton.setAttribute("aria-label", "hide menu");
+//       setTimeout(function timeoutFunction() {
+//         item.removeAttribute("style");
+//       }, 700);
+//     }
 
-      utilContent.classList.remove("is-closed");
-      utilContent.style.height = "auto";
 
-      /** Get the computed height of the subMenu. */
-      var height = utilContent.clientHeight + "px";
+//     if (utilContent.classList.contains("is-closed")) {
+
+//       /** Show the utility container. */
+
+//       utilContent.classList.remove("is-closed");
+//       utilContent.style.height = "auto";
+
+//       /** Get the computed height of the subMenu. */
+//       var height = utilContent.clientHeight + "px";
 
 
-      /** Set the height of the submenu as 0px, */
-      /** so we can trigger the slide down animation. */
-      utilContent.style.height = "0";
+//       /** Set the height of the submenu as 0px, */
+//       /** so we can trigger the slide down animation. */
+//       utilContent.style.height = "0";
 
-      setTimeout(function timeoutFunction() {
-        utilContent.style.height = height;
-        utilContent.style.opacity = "1";
-      }, 50);
+//       setTimeout(function timeoutFunction() {
+//         utilContent.style.height = height;
+//         utilContent.style.opacity = "1";
+//       }, 50);
 
-      /** Slide up. */
-    } else {
-      utilContent.style.height = "0";
-      utilContent.style.opacity = "0";
+//       /** Slide up. */
+//     } else {
+//       utilContent.style.height = "0";
+//       utilContent.style.opacity = "0";
 
-      setTimeout(function timeoutFunction() {
-        utilContent.classList.add("is-closed");
+//       setTimeout(function timeoutFunction() {
+//         utilContent.classList.add("is-closed");
 
-      }, 500);
-    }
-  });
+//       }, 500);
+//     }
+//   });
 
-  itemButton.addEventListener("keydown", function (e) {
+//   itemButton.addEventListener("keydown", function (e) {
 
-    if (e.code == "ArrowDown") {
-      let first = utilContent.getElementsByTagName("li")[0];
-      first.querySelector(".js-main-nav-hamburger__link").focus()
-    }
+//     if (e.code == "ArrowDown") {
+//       let first = utilContent.getElementsByTagName("li")[0];
+//       first.querySelector(".js-main-nav-hamburger__link").focus()
+//     }
 
-    if (e.code == "Escape" || e.which == "27") {
-      if (item.classList.contains("submenu-open")) {
-        utilContent.style.opacity = "0";
-        utilContent.style.height = "0";
-        itemButton.parentElement.classList.remove("submenu-open");
-        itemButton.setAttribute("aria-expanded", "false");
-        itemButton.setAttribute("aria-label", "show menu");
+//     if (e.code == "Escape" || e.which == "27") {
+//       if (item.classList.contains("submenu-open")) {
+//         utilContent.style.opacity = "0";
+//         utilContent.style.height = "0";
+//         itemButton.parentElement.classList.remove("submenu-open");
+//         itemButton.setAttribute("aria-expanded", "false");
+//         itemButton.setAttribute("aria-label", "show menu");
 
-        setTimeout(function timeoutFunction() {
-          utilContent.classList.add("is-closed");
-        }, 500);
+//         setTimeout(function timeoutFunction() {
+//           utilContent.classList.add("is-closed");
+//         }, 500);
 
-      }
-      else {
-        closeMenu();
-      }
-    }
+//       }
+//       else {
+//         closeMenu();
+//       }
+//     }
 
-    if (e.shiftKey && e.code == "Tab") {
-      utilContent.style.opacity = "0";
-      utilContent.style.height = "0";
-      item.classList.remove("submenu-open");
-      itemButton.setAttribute("aria-expanded", "false");
-      itemButton.setAttribute("aria-label", "show menu");
+//     if (e.shiftKey && e.code == "Tab") {
+//       utilContent.style.opacity = "0";
+//       utilContent.style.height = "0";
+//       item.classList.remove("submenu-open");
+//       itemButton.setAttribute("aria-expanded", "false");
+//       itemButton.setAttribute("aria-label", "show menu");
 
-      setTimeout(function timeoutFunction() {
-        utilContent.classList.add("is-closed");
-      }, 500);
-    }
+//       setTimeout(function timeoutFunction() {
+//         utilContent.classList.add("is-closed");
+//       }, 500);
+//     }
 
-    if (width > 840 && e.key == "Tab") {
-      if (!itemButton.parentElement.nextElementSibling
-      && !itemButton.parentElement.classList.contains("submenu-open")) {
-        closeMenu();
-      }
-    }
-  });
+//     if (width > 840 && e.key == "Tab") {
+//       if (!itemButton.parentElement.nextElementSibling
+//       && !itemButton.parentElement.classList.contains("submenu-open")) {
+//         closeMenu();
+//       }
+//     }
+//   });
 
-  [].forEach.call(utilContentLinkListItems, function (subItem) {
-    const prevSib = subItem.previousElementSibling;
-    const nextSib = subItem.nextElementSibling;
+//   [].forEach.call(utilContentLinkListItems, function (subItem) {
+//     const prevSib = subItem.previousElementSibling;
+//     const nextSib = subItem.nextElementSibling;
 
-    subItem.addEventListener("keydown", function (e) {
+//     subItem.addEventListener("keydown", function (e) {
 
-      switch (e.code) {
-        case "ArrowUp":
-        case "ArrowLeft":
-          if (subItem = prevSib) {
-            prevSib.querySelector(".js-main-nav-hamburger__link").focus();
-          }
-          break;
-        case "ArrowDown":
-        case "ArrowRight":
-          if (subItem = nextSib) {
-            nextSib.querySelector(".js-main-nav-hamburger__link").focus();
-          }
-          break;
-        case "Escape":
-          itemButton.focus();
+//       switch (e.code) {
+//         case "ArrowUp":
+//         case "ArrowLeft":
+//           if (subItem = prevSib) {
+//             prevSib.querySelector(".js-main-nav-hamburger__link").focus();
+//           }
+//           break;
+//         case "ArrowDown":
+//         case "ArrowRight":
+//           if (subItem = nextSib) {
+//             nextSib.querySelector(".js-main-nav-hamburger__link").focus();
+//           }
+//           break;
+//         case "Escape":
+//           itemButton.focus();
 
-           break;
-      }
-    });
-  });
-});
+//            break;
+//       }
+//     });
+//   });
+// });
