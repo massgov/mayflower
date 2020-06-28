@@ -11,7 +11,7 @@
       </li>
     {% endif %}
     {% for item in utilityNav.items %}
-      <li class="ma__utility-nav__item{% if not(item.text == 'State Organizations') %} js-util-nav-toggle{% endif %}">
+      <li class="ma__utility-nav__item">
       {% if item.text == 'State Organizations' %}
         {# Get hef value. #}
         {% for panel in item.panels %}
