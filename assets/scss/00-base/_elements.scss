@@ -26,6 +26,18 @@
 }
 
 html {
+  font-family: $fonts;
+
+  &:lang(km) {
+    font-family: $fonts-khmer, $fonts;
+    font-size: 14px;
+  }
+
+  &:lang(vi) {
+    font-family: $fonts-vietnamese, sans-serif;
+    font-size: 14px;
+  }
+
   font-size: 14.5px;
 
   @media ($bp-small-min) {
@@ -44,7 +56,9 @@ body {
   line-height: 1.5;
   color: $c-font-base;
   font-family: $fonts;
-  font-weight: 400;
+  font-weight: $fonts-light;
+}
+
 
   // .translated-rtl & {
   //   direction: rtl;
@@ -55,7 +69,7 @@ a {
 
   @include ma-link-transition;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: $fonts-bold;
   color: $c-font-link;
 }
 
@@ -134,7 +148,7 @@ ol {
   h#{$i} {
     margin-top: 0;
     color: $c-font-heading;
-    font-weight: 700;
+    font-weight: $fonts-bold;
 
     @include ma-heading($i);
   }
@@ -169,5 +183,5 @@ div {
 }
 
 b, strong {
-  font-weight: 700;
+  font-weight: $fonts-bold;
 }
