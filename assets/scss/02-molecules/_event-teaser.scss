@@ -144,22 +144,22 @@
   }
 
   &__month {
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__day {
     color: $c-primary-alt;
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__location,
   &__time,
   &__date {
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__location {
     font-style: italic;
-    font-weight: $fonts-normal;
+    font-weight: 500;
   }
 }

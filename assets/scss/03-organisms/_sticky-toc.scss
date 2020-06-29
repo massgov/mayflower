@@ -186,7 +186,7 @@
   &__title {
     background-image: linear-gradient(-60deg, transparent, transparent 35px, $c-primary-alt 35px);
     color: $c-white;
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__links {
@@ -197,10 +197,6 @@
   }
 
   &__link {
-
-    &:hover {
-      cursor: pointer;
-    }
 
     a {
 
@@ -236,12 +232,12 @@
     @media ($bp-x-small-max) {
 
       a {
-        font-weight: $fonts-normal;
+        font-weight: 500;
       }
 
       &.is-active a {
         color: $c-font-base;
-        font-weight: $fonts-bold;
+        font-weight: 700;
       }
 
       &.is-active:hover a {
@@ -274,7 +270,7 @@
     button {
       position: relative;
       color: $c-primary;
-      font-weight: $fonts-bold;
+      font-weight: 700;
       background-color: transparent;
       border: none;
       padding: 3px 20px 1px;
@@ -378,7 +374,7 @@
         display: block;
         text-transform: uppercase;
         font-size: 0.75rem;
-        font-weight: $fonts-bold;
+        font-weight: 700;
         color: $c-primary;
         letter-spacing: $letter-spacing-large;
         margin-top: -4px;
@@ -401,7 +397,7 @@
 
 .ma__sticky-toc__secondary-label {
   font-size: 20px;
-  font-weight: $fonts-bold;
+  font-weight: 700;
   line-height: 1.2;
   padding: 10px 35px 10px 15px;
   border: 1px solid $c-bd-divider;
@@ -443,7 +439,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-weight: $fonts-bold;
+  font-weight: 700;
   color: $c-black;
   margin-bottom: 0;
   display: none;
@@ -484,7 +480,7 @@
     justify-content: space-between;
     border: 0;
     font-size: 1.375rem;
-    font-weight: $fonts-normal;
+    font-weight: 500;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
     color: $c-gray-dark;
@@ -510,23 +506,20 @@
 
   .ma__sticky-toc__link {
     display: block;
-    padding-right: 20px;
-    padding-left: 60px;
-    margin: 0; // 20px;
+    padding-left: 40px;
+    margin: 0 20px;
 
     a {
-      font-weight: $fonts-bold;
+      font-weight: 700;
       font-size: 1.375rem;
       display: flex;
 
       svg {
         display: block;
         margin-top: 7px;
-        margin-left: 20px;
-        z-index: -3;
 
         @media ($bp-x-small-min) {
-          margin: 0 0 0 20px;
+          margin: 0;
         }
       }
     }
@@ -544,15 +537,6 @@
         transition: right 0.3s ease-out;
         position: fixed;
         z-index: 9999;
-      }
-
-      @media ($bp-medium-max) {
-
-        // Fix the toc label covering top 2 toc links.
-
-        & + .ma__sticky-toc__link {
-          margin-top: 75px;
-        }
       }
     }
   }

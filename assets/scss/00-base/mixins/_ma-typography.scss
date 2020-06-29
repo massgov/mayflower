@@ -96,7 +96,7 @@
 @mixin ma-texta-style($weight: 'Light', $italic: false) {
 
   @if ($weight == 'Light') {
-    font-weight: $fonts-lighter;
+    font-weight: 300;
 
     @if ($italic == true) {
       font-style: italic;
@@ -104,7 +104,7 @@
   }
 
   @if ($weight == 'Book') {
-    font-weight: $fonts-light;
+    font-weight: 400;
 
     @if ($italic == true) {
       font-style: italic;
@@ -112,7 +112,7 @@
   }
 
   @if ($weight == 'Medium') {
-    font-weight: $fonts-normal;
+    font-weight: 500;
 
     @if ($italic == true) {
       font-style: italic;
@@ -120,7 +120,7 @@
   }
 
   @if ($weight == 'Bold') {
-    font-weight: $fonts-bold;
+    font-weight: 700;
 
     @if ($italic == true) {
       font-style: italic;
@@ -128,7 +128,7 @@
   }
 
   @if ($weight == 'Black') {
-    font-weight: $fonts-bolder;
+    font-weight: 800;
 
     @if ($italic == true) {
       font-style: italic;

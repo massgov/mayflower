@@ -118,7 +118,7 @@
       @include ma-h5;
       text-transform: uppercase;
       color: $c-primary-alt;
-      font-weight: $fonts-bold;
+      font-weight: 700;
       margin-bottom: 0;
 
       @media ($bp-small-min) {

@@ -80,7 +80,7 @@
 
       &:after {
         content: "|";
-        font-weight: $fonts-lightest;
+        font-weight: 100;
         margin: 0 0.85rem;
       }
 
@@ -94,7 +94,7 @@
   &--contact {
 
     a {
-      font-weight: $fonts-normal;
+      font-weight: 500;
     }
 
     &> p {
