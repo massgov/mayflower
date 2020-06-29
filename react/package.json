@@ -28,7 +28,7 @@
     "lint"
   ],
   "dependencies": {
-    "@massds/mayflower-assets": "^0.2.1",
+    "@massds/mayflower-assets": "^0.2.0",
     "airbnb-prop-types": "^2.13.2",
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",

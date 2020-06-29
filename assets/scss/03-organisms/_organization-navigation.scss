@@ -64,7 +64,7 @@ $menu-transition-time: 0.3s;
     justify-content: space-between;
     align-items: center;
     font-size: 1.25rem;
-    font-weight: $fonts-bold;
+    font-weight: 700;
     line-height: 1.2;
     color: $c-font-dark;
     border-bottom: 1px solid $c-gray-light;
@@ -112,7 +112,7 @@ $menu-transition-time: 0.3s;
       &::after {
         content: $close-icon;
         font-size: 2.1rem;
-        font-weight: $fonts-normal;
+        font-weight: 500;
         line-height: 0;
         position: absolute;
         top: 50%;
@@ -163,7 +163,6 @@ $menu-transition-time: 0.3s;
       .form-open & {
         position: absolute;
         width: 100%;
-        z-index: 1;
 
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           top: 7px;
@@ -249,7 +248,7 @@ $menu-transition-time: 0.3s;
       background-color: transparent;
       border-left: 1px solid $c-gray-light;
       font-size: 1rem;
-      font-weight: $fonts-bold;
+      font-weight: 700;
       padding-left: 35px;
 
       @media ($bp-large-min) {
@@ -266,7 +265,7 @@ $menu-transition-time: 0.3s;
         font-size: 1.125rem;
         padding-right: 1.5rem;
         padding-left: 1rem;
-        font-weight: $fonts-normal;
+        font-weight: 500;
 
         &::after {
           color: $c-primary-alt;

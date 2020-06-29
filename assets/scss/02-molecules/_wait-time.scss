@@ -100,7 +100,7 @@
 
   &__label {
     color: $c-font-medium;
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__time {
@@ -108,6 +108,6 @@
   }
 
   &__units {
-    font-weight: $fonts-normal;
+    font-weight: 500;
   }
 }

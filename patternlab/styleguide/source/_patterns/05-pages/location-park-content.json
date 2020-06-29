@@ -137,7 +137,7 @@
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "Get Directions",
-        "info": "Mt Greylock State Park"
+        "info": "Get Directions"
       },
       "picture": {
         "defaultImage": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
