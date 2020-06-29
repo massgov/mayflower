@@ -491,33 +491,14 @@ body.show-menu {
 
     &--narrow {
 
-      // @media ($bp-header-toggle-max) {
+      @media ($bp-header-toggle-max) {
 
         & .ma__utility-nav {
-
-          // &__items {
-
-          //   @media ($bp-header-toggle-max) {
-          //     padding-left: 0;
-          //     padding-right: 0;
-          //   }
-
-          //   @media ($bp-header-toggle-min) {
-
-          //     @include ma-valign-block;
-          //   }
-          // }
 
           &__item {
 
             border-bottom: 2px solid $c-bd-divider;
             padding: 0;
-
-            // @media ($bp-header-toggle-min) {
-            //   display: inline-block;
-            //   padding-left: 30px;
-            //   vertical-align: middle;
-            // }
           }
 
           &__link, a.direct-link {
@@ -536,8 +517,10 @@ body.show-menu {
             background-color: $c-gray-lightest;
             width: 100%;
 
+            width: 100%;
+            text-align: left;
+
             &:hover {
-              // background-color: $c-white;
               box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
             }
 
@@ -545,30 +528,23 @@ body.show-menu {
               background-color: $c-bd-divider;
               outline: 2px solid $c-black;
             }
-            // }
 
             .toggle-indicator {
 
               @include ma-accordion-icon;
             }
 
-            &.open .toggle-indicator::after {
+            &[aria-expanded="true"] .toggle-indicator::after {
               transform: rotate(135deg);
             }
 
-            @media ($bp-header-toggle-max) {
-              width: 100%;
-              text-align: left;
-            }
+            // Override the original styles.
 
             & > svg {
-
-              @media ($bp-header-toggle-max) {// Override the original styles.
-                position: relative;
-                top: auto;
-                left: auto;
-                transform: none;
-              }
+              position: relative;
+              top: auto;
+              left: auto;
+              transform: none;
             }
 
             & > span {
@@ -576,12 +552,10 @@ body.show-menu {
             }
           }
 
-          &__link:after {// Remove chevron.
+          // Remove chevron.
 
-            @media ($bp-header-toggle-max) {
-
-              border: none;
-            }
+          &__link:after {
+            border: none;
           }
 
           a.direct-link {
@@ -596,7 +570,7 @@ body.show-menu {
               border-bottom-color: $c-primary-alt;
             }
           }
-        // }
+        }
       }
 
       // Override styles for desktop version utility nav content.
@@ -613,7 +587,11 @@ body.show-menu {
           width: 100%;
           color: $c-black;
 
+          height: 0;
+          opacity: 0;
+
           transition: opacity 0.2s;
+          transition: height 0.6s;
 
           .is-closed & {
             transition: opacity 0.2s;
@@ -688,6 +666,36 @@ body.show-menu {
         display: none;
       }
     }
+
+    // // ma__header__hamburger__utility-nav
+    // // ma__header__hamburger__utility-nav--wide
+    // // js-utility-nav--wide
+    // .util-nav-content-open .ma__header__hamburger-wrapper {
+
+    //   @media ($bp-header-toggle-min) {
+
+    //     display: block;
+    //     width: 100%;
+    //     padding: 0;
+    //   }
+    // }
+
+    // .util-nav-content-open .ma__header__hamburger__utility-nav--wide {
+    //   width: 100%;
+    //   z-index: 1000;
+    //   position: absolute;
+
+    //   & .ma__utility-nav__content {
+
+    //     @media ($bp-header-toggle-min) {
+
+    //       right: 0;
+    //       left: 0;
+
+
+    //     }
+    //   }
+    // }
   }
 
   &__backto {
@@ -767,6 +775,24 @@ body.show-menu {
   @media ($bp-small-max) {
 
     display: none;
+  }
+}
+
+@media ($bp-header-toggle-min) {
+
+  .util-nav-content-open .ma__header__hamburger-wrapper {
+    padding: 0;
+  }
+
+  // .util-nav-content-close .ma__header__hamburger-wrapper {
+  // // :not(.util-nav-content-open) .ma__header__hamburger-wrapper {
+  //   padding-left: 30px;
+  //   padding-right: 30px;
+  // }
+
+  .util-nav-content-open .ma__header__hamburger__utility-nav--wide {
+    width: 100%;
+    position: absolute;
   }
 }
 

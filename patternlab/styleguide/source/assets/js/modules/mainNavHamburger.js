@@ -371,163 +371,33 @@ utilNarrowButton.addEventListener("click", function(e) {
   utilNarrowContent.classList.toggle("is-closed");
   utilNarrowContent.toggleAttribute("aria-hidden");
 
-  // Button state
   if (utilNarrowContent.classList.contains("is-closed")) {
     // Close
+
+    // Button state
     utilNarrowButton.setAttribute("aria-expanded", "false");
     utilNarrowButton.setAttribute("aria-pressed", "false");
+
+    /** Slide up. */
+    // NOTE: Following the pattern of the main nav @ L.282.
+    setTimeout(function timeoutFunction() {
+      // Container
+      utilNarrowContent.style.opacity = "0";
+      utilNarrowContent.style.height = "0";
+    }, 500);
+
   } else {
     // Open
+
+    // Button state
     utilNarrowButton.setAttribute("aria-expanded", "true");
     utilNarrowButton.setAttribute("aria-pressed", "true");
+
+     /** Slide up. */
+    setTimeout(function timeoutFunction() {
+      // Container
+      utilNarrowContent.style.opacity = "1";
+      utilNarrowContent.style.height = "auto";
+    }, 500);
   }
 });
-
-
-// ====================
-
-// Utility nav in hamburger menu
-// let utilMenuItems = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-toggle");
-
-// [].forEach.call(utilMenuItems, function (item) {
-
-//   const itemButton = item.querySelector(".js-utility-nav--narrow .js-util-nav-toggle");
-//   const utilContent = item.querySelector(".js-utility-nav--narrow .js-util-nav-content");
-//   let utilContentLinkListItems = utilContent.querySelectorAll(".js-utility-nav--narrow .js-clickable");
-
-//   utilContent.style.opacity = "0";
-//   utilContent.style.height = "0";
-
-//   itemButton.addEventListener("focus", function(e){
-//     closeSubMenus(item);
-//   });
-
-//   itemButton.addEventListener("click", function (e) {
-
-//     closeSubMenus(item);
-
-
-//     if (item.classList.contains("submenu-open")) {
-//       item.classList.remove("submenu-open");
-//       itemButton.setAttribute("aria-expanded", "false");
-//       itemButton.setAttribute("aria-label", "show menu");
-//       item.style.pointerEvents = "none";
-
-//       setTimeout(function timeoutFunction() {
-//         item.removeAttribute("style");
-//       }, 700);
-//     } else {
-//       item.classList.add("submenu-open");
-//       itemButton.setAttribute("aria-expanded", "true");
-//       item.style.pointerEvents = "none";
-//       itemButton.setAttribute("aria-label", "hide menu");
-//       setTimeout(function timeoutFunction() {
-//         item.removeAttribute("style");
-//       }, 700);
-//     }
-
-
-//     if (utilContent.classList.contains("is-closed")) {
-
-//       /** Show the utility container. */
-
-//       utilContent.classList.remove("is-closed");
-//       utilContent.style.height = "auto";
-
-//       /** Get the computed height of the subMenu. */
-//       var height = utilContent.clientHeight + "px";
-
-
-//       /** Set the height of the submenu as 0px, */
-//       /** so we can trigger the slide down animation. */
-//       utilContent.style.height = "0";
-
-//       setTimeout(function timeoutFunction() {
-//         utilContent.style.height = height;
-//         utilContent.style.opacity = "1";
-//       }, 50);
-
-//       /** Slide up. */
-//     } else {
-//       utilContent.style.height = "0";
-//       utilContent.style.opacity = "0";
-
-//       setTimeout(function timeoutFunction() {
-//         utilContent.classList.add("is-closed");
-
-//       }, 500);
-//     }
-//   });
-
-//   itemButton.addEventListener("keydown", function (e) {
-
-//     if (e.code == "ArrowDown") {
-//       let first = utilContent.getElementsByTagName("li")[0];
-//       first.querySelector(".js-main-nav-hamburger__link").focus()
-//     }
-
-//     if (e.code == "Escape" || e.which == "27") {
-//       if (item.classList.contains("submenu-open")) {
-//         utilContent.style.opacity = "0";
-//         utilContent.style.height = "0";
-//         itemButton.parentElement.classList.remove("submenu-open");
-//         itemButton.setAttribute("aria-expanded", "false");
-//         itemButton.setAttribute("aria-label", "show menu");
-
-//         setTimeout(function timeoutFunction() {
-//           utilContent.classList.add("is-closed");
-//         }, 500);
-
-//       }
-//       else {
-//         closeMenu();
-//       }
-//     }
-
-//     if (e.shiftKey && e.code == "Tab") {
-//       utilContent.style.opacity = "0";
-//       utilContent.style.height = "0";
-//       item.classList.remove("submenu-open");
-//       itemButton.setAttribute("aria-expanded", "false");
-//       itemButton.setAttribute("aria-label", "show menu");
-
-//       setTimeout(function timeoutFunction() {
-//         utilContent.classList.add("is-closed");
-//       }, 500);
-//     }
-
-//     if (width > 840 && e.key == "Tab") {
-//       if (!itemButton.parentElement.nextElementSibling
-//       && !itemButton.parentElement.classList.contains("submenu-open")) {
-//         closeMenu();
-//       }
-//     }
-//   });
-
-//   [].forEach.call(utilContentLinkListItems, function (subItem) {
-//     const prevSib = subItem.previousElementSibling;
-//     const nextSib = subItem.nextElementSibling;
-
-//     subItem.addEventListener("keydown", function (e) {
-
-//       switch (e.code) {
-//         case "ArrowUp":
-//         case "ArrowLeft":
-//           if (subItem = prevSib) {
-//             prevSib.querySelector(".js-main-nav-hamburger__link").focus();
-//           }
-//           break;
-//         case "ArrowDown":
-//         case "ArrowRight":
-//           if (subItem = nextSib) {
-//             nextSib.querySelector(".js-main-nav-hamburger__link").focus();
-//           }
-//           break;
-//         case "Escape":
-//           itemButton.focus();
-
-//            break;
-//       }
-//     });
-//   });
-// });
