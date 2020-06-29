@@ -11,34 +11,58 @@ Mayflower-react is a React component library under the [enterprise design system
 
 
 ## Using Mayflower-React in Your Project
-1. Install mayflower-react into your project as a dependency.
-`npm i @massds/mayflower-react --save`
-2. Import components into your App.js
-`import { Button } from '@massds/mayflower-react';`
-3. Render components in JSX
-`<Button text="Button" onClick={() => console.log('mayflower button clicked!')} />`
+1. Install mayflower-react and mayflower-assets into your project dependency:
+```javascript
+npm i @massds/mayflower-react @massds/mayflower-assets --save
+```
+2. Import components into your App:
+```javascript
+import { Header, Footer, Button } from '@massds/mayflower-react';
+// You can also directly point to each component's path:
+import Header from '@massds/mayflower-react/dist/Header';
+import Footer from '@massds/mayflower-react/dist/Footer';
+import Button from '@massds/mayflower-react/dist/Button';
+```
+3. Render components:
+```javascript
+<Button text="Button" onClick={() => console.log('mayflower button clicked!')} />
+```
 
-Please note that [@massds/mayflower-react][npm] comes with prebuilt css, svg and other image files. If you are configuring your own Webpack, you might need to add the following loaders to handle these files:
-``npm install --save-dev css-loader svg-inline-loader file-loader``
+As of version 10.x, `mayflower-react` styles come directly from the `mayflower-assets` package. Each component has been documented with the exact scss files from mayflower-assets you need to include in your project for it to render the same as the [Mayflower React Storybook][react-storybook]:
+```javascript
+/**
+ * Example pulled from ButtonAlert module.
+ * @module @massds/mayflower-react/ButtonAlert
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+```
+Version 10.x of mayflower-react has also removed the `es/` and `lib/` directories. Instead, the ES5 and ES6 versions live in the same directory of the component as `index.js` and `index.mjs` respectively:
+```javascript
+// This is the ES5 version.
+import { Button } from '@massds/mayflower-react';
+import Button from '@massds/mayflower-react/dist/Button';
 
-You can also kickstart your React project with Mayflower-react referring to the [Mayflower React Starter][react-starter] built with [Create React App](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app).
+// This is the ES6 version.
+import { Button } from '@massds/mayflower-react/index.mjs';
+import Button from '@massds/mayflower-react/dist/Button/index.mjs';
+```
+Mayflower React v10.x has its module entry point set to `dist/index.mjs`, so if your project is set to use ES Modules, importing from `@massds/mayflower-react` will default to using the ES6 version of the package.
 
-For a guide and information on the components included in mayflower-react and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
+For a more detailed guide and information on the components included in Mayflower React and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
 
 
 ## Mayflower-React Development
 * `npm install`
 * `npm start`: This will run the demo application.
 
-Please note that we are currently relying on symlink for pulling in shared assets into react source code. For Windows users, you need to manually create the symlink before running `npm start`.
-e.g. In cmd prompt:
-- $ `cd src` - make sure you are in the `src` folder in `mayflower/react`
-- $ `rm assets`
-- $ `ln -s ../../assets assets`
 
 #### System Requirements
 
-- node.js, currently standardized on version 10.15.1
+- node.js, currently standardized on version 12.18.1
 - npm, currently standardized on version 6.4.1
 - That's it! All other dependencies should be included when you run ``npm i``.
 
@@ -52,9 +76,7 @@ $ `npm test`: Starts Jest test suite in watch mode
 
 $ `npm run test:coverage` Generates a test report
 
-$ `npm run build`: Compile the code from /src into es6, commonjs, and umd formats in preparation for publishing.
-
-$ `npm run copy-data`: This copies the src/data directory into the /lib and /es directories in preparation for publishing.
+$ `npm run build`: Compile the code from /src into es6 and commonjs formats in preparation for publishing.
 
 #### Adding dependencies
 
@@ -103,7 +125,7 @@ We are tracking versions of this project in the package.json, which means when c
 #### Publish to NPM
 1. Create a version bump PR into `develop` updating package version in `package.json` and `package-lock.json`. Squash and merge when ready.
 2. Create a release PR into `master` from `develop`. Regular merge when ready.
-3. From `master` branch, $ `npm publish`. This will publish the latest changes to npm, and automatically runs `npm run build` and `npm run copy-data` first.
+3. From `master` branch, $ `npm publish`. This will publish the latest changes to npm, and automatically runs `npm run build` first.
 
 #### Publish to S3
 1. $ `npm run build-storybook`. This will build storybook static site into /storybook-static
