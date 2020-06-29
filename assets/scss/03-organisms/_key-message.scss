@@ -39,7 +39,7 @@ $colors: (
 
   .ma__key-message__sub-title {
     margin-top: 20px;
-    font-weight: $fonts-bold;
+    font-weight: 700;
 
     @each $class, $c in $colors {
       &--#{$class} {
@@ -116,13 +116,6 @@ $colors: (
 
         &.ma__key-message--top {
           margin-bottom: 150px;
-        }
-      }
-
-      @media ($bp-medium-max) {
-        
-        &.ma__key-message--top {
-          background-image: none !important;
         }
       }
 

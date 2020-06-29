@@ -2,40 +2,13 @@
 
 {% set prefix = pageHeader.category|default(pageHeader.prefix) %}
 
-{# Replace page header tag presentation with relatinship indicator. #}
-{% if pageHeader.headerTags.taxonomyTerms %}
-  {% embed "@molecules/relationship-indicators.twig" with {
-        "relationshipIndicators": {
-          "pageTitle": pageHeader.title,
-          "primary": {
-            "label": "part of"
-          },
-          "secondary": null
-        },
-    } %}
-    {% block primaryRelationship %}
-      {% for item in pageHeader.headerTags.taxonomyTerms %}
-        {% include "@atoms/item-link.twig" with {
-          "itemLink": {
-            "href": item.href,
-            "title": item.text
-          }
-        } %}
-      {% endfor %}
-    {% endblock %}
-  {% endembed %}
-{% endif %}
-
 <section class="ma__page-header{{ widgetsClass }}">
-  {% if pageHeader.socialLinks.items %}
-  {# {% if pageHeader.headerTags.taxonomyTerms or pageHeader.socialLinks.items %} #}
+  {% if pageHeader.headerTags.taxonomyTerms or pageHeader.socialLinks.items %}
     <div class="ma__page-header__tags">
-{# REMOVE: replaced with relationship indicator. #}
-      {# {% if pageHeader.headerTags.taxonomyTerms %}
+      {% if pageHeader.headerTags.taxonomyTerms %}
         {% set headerTags = pageHeader.headerTags %}
         {% include "@molecules/header-tags.twig" %}
-      {% endif %} #}
-{# END: REMOVE #}
+      {% endif %}
       {% if pageHeader.socialLinks.items %}
         {% set socialLinks = pageHeader.socialLinks %}
         {% include "@molecules/social-links.twig" %}

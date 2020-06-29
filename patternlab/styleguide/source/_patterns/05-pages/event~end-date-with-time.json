@@ -6,139 +6,114 @@
     "subTitle": "",
     "socialLinks": {
       "label": "Share:",
-      "items": [
-        {
-          "altText": "Follow us on Facebook",
-          "href": "#",
-          "icon": "facebook",
-          "linkType": "facebook"
-        },
-        {
-          "altText": "Follow us on Twitter",
-          "href": "#",
-          "icon": "twitter",
-          "linkType": "twitter"
-        },
-        {
-          "altText": "Follow us on LinkedIn",
-          "href": "#",
-          "icon": "linkedin",
-          "linkType": "linkedin"
-        }
-      ]
+      "items": [{
+        "altText": "Follow us on Facebook",
+        "href": "#",
+        "icon": "facebook",
+        "linkType": "facebook"
+      },{
+        "altText": "Follow us on Twitter",
+        "href": "#",
+        "icon": "twitter",
+        "linkType": "twitter"
+      },{
+        "altText": "Follow us on LinkedIn",
+        "href": "#",
+        "icon": "linkedin",
+        "linkType": "linkedin"
+      }]
     },
-    "optionalContents": [
-      {
-        "path": "@molecules/event-teaser.twig",
-        "data": {
-          "eventTeaser": {
-            "title": null,
-            "location": "",
-            "date": {
-              "summary": "Starting Sunday, November 20, 2017\nEnding Monday, November 21, 2017"
-            },
-            "time": "10:00am - 2:00pm",
-            "description": ""
-          }
-        }
-      },
-      {
-        "path": "@molecules/contact-us.twig",
-        "data": {
-          "contactUs": {
-            "groups": [
-              {
-                "icon": "",
-                "name": "",
-                "items": [
-                  {
-                    "type": "address",
-                    "label": "",
-                    "address": "Halibut Point State Park, Gott Avenue, Rockport, MA 01966",
-                    "link": {
-                      "href": "https://www.google.com/maps/place/Halibut+Point+State+Park",
-                      "text": "directions",
-                      "info": "directions to Halibut Point State Park",
-                      "property": "url"
-                    },
-                    "details": ""
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      },
-      {
-        "path": "@organisms/by-author/key-actions.twig",
-        "data": {
-          "keyActions": {
-            "links": [
-              {
-                "text": "Sign up",
-                "type": "",
-                "href": "#"
-              }
-            ]
-          }
+    "optionalContents": [{
+      "path": "@molecules/event-teaser.twig",
+      "data": {
+        "eventTeaser": {
+          "title": null,
+          "location": "",
+          "date": {
+            "summary": "Starting Sunday, November 20, 2017\nEnding Monday, November 21, 2017"
+          },
+          "time": "10:00am - 2:00pm",
+          "description": ""
         }
       }
-    ],
+    },{
+      "path": "@molecules/contact-us.twig",
+      "data": {
+        "contactUs": {
+          "groups": [{
+            "icon": "",
+            "name": "",
+            "items": [{
+              "type": "address",
+              "label": "",
+              "address": "Halibut Point State Park\nGott Avenue\nRockport, MA 01966",
+              "link": {
+                "href": "https://www.google.com/maps/place/Halibut+Point+State+Park",
+                "text": "directions",
+                "info": "directions to Halibut Point State Park",
+                "property": "url"
+              },
+              "details": ""
+            }]
+          }]
+        }
+      }
+    },{
+      "path": "@organisms/by-author/key-actions.twig",
+      "data": {
+        "keyActions": {
+          "links":[{
+            "text": "Sign up",
+            "type": "",
+            "href": "#"
+          }]
+        }
+      }
+    }],
     "widgets": null
   },
   "relationshipIndicators": {
-    "pageTitle": "Winter Birding Event",
     "primary": {
       "position": "primary",
-      "label": "part of",
-      "tags": [
-        {
-          "class": "",
-          "href": "#",
-          "title": "Snowmobile in the Parks"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Cross-Country Skiing"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Accessible Hiking"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Scenic Viewing Areas"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Hunting"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Biking"
-        }
-      ]
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Department of Conservation and Recreation"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Other agency or organization"
+      }]
     },
     "secondary": {
       "position": "",
-      "label": "offered by",
-      "tags": [
-        {
-          "class": "",
-          "href": "#",
-          "title": "Department of Conservation and Recreation"
-        },
-        {
-          "class": "",
-          "href": "#",
-          "title": "Other agency or organization"
-        }
-      ]
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
+      }]
     }
   },
   "mainContent": {
@@ -157,262 +132,228 @@
         "height": "338"
       },
       "labelledList": {
-        "items": [
-          {
-            "label": "Rain date:",
-            "text": "This event is rain or shine"
-          },
-          {
-            "label": "fees:",
-            "text": "free"
-          },
-          {
-            "label": "capacity:",
-            "text": "unlimited"
-          }
-        ]
+        "items": [{
+          "label": "Rain date:",
+          "text": "This event is rain or shine"
+        },{
+          "label": "fees:",
+          "text": "free"
+        },{
+          "label": "capacity:",
+          "text": "unlimited"
+        }]
       },
       "richText": {
-        "rteElements": [
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "Halibut Point State Park, along the Atlantic migratory path, is an excellent locale for winter birding species you rarely see anywhere else."
-              }
-            }
-          },
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "Through this event, you’ll learn that harlequins, scoters, eiders, grebes, mergansers, loons, gannets and many more spend their winters on our shores. There is also a good possibility of seeing harbor seals that winter here! This is a 2-mile stroll along graded paths and the rocky coastline. You’ll learn how to identify some common and uncommon shore, migratory and feeder birds by sight and sound."
-              }
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Halibut Point State Park, along the Atlantic migratory path, is an excellent locale for winter birding species you rarely see anywhere else."
             }
           }
-        ]
+        },{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Through this event, you’ll learn that harlequins, scoters, eiders, grebes, mergansers, loons, gannets and many more spend their winters on our shores. There is also a good possibility of seeing harbor seals that winter here! This is a 2-mile stroll along graded paths and the rocky coastline. You’ll learn how to identify some common and uncommon shore, migratory and feeder birds by sight and sound."
+            }
+          }
+        }]
       }
     },
+
     "youWillNeed": {
       "compHeading": {
         "title": "You will need",
         "id": "",
         "sub": true
       },
-      "rteElements": [
-        {
-          "path": "@atoms/08-lists/unordered-list.twig",
-          "data": {
-            "unorderedList": [
-              {
-                "text": "Sports clothes and shoes"
-              },
-              {
-                "text": "To ensure all children are accompanied by an adult"
-              },
-              {
-                "text": "Your binoculars, if you have any!"
-              }
-            ]
-          }
+      "rteElements": [{
+        "path": "@atoms/08-lists/unordered-list.twig",
+        "data": {
+          "unorderedList": [{
+            "text": "Sports clothes and shoes"
+          },{
+            "text": "To ensure all children are accompanied by an adult"
+          },{
+            "text": "Your binoculars, if you have any!"
+          }]
         }
-      ]
+      }]
     },
+
     "contactList": {
       "viewSpecific": false,
-      "compHeading": {
+      "compHeading":{
         "title": "Contact",
         "sub": true
       },
-      "contacts": [
-        {
-          "accordion": true,
-          "isExpanded": false,
-          "subTitle": {
-            "href": "",
-            "text": "Peter Van Demark"
-          },
-          "groups": [
-            {
-              "icon": "phone",
-              "name": "Phone",
-              "items": [
-                {
-                  "type": "phone",
-                  "property": "",
-                  "label": "Main:",
-                  "link": {
-                    "href": "+17817401605",
-                    "text": "(781) 740-1605",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                }
-              ]
+      "contacts":[{
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href":"",
+          "text": "Peter Van Demark"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
             },
-            {
-              "icon": "laptop",
-              "name": "Online",
-              "hidden": "",
-              "items": [
-                {
-                  "type": "online",
-                  "property": "",
-                  "label": "",
-                  "link": {
-                    "href": "#",
-                    "text": "peter.vandermark@state.ma.us",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                }
-              ]
-            }
-          ]
-        }
-      ]
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"",
+            "link": {
+              "href":"#",
+              "text": "peter.vandermark@state.ma.us",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
     },
-    "linkList": {
+
+    "linkList" : {
       "compHeading": {
         "title": "Other Dates",
         "sub": true
       },
       "description": {
-        "rteElements": [
-          {
-            "path": "@atoms/11-text/paragraph.twig",
-            "data": {
-              "paragraph": {
-                "text": "Can’t make it to this event? Don’t worry, we have other dates scheduled as well!"
-              }
+        "rteElements": [{
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph" : {
+              "text": "Can’t make it to this event? Don’t worry, we have other dates scheduled as well!"
             }
           }
-        ]
+        }]
       },
+
       "stacked": true,
-      "links": [
-        {
-          "href": "#",
-          "text": "Wednesday, January 21, 2017, 10:00 a.m. - 4:00 p.m.",
-          "info": "",
-          "property": ""
-        },
-        {
-          "href": "#",
-          "text": "Friday, January 23, 2017, 10:00 a.m. - 4:00 p.m.",
-          "info": "",
-          "property": ""
-        },
-        {
-          "href": "#",
-          "text": "Saturday, January 24, 2017, 10:00 a.m. - 4:00 p.m.",
-          "info": "",
-          "property": ""
-        }
-      ]
+      "links" : [{
+        "href":"#",
+        "text":"Wednesday, January 21, 2017, 10:00 a.m. - 4:00 p.m.",
+        "info": "",
+        "property": ""
+      },{
+        "href":"#",
+        "text":"Friday, January 23, 2017, 10:00 a.m. - 4:00 p.m.",
+        "info": "",
+        "property": ""
+      },{
+        "href":"#",
+        "text":"Saturday, January 24, 2017, 10:00 a.m. - 4:00 p.m.",
+        "info": "",
+        "property": ""
+      }]
     }
   },
+
   "sideContent": {
     "contactList": {
       "viewSpecific": true,
-      "sidebarHeading": {
+      "sidebarHeading":{
         "title": "Contact"
       },
-      "contacts": [
-        {
-          "subTitle": {
-            "href": "",
-            "text": "Peter Van Demark"
-          },
-          "groups": [
-            {
-              "icon": "phone",
-              "name": "Phone",
-              "items": [
-                {
-                  "type": "phone",
-                  "property": "",
-                  "label": "Main:",
-                  "link": {
-                    "href": "+17817401605",
-                    "text": "(781) 740-1605",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                }
-              ]
+      "contacts":[{
+        "subTitle": {
+          "href":"",
+          "text": "Peter Van Demark"
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "link": {
+              "href": "+17817401605",
+              "text": "(781) 740-1605",
+              "info": "",
+              "property": ""
             },
-            {
-              "icon": "laptop",
-              "name": "Online",
-              "hidden": "",
-              "items": [
-                {
-                  "type": "online",
-                  "property": "",
-                  "label": "",
-                  "link": {
-                    "href": "#",
-                    "text": "peter.vandermark@state.ma.us",
-                    "info": "",
-                    "property": ""
-                  },
-                  "details": ""
-                }
-              ]
-            }
-          ]
-        }
-      ]
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "online",
+            "property": "",
+            "label":"",
+            "link": {
+              "href":"#",
+              "text": "peter.vandermark@state.ma.us",
+              "info": "",
+              "property": ""
+            },
+            "details":""
+          }]
+        }]
+      }]
     }
   },
+
   "bottomContent": {
     "eventListing": {
-      "compHeading": {
+      "compHeading":{
         "title": "Related Events",
         "centered": true
       },
-      "events": [
-        {
-          "title": {
-            "href": "#",
-            "text": "Angler Education Program",
-            "info": "",
-            "property": ""
-          },
-          "location": "Rockpot, MA",
-          "date": {
-            "summary": "January 15, 2018",
-            "startMonth": "Jan",
-            "startDay": "15",
-            "endMonth": "",
-            "endDay": ""
-          },
-          "time": "12:00 p.m. - 2:00 p.m.",
-          "description": "Event description. Ut nulla. Vivamus bibendum, nulla ut congue fringilla, lorem ipsum ultricies risus, ut rutrum velit tortor vel purus."
+      "events":[{
+        "title": {
+          "href": "#",
+          "text": "Angler Education Program",
+          "info": "",
+          "property": ""
         },
-        {
-          "title": {
-            "href": "#",
-            "text": "Boy Scout Ice Fishing Festival",
-            "info": "",
-            "property": ""
-          },
-          "location": "Lincoln, MA",
-          "date": {
-            "summary": "February 19, 2018",
-            "startMonth": "Feb",
-            "startDay": "19",
-            "endMonth": "",
-            "endDay": ""
-          },
-          "time": "12:00 p.m. - 2:00 p.m.",
-          "description": ""
-        }
-      ],
+        "location": "Rockpot, MA",
+        "date": {
+          "summary": "January 15, 2018",
+          "startMonth": "Jan",
+          "startDay": "15",
+          "endMonth": "",
+          "endDay": ""
+        },
+        "time": "12:00 p.m. - 2:00 p.m.",
+        "description": "Event description. Ut nulla. Vivamus bibendum, nulla ut congue fringilla, lorem ipsum ultricies risus, ut rutrum velit tortor vel purus."
+      },{
+        "title": {
+          "href": "#",
+          "text": "Boy Scout Ice Fishing Festival",
+          "info": "",
+          "property": ""
+        },
+        "location": "Lincoln, MA",
+        "date": {
+          "summary": "February 19, 2018",
+          "startMonth": "Feb",
+          "startDay": "19",
+          "endMonth": "",
+          "endDay": ""
+        },
+        "time": "12:00 p.m. - 2:00 p.m.",
+        "description": ""
+      }],
       "more": null
     }
   }

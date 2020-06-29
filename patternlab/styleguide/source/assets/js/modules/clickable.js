@@ -3,8 +3,8 @@ export default (function (window,document,$,undefined) {
     // if the this is clicked
     $(this).click(function(event){
       event.preventDefault();
-      var $el = $(this).find('.js-clickable-link').first();
 
+      var $el = $(this).find('.js-clickable-link').first();
       // find the destination
       var dest = $el.attr("href");
       // if the target attribute exists

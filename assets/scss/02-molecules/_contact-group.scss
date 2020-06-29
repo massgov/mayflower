@@ -95,19 +95,19 @@
     }
 
     span {
-      font-weight: $fonts-bold;
+      font-weight: 700;
     }
   }
 
   &__label {
-    font-weight: $fonts-normal;
+    font-weight: 500;
   }
 
   &__value {
-    font-weight: $fonts-lighter;
+    font-weight: 300;
   }
 
   .ma__content-link--phone {
-    font-weight: $fonts-lighter;
+    font-weight: 300;
   }
 }

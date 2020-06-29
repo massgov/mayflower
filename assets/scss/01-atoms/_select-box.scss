@@ -85,12 +85,12 @@
 .ma__select-box {
 
   &__label {
-    font-weight: $fonts-normal;
+    font-weight: 500;
   }
 
   &__select {
     color: $c-font-base;
-    font-weight: $fonts-lighter;
+    font-weight: 300;
   }
 
   &__link {

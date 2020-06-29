@@ -48,7 +48,7 @@
     h#{$i} {
       margin-top: 0;
       color: $c-font-heading;
-      font-weight: $fonts-bold;
+      font-weight: 700;
 
       @include ma-heading($i+1);
     }

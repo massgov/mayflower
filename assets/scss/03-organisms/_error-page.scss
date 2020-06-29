@@ -56,15 +56,15 @@
 
   &__type {
     color: $c-font-detail;
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__title {
-    font-weight: $fonts-bold;
+    font-weight: 700;
   }
 
   &__message {
     color: $c-font-base;
-    font-weight: $fonts-lighter;
+    font-weight: 300;
   }
 }
