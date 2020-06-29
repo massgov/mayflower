@@ -20,7 +20,7 @@ jumpToSearchButton.addEventListener("click", function (event) {
 
 function toggleFeedbackButton() {
   // Cannot use .toggle. It results to show the button with the dropdown and hide it with the closed dropdown.
-  if(feedbackButton.classList.has("hide-button") === false) {
+  if(feedbackButton.classList.contains("hide-button") === false) {
     feedbackButton.classList.add("hide-button");
   }
   else {
