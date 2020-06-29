@@ -62,7 +62,7 @@ For a more detailed guide and information on the components included in Mayflowe
 
 #### System Requirements
 
-- node.js, currently standardized on version 12.18.1
+- node.js, currently standardized on version 12.18.0
 - npm, currently standardized on version 6.4.1
 - That's it! All other dependencies should be included when you run ``npm i``.
 
