@@ -13,7 +13,7 @@
 
       a {
         color: $c-black;
-        font-weight: 700;
+        font-weight: $fonts-bold;
         cursor: text;
         pointer-events: none;
       }
@@ -28,7 +28,7 @@
 
       a {
         color: $c-gray-dark;
-        font-weight: 500;
+        font-weight: $fonts-normal;
 
         @include ma-link-transition;
 

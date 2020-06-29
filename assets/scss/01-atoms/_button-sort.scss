@@ -37,7 +37,7 @@
 
 .ma__button-sort {
   color: $c-font-link;
-  font-weight: 700;
+  font-weight: $fonts-bold;
 
   &--asc,
   &--dsc {

@@ -124,7 +124,7 @@
 
     a {
       border-color: rgba($c-font-link,.2);
-      font-weight: 500;
+      font-weight: $fonts-normal;
 
       &:hover {
         border-color: $c-font-link;
@@ -133,7 +133,7 @@
 
     > button {
       color: $c-primary;
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
   }
 }
