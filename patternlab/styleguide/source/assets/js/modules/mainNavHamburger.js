@@ -317,8 +317,9 @@ window.onresize = function () {
 };
 
 
-// Utility nav wide
-// REF: let utilNavWide = document.querySelector(".js-utility-nav--wide");
+// ** Utility nav
+
+// Wide/utility nav bar
 const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
 const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
 const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
@@ -332,17 +333,15 @@ utilWideButton.addEventListener("click", function (e) {
   utilWideContent.classList.toggle("is-closed");
   utilWideContent.toggleAttribute("aria-hidden");
 
+  // Button state
   if (utilWideContent.classList.contains("is-closed")) {
-    // Button state
     utilWideButton.setAttribute("aria-expanded", "false");
     utilWideButton.setAttribute("aria-pressed", "false");
   }
   else {
-    // Button state
     utilWideButton.setAttribute("aria-expanded", "true");
     utilWideButton.setAttribute("aria-pressed", "true");
   }
-
 });
 
 // Close
@@ -360,40 +359,29 @@ utilWideCloseButton.addEventListener("click", function (e) {
   utilWideButton.setAttribute("aria-expanded", "false");
   utilWideButton.setAttribute("aria-pressed", "false");
 
-
   e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
 });
 
-// ====================
+// Narrow/in hamburger menu
+const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+const utilNarrowContent = document.querySelector(".ma__header__hamburger__utility-nav--narrow .js-util-nav-content");
 
+utilNarrowButton.addEventListener("click", function(e) {
 
-// Utility nav elements
-const utilButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-// const utilContentContaier = document.querySelector(".ma__header__hamburger__utility-nav--narrow .ma__utility-nav__container");
-const utilContent = document.querySelector(".ma__header__hamburger__utility-nav--narrow .js-util-nav-content");
+  utilNarrowContent.classList.toggle("is-closed");
+  utilNarrowContent.toggleAttribute("aria-hidden");
 
-// utilContent.classList.remove("is-closed");
-
-// utilButton.addEventListener("click", function(e) {
-
-//   let thisButton = e.target.closest(".js-util-nav-toggle");
-
-//   // utilContentContaier.classList.toggle("open");
-
-//   if (thisButton.getAttribute("aria-expanded") === "false") {
-//     // Open
-//     thisButton.setAttribute("aria-expanded", "true");
-//     thisButton.setAttribute("aria-pressed", "true");
-//     thisButton.classList.add("open");
-
-//   } else {
-//     // Close
-//     thisButton.setAttribute("aria-expanded", "false");
-//     thisButton.setAttribute("aria-pressed", "false");
-//     thisButton.classList.remove("open");
-//   }
-
-// });
+  // Button state
+  if (utilNarrowContent.classList.contains("is-closed")) {
+    // Close
+    utilNarrowButton.setAttribute("aria-expanded", "false");
+    utilNarrowButton.setAttribute("aria-pressed", "false");
+  } else {
+    // Open
+    utilNarrowButton.setAttribute("aria-expanded", "true");
+    utilNarrowButton.setAttribute("aria-pressed", "true");
+  }
+});
 
 
 // ====================
