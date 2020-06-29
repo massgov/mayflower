@@ -33,27 +33,39 @@ if (null !== menuButton) {
       openMenu();
       // Set focus on hamburger menu container.
       menuButton.blur();
-      hamburgerMenuContainer.setAttribute("tabindex", "0");
-      hamburgerMenuContainer.focus();
     }
   });
 
   menuButton.addEventListener("keydown", function (e) {
 
-    // if (e.code == 'ArrowDown') {
-    //   event.preventDefault();
-    //   openMenu();
+    // When hamburger menu is open.
+    if (body.classList.contains("show-menu")) {
 
-    //   if (window.innerWidth > 620) {
-    //     setTimeout(function timeoutFunction() {
-    //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
-    //     }, 500);
-    //   } else {
-    //     setTimeout(function timeoutFunction() {
-    //       document.querySelector('.js-header__nav-search input').focus();
-    //     }, 500);
-    //   }
-    // }
+      if (e.key === 9) {// TAB
+        if (width > 620) {
+          menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
+        }
+        else {
+          hamburgerMenuContainer.querySelector(".ma__site-logo a").focus;
+        }
+      }
+    }
+
+// ===============
+    if (e.code == 'ArrowDown') {
+      event.preventDefault();
+      openMenu();
+
+      if (window.innerWidth > 620) {
+        setTimeout(function timeoutFunction() {
+          menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
+        }, 500);
+      } else {
+        setTimeout(function timeoutFunction() {
+          document.querySelector('.js-header__nav-search input').focus();
+        }, 500);
+      }
+    }
 
     // NOTE: This causes a keyboard trap at the menu open/close button.
     // if (e.code == 'Tab') {
