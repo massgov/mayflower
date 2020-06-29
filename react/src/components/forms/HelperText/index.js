@@ -20,7 +20,7 @@ HelperText.propTypes = {
   /** The ID of the corresponding input field */
   inputId: PropTypes.string.isRequired,
   /** The help text for the corresponding input field */
-  message: PropTypes.string.isRequired
+  message: PropTypes.node.isRequired
 };
 
 export default HelperText;

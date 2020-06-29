@@ -105,6 +105,19 @@
 
     &.is-title {
 
+      span {
+        color: $c-gray-dark;
+        border-bottom: 3px solid transparent;
+        padding-top: 3px;
+        padding-bottom: 1px;
+        -webkit-transition: border 0.4s ease;
+        -o-transition: border 0.4s ease;
+        transition: border 0.4s ease;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.2;
+      }
+
       a {
         color: $c-gray-dark !important;
 
@@ -117,9 +130,16 @@
         border-bottom-color: transparent;
       }
 
+      &.is-active {
+
+        div {
+          font-weight: 700;
+        }
+      }
+
       @media ($bp-medium-min) {
         display: none;
-        
+
         &.is-active {
           display: none;
         }
@@ -131,7 +151,7 @@
 
       a {
         color: $c-font-base;
-        font-weight: 700;
+        font-weight: $fonts-bold;
       }
 
       &:hover a {
@@ -151,11 +171,11 @@
     a {
 
       @include ma-link-underline;
-      font-weight: 500;
+      font-weight: $fonts-normal;
     }
   }
 
-  
+
     &__link + &__link {
     border-top-color: $c-gray-light;
 

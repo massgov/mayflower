@@ -2,10 +2,20 @@
 
 {% block header %}
   {% include "@organisms/by-template/header.twig" %}
+{% endblock %}
+
+{% block preContent %}
+  {% include "@molecules/relationship-indicators.twig" %}
   {% for navSection in binderNavigationSections %}
     {% set tableOfContentsOverlay = navSection.tableOfContents %}
     {% include "@organisms/by-template/table-of-contents-overlay.twig" %}
   {% endfor %}
+  {% if illustratedHeader %}
+    {% include "@organisms/by-template/illustrated-header.twig" %}
+  {% endif %}
+  {% if pageHeader %}
+    {% include "@organisms/by-template/page-header.twig" %}
+  {% endif %}
 {% endblock %}
 
 {% block pageContent %}{% endblock %}
