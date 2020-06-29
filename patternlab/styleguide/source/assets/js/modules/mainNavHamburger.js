@@ -3,11 +3,14 @@ let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = document.querySelector(".js-header__menu-text");
 let buttonLabel;
+const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
+const hamburgerSearchInput = document.getElementById("nav-search");
+// const hamburgerSearchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
 
 
 if (null !== menuButtonText) {
@@ -23,9 +26,15 @@ if (null !== menuButton) {
 
     if (body.classList.contains("show-menu")) {
       closeMenu();
+      // Set focus on menu button.
+      menuButton.focus();
     } else {
       // menuButton.focus();
       openMenu();
+      // Set focus on hamburger menu container.
+      menuButton.blur();
+      hamburgerMenuContainer.setAttribute("tabindex", "0");
+      hamburgerMenuContainer.focus();
     }
   });
 
@@ -211,8 +220,14 @@ jumpToSearchButton.addEventListener("click", function(e) {
 
   if (body.classList.contains("show-menu")) {
     closeMenuJumpToSearch();
+    // Set focus on the jumpToSearchButton button since the input gets hidden by closing the menu.
+    hamburgerSearchInput.blur();
+    jumpToSearchButton.focus();
   } else {
-    openMenuJumpToSearch()();
+    openMenuJumpToSearch();
+    // Set focus on the search input field.
+    jumpToSearchButton.blur();
+    hamburgerSearchInput.focus();
   }
 });
 
@@ -224,8 +239,6 @@ function closeMenu() {
 function closeMenuJumpToSearch() {
   commonCloseMenuTasks();
   jumpToSearchButton.setAttribute("aria-pressed", "false");
-  // Set focus on the jumpToSearchButton button since the input gets hidden by closing the menu.
-  jumpToSearchButton.focus();
 }
 
 function commonCloseMenuTasks() {
@@ -246,11 +259,6 @@ function openMenu() {
 }
 
 function openMenuJumpToSearch() {
-
-  // Set focus on the search input field.
-  document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
-  // document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("placeholder", "panda");
-
   commonOpenMenuTasks();
   jumpToSearchButton.setAttribute("aria-pressed", "true");
 }
@@ -288,7 +296,6 @@ function closeSubMenus(item) {
         siblings[i].classList.remove("submenu-open");
         siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
         siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-label", "show menu");
-
       }, 500);
 
     }
