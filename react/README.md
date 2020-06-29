@@ -9,6 +9,30 @@ Mayflower-react is a React component library under the [enterprise design system
   >[Mayflower monorepo][mayflower-github] comprised of [Mayflower documentation][mayflower-doc], two component libraries — [Mayflower React][react-storybook] and [Mayflower PatternLab][patternLab], and their [shared assets][shared-assets].
   > Refer to [Mayflower PatternLab Static Site][patternlab] for the set of UI components consumed in Mass.gov.
 
+Version 10.x of mayflower-react has removed the `es/` and `lib/` directories. Instead, the ES5 and ES6 versions now live in the same directory of the component as `index.js` and `index.mjs` respectively:
+```javascript
+// This is the ES5 version.
+import { Button } from '@massds/mayflower-react';
+import Button from '@massds/mayflower-react/dist/Button';
+
+// This is the ES6 version.
+import { Button } from '@massds/mayflower-react/index.mjs';
+import Button from '@massds/mayflower-react/dist/Button/index.mjs';
+```
+Mayflower React v10.x has its module entry point set to `dist/index.mjs`, so if your project is set to use ES Modules, importing from `@massds/mayflower-react` will default to using the ES6 version of the package.
+
+As of version 10.x, Mayflower React styles come directly from the `@massds/mayflower-assets` package. Each component has been documented with the exact scss files from mayflower-assets you need to include in your project for it to render the same as the [Mayflower React Storybook][react-storybook]:
+```javascript
+/**
+ * Example pulled from ButtonAlert module.
+ * @module @massds/mayflower-react/ButtonAlert
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
+ */
+```
 
 ## Using Mayflower-React in Your Project
 1. Install mayflower-react and mayflower-assets into your project dependency:
@@ -27,30 +51,6 @@ import Button from '@massds/mayflower-react/dist/Button';
 ```javascript
 <Button text="Button" onClick={() => console.log('mayflower button clicked!')} />
 ```
-
-As of version 10.x, `mayflower-react` styles come directly from the `mayflower-assets` package. Each component has been documented with the exact scss files from mayflower-assets you need to include in your project for it to render the same as the [Mayflower React Storybook][react-storybook]:
-```javascript
-/**
- * Example pulled from ButtonAlert module.
- * @module @massds/mayflower-react/ButtonAlert
- * @requires module:@massds/mayflower-assets/scss/01-atoms/button-with-icon
- * @requires module:@massds/mayflower-assets/scss/01-atoms/button-search
- * @requires module:@massds/mayflower-assets/scss/01-atoms/input-typeahead
- * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-icons
- * @requires module:@massds/mayflower-assets/scss/01-atoms/svg-loc-icons
- */
-```
-Version 10.x of mayflower-react has also removed the `es/` and `lib/` directories. Instead, the ES5 and ES6 versions live in the same directory of the component as `index.js` and `index.mjs` respectively:
-```javascript
-// This is the ES5 version.
-import { Button } from '@massds/mayflower-react';
-import Button from '@massds/mayflower-react/dist/Button';
-
-// This is the ES6 version.
-import { Button } from '@massds/mayflower-react/index.mjs';
-import Button from '@massds/mayflower-react/dist/Button/index.mjs';
-```
-Mayflower React v10.x has its module entry point set to `dist/index.mjs`, so if your project is set to use ES Modules, importing from `@massds/mayflower-react` will default to using the ES6 version of the package.
 
 For a more detailed guide and information on the components included in Mayflower React and their functionality, visit our [Mayflower React Storybook][react-storybook]. Click on the Info and Knobs tabs for component prop types, details and options.
 
