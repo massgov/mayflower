@@ -3,6 +3,7 @@
 $titleColor:      $c-primary-alt  !default;
 $backgroundColor: $c-primary  !default;
 $bannerColor:     $c-gray-lightest  !default;
+$alignment:       space-between !default;
 
 .ma__header_slim {
 
@@ -20,10 +21,13 @@ $bannerColor:     $c-gray-lightest  !default;
       display: flex;
       align-items: center;
       width: 100%;
+      text-decoration: none;
 
       span {
         font-weight: $fonts-light;
         color: $titleColor;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: $titleColor;
         font-size: 1.9rem;
         display: inline-block;
         margin-left: 0.4rem;
@@ -52,7 +56,7 @@ $bannerColor:     $c-gray-lightest  !default;
 
         @media ($bp-large-min) {
           align-items: center;
-          justify-content: 'space-between';
+          justify-content: $alignment;
         }
 
 
