@@ -51,7 +51,7 @@ if (null !== menuButton) {
       }
     }
 
-// ===============
+// =============== exisiting code below
     if (e.code == 'ArrowDown') {
       event.preventDefault();
       openMenu();
