@@ -11,6 +11,7 @@ const HeaderSlim = (props) => (
     <header className="ma__header_slim__header" id="header">
       <div className="ma__header_slim__container ma__container">
         <div className="ma__header_slim__logo">{props.siteLogo}</div>
+        {props.children}
       </div>
     </header>
   </div>
