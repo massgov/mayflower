@@ -358,8 +358,10 @@ utilWideButton.addEventListener("click", function (e) {
     utilWideButton.setAttribute("aria-pressed", "false");
   }
   else {
-    utilWideButton.setAttribute("aria-expanded", "true");
-    utilWideButton.setAttribute("aria-pressed", "true");
+    setTimeout(function() {
+      utilWideButton.setAttribute("aria-expanded", "true");
+      utilWideButton.setAttribute("aria-pressed", "true");
+    }, 100);
   }
 });
 
@@ -378,7 +380,9 @@ utilWideCloseButton.addEventListener("click", function (e) {
   utilWideButton.setAttribute("aria-expanded", "false");
   utilWideButton.setAttribute("aria-pressed", "false");
 
-  e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
+  setTimeout(function() {
+    e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
+  }, 200);
 });
 
 // Narrow/in hamburger menu
