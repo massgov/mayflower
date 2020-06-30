@@ -1,5 +1,9 @@
 @use "00-base/global" as *;
 
+$titleColor:      $c-primary-alt  !default;
+$backgroundColor: $c-primary  !default;
+$bannerColor:     $c-gray-lightest  !default;
+
 .ma__header_slim {
 
   .ma__container {
@@ -7,28 +11,19 @@
     @include ma-container;
   }
 
-  a {
-    transition: all 0.4s ease;
-    text-decoration: none;
-    font-weight: $fonts-bold;
-    color: $c-primary;
-  }
-
   .ma__site-logo {
     width: 100%;
 
-    & a {
+    a {
       font-size: 0px;
       margin: 0;
       display: flex;
       align-items: center;
       width: 100%;
 
-      & span {
+      span {
         font-weight: $fonts-light;
-        color: $c-primary-alt;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: $c-primary-alt;
+        color: $titleColor;
         font-size: 1.9rem;
         display: inline-block;
         margin-left: 0.4rem;
@@ -41,24 +36,23 @@
 
   &__banner {
     height: 15px;
-    background-color: $c-primary;
+    background-color: $backgroundColor;
     color: white;
   }
 
   &__header {
-    background-color: $c-gray-lightest;
+    background-color: $bannerColor;
     position: relative;
   }
 
   &__container {
-      font-size: 0;
       padding-top: 20px;
       padding-bottom: 20px;
       display: flex;
 
         @media ($bp-large-min) {
           align-items: center;
-          justify-content: space-between;
+          justify-content: 'space-between';
         }
 
 
