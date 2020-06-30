@@ -28,7 +28,6 @@
     "lint"
   ],
   "dependencies": {
-    "@massds/mayflower-assets": "^0.2.1",
     "airbnb-prop-types": "^2.13.2",
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",
@@ -51,6 +50,9 @@
     "react-transition-group": "^2.4.0",
     "shortid": "^2.2.8",
     "svg-sprite-loader": "^5.0.0"
+  },
+  "peerDependencies": {
+    "@massds/mayflower-assets": "^0.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
