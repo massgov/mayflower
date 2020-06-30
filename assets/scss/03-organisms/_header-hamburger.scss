@@ -442,7 +442,6 @@ body.show-menu {
             background-color: $c-gray-lightest;
             width: 100%;
 
-            width: 100%;
             text-align: left;
 
             &:hover {
@@ -691,8 +690,9 @@ body.show-menu {
 }
 
 // TEST STYLES
+
 *:focus {
   // border: 4px solid yellowgreen !important;;
   background-color: yellowgreen !important;
-  outline: yellowgreen !important;;
+  outline: yellowgreen !important;
 }

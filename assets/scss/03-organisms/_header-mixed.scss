@@ -688,6 +688,7 @@
     }
 
     // Hide hamburger menu.
+    
     & .ma__header__hamburger__button-container {
       display: none;
     }
@@ -699,6 +700,7 @@
   }
 
   // Expand utility nav container.
+
   .util-nav-content-open .ma__header__hamburger-wrapper {
     padding: 0;
   }
@@ -714,6 +716,7 @@
   .ma__header__hamburger__mixed {
 
     //Hide horizontal menu.
+
     .ma__header__nav {
       display: none;
     }
