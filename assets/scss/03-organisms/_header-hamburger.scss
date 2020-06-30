@@ -213,7 +213,7 @@ body.show-menu {
     height: 95vh;
     top: 40px;
     overflow-y: auto;
-    position: fixed;
+    position: absolute;//fixed;
     left: -320px;
     // visibility for keyboard and screen reader users are managed with toggling aria-hidden value with js.
     visibility: hidden;
@@ -441,8 +441,6 @@ body.show-menu {
             text-align: left;
             background-color: $c-gray-lightest;
             width: 100%;
-
-            text-align: left;
 
             &:hover {
               box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
