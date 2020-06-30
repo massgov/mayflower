@@ -349,6 +349,8 @@ utilWideButton.addEventListener("click", function (e) {
   e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
 
   // Content state
+  utilWideContent.style.height = "auto";
+  utilWideContent.style.opacity = "1";
   utilWideContent.classList.toggle("is-closed");
   utilWideContent.toggleAttribute("aria-hidden");
 
@@ -361,7 +363,7 @@ utilWideButton.addEventListener("click", function (e) {
     setTimeout(function() {
       utilWideButton.setAttribute("aria-expanded", "true");
       utilWideButton.setAttribute("aria-pressed", "true");
-    }, 100);
+    }, 200);
   }
 });
 
@@ -370,6 +372,8 @@ utilWideButton.addEventListener("click", function (e) {
 utilWideCloseButton.addEventListener("click", function (e) {
 
   // Content state
+  utilWideContent.style.height = "0";
+  utilWideContent.style.opacity = "0";
   utilWideContent.classList.add("is-closed");
   utilWideContent.setAttribute("aria-hidden", "true");
 
@@ -380,9 +384,9 @@ utilWideCloseButton.addEventListener("click", function (e) {
   utilWideButton.setAttribute("aria-expanded", "false");
   utilWideButton.setAttribute("aria-pressed", "false");
 
-  setTimeout(function() {
+  // setTimeout(function() {
     e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
-  }, 200);
+  // }, 200);
 });
 
 // Narrow/in hamburger menu
