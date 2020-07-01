@@ -1,11 +1,12 @@
 export default (function (window, document, $, undefined) {
   let $panels = $('.js-util-nav-content');
+  let $panel = "";
   let $utilityButtons = $('.js-util-nav-toggle');
 
   $panels.each(function () {
     // Distinguish util. nav content from one for hamburger nav's.
     if ($(this).closest(".ma__header__hamburger__utility-nav--narrow") !== true) {
-      const $panel = $(this);
+      $panel = $(this);
     }
     const height = $panel.height();
     const $closeButton = $panel.find('.js-close-util-nav');
