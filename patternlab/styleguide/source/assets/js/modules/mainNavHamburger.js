@@ -19,7 +19,7 @@ if (null !== menuButtonText) {
 // Open and close the menu
 // if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     // alert(document.activeElement);
 
@@ -29,53 +29,52 @@ if (null !== menuButtonText) {
 
     if (body.classList.contains("show-menu")) {
       closeMenu();
-      // Set focus on menu button.
-      menuButton.focus();
+    //   // Set focus on menu button.
+    //   menuButton.focus();
     } else {
       openMenu();
-      // menuButton.blur();
-      hamburgerMenuContainer.setAttribute("tabindex", "0");
-      // Set focus on hamburger menu container.
-      // Then, next tabbing takes a user to the first focusable element in the menu container.
-      hamburgerMenuContainer.focus();
-      if (menuButton === document.activeElement) {
-        if (hamburgerMenuContainer === document.querySelector(".ma__header__hamburger__nav-container")) {
-          // hamburgerMenuContainer.focus();
-          document.querySelector(".ma__site-logo a").focus();
-        }
-      }
+    //   // menuButton.blur();
+    //   hamburgerMenuContainer.setAttribute("tabindex", "0");
+    //   // Set focus on hamburger menu container.
+    //   // Then, next tabbing takes a user to the first focusable element in the menu container.
+    //   hamburgerMenuContainer.focus();
+    //   if (menuButton === document.activeElement) {
+    //     if (hamburgerMenuContainer === document.querySelector(".ma__header__hamburger__nav-container")) {
+    //       // hamburgerMenuContainer.focus();
+    //       document.querySelector(".ma__site-logo a").focus();
+    //     }
+    //   }
     }
-  });
 
-  menuButton.addEventListener("keydown", function (e) {
+  // menuButton.addEventListener("keydown", function (e) {
 
-    alert(e.key);
+  //   alert(e.key);
 
-    // When hamburger menu is open.
-    if (body.classList.contains("show-menu")) {
+  //   // When hamburger menu is open.
+  //   if (body.classList.contains("show-menu")) {
 
-      if (e.key === 9) {// TAB
+  //     if (e.key === 9) {// TAB
 
-        hamburgerMenuContainer.setAttribute("tabindex", "0");
-        hamburgerMenuContainer.focus();
-      }
-    }
+  //       hamburgerMenuContainer.setAttribute("tabindex", "0");
+  //       hamburgerMenuContainer.focus();
+  //     }
+  //   }
 
 // =============== exisiting code below
-    if (e.code == 'ArrowDown') {
-      event.preventDefault();
-      openMenu();
+    // if (e.code == 'ArrowDown') {
+    //   event.preventDefault();
+    //   openMenu();
 
-      if (window.innerWidth > 620) {
-        setTimeout(function timeoutFunction() {
-          menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
-        }, 500);
-      } else {
-        setTimeout(function timeoutFunction() {
-          document.querySelector('.js-header__nav-search input').focus();
-        }, 500);
-      }
-    }
+    //   if (window.innerWidth > 620) {
+    //     setTimeout(function timeoutFunction() {
+    //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
+    //     }, 500);
+    //   } else {
+    //     setTimeout(function timeoutFunction() {
+    //       document.querySelector('.js-header__nav-search input').focus();
+    //     }, 500);
+    //   }
+    // }
 
     // NOTE: This causes a keyboard trap at the menu open/close button.
     // if (e.code == 'Tab') {
@@ -83,13 +82,13 @@ if (null !== menuButtonText) {
     //   document.querySelector('.ma__header__hamburger-search__input').focus();
     // }
 
-    if (e.shiftKey && e.code == "Tab") {
-      closeMenu();
-    }
+    // if (e.shiftKey && e.code == "Tab") {
+    //   closeMenu();
+    // }
 
-    if (e.code == "Escape" || e.which == "27") {
-      closeMenu();
-    }
+    // if (e.code == "Escape" || e.which == "27") {
+    //   closeMenu();
+    // }
   });
 // }
 
@@ -167,7 +166,7 @@ if (null !== menuButtonText) {
 
     if (e.code == "ArrowDown") {
       let first = subItems.getElementsByTagName("li")[0];
-      first.querySelector(".js-main-nav-hamburger__link").focus()
+      first.querySelector(".js-main-nav-hamburger__link").focus();
     }
 
     if (e.code == "Escape" || e.which == "27") {
@@ -217,13 +216,13 @@ if (null !== menuButtonText) {
       switch (e.code) {
         case "ArrowUp":
         case "ArrowLeft":
-          if (subItem = prevSib) {
+          if (subItem === prevSib) {
             prevSib.querySelector(".js-main-nav-hamburger__link").focus();
           }
           break;
         case "ArrowDown":
         case "ArrowRight":
-          if (subItem = nextSib) {
+          if (subItem === nextSib) {
             nextSib.querySelector(".js-main-nav-hamburger__link").focus();
           }
           break;
@@ -259,7 +258,8 @@ jumpToSearchButton.addEventListener("click", function(e) {
   hamburgerMenuContainer.toggleAttribute("aria-hidden");
 
   // if (document.activeElement === jumpToSearchButton) {
-  //   jumpToSearchButton.blur();
+  //   alert("button");
+  //   // jumpToSearchButton.blur();
   //   hamburgerSearchInput.focus();
   // }
   // else {
@@ -275,10 +275,12 @@ jumpToSearchButton.addEventListener("click", function(e) {
     // hamburgerSearchInput.blur();
     // jumpToSearchButton.focus();
   } else {
+
     openMenuJumpToSearch();
     // Set focus on the search input field.
     // jumpToSearchButton.blur();
     // hamburgerSearchInput.focus();
+    // hamburgerSearchInput.setAttribute("placeholder", "panda");
   }
 });
 
