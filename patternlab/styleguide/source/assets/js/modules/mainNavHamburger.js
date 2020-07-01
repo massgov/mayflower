@@ -17,9 +17,12 @@ if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
 }
 // Open and close the menu
-if (null !== menuButton) {
+// if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
+
+    // alert(document.activeElement);
+
 
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
     document.querySelector(".ma__header__hamburger__nav-container").toggleAttribute("aria-hidden");
@@ -29,25 +32,32 @@ if (null !== menuButton) {
       // Set focus on menu button.
       menuButton.focus();
     } else {
-      // menuButton.focus();
       openMenu();
+      // menuButton.blur();
+      hamburgerMenuContainer.setAttribute("tabindex", "0");
       // Set focus on hamburger menu container.
-      menuButton.blur();
+      // Then, next tabbing takes a user to the first focusable element in the menu container.
+      hamburgerMenuContainer.focus();
+      if (menuButton === document.activeElement) {
+        if (hamburgerMenuContainer === document.querySelector(".ma__header__hamburger__nav-container")) {
+          // hamburgerMenuContainer.focus();
+          document.querySelector(".ma__site-logo a").focus();
+        }
+      }
     }
   });
 
   menuButton.addEventListener("keydown", function (e) {
 
+    alert(e.key);
+
     // When hamburger menu is open.
     if (body.classList.contains("show-menu")) {
 
       if (e.key === 9) {// TAB
-        if (width > 620) {
-          menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
-        }
-        else {
-          hamburgerMenuContainer.querySelector(".ma__site-logo a").focus;
-        }
+
+        hamburgerMenuContainer.setAttribute("tabindex", "0");
+        hamburgerMenuContainer.focus();
       }
     }
 
@@ -81,7 +91,7 @@ if (null !== menuButton) {
       closeMenu();
     }
   });
-}
+// }
 
 [].forEach.call(menuItems, function (item) {
 
@@ -226,20 +236,49 @@ if (null !== menuButton) {
   });
 });
 
+
+
+// REFERENCE:
+
+// const body = document.querySelector("body");
+// const menuButton = document.querySelector(".js-header-menu-button");
+// const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
+
+// const hamburgerSearchInput = document.getElementById("nav-search");
+
+// // const hamburgerSearchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
+
+// const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
+
+
 jumpToSearchButton.addEventListener("click", function(e) {
+
+  // document.querySelector(".ma__header__hamburger__nav-container .js-header__nav-search .ma__header-search__input").focus();
+
   // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-  document.querySelector(".ma__header__hamburger__nav-container").toggleAttribute("aria-hidden");
+  hamburgerMenuContainer.toggleAttribute("aria-hidden");
+
+  // if (document.activeElement === jumpToSearchButton) {
+  //   jumpToSearchButton.blur();
+  //   hamburgerSearchInput.focus();
+  // }
+  // else {
+  //   hamburgerSearchInput.focus();
+  // }
+
+  hamburgerSearchInput.focus();
 
   if (body.classList.contains("show-menu")) {
     closeMenuJumpToSearch();
+
     // Set focus on the jumpToSearchButton button since the input gets hidden by closing the menu.
-    hamburgerSearchInput.blur();
-    jumpToSearchButton.focus();
+    // hamburgerSearchInput.blur();
+    // jumpToSearchButton.focus();
   } else {
     openMenuJumpToSearch();
     // Set focus on the search input field.
-    jumpToSearchButton.blur();
-    hamburgerSearchInput.focus();
+    // jumpToSearchButton.blur();
+    // hamburgerSearchInput.focus();
   }
 });
 
@@ -260,9 +299,13 @@ function commonCloseMenuTasks() {
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
-  feedbackButton.classList.remove("hide-button");
+  if (feedbackButton) {
+    feedbackButton.classList.remove("hide-button");
+  }
   jumpToSearchButton.setAttribute("aria-expanded", "false");
-  menuOverlay.classList.remove("overlay-open");
+  if (menuOverlay) {
+    menuOverlay.classList.remove("overlay-open");
+  }
 }
 
 function openMenu() {
@@ -281,10 +324,14 @@ function commonOpenMenuTasks() {
   menuButtonText.textContent = "Close";
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
-  feedbackButton.classList.add("hide-button");
+  if (feedbackButton) {
+    feedbackButton.classList.add("hide-button");
 
+  }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
-  menuOverlay.classList.add("overlay-open");
+  if (menuOverlay) {
+    menuOverlay.classList.add("overlay-open");
+  }
 }
 
 function closeSubMenus(item) {
@@ -338,6 +385,8 @@ window.onresize = function () {
 
 // ** Utility nav
 
+// REF: let utilNavWide = document.querySelector(".js-utility-nav--wide");
+
 // Wide/utility nav bar
 const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
 const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
@@ -384,9 +433,7 @@ utilWideCloseButton.addEventListener("click", function (e) {
   utilWideButton.setAttribute("aria-expanded", "false");
   utilWideButton.setAttribute("aria-pressed", "false");
 
-  // setTimeout(function() {
-    e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
-  // }, 200);
+  e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
 });
 
 // Narrow/in hamburger menu
