@@ -13,7 +13,6 @@
 
       <div class="ma__header__hamburger__button-container js-sticky-header">
         <button type="button"
-                aria-popup="true"
                 aria-expanded="false"
                 aria-label="Open the main menu for mass.gov"
                 class="ma__header__hamburger__menu-button js-header-menu-button">
@@ -25,7 +24,6 @@
         </button>
         {# Skip button to search. #}
         <button type="button"
-                aria-popup="true"
                 aria-expanded="false"
                 class="ma__header__hamburger__search-access-button js-header-search-access-button">
           <span class="ma__visually-hidden">Access to search</span>
@@ -36,23 +34,6 @@
       <div class="ma__header__hamburger__utility-nav ma__header__hamburger__utility-nav--wide js-utility-nav--wide">
         {% include "@organisms/by-template/utility-nav.twig" %}
       </div>
-
-      <div class="ma__header__hamburger__nav-container">
-      <div class="ma__header__hamburger__logo ma__header__hamburger__logo--mobile">
-        {% include "@atoms/09-media/site-logo.twig" %}
-      </div>
-      {% if not hideHeaderSearch %}
-        <div class="ma__header__hamburger__nav-search js-header__nav-search">
-          {% set headerSearch = headerSearch|merge({'id':'nav-search'}) %}
-          {% include "@molecules/header-search.twig" %}
-        </div>
-      {% endif %}
-      <div class="ma__header__hamburger__main-nav">
-        {% include "@molecules/main-nav-hamburger.twig" %}
-      </div>
-    </div>
-
-    </div>
 
       <div class="ma__header__hamburger__nav-container" aria-hidden="true">
         <div class="ma__header__hamburger__logo ma__header__hamburger__logo--mobile">
@@ -74,15 +55,16 @@
           {% include "@organisms/by-template/utility-nav.twig" %}
         </div>{# .ma__header__hamburger__utility-nav #}
       </div>{# .ma__header__hamburger__nav-container #}
+
     </div>{# . ma__header__hamburger-wrapper #}
   </nav>
 
   <div class="ma__header__container">
-    <div class="ma__header__logo" tabindex="-1">
+    <div class="ma__header__hamburger__logo" tabindex="-1">
       {% include "@atoms/09-media/site-logo.twig" %}
     </div>
     {% if not hideHeaderSearch %}
-      <div class="ma__header__search ma__header__search-bar js-header-search-menu">
+      <div class="ma__header__hamburger__search ma__header__hamburger__search-bar js-header-search-menu">
         {% include "@molecules/header-search.twig" %}
       </div>
     {% endif %}
