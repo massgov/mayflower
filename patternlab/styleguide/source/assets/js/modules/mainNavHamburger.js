@@ -10,8 +10,6 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const hamburgerSearchInput = document.getElementById("nav-search");
-// const hamburgerSearchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
-
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
@@ -381,11 +379,38 @@ const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
 // Open
 utilWideButton.addEventListener("click", function (e) {
 
-    setTimeout(function() {
-      utilWideButton.setAttribute("aria-expanded", "true");
-      utilWideButton.setAttribute("aria-pressed", "true");
-    }, 200);
-//   }
+  const thisWideButton = e.target.closest(".js-util-nav-toggle");
+  const thisWideContent = thisWideButton.nextElementSibling;
+
+  if (thisWideContent.classList.contains("is-closed")) {// Open
+    thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
+
+    thisWideContent.classList.remove("is-closed");
+    thisWideContent.removeAttribute("aria-hidden");
+    thisWideContent.removeAttribute("style");
+    thisWideContent.style.height = "auto";
+    thisWideContent.style.opacity = "1";
+
+    // Button State
+    thisWideButton.setAttribute("aria-expanded", "true");
+    thisWideButton.setAttribute("aria-pressed", "true");
+  }
+  else {// Close
+    thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
+    thisWideContent.classList.add("is-closed");
+    thisWideContent.setAttribute("aria-hidden", "true");
+    thisWideContent.style.height = "0";
+    thisWideContent.style.opacity = "0";
+
+    // Button State
+    thisWideButton.setAttribute("aria-expanded", "false");
+    thisWideButton.setAttribute("aria-pressed", "false");
+  }
+
+  setTimeout(function() {
+    thisWideButton.setAttribute("aria-expanded", "true");
+    thisWideButton.setAttribute("aria-pressed", "true");
+  }, 200);
 });
 
 // Close - Utility nav dropdown on the utility nav var overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
