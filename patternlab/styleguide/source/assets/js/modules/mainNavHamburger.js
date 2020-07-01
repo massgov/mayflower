@@ -135,6 +135,9 @@ if (null !== menuButtonText) {
         subItems.style.opacity = "1";
       }, 50);
 
+      /** Hide Utility menu content when a sub menu is open. */
+      closeNarrowUtilContent();
+
       /** Slide up. */
     } else {
       subMenu.style.height = "0";
@@ -435,6 +438,7 @@ utilWideCloseButton.addEventListener("click", function (e) {
 
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+let utilNarrowContent = utilNarrowButton.nextElementSibling;
 
 utilNarrowButton.nextElementSibling.style.opacity = "0";
 utilNarrowButton.nextElementSibling.style.height = "0";
@@ -442,7 +446,7 @@ utilNarrowButton.nextElementSibling.style.height = "0";
 utilNarrowButton.addEventListener("click", function(e) {
 
   const thisButton = e.target.closest(".js-util-nav-toggle");
-  const utilNarrowContent = thisButton.nextElementSibling;
+  utilNarrowContent = thisButton.nextElementSibling;
 
   if (utilNarrowContent.classList.contains("is-closed")) {// Open
 
@@ -461,18 +465,21 @@ utilNarrowButton.addEventListener("click", function(e) {
     }, 500);
 
   } else {// Close
-
-    utilNarrowContent.classList.add("is-closed");
-    utilNarrowContent.setAttribute("aria-hidden", "true");
-
-    // Button state
-    utilNarrowButton.setAttribute("aria-expanded", "false");
-    utilNarrowButton.setAttribute("aria-pressed", "false");
-
-    /** Slide up. */
-    setTimeout(function timeoutFunction() {
-      utilNarrowContent.style.opacity = "0";
-      utilNarrowContent.style.height = "0";
-    }, 500);
+    closeNarrowUtilContent();
   }
 });
+
+function closeNarrowUtilContent() {
+  utilNarrowContent.classList.add("is-closed");
+  utilNarrowContent.setAttribute("aria-hidden", "true");
+
+  // Button state
+  utilNarrowButton.setAttribute("aria-expanded", "false");
+  utilNarrowButton.setAttribute("aria-pressed", "false");
+
+  /** Slide up. */
+  setTimeout(function timeoutFunction() {
+    utilNarrowContent.style.opacity = "0";
+    utilNarrowContent.style.height = "0";
+  }, 500);
+}
