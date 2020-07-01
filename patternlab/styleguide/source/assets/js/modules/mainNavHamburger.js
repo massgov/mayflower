@@ -19,10 +19,7 @@ if (null !== menuButtonText) {
 // Open and close the menu
 // if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
-    // event.preventDefault();
-
-    // alert(document.activeElement);
-
+    event.preventDefault();
 
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
     document.querySelector(".ma__header__hamburger__nav-container").toggleAttribute("aria-hidden");
@@ -37,7 +34,8 @@ if (null !== menuButtonText) {
     //   hamburgerMenuContainer.setAttribute("tabindex", "0");
     //   // Set focus on hamburger menu container.
     //   // Then, next tabbing takes a user to the first focusable element in the menu container.
-    //   hamburgerMenuContainer.focus();
+      hamburgerMenuContainer.focus();
+
     //   if (menuButton === document.activeElement) {
     //     if (hamburgerMenuContainer === document.querySelector(".ma__header__hamburger__nav-container")) {
     //       // hamburgerMenuContainer.focus();
@@ -45,22 +43,11 @@ if (null !== menuButtonText) {
     //     }
     //   }
     }
+  });
 
+  // =============== exisiting code below
   // menuButton.addEventListener("keydown", function (e) {
 
-  //   alert(e.key);
-
-  //   // When hamburger menu is open.
-  //   if (body.classList.contains("show-menu")) {
-
-  //     if (e.key === 9) {// TAB
-
-  //       hamburgerMenuContainer.setAttribute("tabindex", "0");
-  //       hamburgerMenuContainer.focus();
-  //     }
-  //   }
-
-// =============== exisiting code below
     // if (e.code == 'ArrowDown') {
     //   event.preventDefault();
     //   openMenu();
@@ -89,7 +76,7 @@ if (null !== menuButtonText) {
     // if (e.code == "Escape" || e.which == "27") {
     //   closeMenu();
     // }
-  });
+  // });
 // }
 
 [].forEach.call(menuItems, function (item) {
@@ -280,7 +267,6 @@ jumpToSearchButton.addEventListener("click", function(e) {
     // Set focus on the search input field.
     // jumpToSearchButton.blur();
     // hamburgerSearchInput.focus();
-    // hamburgerSearchInput.setAttribute("placeholder", "panda");
   }
 });
 
@@ -387,8 +373,6 @@ window.onresize = function () {
 
 // ** Utility nav
 
-// REF: let utilNavWide = document.querySelector(".js-utility-nav--wide");
-
 // Wide/utility nav bar
 const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
 const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
@@ -397,28 +381,14 @@ const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
 // Open
 utilWideButton.addEventListener("click", function (e) {
 
-  e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
-
-  // Content state
-  utilWideContent.style.height = "auto";
-  utilWideContent.style.opacity = "1";
-  utilWideContent.classList.toggle("is-closed");
-  utilWideContent.toggleAttribute("aria-hidden");
-
-  // Button state
-  if (utilWideContent.classList.contains("is-closed")) {
-    utilWideButton.setAttribute("aria-expanded", "false");
-    utilWideButton.setAttribute("aria-pressed", "false");
-  }
-  else {
     setTimeout(function() {
       utilWideButton.setAttribute("aria-expanded", "true");
       utilWideButton.setAttribute("aria-pressed", "true");
     }, 200);
-  }
+//   }
 });
 
-// Close
+// Close - Utility nav dropdown on the utility nav var overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
 // TODO: esc key to close the content.
 utilWideCloseButton.addEventListener("click", function (e) {
 
@@ -440,40 +410,41 @@ utilWideCloseButton.addEventListener("click", function (e) {
 
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-const utilNarrowContent = document.querySelector(".ma__header__hamburger__utility-nav--narrow .js-util-nav-content");
 
 utilNarrowButton.addEventListener("click", function(e) {
 
-  utilNarrowContent.classList.toggle("is-closed");
-  utilNarrowContent.toggleAttribute("aria-hidden");
+  const thisButton = e.target.closest(".js-util-nav-toggle");
+  const utilNarrowContent = thisButton.nextElementSibling;
 
-  if (utilNarrowContent.classList.contains("is-closed")) {
-    // Close
+  if (utilNarrowContent.classList.contains("is-closed")) {// Open
+
+    utilNarrowContent.classList.remove("is-closed");
+    utilNarrowContent.removeAttribute("aria-hidden");
+
+    // Button state
+    thisButton.setAttribute("aria-expanded", "true");
+    thisButton.setAttribute("aria-pressed", "true");
+
+    /** Slide up. */
+    // NOTE: Following the pattern of the main nav @ L.282.
+    setTimeout(function timeoutFunction() {
+      utilNarrowContent.style.opacity = "1";
+      utilNarrowContent.style.height = "auto";
+    }, 500);
+
+  } else {// Close
+
+    utilNarrowContent.classList.add("is-closed");
+    utilNarrowContent.setAttribute("aria-hidden", "true");
 
     // Button state
     utilNarrowButton.setAttribute("aria-expanded", "false");
     utilNarrowButton.setAttribute("aria-pressed", "false");
 
     /** Slide up. */
-    // NOTE: Following the pattern of the main nav @ L.282.
     setTimeout(function timeoutFunction() {
-      // Container
       utilNarrowContent.style.opacity = "0";
       utilNarrowContent.style.height = "0";
-    }, 500);
-
-  } else {
-    // Open
-
-    // Button state
-    utilNarrowButton.setAttribute("aria-expanded", "true");
-    utilNarrowButton.setAttribute("aria-pressed", "true");
-
-     /** Slide up. */
-    setTimeout(function timeoutFunction() {
-      // Container
-      utilNarrowContent.style.opacity = "1";
-      utilNarrowContent.style.height = "auto";
     }, 500);
   }
 });
