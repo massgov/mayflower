@@ -436,6 +436,9 @@ utilWideCloseButton.addEventListener("click", function (e) {
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
 
+utilNarrowButton.nextElementSibling.style.opacity = "0";
+utilNarrowButton.nextElementSibling.style.height = "0";
+
 utilNarrowButton.addEventListener("click", function(e) {
 
   const thisButton = e.target.closest(".js-util-nav-toggle");
