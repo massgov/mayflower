@@ -24,22 +24,14 @@ if (null !== menuButtonText) {
 
     if (body.classList.contains("show-menu")) {
       closeMenu();
-    //   // Set focus on menu button.
-    //   menuButton.focus();
+      // Set focus on menu button.
+      menuButton.focus();
     } else {
       openMenu();
-    //   // menuButton.blur();
     //   hamburgerMenuContainer.setAttribute("tabindex", "0");
-    //   // Set focus on hamburger menu container.
-    //   // Then, next tabbing takes a user to the first focusable element in the menu container.
+      // Set focus on hamburger menu container.
+      // Then, next tabbing takes a user to the first focusable element in the menu container.
       hamburgerMenuContainer.focus();
-
-    //   if (menuButton === document.activeElement) {
-    //     if (hamburgerMenuContainer === document.querySelector(".ma__header__hamburger__nav-container")) {
-    //       // hamburgerMenuContainer.focus();
-    //       document.querySelector(".ma__site-logo a").focus();
-    //     }
-    //   }
     }
   });
 
@@ -98,7 +90,6 @@ if (null !== menuButtonText) {
     if (item.classList.contains("submenu-open")) {
       item.classList.remove("submenu-open");
       itemButton.setAttribute("aria-expanded", "false");
-      itemButton.setAttribute("aria-label", "show menu");
       item.style.pointerEvents = "none";
 
       setTimeout(function timeoutFunction() {
@@ -108,7 +99,6 @@ if (null !== menuButtonText) {
       item.classList.add("submenu-open");
       itemButton.setAttribute("aria-expanded", "true");
       item.style.pointerEvents = "none";
-      itemButton.setAttribute("aria-label", "hide menu");
       setTimeout(function timeoutFunction() {
         item.removeAttribute("style");
       }, 700);
@@ -135,7 +125,7 @@ if (null !== menuButtonText) {
         subItems.style.opacity = "1";
       }, 50);
 
-      /** Hide Utility menu content when a sub menu is open. */
+      /** Close Utility menu content when a sub menu is open. */
       closeNarrowUtilContent();
 
       /** Slide up. */
@@ -163,7 +153,6 @@ if (null !== menuButtonText) {
         subMenu.style.height = "0";
         itemButton.parentElement.classList.remove("submenu-open");
         itemButton.setAttribute("aria-expanded", "false");
-        itemButton.setAttribute("aria-label", "show menu");
 
         setTimeout(function timeoutFunction() {
           subMenu.classList.add("is-closed");
@@ -180,7 +169,6 @@ if (null !== menuButtonText) {
       subMenu.style.height = "0";
       item.classList.remove("submenu-open");
       itemButton.setAttribute("aria-expanded", "false");
-      itemButton.setAttribute("aria-label", "show menu");
 
       setTimeout(function timeoutFunction() {
         subMenu.classList.add("is-closed");
@@ -223,51 +211,18 @@ if (null !== menuButtonText) {
   });
 });
 
-
-
-// REFERENCE:
-
-// const body = document.querySelector("body");
-// const menuButton = document.querySelector(".js-header-menu-button");
-// const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
-
-// const hamburgerSearchInput = document.getElementById("nav-search");
-
-// // const hamburgerSearchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
-
-// const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
-
-
 jumpToSearchButton.addEventListener("click", function(e) {
-
-  // document.querySelector(".ma__header__hamburger__nav-container .js-header__nav-search .ma__header-search__input").focus();
-
   // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
   hamburgerMenuContainer.toggleAttribute("aria-hidden");
 
-  // if (document.activeElement === jumpToSearchButton) {
-  //   alert("button");
-  //   // jumpToSearchButton.blur();
-  //   hamburgerSearchInput.focus();
-  // }
-  // else {
-  //   hamburgerSearchInput.focus();
-  // }
-
-  hamburgerSearchInput.focus();
-
   if (body.classList.contains("show-menu")) {
     closeMenuJumpToSearch();
-
-    // Set focus on the jumpToSearchButton button since the input gets hidden by closing the menu.
-    // hamburgerSearchInput.blur();
-    // jumpToSearchButton.focus();
+    // Set focus back on the jumpToSearchButton button since the input gets hidden by closing the menu.
+    jumpToSearchButton.focus();
   } else {
-
     openMenuJumpToSearch();
     // Set focus on the search input field.
-    // jumpToSearchButton.blur();
-    // hamburgerSearchInput.focus();
+    hamburgerSearchInput.focus();
   }
 });
 
@@ -440,8 +395,8 @@ utilWideCloseButton.addEventListener("click", function (e) {
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
 let utilNarrowContent = utilNarrowButton.nextElementSibling;
 
-utilNarrowButton.nextElementSibling.style.opacity = "0";
-utilNarrowButton.nextElementSibling.style.height = "0";
+utilNarrowContent.style.opacity = "0";
+utilNarrowContent.style.height = "0";
 
 utilNarrowButton.addEventListener("click", function(e) {
 
@@ -452,34 +407,59 @@ utilNarrowButton.addEventListener("click", function(e) {
 
     utilNarrowContent.classList.remove("is-closed");
     utilNarrowContent.removeAttribute("aria-hidden");
+    utilNarrowContent.style.pointerEvents = "none";
 
     // Button state
     thisButton.setAttribute("aria-expanded", "true");
     thisButton.setAttribute("aria-pressed", "true");
 
-    /** Slide up. */
-    // NOTE: Following the pattern of the main nav @ L.282.
+    /** Slide down. */
     setTimeout(function timeoutFunction() {
       utilNarrowContent.style.opacity = "1";
       utilNarrowContent.style.height = "auto";
-    }, 500);
+    }, 700);
 
+    // Close open sub menu.
+    closeSubMenu();
   } else {// Close
     closeNarrowUtilContent();
+    utilNarrowContent.style.pointerEvents = "none";
   }
 });
 
 function closeNarrowUtilContent() {
-  utilNarrowContent.classList.add("is-closed");
+  // utilNarrowContent.classList.add("is-closed");
   utilNarrowContent.setAttribute("aria-hidden", "true");
 
   // Button state
   utilNarrowButton.setAttribute("aria-expanded", "false");
   utilNarrowButton.setAttribute("aria-pressed", "false");
 
+  utilNarrowContent.style.opacity = "0";
+  utilNarrowContent.style.height = "0";
+
   /** Slide up. */
   setTimeout(function timeoutFunction() {
     utilNarrowContent.style.opacity = "0";
     utilNarrowContent.style.height = "0";
+  }, 700);
+  setTimeout(function timeoutFunction() {
+    // utilNarrowContent.style.opacity = "0";
+    // utilNarrowContent.style.height = "0";
+
+    utilNarrowContent.classList.add("is-closed");
   }, 500);
+}
+
+function closeSubMenu() {
+  let openSubMenu = document.querySelector(".js-main-nav-hamburger-toggle.submenu-open");
+  // let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
+  // let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger-content");
+
+  // openSubMenu.classList.remove("submenu-open");
+  // openSubMenuButton.setAttribute("aria-expanded", "false");
+  // openSubMenuContainer.style.opacity = "0";
+  // openSubMenuContainer.style.height = "0";
+
+  closeSubMenus(openSubMenu);
 }
