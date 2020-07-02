@@ -89,6 +89,19 @@ body.show-menu {
         display: flex;
         justify-content: space-between;
     }
+
+    // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
+    @media ($bp-header-toggle-max) {
+
+      @include ma-container;
+      height: $header-mobile-controls-height;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: $z-dropdown;
+      background-color: $c-primary;
+    }
   }
 
   &__button-container {
