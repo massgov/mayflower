@@ -437,6 +437,11 @@ body.show-menu {
 
             border-bottom: 2px solid $c-bd-divider;
             padding: 0;
+
+            &:hover {
+              background-color: $c-gray-lightest;
+              box-shadow: none;
+            }
           }
 
           &__link, a.direct-link {
@@ -454,10 +459,6 @@ body.show-menu {
             text-align: left;
             background-color: $c-gray-lightest;
             width: 100%;
-
-            &:hover {
-              box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
-            }
 
             &:focus {
               background-color: $c-bd-divider;
@@ -559,7 +560,7 @@ body.show-menu {
           }
 
           & .ma__utility-panel + .ma__utility-panel {
-            // margin-bottom: 1.75em; <-- original spacing inbetween.
+            // margin-bottom: 1.75em; <-- original spacing inbetween. Remove this line once the design is set.
             margin-top: 1em;
 
           }
