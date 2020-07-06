@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.53.0 (7/6/2020)
+### Changed 
+- (Patternlab) [Print] DP-18951: Feedback related markup removed from print styles.
+
 ## 9.52.1 (6/22/2020)
 ### Changed 
 - (Patternlab) [RelationsipIndicator] DP-17150: Change the label of the secondary set. Change the width of each set. Adjust spacing.
