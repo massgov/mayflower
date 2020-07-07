@@ -222,7 +222,9 @@ jumpToSearchButton.addEventListener("click", function(e) {
   } else {
     openMenuJumpToSearch();
     // Set focus on the search input field.
-    hamburgerSearchInput.focus();
+    // hamburgerSearchInput.focus();
+    document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
+    // document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").style.backgroundColor = "purple";
   }
 });
 
@@ -298,7 +300,8 @@ function closeSubMenus(item) {
         siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
         siblings[i].classList.remove("submenu-open");
         siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
-        siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-label", "show menu");
+        // REMOVE THIS SINCE OVERRIDING THE INITIAL LABEL.
+        // siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-label", "show menu");
       }, 500);
 
     }
@@ -371,7 +374,7 @@ utilWideButton.addEventListener("click", function (e) {
   }, 200);
 });
 
-// Close - Utility nav dropdown on the utility nav var overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
+// Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
 // TODO: esc key to close the content.
 utilWideCloseButton.addEventListener("click", function (e) {
 
@@ -452,14 +455,24 @@ function closeNarrowUtilContent() {
 }
 
 function closeSubMenu() {
-  let openSubMenu = document.querySelector(".js-main-nav-hamburger-toggle.submenu-open");
-  // let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
-  // let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger-content");
+  setTimeout(function timeoutFunction() {
+    let openSubMenu = document.querySelector(".submenu-open");
+    let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
+    let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger-content");
+    let openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
 
-  // openSubMenu.classList.remove("submenu-open");
-  // openSubMenuButton.setAttribute("aria-expanded", "false");
-  // openSubMenuContainer.style.opacity = "0";
-  // openSubMenuContainer.style.height = "0";
+    //  button
+    openSubMenuButton.setAttribute("aria-expanded", "false");
 
-  closeSubMenus(openSubMenu);
+    // sub menu container div
+    openSubMenuContainer.classList.add("is-closed");
+    openSubMenuContainer.removeAttribute("style");
+
+    // sub menu list container
+    openSubMenuContent.style.height = 0;
+    openSubMenuContent.style.opacity = 0;
+
+    // sub menu container list item
+    openSubMenu.classList.remove("submenu-open");
+  }, 500);
 }
