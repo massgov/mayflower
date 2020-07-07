@@ -28,7 +28,10 @@
     "lint"
   ],
   "dependencies": {
+    "@date-io/moment": "^1.3.13",
     "@massds/mayflower-assets": "^0.2.1",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/pickers": "^3.2.10",
     "airbnb-prop-types": "^2.13.2",
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",
