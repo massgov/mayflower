@@ -20,15 +20,13 @@ if (null !== menuButtonText) {
     event.preventDefault();
 
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-    document.querySelector(".ma__header__hamburger__nav-container").toggleAttribute("aria-hidden");
+    hamburgerMenuContainer.toggleAttribute("aria-hidden");
 
     if (body.classList.contains("show-menu")) {
       closeMenu();
-      // Set focus on menu button.
-      menuButton.focus();
     } else {
-      openMenu();
-    //   hamburgerMenuContainer.setAttribute("tabindex", "0");
+
+
       // Set focus on hamburger menu container.
       // Then, next tabbing takes a user to the first focusable element in the menu container.
       hamburgerMenuContainer.focus();
@@ -300,8 +298,6 @@ function closeSubMenus(item) {
         siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
         siblings[i].classList.remove("submenu-open");
         siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
-        // REMOVE THIS SINCE OVERRIDING THE INITIAL LABEL.
-        // siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-label", "show menu");
       }, 500);
 
     }
