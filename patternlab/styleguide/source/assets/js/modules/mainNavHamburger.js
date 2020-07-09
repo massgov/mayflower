@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
-let menuButtonText = document.querySelector(".js-header__menu-text");
+let menuButtonText = document.querySelectorAll(".js-header__menu-text");
 let buttonLabel;
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
@@ -282,7 +282,9 @@ function closeMenuJumpToSearch() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
-  menuButtonText.textContent = "Menu";
+  menuButtonText[0].textContent = "Menu";
+  menuButtonText[1].textContent = "Mass.gov";
+
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
@@ -308,7 +310,10 @@ function openMenuJumpToSearch() {
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  menuButtonText.textContent = "Close";
+  for (let i = 0; i < menuButtonText.length; i++) {
+    menuButtonText[i].textContent = "Close";
+  }
+
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
