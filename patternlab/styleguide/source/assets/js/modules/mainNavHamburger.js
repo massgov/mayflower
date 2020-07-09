@@ -17,6 +17,7 @@ if (null !== menuButtonText) {
 // Open and close the menu
 // if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
+  // document.querySelector(".js-header-menu-button").addEventListener("click", function (event) {
     event.preventDefault();
 
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -25,11 +26,13 @@ if (null !== menuButtonText) {
     if (body.classList.contains("show-menu")) {
       closeMenu();
     } else {
-
+      openMenu();
 
       // Set focus on hamburger menu container.
       // Then, next tabbing takes a user to the first focusable element in the menu container.
-      hamburgerMenuContainer.focus();
+      setTimeout(function timeoutFunction() {
+        hamburgerMenuContainer.focus();
+      }, 90);
     }
   });
 
@@ -220,9 +223,9 @@ jumpToSearchButton.addEventListener("click", function(e) {
   } else {
     openMenuJumpToSearch();
     // Set focus on the search input field.
-    // hamburgerSearchInput.focus();
-    document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
-    // document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").style.backgroundColor = "purple";
+    setTimeout(function timeoutFunction() {
+      document.getElementById("nav-search").focus();
+    }, 90);
   }
 });
 
@@ -339,7 +342,7 @@ utilWideButton.addEventListener("click", function (e) {
   const thisWideButton = e.target.closest(".js-util-nav-toggle");
   const thisWideContent = thisWideButton.nextElementSibling;
 
-  if (thisWideContent.classList.contains("is-closed")) {// Open
+  if (thisWideContent.classList.contains("is-closed")) {//  To open
     thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
 
     thisWideContent.classList.remove("is-closed");
@@ -352,17 +355,6 @@ utilWideButton.addEventListener("click", function (e) {
     thisWideButton.setAttribute("aria-expanded", "true");
     thisWideButton.setAttribute("aria-pressed", "true");
   }
-  else {// Close
-    thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
-    thisWideContent.classList.add("is-closed");
-    thisWideContent.setAttribute("aria-hidden", "true");
-    thisWideContent.style.height = "0";
-    thisWideContent.style.opacity = "0";
-
-    // Button State
-    thisWideButton.setAttribute("aria-expanded", "false");
-    thisWideButton.setAttribute("aria-pressed", "false");
-  }
 
   setTimeout(function() {
     thisWideButton.setAttribute("aria-expanded", "true");
@@ -373,7 +365,10 @@ utilWideButton.addEventListener("click", function (e) {
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
 // TODO: esc key to close the content.
 utilWideCloseButton.addEventListener("click", function (e) {
+  closeUtilWideContent();
+});
 
+function closeUtilWideContent()  {
   // Content state
   utilWideContent.style.height = "0";
   utilWideContent.style.opacity = "0";
@@ -388,7 +383,7 @@ utilWideCloseButton.addEventListener("click", function (e) {
   utilWideButton.setAttribute("aria-pressed", "false");
 
   e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
-});
+}
 
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
@@ -454,21 +449,59 @@ function closeSubMenu() {
   setTimeout(function timeoutFunction() {
     let openSubMenu = document.querySelector(".submenu-open");
     let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
-    let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger-content");
     let openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
+    let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger__container");
 
     //  button
     openSubMenuButton.setAttribute("aria-expanded", "false");
 
     // sub menu container div
-    openSubMenuContainer.classList.add("is-closed");
-    openSubMenuContainer.removeAttribute("style");
+    openSubMenuContent.classList.add("is-closed");
+    openSubMenuContent.style.height = "0";
 
     // sub menu list container
-    openSubMenuContent.style.height = 0;
-    openSubMenuContent.style.opacity = 0;
+    openSubMenuContainer.style.opacity = 0;
 
     // sub menu container list item
     openSubMenu.classList.remove("submenu-open");
   }, 500);
 }
+
+// Keyboard navigation
+document.addEventListener("keydown", function (e) {
+  // ESC to close menus.
+  if (e.key === "Escape" || e.which === "27") {
+
+    // Check which menu is open.
+    if (utilNavWide.querySelector(".js-util-nav-content").style.opacity === "1") {// Log in to... in Utility nav bar
+      closeUtilWideContent();
+      utilNavWide.querySelector(".js-util-nav-toggle").focus();
+    }
+
+    if (utilNarrowContent.style.opacity === "1") {// Log in to... in Hamburger menu
+      closeNarrowUtilContent();
+      setTimeout(function timeoutFunction() {
+        utilNarrowButton.focus();
+      }, 90);
+    }
+
+    // if (body.classList.contains("show-menu") && utilNarrowContent.style.opacity === "0" ) {// Hamburger menu
+      // NOTE: Currently ESC close the hamburger menu, but it doesn't move focus to the menu button as it closes. To set the focus, need to confirm all sub menus are close.
+      // closeMenu(); --- THIS IS NOT NECESSARY.
+      // menuButton.focus();
+    // };
+  }
+
+  // Enter
+  // if (e.key === "Enter" || e.which === "13") {
+
+  //   if (menuButton.getAttribute("aria-expanded") === "false") {// Menu button
+  //     // Opening menu button with enter is set somewhere else. Cannot find where.
+  //     // Set focus on hamburger menu container.
+  //     // Then, next tabbing takes a user to the first focusable element in the menu container.
+  //     setTimeout(function timeoutFunction() {
+  //       hamburgerMenuContainer.focus();
+  //     }, 90);
+  //   }
+  // }
+});
