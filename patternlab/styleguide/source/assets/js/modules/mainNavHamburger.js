@@ -28,6 +28,10 @@ if (null !== menuButtonText) {
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".js-header-menu-button").focus();
+      }, 100);
     } else {
       openMenu();
 
@@ -513,12 +517,21 @@ document.addEventListener("keydown", function (e) {
       closeUtilWideContent();
       utilNavWide.querySelector(".js-util-nav-toggle").focus();
     }
-
-    if (utilNarrowContent.style.opacity === "1") {// Log in to... in Hamburger menu
+    else if (utilNarrowContent.style.opacity === "1") {// Log in to... in Hamburger menu
       closeNarrowUtilContent();
       setTimeout(function timeoutFunction() {
         utilNarrowButton.focus();
       }, 90);
+    }
+    else {// Menu button
+      closeMenu();
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".js-header-menu-button").focus();
+      }, 100);
+
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
     }
 
     // if (body.classList.contains("show-menu") && utilNarrowContent.style.opacity === "0" ) {// Hamburger menu
