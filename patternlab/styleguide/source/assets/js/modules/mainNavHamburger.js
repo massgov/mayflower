@@ -14,10 +14,10 @@ const hamburgerSearchInput = document.getElementById("nav-search");
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
 }
+
 // Open and close the menu
 // if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
-  // document.querySelector(".js-header-menu-button").addEventListener("click", function (event) {
     event.preventDefault();
 
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -25,16 +25,52 @@ if (null !== menuButtonText) {
 
     if (body.classList.contains("show-menu")) {
       closeMenu();
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
     } else {
       openMenu();
 
       // Set focus on hamburger menu container.
       // Then, next tabbing takes a user to the first focusable element in the menu container.
-      setTimeout(function timeoutFunction() {
-        hamburgerMenuContainer.focus();
-      }, 90);
+      // setTimeout(function timeoutFunction() {
+      //   hamburgerMenuContainer.focus();
+      // }, 90);
+
+      // These don't work:
+      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
+      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
+
+      // alternalte above 2 lines.
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
     }
   });
+
+  // menuButton.addEventListener("keydown", function (e) {
+  //   if (e.key === "Enter" || e.which === "13") {
+
+  //     console.log(menuButton.getAttribute("aria-expanded"));
+
+  //     if (menuButton.getAttribute("aria-expanded") === "false") {
+  //       // openMenu();
+
+  //       // Opening menu button with enter is set somewhere else. Cannot find where.
+  //       // Set focus on hamburger menu container.
+  //       // Then, next tabbing takes a user to the first focusable element in the menu container.
+  //       setTimeout(function timeoutFunction() {
+  //         // hamburgerMenuContainer.focus();
+  //         document.querySelector(".ma__header__hamburger__nav-container").focus();
+
+  //         console.log(document.activeElement);
+  //       }, 1000);
+  //     } else {
+  //       closeMenu();
+  //       menuButton.focus();
+  //     }
+  //   }
+  // });
 
   // =============== exisiting code below
   // menuButton.addEventListener("keydown", function (e) {
@@ -491,17 +527,4 @@ document.addEventListener("keydown", function (e) {
       // menuButton.focus();
     // };
   }
-
-  // Enter
-  // if (e.key === "Enter" || e.which === "13") {
-
-  //   if (menuButton.getAttribute("aria-expanded") === "false") {// Menu button
-  //     // Opening menu button with enter is set somewhere else. Cannot find where.
-  //     // Set focus on hamburger menu container.
-  //     // Then, next tabbing takes a user to the first focusable element in the menu container.
-  //     setTimeout(function timeoutFunction() {
-  //       hamburgerMenuContainer.focus();
-  //     }, 90);
-  //   }
-  // }
 });
