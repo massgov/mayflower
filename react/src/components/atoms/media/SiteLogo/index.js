@@ -11,7 +11,7 @@ import Image from '../Image';
 const SiteLogo = (siteLogo) => (
   <div className="ma__site-logo">
     <a href={siteLogo.url.domain ? siteLogo.url.domain : '/'} title={siteLogo.title}>
-      <Image {...siteLogo.image} />
+      {siteLogo?.image?.src && <Image {...siteLogo.image} />}
       <span>{siteLogo.siteName}</span>
     </a>
   </div>
