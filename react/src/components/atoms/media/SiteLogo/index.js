@@ -6,7 +6,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import Image from '../Image';
 
 const SiteLogo = (siteLogo) => (
@@ -34,7 +33,6 @@ SiteLogo.defaultProps = {
     domain: '/'
   },
   image: {
-    src: logo,
     alt: '',
     width: 45,
     height: 45
