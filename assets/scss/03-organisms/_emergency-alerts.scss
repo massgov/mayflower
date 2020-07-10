@@ -20,12 +20,12 @@ $colors: (
 
   // top positioning on mobile for utility nav space
 
-  .ma__ajax-pattern > & {
+  // .ma__ajax-pattern > & {
 
-    @media ($bp-header-toggle-max) {
-      top: 40px;
-    }
-  }
+    // @media ($bp-header-toggle-max) {
+    //   top: 40px;
+    // }
+  // }
 
   &__header {
     background-color: $c-warning;
