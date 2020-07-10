@@ -81,19 +81,20 @@ body.show-menu {
 
   &-wrapper {
 
+    @include ma-container;
+
     @media ($bp-medium-min) {
 
-      @include ma-container;
-
-        max-width: 100%;// override max-width in ma-container.
-        display: flex;
-        justify-content: space-between;
+      //max-width: 100%;// override max-width in ma-container.
+      display: flex;
+      justify-content: space-between;
     }
 
     // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
     @media ($bp-header-toggle-max) {
 
-      @include ma-container;
+      padding-right: 0;
+      padding-left: 0;
       height: $header-mobile-controls-height;
       position: fixed;
       top: 0;
@@ -261,7 +262,7 @@ body.show-menu {
     background-color: $c-primary;
     text-align: left;
     border: none;
-    font-size: 1.2rem;
+    font-size: 19.2px;//1.2rem; Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
     height: 40px;
@@ -276,8 +277,15 @@ body.show-menu {
     }
 
     @media ($bp-medium-min) {
+
+      padding-left: 30px;
+    }
+
+    @media ($bp-header-toggle-min) {
+
       padding-left: 0;
     }
+
   }
 
   &__menu-icon {
