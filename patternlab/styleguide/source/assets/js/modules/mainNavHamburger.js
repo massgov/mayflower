@@ -257,9 +257,7 @@ jumpToSearchButton.addEventListener("click", function(e) {
   hamburgerMenuContainer.toggleAttribute("aria-hidden");
 
   if (body.classList.contains("show-menu")) {
-    closeMenuJumpToSearch();
-    // Set focus back on the jumpToSearchButton button since the input gets hidden by closing the menu.
-    jumpToSearchButton.focus();
+    document.getElementById("nav-search").focus();
   } else {
     openMenuJumpToSearch();
     // Set focus on the search input field.
@@ -272,11 +270,6 @@ jumpToSearchButton.addEventListener("click", function(e) {
 function closeMenu() {
   commonCloseMenuTasks();
   menuButton.setAttribute("aria-pressed", "false");
-}
-
-function closeMenuJumpToSearch() {
-  commonCloseMenuTasks();
-  jumpToSearchButton.setAttribute("aria-pressed", "false");
 }
 
 function commonCloseMenuTasks() {
@@ -351,7 +344,6 @@ function closeSubMenus(item) {
 if (null !== utilNavWide) {
     closeMenu();
 }
-
 
 // Close and reset menu on overlay click
 if (null !== menuOverlay) {
