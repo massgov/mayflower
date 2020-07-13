@@ -294,7 +294,6 @@ Header.defaultProps = {
       domain: 'https://www.mass.gov/'
     },
     image: {
-      alt: 'Massachusetts state seal',
       width: 45,
       height: 45
     },
