@@ -16,7 +16,8 @@ storiesOf('templates', module)
           domain: text('NarrowTemplate siteLogoDomain: url domain', 'https://www.mass.gov/')
         },
         image: {
-          src: logo
+          src: logo,
+          alt: 'Massachusetts state seal'
         }
       };
       const props = {
