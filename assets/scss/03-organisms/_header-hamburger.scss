@@ -557,6 +557,10 @@ body.show-menu {
             color: $c-black;
 
             @include ma-reset-list;
+
+            &:last-of-type {
+              border-bottom: 2px solid $c-bd-divider;
+            }
           }
 
           & .ma__utility-panel + .ma__utility-panel {
