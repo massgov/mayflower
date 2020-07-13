@@ -108,6 +108,10 @@ body.show-menu {
   &__button-container {
     display: flex;
     justify-content: space-between;
+
+    @media ($bp-header-toggle-max) {
+      width: 100%;
+    }
   }
 
   &__container {

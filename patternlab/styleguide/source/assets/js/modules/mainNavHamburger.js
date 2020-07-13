@@ -9,11 +9,15 @@ let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
-const hamburgerSearchInput = document.getElementById("nav-search");
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
 }
+
+//  /* IE11 Fix */
+//  if (typeof (UserAgentInfo) != 'undefined' && !window.addEventListener) {
+//   UserAgentInfo.strBrowser = 1;
+// }
 
 // Open and close the menu
 // if (null !== menuButton) {
@@ -282,6 +286,10 @@ function closeMenuJumpToSearch() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
+  if (width < 841) {
+    menuButton.removeAttribute("style");
+  }
+
   menuButtonText[0].textContent = "Menu";
   menuButtonText[1].textContent = "Mass.gov";
 
@@ -312,6 +320,10 @@ function commonOpenMenuTasks() {
 
   for (let i = 0; i < menuButtonText.length; i++) {
     menuButtonText[i].textContent = "Close";
+
+    if (width < 841) {
+      menuButton.style.flex = "auto";
+    }
   }
 
   menuButton.setAttribute("aria-expanded", "true");
@@ -354,7 +366,7 @@ function closeSubMenus(item) {
 
 // Close menu when utility nav is clicked
 if (null !== utilNavWide) {
-    closeMenu();
+  closeMenu();
 }
 
 
