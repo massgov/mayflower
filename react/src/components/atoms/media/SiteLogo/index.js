@@ -37,7 +37,6 @@ SiteLogo.defaultProps = {
     width: 45,
     height: 45
   },
-  siteName: 'Mass.gov',
   title: 'Mass.gov homepage'
 };
 
