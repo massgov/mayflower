@@ -9,7 +9,6 @@ let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
-const hamburgerSearchInput = document.getElementById("nav-search");
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
@@ -17,7 +16,7 @@ if (null !== menuButtonText) {
 
 // Open and close the menu
 // if (null !== menuButton) {
-  menuButton.addEventListener("click", function (event) {
+  menuButton.addEventListener("click", (event) => {
     event.preventDefault();
 
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -52,7 +51,7 @@ if (null !== menuButtonText) {
     }
   });
 
-  // menuButton.addEventListener("keydown", function (e) {
+  // menuButton.addEventListener("keydown", (e) => {
   //   if (e.key === "Enter" || e.which === "13") {
 
   //     console.log(menuButton.getAttribute("aria-expanded"));
@@ -119,11 +118,11 @@ if (null !== menuButtonText) {
 
   subItems.style.opacity = "0";
 
-  itemButton.addEventListener("focus", function(e){
+  itemButton.addEventListener("focus", (e) => {
     closeSubMenus(item);
   });
 
-  itemButton.addEventListener("click", function (e) {
+  itemButton.addEventListener("click", (e) => {
 
     closeSubMenus(item);
 
@@ -181,7 +180,7 @@ if (null !== menuButtonText) {
     }
   });
 
-  itemButton.addEventListener("keydown", function (e) {
+  itemButton.addEventListener("keydown", (e) => {
 
     if (e.code == "ArrowDown") {
       let first = subItems.getElementsByTagName("li")[0];
@@ -252,7 +251,7 @@ if (null !== menuButtonText) {
   });
 });
 
-jumpToSearchButton.addEventListener("click", function(e) {
+jumpToSearchButton.addEventListener("click", (e) => {
   // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
   hamburgerMenuContainer.toggleAttribute("aria-hidden");
 
@@ -347,7 +346,7 @@ if (null !== utilNavWide) {
 
 // Close and reset menu on overlay click
 if (null !== menuOverlay) {
-  menuOverlay.addEventListener("click", function () {
+  menuOverlay.addEventListener("click", () => {
     closeMenu();
   });
 }
@@ -355,7 +354,7 @@ if (null !== menuOverlay) {
 let debouncer;
 window.onresize = function () {
   clearTimeout(debouncer);
-  debouncer = setTimeout(function () {
+  debouncer = setTimeout( () => {
     width = body.clientWidth;
   }, 100);
 };
@@ -369,7 +368,7 @@ const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
 const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
 
 // Open
-utilWideButton.addEventListener("click", function (e) {
+utilWideButton.addEventListener("click", (e) => {
 
   const thisWideButton = e.target.closest(".js-util-nav-toggle");
   const thisWideContent = thisWideButton.nextElementSibling;
@@ -396,7 +395,7 @@ utilWideButton.addEventListener("click", function (e) {
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
 // TODO: esc key to close the content.
-utilWideCloseButton.addEventListener("click", function (e) {
+utilWideCloseButton.addEventListener("click", (e) => {
   closeUtilWideContent();
 });
 
@@ -424,7 +423,7 @@ let utilNarrowContent = utilNarrowButton.nextElementSibling;
 utilNarrowContent.style.opacity = "0";
 utilNarrowContent.style.height = "0";
 
-utilNarrowButton.addEventListener("click", function(e) {
+utilNarrowButton.addEventListener("click", (e) => {
 
   const thisButton = e.target.closest(".js-util-nav-toggle");
   utilNarrowContent = thisButton.nextElementSibling;
@@ -500,7 +499,7 @@ function closeSubMenu() {
 }
 
 // Keyboard navigation
-document.addEventListener("keydown", function (e) {
+document.addEventListener("keydown", (e) => {
   // ESC to close menus.
   if (e.key === "Escape" || e.which === "27") {
 
