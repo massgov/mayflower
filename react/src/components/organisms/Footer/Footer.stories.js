@@ -42,6 +42,9 @@ storiesOf('organisms/Footer', module)
         footerLinks: object('footerLinks', FooterLinksLiveData),
         showNavHeading: boolean('showNavHeading', false),
         socialLinks: object('socialLinks', SocialLinksLiveData),
+        footerLogo: {
+          src: text('footer.footerLogo.src', stateSeal)
+        },
         footerText: object('footerText', {
           copyright: '2018 Commonwealth of Massachusetts.',
           description: 'Mass.gov® is a registered service mark of the Commonwealth of Massachusetts.',

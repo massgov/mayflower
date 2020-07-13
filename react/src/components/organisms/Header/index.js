@@ -18,7 +18,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import is from 'is';
 import classNames from 'classnames';
-import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import UtilityNav from 'MayflowerReactOrganisms/UtilityNav';
 import MainNav from 'MayflowerReactMolecules/MainNav';
 import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
@@ -295,7 +294,6 @@ Header.defaultProps = {
       domain: 'https://www.mass.gov/'
     },
     image: {
-      src: logo,
       alt: 'Massachusetts state seal',
       width: 45,
       height: 45
