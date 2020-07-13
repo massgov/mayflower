@@ -25,7 +25,7 @@ SiteLogo.propTypes = {
   }),
   /** The site logo image to display. */
   image: PropTypes.shape(PropTypes.Image),
-  /** An optional label to display next to the site log. */
+  /** An optional label to display next to the site logo. */
   siteName: PropTypes.string,
   /** The title attribute for the site logo link. */
   title: PropTypes.string
