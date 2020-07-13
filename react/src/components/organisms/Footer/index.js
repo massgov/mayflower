@@ -12,7 +12,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import FooterLinks from 'MayflowerReactMolecules/FooterLinks';
 import SocialLinks from 'MayflowerReactMolecules/SocialLinks';
 import Icon from 'MayflowerReactBase/Icon';
@@ -92,7 +91,6 @@ Footer.defaultProps = {
   backToTopButton: false,
   footerLogo: {
     domain: '/',
-    src: logo,
     title: 'Mass.gov homepage'
   },
   footerText: {
