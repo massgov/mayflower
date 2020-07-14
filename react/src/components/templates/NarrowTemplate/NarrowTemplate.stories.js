@@ -18,7 +18,8 @@ storiesOf('templates', module)
         image: {
           src: logo,
           alt: 'Massachusetts state seal'
-        }
+        },
+        siteName: 'Mass.gov'
       };
       const props = {
         side: select('NarrowTemplate side', NarrowTemplateOptions.side, 'right'),

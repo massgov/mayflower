@@ -20,7 +20,6 @@ storiesOf('organisms', module)
           width: number('FooterSlim siteLogo: image width', 45, 'SiteLogo'),
           height: number('FooterSlim siteLogo: image height', 45, 'SiteLogo')
         },
-        siteName: text('FooterSlim siteLogo: siteName', 'Mass.gov', 'SiteLogo'),
         title: text('FooterSlim siteLogo: title', 'Mass.gov homepage', 'SiteLogo')
       };
       const props = {
