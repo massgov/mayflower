@@ -27,8 +27,6 @@ storiesOf('organisms', module)
       siteLogo: <SiteLogo {...siteLogoProps} />
     };
     return(
-      <HeaderSlim {...headerProps}>
-        <Button text="login"/>
-      </HeaderSlim>
+      <HeaderSlim {...headerProps} />
     );
   });
