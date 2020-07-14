@@ -8,11 +8,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from '../Image';
 
-const SiteLogo = (siteLogo) => (
+const SiteLogo = ({
+  url, image, siteName, title
+}) => (
   <div className="ma__site-logo">
-    <a href={siteLogo?.url?.domain ? siteLogo.url.domain : '/'} title={siteLogo.title}>
-      {siteLogo?.image?.src && <Image {...siteLogo.image} />}
-      {siteLogo.siteName && <span>{siteLogo.siteName}</span>}
+    <a href={url.domain} title={title}>
+      {image?.src && <Image {...image} />}
+      {siteName && <span>{siteName}</span>}
     </a>
   </div>
 );
@@ -21,7 +23,7 @@ SiteLogo.propTypes = {
   /** The URL for the site */
   url: PropTypes.shape({
     /** The URL for the site root */
-    domain: PropTypes.string
+    domain: PropTypes.string.isRequired
   }),
   /** The site logo image to display. */
   image: PropTypes.shape(PropTypes.Image),
@@ -32,15 +34,12 @@ SiteLogo.propTypes = {
 };
 
 SiteLogo.defaultProps = {
-  url: {
-    domain: '/'
-  },
   image: {
     alt: '',
     width: 45,
     height: 45
   },
-  title: 'Mass.gov homepage'
+  title: null
 };
 
 export default SiteLogo;

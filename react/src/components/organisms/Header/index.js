@@ -297,8 +297,7 @@ Header.defaultProps = {
       width: 45,
       height: 45
     },
-    siteName: 'Mass.gov',
-    title: 'Mass.gov homepage'
+    siteName: 'Mass.gov'
   },
   searchRedirect: {
     baseUrl: 'https://search.mass.gov',
