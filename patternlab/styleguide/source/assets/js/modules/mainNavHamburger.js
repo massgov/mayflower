@@ -450,7 +450,6 @@ utilNarrowButton.addEventListener("click", function(e) {
     /** Slide down. */
     setTimeout(function timeoutFunction() {
       utilNarrowContent.style.opacity = "1";
-      utilNarrowContent.style.height = "auto";
     }, 700);
 
     // Close open sub menu.
