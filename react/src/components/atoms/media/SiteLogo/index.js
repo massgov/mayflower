@@ -38,7 +38,7 @@ SiteLogo.defaultProps = {
     alt: '',
     width: 45,
     height: 45
-  },
+  }
 };
 
 export default SiteLogo;
