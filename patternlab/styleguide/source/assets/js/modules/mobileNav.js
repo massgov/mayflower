@@ -1,28 +1,31 @@
-// ****** Menu button ******
-let menuButton = document.querySelector(".ma__header .js-header-menu-button");
-let feedbackButton = document.querySelector('.ma__fixed-feedback-button');
+// // ****** Menu button ******
+let menuButton = document.querySelector(".js-header-menu-button");
+let feedbackButton = document.querySelector(".ma__fixed-feedback-button");
+const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
 if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
-    document.querySelector("body").classList.toggle("show-menu");
 
     // Hide feedback button when menu opens.
-    feedbackButton.classList.toggle("hide-button");
+    toggleFeedbackButton()
   });
 }
 
-// ****** Main Header Search button on mobile should open the mobile menu  ******
-let searchForm = document.querySelector(".ma__header .js-header-search-menu .js-header-search-form");
+// // ****** Access to Search button on mobile should hide feedback button when menu opens  ******
 
-if (null !== searchForm) {
-  searchForm.addEventListener("submit", function (event) {
-    if (window.innerWidth > 620) {
-      return;
+jumpToSearchButton.addEventListener("click", function (event) {
+  toggleFeedbackButton();
+});
+
+function toggleFeedbackButton() {
+  if (feedbackButton) {
+    // Cannot use .toggle. It results to show the button with the dropdown and hide it with the closed dropdown.
+    if(feedbackButton.classList.contains("hide-button") === false) {
+      feedbackButton.classList.add("hide-button");
     }
-    event.preventDefault();
-    document.querySelector("body").classList.toggle("show-menu");
-    document.querySelector('.ma__header__nav-search .ma__header-search__input').focus();
-    feedbackButton.classList.toggle("hide-button");
-  });
+    else {
+      feedbackButton.classList.remove("hide-button");
+    }
+  }
 }

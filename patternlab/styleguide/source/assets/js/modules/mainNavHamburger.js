@@ -1,124 +1,156 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
-const menuButton = document.querySelector(".ma__header__hamburger .js-header-menu-button");
-let menuButtonText = document.querySelector('.ma__header__hamburger .js-header__menu-text');
+const menuButton = document.querySelector(".js-header-menu-button");
+let menuButtonText = document.querySelectorAll(".js-header__menu-text");
 let buttonLabel;
-const feedbackButton = document.querySelector('.ma__fixed-feedback-button');
-const mainMenu = document.querySelector('.ma__header__hamburger .js-main-nav-hamburger');
-let menuItems = document.querySelectorAll('.ma__header__hamburger .js-main-nav-hamburger-toggle');
-const menuOverlay = document.querySelector('.menu-overlay');
-const searchForm = document.querySelector(".ma__header__hamburger .js-header-search-menu .js-header-search-form");
-let utilNavWide = document.querySelector('.ma__header__hamburger .js-utility-nav--wide');
-
+const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
+const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
+let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
+const menuOverlay = document.querySelector(".menu-overlay");
+let utilNavWide = document.querySelector(".js-utility-nav--wide");
+const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
+const hamburgerSearchInput = document.getElementById("nav-search");
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
 }
+
 // Open and close the menu
-if (null !== menuButton) {
+// if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    if (body.classList.contains("show-menu-hamburger")) {
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    hamburgerMenuContainer.toggleAttribute("aria-hidden");
+
+    if (body.classList.contains("show-menu")) {
       closeMenu();
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".js-header-menu-button").focus();
+      }, 100);
     } else {
-      menuButton.focus();
-      openMenu();
-    }
-  });
-
-  menuButton.addEventListener('keydown', function (e) {
-
-    if (e.code == 'ArrowDown') {
-      event.preventDefault();
       openMenu();
 
-      if (window.innerWidth > 620) {
-        setTimeout(function timeoutFunction() {
-          menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
-        }, 500);
-      } else {
-        setTimeout(function timeoutFunction() {
-          document.querySelector('.js-header__nav-search input').focus();
-        }, 500);
-      }
-    }
+      // Set focus on hamburger menu container.
+      // Then, next tabbing takes a user to the first focusable element in the menu container.
+      // setTimeout(function timeoutFunction() {
+      //   hamburgerMenuContainer.focus();
+      // }, 90);
 
-    if (e.code == 'Tab') {
-      e.preventDefault();
-      document.querySelector('.ma__header__hamburger-search__input').focus();
-    }
+      // These don't work:
+      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
+      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
 
-    if (e.shiftKey && e.code == 'Tab') {
-      closeMenu();
-    }
-
-    if (e.code == 'Escape' || e.which == '27') {
-      closeMenu();
+      // alternalte above 2 lines.
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
     }
   });
-}
 
-if (null !== searchForm) {
-  searchForm.addEventListener("submit", function (event) {
-    if (window.innerWidth > 620) {
-      return;
-    }
-    event.preventDefault();
+  // menuButton.addEventListener("keydown", function (e) {
+  //   if (e.key === "Enter" || e.which === "13") {
 
-    openMenu();
+  //     console.log(menuButton.getAttribute("aria-expanded"));
 
-    setTimeout(function timeoutFunction() {
+  //     if (menuButton.getAttribute("aria-expanded") === "false") {
+  //       // openMenu();
 
-      document.querySelector('.js-header__nav-search input').focus();
+  //       // Opening menu button with enter is set somewhere else. Cannot find where.
+  //       // Set focus on hamburger menu container.
+  //       // Then, next tabbing takes a user to the first focusable element in the menu container.
+  //       setTimeout(function timeoutFunction() {
+  //         // hamburgerMenuContainer.focus();
+  //         document.querySelector(".ma__header__hamburger__nav-container").focus();
 
-    }, 500);
-  });
-}
+  //         console.log(document.activeElement);
+  //       }, 1000);
+  //     } else {
+  //       closeMenu();
+  //       menuButton.focus();
+  //     }
+  //   }
+  // });
+
+  // =============== exisiting code below
+  // menuButton.addEventListener("keydown", function (e) {
+
+    // if (e.code == 'ArrowDown') {
+    //   event.preventDefault();
+    //   openMenu();
+
+    //   if (window.innerWidth > 620) {
+    //     setTimeout(function timeoutFunction() {
+    //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
+    //     }, 500);
+    //   } else {
+    //     setTimeout(function timeoutFunction() {
+    //       document.querySelector('.js-header__nav-search input').focus();
+    //     }, 500);
+    //   }
+    // }
+
+    // NOTE: This causes a keyboard trap at the menu open/close button.
+    // if (e.code == 'Tab') {
+    //   e.preventDefault();
+    //   document.querySelector('.ma__header__hamburger-search__input').focus();
+    // }
+
+    // if (e.shiftKey && e.code == "Tab") {
+    //   closeMenu();
+    // }
+
+    // if (e.code == "Escape" || e.which == "27") {
+    //   closeMenu();
+    // }
+  // });
+// }
 
 [].forEach.call(menuItems, function (item) {
 
-  const itemButton = item.querySelector('.js-main-nav-hamburger__top-link');
-  const subMenu = item.querySelector('.js-main-nav-hamburger-content');
-  const subItems = subMenu.querySelector('.js-main-nav-hamburger__container');
-  let subMenuItems = subMenu.querySelectorAll('.js-main-nav-hamburger__subitem');
+  const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
+  const subMenu = item.querySelector(".js-main-nav-hamburger-content");
+  const subItems = subMenu.querySelector(".js-main-nav-hamburger__container");
+  let subMenuItems = subMenu.querySelectorAll(".js-main-nav-hamburger__subitem");
 
   subItems.style.opacity = "0";
 
-  itemButton.addEventListener('focus', function(e){
+  itemButton.addEventListener("focus", function(e){
     closeSubMenus(item);
   });
 
-  itemButton.addEventListener('click', function (e) {
+  itemButton.addEventListener("click", function (e) {
 
     closeSubMenus(item);
 
 
     if (item.classList.contains("submenu-open")) {
       item.classList.remove("submenu-open");
-      itemButton.setAttribute('aria-expanded', 'false');
-      itemButton.setAttribute('aria-label', 'show menu');
+      itemButton.setAttribute("aria-expanded", "false");
       item.style.pointerEvents = "none";
 
       setTimeout(function timeoutFunction() {
-        item.removeAttribute('style');
+        item.removeAttribute("style");
       }, 700);
     } else {
       item.classList.add("submenu-open");
-      itemButton.setAttribute('aria-expanded', 'true');
+      itemButton.setAttribute("aria-expanded", "true");
       item.style.pointerEvents = "none";
-      itemButton.setAttribute('aria-label', 'hide menu');
       setTimeout(function timeoutFunction() {
-        item.removeAttribute('style');
+        item.removeAttribute("style");
       }, 700);
     }
 
 
-    if (subMenu.classList.contains('is-closed')) {
+    if (subMenu.classList.contains("is-closed")) {
 
       /** Show the subMenu. */
 
-      subMenu.classList.remove('is-closed');
+      subMenu.classList.remove("is-closed");
       subMenu.style.height = "auto";
 
       /** Get the computed height of the subMenu. */
@@ -134,58 +166,59 @@ if (null !== searchForm) {
         subItems.style.opacity = "1";
       }, 50);
 
+      /** Close Utility menu content when a sub menu is open. */
+      closeNarrowUtilContent();
+
       /** Slide up. */
     } else {
       subMenu.style.height = "0";
       subItems.style.opacity = "0";
 
       setTimeout(function timeoutFunction() {
-        subMenu.classList.add('is-closed');
+        subMenu.classList.add("is-closed");
 
       }, 500);
     }
   });
 
-  itemButton.addEventListener('keydown', function (e) {
+  itemButton.addEventListener("keydown", function (e) {
 
-    if (e.code == 'ArrowDown') {
+    if (e.code == "ArrowDown") {
       let first = subItems.getElementsByTagName("li")[0];
-      first.querySelector('.js-main-nav-hamburger__link').focus()
+      first.querySelector(".js-main-nav-hamburger__link").focus();
     }
 
-    if (e.code == 'Escape' || e.which == '27') {
-      if (item.classList.contains('submenu-open')) {
+    if (e.code == "Escape" || e.which == "27") {
+      if (item.classList.contains("submenu-open")) {
         subItems.style.opacity = "0";
         subMenu.style.height = "0";
-        itemButton.parentElement.classList.remove('submenu-open');
-        itemButton.setAttribute('aria-expanded', 'false');
-        itemButton.setAttribute('aria-label', 'show menu');
+        itemButton.parentElement.classList.remove("submenu-open");
+        itemButton.setAttribute("aria-expanded", "false");
 
         setTimeout(function timeoutFunction() {
-          subMenu.classList.add('is-closed');
+          subMenu.classList.add("is-closed");
         }, 500);
-        
+
       }
       else {
         closeMenu();
       }
     }
 
-    if (e.shiftKey && e.code == 'Tab') {
+    if (e.shiftKey && e.code == "Tab") {
       subItems.style.opacity = "0";
       subMenu.style.height = "0";
-      item.classList.remove('submenu-open');
-      itemButton.setAttribute('aria-expanded', 'false');
-      itemButton.setAttribute('aria-label', 'show menu');
+      item.classList.remove("submenu-open");
+      itemButton.setAttribute("aria-expanded", "false");
 
       setTimeout(function timeoutFunction() {
-        subMenu.classList.add('is-closed');
+        subMenu.classList.add("is-closed");
       }, 500);
     }
 
-    if (width > 840 && e.key == 'Tab') {
-      if (!itemButton.parentElement.nextElementSibling 
-      && !itemButton.parentElement.classList.contains('submenu-open')) {
+    if (width > 840 && e.key == "Tab") {
+      if (!itemButton.parentElement.nextElementSibling
+      && !itemButton.parentElement.classList.contains("submenu-open")) {
         closeMenu();
       }
     }
@@ -195,22 +228,22 @@ if (null !== searchForm) {
     const prevSib = subItem.previousElementSibling;
     const nextSib = subItem.nextElementSibling;
 
-    subItem.addEventListener('keydown', function (e) {
-      
+    subItem.addEventListener("keydown", function (e) {
+
       switch (e.code) {
-        case 'ArrowUp':
-        case 'ArrowLeft':
-          if (subItem = prevSib) {
-            prevSib.querySelector('.js-main-nav-hamburger__link').focus();
+        case "ArrowUp":
+        case "ArrowLeft":
+          if (subItem === prevSib) {
+            prevSib.querySelector(".js-main-nav-hamburger__link").focus();
           }
           break;
-        case 'ArrowDown':
-        case 'ArrowRight':
-          if (subItem = nextSib) {
-            nextSib.querySelector('.js-main-nav-hamburger__link').focus();
+        case "ArrowDown":
+        case "ArrowRight":
+          if (subItem === nextSib) {
+            nextSib.querySelector(".js-main-nav-hamburger__link").focus();
           }
           break;
-        case 'Escape':
+        case "Escape":
           itemButton.focus();
 
            break;
@@ -219,26 +252,78 @@ if (null !== searchForm) {
   });
 });
 
+jumpToSearchButton.addEventListener("click", function(e) {
+  // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+  hamburgerMenuContainer.toggleAttribute("aria-hidden");
+
+  if (body.classList.contains("show-menu")) {
+    closeMenuJumpToSearch();
+    // Set focus back on the jumpToSearchButton button since the input gets hidden by closing the menu.
+    jumpToSearchButton.focus();
+  } else {
+    openMenuJumpToSearch();
+    // Set focus on the search input field.
+    setTimeout(function timeoutFunction() {
+      document.getElementById("nav-search").focus();
+    }, 90);
+  }
+});
+
 function closeMenu() {
-  body.classList.remove("show-menu-hamburger");
-  menuOverlay.classList.remove("overlay-open");
-  menuButtonText.textContent = "Menu";
-  menuButton.setAttribute('aria-pressed', 'false');
-  menuButton.setAttribute('aria-expanded', 'false');
-  menuButton.setAttribute('aria-label', 'Open the main menu for mass.gov');
-  buttonLabel = "Menu";
-  feedbackButton.classList.remove('hide-button');
+  commonCloseMenuTasks();
+  menuButton.setAttribute("aria-pressed", "false");
+}
+
+function closeMenuJumpToSearch() {
+  commonCloseMenuTasks();
+  jumpToSearchButton.setAttribute("aria-pressed", "false");
+}
+
+function commonCloseMenuTasks() {
+  body.classList.remove("show-menu");
+
+  menuButtonText[0].textContent = "Menu";
+  menuButtonText[1].textContent = "Mass.gov";
+
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+
+  if (feedbackButton) {
+    feedbackButton.classList.remove("hide-button");
+  }
+  jumpToSearchButton.setAttribute("aria-expanded", "false");
+  if (menuOverlay) {
+    menuOverlay.classList.remove("overlay-open");
+  }
 }
 
 function openMenu() {
-  body.classList.add("show-menu-hamburger");
-  menuOverlay.classList.add("overlay-open");
-  menuButtonText.textContent = "Close";
-  buttonLabel = "Close";
-  menuButton.setAttribute('aria-pressed', 'true');
-  menuButton.setAttribute('aria-expanded', 'true');
-  menuButton.setAttribute('aria-label', 'Close the main menu for mass.gov');
-  feedbackButton.classList.add('hide-button');
+  commonOpenMenuTasks();
+  menuButton.setAttribute("aria-pressed", "true");
+}
+
+function openMenuJumpToSearch() {
+  commonOpenMenuTasks();
+  jumpToSearchButton.setAttribute("aria-pressed", "true");
+}
+
+function commonOpenMenuTasks() {
+  body.classList.add("show-menu");
+
+  for (let i = 0; i < menuButtonText.length; i++) {
+    menuButtonText[i].textContent = "Close";
+  }
+
+  menuButton.setAttribute("aria-expanded", "true");
+  menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
+  if (feedbackButton) {
+    feedbackButton.classList.add("hide-button");
+
+  }
+  jumpToSearchButton.setAttribute("aria-expanded", "true");
+  if (menuOverlay) {
+    menuOverlay.classList.add("overlay-open");
+  }
 }
 
 function closeSubMenus(item) {
@@ -253,16 +338,14 @@ function closeSubMenus(item) {
   }
 
   for (let i = 0; i < siblings.length; i++) {
-    if (siblings[i].classList.contains('submenu-open')) {
+    if (siblings[i].classList.contains("submenu-open")) {
 
       setTimeout(function timeoutFunction() {
-        siblings[i].querySelector('.js-main-nav-hamburger-content').style.height = "0";
-        siblings[i].querySelector('.js-main-nav-hamburger-content').classList.add('is-closed');
-        siblings[i].querySelector('.js-main-nav-hamburger__container').style.opacity = "0";
-        siblings[i].classList.remove('submenu-open');
-        siblings[i].querySelector('.js-main-nav-hamburger__top-link').setAttribute('aria-expanded', 'false');
-        siblings[i].querySelector('.js-main-nav-hamburger__top-link').setAttribute('aria-label', 'show menu');
-        
+        siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
+        siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+        siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
+        siblings[i].classList.remove("submenu-open");
+        siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
       }, 500);
 
     }
@@ -271,9 +354,7 @@ function closeSubMenus(item) {
 
 // Close menu when utility nav is clicked
 if (null !== utilNavWide) {
-  utilNavWide.addEventListener('click', function () {
     closeMenu();
-  });
 }
 
 
@@ -291,3 +372,177 @@ window.onresize = function () {
     width = body.clientWidth;
   }, 100);
 };
+
+
+// ** Utility nav
+
+// Wide/utility nav bar
+const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
+const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
+const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
+
+// Open
+utilWideButton.addEventListener("click", function (e) {
+
+  const thisWideButton = e.target.closest(".js-util-nav-toggle");
+  const thisWideContent = thisWideButton.nextElementSibling;
+
+  if (thisWideContent.classList.contains("is-closed")) {//  To open
+    thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
+
+    thisWideContent.classList.remove("is-closed");
+    thisWideContent.removeAttribute("aria-hidden");
+    thisWideContent.removeAttribute("style");
+    thisWideContent.style.height = "auto";
+    thisWideContent.style.opacity = "1";
+
+    // Button State
+    thisWideButton.setAttribute("aria-expanded", "true");
+    thisWideButton.setAttribute("aria-pressed", "true");
+  }
+
+  setTimeout(function() {
+    thisWideButton.setAttribute("aria-expanded", "true");
+    thisWideButton.setAttribute("aria-pressed", "true");
+  }, 200);
+});
+
+// Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
+// TODO: esc key to close the content.
+utilWideCloseButton.addEventListener("click", function (e) {
+  closeUtilWideContent();
+});
+
+function closeUtilWideContent()  {
+  // Content state
+  utilWideContent.style.height = "0";
+  utilWideContent.style.opacity = "0";
+  utilWideContent.classList.add("is-closed");
+  utilWideContent.setAttribute("aria-hidden", "true");
+
+  // Close button state
+  utilWideCloseButton.setAttribute("aria-expanded", "false");
+
+  // Utility button state
+  utilWideButton.setAttribute("aria-expanded", "false");
+  utilWideButton.setAttribute("aria-pressed", "false");
+
+  e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
+}
+
+// Narrow/in hamburger menu
+const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+let utilNarrowContent = utilNarrowButton.nextElementSibling;
+
+utilNarrowContent.style.opacity = "0";
+utilNarrowContent.style.height = "0";
+
+utilNarrowButton.addEventListener("click", function(e) {
+
+  const thisButton = e.target.closest(".js-util-nav-toggle");
+  utilNarrowContent = thisButton.nextElementSibling;
+
+  if (utilNarrowContent.classList.contains("is-closed")) {// Open
+
+    utilNarrowContent.classList.remove("is-closed");
+    utilNarrowContent.removeAttribute("aria-hidden");
+    utilNarrowContent.style.pointerEvents = "none";
+
+    // Button state
+    thisButton.setAttribute("aria-expanded", "true");
+    thisButton.setAttribute("aria-pressed", "true");
+
+    /** Slide down. */
+    setTimeout(function timeoutFunction() {
+      utilNarrowContent.style.opacity = "1";
+      utilNarrowContent.style.height = "auto";
+    }, 700);
+
+    // Close open sub menu.
+    closeSubMenu();
+  } else {// Close
+    closeNarrowUtilContent();
+    utilNarrowContent.style.pointerEvents = "none";
+  }
+});
+
+function closeNarrowUtilContent() {
+  // utilNarrowContent.classList.add("is-closed");
+  utilNarrowContent.setAttribute("aria-hidden", "true");
+
+  // Button state
+  utilNarrowButton.setAttribute("aria-expanded", "false");
+  utilNarrowButton.setAttribute("aria-pressed", "false");
+
+  utilNarrowContent.style.opacity = "0";
+  utilNarrowContent.style.height = "0";
+
+  /** Slide up. */
+  setTimeout(function timeoutFunction() {
+    utilNarrowContent.style.opacity = "0";
+    utilNarrowContent.style.height = "0";
+  }, 700);
+  setTimeout(function timeoutFunction() {
+    // utilNarrowContent.style.opacity = "0";
+    // utilNarrowContent.style.height = "0";
+
+    utilNarrowContent.classList.add("is-closed");
+  }, 500);
+}
+
+function closeSubMenu() {
+  setTimeout(function timeoutFunction() {
+    let openSubMenu = document.querySelector(".submenu-open");
+    let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
+    let openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
+    let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger__container");
+
+    //  button
+    openSubMenuButton.setAttribute("aria-expanded", "false");
+
+    // sub menu container div
+    openSubMenuContent.classList.add("is-closed");
+    openSubMenuContent.style.height = "0";
+
+    // sub menu list container
+    openSubMenuContainer.style.opacity = 0;
+
+    // sub menu container list item
+    openSubMenu.classList.remove("submenu-open");
+  }, 500);
+}
+
+// Keyboard navigation
+document.addEventListener("keydown", function (e) {
+  // ESC to close menus.
+  if (e.key === "Escape" || e.which === "27") {
+
+    // Check which menu is open.
+    if (utilNavWide.querySelector(".js-util-nav-content").style.opacity === "1") {// Log in to... in Utility nav bar
+      closeUtilWideContent();
+      utilNavWide.querySelector(".js-util-nav-toggle").focus();
+    }
+    else if (utilNarrowContent.style.opacity === "1") {// Log in to... in Hamburger menu
+      closeNarrowUtilContent();
+      setTimeout(function timeoutFunction() {
+        utilNarrowButton.focus();
+      }, 90);
+    }
+    else {// Menu button
+      closeMenu();
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".js-header-menu-button").focus();
+      }, 100);
+
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+    }
+
+    // if (body.classList.contains("show-menu") && utilNarrowContent.style.opacity === "0" ) {// Hamburger menu
+      // NOTE: Currently ESC close the hamburger menu, but it doesn't move focus to the menu button as it closes. To set the focus, need to confirm all sub menus are close.
+      // closeMenu(); --- THIS IS NOT NECESSARY.
+      // menuButton.focus();
+    // };
+  }
+});

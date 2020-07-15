@@ -1,14 +1,15 @@
 export default (function (window, document, $, undefined) {
+
   let $panels = $('.js-util-nav-content');
+  let $panel = "";
   let $utilityButtons = $('.js-util-nav-toggle');
 
   $panels.each(function () {
-    const $panel = $(this);
+    $panel = $(this);
     const height = $panel.height();
     const $closeButton = $panel.find('.js-close-util-nav');
 
     $panel.css('top', '-' + height + 'px');
-
     $(window).on('resized', function () {
       if ($(window).width() > 840) {
         $panel.css('top', '-' + height + 'px');
@@ -35,15 +36,30 @@ export default (function (window, document, $, undefined) {
 
   $utilityButtons.each(function () {
     const $thisButton = $(this);
-    const $thisPanel = $thisButton.next('.js-util-nav-content');
+    let $thisPanel = $thisButton.next('.js-util-nav-content');
     const $closePanel = $thisPanel.find('.js-close-util-nav');
 
     $thisButton.on('click', function () {
-      $thisPanel.removeClass('is-closed');
-      $thisPanel.removeAttr('style');
-      $thisPanel.attr("aria-hidden", "false");
+      if ($thisButton.closest(".ma__header__hamburger__utility-nav--narrow")) {
+        $thisPanel = null;
+      }
+      else {
+        $thisPanel.removeClass('is-closed');
+        $thisPanel.removeAttr('style');
+        $thisPanel.attr("aria-hidden", "false");
+      }
 
       $('body').addClass('show-submenu');
+
+      // Only affects utility nav on the utility nav bar with the hamburger menu.
+      if ($(this).closest(".ma__header__hamburger__utility-nav--wide")) {
+        if ($thisPanel.hasClass("is-closed")) {
+          $(this).closest(".ma__header__hamburger__nav").removeClass("util-nav-content-open");
+        }
+        else {
+          $(this).closest(".ma__header__hamburger__nav").addClass("util-nav-content-open");
+        }
+      }
 
       setTimeout(function () {
         $closePanel.focus();

@@ -3,12 +3,12 @@
     {% for nav in mainNav %}
       {% set buttonId =  'button' ~ loop.index %}
       {% set menuId =  'menu' ~ loop.index %}
-      <li  role="menuitem" class="ma__main__hamburger-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-hamburger-toggle' : 'js-main-nav-hamburger-top-link' }}" tabindex="-1">
+      <li  role="menuitem" class="ma__main__hamburger-nav__item {{ nav.active ? 'is-active' : '' }} {{ nav.subNav ? 'has-subnav js-main-nav-hamburger-toggle' : 'js-main-nav-hamburger-top-link' }}">
         {% if nav.subNav %}
-          <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-haspopup="true" aria-expanded="false" aria-label="show submenu" tabindex="0">
+          <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link js-main-nav-hamburger__top-link" aria-expanded="false">
           <span class="visually-hidden show-label">Show the sub topics of </span>
               {{ nav.text }}
-          <span class="aria-hidden toggle-indicator"></span>
+          <span class="toggle-indicator" aria-hidden="true"></span>
           </button>
           <div class="ma__main__hamburger-nav__subitems js-main-nav-hamburger-content is-closed">
             <ul id="{{ menuId }}" role="menu" aria-labelledby="{{ buttonId }}" class="ma__main__hamburger-nav__container js-main-nav-hamburger__container">
@@ -32,10 +32,10 @@
             {% if 'covid' in nav.text|lower %}
                 {% set altClass = 'cv-alternate-style' %}
             {% endif %}
-            <a href="{{ nav.href }}" class="ma__main__hamburger-nav__top-link {{ altClass }}" tabindex="0">{{ nav.text
+            <a href="{{ nav.href }}" class="ma__main__hamburger-nav__top-link {{ altClass }}">{{ nav.text
                 }}</a>
         {% else %}
-          <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link" tabindex="{{ loop.first? 0 : -1 }}">{{ nav.text }}</button>
+          <button type="button" id="{{ buttonId }}" class="ma__main__hamburger-nav__top-link">{{ nav.text }}</button>
         {% endif %}
       </li>
     {% endfor %}
