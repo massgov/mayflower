@@ -91,7 +91,7 @@ body.show-menu {
     }
 
     // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
-    
+
     @media ($bp-header-toggle-max) {
 
       @include ma-container;
@@ -224,7 +224,7 @@ body.show-menu {
     height: 95vh;
     top: 40px;
     overflow-y: auto;
-    position: absolute;//fixed;
+    position: absolute;
     left: -320px;
     // visibility for keyboard and screen reader users are managed with toggling aria-hidden value with js.
     visibility: hidden;
@@ -328,7 +328,6 @@ body.show-menu {
   &__menu-text {
     position: relative;
     display: inline-block;
-    // top: -2px;
     padding-left: 25px;
   }
 
@@ -542,7 +541,7 @@ body.show-menu {
 
             .translated-rtl &,
             .translated-ltr & {
-              height: auto;//calc(100vh - #{$header-mobile-controls-height * 2});
+              height: auto;
             }
           }
 
@@ -558,7 +557,6 @@ body.show-menu {
           }
 
           & .ma__utility-panel + .ma__utility-panel {
-            // margin-bottom: 1.75em; <-- original spacing inbetween. Remove this line once the design is set.
             margin-top: 1em;
 
           }

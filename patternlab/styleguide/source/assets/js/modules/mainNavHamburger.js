@@ -462,7 +462,6 @@ utilNarrowButton.addEventListener("click", function(e) {
 });
 
 function closeNarrowUtilContent() {
-  // utilNarrowContent.classList.add("is-closed");
   utilNarrowContent.setAttribute("aria-hidden", "true");
 
   // Button state
@@ -478,9 +477,6 @@ function closeNarrowUtilContent() {
     utilNarrowContent.style.height = "0";
   }, 700);
   setTimeout(function timeoutFunction() {
-    // utilNarrowContent.style.opacity = "0";
-    // utilNarrowContent.style.height = "0";
-
     utilNarrowContent.classList.add("is-closed");
   }, 500);
 }
