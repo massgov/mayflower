@@ -338,7 +338,6 @@ body.show-menu {
   &__menu-text {
     position: relative;
     display: inline-block;
-    // top: -2px;
     padding-left: 25px;
   }
 
@@ -552,7 +551,7 @@ body.show-menu {
 
             .translated-rtl &,
             .translated-ltr & {
-              height: auto;//calc(100vh - #{$header-mobile-controls-height * 2});
+              height: auto;
             }
           }
 
@@ -568,7 +567,6 @@ body.show-menu {
           }
 
           & .ma__utility-panel + .ma__utility-panel {
-            // margin-bottom: 1.75em; <-- original spacing inbetween. Remove this line once the design is set.
             margin-top: 1em;
 
           }
