@@ -282,7 +282,9 @@ function closeMenuJumpToSearch() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
-  menuButtonText.textContent = "Menu";
+  menuButtonText[0].textContent = "Menu";
+  menuButtonText[1].textContent = "Mass.gov";
+
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
@@ -308,7 +310,10 @@ function openMenuJumpToSearch() {
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  menuButtonText.textContent = "Close";
+  for (let i = 0; i < menuButtonText.length; i++) {
+    menuButtonText[i].textContent = "Close";
+  }
+
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
@@ -462,7 +467,6 @@ utilNarrowButton.addEventListener("click", function(e) {
 });
 
 function closeNarrowUtilContent() {
-  // utilNarrowContent.classList.add("is-closed");
   utilNarrowContent.setAttribute("aria-hidden", "true");
 
   // Button state
@@ -478,9 +482,6 @@ function closeNarrowUtilContent() {
     utilNarrowContent.style.height = "0";
   }, 700);
   setTimeout(function timeoutFunction() {
-    // utilNarrowContent.style.opacity = "0";
-    // utilNarrowContent.style.height = "0";
-
     utilNarrowContent.classList.add("is-closed");
   }, 500);
 }
