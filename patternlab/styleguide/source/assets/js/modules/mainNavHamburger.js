@@ -33,18 +33,7 @@ if (null !== menuButtonText) {
       }, 100);
     } else {
       openMenu();
-
-      // Set focus on hamburger menu container.
-      // Then, next tabbing takes a user to the first focusable element in the menu container.
-      // setTimeout(function timeoutFunction() {
-      //   hamburgerMenuContainer.focus();
-      // }, 90);
-
-      // These don't work:
-      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
-      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
-
-      // alternalte above 2 lines.
+      // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
@@ -453,7 +442,6 @@ utilNarrowButton.addEventListener("click", (e) => {
 });
 
 function closeNarrowUtilContent() {
-  // utilNarrowContent.classList.add("is-closed");
   utilNarrowContent.setAttribute("aria-hidden", "true");
 
   // Button state
@@ -469,9 +457,6 @@ function closeNarrowUtilContent() {
     utilNarrowContent.style.height = "0";
   }, 700);
   setTimeout(function timeoutFunction() {
-    // utilNarrowContent.style.opacity = "0";
-    // utilNarrowContent.style.height = "0";
-
     utilNarrowContent.classList.add("is-closed");
   }, 500);
 }
