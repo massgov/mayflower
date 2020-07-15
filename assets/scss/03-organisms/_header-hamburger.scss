@@ -85,18 +85,19 @@ body.show-menu {
 
     @media ($bp-medium-min) {
 
-      @include ma-container;
+      // @include ma-container;
 
-        max-width: 100%;// override max-width in ma-container.
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
     }
 
     // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
 
     @media ($bp-header-toggle-max) {
 
-      @include ma-container;
+      // @include ma-container;
+      padding-right: 0;
+      padding-left: 0;
       height: $header-mobile-controls-height;
       position: fixed;
       top: 0;
@@ -278,7 +279,12 @@ body.show-menu {
       opacity: 0.7;
     }
 
-    @media ($bp-medium-min) {
+    @media ($bp-medium-max) {
+
+      padding-left: 30px;
+    }
+
+    @media ($bp-header-toggle-min) {
 
       padding-left: 0;
     }
