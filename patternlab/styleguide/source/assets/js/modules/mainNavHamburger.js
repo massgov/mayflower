@@ -435,28 +435,52 @@ utilNarrowContent.style.height = "0";
 utilNarrowButton.addEventListener("click", function(e) {
 
   const thisButton = e.target.closest(".js-util-nav-toggle");
+  const thisNavContainer = e.target.closest(".ma__utility-nav__item");
   utilNarrowContent = thisButton.nextElementSibling;
+
 
   if (utilNarrowContent.classList.contains("is-closed")) {// Open
 
+
+    // mimic sub menu item.
+    thisNavContainer.classList.add("submenu-open");
+    thisNavContainer.style.pointerEvents = "none";
+    setTimeout(function timeoutFunction() {
+      thisNavContainer.removeAttribute("style");
+    }, 700);
+
     utilNarrowContent.classList.remove("is-closed");
+    utilNarrowContent.style.height = "auto";
+    /** Get the computed height of the subMenu. */
+    var contentHeight = utilNarrowContent.clientHeight + "px";
+
+    /** Set the height of the submenu as 0px, */
+    /** so we can trigger the slide down animation. */
+    utilNarrowContent.style.height = "0";
+
+    setTimeout(function timeoutFunction() {
+      utilNarrowContent.style.height = contentHeight;
+      utilNarrowContent.style.opacity = "1";
+    }, 70);//50);
+
+   // END: mimic sub menu item.
+
+
     utilNarrowContent.removeAttribute("aria-hidden");
-    utilNarrowContent.style.pointerEvents = "none";
 
     // Button state
     thisButton.setAttribute("aria-expanded", "true");
-    thisButton.setAttribute("aria-pressed", "true");
 
     /** Slide down. */
-    setTimeout(function timeoutFunction() {
-      utilNarrowContent.style.opacity = "1";
-    }, 700);
+    // setTimeout(function timeoutFunction() {
+    //   utilNarrowContent.style.opacity = "1";
+    // }, 700);
 
     // Close open sub menu.
     closeSubMenu();
   } else {// Close
     closeNarrowUtilContent();
-    utilNarrowContent.style.pointerEvents = "none";
+    // utilNarrowContent.style.pointerEvents = "none";
   }
 });
 
@@ -464,22 +488,25 @@ function closeNarrowUtilContent() {
   // utilNarrowContent.classList.add("is-closed");
   utilNarrowContent.setAttribute("aria-hidden", "true");
 
+
+
+  utilNarrowButton.closest(".ma__utility-nav__item").classList.remove("submenu-open");
+
   // Button state
   utilNarrowButton.setAttribute("aria-expanded", "false");
-  utilNarrowButton.setAttribute("aria-pressed", "false");
 
-  utilNarrowContent.style.opacity = "0";
-  utilNarrowContent.style.height = "0";
+  // utilNarrowContent.style.opacity = "0";
+  // utilNarrowContent.style.height = "0";
+
+  // utilNarrowContent.style.pointerEvents = "none";
 
   /** Slide up. */
+  // setTimeout(function timeoutFunction() {
+    utilNarrowContent.style.height = "0";
+    // utilNarrowContent.style.opacity = "0";
+  // }, 700);
   setTimeout(function timeoutFunction() {
     utilNarrowContent.style.opacity = "0";
-    utilNarrowContent.style.height = "0";
-  }, 700);
-  setTimeout(function timeoutFunction() {
-    // utilNarrowContent.style.opacity = "0";
-    // utilNarrowContent.style.height = "0";
-
     utilNarrowContent.classList.add("is-closed");
   }, 500);
 }
