@@ -81,6 +81,8 @@ body.show-menu {
 
   &-wrapper {
 
+    @include ma-container;
+
     @media ($bp-medium-min) {
 
       @include ma-container;
@@ -262,7 +264,7 @@ body.show-menu {
     background-color: $c-primary;
     text-align: left;
     border: none;
-    font-size: 1.2rem;
+    font-size: 19.2px;//1.2rem; Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
     height: 40px;
@@ -277,6 +279,7 @@ body.show-menu {
     }
 
     @media ($bp-medium-min) {
+
       padding-left: 0;
     }
   }
