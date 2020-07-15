@@ -14,11 +14,6 @@ if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
 }
 
-//  /* IE11 Fix */
-//  if (typeof (UserAgentInfo) != 'undefined' && !window.addEventListener) {
-//   UserAgentInfo.strBrowser = 1;
-// }
-
 // Open and close the menu
 // if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
@@ -479,7 +474,6 @@ utilNarrowButton.addEventListener("click", function(e) {
 });
 
 function closeNarrowUtilContent() {
-  // utilNarrowContent.classList.add("is-closed");
   utilNarrowContent.setAttribute("aria-hidden", "true");
 
   // Button state
@@ -495,9 +489,6 @@ function closeNarrowUtilContent() {
     utilNarrowContent.style.height = "0";
   }, 700);
   setTimeout(function timeoutFunction() {
-    // utilNarrowContent.style.opacity = "0";
-    // utilNarrowContent.style.height = "0";
-
     utilNarrowContent.classList.add("is-closed");
   }, 500);
 }

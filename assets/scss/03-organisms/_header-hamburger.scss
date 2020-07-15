@@ -85,13 +85,12 @@ body.show-menu {
 
     @media ($bp-medium-min) {
 
-      //max-width: 100%;// override max-width in ma-container.
       display: flex;
       justify-content: space-between;
     }
 
     // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
-    
+
     @media ($bp-header-toggle-max) {
 
       padding-right: 0;
@@ -232,7 +231,7 @@ body.show-menu {
     height: 95vh;
     top: 40px;
     overflow-y: auto;
-    position: absolute;//fixed;
+    position: absolute;
     left: -320px;
     // visibility for keyboard and screen reader users are managed with toggling aria-hidden value with js.
     visibility: hidden;
@@ -267,7 +266,7 @@ body.show-menu {
     background-color: $c-primary;
     text-align: left;
     border: none;
-    font-size: 19.2px;//1.2rem; Maintain the same font size regardless of the screensize.
+    font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
     height: 40px;
@@ -343,7 +342,6 @@ body.show-menu {
   &__menu-text {
     position: relative;
     display: inline-block;
-    // top: -2px;
     padding-left: 25px;
   }
 
@@ -557,7 +555,7 @@ body.show-menu {
 
             .translated-rtl &,
             .translated-ltr & {
-              height: auto;//calc(100vh - #{$header-mobile-controls-height * 2});
+              height: auto;
             }
           }
 
@@ -573,9 +571,7 @@ body.show-menu {
           }
 
           & .ma__utility-panel + .ma__utility-panel {
-            // margin-bottom: 1.75em; <-- original spacing inbetween. Remove this line once the design is set.
             margin-top: 1em;
-
           }
 
           & .ma__utility-panel__description {
