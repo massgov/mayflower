@@ -35,12 +35,7 @@ if (null !== menuButtonText) {
     } else {
       openMenu();
 
-      // Set focus on hamburger menu container.
-      // Then, next tabbing takes a user to the first focusable element in the menu container.
-      // setTimeout(function timeoutFunction() {
-      //   hamburgerMenuContainer.focus();
-      // }, 90);
-
+      // Set focusable items between the menu button and the hamburger menu unfocusable to set focus on the first focusable item in the menu by next tabbing.
       // These don't work:
       // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
       // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
