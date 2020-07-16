@@ -4,55 +4,56 @@
     "titleContext": "of Southbridge RMV"
   },
   "relationshipIndicators": {
+    "pageTitle": "Southbridge RMV",
     "primary": {
       "position": "primary",
-      "label": "offered by",
+      "label": "part of",
       "tags": [
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
-          "title": "Department of Conservation and Recreation"
+          "title": "Snowmobile in the Parks"
         },
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
-          "title": "Other agency or organization"
+          "title": "Cross-Country Skiing"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Accessible Hiking"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Scenic Viewing Areas"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Hunting"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Biking"
         }
       ]
     },
     "secondary": {
       "position": "",
-      "label": "related to",
+      "label": "offered by",
       "tags": [
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
-          "title": "Snowmobile in the Parks"
+          "title": "Department of Conservation and Recreation"
         },
         {
-          "class": "ma__relationship-indicators--term",
+          "class": "",
           "href": "#",
-          "title": "Cross-Country Skiing"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Accessible Hiking"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Scenic Viewing Areas"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Hunting"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Biking"
+          "title": "Other agency or organization"
         }
       ]
     }
@@ -117,7 +118,7 @@
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "See a larger map",
-        "info": "Get Directions"
+        "info": "Mt Greylock State Park"
       },
       "picture": {
         "defaultImage": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=600x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=ZfVgzAGuHDGCUTdazkS3WBiiOWY",
@@ -193,7 +194,6 @@
       }
     ]
   },
-  "COMMENT": "****PAGE CONTENT COMPONENTS****",
   "mainContent": {
     "overview": {
       "compHeading": {
@@ -207,7 +207,7 @@
       "property": "description",
       "rteElements": [
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "At 3,491 feet, Mount Greylock is the highest point in Massachusetts. Rising above the surrounding Berkshire landscape, dramatic views of 60-90 miles distant may be seen. It became Massachusetts' first wilderness state park, acquired by the Commonwealth in 1898, to preserve its natural environment for public enjoyment. Wild and rugged yet intimate and accessible, Mount Greylock rewards the visitor exploring this special place of scenic and natural beauty."
@@ -246,7 +246,7 @@
           }
         },
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "May - September:<br />Sunrise - Sunset<br /><br />October - April:<br />9 a.m. - 5 p.m."
@@ -262,7 +262,7 @@
           }
         },
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "Monday - Friday:<br />9 a.m. - 5 p.m.<br /><br />Saturday:<br />12 p.m. - 7 p.m."
@@ -278,7 +278,7 @@
           }
         },
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "May - September:<br />7 a.m. - 6 p.m."
@@ -299,7 +299,7 @@
       "property": "",
       "rteElements": [
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "<b>Parking Meters only accept Credit Cards.</b>"
@@ -307,7 +307,7 @@
           }
         },
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "Suspendisse non tempus justo. Pellentesque malesuada lectus augue, eu blandit ex hendrerit eget. In non convallis eros. Maecenas consectetur neque a nibh faucibus blandit. In quis urna sollicitudin, dictum sapien sit amet, rutrum metus. Donec sed risus neque. Ut a orci ex. Morbi laoreet suscipit tortor at ullamcorper."
@@ -453,7 +453,7 @@
       "property": "",
       "rteElements": [
         {
-          "path": "@atoms/unordered-list.twig",
+          "path": "atoms-unordered-list",
           "data": {
             "unorderedList": [
               {
@@ -503,7 +503,7 @@
       "property": "",
       "rteElements": [
         {
-          "path": "@atoms/unordered-list.twig",
+          "path": "atoms-unordered-list",
           "data": {
             "unorderedList": [
               {
@@ -538,7 +538,7 @@
       "property": "",
       "rteElements": [
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "Vestibulum ornare feugiat sodales. Suspendisse fermentum augue eget semper feugiat. Sed tempor et ipsum semper elementum. Nulla facilisi. Ut risus nibh, sodales sit amet mollis pharetra, elementum vitae sapien. Integer quis suscipit dui. Sed hendrerit sit amet nunc sit amet ultrices. Pellentesque malesuada faucibus ligula ac tincidunt."
@@ -546,7 +546,7 @@
           }
         },
         {
-          "path": "@atoms/unordered-list.twig",
+          "path": "atoms-unordered-list",
           "data": {
             "unorderedList": [
               {
@@ -824,6 +824,7 @@
       ]
     }
   },
+  "COMMENT": "****SIDEBAR COMPONENTS****",
   "sidebar": {
     "coloredHeadings": true,
     "contactList": {

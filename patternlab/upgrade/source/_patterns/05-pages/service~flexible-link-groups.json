@@ -3,23 +3,7 @@
   "relationshipIndicators": {
     "primary": {
       "position": "primary",
-      "label": "offered by",
-      "tags": [
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Department of Conservation and Recreation"
-        },
-        {
-          "class": "ma__relationship-indicators--term",
-          "href": "#",
-          "title": "Other agency or organization"
-        }
-      ]
-    },
-    "secondary": {
-      "position": "",
-      "label": "related to",
+      "label": "part of",
       "tags": [
         {
           "class": "ma__relationship-indicators--term",
@@ -50,6 +34,22 @@
           "class": "ma__relationship-indicators--term",
           "href": "#",
           "title": "Biking"
+        }
+      ]
+    },
+    "secondary": {
+      "position": "",
+      "label": "offered by",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Other agency or organization"
         }
       ]
     }
@@ -209,7 +209,7 @@
           "href": "#",
           "text": "Link to organization page with logo",
           "image": {
-            "src": "../../images/placeholder/250x250.png",
+            "src": "../../assets/images/placeholder/250x250.png",
             "alt": "logo"
           }
         },

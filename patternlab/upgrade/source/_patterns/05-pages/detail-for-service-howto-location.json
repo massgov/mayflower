@@ -9,74 +9,85 @@
     "widgets": null
   },
   "relationshipIndicators": {
+    "pageTitle": "Building Energy Codes",
     "primary": {
       "position": "primary",
-      "label": "offered by",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Department of Conservation and Recreation"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Other agency or organization"
-      }]
+      "label": "part of",
+      "tags": [
+        {
+          "class": "",
+          "href": "#",
+          "title": "Snowmobile in the Parks"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Cross-Country Skiing"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Accessible Hiking"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Scenic Viewing Areas"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Hunting"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Biking"
+        }
+      ]
     },
     "secondary": {
       "position": "",
-      "label": "related to",
-      "tags": [{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Snowmobile in the Parks"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Cross-Country Skiing"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Accessible Hiking"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Scenic Viewing Areas"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Hunting"
-      },{
-        "class": "ma__relationship-indicators--term",
-        "href": "#",
-        "title": "Biking"
-      }]
+      "label": "offered by",
+      "tags": [
+        {
+          "class": "",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "",
+          "href": "#",
+          "title": "Other agency or organization"
+        }
+      ]
     }
   },
   "sections": [{
     "richText": {
       "rteElements": [{
-        "path": "@atoms/paragraph.twig",
+        "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph" : {
             "text": "In accordance with the Green Communities Act of 2008, Massachusetts is required to update its building code every three years to be consistent with the most recent version of the International Energy Conservation Code (IECC)."
           }
         }
       },{
-        "path": "@atoms/paragraph.twig",
+        "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph" : {
             "text": "On June 14, 2016, the Board of Building Regulations and Standards (“Board”) held a public hearing on proposed amendments to the current, Eighth Edition of 780 CMR (the building code) concerning energy standards. Specifically, the Board solicited feedback and took testimony on amendments to 780 CMR 13 (commercial energy efficiency standards), section 11 of 780 CMR 51 (residential energy standards), and 780 CMR 115 Appendix AA (Stretch Energy Code). The Board and Department of Public Safety (“Department”) also took feedback from the public and stakeholders in writing until June 28, 2016."
           }
         }
       },{
-        "path": "@atoms/paragraph.twig",
+        "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph" : {
             "text": "Following the public comment period, the Board reviewed that feedback at its regular meeting on July 19, 2016. On that date, the Board voted recommended changes to the three energy chapters and approved the amendments for publication"
           }
         }
       },{
-        "path": "@atoms/paragraph.twig",
+        "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph" : {
             "text": "The approved amendments were filed with the Office of the Secretary of the Commonwealth, Regulations Division, on July 28, 2016. The effective date of the new energy provisions in 780 CMR is therefore August 12, 2016."
@@ -141,7 +152,7 @@
           }
         }
       },{
-        "path": "@atoms/paragraph.twig",
+        "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph" : {
             "text": "In 2009, Massachusetts became the first state to adopt an above-code appendix to the \"base\" building energy code-the \"Stretch Code\" (780 CMR Appendix 115.AA). The Stretch Code, which emphasizes energy performance, as opposed to prescriptive requirements, is designed to result in cost-effective construction that is more energy efficient than that built to the \"base\" energy code. Alongside the base code update to the IECC2015, the Stretch Code is being updated, and is referred to as the 2015 Stretch code update."
@@ -210,7 +221,7 @@
           }
         }
       },{
-        "path": "@atoms/paragraph.twig",
+        "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph": {
             "text": "In 2015-2016, DOER hired an independent building energy consulting firm to look at the cost-benefit trade-off of building new single-family and multi-family homes to the 2015 Stretch Code update.  There are examples of both natural gas heated and non-gas heated homes, all of which show that homeowners see a positive cash-flow from day 1 from purchasing a 2015 stretch code home vs. a 2015 base code compliant home."
@@ -228,7 +239,7 @@
           }
         }
       },{
-        "path": "@atoms/paragraph.twig",
+        "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph": {
             "text": "Municipalities may choose to adopt the Stretch Code in lieu of the base building energy code. Stretch code adoption is mandatory for designation as a \"<a href=\"http://www.mass.gov/eea/energy-utilities-clean-tech/green-communities/\">Green Community</a>\" under the GCA. As of October 4, 2016, 180 municipalities have adopted the Stretch Code, with more expected in the upcoming months. Building code officials have received free code training."
@@ -339,7 +350,7 @@
           }
         }
       },{
-        "path": "@atoms/paragraph.twig",
+        "path": "@atoms/11-text/paragraph.twig",
         "data": {
           "paragraph": {
             "text": "The Mass Save statewide energy efficiency program in coordination with the Board of Building Regulations and Standards (BBRS) and the Department of Energy Resources (DOER) is continuing to sponsor training on the building energy code, including the Stretch Code, at various locations around the state. The training is open to all, and developed to serve both building officials and other building professionals (e.g., builders & architects). Training is free for building officials, and counts toward the new BBRS requirement that building officials be trained in energy efficiency. Other building professionals pay a nominal fee for the training, and may receive continuing education units (CEU's) for attending."

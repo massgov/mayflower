@@ -137,7 +137,7 @@
       "link": {
         "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
         "text": "Get Directions",
-        "info": "Get Directions"
+        "info": "Mt Greylock State Park"
       },
       "picture": {
         "defaultImage": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=400x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=NtPVeSVJQHMeHEnnJaBxQGz8WHw",
@@ -213,7 +213,6 @@
       }
     ]
   },
-  "COMMENT": "****PAGE CONTENT COMPONENTS****",
   "mainContent": {
     "overview": {
       "compHeading": {
@@ -227,7 +226,7 @@
       "property": "description",
       "rteElements": [
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "At 3,491 feet, Mount Greylock is the highest point in Massachusetts. Rising above the surrounding Berkshire landscape, dramatic views of 60-90 miles distant may be seen. It became Massachusetts' first wilderness state park, acquired by the Commonwealth in 1898, to preserve its natural environment for public enjoyment. Wild and rugged yet intimate and accessible, Mount Greylock rewards the visitor exploring this special place of scenic and natural beauty."
@@ -266,7 +265,7 @@
           }
         },
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "May - September:<br />Sunrise - Sunset<br /><br />October - April:<br />9 a.m. - 5 p.m."
@@ -282,7 +281,7 @@
           }
         },
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "Monday - Friday:<br />9 a.m. - 5 p.m.<br /><br />Saturday:<br />12 p.m. - 7 p.m."
@@ -298,7 +297,7 @@
           }
         },
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "May - September:<br />7 a.m. - 6 p.m."
@@ -319,7 +318,7 @@
       "property": "",
       "rteElements": [
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "<b>Parking Meters only accept Credit Cards.</b>"
@@ -327,7 +326,7 @@
           }
         },
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "Suspendisse non tempus justo. Pellentesque malesuada lectus augue, eu blandit ex hendrerit eget. In non convallis eros. Maecenas consectetur neque a nibh faucibus blandit. In quis urna sollicitudin, dictum sapien sit amet, rutrum metus. Donec sed risus neque. Ut a orci ex. Morbi laoreet suscipit tortor at ullamcorper."
@@ -417,7 +416,7 @@
             "href": "#"
           },
           "image": {
-            "src": "../../images/placeholder/190x107.png",
+            "src": "../../assets/images/placeholder/190x107.png",
             "alt": "camping image",
             "href": "#"
           },
@@ -558,7 +557,7 @@
       "property": "",
       "rteElements": [
         {
-          "path": "@atoms/paragraph.twig",
+          "path": "@atoms/11-text/paragraph.twig",
           "data": {
             "paragraph": {
               "text": "Vestibulum ornare feugiat sodales. Suspendisse fermentum augue eget semper feugiat. Sed tempor et ipsum semper elementum. Nulla facilisi. Ut risus nibh, sodales sit amet mollis pharetra, elementum vitae sapien. Integer quis suscipit dui. Sed hendrerit sit amet nunc sit amet ultrices. Pellentesque malesuada faucibus ligula ac tincidunt."
@@ -851,7 +850,7 @@
       {
         "image": {
           "alt": "Place Holder Image",
-          "src": "../../images/placeholder/230x130.png",
+          "src": "../../assets/images/placeholder/230x130.png",
           "height": "130",
           "width": "230"
         },
@@ -880,6 +879,7 @@
       ]
     }
   },
+  "COMMENT": "****SIDEBAR COMPONENTS****",
   "sidebar": {
     "coloredHeadings": true,
     "contactList": {
