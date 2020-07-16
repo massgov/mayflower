@@ -19,7 +19,7 @@ const NarrowTemplate = (narrowTemplate) => {
   return(
     <main id="main-content" className={classNames} tabIndex="-1">
       <header className="ma__narrow-template__header">
-        <SiteLogo {...narrowTemplate.siteLogoDomain} />
+        {narrowTemplate.siteLogo ? narrowTemplate.siteLogo() : <SiteLogo {...narrowTemplate?.siteLogoDomain} />}
       </header>
       <div className="ma__narrow-template__container">
         <div className="ma__narrow-template__content">

@@ -5,6 +5,7 @@ import { withKnobs, number, text } from '@storybook/addon-knobs';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import HeaderSlim from '.';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
+import Button from 'MayflowerReactButtons/Button';
 
 storiesOf('organisms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -25,5 +26,7 @@ storiesOf('organisms', module)
     const headerProps = {
       siteLogo: <SiteLogo {...siteLogoProps} />
     };
-    return(<HeaderSlim {...headerProps} />);
+    return(
+      <HeaderSlim {...headerProps} />
+    );
   });
