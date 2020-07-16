@@ -1,0 +1,14 @@
+<section class="ma__change-log">
+  <h2 class="ma__change-log__title">{{changeLog.title}}</h2>
+  <ul class="ma__change-log__items">
+    {% for item in changeLog.items %}
+      <li class="ma__change-log__item">
+        <span class="ma__change-log__date">{{item.date}}</span>
+        {{item.description}}
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="ma__change-log__view-all">
+    <a href="#">See full change log</a>
+  </div>
+</section>

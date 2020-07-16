@@ -1,0 +1,65 @@
+{
+  "actionStep": {
+    "accordion": true,
+    "isExpanded": false,
+    "accordionLabel": "Expand Generic steps on completing something",
+    "icon": "circle-chevron",
+    "title": "Generic",
+    "richText": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph": {
+            "text": "Lorem ipsum dolor sit amet, consectetur <a href=\"#\">adipisicing elit</a>. Ducimus deleniti nisi at adipisci sequi consequuntur qui, corporis pariatur eos laborum nostrum itaque, facere. Doloremque qui temporibus repellendus incidunt in nam provident, aliquam."
+          }
+        }
+      }]
+    },
+    "downloadLinks": [{
+      "downloadLink": {
+        "iconSize": "small",
+        "icon": "doc-pdf",
+        "decorativeLink": {
+          "text": "PDF download item",
+          "href": "#",
+          "info": "",
+          "property": ""
+        },
+        "size": "30kb",
+        "format": "PDF"
+      }
+    },{
+      "downloadLink": {
+        "iconSize": "small",
+        "icon": "doc-docx",
+        "decorativeLink": {
+          "text": "Word download item",
+          "href": "#",
+          "info": "",
+          "property": ""
+        },
+        "size": "40kb",
+        "format": "DOCX"
+      }
+    },{
+      "downloadLink": {
+        "iconSize": "small",
+        "icon": "laptop",
+        "decorativeLink": {
+          "text": "Online Form: Out-of-Country Driver's License Conversion",
+          "href": "#",
+          "info": "",
+          "property": ""
+        },
+        "size": "",
+        "format": "form"
+      }
+    }],
+    "decorativeLink": {
+      "href": "#",
+      "text": "Learn more",
+      "info": "Learn more about this generic step",
+      "property": ""
+    }
+  }
+}

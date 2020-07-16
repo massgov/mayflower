@@ -1,0 +1,21 @@
+{% set iframeClass = iframe.position ? "ma__iframe--" ~ iframe.position : '' %}
+{% if not iframe.height %}
+  {% set iframeClass = iframeClass ~ " ma__iframe--responsive" %}
+{% endif %}
+<div class="ma__iframe {{ iframeClass }}">
+  <div class="ma__iframe__container js-ma-responsive-iframe">
+  <iframe height="{{ iframe.height }}" src="{{ iframe.src }}" allowfullscreen title="{{ iframe.title }}"></iframe>
+  {% if iframe.link %}
+    <div class="ma__iframe__link">
+      {% set decorativeLink = iframe.link %}
+      {% include "@atoms/decorative-link.twig" %}
+    </div>
+  {% endif %}
+  </div>
+
+  {% if iframe.caption %}
+  <figcaption class="ma__figure__caption ma__iframe__caption">
+    {{ iframe.caption }}
+  </figcaption>
+  {% endif %}
+</div>

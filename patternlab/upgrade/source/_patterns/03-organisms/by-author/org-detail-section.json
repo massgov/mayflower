@@ -1,0 +1,26 @@
+{
+  "stackedRow": {
+    "title": "Row with image",
+    "id": "row-with-sidebar",
+    "pageContent": [
+      {
+        "path": "@base/placeholder.twig",
+        "data": {
+          "placeholder": {
+            "text": "Section Content"
+          }
+        }
+      }
+    ],
+    "sideBar": [
+      {
+        "path": "@base/placeholder.twig",
+        "data": {
+          "placeholder": {
+            "text": "Optional Image"
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+<section class="ma__banner-carousel">
+  <div class="ma__banner-carousel__slides js-banner-carousel">
+    {% for slide in bannerCarousel.slides %}
+      <div class="ma__banner-carousel__slide">
+        <picture>
+          <source srcset="{{slide.imageLarge}}" media="(min-width: 801px)">
+          <img srcset="{{slide.image}}" alt="{{slide.alt}}">
+        </picture>
+      </div>
+    {% endfor %}
+  </div>
+{% if schemaPageType %}
+  <meta property="image" src="{{bannerCarousel.slides[0].image}}" alt="{{bannerCarousel.slides[0].alt}}" />
+{% endif %}
+</section>
+

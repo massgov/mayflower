@@ -1,0 +1,59 @@
+{# set max number of items / markers to render per listing page / map if passed one, default to all #}
+{% set maxItems = locationListing.maxItems ?: locationListing.imagePromos.items.length %}
+<section class="ma__location-listing js-location-listing">
+  {% if locationListing.locationFilters %}
+    <div class="ma__location-listing__filters">
+      {% set locationFilters = locationListing.locationFilters %}
+      {% include "@molecules/location-filters.twig" %}
+    </div>
+  {% endif %}
+  <div class="ma__location-listing__columns">
+    <div class="ma__location-listing__container">
+      <div class="ma__location-listing__map">
+        <div class="ma__location-listing__sticky js-location-listing-map">
+          {% set googleMap = locationListing.googleMap %}
+          {% include "@molecules/google-map.twig" %}
+        </div>
+      </div>
+      <div class="ma__location-listing__results js-location-listing-results">
+        {% set resultsHeading = locationListing.resultsHeading %}
+        {% include "@molecules/results-heading.twig" %}
+        {% set promoHeading = locationListing.imagePromos.promoHeading %}
+        {% set items = locationListing.imagePromos.items[:maxItems] %}
+
+        {% block imagePromos %}
+          {% set imagePromos = { promoHeading: promoHeading, items: items } %}
+          {% include "@organisms/by-author/image-promos.twig" %}
+        {% endblock %}
+
+        {% set pagination = locationListing.pagination %}
+
+        {% include "@molecules/pagination.twig" with {
+          pagination: {
+            prev: pagination.prev,
+            next: pagination.next,
+            pages: pagination.pages|slice(0, 10)
+          }
+        } %}
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // Make locationListing data object available in locationListing module js.
+  var ma = ma || {};
+  ma.locationListing = ma.locationListing || [];
+  {# Convert the description of each item to a text string #}
+  {% set items = [] %}
+  {% for item in locationListing.imagePromos.items %}
+    {% set description %}
+      {% include "@organisms/by-author/rich-text.twig" with {
+        richText: item.description.richText
+      } %}
+    {% endset %}
+    {% set item = item|merge({'description': {'text': description} }) %}
+    {% set items = items|merge([item]) %}
+  {% endfor %}
+  {% set locationListing = locationListing|merge({'imagePromos': {'items': items} }) %}
+  ma.locationListing.push({{ locationListing|json_encode|raw }});
+</script>

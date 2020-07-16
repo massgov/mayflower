@@ -1,0 +1,28 @@
+{
+  "sectionLinks": {
+    "id": "GUIDasjdhf1",
+    "catIcon": {
+      "icon":"lg-fishing",
+      "small": true
+    },
+    "title" : {
+      "href" : "#",
+      "text" : "Recreational Licenses & Permits"
+    },
+    "level": "",
+    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rutrum mauris quam, et imperdiet purus pellentesque vel.",
+    "type": "callout",
+    "links" : [{
+      "href" : "#",
+      "text" : "Boating"
+    },
+    {
+      "href" : "#",
+      "text" : "Fishing"
+    },
+    {
+      "href" : "#",
+      "text" : "Hunting"
+    }]
+  }
+}

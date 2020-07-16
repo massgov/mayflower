@@ -1,0 +1,20 @@
+<li class="ma__toc--hierarchy__accordion js-accordion">
+  <button class="ma__toc--hierarchy__title js-accordion-link" type="button">
+    {{expandableSection.text}}
+  </button>
+  <ul class="ma__toc--hierarchy__accordion-content js-accordion-content">
+    {% block expandableSectionLinks %}
+      {% for link in expandableSection.linkItems %}
+        <li>
+          {% if link.icon %}
+            {% set downloadLink = link %}
+            {% include "@molecules/download-link.twig" %}
+          {% else %}
+            {% set decorativeLink = link %}
+            {% include "@atoms/decorative-link.twig" %}
+          {% endif %}
+        </li>
+      {% endfor %}
+    {% endblock %}
+  </ul>
+</li>

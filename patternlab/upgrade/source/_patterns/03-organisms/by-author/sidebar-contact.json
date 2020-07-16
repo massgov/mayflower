@@ -1,0 +1,118 @@
+{ 
+  "sidebarContact": {
+    "coloredHeading": {
+      "text": "Contact",
+      "color": "green"
+    },
+    "items": [{
+      "contactUs": {
+        "subTitle": {
+          "href":"",
+          "text": "Bascom Lodge",
+          "chevron":""
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "hidden": "",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "value":"(413) 499-4262",
+            "link":"14134994262",
+            "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+          },{
+            "type": "phone",
+            "property": "",
+            "label":"TTY:",
+            "value":"(617) 555-7777",
+            "link":"16175557777",
+            "details":"For those who need accessible services"
+          }]
+        },{
+          "icon": "fax-icon",
+          "name": "Fax",
+          "hidden": "",
+          "items": [{
+            "type": "fax",
+            "property": "",
+            "label":"",
+            "value":"(413) 499-4262",
+            "link":"14134994262",
+            "details":"Please allow 24 hours for a response"
+          }]
+        },{
+          "icon": "marker",
+          "name": "Address",
+          "hidden": "true",
+          "items": [{
+            "type": "address",
+            "property": "",
+            "label":"",
+            "value": "555 Park Drive\nBoston, MA 02231",
+            "link": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+            "details": ""
+          }]
+        }]
+      }
+    },{
+      "contactUs": {
+        "subTitle": {
+          "href":"",
+          "text": "Museum",
+          "chevron":""
+        },
+        "groups": [{
+          "icon": "phone",
+          "name": "Phone",
+          "hidden": "",
+          "items": [{
+            "type": "phone",
+            "property": "",
+            "label":"Main:",
+            "value":"(413) 443-8765",
+            "link":"14134438765",
+            "details":""
+          }]
+        },{
+          "icon": "laptop",
+          "name": "Online",
+          "hidden": "",
+          "items": [{
+            "type": "email",
+            "property": "",
+            "label":"Email:",
+            "value":"mount.greylock@state.ma.us",
+            "link":"mount.greylock@state.ma.us",
+            "details":""
+          }]
+        },{
+          "icon": "fax-icon",
+          "name": "Fax",
+          "hidden": "true",
+          "items": [{
+            "type": "fax",
+            "property": "",
+            "label":"",
+            "value":"(413) 499-4262",
+            "link":"14134994262",
+            "details":"Please allow 24 hours for a response"
+          }]
+        },{
+          "icon": "marker",
+          "name": "Address",
+          "hidden": "true",
+          "items": [{
+            "type": "address",
+            "property": "",
+            "label": "",
+            "value": "555 Park Drive\nNorth Hampton, MA 02231",
+            "link": "",
+            "details": ""
+          }]
+        }]
+      }
+    }]
+  } 
+}

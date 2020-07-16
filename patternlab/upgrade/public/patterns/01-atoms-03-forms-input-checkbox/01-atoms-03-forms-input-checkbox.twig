@@ -1,0 +1,12 @@
+{# backward compatible for v5.1 #}
+{% if inputCheckbox.checked == 'true' or inputCheckbox.checked == 'false' %}
+  {% set inputCheckbox = inputCheckbox|merge({'checked': inputCheckbox.checked == 'true' ? true : false }) %}
+{% endif %}
+
+<span class="ma__input-checkbox">
+  <input type="checkbox" value="{{ inputCheckbox.value }}" id="{{ inputCheckbox.id }}" {{ inputCheckbox.checked ? 'checked' : '' }}>
+  {% if inputCheckbox.icon %}
+    {{ icon(inputCheckbox.icon) }}
+  {% endif %}
+  <label for="{{ inputCheckbox.id }}"><span>{{ inputCheckbox.label}}</span></label>
+</span>

@@ -1,0 +1,20 @@
+{
+  "image": {
+    "alt": "alt text",
+    "src": "../../images/placeholder/800x400.png",
+    "versions": [
+      {
+        "url": "../../images/placeholder/400x200.png",
+        "width": "620w"
+      },
+      {
+        "url": "../../images/placeholder/700x350.png",
+        "width": "780w"
+      },
+      {
+        "url": "../../images/placeholder/800x400.png",
+        "width": "910w"
+      }
+    ]
+  }
+}

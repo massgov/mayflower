@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.8'
 
 services:
   # BackstopJS.
@@ -15,4 +15,6 @@ services:
   web:
     image: nginx:stable-alpine
     volumes:
-      - ./styleguide/public:/usr/share/nginx/html
+      - ./upgrade/public:/usr/share/nginx/html
+    ports:
+      - "8080:80"

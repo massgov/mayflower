@@ -1,0 +1,82 @@
+{
+  "no_sidebar": false,
+  "details": {
+    "contentTitle": "Information Details",
+    "titleContext": ""
+  },
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Department of Conservation and Recreation"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Other agency or organization"
+      }]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Snowmobile in the Parks"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Cross-Country Skiing"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Accessible Hiking"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Scenic Viewing Areas"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Hunting"
+      },{
+        "class": "ma__relationship-indicators--term",
+        "href": "#",
+        "title": "Biking"
+      }]
+    }
+  },
+  "pageHeader": {
+    "divider": false,
+    "title": "Page Title",
+    "subTitle": "teaser text",
+    "widgets": null
+  },
+
+  "stickyNav": {
+    "titleContext": "",
+    "anchorLinks":[{
+      "href": "jump link",
+      "text": "jump-link",
+      "info": ""
+    },{
+      "href": "another link",
+      "text": "another-link",
+      "info": ""
+    }]
+  },
+
+  "stickyTOC": {
+    "title": "Table of Contents"
+  },
+
+  "pageContent": {
+
+  },
+
+  "sidebar": {
+    "coloredHeadings": false
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "resultsHeading": {
+    "level": "",
+    "subject": "subject",
+    "numResults": "1-12",
+    "totalResults": "108",
+    "sortResults": {
+      "label": "Sort by:",
+      "sortButtons": [{
+        "text": "Date",
+        "direction": "dsc"
+      },{
+        "text": "Price",
+        "direction": ""
+      },{
+        "text": "Color",
+        "direction": ""
+      }]
+    },
+    "tags": [{
+      "type": "zipcode",
+      "text": "02341",
+      "value": "02341"
+    },{
+      "type": "activity",
+      "text": "Hiking",
+      "value": "hiking"
+    },{
+      "type": "keyword",
+      "text": "Beginner",
+      "value": "beginner"
+    },{
+      "type": "tag",
+      "text": "Wheelchair Accessible",
+      "value": "wheelchair-accessible"
+    }]
+  }
+}

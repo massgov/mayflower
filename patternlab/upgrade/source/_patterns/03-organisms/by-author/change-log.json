@@ -1,0 +1,21 @@
+{
+  "changeLog": {
+    "title": "What’s New on Pilot.Mass.Gov",
+    "items": [{
+      "date":"08.15.16",
+      "description":"Added 4 new Actions - Apply for a Fishing License, Find a State Park, Pay for Child Support, Register Your Business"
+    },{
+      "date":"08.15.16",
+      "description":"Added 2 new Actions - Get a Driver’s License, Apply for SNAP"
+    },{
+      "date":"08.15.16",
+      "description":"Updated the global site navigation"
+    },{
+      "date":"08.15.16",
+      "description":"Added 2 new Agency pages - Department of Conservation and Recreation (DCR), Office of Health and Social Services (OHSS)"
+    },{
+      "date":"08.11.16",
+      "description":"Launched Pilot!"
+    }]
+  }
+}

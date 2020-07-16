@@ -1,0 +1,11 @@
+<div class="ma__campaign-feature-2up">
+  <div class="ma__campaign-feature-2up__wrapper">
+    {% for card in campaignFeature2up %}
+      <div class="ma__campaign-feature-2up__card">
+        {% set usage = { usage: "secondary" } %}
+        {% set card = card|merge(usage) %}
+        {% include "@molecules/card.twig" with card %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

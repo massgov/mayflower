@@ -1,0 +1,20 @@
+<div class="ma__results-heading js-results-heading">
+  <div class="ma__results-heading__container">
+    {% set headingLevel = resultsHeading.level ? resultsHeading.level : 2 %}
+    <h{{ headingLevel }} class="ma__results-heading__title">Showing {{ resultsHeading.numResults }} {% if resultsHeading.totalResults %} of {{ resultsHeading.totalResults }}{% endif %} results {% if resultsHeading.tags %}for:{% endif %}{% if resultsHeading.subject %}<span class="visually-hidden">for {{ resultsHeading.subject }}</span>{% endif %}</h{{ headingLevel }}>
+    {% if resultsHeading.tags %}
+      <div class="ma__results-heading__tags">
+        {% for tag in resultsHeading.tags %}
+          <button type="button" class="ma__results-heading__tag js-results-heading-tag"{% if tag.type %} data-ma-filter-type="{{ tag.type }}"{% endif %}{% if tag.value %} data-ma-filter-value="{{ tag.value }}"{%  endif %}>{{ tag.text }}</button>
+        {% endfor %}
+        <button type="button" class="ma__results-heading__clear js-results-heading-clear">Clear all</button>
+      </div>
+    {% endif %}
+    {% if resultsHeading.sortResults %}
+      <div class="ma__results-heading__sort">
+        {% set sortResults = resultsHeading.sortResults %}
+        {% include "@molecules/sort-results.twig" %}
+      </div>
+    {% endif %}
+  </div>
+</div>

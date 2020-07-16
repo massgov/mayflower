@@ -1,0 +1,13 @@
+{% set modifierClass = helpfulLinks.columns == "true" ? "ma__helpful-links--columns" : "" %}
+
+<section class="ma__helpful-links {{modifierClass}}">
+  {% set compHeading = helpfulLinks.compHeading %}
+  {% include "@atoms/04-headings/comp-heading.twig" %}
+  <ul class="ma__helpful-links__items">
+    {% for decorativeLink in helpfulLinks.items %}
+      <li class="ma__helpful-links__item">
+        {% include "@atoms/decorative-link.twig" %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>

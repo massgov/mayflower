@@ -1,0 +1,75 @@
+{
+  "contactUs": {
+    "accordion": false,
+    "isExpanded": false,
+    "subTitle": {
+      "href":"#",
+      "text": "Department of Conservation and Recreation"
+    },
+    "groups": [{
+      "icon": "phone",
+      "name": "Phone",
+      "items": [{
+        "type": "phone",
+        "label": "Main:",
+        "value": "(413) 499-4262",
+        "link": "14134994262",
+        "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+      },{
+        "type": "phone",
+        "label": "Toll Free:",
+        "value": "(800) 432-4321",
+        "link": "18004324321",
+        "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+      },{
+        "type": "phone",
+        "label": "TTY:",
+        "value": "(617) 555-7777",
+        "link": "16175557777",
+        "details": "For those who need accessible services"
+      },{
+        "type": "phone",
+        "label": "Voice Relay:",
+        "value": "(617) 555-5255",
+        "link": "16175555255",
+        "details": ""
+      }]
+    },{
+      "icon": "laptop",
+      "name": "Online",
+      "items": [{
+        "type": "email",
+        "label": "Email:",
+        "value": "email@email.com",
+        "link": "email@email.com",
+        "details": ""
+      },{
+        "type": "online",
+        "label": "Web:",
+        "value": "Contact Form",
+        "link": "#",
+        "details": ""
+      }]
+    },{
+      "icon": "fax-icon",
+      "name": "Fax",
+      "items": [{
+        "type": "fax",
+        "label":"",
+        "value": "(413) 499-4262",
+        "link": "14134994262",
+        "details": "Please allow 24 hours for a response"
+      }]
+    },{
+      "icon": "marker",
+      "name": "Address",
+      "items": [{
+        "type": "address",
+        "label": "",
+        "value": "555 Park Drive\nBoston, MA 02231",
+        "link": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+        "details": ""
+      }]
+    }]
+  }
+}

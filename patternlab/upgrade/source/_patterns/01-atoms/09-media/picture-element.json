@@ -1,0 +1,19 @@
+{
+  "picture": {
+    "defaultImage": "../../images/placeholder/400x300.png",
+    "srcSets": [
+      {
+        "url": "../../images/placeholder/900x700.png",
+        "width": "1050"
+      },
+      {
+        "url": "../../images/placeholder/800x450.png",
+        "width": "780"
+      },
+      {
+        "url": "../../images/placeholder/600x450.png",
+        "width": "620"
+      }
+    ]
+  }
+}

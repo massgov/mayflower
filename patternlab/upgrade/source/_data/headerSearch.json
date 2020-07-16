@@ -1,0 +1,11 @@
+{
+  "headerSearch" : {
+    "placeholder":"Search Mass.gov",
+    "id":"header-search",
+    "label": "Search terms",
+    "buttonSearch" : {
+      "text": "Search",
+      "usage": "secondary"
+    }
+  }
+}

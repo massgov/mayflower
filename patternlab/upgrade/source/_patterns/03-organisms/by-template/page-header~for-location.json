@@ -1,0 +1,97 @@
+{
+  "pageHeader": {
+    "category": null,
+    "divider": false,
+    "title": "Mt Greylock State Park",
+    "subTitle": "",
+    "headerTags": null,
+    "socialLinks": null,
+    "publishState": null,
+    "optionalContents": [{
+      "path": "@molecules/contact-us.twig",
+      "data": {
+        "contactUs": {
+          "groups": [{
+            "icon": "",
+            "name": "",
+            "items": [{
+              "type": "address",
+              "label": "",
+              "address": "Visitor's Center, 30 Rockwell Road, Lanesborough, MA 01237",
+              "link": {
+                "href": "https://www.google.com/maps/place/30+Rockwell+Rd,+Cheshire,+MA+01225",
+                "text": "directions",
+                "info": "directions to Mt Greylock State Park Vistor's Center",
+                "property": "url"
+              },
+              "details": ""
+            }]
+          },{
+            "icon": "phone",
+            "name": "Phone",
+            "items": [{
+              "type": "phone",
+              "label":"Main:",
+              "link": {
+                "href": "+14134994262",
+                "text":"(413) 499-4262"
+              },
+              "details":"This line is open from 9 a.m. - 5 p.m., M-F"
+            }]
+          },{
+            "icon": "laptop",
+            "name": "Online",
+            "items": [{
+              "type": "email",
+              "label":"Email:",
+              "link": {
+                "text":"email@email.com",
+                "href":"email@email.com"
+              },
+              "details":""
+            }]
+          }]
+        }
+      }
+    },{
+      "path": "@organisms/by-author/key-actions.twig",
+      "data": {
+        "keyActions": {
+          "links":[{
+            "text": "Reserve a Campsite",
+            "type": "",
+            "href": "#"
+          },{
+            "text": "Download a Park Map",
+            "type": "",
+            "href": "#"
+          },{
+            "text": "Download a Trail Map",
+            "type": "",
+            "href": "#"
+          }]
+        }
+      }
+    }],
+    "widgets": [{
+      "path": "@molecules/location-icons.twig",
+      "data": {
+        "locationIcons": {
+          "icons": [{
+            "path":"transit",
+            "name":"Transit Friendly"
+          },{
+            "path":"castle",
+            "name":"Historic Site"
+          },{
+            "path":"wheelchair",
+            "name":"Wheelchair Accessible"
+          },{
+            "path":"dog",
+            "name":"Dogs Allowed"
+          }]
+        }
+      }
+    }]
+  }
+}

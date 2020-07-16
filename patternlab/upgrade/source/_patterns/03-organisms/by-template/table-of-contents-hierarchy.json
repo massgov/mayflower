@@ -1,0 +1,39 @@
+{
+  "tableOfContentsHierarchy": {
+    "title": {
+      "text": "Table of Contents",
+      "colored": true
+    },
+    "sections": [
+      {
+        "text": "Executive Summary",
+        "href": "#"
+      },
+      {
+        "text": "1. Scope of Rules",
+        "linkItems": [
+          {
+            "text": "Thing One",
+            "href": "#"
+          },
+          {
+            "text": "Thing Two",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "iconSize": "",
+        "icon": "doc-docx",
+        "decorativeLink": {
+          "text": "Link to a file for download",
+          "href": "#",
+          "info": ""
+        },
+        "size": "40kb",
+        "format": "DOCX"
+      }
+    ]
+
+  }
+}

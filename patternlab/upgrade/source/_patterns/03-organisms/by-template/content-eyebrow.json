@@ -1,0 +1,40 @@
+{
+  "contentEyebrow": {
+    "hideBorder": false,
+    "headerTags": {
+      "label": "More about:",
+      "taxonomyTerms": [{
+        "href": "#",
+        "text": "Term 1"
+      },{
+        "href": "#",
+        "text": "Term 2"
+      },{
+        "href": "#",
+        "text": "Term 3"
+      },{
+        "href": "#",
+        "text": "Term 4"
+      }]
+    },
+    "socialLinks": {
+      "label": "Share:",
+      "items": [{
+        "altText": "Follow us on Facebook",
+        "href": "#",
+        "icon": "facebook",
+        "linkType": "facebook"
+      },{
+        "altText": "Follow us on Twitter",
+        "href": "#",
+        "icon": "twitter",
+        "linkType": "twitter"
+      },{
+        "altText": "Follow us on LinkedIn",
+        "href": "#",
+        "icon": "linkedin",
+        "linkType": "linkedin"
+      }]
+    }
+  }
+}

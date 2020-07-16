@@ -1,0 +1,81 @@
+{
+  "featuredItemMosaic": {
+    "compHeading": {
+      "title": "Featured Items",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": ""
+    },
+    "columns": [
+      [
+        {
+          "href": "#",
+          "text": "First action",
+          "image": {
+            "alt": "alt text",
+            "src": "../../images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          },
+          "featuredImage": {
+            "alt": "alt text",
+            "src": "../../images/placeholder/300x500.png",
+            "height": "",
+            "width": ""
+          }
+        }
+      ],
+      [
+        {
+          "href": "#",
+          "text": "Get directions",
+          "image": {
+            "alt": "alt text",
+            "src": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=600x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=ZfVgzAGuHDGCUTdazkS3WBiiOWY",
+            "height": "",
+            "width": ""
+          }
+        },
+        {
+          "href": "",
+          "text": "Third action",
+          "image": {
+            "alt": "alt text",
+            "src": "../../images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          }
+        }
+      ],
+      [
+        {
+          "href": "#",
+          "text": "Fourth action",
+          "image": {
+            "alt": "alt text",
+            "src": "../../images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          }
+        },
+        {
+          "href": "#",
+          "text": "The 60th character in this title is in a word past this point",
+          "image": {
+            "alt": "alt text",
+            "src": "../../images/placeholder/400x300.png",
+            "height": "",
+            "width": ""
+          }
+        }
+      ]
+    ],
+    "more": {
+      "href": "#",
+      "text": "view all events at this location",
+      "info": "",
+      "chevron": true
+    }
+  }
+}

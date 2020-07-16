@@ -1,0 +1,82 @@
+{
+  "tableOfContentsOverlay" : {
+    "id": "overlay-toc",
+    "title": {
+        "text": "The Title of the Table of Contents",
+        "href": "#",
+        "info": ""
+    },
+    "tocSections": [{
+      "title": {
+	"text": "Table of Contents"
+      },
+      "sections": [
+	{
+	  "text": "Executive Summary",
+	  "href": "#"
+	},
+	{
+	  "text": "1. Scope of Rules",
+      "isCurrent": true,
+	  "linkItems": [
+	    {
+	      "text": "Thing One",
+	      "href": "#"
+        },
+        {
+          "text": "Thing Two",
+          "href": "#",
+          "isCurrent": true
+	    }
+	  ]
+	},{
+	  "text": "2. Scope of Something Else",
+	  "linkItems": [
+	    {
+	      "text": "Thing One",
+	      "href": "#"
+	    },
+	    {
+	      "text": "Thing Two",
+	      "href": "#"
+	    }
+	  ]
+	},{
+	  "text": "3. Some Other Thing",
+	  "linkItems": [
+	    {
+	      "text": "Thing One",
+	      "href": "#"
+	    },
+	    {
+	      "text": "Thing Two",
+	      "href": "#"
+	    }
+	  ]
+	}
+      ]
+
+    },{
+      "title": {
+    "text": "Appendix"
+      },
+      "sections": [
+	{
+	  "text": "Executive Summary",
+	  "href": "#"
+	},
+	{
+	  "iconSize": "",
+	  "icon": "doc-docx",
+	  "decorativeLink": {
+	    "text": "Link to a file for download",
+	    "href": "#",
+	    "info": ""
+	  },
+	  "size": "40kb",
+	  "format": "DOCX"
+	}
+      ]
+    }]
+  }
+}

@@ -1,0 +1,49 @@
+{% set gridClass = eventListing.grid ? 'ma__event-listing--grid' : '' %}
+{% set teaserHeading = 2 %}
+
+<section class="ma__event-listing {{ gridClass }} js-event-listing">
+  <div class="ma__event-listing__container">
+    {% if eventListing.compHeading %}
+      {% set compHeading = eventListing.compHeading %}
+      {% include "@atoms/04-headings/comp-heading.twig" %}
+      {% set teaserHeading = (compHeading.level ? : teaserHeading) + 1 %}
+    {% endif %}
+    {% if eventListing.sidebarHeading %}
+      {% set sidebarHeading = eventListing.sidebarHeading %}
+      {% include "@atoms/04-headings/sidebar-heading.twig" %}
+      {% set teaserHeading = (sidebarHeading.level ? : teaserHeading) + 1 %}
+    {% endif %}
+    {% if eventListing.events %}
+      <ul class="ma__event-listing__items js-event-listing-items">
+        {% block eventList %}
+          {% for eventTeaser in eventListing.events %}
+            {% set eventTeaser = eventTeaser|merge({"level":teaserHeading}) %}
+            <li class="ma__event-listing__item js-event-listing-item">
+              {% include "@molecules/event-teaser.twig" %}
+            </li>
+          {% endfor %}
+        {% endblock %}
+      </ul>
+    {% endif %}
+    {% if eventListing.emptyText %}
+      <div class="ma__event-listing__empty">
+        {{ eventListing.emptyText }}
+      </div>
+    {% endif %}
+    {% if eventListing.pastMore %}
+      <div class="ma__event-listing__past">
+        {% set link = eventListing.pastMore %}
+        {% include "@atoms/11-text/link.twig" %}
+      </div>
+    {% endif %}
+    {% if eventListing.more %}
+      <div class="ma__event-listing__more">
+        {% set link = eventListing.more %}
+        {% include "@atoms/11-text/link.twig" %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+
+

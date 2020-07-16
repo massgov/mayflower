@@ -1,0 +1,66 @@
+<style>
+  @media(min-width: 781px) {
+    #abc1.ma__key-message--image {
+      background-image: url('../../images/placeholder/1600x600-lighthouse.jpg');
+    }
+  }
+</style>
+<script type="text/javascript">
+  var id = "abc1";
+  var blckid = "blckabc1";
+  function marginSet() {
+    var blckHeight = document.getElementById(blckid) ? document.getElementById(blckid).clientHeight : 0;
+    var mrgWrapper = document.getElementById("main-content") ? blckHeight * (1/3) + 60 : 60;
+    var style = document.createElement('style');
+    style.innerHTML =
+    `#${id} {` +
+    '  margin-bottom: 0;' +
+    '}' +
+    '@media(min-width: 781px) {' +
+    `  #${id} {` +
+    `    margin-bottom: ${mrgWrapper}px;` +
+      '}' +
+    '}';
+    var ref = document.querySelector('script');
+    ref.parentNode.insertBefore(style, ref);
+  }
+  window.onload = function() {
+    marginSet();
+  };
+  window.addEventListener("resize", marginSet);
+</script>
+<style>
+  #imgabc1.ma__key-message__inline-image {
+    background-image: url('../../images/placeholder/1600x600-lighthouse.jpg');
+  }
+</style>
+<section id="abc1" class="ma__key-message ma__key-message--c-gray-lightest ma__key-message--image ma__key-message--image-overlay ma__key-message--top">
+      <div id="imgabc1"  class="ma__key-message__inline-image">
+    </div>
+    <div class="ma__key-message__wrapper ma__key-message__wrapper--overlay ma__key-message__wrapper--top">
+    <div id="blckabc1" class="ma__key-message__block ma__key-message__block--c-gray-lightest">
+              <header>
+                  <h2 class="ma__key-message__title ma__key-message__title--c-gray-lightest">Training and Professional Development</h2>
+                          <p class="ma__key-message__sub-title ma__key-message__title--c-gray-lightest">Find career and professional development programs</p>
+                </header>
+                    <div class="ma__key-message__content">
+          <div class="ma__key-message__description ma__key-message__description--c-gray-lightest">
+                        
+  
+    <div class="ma__rich-text ">
+                      <p>This is an optional text area.</p>          
+        </div>
+          </div>
+        </div>
+                    <div class="ma__key-message__cta">
+                    
+
+
+  <a 
+    href="#" 
+    class="ma__button  ma__button--c-primary "
+    >Read More</a>
+        </div>
+          </div>
+  </div>
+</section>

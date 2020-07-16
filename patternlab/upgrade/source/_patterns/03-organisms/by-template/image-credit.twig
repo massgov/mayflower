@@ -1,0 +1,15 @@
+<section class="ma__image-credit">
+  <div class="ma__image-credit__container">
+    <span class="ma__image-credit__label">Image credits:&nbsp;</span>
+    {% for item in imageCredit.items %}
+      <span>"{{ item.caption }}" &mdash; 
+        {% if item.link %}
+          {% set link = item.link %}
+          {% include "@atoms/11-text/link.twig" %};&nbsp;
+        {% else %}
+          {{ item.source }};&nbsp;
+        {% endif %}
+      </span>
+    {% endfor %}
+  </div>
+</section>

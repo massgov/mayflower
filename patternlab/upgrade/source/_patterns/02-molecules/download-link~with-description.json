@@ -1,0 +1,23 @@
+{
+  "downloadLink": {
+    "iconSize": "",
+    "icon": "doc-docx",
+    "decorativeLink": {
+      "text": "Link to a file for download",
+      "href": "#",
+      "info": ""
+    },
+    "size": "40kb",
+    "format": "DOCX",
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters. I am a description. I am limited to 155 characters."
+          }
+        }
+      }]
+    }
+  }
+}

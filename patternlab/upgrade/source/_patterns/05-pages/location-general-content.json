@@ -1,0 +1,941 @@
+{
+  "location": {
+    "contentTitle": "The Details",
+    "titleContext": "of Southbridge RMV"
+  },
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Other agency or organization"
+        }
+      ]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Snowmobile in the Parks"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Cross-Country Skiing"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Accessible Hiking"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Scenic Viewing Areas"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Hunting"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Biking"
+        }
+      ]
+    }
+  },
+  "pageHeader": {
+    "divider": false,
+    "title": "Southbridge RMV",
+    "subTitle": "",
+    "optionalContents": [
+      {
+        "path": "@molecules/contact-us.twig",
+        "data": {
+          "contactUs": {
+            "groups": [
+              {
+                "icon": "",
+                "name": "",
+                "items": [
+                  {
+                    "type": "address",
+                    "property": "url",
+                    "label": "",
+                    "value": "6 Larochelle Way, Southbridge, MA 01550",
+                    "link": "https://www.google.com/maps/place/6+Larochelle+Way,+Southbridge,+MA+01550",
+                    "details": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "path": "@organisms/by-author/key-actions.twig",
+        "data": {
+          "keyActions": {
+            "links": [
+              {
+                "text": "Apply for a License",
+                "type": "",
+                "href": "#"
+              },
+              {
+                "text": "Registration renewal",
+                "type": "",
+                "href": "#"
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "widgets": null
+  },
+  "locationBanner": {
+    "bgTitle": "Mt Greylock State Park",
+    "bgWide": "../../images/placeholder/1600x400.png",
+    "bgNarrow": "../../images/placeholder/800x400.png",
+    "id": "GUID24872901570",
+    "googleMap": {
+      "static": true,
+      "link": {
+        "href": "https://www.google.com/maps/place/251+Causeway+St+Boston+MA+02114",
+        "text": "See a larger map",
+        "info": "Get Directions"
+      },
+      "picture": {
+        "defaultImage": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=600x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=ZfVgzAGuHDGCUTdazkS3WBiiOWY",
+        "srcSets": [
+          {
+            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=600x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=ZfVgzAGuHDGCUTdazkS3WBiiOWY",
+            "width": "1050"
+          },
+          {
+            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=600x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=ZfVgzAGuHDGCUTdazkS3WBiiOWY",
+            "width": "910"
+          },
+          {
+            "url": "https://maps.googleapis.com/maps/api/staticmap?center=42.366565,-71.05894&zoom=16&size=900x400&markers=label:A%7C42.366565,-71.05894&markers=label:B%7C42.358795,-71.063858&client=gme-commonwealthofmassachusetts&channel=massgov&signature=AyfGhMXOhfcl8477bpZjzEOyslE",
+            "width": "620"
+          }
+        ]
+      }
+    }
+  },
+  "stickyNav": {
+    "titleContext": "Southbridge RMV",
+    "anchorLinks": [
+      {
+        "href": "overview",
+        "text": "Overview",
+        "info": ""
+      },
+      {
+        "href": "hours",
+        "text": "Hours",
+        "info": ""
+      },
+      {
+        "href": "parking",
+        "text": "Parking",
+        "info": ""
+      },
+      {
+        "href": "recommended-activities",
+        "text": "Recommended Activities",
+        "info": ""
+      },
+      {
+        "href": "all-activities",
+        "text": "All Activities",
+        "info": ""
+      },
+      {
+        "href": "facilities",
+        "text": "Facilities",
+        "info": ""
+      },
+      {
+        "href": "acessibility",
+        "text": "Acessibility",
+        "info": ""
+      },
+      {
+        "href": "restrictions",
+        "text": "Restrictions",
+        "info": ""
+      },
+      {
+        "href": "downloads",
+        "text": "Downloads",
+        "info": ""
+      },
+      {
+        "href": "contacts",
+        "text": "Contacts",
+        "info": ""
+      }
+    ]
+  },
+  "COMMENT": "****PAGE CONTENT COMPONENTS****",
+  "mainContent": {
+    "overview": {
+      "compHeading": {
+        "title": "Overview",
+        "titleContext": "of Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "overview",
+        "centered": ""
+      },
+      "property": "description",
+      "rteElements": [
+        {
+          "path": "@atoms/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "At 3,491 feet, Mount Greylock is the highest point in Massachusetts. Rising above the surrounding Berkshire landscape, dramatic views of 60-90 miles distant may be seen. It became Massachusetts' first wilderness state park, acquired by the Commonwealth in 1898, to preserve its natural environment for public enjoyment. Wild and rugged yet intimate and accessible, Mount Greylock rewards the visitor exploring this special place of scenic and natural beauty."
+            }
+          }
+        }
+      ]
+    },
+    "hours": {
+      "compHeading": {
+        "title": "Hours",
+        "titleContext": "of Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "hours",
+        "centered": ""
+      },
+      "property": "",
+      "rteElements": [
+        {
+          "path": "@molecules/callout-stats.twig",
+          "data": {
+            "statsCallout": {
+              "pull": "right",
+              "stat": "today",
+              "content": "6:15 a.m. - 7:45 p.m."
+            }
+          }
+        },
+        {
+          "path": "@atoms/heading-4.twig",
+          "data": {
+            "heading4": {
+              "text": "Park"
+            }
+          }
+        },
+        {
+          "path": "@atoms/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "May - September:<br />Sunrise - Sunset<br /><br />October - April:<br />9 a.m. - 5 p.m."
+            }
+          }
+        },
+        {
+          "path": "@atoms/heading-4.twig",
+          "data": {
+            "heading4": {
+              "text": "Museum"
+            }
+          }
+        },
+        {
+          "path": "@atoms/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Monday - Friday:<br />9 a.m. - 5 p.m.<br /><br />Saturday:<br />12 p.m. - 7 p.m."
+            }
+          }
+        },
+        {
+          "path": "@atoms/heading-4.twig",
+          "data": {
+            "heading4": {
+              "text": "Beach"
+            }
+          }
+        },
+        {
+          "path": "@atoms/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "May - September:<br />7 a.m. - 6 p.m."
+            }
+          }
+        }
+      ]
+    },
+    "parking": {
+      "compHeading": {
+        "title": "Parking",
+        "titleContext": "for Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "parking",
+        "centered": ""
+      },
+      "property": "",
+      "rteElements": [
+        {
+          "path": "@atoms/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "<b>Parking Meters only accept Credit Cards.</b>"
+            }
+          }
+        },
+        {
+          "path": "@atoms/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Suspendisse non tempus justo. Pellentesque malesuada lectus augue, eu blandit ex hendrerit eget. In non convallis eros. Maecenas consectetur neque a nibh faucibus blandit. In quis urna sollicitudin, dictum sapien sit amet, rutrum metus. Donec sed risus neque. Ut a orci ex. Morbi laoreet suscipit tortor at ullamcorper."
+            }
+          }
+        }
+      ]
+    },
+    "googleMap": {
+      "map": {
+        "center": {
+          "lat": 42.594129,
+          "lng": -73.183715
+        },
+        "zoom": 12
+      },
+      "markers": [
+        {
+          "position": {
+            "lat": 42.554129,
+            "lng": -73.213715
+          },
+          "label": "V",
+          "infoWindow": {
+            "name": "Visitor's Center",
+            "phone": "14134994262",
+            "fax": "",
+            "email": "mass.parks@state.ma.us",
+            "address": "30 Rockwell Road\nLanesborough, MA 01237",
+            "directions": "https://www.google.com/maps/place/30+Rockwell+Rd,+Cheshire,+MA+01225"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.636875,
+            "lng": -73.166921
+          },
+          "label": "B",
+          "infoWindow": {
+            "name": "Bascom Lodge",
+            "phone": "14137431591",
+            "fax": "",
+            "email": "mail@bascomlodge.net",
+            "address": "30 Rockwell Road\nLanesborough, MA 01237",
+            "directions": "https://www.google.com/maps/place/30+Rockwell+Rd,+Cheshire,+MA+01225"
+          }
+        }
+      ]
+    },
+    "imagePromos": {
+      "compHeading": {
+        "title": "Recommended Activities",
+        "titleContext": "at Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "recommended-activities",
+        "centered": ""
+      },
+      "items": [
+        {
+          "title": {
+            "text": "Hiking & Walking",
+            "href": "#"
+          },
+          "image": {
+            "src": "../../images/placeholder/190x107.png",
+            "alt": "hiking image",
+            "href": "#"
+          },
+          "description": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla."
+                  }
+                }
+              }
+            ]
+          },
+          "link": null
+        },
+        {
+          "title": {
+            "text": "Camping",
+            "href": "#"
+          },
+          "image": {
+            "src": "../../images/placeholder/190x107.png",
+            "alt": "camping image",
+            "href": "#"
+          },
+          "description": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla."
+                  }
+                }
+              }
+            ]
+          },
+          "link": null
+        },
+        {
+          "title": {
+            "text": "Winter Sports",
+            "href": "#"
+          },
+          "image": {
+            "src": "../../images/placeholder/190x107.png",
+            "alt": "wintery image",
+            "href": "#"
+          },
+          "description": {
+            "rteElements": [
+              {
+                "path": "@atoms/11-text/paragraph.twig",
+                "data": {
+                  "paragraph": {
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu tellus sit amet turpis convallis finibus at id nulla."
+                  }
+                }
+              }
+            ]
+          },
+          "link": null
+        }
+      ]
+    },
+    "allActivities": {
+      "compHeading": {
+        "title": "All Activities",
+        "titleContext": "at Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "all-activities",
+        "centered": ""
+      },
+      "property": "",
+      "rteElements": [
+        {
+          "path": "@atoms/unordered-list.twig",
+          "data": {
+            "unorderedList": [
+              {
+                "text": "Hiking"
+              },
+              {
+                "text": "Bird Watching"
+              },
+              {
+                "text": "Swimming"
+              },
+              {
+                "text": "Bug Collecting"
+              },
+              {
+                "text": "Whale Riding"
+              },
+              {
+                "text": "Mountain Biking"
+              },
+              {
+                "text": "Camping"
+              },
+              {
+                "text": "More Taxonomy"
+              },
+              {
+                "text": "More Taxonomy"
+              },
+              {
+                "text": "More Taxonomy"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "facilities": {
+      "compHeading": {
+        "title": "Facilities",
+        "titleContext": "at Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "facilities",
+        "centered": ""
+      },
+      "property": "",
+      "rteElements": [
+        {
+          "path": "@atoms/unordered-list.twig",
+          "data": {
+            "unorderedList": [
+              {
+                "text": "Vestibulum ornare feugiat sodales."
+              },
+              {
+                "text": "Suspendisse fermentum augue eget semper feugiat. Sed tempor et ipsum semper elementum."
+              },
+              {
+                "text": "Nulla facilisi."
+              },
+              {
+                "text": "Ut risus nibh, sodales sit amet mollis pharetra, elementum vitae sapien. Integer quis suscipit dui."
+              },
+              {
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "acessibility": {
+      "compHeading": {
+        "title": "Acessibility",
+        "titleContext": "at Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "acessibility",
+        "centered": ""
+      },
+      "property": "",
+      "rteElements": [
+        {
+          "path": "@atoms/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Vestibulum ornare feugiat sodales. Suspendisse fermentum augue eget semper feugiat. Sed tempor et ipsum semper elementum. Nulla facilisi. Ut risus nibh, sodales sit amet mollis pharetra, elementum vitae sapien. Integer quis suscipit dui. Sed hendrerit sit amet nunc sit amet ultrices. Pellentesque malesuada faucibus ligula ac tincidunt."
+            }
+          }
+        },
+        {
+          "path": "@atoms/unordered-list.twig",
+          "data": {
+            "unorderedList": [
+              {
+                "text": "Vestibulum ornare feugiat sodales."
+              },
+              {
+                "text": "Suspendisse fermentum augue eget semper feugiat. Sed tempor et ipsum semper elementum."
+              },
+              {
+                "text": "Nulla facilisi."
+              },
+              {
+                "text": "Ut risus nibh, sodales sit amet mollis pharetra, elementum vitae sapien. Integer quis suscipit dui."
+              },
+              {
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "restrictions": {
+      "compHeading": {
+        "title": "Restrictions",
+        "titleContext": "at Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "restrictions",
+        "centered": ""
+      },
+      "property": "",
+      "rteElements": [
+        {
+          "path": "@atoms/unordered-list.twig",
+          "data": {
+            "unorderedList": [
+              {
+                "text": "Vestibulum ornare feugiat sodales."
+              },
+              {
+                "text": "Suspendisse fermentum augue eget semper feugiat. Sed tempor et ipsum semper elementum."
+              },
+              {
+                "text": "Nulla facilisi."
+              },
+              {
+                "text": "Suspendisse fermentum augue eget semper feugiat. Sed tempor et ipsum semper elementum."
+              },
+              {
+                "text": "Nulla facilisi."
+              },
+              {
+                "text": "Suspendisse fermentum augue eget semper feugiat. Sed tempor et ipsum semper elementum."
+              },
+              {
+                "text": "Nulla facilisi."
+              },
+              {
+                "text": "Ut risus nibh, sodales sit amet mollis pharetra, elementum vitae sapien. Integer quis suscipit dui."
+              },
+              {
+                "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "formDownloads": {
+      "compHeading": {
+        "title": "Downloads",
+        "titleContext": "for Southbridge RMV",
+        "sub": true,
+        "color": "",
+        "id": "downloads",
+        "centered": ""
+      },
+      "downloadLinks": [
+        {
+          "downloadLink": {
+            "iconSize": "",
+            "icon": "doc-pdf",
+            "decorativeLink": {
+              "text": "Southbridge RMV Map",
+              "href": "#",
+              "info": "",
+              "property": ""
+            },
+            "size": "1MB",
+            "format": "PDF"
+          }
+        }
+      ]
+    },
+    "contactList": {
+      "viewSpecific": false,
+      "compHeading": {
+        "title": "Contacts",
+        "titleContext": "for Southbridge RMV",
+        "level": 3,
+        "color": "",
+        "id": "contacts",
+        "centered": ""
+      },
+      "contacts": [
+        {
+          "accordion": true,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Bascom Lodge"
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "telephone",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262"
+                  },
+                  "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                },
+                {
+                  "type": "phone",
+                  "property": "",
+                  "label": "TTY:",
+                  "link": {
+                    "href": "+16175557777",
+                    "text": "(617) 555-7777"
+                  },
+                  "details": "For those who need accessible services"
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "mount.greylock@state.ma.us",
+                    "text": "mount.greylock@state.ma.us"
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "fax-icon",
+              "name": "Fax",
+              "hidden": "true",
+              "items": [
+                {
+                  "type": "fax",
+                  "property": "faxNumber",
+                  "label": "",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262"
+                  },
+                  "details": "Please allow 24 hours for a response"
+                }
+              ]
+            },
+            {
+              "icon": "marker",
+              "name": "Address",
+              "hidden": "true",
+              "items": [
+                {
+                  "type": "address",
+                  "property": "address",
+                  "label": "",
+                  "address": "555 Park Drive\nBoston, MA 02231",
+                  "link": {
+                    "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                    "text": "Directions",
+                    "info": "Directions to Bascom Lodge",
+                    "property": "url"
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "accordion": true,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Museum",
+            "chevron": ""
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "telephone",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134438765",
+                    "text": "(413) 443-8765"
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "mount.greylock@state.ma.us",
+                    "text": "mount.greylock@state.ma.us"
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "fax-icon",
+              "name": "Fax",
+              "hidden": "true",
+              "items": [
+                {
+                  "type": "fax",
+                  "property": "faxNumber",
+                  "label": "",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262"
+                  },
+                  "details": "Please allow 24 hours for a response"
+                }
+              ]
+            },
+            {
+              "icon": "marker",
+              "name": "Address",
+              "hidden": "true",
+              "items": [
+                {
+                  "type": "address",
+                  "property": "address",
+                  "label": "",
+                  "value": "555 Park Drive\nNorth Hampton, MA 02231",
+                  "link": "",
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sidebar": {
+    "coloredHeadings": true,
+    "contactList": {
+      "viewSpecific": true,
+      "sidebarHeading": {
+        "title": "Contact",
+        "titleContext": "for Southbridge RMV"
+      },
+      "contacts": [
+        {
+          "accordion": false,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Bascom Lodge"
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "telephone",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134994262",
+                    "text": "(413) 499-4262"
+                  },
+                  "details": "This line is open from 9 a.m. - 5 p.m., M-F"
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "mount.greylock@state.ma.us",
+                    "text": "mount.greylock@state.ma.us"
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "accordion": false,
+          "isExpanded": false,
+          "subTitle": {
+            "href": "",
+            "text": "Museum"
+          },
+          "groups": [
+            {
+              "icon": "phone",
+              "name": "Phone",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "phone",
+                  "property": "telephone",
+                  "label": "Main:",
+                  "link": {
+                    "href": "+14134438765",
+                    "text": "(413) 443-8765"
+                  },
+                  "details": ""
+                }
+              ]
+            },
+            {
+              "icon": "laptop",
+              "name": "Online",
+              "hidden": "",
+              "items": [
+                {
+                  "type": "email",
+                  "property": "",
+                  "label": "Email:",
+                  "link": {
+                    "href": "mount.greylock@state.ma.us",
+                    "text": "mount.greylock@state.ma.us"
+                  },
+                  "details": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "eventListing": {
+      "sidebarHeading": {
+        "title": "Upcoming Events",
+        "titleContext": "at Southbridge RMV"
+      },
+      "emptyText": "No upcoming events scheduled",
+      "events": null,
+      "pastMore": {
+        "href": "#",
+        "text": "See past events",
+        "info": "view all past events for this location",
+        "chevron": true
+      }
+    }
+  }
+}

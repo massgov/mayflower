@@ -1,0 +1,16 @@
+<section class="ma__wait-time">
+  <h2 class="ma__wait-time__title">
+    {{ icon('wait-time') }}
+    <span>Wait Time</span>
+  </h2>
+  <ul class="ma__wait-time__items">
+    {% for item in waitTime.items %}
+      <li class="ma__wait-time__item">
+        <div class="ma__wait-time__label">{{item.label}}</div>
+        <div class="ma__wait-time__value">
+          <span class="ma__wait-time__time">{{item.time}}</span>&nbsp;<span class="ma__wait-time__units">{{item.units}}</span>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

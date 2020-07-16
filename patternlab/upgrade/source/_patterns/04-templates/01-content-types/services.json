@@ -1,0 +1,739 @@
+{
+  "relationshipIndicators": {
+    "primary": {
+      "position": "primary",
+      "label": "offered by",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Department of Conservation and Recreation"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Other agency or organization"
+        }
+      ]
+    },
+    "secondary": {
+      "position": "",
+      "label": "related to",
+      "tags": [
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Snowmobile in the Parks"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Cross-Country Skiing"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Accessible Hiking"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Scenic Viewing Areas"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Hunting"
+        },
+        {
+          "class": "ma__relationship-indicators--term",
+          "href": "#",
+          "title": "Biking"
+        }
+      ]
+    }
+  },
+  "pageBanner": {
+    "bgWide": "../../images/placeholder/1600x400.png",
+    "bgNarrow": "../../images/placeholder/800x400.png",
+    "size": "overlay",
+    "icon": "",
+    "title": "Required - Services title",
+    "titleSubText": "",
+    "description": "Required - Should describe what the product does and if this is for a specific persona, season, or region",
+    "color": "blue"
+  },
+  "introPageContent": {
+    "video": {
+      "src": "https://www.youtube.com/embed/dEkUq-Rs-Tc",
+      "label": "Using a gas grill safely",
+      "width": "853",
+      "height": "480",
+      "position": "",
+      "link": {
+        "href": "/patterns/05-pages-GEN-Building-Energy-Codes/05-pages-GEN-Building-Energy-Codes.html",
+        "text": "View transcript",
+        "info": "View transcript of Using a gas grill safely",
+        "property": ""
+      }
+    },
+    "intro": {
+      "property": "",
+      "rteElements": [
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "Required - Intro Paragraph followed by an optional Learn More link for services that may be more complicated, and require more explanation.  This 'Learn More' link could send end users to a page with additional information about this service to help them decide if it's the service they want or need."
+            }
+          }
+        },
+        {
+          "path": "@atoms/11-text/paragraph.twig",
+          "data": {
+            "paragraph": {
+              "text": "<a href=\"#\">Learn more</a>"
+            }
+          }
+        }
+      ]
+    },
+    "keyActions": {
+      "compHeading": {
+        "title": "Optional but required for eligibility requirements",
+        "sub": true
+      },
+      "links": [
+        {
+          "image": "../../images/placeholder/130x160.png",
+          "text": "Name of Optional Guide",
+          "href": "#",
+          "label": "Guide:"
+        },
+        {
+          "image": "",
+          "text": "Check eligibility",
+          "type": "",
+          "href": "#",
+          "label": ":"
+        }
+      ]
+    }
+  },
+  "introSidebar": {
+    "logo": {
+      "alt": "",
+      "src": "",
+      "height": "",
+      "width": ""
+    },
+    "social": {
+      "iconLinks": {
+        "compHeading": {
+          "title": "Social",
+          "sub": true,
+          "color": "",
+          "id": "",
+          "centered": ""
+        },
+        "items": [
+          {
+            "icon": "twitter",
+            "link": {
+              "href": "#",
+              "text": "@Twitter - optional",
+              "chevron": ""
+            }
+          },
+          {
+            "icon": "flickr",
+            "link": {
+              "href": "#",
+              "text": "Flickr - optional",
+              "chevron": ""
+            }
+          },
+          {
+            "icon": "blog",
+            "link": {
+              "href": "#",
+              "text": "Blog - optional",
+              "chevron": ""
+            }
+          }
+        ]
+      }
+    },
+    "imageLinkList": {
+      "sidebarHeading": {
+        "title": "Optional - Offered By"
+      },
+      "stacked": true,
+      "links": [
+        {
+          "href": "#",
+          "text": "Link to organization page with logo",
+          "image": {
+            "src": "../../images/placeholder/250x250.png",
+            "alt": "logo"
+          }
+        },
+        {
+          "href": "#",
+          "text": "Link to organization page"
+        }
+      ]
+    }
+  },
+  "doActionFinder": {
+    "actionFinder": {
+      "id": "GUID90357801731903501238",
+      "bgWide": "",
+      "bgNarrow": "",
+      "title": "What Would You Like to Do?",
+      "featuredHeading": "Featured:",
+      "generalHeading": "All How-Tos:",
+      "hideFilter": true,
+      "titleContext": "",
+      "seeAll": null,
+      "featuredLinks": [
+        {
+          "image": "",
+          "text": "Featured Link to a related How To's page",
+          "href": "#"
+        }
+      ],
+      "links": [
+        {
+          "image": "",
+          "text": "Find a State Park",
+          "href": "#"
+        },
+        {
+          "image": "",
+          "text": "Get a State Park Pass",
+          "href": "#"
+        },
+        {
+          "image": "../../images/placeholder/130x160.png",
+          "text": "Fall Activity Planner",
+          "href": "#",
+          "label": "Guide:"
+        },
+        {
+          "image": "",
+          "text": "Reserve a Campsite",
+          "href": "#"
+        },
+        {
+          "image": "",
+          "text": "Find Scenic Viewing Areas",
+          "href": "#"
+        },
+        {
+          "image": "",
+          "text": "Download a Trail Map",
+          "href": "#"
+        }
+      ]
+    }
+  },
+  "learnActionFinder": {
+    "actionFinder": {
+      "id": "GUID7501974075817350750",
+      "bgWide": "",
+      "bgNarrow": "",
+      "title": "What you need to know",
+      "featuredHeading": "",
+      "generalHeading": "",
+      "hideFilter": true,
+      "titleContext": "",
+      "seeAll": null,
+      "featuredLinks": "",
+      "links": [
+        {
+          "image": "",
+          "text": "Find a State Park",
+          "href": "#"
+        },
+        {
+          "image": "",
+          "text": "Get a State Park Pass",
+          "href": "#"
+        },
+        {
+          "image": "../../images/placeholder/130x160.png",
+          "text": "Fall Activity Planner",
+          "type": "",
+          "label": "Guide:"
+        }
+      ]
+    }
+  },
+  "contactList": {
+    "viewSpecific": false,
+    "compHeading": {
+      "title": "Contacts",
+      "sub": "",
+      "color": "",
+      "id": "contacts",
+      "centered": ""
+    },
+    "contacts": [
+      {
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href": "",
+          "text": "Department of Conservation and Recreation"
+        },
+        "groups": [
+          {
+            "icon": "phone",
+            "name": "Phone",
+            "items": [
+              {
+                "type": "phone",
+                "property": "",
+                "label": "Main:",
+                "link": {
+                  "href": "+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": "",
+                  "property": ""
+                },
+                "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+              },
+              {
+                "type": "phone",
+                "property": "",
+                "label": "Toll Free:",
+                "link": {
+                  "href": "+18004324321",
+                  "text": "(800) 432-4321",
+                  "info": "",
+                  "property": ""
+                },
+                "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+              },
+              {
+                "type": "phone",
+                "property": "",
+                "label": "TTY:",
+                "link": {
+                  "href": "+16175557777",
+                  "text": "(617) 555-7777",
+                  "info": "",
+                  "property": ""
+                },
+                "details": "For those who need accessible services"
+              },
+              {
+                "type": "phone",
+                "property": "",
+                "label": "Voice Relay:",
+                "link": {
+                  "href": "16175555255",
+                  "text": "(617) 555-5255",
+                  "info": "",
+                  "property": ""
+                },
+                "details": ""
+              }
+            ]
+          },
+          {
+            "icon": "laptop",
+            "name": "Online",
+            "hidden": "",
+            "items": [
+              {
+                "type": "email",
+                "property": "",
+                "label": "Email:",
+                "link": {
+                  "href": "email@email.com",
+                  "text": "email@email.com",
+                  "info": "",
+                  "property": ""
+                },
+                "details": ""
+              },
+              {
+                "type": "online",
+                "property": "",
+                "label": "Web:",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
+                },
+                "details": ""
+              }
+            ]
+          },
+          {
+            "icon": "fax-icon",
+            "name": "Fax",
+            "items": [
+              {
+                "type": "fax",
+                "property": "",
+                "label": "Main:",
+                "link": {
+                  "href": "+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": "",
+                  "property": ""
+                },
+                "details": "Please allow 24 hours for a response"
+              }
+            ]
+          },
+          {
+            "icon": "marker",
+            "name": "Address",
+            "items": [
+              {
+                "type": "address",
+                "property": "",
+                "label": "",
+                "address": "555 Park Drive\nBoston, MA 02231",
+                "link": {
+                  "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                  "text": "directions",
+                  "info": "",
+                  "property": ""
+                },
+                "details": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accordion": true,
+        "isExpanded": false,
+        "subTitle": {
+          "href": "",
+          "text": "Department of Conservation and Recreation"
+        },
+        "groups": [
+          {
+            "icon": "phone",
+            "name": "Phone",
+            "items": [
+              {
+                "type": "phone",
+                "property": "",
+                "label": "Main:",
+                "link": {
+                  "href": "+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": "",
+                  "property": ""
+                },
+                "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+              },
+              {
+                "type": "phone",
+                "property": "",
+                "label": "Toll Free:",
+                "link": {
+                  "href": "+18004324321",
+                  "text": "(800) 432-4321",
+                  "info": "",
+                  "property": ""
+                },
+                "details": "This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+              },
+              {
+                "type": "phone",
+                "property": "",
+                "label": "TTY:",
+                "link": {
+                  "href": "+16175557777",
+                  "text": "(617) 555-7777",
+                  "info": "",
+                  "property": ""
+                },
+                "details": "For those who need accessible services"
+              },
+              {
+                "type": "phone",
+                "property": "",
+                "label": "Voice Relay:",
+                "link": {
+                  "href": "16175555255",
+                  "text": "(617) 555-5255",
+                  "info": "",
+                  "property": ""
+                },
+                "details": ""
+              }
+            ]
+          },
+          {
+            "icon": "laptop",
+            "name": "Online",
+            "hidden": "",
+            "items": [
+              {
+                "type": "email",
+                "property": "",
+                "label": "Email:",
+                "link": {
+                  "href": "email@email.com",
+                  "text": "email@email.com",
+                  "info": "",
+                  "property": ""
+                },
+                "details": ""
+              },
+              {
+                "type": "online",
+                "property": "",
+                "label": "Web:",
+                "link": {
+                  "href": "#",
+                  "text": "Contact Form",
+                  "info": "",
+                  "property": ""
+                },
+                "details": ""
+              }
+            ]
+          },
+          {
+            "icon": "fax-icon",
+            "name": "Fax",
+            "items": [
+              {
+                "type": "fax",
+                "property": "",
+                "label": "Main:",
+                "link": {
+                  "href": "+14134994262",
+                  "text": "(413) 499-4262",
+                  "info": "",
+                  "property": ""
+                },
+                "details": "Please allow 24 hours for a response"
+              }
+            ]
+          },
+          {
+            "icon": "marker",
+            "name": "Address",
+            "items": [
+              {
+                "type": "address",
+                "property": "",
+                "label": "",
+                "address": "555 Park Drive\nBoston, MA 02231",
+                "link": {
+                  "href": "https://www.google.com/maps/place/555+Park+Dr,+Boston,+MA+02215",
+                  "text": "directions",
+                  "info": "",
+                  "property": ""
+                },
+                "details": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "mappedLocations": {
+    "compHeading": {
+      "title": "Locations",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": "",
+      "titleContext": ""
+    },
+    "paragraph": {
+      "text": "See more locations for this Generic Service"
+    },
+    "button": {
+      "href": "/patterns/05-pages-Map-listing-human-services/05-pages-Map-listing-human-services.html",
+      "text": "All Locations"
+    },
+    "googleMap": {
+      "map": {
+        "center": {
+          "lat": 42.366565,
+          "lng": -71.058940
+        },
+        "zoom": 16
+      },
+      "markers": [
+        {
+          "position": {
+            "lat": 42.366565,
+            "lng": -71.058940
+          },
+          "label": "A",
+          "infoWindow": {
+            "name": "Department of Conservation and Recreation",
+            "phone": "16176261250",
+            "fax": "16176261351",
+            "email": "mass.parks@state.ma.us",
+            "address": "251 Causeway Street, Suite 900\nBoston, MA 02114-2104"
+          }
+        },
+        {
+          "position": {
+            "lat": 42.358795,
+            "lng": -71.063858
+          },
+          "label": "B",
+          "infoWindow": {
+            "name": "Department of Recreation and Fun",
+            "phone": "16176261250",
+            "fax": "",
+            "email": "mass.parks@state.ma.us",
+            "address": "24 Beacon St\nBoston, MA 02133"
+          }
+        }
+      ]
+    }
+  },
+  "eventListing": {
+    "grid": true,
+    "compHeading": {
+      "title": "Upcoming Events",
+      "sub": "",
+      "color": "",
+      "id": "",
+      "centered": "",
+      "titleContext": ""
+    },
+    "events": [
+      {
+        "title": {
+          "href": "#",
+          "text": "Winter Birding Event",
+          "info": "",
+          "property": ""
+        },
+        "location": "Lanesborough, MA",
+        "date": {
+          "summary": "March 30, 2017",
+          "startMonth": "Mar",
+          "startDay": "30",
+          "endMonth": "",
+          "endDay": ""
+        },
+        "time": "12 p.m. - 2 p.m.",
+        "description": "Event description. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam tempora itaque fuga quasi vero sint, sapiente soluta sit molestias architecto deleniti sunt eum incidunt laboriosam quos repudiandae nesciunt eligendi? Aliquid."
+      },
+      {
+        "title": {
+          "href": "#",
+          "text": "First Day Hike",
+          "info": "",
+          "property": ""
+        },
+        "location": "Lanesborough, MA",
+        "date": {
+          "summary": "March 30, 2017 - April 10, 2017",
+          "startMonth": "Mar",
+          "startDay": "30",
+          "endMonth": "Apr",
+          "endDay": "10"
+        },
+        "time": "12 p.m. - 2 p.m.",
+        "description": ""
+      }
+    ],
+    "more": {
+      "href": "#",
+      "text": "See all events",
+      "chevron": true,
+      "label": "See all events for Executive Office of Health and Human Services"
+    }
+  },
+  "splitColumns": {
+    "columns": [
+      {
+        "items": [
+          {
+            "path": "@organisms/by-author/link-list.twig",
+            "data": {
+              "linkList": {
+                "sidebarHeading": {
+                  "title": "Related Services",
+                  "titleContext": ""
+                },
+                "stacked": true,
+                "links": [
+                  {
+                    "href": "#",
+                    "text": "Job Search Help"
+                  },
+                  {
+                    "href": "#",
+                    "text": "Job Training"
+                  },
+                  {
+                    "href": "#",
+                    "text": "Career Counseling"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "items": [
+          {
+            "path": "@organisms/by-author/form-downloads.twig",
+            "data": {
+              "formDownloads": {
+                "sidebarHeading": {
+                  "title": "Additional Resources",
+                  "titleContext": ""
+                },
+                "downloadLinks": [
+                  {
+                    "downloadLink": {
+                      "iconSize": "",
+                      "icon": "doc-pdf",
+                      "decorativeLink": {
+                        "text": "Work Search Activity Log",
+                        "href": "#",
+                        "info": "",
+                        "property": ""
+                      },
+                      "size": "1MB",
+                      "format": "PDF"
+                    }
+                  },
+                  {
+                    "downloadLink": {
+                      "iconSize": "",
+                      "icon": "doc-docx",
+                      "decorativeLink": {
+                        "text": "Name of Doc",
+                        "href": "#",
+                        "info": "",
+                        "property": ""
+                      },
+                      "size": "107KB",
+                      "format": "DOCX"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "narrowTemplate": {
+    "side": "left",
+    "color": "green"
+  },
+  
+  "transitionPage": {
+    "icon": "crossroads",
+    "message": "This page currently lives on our classic site. We're planning to move it to our new site, but for now we will redirect you.",
+    "href": "http://www.mass.gov",
+    "submit": "Continue",
+    "back": "Back",
+    "inputCheckbox": {
+      "value": "hide-transition-page",
+      "id": "hide-transition-page",
+      "label": "Got it, don't show me this page again",
+      "checked": ""
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "headerContact": {
+    "title": "Visitor's Center",
+    "address1": "30 Rockwell Road",
+    "address2": "",
+    "city": "Lanesborough",
+    "state": "MA",
+    "zip": "01237",
+    "directions": {
+      "href": "https://www.google.com/maps/place/30+Rockwell+Rd,+Cheshire,+MA+01225",
+      "target": "_blank",
+      "text":"Directions",
+      "chevron": "true",
+      "property": "url"
+    },
+    "phone": {
+      "icon": "phone",
+      "name": "Phone",
+      "items": [{
+        "type": "phone",
+        "label":"Main:",
+        "value":"(413) 499-4262",
+        "rawVal":"14134994262",
+        "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+      },{
+        "type": "phone",
+        "label":"Toll Free:",
+        "value":"(800) 432-4321",
+        "link":"18004324321",
+        "details":"This line is open from 9:00 a.m. - 5:00 p.m., M-F"
+      },{
+        "type": "phone",
+        "label":"TTY:",
+        "value":"(617) 555-7777",
+        "link":"16175557777",
+        "details":"For those who need accessible services"
+      },{
+        "type": "phone",
+        "label":"Voice Relay:",
+        "value":"(617) 555-5255",
+        "rawVal":"16175555255",
+        "details":""
+      }]
+    },
+    "online": {
+      "icon": "laptop",
+      "name": "Online",
+      "items": [{
+        "type": "email",
+        "label":"Email:",
+        "value":"email@email.com",
+        "link":"email@email.com",
+        "details":""
+      },{
+        "type": "",
+        "label":"Web:",
+        "value":"Contact Form",
+        "link":"#",
+        "details":""
+      }]
+    },
+    "fax": {
+      "icon": "fax-icon",
+      "name": "Fax",
+      "items": [{
+        "type": "fax",
+        "label":"",
+        "value":"(413) 499-4262",
+        "link":"14134994262",
+        "details":"Please allow 24 hours for a response"
+      }]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "keyMessage": {
+    "id": "abc1",
+    "positionTop": true,
+    "compHeading": {
+      "title": "Training and Professional Development",
+      "level": "2"
+    },
+    "backgroundColor": "c-primary-alt",
+    "subtitle": "Find career and professional development programs",
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "This is an optional text area."
+          }
+        }
+      }]
+    },
+    "button":{
+      "text":"Read More",
+      "href":"#"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "collapsibleContent": {
+    "compHeading": {
+      "title": "Collapsible Content",
+      "sub": "",
+      "color": "",
+      "id": "GUID2095-254",
+      "centered": ""
+    },
+    "description": {
+      "rteElements": [{
+        "path": "@atoms/11-text/paragraph.twig",
+        "data": {
+          "paragraph" : {
+            "text": "Explicabo itaque possimus dignissimos? Repudiandae tempore, fugit illum? Iure error omnis eveniet eius iste molestias. Veritatis provident hic voluptate voluptatibus ullam accusantium, obcaecati tempora soluta praesentium accusamus sed dicta sapiente."
+          }
+        }
+      }]
+    },
+
+    "items": [{
+      "expanded": true,
+      "collapsibleHeader": {
+        "info": "Click here to expand this thing",
+        "title": "Collapsible Header",
+        "icon": "circle-chevron"
+      },
+      "more": {
+        "href": "#",
+        "text": "Learn more",
+        "info": "Click here to see more details about something"
+      },
+      "includes": [{
+        "path": "@base/placeholder.twig",
+        "data": {
+          "placeholder": {
+            "text" : "Collapsible Body Content"
+          }
+        }
+      }]    
+    },{
+      "expanded": false,
+      "collapsibleHeader": {
+        "info": "Click here to expand this thing",
+        "title": "Collapsible Header",
+        "icon": "laptop"
+      },
+      "more": {
+        "href": "#",
+        "text": "Learn more",
+        "info": "Click here to see more details about something"
+      },
+      "includes": [{
+        "path": "@base/placeholder.twig",
+        "data": {
+          "placeholder": {
+            "text" : "Collapsible Body Content"
+          }
+        }
+      }]    
+    }]
+  }
+}

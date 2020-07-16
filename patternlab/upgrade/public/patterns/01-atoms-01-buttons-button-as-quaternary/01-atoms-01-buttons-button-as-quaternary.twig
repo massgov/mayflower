@@ -1,0 +1,14 @@
+{% set buttonSize = button.size ? "ma__button--" ~ button.size : "" %}
+
+{% set buttonUsage = button.usage ? "ma__button--" ~ button.usage : "" %}
+
+{% set buttonTheme = button.theme ? "ma__button--" ~ button.theme : "" %}
+
+{% if button.href %}
+  <a 
+    href="{{ button.href }}" 
+    class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}}"
+    {% if button.info %} title="{{ button.info }}"{% endif %}>{{ button.text }}</a>
+{% else %}
+  <button type="{{ button.type }}" class="ma__button {{ buttonSize }} {{buttonTheme}} {{buttonUsage}}" aria-label="{{ button.info }}">{{ button.text }}</button>
+{% endif %}

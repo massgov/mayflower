@@ -1,0 +1,26 @@
+{ 
+  "actionGallery": {
+    "link": {
+      "href": "#",
+      "target": "",
+      "text":"view gallery",
+      "chevron": "true"
+    },
+    "items": [{
+      "src":"../../images/placeholder/80x80.png",
+      "alt":"nature is beautiful1"
+    },{
+      "src":"../../images/placeholder/80x80.png",
+      "alt":"nature is beautiful2"
+    },{
+      "src":"../../images/placeholder/80x80.png",
+      "alt":"nature is beautiful3"
+    },{
+      "src":"../../images/placeholder/80x80.png",
+      "alt":"nature is beautiful3"
+    },{
+      "src":"../../images/placeholder/80x80.png",
+      "alt":"nature is beautiful4"
+    }]
+  }
+}

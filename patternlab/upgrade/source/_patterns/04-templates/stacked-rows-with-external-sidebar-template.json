@@ -1,0 +1,27 @@
+{
+  "stackedRows": [{
+    "title": "Stacked Row",
+    "id": "",
+    "borderless": true,
+    "pageContent": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text":"Page content"
+        }
+      }
+    }]
+  },{
+    "title": "Stacked row",
+    "id": "",
+    "borderless": true,
+    "pageContent": [{
+      "path": "@base/placeholder.twig",
+      "data": {
+        "placeholder": {
+          "text":"Page content"
+        }
+      }
+    }]
+  }]
+}

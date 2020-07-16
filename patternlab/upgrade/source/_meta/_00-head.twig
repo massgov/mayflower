@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="{{ htmlClass }} no-js" lang="en">
+  <head>
+    <title>{{ title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" href="../../fonts/texta-black-webfont.woff2" as="font" crossorigin />
+    <link rel="preload" href="../../fonts/texta-bold-webfont.woff2" as="font"  crossorigin />
+    <link rel="preload" href="../../fonts/texta-book-webfont.woff2" as="font"  crossorigin />
+
+    <link rel="stylesheet" href="../../css/style.css?{{ cacheBuster }}" media="all" />
+    <link rel="stylesheet" href="../../css/pattern-scaffolding.css?{{ cacheBuster }}" media="all" />
+
+    <script src="../../js/vendor/modernizr.js"></script>
+
+    <!-- Begin Pattern Lab (Required for Pattern Lab to run properly) -->
+    {{ patternLabHead | raw }}
+    <!-- End Pattern Lab -->
+  {#
+  SITE LEVEL DATA:
+  WEBSITE
+  - add to home (front) page only.
+  - about can be added when its content is ready.
+  - keywords can be added when its content is ready.
+#}
+{% if schemaPageType == "Home" %}
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "WebSite",
+          "url": "https://mayflower.digital.mass.gov/patternlab",
+          "name": "Mass.gov",
+          "alternateName": "The Official Website of the Commonwealth of Massachusetts", {#
+          "about": "~NEED CONTENT~",#}
+          "copyrightHolder": "Commonwealth of Massachusetts", {#
+          "keywords": "state government, ~OTHERS TO ADD: Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.~",#}
+          "potentialAction": {
+             "@type": "SearchAction",
+             "target": "https://search.mass.gov/?q={search_term_string}&post_type=post",
+             "query-input": "required name=search_term_string"}
+        }
+    </script>
+{% endif %}
+{#
+  SITE LEVEL COMMON DATA:
+  ORGANIZATION
+  - alternateName can be added later if helpful.
+#}
+    <script type="application/ld+json">
+      {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "@id": "https://mayflower.digital.mass.gov/patternlab/#organization",
+          "url": "https://mayflower.digital.mass.gov/patternlab,
+          "logo": "https://mayflower.digital.mass.gov/patternlab/images/stateseal-color.png' }}",
+          "name": "Commonwealth of Massachusetts",
+          "sameAs": [
+            "https://www.facebook.com/massgov/",
+            "https://twitter.com/massgov/",
+            "https://www.linkedin.com/company/commonwealth-of-massachusetts/",
+            "https://www.youtube.com/user/massgov/",
+            "https://www.instagram.com/massgov/"
+            ]
+      }
+    </script>
+{#
+  SITE LEVEL COMMON DATA:
+  PAGE STRUCTURE - they match with the ids assigned to the area elements in the <body>.
+  - header area
+  - footer area
+  - main navigation area
+#}
+    <script type="application/ld+json">
+      {
+          "@context": "http://schema.org",
+          "@type": "WPHeader",
+          "@id": "https://mayflower.digital.mass.gov/patternlab#header' }}"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+          "@context": "http://schema.org",
+          "@type": "WPFooter",
+          "@id": "https://mayflower.digital.mass.gov/patternlab#footer' }}"
+      }
+    </script>
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "SiteNavigationElement",
+          "@id": "https://mayflower.digital.mass.gov/patternlab#main-navigation'}}"
+        }
+    </script>
+  </head>
+  <body class="{{ bodyClass }}" vocab="http://schema.org/" typeof="WebPage">
+    

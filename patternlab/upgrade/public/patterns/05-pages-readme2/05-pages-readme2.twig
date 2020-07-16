@@ -1,0 +1,12 @@
+{% extends '@templates/narrow-template.twig' %}
+
+{% block narrowContent %}
+  {# Use dynamic properties for version and release date. #}
+  {% set errorPage = {
+      type: mayflower.version ~ ' (' ~ mayflower.releaseDate ~ ')',
+      title: "Welcome to Mayflower, the Commonwealth's Design System",
+      message: "Use the navigation menu above to browse our pattern library."
+  } %}
+  {% include "@organisms/by-template/error-page.twig" %}
+  {% include "@organisms/by-author/link-list.twig" %}
+{% endblock %}

@@ -1,0 +1,48 @@
+<section class="ma__curated-person">
+  <div class="ma__curated-person__personal-info">
+    <div class="ma__curated-person--name">
+      {% set columnHeading = curatedPerson.name %}
+      {% include "@atoms/04-headings/column-heading.twig" %}
+    </div>
+
+    <div class="ma__curated-person--meta-wrapper">
+      {% if curatedPerson.title %}
+      <div class="curated-person--title">
+        {% set heading6 = curatedPerson.title %}
+        {% include "@atoms/04-headings/heading-6.twig" %}
+      </div>
+      {% endif %}
+
+      {% if curatedPerson.org %}
+      <div class="curated-person--org">
+        {% set heading6 = curatedPerson.org %}
+        {% include "@atoms/04-headings/heading-6.twig" %}
+      </div>
+      {% endif %}
+    </div>
+
+    {% if curatedPerson.desc %}
+    <div class="curated-person--description">
+      {% set paragraph = curatedPerson.desc %}
+      {% include "@atoms/11-text/paragraph.twig" %}
+    </div>
+    {% endif %}
+
+    {% if curatedPerson.org_link.href %}
+    <div class="curated-person--org_link">
+      {% set decorativeLink = curatedPerson.org_link %}
+      {% include "@atoms/decorative-link.twig" %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="ma__contact-us__content-wrap">
+    {% block curatedPersonGroups %}
+      {% for group in curatedPerson.groups %}
+        {% set contactGroup = group|merge({"level": groupHeading}) %}
+        {% include "@molecules/contact-group.twig" %}
+      {% endfor %}
+    {% endblock %}
+  </div>
+
+</section>

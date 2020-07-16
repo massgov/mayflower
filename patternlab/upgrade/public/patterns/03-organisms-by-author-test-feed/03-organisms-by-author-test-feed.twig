@@ -1,0 +1,22 @@
+<section class="ma__test-feed">
+    <h2 class="ma__test-feed__title">{{testFeed.title}}</h2>
+    <div class="ma__test-feed__items">
+      {% for item in testFeed.items %}
+        <div class="ma__test-feed__item">
+          <div class="ma__test-feed__icon">{% include item.icon %}</div>
+          <div class="ma__test-feed__content">
+            <h3 class="ma__test-feed__link">
+              {% set decorativeLink = item.link %}
+              {% include "@atoms/decorative-link.twig" with decorativeLink %}
+            </h3>
+            <div class="ma__test-feed__description">
+              {{item.description}}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="ma__test-feed__view-all">
+      <a href="#">See all tests</a>
+    </div>
+</section>
