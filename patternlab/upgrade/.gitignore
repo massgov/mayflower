@@ -1,0 +1,15 @@
+.DS_Store
+node_modules
+public/*
+!public/patternlab-components
+!public/styleguide
+public/styleguide/html/styleguide.html
+public/styleguide/data/patternlab-data.js
+source/_data/url.json
+!public/index.html
+.npmrc
+/deploy
+/npm
+/artifact
+/dist
+.env
