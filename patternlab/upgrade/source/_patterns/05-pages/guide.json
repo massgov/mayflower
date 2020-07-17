@@ -78,7 +78,7 @@
             "richText": {
               "rteElements": [
                 {
-                  "path": "atoms-paragraph",
+                  "path": "@atoms/11-text/paragraph.twig",
                   "data": {
                     "paragraph": {
                       "text": "The Commonwealth of Massachusetts welcomes new residents to enjoy all the state has to offer. To help make your move to the Bay State as smooth as possible, this guide provides instructions for changing your license, tips for settling in, and other useful information."

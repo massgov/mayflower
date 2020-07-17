@@ -453,7 +453,7 @@
       "property": "",
       "rteElements": [
         {
-          "path": "atoms-unordered-list",
+          "path": "@atoms/unordered-list.twig",
           "data": {
             "unorderedList": [
               {
@@ -503,7 +503,7 @@
       "property": "",
       "rteElements": [
         {
-          "path": "atoms-unordered-list",
+          "path": "@atoms/unordered-list.twig",
           "data": {
             "unorderedList": [
               {
@@ -546,7 +546,7 @@
           }
         },
         {
-          "path": "atoms-unordered-list",
+          "path": "@atoms/unordered-list.twig",
           "data": {
             "unorderedList": [
               {
