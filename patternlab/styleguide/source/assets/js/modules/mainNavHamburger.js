@@ -493,22 +493,25 @@ function closeNarrowUtilContent() {
 
 function closeSubMenu() {
   let openSubMenu = document.querySelector(".submenu-open");
-  let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
-  let openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
-  let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger__container");
 
-  openSubMenuButton.setAttribute("aria-expanded", "false");
-  openSubMenuContent.style.height = "0";
-  openSubMenuContainer.style.opacity = 0;
+  if (openSubMenu) {
+    let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
+    let openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
+    let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger__container");
 
-  setTimeout(function timeoutFunction() {
-    openSubMenuContent.classList.add("is-closed");
-  }, 500);
+    openSubMenuButton.setAttribute("aria-expanded", "false");
+    openSubMenuContent.style.height = "0";
+    openSubMenuContainer.style.opacity = "0";
 
-  setTimeout(function timeoutFunction() {
-    openSubMenu.removeAttribute("style");
-    openSubMenu.classList.remove("submenu-open");
-  }, 700);
+    setTimeout(function timeoutFunction() {
+      openSubMenuContent.classList.add("is-closed");
+    }, 500);
+
+    setTimeout(function timeoutFunction() {
+      openSubMenu.removeAttribute("style");
+      openSubMenu.classList.remove("submenu-open");
+    }, 700);
+  }
 }
 
 // Keyboard navigation
