@@ -439,21 +439,8 @@ utilNarrowButton.addEventListener("click", function(e) {
   const thisNavContainer = e.target.closest(".ma__utility-nav__item");
   utilNarrowContent = thisButton.nextElementSibling;
 
-  // mimic sub menu item.
-  if (thisNavContainer.classList.contains("submenu-open")) {
-    // TO CLOSE
-    // mimic sub menu item.
-    thisNavContainer.classList.remove("submenu-open");
-    // Button state
-    utilNarrowButton.setAttribute("aria-expanded", "false");
-    thisNavContainer.style.pointerEvents = "none";
-
-    setTimeout(function timeoutFunction() {
-      thisNavContainer.removeAttribute("style");
-    }, 700);
-  } else {
+  if (utilNarrowContent.classList.contains("is-closed")) {
     // TO OPEN
-    thisNavContainer.classList.add("submenu-open");
     // Button state
     thisButton.setAttribute("aria-expanded", "true");
     thisNavContainer.style.pointerEvents = "none";
@@ -461,10 +448,6 @@ utilNarrowButton.addEventListener("click", function(e) {
     setTimeout(function timeoutFunction() {
       thisNavContainer.removeAttribute("style");
     }, 700);
-  }
-
-  if (utilNarrowContent.classList.contains("is-closed")) {
-    // TO OPEN
 
     /** Show the content. */
     utilNarrowContent.classList.remove("is-closed");
@@ -472,11 +455,14 @@ utilNarrowButton.addEventListener("click", function(e) {
 
     /** Get the computed height of the content. */
     var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
-    console.log(contentHeight);
 
     /** Set the height of the submenu as 0px, */
     /** so we can trigger the slide down animation. */
     utilNarrowContent.style.maxHeight = "0";
+
+    // These height settings displays the bottom border of the parent li at the correct spot.
+    utilNarrowContent.style.height = contentHeight;
+    utilNarrowContainer.style.height = contentHeight;
 
     setTimeout(function timeoutFunction() {
       utilNarrowContent.style.maxHeight = contentHeight;
@@ -484,6 +470,14 @@ utilNarrowButton.addEventListener("click", function(e) {
     }, 50);
   } else {
     // TO CLOSE.
+    // Button state
+    utilNarrowButton.setAttribute("aria-expanded", "false");
+    thisNavContainer.style.pointerEvents = "none";
+
+    setTimeout(function timeoutFunction() {
+      thisNavContainer.removeAttribute("style");
+    }, 700);
+
     utilNarrowContent.style.maxHeight = "0";
     utilNarrowContainer.style.opacity = "0";
     setTimeout(function timeoutFunction() {
