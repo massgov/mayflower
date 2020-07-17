@@ -1,5 +1,7 @@
 const path = require('path');
 const assets = require('@massds/mayflower-assets');
+const iconPath = path.resolve(__dirname, '../src/components/base/Icon/assets');
+
 module.exports = {
   stories: ['../src/**/*.stories.js'],
   addons: [
@@ -26,13 +28,28 @@ module.exports = {
       }
     },
   ],
-  webpackFinal: async (config, { configType }) => {
-
+  webpackFinal: (config, { configType }) => {
+    // modify storybook's file-loader rule to avoid conflicts with svgr
+    const fileLoaderRule = config.module.rules.find(rule => rule.test.test && rule.test.test('.svg'));
+    fileLoaderRule.exclude = iconPath;
     // Configure the storysource plugin.
     config.module.rules.push({
       test: /\.stories\.js?$/,
       loader: require.resolve('@storybook/addon-storysource/loader'),
       enforce: 'pre',
+    });
+
+    config.module.rules.unshift({
+      test: /\.svg$/,
+      include: iconPath,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            icon: true,
+          },
+        },
+      ],
     });
 
     config.resolve = {

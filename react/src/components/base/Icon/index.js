@@ -28,7 +28,7 @@ export default class Icon extends React.Component {
     loaded: null
   };
 
-  loadAssets = (asset) => import(/* webpackChunkName: "svg-icons" */ /* webpackMode: "lazy-once" */`!svg-sprite-loader!./assets/${asset}.svg`);
+  loadAssets = (asset) => import(`./assets/${asset}.svg`);
 
   render() {
     const {
@@ -38,26 +38,26 @@ export default class Icon extends React.Component {
       name,
       classes,
       ariaHidden,
-      fill,
       ...rest
     } = this.props;
     // The promise will not be resolved until after render,
     // so re-render once the promise is finished by using state.
     this.loadAssets(name)
       .then(({ default: SVG }) => {
-        if (SVG && SVG.content) {
+        if (SVG) {
           const attr = {
             width: svgWidth || null,
             height: svgHeight || null,
             className: (classes && classes.length > 0) ? classes.filter((c) => c).toString() : null,
             'aria-hidden': ariaHidden || null
           };
-          const content = (
-            <svg {...attr} {...rest}>
-              {title && <title>{title}</title>}
-              <use xlinkHref={`#${name}`} fill={fill} />
-            </svg>
-          );
+          // const content = (
+          //   <svg {...attr} {...rest}>
+          //     {title && <title>{title}</title>}
+          //     <use xlinkHref={`#${name}`} fill={fill} />
+          //   </svg>
+          // );
+          const content = <SVG {...attr} {...rest} />;
           if (this.state.loaded !== name) {
             this.setState({ loaded: name, content });
           }

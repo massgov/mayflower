@@ -5,6 +5,7 @@ const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const del = require('del');
 const path = require('path');
+const gulpSvgr = require('@proscom/gulp-svgr');
 
 function clean() {
   return del(['dist']);
@@ -23,6 +24,26 @@ function styles() {
 function icons() {
   return src(['./src/components/base/Icon/assets/*.svg'])
     .pipe(dest('dist/Icon/assets'));
+}
+
+function buildIcons() {
+  return src(['./src/components/base/Icon/assets/*.svg'])
+    .pipe(
+      gulpSvgr({
+        // You can pass any svgr options
+        svgr: {
+          icon: true,
+          plugins: ['@svgr/plugin-jsx', '@svgr/plugin-prettier']
+        },
+        // To aggregate icons, pass an array (see below)
+        aggregate: ['name'],
+        // Creates index.jsx file containing all the icons
+        createIndex: true,
+        // Icon file extension can be overridden
+        extension: 'js'
+      })
+    )
+    .pipe(dest('dist/Icon'));
 }
 
 const aliases = {
@@ -227,4 +248,4 @@ function transpileES6() {
     }))
     .pipe(dest('dist'));
 }
-exports.default = series(clean, parallel(transpileES5, transpileES6, styles, icons));
+exports.default = series(clean, parallel(transpileES5, transpileES6, styles, icons), buildIcons);
