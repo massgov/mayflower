@@ -259,7 +259,9 @@ jumpToSearchButton.addEventListener("click", function(e) {
     openMenuJumpToSearch();
     // Set focus on the search input field.
     setTimeout(function timeoutFunction() {
-      document.getElementById("nav-search").focus();
+      if (document.getElementById("nav-search") !== null) {
+        document.getElementById("nav-search").focus();
+      }
     }, 90);
   }
 });
