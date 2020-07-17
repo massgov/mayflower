@@ -85,6 +85,8 @@ body.show-menu {
 
     @media ($bp-medium-min) {
 
+      // @include ma-container;
+
       display: flex;
       justify-content: space-between;
     }
@@ -93,6 +95,7 @@ body.show-menu {
 
     @media ($bp-header-toggle-max) {
 
+      // @include ma-container;
       padding-right: 0;
       padding-left: 0;
       height: $header-mobile-controls-height;
@@ -227,7 +230,7 @@ body.show-menu {
     height: 95vh;
     top: 40px;
     overflow-y: auto;
-    position: absolute;//fixed;
+    position: absolute;
     left: -320px;
     // visibility for keyboard and screen reader users are managed with toggling aria-hidden value with js.
     visibility: hidden;
@@ -276,7 +279,7 @@ body.show-menu {
       opacity: 0.7;
     }
 
-    @media ($bp-medium-min) {
+    @media ($bp-medium-max) {
 
       padding-left: 30px;
     }
@@ -285,7 +288,6 @@ body.show-menu {
 
       padding-left: 0;
     }
-
   }
 
   &__menu-icon {

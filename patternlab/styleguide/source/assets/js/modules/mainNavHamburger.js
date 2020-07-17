@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
-let menuButtonText = document.querySelectorAll(".js-header__menu-text");
+let menuButtonText = document.querySelector(".js-header__menu-text");
 let buttonLabel;
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
@@ -35,12 +35,7 @@ if (null !== menuButtonText) {
     } else {
       openMenu();
 
-      // Set focus on hamburger menu container.
-      // Then, next tabbing takes a user to the first focusable element in the menu container.
-      // setTimeout(function timeoutFunction() {
-      //   hamburgerMenuContainer.focus();
-      // }, 90);
-
+      // Set focusable items between the menu button and the hamburger menu unfocusable to set focus on the first focusable item in the menu by next tabbing.
       // These don't work:
       // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
       // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
@@ -467,7 +462,6 @@ utilNarrowButton.addEventListener("click", function(e) {
 });
 
 function closeNarrowUtilContent() {
-  // utilNarrowContent.classList.add("is-closed");
   utilNarrowContent.setAttribute("aria-hidden", "true");
 
   // Button state
@@ -483,9 +477,6 @@ function closeNarrowUtilContent() {
     utilNarrowContent.style.height = "0";
   }, 700);
   setTimeout(function timeoutFunction() {
-    // utilNarrowContent.style.opacity = "0";
-    // utilNarrowContent.style.height = "0";
-
     utilNarrowContent.classList.add("is-closed");
   }, 500);
 }
