@@ -441,6 +441,10 @@ utilNarrowButton.addEventListener("click", function(e) {
 
   if (utilNarrowContent.classList.contains("is-closed")) {
     // TO OPEN
+
+    // Close open sub menu.
+    closeSubMenu();
+
     // Button state
     thisButton.setAttribute("aria-expanded", "true");
     thisNavContainer.style.pointerEvents = "none";
