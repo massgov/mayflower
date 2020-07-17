@@ -47,6 +47,7 @@ body.show-menu {
   &--slim {
 
     @media ($bp-large-min) {
+
       padding-top: 0px;
     }
   }
@@ -55,6 +56,7 @@ body.show-menu {
     padding-top: 15px; // height of thin banner on mobile
 
     @media ($bp-large-min) {
+
       padding-top: 0px;
     }
   }
@@ -508,126 +510,119 @@ body.show-menu {
           }
 
 
-          .ma__utility-nav__content {
+          .show-menu &__content {
 
-            @media ($bp-header-toggle-max) {
-
-              // height: 0;
-              // opacity: 0;
-
-              transition: opacity 5s ease-in-out;
-              transition: height 5s ease-in-out;//0.6s;
-            }
-          }
-
-        }
-      }
-
-      // Override styles for desktop version utility nav content.
-
-      .show-menu & .ma__utility-nav__content {
-
-        @media ($bp-header-toggle-max) {
-
-          position: relative;
-          top: auto;
-          right: auto;
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          color: $c-black;
-
-          height: 0;
-          opacity: 0;
-
-          // transition: opacity 5s ease-in-out;
-          // transition: height 5s ease-in-out;//0.6s;
-
-          & .ma__utility-nav__content-title {
-            display: none;
-          }
-
-          & .ma__utility-nav__container {
-            padding: 0;
-            background-color: $c-gray-lightest;
-            overflow-y: visible;
-            height: auto;
-
-            .translated-rtl &,
-            .translated-ltr & {
-              height: auto;//calc(100vh - #{$header-mobile-controls-height * 2});
-            }
-          }
-
-          & .ma__utility-nav__container__close {// close window button in the dropdown.
-            display: none;
-          }
-
-          & .ma__utility-panel {
-            background-color: $c-gray-lightest;
-            color: $c-black;
-
-            @include ma-reset-list;
-
-            // &:last-of-type {
-            //   border-bottom: 2px solid $c-bd-divider;
-            // }
-          }
-
-          & .ma__utility-panel + .ma__utility-panel {
-            // margin-bottom: 1.75em; <-- original spacing inbetween. Remove this line once the design is set.
-            margin-top: 1em;
-
-          }
-
-          & .ma__utility-panel__description {
-            width: 100%;
-            text-align: left;
-            display: block;
-            position: relative;
-            font-style: italic;
-            font-size: 1.125rem;
-            line-height: 1.33;
-            padding: 10px 20px 10px 30px;
-            color: $c-black;
-            margin-bottom: 0;
-          }
-
-          & .ma__utility-panel__items {
-            margin-bottom: 0;
-          }
-
-          & .ma__utility-panel__item {
-            background-color: $c-gray-lightest;
-            color: $c-black;
+            // Override styles for desktop version utility nav content.
             margin: 0;
-            display: block;
-          }
-
-          & .ma__utility-panel__item .ma__decorative-link {
-            padding: 0;
-          }
-
-          & .ma__utility-panel__item .ma__decorative-link a {
-
-            @include ma-button-reset;
-
+            padding: 0;// padding-left: 0;
             width: 100%;
-            text-align: left;
-            display: block;
             position: relative;
-            font-size: 1.25rem;
-            font-weight: 400;
-            line-height: 1.33;
-            padding: 10px 20px 10px 30px;
+            top: auto;
+            right: auto;
             color: $c-black;
+            z-index: 90;
 
-            &:hover {
-              text-decoration: underline;
+            // overflow-y: hidden;
+
+            transition: max-height 0.4s;
+
+            &.is-closed {
+
+              @include ma-visually-hidden;
+
+
+              overflow-y: hidden;
+              padding: 0;
+              margin: 0;
+
+              display: none !important;
+              transition: max-height 0.6s ease-in-out;
             }
 
-            & svg {
+            & .ma__utility-nav__content-title {
               display: none;
+            }
+
+            & .ma__utility-nav__container {
+              padding: 0;
+              background-color: $c-gray-lightest;
+              overflow-y: visible;
+              max-height: auto;
+
+              transition: opacity 0.2s;
+
+              .translated-rtl &,
+              .translated-ltr & {
+                height: auto;
+              }
+            }
+
+            // Override styles for desktop version utility nav content.
+            & .ma__utility-nav__container__close {// close window button in the dropdown.
+              display: none;
+            }
+
+            & .ma__utility-panel {
+              background-color: $c-gray-lightest;
+              color: $c-black;
+
+              @include ma-reset-list;
+
+            }
+
+            & .ma__utility-panel + .ma__utility-panel {
+              margin-top: 1em;
+            }
+
+            & .ma__utility-panel__description {
+              width: 100%;
+              text-align: left;
+              display: block;
+              position: relative;
+              font-style: italic;
+              font-size: 1.125rem;
+              line-height: 1.33;
+              padding: 10px 20px 10px 30px;
+              color: $c-black;
+              margin-bottom: 0;
+            }
+
+            & .ma__utility-panel__items {
+              margin-bottom: 0;
+            }
+
+            & .ma__utility-panel__item {
+              background-color: $c-gray-lightest;
+              color: $c-black;
+              margin: 0;
+              display: block;
+            }
+
+            & .ma__utility-panel__item .ma__decorative-link {
+              padding: 0;
+            }
+
+            & .ma__utility-panel__item .ma__decorative-link a {
+
+              @include ma-button-reset;
+
+              width: 100%;
+              text-align: left;
+              display: block;
+              position: relative;
+              font-size: 1.25rem;
+              font-weight: 400;
+              line-height: 1.33;
+              padding: 10px 20px 10px 30px;
+              color: $c-black;
+
+              &:hover {
+                text-decoration: underline;
+              }
+
+              & svg {
+                display: none;
+              }
             }
           }
         }

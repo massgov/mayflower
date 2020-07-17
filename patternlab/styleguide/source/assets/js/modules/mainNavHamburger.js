@@ -428,9 +428,10 @@ function closeUtilWideContent()  {
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
 let utilNarrowContent = utilNarrowButton.nextElementSibling;
+let utilNarrowContainer = utilNarrowContent.querySelector(".ma__utility-nav__container");
 
-utilNarrowContent.style.opacity = "0";
-utilNarrowContent.style.height = "0";
+utilNarrowContent.style.maxHeight = "0";
+utilNarrowContainer.style.opacity = "0";
 
 utilNarrowButton.addEventListener("click", function(e) {
 
@@ -438,75 +439,125 @@ utilNarrowButton.addEventListener("click", function(e) {
   const thisNavContainer = e.target.closest(".ma__utility-nav__item");
   utilNarrowContent = thisButton.nextElementSibling;
 
-
-  if (utilNarrowContent.classList.contains("is-closed")) {// Open
-
-
+  // mimic sub menu item.
+  if (thisNavContainer.classList.contains("submenu-open")) {
+    // TO CLOSE
     // mimic sub menu item.
-    thisNavContainer.classList.add("submenu-open");
+    thisNavContainer.classList.remove("submenu-open");
+    // Button state
+    utilNarrowButton.setAttribute("aria-expanded", "false");
     thisNavContainer.style.pointerEvents = "none";
+
     setTimeout(function timeoutFunction() {
       thisNavContainer.removeAttribute("style");
     }, 700);
+  } else {
+    // TO OPEN
+    thisNavContainer.classList.add("submenu-open");
+    // Button state
+    thisButton.setAttribute("aria-expanded", "true");
+    thisNavContainer.style.pointerEvents = "none";
+    /** Slide down. */
+    setTimeout(function timeoutFunction() {
+      thisNavContainer.removeAttribute("style");
+    }, 700);
+  }
 
+  if (utilNarrowContent.classList.contains("is-closed")) {
+    // TO OPEN
+
+    /** Show the content. */
     utilNarrowContent.classList.remove("is-closed");
-    utilNarrowContent.style.height = "auto";
-    /** Get the computed height of the subMenu. */
-    var contentHeight = utilNarrowContent.clientHeight + "px";
+    utilNarrowContent.style.maxHeight = "auto";
+
+    /** Get the computed height of the content. */
+    var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
+    console.log(contentHeight);
 
     /** Set the height of the submenu as 0px, */
     /** so we can trigger the slide down animation. */
-    utilNarrowContent.style.height = "0";
+    utilNarrowContent.style.maxHeight = "0";
 
     setTimeout(function timeoutFunction() {
-      utilNarrowContent.style.height = contentHeight;
-      utilNarrowContent.style.opacity = "1";
-    }, 70);//50);
+      utilNarrowContent.style.maxHeight = contentHeight;
+      utilNarrowContainer.style.opacity = "1";
+    }, 50);
+  } else {
+    // TO CLOSE.
+    utilNarrowContent.style.maxHeight = "0";
+    utilNarrowContainer.style.opacity = "0";
+    setTimeout(function timeoutFunction() {
+      utilNarrowContent.classList.add("is-closed");
+    }, 500);
+  }
+  // END: mimic sub menu item.
 
-   // END: mimic sub menu item.
+  // if (utilNarrowContent.classList.contains("is-closed")) {// Open
 
-
-    utilNarrowContent.removeAttribute("aria-hidden");
-
-    // Button state
-    thisButton.setAttribute("aria-expanded", "true");
-
-    /** Slide down. */
+    // // mimic sub menu item.
+    // thisNavContainer.classList.add("submenu-open");
+    // // Button state
+    // thisButton.setAttribute("aria-expanded", "true");
+    // thisNavContainer.style.pointerEvents = "none";
+    // /** Slide down. */
     // setTimeout(function timeoutFunction() {
-    //   utilNarrowContent.style.opacity = "1";
+    //   thisNavContainer.removeAttribute("style");
     // }, 700);
 
-    // Close open sub menu.
-    closeSubMenu();
-  } else {// Close
-    closeNarrowUtilContent();
-    // utilNarrowContent.style.pointerEvents = "none";
-  }
+  //   utilNarrowContent.classList.remove("is-closed");
+  //   utilNarrowContent.style.height = "auto";
+  //   /** Get the computed height of the subMenu. */
+  //   var contentHeight = utilNarrowContent.clientHeight + "px";
+
+  //   /** Set the height of the submenu as 0px, */
+  //   /** so we can trigger the slide down animation. */
+  //   utilNarrowContent.style.height = "0";
+
+  //   setTimeout(function timeoutFunction() {
+  //     utilNarrowContent.style.height = contentHeight;
+  //     utilNarrowContainer.style.opacity = "1";
+  //   }, 50);
+
+  //   /** Slide up. */
+  // } else {
+  //   utilNarrowContent.style.height = "0";
+  //   utilNarrowContainer.style.opacity = "0";
+  //   setTimeout(function timeoutFunction() {
+  //     utilNarrowContent.classList.add("is-closed");
+  //   }, 500);
+  // }
+   // END: mimic sub menu item.
+
+  //   utilNarrowContent.removeAttribute("aria-hidden");
+
+
+  //   // Close open sub menu.
+  //   closeSubMenu();
+  // } else {// Close
+  //   closeNarrowUtilContent();
+  //   // utilNarrowContent.style.pointerEvents = "none";
+  // }
 });
 
 function closeNarrowUtilContent() {
-  // utilNarrowContent.classList.add("is-closed");
-  utilNarrowContent.setAttribute("aria-hidden", "true");
-
-
-
+  // mimic sub menu item.
   utilNarrowButton.closest(".ma__utility-nav__item").classList.remove("submenu-open");
-
   // Button state
   utilNarrowButton.setAttribute("aria-expanded", "false");
+  utilNarrowContent.style.pointerEvents = "none";
 
-  // utilNarrowContent.style.opacity = "0";
-  // utilNarrowContent.style.height = "0";
 
-  // utilNarrowContent.style.pointerEvents = "none";
+  // utilNarrowContent.classList.add("is-closed");
+  utilNarrowContent.setAttribute("aria-hidden", "true");
+  setTimeout(function timeoutFunction() {
+    utilNarrowButton.closest(".ma__utility-nav__item").classList.removeAttribute("style");
+  }, 700);
+
 
   /** Slide up. */
-  // setTimeout(function timeoutFunction() {
-    utilNarrowContent.style.height = "0";
-    // utilNarrowContent.style.opacity = "0";
-  // }, 700);
+  utilNarrowContent.style.height = "0";
+  utilNarrowContainer.style.opacity = "0";
   setTimeout(function timeoutFunction() {
-    utilNarrowContent.style.opacity = "0";
     utilNarrowContent.classList.add("is-closed");
   }, 500);
 }
