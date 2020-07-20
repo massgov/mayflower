@@ -14,9 +14,11 @@ if (null !== menuButton) {
 
 // // ****** Access to Search button on mobile should hide feedback button when menu opens  ******
 
-jumpToSearchButton.addEventListener("click", function (event) {
-  toggleFeedbackButton();
-});
+if (null !== jumpToSearchButton) {
+  jumpToSearchButton.addEventListener("click", function (event) {
+    toggleFeedbackButton();
+  });
+}
 
 function toggleFeedbackButton() {
   if (feedbackButton) {

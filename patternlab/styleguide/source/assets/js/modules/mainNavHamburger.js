@@ -16,7 +16,7 @@ if (null !== menuButtonText) {
 }
 
 // Open and close the menu
-// if (null !== menuButton) {
+if (null !== menuButton) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -108,7 +108,7 @@ if (null !== menuButtonText) {
     //   closeMenu();
     // }
   // });
-// }
+}
 
 [].forEach.call(menuItems, function (item) {
 
@@ -252,22 +252,24 @@ if (null !== menuButtonText) {
   });
 });
 
-jumpToSearchButton.addEventListener("click", function(e) {
-  // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-  hamburgerMenuContainer.toggleAttribute("aria-hidden");
+if (null !== jumpToSearchButton) {
+  jumpToSearchButton.addEventListener("click", function(e) {
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    hamburgerMenuContainer.toggleAttribute("aria-hidden");
 
-  if (body.classList.contains("show-menu")) {
-    closeMenuJumpToSearch();
-    // Set focus back on the jumpToSearchButton button since the input gets hidden by closing the menu.
-    jumpToSearchButton.focus();
-  } else {
-    openMenuJumpToSearch();
-    // Set focus on the search input field.
-    setTimeout(function timeoutFunction() {
-      document.getElementById("nav-search").focus();
-    }, 90);
-  }
-});
+    if (body.classList.contains("show-menu")) {
+      closeMenuJumpToSearch();
+      // Set focus back on the jumpToSearchButton button since the input gets hidden by closing the menu.
+      jumpToSearchButton.focus();
+    } else {
+      openMenuJumpToSearch();
+      // Set focus on the search input field.
+      setTimeout(function timeoutFunction() {
+        document.getElementById("nav-search").focus();
+      }, 90);
+    }
+  });
+}
 
 function closeMenu() {
   commonCloseMenuTasks();
@@ -377,41 +379,43 @@ window.onresize = function () {
 // ** Utility nav
 
 // Wide/utility nav bar
-const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
-const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
-const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
+if (null !== utilNavWide) {
+  const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
+  const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
+  const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
 
 // Open
-utilWideButton.addEventListener("click", function (e) {
+  utilWideButton.addEventListener("click", function (e) {
 
-  const thisWideButton = e.target.closest(".js-util-nav-toggle");
-  const thisWideContent = thisWideButton.nextElementSibling;
+    const thisWideButton = e.target.closest(".js-util-nav-toggle");
+    const thisWideContent = thisWideButton.nextElementSibling;
 
-  if (thisWideContent.classList.contains("is-closed")) {//  To open
-    thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
+    if (thisWideContent.classList.contains("is-closed")) {//  To open
+      thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
 
-    thisWideContent.classList.remove("is-closed");
-    thisWideContent.removeAttribute("aria-hidden");
-    thisWideContent.removeAttribute("style");
-    thisWideContent.style.height = "auto";
-    thisWideContent.style.opacity = "1";
+      thisWideContent.classList.remove("is-closed");
+      thisWideContent.removeAttribute("aria-hidden");
+      thisWideContent.removeAttribute("style");
+      thisWideContent.style.height = "auto";
+      thisWideContent.style.opacity = "1";
 
-    // Button State
-    thisWideButton.setAttribute("aria-expanded", "true");
-    thisWideButton.setAttribute("aria-pressed", "true");
-  }
+      // Button State
+      thisWideButton.setAttribute("aria-expanded", "true");
+      thisWideButton.setAttribute("aria-pressed", "true");
+    }
 
-  setTimeout(function() {
-    thisWideButton.setAttribute("aria-expanded", "true");
-    thisWideButton.setAttribute("aria-pressed", "true");
-  }, 200);
-});
+    setTimeout(function() {
+      thisWideButton.setAttribute("aria-expanded", "true");
+      thisWideButton.setAttribute("aria-pressed", "true");
+    }, 200);
+  });
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
 // TODO: esc key to close the content.
-utilWideCloseButton.addEventListener("click", function (e) {
-  closeUtilWideContent();
-});
+  utilWideCloseButton.addEventListener("click", function (e) {
+    closeUtilWideContent();
+  });
+}
 
 function closeUtilWideContent()  {
   // Content state
@@ -432,39 +436,41 @@ function closeUtilWideContent()  {
 
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-let utilNarrowContent = utilNarrowButton.nextElementSibling;
+if (null !== utilNarrowButton) {
+  let utilNarrowContent = utilNarrowButton.nextElementSibling;
 
-utilNarrowContent.style.opacity = "0";
-utilNarrowContent.style.height = "0";
+  utilNarrowContent.style.opacity = "0";
+  utilNarrowContent.style.height = "0";
 
-utilNarrowButton.addEventListener("click", function(e) {
+  utilNarrowButton.addEventListener("click", function(e) {
 
-  const thisButton = e.target.closest(".js-util-nav-toggle");
-  utilNarrowContent = thisButton.nextElementSibling;
+    const thisButton = e.target.closest(".js-util-nav-toggle");
+    utilNarrowContent = thisButton.nextElementSibling;
 
-  if (utilNarrowContent.classList.contains("is-closed")) {// Open
+    if (utilNarrowContent.classList.contains("is-closed")) {// Open
 
-    utilNarrowContent.classList.remove("is-closed");
-    utilNarrowContent.removeAttribute("aria-hidden");
-    utilNarrowContent.style.pointerEvents = "none";
+      utilNarrowContent.classList.remove("is-closed");
+      utilNarrowContent.removeAttribute("aria-hidden");
+      utilNarrowContent.style.pointerEvents = "none";
 
-    // Button state
-    thisButton.setAttribute("aria-expanded", "true");
-    thisButton.setAttribute("aria-pressed", "true");
+      // Button state
+      thisButton.setAttribute("aria-expanded", "true");
+      thisButton.setAttribute("aria-pressed", "true");
 
-    /** Slide down. */
-    setTimeout(function timeoutFunction() {
-      utilNarrowContent.style.opacity = "1";
-      utilNarrowContent.style.height = "auto";
-    }, 700);
+      /** Slide down. */
+      setTimeout(function timeoutFunction() {
+        utilNarrowContent.style.opacity = "1";
+        utilNarrowContent.style.height = "auto";
+      }, 700);
 
-    // Close open sub menu.
-    closeSubMenu();
-  } else {// Close
-    closeNarrowUtilContent();
-    utilNarrowContent.style.pointerEvents = "none";
-  }
-});
+      // Close open sub menu.
+      closeSubMenu();
+    } else {// Close
+      closeNarrowUtilContent();
+      utilNarrowContent.style.pointerEvents = "none";
+    }
+  });
+}
 
 function closeNarrowUtilContent() {
   // utilNarrowContent.classList.add("is-closed");
