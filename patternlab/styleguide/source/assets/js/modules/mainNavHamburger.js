@@ -379,11 +379,10 @@ window.onresize = function () {
 // ** Utility nav
 
 // Wide/utility nav bar
-if (null !== utilNavWide) {
-  const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
-  const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
-  const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
-
+const utilWideButton = document.querySelector(".js-utility-nav--wide .js-util-nav-toggle");
+const utilWideCloseButton = document.querySelector(".js-utility-nav--wide .js-close-util-nav");
+const utilWideContent = document.querySelector(".js-utility-nav--wide .js-util-nav-content");
+if (null !== utilWideButton && null !== utilWideCloseButton && null !== utilWideContent) {
 // Open
   utilWideButton.addEventListener("click", function (e) {
 
@@ -436,8 +435,9 @@ function closeUtilWideContent()  {
 
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+let utilNarrowContent;
 if (null !== utilNarrowButton) {
-  let utilNarrowContent = utilNarrowButton.nextElementSibling;
+  utilNarrowContent = utilNarrowButton.nextElementSibling;
 
   utilNarrowContent.style.opacity = "0";
   utilNarrowContent.style.height = "0";
@@ -473,27 +473,28 @@ if (null !== utilNarrowButton) {
 }
 
 function closeNarrowUtilContent() {
-  // utilNarrowContent.classList.add("is-closed");
-  utilNarrowContent.setAttribute("aria-hidden", "true");
+  if (utilNarrowContent) {
+    utilNarrowContent.setAttribute("aria-hidden", "true");
 
-  // Button state
-  utilNarrowButton.setAttribute("aria-expanded", "false");
-  utilNarrowButton.setAttribute("aria-pressed", "false");
+    // Button state
+    utilNarrowButton.setAttribute("aria-expanded", "false");
+    utilNarrowButton.setAttribute("aria-pressed", "false");
 
-  utilNarrowContent.style.opacity = "0";
-  utilNarrowContent.style.height = "0";
-
-  /** Slide up. */
-  setTimeout(function timeoutFunction() {
     utilNarrowContent.style.opacity = "0";
     utilNarrowContent.style.height = "0";
-  }, 700);
-  setTimeout(function timeoutFunction() {
-    // utilNarrowContent.style.opacity = "0";
-    // utilNarrowContent.style.height = "0";
 
-    utilNarrowContent.classList.add("is-closed");
-  }, 500);
+    /** Slide up. */
+    setTimeout(function timeoutFunction() {
+      utilNarrowContent.style.opacity = "0";
+      utilNarrowContent.style.height = "0";
+    }, 700);
+    setTimeout(function timeoutFunction() {
+      // utilNarrowContent.style.opacity = "0";
+      // utilNarrowContent.style.height = "0";
+
+      utilNarrowContent.classList.add("is-closed");
+    }, 500);
+  }
 }
 
 function closeSubMenu() {
