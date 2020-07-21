@@ -9,3 +9,4 @@ src/index.js
 src/**/*.stories.js
 src/**/*.knob*
 gulpfile.js
+icon-template.js
