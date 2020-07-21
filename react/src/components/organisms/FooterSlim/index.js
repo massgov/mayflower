@@ -9,7 +9,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Icon from 'MayflowerReactBase/Icon';
+import Marker from 'MayflowerReactBase/Icon/Marker';
+import Phone from 'MayflowerReactBase/Icon/Phone';
+import Laptop from 'MayflowerReactBase/Icon/Laptop';
 
 const FooterSlim = (props) => (
   <footer className="ma__footer_slim" id="footer">
@@ -43,21 +45,21 @@ const FooterSlim = (props) => (
               {props.contact.address
               && (
               <p>
-                <Icon name="marker" svgWidth={20} svgHeight={20} />
+                <Marker width={20} height={20} />
                 <span>{props.contact.address}</span>
               </p>
               )}
               {props.contact.phone
               && (
               <p>
-                <Icon name="phone" svgWidth={20} svgHeight={20} />
+                <Phone width={20} height={20} />
                 <span>{props.contact.phone}</span>
               </p>
               )}
               {props.contact.online && props.contact.online.href && props.contact.online.title
               && (
               <p>
-                <Icon name="laptop" svgWidth={20} svgHeight={20} />
+                <Laptop width={20} height={20} />
                 <a href={props.contact.online.href}>{props.contact.online.title}</a>
               </p>
               )}

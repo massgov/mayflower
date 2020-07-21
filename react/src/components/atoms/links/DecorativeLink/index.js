@@ -9,7 +9,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Icon from 'MayflowerReactBase/Icon';
+import Pdf from 'MayflowerReactBase/Icon/Pdf';
+import Docx from 'MayflowerReactBase/Icon/Docx';
+import Xlxs from 'MayflowerReactBase/Icon/Xlxs';
+import Generic from 'MayflowerReactBase/Icon/Generic';
+import Arrow from 'MayflowerReactBase/Icon/Arrow';
 
 const DecorativeLink = (props) => {
   const {
@@ -31,16 +35,16 @@ const DecorativeLink = (props) => {
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
     switch (ext) {
       case 'pdf':
-        decIcon = <Icon name="pdf" title={title} svgWidth={35} svgHeight={36} />;
+        decIcon = <Pdf title={title} width={35} height={36} />;
         break;
       case 'docx':
-        decIcon = <Icon name="docx" title={title} svgWidth={35} svgHeight={36} />;
+        decIcon = <Docx title={title} width={35} height={36} />;
         break;
       case 'xlxs':
-        decIcon = <Icon name="xlxs" title={title} svgWidth={35} svgHeight={36} />;
+        decIcon = <Xlxs title={title} width={35} height={36} />;
         break;
       case 'generic':
-        decIcon = <Icon name="generic" title={title} svgWidth={35} svgHeight={36} />;
+        decIcon = <Generic title={title} width={35} height={36} />;
         break;
       default:
         decIcon = null;
@@ -67,7 +71,7 @@ const DecorativeLink = (props) => {
         </span>
         )}
         &nbsp;
-        {icon || <Icon name="arrow" aria-hidden="true" />}
+        {icon || <Arrow aria-hidden="true" />}
       </a>
     </span>
   );

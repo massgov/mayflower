@@ -5,7 +5,8 @@ import { withKnobs, array, text, select, boolean, object } from '@storybook/addo
 import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
 import GenTeaser from './index';
 import GenTeaserDocs from './GenTeaser.md';
-import Icon from 'MayflowerReactBase/Icon';
+import Catalog from 'MayflowerReactBase/Icon/Catalog';
+import Data from 'MayflowerReactBase/Icon/Data';
 
 storiesOf('organisms/GenTeaser', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -63,7 +64,7 @@ storiesOf('organisms/GenTeaser', module)
         id: text('search: id', 'jahdfjadh', 'GenTeaser.Search')
       },
       stat: text('stat', <span>Total Items: <b>143</b></span>, 'GenTeaser.Stat'),
-      eyebrow: text('eyebrow', <span><Icon name="catalog" svgWidth={16} svgHeight={16} /> Data Catalog</span>, 'GenTeaser.Eyebrow')
+      eyebrow: text('eyebrow', <span><Catalog width={16} height={16} /> Data Catalog</span>, 'GenTeaser.Eyebrow')
     };
     return(
       <GenTeaser>
@@ -93,7 +94,7 @@ storiesOf('organisms/GenTeaser', module)
         showFileIcon: boolean('title: showFileIcon', false, 'GenTeaser.Title')
       },
       description: text('description', 'Review the recent white-tailed deer harvest data before heading out to hunt. Though Massachusetts is the 3rd most densely populated state in the country, it is a state where quality deer can be found anywhere. MassWildlife biologists estimate that there are over 100,000 deer statewide. Estimated densities range from about 12-18 per square mile in western and central Massachusetts to over 50 deer per square mile on Martha\'s Vineyard and Nantucket Islands, and certain areas of eastern MA where hunting access is restricted.', 'GenTeaser.Description'),
-      eyebrow: text('eyebrow', <span><Icon name="data" svgWidth={16} svgHeight={16} /> Dataset</span>, 'GenTeaser.Eyebrow'),
+      eyebrow: text('eyebrow', <span><Data width={16} height={16} /> Dataset</span>, 'GenTeaser.Eyebrow'),
       date: text('date', '01/01/2019', 'GenTeaser.Date'),
       orgs: text('orgs', 'Division of Fisheries and Wildlife, Executive Office of Energy and Environmental Affairs', 'GenTeaser.Orgs'),
       tags: array('tags', ['kml', 'xls', 'json', 'csv'], ',', 'GenTeaser.Tags'),

@@ -8,7 +8,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'MayflowerReactBase/Icon';
+import Chevron from 'MayflowerReactBase/Icon/Chevron';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 
 class TeaserOrgs extends React.Component {
@@ -58,7 +58,7 @@ class TeaserOrgs extends React.Component {
       usage: 'quaternary-simple',
       capitalized: true,
       expanded: this.state.showAll,
-      icon: <Icon name="chevron" svgWidth={16} svgHeight="16" />
+      icon: <Chevron width={16} height="16" />
     };
     const toggle = <ButtonWithIcon {...toggleProps} />;
     const displayedOrgs = (this.state.showAll) ? teaserOrgs.join(', ') : shownOrgs.join(', ');

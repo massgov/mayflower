@@ -7,7 +7,11 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'MayflowerReactBase/Icon';
+import Facebook from 'MayflowerReactBase/Icon/Facebook';
+import Twitter from 'MayflowerReactBase/Icon/Twitter';
+import Linkedin from 'MayflowerReactBase/Icon/Linkedin';
+import Youtube from 'MayflowerReactBase/Icon/Youtube';
+import Instagram from 'MayflowerReactBase/Icon/Instagram';
 
 const SocialLinks = (socialLinks) => (
   <section className="ma__social-links">
@@ -23,18 +27,28 @@ const SocialLinks = (socialLinks) => (
   </section>
 );
 
-const SocialLink = (socialLink) => (
-  <li className="ma__social-links__item">
-    <a
-      href={socialLink.href}
-      className="ma__social-links__link js-social-share"
-      data-social-share={socialLink.linkType}
-      aria-label={socialLink.altText}
-    >
-      <Icon name={socialLink.linkType} />
-    </a>
-  </li>
-);
+const SocialLink = (socialLink) => {
+  const icons = {
+    facebook: Facebook,
+    twitter: Twitter,
+    linkedin: Linkedin,
+    youtube: Youtube,
+    instagram: Instagram
+  };
+  const IconComponent = socialLink.linkType ? icons[socialLink.linkType] : null;
+  return(
+    <li className="ma__social-links__item">
+      <a
+        href={socialLink.href}
+        className="ma__social-links__link js-social-share"
+        data-social-share={socialLink.linkType}
+        aria-label={socialLink.altText}
+      >
+        <IconComponent />
+      </a>
+    </li>
+  );
+}
 
 SocialLink.propTypes = {
   /** The URL for the link */

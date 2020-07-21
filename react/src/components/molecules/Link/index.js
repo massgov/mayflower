@@ -8,10 +8,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Icon from 'MayflowerReactBase/Icon';
+import * as Icon from 'MayflowerReactBase/Icon';
 
 const Link = (props) => {
-  const icon = props.icon ? (<Icon name={props.icon} svgWidth={13.2} svgHeight={13.2} />) : '';
+  const IconComponent = props.icon ? Icon[props.icon] : null;
+  const icon = IconComponent ? (<IconComponent width={13.2} height={13.2} />) : null;
   const classes = classNames({
     [props.classes]: props.classes
   });
@@ -41,7 +42,7 @@ Link.defaultProps = {
   href: '#',
   info: '',
   text: '',
-  icon: 'arrow'
+  icon: 'Arrow'
 };
 
 export default Link;

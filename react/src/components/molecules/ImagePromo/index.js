@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Image from 'MayflowerReactMedia/Image';
 import Paragraph from 'MayflowerReactText/Paragraph';
-import Icon from 'MayflowerReactBase/Icon';
+import Phone from 'MayflowerReactBase/Icon/Phone';
 
 const ImagePromo = (props) => {
   const HeadingElement = `h${props.title.level || 2}`;
@@ -74,7 +74,7 @@ const ImagePromo = (props) => {
 
         {props.phone && (
           <div className="ma__image-promo__phone">
-            <Icon name="phone" />
+            <Phone />
 &nbsp;
             {props.phone.href ? (
               <a href={`tel:${props.phone.href}`}>{props.phone.text}</a>

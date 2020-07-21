@@ -6,7 +6,7 @@ import {
 
 import Paragraph from 'MayflowerReactText/Paragraph';
 import GenTeaser from 'MayflowerReactOrganisms/GenTeaser';
-import Icon from 'MayflowerReactBase/Icon';
+import Chevron from 'MayflowerReactBase/Icon/Chevron';
 import ButtonWithIcon from 'MayflowerReactAtoms/buttons/ButtonWithIcon';
 import Collapse from 'MayflowerReactAnimations/Collapse';
 import CompHeading from 'MayflowerReactAtoms/headings/CompHeading';
@@ -85,7 +85,7 @@ storiesOf('organisms/TeaserListing', module)
         usage: 'quaternary-simple',
         capitalized: true,
         expanded: open,
-        icon: <Icon name="chevron" svgWidth={16} svgHeight="16" />
+        icon: <Chevron width={16} height="16" />
       };
       return(
         <TeaserListing>

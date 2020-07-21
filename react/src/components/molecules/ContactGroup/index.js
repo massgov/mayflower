@@ -10,11 +10,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
-import Icon from 'MayflowerReactBase/Icon';
+import Marker from 'MayflowerReactBase/Icon/Marker';
+import Phone from 'MayflowerReactBase/Icon/Phone';
+import Laptop from 'MayflowerReactBase/Icon/Laptop';
+import Fax from 'MayflowerReactBase/Icon/Fax';
 
 const ContactGroup = (contactGroup) => {
   const icons = {
-    SvgMarker: <Icon name="marker" />, SvgPhone: <Icon name="phone" />, SvgLaptop: <Icon name="laptop" />, SvgFax: <Icon name="fax" />
+    SvgMarker: <Marker />, SvgPhone: <Phone />, SvgLaptop: <Laptop />, SvgFax: <Fax />
   };
   const Element = `h${contactGroup.level ? contactGroup.level : 2}`;
   const createItems = (item) => {

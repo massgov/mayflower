@@ -8,7 +8,7 @@ import { action } from '@storybook/addon-actions';
 import InputCheckBox from './index';
 import inputCheckBoxDocs from './InputCheckBox.md';
 
-import Icon from 'MayflowerReactBase/Icon';
+import * as Icon from 'MayflowerReactBase/Icon';
 import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
 
 storiesOf('forms|atoms', module)
@@ -30,12 +30,20 @@ storiesOf('forms|atoms', module)
       };
       const iconProps = {
         name: select('icon.name', svgOptions),
-        svgWidth: 20,
-        svgHeight: 20,
+        width: 20,
+        height: 20,
         fill: color('icon.color', '#388557')
       };
+      // Capitalizes the name of each SVG icon to match
+      // what SVGR names components.
+      const component = select('icon.name',
+        Object.fromEntries(
+          Object.entries(svgOptions).map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value ? value[0].toUpperCase() + value.slice(1) : value])
+          )
+      );
+      const SelectedComponent = Icon[component];
       return(
-        <InputCheckBox {...props} icon={<Icon {...iconProps} />} />
+        <InputCheckBox {...props} icon={<SelectedComponent {...iconProps} />} />
       );
     }),
     { info: inputCheckBoxDocs }

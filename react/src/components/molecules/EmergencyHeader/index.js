@@ -9,8 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import componentWithName from 'airbnb-prop-types/src/componentWithName';
-import Icon from 'MayflowerReactBase/Icon';
+import Alert from 'MayflowerReactBase/Icon/Alert';
 
 const EmergencyHeader = (props) => {
   const {
@@ -45,14 +44,14 @@ EmergencyHeader.propTypes = {
   /** A string that controls different color themes for the component. */
   theme: PropTypes.oneOf(['c-warning', 'c-primary-alt', 'c-primary', 'c-gray', 'c-error']),
   /** A SVG icon to display to the left of the prefix text. */
-  icon: componentWithName('Icon'),
+  icon: PropTypes.element,
   /** An optional string displayed to the left of the divider bar. */
   prefix: PropTypes.string
 };
 EmergencyHeader.defaultProps = {
   theme: 'c-warning',
   prefix: 'Emergency Alerts',
-  icon: <Icon name="alert" />
+  icon: <Alert />
 };
 
 export default EmergencyHeader;

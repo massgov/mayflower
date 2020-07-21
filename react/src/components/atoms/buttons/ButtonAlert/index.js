@@ -11,7 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
-import Icon from 'MayflowerReactBase/Icon';
+import Chevron from 'MayflowerReactBase/Icon/Chevron';
 
 const ButtonAlert = (props) => {
   const {
@@ -27,7 +27,7 @@ const ButtonAlert = (props) => {
     expanded: isOpen,
     text: isOpen ? `${hideText} ${text}` : `${showText} ${text}`,
     usage: 'alert',
-    icon: <Icon name="chevron" svgHeight={10} svgWidth={10} />,
+    icon: <Chevron height={10} width={10} />,
     ...rest
   };
   return(

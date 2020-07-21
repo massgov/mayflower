@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, object, boolean } from '@storybook/addon-knobs/react';
 
 import EmergencyAlerts from './index';
-import Icon from 'MayflowerReactBase/Icon';
+import * as Icon from 'MayflowerReactBase/Icon';
 import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
 import Link from 'MayflowerReactMolecules/Link';
 
@@ -49,7 +49,15 @@ storiesOf('organisms/EmergencyAlerts', module)
     return(<EmergencyAlerts {...props} />);
   })
   .add('EmergencyAlerts without Alerts', () => {
-    const iconName = select('Icon: name', svgOptions, 'opennow');
+    // Capitalizes the name of each SVG icon to match
+    // what SVGR names components.
+    const component = select('Icon: name',
+      Object.fromEntries(
+        Object.entries(svgOptions).map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value ? value[0].toUpperCase() + value.slice(1) : value])
+        ),
+      'Opennow',
+    );
+    const SelectedComponent = Icon[component];
     const titleText = text('title', 'Our new & improved Boston office is now open!');
     const props = {
       id: text('id', 'GUID18378923w38789'),
@@ -58,10 +66,12 @@ storiesOf('organisms/EmergencyAlerts', module)
       }, 'c-primary-alt'),
       emergencyHeader: object('emergencyHeader', {
         prefix: 'Updates',
-        icon: (!iconName) ? null : <Icon name={iconName} />,
-        title: ({ linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">{titleText}</a>
       }),
       buttonClose: boolean('buttonClose', true)
     };
+    // Having the title and icon in the object causes storybook knobs to error.
+    props.emergencyHeader.title = ({ linkClasses }) => <a className={linkClasses} href="https://www.mass.gov">{titleText}</a>;
+    props.emergencyHeader.icon = (!component) ? null : <SelectedComponent />;
+
     return(<EmergencyAlerts {...props} />);
   });

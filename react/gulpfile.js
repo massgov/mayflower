@@ -5,14 +5,13 @@ const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const del = require('del');
 const path = require('path');
-const gulpSvgr = require('@proscom/gulp-svgr');
-
+const run = require('gulp-run-command').default;
 function clean() {
   return del(['dist']);
 }
 
 function styles() {
-  return src(['./src/components/**/*.scss'])
+  return src(['./src/components/**/*.scss', '!src/components/**/Icon/**'])
     .pipe(rename((p) => {
       const splitPath = p.dirname.split('/');
       // eslint-disable-next-line no-param-reassign
@@ -26,24 +25,133 @@ function icons() {
     .pipe(dest('dist/Icon/assets'));
 }
 
-function buildIcons() {
-  return src(['./src/components/base/Icon/assets/*.svg'])
-    .pipe(
-      gulpSvgr({
-        // You can pass any svgr options
-        svgr: {
-          icon: true,
-          plugins: ['@svgr/plugin-jsx', '@svgr/plugin-prettier']
-        },
-        // To aggregate icons, pass an array (see below)
-        aggregate: ['name'],
-        // Creates index.jsx file containing all the icons
-        createIndex: true,
-        // Icon file extension can be overridden
-        extension: 'js'
-      })
-    )
+function transpileES5Icons() {
+  return src('./dist/Icon/*.mjs')
+    .pipe(rename((p) => {
+      const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
+      p.dirname = splitPath[splitPath.length - 1];
+    }))
+    .pipe(babel({
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            loose: true,
+            modules: 'commonjs'
+          }
+        ],
+        [
+          '@babel/preset-react',
+          {
+            development: false
+          }
+        ],
+        [
+          'babel-preset-proposals',
+          {
+            loose: true,
+            decorators: true,
+            classProperties: true,
+            exportDefaultFrom: true,
+            exportNamespaceFrom: true,
+            absolutePaths: true
+          }
+        ]
+      ],
+      plugins: [
+        [
+          'module-resolver',
+          {
+            resolvePath,
+            alias: aliases,
+            isES5: true
+          }
+        ],
+        '@babel/plugin-proposal-optional-chaining',
+        '@babel/plugin-proposal-nullish-coalescing-operator',
+        [
+          'babel-plugin-transform-react-remove-prop-types',
+          {
+            mode: 'wrap'
+          }
+        ],
+        [
+          '@babel/plugin-transform-runtime',
+          {
+            absoluteRuntime: false,
+            useESModules: false,
+            helpers: false
+          }
+        ],
+        'babel-plugin-add-module-exports'
+      ]
+    }))
     .pipe(dest('dist/Icon'));
+}
+
+function transpileES6Icons() {
+  return src('./dist/Icon/*.mjs', '!./dist/Icon/index.mjs')
+    .pipe(babel({
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            loose: true,
+            modules: false,
+            exclude: [
+              'transform-block-scoping',
+              'transform-arrow-functions',
+              'transform-function-name'
+            ]
+          }
+        ],
+        [
+          '@babel/preset-react',
+          {
+            development: false,
+          }
+        ],
+      ],
+      plugins: [
+        [
+          'module-resolver',
+          {
+            resolvePath,
+            alias: aliases,
+            isES5: false
+          }
+        ],
+        '@babel/plugin-proposal-optional-chaining',
+        '@babel/plugin-proposal-nullish-coalescing-operator',
+        [
+          'babel-plugin-transform-react-remove-prop-types',
+          {
+            mode: 'wrap'
+          }
+        ],
+        [
+          '@babel/plugin-transform-runtime',
+          {
+            absoluteRuntime: false,
+            useESModules: true,
+            helpers: false
+          }
+        ]
+      ]
+    }))
+    .pipe(rename((p) => {
+      const splitPath = p.dirname.split('/');
+      // eslint-disable-next-line no-param-reassign
+      p.dirname = splitPath[splitPath.length - 1];
+      // eslint-disable-next-line no-param-reassign
+      p.extname = '.mjs';
+    }))
+    .pipe(dest('dist/Icon'));
+}
+
+async function generateIcons() {
+  return run('svgr --out-dir ./dist/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js')()
 }
 
 const aliases = {
@@ -77,7 +185,8 @@ const sources = [
   '!src/**/*.knobs.options.js',
   '!src/**/*.knob.options.js',
   '!src/**/Colors/**',
-  '!src/**/storyutils.js'
+  '!src/**/storyutils.js',
+  '!src/**/Icon/**'
 ];
 
 function resolvePath(sourcePath, currentFile, opts) {
@@ -103,7 +212,8 @@ function resolvePath(sourcePath, currentFile, opts) {
           'TabContainer/context',
           'utilities/componentPropTypeCheck',
           'Breadcrumb/item',
-          'GenTeaser/utils'
+          'GenTeaser/utils',
+          'Base/Icon/',
         ];
         // If the current path is a file and not a directory...
         if (excludes.some((rule) => sourcePath.includes(rule))) {
@@ -191,7 +301,12 @@ function transpileES6() {
           '@babel/preset-env',
           {
             loose: true,
-            modules: false
+            modules: false,
+            exclude: [
+              'transform-block-scoping',
+              'transform-arrow-functions',
+              'transform-function-name'
+            ]
           }
         ],
         [
@@ -248,4 +363,20 @@ function transpileES6() {
     }))
     .pipe(dest('dist'));
 }
-exports.default = series(clean, parallel(transpileES5, transpileES6, styles, icons), buildIcons);
+
+function cleanIconDir() {
+  return del([
+    'src/components/base/Icon/*',
+    '!src/components/base/Icon/assets',
+    '!src/components/base/Icon/IconDisplay.js',
+    '!src/components/base/Icon/Icon.stories.js',
+    '!src/components/base/Icon/Icon.knob.options.js',
+    '!src/components/base/Icon/_icon-display.scss'
+  ]);
+}
+
+exports.cleanIconDir = cleanIconDir;
+exports.generateIcons = generateIcons;
+exports.transpileES5Icons = transpileES5Icons;
+exports.transpileES6Icons = transpileES6Icons;
+exports.default = series(clean, parallel(transpileES5, transpileES6, styles, series(generateIcons, transpileES5Icons, transpileES6Icons)));

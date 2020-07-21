@@ -5,7 +5,8 @@ import rectPlaceholder from '@massds/mayflower-assets/static/images/placeholder/
 import sqrPlaceholder from '@massds/mayflower-assets/static/images/placeholder/100x100.png';
 import ImagePromo from '.';
 import ImagePromoDocs from './ImagePromo.md';
-import Icon from 'MayflowerReactBase/Icon';
+import Wheelchair from 'MayflowerReactBase/Icon/Wheelchair';
+import Opennow from 'MayflowerReactBase/Icon/Opennow';
 
 storiesOf('molecules/ImagePromo', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -79,11 +80,11 @@ storiesOf('molecules/ImagePromo', module)
         tags: [{
           id: 123,
           label: 'handicapped accessible',
-          icon: <Icon name="wheelchair" />
+          icon: <Wheelchair />
         }, {
           id: 456,
           label: 'open now',
-          icon: <Icon name="opennow" />
+          icon: <Opennow />
         }],
         stacked: boolean('ImagePromo: stacked', false),
         small: boolean('ImagePromo: small', false),

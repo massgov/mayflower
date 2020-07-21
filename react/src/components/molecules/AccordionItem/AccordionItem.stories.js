@@ -5,9 +5,16 @@ import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import Paragraph from 'MayflowerReactText/Paragraph';
 import AccordionItem from './index';
 import AccordionItemDocs from './AccordionItem.md';
-import Icon from 'MayflowerReactBase/Icon';
+import * as Icon from 'MayflowerReactBase/Icon';
 
-const getIcon = (iconProps) => <Icon {...iconProps} />;
+const getIcon = (iconProps) => {
+  // Capitalizes the name of each SVG icon to match
+  // what SVGR names components.
+  const SelectedComponent = Icon[iconProps.name[0].toUpperCase() + iconProps.name.slice(1)];
+  return(
+    <SelectedComponent {...iconProps} />
+  );
+}
 
 const icons = {
   circlechevron: getIcon({ name: 'circlechevron' }),

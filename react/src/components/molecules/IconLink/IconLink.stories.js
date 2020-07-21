@@ -4,7 +4,7 @@ import { withKnobs, text, select, array } from '@storybook/addon-knobs';
 
 import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
 import IconLink from '.';
-import Icon from 'MayflowerReactBase/Icon';
+import * as Icon from 'MayflowerReactBase/Icon';
 import Link from 'MayflowerReactMolecules/Link';
 
 storiesOf('molecules', module)
@@ -16,16 +16,27 @@ storiesOf('molecules', module)
       href: text('Link: href', '#', 'Link')
     };
     const iconProps = {
-      name: select('Icon: name', svgOptions, '', 'Icon'),
-      svgWidth: text('Icon: svgWidth', 13, 'Icon'),
-      svgHeight: text('Icon: svgHeight', 13, 'Icon'),
+      width: text('Icon: width', 13, 'Icon'),
+      height: text('Icon: height', 13, 'Icon'),
       title: text('Icon: title', 'Icon Title Here', 'Icon'),
       classes: array('Icon: classes', ['ma__general-teaser__secondaryicon'], ' ', 'Icon')
     };
+    // Capitalizes the name of each SVG icon to match
+    // what SVGR names components.
+    const component = select('Icon: name',
+      Object.fromEntries(
+        Object.entries(svgOptions).map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value ? value[0].toUpperCase() + value.slice(1) : value])
+        ),
+      '',
+      'Icon'
+    );
+    const SelectedComponent = Icon[component];
     const props = {
-      icon: <Icon {...iconProps} />,
       wrapperClasses: array('IconLink: wrapperClasses', ['']),
       link: <Link {...linkProps} />
     };
+    if (SelectedComponent) {
+      props.icon = <SelectedComponent {...iconProps} />;
+    }
     return(<IconLink {...props} />);
   }));

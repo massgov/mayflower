@@ -12,7 +12,9 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 import UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
-import Icon from 'MayflowerReactBase/Icon';
+import Building from 'MayflowerReactBase/Icon/Building';
+import Login from 'MayflowerReactBase/Icon/Login';
+import Latlonglobe from 'MayflowerReactBase/Icon/Latlonglobe';
 
 class UtilityNav extends React.Component {
   constructor(props) {
@@ -69,7 +71,7 @@ const GoogleLanguages = () => (
     <div className="ma__utility-nav__translate">
       <div id="google_translate_element" />
       <div className="ma__utility-nav__translate-icon">
-        <Icon name="latlonglobe" />
+        <Latlonglobe />
       </div>
     </div>
   </li>
@@ -87,13 +89,13 @@ const NavItem = (obj) => {
     id: divId
   };
   const iconProps = {
-    name: item.icon,
     ariaHidden: true
   };
+  const IconComponent = item.icon === 'building' ? Building : Login;
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
       <button type="button" onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
-        <Icon {...iconProps} />
+        <IconComponent {...iconProps} />
         <span>{item.text}</span>
       </button>
       <div {...divProps}>
@@ -103,7 +105,7 @@ const NavItem = (obj) => {
               <span>{item.closeText}</span>
               <span className="ma__utility-nav__close-icon" aria-hidden="true">+</span>
             </button>
-            <Icon {...iconProps} />
+            <IconComponent {...iconProps} />
             <span>{item.text}</span>
           </div>
           <div className="ma__utility-nav__content-body">
@@ -118,13 +120,14 @@ const NavItem = (obj) => {
 const NavItemLink = (obj) => {
   const item = obj.data;
   const iconProps = {
-    name: item.icon,
     ariaHidden: true
   };
+  const IconComponent = item.icon === 'building' ? Building : Login;
+
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
       <a className="ma__utility-nav__link" href={item.href} aria-label={item.ariaLabelText || item.text}>
-        <Icon {...iconProps} />
+        <IconComponent {...iconProps} />
         <span>{item.text}</span>
       </a>
     </li>

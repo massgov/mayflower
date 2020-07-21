@@ -47,6 +47,7 @@ module.exports = {
           loader: '@svgr/webpack',
           options: {
             icon: true,
+            outDir: './src/components/base/Icon'
           },
         },
       ],
