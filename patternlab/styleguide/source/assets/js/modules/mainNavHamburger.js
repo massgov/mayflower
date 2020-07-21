@@ -332,18 +332,47 @@ function closeSubMenus(item) {
   }
 
   for (let i = 0; i < siblings.length; i++) {
+
     if (siblings[i].classList.contains("submenu-open")) {
 
-      setTimeout(function timeoutFunction() {
-        siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
-        siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
-        siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
-        siblings[i].classList.remove("submenu-open");
-        siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
-      }, 500);
+      // TEST OUTPUT
+      console.log(siblings[i].querySelector(".js-main-nav-hamburger__top-link").textContent);
+      // END: TEST OUTPUT
 
+      siblings[i].classList.remove("submenu-open");
+      siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
+      siblings[i].style.pointerEvents = "none";
+
+      setTimeout(function timeoutFunction() {
+        siblings[i].removeAttribute("style");
+      }, 700);
+    // }
+
+    // if (siblings[i].querySelector(".js-main-nav-hamburger-content").classList.contains("is-closed") !== true) { // TO CLOSE
+      /** Slide up. */
+      siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
+      siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
+
+      setTimeout(function timeoutFunction() {
+        siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+
+      }, 500);
     }
   }
+  // ORIGINAL
+  // for (let i = 0; i < siblings.length; i++) {
+  //   if (siblings[i].classList.contains("submenu-open")) {
+
+  //     setTimeout(function timeoutFunction() {
+  //       siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
+  //       siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+  //       siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
+  //       siblings[i].classList.remove("submenu-open");
+  //       siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
+  //     }, 500);
+
+  //   }
+  // }
 }
 
 // Close menu when utility nav is clicked
