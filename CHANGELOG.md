@@ -1,16 +1,56 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.52.1 (6/22/2020)
+### Changed 
+- (Patternlab) [RelationsipIndicator] DP-17150: Change the label of the secondary set. Change the width of each set. Adjust spacing.
+- (Patternlab) [RelationshipIndicator] DP-17404: Match spacing with the current prod(develop) version. (#938)
+- (Patternlab) [RelationsipIndicator] DP-17404: Align relationship the first terms in primary and secondary sets. (#938)
+- (Patternlab) [BinderInternalPage] DP-17404: Position the TOC below the relationship indicator. (#938)
+- (Patternlab) [MobileNav] DP-17404: Put back missing mobileNav.js in index.js. (#938)
+- (Mayflower) [GoogleMap] DP-19085: Modify google-map.twig to print googleMap.link.info value and set it visualy hidden as context info for screen reader users. (#1089)
+
+## 9.52.0 (6/15/2020)
+### Added
+- (Patternlab) [KeyMessage] DP-18940: Adjusted the key-message template and styles to stop BG image display problem. (#1082)
+
+### Changed
+- (Patternlab) [TableOfContents] DP-15628: Make the parent container of TOC link function like a link by expanding clickable area. (#1070)
+- (React) [HelperText]  Use node instead of string for `message` proptype. (#1080) 
+
+### Fixed
+- (React, Patternlab) [OrganizationNavigation] DP-17612: Adjust z-index of open search box to fix style issue on Firefox. (#1088)
+
+## 9.51.2 (5/29/2020)
+### Fixed
+- (Assets) [Fonts] DP-18894: Remove param from font import statement to fix Drupal css aggregation issue. (#1077)
+- (Patternlab) [Dependency] DP-18036: Update handlebars and node-sass. (#1069)
+
+## 9.51.1 (5/27/2020)
+### Fixed
+- (Assets) [Fonts] DP-18823: Add font support for Vietnamese. (#1068)
+
+## 9.51.0 (5/26/2020)
+### Fixed
+- (React, Patternlab) [ErrorPage] DP-18704: Fix the flickering issue with animation in Error page. (#1065)
+
+## 9.50.0 (5/19/2020)
+### Security
+- (Patternlab) [undefined] DP-18543: Update jquery from 3.4.0 to 3.5.1
+
+### Added
+- (Assets) [Font] DP-18591: Consolidate font weights into variables. (#1054)
+
 ## 9.49.3 (5/5/2020)
-### Added 
+### Added
 - (Patternlab) [Figure] DP-17483: Add datavisualization iframe to figure. (#975)
 
-### Changed 
+### Changed
 - (Patternlab) [Figure] DP-17634: Add a link to sample caption content. (#975)
 - (Patternlab) [InformaionDetails] DP-17634: Add a link to sample caption content. (#975)
 
 ## 9.49.2 (4/30/2020)
-### Fixed 
+### Fixed
 - (React, Assets) [InputRadio] DP-18513: Fix InputRadio outline style behavior. (#1034)
 
 ## 9.49.1 (4/28/2020)

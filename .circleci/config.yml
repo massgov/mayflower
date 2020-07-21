@@ -401,7 +401,7 @@ workflows:
           requires: [build]
     triggers:
       - schedule:
-          cron: "00 16 * * 2"
+          cron: "20 19 * * 1"
           filters:
             branches:
               only:

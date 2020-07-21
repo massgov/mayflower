@@ -161,6 +161,7 @@ $menu-transition-time: 0.3s;
       .form-open & {
         position: absolute;
         width: 100%;
+        z-index: 1;
 
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           top: 7px;
