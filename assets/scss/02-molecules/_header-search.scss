@@ -1,7 +1,7 @@
 $header-search-height: 46px;
 $bp-header-search-reduce-button: "max-width: 700px";
 
-@use "00-base/global" as *;
+@use "../00-base/global" as *;
 
 .ma__header-search {
   display: inline-block;

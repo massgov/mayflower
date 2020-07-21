@@ -2,7 +2,7 @@ $feedback-form-spacing: 50px;
 $feedback-form-spacing-mobile: 20px;
 $feedback-form-bp-min: "min-width: 751px";
 
-@use "00-base/global" as *;
+@use "../00-base/global" as *;
 
 .ma__feedback-form {
   background-size: cover;
