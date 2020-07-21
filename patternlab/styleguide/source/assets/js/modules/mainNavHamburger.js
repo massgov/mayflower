@@ -15,99 +15,87 @@ if (null !== menuButtonText) {
 }
 
 // Open and close the menu
-// if (null !== menuButton) {
-  menuButton.addEventListener("click", function (event) {
-    event.preventDefault();
+menuButton.addEventListener("click", function (event) {
+  event.preventDefault();
 
-    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-    hamburgerMenuContainer.toggleAttribute("aria-hidden");
+  // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+  hamburgerMenuContainer.toggleAttribute("aria-hidden");
 
-    if (body.classList.contains("show-menu")) {
-      closeMenu();
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+  if (body.classList.contains("show-menu")) {
+    closeMenu();
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
 
-      setTimeout(function timeoutFunction() {
-        document.querySelector(".js-header-menu-button").focus();
-      }, 100);
-    } else {
-      openMenu();
+    setTimeout(function timeoutFunction() {
+      document.querySelector(".js-header-menu-button").focus();
+    }, 100);
+  } else {
+    openMenu();
 
-      // Set focus on hamburger menu container.
-      // Then, next tabbing takes a user to the first focusable element in the menu container.
-      // setTimeout(function timeoutFunction() {
-      //   hamburgerMenuContainer.focus();
-      // }, 90);
+    // Set these elements unfocusable to enable to set focus on the first focusable element in hamburger menu with next tabbing as the menu opens.
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+  }
+});
 
-      // These don't work:
-      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
-      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
+// menuButton.addEventListener("keydown", function (e) {
+//   if (e.key === "Enter" || e.which === "13") {
 
-      // alternalte above 2 lines.
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
-    }
-  });
+//     console.log(menuButton.getAttribute("aria-expanded"));
 
-  // menuButton.addEventListener("keydown", function (e) {
-  //   if (e.key === "Enter" || e.which === "13") {
+//     if (menuButton.getAttribute("aria-expanded") === "false") {
+//       // openMenu();
 
-  //     console.log(menuButton.getAttribute("aria-expanded"));
+//       // Opening menu button with enter is set somewhere else. Cannot find where.
+//       // Set focus on hamburger menu container.
+//       // Then, next tabbing takes a user to the first focusable element in the menu container.
+//       setTimeout(function timeoutFunction() {
+//         // hamburgerMenuContainer.focus();
+//         document.querySelector(".ma__header__hamburger__nav-container").focus();
 
-  //     if (menuButton.getAttribute("aria-expanded") === "false") {
-  //       // openMenu();
+//         console.log(document.activeElement);
+//       }, 1000);
+//     } else {
+//       closeMenu();
+//       menuButton.focus();
+//     }
+//   }
+// });
 
-  //       // Opening menu button with enter is set somewhere else. Cannot find where.
-  //       // Set focus on hamburger menu container.
-  //       // Then, next tabbing takes a user to the first focusable element in the menu container.
-  //       setTimeout(function timeoutFunction() {
-  //         // hamburgerMenuContainer.focus();
-  //         document.querySelector(".ma__header__hamburger__nav-container").focus();
+// =============== exisiting code below
+// menuButton.addEventListener("keydown", function (e) {
 
-  //         console.log(document.activeElement);
-  //       }, 1000);
-  //     } else {
-  //       closeMenu();
-  //       menuButton.focus();
-  //     }
+  // if (e.code == 'ArrowDown') {
+  //   event.preventDefault();
+  //   openMenu();
+
+  //   if (window.innerWidth > 620) {
+  //     setTimeout(function timeoutFunction() {
+  //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
+  //     }, 500);
+  //   } else {
+  //     setTimeout(function timeoutFunction() {
+  //       document.querySelector('.js-header__nav-search input').focus();
+  //     }, 500);
   //   }
-  // });
+  // }
 
-  // =============== exisiting code below
-  // menuButton.addEventListener("keydown", function (e) {
+  // NOTE: This causes a keyboard trap at the menu open/close button.
+  // if (e.code == 'Tab') {
+  //   e.preventDefault();
+  //   document.querySelector('.ma__header__hamburger-search__input').focus();
+  // }
 
-    // if (e.code == 'ArrowDown') {
-    //   event.preventDefault();
-    //   openMenu();
+  // if (e.shiftKey && e.code == "Tab") {
+  //   closeMenu();
+  // }
 
-    //   if (window.innerWidth > 620) {
-    //     setTimeout(function timeoutFunction() {
-    //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
-    //     }, 500);
-    //   } else {
-    //     setTimeout(function timeoutFunction() {
-    //       document.querySelector('.js-header__nav-search input').focus();
-    //     }, 500);
-    //   }
-    // }
-
-    // NOTE: This causes a keyboard trap at the menu open/close button.
-    // if (e.code == 'Tab') {
-    //   e.preventDefault();
-    //   document.querySelector('.ma__header__hamburger-search__input').focus();
-    // }
-
-    // if (e.shiftKey && e.code == "Tab") {
-    //   closeMenu();
-    // }
-
-    // if (e.code == "Escape" || e.which == "27") {
-    //   closeMenu();
-    // }
-  // });
-// }
+  // if (e.code == "Escape" || e.which == "27") {
+  //   closeMenu();
+  // }
+// });
 
 [].forEach.call(menuItems, function (item) {
 
@@ -119,6 +107,7 @@ if (null !== menuButtonText) {
   subItems.style.opacity = "0";
 
   // THIS IS CAUSING INFINITY LOOP WITH closeSubMenus() AT CLICK SINCE THE OBJECT GETS FOCUS AT CLICK.
+  // LEAVE THIS NOTE FOR LATER KEYBOARD NAVIGATION WORK.
   // itemButton.addEventListener("focus", function(e){
   //   closeSubMenus(item);
   // });
@@ -127,6 +116,9 @@ if (null !== menuButtonText) {
 
     closeSubMenus(item);
 
+    // Set a little bit of delay to run
+    // The open/close submenu animation is CSS. Unable to confirm the completion of the animation in JS.
+    // So, unable to use callback in this case.
     setTimeout(function timeoutFunction() {
       if (item.classList.contains("submenu-open")) {
         item.classList.remove("submenu-open");
@@ -176,60 +168,7 @@ if (null !== menuButtonText) {
 
         }, 500);
       }
-    }, 300);
-
-
-    // if (item.classList.contains("submenu-open")) {
-    //   // item.classList.remove("submenu-open");
-    //   // itemButton.setAttribute("aria-expanded", "false");
-    //   // item.style.pointerEvents = "none";
-
-    //   // setTimeout(function timeoutFunction() {
-    //   //   item.removeAttribute("style");
-    //   // }, 700);
-    // } else {
-    //   item.classList.add("submenu-open");
-    //   itemButton.setAttribute("aria-expanded", "true");
-    //   item.style.pointerEvents = "none";
-    //   setTimeout(function timeoutFunction() {
-    //     item.removeAttribute("style");
-    //   }, 700);
-    // }
-
-
-    // if (subMenu.classList.contains("is-closed")) {
-
-    //   /** Show the subMenu. */
-
-    //   subMenu.classList.remove("is-closed");
-    //   subMenu.style.height = "auto";
-
-    //   /** Get the computed height of the subMenu. */
-    //   var height = subMenu.clientHeight + "px";
-
-
-    //   /** Set the height of the submenu as 0px, */
-    //   /** so we can trigger the slide down animation. */
-    //   subMenu.style.height = "0";
-
-    //   setTimeout(function timeoutFunction() {
-    //     subMenu.style.height = height;
-    //     subItems.style.opacity = "1";
-    //   }, 50);
-
-    //   /** Close Utility menu content when a sub menu is open. */
-    //   closeNarrowUtilContent();
-
-    //   /** Slide up. */
-    // } else {
-    // //   subMenu.style.height = "0";
-    // //   subItems.style.opacity = "0";
-
-    // //   setTimeout(function timeoutFunction() {
-    // //     subMenu.classList.add("is-closed");
-
-    // //   }, 500);
-    // }
+    }, 230);
   });
 
   itemButton.addEventListener("keydown", function (e) {
@@ -463,7 +402,6 @@ utilWideButton.addEventListener("click", function (e) {
 });
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
-// TODO: esc key to close the content.
 utilWideCloseButton.addEventListener("click", function (e) {
   closeUtilWideContent();
 });
@@ -522,7 +460,7 @@ utilNarrowButton.addEventListener("click", function(e) {
     /** so we can trigger the slide down animation. */
     utilNarrowContent.style.maxHeight = "0";
 
-    // These height settings displays the bottom border of the parent li at the correct spot.
+    // These height settings display the bottom border of the parent li at the correct spot.
     utilNarrowContent.style.height = contentHeight;
     utilNarrowContainer.style.height = contentHeight;
 
