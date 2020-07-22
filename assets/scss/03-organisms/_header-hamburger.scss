@@ -7,6 +7,7 @@ body.show-menu {
   overflow: hidden;
 
   @media ($bp-header-toggle-max) {
+
     position: fixed !important;
     left: 0;
   }
@@ -41,6 +42,7 @@ body.show-menu {
   background-color: $c-bg-section;
 
   @media ($bp-medium-min) {
+
     padding-top: 43px;
   }
 
@@ -128,12 +130,14 @@ body.show-menu {
       float: right;
 
       @media ($bp-small-min) {
+
         justify-content: flex-end;
         float: none;
       }
     }
 
     @media ($bp-header-toggle-min) {
+
       padding-top: 20px;
     }
   }
@@ -145,6 +149,7 @@ body.show-menu {
     width: $header-logo-width; // width of the image
 
     @media ($bp-small-min) {
+
       width: 210px;
     }
 
@@ -394,7 +399,6 @@ body.show-menu {
     }
   }
 
-
   &__nav-search {
     padding: 15px 20px 15px;
 
@@ -474,6 +478,7 @@ body.show-menu {
           &__link, a.direct-link {
 
             @include ma-button-reset;
+
             position: relative;
             display: block;
             font-size: 1.25rem;
@@ -547,14 +552,11 @@ body.show-menu {
             color: $c-black;
             z-index: 90;
 
-            // overflow-y: hidden;
-
             transition: max-height 0.4s;
 
             &.is-closed {
 
               @include ma-visually-hidden;
-
 
               overflow-y: hidden;
               padding: 0;
@@ -592,7 +594,6 @@ body.show-menu {
               color: $c-black;
 
               @include ma-reset-list;
-
             }
 
             & .ma__utility-panel + .ma__utility-panel {
