@@ -230,7 +230,7 @@ body.show-menu {
     height: 95vh;
     top: 40px;
     overflow-y: auto;
-    position: absolute;//fixed;
+    position: absolute;
     left: -320px;
     // visibility for keyboard and screen reader users are managed with toggling aria-hidden value with js.
     visibility: hidden;
@@ -334,7 +334,6 @@ body.show-menu {
   &__menu-text {
     position: relative;
     display: inline-block;
-    // top: -2px;
     padding-left: 25px;
   }
 
@@ -516,7 +515,7 @@ body.show-menu {
 
             // Override styles for desktop version utility nav content.
             margin: 0;
-            padding: 0;// padding-left: 0;
+            padding: 0;
             width: 100%;
             position: relative;
             top: auto;
