@@ -346,7 +346,7 @@ function closeSubMenus(item) {
 
 // Close menu when utility nav is clicked
 if (null !== utilNavWide) {
-    closeMenu();
+  closeMenu();
 }
 
 

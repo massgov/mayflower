@@ -114,8 +114,6 @@ body.show-menu {
 
       @media ($bp-header-toggle-max) {
         width: 100%;
-
-        background: yellowgreen;
       }
     }
   }
@@ -272,7 +270,7 @@ body.show-menu {
     background-color: $c-primary;
     text-align: left;
     border: none;
-    font-size: 19.2px;//1.2rem; Maintain the same font size regardless of the screensize.
+    font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
     height: 40px;
