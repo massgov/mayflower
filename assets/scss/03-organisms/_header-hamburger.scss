@@ -110,12 +110,11 @@ body.show-menu {
     justify-content: space-between;
 
     // Expand close button to fll the blue bar.
+
     .show-menu & {
 
       @media ($bp-header-toggle-max) {
         width: 100%;
-
-        background: yellowgreen;
       }
     }
   }
@@ -283,6 +282,7 @@ body.show-menu {
     transition: transform 0.5s ease;
 
     // Expand close button to fll the blue bar.
+
     .show-menu & {
 
       @media ($bp-header-toggle-max) {
@@ -586,6 +586,7 @@ body.show-menu {
 
             // Override styles for desktop version utility nav content.
             & .ma__utility-nav__container__close {// close window button in the dropdown.
+
               display: none;
             }
 
