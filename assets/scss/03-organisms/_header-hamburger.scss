@@ -70,6 +70,7 @@ body.show-menu {
     &:not(:focus) {
 
       @include ma-visually-hidden;
+
       width: 240px;
     }
   }
@@ -83,11 +84,10 @@ body.show-menu {
 
   &-wrapper {
 
+    @include ma-container;
+
     @media ($bp-medium-min) {
 
-      @include ma-container;
-
-        max-width: 100%;// override max-width in ma-container.
         display: flex;
         justify-content: space-between;
     }
@@ -118,6 +118,7 @@ body.show-menu {
     @include ma-valign-block;
 
     @include ma-container;
+
     font-size: 0; // inline-block fix
     height: 100px;
     padding-top: 8px;
@@ -150,6 +151,7 @@ body.show-menu {
     @media ($bp-small-min) {
 
       @include span-columns(4);
+
       display: inline-block;
       float: none;
     }
@@ -157,6 +159,7 @@ body.show-menu {
     @media ($bp-header-logo-min) {
 
       @include span-columns(3);
+
       display: inline-block;
       float: none;
     }
@@ -176,6 +179,7 @@ body.show-menu {
       }
 
       @media ($bp-small-min) {
+
         display: none;
       }
     }
@@ -188,14 +192,17 @@ body.show-menu {
     width: calc(100% - #{$header-logo-width});
 
     @media ($bp-small-max) {
+
       display: none;
     }
 
     @media ($bp-small-min) {
+
       width: 66.12903%; //@include span-columns(8);
     }
 
     @media ($bp-header-logo-min) {
+
       width: 74.59677%; //@include span-columns(9);
     }
 
@@ -265,7 +272,7 @@ body.show-menu {
     background-color: $c-primary;
     text-align: left;
     border: none;
-    font-size: 1.2rem;
+    font-size: 19.2px;//1.2rem; Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
     height: 40px;
@@ -279,9 +286,21 @@ body.show-menu {
       opacity: 0.7;
     }
 
-    @media ($bp-medium-min) {
+    @media ($bp-header-toggle-max) {
+
+      padding-left: 30px;
+    }
+
+    @media ($bp-header-toggle-min) {
+
       padding-left: 0;
     }
+
+    @media ($bp-medium-max) {
+
+      padding-left: 20px;
+    }
+
   }
 
   &__menu-icon {
@@ -340,6 +359,7 @@ body.show-menu {
   &__desktop-label {
 
     @media ($bp-small-max) {
+
       display: none;
     }
   }
@@ -347,6 +367,7 @@ body.show-menu {
   &__mobile-label {
 
     @media ($bp-small-min) {
+
       display: none;
     }
   }
@@ -357,6 +378,7 @@ body.show-menu {
     background-color: $c-primary;
 
     @media ($bp-small-min) {
+
       display: none;
     }
 
@@ -384,6 +406,7 @@ body.show-menu {
     }
 
     @media ($bp-small-min) {
+
       display: none;
     }
   }
@@ -423,6 +446,7 @@ body.show-menu {
       &__item {
 
         @media ($bp-header-toggle-min) {// Override original.
+
           display: inline-block;
           padding-left: 30px;
           vertical-align: middle;
