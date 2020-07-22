@@ -7,7 +7,6 @@ body.show-menu {
   overflow: hidden;
 
   @media ($bp-header-toggle-max) {
-
     position: fixed !important;
     left: 0;
   }
@@ -42,14 +41,12 @@ body.show-menu {
   background-color: $c-bg-section;
 
   @media ($bp-medium-min) {
-
     padding-top: 43px;
   }
 
   &--slim {
 
     @media ($bp-large-min) {
-
       padding-top: 0px;
     }
   }
@@ -58,7 +55,6 @@ body.show-menu {
     padding-top: 15px; // height of thin banner on mobile
 
     @media ($bp-large-min) {
-
       padding-top: 0px;
     }
   }
@@ -72,7 +68,6 @@ body.show-menu {
     &:not(:focus) {
 
       @include ma-visually-hidden;
-
       width: 240px;
     }
   }
@@ -120,7 +115,6 @@ body.show-menu {
     @include ma-valign-block;
 
     @include ma-container;
-
     font-size: 0; // inline-block fix
     height: 100px;
     padding-top: 8px;
@@ -130,14 +124,12 @@ body.show-menu {
       float: right;
 
       @media ($bp-small-min) {
-
         justify-content: flex-end;
         float: none;
       }
     }
 
     @media ($bp-header-toggle-min) {
-
       padding-top: 20px;
     }
   }
@@ -149,14 +141,12 @@ body.show-menu {
     width: $header-logo-width; // width of the image
 
     @media ($bp-small-min) {
-
       width: 210px;
     }
 
     @media ($bp-small-min) {
 
       @include span-columns(4);
-
       display: inline-block;
       float: none;
     }
@@ -164,7 +154,6 @@ body.show-menu {
     @media ($bp-header-logo-min) {
 
       @include span-columns(3);
-
       display: inline-block;
       float: none;
     }
@@ -184,7 +173,6 @@ body.show-menu {
       }
 
       @media ($bp-small-min) {
-
         display: none;
       }
     }
@@ -197,17 +185,14 @@ body.show-menu {
     width: calc(100% - #{$header-logo-width});
 
     @media ($bp-small-max) {
-
       display: none;
     }
 
     @media ($bp-small-min) {
-
       width: 66.12903%; //@include span-columns(8);
     }
 
     @media ($bp-header-logo-min) {
-
       width: 74.59677%; //@include span-columns(9);
     }
 
@@ -385,7 +370,6 @@ body.show-menu {
     background-color: $c-primary;
 
     @media ($bp-small-min) {
-
       display: none;
     }
 
@@ -412,7 +396,6 @@ body.show-menu {
     }
 
     @media ($bp-small-min) {
-
       display: none;
     }
   }
@@ -452,7 +435,6 @@ body.show-menu {
       &__item {
 
         @media ($bp-header-toggle-min) {// Override original.
-
           display: inline-block;
           padding-left: 30px;
           vertical-align: middle;
@@ -480,7 +462,6 @@ body.show-menu {
           &__link, a.direct-link {
 
             @include ma-button-reset;
-
             position: relative;
             display: block;
             font-size: 1.25rem;
@@ -540,7 +521,6 @@ body.show-menu {
               border-bottom-color: $c-primary-alt;
             }
           }
-
 
           .show-menu &__content {
 
