@@ -1,7 +1,15 @@
-exports.onCreateWebpackConfig = ({ stage, loaders, actions, getConfig }) => {
+exports.onCreateWebpackConfig = ({ stage, loaders, rules, actions, getConfig }) => {
+  if (stage.startsWith("develop")) {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          "react-dom": "@hot-loader/react-dom",
+        },
+      },
+    })
+  }
   const isSSR = stage.includes(`html`);
   const config = getConfig();
-
   config.module.rules = [
     // Omit the default rule where test === '\.jsx?$'
     ...config.module.rules.filter(
@@ -19,8 +27,8 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions, getConfig }) => {
       // want this so that Gatsby will apply its required Babel
       // presets/plugins.  This will also merge in your configuration from
       // `babel.config.js`.
-      ...loaders.js(),
-      test: /\.jsx?$/,
+      ...rules.js(),
+      //test: /\.jsx?$/,
       // Exclude all node_modules from transpilation, except for 'swiper' and 'dom7'
       exclude: modulePath =>
         /node_modules/.test(modulePath) 

@@ -20,7 +20,7 @@ const Section = (props) => {
 
 Section.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  bgColor: PropTypes.oneOf(['primary', 'primar-alt', 'gray'])
+  bgColor: PropTypes.oneOf(['primary', 'primary-alt', 'gray'])
 };
 
 export default Section;

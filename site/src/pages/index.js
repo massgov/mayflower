@@ -33,11 +33,12 @@ const IndexPage = ({ data: { content } }) => {
         <div className="ma__button-group">
           {
             buttons.map((button) => {
-              const ButtonIcon = Icon[button.iconName];
-              button.icon = <ButtonIcon title={button.iconTitle} height={20} width={20} />
+              const { iconName, iconTitle, ...buttonRest } = button;
+              const ButtonIcon = Icon[iconName];
+              buttonRest.icon = <ButtonIcon title={iconTitle} height={20} width={20} />;
               return(
-                <ButtonWithIcon key={`button-${button.iconTitle}`} {...button}/>
-              )
+                <ButtonWithIcon key={`button-${iconTitle}`} {...buttonRest} />
+              );
             })
           }
         </div>

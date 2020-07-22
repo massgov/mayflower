@@ -24,7 +24,7 @@ const Layout = ({ children, pre }) => {
         }
       }
     }
-  `)
+  `);
   const { description, title, url } = data.site.siteMetadata;
   const siteLogoProps = {
     url: {
@@ -38,8 +38,12 @@ const Layout = ({ children, pre }) => {
     },
     siteName: title,
     title: description
-  }
-  const siteLogo = <SiteLogo {...siteLogoProps} />
+  };
+  // Makes sure that header and footer don't use the same
+  // SiteLogo component instance.
+  const headerProps = {
+    siteLogo: <SiteLogo {...siteLogoProps} />
+  };
 
   const footerProps = {
     title: 'Executive Office of Technology Security and Services (EOTSS)',
@@ -51,18 +55,19 @@ const Layout = ({ children, pre }) => {
         title: 'Massachusetts Digital Service official website'
       }
     },
-    siteLogo
+    siteLogo: <SiteLogo {...siteLogoProps} />,
+    description: ''
   }
 
-  return (
+  return(
     <>
-      <HeaderSlim siteLogo={siteLogo} />
+      <HeaderSlim {...headerProps} />
       <main id="main-content">
         { children }
       </main>
       <FooterSlim {...footerProps} />
     </>
-  )
+  );
 }
 
 Layout.propTypes = {

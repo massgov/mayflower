@@ -22,12 +22,12 @@
   },
   "tabs": [
     {
-      "value": "",
+      "value": "react",
       "label": "Mayflower React",
       "href": "https://mayflower.digital.mass.gov/react"
     },
     {
-      "value": "",
+      "value": "patternlab",
       "label": "Mayflower Patternlab",
       "href": "https://mayflower.digital.mass.gov/patternlab"
     },
