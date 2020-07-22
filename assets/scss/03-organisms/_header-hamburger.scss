@@ -93,10 +93,11 @@ body.show-menu {
     }
 
     // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
-    
+
     @media ($bp-header-toggle-max) {
 
-      @include ma-container;
+      padding-right: 0;
+      padding-left: 0;
       height: $header-mobile-controls-height;
       position: fixed;
       top: 0;
