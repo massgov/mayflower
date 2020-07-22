@@ -8,3 +8,6 @@ node_modules
 !react/.env
 # Distribution folder
 dist
+# Ignore yalc files used for linking projects in dev.
+yalc.lock
+.yalc

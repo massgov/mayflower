@@ -15,7 +15,7 @@
         "text": "Github",
         "usage": "tertiary",
         "theme": "",
-        "iconName": "github",
+        "iconName": "Github",
         "iconTitle": "github icon"
       }
     ]
@@ -159,7 +159,7 @@
       },
       "description": "Found a bug or have a feature request?",
       "icon": {
-        "name": "github",
+        "name": "Github",
         "fill": "#388557"
       }
     },
@@ -172,7 +172,7 @@
       },
       "description": "Join the Mayflower community and stay updated with releases.",
       "icon": {
-        "name": "slack",
+        "name": "Slack",
         "fill": "#388557"
       }
     },
@@ -185,7 +185,7 @@
       },
       "description": "Get in touch with the team for other purposes.",
       "icon": {
-        "name": "mail",
+        "name": "Mail",
         "fill": "#388557"
       }
     }
