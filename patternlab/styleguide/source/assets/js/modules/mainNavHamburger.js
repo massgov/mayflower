@@ -272,7 +272,6 @@ function closeMenuJumpToSearch() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
-  menuButtonText.textContent = "Menu";
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
@@ -298,7 +297,6 @@ function openMenuJumpToSearch() {
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  menuButtonText.textContent = "Close";
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {

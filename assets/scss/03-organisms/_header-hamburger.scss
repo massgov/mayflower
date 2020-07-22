@@ -359,21 +359,23 @@ body.show-menu {
     position: relative;
     display: inline-block;
     padding-left: 25px;
-  }
 
-  &__desktop-label {
+    &::before {
 
-    @media ($bp-small-max) {
+      @media ($bp-small-max) {
 
-      display: none;
+        content: "Mass.gov";
+      }
+
+      @media ($bp-small-min) {
+
+        content: "Menu";
+      }
+
     }
-  }
 
-  &__mobile-label {
-
-    @media ($bp-small-min) {
-
-      display: none;
+    .show-menu &:before {
+      content: "Close";
     }
   }
 
