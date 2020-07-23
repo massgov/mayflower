@@ -85,7 +85,7 @@ storiesOf('organisms/TeaserListing', module)
         usage: 'quaternary-simple',
         capitalized: true,
         expanded: open,
-        icon: <Chevron width={16} height="16" />
+        icon: <Chevron width={16} height={16} />
       };
       return(
         <TeaserListing>
