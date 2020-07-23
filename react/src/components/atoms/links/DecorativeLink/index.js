@@ -9,11 +9,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import Pdf from 'MayflowerReactBase/Icon/Pdf';
-import Docx from 'MayflowerReactBase/Icon/Docx';
-import Xlxs from 'MayflowerReactBase/Icon/Xlxs';
-import Generic from 'MayflowerReactBase/Icon/Generic';
-import Arrow from 'MayflowerReactBase/Icon/Arrow';
+import IconPdf from 'MayflowerReactBase/Icon/IconPdf';
+import IconDocx from 'MayflowerReactBase/Icon/IconDocx';
+import IconXlxs from 'MayflowerReactBase/Icon/IconXlxs';
+import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
+import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
 const DecorativeLink = (props) => {
   const {
@@ -35,16 +35,16 @@ const DecorativeLink = (props) => {
     ext = genericFile.indexOf(ext) !== -1 ? 'generic' : ext;
     switch (ext) {
       case 'pdf':
-        decIcon = <Pdf title={title} width={35} height={36} />;
+        decIcon = <IconPdf title={title} width={35} height={36} />;
         break;
       case 'docx':
-        decIcon = <Docx title={title} width={35} height={36} />;
+        decIcon = <IconDocx title={title} width={35} height={36} />;
         break;
       case 'xlxs':
-        decIcon = <Xlxs title={title} width={35} height={36} />;
+        decIcon = <IconXlxs title={title} width={35} height={36} />;
         break;
       case 'generic':
-        decIcon = <Generic title={title} width={35} height={36} />;
+        decIcon = <IconGeneric title={title} width={35} height={36} />;
         break;
       default:
         decIcon = null;
@@ -71,7 +71,7 @@ const DecorativeLink = (props) => {
         </span>
         )}
         &nbsp;
-        {icon || <Arrow aria-hidden="true" />}
+        {icon || <IconArrow aria-hidden="true" />}
       </a>
     </span>
   );

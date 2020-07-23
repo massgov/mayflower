@@ -10,17 +10,17 @@ import * as Icon from 'MayflowerReactBase/Icon';
 const getIcon = (iconProps) => {
   // Capitalizes the name of each SVG icon to match
   // what SVGR names components.
-  const SelectedComponent = Icon[iconProps.name[0].toUpperCase() + iconProps.name.slice(1)];
+  const SelectedComponent = Icon[iconProps.name];
   return(
     <SelectedComponent {...iconProps} />
   );
-}
+};
 
 const icons = {
-  circlechevron: getIcon({ name: 'circlechevron' }),
-  laptop: getIcon({ name: 'laptop' }),
-  phone: getIcon({ name: 'phone' }),
-  fax: getIcon({ name: 'fax' }),
+  circlechevron: getIcon({ name: 'IconCirclechevron' }),
+  laptop: getIcon({ name: 'IconLaptop' }),
+  phone: getIcon({ name: 'IconPhone' }),
+  fax: getIcon({ name: 'IconFax' }),
   none: null
 };
 

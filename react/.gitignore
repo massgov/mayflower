@@ -16,7 +16,7 @@ backstop/data/*report/
 .DS_Store
 **/.DS_Store
 src/components/base/Icon/**
-!src/components/base/Icon/assets
+!src/components/base/Icon/assets/**
 !src/components/base/Icon/Icon.stories.js
 !src/components/base/Icon/IconDisplay.js
 !src/components/base/Icon/Icon.knob.options.js

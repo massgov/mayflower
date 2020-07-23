@@ -13,16 +13,16 @@ import OrderedList from 'MayflowerReactLists/OrderedList';
 const getIcon = (iconProps) => {
   // Capitalizes the name of each SVG icon to match
   // what SVGR names components.
-  const SelectedComponent = Icon[iconProps.name[0].toUpperCase() + iconProps.name.slice(1)];
+  const SelectedComponent = Icon[iconProps.name];
   return(
     <SelectedComponent {...iconProps} />
   );
 }
 const icons = {
-  circlechevron: getIcon({ name: 'circlechevron' }),
-  laptop: getIcon({ name: 'laptop' }),
-  phone: getIcon({ name: 'phone' }),
-  fax: getIcon({ name: 'fax' }),
+  circlechevron: getIcon({ name: 'IconCirclechevron' }),
+  laptop: getIcon({ name: 'IconLaptop' }),
+  phone: getIcon({ name: 'IconPhone' }),
+  fax: getIcon({ name: 'IconFax' }),
   none: null
 };
 
@@ -39,7 +39,7 @@ storiesOf('organisms', module)
       const AccordionItem2Props = {
         title: text('Accordion2 title', 'Collapsible Header Two', 'Accordion2'),
         info: text('Accordion2 info', 'Collapsible Header Two', 'Accordion2'),
-        icon: select('Accordion2 icon', Object.keys(icons), 'laptop', 'Accordion2'),
+        icon: select('Accordion2 icon', Object.keys(icons), 'IconLaptop', 'Accordion2'),
         id: text('id', 'accordionid2')
       };
       const AccordionWrapperProps = {

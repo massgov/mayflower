@@ -42,7 +42,7 @@ Link.defaultProps = {
   href: '#',
   info: '',
   text: '',
-  icon: 'Arrow'
+  icon: 'IconArrow'
 };
 
 export default Link;

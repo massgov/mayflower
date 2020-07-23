@@ -143,7 +143,7 @@ GenTeaser.Eyebrow.displayName = 'GenTeaser.Eyebrow';
 
 const GenTeaserButton = (props) => {
   const { button, ...rest } = props;
-  const icon = button.icon ? button.icon : <Icon.Expand width={15} height={15} />;
+  const icon = button.icon ? button.icon : <Icon.IconExpand width={15} height={15} />;
   return(
     <div className="ma__gen-teaser__button" {...rest}>
       <ButtonWithIcon
@@ -480,7 +480,7 @@ const GenTeaserAddress = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <Icon.Marker width={15} height={15} />
+        <Icon.IconMarker width={15} height={15} />
       </span>
       <Address {...addrProps} />
     </div>
@@ -512,7 +512,7 @@ const GenTeaserPhone = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <Icon.Phone width={15} height={15} />
+        <Icon.IconPhone width={15} height={15} />
       </span>
       <PhoneNumber {...phoneProps} />
     </div>
@@ -542,7 +542,7 @@ const GenTeaserEmail = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <Icon.Mail width={15} height={15} />
+        <Icon.IconMail width={15} height={15} />
       </span>
       <Email {...emailProps} />
     </div>
@@ -612,7 +612,7 @@ const GenTeaserEvent = (props) => {
     <>
       <div className="ma__gen-teaser__infoitem" {...rest}>
         <span className="ma__gen-teaser__infoitem-icon">
-          <Icon.Calendar width={15} height={15} />
+          <Icon.IconCalendar width={15} height={15} />
         </span>
         <EventTime {...eventProps} />
       </div>
@@ -652,7 +652,7 @@ const GenTeaserInfoDetails = (props) => {
   const {
     icon, href, text, ...rest
   } = props;
-  const IconComponent = Icon?.[icon] ? Icon[icon] : Icon.Laptop;
+  const IconComponent = Icon?.[icon] ? Icon[icon] : Icon.IconLaptop;
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">

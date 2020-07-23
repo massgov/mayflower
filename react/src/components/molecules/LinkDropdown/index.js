@@ -13,7 +13,7 @@ import is from 'is';
 import classNames from 'classnames';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
-import Chevron from 'MayflowerReactBase/Icon/Chevron';
+import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 class LinkDropdown extends React.Component {
   constructor(props) {
@@ -87,7 +87,7 @@ class LinkDropdown extends React.Component {
       onKeyDown: (e) => this.handleKeyDown(e),
       setButtonRef: this.setDropDownButtonRef,
       expanded: this.state.buttonExpand,
-      icon: <Chevron height={20} width={20} />,
+      icon: <IconChevron height={20} width={20} />,
       'aria-haspopup': true
     };
     const dropdownClasses = classNames({

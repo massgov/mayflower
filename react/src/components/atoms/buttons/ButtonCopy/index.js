@@ -7,8 +7,8 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Copy from 'MayflowerReactBase/Icon/Copy';
-import Inputsuccess from 'MayflowerReactBase/Icon/Inputsuccess';
+import IconCopy from 'MayflowerReactBase/Icon/IconCopy';
+import IconInputsuccess from 'MayflowerReactBase/Icon/IconInputsuccess';
 
 const ButtonCopy = ({ content }) => {
   const [copied, setCopied] = React.useState(false);
@@ -30,7 +30,7 @@ const ButtonCopy = ({ content }) => {
         title={copyButtonTitle}
         aria-label={copyButtonTitle}
       >
-        { copied ? <Inputsuccess width={16} height={16} /> : <Copy width={16} height={16} />}
+        { copied ? <IconInputsuccess width={16} height={16} /> : <IconCopy width={16} height={16} />}
       </button>
     );
   }

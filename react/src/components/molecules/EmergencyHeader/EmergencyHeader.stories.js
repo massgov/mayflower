@@ -14,9 +14,9 @@ storiesOf('molecules', module)
     // what SVGR names components.
     const component = select('Icon: name',
       Object.fromEntries(
-        Object.entries(svgOptions).map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value ? value[0].toUpperCase() + value.slice(1) : value])
+        Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
         ),
-      'Alert'
+      'IconAlert'
     );
     const SelectedComponent = Icon[component];
     const titleText = text('title', 'The State is experiencing severe weather due to the winter storm Paula.');

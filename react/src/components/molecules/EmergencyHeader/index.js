@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import Alert from 'MayflowerReactBase/Icon/Alert';
+import IconAlert from 'MayflowerReactBase/Icon/IconAlert';
 
 const EmergencyHeader = (props) => {
   const {
@@ -51,7 +51,7 @@ EmergencyHeader.propTypes = {
 EmergencyHeader.defaultProps = {
   theme: 'c-warning',
   prefix: 'Emergency Alerts',
-  icon: <Alert />
+  icon: <IconAlert />
 };
 
 export default EmergencyHeader;

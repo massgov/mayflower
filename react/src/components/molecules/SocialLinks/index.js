@@ -7,11 +7,11 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Facebook from 'MayflowerReactBase/Icon/Facebook';
-import Twitter from 'MayflowerReactBase/Icon/Twitter';
-import Linkedin from 'MayflowerReactBase/Icon/Linkedin';
-import Youtube from 'MayflowerReactBase/Icon/Youtube';
-import Instagram from 'MayflowerReactBase/Icon/Instagram';
+import IconFacebook from 'MayflowerReactBase/Icon/IconFacebook';
+import IconTwitter from 'MayflowerReactBase/Icon/IconTwitter';
+import IconLinkedin from 'MayflowerReactBase/Icon/IconLinkedin';
+import IconYoutube from 'MayflowerReactBase/Icon/IconYoutube';
+import IconInstagram from 'MayflowerReactBase/Icon/IconInstagram';
 
 const SocialLinks = (socialLinks) => (
   <section className="ma__social-links">
@@ -29,11 +29,11 @@ const SocialLinks = (socialLinks) => (
 
 const SocialLink = (socialLink) => {
   const icons = {
-    facebook: Facebook,
-    twitter: Twitter,
-    linkedin: Linkedin,
-    youtube: Youtube,
-    instagram: Instagram
+    facebook: IconFacebook,
+    twitter: IconTwitter,
+    linkedin: IconLinkedin,
+    youtube: IconYoutube,
+    instagram: IconInstagram
   };
   const IconComponent = socialLink.linkType ? icons[socialLink.linkType] : null;
   return(

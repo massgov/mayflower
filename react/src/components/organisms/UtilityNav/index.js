@@ -12,9 +12,9 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 import UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
-import Building from 'MayflowerReactBase/Icon/Building';
-import Login from 'MayflowerReactBase/Icon/Login';
-import Latlonglobe from 'MayflowerReactBase/Icon/Latlonglobe';
+import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
+import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
+import IconLatlonglobe from 'MayflowerReactBase/Icon/IconLatlonglobe';
 
 class UtilityNav extends React.Component {
   constructor(props) {
@@ -71,7 +71,7 @@ const GoogleLanguages = () => (
     <div className="ma__utility-nav__translate">
       <div id="google_translate_element" />
       <div className="ma__utility-nav__translate-icon">
-        <Latlonglobe />
+        <IconLatlonglobe />
       </div>
     </div>
   </li>
@@ -91,7 +91,7 @@ const NavItem = (obj) => {
   const iconProps = {
     ariaHidden: true
   };
-  const IconComponent = item.icon === 'building' ? Building : Login;
+  const IconComponent = item.icon === 'building' ? IconBuilding : IconLogin;
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">
       <button type="button" onClick={(e) => obj.handleClick(divId, e)} className={`ma__utility-nav__link ${isExpanded}`} href="#" aria-label={item.ariaLabelText || item.text}>
@@ -122,7 +122,7 @@ const NavItemLink = (obj) => {
   const iconProps = {
     ariaHidden: true
   };
-  const IconComponent = item.icon === 'building' ? Building : Login;
+  const IconComponent = item.icon === 'building' ? IconBuilding : IconLogin;
 
   return(
     <li className="ma__utility-nav__item js-util-nav-toggle">

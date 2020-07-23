@@ -8,8 +8,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Chevron from 'MayflowerReactBase/Icon/Chevron';
-import Circlechevron from 'MayflowerReactBase/Icon/Circlechevron';
+import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+import IconCirclechevron from 'MayflowerReactBase/Icon/IconCirclechevron';
 import Heading from 'MayflowerReactHeadings/Heading';
 import Collapse from 'MayflowerReactAnimations/Collapse';
 
@@ -70,7 +70,7 @@ class AccordionItem extends React.Component {
             )}
             { secondary && (
               <div className="ma__accordion-header__icon--secondary">
-                <Chevron height={20} width={20} />
+                <IconChevron height={20} width={20} />
               </div>
             )}
             <Heading class={headingClasses} text={title} level={headerLevel} />
@@ -109,7 +109,7 @@ AccordionItem.propTypes = {
 };
 
 AccordionItem.defaultProps = {
-  icon: <Circlechevron width={35} height={35} />,
+  icon: <IconCirclechevron width={35} height={35} />,
   border: true,
   emphasize: true,
   secondary: false,

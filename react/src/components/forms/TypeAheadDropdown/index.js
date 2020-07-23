@@ -11,7 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
-import Chevron from 'MayflowerReactBase/Icon/Chevron';
+import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 class TypeAheadDropdown extends React.Component {
   constructor(props) {
@@ -127,7 +127,7 @@ class TypeAheadDropdown extends React.Component {
       onClick: this.handleClick,
       setButtonRef: this.setDropDownButtonRef,
       expanded: this.state.buttonExpand,
-      icon: <Chevron height={20} width={20} />,
+      icon: <IconChevron height={20} width={20} />,
       size: '',
       ...this.props.dropdownButton
     };

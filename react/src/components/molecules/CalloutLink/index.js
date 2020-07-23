@@ -7,7 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Arrow from 'MayflowerReactBase/Icon/Arrow';
+import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
 const CalloutLink = (calloutLink) => {
   const calloutLinkTheme = calloutLink.theme ? ` ma__callout-link--${calloutLink.theme}` : '';
@@ -26,7 +26,7 @@ const CalloutLink = (calloutLink) => {
           <span className="ma__callout-link__text">
             {calloutLink.text}
 &nbsp;
-            <Arrow />
+            <IconArrow />
           </span>
         </span>
         { calloutLink.emphasized && (<span className="ma__callout-link__emphasized">{calloutLink.emphasized}</span>)}

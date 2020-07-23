@@ -38,7 +38,7 @@ storiesOf('forms|atoms', module)
       // what SVGR names components.
       const component = select('icon.name',
         Object.fromEntries(
-          Object.entries(svgOptions).map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value ? value[0].toUpperCase() + value.slice(1) : value])
+          Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
           )
       );
       const SelectedComponent = Icon[component];

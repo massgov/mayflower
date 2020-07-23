@@ -13,7 +13,7 @@ import ClassNames from 'classnames';
 
 import Collapse from 'MayflowerReactAnimations/Collapse';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
-import Chevron from 'MayflowerReactBase/Icon/Chevron';
+import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 class ListingTableItem extends React.Component {
   constructor(props) {
@@ -64,7 +64,7 @@ class ListingTableItem extends React.Component {
                 theme="c-primary"
                 usage="quaternary-simple"
                 type="button"
-                icon={<Chevron height={20} width={20} />}
+                icon={<IconChevron height={20} width={20} />}
                 onClick={(e) => this.handleClick(e)}
                 expanded={this.state.open}
                 capitalized

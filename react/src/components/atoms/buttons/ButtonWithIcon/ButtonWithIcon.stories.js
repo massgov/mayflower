@@ -34,9 +34,9 @@ storiesOf('atoms/buttons', module)
       // what SVGR names components.
       const component = select('name',
         Object.fromEntries(
-          Object.entries(svgOptions).map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value ? value[0].toUpperCase() + value.slice(1) : value])
+          Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
           ),
-        'Chevron'
+        'IconChevron'
       );
       const SelectedComponent = Icon[component];
       const iconProps = {
@@ -52,8 +52,8 @@ storiesOf('atoms/buttons', module)
   .add(
     'ButtonSearch', (() => {
       const icons = {
-        chevron: <Icon.Chevron height={20} width={20} />,
-        search: <Icon.Search height={20} width={20} />
+        chevron: <Icon.IconChevron height={20} width={20} />,
+        search: <Icon.IconSearch height={20} width={20} />
       };
       const props = {
         onClick: action('ButtonWithIcon clicked'),

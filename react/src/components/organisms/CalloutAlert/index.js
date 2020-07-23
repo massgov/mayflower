@@ -50,7 +50,7 @@ CalloutAlert.propTypes = {
 };
 
 CalloutAlert.defaultProps = {
-  icon: { name: 'Alert' }
+  icon: { name: 'IconAlert' }
 };
 
 export default CalloutAlert;

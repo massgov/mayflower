@@ -16,7 +16,7 @@ import classNames from 'classnames';
 
 import FilterBox from 'MayflowerReactOrganisms/FilterBox';
 import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
-import Chevron from 'MayflowerReactBase/Icon/Chevron';
+import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 import Tabs from 'MayflowerReactMolecules/Tabs';
 // eslint-disable-next-line import/no-unresolved
 
@@ -86,7 +86,7 @@ class SearchBanner extends React.Component {
                 aria-expanded={this.state.filterBoxExpanded}
               >
                 {filterToggleText}
-                <Chevron width={20} height={20} />
+                <IconChevron width={20} height={20} />
               </button>
             </div>
           )}

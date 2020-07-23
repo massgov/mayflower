@@ -185,7 +185,6 @@ const sources = [
   '!src/**/*.knobs.options.js',
   '!src/**/*.knob.options.js',
   '!src/**/Colors/**',
-  '!src/**/storyutils.js',
   '!src/**/Icon/**'
 ];
 

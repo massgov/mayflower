@@ -26,7 +26,7 @@ storiesOf('organisms/CalloutAlert', module)
       // what SVGR names components.
       const name = select('CalloutAlert icon: name',
       Object.fromEntries(
-        Object.entries(svgOptions).map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value ? value[0].toUpperCase() + value.slice(1) : value])
+        Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
         ),
         ''
       );
@@ -48,7 +48,7 @@ storiesOf('organisms/CalloutAlert', module)
   .add(
     'CalloutAlert with real data', () => {
       const calloutAlertProps = {
-        icon: { name: 'Alert', ariaHidden: true },
+        icon: { name: 'IconAlert', ariaHidden: true },
         theme: 'c-primary'
       };
       return(
