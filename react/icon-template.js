@@ -3,15 +3,17 @@
 function defaultTemplate(
   { template },
   opts,
-  { imports, interfaces, componentName, props, jsx, exports },
+  { imports, interfaces, componentName, props, jsx, exports }
 ) {
-  const plugins = ['jsx']
+  const plugins = ['jsx'];
   if (opts.typescript) {
-    plugins.push('typescript')
+    plugins.push('typescript');
   }
-  const typeScriptTpl = template.smart({ plugins })
-  return typeScriptTpl.ast`import React from 'react';
+  const typeScriptTpl = template.smart({ plugins });
+  return typeScriptTpl.ast`
+import React from 'react';
 import PropTypes from 'prop-types';
+
 ${interfaces}
 
 const ${componentName} = (${props}) => {
@@ -27,6 +29,6 @@ ${componentName}.propTypes = {
 };
 
 ${exports}
-  `
+`;
 }
-module.exports = defaultTemplate
+module.exports = defaultTemplate;
