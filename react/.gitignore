@@ -21,3 +21,4 @@ src/components/base/Icon/**
 !src/components/base/Icon/IconDisplay.js
 !src/components/base/Icon/Icon.knob.options.js
 !src/components/base/Icon/_icon-display.scss
+!src/components/base/Icon/index.js
