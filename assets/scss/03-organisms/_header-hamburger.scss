@@ -81,21 +81,27 @@ body.show-menu {
 
   &-wrapper {
 
+    @include ma-container;
+
     @media ($bp-medium-min) {
 
-      @include ma-container;
+      // @include ma-container;
 
-        max-width: 100%;// override max-width in ma-container.
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
     }
 
     // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
 
     @media ($bp-header-toggle-max) {
 
-      @include ma-container;
+      // @include ma-container;
+      padding-right: 0;
+      padding-left: 0;
       height: $header-mobile-controls-height;
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       z-index: $z-dropdown;
       background-color: $c-primary;
@@ -105,6 +111,10 @@ body.show-menu {
   &__button-container {
     display: flex;
     justify-content: space-between;
+
+    @media ($bp-header-toggle-max) {
+      width: 100%;
+    }
   }
 
   &__container {
@@ -259,7 +269,7 @@ body.show-menu {
     background-color: $c-primary;
     text-align: left;
     border: none;
-    font-size: 1.2rem;
+    font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
     height: 40px;
@@ -273,7 +283,13 @@ body.show-menu {
       opacity: 0.7;
     }
 
-    @media ($bp-medium-min) {
+    @media ($bp-medium-max) {
+
+      padding-left: 30px;
+    }
+
+    @media ($bp-header-toggle-min) {
+
       padding-left: 0;
     }
   }
@@ -558,7 +574,6 @@ body.show-menu {
 
           & .ma__utility-panel + .ma__utility-panel {
             margin-top: 1em;
-
           }
 
           & .ma__utility-panel__description {

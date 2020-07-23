@@ -9,7 +9,6 @@ let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
-const hamburgerSearchInput = document.getElementById("nav-search");
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
@@ -35,12 +34,7 @@ if (null !== menuButtonText) {
     } else {
       openMenu();
 
-      // Set focus on hamburger menu container.
-      // Then, next tabbing takes a user to the first focusable element in the menu container.
-      // setTimeout(function timeoutFunction() {
-      //   hamburgerMenuContainer.focus();
-      // }, 90);
-
+      // Set focusable items between the menu button and the hamburger menu unfocusable to set focus on the first focusable item in the menu by next tabbing.
       // These don't work:
       // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
       // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
@@ -282,7 +276,13 @@ function closeMenuJumpToSearch() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
-  menuButtonText.textContent = "Menu";
+  if (width < 841) {
+    menuButton.removeAttribute("style");
+  }
+
+  menuButtonText[0].textContent = "Menu";
+  menuButtonText[1].textContent = "Mass.gov";
+
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
@@ -308,7 +308,14 @@ function openMenuJumpToSearch() {
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  menuButtonText.textContent = "Close";
+  for (let i = 0; i < menuButtonText.length; i++) {
+    menuButtonText[i].textContent = "Close";
+
+    if (width < 841) {
+      menuButton.style.flex = "auto";
+    }
+  }
+
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
@@ -349,7 +356,7 @@ function closeSubMenus(item) {
 
 // Close menu when utility nav is clicked
 if (null !== utilNavWide) {
-    closeMenu();
+  closeMenu();
 }
 
 

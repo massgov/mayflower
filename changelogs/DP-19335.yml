@@ -1,0 +1,16 @@
+Changed:
+  - project: Patternlab
+    component: Header
+    description: Make the font size for the menu button consistent regardless of the screen size. (#916)
+    issue: DP-19335
+    impact: Patch
+  - project: Patternlab
+    component: Header
+    description: Set the button label "Mass.gov" changes to "Close" when the hamburger menu is open. (#1116)
+    issue: DP-19335
+    impact: Patch
+  - project: Patternlab
+    component: Header
+    description: The menu button always lines up to the state seal on the left regardless of the screen size when the seal is visible. (#1116)
+    issue: DP-19335
+    impact: Patch
