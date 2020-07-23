@@ -8,7 +8,6 @@ window.addEventListener("resize", hideHamburgerMenu);
 
 function hideHamburgerMenu () {
   if (width > 840) {
-    // alert(width);
     if (body.classList.contains("show-menu")) {
       body.classList.remove("show-menu");
       menuButton.setAttribute("aria-expanded", "false");

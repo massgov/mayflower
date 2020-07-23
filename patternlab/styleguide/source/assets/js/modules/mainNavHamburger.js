@@ -16,7 +16,7 @@ if (null !== menuButtonText) {
 
 // Open and close the menu
 // if (null !== menuButton) {
-  menuButton.addEventListener("click", (event) => {
+  menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -40,7 +40,7 @@ if (null !== menuButtonText) {
     }
   });
 
-  // menuButton.addEventListener("keydown", (e) => {
+  // menuButton.addEventListener("keydown", function (e) {
   //   if (e.key === "Enter" || e.which === "13") {
 
   //     console.log(menuButton.getAttribute("aria-expanded"));
@@ -107,11 +107,11 @@ if (null !== menuButtonText) {
 
   subItems.style.opacity = "0";
 
-  itemButton.addEventListener("focus", (e) => {
+  itemButton.addEventListener("focus", function(e){
     closeSubMenus(item);
   });
 
-  itemButton.addEventListener("click", (e) => {
+  itemButton.addEventListener("click", function (e) {
 
     closeSubMenus(item);
 
@@ -169,7 +169,7 @@ if (null !== menuButtonText) {
     }
   });
 
-  itemButton.addEventListener("keydown", (e) => {
+  itemButton.addEventListener("keydown", function (e) {
 
     if (e.code == "ArrowDown") {
       let first = subItems.getElementsByTagName("li")[0];
@@ -276,6 +276,33 @@ function commonCloseMenuTasks() {
   }
 }
 
+function closeMenuJumpToSearch() {
+  commonCloseMenuTasks();
+  jumpToSearchButton.setAttribute("aria-pressed", "false");
+}
+
+function commonCloseMenuTasks() {
+  body.classList.remove("show-menu");
+
+  if (width < 841) {
+    menuButton.removeAttribute("style");
+  }
+
+  menuButtonText[0].textContent = "Menu";
+  menuButtonText[1].textContent = "Mass.gov";
+
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+
+  if (feedbackButton) {
+    feedbackButton.classList.remove("hide-button");
+  }
+  jumpToSearchButton.setAttribute("aria-expanded", "false");
+  if (menuOverlay) {
+    menuOverlay.classList.remove("overlay-open");
+  }
+}
+
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
@@ -290,6 +317,34 @@ function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
   menuButtonText.textContent = "Close";
+  menuButton.setAttribute("aria-expanded", "true");
+  menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
+  if (feedbackButton) {
+    feedbackButton.classList.add("hide-button");
+
+  }
+  jumpToSearchButton.setAttribute("aria-expanded", "true");
+  if (menuOverlay) {
+    menuOverlay.classList.add("overlay-open");
+  }
+}
+
+function openMenuJumpToSearch() {
+  commonOpenMenuTasks();
+  jumpToSearchButton.setAttribute("aria-pressed", "true");
+}
+
+function commonOpenMenuTasks() {
+  body.classList.add("show-menu");
+
+  for (let i = 0; i < menuButtonText.length; i++) {
+    menuButtonText[i].textContent = "Close";
+
+    if (width < 841) {
+      menuButton.style.flex = "auto";
+    }
+  }
+
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
@@ -330,7 +385,7 @@ function closeSubMenus(item) {
 
 // Close menu when utility nav is clicked
 if (null !== utilNavWide) {
-    closeMenu();
+  closeMenu();
 }
 
 // Close and reset menu on overlay click
@@ -357,7 +412,7 @@ const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
 const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
 
 // Open
-utilWideButton.addEventListener("click", (e) => {
+utilWideButton.addEventListener("click", function (e) {
 
   const thisWideButton = e.target.closest(".js-util-nav-toggle");
   const thisWideContent = thisWideButton.nextElementSibling;
@@ -384,7 +439,7 @@ utilWideButton.addEventListener("click", (e) => {
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
 // TODO: esc key to close the content.
-utilWideCloseButton.addEventListener("click", (e) => {
+utilWideCloseButton.addEventListener("click", function (e) {
   closeUtilWideContent();
 });
 
@@ -412,7 +467,7 @@ let utilNarrowContent = utilNarrowButton.nextElementSibling;
 utilNarrowContent.style.opacity = "0";
 utilNarrowContent.style.height = "0";
 
-utilNarrowButton.addEventListener("click", (e) => {
+utilNarrowButton.addEventListener("click", function(e) {
 
   const thisButton = e.target.closest(".js-util-nav-toggle");
   utilNarrowContent = thisButton.nextElementSibling;
@@ -484,7 +539,7 @@ function closeSubMenu() {
 }
 
 // Keyboard navigation
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", function (e) {
   // ESC to close menus.
   if (e.key === "Escape" || e.which === "27") {
 
