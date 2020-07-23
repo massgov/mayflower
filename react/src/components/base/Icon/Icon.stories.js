@@ -41,7 +41,7 @@ storiesOf('brand|icons', module)
           height,
           title
         };
-        const BackstopIcon = Icon[key];
+        const BackstopIcon = Icon[`Icon${key[0].toUpperCase() + key.slice(1)}`];
         return<BackstopIcon {...backstopProps} />;
       });
     }

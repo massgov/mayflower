@@ -202,7 +202,7 @@ const GenTeaserTitle = (props) => {
   const Element = `h${level || 2}`;
   return(
     <Element className="ma__gen-teaser__title" {...rest}>
-      {children || <DecorativeLink {...title} />}
+      {children || <DecorativeLink {...decorativeProps} />}
     </Element>
   );
 };

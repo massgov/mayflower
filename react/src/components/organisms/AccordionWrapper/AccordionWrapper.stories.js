@@ -39,7 +39,7 @@ storiesOf('organisms', module)
       const AccordionItem2Props = {
         title: text('Accordion2 title', 'Collapsible Header Two', 'Accordion2'),
         info: text('Accordion2 info', 'Collapsible Header Two', 'Accordion2'),
-        icon: select('Accordion2 icon', Object.keys(icons), 'IconLaptop', 'Accordion2'),
+        icon: select('Accordion2 icon', Object.keys(icons), 'laptop', 'Accordion2'),
         id: text('id', 'accordionid2')
       };
       const AccordionWrapperProps = {

@@ -126,7 +126,7 @@ storiesOf('organisms/GenTeaser', module)
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
         text: text('title: text', '2015 Monthly Electric Customer Migration Data', 'GenTeaser.Title'),
         href: text('title: href', 'https://www.mass.gov/files/documents/2018/06/15/2015%20Annual%20Electric%20Monthly%20Migration-Complete.xlxs', 'GenTeaser.Title'),
-        icon: 'download',
+        icon: 'IconDownload',
         showFileIcon: boolean('title: showFileIcon', true, 'GenTeaser.Title'),
         details: '(30 MB)'
       },
@@ -283,12 +283,12 @@ storiesOf('organisms/GenTeaser', module)
         email: text('email', 'DCSFeedback@MassMail.State.MA.US', 'GenTeaser.SecondaryInfo')
       },
       locations: {
-        icon: text('locations: icon', 'marker', 'GenTeaser.PrimaryInfo'),
+        icon: text('locations: icon', 'IconMarker', 'GenTeaser.PrimaryInfo'),
         href: text('locations: href', 'https://www.mass.gov/orgs/masshire-department-of-career-services/locations', 'GenTeaser.PrimaryInfo'),
         text: text('locations: text', 'MassHire Department of Career Services Locations', 'GenTeaser.PrimaryInfo')
       },
       infodetails: {
-        icon: text('infodetails: icon', 'laptop', 'GenTeaser.SecondaryInfo'),
+        icon: text('infodetails: icon', 'IconLaptop', 'GenTeaser.SecondaryInfo'),
         text: text('infodetails: text', 'Find a job with MassHire JobQuest', 'GenTeaser.SecondaryInfo'),
         href: text('infodetails: href', 'https://jobquest.detma.org/jobquest/Default.aspx', 'GenTeaser.SecondaryInfo')
       }
