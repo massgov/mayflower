@@ -119,15 +119,7 @@ if (null !== menuButton) {
 
   subItems.style.opacity = "0";
 
-  itemButton.addEventListener("focus", function(e){
-    closeSubMenus(item);
-  });
-
   itemButton.addEventListener("click", function (e) {
-
-    closeSubMenus(item);
-
-
     if (item.classList.contains("submenu-open")) {
       item.classList.remove("submenu-open");
       itemButton.setAttribute("aria-expanded", "false");
@@ -328,37 +320,10 @@ function commonOpenMenuTasks() {
   }
 }
 
-function closeSubMenus(item) {
-  //Close other open submenus
-  let siblings = [];
-  let thisSibling = item.parentNode.firstChild;
-
-  while (thisSibling) {
-    if (thisSibling !== item && thisSibling.nodeType === Node.ELEMENT_NODE)
-      siblings.push(thisSibling);
-    thisSibling = thisSibling.nextElementSibling || thisSibling.nextSibling;
-  }
-
-  for (let i = 0; i < siblings.length; i++) {
-    if (siblings[i].classList.contains("submenu-open")) {
-
-      setTimeout(function timeoutFunction() {
-        siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
-        siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
-        siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
-        siblings[i].classList.remove("submenu-open");
-        siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
-      }, 500);
-
-    }
-  }
-}
-
 // Close menu when utility nav is clicked
 if (null !== utilNavWide) {
     closeMenu();
 }
-
 
 // Close and reset menu on overlay click
 if (null !== menuOverlay) {
