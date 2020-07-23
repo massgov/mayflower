@@ -22,9 +22,9 @@ const alertObserver = new MutationObserver(function(mutations) {
   });
 });
 
-let hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
-if (hamburgerMainNav !== null) {
-  alertObserver.observe(hamburgerMainNav, { attributes : true, attributeFilter : ['style'] });
+let emergencyAlerts = document.querySelector('.ma__emergency-alerts');
+if (emergencyAlerts !== null) {
+  alertObserver.observe(emergencyAlerts, { attributes : true, attributeFilter : ['style'] });
 }
 
 if (null !== menuButtonText) {
