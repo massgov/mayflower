@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonCopy from 'MayflowerReactButtons/ButtonCopy';
+// eslint-disable-next-line
 import * as Icon from './index';
 
 const IconDisplay = (props) => {

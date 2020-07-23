@@ -9,8 +9,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
+// eslint-disable-next-line import/no-unresolved
 import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
+// eslint-disable-next-line import/no-unresolved
 import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
+// eslint-disable-next-line import/no-unresolved
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
 const FooterSlim = (props) => (

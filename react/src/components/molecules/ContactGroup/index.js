@@ -10,9 +10,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+// eslint-disable-next-line import/no-unresolved
 import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
+// eslint-disable-next-line import/no-unresolved
 import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
+// eslint-disable-next-line import/no-unresolved
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
+// eslint-disable-next-line import/no-unresolved
 import IconFax from 'MayflowerReactBase/Icon/IconFax';
 
 const ContactGroup = (contactGroup) => {

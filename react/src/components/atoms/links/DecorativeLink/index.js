@@ -9,10 +9,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+// eslint-disable-next-line import/no-unresolved
 import IconPdf from 'MayflowerReactBase/Icon/IconPdf';
+// eslint-disable-next-line import/no-unresolved
 import IconDocx from 'MayflowerReactBase/Icon/IconDocx';
+// eslint-disable-next-line import/no-unresolved
 import IconXlxs from 'MayflowerReactBase/Icon/IconXlxs';
+// eslint-disable-next-line import/no-unresolved
 import IconGeneric from 'MayflowerReactBase/Icon/IconGeneric';
+// eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
 const DecorativeLink = (props) => {

@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
 const CalloutLink = (calloutLink) => {

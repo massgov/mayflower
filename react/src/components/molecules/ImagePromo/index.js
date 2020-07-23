@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Image from 'MayflowerReactMedia/Image';
 import Paragraph from 'MayflowerReactText/Paragraph';
+// eslint-disable-next-line import/no-unresolved
 import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
 
 const ImagePromo = (props) => {

@@ -6,6 +6,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+// eslint-disable-next-line import/no-unresolved
 import * as Icon from 'MayflowerReactBase/Icon';
 
 const CalloutAlert = (props) => {
@@ -38,6 +39,7 @@ const CalloutAlert = (props) => {
 
 CalloutAlert.propTypes = {
   icon: PropTypes.shape({
+    name: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

@@ -7,10 +7,15 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-unresolved
 import IconFacebook from 'MayflowerReactBase/Icon/IconFacebook';
+// eslint-disable-next-line import/no-unresolved
 import IconTwitter from 'MayflowerReactBase/Icon/IconTwitter';
+// eslint-disable-next-line import/no-unresolved
 import IconLinkedin from 'MayflowerReactBase/Icon/IconLinkedin';
+// eslint-disable-next-line import/no-unresolved
 import IconYoutube from 'MayflowerReactBase/Icon/IconYoutube';
+// eslint-disable-next-line import/no-unresolved
 import IconInstagram from 'MayflowerReactBase/Icon/IconInstagram';
 
 const SocialLinks = (socialLinks) => (
@@ -48,7 +53,7 @@ const SocialLink = (socialLink) => {
       </a>
     </li>
   );
-}
+};
 
 SocialLink.propTypes = {
   /** The URL for the link */

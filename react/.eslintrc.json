@@ -39,32 +39,32 @@
     },
     "settings": {
         "import/resolver": {
-            "alias": {
-                "map": [
-                    ["MayflowerReactComponents", "./src/components"],
-                    ["MayflowerReactAtoms", "./src/components/atoms"],
-                    ["MayflowerReactAnimations", "./src/components/animations"],
-                    ["MayflowerReactButtons", "./src/components/atoms/buttons"],
-                    ["MayflowerReactContact", "./src/components/atoms/contact"],
-                    ["MayflowerReactDivider", "./src/components/atoms/Divider"],
-                    ["MayflowerReactHeadings", "./src/components/atoms/headings"],
-                    ["MayflowerReactLinks", "./src/components/atoms/links"],
-                    ["MayflowerReactLists", "./src/components/atoms/lists"],
-                    ["MayflowerReactMedia", "./src/components/atoms/media"],
-                    ["MayflowerReactPlaceholder", "./src/components/atoms/Placeholder"],
-                    ["MayflowerReactTable", "./src/components/atoms/table"],
-                    ["MayflowerReactText", "./src/components/atoms/text"],
-                    ["MayflowerReactBase", "./src/components/base"],
-                    ["MayflowerReactDataviz", "./src/components/dataviz"],
-                    ["MayflowerReactForms", "./src/components/forms"],
-                    ["MayflowerReactMolecules", "./src/components/molecules"],
-                    ["MayflowerReactOrganisms", "./src/components/organisms"],
-                    ["MayflowerReactPages", "./src/components/pages"],
-                    ["MayflowerReactTemplates", "./src/components/templates"],
-                    ["MayflowerReactUtilities", "./src/components/utilities"],
-                    ["MayflowerReactGenTeaser", "./src/components/organisms/GenTeaser"],
-                    ["SharedAssets", "@massds/mayflower-assets/static"]
-                ],
+            "babel-module": {
+                "alias": {
+                    "MayflowerReactComponents": "./src/components",
+                    "MayflowerReactAtoms": "./src/components/atoms",
+                    "MayflowerReactAnimations": "./src/components/animations",
+                    "MayflowerReactButtons": "./src/components/atoms/buttons",
+                    "MayflowerReactContact": "./src/components/atoms/contact",
+                    "MayflowerReactDivider": "./src/components/atoms/Divider",
+                    "MayflowerReactHeadings": "./src/components/atoms/headings",
+                    "MayflowerReactLinks": "./src/components/atoms/links",
+                    "MayflowerReactLists": "./src/components/atoms/lists",
+                    "MayflowerReactMedia": "./src/components/atoms/media",
+                    "MayflowerReactPlaceholder": "./src/components/atoms/Placeholder",
+                    "MayflowerReactTable": "./src/components/atoms/table",
+                    "MayflowerReactText": "./src/components/atoms/text",
+                    "MayflowerReactBase": "./src/components/base",
+                    "MayflowerReactDataviz": "./src/components/dataviz",
+                    "MayflowerReactForms": "./src/components/forms",
+                    "MayflowerReactMolecules": "./src/components/molecules",
+                    "MayflowerReactOrganisms": "./src/components/organisms",
+                    "MayflowerReactPages": "./src/components/pages",
+                    "MayflowerReactTemplates": "./src/components/templates",
+                    "MayflowerReactUtilities": "./src/components/utilities",
+                    "MayflowerReactGenTeaser": "./src/components/organisms/GenTeaser",
+                    "SharedAssets": "@massds/mayflower-assets/static"
+                },
                 "extensions": [".js", ".jsx"]
             }
         }

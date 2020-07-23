@@ -102,6 +102,8 @@
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-babel-module": "^5.1.2",
+    "eslint-import-resolver-custom-alias": "^1.2.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.21.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",

@@ -11,6 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import InputTextFuzzy from 'MayflowerReactForms/InputTextFuzzy';
+// eslint-disable-next-line import/no-unresolved
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 class TypeAheadDropdown extends React.Component {

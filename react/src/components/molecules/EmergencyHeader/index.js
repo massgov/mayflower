@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
+// eslint-disable-next-line import/no-unresolved
 import IconAlert from 'MayflowerReactBase/Icon/IconAlert';
 
 const EmergencyHeader = (props) => {

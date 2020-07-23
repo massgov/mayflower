@@ -10,7 +10,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Collapse from 'MayflowerReactAnimations/Collapse';
+// eslint-disable-next-line import/no-unresolved
 import IconQuestionmark from 'MayflowerReactBase/Icon/IconQuestionmark';
+// eslint-disable-next-line import/no-unresolved
 import IconClose from 'MayflowerReactBase/Icon/IconClose';
 import Paragraph from 'MayflowerReactText/Paragraph';
 

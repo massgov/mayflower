@@ -11,6 +11,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+// eslint-disable-next-line import/no-unresolved
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 const ButtonAlert = (props) => {

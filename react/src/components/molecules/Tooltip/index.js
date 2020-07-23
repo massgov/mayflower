@@ -7,8 +7,8 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconQuestionmark from 'MayflowerReactBase/Icon/IconQuestionmark';
 // eslint-disable-next-line import/no-unresolved
+import IconQuestionmark from 'MayflowerReactBase/Icon/IconQuestionmark';
 
 const Tooltip = (tooltip) => {
   const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;

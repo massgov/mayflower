@@ -14,6 +14,7 @@ import moment from 'moment';
 
 import FooterLinks from 'MayflowerReactMolecules/FooterLinks';
 import SocialLinks from 'MayflowerReactMolecules/SocialLinks';
+// eslint-disable-next-line import/no-unresolved
 import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
 const Footer = ({

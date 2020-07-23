@@ -7,7 +7,9 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-unresolved
 import IconInputsuccess from 'MayflowerReactBase/Icon/IconInputsuccess';
+// eslint-disable-next-line import/no-unresolved
 import IconInputerror from 'MayflowerReactBase/Icon/IconInputerror';
 
 const ErrorMessage = ({

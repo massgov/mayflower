@@ -13,6 +13,7 @@ import is from 'is';
 import classNames from 'classnames';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+// eslint-disable-next-line import/no-unresolved
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 class LinkDropdown extends React.Component {

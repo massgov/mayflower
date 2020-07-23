@@ -10,7 +10,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ref from 'airbnb-prop-types/src/ref';
+// eslint-disable-next-line import/no-unresolved
 import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
+// eslint-disable-next-line import/no-unresolved
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 const ButtonWithIcon = (props) => {

@@ -16,6 +16,7 @@ import classNames from 'classnames';
 
 import FilterBox from 'MayflowerReactOrganisms/FilterBox';
 import HeaderSearch from 'MayflowerReactMolecules/HeaderSearch';
+// eslint-disable-next-line import/no-unresolved
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 import Tabs from 'MayflowerReactMolecules/Tabs';
 // eslint-disable-next-line import/no-unresolved

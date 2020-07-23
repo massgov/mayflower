@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
+// eslint-disable-next-line import/no-unresolved
 import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 
 class MainNav extends React.Component {

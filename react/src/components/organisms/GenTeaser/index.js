@@ -20,6 +20,7 @@ import ReactHtmlParser from 'react-html-parser/src';
 import classNames from 'classnames';
 
 import LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
+// eslint-disable-next-line import/no-unresolved
 import * as Icon from 'MayflowerReactBase/Icon';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';

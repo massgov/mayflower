@@ -13,6 +13,7 @@ import ClassNames from 'classnames';
 
 import Collapse from 'MayflowerReactAnimations/Collapse';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
+// eslint-disable-next-line import/no-unresolved
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 class ListingTableItem extends React.Component {

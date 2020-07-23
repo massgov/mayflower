@@ -69,6 +69,7 @@ const CheckBox = (props) => {
 
 CheckBox.propTypes = {
   icon: PropTypes.shape({
+    name: PropTypes.string,
     title: PropTypes.string,
     width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

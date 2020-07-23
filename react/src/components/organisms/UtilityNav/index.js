@@ -12,8 +12,11 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 import UtilityPanel from 'MayflowerReactOrganisms/UtilityPanel';
+// eslint-disable-next-line import/no-unresolved
 import IconBuilding from 'MayflowerReactBase/Icon/IconBuilding';
+// eslint-disable-next-line import/no-unresolved
 import IconLogin from 'MayflowerReactBase/Icon/IconLogin';
+// eslint-disable-next-line import/no-unresolved
 import IconLatlonglobe from 'MayflowerReactBase/Icon/IconLatlonglobe';
 
 class UtilityNav extends React.Component {

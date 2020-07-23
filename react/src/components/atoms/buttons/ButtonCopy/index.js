@@ -7,7 +7,9 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-unresolved
 import IconCopy from 'MayflowerReactBase/Icon/IconCopy';
+// eslint-disable-next-line import/no-unresolved
 import IconInputsuccess from 'MayflowerReactBase/Icon/IconInputsuccess';
 
 const ButtonCopy = ({ content }) => {

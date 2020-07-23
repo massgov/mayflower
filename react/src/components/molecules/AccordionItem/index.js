@@ -8,7 +8,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+// eslint-disable-next-line import/no-unresolved
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
+// eslint-disable-next-line import/no-unresolved
 import IconCirclechevron from 'MayflowerReactBase/Icon/IconCirclechevron';
 import Heading from 'MayflowerReactHeadings/Heading';
 import Collapse from 'MayflowerReactAnimations/Collapse';
