@@ -82,6 +82,8 @@ body.show-menu {
   &-wrapper {
     height: $utility-nav-height;
 
+    @include ma-container;
+
     @media ($bp-medium-min) {
 
       @include ma-container;
@@ -95,7 +97,6 @@ body.show-menu {
 
     @media ($bp-header-toggle-max) {
 
-      @include ma-container;
 
       position: fixed;
       top: 0;
@@ -104,6 +105,7 @@ body.show-menu {
       z-index: $z-dropdown;
       background-color: $c-primary;
     }
+      @include ma-container;
   }
 
   &__button-container {
@@ -263,7 +265,7 @@ body.show-menu {
     background-color: $c-primary;
     text-align: left;
     border: none;
-    font-size: 1.2rem;
+    font-size: 19.2px;// Maintain the same font size regardless of the screensize.
     font-weight: 700;
     color: $c-font-inverse;
     height: 40px;

@@ -1,0 +1,6 @@
+Changed:
+  - project: Patternlab
+    component: Header
+    description: Expand the menu button width to fill the available space on the blue bar when it's labeled as "close" with the screen size 840px and smaller. (#1119)
+    issue: DP-19330
+    impact: Patch
