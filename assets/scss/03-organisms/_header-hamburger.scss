@@ -105,7 +105,8 @@ body.show-menu {
       z-index: $z-dropdown;
       background-color: $c-primary;
     }
-      @include ma-container;
+
+    @include ma-container;
   }
 
   &__button-container {
