@@ -11,6 +11,22 @@ let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const hamburgerSearchInput = document.getElementById("nav-search");
 
+
+const alertObserver = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutationRecord) {
+    let alertHeight = document.querySelector('.ma__emergency-alerts').getAttribute('height');
+    if (alertHeight !== null) {
+      console.log(alertHeight);
+      document.querySelector('.ma__header__hamburger__main-nav').setAttribute('padding-bottom', alertHeight);
+    }
+  });
+});
+
+let hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
+if (hamburgerMainNav !== null) {
+  alertObserver.observe(hamburgerMainNav, { attributes : true, attributeFilter : ['style'] });
+}
+
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
 }
