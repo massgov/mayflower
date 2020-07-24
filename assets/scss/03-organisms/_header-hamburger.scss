@@ -80,12 +80,11 @@ body.show-menu {
   }
 
   &-wrapper {
+    height: $utility-nav-height;
 
     @include ma-container;
 
     @media ($bp-medium-min) {
-
-      // @include ma-container;
 
       display: flex;
       justify-content: space-between;
@@ -95,12 +94,9 @@ body.show-menu {
 
     @media ($bp-header-toggle-max) {
 
-      // @include ma-container;
       padding-right: 0;
       padding-left: 0;
       height: $header-mobile-controls-height;
-      position: fixed;
-      top: 0;
       left: 0;
       width: 100%;
       z-index: $z-dropdown;

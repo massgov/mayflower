@@ -280,9 +280,6 @@ function commonCloseMenuTasks() {
     menuButton.removeAttribute("style");
   }
 
-  menuButtonText[0].textContent = "Menu";
-  menuButtonText[1].textContent = "Mass.gov";
-
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
