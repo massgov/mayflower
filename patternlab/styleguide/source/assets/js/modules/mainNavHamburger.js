@@ -34,12 +34,6 @@ if (null !== menuButtonText) {
     } else {
       openMenu();
 
-      // Set focusable items between the menu button and the hamburger menu unfocusable to set focus on the first focusable item in the menu by next tabbing.
-      // These don't work:
-      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
-      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
-
-      // alternalte above 2 lines.
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
@@ -407,7 +401,6 @@ utilWideButton.addEventListener("click", function (e) {
 });
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
-// TODO: esc key to close the content.
 utilWideCloseButton.addEventListener("click", function (e) {
   closeUtilWideContent();
 });
