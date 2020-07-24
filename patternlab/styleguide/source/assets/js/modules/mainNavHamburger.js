@@ -10,29 +10,46 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const hamburgerSearchInput = document.getElementById("nav-search");
+
+/** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
-let emergencyAlerts = document.querySelector('.ma__emergency-alerts');
-let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
+const emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+if (hamburgerMainNav !== null && emergencyAlerts !== null) {
+  let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight || 0;
+  let hamburgerMenuTop = document.querySelector('.ma__header__hamburger__nav-container').offsetTop || 0;
 
-window.addEventListener("DOMContentLoaded", function() {
-  console.log('loaded!:');
-  if (hamburgerMainNav !== null && alertHeight !== null) {
-    console.log('loaded height: ' + alertHeight);
-    hamburgerMainNav.style.paddingBottom = alertHeight + 'px';
-  }
-});
-
-const alertObserver = new MutationObserver(function(mutations) {
-  mutations.forEach(function(mutationRecord) {
-    alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
-    console.log('observed height: ' + alertHeight);
-    if (hamburgerMainNav !== null && alertHeight !== null) {
-      hamburgerMainNav.style.paddingBottom = alertHeight + 'px';
-    }
+  // Add bottom padding when DOM loads.
+  window.addEventListener("DOMContentLoaded", function() {
+    hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
   });
-});
 
-alertObserver.observe(emergencyAlerts, { attributes : true });
+  // Add bottom padding when alert style changes occur.
+  const alertObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutationRecord) {
+      if (mutationRecord.oldValue !== null) {
+        let result = {};
+        let attributes = mutationRecord.oldValue.split(';');
+        for (let i = 0; i < attributes.length; i++) {
+          let entry = attributes[i].split(':');
+          result[entry.splice(0,1)[0]] = entry.join(':');
+        }
+
+        let oldDisplayValue = result.display.trim();
+        let currentDisplayValue = document.querySelector('.ma__emergency-alerts__content').style.display;
+        if (currentDisplayValue === oldDisplayValue) {
+          alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
+          hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
+        }
+      }
+    });
+  });
+  alertObserver.observe(emergencyAlerts, {
+    attributes : true,
+    attributeFilter: ["style"],
+    attributeOldValue: true
+  });
+}
+/** DP-19336 end */
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
