@@ -86,9 +86,6 @@ body.show-menu {
 
     @media ($bp-medium-min) {
 
-      @include ma-container;
-
-        max-width: 100%;// override max-width in ma-container.
         display: flex;
         justify-content: space-between;
     }
@@ -97,7 +94,9 @@ body.show-menu {
 
     @media ($bp-header-toggle-max) {
 
-
+      padding-right: 0;
+      padding-left: 0;
+      height: $header-mobile-controls-height;
       position: fixed;
       top: 0;
       left: 0;
@@ -105,13 +104,20 @@ body.show-menu {
       z-index: $z-dropdown;
       background-color: $c-primary;
     }
-
-    @include ma-container;
   }
 
   &__button-container {
     display: flex;
     justify-content: space-between;
+
+    // Expand close button to fll the blue bar.
+
+    .show-menu & {
+
+      @media ($bp-header-toggle-max) {
+        width: 100%;
+      }
+    }
   }
 
   &__container {
@@ -276,12 +282,32 @@ body.show-menu {
     padding-left: 20px;
     transition: transform 0.5s ease;
 
+    // Expand close button to fll the blue bar.
+
+    .show-menu & {
+
+      @media ($bp-header-toggle-max) {
+        width: 100%;
+      }
+    }
+
     span:first-child {
       opacity: 0.7;
     }
 
-    @media ($bp-medium-min) {
+    @media ($bp-header-toggle-max) {
+
+      padding-left: 30px;
+    }
+
+    @media ($bp-header-toggle-min) {
+
       padding-left: 0;
+    }
+
+    @media ($bp-medium-max) {
+
+      padding-left: 20px;
     }
   }
 
