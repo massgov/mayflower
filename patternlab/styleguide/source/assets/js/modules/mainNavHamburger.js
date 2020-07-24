@@ -246,11 +246,14 @@ jumpToSearchButton.addEventListener("click", (e) => {
 
   if (body.classList.contains("show-menu")) {
     document.getElementById("nav-search").focus();
+    document.getElementById("nav-search").setAttribute("autofocus", "autofocus");
+
   } else {
     openMenuJumpToSearch();
     // Set focus on the search input field.
     setTimeout(function timeoutFunction() {
       document.getElementById("nav-search").focus();
+      document.getElementById("nav-search").setAttribute("autofocus", "autofocus");
     }, 90);
   }
 });
@@ -263,36 +266,16 @@ function closeMenu() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
-  menuButtonText.textContent = "Menu";
-  menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
-
-  if (feedbackButton) {
-    feedbackButton.classList.remove("hide-button");
-  }
-  jumpToSearchButton.setAttribute("aria-expanded", "false");
-  if (menuOverlay) {
-    menuOverlay.classList.remove("overlay-open");
-  }
-}
-
-function closeMenuJumpToSearch() {
-  commonCloseMenuTasks();
-  jumpToSearchButton.setAttribute("aria-pressed", "false");
-}
-
-function commonCloseMenuTasks() {
-  body.classList.remove("show-menu");
-
   if (width < 841) {
     menuButton.removeAttribute("style");
   }
 
-  menuButtonText[0].textContent = "Menu";
-  menuButtonText[1].textContent = "Mass.gov";
-
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+
+  if (document.getElementById("nav-search").hasAttribute("autofocus")) {
+    document.getElementById("nav-search").removeAttribute("autofocus");
+  }
 
   if (feedbackButton) {
     feedbackButton.classList.remove("hide-button");
