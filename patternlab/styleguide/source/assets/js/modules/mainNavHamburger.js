@@ -51,12 +51,10 @@ if (hamburgerMainNav !== null && emergencyAlerts !== null) {
 }
 /** DP-19336 end */
 
-if (null !== menuButtonText) {
-  buttonLabel = menuButtonText.textContent;
-}
+buttonLabel = menuButtonText.textContent || '';
 
 // Open and close the menu
-if (null !== menuButton) {
+if (menuButton !== null) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -292,7 +290,7 @@ if (null !== menuButton) {
   });
 });
 
-if (null !== jumpToSearchButton) {
+if (jumpToSearchButton !== null) {
   jumpToSearchButton.addEventListener("click", function(e) {
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
     hamburgerMenuContainer.toggleAttribute("aria-hidden");
@@ -395,13 +393,13 @@ function closeSubMenus(item) {
 }
 
 // Close menu when utility nav is clicked
-if (null !== utilNavWide) {
+if (utilNavWide !== null) {
     closeMenu();
 }
 
 
 // Close and reset menu on overlay click
-if (null !== menuOverlay) {
+if (menuOverlay !== null) {
   menuOverlay.addEventListener("click", function () {
     closeMenu();
   });
@@ -422,7 +420,7 @@ window.onresize = function () {
 const utilWideButton = document.querySelector(".js-utility-nav--wide .js-util-nav-toggle");
 const utilWideCloseButton = document.querySelector(".js-utility-nav--wide .js-close-util-nav");
 const utilWideContent = document.querySelector(".js-utility-nav--wide .js-util-nav-content");
-if (null !== utilWideButton && null !== utilWideCloseButton && null !== utilWideContent) {
+if (utilWideButton !== null && utilWideCloseButton !== null && utilWideContent !== null) {
 // Open
   utilWideButton.addEventListener("click", function (e) {
 
@@ -476,7 +474,7 @@ function closeUtilWideContent()  {
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
 let utilNarrowContent;
-if (null !== utilNarrowButton) {
+if (utilNarrowButton !== null) {
   utilNarrowContent = utilNarrowButton.nextElementSibling;
 
   utilNarrowContent.style.opacity = "0";
