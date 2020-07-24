@@ -10,22 +10,29 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const hamburgerSearchInput = document.getElementById("nav-search");
+const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
+let emergencyAlerts = document.querySelector('.ma__emergency-alerts');
+let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
 
+window.addEventListener("DOMContentLoaded", function() {
+  console.log('loaded!:');
+  if (hamburgerMainNav !== null && alertHeight !== null) {
+    console.log('loaded height: ' + alertHeight);
+    hamburgerMainNav.style.paddingBottom = alertHeight + 'px';
+  }
+});
 
 const alertObserver = new MutationObserver(function(mutations) {
   mutations.forEach(function(mutationRecord) {
-    let alertHeight = document.querySelector('.ma__emergency-alerts').getAttribute('height');
-    if (alertHeight !== null) {
-      console.log(alertHeight);
-      document.querySelector('.ma__header__hamburger__main-nav').setAttribute('padding-bottom', alertHeight);
+    alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
+    console.log('observed height: ' + alertHeight);
+    if (hamburgerMainNav !== null && alertHeight !== null) {
+      hamburgerMainNav.style.paddingBottom = alertHeight + 'px';
     }
   });
 });
 
-let emergencyAlerts = document.querySelector('.ma__emergency-alerts');
-if (emergencyAlerts !== null) {
-  alertObserver.observe(emergencyAlerts, { attributes : true, attributeFilter : ['style'] });
-}
+alertObserver.observe(emergencyAlerts, { attributes : true });
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
