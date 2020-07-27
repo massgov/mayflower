@@ -552,7 +552,7 @@ body.show-menu {
             color: $c-black;
             z-index: 90;
 
-            transition: max-height 0.4s;
+            transition: max-height 0.6s ease-in-out;
 
             &.is-closed {
 
@@ -563,7 +563,7 @@ body.show-menu {
               margin: 0;
 
               display: none !important;
-              transition: max-height 0.6s ease-in-out;
+              transition: max-height 0.8s ease-in-out;
             }
 
             & .ma__utility-nav__content-title {
@@ -576,7 +576,7 @@ body.show-menu {
               overflow-y: visible;
               max-height: auto;
 
-              transition: opacity 0.2s;
+              transition: opacity 0.4s;
 
               .translated-rtl &,
               .translated-ltr & {
@@ -584,8 +584,12 @@ body.show-menu {
               }
             }
 
+            &.is-closed .ma__utility-nav__container {
+              transition: opacity 0.2s;
+            }
+
             // Override styles for desktop version utility nav content.
-            
+
             & .ma__utility-nav__container__close {// close window button in the dropdown.
 
               display: none;

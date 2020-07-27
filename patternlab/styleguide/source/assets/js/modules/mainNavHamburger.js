@@ -457,6 +457,7 @@ utilNarrowButton.addEventListener("click", function(e) {
     /** Set the height of the submenu as 0px, */
     /** so we can trigger the slide down animation. */
     utilNarrowContent.style.maxHeight = "0";
+    utilNarrowContent.style.Height = "0";
 
     // These height settings display the bottom border of the parent li at the correct spot.
     utilNarrowContent.style.height = contentHeight;
