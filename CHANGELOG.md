@@ -1,6 +1,13 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.53.1 (7/27/2020)
+### Added 
+- (Patternlab) [RelationshopIndicator] DP-19187: Set up styles for relationship indicator .single component links. (#1130)
+
+### Fixed 
+- (Patternlab) [RelationshopIndicator] DP-19187: Correct the sample for relationship indicator .single component. (#1130)
+
 ## 9.53.0 (7/6/2020)
 ### Changed 
 - (Patternlab) [Print] DP-18951: Feedback related markup removed from print styles.
