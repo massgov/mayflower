@@ -6,7 +6,7 @@
   padding: 20px 0 15px 0;
   font-weight: 600;
   border-bottom: 1px solid $c-bd-divider;
-  font-size: 16px;
+  font-size: $fonts-2xsmall;
   margin: 0 20px 10px;
 
   @media ($bp-x-small-min) {
@@ -54,7 +54,7 @@
     // margin-bottom: 2px;
     margin-right: 10px;
     line-height: 22px;
-    font-size: 16px;
+    font-size: $fonts-2xsmall;
     padding-right: 5px;
     list-style: none;
   }
@@ -217,7 +217,7 @@
       align-self: flex-start;
       padding: 0;
       line-height: 22px;
-      font-size: 16px;
+      font-size: $fonts-2xsmall;
       font-weight: 600;
       white-space: nowrap;
       display: none;
