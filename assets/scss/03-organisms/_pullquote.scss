@@ -11,7 +11,7 @@
   &__content {
     display: block;
     padding-top: 35px;
-    font-size: 1.875rem;
+    font-size: $fonts-xlarge;
     font-weight: $fonts-bold;
     line-height: 1.285;
     color: $c-gray-dark;
@@ -29,7 +29,7 @@
     }
 
     @media ($bp-small-min) {
-      font-size: 2.375rem;
+      font-size: $fonts-3xlarge;
     }
   }
 }

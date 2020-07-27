@@ -197,7 +197,7 @@
 
       &::before {
         content: $close-icon;
-        font-size: 2.1rem;
+        font-size: $fonts-2xlarge;
         font-weight: 200;
         line-height: 0;
         position: absolute;
@@ -454,7 +454,7 @@
     }
 
     a {
-      font-size: 1.2rem;
+      font-size: $fonts-small;
     }
   }
 

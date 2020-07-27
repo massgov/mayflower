@@ -52,7 +52,7 @@
     h1 {
 
       @media ($bp-large-min) {
-        font-size: 5.313rem;
+        font-size: $fonts-9xlarge;
       }
     }
 
@@ -71,7 +71,7 @@
     text-align: center;
 
     @media ($bp-large-min) {
-      font-size: 5.313rem;
+      font-size: $fonts-9xlarge;
     }
   }
 
@@ -259,7 +259,7 @@
   }
 
   &__image-author {
-    font-size: 0.875rem;
+    font-size: $fonts-3xsmall;
     line-height: 1.125rem;
   }
   // End backward compatible with v5.7 - converted image-credit to new Banner Credit molecule

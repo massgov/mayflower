@@ -109,7 +109,7 @@ $menu-transition-time: 0.3s;
 
       &::after {
         content: $close-icon;
-        font-size: 2.1rem;
+        font-size: $fonts-2xlarge;
         font-weight: $fonts-normal;
         line-height: 0;
         position: absolute;
@@ -212,7 +212,7 @@ $menu-transition-time: 0.3s;
       }
 
       @media ($bp-large-extended-min) {
-        font-size: 1.2rem;
+        font-size: $fonts-small;
       }
 
       svg {
@@ -269,7 +269,7 @@ $menu-transition-time: 0.3s;
         &::after {
           color: $c-primary-alt;
           content: $close-icon;
-          font-size: 2.1rem;
+          font-size: $fonts-2xlarge;
           font-weight: 600;
           line-height: 0;
           position: absolute;

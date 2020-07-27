@@ -375,7 +375,7 @@
       span {
         display: block;
         text-transform: uppercase;
-        font-size: 0.75rem;
+        font-size: $fonts-4xsmall;
         font-weight: $fonts-bold;
         color: $c-primary;
         letter-spacing: $letter-spacing-large;
@@ -390,7 +390,7 @@
     button {
 
       @include ma-button("","solid",$c-primary);
-      font-size: 1.3rem;
+      font-size: $fonts-medium;
       padding: 10px 0;
       width: 100%;
     }
@@ -423,7 +423,7 @@
 
     span {
       display: block;
-      font-size: 2.1rem;
+      font-size: $fonts-2xlarge;
       font-weight: 200;
       left: 50%;
       line-height: 0;

@@ -20,10 +20,10 @@ $page-banner-height: 330px;
   .decision-tree & {
 
     h1 {
-      font-size: 2.125rem;
+      font-size: $fonts-2xlarge;
 
       @media ($bp-small-min) {
-        font-size: 1.8125rem;
+        font-size: $fonts-xlarge;
       }
     }
 
@@ -194,7 +194,7 @@ $page-banner-height: 330px;
   }
 
   &--small &__content {
-    font-size: .8rem;
+    font-size: $fonts-3xsmall;
     padding: 25px 25px 40px 0;
 
     @media ($bp-x-small-min) {
@@ -348,7 +348,7 @@ $page-banner-height: 330px;
   &__unlinked-title,
   .ma__decorative-link {
     display: block;
-    font-size: 1.813rem;
+    font-size: $fonts-xlarge;
     letter-spacing: $letter-spacing-small;
     line-height: 2.188rem;
     margin-bottom: 0;
@@ -389,7 +389,7 @@ $page-banner-height: 330px;
     @media ($bp-medium-min) {
 
       @include span-columns(4 of 12);
-      font-size: 1.813rem;
+      font-size: $fonts-xlarge;
       letter-spacing: $letter-spacing-small;
       line-height: 2.188rem;
       padding-top: 100px;
