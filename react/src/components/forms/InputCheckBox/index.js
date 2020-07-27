@@ -13,7 +13,6 @@ import is from 'is';
 
 import Input from 'MayflowerReactForms/Input';
 import Error from 'MayflowerReactForms/Input/error';
-import Icon from 'MayflowerReactBase/Icon';
 import { InputContext } from 'MayflowerReactForms/Input/context';
 
 const CheckBox = (props) => {
@@ -69,7 +68,14 @@ const CheckBox = (props) => {
 };
 
 CheckBox.propTypes = {
-  icon: PropTypes.shape(Icon.propTypes),
+  icon: PropTypes.shape({
+    name: PropTypes.string,
+    title: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    className: PropTypes.string,
+    fill: PropTypes.string
+  }),
   label: PropTypes.string,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
@@ -118,7 +124,13 @@ InputCheckBox.propTypes = {
   /** Label for the checkbox input. */
   label: PropTypes.string,
   /** Icon that renders after the label. */
-  icon: PropTypes.shape(Icon.propTypes),
+  icon: PropTypes.shape({
+    title: PropTypes.string,
+    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    className: PropTypes.string,
+    fill: PropTypes.string
+  }),
   /** Custom callback function called when input checked value is changed. */
   onChange: PropTypes.func,
   /** Custom callback function called when a keyboard action is triggered. */

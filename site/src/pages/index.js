@@ -5,7 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Section from "../components/section"
 import RichText from "../components/richText"
-import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, Icon, SectionLinks, DecorativeLink, CalloutLink } from "@massds/mayflower-react";
+import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, SectionLinks, DecorativeLink, CalloutLink } from "@massds/mayflower-react";
+import * as Icon from '@massds/mayflower-react/dist/Icon';
 
 import './index.scss';
 const IndexPage = ({ data: { content } }) => {
@@ -32,10 +33,12 @@ const IndexPage = ({ data: { content } }) => {
         <div className="ma__button-group">
           {
             buttons.map((button) => {
-              button.icon = <Icon name={button.iconName} title={button.iconTitle} svgHeight={20} svgWidth={20} />
+              const { iconName, iconTitle, ...buttonRest } = button;
+              const ButtonIcon = Icon[iconName];
+              buttonRest.icon = <ButtonIcon title={iconTitle} height={20} width={20} />;
               return(
-                <ButtonWithIcon key={`button-${button.iconTitle}`} {...button}/>
-              )
+                <ButtonWithIcon key={`button-${iconTitle}`} {...buttonRest} />
+              );
             })
           }
         </div>
@@ -83,19 +86,23 @@ const IndexPage = ({ data: { content } }) => {
       <h2>Join Mayflower Community</h2>
       <div className="row">
         {
-          channels.map(({ title, description, icon }) => (
-            <div className="col-md" key={`channel-item-${title.text}`}>
-              <GenTeaser align="top">
-                <GenTeaser.Image style={channelImageStyles}>
-                  <Icon {...icon} svgWidth={iconDimension} svgHeight={iconDimension} />
-                </GenTeaser.Image>
-                <GenTeaser.Details>
-                  <GenTeaser.Title title={title} level={3}/>
-                  <GenTeaser.Description description={description} />
-                </GenTeaser.Details>
-              </GenTeaser>
-            </div>
-          )
+          channels.map(({ title, description, icon }) => {
+            const { name, ...iconRest } = icon;
+            const TeaserIcon = Icon[name];
+            return (
+              <div className="col-md" key={`channel-item-${title.text}`}>
+                <GenTeaser align="top">
+                  <GenTeaser.Image style={channelImageStyles}>
+                    <TeaserIcon {...iconRest} width={iconDimension} height={iconDimension} />
+                  </GenTeaser.Image>
+                  <GenTeaser.Details>
+                    <GenTeaser.Title title={title} level={3}/>
+                    <GenTeaser.Description description={description} />
+                  </GenTeaser.Details>
+                </GenTeaser>
+              </div>
+            )
+          }
         )}
       </div>
       </Section>

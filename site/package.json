@@ -6,7 +6,7 @@
   "author": "Minghua Sun <clairesunstudio@gmail.com>",
   "dependencies": {
     "@massds/mayflower-assets": "^0.2.1",
-    "@massds/mayflower-react": "10.0.0-alpha",
+    "@massds/mayflower-react": "10.0.0-alpha.2",
     "bootstrap": "^4.4.1",
     "classname": "^0.0.0",
     "gatsby": "^2.19.7",
@@ -26,6 +26,8 @@
     "react-html-parser": "^2.0.2"
   },
   "devDependencies": {
+    "@hot-loader/react-dom": "^16.13.0",
+    "babel-eslint": "^10.1.0",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",

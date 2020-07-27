@@ -16,10 +16,18 @@ const NarrowTemplate = (narrowTemplate) => {
   const sideClass = narrowTemplate.side ? ` ma__narrow-template--${narrowTemplate.side}` : '';
   const colorClass = narrowTemplate.color ? ` ma__narrow-template--${narrowTemplate.color}` : '';
   const classNames = `ma__narrow-template${sideClass}${colorClass}`;
+  let logo = null;
+  // Only render a logo if either there's a custom function to render it
+  // or props to Sitelogo have been provided.
+  if (narrowTemplate.siteLogo && typeof narrowTemplate.siteLogo === 'function') {
+    logo = narrowTemplate.siteLogo();
+  } else if (narrowTemplate.siteLogoDomain) {
+    logo = <SiteLogo {...narrowTemplate.siteLogoDomain} />;
+  }
   return(
     <main id="main-content" className={classNames} tabIndex="-1">
       <header className="ma__narrow-template__header">
-        {narrowTemplate.siteLogo ? narrowTemplate.siteLogo() : <SiteLogo {...narrowTemplate?.siteLogoDomain} />}
+        {logo}
       </header>
       <div className="ma__narrow-template__container">
         <div className="ma__narrow-template__content">
@@ -35,6 +43,7 @@ NarrowTemplate.propTypes = {
   side: PropTypes.oneOf(['right', 'left']),
   /** Secondary color is yellow or green */
   color: PropTypes.oneOf(['yellow', 'green']),
+  siteLogo: PropTypes.func,
   /** The domain you want to send users to from the site logo icon */
   siteLogoDomain: PropTypes.shape(SiteLogo.propTypes)
 };

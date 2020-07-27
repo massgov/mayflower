@@ -3,7 +3,6 @@ const assets = require('@massds/mayflower-assets');
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
-
 module.exports = {
   pathPrefix: process.env.GATSBY_PATH_PREFIX,
   siteMetadata: {

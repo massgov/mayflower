@@ -10,7 +10,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ref from 'airbnb-prop-types/src/ref';
-import Icon from 'MayflowerReactBase/Icon';
+// eslint-disable-next-line import/no-unresolved
+import IconSearch from 'MayflowerReactBase/Icon/IconSearch';
+// eslint-disable-next-line import/no-unresolved
+import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
 
 const ButtonWithIcon = (props) => {
   const {
@@ -21,9 +24,9 @@ const ButtonWithIcon = (props) => {
     [`ma__button-icon--${size}`]: size,
     'ma__button-icon--expanded': expanded,
     'ma__button-icon--capitalized': capitalized,
-    'ma__icon-small': iconSize === 'small' || icon.props.name === 'chevron',
-    'ma__button-search': icon.props.name === 'search',
-    'ma__button-search--secondary': icon.props.name === 'search' && usage === 'secondary',
+    'ma__icon-small': iconSize === 'small' || icon.type === IconChevron,
+    'ma__button-search': icon.type === IconSearch,
+    'ma__button-search--secondary': icon.type === IconSearch && usage === 'secondary',
     [`ma__button-icon--${theme}`]: theme,
     [`ma__button-icon--${usage}`]: usage,
     [classes.join(' ')]: classes
@@ -86,7 +89,7 @@ ButtonWithIcon.defaultProps = {
   type: 'submit',
   size: '',
   classes: [],
-  icon: <Icon name="search" svgHeight={20} svgWidth={20} />,
+  icon: <IconSearch height={20} width={20} />,
   capitalized: false,
   iconSize: '',
   'aria-label': '',

@@ -1,0 +1,6 @@
+Changed:
+  - project: React
+    component: Icon
+    description: Icon has been refactored from one component into many icon components. Each .svg icon file is now generated into its own React component at build time with SVGR and SVG Sprite Loader is no longer used. (#1123)
+    issue: DP-19414
+    impact: Major

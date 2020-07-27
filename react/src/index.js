@@ -55,7 +55,7 @@ export CompHeading from 'MayflowerReactHeadings/CompHeading';
 export Heading from 'MayflowerReactHeadings/Heading';
 export SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
 // @atoms/@icons
-export Icon from 'MayflowerReactBase/Icon';
+export * from 'MayflowerReactBase/Icon';
 // @atoms/@links
 export DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 export FootNote from 'MayflowerReactLinks/FootNote';

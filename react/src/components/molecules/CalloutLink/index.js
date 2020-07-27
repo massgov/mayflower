@@ -7,7 +7,8 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'MayflowerReactBase/Icon';
+// eslint-disable-next-line import/no-unresolved
+import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
 const CalloutLink = (calloutLink) => {
   const calloutLinkTheme = calloutLink.theme ? ` ma__callout-link--${calloutLink.theme}` : '';
@@ -26,7 +27,7 @@ const CalloutLink = (calloutLink) => {
           <span className="ma__callout-link__text">
             {calloutLink.text}
 &nbsp;
-            <Icon name="arrow" />
+            <IconArrow />
           </span>
         </span>
         { calloutLink.emphasized && (<span className="ma__callout-link__emphasized">{calloutLink.emphasized}</span>)}

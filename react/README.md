@@ -76,7 +76,8 @@ $ `npm test`: Starts Jest test suite in watch mode
 
 $ `npm run test:coverage` Generates a test report
 
-$ `npm run build`: Compile the code from /src into es6 and commonjs formats in preparation for publishing.
+$ `npm run build`: Compile the code from `/src` into es6 and commonjs formats in preparation for publishing. This command also generates icon components from the .svg files under `/src/components/base/Icon/assets` to `dist/Icon`.
+
 
 #### Adding dependencies
 
@@ -87,6 +88,11 @@ $ ``npm i purgecss`` (Installs the new dependency, if you run ``git status`` aft
 $ ``git add package.json package-lock.json``
 
 $ ``git commit -m 'Added purgecss library'``
+
+#### Icon Component Generation
+Mayflower React's SVG icon components are generated using [SVGR](https://react-svgr.com/) at build time for both development and production modes. Currently, the `.svg` files under `src/components/base/Icon/assets` are generated into React components. When icon components are generated for production, both ES6 and CommonJS versions of the components are created using babel.
+
+A custom template used by SVGR to create the icon component files can be found within `icon-template.js`. SVGR itself is configured using `.svgrrc.js`.
 
 ## Mayflower-React Testing
 
@@ -114,7 +120,11 @@ $ ``source-map-explorer umd/@massds/*.min.js``
 
 #### Testing unpublished Mayflower React components
 
-Sometimes it is useful to test a Mayflower React component that has not yet been published to npm. This can be accomplished by using the [``npm link``](https://docs.npmjs.com/cli/link) command.
+If you're developing on Mayflower React and want to test your changes on another project (such as Gatsby, Next.JS, Create React App, etc), we recommend using [yalc](https://github.com/whitecolor/yalc) instead of `npm link` or `yarn link`, as Node dependency resolution issues may arise.
+
+To use yalc:
+1. Run `yalc publish` in the `react/` directory. This will run Mayflower React's build script and store the build version of the package under your yalc global directory.
+2. Run `yalc link @massds/mayflower-react` in your other project. Mayflower React will now be installed and pointing to the version from step 1.
 
 
 ## Mayflower-React Release Process

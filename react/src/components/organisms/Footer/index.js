@@ -14,7 +14,8 @@ import moment from 'moment';
 
 import FooterLinks from 'MayflowerReactMolecules/FooterLinks';
 import SocialLinks from 'MayflowerReactMolecules/SocialLinks';
-import Icon from 'MayflowerReactBase/Icon';
+// eslint-disable-next-line import/no-unresolved
+import IconArrow from 'MayflowerReactBase/Icon/IconArrow';
 
 const Footer = ({
   footerLinks, socialLinks, backToTopButton, footerText, footerLogo, showNavHeading
@@ -46,7 +47,7 @@ const Footer = ({
     { backToTopButton
     && (
     <button type="button" className="ma__footer__back2top js-back2top is-hidden">
-      <Icon name="arrow" />
+      <IconArrow />
       <span aria-hidden="true">Top</span>
       <span className="visually-hidden">Go to the top of the page</span>
     </button>

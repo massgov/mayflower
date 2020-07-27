@@ -9,7 +9,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Icon from 'MayflowerReactBase/Icon';
+// eslint-disable-next-line import/no-unresolved
+import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
+// eslint-disable-next-line import/no-unresolved
+import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
+// eslint-disable-next-line import/no-unresolved
+import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
 const FooterSlim = (props) => (
   <footer className="ma__footer_slim" id="footer">
@@ -43,21 +48,21 @@ const FooterSlim = (props) => (
               {props.contact.address
               && (
               <p>
-                <Icon name="marker" svgWidth={20} svgHeight={20} />
+                <IconMarker width={20} height={20} />
                 <span>{props.contact.address}</span>
               </p>
               )}
               {props.contact.phone
               && (
               <p>
-                <Icon name="phone" svgWidth={20} svgHeight={20} />
+                <IconPhone width={20} height={20} />
                 <span>{props.contact.phone}</span>
               </p>
               )}
               {props.contact.online && props.contact.online.href && props.contact.online.title
               && (
               <p>
-                <Icon name="laptop" svgWidth={20} svgHeight={20} />
+                <IconLaptop width={20} height={20} />
                 <a href={props.contact.online.href}>{props.contact.online.title}</a>
               </p>
               )}

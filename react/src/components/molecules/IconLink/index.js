@@ -4,7 +4,7 @@ import componentWithName from 'airbnb-prop-types/src/componentWithName';
 
 const IconLink = (props) => (
   <span className={props.wrapperClasses.join(' ')}>
-    {props.icon && props.icon.props.name && (
+    {props.icon && (
     <>
       {props.icon}
       {' '}

@@ -5,7 +5,8 @@ import { withKnobs, array, text, select, boolean, object } from '@storybook/addo
 import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
 import GenTeaser from './index';
 import GenTeaserDocs from './GenTeaser.md';
-import Icon from 'MayflowerReactBase/Icon';
+import IconCatalog from 'MayflowerReactBase/Icon/IconCatalog';
+import IconData from 'MayflowerReactBase/Icon/IconData';
 
 storiesOf('organisms/GenTeaser', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -63,7 +64,7 @@ storiesOf('organisms/GenTeaser', module)
         id: text('search: id', 'jahdfjadh', 'GenTeaser.Search')
       },
       stat: text('stat', <span>Total Items: <b>143</b></span>, 'GenTeaser.Stat'),
-      eyebrow: text('eyebrow', <span><Icon name="catalog" svgWidth={16} svgHeight={16} /> Data Catalog</span>, 'GenTeaser.Eyebrow')
+      eyebrow: text('eyebrow', <span><IconCatalog width={16} height={16} /> Data Catalog</span>, 'GenTeaser.Eyebrow')
     };
     return(
       <GenTeaser>
@@ -93,7 +94,7 @@ storiesOf('organisms/GenTeaser', module)
         showFileIcon: boolean('title: showFileIcon', false, 'GenTeaser.Title')
       },
       description: text('description', 'Review the recent white-tailed deer harvest data before heading out to hunt. Though Massachusetts is the 3rd most densely populated state in the country, it is a state where quality deer can be found anywhere. MassWildlife biologists estimate that there are over 100,000 deer statewide. Estimated densities range from about 12-18 per square mile in western and central Massachusetts to over 50 deer per square mile on Martha\'s Vineyard and Nantucket Islands, and certain areas of eastern MA where hunting access is restricted.', 'GenTeaser.Description'),
-      eyebrow: text('eyebrow', <span><Icon name="data" svgWidth={16} svgHeight={16} /> Dataset</span>, 'GenTeaser.Eyebrow'),
+      eyebrow: text('eyebrow', <span><IconData width={16} height={16} /> Dataset</span>, 'GenTeaser.Eyebrow'),
       date: text('date', '01/01/2019', 'GenTeaser.Date'),
       orgs: text('orgs', 'Division of Fisheries and Wildlife, Executive Office of Energy and Environmental Affairs', 'GenTeaser.Orgs'),
       tags: array('tags', ['kml', 'xls', 'json', 'csv'], ',', 'GenTeaser.Tags'),
@@ -125,7 +126,7 @@ storiesOf('organisms/GenTeaser', module)
         info: text('title: info', 'This is the info', 'GenTeaser.Title'),
         text: text('title: text', '2015 Monthly Electric Customer Migration Data', 'GenTeaser.Title'),
         href: text('title: href', 'https://www.mass.gov/files/documents/2018/06/15/2015%20Annual%20Electric%20Monthly%20Migration-Complete.xlxs', 'GenTeaser.Title'),
-        icon: 'download',
+        icon: 'IconDownload',
         showFileIcon: boolean('title: showFileIcon', true, 'GenTeaser.Title'),
         details: '(30 MB)'
       },
@@ -282,12 +283,12 @@ storiesOf('organisms/GenTeaser', module)
         email: text('email', 'DCSFeedback@MassMail.State.MA.US', 'GenTeaser.SecondaryInfo')
       },
       locations: {
-        icon: text('locations: icon', 'marker', 'GenTeaser.PrimaryInfo'),
+        icon: text('locations: icon', 'IconMarker', 'GenTeaser.PrimaryInfo'),
         href: text('locations: href', 'https://www.mass.gov/orgs/masshire-department-of-career-services/locations', 'GenTeaser.PrimaryInfo'),
         text: text('locations: text', 'MassHire Department of Career Services Locations', 'GenTeaser.PrimaryInfo')
       },
       infodetails: {
-        icon: text('infodetails: icon', 'laptop', 'GenTeaser.SecondaryInfo'),
+        icon: text('infodetails: icon', 'IconLaptop', 'GenTeaser.SecondaryInfo'),
         text: text('infodetails: text', 'Find a job with MassHire JobQuest', 'GenTeaser.SecondaryInfo'),
         href: text('infodetails: href', 'https://jobquest.detma.org/jobquest/Default.aspx', 'GenTeaser.SecondaryInfo')
       }

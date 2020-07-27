@@ -7,13 +7,13 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'MayflowerReactBase/Icon';
 // eslint-disable-next-line import/no-unresolved
+import IconQuestionmark from 'MayflowerReactBase/Icon/IconQuestionmark';
 
 const Tooltip = (tooltip) => {
   const HeadingTag = `h${tooltip.level ? tooltip.level : 2}`;
   const location = (tooltip.location === 'above') ? 'ma__tooltip__modal--above' : 'ma__tooltip__modal--below';
-  const openIcon = tooltip.openIcon ? <Icon name="questionmark" svgHeight={20} svgWidth={20} /> : '';
+  const openIcon = tooltip.openIcon ? <IconQuestionmark height={20} width={20} /> : '';
 
   return(
     <div className="ma__tooltip">

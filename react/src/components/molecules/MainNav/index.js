@@ -9,7 +9,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
-import Icon from 'MayflowerReactBase/Icon';
+// eslint-disable-next-line import/no-unresolved
+import IconArrowbent from 'MayflowerReactBase/Icon/IconArrowbent';
 
 class MainNav extends React.Component {
   constructor(props) {
@@ -175,7 +176,7 @@ class MainNav extends React.Component {
                             onClick={(e) => this.onNavigate({ e, href: item.href })}
                             className="ma__main-nav__link"
                           >
-                            <Icon name="arrowbent" aria-hidden />
+                            <IconArrowbent aria-hidden />
                             <span>{item.text}</span>
                           </button>
                         </li>

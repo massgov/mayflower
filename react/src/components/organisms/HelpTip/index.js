@@ -10,7 +10,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Collapse from 'MayflowerReactAnimations/Collapse';
-import Icon from 'MayflowerReactBase/Icon';
+// eslint-disable-next-line import/no-unresolved
+import IconQuestionmark from 'MayflowerReactBase/Icon/IconQuestionmark';
+// eslint-disable-next-line import/no-unresolved
+import IconClose from 'MayflowerReactBase/Icon/IconClose';
 import Paragraph from 'MayflowerReactText/Paragraph';
 
 class HelpTip extends React.Component {
@@ -110,7 +113,7 @@ class HelpTip extends React.Component {
                 aria-controls={`help-tip-content-${id}-${index}`}
               >
                 {this.buildDangerouslyIfHasMarkup(trigger, hasMarkup)}
-                <Icon name="questionmark" svgHeight={15} svgWidth={15} />
+                <IconQuestionmark height={15} width={15} />
               </span>
               {this.buildDangerouslyIfHasMarkup(splitText[index + 1], hasMarkup)}
             </span>
@@ -128,7 +131,7 @@ class HelpTip extends React.Component {
                 onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
                 aria-label={this.state.isOpen[index] && 'Close help tip.'}
               >
-                <Icon name="close" />
+                <IconClose />
               </div>
               <div
                 tabIndex="0"
@@ -138,7 +141,7 @@ class HelpTip extends React.Component {
                 onKeyUp={(e) => this.toggleOpenForKeyUp(e, index)}
                 aria-label={this.state.isOpen[index] && 'Close help tip.'}
               >
-                <Icon name="close" />
+                <IconClose />
               </div>
               {(helpText || childArray) && (
                 <div className={helpTextClasses} aria-live="polite">

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
-import Icon from 'MayflowerReactBase/Icon';
+import IconDownload from 'MayflowerReactBase/Icon/IconDownload';
 
 storiesOf('atoms/links', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
@@ -27,7 +27,7 @@ storiesOf('atoms/links', module)
         href: text('DecorativeLink as File Dl: href', 'https://www.mass.gov/test.pdf', 'DecorativeLink as File Download'),
         details: text('DecorativeLink as File Dl: details', '(30 MB)', 'DecorativeLink as File Download'),
         showFileIcon: boolean('DecorativeLink as as File Dl: showFileIcon', true, 'DecorativeLink as File'),
-        icon: <Icon name="download" svgWidth={15} svgHeight={15} />
+        icon: <IconDownload width={15} height={15} />
       };
       return(
         <React.Fragment>

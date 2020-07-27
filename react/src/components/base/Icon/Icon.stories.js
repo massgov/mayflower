@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, array, boolean, color, number } from '@storybook/addon-knobs';
 import { assets, svgOptions } from './Icon.knob.options';
-import Icon from './index';
+import * as Icon from './index';
 import IconDisplay from './IconDisplay';
 
 storiesOf('brand|icons', module)
@@ -10,42 +10,49 @@ storiesOf('brand|icons', module)
   .add('Icon', () => {
     // This needs to be dynamic somehow.
 
-    const name = select('name', svgOptions, 'alert');
-    const svgWidth = text('svgWidth', 40);
-    const svgHeight = text('svgHeight', 40);
+    const width = text('width', 40);
+    const height = text('height', 40);
     const title = text('title', 'Icon Title Here');
     const classes = array('classes', ['']);
     const ariaHidden = boolean('ariaHidden', false);
     const fill = color('fill color', '#000');
     const props = {
-      name,
-      svgWidth,
-      svgHeight,
+      width,
+      height,
       title,
       classes,
       ariaHidden,
       fill
     };
+    // Capitalizes the name of each SVG icon to match
+    // what SVGR names components.
+    const component = select('name',
+      Object.fromEntries(
+        Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
+        ),
+        'IconAlert'
+    );
+    const SelectedComponent = Icon[component];
     if (window.location.search.indexOf('backstop') > -1) {
       return Object.entries(assets).map(([key]) => {
         const backstopProps = {
           key,
-          name: key,
-          svgWidth,
-          svgHeight,
+          width,
+          height,
           title
         };
-        return<Icon {...backstopProps} />;
+        const BackstopIcon = Icon[`Icon${key[0].toUpperCase() + key.slice(1)}`];
+        return<BackstopIcon {...backstopProps} />;
       });
     }
-    return(<Icon {...props} />);
+    return(<SelectedComponent {...props} />);
   });
 
 storiesOf('brand|icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('All Icons', () => {
-    const svgWidth = number('svgWidth', 40);
-    const svgHeight = number('svgHeight', 40);
+    const width = number('width', 40);
+    const height = number('height', 40);
     const title = text('title', 'Icon Title Here');
     const classes = array('classes', ['']);
     const ariaHidden = boolean('ariaHidden', false);
@@ -53,8 +60,8 @@ storiesOf('brand|icons', module)
     const allIconProps = Object.keys(assets).map((key) => ({
       key,
       name: key,
-      svgWidth,
-      svgHeight,
+      width,
+      height,
       title,
       classes,
       ariaHidden,

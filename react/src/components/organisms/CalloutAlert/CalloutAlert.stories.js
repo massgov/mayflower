@@ -22,7 +22,14 @@ storiesOf('organisms/CalloutAlert', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'CalloutAlert', () => {
-      const name = select('CalloutAlert icon: name', svgOptions, '');
+      // Capitalizes the name of each SVG icon to match
+      // what SVGR names components.
+      const name = select('CalloutAlert icon: name',
+      Object.fromEntries(
+        Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
+        ),
+        ''
+      );
       const theme = select('theme', themeOptions, '');
       const calloutAlertProps = {
         icon: { name, ariaHidden: true },
@@ -41,7 +48,7 @@ storiesOf('organisms/CalloutAlert', module)
   .add(
     'CalloutAlert with real data', () => {
       const calloutAlertProps = {
-        icon: { name: 'alert', ariaHidden: true },
+        icon: { name: 'IconAlert', ariaHidden: true },
         theme: 'c-primary'
       };
       return(

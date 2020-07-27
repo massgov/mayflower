@@ -15,19 +15,19 @@
         "text": "Github",
         "usage": "tertiary",
         "theme": "",
-        "iconName": "github",
+        "iconName": "IconGithub",
         "iconTitle": "github icon"
       }
     ]
   },
   "tabs": [
     {
-      "value": "",
+      "value": "react",
       "label": "Mayflower React",
       "href": "https://mayflower.digital.mass.gov/react"
     },
     {
-      "value": "",
+      "value": "patternlab",
       "label": "Mayflower Patternlab",
       "href": "https://mayflower.digital.mass.gov/patternlab"
     },
@@ -159,7 +159,7 @@
       },
       "description": "Found a bug or have a feature request?",
       "icon": {
-        "name": "github",
+        "name": "IconGithub",
         "fill": "#388557"
       }
     },
@@ -172,7 +172,7 @@
       },
       "description": "Join the Mayflower community and stay updated with releases.",
       "icon": {
-        "name": "slack",
+        "name": "IconSlack",
         "fill": "#388557"
       }
     },
@@ -185,7 +185,7 @@
       },
       "description": "Get in touch with the team for other purposes.",
       "icon": {
-        "name": "mail",
+        "name": "IconMail",
         "fill": "#388557"
       }
     }

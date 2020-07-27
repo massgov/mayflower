@@ -6,7 +6,7 @@ import {
 } from '@storybook/addon-knobs';
 
 import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
-import Icon from 'MayflowerReactBase/Icon';
+import * as Icon from 'MayflowerReactBase/Icon';
 import ButtonWithIcon from '.';
 import ButtonWithIconDocs from './ButtonWithIcon.md';
 import buttonWithIconOptions from './ButtonWithIcon.knobs.options';
@@ -30,13 +30,21 @@ storiesOf('atoms/buttons', module)
         theme: select('theme', buttonWithIconOptions.theme),
         usage: select('usage', buttonWithIconOptions.usage)
       };
+      // Capitalizes the name of each SVG icon to match
+      // what SVGR names components.
+      const component = select('name',
+        Object.fromEntries(
+          Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
+          ),
+        'IconChevron'
+      );
+      const SelectedComponent = Icon[component];
       const iconProps = {
-        name: select('name', svgOptions, 'chevron'),
-        svgWidth: 20,
-        svgHeight: 20
+        width: 20,
+        height: 20
       };
       return(
-        <ButtonWithIcon {...props} icon={<Icon {...iconProps} />} />
+        <ButtonWithIcon {...props} icon={<SelectedComponent {...iconProps} />} />
       );
     }),
     { info: ButtonWithIconDocs }
@@ -44,8 +52,8 @@ storiesOf('atoms/buttons', module)
   .add(
     'ButtonSearch', (() => {
       const icons = {
-        chevron: <Icon name="chevron" svgHeight={20} svgWidth={20} />,
-        search: <Icon name="search" svgHeight={20} svgWidth={20} />
+        chevron: <Icon.IconChevron height={20} width={20} />,
+        search: <Icon.IconSearch height={20} width={20} />
       };
       const props = {
         onClick: action('ButtonWithIcon clicked'),

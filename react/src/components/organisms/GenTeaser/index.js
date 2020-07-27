@@ -20,7 +20,8 @@ import ReactHtmlParser from 'react-html-parser/src';
 import classNames from 'classnames';
 
 import LinkDropdown from 'MayflowerReactMolecules/LinkDropdown';
-import Icon from 'MayflowerReactBase/Icon';
+// eslint-disable-next-line import/no-unresolved
+import * as Icon from 'MayflowerReactBase/Icon';
 import ButtonWithIcon from 'MayflowerReactButtons/ButtonWithIcon';
 import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
 import Email from 'MayflowerReactContact/Email';
@@ -143,7 +144,7 @@ GenTeaser.Eyebrow.displayName = 'GenTeaser.Eyebrow';
 
 const GenTeaserButton = (props) => {
   const { button, ...rest } = props;
-  const icon = button.icon ? button.icon : <Icon name="expand" width={15} height={15} />;
+  const icon = button.icon ? button.icon : <Icon.IconExpand width={15} height={15} />;
   return(
     <div className="ma__gen-teaser__button" {...rest}>
       <ButtonWithIcon
@@ -191,15 +192,17 @@ GenTeaser.Stat.displayName = 'GenTeaser.Stat';
   */
 const GenTeaserTitle = (props) => {
   const {
-    level, title, children, ...rest
+    level, title = {}, children, ...rest
   } = props;
-  if (title) {
-    title.icon = title.icon ? <Icon name={title.icon} svgWidth={15} svgHeight={15} aria-hidden="true" /> : '';
+  const decorativeProps = JSON.parse(JSON.stringify(title));
+  if (title.icon) {
+    const IconComponent = Icon[title.icon];
+    decorativeProps.icon = <IconComponent width={15} height={15} aria-hidden="true" />;
   }
   const Element = `h${level || 2}`;
   return(
     <Element className="ma__gen-teaser__title" {...rest}>
-      {children || <DecorativeLink {...title} />}
+      {children || <DecorativeLink {...decorativeProps} />}
     </Element>
   );
 };
@@ -478,7 +481,7 @@ const GenTeaserAddress = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <Icon name="marker" svgWidth={15} svgHeight={15} />
+        <Icon.IconMarker width={15} height={15} />
       </span>
       <Address {...addrProps} />
     </div>
@@ -510,7 +513,7 @@ const GenTeaserPhone = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <Icon name="phone" svgWidth={15} svgHeight={15} />
+        <Icon.IconPhone width={15} height={15} />
       </span>
       <PhoneNumber {...phoneProps} />
     </div>
@@ -540,7 +543,7 @@ const GenTeaserEmail = (props) => {
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <Icon name="mail" svgWidth={15} svgHeight={15} />
+        <Icon.IconMail width={15} height={15} />
       </span>
       <Email {...emailProps} />
     </div>
@@ -610,7 +613,7 @@ const GenTeaserEvent = (props) => {
     <>
       <div className="ma__gen-teaser__infoitem" {...rest}>
         <span className="ma__gen-teaser__infoitem-icon">
-          <Icon name="calendar" svgWidth={15} svgHeight={15} />
+          <Icon.IconCalendar width={15} height={15} />
         </span>
         <EventTime {...eventProps} />
       </div>
@@ -650,10 +653,11 @@ const GenTeaserInfoDetails = (props) => {
   const {
     icon, href, text, ...rest
   } = props;
+  const IconComponent = Icon?.[icon] ? Icon[icon] : Icon.IconLaptop;
   return(
     <div className="ma__gen-teaser__infoitem" {...rest}>
       <span className="ma__gen-teaser__infoitem-icon">
-        <Icon name={icon || 'laptop'} svgWidth={15} svgHeight={15} />
+        <IconComponent width={15} height={15} />
       </span>
       {text && !href && <span>{text}</span>}
       {href && text && <DecorativeLink text={text} href={href} />}
