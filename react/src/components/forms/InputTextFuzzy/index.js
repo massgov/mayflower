@@ -12,136 +12,118 @@ import Fuse from 'fuse.js';
 import parse from 'autosuggest-highlight/parse';
 import classNames from 'classnames';
 import is from 'is';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
-import Label from '../Label';
+const InputTextFuzzy = (props) => {
+  const optionsToSuggestions = (options) => options.map((item) => ({
+    item: {
+      text: item.text,
+      value: item.value
+    },
+    matches: [{
+      indices: [],
+      value: item.text,
+      key: 'text',
+      arrayIndex: 0
+    }]
+  }));
 
-class InputTextFuzzy extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.selected || '',
-      suggestions: []
-    };
-    const fuseOptions = this.props.fuseOptions;
-    fuseOptions.keys = this.props.keys;
-    this.fuse = new Fuse(this.props.options, fuseOptions);
-  }
+  const [suggestions, setSuggestions] = React.useState(optionsToSuggestions(props.options));
+  const [value, setValue] = React.useState(props.selected);
+  const fuse = React.useMemo(() => new Fuse(props.options, Object.assign(props.fuseOptions, { keys: props.keys })), [props.fuseOptions]);
 
-  onSuggestionsFetchRequested = ({ value }) => {
-    const suggestions = is.empty(value) ? this.optionsToSuggestions(this.props.options) : this.fuse.search(value);
-    this.setState({
-      suggestions
-    });
+  const onSuggestionsFetchRequested = (fetchRequested) => {
+    const updatedSuggestions = is.empty(fetchRequested.value) ? optionsToSuggestions(props.options) : fuse.search(fetchRequested.value);
+    setSuggestions(updatedSuggestions);
   };
 
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
+  const onSuggestionsClearRequested = () => {
+    setSuggestions([]);
   };
 
-  onSuggestionSelected = (event, { suggestion, method }) => {
+  const onSuggestionSelected = (event, { suggestion, method }) => {
     // invokes custom function if passed in the component
-    if (is.fn(this.props.onSuggestionClick)) {
+    if (is.fn(props.onSuggestionClick)) {
       event.persist();
       // Suggestion is an object that can contain info on score, matches, etc.
-      this.props.onSuggestionClick(event, { suggestion, method, suggestions: this.state.suggestions });
+      props.onSuggestionClick(event, { suggestion, method, suggestions });
     }
-  }
-
-  getSuggestionValue = (suggestion) => suggestion.item.text;
-
-  handleChange = (event, { newValue, method }) => {
-    if (event && event.persist()) {
-      event.persist();
-    }
-
-    const value = newValue;
-    this.setState({
-      value
-    }, () => {
-      if (is.fn(this.props.onChange)) {
-        this.props.onChange({
-          event, method, value, suggestions: this.state.suggestions
-        });
-      }
-    });
   };
 
-  handleBlur = (event) => {
-    if (is.fn(this.props.onBlur)) {
-      if (event && event.persist()) {
+  const getSuggestionValue = (suggestion) => suggestion.item.text;
+
+  const handleChange = (event, { newValue, method }) => {
+    // Only change value when not typing up and down.
+    // This solves performance issues with suggestion rendering.
+    if (!['up', 'down'].includes(method)) {
+      setValue(newValue);
+      if (is.fn(props.onChange)) {
         event.persist();
+        props.onChange({
+          event, method, value: newValue, suggestions
+        });
       }
-      this.props.onBlur({ event, value: this.state.value, suggestions: this.state.suggestions });
     }
-  }
+  };
+
+  const handleBlur = (event) => {
+    if (is.fn(props.onBlur)) {
+      event.persist();
+      props.onBlur({ event, value, suggestions });
+    }
+  };
 
   // handleChange and onSuggestionSelected both do not fire when enter is hit.
   // This is a workaround for that. Use handleChange for keyboard presses.
-  handleKeyPress = (event) => {
-    const { value, suggestions } = this.state;
-    if (is.fn(this.props.onKeyDown)) {
-      this.props.onKeyDown(event);
-    }
-    const match = suggestions.find((el) => el.item.text === value);
-    if (event.key === 'Enter') {
+  const handleKeyPress = (event) => {
+    if (is.fn(props.onKeyDown)) {
       event.persist();
-      event.preventDefault();
-      if (is.fn(this.props.onSuggestionClick) && match) {
-        this.props.onSuggestionClick(event, { method: 'enter', suggestion: { item: { text: value } } });
-      }
+      props.onKeyDown(event);
     }
-  }
+  };
 
-  handleFocus = (event) => {
-    if (is.fn(this.props.onFocus)) {
+  const handleFocus = (event) => {
+    if (is.fn(props.onFocus)) {
       event.persist();
-      this.props.onFocus(event, { event, value: this.state.value, suggestions: this.state.suggestions });
+      props.onFocus(event, { event, value, suggestions });
     }
-  }
+  };
 
-  optionsToSuggestions = (options) => {
-    const suggestions = options.map((item) => ({
-      item: {
-        text: item.text,
-        value: item.value
-      },
-      matches: [{
-        indices: [],
-        value: item.text,
-        key: 'text',
-        arrayIndex: 0
-      }]
-    }));
-    return suggestions;
-  }
 
-  shouldRenderSuggestions = (value) => ((this.props.renderDefaultSuggestion === true) ? (value.trim().length >= 0) : (value.trim().length > 0))
-
-  renderItem = (suggestion) => {
+  const shouldRenderSuggestions = (v) => {
+    if (!is.string(v)) {
+      return false;
+    }
+    return(props.renderDefaultSuggestion === true) ? v.trim().length >= 0 : v.trim().length > 0;
+  };
+  const renderItem = (suggestion, { query }) => {
     const { item, matches } = suggestion;
     let renderItems = [];
-    if (is.empty(this.state.value)) {
-      renderItems = this.props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
+    if (is.empty(value)) {
+      renderItems = props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
     } else {
-      matches.forEach((match) => {
-        if (this.props.keys.indexOf(match.key) > -1) {
-          // Add one to each range to get a proper highlight match.
-          const ranges = match.indices.map((range) => {
-            const [start, end] = range;
-            return[
-              start, Number(end) + 1
-            ];
-          });
-          const parts = parse(match.value, ranges);
-          renderItems = parts.filter((part) => part.text.length > 0).map((part, index) => {
+      const matchLength = matches.length;
+      for (let i = 0; i < matchLength; i++) {
+        const match = matches[i];
+        // Add one to each range to get a proper highlight match.
+        const ranges = match.indices.map((range) => {
+          const [start, end] = range;
+          return[
+            start, Number(end) + 1
+          ];
+        });
+        const parts = parse(match.value, ranges);
+        const partsLength = parts.length;
+        for (let j = 0; j < partsLength; j++) {
+          const index = j;
+          const part = parts[j];
+          if (part.text.length > 0) {
             const className = part.highlight === true ? 'highlight' : null;
             const key = `${match.key}.suggestion_${index}`;
-            return(<span className={className} key={key}>{part.text}</span>);
-          });
+            renderItems.push(<span className={className} key={key}>{part.text}</span>);
+          }
         }
-      });
+      }
     }
     return(
       <span className="ma__suggestion-content">
@@ -150,58 +132,71 @@ class InputTextFuzzy extends React.Component {
         </span>
       </span>
     );
-  }
+  };
 
-  renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
+  const renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
+  const {
+    inputId,
+    id,
+    placeholder,
+    disabled,
+    labelText,
+    boxed,
+    autoFocusInput,
+    required,
+    inline,
+    showError,
+    errorMsg,
+    hiddenLabel
+  } = props;
+  const autoProps = {
+    suggestions,
+    renderSuggestionsContainer: renderItemsContainer,
+    renderSuggestion: renderItem,
+    onSuggestionsFetchRequested,
+    onSuggestionsClearRequested,
+    getSuggestionValue,
+    shouldRenderSuggestions,
+    onSuggestionSelected,
+    focusInputOnSuggestionClick: false,
+    inputProps: {
+      required,
+      type: 'search',
+      placeholder,
+      onChange: handleChange,
+      disabled,
+      id: inputId,
+      onFocus: handleFocus,
+      autoFocus: autoFocusInput,
+      onBlur: handleBlur,
+      onKeyPress: handleKeyPress,
+      value
+    },
+    id
+  };
 
-  render() {
-    const {
-      inputId, id, placeholder, disabled, label, boxed, autoFocusInput
-    } = this.props;
-    const autoProps = {
-      suggestions: this.state.suggestions,
-      renderSuggestionsContainer: this.renderItemsContainer,
-      renderSuggestion: this.renderItem,
-      onSuggestionsFetchRequested: this.onSuggestionsFetchRequested,
-      onSuggestionsClearRequested: this.onSuggestionsClearRequested,
-      getSuggestionValue: this.getSuggestionValue,
-      shouldRenderSuggestions: this.shouldRenderSuggestions,
-      onSuggestionSelected: this.onSuggestionSelected,
-      focusInputOnSuggestionClick: false,
-      inputProps: {
-        type: 'search',
-        placeholder,
-        onChange: this.handleChange,
-        value: this.state.value,
-        disabled,
-        id: inputId,
-        onFocus: this.handleFocus,
-        autoFocus: autoFocusInput,
-        onBlur: this.handleBlur,
-        onKeyPress: this.handleKeyPress
-      },
-      id
-    };
+  const inputTextTypeAheadClasses = classNames({
+    'ma__input-typeahead': true,
+    'ma__input-typeahead--disabled': disabled,
+    'ma__input-typeahead--boxed': boxed
+  });
 
-    const inputTextTypeAheadClasses = classNames({
-      'ma__input-typeahead': true,
-      'ma__input-typeahead--disabled': disabled,
-      'ma__input-typeahead--boxed': boxed
-    });
-    return(
-      <>
-        {label && (
-          <Label inputId={inputId} disabled={disabled}>
-            {label}
-          </Label>
-        )}
-        <div className={inputTextTypeAheadClasses}>
-          <Autosuggest {...autoProps} />
-        </div>
-      </>
-    );
-  }
-}
+  const inputGroupProps = {
+    ...autoProps.inputProps,
+    inline,
+    labelText,
+    showError,
+    errorMsg,
+    hiddenLabel
+  };
+  return(
+    <InputGroup {...inputGroupProps}>
+      <div className={inputTextTypeAheadClasses}>
+        <Autosuggest {...autoProps} />
+      </div>
+    </InputGroup>
+  );
+};
 
 InputTextFuzzy.propTypes = {
   /** The id of the typeahead element. */
@@ -254,6 +249,7 @@ InputTextFuzzy.defaultProps = {
     /** Allows more characters for long queries. */
     maxPatternLength: 300
   },
+  selected: '',
   autoFocusInput: false,
   disabled: false,
   boxed: false,

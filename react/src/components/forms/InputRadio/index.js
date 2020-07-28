@@ -6,8 +6,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
-const InputRadio = (props) => {
+const InputRadio = React.forwardRef((props, ref) => {
+  const inputRef = React.useRef(ref);
   const radioClasses = classNames({
     'ma__input-radio': !props.outline,
     'ma__input-radio--outline': props.outline
@@ -15,33 +17,36 @@ const InputRadio = (props) => {
   const inputClasses = classNames({
     'ma__input-radio__control': !props.outline,
     'ma__input-radio--outline__control': props.outline,
-    'ma__input-radio--outline__control--error': props.error
+    'ma__input-radio--outline__control--error': props.showError
   });
   const labelClasses = classNames({
     'ma__input-radio__label': !props.outline,
-    'ma__input-radio__label--error': props.error && !props.outline,
+    'ma__input-radio__label--error': props.showError && !props.outline,
     'ma__input-radio--outline__label': props.outline,
-    'ma__input-radio--outline__label--error': props.error && props.outline
+    'ma__input-radio--outline__label--error': props.showError && props.outline
   });
   return(
-    <div className={radioClasses}>
-      <input
-        checked={props.checked}
-        name={props.name}
-        type="radio"
-        value={props.value}
-        id={props.id || props.value}
-        required={props.required}
-        onChange={props.onChange}
-        disabled={props.disabled}
-        className={inputClasses}
-      />
-      <label htmlFor={props.id || props.value} className={labelClasses}>
-        <span>{props.label}</span>
-      </label>
-    </div>
+    <InputGroup {...props}>
+      <div className={radioClasses}>
+        <input
+          ref={inputRef}
+          defaultChecked={props.defaultChecked}
+          name={props.name}
+          type="radio"
+          defaultValue={props.value}
+          id={props.id || props.value}
+          required={props.required}
+          onChange={props.onChange}
+          disabled={props.disabled}
+          className={inputClasses}
+        />
+        <label htmlFor={props.id || props.value} className={labelClasses}>
+          <span>{props.label}</span>
+        </label>
+      </div>
+    </InputGroup>
   );
-};
+});
 
 InputRadio.propTypes = {
   /** The name of the input radio. */
@@ -63,7 +68,7 @@ InputRadio.propTypes = {
   /** Whether the radio button is disabled or not */
   disabled: PropTypes.bool,
   /** Whether the input is in an error state */
-  error: PropTypes.bool
+  showError: PropTypes.bool
 };
 
 InputRadio.defaultProps = {
@@ -71,7 +76,7 @@ InputRadio.defaultProps = {
   required: false,
   onChange: () => {},
   disabled: false,
-  error: false
+  showError: false
 };
 
 export default InputRadio;

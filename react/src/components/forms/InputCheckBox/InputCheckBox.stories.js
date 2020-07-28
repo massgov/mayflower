@@ -17,7 +17,6 @@ storiesOf('forms|atoms', module)
     'InputCheckBox', (() => {
       const props = {
         id: text('id', 'input-checkbox'),
-        value: text('value', 'select-all'),
         label: text('label', 'Apply to all'),
         defaultValue: text('defaultValue', 'select-all'),
         onChange: action('onChange'),
@@ -26,24 +25,27 @@ storiesOf('forms|atoms', module)
         required: boolean('required', false),
         errorMsg: text('errorMsg', 'You are required to check this box.'),
         labelText: text('labelText', 'Checkbox Input'),
-        classes: array('classes', [])
-      };
-      const iconProps = {
-        name: select('icon.name', svgOptions),
-        width: 20,
-        height: 20,
-        fill: color('icon.color', '#388557')
+        classes: array('classes', []),
+        inline: boolean('inline', false),
+        showError: boolean('showError', false),
+        hiddenLabel: boolean('hiddenLabel', false)
       };
       // Capitalizes the name of each SVG icon to match
       // what SVGR names components.
-      const component = select('icon.name',
+      const name = select('icon.name',
         Object.fromEntries(
           Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
           )
       );
-      const SelectedComponent = Icon[component];
+      const iconProps = {
+        name,
+        width: 20,
+        height: 20,
+        fill: color('icon.color', '#388557')
+      };
+      const SelectedComponent = Icon[name] ? Icon[name] : null;
       return(
-        <InputCheckBox {...props} icon={<SelectedComponent {...iconProps} />} />
+        <InputCheckBox {...props} icon={SelectedComponent && <SelectedComponent {...iconProps} />} />
       );
     }),
     { info: inputCheckBoxDocs }

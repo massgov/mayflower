@@ -14,7 +14,6 @@ storiesOf('forms|atoms', module)
       const props = {
         boxed: boolean('boxed', false),
         disabled: boolean('disabled', false),
-        label: text('label', 'State Organization'),
         keys: array('keys', ['text']),
         options: inputOptions.options.orgSelector.filter((option) => option.text !== ''),
         placeholder: text('placeholder', 'All Organizations'),
@@ -33,12 +32,13 @@ storiesOf('forms|atoms', module)
           minMatchCharLength: 1,
           maxPatternLength: 300
         }),
-        onKeyDown: action('onKeyDown event'),
-        onChange: action('onChange event'),
-        onFocus: action('onFocus event'),
-        onBlur: action('onBlur event'),
-        onSuggestionClick: action('onSuggestionClick called'),
-        renderDefaultSuggestion: boolean('fuzzy renderDefaultSuggestion', true)
+        renderDefaultSuggestion: boolean('fuzzy renderDefaultSuggestion', true),
+        showError: boolean('showError', false),
+        labelText: text('labelText', 'State Organization'),
+        hiddenLabel: boolean('hiddenLabel', false),
+        errorMsg: text('errorMsg', 'you did not type something'),
+        inline: boolean('inline', false),
+        required: boolean('required', false)
       };
       return(<InputTextFuzzy {...props} />);
     }),

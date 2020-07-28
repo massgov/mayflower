@@ -33,7 +33,7 @@
     "autosuggest-highlight": "^3.1.1",
     "b-jsonp": "^1.2.0",
     "classnames": "^2.2.6",
-    "fuse.js": "^3.4.5",
+    "fuse.js": "^6.4.1",
     "is": "^3.3.0",
     "moment": "^2.21.0",
     "normalize-scss": "^7.0.1",

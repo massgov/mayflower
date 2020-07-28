@@ -9,63 +9,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import is from 'is';
 
 import Input from 'MayflowerReactForms/Input';
-import Error from 'MayflowerReactForms/Input/error';
-import { InputContext } from 'MayflowerReactForms/Input/context';
+import ErrorMessage from 'MayflowerReactForms/ErrorMessage';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
-const CheckBox = (props) => {
-  const context = React.useContext(InputContext);
-  const { value } = context;
+const CheckBox = React.forwardRef((props, ref) => {
   const {
-    icon, label, disabled, required, id, defaultValue, onKeyDown, onChange, tabIndex
+    icon,
+    label,
+    labelText,
+    errorMsg,
+    showError = false,
+    inline = false,
+    hiddenLabel = false,
+    ...rest
   } = props;
-
-  React.useEffect(() => {
-    context.updateState({ value: defaultValue });
-  }, [defaultValue]);
-
-  const handleClick = (e) => {
-    e.persist();
-    context.updateState({ value: !value ? props.value : !value }, () => {
-      if (is.fn(onChange)) {
-        onChange(e, context.getValue(), id);
-      }
-    });
-    if (!!value && required) {
-      context.updateState({ showError: true });
-    } else {
-      context.updateState({ showError: false });
-    }
-  };
+  const inputRef = React.useRef(ref);
   const checkboxClasses = classNames({
     'ma__input-checkbox': true,
-    'ma__input-checkbox--disabled': disabled
+    'ma__input-checkbox--disabled': rest.disabled
   });
-  const inputProps = {
-    type: 'checkbox',
-    id,
-    value: props.value,
-    checked: value === props.value,
-    onClick: handleClick,
-    tabIndex,
-    disabled
-  };
-
-  if (is.fn(onKeyDown)) {
-    inputProps.onKeyDown = onKeyDown;
-  }
-
   return(
-    <span className={checkboxClasses}>
-      <input {...inputProps} />
-      {icon && icon.name && icon}
-      <label htmlFor={id} tabIndex={-1}><span>{ label }</span></label>
-    </span>
-
+    <InputGroup
+      labelText={labelText}
+      id={rest.id}
+      disabled={rest.disabled}
+      required={rest.required}
+      errorMsg={errorMsg}
+      showError={showError}
+      inline={inline}
+      hiddenLabel={hiddenLabel}
+    >
+      <span className={checkboxClasses}>
+        <input {...rest} ref={inputRef} type="checkbox" />
+        {icon && icon}
+        <label htmlFor={rest.id} tabIndex={-1}>
+          <span>{ label }</span>
+        </label>
+      </span>
+    </InputGroup>
   );
-};
+});
 
 CheckBox.propTypes = {
   icon: PropTypes.shape({
@@ -148,4 +133,4 @@ InputCheckBox.propTypes = {
   classes: PropTypes.arrayOf(PropTypes.string)
 };
 
-export default InputCheckBox;
+export default CheckBox;

@@ -12,10 +12,8 @@ storiesOf('forms|atoms', module)
   }))
   .add(
     'InputNumber', (() => {
-      const inputTextOptionsWithKnobs = {};
-      Object.getOwnPropertyNames(InputNumberOptions).forEach((key) => {
-        inputTextOptionsWithKnobs[key] = InputNumberOptions[key]();
-      });
+      const inputTextOptionsWithKnobs = Object.assign(...Object.entries(InputNumberOptions).map(([k, v]) => (
+        { [k]: v() })));
       const storyProps = {
         style: (inputTextOptionsWithKnobs.inline) ? { width: '400px' } : { width: '200px' }
       };

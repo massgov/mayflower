@@ -9,183 +9,143 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
+import numbro from 'numbro';
 
 import Input from 'MayflowerReactForms/Input';
 import Error from 'MayflowerReactForms/Input/error';
-import { InputContext } from 'MayflowerReactForms/Input/context';
-import { validNumber } from 'MayflowerReactForms/Input/validate';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 import { countDecimals } from 'MayflowerReactForms/Input/utility';
 import { numberCharacterPropTypeCheck } from 'MayflowerReactComponents/utilities/componentPropTypeCheck';
 
-const NumberInput = (props) => {
-  const ref = React.createRef();
+const NumberInput = React.forwardRef((props, ref) => {
+  const {
+    defaultValue,
+    showButtons,
+    unit,
+    ...rest
+  } = props;
+  const inputRef = React.createRef(ref);
   const upRef = React.createRef();
   const downRef = React.createRef();
-  return(
-    <InputContext.Consumer>
-      {
-        (context) => {
-          const hasValue = is.number(context.getValue());
-          const inputClasses = classNames({
-            'ma__input-number__control': true,
-            'js-is-required': props.required,
-            'ma__input-number__control--showButtons': props.showButtons || (props.unit && hasValue)
-          });
+  const inputClasses = classNames({
+    'ma__input-number__control': true,
+    'js-is-required': props.required,
+    'ma__input-number__control--showButtons': showButtons
+  });
 
-          const unitClasses = classNames({
-            'ma__input-number-unit': true,
-            'ma__input-number-unit--disabled': props.disabled,
-            'ma__input-number-unit--showButtons': props.showButtons
-          });
+  const unitClasses = classNames({
+    'ma__input-number-unit': true,
+    'ma__input-number-unit--disabled': props.disabled,
+    'ma__input-number-unit--showButtons': showButtons
+  });
 
-          const displayErrorMessage = (val) => {
-            const { min, max, required } = props;
-            if (required && !is.number(val)) {
-              const errorMsg = 'Please enter a value.';
-              return{
-                showError: true,
-                errorMsg
-              };
-            } if (is.number(val)) {
-              const { showError, errorMsg } = validNumber(val, min, max);
-              return{
-                showError, errorMsg
-              };
-            }
-            return{
-              showError: false,
-              errorMsg: ''
-            };
-          };
-
-          const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
-
-          const handleOnBlur = (e) => {
-            e.persist();
-            const inputEl = ref.current;
-            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
-            if (hasNumberProperty(props, 'max') && newValue > props.max) {
-              newValue = props.max;
-            }
-            if (hasNumberProperty(props, 'min') && newValue < props.min) {
-              newValue = props.min;
-            }
-            if (is.number(newValue)) {
-              // Since to Fixed returns a string, we have to cast it back to a Number
-              newValue = Number(newValue.toFixed(countDecimals(props.step)));
-              const updateError = displayErrorMessage(newValue);
-              context.updateState({ value: newValue, ...updateError }, () => {
-                if (is.fn(props.onBlur)) {
-                  props.onBlur(e, newValue);
-                }
-              });
-            }
-          };
-
-          const handleChange = (e) => {
-            e.persist();
-            const inputEl = ref.current;
-            const newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
-            const updateError = displayErrorMessage(newValue);
-            context.updateState({ value: newValue, ...updateError }, () => {
-              if (is.fn(props.onChange)) {
-                props.onChange(e, newValue, props.id);
-              }
-            });
-          };
-
-          const handleAdjust = (e) => {
-            e.persist();
-            let direction;
-            if (e.currentTarget === upRef.current) {
-              direction = 'up';
-            } else {
-              direction = 'down';
-            }
-            const inputEl = ref.current;
-            let newValue = inputEl.value ? Number(inputEl.value) : inputEl.value;
-            if (direction === 'up' && (!hasNumberProperty(props, 'max') || newValue < props.max)) {
-              // Since to Fixed returns a string, we have to cast it back to a Number
-              newValue = newValue ? Number((newValue + props.step).toFixed(countDecimals(props.step))) : props.step;
-              const updateError = displayErrorMessage(newValue);
-              context.updateState({ value: newValue, ...updateError }, () => {
-                if (is.fn(props.onChange)) {
-                  props.onChange(e, newValue, props.id);
-                }
-              });
-            } else if (direction === 'down' && (!hasNumberProperty(props, 'min') || newValue > props.min)) {
-              // Since to Fixed returns a string, we have to cast it back to a Number
-              newValue = newValue ? Number((newValue + (props.step * -1)).toFixed(countDecimals(props.step))) : (props.step * -1);
-              const updateError = displayErrorMessage(newValue);
-              context.updateState({ value: newValue, ...updateError }, () => {
-                if (is.fn(props.onChange)) {
-                  props.onChange(e, newValue, props.id);
-                }
-              });
-            }
-          };
-
-          const inputAttr = {
-            className: inputClasses,
-            name: props.name,
-            id: props.id,
-            type: 'number',
-            placeholder: props.placeholder,
-            maxLength: Number(props.maxlength),
-            style: props.width ? { width: `${props.width}px` } : null,
-            onChange: handleChange,
-            onBlur: handleOnBlur,
-            required: props.required,
-            disabled: props.disabled,
-            step: props.step,
-            ref
-          };
-          inputAttr.value = context.getValue();
-          if (is.number(props.max)) {
-            inputAttr.max = props.max;
-          }
-          if (is.number(props.min)) {
-            inputAttr.min = props.min;
-          }
-          return(
-            <div className="ma__input-number">
-              <input {...inputAttr} />
-              {(props.unit && hasValue) ? <span className={unitClasses}>{props.unit}</span> : null}
-              {
-                props.showButtons && (
-                  <div className="ma__input-number__control-buttons">
-                    <button
-                      type="button"
-                      aria-label="increase value"
-                      className="ma__input-number__control-plus"
-                      data-direction="up"
-                      onClick={handleAdjust}
-                      disabled={props.disabled}
-                      tabIndex={-1}
-                      ref={upRef}
-                    />
-                    <button
-                      type="button"
-                      aria-label="decrease value"
-                      className="ma__input-number__control-minus"
-                      data-direction="down"
-                      onClick={handleAdjust}
-                      disabled={props.disabled}
-                      tabIndex={-1}
-                      ref={downRef}
-                    />
-                  </div>
-                )
-              }
-            </div>
-          );
-        }
+  const handleOnBlur = (e) => {
+    e.persist();
+    const inputEl = inputRef.current;
+    let newValue = Number(inputEl.value);
+    const max = Object.prototype.hasOwnProperty.call(props, 'max') ? Number(props.max) : null;
+    const min = Object.prototype.hasOwnProperty.call(props, 'min') ? Number(props.min) : null;
+    if (is.number(max) && newValue > max) {
+      newValue = props.max;
+    }
+    if (is.number(min) && newValue < min) {
+      newValue = props.min;
+    }
+    if (is.number(newValue)) {
+      // Since to Fixed returns a string, we have to cast it back to a Number
+      newValue = Number(numbro(newValue).format({ mantissa: countDecimals(props.step) }));
+      inputRef.current.value = newValue;
+      if (is.fn(props.onBlur)) {
+        props.onBlur(e, newValue);
       }
-    </InputContext.Consumer>
+    }
+  };
+
+  const handleChange = (e) => {
+    e.persist();
+    const inputEl = inputRef.current;
+    const newValue = Number(inputEl.value);
+    if (is.number(newValue)) {
+      inputRef.current.value = newValue;
+      if (is.fn(props.onChange)) {
+        props.onChange(e, newValue, props.id);
+      }
+    }
+  };
+
+  const handleAdjust = (e) => {
+    e.persist();
+    const direction = (e.currentTarget === upRef.current) ? 'up' : 'down';
+    if (direction === 'up') {
+      inputRef.current.stepUp();
+    } else if (direction === 'down') {
+      inputRef.current.stepDown();
+    }
+    if (is.fn(props.onChange)) {
+      props.onChange(e, Number(inputRef.current.value), props.id);
+    }
+  };
+
+  const inputAttr = {
+    className: inputClasses,
+    name: props.name,
+    id: props.id,
+    type: 'number',
+    placeholder: props.placeholder,
+    maxLength: Number(props.maxlength),
+    style: props.width ? { width: `${props.width}px` } : null,
+    onChange: handleChange,
+    onBlur: handleOnBlur,
+    required: props.required,
+    disabled: props.disabled,
+    step: props.step,
+    defaultValue
+  };
+  if (Object.prototype.hasOwnProperty.call(props, 'max')) {
+    inputAttr.max = props.max;
+  }
+  if (Object.prototype.hasOwnProperty.call(props, 'min')) {
+    inputAttr.min = props.min;
+  }
+  return(
+    <InputGroup {...rest}>
+      <div className="ma__input-number">
+        <input {...inputAttr} ref={inputRef} />
+        {(unit) ? <span className={unitClasses}>{unit}</span> : null}
+        {
+          showButtons && (
+            <div className="ma__input-number__control-buttons">
+              <button
+                type="button"
+                aria-label="increase value"
+                className="ma__input-number__control-plus"
+                data-direction="up"
+                onClick={handleAdjust}
+                disabled={props.disabled}
+                tabIndex={-1}
+                ref={upRef}
+              />
+              <button
+                type="button"
+                aria-label="decrease value"
+                className="ma__input-number__control-minus"
+                data-direction="down"
+                onClick={handleAdjust}
+                disabled={props.disabled}
+                tabIndex={-1}
+                ref={downRef}
+              />
+            </div>
+          )
+        }
+      </div>
+    </InputGroup>
   );
-};
+});
 
 NumberInput.propTypes = {
+  /** Whether the label should be hidden or not */
+  hiddenLabel: PropTypes.bool,
   required: PropTypes.bool,
   showButtons: PropTypes.bool,
   unit: PropTypes.string,
@@ -200,6 +160,14 @@ NumberInput.propTypes = {
   maxlength: PropTypes.number,
   placeholder: PropTypes.string,
   width: PropTypes.number
+};
+NumberInput.defaultProps = {
+  hiddenLabel: false,
+  required: false,
+  onChange: null,
+  step: 1,
+  showButtons: true,
+  unit: ''
 };
 
 const InputNumber = (props) => {
@@ -286,4 +254,4 @@ InputNumber.defaultProps = {
   unit: ''
 };
 
-export default InputNumber;
+export default NumberInput;

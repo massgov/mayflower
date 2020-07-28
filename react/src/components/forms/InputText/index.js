@@ -7,74 +7,45 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import ErrorMessage from 'MayflowerReactForms/ErrorMessage';
+import classNames from 'classnames';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
-class InputText extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: '' };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ value: nextProps.defaultText });
-  }
-
-  handleChange(event) {
-    const input = event.target.value;
-    this.setState({ value: input });
-    // invokes custom function if passed in the component
-    if (typeof this.props.onChange === 'function') {
-      this.props.onChange(input);
-    }
-  }
-
-  render() {
-    const {
-      name, id, type, placeholder, maxlength, pattern, width, required, labelText, hiddenLabel, errorMsg
-    } = this.props;
-    const inputLabelClasses = ['ma__label'];
-    if (labelText) {
-      inputLabelClasses.push(`ma__label--${required ? 'required' : 'optional'}`);
-      if (hiddenLabel) {
-        inputLabelClasses.push('ma__label--hidden');
-      }
-    }
-    const inputClasses = ['ma__input'];
-    if (required) {
-      inputClasses.push('js-is-required');
-    }
-    return(
-      <>
-        {labelText
-        && (
-        <label
-          htmlFor={id}
-          className={inputLabelClasses.join(' ')}
-        >
-          {labelText}
-        </label>
-        )}
-        <input
-          className={inputClasses.join(' ')}
-          name={name}
-          id={id}
-          type={type}
-          placeholder={placeholder}
-          data-type={type}
-          maxLength={maxlength || null}
-          pattern={pattern || null}
-          style={width ? { width: `${width}px` } : null}
-          onChange={this.handleChange}
-          required={required}
-          value={this.state.value}
-        />
-        {errorMsg
-          && (<ErrorMessage error={errorMsg} inputId={id} />)}
-      </>
-    );
-  }
-}
+const InputText = React.forwardRef((props, ref) => {
+  const {
+    name,
+    id,
+    type,
+    placeholder,
+    maxlength,
+    pattern,
+    width,
+    required,
+    defaultValue
+  } = props;
+  const inputRef = React.useRef(ref);
+  const inputClasses = classNames('ma__input', {
+    'js-is-required': required
+  });
+  return(
+    <InputGroup {...props}>
+      <input
+        className={inputClasses}
+        name={name}
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        data-type={type}
+        maxLength={maxlength || null}
+        pattern={pattern || null}
+        style={width ? { width: `${width}px` } : null}
+        onChange={props.onChange}
+        required={required}
+        ref={inputRef}
+        defaultValue={defaultValue}
+      />
+    </InputGroup>
+  );
+});
 
 InputText.propTypes = {
   /** Whether the label should be hidden or not */

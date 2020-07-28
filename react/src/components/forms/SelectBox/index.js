@@ -5,93 +5,84 @@
  * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
  */
 import React from 'react';
+import is from 'is';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Label from 'MayflowerReactForms/Label';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
-class SelectBox extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: !props.selected ? props.options[0].text : props.selected
-    };
-    this.handleOnChange = this.handleOnChange.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ selected: nextProps.selected });
-  }
-
-  /**
-   * Default event handler which renders selected item in the patter div.
-   *
-   * @param event The DOM onChange event
-   *
-   * Invokes custom callback passed as prop onChangeCallback, passing back the
-   * object with select information.
-   */
-  handleOnChange(event) {
+const SelectBox = React.forwardRef((props, ref) => {
+  const selectRef = React.useRef(ref);
+  const [value, setValue] = React.useState(props.selected);
+  const handleOnChange = (event) => {
     const selectedIndex = event.nativeEvent.target.selectedIndex;
     const selected = event.target[selectedIndex].text;
     const selectedValue = event.target[selectedIndex].value;
-    this.setState({ selected });
-
+    setValue(selectedValue);
     // invokes custom function if passed in the component
-    if (typeof this.props.onChangeCallback === 'function') {
-      this.props.onChangeCallback({ selectedIndex, selected, selectedValue });
+    if (is.function(props.onChangeCallback)) {
+      props.onChangeCallback({ selectedIndex, selected, selectedValue });
     }
-  }
+  };
+  const sectionClass = classNames('ma__select-box js-dropdown', {
+    'ma__select-box--optional': !props.required
+  });
 
-  render() {
-    let classNames = '';
-    if (this.props.className) {
-      classNames = this.props.className;
-    } else {
-      classNames = !this.props.required ? 'ma__select-box js-dropdown ma__select-box--optional' : 'ma__select-box js-dropdown';
-    }
-    const selectClassNames = this.props.required ? 'ma__select-box__select js-dropdown-select js-required' : 'ma__select-box__select js-dropdown-select';
-    const { selected } = this.state;
-    const {
-      label, id, options, stackLabel
-    } = this.props;
-    const labelClassNames = stackLabel ? 'ma__select-box__label' : 'ma__label--inline ma__label--small';
-    const selectBoxInline = stackLabel ? '' : 'ma__select-box__field--inline';
-    const getValueByText = (array = [], text) => {
-      const matchedItem = array.find((item) => item.text === text);
-      const matchedValue = matchedItem && matchedItem.value;
-      return matchedValue;
-    };
-    const valueInOptions = getValueByText(options, selected);
-    const selectedValue = valueInOptions || options[0].value;
-    return(
-      <section className={classNames}>
-        {label && (
-          <Label inputId={id} className={labelClassNames}>
-            {label}
-          </Label>
-        )}
-        <div className={`ma__select-box__field ${selectBoxInline}`}>
-          <select
-            name={id}
-            id={id}
-            className={selectClassNames}
-            onChange={this.handleOnChange}
-            value={selectedValue}
-          >
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.text}
-              </option>
-            ))}
-          </select>
-          <div className="ma__select-box__link">
-            <span className="js-dropdown-link">{valueInOptions ? selected : options[0].text}</span>
-            <span className="ma__select-box__icon" />
-          </div>
+  const selectClassNames = classNames('ma__select-box__select js-dropdown-select', {
+    'js-required': props.required
+  });
+  const {
+    labelText, id, options, inline, showError, errorMsg, required, hiddenLabel
+  } = props;
+  const labelClassNames = classNames({
+    'ma__select-box__label': inline,
+    'ma__label--inline ma__label--small': !inline
+  });
+  const selectBoxInline = classNames('ma__select-box__field', {
+    'ma__select-box__field--inline': inline
+  });
+  const getTextByValue = (array = [], v) => {
+    const matchedItem = array.find((item) => item.value === v);
+    const matchedValue = matchedItem && matchedItem.text;
+    return matchedValue;
+  };
+  const textFromValue = getTextByValue(options, value);
+  return(
+    <InputGroup
+      id={id}
+      labelText={labelText}
+      inline={inline}
+      required={required}
+      className={sectionClass}
+      hiddenLabel={hiddenLabel}
+      showError={showError}
+      errorMsg={errorMsg}
+    >
+      <div className={selectBoxInline}>
+        <select
+          ref={selectRef}
+          name={id}
+          id={id}
+          className={selectClassNames}
+          onChange={handleOnChange}
+          defaultValue={props.selected || options[0].value}
+        >
+          {options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.text}
+            </option>
+          ))}
+        </select>
+        <div className="ma__select-box__link">
+          <span className="js-dropdown-link">
+            {textFromValue || options[0].text}
+          </span>
+          <span className="ma__select-box__icon" />
         </div>
-      </section>
-    );
-  }
-}
+      </div>
+    </InputGroup>
+  );
+});
 
 SelectBox.propTypes = {
   /** The label text above the select box */

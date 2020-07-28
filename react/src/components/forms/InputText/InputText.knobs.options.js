@@ -6,11 +6,13 @@ export default {
   required: () => boolean('required', false),
   id: () => text('id', 'text-input'),
   name: () => text('name', 'text-input'),
-  type: () => select('type', ['text', 'email', 'number'], 'text'),
-  width: () => number('width', 0),
+  type: () => select('type', ['text', 'email', 'number', 'search'], 'text'),
+  width: () => number('width'),
   maxlength: () => number('maxlength', 0),
   pattern: () => text('pattern', ''),
   placeholder: () => text('placeholder', 'type something'),
-  errorMsg: () => text('errorMsg', ''),
-  defaultText: () => text('defaultText', 'default text value')
+  errorMsg: () => text('errorMsg', 'you did not type something'),
+  showError: () => boolean('showError', false),
+  defaultValue: () => text('defaultValue', 'default text value'),
+  inline: () => boolean('inline', false)
 };

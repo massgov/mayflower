@@ -18,9 +18,13 @@ storiesOf('forms|atoms', module)
         label: text('label', 'Fern'),
         required: boolean('required', true),
         outline: boolean('outline', true),
-        checked: boolean('checked', null),
+        defaultChecked: boolean('defaultChecked', false),
         disabled: boolean('disabled', false),
-        error: boolean('error', false)
+        showError: boolean('showError', false),
+        labelText: text('labelText', 'Input Radio'),
+        hiddenLabel: boolean('hiddenLabel', false),
+        errorMsg: text('errorMsg', 'you did not type something'),
+        inline: boolean('inline', false)
       };
       return(
         <InputRadio {...props} onChange={action('onChange')} />
