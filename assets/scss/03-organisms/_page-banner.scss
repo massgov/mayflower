@@ -313,10 +313,6 @@ $page-banner-height: 330px;
     @media ($bp-large-min) {
       font-size: $fonts-7xlarge;
     }
-
-    @media ($bp-x-large-min) {
-      font-size: $fonts-8xlarge;
-    }
   }
 
   &--overlay &__title {
