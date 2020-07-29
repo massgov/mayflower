@@ -421,7 +421,6 @@ utilWideButton.addEventListener("click", function (e) {
 });
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
-// TODO: esc key to close the content.
 utilWideCloseButton.addEventListener("click", function (e) {
   closeUtilWideContent();
 });
