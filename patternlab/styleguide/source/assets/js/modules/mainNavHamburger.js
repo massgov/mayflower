@@ -42,6 +42,37 @@ menuButton.addEventListener("click", function (event) {
   }
 });
 
+// To accomodate both buttons and links as menu items, use 'ma__' classes instead of 'js-'.
+const lastTopMenuItem = document.querySelector(".ma__main__hamburger-nav__item:last-of-type .ma__main__hamburger-nav__top-link");
+const lastSubmenuLink = document.querySelector(".ma__main__hamburger-nav__item:last-of-type .js-main-nav-hamburger__subitem:last-of-type .js-main-nav-hamburger__link");
+const lastUtilMenuItem = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-nav__link");
+const lastUtilMenuContentLink = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-panel__item .js-clickable-link");
+
+const firstTopMenuItem = document.querySelector(".ma__main__hamburger-nav__item:first-of-type .ma__main__hamburger-nav__top-link");
+
+
+// no utility nav
+lastTopMenuItem.addEventListener("keydown", function (e) {
+  if (e.key == "Tab") {
+    if (width > 840) {
+      console.log(firstTopMenuItem.textContent);// This prints "Living".
+      firstTopMenuItem.focus();// Focus is set on the second menu, "Working".
+      // document.getElementById("button1").focus();
+      // document.querySelector(".ma__main__hamburger-nav__item .ma__main__hamburger-nav__top-link").focus();
+    }
+  }
+});
+
+// with utility nav
+lastUtilMenuItem.addEventListener("keydown", function (e) {
+  if (e.key == "Tab") {
+    if (width < 841) {
+      console.log(firstTopMenuItem.textContent);// This prints "Living".
+      firstTopMenuItem.focus();// Focus is set on the second menu, "Working".
+    }
+  }
+});
+
 // menuButton.addEventListener("keydown", function (e) {
 //   if (e.key === "Enter" || e.which === "13") {
 
@@ -99,7 +130,7 @@ menuButton.addEventListener("click", function (event) {
   // }
 // });
 
-[].forEach.call(menuItems, function (item) {
+[].forEach.call(menuItems, function (item, i, arr) {
 
   const itemButton = item.querySelector(".js-main-nav-hamburger__top-link");
   const subMenu = item.querySelector(".js-main-nav-hamburger-content");
@@ -195,17 +226,6 @@ menuButton.addEventListener("click", function (event) {
       else {
         closeMenu();
       }
-    }
-
-    if (e.shiftKey && e.code == "Tab") {
-      subItems.style.opacity = "0";
-      subMenu.style.height = "0";
-      item.classList.remove("submenu-open");
-      itemButton.setAttribute("aria-expanded", "false");
-
-      setTimeout(function timeoutFunction() {
-        subMenu.classList.add("is-closed");
-      }, 500);
     }
 
     if (width > 840 && e.key == "Tab") {
@@ -539,6 +559,7 @@ document.addEventListener("keydown", function (e) {
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+      document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
     }
 
     // if (body.classList.contains("show-menu") && utilNarrowContent.style.opacity === "0" ) {// Hamburger menu
