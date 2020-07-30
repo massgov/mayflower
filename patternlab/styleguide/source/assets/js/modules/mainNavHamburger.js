@@ -13,41 +13,59 @@ const hamburgerSearchInput = document.getElementById("nav-search");
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
-const emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
-if (hamburgerMainNav !== null && emergencyAlerts !== null) {
-  let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight || 0;
-  let hamburgerMenuTop = document.querySelector('.ma__header__hamburger__nav-container').offsetTop || 0;
+let emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+const hamburgerMenuAlertScrolling = function() {
+  if (hamburgerMainNav !== null && emergencyAlerts !== null) {
+    let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight || 0;
+    let hamburgerMenuTop = document.querySelector('.ma__header__hamburger__nav-container').offsetTop || 0;
 
-  // Add bottom padding when DOM loads.
-  window.addEventListener("DOMContentLoaded", function() {
+    // Add bottom padding when function is initially called.
     hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
-  });
 
-  // Add bottom padding when alert style changes occur.
-  const alertObserver = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutationRecord) {
-      if (mutationRecord.oldValue !== null) {
-        let result = {};
-        let attributes = mutationRecord.oldValue.split(';');
-        for (let i = 0; i < attributes.length; i++) {
-          let entry = attributes[i].split(':');
-          result[entry.splice(0,1)[0]] = entry.join(':');
-        }
+    // Add bottom padding when alert style changes occur.
+    const alertObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutationRecord) {
+        if (mutationRecord.oldValue !== null) {
+          let result = {};
+          let attributes = mutationRecord.oldValue.split(';');
+          for (let i = 0; i < attributes.length; i++) {
+            let entry = attributes[i].split(':');
+            result[entry.splice(0,1)[0]] = entry.join(':');
+          }
 
-        let oldDisplayValue = result.display.trim();
-        let currentDisplayValue = document.querySelector('.ma__emergency-alerts__content').style.display;
-        if (currentDisplayValue === oldDisplayValue) {
-          alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
-          hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
+          let oldDisplayValue = result.display.trim();
+          let currentDisplayValue = document.querySelector('.ma__emergency-alerts__content').style.display;
+          if (currentDisplayValue === oldDisplayValue) {
+            alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
+            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
+          }
         }
-      }
+      });
     });
+    alertObserver.observe(emergencyAlerts, {
+      attributes : true,
+      attributeFilter: ["style"],
+      attributeOldValue: true
+    });
+  }
+}
+
+// Not ideal, but this is here to wait for alerts to load via AJAX as they do on mass.gov.
+const jsonApiExists = document.querySelector('.js-ajax-site-alerts-jsonapi');
+if (jsonApiExists !== null) {
+  const jsonApiObserver = new MutationObserver(function(mutations, observer) {
+    emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+    if (emergencyAlerts !== null) {
+      observer.disconnect();
+    }
+    hamburgerMenuAlertScrolling();
   });
-  alertObserver.observe(emergencyAlerts, {
-    attributes : true,
-    attributeFilter: ["style"],
-    attributeOldValue: true
+  jsonApiObserver.observe(jsonApiExists, {
+    childList: true
   });
+}
+else {
+  hamburgerMenuAlertScrolling();
 }
 /** DP-19336 end */
 
