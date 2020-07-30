@@ -10,24 +10,26 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
+// Check whether the wide utility nav is open.
+const utilNavWideCheck = function() {
+  return utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0;
+}
+
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
 let emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
 let hamburgerMenuAlertScrolling = function() {
-  console.log(hamburgerMainNav || 'no hamburger');
-  console.log(emergencyAlerts || 'no emergency alerts');
-  if (hamburgerMainNav !== null && emergencyAlerts !== null) {
+  if (hamburgerMainNav !== null && emergencyAlerts !== null && utilNavWideCheck() !== false) {
     let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight || 0;
     let hamburgerMenuTop = document.querySelector('.ma__header__hamburger__nav-container').offsetTop || 0;
 
-    console.log('it loaded');
     // Add bottom padding when function is initially called.
     hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
-        if (mutationRecord.oldValue !== null) {
+        if (mutationRecord.oldValue !== null && utilNavWideCheck() !== false) {
           let result = {};
           let attributes = mutationRecord.oldValue.split(';');
           for (let i = 0; i < attributes.length; i++) {
@@ -57,7 +59,6 @@ const maAjaxPattern = document.querySelectorAll('.ma__ajax-pattern');
 let siteAlertWrapper = null;
 if (maAjaxPattern !== null) {
   maAjaxPattern.forEach(function(value, key) {
-    console.log(value.hasAttribute('data-ma-ajax-render-pattern'));
     if (value.dataset.maAjaxRenderPattern === '@organisms/by-template/emergency-alerts.twig') {
       siteAlertWrapper = value;
     }
@@ -72,7 +73,6 @@ if (siteAlertWrapper !== null) {
     }
     hamburgerMenuAlertScrolling();
   });
-  document.querySelector('.ma__ajax-pattern').hasAttribute('')
   jsonApiObserver.observe(siteAlertWrapper, {
     childList: true
   });
@@ -104,6 +104,9 @@ if (menuButton !== null) {
     } else {
       openMenu();
 
+      if (utilNavWideCheck() === false) {
+        hamburgerMainNav.style.paddingBottom = 0;
+      }
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
@@ -435,6 +438,9 @@ window.onresize = function () {
   clearTimeout(debouncer);
   debouncer = setTimeout(function () {
     width = body.clientWidth;
+    if (utilNavWideCheck() !== false) {
+      hamburgerMenuAlertScrolling();
+    }
   }, 100);
 };
 
