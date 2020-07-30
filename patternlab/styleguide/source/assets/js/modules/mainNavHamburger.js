@@ -52,9 +52,9 @@ let hamburgerMenuAlertScrolling = function() {
   }
 }
 
-// Not ideal, but this is here to wait for alerts to load via AJAX as they do on mass.gov.
+// Not ideal, but this is here to wait for alerts to load via AJAX.
 const maAjaxPattern = document.querySelectorAll('.ma__ajax-pattern');
-let siteAlertWrapper;
+let siteAlertWrapper = null;
 if (maAjaxPattern !== null) {
   maAjaxPattern.forEach(function(value, key) {
     console.log(value.hasAttribute('data-ma-ajax-render-pattern'));
@@ -63,6 +63,7 @@ if (maAjaxPattern !== null) {
     }
   });
 }
+
 if (siteAlertWrapper !== null) {
   const jsonApiObserver = new MutationObserver(function(mutations, observer) {
     emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
