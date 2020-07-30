@@ -13,11 +13,14 @@ const jumpToSearchButton = document.querySelector(".js-header-search-access-butt
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
 let emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
-const hamburgerMenuAlertScrolling = function() {
+let hamburgerMenuAlertScrolling = function() {
+  console.log(hamburgerMainNav || 'no hamburger');
+  console.log(emergencyAlerts || 'no emergency alerts');
   if (hamburgerMainNav !== null && emergencyAlerts !== null) {
     let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight || 0;
     let hamburgerMenuTop = document.querySelector('.ma__header__hamburger__nav-container').offsetTop || 0;
 
+    console.log('it loaded');
     // Add bottom padding when function is initially called.
     hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
 
@@ -50,8 +53,17 @@ const hamburgerMenuAlertScrolling = function() {
 }
 
 // Not ideal, but this is here to wait for alerts to load via AJAX as they do on mass.gov.
-const jsonApiExists = document.querySelector('.js-ajax-site-alerts-jsonapi');
-if (jsonApiExists !== null) {
+const maAjaxPattern = document.querySelectorAll('.ma__ajax-pattern');
+let siteAlertWrapper;
+if (maAjaxPattern !== null) {
+  maAjaxPattern.forEach(function(value, key) {
+    console.log(value.hasAttribute('data-ma-ajax-render-pattern'));
+    if (value.dataset.maAjaxRenderPattern === '@organisms/by-template/emergency-alerts.twig') {
+      siteAlertWrapper = value;
+    }
+  });
+}
+if (siteAlertWrapper !== null) {
   const jsonApiObserver = new MutationObserver(function(mutations, observer) {
     emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
     if (emergencyAlerts !== null) {
@@ -59,7 +71,8 @@ if (jsonApiExists !== null) {
     }
     hamburgerMenuAlertScrolling();
   });
-  jsonApiObserver.observe(jsonApiExists, {
+  document.querySelector('.ma__ajax-pattern').hasAttribute('')
+  jsonApiObserver.observe(siteAlertWrapper, {
     childList: true
   });
 }
@@ -432,7 +445,7 @@ const utilWideButton = document.querySelector(".js-utility-nav--wide .js-util-na
 const utilWideCloseButton = document.querySelector(".js-utility-nav--wide .js-close-util-nav");
 const utilWideContent = document.querySelector(".js-utility-nav--wide .js-util-nav-content");
 if (utilWideButton !== null && utilWideCloseButton !== null && utilWideContent !== null) {
-// Open
+  // Open
   utilWideButton.addEventListener("click", function (e) {
 
     const thisWideButton = e.target.closest(".js-util-nav-toggle");
@@ -452,11 +465,12 @@ if (utilWideButton !== null && utilWideCloseButton !== null && utilWideContent !
       thisWideButton.setAttribute("aria-pressed", "true");
     }
 
-    setTimeout(function() {
+    setTimeout(function () {
       thisWideButton.setAttribute("aria-expanded", "true");
       thisWideButton.setAttribute("aria-pressed", "true");
     }, 200);
   });
+}
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
 utilWideCloseButton.addEventListener("click", function (e) {
