@@ -16,28 +16,18 @@ if (null !== menuButtonText) {
 
 // Open and close the menu
 // if (null !== menuButton) {
+
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-    hamburgerMenuContainer.toggleAttribute("aria-hidden");
+    toggleMenu();
+  });
 
-    if (body.classList.contains("show-menu")) {
-      closeMenu();
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+  // for touch devices
+  menuButton.addEventListener("touchend", function (event) {
+    event.preventDefault();
 
-      setTimeout(function timeoutFunction() {
-        document.querySelector(".js-header-menu-button").focus();
-      }, 100);
-    } else {
-      openMenu();
-      // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
-    }
+    toggleMenu();
   });
 
   // menuButton.addEventListener("keydown", function (e) {
@@ -241,22 +231,38 @@ if (null !== menuButtonText) {
 });
 
 jumpToSearchButton.addEventListener("click", (e) => {
-  // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-  hamburgerMenuContainer.toggleAttribute("aria-hidden");
-
-  if (body.classList.contains("show-menu")) {
-    document.getElementById("nav-search").focus();
-    document.getElementById("nav-search").setAttribute("autofocus", "autofocus");
-
-  } else {
-    openMenuJumpToSearch();
-    // Set focus on the search input field.
-    setTimeout(function timeoutFunction() {
-      document.getElementById("nav-search").focus();
-      document.getElementById("nav-search").setAttribute("autofocus", "autofocus");
-    }, 90);
-  }
+  e.preventDefault();
+  jumpToSearch();
 });
+
+jumpToSearchButton.addEventListener("touchend", (e) => {
+  e.preventDefault();
+
+  jumpToSearch();
+}, false);
+
+function toggleMenu() {
+  if (body.classList.contains("show-menu")) {
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    // .toggleAttribute() doesn't work with ios11.
+    hamburgerMenuContainer.setAttribute("aria-hidden", "");
+    closeMenu();
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+
+    setTimeout(function timeoutFunction() {
+      document.querySelector(".js-header-menu-button").focus();
+    }, 100);
+  } else {
+    hamburgerMenuContainer.removeAttribute("aria-hidden");
+    openMenu();
+    // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+  }
+}
 
 function closeMenu() {
   commonCloseMenuTasks();
@@ -273,8 +279,8 @@ function commonCloseMenuTasks() {
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
-  if (document.getElementById("nav-search").hasAttribute("autofocus")) {
-    document.getElementById("nav-search").removeAttribute("autofocus");
+  if(document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").hasAttribute("autofocus")) {
+    document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").removeAttribute("autofocus");
   }
 
   if (feedbackButton) {
@@ -291,11 +297,6 @@ function openMenu() {
   menuButton.setAttribute("aria-pressed", "true");
 }
 
-function openMenuJumpToSearch() {
-  commonOpenMenuTasks();
-  jumpToSearchButton.setAttribute("aria-pressed", "true");
-}
-
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
@@ -304,7 +305,6 @@ function commonOpenMenuTasks() {
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
     feedbackButton.classList.add("hide-button");
-
   }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
   if (menuOverlay) {
@@ -312,31 +312,22 @@ function commonOpenMenuTasks() {
   }
 }
 
-function openMenuJumpToSearch() {
-  commonOpenMenuTasks();
-  jumpToSearchButton.setAttribute("aria-pressed", "true");
-}
+function jumpToSearch(e) {
 
-function commonOpenMenuTasks() {
-  body.classList.add("show-menu");
-
-  for (let i = 0; i < menuButtonText.length; i++) {
-    menuButtonText[i].textContent = "Close";
-
-    if (width < 841) {
-      menuButton.style.flex = "auto";
-    }
-  }
-
-  menuButton.setAttribute("aria-expanded", "true");
-  menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
-  if (feedbackButton) {
-    feedbackButton.classList.add("hide-button");
-
-  }
-  jumpToSearchButton.setAttribute("aria-expanded", "true");
-  if (menuOverlay) {
-    menuOverlay.classList.add("overlay-open");
+  if (body.classList.contains("show-menu")) {
+    // // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    // hamburgerMenuContainer.setAttribute("aria-hidden", "");
+    // document.getElementById("nav-search").setAttribute("autofocus", "");
+    document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
+  } else {
+    hamburgerMenuContainer.removeAttribute("aria-hidden");
+    commonOpenMenuTasks();
+    jumpToSearchButton.setAttribute("aria-pressed", "true");
+    // Set focus on the search input field.
+    setTimeout(function timeoutFunction() {
+      document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("autofocus", "");
+      document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
+    }, 900);
   }
 }
 
