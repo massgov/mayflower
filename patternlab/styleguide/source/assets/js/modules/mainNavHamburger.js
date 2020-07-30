@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
-let menuButtonText = document.querySelectorAll(".js-header__menu-text");
+let menuButtonText = document.querySelector(".js-header__menu-text");
 let buttonLabel;
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
@@ -9,7 +9,6 @@ let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
-const hamburgerSearchInput = document.getElementById("nav-search");
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
@@ -91,17 +90,6 @@ if (menuButton !== null) {
     } else {
       openMenu();
 
-      // Set focus on hamburger menu container.
-      // Then, next tabbing takes a user to the first focusable element in the menu container.
-      // setTimeout(function timeoutFunction() {
-      //   hamburgerMenuContainer.focus();
-      // }, 90);
-
-      // These don't work:
-      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item a").setAttribute("tabindex", "-1");;
-      // document.querySelectorAll(".js-utility-nav--wide .ma__utility-nav__item button").setAttribute("tabindex", "-1");
-
-      // alternalte above 2 lines.
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
       document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
@@ -340,8 +328,9 @@ function closeMenuJumpToSearch() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
-  menuButtonText[0].textContent = "Menu";
-  menuButtonText[1].textContent = "Mass.gov";
+  if (width < 841) {
+    menuButton.removeAttribute("style");
+  }
 
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
@@ -370,6 +359,10 @@ function commonOpenMenuTasks() {
 
   for (let i = 0; i < menuButtonText.length; i++) {
     menuButtonText[i].textContent = "Close";
+
+    if (width < 841) {
+      menuButton.style.flex = "auto";
+    }
   }
 
   menuButton.setAttribute("aria-expanded", "true");
@@ -466,11 +459,9 @@ if (utilWideButton !== null && utilWideCloseButton !== null && utilWideContent !
   });
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
-// TODO: esc key to close the content.
-  utilWideCloseButton.addEventListener("click", function (e) {
-    closeUtilWideContent();
-  });
-}
+utilWideCloseButton.addEventListener("click", function (e) {
+  closeUtilWideContent();
+});
 
 function closeUtilWideContent()  {
   // Content state
