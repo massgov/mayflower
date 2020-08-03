@@ -25,7 +25,7 @@ storiesOf('forms|atoms', module)
         required: boolean('required', false),
         errorMsg: text('errorMsg', 'You are required to check this box.'),
         labelText: text('labelText', 'Checkbox Input'),
-        classes: array('classes', []),
+        className: text('className', ''),
         inline: boolean('inline', false),
         showError: boolean('showError', false),
         hiddenLabel: boolean('hiddenLabel', false)

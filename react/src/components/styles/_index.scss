@@ -20,6 +20,7 @@
 @use "01-atoms/comp-heading";
 @use "01-atoms/sidebar-heading";
 @use "01-atoms/forms";
+@use "01-atoms/input";
 @use "04-templates/form-page";
 @use "01-atoms/footnote";
 @use "01-atoms/footnote-link";
@@ -34,8 +35,6 @@
 @use "00-base/pikaday";
 @use "forms/CompoundSlider";
 @use "02-molecules/date-range";
-// Required for date-range.
-@use "pikaday/scss/pikaday" as externalPikaday;
 @use "01-atoms/decorative-link";
 // Required for ErrorMessage component.
 @use "01-atoms/error-msg";
@@ -51,6 +50,7 @@
 @use "01-atoms/input-fuzzy";
 @use "01-atoms/input-date";
 @use "01-atoms/input-typeahead";
+@use "01-atoms/input-number";
 @use "forms/TypeAheadDropdown";
 // Required by Label, InputNumber, InputTextFuzzy components.
 @use "01-atoms/helper-text";
@@ -105,8 +105,11 @@
 @use "03-organisms/utility-panel";
 // Required by ErrorPage, Error403, Error404, Error500 components.
 @use "04-templates/narrow-template";
+// Required by InputDate.
+@use "react-datepicker/dist/react-datepicker.css";
 
 // For InputCurrency
 @include inputButton.ma__input--button('currency');
 // For InputNumber.
 @include inputButton.ma__input--button('number');
+

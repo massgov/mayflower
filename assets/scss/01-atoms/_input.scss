@@ -1,0 +1,27 @@
+@use "00-base/global" as *;
+
+.ma__input {
+  background-color: $c-white;
+  border: 2px solid $c-bd-input;
+  color: $c-font-base;
+  font-size: 1.375rem;
+  font-weight: $fonts-light;
+  max-width: 100%;
+  min-height: 40px;
+  padding: 0 18px;
+
+
+  &--error:not(:focus) {
+    border-color: $c-bd-error;
+  }
+
+  .ma__form--light & {
+    background-color: rgba($c-white, 0.1);
+    border-color: rgba($c-bd-input,.5);
+    color: $c-font-inverse;
+
+    &--error {
+      border-color: $c-bd-error;
+    }
+  }
+}

@@ -17,7 +17,7 @@
     }
   }
   
-  &-condition {
+  &--condition {
     font-size: 1rem;
   }
 
@@ -36,5 +36,9 @@
 
   &--small {
     font-size: 18px;
+  }
+
+  &--error {
+    color: $c-error;
   }
 }

@@ -11,78 +11,71 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import InputRadio from 'MayflowerReactForms/InputRadio';
-import ErrorMessage from 'MayflowerReactForms/ErrorMessage';
+import is from 'is';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
-class InputRadioGroup extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: this.props.defaultSelected
-    };
-  }
-
-  handleChange = (event) => {
+const InputRadioGroup = (props) => {
+  const handleChange = (event) => {
     const selected = event.target.value;
-    if (selected !== this.state.selected) {
-      this.setState({ selected });
-      if (typeof this.props.onChange === 'function') {
-        const { name } = this.props;
-        this.props.onChange({ selected, name, event });
-      }
+    if (is.function(props.onChange)) {
+      const { name } = props;
+      props.onChange({ selected, name, event });
     }
-  }
-
-  render() {
-    const itemsClasses = classNames({
-      'ma__input-group__items': true,
-      'ma__input-group__items--inline': this.props.inline,
-      'ma__input-group__items--outline': this.props.outline
-    });
-    const titleClasses = classNames({
-      'ma__input-group__title': true,
-      'ma__input-group__title--error': this.props.error,
-      'ma__input-group__title--disabled': this.props.disabled
-    });
-
-    return(
-      <>
-        <fieldset>
-          <div className="ma__input-group">
-            <legend className={titleClasses}>
-              {this.props.title}
-            </legend>
-            <div className={itemsClasses}>
-              {this.props.radioButtons.map((radioButton, index) => {
-                const isChecked = radioButton.value === this.state.selected;
-                const buttonId = radioButton.id || radioButton.value;
-                return(
-                /* eslint-disable-next-line react/no-array-index-key */
-                  <div className={`ma__input-group__item item-${this.props.radioButtons.length} ${radioButton.class}`} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
-                    <InputRadio
-                      {...radioButton}
-                      name={this.props.name}
-                      onChange={this.handleChange}
-                      checked={isChecked}
-                      required={this.props.required}
-                      outline={this.props.outline}
-                      error={this.props.error}
-                      disabled={this.props.disabled}
-                    /* eslint-disable-next-line react/no-array-index-key */
-                      key={`InputRadioGroup-${buttonId}-${index}`}
-                    />
-                  </div>
-                );
-              })}
+  };
+  const legendClasses = classNames({
+    'ma__input-group__title': true,
+    'ma__input-group__title--error': props.showError,
+    'ma__input-group__title--disabled': props.disabled
+  });
+  const radioClasses = classNames({
+    'ma__input-radio': !props.outline,
+    'ma__input-radio--outline': props.outline
+  });
+  return(
+    <InputGroup {...props} fieldset labelText={props.title} labelClassName={legendClasses}>
+      {props.radioButtons.map((radioButton, index) => {
+        const buttonId = radioButton.id || radioButton.value;
+        const labelClasses = classNames({
+          'ma__input-radio__label': !props.outline,
+          'ma__input-radio__label--error': props.showError && !props.outline,
+          'ma__input-radio--outline__label': props.outline,
+          'ma__input-radio--outline__label--error': props.showError && props.outline
+        });
+        const inputClasses = classNames({
+          'ma__input-radio__control': !props.outline,
+          'ma__input-radio--outline__control': props.outline,
+          'ma__input-radio--outline__control--error': props.showError
+        });
+        const itemClasses = classNames(
+          'ma__input-group__item',
+          `item-${props.radioButtons.length}`, {
+            [radioButton.class]: radioButton.class
+          }
+        );
+        return(
+        /* eslint-disable-next-line react/no-array-index-key */
+          <div className={itemClasses} key={`InputRadioGroupDiv-${buttonId}-${index}`}>
+            <div className={radioClasses}>
+              <input
+                className={inputClasses}
+                name={props.name}
+                type="radio"
+                defaultValue={radioButton.value}
+                id={buttonId}
+                required={props.required}
+                onChange={handleChange}
+                disabled={props.disabled}
+              />
+              <label htmlFor={buttonId} className={labelClasses}>
+                <span>{radioButton.label}</span>
+              </label>
             </div>
           </div>
-        </fieldset>
-        {this.props.errorMsg && this.props.error
-        && <ErrorMessage status error={this.props.errorMsg} inputID={this.props.name} />}
-      </>
-    );
-  }
-}
+        );
+      })}
+    </InputGroup>
+  );
+};
 
 InputRadioGroup.propTypes = {
   /** The legend title of the radio button group. */

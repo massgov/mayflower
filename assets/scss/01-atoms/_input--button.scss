@@ -1,5 +1,7 @@
 @use "00-base/global" as *;
 
+@use "sass:selector";
+
 @mixin ma__input--button($type) {
   .ma__input-#{$type} {
     display: inline-flex;

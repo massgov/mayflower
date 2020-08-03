@@ -7,9 +7,122 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Pikaday from 'pikaday';
+import is from 'is';
+import classNames from 'classnames';
+import DatePicker from 'react-datepicker';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
-class InputDate extends React.Component {
+const InputDate = (props) => {
+  const {
+    defaultValue,
+    startDate,
+    endDate,
+    onChangeCallback,
+    ...rest
+  } = props;
+  const [state, setState] = React.useState({
+    selected: defaultValue,
+    startDate,
+    endDate
+  });
+  const onChange = (date) => {
+    const updatedState = {};
+    if (is.array(date)) {
+      const [start, end] = date;
+      updatedState.selected = start;
+      updatedState.startDate = start;
+      updatedState.endDate = end;
+    } else {
+      updatedState.selected = date;
+    }
+    setState(updatedState);
+    if (is.function(onChangeCallback)) {
+      props.onChangeCallback(state);
+    }
+  };
+  const dateProps = {
+    ...rest,
+    onChange,
+    selected: state.selected
+  };
+  if (props.selectsRange) {
+    dateProps.startDate = state.startDate;
+    dateProps.endDate = state.endDate;
+  }
+  return(
+    <MayflowerDate {...dateProps} />
+  );
+};
+
+export const MayflowerDate = React.forwardRef((props, inputRef) => {
+  const {
+    selected,
+    minDate,
+    maxDate,
+    selectsRange = false,
+    selectsStart = false,
+    selectsEnd = false,
+    startDate,
+    endDate,
+    placeholder = null,
+    name,
+    id,
+    disabled = false,
+    format,
+    required = false,
+    onChange,
+    showError = false
+  } = props;
+  // Triggers when a user selects a date in the picker only.
+  const handleChange = (date) => {
+    if (is.function(onChange)) {
+      onChange(date);
+    }
+  };
+
+  const inputClassNames = classNames('ma__input-date js-input-date', {
+    'js-is-required': required,
+    'ma__input--error': showError
+  });
+  const pickerProps = {
+    selected,
+    selectsRange,
+    selectsStart,
+    selectsEnd
+  };
+  if (is.date(minDate)) {
+    pickerProps.minDate = minDate;
+  }
+  if (is.date(maxDate)) {
+    pickerProps.maxDate = maxDate;
+  }
+  if (selectsEnd) {
+    pickerProps.minDate = startDate;
+  }
+  if (is.date(startDate)) {
+    pickerProps.startDate = startDate;
+  }
+  if (is.date(endDate)) {
+    pickerProps.endDate = endDate;
+  }
+  return(
+    <InputGroup {...props}>
+      <DatePicker
+        {...pickerProps}
+        placeholderText={placeholder}
+        name={name}
+        id={id}
+        disabled={disabled}
+        dateFormat={format}
+        required={required}
+        className={inputClassNames}
+        onChange={handleChange}
+      />
+    </InputGroup>
+  );
+});
+
+class InputDateOld extends React.Component {
   constructor(props) {
     super(props);
     this.picker = null;
@@ -87,6 +200,8 @@ InputDate.propTypes = {
   name: PropTypes.string.isRequired,
   /** The placeholder text in the input box, prompting users for a value */
   placeholder: PropTypes.string,
+  min: PropTypes.instanceOf(Date),
+  max: PropTypes.instanceOf(Date),
   /** Controls whether the user can pick any date (''), today and prior ('max') or today and future ('min') */
   restrict: PropTypes.oneOf(['', 'max', 'min']),
   /** Controls the date format of input date . The current option are: 'M/DD/YYYY’, 'MM/DD/YYYY’', 'MMM D YYYY', or 'dddd, MMMM Do YYYY' */
@@ -102,7 +217,9 @@ InputDate.defaultProps = {
   required: false,
   restrict: '',
   defaultDate: null,
-  format: 'M/DD/YYYY'
+  startDate: null,
+  endDate: null,
+  format: 'M/dd/yyyy'
 };
 
 export default InputDate;

@@ -1,35 +1,27 @@
-import moment from 'moment';
+import { differenceInMinutes } from 'date-fns';
+import { format, zonedTimeToUtc } from 'date-fns-tz';
 
 /** The following helper function was implemented following the same logic/strucure
  *  as react-add-to-calendar helpers class.
  *  (https://github.com/jasonsalzman/react-add-to-calendar/blob/master/src/helpers/index.js)
 */
 
+const convertMinsToHrsMins = (mins) => {
+  let h = Math.floor(mins / 60);
+  let m = mins % 60;
+  h = h < 10 ? `0${h}` : h;
+  m = m < 10 ? `0${m}` : m;
+  return`${h}:${m}`;
+};
+
 export const getRandomKey = () => {
   const n = Math.floor(Math.random() * 999999999999).toString();
   return`${new Date().getTime().toString()}_${n}`;
 };
 
-export const formatTime = (date) => {
-  const formattedDate = moment.utc(date).format('YYYYMMDDTHHmmssZ');
-  return formattedDate.replace('+00:00', 'Z');
-};
+export const formatTime = (date) => `${format(zonedTimeToUtc(date, 'America/New_York'), "yyyyMMdd'T'HHmmss")}Z`;
 
-export const calculateDuration = (startTime, endTime) => {
-  // snag parameters and format properly in UTC
-  const end = moment.utc(endTime).format('DD/MM/YYYY HH:mm:ss');
-  const start = moment.utc(startTime).format('DD/MM/YYYY HH:mm:ss');
-
-  // calculate the difference in milliseconds between the start and end times
-  const difference = moment(end, 'DD/MM/YYYY HH:mm:ss').diff(moment(start, 'DD/MM/YYYY HH:mm:ss'));
-
-  // convert difference from above to a proper momentJs duration object
-  const duration = moment.duration(difference);
-
-  return(
-    Math.floor(duration.asHours()) + moment.utc(difference).format(':mm')
-  );
-};
+export const calculateDuration = (startTime, endTime) => convertMinsToHrsMins(differenceInMinutes(endTime, startTime));
 
 export const buildUrl = (event, type, window) => {
   let calendarUrl = '';

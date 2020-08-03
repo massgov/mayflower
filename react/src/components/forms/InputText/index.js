@@ -20,11 +20,13 @@ const InputText = React.forwardRef((props, ref) => {
     pattern,
     width,
     required,
-    defaultValue
+    defaultValue,
+    showError
   } = props;
   const inputRef = React.useRef(ref);
   const inputClasses = classNames('ma__input', {
-    'js-is-required': required
+    'js-is-required': required,
+    'ma__input--error': showError
   });
   return(
     <InputGroup {...props}>

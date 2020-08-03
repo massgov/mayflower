@@ -17,7 +17,7 @@ const ErrorMessage = ({ inputId, error }) => (
     className="ma__error-msg has-error"
     role="alert"
   >
-    <IconInputerror width={16} height={18} />
+    {error && <IconInputerror width={16} height={18} />}
     {error}
   </div>
 );

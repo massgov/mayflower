@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import InputGroup from 'MayflowerReactForms/InputGroup';
+import Label from 'MayflowerReactForms/Label';
 
 const InputRadio = React.forwardRef((props, ref) => {
   const inputRef = React.useRef(ref);
@@ -15,6 +16,7 @@ const InputRadio = React.forwardRef((props, ref) => {
     'ma__input-radio--outline': props.outline
   });
   const inputClasses = classNames({
+    'has-error': props.showError,
     'ma__input-radio__control': !props.outline,
     'ma__input-radio--outline__control': props.outline,
     'ma__input-radio--outline__control--error': props.showError
@@ -40,9 +42,9 @@ const InputRadio = React.forwardRef((props, ref) => {
           disabled={props.disabled}
           className={inputClasses}
         />
-        <label htmlFor={props.id || props.value} className={labelClasses}>
-          <span>{props.label}</span>
-        </label>
+        <Label inputId={props.id || props.value} className={labelClasses}>
+          {props.label}
+        </Label>
       </div>
     </InputGroup>
   );

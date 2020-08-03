@@ -8,12 +8,21 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Label = ({
-  children, inputId, hidden, disabled, conditionText, className, useLegend
+  children,
+  inputId,
+  hidden = false,
+  disabled = false,
+  conditionText,
+  className,
+  showError = false,
+  useLegend = false
 }) => {
   const inputLabelClasses = classNames(className, {
-    ma__label: true,
+    ma__label: !useLegend,
+    'ma__input-group__title': useLegend,
     'ma__label--hidden': hidden,
-    'ma__label--disabled': disabled
+    'ma__label--disabled': disabled,
+    'ma__label--error': showError
   });
 
   const Tag = useLegend ? 'legend' : 'label';
@@ -22,7 +31,7 @@ const Label = ({
     <Tag htmlFor={inputId} className={inputLabelClasses}>
       {children}
       {conditionText && conditionText.length > 0 && (
-        <span className="ma__label-condition">
+        <span className="ma__label--condition">
           {` (${conditionText})`}
         </span>
       )}

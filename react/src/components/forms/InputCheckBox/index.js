@@ -11,8 +11,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Input from 'MayflowerReactForms/Input';
-import ErrorMessage from 'MayflowerReactForms/ErrorMessage';
 import InputGroup from 'MayflowerReactForms/InputGroup';
+import Label from 'MayflowerReactForms/Label';
 
 const CheckBox = React.forwardRef((props, ref) => {
   const {
@@ -23,12 +23,16 @@ const CheckBox = React.forwardRef((props, ref) => {
     showError = false,
     inline = false,
     hiddenLabel = false,
+    className = null,
     ...rest
   } = props;
   const inputRef = React.useRef(ref);
   const checkboxClasses = classNames({
     'ma__input-checkbox': true,
     'ma__input-checkbox--disabled': rest.disabled
+  });
+  const inputClasses = classNames(className, {
+    'has-error': showError
   });
   return(
     <InputGroup
@@ -42,11 +46,11 @@ const CheckBox = React.forwardRef((props, ref) => {
       hiddenLabel={hiddenLabel}
     >
       <span className={checkboxClasses}>
-        <input {...rest} ref={inputRef} type="checkbox" />
+        <input {...rest} className={inputClasses} ref={inputRef} type="checkbox" />
         {icon && icon}
-        <label htmlFor={rest.id} tabIndex={-1}>
-          <span>{ label }</span>
-        </label>
+        <Label inputId={rest.id} tabIndex={-1} showError={showError}>
+          { label }
+        </Label>
       </span>
     </InputGroup>
   );

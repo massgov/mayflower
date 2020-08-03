@@ -16,7 +16,7 @@ storiesOf('forms|molecules', module)
         name: text('group', 'favorite-plant'),
         outline: boolean('outline', true),
         defaultSelected: text('defaultSelected', ''),
-        error: boolean('error', false),
+        showError: boolean('showError', false),
         errorMsg: text('errorMsg', 'You must selected your favorite plant.'),
         disabled: boolean('disabled', false),
         inline: boolean('inline', true),

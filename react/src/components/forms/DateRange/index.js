@@ -8,9 +8,41 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputDate from 'MayflowerReactForms/InputDate';
+import is from 'is';
+import InputDate, { MayflowerDate } from 'MayflowerReactForms/InputDate';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
-class DateRange extends React.Component {
+const DateRange = (props) => {
+  const [startDate, setStartDate] = React.useState(props.startDate.startDate);
+  const [endDate, setEndDate] = React.useState(props.endDate.endDate);  
+  const startOnChange = (date) => {
+    setStartDate(date);
+    if (is.function(props.startDate.onChangeCallback)) {
+      props.startDate.onChangeCallback({ date });
+    }
+  };
+  const endOnChange = (date) => {
+    setEndDate(date);
+    if (is.function(props.endDate.onChangeCallback)) {
+      props.endDate.onChangeCallback({ date });
+    }
+  };
+  return(
+    <InputGroup {...props}>
+      <div className="ma__date-range">
+        <div className="ma__date-range__start js-filter-by-date-range__start">
+          <MayflowerDate {...props.startDate} showError={props.startDate?.showError || props.showError} selectsStart selected={startDate} startDate={startDate} endDate={endDate} onChange={startOnChange} />
+        </div>
+        <div className="ma__date-range__divider">to</div>
+        <div className="ma__date-range__end js-filter-by-date-range__end">
+          <MayflowerDate {...props.endDate} showError={props.endDate?.showError || props.showError} selectsEnd selected={endDate} startDate={startDate} endDate={endDate} onChange={endOnChange} />
+        </div>
+      </div>
+    </InputGroup>
+  );
+};
+
+class DateRangeOld extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -19,6 +19,10 @@
   &::-ms-clear {
     display: none;
   }
+
+  &--error:not(:focus) {
+    border-color: $c-bd-error;
+  }
 }
 
 .react-autowhatever__items-container {

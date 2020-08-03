@@ -7,8 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
-
+import { getYear } from 'date-fns';
 // eslint-disable-next-line import/no-unresolved
 import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
 // eslint-disable-next-line import/no-unresolved
@@ -27,7 +26,7 @@ const FooterSlim = (props) => (
           <p className="ma__footer_slim--copyright">
             &copy;
             {' '}
-            {moment().year()}
+            {getYear(new Date())}
             {' '}
             Commonwealth of Massachusetts
           </p>

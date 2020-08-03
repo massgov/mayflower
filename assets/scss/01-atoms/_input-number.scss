@@ -4,10 +4,6 @@
   display: inline-block;
   position: relative;
 
-  input {
-    padding-right: 58px;
-  }
-
   &__plus,
   &__minus {
 
@@ -62,6 +58,12 @@
 //theme
 
 .ma__input-number {
+
+  &--error:not(:focus) {
+    border-style: solid;
+    border-width: 2px;
+    border-color: $c-bd-error;
+  }
 
   &__plus,
   &__minus {

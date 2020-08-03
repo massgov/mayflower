@@ -174,7 +174,9 @@ const InputTextFuzzy = (props) => {
     },
     id
   };
-
+  autoProps.inputProps.className = classNames('react-autowhatever__input', {
+    'react-autowhatever__input--error': showError
+  });
   const inputTextTypeAheadClasses = classNames({
     'ma__input-typeahead': true,
     'ma__input-typeahead--disabled': disabled,
@@ -182,7 +184,9 @@ const InputTextFuzzy = (props) => {
   });
 
   const inputGroupProps = {
-    ...autoProps.inputProps,
+    required,
+    disabled,
+    id: inputId,
     inline,
     labelText,
     showError,

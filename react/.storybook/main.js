@@ -3,7 +3,15 @@ const assets = require('@massds/mayflower-assets');
 const iconPath = path.resolve(__dirname, '../src/components/base/Icon/assets');
 
 module.exports = {
-  stories: ['../src/**/*.stories.js'],
+  stories: [
+    '../src/**/InputText.stories.js',
+    '../src/**/InputTextFuzzy.stories.js',
+    '../src/**/InputNumber.stories.js',
+    '../src/**/InputDate.stories.js',
+    '../src/**/DateRange.stories.js',
+    '../src/**/InputCheckBox.stories.js',
+    '../src/**/InputRadioGroup.stories.js',
+  ],
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',

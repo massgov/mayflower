@@ -2,7 +2,8 @@
  * InputNumber module.
  * @module @massds/mayflower-react/InputNumber
  * @requires module:@massds/mayflower-assets/scss/01-atoms/_input--button
- * @requires module:@massds/mayflower-assets/scss/01-atoms/01-atoms/helper-text
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/_input-number
+ * @requires module:@massds/mayflower-assets/scss/01-atoms/helper-text
  * @requires ma__input--button('number');
  */
 import React from 'react';
@@ -27,7 +28,7 @@ const NumberInput = React.forwardRef((props, ref) => {
   const inputRef = React.createRef(ref);
   const upRef = React.createRef();
   const downRef = React.createRef();
-  const inputClasses = classNames({
+  const inputClasses = classNames('ma__input', {
     'ma__input-number__control': true,
     'js-is-required': props.required,
     'ma__input-number__control--showButtons': showButtons
@@ -37,6 +38,10 @@ const NumberInput = React.forwardRef((props, ref) => {
     'ma__input-number-unit': true,
     'ma__input-number-unit--disabled': props.disabled,
     'ma__input-number-unit--showButtons': showButtons
+  });
+
+  const wrapperClasses = classNames('ma__input-number', {
+    'ma__input-number--error': props.showError
   });
 
   const handleOnBlur = (e) => {
@@ -109,7 +114,7 @@ const NumberInput = React.forwardRef((props, ref) => {
   }
   return(
     <InputGroup {...rest}>
-      <div className="ma__input-number">
+      <div className={wrapperClasses}>
         <input {...inputAttr} ref={inputRef} />
         {(unit) ? <span className={unitClasses}>{unit}</span> : null}
         {

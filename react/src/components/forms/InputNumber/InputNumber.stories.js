@@ -21,9 +21,7 @@ storiesOf('forms|atoms', module)
         storyProps.style = { width: `${inputTextOptionsWithKnobs.width}px` };
       }
       return(
-        <div {...storyProps}>
-          <InputNumber {...inputTextOptionsWithKnobs} />
-        </div>
+        <InputNumber {...inputTextOptionsWithKnobs} />
       );
     }),
     {
