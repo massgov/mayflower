@@ -9,6 +9,7 @@ let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
+const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
@@ -279,8 +280,8 @@ function commonCloseMenuTasks() {
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
-  if(document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").hasAttribute("autofocus")) {
-    document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").removeAttribute("autofocus");
+  if(searchInput.hasAttribute("autofocus")) {
+    searchInput.removeAttribute("autofocus");
   }
 
   if (feedbackButton) {
@@ -318,23 +319,28 @@ function jumpToSearch(e) {
     // // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
     // hamburgerMenuContainer.setAttribute("aria-hidden", "");
     // document.getElementById("nav-search").setAttribute("autofocus", "");
-    document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
+    searchInput.focus();
   } else {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     commonOpenMenuTasks();
     jumpToSearchButton.setAttribute("aria-pressed", "true");
     // Set focus on the search input field.
-    if (document.navigator.appVersion.indexOf(iPhone) !== -1) {
+    if (navigator.appVersion.indexOf("iPhone") !== -1) {
+      // Next 2 lines replace the timeout function and  display onscreen keyboard, but the animation to open the menu is disabled.
+      // document.querySelector(".ma__header__hamburger__nav-container").style.transition = "none";
+      // searchInput.setAttribute("autofocus", "");
+      // searchInput.focus();
+
       setTimeout(function timeoutFunction() {
-        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("autofocus", "");
-        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
-      }, 2000);
+        searchInput.setAttribute("autofocus", "");
+        searchInput.focus();
+      }, 70);
     }
     else {
       setTimeout(function timeoutFunction() {
-        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("autofocus", "");
-        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
-      }, 900);
+        searchInput.setAttribute("autofocus", "");
+        searchInput.focus();
+      }, 70);
     }
   }
 }
