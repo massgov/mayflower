@@ -324,10 +324,18 @@ function jumpToSearch(e) {
     commonOpenMenuTasks();
     jumpToSearchButton.setAttribute("aria-pressed", "true");
     // Set focus on the search input field.
-    setTimeout(function timeoutFunction() {
-      document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("autofocus", "");
-      document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
-    }, 900);
+    if (document.navigator.appVersion.indexOf(iPhone) !== -1) {
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("autofocus", "");
+        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
+      }, 2000);
+    }
+    else {
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").setAttribute("autofocus", "");
+        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").focus();
+      }, 900);
+    }
   }
 }
 
