@@ -40,30 +40,6 @@ menuButton.addEventListener("click", function (event) {
   }
 });
 
-// menuButton.addEventListener("keydown", function (e) {
-//   if (e.key === "Enter" || e.which === "13") {
-
-//     console.log(menuButton.getAttribute("aria-expanded"));
-
-//     if (menuButton.getAttribute("aria-expanded") === "false") {
-//       // openMenu();
-
-//       // Opening menu button with enter is set somewhere else. Cannot find where.
-//       // Set focus on hamburger menu container.
-//       // Then, next tabbing takes a user to the first focusable element in the menu container.
-//       setTimeout(function timeoutFunction() {
-//         // hamburgerMenuContainer.focus();
-//         document.querySelector(".ma__header__hamburger__nav-container").focus();
-
-//         console.log(document.activeElement);
-//       }, 1000);
-//     } else {
-//       closeMenu();
-//       menuButton.focus();
-//     }
-//   }
-// });
-
 // =============== exisiting code below
 // menuButton.addEventListener("keydown", function (e) {
 
