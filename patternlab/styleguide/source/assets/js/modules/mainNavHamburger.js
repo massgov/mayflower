@@ -2,7 +2,6 @@ const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = document.querySelector(".js-header__menu-text");
-let buttonLabel;
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
@@ -81,8 +80,6 @@ else {
   hamburgerMenuAlertScrolling();
 }
 /** DP-19336 end */
-
-buttonLabel = menuButtonText.textContent || '';
 
 // Open and close the menu
 if (menuButton !== null) {
