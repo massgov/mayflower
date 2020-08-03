@@ -80,7 +80,7 @@
       background-color: transparent;
       padding: 1rem 0;
       font-weight: $fonts-bold;
-      font-size: $fonts-2xsmall;
+      font-size: $fonts-xsmall;
       color: $c-black;
 
       &.section-toggle {
@@ -94,7 +94,7 @@
 
       @media ($bp-large-min) {
         height: 100%;
-        font-size: $fonts-xsmall;
+        font-size: $fonts-smaller;
       }
     }
   }

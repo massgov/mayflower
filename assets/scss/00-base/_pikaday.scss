@@ -10,21 +10,21 @@
 
 .pika-label {
   color: $c-font-dark;
-  font-size: $fonts-xsmall;
+  font-size: $fonts-smaller;
 }
 
 .pika-table {
 
   th {
     color: $c-font-dark;
-    font-size: $fonts-3xsmall;
+    font-size: $fonts-2xsmall;
   }
 }
 
 .pika-button {
   background-color: $c-bg-section;
   color: $c-font-base;
-  font-size: $fonts-3xsmall;
+  font-size: $fonts-2xsmall;
   font-weight: $fonts-normal;
   text-align: center;
 

@@ -52,7 +52,7 @@
     h1 {
 
       @media ($bp-large-min) {
-        font-size: $fonts-9xlarge;
+        font-size: $fonts-10xlarge;
       }
     }
 
@@ -71,7 +71,7 @@
     text-align: center;
 
     @media ($bp-large-min) {
-      font-size: $fonts-9xlarge;
+      font-size: $fonts-10xlarge;
     }
   }
 
@@ -128,7 +128,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-basis: auto;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     height: 40px;
     padding-left: 15px;
@@ -254,12 +254,12 @@
   }
 
   &__image-name {
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     line-height: 1.125rem;
   }
 
   &__image-author {
-    font-size: $fonts-3xsmall;
+    font-size: $fonts-2xsmall;
     line-height: 1.125rem;
   }
   // End backward compatible with v5.7 - converted image-credit to new Banner Credit molecule

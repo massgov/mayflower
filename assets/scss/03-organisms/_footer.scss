@@ -9,7 +9,7 @@
   &__back2top {
 
     @include ma-button("small");
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     opacity: 1;
     padding: .5em .7em;
@@ -101,7 +101,7 @@
   }
 
   &__copyright {
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     line-height: 1.54;
 
     @media ($bp-large-max) {

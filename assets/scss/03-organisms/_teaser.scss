@@ -42,7 +42,7 @@ $c-theme-green: #43956f;
   }
 
   .ma__address {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 27px;
   }
 
@@ -74,7 +74,7 @@ $c-theme-green: #43956f;
     margin-bottom: 5px;
 
     span {
-      font-size: $fonts-4xsmall;
+      font-size: $fonts-3xsmall;
       letter-spacing: 0.1em;
       padding: 5px 7px;
       text-transform: uppercase;
@@ -92,7 +92,7 @@ $c-theme-green: #43956f;
 
       &__details {
         font-style: italic;
-        font-size: $fonts-2xsmall;
+        font-size: $fonts-xsmall;
       }
 
       &__item {
@@ -118,7 +118,7 @@ $c-theme-green: #43956f;
 
   &__date,
   &__org {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 1;
     margin-bottom: 1em;
     color: $c-font-dark;
@@ -191,7 +191,7 @@ $c-theme-green: #43956f;
     padding-right: 0.75em;
     flex: 1 40%;
     flex-grow: 2;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 27px;
     margin-bottom: 10px;
 
@@ -228,7 +228,7 @@ $c-theme-green: #43956f;
     display: flex;
     flex-flow: row;
     align-items: center;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 22px;
 
     .ma__decorative-link {
@@ -287,7 +287,7 @@ $c-theme-green: #43956f;
   }
 
   .ma__phone {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 27px;
 
     a {

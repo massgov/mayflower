@@ -2,7 +2,7 @@
 
   @if ($border == transparent) {
     border-bottom: 2px solid;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     padding-bottom: .5em;
     text-transform: uppercase;

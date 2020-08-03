@@ -54,7 +54,7 @@
 
   &__day {
     display: block;
-    font-size: $fonts-8xlarge;
+    font-size: $fonts-9xlarge;
     line-height: 1;
   }
 
@@ -90,7 +90,7 @@
   &__location,
   &__date,
   &__time {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
 
     .ma__page-header & {
       font-size: $fonts-large;
@@ -104,12 +104,12 @@
   }
 
   &__date {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 1.2;
   }
 
   &__time {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 1.2;
   }
 

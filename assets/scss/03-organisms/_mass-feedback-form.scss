@@ -61,7 +61,7 @@ $formQuickTransitions: max-height 0.3s linear;
         bottom: 8px;
         right: 5px;
         top: auto;
-        font-size: $fonts-2xsmall;
+        font-size: $fonts-xsmall;
         font-weight: $fonts-light;
       }
     }
@@ -160,7 +160,7 @@ $formQuickTransitions: max-height 0.3s linear;
         text-align: center;
         width: 10%;
         line-height: 1;
-        font-size: $fonts-xsmall;
+        font-size: $fonts-smaller;
         font-weight: 600;
         color: $c-gray-dark;
       }
@@ -188,7 +188,7 @@ $formQuickTransitions: max-height 0.3s linear;
       &::after {
         position: absolute;
         bottom: 45px;
-        font-size: $fonts-2xsmall;
+        font-size: $fonts-xsmall;
 
         @media ($bp-feedback-min) {
           display: none;

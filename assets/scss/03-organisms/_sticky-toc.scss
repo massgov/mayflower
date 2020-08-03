@@ -94,7 +94,7 @@
   &__toggle-link {
 
     @include ma-button-reset;
-    font-size: $fonts-3xlarge;
+    font-size: $fonts-4xlarge;
     line-height: .65em;
     overflow: hidden;
     position: absolute;
@@ -375,7 +375,7 @@
       span {
         display: block;
         text-transform: uppercase;
-        font-size: $fonts-4xsmall;
+        font-size: $fonts-3xsmall;
         font-weight: $fonts-bold;
         color: $c-primary;
         letter-spacing: $letter-spacing-large;

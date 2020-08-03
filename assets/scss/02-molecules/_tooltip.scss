@@ -9,7 +9,7 @@
     border-bottom-style: dotted;
     border-bottom-width: 2px;
     cursor: pointer;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     transition: border ease .4s;
 
     & > svg {
@@ -67,7 +67,7 @@
   &__close {
     border: 2px solid;
     display: block;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-small;
     line-height: 1.2rem;
     margin: 0;
@@ -94,7 +94,7 @@
   }
 
   &__message {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     margin: 15px 20px 15px;
 
   }

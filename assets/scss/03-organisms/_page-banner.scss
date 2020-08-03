@@ -153,7 +153,7 @@ $page-banner-height: 330px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     max-width: 1050px;
     padding: 30px 25px 45px 0;
     z-index: 1;
@@ -194,7 +194,7 @@ $page-banner-height: 330px;
   }
 
   &--small &__content {
-    font-size: $fonts-3xsmall;
+    font-size: $fonts-2xsmall;
     padding: 25px 25px 40px 0;
 
     @media ($bp-x-small-min) {
@@ -307,11 +307,11 @@ $page-banner-height: 330px;
   &--small &__title {
 
     @media ($bp-small-min) {
-      font-size: $fonts-6xlarge;
+      font-size: $fonts-7xlarge;
     }
 
     @media ($bp-large-min) {
-      font-size: $fonts-7xlarge;
+      font-size: $fonts-8xlarge;
     }
   }
 

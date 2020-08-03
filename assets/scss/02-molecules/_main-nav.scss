@@ -33,7 +33,7 @@
     transition: background-color .4s;
 
     @media ($bp-header-toggle-max) {
-      font-size: $fonts-2xsmall;
+      font-size: $fonts-xsmall;
     }
 
     @media ($bp-header-toggle-min) {
@@ -70,7 +70,7 @@
 
     @include ma-button-reset;
     display: block;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     line-height: 1.45;
     padding: 10px 0;
@@ -143,7 +143,7 @@
   &__back {
 
     @include ma-button-reset;
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     padding-left: 20px;
     position: fixed;
       top: 5px;
@@ -280,7 +280,7 @@
   }
 
   &__subitem:last-child &__link {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     letter-spacing: letter-spacing-medium;
     text-transform: uppercase;
   }

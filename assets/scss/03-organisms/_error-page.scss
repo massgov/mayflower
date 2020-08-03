@@ -3,7 +3,7 @@
   text-align: center;
 
   &__label {
-    font-size: $fonts-10xlarge;
+    font-size: $fonts-11xlarge;
     line-height: 0.72;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -24,7 +24,7 @@
     line-height: 1.31;
 
     @media ($bp-small-min) {
-      font-size: $fonts-3xlarge;
+      font-size: $fonts-4xlarge;
     }
   }
 

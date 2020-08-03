@@ -82,14 +82,14 @@
   }
 
   &__eyebrow, &__time {
-    font-size: $fonts-3xsmall;
+    font-size: $fonts-2xsmall;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
     padding: 5px 7px;
   }
 
   &__emphasized {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 1;
     padding-top: 15px;
     display: flex;
