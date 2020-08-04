@@ -45,7 +45,7 @@
   }
 
   &__link {
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     line-height: 1.2;
     margin-bottom: 10px;
   }
@@ -133,11 +133,11 @@
       fill: $c-primary-alt;
     }
   }
-  
+
   &__view-all {
-    
+
     a {
-      
+
       &:hover,
       &:after {
         border-color: rgba($c-font-link, .5);
