@@ -60,21 +60,21 @@ $fonts-2xsmall:     0.875rem !default;
 $fonts-xsmall:      1rem !default;
 $fonts-smaller:     1.125rem !default;
 $fonts-small:       1.25rem !default;
-$fonts-medium:      1.375rem !default;
-$fonts-large:       1.5rem !default;
-$fonts-larger:      1.625rem !default;
-$fonts-xlarge:      1.75rem !default;
-$fonts-2xlarge:     2rem !default;
-$fonts-3xlarge:     2.25rem !default;
-$fonts-4xlarge:     2.5rem !default;
-$fonts-5xlarge:     2.75rem !default;
-$fonts-6xlarge:     3rem !default;
-$fonts-7xlarge:     3.25rem !default;
-$fonts-8xlarge:     3.5rem !default;
+$fonts-medium:      1.375rem !default;  // normal paragraph text
+$fonts-large:       1.5rem !default;    // H6
+$fonts-larger:      1.625rem !default;  // H5
+$fonts-xlarge:      1.75rem !default;   // H4
+$fonts-2xlarge:     2rem !default;      // H3
+$fonts-3xlarge:     2.25rem !default;   // H2 small
+$fonts-4xlarge:     2.5rem !default;    // H2 medium
+$fonts-5xlarge:     2.75rem !default;   // H2 large
+$fonts-6xlarge:     3rem !default;      // H1 small
+$fonts-7xlarge:     3.25rem !default;   // H1 medium
+$fonts-8xlarge:     3.5rem !default;    // H1 large
 $fonts-9xlarge:     4rem !default;
 $fonts-10xlarge:    5rem !default;
 $fonts-11xlarge:    7rem !default;
-$fonts-max:         12rem !default;
+$fonts-max:         12.75rem !default;  // Error decorative letters
 
 //letter-spacing for Texta
 $letter-spacing-large:   .1em;
