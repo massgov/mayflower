@@ -52,8 +52,14 @@ const lastUtilMenuContentLink = document.querySelector(".js-utility-nav--narrow 
 // no utility nav, sub menu closed
 lastTopMenuItem.addEventListener("keydown", function (e) {
   if (e.key === "Tab" || e.code === "9") {
-    if (width > 840 && (this.getAttribute("aria-expanded") === "false")) {
-      setFocusOnFirstTopMenu();
+    if (width > 840) {
+      if (!this.hasAttribute("aria-expanded")) {// For link
+        setFocusOnFirstTopMenu();
+      } else {// For buttons
+        if(this.getAttribute("aria-expanded") === "false") {
+          setFocusOnFirstTopMenu();
+        }
+      }
     }
   }
 });
