@@ -42,41 +42,64 @@ menuButton.addEventListener("click", function (event) {
   }
 });
 
-// To accomodate both buttons and links as menu items, use 'ma__' classes instead of 'js-'.
+const firstTopMenuItem = document.querySelector(".ma__header__hamburger__nav .ma__main__hamburger-nav__item:first-of-type .js-main-nav-hamburger__top-link");
+// To accomodate both buttons and links as top menu items, use 'ma__' classes instead of 'js-'.
 const lastTopMenuItem = document.querySelector(".ma__main__hamburger-nav__item:last-of-type .ma__main__hamburger-nav__top-link");
 const lastSubmenuLink = document.querySelector(".ma__main__hamburger-nav__item:last-of-type .js-main-nav-hamburger__subitem:last-of-type .js-main-nav-hamburger__link");
 const lastUtilMenuItem = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-nav__link");
-const lastUtilMenuContentLink = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-panel__item .js-clickable-link");
+const lastUtilMenuContentLink = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-panel:last-of-type .js-clickable:last-of-type .js-clickable-link");
 
-const firstTopMenuItem = document.querySelector(".ma__main__hamburger-nav__item:first-of-type .ma__main__hamburger-nav__top-link");
-
-
-// no utility nav
+// no utility nav, sub menu closed
 lastTopMenuItem.addEventListener("keydown", function (e) {
-  if (e.key == "Tab") {
-    if (width > 840) {
-      console.log(firstTopMenuItem.textContent);// This prints "Living".
-      firstTopMenuItem.focus();// Focus is set on the second menu, "Working".
-      // document.getElementById("button1").focus();
-      // document.querySelector(".ma__main__hamburger-nav__item .ma__main__hamburger-nav__top-link").focus();
+  if (e.key === "Tab" || e.code === "9") {
+    if (width > 840 && (this.getAttribute("aria-expanded") === "false")) {
+      setFocusOnFirstTopMenu();
     }
   }
 });
 
-// with utility nav
-lastUtilMenuItem.addEventListener("keydown", function (e) {
-  if (e.key == "Tab") {
-    if (width < 841) {
-      console.log(firstTopMenuItem.textContent);// This prints "Living".
-      firstTopMenuItem.focus();// Focus is set on the second menu, "Working".
+// no utility nav, sub menu open
+lastSubmenuLink.addEventListener("keydown", function (e) {
+  if (e.key === "Tab" || e.code === "9") {
+    // Close the submenu and move focus to the first top menu button.
+    if (width > 840) {
+      closeSubMenu();
+      setFocusOnFirstTopMenu();
     }
   }
 });
+
+// with utility nav, utility nav content closed
+lastUtilMenuItem.addEventListener("keydown", function (e) {
+  if (e.key === "Tab" || e.code === "9") {
+    if (width < 841 && (this.getAttribute("aria-expanded") === "false")) {
+      setFocusOnFirstTopMenu();
+    }
+  }
+});
+
+// with utility nav, utility nav content open
+lastUtilMenuContentLink.addEventListener("keydown", function (e) {
+  if (e.key === "Tab" || e.code === "9") {
+    // Close the nav content and move focus to the first top menu button.
+    if (width < 841) {
+      closeNarrowUtilContent();
+      setFocusOnFirstTopMenu();
+    }
+  }
+});
+
+function setFocusOnFirstTopMenu () {
+  // Timeout function is necessary to set focus on the first top menu button. Otherwise, focus is set on next focusable element outside the menu.
+  setTimeout(function timeOutFunction () {
+    firstTopMenuItem.focus();
+  }, 1);
+}
 
 // menuButton.addEventListener("keydown", function (e) {
 //   if (e.key === "Enter" || e.which === "13") {
 
-//     console.log(menuButton.getAttribute("aria-expanded"));
+//     // console.log(menuButton.getAttribute("aria-expanded"));
 
 //     if (menuButton.getAttribute("aria-expanded") === "false") {
 //       // openMenu();
@@ -228,12 +251,12 @@ lastUtilMenuItem.addEventListener("keydown", function (e) {
       }
     }
 
-    if (width > 840 && e.key == "Tab") {
-      if (!itemButton.parentElement.nextElementSibling
-      && !itemButton.parentElement.classList.contains("submenu-open")) {
-        closeMenu();
-      }
-    }
+    // if (width > 840 && e.key == "Tab") {
+    //   if (!itemButton.parentElement.nextElementSibling
+    //   && !itemButton.parentElement.classList.contains("submenu-open")) {
+    //     closeMenu();
+    //   }
+    // }
   });
 
   [].forEach.call(subMenuItems, function (subItem) {
