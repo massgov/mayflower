@@ -10,6 +10,12 @@
   width: 100%;
   z-index: $z-sticky-content;
 
+  font-size: $fonts-medium;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-small;
+  }
+
   &:before {
     content: "true"; // hook for JS to do the mobile sticky
     display: none;
@@ -86,7 +92,6 @@
   &__link {
     cursor: pointer;
     display: none;
-    font-size: $fonts-small;
     line-height: 1.2;
     padding: 10px 15px;
     min-height: 47px;
@@ -112,7 +117,6 @@
         -o-transition: border 0.4s ease;
         transition: border 0.4s ease;
         font-weight: 500;
-        font-size: $fonts-small;
         line-height: 1.2;
       }
 
