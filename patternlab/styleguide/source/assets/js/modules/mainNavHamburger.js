@@ -83,7 +83,7 @@ else {
 /** DP-19336 end */
 
 // Open and close the menu
-// if (null !== menuButton) {
+if (menuButton !== null) {
 
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -274,16 +274,18 @@ else {
   });
 });
 
-jumpToSearchButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  jumpToSearch();
-});
+if (jumpToSearchButton !== null) {
+  jumpToSearchButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    jumpToSearch();
+  });
 
-jumpToSearchButton.addEventListener("touchend", (e) => {
-  e.preventDefault();
+  jumpToSearchButton.addEventListener("touchend", (e) => {
+    e.preventDefault();
 
-  jumpToSearch();
-}, false);
+    jumpToSearch();
+  }, false);
+}
 
 function toggleMenu() {
   if (body.classList.contains("show-menu")) {
