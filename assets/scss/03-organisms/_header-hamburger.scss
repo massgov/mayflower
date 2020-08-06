@@ -266,6 +266,14 @@ body.show-menu {
     }
   }
 
+  &__main-nav {
+    
+    @media ($bp-header-toggle-min) {
+
+      padding-bottom: 43px;
+    }
+  }
+
   &__menu-button {
     background-color: $c-primary;
     text-align: left;
