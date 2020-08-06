@@ -2,7 +2,6 @@ const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = document.querySelector(".js-header__menu-text");
-let buttonLabel;
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
@@ -10,35 +9,104 @@ const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
-if (null !== menuButtonText) {
-  buttonLabel = menuButtonText.textContent;
+// Check whether the wide utility nav is open.
+const utilNavWideCheck = function() {
+  return utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0;
 }
 
-// Open and close the menu
-menuButton.addEventListener("click", function (event) {
-  event.preventDefault();
+/** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
+const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
+let emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+let hamburgerMenuAlertScrolling = function() {
+  if (hamburgerMainNav !== null && emergencyAlerts !== null && utilNavWideCheck() !== false) {
+    let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight || 0;
+    let hamburgerMenuTop = document.querySelector('.ma__header__hamburger__nav-container').offsetTop || 0;
 
-  // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-  hamburgerMenuContainer.toggleAttribute("aria-hidden");
+    // Add bottom padding when function is initially called.
+    hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
 
-  if (body.classList.contains("show-menu")) {
-    closeMenu();
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+    // Add bottom padding when alert style changes occur.
+    const alertObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutationRecord) {
+        if (mutationRecord.oldValue !== null && utilNavWideCheck() !== false) {
+          let result = {};
+          let attributes = mutationRecord.oldValue.split(';');
+          for (let i = 0; i < attributes.length; i++) {
+            let entry = attributes[i].split(':');
+            result[entry.splice(0,1)[0]] = entry.join(':');
+          }
 
-    setTimeout(function timeoutFunction() {
-      document.querySelector(".js-header-menu-button").focus();
-    }, 100);
-  } else {
-    openMenu();
-
-    // Set these elements unfocusable to enable to set focus on the first focusable element in hamburger menu with next tabbing as the menu opens.
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+          let oldDisplayValue = result.display.trim();
+          let currentDisplayValue = document.querySelector('.ma__emergency-alerts__content').style.display;
+          if (currentDisplayValue === oldDisplayValue) {
+            alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
+            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
+          }
+        }
+      });
+    });
+    alertObserver.observe(emergencyAlerts, {
+      attributes : true,
+      attributeFilter: ["style"],
+      attributeOldValue: true
+    });
   }
-});
+}
+
+// Not ideal, but this is here to wait for alerts to load via AJAX.
+const maAjaxPattern = document.querySelectorAll('.ma__ajax-pattern');
+let siteAlertWrapper = null;
+if (maAjaxPattern !== null) {
+  maAjaxPattern.forEach(function(value, key) {
+    if (value.dataset.maAjaxRenderPattern === '@organisms/by-template/emergency-alerts.twig') {
+      siteAlertWrapper = value;
+    }
+  });
+}
+
+if (siteAlertWrapper !== null) {
+  const jsonApiObserver = new MutationObserver(function(mutations, observer) {
+    emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+    if (emergencyAlerts !== null) {
+      observer.disconnect();
+    }
+    hamburgerMenuAlertScrolling();
+  });
+  jsonApiObserver.observe(siteAlertWrapper, {
+    childList: true
+  });
+}
+else {
+  hamburgerMenuAlertScrolling();
+}
+/** DP-19336 end */
+
+// Open and close the menu
+if (menuButton !== null) {
+  menuButton.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    hamburgerMenuContainer.toggleAttribute("aria-hidden");
+
+    if (body.classList.contains("show-menu")) {
+      closeMenu();
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+
+      setTimeout(function timeoutFunction() {
+        document.querySelector(".js-header-menu-button").focus();
+      }, 100);
+    } else {
+      openMenu();
+
+      // Set these elements unfocusable to enable to set focus on the first focusable element in hamburger menu with next tabbing as the menu opens.
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+    }
+  });
 
 // =============== exisiting code below
 // menuButton.addEventListener("keydown", function (e) {
@@ -71,7 +139,8 @@ menuButton.addEventListener("click", function (event) {
   // if (e.code == "Escape" || e.which == "27") {
   //   closeMenu();
   // }
-// });
+  // });
+}
 
 [].forEach.call(menuItems, function (item) {
 
@@ -218,22 +287,24 @@ menuButton.addEventListener("click", function (event) {
   });
 });
 
-jumpToSearchButton.addEventListener("click", function(e) {
-  // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-  hamburgerMenuContainer.toggleAttribute("aria-hidden");
+if (jumpToSearchButton !== null) {
+  jumpToSearchButton.addEventListener("click", function(e) {
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    hamburgerMenuContainer.toggleAttribute("aria-hidden");
 
-  if (body.classList.contains("show-menu")) {
-    closeMenuJumpToSearch();
-    // Set focus back on the jumpToSearchButton button since the input gets hidden by closing the menu.
-    jumpToSearchButton.focus();
-  } else {
-    openMenuJumpToSearch();
-    // Set focus on the search input field.
-    setTimeout(function timeoutFunction() {
-      document.getElementById("nav-search").focus();
-    }, 90);
-  }
-});
+    if (body.classList.contains("show-menu")) {
+      closeMenuJumpToSearch();
+      // Set focus back on the jumpToSearchButton button since the input gets hidden by closing the menu.
+      jumpToSearchButton.focus();
+    } else {
+      openMenuJumpToSearch();
+      // Set focus on the search input field.
+      setTimeout(function timeoutFunction() {
+        document.getElementById("nav-search").focus();
+      }, 90);
+    }
+  });
+}
 
 function closeMenu() {
   commonCloseMenuTasks();
@@ -321,13 +392,13 @@ function closeSubMenus(item) {
 }
 
 // Close menu when utility nav is clicked
-if (null !== utilNavWide) {
-  closeMenu();
+if (utilNavWide !== null) {
+    closeMenu();
 }
 
 
 // Close and reset menu on overlay click
-if (null !== menuOverlay) {
+if (menuOverlay !== null) {
   menuOverlay.addEventListener("click", function () {
     closeMenu();
   });
@@ -338,6 +409,9 @@ window.onresize = function () {
   clearTimeout(debouncer);
   debouncer = setTimeout(function () {
     width = body.clientWidth;
+    if (utilNavWideCheck() !== false) {
+      hamburgerMenuAlertScrolling();
+    }
   }, 100);
 };
 
@@ -345,40 +419,43 @@ window.onresize = function () {
 // ** Utility nav
 
 // Wide/utility nav bar
-const utilWideButton = utilNavWide.querySelector(".js-util-nav-toggle");
-const utilWideCloseButton = utilNavWide.querySelector(".js-close-util-nav");
-const utilWideContent = utilNavWide.querySelector(".js-util-nav-content");
+const utilWideButton = document.querySelector(".js-utility-nav--wide .js-util-nav-toggle");
+const utilWideCloseButton = document.querySelector(".js-utility-nav--wide .js-close-util-nav");
+const utilWideContent = document.querySelector(".js-utility-nav--wide .js-util-nav-content");
+if (utilWideButton !== null && utilWideCloseButton !== null && utilWideContent !== null) {
+  // Open
+  utilWideButton.addEventListener("click", function (e) {
 
-// Open
-utilWideButton.addEventListener("click", function (e) {
+    const thisWideButton = e.target.closest(".js-util-nav-toggle");
+    const thisWideContent = thisWideButton.nextElementSibling;
 
-  const thisWideButton = e.target.closest(".js-util-nav-toggle");
-  const thisWideContent = thisWideButton.nextElementSibling;
+    if (thisWideContent.classList.contains("is-closed")) {//  To open
+      thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
 
-  if (thisWideContent.classList.contains("is-closed")) {//  To open
-    thisWideButton.closest(".ma__header__hamburger__nav").classList.add("util-nav-content-open");
+      thisWideContent.classList.remove("is-closed");
+      thisWideContent.removeAttribute("aria-hidden");
+      thisWideContent.removeAttribute("style");
+      thisWideContent.style.height = "auto";
+      thisWideContent.style.opacity = "1";
 
-    thisWideContent.classList.remove("is-closed");
-    thisWideContent.removeAttribute("aria-hidden");
-    thisWideContent.removeAttribute("style");
-    thisWideContent.style.height = "auto";
-    thisWideContent.style.opacity = "1";
+      // Button State
+      thisWideButton.setAttribute("aria-expanded", "true");
+      thisWideButton.setAttribute("aria-pressed", "true");
+    }
 
-    // Button State
-    thisWideButton.setAttribute("aria-expanded", "true");
-    thisWideButton.setAttribute("aria-pressed", "true");
-  }
-
-  setTimeout(function() {
-    thisWideButton.setAttribute("aria-expanded", "true");
-    thisWideButton.setAttribute("aria-pressed", "true");
-  }, 200);
-});
+    setTimeout(function () {
+      thisWideButton.setAttribute("aria-expanded", "true");
+      thisWideButton.setAttribute("aria-pressed", "true");
+    }, 200);
+  });
+}
 
 // Close - Utility nav dropdown on the utility nav bar overwaps the button to open it once it's open. To close the dropdown, use the close button within the dropdown container. This is the control for that inside button.
-utilWideCloseButton.addEventListener("click", function (e) {
-  closeUtilWideContent();
-});
+if (utilWideCloseButton !== null) {
+  utilWideCloseButton.addEventListener("click", function (e) {
+    closeUtilWideContent();
+  });
+}
 
 function closeUtilWideContent()  {
   // Content state
@@ -401,68 +478,73 @@ function closeUtilWideContent()  {
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
 let utilNarrowContent = utilNarrowButton.nextElementSibling;
 let utilNarrowContainer = utilNarrowContent.querySelector(".ma__utility-nav__container");
+if (utilNarrowButton !== null) {
+  utilNarrowContent = utilNarrowButton.nextElementSibling;
 
-utilNarrowContent.style.maxHeight = "0";
-utilNarrowContainer.style.opacity = "0";
+  utilNarrowContent.style.maxHeight = "0";
+  utilNarrowContainer.style.opacity = "0";
 
-utilNarrowButton.addEventListener("click", function(e) {
+  utilNarrowButton.addEventListener("click", function (e) {
 
-  const thisButton = e.target.closest(".js-util-nav-toggle");
-  const thisNavContainer = e.target.closest(".ma__utility-nav__item");
-  utilNarrowContent = thisButton.nextElementSibling;
+    const thisButton = e.target.closest(".js-util-nav-toggle");
+    const thisNavContainer = e.target.closest(".ma__utility-nav__item");
+    utilNarrowContent = thisButton.nextElementSibling;
 
-  if (utilNarrowContent.classList.contains("is-closed")) {
-    // TO OPEN
+    if (utilNarrowContent.classList.contains("is-closed")) {
+      // TO OPEN
 
-    closeSubMenu();
+      closeSubMenu();
 
-    thisButton.setAttribute("aria-expanded", "true");
+      thisButton.setAttribute("aria-expanded", "true");
+      thisNavContainer.style.pointerEvents = "none";
+      /** Slide down. */
+      setTimeout(function timeoutFunction() {
+        thisNavContainer.removeAttribute("style");
+      }, 700);
+
+      /** Show the content. */
+      utilNarrowContent.classList.remove("is-closed");
+      utilNarrowContent.style.maxHeight = "auto";
+
+      /** Get the computed height of the content. */
+      var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
+
+      /** Set the height of the submenu as 0px, */
+      /** so we can trigger the slide down animation. */
+      utilNarrowContent.style.maxHeight = "0";
+      utilNarrowContent.style.Height = "0";
+
+      // These height settings display the bottom border of the parent li at the correct spot.
+      utilNarrowContent.style.height = contentHeight;
+      utilNarrowContainer.style.height = contentHeight;
+
+      setTimeout(function timeoutFunction() {
+        utilNarrowContent.style.maxHeight = contentHeight;
+        utilNarrowContainer.style.opacity = "1";
+      }, 50);
+    } else {
+      closeNarrowUtilContent();
+    }
+  });
+}
+
+function closeNarrowUtilContent() {
+  if (utilNarrowContent) {
+    const thisNavContainer = utilNarrowButton.closest(".ma__utility-nav__item");
+
+    utilNarrowButton.setAttribute("aria-expanded", "false");
     thisNavContainer.style.pointerEvents = "none";
-    /** Slide down. */
+
     setTimeout(function timeoutFunction() {
       thisNavContainer.removeAttribute("style");
     }, 700);
 
-    /** Show the content. */
-    utilNarrowContent.classList.remove("is-closed");
-    utilNarrowContent.style.maxHeight = "auto";
-
-    /** Get the computed height of the content. */
-    var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
-
-    /** Set the height of the submenu as 0px, */
-    /** so we can trigger the slide down animation. */
     utilNarrowContent.style.maxHeight = "0";
-    utilNarrowContent.style.Height = "0";
-
-    // These height settings display the bottom border of the parent li at the correct spot.
-    utilNarrowContent.style.height = contentHeight;
-    utilNarrowContainer.style.height = contentHeight;
-
+    utilNarrowContainer.style.opacity = "0";
     setTimeout(function timeoutFunction() {
-      utilNarrowContent.style.maxHeight = contentHeight;
-      utilNarrowContainer.style.opacity = "1";
-    }, 50);
-  } else {
-    closeNarrowUtilContent();
+      utilNarrowContent.classList.add("is-closed");
+    }, 500);
   }
-});
-
-function closeNarrowUtilContent() {
-  const thisNavContainer = utilNarrowButton.closest(".ma__utility-nav__item");
-
-  utilNarrowButton.setAttribute("aria-expanded", "false");
-  thisNavContainer.style.pointerEvents = "none";
-
-  setTimeout(function timeoutFunction() {
-    thisNavContainer.removeAttribute("style");
-  }, 700);
-
-  utilNarrowContent.style.maxHeight = "0";
-  utilNarrowContainer.style.opacity = "0";
-  setTimeout(function timeoutFunction() {
-    utilNarrowContent.classList.add("is-closed");
-  }, 500);
 }
 
 function closeSubMenu() {

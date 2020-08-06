@@ -3,7 +3,7 @@ let menuButton = document.querySelector(".js-header-menu-button");
 let feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 
-if (null !== menuButton) {
+if (menuButton !== null) {
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -14,9 +14,11 @@ if (null !== menuButton) {
 
 // // ****** Access to Search button on mobile should hide feedback button when menu opens  ******
 
-jumpToSearchButton.addEventListener("click", function (event) {
-  toggleFeedbackButton();
-});
+if (jumpToSearchButton !== null) {
+  jumpToSearchButton.addEventListener("click", function (event) {
+    toggleFeedbackButton();
+  });
+}
 
 function toggleFeedbackButton() {
   if (feedbackButton) {
