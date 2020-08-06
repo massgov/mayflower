@@ -53,7 +53,7 @@
     margin-bottom: 5px;
 
     span {
-      font-size: 0.813rem;
+      font-size: $fonts-3xsmall;
       letter-spacing: .1em;
       padding: 5px 7px;
       text-transform: uppercase;
@@ -63,12 +63,12 @@
   }
 
   &__title {
-    font-size: 1.625rem;
+    font-size: $fonts-larger;
     line-height: 1.2em;
     margin-bottom: .25em;
 
     .ma__decorative-link {
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: 1.2;
     }
   }
@@ -78,15 +78,15 @@
     .ma__contact-group{
       &__details{
         font-style: italic;
-        font-size: 0.95rem;
+        font-size: $fonts-xsmall;
       }
       &__item{
-        font-size: 1.24rem;
+        font-size: $fonts-small;
       }
       &__name{
          margin-bottom: 0;
          span {
-          font-size: 1.25rem;
+          font-size: $fonts-small;
           color: $c-gray-dark;
           font-weight: 550;
          }
@@ -137,17 +137,17 @@
   &__sublink{
     margin-bottom: 0.25rem;
     .ma__decorative-link {
-      font-size: 1.2rem;
+      font-size: $fonts-small;
       line-height: 1.4rem;
       margin-bottom: .5rem;
     }
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
 
     @media ($bp-x-small-max) {
-      font-size: 1.24rem;
+      font-size: $fonts-small;
     }
 
     p {
@@ -201,7 +201,7 @@
         align-items: center;
 
       .ma__decorative-link {
-        font-size: 1.2rem;
+        font-size: $fonts-small;
         line-height: 1.4rem;
         margin-bottom: .0rem;
         margin-left: .25em;

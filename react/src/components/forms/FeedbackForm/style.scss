@@ -89,7 +89,7 @@
 }
 
 .ma__disclaimer {
-  font-size: 1.19rem;/* in mass_decision_tree, this is set to 19px, but here make it relatively adjustable based on the root font size set to viewports. In full screen display, it's equivalent to 19px. */
+  font-size: $fonts-small;/* in mass_decision_tree, this is set to 19px, but here make it relatively adjustable based on the root font size set to viewports. In full screen display, it's equivalent to 20px. */
 }
 
 .ma__disclaimer strong {
