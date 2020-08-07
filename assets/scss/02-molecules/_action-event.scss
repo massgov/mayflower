@@ -16,15 +16,15 @@
     margin-bottom: 0;
 
     a {
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: 1.2;
     }
   }
 
   &__description {
-    
+
     @media ($bp-small-min) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
   }
 }

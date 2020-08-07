@@ -6,7 +6,7 @@
     &:after {
       content: attr(data-char-left);
       display: block;
-      font-size: 17px;
+      font-size: $fonts-xsmall;
       line-height: 1.625rem;
       position: absolute;
         right: 0;

@@ -6,8 +6,12 @@
   padding: 20px 0 15px 0;
   font-weight: 600;
   border-bottom: 1px solid $c-bd-divider;
-  font-size: 16px;
   margin: 0 20px 10px;
+  font-size: $fonts-smaller;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-xsmall;
+  }
 
   @media ($bp-x-small-min) {
     padding-top: 23px;
@@ -54,7 +58,6 @@
     // margin-bottom: 2px;
     margin-right: 10px;
     line-height: 22px;
-    font-size: 16px;
     padding-right: 5px;
     list-style: none;
   }
@@ -212,7 +215,6 @@
       align-self: flex-start;
       padding: 0;
       line-height: 22px;
-      font-size: 16px;
       font-weight: 600;
       white-space: nowrap;
       display: none;
