@@ -5,7 +5,7 @@ export default (function (window, document, $, undefined) {
   let $utilityButtons = $('.js-util-nav-toggle');
 
   $panels.each(function () {
-    if ($(this).closeset(".ma__header__hamburger__utility-nav--narrow ") !== true) {
+    if ($(this).closest(".ma__header__hamburger__utility-nav--narrow") !== true) {
       $panel = $(this);
     }
     const height = $panel.height();
