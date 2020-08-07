@@ -1,14 +1,22 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
+const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
+const menuOverlay = document.querySelector(".menu-overlay");
+
 const menuButton = document.querySelector(".js-header-menu-button");
 let menuButtonText = document.querySelector(".js-header__menu-text");
 let buttonLabel;
-const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
-const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
-let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
-const menuOverlay = document.querySelector(".menu-overlay");
-let utilNavWide = document.querySelector(".js-utility-nav--wide");
+
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
+
+const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
+let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
+
+let utilNavWide = document.querySelector(".js-utility-nav--wide");
+let utilNarrowNav = document.querySelector(".ma__header__hamburger__utility-nav--narrow");
+const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
+let utilNarrowContent = utilNarrowButton.nextElementSibling;
+let utilNarrowContainer = utilNarrowContent.querySelector(".ma__utility-nav__container");
 
 if (null !== menuButtonText) {
   buttonLabel = menuButtonText.textContent;
@@ -51,7 +59,15 @@ const lastUtilMenuContentLink = document.querySelector(".js-utility-nav--narrow 
 
 // no utility nav, sub menu closed
 lastTopMenuItem.addEventListener("keydown", function (e) {
-  if (e.key === "Tab" || e.code === "9") {
+  // Without this, sift + tab set focus on the first top menu button.
+  if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
+    if (width < 841) {
+      setTimeout(function timeOutFunction () {
+        this.closest(".js-main-nav-hamburger-toggle").previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
+      }, 1);
+    }
+  }
+  else if (e.key === "Tab" || e.code === "9") {
     if (width > 840) {
       if (!this.hasAttribute("aria-expanded")) {// For link
         setFocusOnFirstTopMenu();
@@ -90,7 +106,15 @@ lastUtilMenuItem.addEventListener("keydown", function (e) {
 
 // with utility nav, last utility nav content open
 lastUtilMenuContentLink.addEventListener("keydown", function (e) {
-  if (e.key === "Tab" || e.code === "9") {
+  // Without this, sift + tab set focus on the first top menu button.
+  if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
+    if (width < 841) {
+      setTimeout(function timeOutFunction () {
+        this.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
+      }, 1);
+    }
+  }
+  else if (e.key === "Tab" || e.code === "9") {
     // Close the nav content and move focus to the first top menu button.
     if (width < 841) {
       closeNarrowUtilContent();
@@ -106,30 +130,61 @@ function setFocusOnFirstTopMenu () {
   }, 1);
 }
 
-// menuButton.addEventListener("keydown", function (e) {
-//   if (e.key === "Enter" || e.which === "13") {
+document.addEventListener("keydown", function (e) {
+  // ESC to close menus.
+  if (e.key === "Escape" || e.which === "27") {
+    // Log in to... in Utility nav bar
+    if (utilNavWide.querySelector(".js-util-nav-content").style.opacity === "1") {
+      closeUtilWideContent();
+      utilNavWide.querySelector(".js-util-nav-toggle").focus();
+    }
 
-//     // console.log(menuButton.getAttribute("aria-expanded"));
+    // Util nav menus in the hamburger menu
+    if (utilNarrowNav) {
+      if ((utilNarrowButton !== document.activeElement) && (utilNarrowContainer.style.opacity === "1")) {// Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
+        let utilNavContentLinks = utilNarrowNav.querySelectorAll(".js-clickable-link");
+        for (let i = 0; i < utilNavContentLinks.length; i++) {
+          if (utilNavContentLinks[i].innerText === document.activeElement.innerText) {
+            utilNarrowButton.focus();
+          }
+        }
+      }
+      else {
+        let narrowNavItems = utilNarrowNav.querySelectorAll(".ma__utility-nav__link");
+        for (let i = 0; i < narrowNavItems.length; i++) {
+          if (narrowNavItems[i].innerText === document.activeElement.innerText) {
+            closeMenu();
+          }
+        }
+      }
+    }
 
-//     if (menuButton.getAttribute("aria-expanded") === "false") {
-//       // openMenu();
+    // Main nav elements
+    let openSubmenu = document.querySelector(".submenu-open .js-main-nav-hamburger__top-link");
+    if (openSubmenu !== document.activeElement) {
+      // To prevent to set focus on another top menu button with open submenu.
+      const menus = document.querySelectorAll(".ma__main__hamburger-nav__top-link");
+      for(let i = 0; i < menus.length; i++) {
+        if (menus[i] === document.activeElement) {
+          closeMenu();
+        }
+      }
 
-//       // Opening menu button with enter is set somewhere else. Cannot find where.
-//       // Set focus on hamburger menu container.
-//       // Then, next tabbing takes a user to the first focusable element in the menu container.
-//       setTimeout(function timeoutFunction() {
-//         // hamburgerMenuContainer.focus();
-//         document.querySelector(".ma__header__hamburger__nav-container").focus();
+      // Set focus on its parent top menu button.
+      let openSubmenuItems = document.querySelectorAll(".submenu-open .js-main-nav-hamburger-content:not(is-closed) .js-main-nav-hamburger__link");
+      for(let i = 0; i < openSubmenuItems.length; i++) {
+        if (openSubmenuItems[i] === document.activeElement) {
+          openSubmenu.focus();
+        }
+      }
+    }
+    else {
+      closeMenu();
+    }
+  }
+});
 
-//         console.log(document.activeElement);
-//       }, 1000);
-//     } else {
-//       closeMenu();
-//       menuButton.focus();
-//     }
-//   }
-// });
-
+// NOTE: KEEPING BELOW FOR MORE KEYBOARD NAVIGATION WORK AFTER ACCESSIBILITY TEST.
 // =============== exisiting code below
 // menuButton.addEventListener("keydown", function (e) {
 
@@ -223,7 +278,9 @@ function setFocusOnFirstTopMenu () {
         }, 50);
 
         /** Close Utility menu content when a sub menu is open. */
-        closeNarrowUtilContent();
+        if (width < 840) {
+          closeNarrowUtilContent();
+        }
       }
       else {
         subMenu.style.height = "0";
@@ -246,7 +303,7 @@ function setFocusOnFirstTopMenu () {
 
     if (e.code == "Escape" || e.which == "27") {
       if (item.classList.contains("submenu-open")) {
-        // NOTE: KEEP BELOW COMMENTED LINES UNTIL THE DESIGN TEAM CONFIRM THE BEHAVIOR.
+        // NOTE: KEEP BELOW COMMENTED LINES UNTIL THE DESIGN TEAM FINALIZES THE BEHAVIOR.
 
         // subItems.style.opacity = "0";
         // subMenu.style.height = "0";
@@ -283,12 +340,6 @@ function setFocusOnFirstTopMenu () {
             nextSib.querySelector(".js-main-nav-hamburger__link").focus();
           }
           break;
-        // case "Escape":
-        //   console.log("marilyn");
-
-        //   itemButton.focus();
-
-        //    break;
       }
     });
   });
@@ -314,6 +365,18 @@ jumpToSearchButton.addEventListener("click", function(e) {
 function closeMenu() {
   commonCloseMenuTasks();
   menuButton.setAttribute("aria-pressed", "false");
+
+  // Set focusn on the menu button.
+  setTimeout(function timeoutFunction() {
+    document.querySelector(".js-header-menu-button").focus();
+  }, 100);
+
+  if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").hasAttribute("tabindex")) {
+      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+    document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
+  }
 }
 
 function closeMenuJumpToSearch() {
@@ -474,10 +537,6 @@ function closeUtilWideContent()  {
 }
 
 // Narrow/in hamburger menu
-const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-let utilNarrowContent = utilNarrowButton.nextElementSibling;
-let utilNarrowContainer = utilNarrowContent.querySelector(".ma__utility-nav__container");
-
 utilNarrowContent.style.maxHeight = "0";
 utilNarrowContainer.style.opacity = "0";
 
@@ -562,51 +621,3 @@ function closeSubMenu() {
     }, 700);
   }
 }
-
-// Keyboard navigation
-document.addEventListener("keydown", function (e) {
-  // ESC to close menus.
-  if (e.key === "Escape" || e.which === "27") {
-    // Check which menu is open.
-    if (utilNavWide.querySelector(".js-util-nav-content").style.opacity === "1") {// Log in to... in Utility nav bar
-      closeUtilWideContent();
-      utilNavWide.querySelector(".js-util-nav-toggle").focus();
-    }
-    else if (utilNarrowContainer.style.opacity === "1") {// Open Log in to... in Hamburger menu: To be consisitent with submenu, keep the content open and set focus on nav button.
-      utilNarrowButton.focus();
-    }
-    else if (utilNarrowButton === document.activeElement) {
-      closeMenu();
-      setTimeout(function timeoutFunction() {
-        document.querySelector(".js-header-menu-button").focus();
-      }, 100);
-    }
-    else {
-      let focusedSubmenu = false;
-      if (document.querySelector(".submenu-open")) {
-        let subMenuItemLabels = document.querySelectorAll(".submenu-open .js-main-nav-hamburger__link");
-
-        for (let i = 0; i < subMenuItemLabels.length; i++) {
-          if (subMenuItemLabels[i].innerText === document.activeElement.innerText) {
-            focusedSubmenu = true;
-          }
-        }
-      }
-
-      if (focusedSubmenu) {// Focused submenu item: set focus on its parent top menu button.
-        document.querySelector(".submenu-open .js-main-nav-hamburger__top-link").focus();
-      }
-      else {// Menu: A sub menu or a utlity menu could be open or close. No subitem has focus.
-        closeMenu();
-        setTimeout(function timeoutFunction() {
-          document.querySelector(".js-header-menu-button").focus();
-        }, 100);
-
-        document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
-        document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
-        document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
-        document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
-      }
-    }
-  }
-});
