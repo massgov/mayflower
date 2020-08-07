@@ -1,29 +1,28 @@
 Changed:
   - project: Patternlab
     component: Header
-    description: Set focus on the linked state seal in the hamburger menu  from a lower element with 'shift + tab'. (#)
+    description: Set focus on the linked state seal in the hamburger menu  from a lower element with 'shift + tab'. (#1141)
     issue: DP-17155
     impact: Patch
   - project: Patternlab
     component: Header
-    description: Set focus on the menu button from the linked state seal in the hamburger menu with 'shift + tab' from a lower element. (#)
+    description: Set focus on the menu button from the linked state seal in the hamburger menu with 'shift + tab' from a lower element. (#1141)
     issue: DP-17155
     impact: Patch
   - project: Patternlab
     component: Header
-    description: Set an open submenu not to collapse as focus moves to another menu unit. (#)
+    description: Set an open submenu not to collapse as focus moves to another menu unit. (#1141)
     issue: DP-17155
     impact: Patch
 
 Added:
   - project: Patternlab
     component: Header
-    description: Set up tabbing behaviors at the last elements in various conditions in the hamburger menu. (#)
+    description: Set up tabbing behaviors at the last elements in various conditions in the hamburger menu. (#1141)
     issue: DP-17155
     impact: Patch
   - project: Patternlab
     component: Header
-    description: Set up behaviors with 'escape' key at the last elements in various conditions in the hamburger menu. (#)
+    description: Set up behaviors with 'escape' key at the last elements in various conditions in the hamburger menu. (#1141)
     issue: DP-17155
     impact: Patch
-    
