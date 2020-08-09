@@ -1,4 +1,12 @@
 {
+  "ajaxEmergencyAlerts": {
+    "endpoint": "../../assets/data/emergency-alerts.json",
+    "renderPattern": "@organisms/by-template/emergency-alerts.twig"
+  },
+  "ajaxHeaderAlerts": {
+    "endpoint": "../../assets/data/header-alerts.json",
+    "renderPattern": "@organisms/by-template/header-alerts.twig"
+  },
   "hideHeaderSearch": false,
   "hideBackTo": true,
   "searchBanner": {

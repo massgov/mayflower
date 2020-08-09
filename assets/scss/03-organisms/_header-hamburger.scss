@@ -1,7 +1,7 @@
 $header-mobile-menu-width: 300px;
 $header-logo-width: 150px;
 $bp-header-logo-min: "min-width: 1000px";
-$utility-nav-height: 43px;
+$utility-nav-height: 44px;
 
 body.show-menu {
   overflow: hidden;
@@ -80,13 +80,14 @@ body.show-menu {
   }
 
   &-wrapper {
+    height: $utility-nav-height;
 
     @include ma-container;
 
     @media ($bp-medium-min) {
 
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
     }
 
     // THIS BLOCK MIGHT BE OVERRIDE IN DRUPAL.
@@ -96,8 +97,6 @@ body.show-menu {
       padding-right: 0;
       padding-left: 0;
       height: $header-mobile-controls-height;
-      position: fixed;
-      top: 0;
       left: 0;
       width: 100%;
       z-index: $z-dropdown;
@@ -308,7 +307,6 @@ body.show-menu {
 
       padding-left: 20px;
     }
-
   }
 
   &__menu-icon {
