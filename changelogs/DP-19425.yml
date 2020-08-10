@@ -1,0 +1,6 @@
+Changed:
+  - project: React
+    component: MainNav
+    description: Fix formatting of COVID global nav link on search.mass.gov (#1143)
+    issue: DP-19425
+    impact: Minor
