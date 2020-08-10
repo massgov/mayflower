@@ -119,11 +119,16 @@ class MainNav extends Component {
             const liId = `li${index}`;
             const isExpanded = navSelected === liId;
             const itemBody = [];
+            const covidTopLink = item.text.toLowerCase().includes('covid') || false;
+            const topLevelButtonClasses = classNames({
+              'ma__main-nav__top-link': true,
+              'cv-alternative-style': covidTopLink
+            });
             if (item.subNav) {
               const buttonProps = {
                 id: buttonId,
                 index,
-                className: 'ma__main-nav__top-link',
+                className: topLevelButtonClasses,
                 'aria-expanded': `${isExpanded}`,
                 'aria-haspopup': 'true',
                 role: 'menuitem',
