@@ -1,7 +1,6 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
-let menuButtonText = document.querySelector(".js-header__menu-text");
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
@@ -13,35 +12,35 @@ const searchInput = document.querySelector(".ma__header__hamburger__nav-containe
 // Check whether the wide utility nav is open.
 const utilNavWideCheck = function() {
   return utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0;
-}
+};
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
-const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
-let emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
+let emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
 let hamburgerMenuAlertScrolling = function() {
   if (hamburgerMainNav !== null && emergencyAlerts !== null && utilNavWideCheck() !== false) {
-    let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight || 0;
-    let hamburgerMenuTop = document.querySelector('.ma__header__hamburger__nav-container').offsetTop || 0;
+    let alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight || 0;
+    let hamburgerMenuTop = document.querySelector(".ma__header__hamburger__nav-container").offsetTop || 0;
 
     // Add bottom padding when function is initially called.
-    hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
+    hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
         if (mutationRecord.oldValue !== null && utilNavWideCheck() !== false) {
           let result = {};
-          let attributes = mutationRecord.oldValue.split(';');
+          let attributes = mutationRecord.oldValue.split(";");
           for (let i = 0; i < attributes.length; i++) {
-            let entry = attributes[i].split(':');
-            result[entry.splice(0,1)[0]] = entry.join(':');
+            let entry = attributes[i].split(":");
+            result[entry.splice(0,1)[0]] = entry.join(":");
           }
 
           let oldDisplayValue = result.display.trim();
-          let currentDisplayValue = document.querySelector('.ma__emergency-alerts__content').style.display;
+          let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
           if (currentDisplayValue === oldDisplayValue) {
-            alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
-            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
+            alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
+            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
           }
         }
       });
@@ -52,14 +51,14 @@ let hamburgerMenuAlertScrolling = function() {
       attributeOldValue: true
     });
   }
-}
+};
 
 // Not ideal, but this is here to wait for alerts to load via AJAX.
-const maAjaxPattern = document.querySelectorAll('.ma__ajax-pattern');
+const maAjaxPattern = document.querySelectorAll(".ma__ajax-pattern");
 let siteAlertWrapper = null;
 if (maAjaxPattern !== null) {
   maAjaxPattern.forEach(function(value, key) {
-    if (value.dataset.maAjaxRenderPattern === '@organisms/by-template/emergency-alerts.twig') {
+    if (value.dataset.maAjaxRenderPattern === "@organisms/by-template/emergency-alerts.twig") {
       siteAlertWrapper = value;
     }
   });
@@ -67,7 +66,7 @@ if (maAjaxPattern !== null) {
 
 if (siteAlertWrapper !== null) {
   const jsonApiObserver = new MutationObserver(function(mutations, observer) {
-    emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+    emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
     if (emergencyAlerts !== null) {
       observer.disconnect();
     }
