@@ -1,7 +1,6 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const menuButton = document.querySelector(".js-header-menu-button");
-let menuButtonText = document.querySelector(".js-header__menu-text");
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
@@ -13,35 +12,35 @@ const searchInput = document.querySelector(".ma__header__hamburger__nav-containe
 // Check whether the wide utility nav is open.
 const utilNavWideCheck = function() {
   return utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0;
-}
+};
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
-const hamburgerMainNav = document.querySelector('.ma__header__hamburger__main-nav');
-let emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
+let emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
 let hamburgerMenuAlertScrolling = function() {
   if (hamburgerMainNav !== null && emergencyAlerts !== null && utilNavWideCheck() !== false) {
-    let alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight || 0;
-    let hamburgerMenuTop = document.querySelector('.ma__header__hamburger__nav-container').offsetTop || 0;
+    let alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight || 0;
+    let hamburgerMenuTop = document.querySelector(".ma__header__hamburger__nav-container").offsetTop || 0;
 
     // Add bottom padding when function is initially called.
-    hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
+    hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
         if (mutationRecord.oldValue !== null && utilNavWideCheck() !== false) {
           let result = {};
-          let attributes = mutationRecord.oldValue.split(';');
+          let attributes = mutationRecord.oldValue.split(";");
           for (let i = 0; i < attributes.length; i++) {
-            let entry = attributes[i].split(':');
-            result[entry.splice(0,1)[0]] = entry.join(':');
+            let entry = attributes[i].split(":");
+            result[entry.splice(0,1)[0]] = entry.join(":");
           }
 
           let oldDisplayValue = result.display.trim();
-          let currentDisplayValue = document.querySelector('.ma__emergency-alerts__content').style.display;
+          let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
           if (currentDisplayValue === oldDisplayValue) {
-            alertHeight = document.querySelector('.ma__emergency-alerts').clientHeight;
-            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + 'px';
+            alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
+            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
           }
         }
       });
@@ -52,14 +51,14 @@ let hamburgerMenuAlertScrolling = function() {
       attributeOldValue: true
     });
   }
-}
+};
 
 // Not ideal, but this is here to wait for alerts to load via AJAX.
-const maAjaxPattern = document.querySelectorAll('.ma__ajax-pattern');
+const maAjaxPattern = document.querySelectorAll(".ma__ajax-pattern");
 let siteAlertWrapper = null;
 if (maAjaxPattern !== null) {
   maAjaxPattern.forEach(function(value, key) {
-    if (value.dataset.maAjaxRenderPattern === '@organisms/by-template/emergency-alerts.twig') {
+    if (value.dataset.maAjaxRenderPattern === "@organisms/by-template/emergency-alerts.twig") {
       siteAlertWrapper = value;
     }
   });
@@ -67,7 +66,7 @@ if (maAjaxPattern !== null) {
 
 if (siteAlertWrapper !== null) {
   const jsonApiObserver = new MutationObserver(function(mutations, observer) {
-    emergencyAlerts = document.querySelector('.ma__emergency-alerts__content');
+    emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
     if (emergencyAlerts !== null) {
       observer.disconnect();
     }
@@ -98,37 +97,36 @@ if (menuButton !== null) {
     toggleMenu();
   });
 
-  // =============== exisiting code below
-  // menuButton.addEventListener("keydown", function (e) {
+// =============== exisiting code below
+// menuButton.addEventListener("keydown", function (e) {
 
-    // if (e.code == 'ArrowDown') {
-    //   event.preventDefault();
-    //   openMenu();
+  // if (e.code == 'ArrowDown') {
+  //   event.preventDefault();
+  //   openMenu();
 
-    //   if (window.innerWidth > 620) {
-    //     setTimeout(function timeoutFunction() {
-    //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
-    //     }, 500);
-    //   } else {
-    //     setTimeout(function timeoutFunction() {
-    //       document.querySelector('.js-header__nav-search input').focus();
-    //     }, 500);
-    //   }
-    // }
+  //   if (window.innerWidth > 620) {
+  //     setTimeout(function timeoutFunction() {
+  //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
+  //     }, 500);
+  //   } else {
+  //     setTimeout(function timeoutFunction() {
+  //       document.querySelector('.js-header__nav-search input').focus();
+  //     }, 500);
+  //   }
+  // }
 
-    // NOTE: This causes a keyboard trap at the menu open/close button.
-    // if (e.code == 'Tab') {
-    //   e.preventDefault();
-    //   document.querySelector('.ma__header__hamburger-search__input').focus();
-    // }
+  // NOTE: This causes a keyboard trap at the menu open/close button.
+  //   e.preventDefault();
+  //   document.querySelector('.ma__header__hamburger-search__input').focus();
+  // }
 
-    // if (e.shiftKey && e.code == "Tab") {
-    //   closeMenu();
-    // }
+  // if (e.shiftKey && e.code == "Tab") {
+  //   closeMenu();
+  // }
 
-    // if (e.code == "Escape" || e.which == "27") {
-    //   closeMenu();
-    // }
+  // if (e.code == "Escape" || e.which == "27") {
+  //   closeMenu();
+  // }
   // });
 }
 
@@ -141,66 +139,69 @@ if (menuButton !== null) {
 
   subItems.style.opacity = "0";
 
-  itemButton.addEventListener("focus", function(e){
-    closeSubMenus(item);
-  });
+  // THIS IS CAUSING INFINITY LOOP WITH closeSubMenus() AT CLICK SINCE THE OBJECT GETS FOCUS AT CLICK.
+  // LEAVE THIS NOTE FOR LATER KEYBOARD NAVIGATION WORK.
+  // itemButton.addEventListener("focus", function(e){
+  //   closeSubMenus(item);
+  // });
 
   itemButton.addEventListener("click", function (e) {
 
     closeSubMenus(item);
 
+    // Set a little bit of delay to run
+    // The open/close submenu animation is CSS. Unable to confirm the completion of the animation in JS.
+    // So, unable to use callback in this case.
+    setTimeout(function timeoutFunction() {
+      if (item.classList.contains("submenu-open")) {
+        item.classList.remove("submenu-open");
+        itemButton.setAttribute("aria-expanded", "false");
+        item.style.pointerEvents = "none";
 
-    if (item.classList.contains("submenu-open")) {
-      item.classList.remove("submenu-open");
-      itemButton.setAttribute("aria-expanded", "false");
-      item.style.pointerEvents = "none";
+        setTimeout(function timeoutFunction() {
+          item.removeAttribute("style");
+        }, 700);
+      } else {
+        item.classList.add("submenu-open");
+        itemButton.setAttribute("aria-expanded", "true");
+        item.style.pointerEvents = "none";
+        setTimeout(function timeoutFunction() {
+          item.removeAttribute("style");
+        }, 700);
+      }
 
-      setTimeout(function timeoutFunction() {
-        item.removeAttribute("style");
-      }, 700);
-    } else {
-      item.classList.add("submenu-open");
-      itemButton.setAttribute("aria-expanded", "true");
-      item.style.pointerEvents = "none";
-      setTimeout(function timeoutFunction() {
-        item.removeAttribute("style");
-      }, 700);
-    }
+      if (subMenu.classList.contains("is-closed")) {
+        /** Show the subMenu. */
 
+        subMenu.classList.remove("is-closed");
+        subMenu.style.height = "auto";
 
-    if (subMenu.classList.contains("is-closed")) {
-
-      /** Show the subMenu. */
-
-      subMenu.classList.remove("is-closed");
-      subMenu.style.height = "auto";
-
-      /** Get the computed height of the subMenu. */
-      var height = subMenu.clientHeight + "px";
+        /** Get the computed height of the subMenu. */
+        var height = subMenu.clientHeight + "px";
 
 
-      /** Set the height of the submenu as 0px, */
-      /** so we can trigger the slide down animation. */
-      subMenu.style.height = "0";
+        /** Set the height of the submenu as 0px, */
+        /** so we can trigger the slide down animation. */
+        subMenu.style.height = "0";
 
-      setTimeout(function timeoutFunction() {
-        subMenu.style.height = height;
-        subItems.style.opacity = "1";
-      }, 50);
+        setTimeout(function timeoutFunction() {
+          subMenu.style.height = height;
+          subItems.style.opacity = "1";
+        }, 50);
 
-      /** Close Utility menu content when a sub menu is open. */
-      closeNarrowUtilContent();
+        /** Close Utility menu content when a sub menu is open. */
+        closeNarrowUtilContent();
+      }
+      else {
+        subMenu.style.height = "0";
+        subItems.style.opacity = "0";
 
-      /** Slide up. */
-    } else {
-      subMenu.style.height = "0";
-      subItems.style.opacity = "0";
-
-      setTimeout(function timeoutFunction() {
+        setTimeout(function timeoutFunction() {
         subMenu.classList.add("is-closed");
 
-      }, 500);
-    }
+        }, 500);
+      }
+    }, 230);
   });
 
   itemButton.addEventListener("keydown", function (e) {
@@ -318,10 +319,6 @@ function closeMenu() {
 function commonCloseMenuTasks() {
   body.classList.remove("show-menu");
 
-  if (width < 841) {
-    menuButton.removeAttribute("style");
-  }
-
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
@@ -346,7 +343,6 @@ function openMenu() {
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  menuButtonText.textContent = "Close";
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
@@ -424,16 +420,25 @@ function closeSubMenus(item) {
   }
 
   for (let i = 0; i < siblings.length; i++) {
+
     if (siblings[i].classList.contains("submenu-open")) {
 
-      setTimeout(function timeoutFunction() {
-        siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
-        siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
-        siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
-        siblings[i].classList.remove("submenu-open");
-        siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
-      }, 500);
+      siblings[i].classList.remove("submenu-open");
+      siblings[i].querySelector(".js-main-nav-hamburger__top-link").setAttribute("aria-expanded", "false");
+      siblings[i].style.pointerEvents = "none";
 
+      setTimeout(function timeoutFunction() {
+        siblings[i].removeAttribute("style");
+      }, 700);
+
+      /** Slide up. */
+      siblings[i].querySelector(".js-main-nav-hamburger-content").style.height = "0";
+      siblings[i].querySelector(".js-main-nav-hamburger__container").style.opacity = "0";
+
+      setTimeout(function timeoutFunction() {
+        siblings[i].querySelector(".js-main-nav-hamburger-content").classList.add("is-closed");
+
+      }, 500);
     }
   }
 }
@@ -517,93 +522,103 @@ function closeUtilWideContent()  {
   utilWideButton.setAttribute("aria-expanded", "false");
   utilWideButton.setAttribute("aria-pressed", "false");
 
-  e.target.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
+  utilWideButton.closest(".ma__header__hamburger__nav").classList.toggle("util-nav-content-open");
 }
 
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-let utilNarrowContent;
+let utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
+let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null;
 if (utilNarrowButton !== null) {
   utilNarrowContent = utilNarrowButton.nextElementSibling;
 
-  utilNarrowContent.style.opacity = "0";
-  utilNarrowContent.style.height = "0";
+  utilNarrowContent.style.maxHeight = "0";
+  utilNarrowContainer.style.opacity = "0";
 
-  utilNarrowButton.addEventListener("click", function(e) {
+  utilNarrowButton.addEventListener("click", function (e) {
 
     const thisButton = e.target.closest(".js-util-nav-toggle");
+    const thisNavContainer = e.target.closest(".ma__utility-nav__item");
     utilNarrowContent = thisButton.nextElementSibling;
 
-    if (utilNarrowContent.classList.contains("is-closed")) {// Open
+    if (utilNarrowContent.classList.contains("is-closed")) {
+      // TO OPEN
 
-      utilNarrowContent.classList.remove("is-closed");
-      utilNarrowContent.removeAttribute("aria-hidden");
-      utilNarrowContent.style.pointerEvents = "none";
+      closeSubMenu();
 
-      // Button state
       thisButton.setAttribute("aria-expanded", "true");
-      thisButton.setAttribute("aria-pressed", "true");
-
+      thisNavContainer.style.pointerEvents = "none";
       /** Slide down. */
       setTimeout(function timeoutFunction() {
-        utilNarrowContent.style.opacity = "1";
-        utilNarrowContent.style.height = "auto";
+        thisNavContainer.removeAttribute("style");
       }, 700);
 
-      // Close open sub menu.
-      closeSubMenu();
-    } else {// Close
+      /** Show the content. */
+      utilNarrowContent.classList.remove("is-closed");
+      utilNarrowContent.style.maxHeight = "auto";
+
+      /** Get the computed height of the content. */
+      var contentHeight = utilNarrowContent.querySelector(".ma__utility-nav__content-body").clientHeight + "px";
+
+      /** Set the height of the submenu as 0px, */
+      /** so we can trigger the slide down animation. */
+      utilNarrowContent.style.maxHeight = "0";
+      utilNarrowContent.style.Height = "0";
+
+      // These height settings display the bottom border of the parent li at the correct spot.
+      utilNarrowContent.style.height = contentHeight;
+      utilNarrowContainer.style.height = contentHeight;
+
+      setTimeout(function timeoutFunction() {
+        utilNarrowContent.style.maxHeight = contentHeight;
+        utilNarrowContainer.style.opacity = "1";
+      }, 50);
+    } else {
       closeNarrowUtilContent();
-      utilNarrowContent.style.pointerEvents = "none";
     }
   });
 }
 
 function closeNarrowUtilContent() {
   if (utilNarrowContent) {
-    utilNarrowContent.setAttribute("aria-hidden", "true");
+    const thisNavContainer = utilNarrowButton.closest(".ma__utility-nav__item");
 
-    // Button state
     utilNarrowButton.setAttribute("aria-expanded", "false");
-    utilNarrowButton.setAttribute("aria-pressed", "false");
+    thisNavContainer.style.pointerEvents = "none";
 
-    utilNarrowContent.style.opacity = "0";
-    utilNarrowContent.style.height = "0";
-
-    /** Slide up. */
     setTimeout(function timeoutFunction() {
-      utilNarrowContent.style.opacity = "0";
-      utilNarrowContent.style.height = "0";
+      thisNavContainer.removeAttribute("style");
     }, 700);
-    setTimeout(function timeoutFunction() {
-      // utilNarrowContent.style.opacity = "0";
-      // utilNarrowContent.style.height = "0";
 
+    utilNarrowContent.style.maxHeight = "0";
+    utilNarrowContainer.style.opacity = "0";
+    setTimeout(function timeoutFunction() {
       utilNarrowContent.classList.add("is-closed");
     }, 500);
   }
 }
 
 function closeSubMenu() {
-  setTimeout(function timeoutFunction() {
-    let openSubMenu = document.querySelector(".submenu-open");
+  let openSubMenu = document.querySelector(".submenu-open");
+
+  if (openSubMenu) {
     let openSubMenuButton = openSubMenu.querySelector(".js-main-nav-hamburger__top-link");
     let openSubMenuContent = openSubMenu.querySelector(".js-main-nav-hamburger-content");
     let openSubMenuContainer = openSubMenu.querySelector(".js-main-nav-hamburger__container");
 
-    //  button
     openSubMenuButton.setAttribute("aria-expanded", "false");
-
-    // sub menu container div
-    openSubMenuContent.classList.add("is-closed");
     openSubMenuContent.style.height = "0";
+    openSubMenuContainer.style.opacity = "0";
 
-    // sub menu list container
-    openSubMenuContainer.style.opacity = 0;
+    setTimeout(function timeoutFunction() {
+      openSubMenuContent.classList.add("is-closed");
+    }, 500);
 
-    // sub menu container list item
-    openSubMenu.classList.remove("submenu-open");
-  }, 500);
+    setTimeout(function timeoutFunction() {
+      openSubMenu.removeAttribute("style");
+      openSubMenu.classList.remove("submenu-open");
+    }, 700);
+  }
 }
 
 // Keyboard navigation
