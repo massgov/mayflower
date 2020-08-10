@@ -52,6 +52,7 @@ export default (function (window, document) {
         // Create a link for the sticky TOC.
         const tocLink = document.createElement("div");
         tocLink.className = "ma__sticky-toc__link";
+        tocLink.setAttribute("data-link", `#${sectionId}`);
         tocLink.innerHTML = `<a href="#${sectionId}"><svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" width=\"35\" height=\"35\" viewBox=\"0 0 35 35\"><path class=\"st0\" d=\"M17.5 35C7.8 35 0 27.2 0 17.5 0 7.8 7.8 0 17.5 0 27.2 0 35 7.8 35 17.5 35 27.2 27.2 35 17.5 35zM16 9l-3 2.9 5.1 5.1L13 22.1l3 2.9 8-8L16 9z\"/></svg>${sectionTitle}</a>`;
         tocColumn.appendChild(tocLink);
         tocSections.links.push(tocLink);
@@ -118,6 +119,13 @@ export default (function (window, document) {
           pauseScroll = true;
           setTimeout(() => { pauseScroll = false; }, 20);
           stickyToc.innerHTML = e.target.innerHTML;
+          toc.classList.add("stuck");
+        }
+        // When .ma__sticky-toc__link or icon is clicked.
+        if (e.target.hasAttribute("data-link")) {
+          pauseScroll = true;
+          setTimeout(() => { pauseScroll = false; }, 20);
+          stickyToc.innerHTML = e.target.querySelector("a").textContent;
           toc.classList.add("stuck");
         }
       }, true);
@@ -237,9 +245,15 @@ export default (function (window, document) {
       // Close sticky menu on click off or link click.
       document.body.addEventListener("click", (e) => {
         if (!e.target.matches(".ma__sticky-toc__stuck-menu")
-          && (e.target.closest(".ma__sticky-toc__stuck-menu") === null
-          || e.target.matches(".ma__sticky-toc__stuck-menu a"))) {
+        && (e.target.closest(".ma__sticky-toc__stuck-menu") === null
+        || e.target.matches(".ma__sticky-toc__stuck-menu a")
+        || e.target.matches(".ma__sticky-toc__stuck-menu .ma__sticky-toc__link"))) {
           if (typeof stuckMenu !== "undefined" && stuckMenu.matches(".sticky-nav-open")) {
+            // Add a open-link feature with clicking item container.
+            const clicked = e.target;
+            if ( clicked.matches(".ma__sticky-toc__link")) {
+              window.location = clicked.getAttribute("data-link");
+            }
             menuToggle();
           }
         }

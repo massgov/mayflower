@@ -85,7 +85,7 @@
     .ma__split50__container > *:nth-last-child(n+2) ~ & {
 
       .ma__change-log__title {
-        font-size: 2.188rem;
+        font-size: $fonts-2xlarge;
         line-height: 1.214287;
 
         &:after {

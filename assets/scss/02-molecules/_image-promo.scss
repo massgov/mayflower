@@ -75,12 +75,12 @@ $image-promo-bp-x-large-min: "min-width: 1160px";
   }
 
   &__location {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     padding-bottom: 5px;
   }
 
   &__phone {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
 
     & > a {
       align-items: center;

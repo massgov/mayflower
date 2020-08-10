@@ -122,7 +122,7 @@ $collage-header-bp-min: "min-width: 701px";
     }
 
     h1 {
-      font-size: $fonts-7xlarge;
+      font-size: $fonts-8xlarge;
       margin-bottom: 0;
 
       @media ($collage-header-bp-min) {
@@ -131,12 +131,12 @@ $collage-header-bp-min: "min-width: 701px";
       }
 
       @media ($bp-medium-min) {
-        font-size: $fonts-8xlarge;
+        font-size: $fonts-9xlarge;
         width: 550px;
       }
 
       @media ($bp-large-min) {
-        font-size: $fonts-9xlarge;
+        font-size: $fonts-10xlarge;
         width: 620px;
       }
     }
@@ -152,7 +152,7 @@ $collage-header-bp-min: "min-width: 701px";
   @media ($collage-header-bp-min) {
 
     &__description {
-      font-size: $fonts-large;
+      font-size: $fonts-larger;
     }
   }
 

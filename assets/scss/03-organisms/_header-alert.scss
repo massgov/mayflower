@@ -7,7 +7,7 @@
   &__hide {
 
     @include ma-button-reset;
-    font-size: $fonts-5xlarge;
+    font-size: $fonts-6xlarge;
     line-height: .65;
     overflow: hidden;
     position: absolute;
@@ -32,7 +32,7 @@
   }
 
   &__label {
-    font-size: $fonts-2xsmall;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     line-height: 1em;
     margin-right: .4em;

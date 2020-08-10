@@ -100,7 +100,7 @@
 
         @media ($bp-large-min) {
           padding: 0;
-          font-size: 1.65rem;
+          font-size: $fonts-xlarge;
         }
       }
     }
