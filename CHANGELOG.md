@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.54.0 (8/10/2020)
+### Added 
+- (Assets) [Font] DP-19538: Consolidate font sizes into a variable scale. (#1055)
+
 ## 9.53.1 (7/27/2020)
 ### Added 
 - (Patternlab) [RelationshopIndicator] DP-19187: Set up styles for relationship indicator .single component links. (#1130)

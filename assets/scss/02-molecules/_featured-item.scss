@@ -67,7 +67,7 @@
   z-index: 2; // above the dimmer (:before)
   height: 4rem;
   padding: 5px 15px;
-  font-size: 1.125rem;
+  font-size: $fonts-smaller;
   line-height: 1.25;
 
   svg {
