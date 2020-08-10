@@ -1,19 +1,26 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.54.0 (8/10/2020)
+### Added
+- (Assets) [Font] DP-19538: Consolidate font sizes into a variable scale. (#1055)
+
+### Security
+- (React, Patternlab, Site) [Dependency] Bump elliptic from 6.5.2 to 6.5.3 (#1134, #1135, #1137)
+
 ## 9.53.1 (7/27/2020)
-### Added 
+### Added
 - (Patternlab) [RelationshopIndicator] DP-19187: Set up styles for relationship indicator .single component links. (#1130)
 
-### Fixed 
+### Fixed
 - (Patternlab) [RelationshopIndicator] DP-19187: Correct the sample for relationship indicator .single component. (#1130)
 
 ## 9.53.0 (7/6/2020)
-### Changed 
+### Changed
 - (Patternlab) [Print] DP-18951: Feedback related markup removed from print styles.
 
 ## 9.52.1 (6/22/2020)
-### Changed 
+### Changed
 - (Patternlab) [RelationsipIndicator] DP-17150: Change the label of the secondary set. Change the width of each set. Adjust spacing.
 - (Patternlab) [RelationshipIndicator] DP-17404: Match spacing with the current prod(develop) version. (#938)
 - (Patternlab) [RelationsipIndicator] DP-17404: Align relationship the first terms in primary and secondary sets. (#938)
@@ -27,7 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - (Patternlab) [TableOfContents] DP-15628: Make the parent container of TOC link function like a link by expanding clickable area. (#1070)
-- (React) [HelperText]  Use node instead of string for `message` proptype. (#1080) 
+- (React) [HelperText]  Use node instead of string for `message` proptype. (#1080)
 
 ### Fixed
 - (React, Patternlab) [OrganizationNavigation] DP-17612: Adjust z-index of open search box to fix style issue on Firefox. (#1088)
