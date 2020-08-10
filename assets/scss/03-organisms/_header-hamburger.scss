@@ -228,6 +228,15 @@ body.show-menu {
         }
       }
     }
+
+    & .ma__header-search__input {
+
+      @media ($bp-x-small-max) {
+
+        // Respect Mayflower style over the ios default styles of rounded corners.
+        -webkit-appearance: none;
+      }
+    }
   }
 
   &__nav-container {
@@ -267,7 +276,7 @@ body.show-menu {
   }
 
   &__main-nav {
-    
+
     @media ($bp-header-toggle-min) {
 
       padding-bottom: 43px;

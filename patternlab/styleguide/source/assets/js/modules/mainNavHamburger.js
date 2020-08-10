@@ -8,6 +8,7 @@ let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 const menuOverlay = document.querySelector(".menu-overlay");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
+const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
 
 // Check whether the wide utility nav is open.
 const utilNavWideCheck = function() {
@@ -83,56 +84,19 @@ else {
 
 // Open and close the menu
 if (menuButton !== null) {
+
   menuButton.addEventListener("click", function (event) {
     event.preventDefault();
 
-    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-    hamburgerMenuContainer.toggleAttribute("aria-hidden");
-
-    if (body.classList.contains("show-menu")) {
-      closeMenu();
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
-
-      setTimeout(function timeoutFunction() {
-        document.querySelector(".js-header-menu-button").focus();
-      }, 100);
-    } else {
-      openMenu();
-
-      if (utilNavWideCheck() === false) {
-        hamburgerMainNav.style.paddingBottom = 0;
-      }
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
-    }
+    toggleMenu();
   });
 
-  // menuButton.addEventListener("keydown", function (e) {
-  //   if (e.key === "Enter" || e.which === "13") {
+  // for touch devices
+  menuButton.addEventListener("touchend", function (event) {
+    event.preventDefault();
 
-  //     console.log(menuButton.getAttribute("aria-expanded"));
-
-  //     if (menuButton.getAttribute("aria-expanded") === "false") {
-  //       // openMenu();
-
-  //       // Opening menu button with enter is set somewhere else. Cannot find where.
-  //       // Set focus on hamburger menu container.
-  //       // Then, next tabbing takes a user to the first focusable element in the menu container.
-  //       setTimeout(function timeoutFunction() {
-  //         // hamburgerMenuContainer.focus();
-  //         document.querySelector(".ma__header__hamburger__nav-container").focus();
-
-  //         console.log(document.activeElement);
-  //       }, 1000);
-  //     } else {
-  //       closeMenu();
-  //       menuButton.focus();
-  //     }
-  //   }
-  // });
+    toggleMenu();
+  });
 
   // =============== exisiting code below
   // menuButton.addEventListener("keydown", function (e) {
@@ -311,32 +275,44 @@ if (menuButton !== null) {
 });
 
 if (jumpToSearchButton !== null) {
-  jumpToSearchButton.addEventListener("click", function(e) {
-    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
-    hamburgerMenuContainer.toggleAttribute("aria-hidden");
-
-    if (body.classList.contains("show-menu")) {
-      closeMenuJumpToSearch();
-      // Set focus back on the jumpToSearchButton button since the input gets hidden by closing the menu.
-      jumpToSearchButton.focus();
-    } else {
-      openMenuJumpToSearch();
-      // Set focus on the search input field.
-      setTimeout(function timeoutFunction() {
-        document.getElementById("nav-search").focus();
-      }, 90);
-    }
+  jumpToSearchButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    jumpToSearch();
   });
+
+  jumpToSearchButton.addEventListener("touchend", (e) => {
+    e.preventDefault();
+
+    jumpToSearch();
+  }, false);
+}
+
+function toggleMenu() {
+  if (body.classList.contains("show-menu")) {
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    // .toggleAttribute() doesn't work with ios11.
+    hamburgerMenuContainer.setAttribute("aria-hidden", "");
+    closeMenu();
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+
+    setTimeout(function timeoutFunction() {
+      document.querySelector(".js-header-menu-button").focus();
+    }, 100);
+  } else {
+    hamburgerMenuContainer.removeAttribute("aria-hidden");
+    openMenu();
+    // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").setAttribute("tabindex", "-1");
+  }
 }
 
 function closeMenu() {
   commonCloseMenuTasks();
   menuButton.setAttribute("aria-pressed", "false");
-}
-
-function closeMenuJumpToSearch() {
-  commonCloseMenuTasks();
-  jumpToSearchButton.setAttribute("aria-pressed", "false");
 }
 
 function commonCloseMenuTasks() {
@@ -348,6 +324,10 @@ function commonCloseMenuTasks() {
 
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+
+  if(searchInput.hasAttribute("autofocus")) {
+    searchInput.removeAttribute("autofocus");
+  }
 
   if (feedbackButton) {
     feedbackButton.classList.remove("hide-button");
@@ -363,31 +343,72 @@ function openMenu() {
   menuButton.setAttribute("aria-pressed", "true");
 }
 
-function openMenuJumpToSearch() {
-  commonOpenMenuTasks();
-  jumpToSearchButton.setAttribute("aria-pressed", "true");
-}
-
 function commonOpenMenuTasks() {
   body.classList.add("show-menu");
 
-  for (let i = 0; i < menuButtonText.length; i++) {
-    menuButtonText[i].textContent = "Close";
-
-    if (width < 841) {
-      menuButton.style.flex = "auto";
-    }
-  }
-
+  menuButtonText.textContent = "Close";
   menuButton.setAttribute("aria-expanded", "true");
   menuButton.setAttribute("aria-label", "Close the main menu for mass.gov");
   if (feedbackButton) {
     feedbackButton.classList.add("hide-button");
-
   }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
   if (menuOverlay) {
     menuOverlay.classList.add("overlay-open");
+  }
+}
+
+function jumpToSearch(e) {
+
+  if (body.classList.contains("show-menu")) {
+    // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
+    hamburgerMenuContainer.setAttribute("aria-hidden", "");
+    searchInput.focus();
+  } else {
+    hamburgerMenuContainer.removeAttribute("aria-hidden");
+    commonOpenMenuTasks();
+    jumpToSearchButton.setAttribute("aria-pressed", "true");
+    // Set focus on the search input field.
+    const osInfo = navigator.appVersion;
+    if (osInfo.indexOf("iPhone") !== -1) {
+      // Set up a temp input to display onscreen keyboard.
+      const __tempEl = document.createElement("input");
+      document.body.appendChild(__tempEl);
+      __tempEl.classList.add("ma__visually-hidden");
+      __tempEl.focus();
+
+      setTimeout(function timeoutFunction() {
+        searchInput.setAttribute("autofocus", "");
+        // Setting focus on the search box twice. Both are necessary to make it work.
+        searchInput.focus();
+        // Remove the temp input.
+        // Timings are set differently per version to minimize the awekwardness by delay.
+        if (osInfo.indexOf("OS 12") !== -1) {
+          setTimeout(function removeTempInput() {
+            cleanUpTemp();
+          }, 300);
+        } else if (osInfo.indexOf("OS 11") !== -1) {
+          setTimeout(function removeTempInput() {
+            cleanUpTemp();
+          }, 170);
+        } else {
+          setTimeout(function removeTempInput() {
+            cleanUpTemp();
+          }, 70);
+        }
+
+        function cleanUpTemp() {
+          searchInput.focus();
+          document.body.removeChild(__tempEl);
+        }
+      }, 70);
+    }
+    else {
+      setTimeout(function timeoutFunction() {
+        searchInput.setAttribute("autofocus", "");
+        searchInput.focus();
+      }, 70);
+    }
   }
 }
 
@@ -422,10 +443,9 @@ if (utilNavWide !== null) {
     closeMenu();
 }
 
-
 // Close and reset menu on overlay click
-if (menuOverlay !== null) {
-  menuOverlay.addEventListener("click", function () {
+if (null !== menuOverlay) {
+  menuOverlay.addEventListener("click", () => {
     closeMenu();
   });
 }
@@ -433,7 +453,7 @@ if (menuOverlay !== null) {
 let debouncer;
 window.onresize = function () {
   clearTimeout(debouncer);
-  debouncer = setTimeout(function () {
+  debouncer = setTimeout( () => {
     width = body.clientWidth;
     if (utilNavWideCheck() !== false) {
       hamburgerMenuAlertScrolling();
