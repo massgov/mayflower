@@ -527,8 +527,8 @@ function closeUtilWideContent()  {
 
 // Narrow/in hamburger menu
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-let utilNarrowContent = utilNarrowButton.nextElementSibling;
-let utilNarrowContainer = utilNarrowContent.querySelector(".ma__utility-nav__container");
+let utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
+let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null;
 if (utilNarrowButton !== null) {
   utilNarrowContent = utilNarrowButton.nextElementSibling;
 
