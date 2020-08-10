@@ -28,7 +28,7 @@
     display: inline-block;
 
     @media ($bp-small-min) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
 
   }
@@ -38,12 +38,12 @@
     line-height: 1.75;
 
     @media ($bp-small-min) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
   }
 
   &__details {
-    font-size: 1rem;
+    font-size: $fonts-xsmall;
     line-height: 1.3;
     margin-bottom: .35em;
     margin-top: -.25em;
@@ -53,7 +53,7 @@
     line-height: 1.5;
 
     @media ($bp-small-min) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
   }
 
@@ -70,7 +70,7 @@
     }
 
     @media ($bp-small-min) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
   }
 

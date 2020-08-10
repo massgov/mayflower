@@ -10,7 +10,7 @@
   &-clear {
 
     @include ma-button-reset;
-    font-size: 1.125rem;
+    font-size: $fonts-smaller;
     display: inline-block;
     line-height: 1em;
     padding: 9px 11px;

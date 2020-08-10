@@ -18,12 +18,12 @@
   }
 
   &__image-name {
-    font-size: 1rem;
+    font-size: $fonts-xsmall;
     line-height: 1.125rem;
   }
 
   &__image-author {
-    font-size: 0.875rem;
+    font-size: $fonts-2xsmall;
     line-height: 1.125rem;
   }
 
