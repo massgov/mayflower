@@ -1,6 +1,0 @@
-Added:
-  - project: Assets
-    component: Font
-    description: Consolidate font sizes into a variable scale. (#1055)
-    issue: DP-19538
-    impact: Minor
