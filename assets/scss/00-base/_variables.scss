@@ -21,12 +21,6 @@ $standard-spacing--xsmall:   24px;
 $standard-spacing--xxsmall:  12px;
 $standard-spacing--xxxsmall: 6px;
 
-//letter-spacing for Texta
-$letter-spacing-large:   .1em;
-$letter-spacing-medium:  .05em;
-$letter-spacing-small:   .02em;
-$letter-spacing-default: 0;
-
 // Close icon
 // The close icon is not an actual icon. It is the multiplication
 // symbol displayed in a pseudo element. To display properly,
@@ -101,8 +95,8 @@ $fonts-10xlarge:    5rem !default;
 $fonts-11xlarge:    7rem !default;
 $fonts-max:         12.75rem !default;  // Error decorative letters
 
-//letter-spacing for Texta
-$letter-spacing-large:   0.1em;
-$letter-spacing-medium:  0.05em;
-$letter-spacing-small:   0.02em;
-$letter-spacing-default: 0;
+//letter spacing
+$letter-spacing-large:   0.1em !default;
+$letter-spacing-medium:  0.05em !default;
+$letter-spacing-small:   0.02em !default;
+$letter-spacing-default: 0 !default;
