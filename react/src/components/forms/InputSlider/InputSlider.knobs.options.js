@@ -2,16 +2,26 @@ import { text, boolean, number, object, select, array } from '@storybook/addon-k
 import { action } from '@storybook/addon-actions';
 
 export default {
-  labelText: () => text('labelText', 'Family Leave'),
+  labelText: () => text('labelText', 'Family Leave', 'InputGroup'),
   id: () => text('id', 'text-input'),
-  disabled: () => boolean('disabled', false),
-  required: () => boolean('required', true),
-  defaultValue: () => text('defaultValue', '0'),
+  disabled: () => boolean('disabled', false, 'InputGroup'),
+  required: () => boolean('required', true, 'InputGroup'),
+  inline: () => boolean('inline', false, 'InputGroup'),
+  showError: () => boolean('showError', false, 'InputGroup'),
+  errorMsg: () => text('errorMsg', 'Please change the value.', 'InputGroup'),
+  hidden: () => boolean('hidden label', false, 'InputGroup'),
+  values: () => array('values', [0]),
   axis: () => select('axis', ['x', 'y'], 'x'),
-  max: () => number('max', 1),
-  min: () => number('min', 0),
   step: () => number('step', 0.01),
-  ticks: () => object('ticks', { 0: '0%', 0.6: 'Minimum requirement', 1: '100%' }),
+  mantissa: () => number('mantissa', 0),
+  ticks: () => {
+    const ticks = object('Ticks', [[0, '0%'], [0.6, 'Minimum requirement'], [1, '100%']], 'Ticks');
+    const hideTicks = boolean('Hide ticks', false, 'Ticks');
+    if (hideTicks) {
+      return new Map();
+    }
+    return new Map(ticks);
+  },
   // Array knob converts numbers to strings - put it back to number.
   domain: () => array('domain', [0, 1]).map((num) => Number(num)),
   onChange: () => action('inputSlider.onChange'),

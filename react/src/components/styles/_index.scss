@@ -51,7 +51,6 @@
 @use "01-atoms/input-date";
 @use "01-atoms/input-typeahead";
 @use "01-atoms/input-number";
-@use "forms/TypeAheadDropdown";
 // Required by Label, InputNumber, InputTextFuzzy components.
 @use "01-atoms/helper-text";
 @use "02-molecules/multiselect-dropdown";

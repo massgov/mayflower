@@ -19,8 +19,43 @@ storiesOf('forms|atoms', module)
       languages.set('French', 'fr-FR');
       languages.set('Russian', 'ru-RU');
       inputTextOptionsWithKnobs.language = languages.get(inputTextOptionsWithKnobs.language);
+      const storyProps = {
+        ...inputTextOptionsWithKnobs
+      };
+      const {
+        id, name, maxlength, min, max, step, onBlur, onChange, required, disabled, defaultValue, placeholder,
+        hidden, labelText, inline, errorMsg, showError, width, showButtons, format
+      } = storyProps;
+      const props = {
+        inputProps: {
+          id,
+          name,
+          maxlength,
+          min,
+          max,
+          step,
+          onBlur,
+          onChange,
+          required,
+          disabled,
+          defaultValue,
+          placeholder
+        },
+        groupProps: {
+          labelProps: {
+            hidden,
+            labelText
+          },
+          inline,
+          errorMsg,
+          showError
+        },
+        width,
+        showButtons,
+        format
+      };
       return(
-        <InputCurrency {...inputTextOptionsWithKnobs} />
+        <InputCurrency {...props} />
       );
     }),
     { info: InputCurrencyDocs }

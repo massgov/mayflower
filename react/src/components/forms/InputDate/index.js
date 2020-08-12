@@ -14,18 +14,22 @@ import InputGroup from 'MayflowerReactForms/InputGroup';
 
 const InputDate = (props) => {
   const {
-    defaultValue,
-    startDate,
-    endDate,
-    onChangeCallback,
+    startDate = null,
+    endDate = null,
+    selectsRange = false,
+    inputProps = {},
     ...rest
   } = props;
+  const {
+    selected = null,
+    onChange = null
+  } = inputProps;
   const [state, setState] = React.useState({
-    selected: defaultValue,
+    selected,
     startDate,
     endDate
   });
-  const onChange = (date) => {
+  const onChangeCallback = (date) => {
     const updatedState = {};
     if (is.array(date)) {
       const [start, end] = date;
@@ -36,16 +40,18 @@ const InputDate = (props) => {
       updatedState.selected = date;
     }
     setState(updatedState);
-    if (is.function(onChangeCallback)) {
-      props.onChangeCallback(state);
+    if (is.function(onChange)) {
+      onChange(state);
     }
   };
   const dateProps = {
     ...rest,
-    onChange,
-    selected: state.selected
+    inputProps: {
+      onChange: onChangeCallback,
+      selected: state.selected
+    }
   };
-  if (props.selectsRange) {
+  if (selectsRange) {
     dateProps.startDate = state.startDate;
     dateProps.endDate = state.endDate;
   }
@@ -54,9 +60,8 @@ const InputDate = (props) => {
   );
 };
 
-export const MayflowerDate = React.forwardRef((props, inputRef) => {
+export const MayflowerDate = (props) => {
   const {
-    selected,
     minDate,
     maxDate,
     selectsRange = false,
@@ -64,15 +69,22 @@ export const MayflowerDate = React.forwardRef((props, inputRef) => {
     selectsEnd = false,
     startDate,
     endDate,
+    inputProps = {},
+    groupProps = {}
+  } = props;
+  const {
+    disabled = false,
+    format,
     placeholder = null,
     name,
     id,
-    disabled = false,
-    format,
     required = false,
     onChange,
+    selected
+  } = inputProps;
+  const {
     showError = false
-  } = props;
+  } = groupProps;
   // Triggers when a user selects a date in the picker only.
   const handleChange = (date) => {
     if (is.function(onChange)) {
@@ -120,74 +132,36 @@ export const MayflowerDate = React.forwardRef((props, inputRef) => {
       />
     </InputGroup>
   );
-});
+};
 
-class InputDateOld extends React.Component {
-  constructor(props) {
-    super(props);
-    this.picker = null;
-    this.startPikaday = this.startPikaday.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentDidMount() {
-    this.startPikaday();
-    this.picker.setDate(this.props.defaultDate, true);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.picker.setDate(nextProps.defaultDate, true);
-  }
-
-  handleChange(date) {
-    if (typeof this.props.onChangeCallback === 'function') {
-      this.props.onChangeCallback({ date });
-    }
-  }
-
-  startPikaday() {
-    const restrict = this.props.restrict;
-    const pickerOptions = {
-      field: this.dateInput,
-      format: this.props.format,
-      formatStrict: true,
-      onSelect: this.handleChange,
-      setDefaultDate: false
-    };
-    if (this.props.defaultDate !== null) {
-      pickerOptions.defaultDate = this.props.defaultDate;
-      pickerOptions.setDefaultDate = true;
-    }
-    this.picker = new Pikaday(pickerOptions);
-    this.dateInput.setAttribute('type', 'text');
-    if (restrict === 'max') {
-      this.picker.setMaxDate(new Date());
-    } else if (restrict === 'min') {
-      this.picker.setMinDate(new Date());
-    }
-  }
-
-  render() {
-    const classNames = this.props.required ? 'ma__input-date js-input-date js-is-required' : 'ma__input-date js-input-date ';
-    return(
-      <>
-        <label htmlFor={this.props.id}>{this.props.labelText}</label>
-        <input
-          className={classNames}
-          name={this.props.name}
-          id={this.props.id}
-          type="date"
-          placeholder={this.props.placeholder}
-          data-type="date"
-          data-restrict={this.props.restrict}
-          ref={(input) => { this.dateInput = input; }}
-          required={this.props.required}
-          format={this.props.format}
-        />
-      </>
-    );
-  }
-}
+MayflowerDate.propTypes = {
+  /** The label text above the input field */
+  labelText: PropTypes.string.isRequired,
+  /** Whether an input date is required or not */
+  required: PropTypes.bool,
+  /** The id on the input date element */
+  id: PropTypes.string.isRequired,
+  /** The name of the input date element */
+  name: PropTypes.string.isRequired,
+  /** The placeholder text in the input box, prompting users for a value */
+  placeholder: PropTypes.string,
+  /** For DateRange, sets which date input is the start field. */
+  selectsStart: PropTypes.bool,
+  /** For DateRange, sets which date input is the end field. */
+  selectsEnd: PropTypes.bool,
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
+  /** Toggles on ranged date mode. */
+  selectsRange: PropTypes.bool,
+  minDate: PropTypes.instanceOf(Date),
+  maxDate: PropTypes.instanceOf(Date),
+  /** Controls the date format of input date . The current option are: 'M/DD/YYYY’, 'MM/DD/YYYY’', 'MMM D YYYY', or 'dddd, MMMM Do YYYY' */
+  format: PropTypes.oneOf(['M/DD/YYYY', 'MM/DD/YYYY', 'MM-DD-YYYY', 'YYYYMMDD']),
+  /** Custom onChange function that receives the selected date input */
+  onChangeCallback: PropTypes.func,
+  /** The date to set by default */
+  selected: PropTypes.instanceOf(Date)
+};
 
 InputDate.propTypes = {
   /** The label text above the input field */
@@ -200,26 +174,18 @@ InputDate.propTypes = {
   name: PropTypes.string.isRequired,
   /** The placeholder text in the input box, prompting users for a value */
   placeholder: PropTypes.string,
-  min: PropTypes.instanceOf(Date),
-  max: PropTypes.instanceOf(Date),
-  /** Controls whether the user can pick any date (''), today and prior ('max') or today and future ('min') */
-  restrict: PropTypes.oneOf(['', 'max', 'min']),
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
+  /** Toggles on ranged date mode. */
+  selectsRange: PropTypes.bool,
+  minDate: PropTypes.instanceOf(Date),
+  maxDate: PropTypes.instanceOf(Date),
   /** Controls the date format of input date . The current option are: 'M/DD/YYYY’, 'MM/DD/YYYY’', 'MMM D YYYY', or 'dddd, MMMM Do YYYY' */
   format: PropTypes.oneOf(['M/DD/YYYY', 'MM/DD/YYYY', 'MM-DD-YYYY', 'YYYYMMDD']),
   /** Custom onChange function that receives the selected date input */
   onChangeCallback: PropTypes.func,
   /** The date to set by default */
-  defaultDate: PropTypes.instanceOf(Date)
-};
-
-// Only set defaults for the configuration variables which need to be opted in to activate.
-InputDate.defaultProps = {
-  required: false,
-  restrict: '',
-  defaultDate: null,
-  startDate: null,
-  endDate: null,
-  format: 'M/dd/yyyy'
+  selected: PropTypes.instanceOf(Date)
 };
 
 export default InputDate;

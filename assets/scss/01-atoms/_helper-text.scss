@@ -4,6 +4,17 @@
   font-size: 1rem;
   line-height: 1.438rem;
   margin-top: 10px;
+  
+  &--error {
+    color: $c-error;
+  }
+
+  &--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: $c-gray-dark;
+    opacity: 0.5;
+  }
 }
 
 //theme

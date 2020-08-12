@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import InputCheckBox from 'MayflowerReactForms/InputCheckBox';
 import Tags from 'MayflowerReactMolecules/Tags';
+import InputGroup from 'MayflowerReactForms/InputGroup';
 
 export const getObjByValue = (arr, value, key) => {
   let i = 0;
@@ -26,101 +27,42 @@ export const getObjByValue = (arr, value, key) => {
   return undefined;
 };
 
-class MultiSelectDropDown extends React.Component {
-  _timeoutID;
+const MultiSelectDropDown = (props) => {
+  const {
+    dropdownItems,
+    fieldName,
+    inputProps = {},
+    groupProps = {}
+  } = props;
+  const {
+    placeholder
+  } = inputProps;
+  const {
+    inline = false,
+    showError = false,
+  } = groupProps;
+  const divRef = React.useRef();
+  const [items, setItems] = React.useState(new Map());
+  const [expand, setExpand] = React.useState(false);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      values: [],
-      dropwDownExpand: false
-    };
-  }
-
-  componentDidMount() {
-    this.buttonClicked = false;
-    document.addEventListener('mousedown', (e) => this.handleClickOutside(e));
-    this.wrapperRef.addEventListener('keydown', (e) => this.handleKeyDown(e));
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', () => this.handleClickOutside());
-    this.wrapperRef.removeEventListener('keydown', () => this.handleKeyDown());
-    this.wrapperRef.removeEventListener('onblur', (e) => this.handleKeyDown(e));
-  }
-
-
-  onBlur = () => {
-    // Time out to wait for React processing delay on activeElement
-    this._timeoutID = setTimeout(() => {
-      if (document.activeElement !== null) {
-        if (!this.wrapperRef.contains(document.activeElement)) {
-          this.setState({
-            dropwDownExpand: false
-          });
-        }
+  const handleSelect = (event) => {
+    const val = event.target.value;
+    const { label: key } = dropdownItems.find((item) => item.value === val);
+    setItems((prevItems) => {
+      let newValues = new Map(prevItems.entries());
+      if (newValues.has(key)) {
+        newValues.delete(key);
+      } else {
+        newValues = newValues.set(key, val);
       }
-    }, 0);
-  }
-
-
-  handleTagClick = (target, e) => {
-    e.stopPropagation();
-    const val = target.getAttribute('data-ma-filter-value');
-    const { values } = this.state;
-    values.splice(values.indexOf(val), 1);
-    this.setState({
-      values,
-      dropwDownExpand: true
+      return newValues;
     });
-  }
+  };
 
-  handleClearAll = () => {
-    this.setState({
-      values: []
-    });
-    this.focusOnComboBox();
-  }
-
-
-  handleClickOutside = (event) => {
-    // Close the panel if the user clicks outside the component.
-    const node = this.wrapperRef;
-    if ((node && !node.contains(event.target))) {
-      if (this.state.dropwDownExpand) {
-        this.closeDropDown();
-      }
-    }
-  }
-
-  handleDropDownKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      this.handleSelect(event);
-    }
-  }
-
-  handleSelect = (event) => {
-    const { value } = event.target;
-    const { values } = this.state;
-    if (values.indexOf(value) > -1) {
-      values.splice(values.indexOf(value), 1);
-    } else {
-      values.push(value);
-    }
-    this.setState({
-      values
-    });
-  }
-
-  handleKeyDown = (event) => {
-    // Detect onBlur using tab key
-    if (event.key === 'Tab') {
-      this.onBlur();
-    }
+  const handleKeyDown = (event) => {
     // If the user pressed escape collapse list.
     if (event.key === 'Escape') {
-      this.closeDropDown();
-      this.focusOnComboBox();
+      closeDropDown();
     }
 
     let index = -1;
@@ -134,131 +76,190 @@ class MultiSelectDropDown extends React.Component {
 
     if (event.key === 'ArrowUp') {
       if (prevIndex === -1) {
-        this.focusOnComboBox();
+        focusOnComboBox();
       }
       if (prevIndex >= 0) {
-        const prevItem = document.getElementById(`input-checkbox-${prevIndex}`);
+        const prevItem = document.getElementById(`input-checkbox-${fieldName}-${prevIndex}`);
         if (prevItem) {
           prevItem.focus();
         }
       }
     }
 
-    if (event.key === 'ArrowDown' && nextIndex < this.props.dropdownItems.length) {
-      const nextItem = document.getElementById(`input-checkbox-${nextIndex}`);
+    if (event.key === 'ArrowDown' && nextIndex < dropdownItems.length) {
+      const nextItem = document.getElementById(`input-checkbox-${fieldName}-${nextIndex}`);
       if (nextItem) {
         nextItem.focus();
       }
     }
-  }
+  };
 
-  focusOnComboBox = () => {
-    const comboBox = document.getElementById(`${this.props.fieldName}-multiselect-combobox`);
+  const focusOnComboBox = () => {
+    const comboBox = document.getElementById(`${fieldName}-multiselect-combobox`);
     comboBox.focus();
-  }
+  };
 
-  handleClick = () => {
-    this.toggleDropDown();
-  }
-
-  handleComboBoxKeyDown = (event) => {
+  const handleComboBoxKeyDown = (event) => {
     event.stopPropagation();
-    if (event.key === 'Enter') {
-      this.toggleDropDown();
+    if (event.target.getAttribute('role') && event.key === 'Enter') {
+      toggleDropDown();
     }
-  }
+  };
+  const handleDropDownKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSelect(event);
+    }
+  };
 
-  toggleDropDown = () => {
-    this.setState((prevState) => ({ dropwDownExpand: !prevState.dropwDownExpand }));
-  }
+  const toggleDropDown = () => {
+    setExpand((prevExpand) => (!prevExpand));
+  };
 
-  closeDropDown = () => {
-    this.setState({ dropwDownExpand: false });
-  }
+  const closeDropDown = () => {
+    setExpand(false);
+  };
 
-  render() {
-    const {
-      dropdownItems, fieldName, title, titleClasses, defaultText
-    } = this.props;
-    const { values, dropwDownExpand } = this.state;
-    const tags = values.map((val) => getObjByValue(dropdownItems, val, 'value'));
-    const tagsProps = {
-      tags: tags.map((tag) => ({
-        value: tag.value,
-        text: tag.label,
-        type: fieldName
-      })),
-      onClearThisCallback: this.handleTagClick,
-      onClearCallback: this.handleClearAll
-    };
-
-    const titleCls = classNames({
-      [titleClasses.join(' ')]: true
+  const handleTagClick = (target, e) => {
+    e.stopPropagation();
+    const val = target.getAttribute('data-ma-filter-value');
+    setItems((prevItems) => {
+      const newValues = new Map(prevItems.entries());
+      const { label: key } = dropdownItems.find((item) => item.value === val);
+      newValues.delete(key);
+      return newValues;
     });
+    focusOnComboBox();
+  };
 
-    return(
-      <div
-        className="ma__multiselect-dropdown"
-        ref={(node) => {
-          this.wrapperRef = node;
-        }}
-      >
-        <fieldset className="group">
-          <legend className={titleClasses.length > 0 ? titleCls : null}>
-            {title}
-          </legend>
-          {
-            /* eslint-disable jsx-a11y/click-events-have-key-events */
-          }
-          <div
-            role="combobox"
-            tabIndex={0}
-            aria-expanded={dropwDownExpand}
-            aria-controls={`${fieldName}-multiselect`}
-            id={`${fieldName}-multiselect-combobox`}
-            aria-haspopup
-            className="ma__select-box__field"
-            onClick={this.handleClick}
-            onKeyDown={this.handleComboBoxKeyDown}
-          >
-            <div className="ma__select-box__link">
-              <span className="js-dropdown-link">
-                { values.length > 0 ? <Tags {...tagsProps} /> : defaultText}
-              </span>
-              <span className="ma__select-box__icon" />
-            </div>
+  const handleClearAll = () => {
+    setItems(new Map());
+  };
+
+
+  const handleClickOutside = (event) => {
+    // Close the panel if the user clicks outside the component.
+    if ((divRef.current && !divRef.current.contains(event.target))) {
+      setExpand((prevExpand) => {
+        if (prevExpand) {
+          return false;
+        }
+        return prevExpand;
+      });
+    }
+  };
+
+  const onBlur = () => {
+    // Timeout is used so that document.activeElement
+    // has enough time to update itself.
+    setTimeout(() => {
+      if (document.activeElement !== null && !divRef.current.contains(document.activeElement)) {
+        closeDropDown();
+      }
+    }, 1);
+  };
+
+  React.useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    if (divRef.current) {
+      divRef.current.addEventListener('focusout', onBlur);
+      divRef.current.addEventListener('keyup', handleKeyDown);
+    }
+    return() => {
+      divRef.current.removeEventListener('focusout', onBlur);
+      document.removeEventListener('mousedown', handleClickOutside);
+      divRef.current.removeEventListener('keyup', handleKeyDown);
+    };
+  }, []);
+
+  const tagsProps = {
+    tags: Array.from(items.entries()).map(([text, value]) => ({
+      value,
+      text,
+      type: fieldName
+    })),
+    onClearThisCallback: handleTagClick,
+    onClearCallback: handleClearAll
+  };
+  const inputGroupProps = {
+    ...props,
+    groupProps: {
+      ...groupProps,
+      fieldsetClassName: 'group',
+      fieldset: true,
+      outline: inline
+    }
+  };
+
+  const selectboxClasses = classNames('ma__select-box__link', {
+    'ma__input--error': showError
+  });
+
+  return(
+    <div
+      className="ma__multiselect-dropdown"
+      ref={divRef}
+    >
+      <InputGroup {...inputGroupProps}>
+        {
+          /* eslint-disable jsx-a11y/click-events-have-key-events */
+        }
+        <div
+          role="combobox"
+          tabIndex={0}
+          aria-expanded={expand}
+          aria-controls={`${fieldName}-multiselect`}
+          id={`${fieldName}-multiselect-combobox`}
+          aria-haspopup
+          className="ma__select-box__field"
+          onClick={toggleDropDown}
+          onKeyDown={handleComboBoxKeyDown}
+        >
+          <div className={selectboxClasses}>
+            <span className="js-dropdown-link">
+              { items.size > 0 ? <Tags {...tagsProps} /> : placeholder}
+            </span>
+            <span className="ma__select-box__icon" />
           </div>
-          {
-            dropwDownExpand && (
-              <div
-                id={`${fieldName}-multiselect`}
-                className="ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded"
-              >
-                {
-                  dropdownItems.map((item, i) => (
-                    <InputCheckBox
-                      id={`input-checkbox-${i}`}
+        </div>
+        {
+          expand && (
+            <div
+              id={`${fieldName}-multiselect`}
+              className="ma__multiselect-dropdown-menu ma__multiselect-dropdown-menu--expanded"
+            >
+              {
+                dropdownItems.map((item, i) => {
+                  const checkProps = {
+                    key: `input-checkbox-${fieldName}-${i}`,
+                    inputProps: {
+                      id: `input-checkbox-${fieldName}-${i}`,
                       /* eslint-disable-next-line react/no-array-index-key */
-                      key={`input-checkbox-${i}`}
-                      name={fieldName}
-                      value={item.value}
-                      label={item.label}
-                      onChange={this.handleSelect}
-                      onKeyDown={this.handleDropDownKeyDown}
-                      classes={['ma__multiselect-dropdown-item']}
-                      defaultValue={values.indexOf(item.value) > -1 ? item.value : false}
-                      tabIndex={-1}
+                      name: fieldName,
+                      onChange: handleSelect,
+                      onKeyDown: handleDropDownKeyDown,
+                      value: item.value,
+                      checked: items.has(item.label),
+                      tabIndex: -1
+                    },
+                    groupProps: {
+                      wrapperClassName: 'ma__multiselect-dropdown-item',
+                    },
+                    label: item.label
+                  };
+                  return(
+                    <InputCheckBox
+                      {...checkProps}
                     />
-                  ))
-}
-              </div>
-            )
-          }
-        </fieldset>
-      </div>
-    );
-  }
-}
+                  );
+                })
+              }
+            </div>
+          )
+        }
+      </InputGroup>
+    </div>
+  );
+};
 
 MultiSelectDropDown.propTypes = {
   /** The legend title of the multiple select dropdown, can be a string, an element or a React component. */
@@ -266,7 +267,7 @@ MultiSelectDropDown.propTypes = {
   /** Legend classes. */
   titleClasses: PropTypes.arrayOf(PropTypes.string),
   /** Default display in dropdown field. */
-  defaultText: PropTypes.string,
+  placeholder: PropTypes.string,
   /** Custom callback on dropdown item selection. */
   onItemSelect: PropTypes.func,
   /** Custom callback on dropdown click. */
@@ -278,10 +279,6 @@ MultiSelectDropDown.propTypes = {
   })),
   /** Field name attribute that is used for grouping DOM submission and identify tags type */
   fieldName: PropTypes.string
-};
-
-MultiSelectDropDown.defaultProps = {
-  titleClasses: []
 };
 
 export default MultiSelectDropDown;

@@ -1,6 +1,7 @@
 import { addDecorator, addParameters } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
 import { withInfo } from '@storybook/addon-info';
+import { withRenderedHTML } from './render-markup/register';
 import '../src/index.scss';
 
 const storyKindOrder = [
@@ -17,6 +18,7 @@ const storyKindOrder = [
   'templates',
   'pages'
 ];
+
 
 addParameters({
   options: {

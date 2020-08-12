@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, object, text, array } from '@storybook/addon-knobs';
+import { withKnobs, object, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import MultiSelectDropDown from './index';
@@ -9,9 +9,21 @@ storiesOf('forms|molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('MultiSelectDropDown', (() => {
     const props = {
-      title: text('title', 'Filter by Format(s)'),
-      titleClasses: array('titleClasses', []),
-      defaultText: text('defaultText', 'All Formats', 'dropdownItems'),
+      inputProps: {
+        required: boolean('required', false),
+        placeholder: text('defaultText', 'All Formats', 'dropdownItems'),
+
+      },
+      groupProps: {
+        labelProps: {
+          hidden: boolean('hiddenLabel', false),
+          labelText: text('labelText', 'Filter by Format(s)'),
+          className: text('labelClassName', ''),
+        },
+        errorMsg: text('errorMsg', 'You are required to select an option.'),
+        showError: boolean('showError', false),
+        inline: boolean('inline', false)
+      },
       dropdownItems: object('dropdownItems', [{
         label: 'PDF',
         value: 'pdf'
@@ -30,7 +42,7 @@ storiesOf('forms|molecules', module)
       }], 'dropdownItems'),
       onItemSelect: action('onItemSelect onClick'),
       onDropDownClick: action('onButtonClick onClick'),
-      fieldName: text('fieldName', 'formats')
+      fieldName: text('fieldName', 'formats'),
     };
     return(
       <MultiSelectDropDown {...props} />

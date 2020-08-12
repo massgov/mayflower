@@ -5,311 +5,201 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import numbro from 'numbro';
 import {
   Slider, Rail, Handles, Tracks, Ticks
-} from 'react-compound-slider/es';
-import { InputContext } from 'MayflowerReactForms/Input/context';
+} from 'react-compound-slider';
 import { countDecimals } from 'MayflowerReactForms/Input/utility';
+import is from 'is';
+import InputGroup from 'MayflowerReactForms/InputGroup';
+import Handle from 'MayflowerReactSlider/handle';
+import Track from 'MayflowerReactSlider/track';
+import Tick from 'MayflowerReactSlider/tick';
 
-const Handle = (props) => {
+const InputSlider = (props) => {
   const {
-    handle: { id, value, percent }, getHandleProps, axis, min, max, step, displayValueFormat, disabled
+    domain = [0, 1],
+    values,
+    mantissa = 0,
+    axis = 'x',
+    displayValueFormat,
+    ticks = new Map(),
+    inputProps = {},
+    groupProps = {}
   } = props;
+  const {
+    id,
+    step,
+    disabled = false,
+    onChange = null,
+    onUpdate = null
+  } = inputProps;
+  const { inline, wrapperClassName = null } = groupProps;
+
+  const [min, max] = domain;
   const decimalPlaces = countDecimals(step);
-  const roundedValue = (Number.isInteger(step)) ? value : Number(Number.parseFloat(value).toFixed(decimalPlaces));
-  const divProps = {
-    'aria-valuemin': min,
-    'aria-valuemax': max,
-    'aria-valuenow': roundedValue,
-    disabled,
-    role: 'slider',
-    onClick: (e) => {
-      e.preventDefault();
-    },
-    ...getHandleProps(id)
+  const handleChange = (v) => {
+    if (is.function(onChange)) {
+      const value = (Number.isInteger(step)) ? v[0] : Number(Number.parseFloat(v[0]).toFixed(decimalPlaces));
+      onChange({ value, id });
+    }
   };
-  if (axis === 'x') {
-    divProps.style = {
-      left: `${percent}%`
-    };
-  } else if (axis === 'y') {
-    divProps.style = {
-      top: `${percent}%`
-    };
-  }
-  return(
-    <button type="button" className="ma__slider-handle" {...divProps}>
-      { displayValueFormat && (
-        <div className="ma__slider-handle-value">
-          { displayValueFormat === 'percentage' ? numbro(value).format({ output: 'percent', mantissa: 0 }) : roundedValue }
-        </div>
-      )}
-
-    </button>
-  );
-};
-
-Handle.propTypes = {
-  handle: {
-    id: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    percent: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  },
-  getHandleProps: PropTypes.func,
-  axis: PropTypes.string,
-  min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  max: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  step: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  displayValueFormat: PropTypes.string,
-  disabled: PropTypes.bool
-};
-
-const Track = (props) => {
-  const {
-    source, target, getTrackProps, axis
-  } = props;
-  const divProps = {
-    ...getTrackProps()
+  const handleUpdate = (v) => {
+    if (is.function(onUpdate)) {
+      const value = (Number.isInteger(step)) ? v[0] : Number(Number.parseFloat(v[0]).toFixed(decimalPlaces));
+      onUpdate({ value, id });
+    }
   };
-  if (axis === 'x') {
-    divProps.style = {
-      left: `${source.percent}%`,
-      width: `${target.percent - source.percent}%`
-    };
-  } else if (axis === 'y') {
-    divProps.style = {
-      top: `${source.percent}%`,
-      height: `${target.percent - source.percent}%`
-    };
+  const domainCheck = (valToCheck) => {
+    let minCheck = Number(min);
+    let maxCheck = Number(max);
+    if (Number.isNaN(valToCheck)) {
+      return(Number.isInteger(step)) ? minCheck : Number(Number.parseFloat(minCheck).toFixed(decimalPlaces));
+    }
+    let returnValue = valToCheck;
+    const [domainMin, domainMax] = domain;
+    // If the min/max passed falls outside of the domain, set it to the respective domain min/max.
+    if (Number.isNaN(minCheck) || Math.abs(minCheck - domainMax) > Math.abs(domainMin - domainMax)) {
+      minCheck = domainMin;
+    }
+    if (Number.isNaN(maxCheck) || Math.abs(maxCheck - domainMin) > Math.abs(domainMin - domainMax)) {
+      maxCheck = domainMax;
+    }
+    // Ensure the value is always between the min or max values, if any.
+    if (valToCheck < minCheck) {
+      returnValue = minCheck;
+    }
+    if (valToCheck > maxCheck) {
+      returnValue = maxCheck;
+    }
+    return(Number.isInteger(step)) ? returnValue : Number(Number.parseFloat(returnValue).toFixed(decimalPlaces));
+  };
+  // Anything returned by mode when set to a function will become the value.
+  // This can be used for min/max validation.
+  // Next and current values are not numbers, but arrays of objects.
+  const handleMode = (current, next) => {
+    const [{ val: nextValue }] = next;
+    const checkValue = (Number.isInteger(step)) ? nextValue : Number(Number.parseFloat(nextValue).toFixed(decimalPlaces));
+    if (checkValue === domainCheck(nextValue)) {
+      return next;
+    }
+    return current;
+  };
+  const sliderProps = {
+    domain,
+    step,
+    vertical: axis !== 'x',
+    onChange: handleChange,
+    values,
+    mode: handleMode,
+    disabled
+  };
+  if (is.function(onUpdate)) {
+    sliderProps.onUpdate = handleUpdate;
   }
+  const wrapperClasses = classNames(wrapperClassName, {
+    'ma__input-slider': true,
+    'ma__input-slider--disabled': disabled,
+    'ma__input-slider-x': axis === 'x',
+    'ma__input-slider-y': axis === 'y'
+  });
+  const inputGroupProps = {
+    ...props,
+    groupProps: {
+      ...groupProps,
+      wrapperClassName: wrapperClasses,
+      outline: inline
+    }
+  };
+  // Ticks ususally don't change often, so save the value and
+  // update if ticks change.
+  const ticksValues = React.useMemo(() => Array.from(ticks.keys()), [ticks]);
   return(
-    <div className="ma__slider-track" {...divProps} />
-  );
-};
-
-Track.propTypes = {
-  source: {
-    percent: PropTypes.string
-  },
-  target: {
-    percent: PropTypes.string
-  },
-  getTrackProps: PropTypes.func,
-  axis: PropTypes.string
-};
-
-const Tick = (props) => {
-  const {
-    tick, count, axis, id
-  } = props;
-  const top = {};
-  const bottom = {};
-  if (axis === 'x') {
-    top.style = {
-      left: `${tick.percent}%`
-    };
-    bottom.style = {
-      marginLeft: `${-(100 / count) / 2}%`,
-      width: `${100 / count}%`,
-      left: `${tick.percent}%`
-    };
-  } else if (axis === 'y') {
-    top.style = {
-      top: `${tick.percent}%`
-    };
-    bottom.style = {
-      top: `${tick.percent}%`
-    };
-  }
-  return(
-    <>
-      <div className="ma__slider-tick ma__slider-tick--top" {...top} />
-      <div className="ma__slider-tick ma__slider-tick--bottom" {...bottom}><label htmlFor={id}>{tick.value}</label></div>
-    </>
-  );
-};
-
-Tick.propTypes = {
-  tick: {
-    percent: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  },
-  count: PropTypes.number,
-  getTrackProps: PropTypes.func,
-  id: PropTypes.string,
-  axis: PropTypes.string
-};
-
-class CompoundSlider extends React.Component {
-  render() {
-    return(
-      <InputContext.Consumer>
-        {
-          (context) => {
-            const {
-              min, max, step, disabled, domain, onChange, onUpdate
-            } = this.props;
-            const decimalPlaces = countDecimals(step);
-            const handleChange = (values) => {
-              const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
-              context.updateState({ value }, () => {
-                if (typeof onChange === 'function') {
-                  onChange(value, this.props.id);
-                }
-              });
-            };
-            const handleUpdate = (values) => {
-              const value = (Number.isInteger(step)) ? values[0] : Number(Number.parseFloat(values[0]).toFixed(decimalPlaces));
-              context.updateState({ value }, () => {
-                if (typeof onUpdate === 'function') {
-                  onUpdate(value, this.props.id);
-                }
-              });
-            };
-            const domainCheck = (valToCheck) => {
-              let minCheck = Number(min);
-              let maxCheck = Number(max);
-              if (Number.isNaN(valToCheck)) {
-                return(Number.isInteger(step)) ? minCheck : Number(Number.parseFloat(minCheck).toFixed(decimalPlaces));
-              }
-              let returnValue = valToCheck;
-              const [domainMin, domainMax] = domain;
-              // If the min/max passed falls outside of the domain, set it to the respective domain min/max.
-              if (Number.isNaN(minCheck) || Math.abs(minCheck - domainMax) > Math.abs(domainMin - domainMax)) {
-                minCheck = domainMin;
-              }
-              if (Number.isNaN(maxCheck) || Math.abs(maxCheck - domainMin) > Math.abs(domainMin - domainMax)) {
-                maxCheck = domainMax;
-              }
-              // Ensure the value is always between the min or max values, if any.
-              if (valToCheck < minCheck) {
-                returnValue = minCheck;
-              }
-              if (valToCheck > maxCheck) {
-                returnValue = maxCheck;
-              }
-              return(Number.isInteger(step)) ? returnValue : Number(Number.parseFloat(returnValue).toFixed(decimalPlaces));
-            };
-            // Anything returned by mode when set to a function will become the value.
-            // This can be used for min/max validation.
-            // Next and current values are not numbers, but arrays of objects.
-            const handleMode = (current, next) => {
-              const [{ val: nextValue }] = next;
-              const checkValue = (Number.isInteger(step)) ? nextValue : Number(Number.parseFloat(nextValue).toFixed(decimalPlaces));
-              if (checkValue === domainCheck(nextValue)) {
-                return next;
-              }
-              return current;
-            };
-            const defaultValue = domainCheck(Number(context.getValue()));
-            const sliderProps = {
-              domain,
-              step,
-              vertical: !(this.props.axis === 'x'),
-              onChange: handleChange,
-              values: [defaultValue],
-              mode: handleMode,
-              disabled
-            };
-            if (onUpdate) {
-              sliderProps.onUpdate = handleUpdate;
-            }
-            const wrapperClasses = classNames({
-              'ma__input-slider': true,
-              'ma__input-slider--disabled': disabled,
-              'ma__input-slider-x': this.props.axis === 'x',
-              'ma__input-slider-y': this.props.axis === 'y'
-            });
-            return(
-              <div id={this.props.id} className={wrapperClasses}>
-                <Slider className="ma__slider" {...sliderProps}>
-                  <Rail>
-                    {({ getRailProps }) => (
-                      <div className="ma__slider-rail" {...getRailProps()} />
-                    )}
-                  </Rail>
-                  <Handles>
-                    {({ handles, activeHandleID, getHandleProps }) => (
-                      <div className="slider-handles">
-                        {handles.map((handle) => (
-                          <Handle
-                            key={handle.id}
-                            handle={handle}
-                            getHandleProps={getHandleProps}
-                            isActive={handle.id === activeHandleID}
-                            axis={this.props.axis}
-                            min={min}
-                            max={max}
-                            step={step}
-                            displayValueFormat={this.props.displayValueFormat}
-                            disabled={disabled}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </Handles>
-                  <Tracks right={false}>
-                    {({ tracks, getTrackProps }) => (
-                      <div className="slider-tracks">
-                        {tracks.map(({ id, source, target }) => (
-                          <Track
-                            key={id}
-                            source={source}
-                            target={target}
-                            getTrackProps={getTrackProps}
-                            axis={this.props.axis}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </Tracks>
-                  <Ticks values={Array.from(this.props.ticks.keys())}>
-                    {({ ticks }) => {
-                      const ticksLength = ticks.length;
-                      // Placing this check here because Slider can't handle null children but Ticks can.
-                      if (ticksLength > 0) {
-                        return(
-                          <div className="slider-ticks">
-                            {ticks.map((oldTick) => {
-                              const tick = {
-                                ...oldTick,
-                                value: this.props.ticks.get(oldTick.value)
-                              };
-                              const tickProps = {
-                                key: `CompoundSlider.tick.${tick.value}`,
-                                count: ticksLength,
-                                tick,
-                                axis: this.props.axis,
-                                id: this.props.id
-                              };
-                              return<Tick {...tickProps} />;
-                            })}
-                          </div>
-                        );
-                      }
-                      return null;
-                    }}
-                  </Ticks>
-                </Slider>
+    <InputGroup {...inputGroupProps}>
+      <Slider className="ma__slider" {...sliderProps}>
+        <Rail>
+          {({ getRailProps }) => (
+            <div className="ma__slider-rail" {...getRailProps()} />
+          )}
+        </Rail>
+        <Handles>
+          {({ handles, activeHandleID, getHandleProps }) => (
+            <div className="slider-handles">
+              {handles.map((handle) => (
+                <Handle
+                  key={`CompoundSlider.handle.${handle.id}`}
+                  handle={handle}
+                  getHandleProps={getHandleProps}
+                  isActive={handle.id === activeHandleID}
+                  domain={domain}
+                  axis={axis}
+                  mantissa={mantissa}
+                  displayValueFormat={displayValueFormat}
+                  disabled={disabled}
+                />
+              ))}
+            </div>
+          )}
+        </Handles>
+        <Tracks right={false}>
+          {({ tracks, getTrackProps }) => (
+            <div className="slider-tracks">
+              {tracks.map((trackProps) => (
+                <Track
+                  key={`CompoundSlider.track.${trackProps.id}`}
+                  source={trackProps.source}
+                  target={trackProps.target}
+                  getTrackProps={getTrackProps}
+                  axis={axis}
+                />
+              ))}
+            </div>
+          )}
+        </Tracks>
+        {ticks.size > 0 && (
+          <Ticks values={ticksValues}>
+            {(ticksProps) => (
+              <div className="slider-ticks">
+                {ticksProps.ticks.map((oldTick) => {
+                  const tick = {
+                    ...oldTick,
+                    value: ticks.get(oldTick.value)
+                  };
+                  const tickProps = {
+                    key: `CompoundSlider.tick.${tick.value}`,
+                    count: ticks.size,
+                    tick,
+                    axis,
+                    id
+                  };
+                  return<Tick {...tickProps} />;
+                })}
               </div>
-            );
-          }
-        }
-      </InputContext.Consumer>
-    );
-  }
-}
+            )}
+          </Ticks>
+        )}
+      </Slider>
+    </InputGroup>
+  );
+};
 
-CompoundSlider.propTypes = {
+
+InputSlider.propTypes = {
+  inline: PropTypes.bool,
+  required: PropTypes.bool,
+  labelText: PropTypes.string,
+  showError: PropTypes.bool,
+  errorMsg: PropTypes.string,
+  hiddenLabel: PropTypes.bool,
   /** The unique ID for the input field */
   id: PropTypes.string.isRequired,
   /** Custom update function, triggered with the values on drag (caution: high-volume updates when dragging). Only if a function is passed to onUpdate will form context get updated on drag. */
   onUpdate: PropTypes.func,
   /** Custom on change function, triggered when the value of the slider has changed. This will recieve changes at the end of a slide as well as changes from clicks on rails and tracks. */
   onChange: PropTypes.func,
+  /** Optional significant digits to display with. */
+  mantissa: PropTypes.number,
   /** Default input text value */
-  defaultValue: PropTypes.string,
+  values: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
   /** Max value for the field. */
   max: PropTypes.number.isRequired,
   /** Min value for the field. */
@@ -328,9 +218,4 @@ CompoundSlider.propTypes = {
   displayValueFormat: PropTypes.oneOf(['percentage', 'value', null])
 };
 
-CompoundSlider.defaultProps = {
-  ticks: new Map(),
-  domain: [0, 1]
-};
-
-export default CompoundSlider;
+export default InputSlider;

@@ -11,57 +11,66 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import is from 'is';
 import numbro from 'numbro';
-
-import Input from 'MayflowerReactForms/Input';
-import Error from 'MayflowerReactForms/Input/error';
 import InputGroup from 'MayflowerReactForms/InputGroup';
 import { countDecimals } from 'MayflowerReactForms/Input/utility';
-import { numberCharacterPropTypeCheck } from 'MayflowerReactComponents/utilities/componentPropTypeCheck';
 
-const NumberInput = React.forwardRef((props, ref) => {
+const InputNumber = React.forwardRef((props, ref) => {
   const {
-    defaultValue,
-    showButtons,
-    unit,
-    ...rest
+    showButtons = true,
+    unit = '',
+    width,
+    inputProps = {},
+    groupProps = {}
   } = props;
+  const {
+    id,
+    maxlength = 3,
+    min,
+    max,
+    step = 1,
+    onBlur = null,
+    onChange = null,
+    required = false,
+    disabled = false
+  } = inputProps;
+  const {
+    showError = false
+  } = groupProps;
   const inputRef = React.createRef(ref);
   const upRef = React.createRef();
   const downRef = React.createRef();
   const inputClasses = classNames('ma__input', {
     'ma__input-number__control': true,
-    'js-is-required': props.required,
+    'js-is-required': required,
     'ma__input-number__control--showButtons': showButtons
   });
 
   const unitClasses = classNames({
     'ma__input-number-unit': true,
-    'ma__input-number-unit--disabled': props.disabled,
+    'ma__input-number-unit--disabled': disabled,
     'ma__input-number-unit--showButtons': showButtons
   });
 
   const wrapperClasses = classNames('ma__input-number', {
-    'ma__input-number--error': props.showError
+    'ma__input-number--error': showError
   });
 
   const handleOnBlur = (e) => {
     e.persist();
     const inputEl = inputRef.current;
     let newValue = Number(inputEl.value);
-    const max = Object.prototype.hasOwnProperty.call(props, 'max') ? Number(props.max) : null;
-    const min = Object.prototype.hasOwnProperty.call(props, 'min') ? Number(props.min) : null;
-    if (is.number(max) && newValue > max) {
-      newValue = props.max;
+    if (is.number(max) && newValue > Number(max)) {
+      newValue = max;
     }
-    if (is.number(min) && newValue < min) {
-      newValue = props.min;
+    if (is.number(min) && newValue < Number(min)) {
+      newValue = min;
     }
     if (is.number(newValue)) {
       // Since to Fixed returns a string, we have to cast it back to a Number
-      newValue = Number(numbro(newValue).format({ mantissa: countDecimals(props.step) }));
+      newValue = Number(numbro(newValue).format({ mantissa: countDecimals(step) }));
       inputRef.current.value = newValue;
-      if (is.fn(props.onBlur)) {
-        props.onBlur(e, newValue);
+      if (is.fn(onBlur)) {
+        onBlur(e, newValue);
       }
     }
   };
@@ -72,8 +81,8 @@ const NumberInput = React.forwardRef((props, ref) => {
     const newValue = Number(inputEl.value);
     if (is.number(newValue)) {
       inputRef.current.value = newValue;
-      if (is.fn(props.onChange)) {
-        props.onChange(e, newValue, props.id);
+      if (is.fn(onChange)) {
+        onChange(e, newValue, id);
       }
     }
   };
@@ -86,36 +95,32 @@ const NumberInput = React.forwardRef((props, ref) => {
     } else if (direction === 'down') {
       inputRef.current.stepDown();
     }
-    if (is.fn(props.onChange)) {
-      props.onChange(e, Number(inputRef.current.value), props.id);
+    if (is.fn(onChange)) {
+      onChange(e, Number(inputRef.current.value), id);
     }
   };
 
   const inputAttr = {
+    ...inputProps,
+    ref: inputRef,
     className: inputClasses,
-    name: props.name,
-    id: props.id,
     type: 'number',
-    placeholder: props.placeholder,
-    maxLength: Number(props.maxlength),
-    style: props.width ? { width: `${props.width}px` } : null,
+    maxLength: Number(maxlength),
+    style: width ? { width: `${width}px` } : null,
     onChange: handleChange,
     onBlur: handleOnBlur,
-    required: props.required,
-    disabled: props.disabled,
-    step: props.step,
-    defaultValue
+    step
   };
-  if (Object.prototype.hasOwnProperty.call(props, 'max')) {
-    inputAttr.max = props.max;
+  if (is.number(max)) {
+    inputAttr.max = max;
   }
-  if (Object.prototype.hasOwnProperty.call(props, 'min')) {
-    inputAttr.min = props.min;
+  if (is.number(min)) {
+    inputAttr.min = min;
   }
   return(
-    <InputGroup {...rest}>
+    <InputGroup {...props}>
       <div className={wrapperClasses}>
-        <input {...inputAttr} ref={inputRef} />
+        <input {...inputAttr} />
         {(unit) ? <span className={unitClasses}>{unit}</span> : null}
         {
           showButtons && (
@@ -126,7 +131,7 @@ const NumberInput = React.forwardRef((props, ref) => {
                 className="ma__input-number__control-plus"
                 data-direction="up"
                 onClick={handleAdjust}
-                disabled={props.disabled}
+                disabled={disabled}
                 tabIndex={-1}
                 ref={upRef}
               />
@@ -136,7 +141,7 @@ const NumberInput = React.forwardRef((props, ref) => {
                 className="ma__input-number__control-minus"
                 data-direction="down"
                 onClick={handleAdjust}
-                disabled={props.disabled}
+                disabled={disabled}
                 tabIndex={-1}
                 ref={downRef}
               />
@@ -148,7 +153,7 @@ const NumberInput = React.forwardRef((props, ref) => {
   );
 });
 
-NumberInput.propTypes = {
+InputNumber.propTypes = {
   /** Whether the label should be hidden or not */
   hiddenLabel: PropTypes.bool,
   required: PropTypes.bool,
@@ -166,97 +171,8 @@ NumberInput.propTypes = {
   placeholder: PropTypes.string,
   width: PropTypes.number
 };
-NumberInput.defaultProps = {
-  hiddenLabel: false,
-  required: false,
-  onChange: null,
-  step: 1,
-  showButtons: true,
-  unit: ''
-};
 
-const InputNumber = (props) => {
-  const {
-    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, showButtons, ...inputProps
-  } = props;
-  // Input and Number share the props.required, props.id and props.disabled values.
-  const numberProps = {
-    max,
-    min,
-    step,
-    name,
-    placeholder,
-    width,
-    maxlength,
-    required: props.required,
-    id: props.id,
-    onChange,
-    onBlur,
-    disabled: props.disabled,
-    unit: props.unit,
-    showButtons
-  };
-  return(
-    <Input {...inputProps}>
-      <NumberInput {...numberProps} />
-      <Error id={props.id} />
-    </Input>
-  );
-};
 
-InputNumber.propTypes = {
-  /** Whether the label should be hidden or not */
-  hiddenLabel: PropTypes.bool,
-  /** The label text for the input field, can be a string or a component */
-  labelText: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]).isRequired,
-  /** Whether the field is required or not */
-  required: PropTypes.bool,
-  /** Whether the field is disabled or not */
-  disabled: PropTypes.bool,
-  /** The unique ID for the input field */
-  id: PropTypes.string.isRequired,
-  /** The name for the input field */
-  name: PropTypes.string.isRequired,
-  /** The max acceptable input length */
-  maxlength: PropTypes.number,
-  /** The pattern to filter input against, e.g. "[0-9]" for numbers only */
-  pattern: PropTypes.string,
-  /** The number of characters wide to make the input field */
-  width: PropTypes.number,
-  /** The placeholder text for the input field */
-  placeholder: PropTypes.string,
-  /** The message to be displayed in the event of an error. */
-  errorMsg: PropTypes.string,
-  /** Custom change function */
-  onChange: PropTypes.func,
-  /** Custom onBlur function */
-  onBlur: PropTypes.func,
-  /** Default input value */
-  defaultValue: PropTypes.number,
-  /** Max value for the field. */
-  max: PropTypes.number,
-  /** Min value for the field. */
-  min: PropTypes.number,
-  /** Using the up/down arrow keys will increment/decrement the input value by this number. */
-  step: PropTypes.number,
-  /** Inline label and input field */
-  inline: PropTypes.bool,
-  /** A unit that is a string of no more than 2 characters renders in the input after the value, e.g. %  */
-  unit: (props, propName) => numberCharacterPropTypeCheck(props, propName, 2),
-  /** Whether to render up/down buttons */
-  showButtons: PropTypes.bool
-};
-
-InputNumber.defaultProps = {
-  hiddenLabel: false,
-  required: false,
-  onChange: null,
-  step: 1,
-  showButtons: true,
-  unit: ''
-};
-
-export default NumberInput;
+// Needed with forwardRef.
+InputNumber.displayName = 'InputNumber';
+export default InputNumber;

@@ -15,7 +15,47 @@ import is from 'is';
 import InputGroup from 'MayflowerReactForms/InputGroup';
 
 const InputTextFuzzy = (props) => {
-  const optionsToSuggestions = (options) => options.map((item) => ({
+  const {
+    id,
+    boxed = false,
+    autoFocusInput = false,
+    options,
+    fuseOptions = {
+      /** Set the result list to sort by score. */
+      shouldSort: true,
+      /** Prevents matching from stopping at the first match found. */
+      findAllMatches: true,
+      /** Lets the matches found be included in the result set. */
+      includeMatches: true,
+      /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches. */
+      threshold: 0.3,
+      /** Prevents matches against empty strings. */
+      minMatchCharLength: 1,
+      /** Allows more characters for long queries. */
+      maxPatternLength: 300
+    },
+    keys,
+    onSuggestionClick,
+    renderDefaultSuggestion = true,
+    inputProps = {},
+    groupProps = {}
+  } = props;
+  const {
+    id: inputId,
+    placeholder,
+    disabled = false,
+    required = false,
+    onChange,
+    onBlur,
+    onKeyDown,
+    onFocus,
+    selected = ''
+  } = inputProps;
+  const {
+    showError = false,
+
+  } = groupProps;
+  const optionsToSuggestions = () => options.map((item) => ({
     item: {
       text: item.text,
       value: item.value
@@ -28,12 +68,12 @@ const InputTextFuzzy = (props) => {
     }]
   }));
 
-  const [suggestions, setSuggestions] = React.useState(optionsToSuggestions(props.options));
-  const [value, setValue] = React.useState(props.selected);
-  const fuse = React.useMemo(() => new Fuse(props.options, Object.assign(props.fuseOptions, { keys: props.keys })), [props.fuseOptions]);
+  const [suggestions, setSuggestions] = React.useState(optionsToSuggestions());
+  const [value, setValue] = React.useState(selected);
+  const fuse = React.useMemo(() => new Fuse(options, Object.assign(fuseOptions, { keys })), [fuseOptions]);
 
   const onSuggestionsFetchRequested = (fetchRequested) => {
-    const updatedSuggestions = is.empty(fetchRequested.value) ? optionsToSuggestions(props.options) : fuse.search(fetchRequested.value);
+    const updatedSuggestions = is.empty(fetchRequested.value) ? optionsToSuggestions() : fuse.search(fetchRequested.value);
     setSuggestions(updatedSuggestions);
   };
 
@@ -43,10 +83,10 @@ const InputTextFuzzy = (props) => {
 
   const onSuggestionSelected = (event, { suggestion, method }) => {
     // invokes custom function if passed in the component
-    if (is.fn(props.onSuggestionClick)) {
+    if (is.fn(onSuggestionClick)) {
       event.persist();
       // Suggestion is an object that can contain info on score, matches, etc.
-      props.onSuggestionClick(event, { suggestion, method, suggestions });
+      onSuggestionClick(event, { suggestion, method, suggestions });
     }
   };
 
@@ -57,9 +97,9 @@ const InputTextFuzzy = (props) => {
     // This solves performance issues with suggestion rendering.
     if (!['up', 'down'].includes(method)) {
       setValue(newValue);
-      if (is.fn(props.onChange)) {
+      if (is.fn(onChange)) {
         event.persist();
-        props.onChange({
+        onChange({
           event, method, value: newValue, suggestions
         });
       }
@@ -67,25 +107,25 @@ const InputTextFuzzy = (props) => {
   };
 
   const handleBlur = (event) => {
-    if (is.fn(props.onBlur)) {
+    if (is.fn(onBlur)) {
       event.persist();
-      props.onBlur({ event, value, suggestions });
+      onBlur({ event, value, suggestions });
     }
   };
 
   // handleChange and onSuggestionSelected both do not fire when enter is hit.
   // This is a workaround for that. Use handleChange for keyboard presses.
   const handleKeyPress = (event) => {
-    if (is.fn(props.onKeyDown)) {
+    if (is.fn(onKeyDown)) {
       event.persist();
-      props.onKeyDown(event);
+      onKeyDown(event);
     }
   };
 
   const handleFocus = (event) => {
-    if (is.fn(props.onFocus)) {
+    if (is.fn(onFocus)) {
       event.persist();
-      props.onFocus(event, { event, value, suggestions });
+      onFocus(event, { event, value, suggestions });
     }
   };
 
@@ -94,16 +134,16 @@ const InputTextFuzzy = (props) => {
     if (!is.string(v)) {
       return false;
     }
-    return(props.renderDefaultSuggestion === true) ? v.trim().length >= 0 : v.trim().length > 0;
+    return(renderDefaultSuggestion === true) ? v.trim().length >= 0 : v.trim().length > 0;
   };
-  const renderItem = (suggestion, { query }) => {
+  const renderItem = (suggestion) => {
     const { item, matches } = suggestion;
     let renderItems = [];
     if (is.empty(value)) {
-      renderItems = props.keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
+      renderItems = keys.map((key) => <span key={`${key}.suggestion_${item.optionIndex}`}>{item[key]}</span>);
     } else {
       const matchLength = matches.length;
-      for (let i = 0; i < matchLength; i++) {
+      for (let i = 0; i < matchLength; i += 1) {
         const match = matches[i];
         // Add one to each range to get a proper highlight match.
         const ranges = match.indices.map((range) => {
@@ -114,7 +154,7 @@ const InputTextFuzzy = (props) => {
         });
         const parts = parse(match.value, ranges);
         const partsLength = parts.length;
-        for (let j = 0; j < partsLength; j++) {
+        for (let j = 0; j < partsLength; j += 1) {
           const index = j;
           const part = parts[j];
           if (part.text.length > 0) {
@@ -135,20 +175,7 @@ const InputTextFuzzy = (props) => {
   };
 
   const renderItemsContainer = ({ children, containerProps }) => (<div className="ma__input-fuzzy" {...containerProps}>{children}</div>);
-  const {
-    inputId,
-    id,
-    placeholder,
-    disabled,
-    labelText,
-    boxed,
-    autoFocusInput,
-    required,
-    inline,
-    showError,
-    errorMsg,
-    hiddenLabel
-  } = props;
+
   const autoProps = {
     suggestions,
     renderSuggestionsContainer: renderItemsContainer,
@@ -183,18 +210,8 @@ const InputTextFuzzy = (props) => {
     'ma__input-typeahead--boxed': boxed
   });
 
-  const inputGroupProps = {
-    required,
-    disabled,
-    id: inputId,
-    inline,
-    labelText,
-    showError,
-    errorMsg,
-    hiddenLabel
-  };
   return(
-    <InputGroup {...inputGroupProps}>
+    <InputGroup {...props}>
       <div className={inputTextTypeAheadClasses}>
         <Autosuggest {...autoProps} />
       </div>
@@ -236,28 +253,6 @@ InputTextFuzzy.propTypes = {
   renderDefaultSuggestion: PropTypes.bool,
   /** Focus on typeahead input */
   autoFocusInput: PropTypes.bool
-};
-
-InputTextFuzzy.defaultProps = {
-  fuseOptions: {
-    /** Set the result list to sort by score. */
-    shouldSort: true,
-    /** Prevents matching from stopping at the first match found. */
-    findAllMatches: true,
-    /** Lets the matches found be included in the result set. */
-    includeMatches: true,
-    /** Match sensitivity. 0 means what's been typed must be a perfect match, 1 means anything typed matches. */
-    threshold: 0.3,
-    /** Prevents matches against empty strings. */
-    minMatchCharLength: 1,
-    /** Allows more characters for long queries. */
-    maxPatternLength: 300
-  },
-  selected: '',
-  autoFocusInput: false,
-  disabled: false,
-  boxed: false,
-  renderDefaultSuggestion: true
 };
 
 export default InputTextFuzzy;

@@ -8,37 +8,52 @@ import React from 'react';
 import is from 'is';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Label from 'MayflowerReactForms/Label';
 import InputGroup from 'MayflowerReactForms/InputGroup';
 
 const SelectBox = React.forwardRef((props, ref) => {
+  const {
+    options = [],
+    inputProps = {},
+    groupProps = {}
+  } = props;
+  const {
+    id,
+    name,
+    value = options[0].value,
+    required = false,
+    onChange = null
+  } = inputProps;
+  const {
+    inline = false,
+    showError = false
+  } = groupProps;
   const selectRef = React.useRef(ref);
-  const [value, setValue] = React.useState(props.selected);
   const handleOnChange = (event) => {
     const selectedIndex = event.nativeEvent.target.selectedIndex;
-    const selected = event.target[selectedIndex].text;
+    const selectedText = event.target[selectedIndex].text;
     const selectedValue = event.target[selectedIndex].value;
-    setValue(selectedValue);
     // invokes custom function if passed in the component
-    if (is.function(props.onChangeCallback)) {
-      props.onChangeCallback({ selectedIndex, selected, selectedValue });
+    if (is.function(onChange)) {
+      onChange({ selectedIndex, selected: selectedText, selectedValue });
     }
   };
-  const sectionClass = classNames('ma__select-box js-dropdown', {
-    'ma__select-box--optional': !props.required
+  const sectionClass = classNames({
+    'ma__select-box': !inline,
+    'ma__select-box--optional': !required
   });
 
-  const selectClassNames = classNames('ma__select-box__select js-dropdown-select', {
-    'js-required': props.required
+  const selectClassNames = classNames(
+    'ma__select-box__select',
+    'js-dropdown-select',
+    {
+      'js-required': required
+    }
+  );
+  const selectBoxLinkClassNames = classNames('ma__select-box__link', {
+    'ma__select-box__select--error': showError
   });
-  const {
-    labelText, id, options, inline, showError, errorMsg, required, hiddenLabel
-  } = props;
-  const labelClassNames = classNames({
-    'ma__select-box__label': inline,
-    'ma__label--inline ma__label--small': !inline
-  });
-  const selectBoxInline = classNames('ma__select-box__field', {
+  const selectBoxInline = classNames({
+    'ma__select-box__field': !inline,
     'ma__select-box__field--inline': inline
   });
   const getTextByValue = (array = [], v) => {
@@ -46,36 +61,39 @@ const SelectBox = React.forwardRef((props, ref) => {
     const matchedValue = matchedItem && matchedItem.text;
     return matchedValue;
   };
-  const textFromValue = getTextByValue(options, value);
+  const inputGroupProps = {
+    ...props,
+    inputProps: {
+      ...inputProps,
+      value,
+      required,
+      onChange
+    },
+    groupProps: {
+      ...groupProps,
+      wrapperClassName: sectionClass
+    }
+  };
   return(
-    <InputGroup
-      id={id}
-      labelText={labelText}
-      inline={inline}
-      required={required}
-      className={sectionClass}
-      hiddenLabel={hiddenLabel}
-      showError={showError}
-      errorMsg={errorMsg}
-    >
+    <InputGroup {...inputGroupProps}>
       <div className={selectBoxInline}>
-        <select
-          ref={selectRef}
-          name={id}
-          id={id}
-          className={selectClassNames}
-          onChange={handleOnChange}
-          defaultValue={props.selected || options[0].value}
-        >
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.text}
-            </option>
-          ))}
-        </select>
-        <div className="ma__select-box__link">
+        <div className={selectBoxLinkClassNames}>
+          <select
+            ref={selectRef}
+            name={name || id}
+            id={id}
+            className={selectClassNames}
+            onChange={handleOnChange}
+            value={value}
+          >
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.text}
+              </option>
+            ))}
+          </select>
           <span className="js-dropdown-link">
-            {textFromValue || options[0].text}
+            {getTextByValue(options, value)}
           </span>
           <span className="ma__select-box__icon" />
         </div>
@@ -108,10 +126,6 @@ SelectBox.propTypes = {
   className: PropTypes.string,
   /** The default value for the select box */
   selected: PropTypes.string
-};
-
-SelectBox.defaultProps = {
-  required: false
 };
 
 export default SelectBox;

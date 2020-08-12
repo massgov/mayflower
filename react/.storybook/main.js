@@ -4,12 +4,18 @@ const iconPath = path.resolve(__dirname, '../src/components/base/Icon/assets');
 
 module.exports = {
   stories: [
+    '../src/**/Form.stories.js',
+    '../src/**/InputSlider.stories.js',
+    '../src/components/**/MultiSelectDropDown.stories.js',
+    '../src/components/**/SelectBox.stories.js',
+    '../src/**/InputCurrency.stories.js',
     '../src/**/InputText.stories.js',
     '../src/**/InputTextFuzzy.stories.js',
     '../src/**/InputNumber.stories.js',
     '../src/**/InputDate.stories.js',
     '../src/**/DateRange.stories.js',
     '../src/**/InputCheckBox.stories.js',
+    '../src/**/InputRadio.stories.js',
     '../src/**/InputRadioGroup.stories.js',
   ],
   addons: [
@@ -22,10 +28,17 @@ module.exports = {
     {
       name: '@storybook/preset-scss',
       options: {
+        cssLoaderOptions: {
+          sourceMap: true
+        },
         sassLoaderOptions: {
           sourceMap: true,
           implementation: require('sass'),
           sassOptions: {
+            outputStyle: 'expanded',
+            sourceComments: true,
+            sourceMapContents: true,
+            sourceMapEmbed: true,
             includePaths: [
               path.resolve(__dirname, '../src'),
               path.resolve(__dirname, '../src/components'),
@@ -35,8 +48,10 @@ module.exports = {
         }
       }
     },
+    path.resolve(__dirname, './render-markup/register.js'),
   ],
   webpackFinal: (config, { configType }) => {
+    config.devtool = '#inline-cheap-module-source-map';
     // modify storybook's file-loader rule to avoid conflicts with svgr
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = iconPath;
@@ -82,6 +97,7 @@ module.exports = {
         MayflowerReactDataviz: path.resolve(__dirname, '../src/components/dataviz'),
         MayflowerReactForms: path.resolve(__dirname, '../src/components/forms'),
         MayflowerReactMolecules: path.resolve(__dirname, '../src/components/molecules'),
+        MayflowerReactSlider: path.resolve(__dirname, '../src/components/forms/CompoundSlider'),
         MayflowerReactOrganisms: path.resolve(__dirname, '../src/components/organisms'),
         MayflowerReactPages: path.resolve(__dirname, '../src/components/pages'),
         MayflowerReactTemplates: path.resolve(__dirname, '../src/components/templates'),

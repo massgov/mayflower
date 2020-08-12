@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 
 export default {
-  hiddenLabel: () => boolean('hiddenLabel', false),
+  hidden: () => boolean('hiddenLabel', false),
   labelText: () => text('labelText', 'Currency Input'),
   required: () => boolean('required', false),
   inline: () => boolean('inline', false),
@@ -14,7 +14,7 @@ export default {
   maxlength: () => number('maxlength', 20),
   placeholder: () => text('placeholder', '$0.00'),
   errorMsg: () => text('errorMsg', 'you did not type something'),
-  defaultValue: () => text('defaultValue', null),
+  defaultValue: () => text('defaultValue', 0.00),
   max: () => number('max', 1000),
   min: () => number('min', 0),
   step: () => number('step', 0.01),
@@ -24,6 +24,7 @@ export default {
     thousandSeparated: true,
     negative: 'parenthesis'
   }),
+  showError: () => boolean('showError', false),
   showButtons: () => boolean('showButtons', true),
   onChange: () => action('onChange'),
   onBlur: () => action('onBlur'),

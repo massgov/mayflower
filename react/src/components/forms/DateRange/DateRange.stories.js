@@ -11,34 +11,52 @@ storiesOf('forms|molecules', module)
   .add(
     'DateRange', () => {
       const props = {
-        labelText: text('labelText', 'Filter by date'),
+        inputProps: {
+          disabled: boolean('disabled', false)
+        },
+        groupProps: {
+          labelProps: {
+            labelText: text('labelText', 'Filter by date'),
+            hidden: boolean('hiddenLabel', false)
+          },
+          showError: boolean('showError', false),
+          errorMsg: text('errorMsg', 'EndDate Error: Please select a date.'),
+          inline: boolean('inline', false),
+        },
         startDate: {
-          labelText: text('StartDate: labelText', 'Select a start date:', 'StartDate'),
-          placeholder: text('StartDate: placeholder', 'today', 'StartDate'),
-          required: boolean('StartDate: required', false, 'StartDate'),
-          id: text('StartDate: id', 'start-date', 'StartDate'),
-          name: text('StartDate: name', 'start-date', 'StartDate'),
-          onChangeCallback: action('startdate custom onchange callback function'),
-          startDate: new Date(date('StartDate: defaultDate', new Date('Jan 01 2018'), 'StartDate')),
-          showError: boolean('StartDate: showError', false, 'StartDate'),
-          errorMsg: text('StartDate: errorMsg', 'StartDate Error: Please select a date.', 'StartDate'),
+          inputProps: {
+            required: boolean('StartDate: required', false, 'StartDate'),
+            id: text('StartDate: id', 'start-date', 'StartDate'),
+            name: text('StartDate: name', 'start-date', 'StartDate'),
+            onChange: action('startdate custom onchange callback function'),
+            placeholder: text('StartDate: placeholder', 'today', 'StartDate'),
+          },
+          groupProps: {
+            labelProps: {
+              labelText: text('StartDate: labelText', 'Select a start date:', 'StartDate'),
+            },
+            showError: boolean('StartDate: showError', false, 'StartDate'),
+            errorMsg: text('StartDate: errorMsg', 'StartDate Error: Please select a date.', 'StartDate'),
+          },
+          startDate: new Date(date('StartDate: defaultDate', new Date('Jan 01 2018'), 'StartDate'))
         },
         endDate: {
-          labelText: text('EndDate: labelText', 'Select an end date:', 'EndDate'),
-          placeholder: text('EndDate:placeholder', 'm/dd/yy', 'EndDate'),
-          required: boolean('EndDate: required', false, 'EndDate'),
-          id: text('EndDate: id', 'end-date', 'EndDate'),
-          name: text('EndDate: name', 'end-date', 'EndDate'),
-          onChangeCallback: action('enddate custom onchange callback function'),
+          inputProps: {
+            placeholder: text('EndDate:placeholder', 'm/dd/yy', 'EndDate'),
+            required: boolean('EndDate: required', false, 'EndDate'),
+            id: text('EndDate: id', 'end-date', 'EndDate'),
+            name: text('EndDate: name', 'end-date', 'EndDate'),
+            onChange: action('enddate custom onchange callback function'),
+          },
+          groupProps: {
+            labelProps: {
+              labelText: text('EndDate: labelText', 'Select an end date:', 'EndDate')
+            },
+            showError: boolean('EndDate: showError', false, 'EndDate'),
+            errorMsg: text('EndDate: errorMsg', 'EndDate Error: Please select a date.', 'EndDate'),
+          },
           endDate: new Date(date('EndDate: defaultDate', new Date('Feb 01 2018'), 'EndDate')),
-          showError: boolean('EndDate: showError', false, 'EndDate'),
-          errorMsg: text('EndDate: errorMsg', 'EndDate Error: Please select a date.', 'EndDate'),
-        },
-        showError: boolean('showError', false),
-        errorMsg: text('errorMsg', 'EndDate Error: Please select a date.'),
-        hiddenLabel: boolean('hiddenLabel', false),
-        inline: boolean('inline', false),
-        disabled: boolean('disabled', false)
+        }
       };
       return(
         <DateRange {...props} />

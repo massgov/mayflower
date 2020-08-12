@@ -13,65 +13,105 @@ import InputDate, { MayflowerDate } from 'MayflowerReactForms/InputDate';
 import InputGroup from 'MayflowerReactForms/InputGroup';
 
 const DateRange = (props) => {
-  const [startDate, setStartDate] = React.useState(props.startDate.startDate);
-  const [endDate, setEndDate] = React.useState(props.endDate.endDate);  
+  const {
+    startDate = {
+      inputProps: {
+        required: false,
+        format: 'M/dd/yyyy',
+        restrict: ''
+      },
+      groupProps: {
+        fieldset: true,
+        showError: props.startDate?.groupProps?.showError || groupProps?.showError
+      },
+      defaultDate: null,
+      startDate: null,
+      endDate: null
+    },
+    endDate = {
+      inputProps: {
+        required: false,
+        format: 'M/dd/yyyy',
+        restrict: ''
+      },
+      groupProps: {
+        showError: props.startDate?.groupProps?.showError || groupProps?.showError
+      },
+      defaultDate: null,
+      startDate: null,
+      endDate: null
+    },
+    inputProps = {},
+    groupProps = {}
+  } = props;
+  const {
+    disabled = false
+  } = inputProps;
+  const [startDateState, setStartDate] = React.useState(startDate.startDate);
+  const [endDateState, setEndDate] = React.useState(endDate.endDate);
   const startOnChange = (date) => {
     setStartDate(date);
-    if (is.function(props.startDate.onChangeCallback)) {
-      props.startDate.onChangeCallback({ date });
+    if (is.function(startDate.onChange)) {
+      startDate.onChange({ date });
     }
   };
   const endOnChange = (date) => {
     setEndDate(date);
-    if (is.function(props.endDate.onChangeCallback)) {
-      props.endDate.onChangeCallback({ date });
+    if (is.function(endDate.onChange)) {
+      endDate.onChange({ date });
+    }
+  };
+  const startProps = {
+    ...startDate,
+    selectsStart: true,
+    inputProps: {
+      ...startDate.inputProps,
+      disabled: startDate?.inputProps?.disabled || disabled,
+      selected: startDateState,
+      onChange: startOnChange
+    },
+    startDate: startDateState,
+    endDate: endDateState
+  };
+  const endProps = {
+    ...endDate,
+    inputProps: {
+      ...endDate.inputProps,
+      disabled: endDate?.inputProps?.disabled || disabled,
+      onChange: endOnChange,
+      selected: endDateState
+    },
+    selectsStart: true,
+    startDate: startDateState,
+    endDate: endDateState,
+    selectsEnd: true
+  };
+  const inputGroupProps = {
+    ...props,
+    groupProps: {
+      ...groupProps,
+      fieldset: true
     }
   };
   return(
-    <InputGroup {...props}>
+    <InputGroup {...inputGroupProps}>
       <div className="ma__date-range">
         <div className="ma__date-range__start js-filter-by-date-range__start">
-          <MayflowerDate {...props.startDate} showError={props.startDate?.showError || props.showError} selectsStart selected={startDate} startDate={startDate} endDate={endDate} onChange={startOnChange} />
+          <MayflowerDate {...startProps} />
         </div>
         <div className="ma__date-range__divider">to</div>
         <div className="ma__date-range__end js-filter-by-date-range__end">
-          <MayflowerDate {...props.endDate} showError={props.endDate?.showError || props.showError} selectsEnd selected={endDate} startDate={startDate} endDate={endDate} onChange={endOnChange} />
+          <MayflowerDate {...endProps} />
         </div>
       </div>
     </InputGroup>
   );
 };
 
-class DateRangeOld extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
-    return(
-      <div className="ma__date-range">
-        <fieldset>
-          <legend className="ma__date-range__label">
-            {this.props.label}
-          </legend>
-          <div className="ma__date-range__start js-filter-by-date-range__start">
-            <InputDate {...this.props.startDate} />
-          </div>
-          <div className="ma__date-range__divider">to</div>
-          <div className="ma__date-range__end js-filter-by-date-range__end">
-            <InputDate {...this.props.endDate} />
-          </div>
-        </fieldset>
-      </div>
-    );
-  }
-}
 
 DateRange.propTypes = {
   /** The text label of the date range input */
-  label: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
   /** The start date of your filter query, @forms/InputDate */
   startDate: PropTypes.shape(InputDate.props).isRequired,
   /** The end date of your filter query, @forms/InputDate */

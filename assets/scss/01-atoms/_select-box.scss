@@ -103,7 +103,7 @@
     }
   }
 
-  &__select.has-error ~ &__link {
+  &__select--error {
     border-color: $c-bd-error;
   }
 
@@ -115,7 +115,7 @@
     }
   }
 
-  &__select.has-error ~ &__link &__icon {
+  &__select--error ~ &__link &__icon {
     border-color: $c-bd-error;
   }
 

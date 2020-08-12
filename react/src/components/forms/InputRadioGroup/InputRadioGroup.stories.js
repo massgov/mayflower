@@ -12,14 +12,22 @@ storiesOf('forms|molecules', module)
   .add(
     'InputRadioGroup', (() => {
       const InputRadioGroupProps = {
-        title: text('title', 'Pick your favorite plant'),
-        name: text('group', 'favorite-plant'),
-        outline: boolean('outline', true),
-        defaultSelected: text('defaultSelected', ''),
-        showError: boolean('showError', false),
-        errorMsg: text('errorMsg', 'You must selected your favorite plant.'),
-        disabled: boolean('disabled', false),
-        inline: boolean('inline', true),
+        inputProps: {
+          name: text('group', 'favorite-plant'),
+          disabled: boolean('disabled', false),
+          defaultChecked: inputRadioGroupOptions.radioButtons[1].value
+        },
+        groupProps: {
+          labelProps: {
+            className: text('label: className', ''),
+            labelText: text('labelText', 'Pick your favorite plant'),
+            hidden: boolean('hiddenLabel', false)
+          },
+          showError: boolean('showError', false),
+          errorMsg: text('errorMsg', 'You must selected your favorite plant.'),
+          inline: boolean('inline', true),
+          outline: boolean('outline', true),
+        },
         radioButtons: object('radioButtons', inputRadioGroupOptions.radioButtons)
       };
 

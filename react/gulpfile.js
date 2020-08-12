@@ -177,6 +177,7 @@ const aliases = {
   'MayflowerReactPages/(.*)$': './\\1',
   'MayflowerReactTemplates/(.*)$': './\\1',
   'MayflowerReactUtilities/(.*)$': './\\1',
+  'MayflowerReactSlider/(.*)$': './\\1'
 };
 
 const sources = [

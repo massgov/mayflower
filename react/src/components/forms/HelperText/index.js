@@ -5,12 +5,16 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const HelperText = (props) => (
   <label
     htmlFor={props.inputId}
     aria-labelledby={props.inputId}
-    className="ma__helper-text"
+    className={classNames('ma__helper-text', {
+      'ma__helper-text--disabled': props.disabled,
+      'ma__helper-text--error': props.showError
+    })}
   >
     {props.message}
   </label>

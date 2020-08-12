@@ -2,7 +2,7 @@ import { text, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  hiddenLabel: () => boolean('hiddenLabel', false),
+  hidden: () => boolean('hidden', false),
   labelText: () => text('labelText', 'Number Input'),
   required: () => boolean('required', false),
   inline: () => boolean('inline', false),

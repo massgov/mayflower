@@ -15,7 +15,8 @@ const Label = ({
   conditionText,
   className,
   showError = false,
-  useLegend = false
+  useLegend = false,
+  tabIndex
 }) => {
   const inputLabelClasses = classNames(className, {
     ma__label: !useLegend,
@@ -28,7 +29,7 @@ const Label = ({
   const Tag = useLegend ? 'legend' : 'label';
 
   return(
-    <Tag htmlFor={inputId} className={inputLabelClasses}>
+    <Tag htmlFor={inputId} className={inputLabelClasses} tabIndex={tabIndex}>
       {children}
       {conditionText && conditionText.length > 0 && (
         <span className="ma__label--condition">

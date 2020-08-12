@@ -16,27 +16,32 @@ storiesOf('forms|atoms', module)
   .add(
     'InputCheckBox', (() => {
       const props = {
-        id: text('id', 'input-checkbox'),
-        label: text('label', 'Apply to all'),
-        defaultValue: text('defaultValue', 'select-all'),
-        onChange: action('onChange'),
-        onKeyDown: action('onKeyDown'),
-        disabled: boolean('disabled', false),
-        required: boolean('required', false),
-        errorMsg: text('errorMsg', 'You are required to check this box.'),
-        labelText: text('labelText', 'Checkbox Input'),
-        className: text('className', ''),
-        inline: boolean('inline', false),
-        showError: boolean('showError', false),
-        hiddenLabel: boolean('hiddenLabel', false)
+        inputProps: {
+          id: text('id', 'input-checkbox'),
+          value: text('value', 'select-all'),
+          onKeyDown: action('onKeyDown'),
+          disabled: boolean('disabled', false),
+          required: boolean('required', false),
+          className: text('className', ''),
+          defaultChecked: false
+        },
+        groupProps: {
+          labelProps: {
+            labelText: text('labelText', 'Checkbox Input'),
+            hidden: boolean('hidden', false)
+          },
+          errorMsg: text('errorMsg', 'You are required to check this box.'),
+          inline: boolean('inline', false),
+          showError: boolean('showError', false),
+        },
+        label: text('label', 'Apply to all')
       };
       // Capitalizes the name of each SVG icon to match
       // what SVGR names components.
       const name = select('icon.name',
         Object.fromEntries(
           Object.entries(svgOptions).map(([key, value]) => [`Icon${key[0].toUpperCase() + key.slice(1)}`, value ? `Icon${value[0].toUpperCase() + value.slice(1)}` : value])
-          )
-      );
+        ));
       const iconProps = {
         name,
         width: 20,
@@ -44,8 +49,17 @@ storiesOf('forms|atoms', module)
         fill: color('icon.color', '#388557')
       };
       const SelectedComponent = Icon[name] ? Icon[name] : null;
+      if (SelectedComponent) {
+        props.labelText = (
+          <>
+            {props.labelText}
+            &nbsp;
+            <SelectedComponent {...iconProps} />
+          </>
+        );
+      }
       return(
-        <InputCheckBox {...props} icon={SelectedComponent && <SelectedComponent {...iconProps} />} />
+        <InputCheckBox {...props} />
       );
     }),
     { info: inputCheckBoxDocs }

@@ -12,43 +12,56 @@ import numbro from 'numbro';
 import languages from 'numbro/dist/languages.min';
 import is from 'is';
 
-import Input from 'MayflowerReactForms/Input';
-import InputGroup from 'MayflowerReactForms/InputGroup';
+import InputGroup, { getInputGroupProps } from 'MayflowerReactForms/InputGroup';
 import { countDecimals } from 'MayflowerReactForms/Input/utility';
-import Error from 'MayflowerReactForms/Input/error';
-import ErrorMessage from 'MayflowerReactForms/ErrorMessage';
 
-const Currency = React.forwardRef((props, ref) => {
+const InputCurrency = React.forwardRef((props, ref) => {
   const {
+    format = {
+      mantissa: 2,
+      trimMantissa: false,
+      thousandSeparated: true,
+      negative: 'parenthesis'
+    },
+    language = 'en-US',
+    showButtons = true,
+    inputProps = {},
+    groupProps = {}
+  } = props;
+  const {
+    id,
     max,
     min,
-    step,
-    name,
-    onChange,
-    onBlur,
-    placeholder,
-    width,
-    maxlength,
-    format,
-    language,
-    showButtons,
-    ...inputProps
-  } = props;
-  if (!is.empty(inputProps.defaultValue)) {
-    const currency = numbro(inputProps.defaultValue);
-    inputProps.defaultValue = currency.formatCurrency(format);
+    step = 0.01,
+    onChange = null,
+    onBlur = null,
+    placeholder = '',
+    required = false,
+    maxlength = null,
+    defaultValue = '',
+    disabled = false,
+    width
+  } = inputProps;
+  const {
+    showError = false
+  } = groupProps;
+
+  let formattedDefault = defaultValue;
+  if (formattedDefault !== null && formattedDefault !== '') {
+    const currency = numbro(formattedDefault);
+    formattedDefault = currency.formatCurrency(format);
   }
   const inputRef = React.useRef(ref);
-  const upRef = React.createRef();
-  const downRef = React.createRef();
+  const upRef = React.useRef();
+  const downRef = React.useRef();
   const inputClasses = classNames({
     'ma__input-currency__control': true,
-    'js-is-required': props.required,
-    'ma__input-currency__control--showButtons': props.showButtons
+    'js-is-required': required,
+    'ma__input-currency__control--showButtons': showButtons
   });
   const toCurrency = (number, decimal) => {
     if (is.number(number)) {
-      if (props.language) {
+      if (language) {
         let i = 0;
         const langKeys = Object.keys(languages);
         const langMax = langKeys.length;
@@ -57,7 +70,7 @@ const Currency = React.forwardRef((props, ref) => {
           const lang = languages[langKey];
           numbro.registerLanguage(lang);
         }
-        numbro.setLanguage(props.language);
+        numbro.setLanguage(language);
       }
       const currency = numbro(number);
       if (decimal) {
@@ -68,8 +81,8 @@ const Currency = React.forwardRef((props, ref) => {
     return number;
   };
   const hasNumberProperty = (obj, property) => Object.prototype.hasOwnProperty.call(obj, property) && is.number(obj[property]);
-  const greaterThanMin = (val) => !hasNumberProperty(props, 'min') || (val >= props.min);
-  const lessThanMax = (val) => !hasNumberProperty(props, 'max') || (val <= props.max);
+  const greaterThanMin = (val) => !hasNumberProperty(props, 'min') || (val >= min);
+  const lessThanMax = (val) => !hasNumberProperty(props, 'max') || (val <= max);
 
   const handleChange = (e) => {
     const { type } = e;
@@ -77,8 +90,8 @@ const Currency = React.forwardRef((props, ref) => {
     const numberValue = stringValue ? Number(numbro.unformat(stringValue)) : 0;
     // If the stringvalue is empty, set to empty string so the required error
     // message is rendered. Otherwise pass the number value for the min/max check.
-    if (is.fn(props.onChange)) {
-      props.onChange(numberValue, props.id, type);
+    if (is.fn(onChange)) {
+      onChange(numberValue, id, type);
     }
   };
 
@@ -89,14 +102,14 @@ const Currency = React.forwardRef((props, ref) => {
     const numberValue = stringValue ? Number(numbro.unformat(stringValue)) : 0;
     let newValue;
     if (direction === 'up') {
-      newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
+      newValue = Number(numbro(numberValue).add(step).format({ mantissa: countDecimals(step) }));
     } else if (direction === 'down') {
-      newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
+      newValue = Number(numbro(numberValue).subtract(step).format({ mantissa: countDecimals(step) }));
     }
     if (greaterThanMin(newValue) && lessThanMax(newValue)) {
-      inputRef.current.value = toCurrency(newValue, countDecimals(props.step));
-      if (is.fn(props.onChange)) {
-        props.onChange(newValue, props.id, type, direction);
+      inputRef.current.value = toCurrency(newValue, countDecimals(step));
+      if (is.fn(onChange)) {
+        onChange(newValue, id, type, direction);
       }
     }
   };
@@ -109,19 +122,19 @@ const Currency = React.forwardRef((props, ref) => {
     if (is.number(numberValue) && !is.empty(stringValue)) {
       let newValue = numberValue;
       if (key === 'ArrowDown') {
-        newValue = Number(numbro(numberValue).subtract(props.step).format({ mantissa: countDecimals(props.step) }));
+        newValue = Number(numbro(numberValue).subtract(step).format({ mantissa: countDecimals(step) }));
         if (greaterThanMin(newValue) && lessThanMax(newValue)) {
-          inputRef.current.value = toCurrency(newValue, countDecimals(props.step));
-          if (is.fn(props.onChange)) {
-            props.onChange(newValue, props.id, type, key);
+          inputRef.current.value = toCurrency(newValue, countDecimals(step));
+          if (is.fn(onChange)) {
+            onChange(newValue, id, type, key);
           }
         }
       } else if (key === 'ArrowUp') {
-        newValue = Number(numbro(numberValue).add(props.step).format({ mantissa: countDecimals(props.step) }));
+        newValue = Number(numbro(numberValue).add(step).format({ mantissa: countDecimals(step) }));
         if (greaterThanMin(newValue) && lessThanMax(newValue)) {
-          inputRef.current.value = toCurrency(newValue, countDecimals(props.step));
-          if (is.fn(props.onChange)) {
-            props.onChange(newValue, props.id, type, key);
+          inputRef.current.value = toCurrency(newValue, countDecimals(step));
+          if (is.fn(onChange)) {
+            onChange(newValue, id, type, key);
           }
         }
       }
@@ -136,19 +149,19 @@ const Currency = React.forwardRef((props, ref) => {
     /* eslint-disable-next-line   no-restricted-globals */
     const isNotNumber = !stringValue || isNaN(Number(numbro.unformat(stringValue)));
     if (isNotNumber) {
-      inputEl.setAttribute('placeholder', props.placeholder);
+      inputEl.setAttribute('placeholder', placeholder);
     }
     let newValue = isNotNumber ? '' : Number(numbro.unformat(stringValue));
     if (!is.empty(newValue)) {
-      if (hasNumberProperty(props, 'max') && newValue > props.max) {
-        newValue = props.max;
+      if (hasNumberProperty(props, 'max') && newValue > max) {
+        newValue = max;
       }
-      if (hasNumberProperty(props, 'min') && newValue < props.min) {
-        newValue = props.min;
+      if (hasNumberProperty(props, 'min') && newValue < min) {
+        newValue = min;
       }
-      inputRef.current.value = toCurrency(newValue, countDecimals(props.step));
-      if (is.fn(props.onBlur)) {
-        props.onBlur(newValue, { id: props.id, type });
+      inputRef.current.value = toCurrency(newValue, countDecimals(step));
+      if (is.fn(onBlur)) {
+        onBlur(newValue, { id, type });
       }
     }
   };
@@ -161,36 +174,40 @@ const Currency = React.forwardRef((props, ref) => {
   };
 
   const inputAttr = {
+    ...inputProps,
+    step,
     className: inputClasses,
-    name: props.name,
-    id: props.id,
     type: 'text',
-    placeholder: props.placeholder,
+    placeholder,
     'data-type': 'text',
-    maxLength: is.number(props.maxlength) ? Number(props.maxlength) : null,
-    style: !is.empty(props.width) ? { width: `${props.width}px` } : null,
+    style: !is.empty(width) ? { width: `${width}px` } : null,
     onChange: handleChange,
     onBlur: handleBlur,
     onFocus: handleFocus,
     onKeyDown: handleKeyDown,
-    required: props.required,
-    disabled: props.disabled,
-    defaultValue: props.defaultValue
+    required,
+    disabled,
+    defaultValue: formattedDefault
   };
-
+  if (is.number(maxlength)) {
+    inputAttr.maxLength = maxlength;
+  }
+  const wrapperClasses = classNames('ma__input-currency', {
+    'ma__input-number--error': showError
+  });
   return(
-    <InputGroup {...inputProps}>
-      <div className="ma__input-currency">
+    <InputGroup {...props}>
+      <div className={wrapperClasses}>
         <input {...inputAttr} ref={inputRef} />
         {
-          props.showButtons && (
+          showButtons && (
             <div className="ma__input-number__control-buttons">
               <button
                 type="button"
                 aria-label="increase value"
                 className="ma__input-currency__control-plus"
                 onClick={handleAdjust}
-                disabled={props.disabled}
+                disabled={disabled}
                 tabIndex={-1}
                 ref={upRef}
               />
@@ -199,7 +216,7 @@ const Currency = React.forwardRef((props, ref) => {
                 aria-label="decrease value"
                 className="ma__input-currency__control-minus"
                 onClick={handleAdjust}
-                disabled={props.disabled}
+                disabled={disabled}
                 tabIndex={-1}
                 ref={downRef}
               />
@@ -210,59 +227,6 @@ const Currency = React.forwardRef((props, ref) => {
     </InputGroup>
   );
 });
-
-Currency.propTypes = {
-  required: PropTypes.bool,
-  showButtons: PropTypes.bool,
-  language: PropTypes.string,
-  /* eslint-disable-next-line react/forbid-prop-types */
-  format: PropTypes.object,
-  max: PropTypes.number,
-  min: PropTypes.number,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-  step: PropTypes.number,
-  placeholder: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  maxlength: PropTypes.number,
-  width: PropTypes.number,
-  disabled: PropTypes.bool
-};
-
-const InputCurrency = (props) => {
-  const {
-    max, min, step, name, onChange, onBlur, placeholder, width, maxlength, format, language, showButtons, ...inputProps
-  } = props;
-  // Input and Currency share the props.required and props.id values.
-  const currencyProps = {
-    max,
-    min,
-    step,
-    name,
-    placeholder,
-    width,
-    maxlength,
-    required: props.required,
-    id: props.id,
-    onChange,
-    onBlur,
-    format,
-    language,
-    disabled: props.disabled,
-    showButtons
-  };
-  if (!is.empty(inputProps.defaultValue)) {
-    const currency = numbro(inputProps.defaultValue);
-    inputProps.defaultValue = currency.formatCurrency(format);
-  }
-  return(
-    <Input {...inputProps}>
-      <Currency {...currencyProps} />
-      <Error id={props.id} />
-    </Input>
-  );
-};
 
 InputCurrency.propTypes = {
   /** Whether the label should be hidden or not */
@@ -312,20 +276,6 @@ InputCurrency.propTypes = {
   /** Whether to render up/down buttons */
   showButtons: PropTypes.bool
 };
-InputCurrency.defaultProps = {
-  hiddenLabel: false,
-  required: false,
-  onChange: null,
-  onBlur: null,
-  language: 'en-US',
-  format: {
-    mantissa: 2,
-    trimMantissa: false,
-    thousandSeparated: true,
-    negative: 'parenthesis'
-  },
-  step: 0.01,
-  showButtons: true
-};
 
-export default Currency;
+InputCurrency.displayName = 'Currency';
+export default InputCurrency;

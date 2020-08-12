@@ -12,40 +12,48 @@ import InputGroup from 'MayflowerReactForms/InputGroup';
 
 const InputText = React.forwardRef((props, ref) => {
   const {
-    name,
-    id,
-    type,
-    placeholder,
-    maxlength,
-    pattern,
-    width,
-    required,
-    defaultValue,
-    showError
+    inputProps = {},
+    groupProps = {}
   } = props;
+  const {
+    type,
+    maxlength,
+    width,
+    required = false,
+    disabled = false,
+    defaultValue = '',
+    className: inputClassName = null
+  } = inputProps;
+  const {
+    showError = false
+  } = groupProps;
+
   const inputRef = React.useRef(ref);
-  const inputClasses = classNames('ma__input', {
-    'js-is-required': required,
-    'ma__input--error': showError
-  });
+  const inputClasses = classNames(
+    'ma__input',
+    inputClassName,
+    {
+      'js-is-required': required,
+      'ma__input--error': showError
+    }
+  );
+  const inputElementProps = {
+    ...inputProps,
+    className: inputClasses,
+    'data-type': type,
+    required,
+    ref: inputRef,
+    disabled,
+    defaultValue,
+    maxLength: maxlength
+  };
+  if (width) {
+    inputElementProps.style = {
+      width: `${width}px`
+    };
+  }
   return(
-    <InputGroup {...props}>
-      <input
-        className={inputClasses}
-        name={name}
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        data-type={type}
-        maxLength={maxlength || null}
-        pattern={pattern || null}
-        style={width ? { width: `${width}px` } : null}
-        onChange={props.onChange}
-        required={required}
-        ref={inputRef}
-        defaultValue={defaultValue}
-      />
-    </InputGroup>
+    <input {...inputElementProps} />
   );
 });
 
@@ -76,11 +84,6 @@ InputText.propTypes = {
   onChange: PropTypes.func,
   /** Default input text value */
   defaultText: PropTypes.string
-};
-
-InputText.defaultProps = {
-  hiddenLabel: false,
-  required: false
 };
 
 export default InputText;

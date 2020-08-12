@@ -1,7 +1,7 @@
 import { text, boolean, select, number } from '@storybook/addon-knobs';
 
 export default {
-  hiddenLabel: () => boolean('hiddenLabel', false),
+  hidden: () => boolean('hiddenLabel', false),
   labelText: () => text('labelText', 'Text Input'),
   required: () => boolean('required', false),
   id: () => text('id', 'text-input'),
@@ -14,5 +14,6 @@ export default {
   errorMsg: () => text('errorMsg', 'you did not type something'),
   showError: () => boolean('showError', false),
   defaultValue: () => text('defaultValue', 'default text value'),
-  inline: () => boolean('inline', false)
+  inline: () => boolean('inline', false),
+  helperText: () => text('helperText', '')
 };

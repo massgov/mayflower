@@ -15,40 +15,71 @@ import is from 'is';
 import InputGroup from 'MayflowerReactForms/InputGroup';
 
 const InputRadioGroup = (props) => {
+  const {
+    radioButtons,
+    inputProps = {},
+    groupProps = {}
+  } = props;
+  const {
+    name,
+    defaultChecked,
+    onChange = null,
+    disabled = false,
+    required = false
+  } = inputProps;
+  const {
+    showError = false,
+    fieldset = true,
+    outline = false,
+    labelProps = {}
+  } = groupProps;
+  const {
+    className: labelClassName
+  } = labelProps;
   const handleChange = (event) => {
     const selected = event.target.value;
-    if (is.function(props.onChange)) {
-      const { name } = props;
-      props.onChange({ selected, name, event });
+    if (is.function(onChange)) {
+      onChange({ selected, name, event });
     }
   };
-  const legendClasses = classNames({
+  const legendClasses = classNames(labelClassName, {
     'ma__input-group__title': true,
-    'ma__input-group__title--error': props.showError,
-    'ma__input-group__title--disabled': props.disabled
+    'ma__input-group__title--error': showError,
+    'ma__input-group__title--disabled': disabled
   });
   const radioClasses = classNames({
-    'ma__input-radio': !props.outline,
-    'ma__input-radio--outline': props.outline
+    'ma__input-radio': !outline,
+    'ma__input-radio--outline': outline
   });
+  const inputGroupProps = {
+    ...props,
+    groupProps: {
+      ...groupProps,
+      labelProps: {
+        ...labelProps,
+        className: legendClasses
+      },
+      fieldset
+    }
+  };
   return(
-    <InputGroup {...props} fieldset labelText={props.title} labelClassName={legendClasses}>
-      {props.radioButtons.map((radioButton, index) => {
+    <InputGroup {...inputGroupProps}>
+      {radioButtons.map((radioButton, index) => {
         const buttonId = radioButton.id || radioButton.value;
         const labelClasses = classNames({
-          'ma__input-radio__label': !props.outline,
-          'ma__input-radio__label--error': props.showError && !props.outline,
-          'ma__input-radio--outline__label': props.outline,
-          'ma__input-radio--outline__label--error': props.showError && props.outline
+          'ma__input-radio__label': !outline,
+          'ma__input-radio__label--error': showError && !outline,
+          'ma__input-radio--outline__label': outline,
+          'ma__input-radio--outline__label--error': showError && outline
         });
         const inputClasses = classNames({
-          'ma__input-radio__control': !props.outline,
-          'ma__input-radio--outline__control': props.outline,
-          'ma__input-radio--outline__control--error': props.showError
+          'ma__input-radio__control': !outline,
+          'ma__input-radio--outline__control': outline,
+          'ma__input-radio--outline__control--error': showError
         });
         const itemClasses = classNames(
           'ma__input-group__item',
-          `item-${props.radioButtons.length}`, {
+          `item-${radioButtons.length}`, {
             [radioButton.class]: radioButton.class
           }
         );
@@ -58,13 +89,14 @@ const InputRadioGroup = (props) => {
             <div className={radioClasses}>
               <input
                 className={inputClasses}
-                name={props.name}
+                name={name}
                 type="radio"
-                defaultValue={radioButton.value}
+                defaultChecked={radioButton.value === defaultChecked ? 'checked' : null}
+                value={radioButton.value}
                 id={buttonId}
-                required={props.required}
+                required={required}
                 onChange={handleChange}
-                disabled={props.disabled}
+                disabled={disabled}
               />
               <label htmlFor={buttonId} className={labelClasses}>
                 <span>{radioButton.label}</span>
@@ -79,7 +111,7 @@ const InputRadioGroup = (props) => {
 
 InputRadioGroup.propTypes = {
   /** The legend title of the radio button group. */
-  title: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
   /** The name of the radio button group */
   name: PropTypes.string.isRequired,
   /** Whether radio input is required or not */
@@ -105,15 +137,7 @@ InputRadioGroup.propTypes = {
     label: PropTypes.string.isRequired,
     /** Allow adding one class to radio button, e.g. "col-medium-1", "col-large-1" */
     class: PropTypes.string
-  }))
-};
-
-InputRadioGroup.defaultProps = {
-  outline: false,
-  required: false,
-  inline: true,
-  error: false,
-  disabled: false
+  })).isRequired
 };
 
 export default InputRadioGroup;
