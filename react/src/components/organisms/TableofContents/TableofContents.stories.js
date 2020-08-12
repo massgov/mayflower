@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, boolean, select, text } from '@storybook/addon-knobs';
 
 import TableofContents from '.';
@@ -89,7 +88,6 @@ const getSidebarHeading = () => {
 };
 
 storiesOf('organisms/TableofContents', module)
-  .addDecorator(withInfo)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'TableofContents with ColoredHeading', () => {

@@ -8,7 +8,7 @@ import InputDate from './index';
 import InputDateDocs from './InputDate.md';
 import inputDateOptions from './InputDate.knobs.options';
 
-storiesOf('forms|atoms', module)
+storiesOf('forms/atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputDate', (() => {

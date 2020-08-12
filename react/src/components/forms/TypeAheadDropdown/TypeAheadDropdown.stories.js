@@ -8,7 +8,7 @@ import inputOptions from 'MayflowerReactForms/InputTextFuzzy/InputTextFuzzy.knob
 
 import TypeAheadDropdown from '.';
 
-storiesOf('forms|molecules', module)
+storiesOf('forms/molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('TypeAheadDropdown', (() => {
     const options = inputOptions.options.orgSelector;

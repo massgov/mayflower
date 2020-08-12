@@ -9,7 +9,14 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-knobs',
     '@storybook/addon-viewport',
-    '@storybook/addon-storysource',
+    {
+      name: '@storybook/addon-storysource',
+      options: {
+        rule: {
+          enforce: 'pre',
+        }
+      }
+    },
     '@storybook/addon-a11y',
     {
       name: '@storybook/preset-scss',
@@ -32,12 +39,7 @@ module.exports = {
     // modify storybook's file-loader rule to avoid conflicts with svgr
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test && rule.test.test('.svg'));
     fileLoaderRule.exclude = iconPath;
-    // Configure the storysource plugin.
-    config.module.rules.push({
-      test: /\.stories\.js?$/,
-      loader: require.resolve('@storybook/addon-storysource/loader'),
-      enforce: 'pre',
-    });
+    
 
     config.module.rules.unshift({
       test: /\.svg$/,

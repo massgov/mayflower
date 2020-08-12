@@ -6,7 +6,7 @@ import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import Error403 from '.';
 import Error403Docs from './Error403.md';
 
-storiesOf('pages', module)
+storiesOf('others/pages', module)
   .add(
     'Error403', (() => (
       <Error403

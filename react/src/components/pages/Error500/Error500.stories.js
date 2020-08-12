@@ -6,7 +6,7 @@ import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import Error500 from '.';
 import Error500Docs from './Error500.md';
 
-storiesOf('pages', module)
+storiesOf('others/pages', module)
   .add(
     'Error500', (() => (
       <Error500

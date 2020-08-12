@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
-import { text, boolean, select, array, color } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select, array, color } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import InputCheckBox from './index';
@@ -11,7 +10,7 @@ import inputCheckBoxDocs from './InputCheckBox.md';
 import * as Icon from 'MayflowerReactBase/Icon';
 import { svgOptions } from 'MayflowerReactBase/Icon/Icon.knob.options';
 
-storiesOf('forms|atoms', module)
+storiesOf('forms/atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputCheckBox', (() => {

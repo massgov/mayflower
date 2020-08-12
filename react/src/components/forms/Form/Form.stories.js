@@ -11,7 +11,7 @@ import InputSlider from 'MayflowerReactForms/InputSlider';
 import InputCurrency from 'MayflowerReactForms/InputCurrency';
 import InputCurrencyOptions from 'MayflowerReactForms/InputCurrency/InputCurrency.knobs.options';
 
-storiesOf('forms|context', module)
+storiesOf('forms/context', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Form', (() => {

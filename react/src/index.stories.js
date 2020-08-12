@@ -10,7 +10,7 @@ import Docs from './README.md';
 const md = new MarkdownIt();
 const result = md.render(Docs);
 
-storiesOf('about|mayflower-react', module)
+storiesOf('about/mayflower-react', module)
   .add('Welcome🎉', (() => (
     <div className="main-content main-content--two">
       <div className="page-content">

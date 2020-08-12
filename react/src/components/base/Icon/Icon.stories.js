@@ -5,7 +5,7 @@ import { assets, svgOptions } from './Icon.knob.options';
 import * as Icon from './index';
 import IconDisplay from './IconDisplay';
 
-storiesOf('brand|icons', module)
+storiesOf('brand/icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Icon', () => {
     // This needs to be dynamic somehow.
@@ -48,7 +48,7 @@ storiesOf('brand|icons', module)
     return(<SelectedComponent {...props} />);
   });
 
-storiesOf('brand|icons', module)
+storiesOf('brand/icons', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('All Icons', () => {
     const width = number('width', 40);

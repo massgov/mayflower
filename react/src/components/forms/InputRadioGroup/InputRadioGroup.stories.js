@@ -7,7 +7,7 @@ import InputRadioGroup from './index';
 import inputRadioGroupOptions from './InputRadioGroup.knobs.options';
 import InputRadioGroupDocs from './InputRadioGroup.md';
 
-storiesOf('forms|molecules', module)
+storiesOf('forms/molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputRadioGroup', (() => {

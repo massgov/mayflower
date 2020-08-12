@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, text, boolean, select, array } from '@storybook/addon-knobs/react';
+import { withKnobs, text, boolean, select, array } from '@storybook/addon-knobs';
 
 import HelpTip from './index';
 import CalloutAlert from 'MayflowerReactOrganisms/CalloutAlert';

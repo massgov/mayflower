@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 
 import MultiSelectDropDown from './index';
 
-storiesOf('forms|molecules', module)
+storiesOf('forms/molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('MultiSelectDropDown', (() => {
     const props = {

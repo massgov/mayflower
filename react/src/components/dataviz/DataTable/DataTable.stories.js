@@ -10,7 +10,7 @@ import DataTableDocs from './DataTable.md';
 
 /* eslint-disable react/prop-types */
 
-storiesOf('dataviz|DataTable', module)
+storiesOf('dataviz/DataTable', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DataTable Simple', (() => {

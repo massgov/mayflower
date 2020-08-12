@@ -28,7 +28,7 @@ const reg = /\(\.\.\/(\.gitbook\/assets\/.*)\)/g;
 const githubImageTypographyDocsFixed = TypographyDocs.replace(reg, (match, contents) => `(https://raw.githubusercontent.com/massgov/mayflower/develop/docs/${contents})`);
 const result = md.render(githubImageTypographyDocsFixed);
 
-storiesOf('brand|typography', module)
+storiesOf('brand/typography', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('About', (() => (
     <div className="main-content main-content--two">

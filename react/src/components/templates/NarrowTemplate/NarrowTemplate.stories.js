@@ -7,7 +7,7 @@ import NarrowTemplate from '.';
 import NarrowTemplateDocs from './NarrowTemplate.md';
 import NarrowTemplateOptions from './NarrowTemplate.knobs.options';
 
-storiesOf('templates', module)
+storiesOf('others/templates', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'NarrowTemplate', (() => {

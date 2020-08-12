@@ -7,7 +7,7 @@ import InputCurrency from './index';
 import InputCurrencyOptions from './InputCurrency.knobs.options';
 import InputCurrencyDocs from './InputCurrency.md';
 
-storiesOf('forms|atoms', module)
+storiesOf('forms/atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'InputCurrency', (() => {

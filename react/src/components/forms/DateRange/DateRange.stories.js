@@ -7,7 +7,7 @@ import DateRange from './index';
 import DateRangeDocs from './DateRange.md';
 import inputDateOptions from 'MayflowerReactForms/InputDate/InputDate.knobs.options';
 
-storiesOf('forms|molecules', module)
+storiesOf('forms/molecules', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'DateRange', () => {

@@ -6,7 +6,7 @@ import Label from './index';
 import LabelDocs from './Label.md';
 import LabelOptions from './Label.knobs.options';
 
-storiesOf('forms|atoms', module)
+storiesOf('forms/atoms', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add(
     'Label', (() => {

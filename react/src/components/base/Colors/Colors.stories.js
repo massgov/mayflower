@@ -10,7 +10,7 @@ import ColorGradientsDocs from './ColorGradients.md';
 
 import './styles.scss';
 
-storiesOf('brand|colors', module)
+storiesOf('brand/colors', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Colors', (() => (
     <React.Fragment>
