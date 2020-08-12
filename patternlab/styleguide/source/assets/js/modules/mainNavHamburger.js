@@ -242,13 +242,34 @@ if (menuButton !== null) {
   // =============== exisiting code below
   // menuButton.addEventListener("keydown", function (e) {
 
-  // if (e.shiftKey && e.code == "Tab") {
-  //   closeMenu();
-  // }
+    // if (e.code == 'ArrowDown') {
+    //   event.preventDefault();
+    //   openMenu();
 
-  // if (e.code == "Escape" || e.which == "27") {
-  //   closeMenu();
-  // }
+    //   if (window.innerWidth > 620) {
+    //     setTimeout(function timeoutFunction() {
+    //       menuItems[0].querySelector(".js-main-nav-hamburger__top-link").focus();
+    //     }, 500);
+    //   } else {
+    //     setTimeout(function timeoutFunction() {
+    //       document.querySelector('.js-header__nav-search input').focus();
+    //     }, 500);
+    //   }
+    // }
+
+    // NOTE: This causes a keyboard trap at the menu open/close button.
+    // if (e.code == 'Tab') {
+    //   e.preventDefault();
+    //   document.querySelector('.ma__header__hamburger-search__input').focus();
+    // }
+
+    // if (e.shiftKey && e.code == "Tab") {
+    //   closeMenu();
+    // }
+
+    // if (e.code == "Escape" || e.which == "27") {
+    //   closeMenu();
+    // }
   // });
 }
 
@@ -261,19 +282,12 @@ if (menuButton !== null) {
 
   subItems.style.opacity = "0";
 
-  // THIS IS CAUSING INFINITY LOOP WITH closeSubMenus() AT CLICK SINCE THE OBJECT GETS FOCUS AT CLICK.
-  // LEAVE THIS NOTE FOR LATER KEYBOARD NAVIGATION WORK.
-  // itemButton.addEventListener("focus", function(e){
-  //   closeSubMenus(item);
-  // });
-
   itemButton.addEventListener("click", function (e) {
 
     closeSubMenus(item);
 
     // Set a little bit of delay to run
-    // The open/close submenu animation is CSS. Unable to confirm the completion of the animation in JS.
-    // So, unable to use callback in this case.
+    // The open/close submenu animation is CSS. Unable to confirm the completion of the animation in JS. Unable to use callback in this case.
     setTimeout(function timeoutFunction() {
       if (item.classList.contains("submenu-open")) {
         item.classList.remove("submenu-open");
@@ -405,6 +419,10 @@ function toggleMenu() {
   } else {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     openMenu();
+
+    if (utilNavWideCheck() === false) {
+      hamburgerMainNav.style.paddingBottom = 0;
+    }
     // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
