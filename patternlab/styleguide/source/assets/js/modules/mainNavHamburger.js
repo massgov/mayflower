@@ -6,6 +6,7 @@ const menuOverlay = document.querySelector(".menu-overlay");
 const menuButton = document.querySelector(".js-header-menu-button");
 
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
+const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
 
 const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
 let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
@@ -13,9 +14,8 @@ let menuItems = document.querySelectorAll(".js-main-nav-hamburger-toggle");
 let utilNavWide = document.querySelector(".js-utility-nav--wide");
 let utilNarrowNav = document.querySelector(".ma__header__hamburger__utility-nav--narrow");
 const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-let utilNarrowContent = utilNarrowButton.nextElementSibling;
-let utilNarrowContainer = utilNarrowContent.querySelector(".ma__utility-nav__container");
-const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
+let utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
+let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null;
 
 // Check whether the wide utility nav is open.
 const utilNavWideCheck = function() {
@@ -398,9 +398,6 @@ function toggleMenu() {
     // .toggleAttribute() doesn't work with ios11.
     hamburgerMenuContainer.setAttribute("aria-hidden", "");
     closeMenu();
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
 
     setTimeout(function timeoutFunction() {
       document.querySelector(".js-header-menu-button").focus();
@@ -424,8 +421,8 @@ function closeMenu() {
     document.querySelector(".js-header-menu-button").focus();
   }, 100);
 
-  if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").hasAttribute("tabindex")) {
-      document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
+  if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .goog-te-menu-value").hasAttribute("tabindex")) {
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
     document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
@@ -642,9 +639,6 @@ function closeUtilWideContent()  {
 }
 
 // Narrow/in hamburger menu
-const utilNarrowButton = document.querySelector(".ma__header__hamburger__utility-nav--narrow button.js-util-nav-toggle");
-let utilNarrowContent = utilNarrowButton ? utilNarrowButton.nextElementSibling : null;
-let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".ma__utility-nav__container") : null;
 if (utilNarrowButton !== null) {
   // utilNarrowContent = utilNarrowButton.nextElementSibling;
   utilNarrowContent.style.maxHeight = "0";
