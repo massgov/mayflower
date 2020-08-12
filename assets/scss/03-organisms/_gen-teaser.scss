@@ -60,7 +60,7 @@
     margin-bottom: 5px;
 
     span {
-      font-size: 0.8125rem;
+      font-size: $fonts-3xsmall;
       letter-spacing: .1em;
       padding: 5px 7px;
       text-transform: uppercase;
@@ -78,12 +78,12 @@
   }
 
   &__title {
-    font-size: $fonts-large;
+    font-size: $fonts-larger;
     line-height: 1.2em;
     margin-bottom: .25em;
 
     .ma__decorative-link {
-      font-size: $fonts-large;
+      font-size: $fonts-larger;
       line-height: 1.2;
     }
   }
@@ -97,7 +97,7 @@
 
       &__details {
         font-style: italic;
-        font-size: 0.95rem;
+        font-size: $fonts-xsmall;
       }
 
       &__item {
@@ -128,7 +128,7 @@
 
   &__date,
   &__org {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
     line-height: 1;
     margin-bottom: 1em;
     color: $c-font-dark;
@@ -168,13 +168,13 @@
     }
 
     .ma__decorative-link {
-      font-size: 1.1875rem;
+      font-size: $fonts-small;
       line-height: 1.4rem;
       font-style: italic;
     }
 
     p {
-      font-size: $fonts-2xsmall;
+      font-size: $fonts-xsmall;
       line-height: 1rem;
       margin-bottom: 0px;
     }
@@ -301,7 +301,7 @@
   }
 
   &__infoitem {
-    font-size: $fonts-xsmall;
+    font-size: $fonts-smaller;
 
     & + & {
       margin-top: 0.5rem;
@@ -310,7 +310,7 @@
     .ma__contact {
 
       &__details {
-        font-size: 0.875rem;
+        font-size: $fonts-2xsmall;
       }
     }
     line-height: 1.2rem;
@@ -331,7 +331,7 @@
 
   &__tag {
     color: $c-gray;
-    font-size: 0.875rem;
+    font-size: $fonts-2xsmall;
     font-weight: bold;
     text-align: center;
     border: 1px solid $c-gray-light;
@@ -356,7 +356,7 @@
     top: 10px;
     right: 10px;
     position: absolute;
-    font-size: 0.875rem;
+    font-size: $fonts-2xsmall;
   }
 
   &__search {

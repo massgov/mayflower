@@ -124,13 +124,13 @@
   }
 
   &__category {
-    font-size: .875rem;
+    font-size: $fonts-2xsmall;
     letter-spacing: $letter-spacing-large;
     line-height: 1.5;
     text-transform: uppercase;
 
     @media ($bp-large-min) {
-      font-size: $fonts-2xsmall;
+      font-size: $fonts-xsmall;
     }
   }
 
@@ -168,7 +168,7 @@
 
     &:hover {
       background-color: darken($c-bg-subtle, 10%);
-      
+
       a {
         border-bottom-color: $c-font-link;
       }
@@ -179,7 +179,7 @@
 
       &:hover {
         background-color: rgba($c-primary,.8);
-      
+
         a {
           border-bottom-color: $c-font-inverse;
         }
@@ -191,7 +191,7 @@
 
       &:hover {
         background-color: rgba($c-primary-alt,.8);
-        
+
         a {
           border-bottom-color: $c-font-inverse;
         }
@@ -203,7 +203,7 @@
 
       &:hover {
         background-color: rgba($c-gray-dark,.8);
-      
+
         a {
           border-bottom-color: $c-font-inverse;
         }
