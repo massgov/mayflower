@@ -39,6 +39,11 @@
 
   &__info {
     max-width: 500px;
+
+    @media ($bp-large-min) {
+      margin-right: 2rem;
+      margin-bottom: 0.25rem;
+    }
   }
 
   &__title {
