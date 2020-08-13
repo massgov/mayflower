@@ -1,16 +1,21 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Section from "../components/section"
-import RichText from "../components/richText"
-import { IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, SectionLinks, DecorativeLink, CalloutLink } from "@massds/mayflower-react";
+import {
+  IllustratedHeader, ButtonWithIcon, GenTeaser, Tabs, SectionLinks, DecorativeLink, CalloutLink
+} from '@massds/mayflower-react';
 import * as Icon from '@massds/mayflower-react/dist/Icon';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Section from '../components/section';
+import RichText from '../components/richText';
 
 import './index.scss';
+
 const IndexPage = ({ data: { content } }) => {
-  const { header, projects, channels, tabs, links, intro } = content
+  const {
+    header, projects, channels, tabs, links, intro
+  } = content;
   const { paragraph, buttons, ...headerProps } = header;
   headerProps.bgImage = '';
   const iconDimension = 50;
@@ -20,9 +25,9 @@ const IndexPage = ({ data: { content } }) => {
   };
   const transform = (node) => {
     if (node.type === 'tag' && node.name === 'a') {
-    return <DecorativeLink key={`decorative-link-${node.children[0].data}`} text={node.children[0].data} href={node.attribs.href}/>;
-  }
-  }
+      return<DecorativeLink key={`decorative-link-${node.children[0].data}`} text={node.children[0].data} href={node.attribs.href} />;
+    }
+  };
   return(
     <Layout>
       <SEO title="Home" />
@@ -55,8 +60,7 @@ const IndexPage = ({ data: { content } }) => {
                   }
                 </SectionLinks>
               </div>
-            )
-          )}
+            ))}
         </div>
       </Section>
       <Section>
@@ -70,7 +74,7 @@ const IndexPage = ({ data: { content } }) => {
               <div className="col-md" key={`project-item-${title.text}`}>
                 <GenTeaser stacked>
                   <GenTeaser.Image style={{ maxHeight: 200, borderWidth: '1px', borderStyle: 'solid' }}>
-                    <Img fluid={img.src.childImageSharp.fluid} alt={img.alt}  />
+                    <Img fluid={img.src.childImageSharp.fluid} alt={img.alt} />
                   </GenTeaser.Image>
                   <GenTeaser.Details>
                     <GenTeaser.Title title={title} />
@@ -78,39 +82,37 @@ const IndexPage = ({ data: { content } }) => {
                   </GenTeaser.Details>
                 </GenTeaser>
               </div>
-            )
-          )}
+            ))}
         </div>
       </Section>
       <Section bgColor="primary-alt">
-      <h2>Join Mayflower Community</h2>
-      <div className="row">
-        {
+        <h2>Join Mayflower Community</h2>
+        <div className="row">
+          {
           channels.map(({ title, description, icon }) => {
             const { name, ...iconRest } = icon;
             const TeaserIcon = Icon[name];
-            return (
+            return(
               <div className="col-md" key={`channel-item-${title.text}`}>
                 <GenTeaser align="top">
                   <GenTeaser.Image style={channelImageStyles}>
                     <TeaserIcon {...iconRest} width={iconDimension} height={iconDimension} />
                   </GenTeaser.Image>
                   <GenTeaser.Details>
-                    <GenTeaser.Title title={title} level={3}/>
+                    <GenTeaser.Title title={title} level={3} />
                     <GenTeaser.Description description={description} />
                   </GenTeaser.Details>
                 </GenTeaser>
               </div>
-            )
-          }
-        )}
-      </div>
+            );
+          })}
+        </div>
       </Section>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query IndexPageQuery {

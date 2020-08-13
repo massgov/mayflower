@@ -11,7 +11,7 @@ const RichText = ({
       {ReactHtmlParser(rawHtml, { transform })}
     </CustomElement>
   );
-}
+};
 
 RichText.propTypes = {
   /** The raw html that you want to render. * */

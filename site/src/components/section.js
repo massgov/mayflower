@@ -8,9 +8,9 @@ const Section = (props) => {
   const wrapperClasses = classNames({
     'ma__section-wrapper': true,
     [`ma__section-wrapper--${bgColor}`]: bgColor
-  })
+  });
   return(
-    <section className={wrapperClasses} {...rest} >
+    <section className={wrapperClasses} {...rest}>
       <div className="ma__container">
         {children}
       </div>

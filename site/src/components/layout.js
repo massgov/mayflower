@@ -5,11 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import { HeaderSlim, SiteLogo, FooterSlim } from "@massds/mayflower-react"
+import { HeaderSlim, SiteLogo, FooterSlim } from '@massds/mayflower-react';
 import '../styles/_layout.scss';
 import logo from '../images/stateseal.png';
 
@@ -57,7 +57,7 @@ const Layout = ({ children, pre }) => {
     },
     siteLogo: <SiteLogo {...siteLogoProps} />,
     description: ''
-  }
+  };
 
   return(
     <>
@@ -68,10 +68,10 @@ const Layout = ({ children, pre }) => {
       <FooterSlim {...footerProps} />
     </>
   );
-}
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+  children: PropTypes.node.isRequired
+};
 
-export default Layout
+export default Layout;
