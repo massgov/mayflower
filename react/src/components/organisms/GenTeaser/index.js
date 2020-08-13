@@ -186,7 +186,6 @@ GenTeaserStat.propTypes = {
 GenTeaser.Stat = GenTeaserStat;
 GenTeaser.Stat.displayName = 'GenTeaser.Stat';
 
-
 /**
   Title Link
   */
@@ -232,7 +231,6 @@ const GenTeaserEmphasis = (props) => {
   );
 };
 
-
 GenTeaserEmphasis.propTypes = {
   /** React children to render */
   children: PropTypes.node.isRequired
@@ -263,7 +261,6 @@ GenTeaserDate.propTypes = {
 
 GenTeaser.Date = GenTeaserDate;
 GenTeaser.Date.displayName = 'GenTeaser.Date';
-
 
 /**
   Orgs

@@ -42,7 +42,6 @@ class LinkDropdown extends React.Component {
     this.dropDownButtonRef = node;
   }
 
-
   handleSelect = (event) => {
     const { target } = event;
     this.setState({ buttonExpand: false });

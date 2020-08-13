@@ -19,7 +19,6 @@ const FooterLinks = (footerLinks) => (
   </section>
 );
 
-
 const FooterLinksNav = (footerLinksNav) => (
   <nav aria-labelledby={footerLinksNav.id} className={`ma__footer-links__items${footerLinksNav.showNavHeading ? ' ma__footer-links__items--heading' : ''}`}>
     {

@@ -64,5 +64,4 @@ ButtonToggle.propTypes = {
   defaultValue: PropTypes.string.isRequired
 };
 
-
 export default ButtonToggle;

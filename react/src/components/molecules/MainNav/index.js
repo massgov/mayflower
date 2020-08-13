@@ -95,7 +95,6 @@ class MainNav extends React.Component {
     });
   };
 
-
   openSubNavHover = (e) => {
     const { isDesktop } = this.state;
     if (isDesktop) {
