@@ -59,6 +59,7 @@
 }
 
 @mixin ma-heading($level: 1) {
+  font-weight: $fonts-bold;
 
   @if ($level == 1) {
 

@@ -24,7 +24,7 @@ storiesOf('organisms', module)
       };
       const props = {
         title: text('title', 'Massachusetts Executive Office of Eductation (EDU)'),
-        description: text('description', "The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"),
+        description: text('description', "The Department of Early Education and Care's mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"),
         links: object('links', [
           { href: '#', title: 'Lead Agencies Policies' },
           { href: '#', title: 'Child Care Licensing Procedures' }

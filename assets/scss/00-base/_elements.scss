@@ -142,7 +142,6 @@ ol {
   h#{$i} {
     margin-top: 0;
     color: $c-font-heading;
-    font-weight: $fonts-bold;
 
     @include ma-heading($i);
   }
