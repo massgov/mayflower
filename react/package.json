@@ -52,7 +52,7 @@
     "shortid": "^2.2.8"
   },
   "peerDependencies": {
-    "@massds/mayflower-assets": "^0.2.1"
+    "@massds/mayflower-assets": "^0.2.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
@@ -66,7 +66,7 @@
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
     "@babel/preset-react": "^7.10.1",
-    "@massds/mayflower-assets": "^0.2.1",
+    "@massds/mayflower-assets": "^0.2.2",
     "@proscom/gulp-svgr": "^0.1.3",
     "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addon-actions": "^5.3.18",
