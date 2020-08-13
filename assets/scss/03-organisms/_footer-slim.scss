@@ -1,4 +1,4 @@
-.ma__footer_slim {
+.ma__footer-slim {
   background-color: $c-platinum-gray;
   font-size: $fonts-small;
   line-height: 1.2;
@@ -10,10 +10,10 @@
     @include ma-container;
   }
 
-  &--container {
+  &__container {
     position: relative;
 
-    &-inner {
+    &__inner {
       display: flex;
       flex-direction: column;
       padding-top: 0.5rem;
@@ -37,11 +37,11 @@
     }
   }
 
-  &--info {
+  &__info {
     max-width: 500px;
   }
 
-  &--title {
+  &__title {
 
     @include ma-heading(3);
     font-size: $fonts-small;
@@ -55,7 +55,7 @@
     }
   }
 
-  &--details {
+  &__details {
     margin-top: 2rem;
 
     @media ($bp-large-min) {
@@ -64,7 +64,7 @@
     }
   }
 
-  &--links {
+  &__links {
     margin-bottom: 1em;
 
     a {
@@ -84,7 +84,7 @@
     }
   }
 
-  &--contact {
+  &__contact {
 
     a {
       font-weight: $fonts-normal;
