@@ -244,7 +244,7 @@ body {
     &, &--react {
 
       @include ma-button-reset;
-      font-size: 1.125rem;
+      font-size: $fonts-smaller;
       height: 33px;
       letter-spacing: $letter-spacing-large;
       margin-left: 20px;
@@ -309,7 +309,7 @@ body {
   &__menu-button {
     background-color: transparent;
     border: none;
-    font-size: 1.125rem;
+    font-size: $fonts-smaller;
     height: 35px;
     letter-spacing: $letter-spacing-large;
     line-height: 35px;
@@ -531,10 +531,10 @@ body {
       border-color: mix(#fff, $c-font-link, 50%);
       box-shadow: 0 0.25rem 0.5rem rgba(#000, 0.25);
       color: $c-font-link;
-      font-size: 1.25rem;
+      font-size: $fonts-small;
 
       @media ($bp-large-min) {
-        font-size: 1.375rem;
+        font-size: $fonts-medium;
       }
 
       &:focus {

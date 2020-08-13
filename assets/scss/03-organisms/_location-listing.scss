@@ -220,11 +220,11 @@ $location-listin--map-min-width: 315px;
     }
 
     &__location-subtitle {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
 
     &__location {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
       font-weight: $fonts-normal;
       line-height: 1.15;
       padding-bottom: 0;
@@ -261,7 +261,7 @@ $location-listin--map-min-width: 315px;
     }
 
     &__link {
-      font-size: 18px;
+      font-size: $fonts-smaller;
     }
 
     &__contact {
@@ -286,7 +286,7 @@ $location-listin--map-min-width: 315px;
 
     &__phone {
       // Matches font-size defined on <body>.
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
 
       svg {
         height: 25px;

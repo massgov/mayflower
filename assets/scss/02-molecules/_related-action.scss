@@ -19,7 +19,7 @@
     padding-top: 5px;
 
     @media ($bp-small-min) {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
     }
 
     & > :last-child {
@@ -31,7 +31,7 @@
     display: block;
 
     a {
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: 1.2;
     }
   }

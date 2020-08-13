@@ -34,12 +34,6 @@ $letter-spacing-default: 0;
 // the following string should be used in the CSS `content` setting.
 $close-icon: '\00d7';
 
-
-// font families
-$fonts:      "Texta", "Helvetica", "Arial", sans-serif;
-$fonts-mono: "Source Code Pro", "Monaco", monospace;
-$fonts-khmer: "Hanuman";
-
 // Legacy Bourbon Neat Variables
 ///Sets the default layout direction of the grid. Can be `LTR` or `RTL`.
 $default-layout-direction: LTR !default;
@@ -56,13 +50,53 @@ $container-display-table: false !default;
 $border-box-sizing: true !default;
 /// Sets the default [media feature](http://www.w3.org/TR/css3-mediaqueries/#media) that `media()` and `new-breakpoint()` revert to when only a breakpoint value is passed.
 $default-feature: min-width !default; // Default @media feature for the breakpoint() mixin
+
+
+/* FONT */
+
+// font families
+$fonts:      "Texta", "Helvetica", "Arial", sans-serif;
+$fonts-mono: "Source Code Pro", "Monaco", monospace;
+$fonts-khmer: "Hanuman";
 $fonts-vietnamese: "Muli";
 
 
 // font weights
-$fonts-lightest: 100; // use only to style non text font weights, e.g. separator |
+$fonts-lightest: 100; // only used for styling non text font weights, e.g. separator |
 $fonts-lighter:  300;
 $fonts-light:    400;
 $fonts-normal:   500;
 $fonts-bold:     700;
 $fonts-bolder:   800;
+
+//font sizes
+$fonts-base:        16px !default;
+$fonts-base-mobile: 14.5px !default;
+$fonts-print:       12px !default;
+// ----------------------------
+$fonts-3xsmall:     0.8rem !default;
+$fonts-2xsmall:     0.875rem !default;
+$fonts-xsmall:      1rem !default;
+$fonts-smaller:     1.125rem !default;
+$fonts-small:       1.25rem !default;
+$fonts-medium:      1.375rem !default;  // normal paragraph text
+$fonts-large:       1.5rem !default;    // H6
+$fonts-larger:      1.625rem !default;  // H5
+$fonts-xlarge:      1.75rem !default;   // H4
+$fonts-2xlarge:     2rem !default;      // H3
+$fonts-3xlarge:     2.25rem !default;   // H2 small
+$fonts-4xlarge:     2.5rem !default;    // H2 medium
+$fonts-5xlarge:     2.75rem !default;   // H2 large
+$fonts-6xlarge:     3rem !default;      // H1 small
+$fonts-7xlarge:     3.25rem !default;   // H1 medium
+$fonts-8xlarge:     3.5rem !default;    // H1 large
+$fonts-9xlarge:     4rem !default;
+$fonts-10xlarge:    5rem !default;
+$fonts-11xlarge:    7rem !default;
+$fonts-max:         12.75rem !default;  // Error decorative letters
+
+//letter-spacing for Texta
+$letter-spacing-large:   0.1em;
+$letter-spacing-medium:  0.05em;
+$letter-spacing-small:   0.02em;
+$letter-spacing-default: 0;

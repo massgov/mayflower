@@ -8,8 +8,12 @@
   padding: 20px 0 15px 0;
   font-weight: 600;
   border-bottom: 1px solid $c-bd-divider;
-  font-size: 16px;
   margin: 0 20px 10px;
+  font-size: $fonts-smaller;
+
+  @media ($bp-small-min) {
+    font-size: $fonts-xsmall;
+  }
 
   @media ($bp-x-small-min) {
     padding-top: 23px;
@@ -56,7 +60,6 @@
     // margin-bottom: 2px;
     margin-right: 10px;
     line-height: 22px;
-    font-size: 16px;
     padding-right: 5px;
     list-style: none;
   }
@@ -168,7 +171,7 @@
     &.secondary {
       width: 100%;
       min-width: 40%;
-      padding-top: 8px;//15px;
+      padding-top: 8px;
 
       @media ($bp-large-min) {
         padding-top: 0;
@@ -214,7 +217,6 @@
       align-self: flex-start;
       padding: 0;
       line-height: 22px;
-      font-size: 16px;
       font-weight: 600;
       white-space: nowrap;
       display: none;
@@ -235,6 +237,18 @@
 
       &.is-open::after {
         transform: translateY(-55%) rotate(-135deg);
+      }
+    }
+
+    &.single {
+      
+      a {
+        color: $c-primary-alt;
+        box-shadow: inset 0 0 white, inset 0px -1px rgba($c-primary-alt, 0.4);
+
+        &:hover {
+          box-shadow: inset 0 0 white, inset 0px -2px rgba($c-primary-alt, 0.7);
+        }
       }
     }
   }

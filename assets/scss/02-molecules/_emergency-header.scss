@@ -58,7 +58,7 @@
 
     span {
       display: inline-block;
-      font-size: 1rem;
+      font-size: $fonts-xsmall;
       line-height: 1.13;
       text-transform: uppercase;
       vertical-align: middle;
@@ -67,7 +67,7 @@
 
   &__title {
     display: block;
-    font-size: 1.5rem;
+    font-size: $fonts-large;
     line-height: 1.4;
     margin-bottom: 0;
     font-weight: $fonts-bold;

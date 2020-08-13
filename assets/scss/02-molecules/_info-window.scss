@@ -4,13 +4,13 @@
 @use "00-base/global" as *;
 
 .ma__info-window {
-  font-size: 1.25rem;
+  font-size: $fonts-small;
   line-height: 1.4;
   padding: 20px;
   padding-right: 0;
 
   &__name {
-    font-size: 1.5rem;
+    font-size: $fonts-large;
     margin-bottom: 0;
 
     .ma__decorative-link {

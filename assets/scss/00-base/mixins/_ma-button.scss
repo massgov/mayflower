@@ -23,19 +23,19 @@
     // default
 
     @if ($size == "normal") {
-      font-size: 1.25rem;
+      font-size: $fonts-small;
       line-height: 1.4;
     }
     // small
 
     @if ($size == "small") {
-      font-size: 1rem;
+      font-size: $fonts-xsmall;
       line-height: 1.2;
     }
     // large
 
     @if ($size == "large") {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       line-height: 1.61;
     }
   }

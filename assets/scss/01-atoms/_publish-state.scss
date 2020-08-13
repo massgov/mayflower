@@ -1,12 +1,12 @@
 @use "00-base/global" as *;
 
 .ma__publish-state {
-  font-size: 2rem;
+  font-size: $fonts-2xlarge;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-large;
 
   @media ($bp-small-min) {
-    font-size: 3rem;
+    font-size: $fonts-6xlarge;
   }
 
   .pre-content > &,

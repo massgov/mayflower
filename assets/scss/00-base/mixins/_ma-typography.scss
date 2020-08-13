@@ -5,34 +5,34 @@
 @use "00-base/breakpoints" as *;
 
 @mixin ma-h1 {
-  font-size: 3rem;
+  font-size: $fonts-6xlarge;
   line-height: 1.07;
 
   @media ($bp-medium-min) {
-    font-size: 3.25rem;
+    font-size: $fonts-7xlarge;
   }
 
   @media ($bp-x-large-min) {
-    font-size: 3.5rem;
+    font-size: $fonts-8xlarge;
   }
 }
 
 @mixin ma-h2 {
-  font-size: 2.25rem;
+  font-size: $fonts-3xlarge;
   line-height: 1.2;
   margin-bottom: 1rem;
 
   @media ($bp-medium-min) {
-    font-size: 2.5rem;
+    font-size: $fonts-4xlarge;
   }
 
   @media ($bp-x-large-min) {
-    font-size: 2.75rem;
+    font-size: $fonts-5xlarge;
   }
 }
 
 @mixin ma-h3 {
-  font-size: 2rem;
+  font-size: $fonts-2xlarge;
   line-height: 1.2;
   margin-bottom: .75em;
 
@@ -42,18 +42,18 @@
 }
 
 @mixin ma-h4 {
-  font-size: 1.813rem;
+  font-size: $fonts-xlarge;
   line-height: 1.2;
 }
 
 @mixin ma-h5 {
-  font-size: 1.625rem;
+  font-size: $fonts-larger;
   line-height: 1.3;
   margin-bottom: .5em;
 }
 
 @mixin ma-h6 {
-  font-size: 1.375rem;
+  font-size: $fonts-large;
   line-height: 1.4;
   margin-bottom: .25em;
 }

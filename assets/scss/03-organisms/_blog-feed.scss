@@ -59,7 +59,7 @@
   }
 
   &__date {
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
     line-height: 1.79;
     padding: 0 10px;
     position: absolute;
@@ -76,12 +76,12 @@
   }
 
   &__link {
-    font-size: 1.625rem;
+    font-size: $fonts-larger;
     margin-bottom: .5em;
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
   }
 
   &__view-all {

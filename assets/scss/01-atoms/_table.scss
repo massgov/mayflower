@@ -11,7 +11,7 @@
     th {
       color: $c-font-heading;
       border: none;
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: 1.3;
     }
   }
@@ -25,7 +25,7 @@
   }
 
   th, td {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     padding: 10px 20px 10px 0;
     text-align: left;
     vertical-align: top;
@@ -42,7 +42,7 @@
 }
 
 .ma__table {
-  
+
   th {
     color: $c-font-detail;
   }
@@ -78,7 +78,7 @@
     td,
     th {
       display: block;
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       padding-left: 40% !important;
       padding-bottom: 0;
       position: relative;
@@ -94,7 +94,7 @@
     }
 
     th {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       color: $c-font-heading;
       background-color: $c-bg-subtle;
     }
@@ -102,7 +102,7 @@
 }
 
 .ma__table--wide {
-  
+
   @media ($bp-medium-max) {
     display: block;
 
@@ -149,7 +149,7 @@
     }
 
     th {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       color: $c-font-heading;
       background-color: $c-bg-subtle;
     }
