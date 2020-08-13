@@ -7,20 +7,20 @@ import Icon from '../../base/Icon';
 import './style.css';
 
 const FooterSlim = (props) => (
-  <footer className="ma__footer_slim" id="footer">
-    <div className="ma__footer_slim--container ma__container">
+  <footer className="ma__footer-slim" id="footer">
+    <div className="ma__footer-slim__container ma__container">
       {props.siteLogo}
-      <div className="ma__footer_slim--container-inner">
-        <section className="ma__footer_slim--info">
-          <h3>{props.title }</h3>
+      <div className="ma__footer-slim__container__inner">
+        <div className="ma__footer-slim__info">
+          <div className="ma__footer-slim__title">{props.title }</div>
           <p>{props.description }</p>
-          <p className="ma__footer_slim--copyright">
+          <p className="ma__footer-slim__copyright">
             &copy; {moment().year()} Commonwealth of Massachusetts
           </p>
-        </section>
-        <section className="ma__footer_slim--details">
+        </div>
+        <div className="ma__footer-slim__details">
           {props.links &&
-            <div className="ma__footer_slim--links">
+            <div className="ma__footer-slim__links">
               {props.links.map((link, linkIndex) => (
                 /* eslint-disable-next-line react/no-array-index-key */
                 <a href={link.href} key={`footslimlinks-${linkIndex}`}>{link.title}</a>
@@ -28,7 +28,7 @@ const FooterSlim = (props) => (
             </div>
           }
           {props.contact &&
-            <div className="ma__footer_slim--contact">
+            <div className="ma__footer-slim__contact">
               {props.contact.address &&
               <p>
                 <Icon name="marker" svgWidth={20} svgHeight={20} />
@@ -49,7 +49,7 @@ const FooterSlim = (props) => (
               }
             </div>
           }
-        </section>
+        </div>
       </div>
     </div>
   </footer>
