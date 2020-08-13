@@ -11,14 +11,14 @@ const FooterSlim = (props) => (
     <div className="ma__footer_slim--container ma__container">
       {props.siteLogo}
       <div className="ma__footer_slim--container-inner">
-        <section className="ma__footer_slim--info">
-          <h3>{props.title }</h3>
+        <div className="ma__footer_slim--info">
+          <div className="ma__footer_slim--title">{props.title }</div>
           <p>{props.description }</p>
           <p className="ma__footer_slim--copyright">
             &copy; {moment().year()} Commonwealth of Massachusetts
           </p>
-        </section>
-        <section className="ma__footer_slim--details">
+        </div>
+        <div className="ma__footer_slim--details">
           {props.links &&
             <div className="ma__footer_slim--links">
               {props.links.map((link, linkIndex) => (
@@ -49,7 +49,7 @@ const FooterSlim = (props) => (
               }
             </div>
           }
-        </section>
+        </div>
       </div>
     </div>
   </footer>
