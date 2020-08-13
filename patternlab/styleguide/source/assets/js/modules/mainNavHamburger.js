@@ -112,70 +112,76 @@ if (menuButton !== null) {
   const lastUtilMenuItem = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-nav__link");
   const lastUtilMenuContentLink = document.querySelector(".js-utility-nav--narrow .ma__utility-nav__item:last-of-type .ma__utility-panel:last-of-type .js-clickable:last-of-type .js-clickable-link");
   // no utility nav, sub menu closed
-  lastTopMenuItem.addEventListener("keydown", function (e) {
-    // Without this, sift + tab set focus on the first top menu button.
-    if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
-      if (width < 841) {
-        setTimeout(function timeOutFunction () {
-          this.closest(".js-main-nav-hamburger-toggle").previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
-        }, 1);
-      }
-    }
-    else if (e.key === "Tab" || e.code === "9") {
-      if (width > 840) {
-        if (!this.hasAttribute("aria-expanded")) {// For link
-          setFocusOnFirstTopMenu();
+  if (lastTopMenuItem) {
+    lastTopMenuItem.addEventListener("keydown", function (e) {
+      // Without this, sift + tab set focus on the first top menu button.
+      if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
+        if (width < 841) {
+          setTimeout(function timeOutFunction () {
+            this.closest(".js-main-nav-hamburger-toggle").previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
+          }, 1);
         }
-        else {// For buttons
-          if(this.getAttribute("aria-expanded") === "false") {
+      }
+      else if (e.key === "Tab" || e.code === "9") {
+        if (width > 840) {
+          if (!this.hasAttribute("aria-expanded")) {// For link
             setFocusOnFirstTopMenu();
+          }
+          else {// For buttons
+            if(this.getAttribute("aria-expanded") === "false") {
+              setFocusOnFirstTopMenu();
+            }
           }
         }
       }
-    }
-  });
+    });
 
-  // no utility nav, last sub menu open
-  if(lastTopMenuItem === document.querySelector(".ma__main__hamburger-nav__item:last-of-type button")) {
-    lastSubmenuLink.addEventListener("keydown", function (e) {
-      const subMenuContainer = this.closest(".js-main-nav-hamburger-content");
-      if ((e.key === "Tab" || e.code === "9") && !subMenuContainer.classList.contains(".is-closed")) {
-        // Close the submenu and move focus to the first top menu button.
-        if (width > 840) {
-          closeSubMenu();
+    // no utility nav, last sub menu open
+    if(lastTopMenuItem === document.querySelector(".ma__main__hamburger-nav__item:last-of-type button")) {
+      lastSubmenuLink.addEventListener("keydown", function (e) {
+        const subMenuContainer = this.closest(".js-main-nav-hamburger-content");
+        if ((e.key === "Tab" || e.code === "9") && !subMenuContainer.classList.contains(".is-closed")) {
+          // Close the submenu and move focus to the first top menu button.
+          if (width > 840) {
+            closeSubMenu();
+            setFocusOnFirstTopMenu();
+          }
+        }
+      });
+    }
+  }
+
+  if (lastUtilMenuItem) {
+    // with utility nav, utility nav content closed
+    lastUtilMenuItem.addEventListener("keydown", function (e) {
+      if (e.key === "Tab" || e.code === "9") {
+        if (width < 841 && (this.getAttribute("aria-expanded") === "false")) {
+          setFocusOnFirstTopMenu();
+        }
+      }
+    });
+
+    // with utility nav, last utility nav content open
+    lastUtilMenuContentLink.addEventListener("keydown", function (e) {
+      // Without this, sift + tab set focus on the first top menu button.
+      if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
+        if (width < 841) {
+          setTimeout(function timeOutFunction () {
+            this.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
+          }, 1);
+        }
+      }
+      else if (e.key === "Tab" || e.code === "9") {
+        // Close the nav content and move focus to the first top menu button.
+        if (width < 841) {
+          closeNarrowUtilContent();
           setFocusOnFirstTopMenu();
         }
       }
     });
   }
 
-  // with utility nav, utility nav content closed
-  lastUtilMenuItem.addEventListener("keydown", function (e) {
-    if (e.key === "Tab" || e.code === "9") {
-      if (width < 841 && (this.getAttribute("aria-expanded") === "false")) {
-        setFocusOnFirstTopMenu();
-      }
-    }
-  });
 
-  // with utility nav, last utility nav content open
-  lastUtilMenuContentLink.addEventListener("keydown", function (e) {
-    // Without this, sift + tab set focus on the first top menu button.
-    if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
-      if (width < 841) {
-        setTimeout(function timeOutFunction () {
-          this.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
-        }, 1);
-      }
-    }
-    else if (e.key === "Tab" || e.code === "9") {
-      // Close the nav content and move focus to the first top menu button.
-      if (width < 841) {
-        closeNarrowUtilContent();
-        setFocusOnFirstTopMenu();
-      }
-    }
-  });
 
   function setFocusOnFirstTopMenu () {
     // Timeout function is necessary to set focus on the first top menu button. Otherwise, focus is set on next focusable element outside the menu.
