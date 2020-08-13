@@ -10,7 +10,7 @@ const FooterSlim = (props) => (
   <footer className="ma__footer-slim" id="footer">
     <div className="ma__footer-slim__container ma__container">
       {props.siteLogo}
-      <div className="ma__footer-slim__container-inner">
+      <div className="ma__footer-slim__container__inner">
         <div className="ma__footer-slim__info">
           <div className="ma__footer-slim__title">{props.title }</div>
           <p>{props.description }</p>
