@@ -19,7 +19,10 @@ import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 const FooterSlim = (props) => (
   <footer className="ma__footer-slim" id="footer">
     <div className="ma__footer-slim__container ma__container">
-      {props.siteLogo}
+      <div className="ma__footer-slim__container__logos--stacked">
+        {props.siteLogo}
+        {props.siteLogo}
+      </div>
       <div className="ma__footer-slim__container__inner">
         <div className="ma__footer-slim__info">
           <div className="ma__footer-slim__title">{props.title }</div>
