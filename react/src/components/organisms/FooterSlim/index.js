@@ -7,7 +7,6 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
 
 // eslint-disable-next-line import/no-unresolved
 import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
@@ -16,21 +15,24 @@ import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
 // eslint-disable-next-line import/no-unresolved
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
+const today = new Date();
+const year = today.getFullYear();
+
 const FooterSlim = (props) => (
   <footer className="ma__footer-slim" id="footer">
-    <div className="ma__footer-slim__container ma__container">
-      <div className="ma__footer-slim__container__logos--stacked">
+    <div className="ma__footer-slim__container ma__footer-slim__container--stacked ma__container">
+      <div className="ma__footer-slim__container__logos">
         {props.siteLogo}
         {props.siteLogo}
       </div>
       <div className="ma__footer-slim__container__inner">
         <div className="ma__footer-slim__info">
-          <div className="ma__footer-slim__title">{props.title }</div>
-          <p>{props.description }</p>
+          <div className="ma__footer-slim__title">{props.title}</div>
+          <p>{props.description}</p>
           <p className="ma__footer-slim__copyright">
             &copy;
             {' '}
-            {moment().year()}
+            {year}
             {' '}
             Commonwealth of Massachusetts
           </p>
