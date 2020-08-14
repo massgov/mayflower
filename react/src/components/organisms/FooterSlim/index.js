@@ -23,24 +23,26 @@ const FooterSlim = ({
   const year = today.getFullYear();
 
   const logoWrapperClasses = classNames({
-    'ma__footer-slim__container__logos': true,
-    'ma__footer-slim__container__logos--stacked': stackedLogo
+    'ma__footer-slim__logos': true,
+    'ma__footer-slim__logos--stacked': stackedLogo
   });
 
-  const innerWrapperClasses = classNames({
-    'ma__footer-slim__container__inner': true,
-    'ma__footer-slim__container__inner--stacked': stackedLogo
+  const titleWrapperClasses = classNames({
+    'ma__footer-slim__title': true,
+    'ma__footer-slim__title--stacked': stackedLogo
   });
 
   return(
     <footer className="ma__footer-slim" id="footer">
       <div className="ma__footer-slim__container ma__container">
-        <div className={logoWrapperClasses}>
-          {siteLogo}
-        </div>
-        <div className={innerWrapperClasses}>
+        <div className="ma__footer-slim__container__inner">
           <div className="ma__footer-slim__info">
-            <div className="ma__footer-slim__title">{title}</div>
+            <div className={titleWrapperClasses}>
+              <div className={logoWrapperClasses}>
+                {siteLogo}
+              </div>
+              {title}
+            </div>
             <p>{description}</p>
             <p className="ma__footer-slim__copyright">
               &copy;
