@@ -15,17 +15,24 @@
   &__container {
 
     &__logos {
-      position: absolute;
-
-      &--stacked {
-        position: relative;
-        display: flex;
+      display: flex;
         flex-direction: row;
         align-items: center;
 
-        & > * {
-          margin-right: 1rem;
-        }
+      & > * {
+        margin-right: 1rem;
+      }
+
+      @media ($bp-large-min) {
+        position: absolute;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &--stacked {
+        position: relative;
+        flex-direction: row;
+        align-items: center;
       }
     }
 
@@ -44,12 +51,6 @@
 
       &--stacked {
         padding-left: 0;
-
-        @media ($bp-large-min) {
-          padding-left: 0;
-        }
-
-        margin-left: 0;
       }
     }
   }
@@ -69,14 +70,6 @@
 
     @include ma-heading(3);
     font-size: $fonts-small;
-
-    margin-top: 0.5rem;
-    margin-left: 3.25rem;
-
-    @media ($bp-large-min) {
-      margin-top: inherit;
-      margin-left: auto;
-    }
   }
 
   &__details {
