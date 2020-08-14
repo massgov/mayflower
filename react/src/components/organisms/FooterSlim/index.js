@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 // eslint-disable-next-line import/no-unresolved
 import IconMarker from 'MayflowerReactBase/Icon/IconMarker';
@@ -15,66 +16,77 @@ import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
 // eslint-disable-next-line import/no-unresolved
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
-const today = new Date();
-const year = today.getFullYear();
+const FooterSlim = ({
+  title, description, siteLogo, stackedLogo, links, contact
+}) => {
+  const today = new Date();
+  const year = today.getFullYear();
 
-const FooterSlim = (props) => (
-  <footer className="ma__footer-slim" id="footer">
-    <div className="ma__footer-slim__container ma__footer-slim__container--stacked ma__container">
-      <div className="ma__footer-slim__container__logos">
-        {props.siteLogo}
-        {props.siteLogo}
-      </div>
-      <div className="ma__footer-slim__container__inner">
-        <div className="ma__footer-slim__info">
-          <div className="ma__footer-slim__title">{props.title}</div>
-          <p>{props.description}</p>
-          <p className="ma__footer-slim__copyright">
-            &copy;
-            {' '}
-            {year}
-            {' '}
-            Commonwealth of Massachusetts
-          </p>
+  const logoWrapperClasses = classNames({
+    'ma__footer-slim__container__logos': true,
+    'ma__footer-slim__container__logos--stacked': stackedLogo
+  });
+
+  const innerWrapperClasses = classNames({
+    'ma__footer-slim__container__inner': true,
+    'ma__footer-slim__container__inner--stacked': stackedLogo
+  });
+
+  return(
+    <footer className="ma__footer-slim" id="footer">
+      <div className="ma__footer-slim__container ma__container">
+        <div className={logoWrapperClasses}>
+          {siteLogo}
         </div>
-        <div className="ma__footer-slim__details">
-          {props.links && (
-            <div className="ma__footer-slim__links">
-              {props.links.map((link, linkIndex) => (
-                /* eslint-disable-next-line react/no-array-index-key */
-                <a href={link.href} key={`footslimlinks-${linkIndex}`}>{link.title}</a>
-              ))}
-            </div>
-          )}
-          {props.contact && (
-            <div className="ma__footer-slim__contact">
-              {props.contact.address && (
-              <p>
-                <IconMarker width={20} height={20} />
-                <span>{props.contact.address}</span>
-              </p>
-              )}
-              {props.contact.phone
-              && (
-              <p>
-                <IconPhone width={20} height={20} />
-                <span>{props.contact.phone}</span>
-              </p>
-              )}
-              {props.contact.online && props.contact.online.href && props.contact.online.title
-              && (
-              <p>
-                <IconLaptop width={20} height={20} />
-                <a href={props.contact.online.href}>{props.contact.online.title}</a>
-              </p>
-              )}
-            </div>
-          )}
+        <div className={innerWrapperClasses}>
+          <div className="ma__footer-slim__info">
+            <div className="ma__footer-slim__title">{title}</div>
+            <p>{description}</p>
+            <p className="ma__footer-slim__copyright">
+              &copy;
+              {' '}
+              {year}
+              {' '}
+              Commonwealth of Massachusetts
+            </p>
+          </div>
+          <div className="ma__footer-slim__details">
+            {links && (
+              <div className="ma__footer-slim__links">
+                {links.map((link, linkIndex) => (
+                  /* eslint-disable-next-line react/no-array-index-key */
+                  <a href={link.href} key={`footslimlinks-${linkIndex}`}>{link.title}</a>
+                ))}
+              </div>
+            )}
+            {contact && (
+              <div className="ma__footer-slim__contact">
+                {contact.address && (
+                  <p>
+                    <IconMarker width={20} height={20} />
+                    <span>{contact.address}</span>
+                  </p>
+                )}
+                {contact.phone && (
+                  <p>
+                    <IconPhone width={20} height={20} />
+                    <span>{contact.phone}</span>
+                  </p>
+                )}
+                {contact.online && contact.online.href && contact.online.title && (
+                  <p>
+                    <IconLaptop width={20} height={20} />
+                    <a href={contact.online.href}>{contact.online.title}</a>
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 FooterSlim.propTypes = {
   /** The main title to be displayed in the footer */
@@ -95,22 +107,10 @@ FooterSlim.propTypes = {
       title: PropTypes.string
     })
   }),
-  /** The domain you want to send users to from the site logo icon */
-  // eslint-disable-next-line consistent-return
-  siteLogo: (props, propName, componentName) => {
-    const component = props[propName];
-    const isValid = (comp) => {
-      if (typeof comp.type === 'string') {
-        return comp.type === 'SiteLogo';
-      }
-      return comp.type.name && comp.type.name === 'SiteLogo';
-    };
-    if (!component || (component && !isValid(component))) {
-      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Got: ${
-        component.type.name
-      }. Validation failed.`);
-    }
-  }
+  /** One or multiple logos rendered at the footer */
+  siteLogo: PropTypes.element.isRequired,
+  /** Whether logo(s) should be stacked on top of footer title */
+  stackedLogo: PropTypes.bool
 };
 
 export default FooterSlim;
