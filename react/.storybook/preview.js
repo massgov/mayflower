@@ -1,31 +1,47 @@
-import { addDecorator, addParameters } from '@storybook/react';
-import { withA11y } from '@storybook/addon-a11y';
+import React from 'react';
+import {
+  Title,
+  Subtitle,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY
+} from '@storybook/addon-docs/blocks';
 import '../src/index.scss';
 
 const storyKindOrder = [
   'about', // storyKindOrder.indexOf -1 follow alphabetical order
   'brand', // storyKindOrder.indexOf -1 follow alphabetical order
   'dataviz', // storyKindOrder.indexOf -1 follow alphabetical order
-  'forms|atoms',
-  'forms|molecules',
-  'forms|organisms',
-  'forms|context',
+  'forms',
   'atoms',
   'molecules',
   'organisms',
-  'templates',
-  'pages'
+  'others/templates',
+  'others/pages'
 ];
 
-addParameters({
+export const StoryPage = ({ showStories = false, Description }) => {
+  return(
+    <>
+      <Title>Description</Title>
+      <Subtitle />
+      { Description && <Description />}
+      <Primary />
+      <ArgsTable story={PRIMARY_STORY}/>
+      { showStories && <Stories />}
+    </>
+  );
+}
+
+export const parameters = {
   options: {
-    storySort: (a, b) => {
-      const aKind = a[1].kind.split('/')[0];
-      const bKind = b[1].kind.split('/')[0];
-      return (storyKindOrder.indexOf(aKind) - storyKindOrder.indexOf(bKind)) || a[1].id.toLowerCase().localeCompare(b[1].id.toLowerCase(), undefined, { numeric: true });
-    }
+    storySort: {
+      order: storyKindOrder
+    },
+  },
+  controls: {
+    expanded: true,
+    hideNoControlsWarning: true
   }
-});
-
-
-addDecorator(withA11y);
+};

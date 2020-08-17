@@ -3,8 +3,20 @@ const assets = require('@massds/mayflower-assets');
 const iconPath = path.resolve(__dirname, '../src/components/base/Icon/assets');
 
 module.exports = {
-  stories: ['../src/**/*.stories.js'],
+  stories: [
+    //'../src/markdown.stories.mdx',
+    '../src/index.stories.mdx',
+    '../src/components/atoms/**/*.stories.@(js|mdx)'
+  ],
+  //stories: ['../src/**/*.stories.@(js|mdx)'],
   addons: [
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        transcludeMarkdown: true
+      }
+    },
+    '@storybook/addon-controls',
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-knobs',
@@ -59,6 +71,7 @@ module.exports = {
       ...config.resolve,
       alias: {
         ...config.resolve.alias,
+        StorybookConfig: path.resolve(__dirname, './'),
         MayflowerReactComponents: path.resolve(__dirname, '../src/components'),
         MayflowerReactAtoms: path.resolve(__dirname, '../src/components/atoms'),
         MayflowerReactAnimations: path.resolve(__dirname, '../src/components/animations'),
