@@ -17,7 +17,7 @@ import IconPhone from 'MayflowerReactBase/Icon/IconPhone';
 import IconLaptop from 'MayflowerReactBase/Icon/IconLaptop';
 
 const FooterSlim = ({
-  title, description, siteLogo, stackedLogo, links, contact
+  title, description, siteLogo, stackedLogo = false, links = null, contact = null
 }) => {
   const today = new Date();
   const year = today.getFullYear();
