@@ -8,7 +8,7 @@ import headingsOptions from '../Headings.knobs.options';
 
 export const ColoredHeadingExample = (args) => (<ColoredHeading {...args} />);
 
-ColoredHeadingExample.storyName = 'ColoredHeading';
+ColoredHeadingExample.storyName = 'Default';
 
 ColoredHeadingExample.args = {
   text: 'Title text',
@@ -32,7 +32,7 @@ ColoredHeadingExample.argTypes = {
 };
 
 export default {
-  title: 'atoms/headings',
+  title: 'atoms/headings/ColoredHeading',
   component: ColoredHeading,
   parameters: {
     docs: {

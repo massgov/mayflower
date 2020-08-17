@@ -1,18 +1,21 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import Email from './index';
 
-storiesOf('atoms/contact', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('Email', (() => {
-    const props = {
-      email: text('email', 'ago@state.ma.us'),
-      details: text('details', 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.')
-    };
-    return(
-      <Email {...props} />
-    );
-  }));
+export default {
+  title: 'atoms/contact/Email',
+  component: Email,
+  parameters: {
+    docs: {
+      page: () => <StoryPage />
+    }
+  }
+};
+
+export const EmailExample = (args) => <Email {...args} />;
+EmailExample.storyName = 'Default';
+EmailExample.args = {
+  email: 'ago@state.ma.us',
+  details: 'Open Monday through Friday from 9:00 a.m. to 5:00 p.m.'
+};

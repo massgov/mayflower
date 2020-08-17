@@ -1,17 +1,21 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import ButtonCopy from './index';
 
-storiesOf('atoms/buttons', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('ButtonCopy', (() => {
-    const props = {
-      content: text('content', 'this is the content string that will be copied into the clipboard')
-    };
-    return(
-      <ButtonCopy {...props} />
-    );
-  }));
+export default {
+  title: 'atoms/buttons/ButtonCopy',
+  component: ButtonCopy,
+  parameters: {
+    docs: {
+      page: () => <StoryPage />
+    }
+  }
+};
+
+export const ButtonCopyExample = (args) => <ButtonCopy {...args} />;
+
+ButtonCopyExample.storyName = 'Default';
+ButtonCopyExample.args = {
+  content: 'this is the content string that will be copied into the clipboard'
+};

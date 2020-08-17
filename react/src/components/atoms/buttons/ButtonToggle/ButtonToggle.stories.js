@@ -1,28 +1,40 @@
 import React from 'react';
+import { StoryPage } from 'StorybookConfig/preview';
 
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, object, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 import ButtonToggle from './index';
 import ButtonToggleDocs from './ButtonToggle.md';
 import buttonToggleOptions from './ButtonToggle.knobs.options';
 
-storiesOf('atoms/buttons', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'ButtonToggle', (() => {
-      const props = {
-        option1: object('option1', buttonToggleOptions.options[0]),
-        option2: object('option2', buttonToggleOptions.options[1]),
-        id: text('id', 'sort'),
-        labelText: text('labelText', 'Sort by:'),
-        onChangeCallback: action('buttonToggle on select'),
-        defaultValue: select('defaultValue', [buttonToggleOptions.options[0].value, buttonToggleOptions.options[1].value], buttonToggleOptions.options[1].value)
-      };
-      return(
-        <ButtonToggle {...props} />
-      );
-    }),
-    { info: ButtonToggleDocs }
-  );
+export default {
+  title: 'atoms/buttons/ButtonToggle',
+  component: ButtonToggle,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={ButtonToggleDocs} />
+    }
+  }
+};
+
+export const ButtonToggleExample = (args) => <ButtonToggle {...args} />;
+ButtonToggleExample.storyName = 'Default';
+ButtonToggleExample.args = {
+  option1: buttonToggleOptions.options[0],
+  option2: buttonToggleOptions.options[1],
+  id: 'sort',
+  labelText: 'Sort by:',
+  onChangeCallback: action('buttonToggle on select'),
+  defaultValue: buttonToggleOptions.options[1].value
+};
+ButtonToggleExample.argTypes = {
+  defaultValue: {
+    control: {
+      type: 'select',
+      options: {
+        [buttonToggleOptions.options[0].value]: buttonToggleOptions.options[0].value, 
+        [buttonToggleOptions.options[1].value]: buttonToggleOptions.options[1].value
+      }
+    }
+  }
+};

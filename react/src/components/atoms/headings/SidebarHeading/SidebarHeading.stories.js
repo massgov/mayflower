@@ -1,27 +1,40 @@
 import React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { text, select, withKnobs } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import SidebarHeadingDocs from './SidebarHeading.md';
 import SidebarHeading from './index';
 
-storiesOf('atoms/headings', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'SidebarHeading', (() => {
-      const levelOptions = {
+export const SidebarHeadingExample = (args) => (<SidebarHeading {...args} />);
+
+SidebarHeadingExample.storyName = 'Default';
+
+SidebarHeadingExample.args = {
+  title: 'Key Agencies',
+  level: 2
+};
+
+SidebarHeadingExample.argTypes = {
+  level: {
+    control: {
+      type: 'select',
+      options: {
         1: 1,
         2: 2,
         3: 3,
         4: 4,
         5: 5,
         6: 6
-      };
-      const title = text('title', 'Key Agencies');
-      const level = select('level', levelOptions, levelOptions[2]);
-      return(<SidebarHeading title={title} level={level} />);
-    }),
-    { info: SidebarHeadingDocs }
-  );
+      }
+    }
+  }
+};
 
+export default {
+  title: 'atoms/headings/SidebarHeading',
+  component: SidebarHeading,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={SidebarHeadingDocs} />
+    }
+  }
+};
