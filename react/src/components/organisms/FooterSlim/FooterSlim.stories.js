@@ -85,7 +85,12 @@ storiesOf('organisms/FooterSlim', module)
             title: text('contact: online title', 'EEC Official Website', 'Contact')
           }
         },
-        siteLogo: <><SiteLogo {...siteLogo1Props} /><SiteLogo {...siteLogo2Props} /></>,
+        siteLogo: (
+          <React.Fragment>
+            <SiteLogo {...siteLogo1Props} />
+            <SiteLogo {...siteLogo2Props} />
+          </React.Fragment>
+        ),
         stackedLogo: boolean('stackedLogo', true)
       };
       return(<FooterSlim {...props} />);
