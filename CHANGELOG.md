@@ -1,6 +1,10 @@
 # Mayflower Release Notes
 All notable changes to this project will be documented in this file.
 
+## 9.54.1 (8/17/2020)
+### Fixed 
+- (React, Assets) [FooterSlim] Fix markup semantic and classnames. (#1148)
+
 ## 9.54.0 (8/10/2020)
 ### Added
 - (Assets) [Font] DP-19538: Consolidate font sizes into a variable scale. (#1055)
