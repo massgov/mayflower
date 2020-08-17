@@ -60,26 +60,26 @@ const FooterSlim = ({
               </div>
             )}
             {contact && (
-              <div className="ma__footer-slim__contact">
+              <address className="ma__footer-slim__contact">
                 {contact.address && (
-                  <p>
+                  <div className="ma__footer-slim__contact__item">
                     <IconMarker width={20} height={20} />
                     <span>{contact.address}</span>
-                  </p>
+                  </div>
                 )}
                 {contact.phone && (
-                  <p>
+                  <div className="ma__footer-slim__contact__item">
                     <IconPhone width={20} height={20} />
                     <span>{contact.phone}</span>
-                  </p>
+                  </div>
                 )}
                 {contact.online && contact.online.href && contact.online.title && (
-                  <p>
+                  <div className="ma__footer-slim__contact__item">
                     <IconLaptop width={20} height={20} />
                     <a href={contact.online.href}>{contact.online.title}</a>
-                  </p>
+                  </div>
                 )}
-              </div>
+              </address>
             )}
           </div>
         </div>

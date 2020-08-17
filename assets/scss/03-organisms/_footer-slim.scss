@@ -107,8 +107,9 @@
       font-weight: $fonts-normal;
     }
 
-    &> p {
+    &__item {
       display: flex;
+      margin-bottom: 1rem;
 
       svg {
         fill: $c-primary-alt;
