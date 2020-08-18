@@ -344,7 +344,7 @@ jobs:
          command: npm run yalc-link:site
       - run:
           name: Validate Package Build
-          command: cd site && yarn build
+          command: cd site && npm run build
       - persist_to_workspace:
           root: ~/repo
           paths: ["*"]
