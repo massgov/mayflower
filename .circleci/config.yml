@@ -73,7 +73,7 @@ jobs:
           command: cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build
       - persist_to_workspace:
           root: /var/www/code
-          paths: ["*"]
+          paths: ["patternlab"]
 
   patternlab_test:
     <<: *backstop_defaults
@@ -198,7 +198,7 @@ jobs:
           command: cd react && npm run build-storybook
       - persist_to_workspace:
           root: ~/repo
-          paths: ["*"]
+          paths: ["react"]
 
   react_test:
     <<: *backstop_defaults
@@ -347,7 +347,7 @@ jobs:
           command: cd site && npm run build
       - persist_to_workspace:
           root: ~/repo
-          paths: ["*"]
+          paths: ["site"]
 
 
   site_deploy_tag:
