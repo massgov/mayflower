@@ -1,0 +1,6 @@
+Fixed:
+  - project: Patternlab
+    component: Header
+    description: Set the overlay below the blue nav bar when it has active alerts. (#1152)
+    issue: DP-19683
+    impact: Patch
