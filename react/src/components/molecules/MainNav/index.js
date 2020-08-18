@@ -122,14 +122,12 @@ class MainNav extends Component {
             const itemBody = [];
             if (covidTopLink) {
               const covidTopLinkProps = {
-                id: buttonId,
                 index,
                 className: classNames([
                   'ma__main-nav__top-link',
                   'cv-alternate-style'
                 ]),
                 role: 'menuitem',
-                'aria-label': (isExpanded) ? `Hide submenu for ${item.text}` : `Show submenu for ${item.text}`,
                 key: buttonId,
                 href: item.href
               };
