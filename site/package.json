@@ -42,7 +42,8 @@
     "node-sass": "npm:sass",
     "prettier": "^1.19.1",
     "resolve-url-loader": "^3.1.1",
-    "sass": "^1.26.5"
+    "sass": "^1.26.5",
+    "yalc": "^1.0.0-pre.42"
   },
   "keywords": [
     "gatsby"

@@ -67,7 +67,8 @@
     "undertaker-registry": "^1.0.1",
     "untildify": "^4.0.0",
     "url-search-params-polyfill": "^5.0.0",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "yalc": "^1.0.0-pre.42"
   },
   "dependencies": {
     "del": "^5.1.0"

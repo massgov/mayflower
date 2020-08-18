@@ -122,7 +122,8 @@
     "react-dom": "16.9.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "style-loader": "^1.2.1"
+    "style-loader": "^1.2.1",
+    "yalc": "^1.0.0-pre.42"
   },
   "homepage": "",
   "license": "MIT",
