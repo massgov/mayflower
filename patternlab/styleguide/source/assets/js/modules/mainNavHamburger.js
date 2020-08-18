@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
-const menuBarHeight = document.querySelector(".ma__header__hamburger__nav").offsetHeight;
+const menuBarHeight = document.querySelector(".ma__header__hamburger__nav") ? document.querySelector(".ma__header__hamburger__nav").offsetHeight : null;
 const menuOverlay = document.querySelector(".menu-overlay");
 
 const menuButton = document.querySelector(".js-header-menu-button");
@@ -20,7 +20,7 @@ let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".
 
 // Check whether the wide utility nav is open.
 const utilNavWideCheck = function() {
-  return utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0;
+  return utilNavWide ? (utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0) : null;
 };
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
