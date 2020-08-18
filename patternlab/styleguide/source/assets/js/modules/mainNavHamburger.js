@@ -1,6 +1,7 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
+const menuBarHeight = document.querySelector(".ma__header__hamburger__nav") ? document.querySelector(".ma__header__hamburger__nav").offsetHeight : null;
 const menuOverlay = document.querySelector(".menu-overlay");
 
 const menuButton = document.querySelector(".js-header-menu-button");
@@ -19,7 +20,7 @@ let utilNarrowContainer = utilNarrowContent ? utilNarrowContent.querySelector(".
 
 // Check whether the wide utility nav is open.
 const utilNavWideCheck = function() {
-  return utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0;
+  return utilNavWide ? (utilNavWide.offsetWidth > 0 && utilNavWide.offsetHeight > 0) : null;
 };
 
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
@@ -412,6 +413,37 @@ if (jumpToSearchButton !== null) {
   }, false);
 }
 
+// Adjust the overlay position as the alert accordion opens/closes while the menu is open.
+setTimeout(function timeoutFunction() {
+  if (document.querySelector(".js-ajax-pattern")) {
+    document.querySelector(".ma__button-alert").addEventListener("click", function () {
+      if (body.classList.contains("show-menu")) {
+        let openAboveNavBar = document.querySelector(".js-accordion-content").getBoundingClientRect().top;
+        let closeOverlayOffset = openAboveNavBar + menuBarHeight;
+        if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === true) {
+          if (width > 840) {
+            closeOverlayOffset = closeOverlayOffset -1;
+          }
+          menuOverlay.style.top = closeOverlayOffset + "px";
+        }
+
+        // When the alert is close, wait till accordion animation to complete
+        // to get the complete height of the alert header and the accordion content.
+        if (document.querySelector(".js-emergency-alerts").classList.contains("is-open") === false) {
+          setTimeout(function () {
+            let openOverlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
+
+            if (width > 840) {
+              openOverlayOffset = openOverlayOffset -1;
+            }
+            menuOverlay.style.top = openOverlayOffset + "px";
+          }, 400);
+        }
+      }
+    });
+  }
+}, 1000);
+
 function toggleMenu() {
   if (body.classList.contains("show-menu")) {
     // This control the visibility of the dropdown to keyboard and screen reader users while maintaining the show/hide animation effect.
@@ -487,8 +519,17 @@ function commonOpenMenuTasks() {
   }
   jumpToSearchButton.setAttribute("aria-expanded", "true");
   if (menuOverlay) {
+    offsetMenuOverlay();
     menuOverlay.classList.add("overlay-open");
   }
+}
+
+function offsetMenuOverlay () {
+  let overlayOffset = document.querySelector(".ma__header__hamburger").getBoundingClientRect().top + menuBarHeight;
+  if (width > 840) {
+    overlayOffset = overlayOffset -1;
+  }
+  menuOverlay.style.top = overlayOffset + "px";
 }
 
 function jumpToSearch(e) {
