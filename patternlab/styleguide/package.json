@@ -74,6 +74,9 @@
     "del": "^5.1.0"
   },
   "scripts": {
-    "gulp": "gulp"
+    "gulp": "gulp",
+    "backstop:test": "docker-compose run backstop test",
+    "backstop:approve": "docker-compose run backstop approve",
+    "backstop:report": "open ../backstopjs/reports/html/index.html"
   }
 }

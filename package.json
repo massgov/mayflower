@@ -24,6 +24,12 @@
     "build:react": "npm run yalc-link:react && cd react && npm run build",
     "build:react-storybook": "npm run yalc-link:react && cd react && npm run build-storybook",
     "build:patternlab": "npm run yalc-link:patternlab && cd patternlab/styleguide && npm run gulp patternlab:build",
-    "build:site": "npm run yalc-link:site && cd site && npm run build"
+    "build:site": "npm run yalc-link:site && cd site && npm run build",
+    "backstop:patternlab:test": "cd patternlab/styleguide && npm run backstop:test",
+    "backstop:patternlab:approve": "cd patternlab/styleguide && npm run backstop:approve",
+    "backstop:patternlab:report": "cd patternlab/styleguide && npm run backstop:report",
+    "backstop:react:test": "cd react && npm run backstop:test",
+    "backstop:react:approve": "cd react && npm run backstop:approve",
+    "backstop:react:report": "cd react && npm run backstop:report"
   }
 }

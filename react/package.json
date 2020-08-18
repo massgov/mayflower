@@ -16,6 +16,7 @@
     "backstop:test": "docker-compose run backstop test --rm",
     "backstop": "npm-run-all build-storybook backstop:test",
     "backstop:approve": "docker-compose run backstop approve",
+    "backstop:report": "open backstop/data/html_report/index.html",
     "build": "gulp",
     "build:icons": "gulp cleanIconDir && svgr --out-dir ./src/components/base/Icon ./src/components/base/Icon/assets --config-file=./.svgrrc.js --ext js",
     "start": "npm-run-all build:icons storybook",
