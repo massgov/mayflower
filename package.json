@@ -30,6 +30,12 @@
     "backstop:patternlab:report": "cd patternlab/styleguide && npm run backstop:report",
     "backstop:react:test": "cd react && npm run backstop:test",
     "backstop:react:approve": "cd react && npm run backstop:approve",
-    "backstop:react:report": "cd react && npm run backstop:report"
+    "backstop:react:report": "cd react && npm run backstop:report",
+    "lint:assets": "cd assets && npm run stylelint",
+    "lint-fix:assets": "cd assets && npm run stylelint-fix",
+    "lint:react": "cd react && npm run lint",
+    "lint-fix:react": "cd react && npm run lint-fix",
+    "lint:site": "cd site && npm run lint",
+    "lint-fix:site": "cd site && npm run lint-fix"
   }
 }

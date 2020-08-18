@@ -19,9 +19,9 @@
     "fonts"
   ],
   "scripts": {
-    "test": "npm run stylelint",
-    "stylelint": "stylelint '**/*.scss' --syntax scss --formatter verbose",
-    "stylelint-fix": "stylelint '**/*.scss' --fix --syntax scss --formatter verbose"
+    "test": "npx stylelint",
+    "stylelint": "npm run test '**/*.scss' --syntax scss --formatter verbose",
+    "stylelint-fix": "npm run test '**/*.scss' --fix --syntax scss --formatter verbose"
   },
   "author": "Massachusetts Digital Services (MDS)",
   "license": "MIT",
