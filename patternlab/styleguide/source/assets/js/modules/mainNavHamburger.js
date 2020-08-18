@@ -445,7 +445,7 @@ function closeMenu() {
     document.querySelector(".js-header-menu-button").focus();
   }, 100);
 
-  if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").hasAttribute("tabindex")) {
+  if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
@@ -581,8 +581,8 @@ function closeSubMenus(item) {
 }
 
 // Close menu when utility nav is clicked
-if (utilNavWide !== null) {
-    closeMenu();
+if ((utilNavWide !== null) && body.classList.contains("show-menu")) {
+  closeMenu();
 }
 
 // Close and reset menu on overlay click
