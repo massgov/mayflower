@@ -56,7 +56,12 @@ jobs:
           name: Save NPM cache
           key: pl-npm-v3-{{ checksum "patternlab/styleguide/package-lock.json" }}
           paths: [ patternlab/styleguide/node_modules ]
-      - run: { name: 'Build', command: 'cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build'}
+      - run:
+          name: Yalc link
+          command: npm run yalc-link:patternlab
+      - run:
+          name: Build
+          command: cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build
       - persist_to_workspace:
           root: /var/www/code
           paths: ["*"]
@@ -170,6 +175,9 @@ jobs:
           paths:
             - react/node_modules
           key: mfr-dependencies-{{ checksum "react/package.json" }}-0
+      - run:
+          name: Yalc link
+          command: npm run yalc-link:react
       - run:
           name: Mayflower React Build
           command: cd react && npm run build
@@ -325,6 +333,9 @@ jobs:
           paths:
             - site/node_modules
           key: site-dependencies-{{ checksum "site/yarn.lock" }}
+      - run:
+         name: Yalc link
+         command: npm run yalc-link:site
       - run:
           name: Validate Package Build
           command: cd site && yarn build

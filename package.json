@@ -15,10 +15,14 @@
   "scripts": {
     "yalc:assets": "cd assets && npx yalc publish",
     "yalc:react": "cd react && npx yalc publish",
-    "yalc-link:react": "yarn yalc:assets && cd react && yalc link @massds/mayflower-assets",
-    "yalc-link:patternlab": "yarn yalc:assets && cd patternlab/styleguide && yalc link @massds/mayflower-assets",
-    "yalc-link:site": "yarn yalc:assets && yarn yalc:react && cd site && yalc link @massds/mayflower-assets @massds/mayflower-react",
-    "develop:react": "yarn yalc-link:react && cd react && yarn start",
-    "develop:patternlab": "yarn yalc-link:patternlab && cd patternlab/styleguide && yarn gulp"
+    "yalc-link:react": "npm run yalc:assets && cd react && yalc link @massds/mayflower-assets",
+    "yalc-link:patternlab": "npm run yalc:assets && cd patternlab/styleguide && yalc link @massds/mayflower-assets",
+    "yalc-link:site": "npm run yalc:assets && npm run yalc:react && cd site && yalc link @massds/mayflower-assets @massds/mayflower-react",
+    "develop:react": "npm run yalc-link:react && cd react && npm run start",
+    "develop:patternlab": "npm run yalc-link:patternlab && cd patternlab/styleguide && npm run gulp",
+    "develop:site": "npm run yalc-link:site && cd site && npm run develop",
+    "build:react": "npm run yalc-link:react && cd react && npm run build",
+    "build:react-storybook": "npm run yalc-link:react && cd react && npm run build-storybook",
+    "build:patternlab": "npm run yalc-link:patternlab && cd patternlab/styleguide && npm run gulp patternlab:build"
   }
 }
