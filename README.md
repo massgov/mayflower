@@ -35,36 +35,36 @@ For efficiency purposes, we allow CircleCI to bypass certain jobs based on the p
 | Task | Command |
 |---|---|
 | Install packages  | `npm run install:assets`  |
-| Linting  | `npm run lint:assets`  or  `npm run lint-fix:assets` |
+| Lint  | `npm run lint:assets`  or  `npm run lint-fix:assets` |
 
 
 ### Mayflower React
 | Task | Command |
 |---|---|
-| Install packages  | `npm run install:assets`  |
+| Install packages  | `npm run install:react`  |
 | Link to mayflower-assets | `npm run yalc-link:react`  |
 | Develop  | `npm run develop:react` |
 | Build mayflower-react package | `npm run build:react` |
 | Build Storybook site | `npm run build:react-storybook` |
 | Run visual regression tests | `backstop:react:test`, `backstop:react:report`, `backstop:react:approve`  |
-| Linting  | `npm run lint:react`  or  `npm run lint-fix:react` |
+| Lint | `npm run lint:react`  or  `npm run lint-fix:react` |
 
 ### Mayflower Patternlab
 
 | Task | Command |
 |---|---|
-| Install packages  | `npm run install:assets`  |
+| Install packages  | `npm run install:patternlab`  |
 | Link to mayflower-assets | `npm run yalc-link:patternlab`  |
 | Develop  | `npm run develop:patternlab` |
 | Build Patternlab site and artifacts package | `npm run build:patternlab` |
 | Run visual regression tests | `backstop:patternlab:test`, `backstop:patternlab:report` `backstop:patternlab:approve`  |
-| Linting  | `npm run lint:patternlab`  or  `npm run lint-fix:patternlab` |
+| Lint  | `npm run lint:patternlab`  or  `npm run lint-fix:patternlab` |
 
 ### Mayflower Site
 | Task | Command |
 |---|---|
-| Install packages  | `npm run install:assets`  |
+| Install packages  | `npm run install:site`  |
 | Link to mayflower-assets and mayflower-react | `npm run yalc-link:site`  |
 | Develop  | `npm run develop:site` |
 | Build mayflower Gatsby site | `npm run build:site` |
-| Linting  | `npm run lint:site`  or  `npm run lint-fix:site` |
+| Lint  | `npm run lint:site`  or  `npm run lint-fix:site` |
