@@ -22,7 +22,7 @@ react_defaults: &react_defaults
   docker:
     - image: circleci/node:12.18.0
 patternlab_defaults: &patternlab_defaults
-  working_directory: /var/www/code
+  working_directory: ~/repo
   docker:
     - image: massgov/drupal-container:1.0.8-ci
 
@@ -78,7 +78,7 @@ jobs:
   patternlab_test:
     <<: *backstop_defaults
     steps:
-      - attach_workspace: {at: ~/repo/patternlab}
+      - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
       - run: |
           cd patternlab
@@ -203,7 +203,7 @@ jobs:
   react_test:
     <<: *backstop_defaults
     steps:
-      - attach_workspace: {at: /home/circleci/react}
+      - attach_workspace: {at: /home/circleci}
       - setup_remote_docker
       - run: |
           cd react
