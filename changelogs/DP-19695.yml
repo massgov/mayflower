@@ -2,12 +2,12 @@ Fixed:
   - project: Assets, React, Patternlab, Site
     component: CircleCI
     description: Added yalc to allow linking to local mayflower-assets and mayflower-react dependencies without publishing the public. (#1153)
-    issue: DDP-19695
+    issue: DP-19695
     impact: Patch
 
 Added:
   - project: Assets, React, Patternlab, Site
     component: Docs
     description: Added useful commands and documentation from the root. (#1153)
-    issue: DDP-19695
+    issue: DP-19695
     impact: Patch
