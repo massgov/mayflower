@@ -8,6 +8,14 @@ references:
     run: {name: 'Prepare Git', command: 'git config --global user.email "ci.bot@mass.gov" && git config --global user.name "MassGov Bot"'}
   no_host_check: &no_host_check
     run: {name: 'Disable StrictHostKeyChecking', command: 'mkdir -p $HOME/.ssh && echo "StrictHostKeyChecking no" >> ~/.ssh/config'}
+  # Identify the committer i.e. CircleCI deployment bot
+  config_circle_bot: &config_circle_bot
+    run:
+      name: 'Config CircleCI Bot'
+      command: |
+        git config --global user.email "circleci@example.com"
+        git config --global user.name "CircleCI Deployment Bot"
+
 
 react_defaults: &react_defaults
   working_directory: ~/repo
@@ -24,6 +32,7 @@ backstop_defaults: &backstop_defaults
     - image: circleci/python:2.7.14
 
 jobs:
+  #
   build:
     <<: *patternlab_defaults
     steps:
@@ -264,9 +273,7 @@ jobs:
       - checkout
       - *no_host_check
       - run: { name: 'NPM Install', command: 'npm install' }
-      # Identify the committer i.e. CircleCI deployment bot
-      - run: git config --global user.email "circleci@example.com"
-      - run: git config --global user.name "CircleCI Deployment Bot"
+      - *config_circle_bot
       - run: node scripts/release-branch.js
 
   github_tag:
@@ -275,9 +282,7 @@ jobs:
       - checkout
       - *no_host_check
       - run: { name: 'NPM Install', command: 'npm install' }
-      # Identify the committer i.e. CircleCI deployment bot
-      - run: git config --global user.email "circleci@example.com"
-      - run: git config --global user.name "CircleCI Deployment Bot"
+      - *config_circle_bot
       - run: node scripts/release-tag.js
 
 
@@ -287,12 +292,12 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - assets-dependencies-{{ checksum "assets/package.json" }}
+            - assets-dependencies-{{ checksum "assets/package-lock.json" }}
       - run: cd assets && npm install
       - save_cache:
           paths:
             - assets/node_modules
-          key: assets-dependencies-{{ checksum "assets/package.json" }}
+          key: assets-dependencies-{{ checksum "assets/package-lock.json" }}
       - run:
           name: Mayflower Style Linter
           command: cd assets && npm run stylelint
@@ -304,12 +309,12 @@ jobs:
       - *configure_npm
       - restore_cache:
           keys:
-            - assets-dependencies-{{ checksum "assets/package.json" }}
+            - assets-dependencies-{{ checksum "assets/package-lock.json" }}
       - run: cd assets && npm i
       - save_cache:
           paths:
             - assets/node_modules
-          key: assets-dependencies-{{ checksum "assets/package.json" }}
+          key: assets-dependencies-{{ checksum "assets/package-lock.json" }}
       - run:
           name: 'Publish mayflower-assets NPM package'
           command: |
