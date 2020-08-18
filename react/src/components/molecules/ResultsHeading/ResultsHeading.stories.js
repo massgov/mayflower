@@ -1,64 +1,86 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, object, select, boolean } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
-
+import buttonToggleOptions from 'MayflowerReactButtons/ButtonToggle/ButtonToggle.knobs.options';
+import TagsData from 'MayflowerReactMolecules/Tags/Tags.knobs.options';
 import ResultsHeading from './index';
 import ResultsHeadingDocs from './ResultsHeading.md';
-import TagsData from 'MayflowerReactMolecules/Tags/Tags.knobs.options';
 import { SortData } from './ResultsHeading.knobs.options';
-import buttonToggleOptions from 'MayflowerReactButtons/ButtonToggle/ButtonToggle.knobs.options';
 
-storiesOf('molecules/ResultsHeading', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'ResultsHeading with ButtonToggle', (() => {
-      const props = {
-        numResults: text('ResultsHeading numResults', '1-12'),
-        totalResults: text('ResultsHeading totalResults', '108'),
-        tags: {
-          tags: object('ResultsHeading tags', TagsData.tags),
-          onClearCallback: action('resultsHeading tags on clearAll'),
-          onClearThisCallback: action('resultsHeading tags on clearThis')
-        }
-      };
-      props.buttonToggle = {
-        option1: object('ResultsHeading buttonToggle: option1', buttonToggleOptions.options[0]),
-        option2: object('ResultsHeading buttonToggle: option2', buttonToggleOptions.options[1]),
-        id: text('ResultsHeading buttonToggle: id', 'sort'),
-        labelText: text('ResultsHeading buttonToggle: labelText', 'Sort by:'),
-        onChangeCallback: action('resultsHeading buttontoggle on change'),
-        defaultValue: select('ResultsHeading buttonToggle: defaultValue', [buttonToggleOptions.options[0].value, buttonToggleOptions.options[1].value], 'date')
-      };
-      return(
-        <ResultsHeading {...props} />
-      );
-    }),
-    { info: ResultsHeadingDocs }
-  )
-  .add(
-    'ResultsHeading with SelectBox', (() => {
-      const props = {
-        numResults: text('ResultsHeading numResults', '1-12'),
-        totalResults: text('ResultsHeading totalResults', '108'),
-        tags: {
-          tags: object('ResultsHeading tags', TagsData.tags),
-          onClearCallback: action('resultsHeading tags on clearAll'),
-          onClearThisCallback: action('resultsHeading tags on clearThis')
-        }
-      };
-      props.selectBox = {
-        label: text('ResultsHeading selectBox: label', 'Sort by:', 'SelectBox'),
-        stackLabel: boolean('ResultsHeading selectBox: stackLabel', false, 'SelectBox'),
-        required: boolean('ResultsHeading selectBox: required', true, 'SelectBox'),
-        id: text('ResultsHeading selectBox: id', 'sort-select', 'SelectBox'),
-        options: object('ResultsHeading selectBox: options', SortData.sort, 'SelectBox'),
-        selected: select('ResultsHeading selectBox: defaultSelected', SortData.sort.map((option) => option.text), SortData.sort[0].text, 'SelectBox'),
-        onChangeCallback: action('custom-click on select')
-      };
-      return(
-        <ResultsHeading {...props} />
-      );
-    }),
-    { info: ResultsHeadingDocs }
-  );
+export const ResultsHeadingExample = (args) => <ResultsHeading {...args} />;
+
+ResultsHeadingExample.storyName = 'Default';
+ResultsHeadingExample.args = {
+  numResults: '1-12',
+  totalResults: '108',
+  tags: {
+    tags: TagsData.tags,
+    onClearCallback: action('resultsHeading tags on clearAll'),
+    onClearThisCallback: action('resultsHeading tags on clearThis')
+  },
+  buttonToggle: {
+    option1: buttonToggleOptions.options[0],
+    option2: buttonToggleOptions.options[1],
+    id: 'sort',
+    labelText: 'Sort by:',
+    onChangeCallback: action('resultsHeading buttontoggle on change'),
+    defaultValue: 'date'
+  }
+};
+ResultsHeadingExample.argTypes = {
+  selectBox: {
+    control: {
+      disable: true
+    }
+  },
+  defaultValue: {
+    control: {
+      type: 'select',
+      options: [buttonToggleOptions.options[0].value, buttonToggleOptions.options[1].value]
+    }
+  }
+};
+
+export const ResultsHeadingSelectBox = (args) => <ResultsHeading {...args} />;
+ResultsHeadingSelectBox.storyName = 'ResultsHeading with SelectBox';
+ResultsHeadingSelectBox.args = {
+  numResults: '1-12',
+  totalResults: '108',
+  tags: {
+    tags: TagsData.tags,
+    onClearCallback: action('resultsHeading tags on clearAll'),
+    onClearThisCallback: action('resultsHeading tags on clearThis')
+  },
+  selectBox: {
+    label: 'Sort by:',
+    stackLabel: false,
+    required: true,
+    id: 'sort-select',
+    options: SortData.sort,
+    selected: SortData.sort[0].text,
+    onChangeCallback: action('custom-click on select')
+  }
+};
+ResultsHeadingSelectBox.argTypes = {
+  buttonToggle: {
+    control: {
+      disable: true
+    }
+  },
+  selected: {
+    control: {
+      type: 'select',
+      options: SortData.sort.map((option) => option.text)
+    }
+  }
+};
+
+export default {
+  title: 'molecules/ResultsHeading',
+  component: ResultsHeading,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={ResultsHeadingDocs} />
+    }
+  }
+};

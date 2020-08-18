@@ -1,19 +1,23 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 
 import Link from './index';
-import linkOptions from './Link.knob.options';
 import LinkDocs from './Link.md';
 
-storiesOf('molecules', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'Link', (() => {
-      const optionsWithKnobs = Object.assign(...Object.entries(linkOptions).map(([k, v]) => (
-        { [k]: v(Link.defaultProps[k]) })));
-      return(<Link {...optionsWithKnobs} />);
-    }),
-    { info: LinkDocs }
-  );
+export const LinkExample = (args) => <Link {...args} />;
 
+LinkExample.storyName = 'Default';
+LinkExample.args = {
+  text: 'Lorem ipsum dolor sit amet',
+};
+
+
+export default {
+  title: 'molecules/Link',
+  component: Link,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={LinkDocs} />
+    }
+  }
+};

@@ -1,11 +1,9 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
-
+import { StoryPage } from 'StorybookConfig/preview';
+import * as Icon from 'MayflowerReactBase/Icon';
 import Paragraph from 'MayflowerReactText/Paragraph';
 import AccordionItem from './index';
 import AccordionItemDocs from './AccordionItem.md';
-import * as Icon from 'MayflowerReactBase/Icon';
 
 const getIcon = (iconProps) => {
   // Capitalizes the name of each SVG icon to match
@@ -16,42 +14,55 @@ const getIcon = (iconProps) => {
   );
 };
 
-const icons = {
-  circlechevron: getIcon({ name: 'IconCirclechevron' }),
-  laptop: getIcon({ name: 'IconLaptop' }),
-  phone: getIcon({ name: 'IconPhone' }),
-  fax: getIcon({ name: 'IconFax' }),
-  none: null
+export const AccordionItemExample = (args) => {
+  const props = {
+    ...args,
+    icon: getIcon({ name: args.icon })
+  };
+  return(<AccordionItem {...props} />);
 };
 
-storiesOf('molecules', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'AccordionItem', (() => {
-      const props = {
-        title: text('title', 'Collapsible Header'),
-        info: text('info', 'Collapsible Header'),
-        icon: select('icon', Object.keys(icons), 'circlechevron'),
-        border: boolean('border', true),
-        emphasize: boolean('emphasize', true),
-        secondary: boolean('secondary', false),
-        headerLevel: select('headerLevel', [1, 2, 3, 4, 5, 6], 2),
-        id: text('id', 'accordionid')
-      };
+AccordionItemExample.storyName = 'Default';
 
-      // Example of child element, paragraph, passable to accordion
-      const child = {
-        paragraph: text('children.paragraph.text (example)', 'Most parks and beaches that charge daily parking fees sell MassParks Passes at their contact stations during their paid parking seasons. Just ask to purchase a MassParks Pass and show your driver’s license or proof of residency. Please note: most parks cannot accept credit cards, so you’ll have to pay with cash or a check')
-      };
+AccordionItemExample.args = {
+  title: 'Collapsible Header',
+  info: 'Collapsible Header',
+  icon: 'IconCirclechevron',
+  border: true,
+  emphasize: true,
+  secondary: false,
+  headerLevel: 2,
+  id: 'accordionid',
+  children: <Paragraph>Most parks and beaches that charge daily parking fees sell MassParks Passes at their contact stations during their paid parking seasons. Just ask to purchase a MassParks Pass and show your driver’s license or proof of residency. Please note: most parks cannot accept credit cards, so you’ll have to pay with cash or a check</Paragraph>
+};
 
-      // Set the icon prop to the actual element based on knob selection.
-      props.icon = icons[props.icon];
+AccordionItemExample.argTypes = {
+  icon: {
+    control: {
+      type: 'select',
+      options: ['IconCirclechevron', 'IconLaptop', 'IconPhone', 'IconFax']
+    }
+  },
+  headerLevel: {
+    control: {
+      type: 'select',
+      options: [1, 2, 3, 4, 5, 6]
+    }
+  },
+  children: {
+    control: {
+      disable: true
+    }
+  }
+};
 
-      return(
-        <AccordionItem {...props}>
-          <Paragraph text={child.paragraph} />
-        </AccordionItem>
-      );
-    }),
-    { info: AccordionItemDocs }
-  );
+
+export default {
+  title: 'molecules/AccordionItem',
+  component: AccordionItem,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={AccordionItemDocs} />
+    }
+  }
+};

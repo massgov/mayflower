@@ -1,15 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
+import Link from 'MayflowerReactMolecules/Link';
 
 import Breadcrumb from './index';
 import BreadcrumbItem from './item';
-import Link from 'MayflowerReactMolecules/Link';
 
-const getLink = (sampleText = 'Sample Link', index) => {
+const getLink = (sampleText = 'Sample Link') => {
   const linkProps = {
-    text: text(`Breadcrumb ${index}: text`, sampleText, `Breadcrumb ${index}`),
-    href: text(`Breadcrumb ${index}: href`, 'http://www.mass.gov/', `Breadcrumb ${index}`),
+    text: sampleText,
+    href: 'http://www.mass.gov/',
     icon: null
   };
   return<Link {...linkProps} />;
@@ -21,18 +20,33 @@ const getItem = (itemText, index, currentPage) => (
   </BreadcrumbItem>
 );
 
-storiesOf('molecules', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('Breadcrumb', (() => {
-    const currentItemProp = {
-      currentPage: text('currentPage', 'Suffolk DA - Historical Spending')
-    };
-    return(
-      <Breadcrumb>
-        {getItem('Appropriation Recommendation', 0)}
-        {getItem('Independents', 1)}
-        {getItem('District Attorneys', 2)}
-        <BreadcrumbItem {...currentItemProp} />
-      </Breadcrumb>
-    );
-  }));
+export const BreadcrumbExample = (args) => (
+  <Breadcrumb>
+    {getItem('Appropriation Recommendation')}
+    {getItem('Independents')}
+    {getItem('District Attorneys')}
+    <BreadcrumbItem {...args} />
+  </Breadcrumb>
+);
+
+BreadcrumbExample.storyName = 'Default';
+BreadcrumbExample.args = {
+  currentPage: 'Suffolk DA - Historical Spending'
+};
+BreadcrumbExample.argTypes = {
+  children: {
+    control: {
+      disable: true
+    }
+  }
+};
+
+export default {
+  title: 'molecules/Breadcrumb',
+  component: Breadcrumb,
+  parameters: {
+    docs: {
+      page: () => <StoryPage />
+    }
+  }
+};

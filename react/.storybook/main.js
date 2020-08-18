@@ -6,7 +6,8 @@ module.exports = {
   stories: [
     //'../src/markdown.stories.mdx',
     '../src/index.stories.mdx',
-    '../src/components/atoms/**/*.stories.@(js|mdx)'
+    '../src/components/atoms/**/*.stories.@(js|mdx)',
+    '../src/components/molecules/**/*.stories.@(js|mdx)'
   ],
   //stories: ['../src/**/*.stories.@(js|mdx)'],
   addons: [

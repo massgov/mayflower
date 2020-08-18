@@ -1,25 +1,36 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
 
 import ArrowNav from './index';
 import ArrowNavDocs from './ArrowNav.md';
 
-storiesOf('molecules', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'ArrowNav', (() => {
-      const props = {
-        href: text('href', ''),
-        info: text('info', 'link info'),
-        text: text('text', 'Text'),
-        title: text('title', 'Title'),
-        onClick: action('Clicked'),
-        direction: select('direction', ['left', 'right']),
-        label: text('label', 'Label')
-      };
-      return(<ArrowNav {...props} />);
-    }),
-    { info: ArrowNavDocs }
-  );
+export const ArrowNavExample = (args) => <ArrowNav {...args} />;
+
+ArrowNavExample.storyName = 'Default';
+ArrowNavExample.args = {
+  href: '',
+  info: 'link info',
+  text: 'Text',
+  title: 'Title',
+  onClick: action('Clicked'),
+  label: 'Label'
+};
+ArrowNavExample.argTypes = {
+  direction: {
+    control: {
+      type: 'select',
+      options: ['left', 'right']
+    }
+  }
+};
+
+export default {
+  title: 'molecules/ArrowNav',
+  component: ArrowNav,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={ArrowNavDocs} />
+    }
+  }
+};
