@@ -9,10 +9,16 @@
     "js-yaml": "^3.13.1",
     "semver": "^6.3.0",
     "shelljs": "^0.8.3",
-    "simple-git": "^1.126.0"
+    "simple-git": "^1.126.0",
+    "yalc": "^1.0.0-pre.42"
   },
-  "dependencies": {
-    "@massds/mayflower-react": "^9.42.1",
-    "@octokit/rest": "^16.35.0"
+  "scripts": {
+    "yalc:assets": "cd assets && npx yalc publish",
+    "yalc:react": "cd react && npx yalc publish",
+    "yalc-link:react": "yarn yalc:assets && cd react && yalc link @massds/mayflower-assets",
+    "yalc-link:patternlab": "yarn yalc:assets && cd patternlab/styleguide && yalc link @massds/mayflower-assets",
+    "yalc-link:site": "yarn yalc:assets && yarn yalc:react && cd site && yalc link @massds/mayflower-assets @massds/mayflower-react",
+    "develop:react": "yarn yalc-link:react && cd react && yarn start",
+    "develop:patternlab": "yarn yalc-link:patternlab && cd patternlab/styleguide && yarn gulp"
   }
 }
