@@ -1,12 +1,11 @@
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
+const menuBarHeight = document.querySelector(".ma__header__hamburger__nav").offsetHeight;
 const menuOverlay = document.querySelector(".menu-overlay");
 
 const menuButton = document.querySelector(".js-header-menu-button");
 
-const menuBarHeight = document.querySelector(".ma__header__hamburger__nav").offsetHeight;
-let utilNavWide = document.querySelector(".js-utility-nav--wide");
 const jumpToSearchButton = document.querySelector(".js-header-search-access-button");
 const searchInput = document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input");
 
