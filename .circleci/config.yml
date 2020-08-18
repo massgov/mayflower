@@ -29,14 +29,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          name: Restore yarn.lock
+          name: Restore NPM Cache
           keys:
-            - root-npm-v3-{{ checksum "yarn.lock" }}
+            - root-npm-v3-{{ checksum "package-lock.json" }}
             - root-npm-v3-
-      - run: {name: 'Install packages', command: 'npm i -g yarn && yarn'}
+      - run: {name: 'Install packages', command: 'npm install'}
       - save_cache:
           name: Save NPM cache
-          key: root-npm-v3-{{ checksum "yarn.lock" }}
+          key: root-npm-v3-{{ checksum "package-lock.json" }}
           paths: [ node_modules ]
       - persist_to_workspace:
           root: /var/www/code
@@ -326,13 +326,14 @@ jobs:
     steps:
       - checkout
       - restore_cache:
+          name: Restore NPM Cache
           keys:
-            - site-dependencies-{{ checksum "site/yarn.lock" }}
-      - run: {name: 'Install packages', command: 'cd site && yarn'}
+            - site-dependencies-{{ checksum "site/package-lock.json" }}
+      - run: {name: 'Install packages', command: 'cd site && npm install'}
       - save_cache:
-          paths:
-            - site/node_modules
-          key: site-dependencies-{{ checksum "site/yarn.lock" }}
+          name: Save NPM cache
+          key: site-dependencies-{{ checksum "site/package-lock.json" }}
+          paths: [site/node_modules]
       - run:
          name: Yalc link
          command: npm run yalc-link:site
@@ -380,11 +381,11 @@ workflows:
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_deploy_branch:
-          requires: [patternlab_build]
+          requires: [build, patternlab_build]
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_test:
-          requires: [patternlab_build]
+          requires: [build, patternlab_build]
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       # react
@@ -392,7 +393,7 @@ workflows:
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - react_test:
-          requires: [react_build_storybook]
+          requires: [build, react_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       # site
