@@ -28,3 +28,43 @@ For efficiency purposes, we allow CircleCI to bypass certain jobs based on the p
 | `pattern/`  | This will bypass React Storybook build and tests | This prefix should only be used if all your changes are in the [patternlab](/patternlab) folder, and nothing in the shared [assets](/assets) folder that could potentially impact the build of the React implementation  |
 | `site/`  | This will bypass all React and Patternlab and assets build, deploy and tests. |  Only use this prefix if all the changes are in the [site](/site) folder. e.g. Content changes to the homepage site that won't impact React, Patternlab and shared assets. |
 | `docs`  | This will bypass all React and Patternlab and assets build, deploy and tests, as well as Mayflower site build and tests. | Only use this prefix if all the changes are in the [docs](/docs) folder. e.g. Documentation changes for the repo and the Mayflower Gitbook that won't impact React, Patternlab, shared assets and the homepage static site. |
+
+## Useful Commands
+
+### Mayflower Assets
+| Task | Command |
+|---|---|
+| Install packages  | `npm run install:assets`  |
+| Linting  | `npm run lint:assets`  or  `npm run lint-fix:assets` |
+
+
+### Mayflower React
+| Task | Command |
+|---|---|
+| Install packages  | `npm run install:assets`  |
+| Link to mayflower-assets | `npm run yalc-link:react`  |
+| Develop  | `npm run develop:react` |
+| Build mayflower-react package | `npm run build:react` |
+| Build Storybook site | `npm run build:react-storybook` |
+| Run visual regression tests | `backstop:react:test`, `backstop:react:report`, `backstop:react:approve`  |
+| Linting  | `npm run lint:react`  or  `npm run lint-fix:react` |
+
+### Mayflower Patternlab
+
+| Task | Command |
+|---|---|
+| Install packages  | `npm run install:assets`  |
+| Link to mayflower-assets | `npm run yalc-link:patternlab`  |
+| Develop  | `npm run develop:patternlab` |
+| Build Patternlab site and artifacts package | `npm run build:patternlab` |
+| Run visual regression tests | `backstop:patternlab:test`, `backstop:patternlab:report` `backstop:patternlab:approve`  |
+| Linting  | `npm run lint:patternlab`  or  `npm run lint-fix:patternlab` |
+
+### Mayflower Site
+| Task | Command |
+|---|---|
+| Install packages  | `npm run install:assets`  |
+| Link to mayflower-assets and mayflower-react | `npm run yalc-link:site`  |
+| Develop  | `npm run develop:site` |
+| Build mayflower Gatsby site | `npm run build:site` |
+| Linting  | `npm run lint:site`  or  `npm run lint-fix:site` |

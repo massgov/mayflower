@@ -13,6 +13,10 @@
     "yalc": "^1.0.0-pre.42"
   },
   "scripts": {
+    "install:assets": "cd assets && npm i",
+    "install:react": "cd react && npm i",
+    "install:patternlab": "cd patternlab/styleguide && npm i",
+    "install:site": "cd site && npm i",
     "yalc:assets": "cd assets && npx yalc publish",
     "yalc:react": "cd react && npx yalc publish",
     "yalc-link:react": "npm run yalc:assets && cd react && npx yalc link @massds/mayflower-assets",
