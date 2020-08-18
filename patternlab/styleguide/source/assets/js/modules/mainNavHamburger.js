@@ -445,7 +445,7 @@ function closeMenu() {
     document.querySelector(".js-header-menu-button").focus();
   }, 100);
 
-  if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .goog-te-menu-value").hasAttribute("tabindex")) {
+  if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").hasAttribute("tabindex")) {
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
