@@ -48,7 +48,7 @@ jobs:
           key: root-npm-v3-{{ checksum "package-lock.json" }}
           paths: [ node_modules ]
       - persist_to_workspace:
-          root: /var/www/code
+          root: ~/repo
           paths: ["*"]
 
   patternlab_build:
@@ -72,13 +72,13 @@ jobs:
           name: Build
           command: cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build
       - persist_to_workspace:
-          root: /var/www/code
+          root: ~/repo
           paths: ["patternlab"]
 
   patternlab_test:
     <<: *backstop_defaults
     steps:
-      - attach_workspace: {at: /home/circleci}
+      - attach_workspace: {at: ~/repo/patternlab}
       - setup_remote_docker
       - run: |
           cd patternlab
@@ -100,7 +100,7 @@ jobs:
   patternlab_deploy_branch:
     <<: *patternlab_defaults
     steps:
-      - attach_workspace: {at: /var/www/code}
+      - attach_workspace: {at: ~/repo/patternlab}
       - *no_host_check
       - add_ssh_keys
       - *configure_git
@@ -130,7 +130,7 @@ jobs:
   patternlab_deploy_tag:
     <<: *patternlab_defaults
     steps:
-      - attach_workspace: {at: /var/www/code}
+      - attach_workspace: {at: ~/repo/patternlab}
       - *no_host_check
       - add_ssh_keys
       - *configure_git
@@ -203,7 +203,7 @@ jobs:
   react_test:
     <<: *backstop_defaults
     steps:
-      - attach_workspace: {at: /home/circleci}
+      - attach_workspace: {at: /home/circleci/react}
       - setup_remote_docker
       - run: |
           cd react
@@ -354,7 +354,7 @@ jobs:
     <<: *react_defaults
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/repo/site
       - run: |
           # Only sync to S3 for stable tags.
           if [[ "$CIRCLE_TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
