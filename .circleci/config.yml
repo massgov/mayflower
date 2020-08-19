@@ -17,15 +17,18 @@ references:
         git config --global user.name "CircleCI Deployment Bot"
 
 
-react_defaults: &react_defaults
+root_defaults: &root_defaults
   working_directory: ~/repo
+  docker:
+    - image: circleci/node:12.18.0
+react_defaults: &react_defaults
+  working_directory: ~/repo/react
   docker:
     - image: circleci/node:12.18.0
 patternlab_defaults: &patternlab_defaults
   working_directory: ~/repo
   docker:
     - image: massgov/drupal-container:1.0.8-ci
-
 backstop_defaults: &backstop_defaults
   working_directory: /home/circleci
   docker:
@@ -34,7 +37,7 @@ backstop_defaults: &backstop_defaults
 jobs:
   #
   build:
-    <<: *patternlab_defaults
+    <<: *root_defaults
     steps:
       - checkout
       - restore_cache:
