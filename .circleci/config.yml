@@ -72,8 +72,8 @@ jobs:
           name: Build
           command: cd patternlab/styleguide && node_modules/.bin/gulp patternlab:build
       - persist_to_workspace:
-          root: ~/repo
-          paths: ["patternlab"]
+          root: ~/repo/patternlab
+          paths: ["*"]
 
   patternlab_test:
     <<: *backstop_defaults
@@ -197,8 +197,8 @@ jobs:
           name: Mayflower React Build Storybook
           command: cd react && npm run build-storybook
       - persist_to_workspace:
-          root: ~/repo
-          paths: ["react"]
+          root: ~/repo/react
+          paths: ["*"]
 
   react_test:
     <<: *backstop_defaults
@@ -346,8 +346,8 @@ jobs:
           name: Validate Package Build
           command: cd site && npm run build
       - persist_to_workspace:
-          root: ~/repo
-          paths: ["site"]
+          root: ~/repo/site
+          paths: ["*"]
 
 
   site_deploy_tag:
