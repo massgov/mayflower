@@ -43,7 +43,7 @@ jobs:
       - restore_cache:
           name: Restore NPM Cache
           keys:
-            - root-npm-v3-{{ checksum "package-lock.json" }}
+            - root-npm-v3-{{ checksum "package-lock.json" }}-0
             - root-npm-v3-
       - run: {name: 'Install packages', command: 'npm install'}
       - save_cache:
