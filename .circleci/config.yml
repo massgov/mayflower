@@ -387,27 +387,29 @@ workflows:
             branches: { ignore: /(docs|site\/).*/ }
       # patternlab
       - patternlab_build:
+          requires: [build]
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_deploy_branch:
-          requires: [build, patternlab_build]
+          requires: [patternlab_build]
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       - patternlab_test:
-          requires: [build, patternlab_build]
+          requires: [patternlab_build]
           filters:
             branches: { ignore: /(docs|react\/|site\/).*/ }
       # react
       - react_build_storybook:
+          requires: [build]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       - react_test:
-          requires: [build, react_build_storybook]
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|site\/).*/ }
       # site
       - site_build:
-          requires: [build, react_build_storybook]
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /(docs|patternlab\/|react\/).*/ }
 
@@ -449,7 +451,12 @@ workflows:
   # Executed on tag pushes.
   build_tag:
     jobs:
+      - build:
+          filters:
+            branches: { ignore: /.*/ }
+            tags: { only: /.*/ }
       - patternlab_build:
+          requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
@@ -459,6 +466,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - react_build_storybook:
+          requires: [build]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
@@ -472,6 +480,7 @@ workflows:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
       - site_build:
+          requires: [react_build_storybook]
           filters:
             branches: { ignore: /.*/ }
             tags: { only: /.*/ }
