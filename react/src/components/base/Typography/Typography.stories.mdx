@@ -1,0 +1,147 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import DecorativeLink from 'MayflowerReactLinks/DecorativeLink';
+import Heading from 'MayflowerReactHeadings/Heading';
+import SidebarHeading from 'MayflowerReactHeadings/SidebarHeading';
+import {
+  characters,
+  letters,
+  numbers,
+  styles
+} from './typography.json';
+import './styles.scss';
+import '../../../markdown.scss';
+import Typography from './typography-docs.md';
+import typographyOptions from './Typography.knobs.options';
+const slugifyStyle = (style) => {
+  const [weight, italic] = style.split(' ');
+  return italic ? `${weight.toLowerCase()}--${italic.toLowerCase()}` : weight.toLowerCase();
+};
+
+<Meta
+  title="brand/typography" 
+  parameters={{
+    layout: 'fullscreen',
+    previewTabs: { canvas: { hidden: true } } 
+  }} 
+/>
+
+<Canvas>
+  <Story name="About">
+    <div className="main-content main-content--two">
+      <div className="page-content">
+        <div className="markdown-body">
+          <Typography />
+        </div>
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Source Code Pro (Monospace Font)">
+    <div className="main-content main-content--two">
+      <div className="page-content">
+        <Heading text="Source Code Pro" level={1} />
+        <SidebarHeading title="Characters" level={2} />
+        <div className="sb-block sb-block--mono">
+          <div className="sb-text">{letters.toUpperCase()}</div>
+          <div className="sb-text">{letters}</div>
+          <hr />
+          <div className="sb-text">{numbers}</div>
+          <hr />
+          <div className="sb-text">{characters}</div>
+          <hr />
+        </div>
+        <div className="sb-block">
+          Source Code Pro is an open source font available on Google Fonts.
+          <DecorativeLink
+            text="Download the fonts or see more information on Google Fonts"
+            href="https://fonts.google.com/specimen/Source+Code+Pro"
+          />
+        </div>
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
+export const Template = (args) => (
+  <div className="main-content main-content--two">
+    <div className="page-content">
+      <Heading text="Texta" level={1} />
+      <SidebarHeading title="Characters" level={2} />
+      <div className="sb-block">
+        <div className="sb-text">{letters.toUpperCase()}</div>
+        <div className="sb-text">{letters}</div>
+        <hr />
+        <div className="sb-text">{numbers}</div>
+        <hr />
+        <div className="sb-text">{characters}</div>
+        <hr />
+      </div>
+      <SidebarHeading title="Custom Sentence" level={2} />
+      <div className="sb-block">
+        <CustomElement className={`ma-texta-${slugifyStyle(args.style)}`}>
+          {args.text}
+        </CustomElement>
+      </div>
+      <SidebarHeading title="Styles" level={2} />
+      <div className="sb-block sb-grid">
+        {
+          styles.map((style) => {
+            const className = `ma-texta-${slugifyStyle(style)}`;
+            return(
+              <React.Fragment>
+                <span className={className}>{style}</span>
+                <span className="markdown-body">
+                  <code>{`.${className}`}</code>
+                </span>
+              </React.Fragment>
+            );
+          })
+        }
+      </div>
+      <SidebarHeading title="Sizes" level={2} />
+      <div className="sb-block">
+        { Object.keys(typographyOptions.size).map((key) => {
+            const Element = typographyOptions.size[key];
+            return(
+              <Element>{key}</Element>
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+)
+
+<Canvas>
+<Story
+  name="Texta (Main Font)"
+  args={{
+    text: 'Type something in the text knob, and use other knobs to change text styles.',
+    style: 'Medium Italic',
+    size: 'p'
+  }}
+  argTypes={{
+    text: {
+      control: {
+        type: 'text'
+      }
+    },
+    style: {
+      control: {
+        type: 'select',
+        options: styles
+      }
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: typographyOptions.size
+      }
+    }
+  }}
+>
+  {Template.bind({})}
+</Story>
+</Canvas>
