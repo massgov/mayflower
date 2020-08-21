@@ -1,45 +1,49 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, object, text, number } from '@storybook/addon-knobs';
+import { StoryPage } from 'StorybookConfig/preview';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
+import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 import FooterSlim from './index';
 import FooterSlimDocs from './FooterSlim.md';
-import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 
-storiesOf('organisms', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add(
-    'FooterSlim', () => {
-      const siteLogoProps = {
-        url: {
-          domain: text('FooterSlim siteLogo: url domain', 'https://www.mass.gov/', 'SiteLogo')
-        },
-        image: {
-          src: text('FooterSlim siteLogo: image src', logo, 'SiteLogo'),
-          alt: text('FooterSlim siteLogo: image alt', 'Massachusetts state seal', 'SiteLogo'),
-          width: number('FooterSlim siteLogo: image width', 45, 'SiteLogo'),
-          height: number('FooterSlim siteLogo: image height', 45, 'SiteLogo')
-        },
-        title: text('FooterSlim siteLogo: title', 'Mass.gov homepage', 'SiteLogo')
-      };
-      const props = {
-        title: text('title', 'Massachusetts Executive Office of Eductation (EDU)'),
-        description: text('description', "The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families"),
-        links: object('links', [
-          { href: '#', title: 'Lead Agencies Policies' },
-          { href: '#', title: 'Child Care Licensing Procedures' }
-        ]),
-        contact: {
-          address: text('FooterSlim contact: address', '51 Sleeper St. 4th Floor, Boston, MA 02210', 'Contact'),
-          phone: text('FooterSlim contact: phone', '(617) 988-6600', 'Contact'),
-          online: {
-            href: text('FooterSlim contact: online href', '#', 'Contact'),
-            title: text('FooterSlim contact: online title', 'EEC Official Website', 'Contact')
-          }
-        },
-        siteLogo: <SiteLogo {...siteLogoProps} />
-      };
-      return(<FooterSlim {...props} />);
-    },
-    { info: FooterSlimDocs }
-  );
+export const FooterSlimExample = (args) => <FooterSlim {...args} />;
+
+FooterSlimExample.storyName = 'Default';
+const siteLogoProps = {
+  url: {
+    domain: 'https://www.mass.gov/'
+  },
+  image: {
+    src: logo,
+    alt: 'Massachusetts state seal',
+    width: 45,
+    height: 45
+  },
+  title: 'Mass.gov homepage'
+};
+FooterSlimExample.args = {
+  title: 'Massachusetts Executive Office of Eductation (EDU)',
+  description: "The Department of Early Education and Care'&apos;'s mission is to support the healthy growth and development of all children by providing high quality programs and resources for families",
+  links: [
+    { href: '#', title: 'Lead Agencies Policies' },
+    { href: '#', title: 'Child Care Licensing Procedures' }
+  ],
+  contact: {
+    address: '51 Sleeper St. 4th Floor, Boston, MA 02210',
+    phone: '(617) 988-6600',
+    online: {
+      href: '#',
+      title: 'EEC Official Website'
+    }
+  },
+  siteLogo: <SiteLogo {...siteLogoProps} />
+};
+
+export default {
+  title: 'organisms/FooterSlim',
+  component: FooterSlim,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={FooterSlimDocs} />
+    }
+  }
+};

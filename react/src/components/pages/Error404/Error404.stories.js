@@ -1,17 +1,24 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { StoryPage } from 'StorybookConfig/preview';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 
 import Error404 from '.';
 import Error404Docs from './Error404.md';
 
-storiesOf('others/pages', module)
-  .add(
-    'Error404', (() => (
-      <Error404
-        siteLogo={() => <SiteLogo siteName="Mass.gov" url={{ domain: '/' }} image={{ src: logo }} />}
-      />
-    )),
-    { info: Error404Docs }
-  );
+export const Error404Example = (args) => <Error404 {...args} />;
+
+
+Error404Example.storyName = 'Default';
+Error404Example.args = {
+  siteLogo: () => <SiteLogo siteName="Mass.gov" url={{ domain: '/' }} image={{ src: logo }} />
+};
+export default {
+  title: 'pages/Error404',
+  component: Error404,
+  parameters: {
+    docs: {
+      page: () => <StoryPage Description={Error404Docs} />
+    }
+  }
+};

@@ -4,6 +4,7 @@ import {
   Subtitle,
   Primary,
   ArgsTable,
+  ComponentsTable,
   Stories,
   PRIMARY_STORY
 } from '@storybook/addon-docs/blocks';
@@ -28,6 +29,7 @@ export const StoryPage = ({ showStories = false, Description }) => {
       <Subtitle />
       { Description && <Description />}
       <Primary />
+      <ComponentsTable />
       <ArgsTable story={PRIMARY_STORY}/>
       { showStories && <Stories />}
     </>
