@@ -1,6 +1,0 @@
-Fixed:
-  - project: React, Assets
-    component: FooterSlim
-    description: Fix markup semantic and classnames. (#1148)
-    issue: #1146
-    impact: Patch
