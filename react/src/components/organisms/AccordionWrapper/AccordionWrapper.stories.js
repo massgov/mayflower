@@ -1,13 +1,12 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 
-import AccordionWrapper from './index';
-import AccordionWrapperDocs from './AccordionWrapper.md';
 import AccordionItem from 'MayflowerReactMolecules/AccordionItem';
 import * as Icon from 'MayflowerReactBase/Icon';
 import Paragraph from 'MayflowerReactText/Paragraph';
 import OrderedList from 'MayflowerReactLists/OrderedList';
-
+import AccordionWrapper from './index';
+import AccordionWrapperDocs from './AccordionWrapper.md';
 
 const getIcon = (iconProps) => {
   // Capitalizes the name of each SVG icon to match
@@ -40,13 +39,13 @@ AccordionWrapperExample.args = {
   accordionItem1Props: {
     title: 'Collapsible Header One',
     info: 'Collapsible Header One',
-    icon: icons['IconCirclechevron'],
+    icon: icons.IconCirclechevron,
     id: 'accordionid1'
   },
   accordionItem2Props: {
     title: 'Collapsible Header Two',
     info: 'Collapsible Header Two',
-    icon: icons['IconLaptop'],
+    icon: icons.IconLaptop,
     id: 'accordionid2'
   },
   border: true,
@@ -67,7 +66,7 @@ export default {
   component: AccordionWrapper,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={AccordionWrapperDocs} />
+      page: () => <StoryPage StoryComponent={AccordionWrapperExample} Description={AccordionWrapperDocs} />
     }
   }
 };

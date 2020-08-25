@@ -3,13 +3,6 @@ const assets = require('@massds/mayflower-assets');
 const iconPath = path.resolve(__dirname, '../src/components/base/Icon/assets');
 
 module.exports = {
-  // stories: [
-  //   //'../src/markdown.stories.mdx',
-  //   '../src/index.stories.mdx',
-  //   '../src/components/atoms/**/*.stories.@(js|mdx)',
-  //   '../src/components/molecules/**/*.stories.@(js|mdx)',
-  //   '../src/components/organisms/**/*.stories.@(js|mdx)'
-  // ],
   stories: ['../src/**/*.stories.@(js|mdx)'],
   addons: [
     {
@@ -35,6 +28,9 @@ module.exports = {
     {
       name: '@storybook/preset-scss',
       options: {
+        cssLoaderOptions: {
+          sourceMap: true
+        },
         sassLoaderOptions: {
           sourceMap: true,
           implementation: require('sass'),

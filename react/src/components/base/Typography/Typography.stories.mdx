@@ -27,19 +27,14 @@ const slugifyStyle = (style) => {
 
 <Canvas>
   <Story name="About">
-    <div className="main-content main-content--two">
-      <div className="page-content">
-        <div className="markdown-body">
-          <Typography />
+          <div className="page-content markdown-body">
+            <Typography />
         </div>
-      </div>
-    </div>
   </Story>
 </Canvas>
 
 <Canvas>
   <Story name="Source Code Pro (Monospace Font)">
-    <div className="main-content main-content--two">
       <div className="page-content">
         <Heading text="Source Code Pro" level={1} />
         <SidebarHeading title="Characters" level={2} />
@@ -59,13 +54,11 @@ const slugifyStyle = (style) => {
             href="https://fonts.google.com/specimen/Source+Code+Pro"
           />
         </div>
-      </div>
     </div>
   </Story>
 </Canvas>
 
 export const Template = (args) => (
-  <div className="main-content main-content--two">
     <div className="page-content">
       <Heading text="Texta" level={1} />
       <SidebarHeading title="Characters" level={2} />
@@ -110,7 +103,6 @@ export const Template = (args) => (
           })
         }
       </div>
-    </div>
   </div>
 )
 

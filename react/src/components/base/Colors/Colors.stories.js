@@ -94,7 +94,7 @@ export default {
   title: 'brand/colors',
   parameters: {
     docs: {
-      page: () => <StoryPage Description={ColorGradientsDocs} />
+      page: () => <StoryPage showStories Description={ColorGradientsDocs} />
     }
   }
 };

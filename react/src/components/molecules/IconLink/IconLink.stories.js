@@ -65,7 +65,7 @@ export default {
   component: IconLink,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage StoryComponent={IconLinkExample} />
     }
   }
 };

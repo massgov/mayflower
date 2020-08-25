@@ -78,6 +78,11 @@ TableofContentsExample.argTypes = {
     }
   }
 };
+TableofContentsExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={TableofContentsExample} Description={TableofContentsDocs} />
+  }
+};
 
 export const TableofContentsSidebarHeading = (args) => (
   <TableofContents {...args}>
@@ -96,6 +101,11 @@ TableofContentsSidebarHeading.argTypes = {
     control: {
       disable: true
     }
+  }
+};
+TableofContentsSidebarHeading.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={TableofContentsSidebarHeading} Description={TableofContentsDocs} />
   }
 };
 export default {

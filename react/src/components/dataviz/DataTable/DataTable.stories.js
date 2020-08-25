@@ -49,6 +49,11 @@ DataTableExample.argTypes = {
     }
   }
 };
+DataTableExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={DataTableExample} Description={DataTableDocs} />
+  }
+};
 export const DataTableWithFilter = (args) => {
   const { isStriped, ...rest } = args;
   const props = {
@@ -108,6 +113,11 @@ DataTableWithFilter.argTypes = {
     control: {
       type: 'boolean'
     }
+  }
+};
+DataTableWithFilter.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={DataTableWithFilter} Description={DataTableDocs} />
   }
 };
 export default {

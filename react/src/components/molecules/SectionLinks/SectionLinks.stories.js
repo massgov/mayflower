@@ -39,7 +39,7 @@ export default {
   component: SectionLinks,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage StoryComponent={SectionLinksExample} />
     }
   }
 };

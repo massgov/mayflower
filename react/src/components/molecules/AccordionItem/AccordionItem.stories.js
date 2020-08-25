@@ -62,7 +62,7 @@ export default {
   component: AccordionItem,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={AccordionItemDocs} />
+      page: () => <StoryPage StoryComponent={AccordionItemExample} Description={AccordionItemDocs} />
     }
   }
 };

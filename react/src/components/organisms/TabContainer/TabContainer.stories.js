@@ -40,6 +40,11 @@ TabContainerExample.argTypes = {
     }
   }
 };
+TabContainerExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={TabContainerExample} />
+  }
+};
 
 export const TabContainerRealData = (args) => (
   <TabContainer onTabChange={action('Tab change')}>
@@ -68,6 +73,11 @@ TabContainerRealData.argTypes = {
     controls: {
       disable: true
     }
+  }
+};
+TabContainerRealData.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={TabContainerRealData} />
   }
 };
 export default {

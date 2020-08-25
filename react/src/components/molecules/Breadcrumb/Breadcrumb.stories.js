@@ -46,7 +46,7 @@ export default {
   component: Breadcrumb,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage StoryComponent={BreadcrumbExample} />
     }
   }
 };

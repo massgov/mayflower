@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import { storiesOf } from '@storybook/react';
-import {
-  withKnobs, text, boolean, number
-} from '@storybook/addon-knobs';
-
 import Paragraph from 'MayflowerReactText/Paragraph';
 import GenTeaser from 'MayflowerReactOrganisms/GenTeaser';
 import IconChevron from 'MayflowerReactBase/Icon/IconChevron';
@@ -57,6 +52,11 @@ export const TeaserListingExample = () => (
   </TeaserListing>
 );
 TeaserListingExample.storyName = 'Default';
+TeaserListingExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={TeaserListingExample} Description={TeaserListingDocs} />
+  }
+};
 export const TeaserListingWithMore = () => {
   const [open, setOpen] = useState(false);
   const itemsProps = {
@@ -116,6 +116,12 @@ export const TeaserListingWithMore = () => {
       <ButtonWithIcon {...toggleProps} />
     </TeaserListing>
   );
+};
+
+TeaserListingWithMore.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={TeaserListingWithMore} Description={TeaserListingDocs} />
+  }
 };
 export default {
   title: 'organisms/TeaserListing',

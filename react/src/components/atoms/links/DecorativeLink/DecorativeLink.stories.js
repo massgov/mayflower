@@ -1,8 +1,8 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
+import IconDownload from 'MayflowerReactBase/Icon/IconDownload';
 import DecorativeLink from './index';
 import DecorativeLinkDocs from './DecorativeLink.md';
-import IconDownload from 'MayflowerReactBase/Icon/IconDownload';
 
 const Template = (args) => <DecorativeLink {...args} />;
 

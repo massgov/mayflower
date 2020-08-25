@@ -54,6 +54,11 @@ CalloutAlertExample.argTypes = {
     }
   }
 };
+CalloutAlertExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={CalloutAlertExample} Description={CalloutAlertDocs} />
+  }
+};
 export const CalloutAlertRealData = (args) => {
   const icon = {
     ariaHidden: true,
@@ -90,6 +95,11 @@ CalloutAlertRealData.argTypes = {
     control: {
       disable: true
     }
+  }
+};
+CalloutAlertRealData.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={CalloutAlertRealData} Description={CalloutAlertDocs} />
   }
 };
 

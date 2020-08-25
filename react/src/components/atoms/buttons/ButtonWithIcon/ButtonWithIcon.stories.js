@@ -25,6 +25,11 @@ export const ButtonWithIconExample = (args) => {
   const IconComponent = Icon[name];
   return(<ButtonWithIcon {...rest} icon={<IconComponent width={width} height={height} />} />);
 };
+ButtonWithIconExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={ButtonWithIconExample} Description={ButtonWithIconDocs} />
+  }
+};
 ButtonWithIconExample.storyName = 'Default';
 ButtonWithIconExample.args = {
   onClick: action('ButtonWithIcon clicked'),
@@ -120,5 +125,10 @@ ButtonSearch.argTypes = {
         IconSearch: 'IconSearch'
       }
     }
+  }
+};
+ButtonSearch.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={ButtonSearch} Description={ButtonWithIconDocs} />
   }
 };

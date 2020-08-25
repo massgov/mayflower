@@ -41,6 +41,7 @@
         "import/resolver": {
             "babel-module": {
                 "alias": {
+                    "StorybookConfig": "./.storybook",
                     "MayflowerReactComponents": "./src/components",
                     "MayflowerReactAtoms": "./src/components/atoms",
                     "MayflowerReactAnimations": "./src/components/animations",

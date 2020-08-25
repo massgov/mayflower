@@ -27,7 +27,7 @@ export default {
   component: FootNote,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={FootNoteDocs} />
+      page: () => <StoryPage StoryComponent={FootNoteExample} Description={FootNoteDocs} />
     }
   }
 };

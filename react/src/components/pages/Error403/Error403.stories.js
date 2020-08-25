@@ -1,6 +1,5 @@
 import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
-import { storiesOf } from '@storybook/react';
 import logo from '@massds/mayflower-assets/static/images/stateseal.png';
 import SiteLogo from 'MayflowerReactMedia/SiteLogo';
 

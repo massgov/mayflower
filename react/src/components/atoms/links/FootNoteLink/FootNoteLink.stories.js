@@ -27,7 +27,7 @@ export default {
   component: FootNoteLink,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={FootNoteLinkDocs} />
+      page: () => <StoryPage StoryComponent={FootNoteLinkExample} Description={FootNoteLinkDocs} />
     }
   }
 };

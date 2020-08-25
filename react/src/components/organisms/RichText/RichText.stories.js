@@ -42,7 +42,7 @@ export default {
   component: RichText,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={RichTextDocs} />
+      page: () => <StoryPage StoryComponent={RichTextExample} Description={RichTextDocs} />
     }
   }
 };

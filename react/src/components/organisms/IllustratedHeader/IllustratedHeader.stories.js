@@ -38,7 +38,7 @@ export default {
   component: IllustratedHeader,
   parameters: {
     docs: {
-      page: () => <StoryPage Description={IllustratedHeaderDocs} />
+      page: () => <StoryPage StoryComponent={IllustratedHeaderExample} Description={IllustratedHeaderDocs} />
     }
   }
 };

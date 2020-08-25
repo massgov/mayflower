@@ -213,7 +213,7 @@ export default {
   component: SearchBanner,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage StoryComponent={SearchBannerExample} />
     }
   }
 };

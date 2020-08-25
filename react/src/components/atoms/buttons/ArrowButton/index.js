@@ -44,7 +44,6 @@ ArrowButton.propTypes = {
 };
 
 ArrowButton.defaultProps = {
-  onClick: '',
   href: '',
   info: '',
   direction: 'left'

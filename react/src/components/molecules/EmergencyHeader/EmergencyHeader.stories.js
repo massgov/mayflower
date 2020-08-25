@@ -46,7 +46,7 @@ export default {
   component: EmergencyHeader,
   parameters: {
     docs: {
-      page: () => <StoryPage />
+      page: () => <StoryPage StoryComponent={EmergencyHeaderExample} />
     }
   }
 };

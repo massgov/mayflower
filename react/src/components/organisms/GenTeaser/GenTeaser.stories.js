@@ -2,10 +2,10 @@ import React from 'react';
 import { StoryPage } from 'StorybookConfig/preview';
 import { action } from '@storybook/addon-actions';
 import buttonOptions from 'MayflowerReactButtons/Button/Button.knobs.options';
-import GenTeaser from './index';
-import GenTeaserDocs from './GenTeaser.md';
 import IconCatalog from 'MayflowerReactBase/Icon/IconCatalog';
 import IconData from 'MayflowerReactBase/Icon/IconData';
+import GenTeaser from './index';
+import GenTeaserDocs from './GenTeaser.md';
 
 export const GenTeaserExample = (args) => (
   <GenTeaser>
@@ -24,6 +24,11 @@ GenTeaserExample.args = {
     showFileIcon: false
   },
   description: 'A paragraph (from the Greek paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in <b>writing dealing with a particular</b> point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.'
+};
+GenTeaserExample.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserExample} Description={GenTeaserDocs} />
+  }
 };
 export const GenTeaserDataCatalog = (args) => (
   <GenTeaser>
@@ -91,6 +96,11 @@ GenTeaserDataCatalog.args = {
     </span>
   )
 };
+GenTeaserDataCatalog.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserDataCatalog} Description={GenTeaserDocs} />
+  }
+};
 export const GenTeaserDataSet = (args) => (
   <GenTeaser onClick={(e) => action(e)} onKeyDown={(e) => action(e)}>
     <GenTeaser.Details>
@@ -145,6 +155,11 @@ GenTeaserDataSet.argTypes = {
     }
   }
 };
+GenTeaserDataSet.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserDataSet} Description={GenTeaserDocs} />
+  }
+};
 export const GenTeaserDataDownload = (args) => (
   <GenTeaser>
     <GenTeaser.Details>
@@ -171,6 +186,11 @@ GenTeaserDataDownload.args = {
   date: 'Updated on 9/06/2019',
   orgs: 'Department of Public Health, Executive Office of Health and Human Services'
 };
+GenTeaserDataDownload.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserDataDownload} Description={GenTeaserDocs} />
+  }
+};
 export const GenTeaserNews = (args) => (
   <GenTeaser>
     <GenTeaser.Details>
@@ -196,6 +216,11 @@ GenTeaserNews.args = {
   description: 'The Massachusetts Department of Public Health (DPH) today announced that laboratory testing has confirmed two new cases of Eastern ...',
   date: '9/06/2019',
   orgs: 'Bureau of Substance Addiction Services, Department of Mental Health, Department of Public Health, Executive Office of Health and Human Services'
+};
+GenTeaserNews.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserNews} Description={GenTeaserDocs} />
+  }
 };
 export const GenTeaserLawsRegs = ({regulation, law}) => (
   <React.Fragment>
@@ -260,7 +285,12 @@ GenTeaserLawsRegs.args = {
     orgs: 'Massachusetts Legislature'
   }
 };
-export const GenTeaserServices = (args) => (
+GenTeaserLawsRegs.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserLawsRegs} Description={GenTeaserDocs} />
+  }
+};
+export const GenTeaserServices = (service) => (
   <GenTeaser>
     <GenTeaser.Details>
       <GenTeaser.Title title={service.title} />
@@ -274,7 +304,7 @@ export const GenTeaserServices = (args) => (
           text="Snap Outreach For Partners"
           href="https://www.mass.gov/service-details/snap-outreach-for-partners"
         />
-        {service.subLinks.map((link) => <GenTeaser.KeyAction {...link} />)}
+        {service.subLinks.map((link, linkIndex) => <GenTeaser.KeyAction key={`GenTeaser.KeyAction.${link.text}}`} {...link} />)}
       </GenTeaser.SubLinks>
     </GenTeaser.Details>
   </GenTeaser>
@@ -288,7 +318,22 @@ GenTeaserServices.args = {
     showFileIcon: false
   },
   eyebrow: 'General Law',
-  description: 'If you are a client, you can get help with you SNAP case and benefits through a SNAP outreach partner. You can find SNAP outreach ... Contact Information ...'
+  description: 'If you are a client, you can get help with you SNAP case and benefits through a SNAP outreach partner. You can find SNAP outreach ... Contact Information ...',
+  subLinks: [
+    {
+      text: 'Apply for SNAP benefits (food stamps)',
+      href: 'https://www.mass.gov/how-to/apply-for-snap-benefits-food-stamps'
+    },
+    {
+      text: 'Snap Outreach For Partners',
+      href: 'https://www.mass.gov/service-details/snap-outreach-for-partners'
+    }
+  ]
+};
+GenTeaserServices.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserServices} Description={GenTeaserDocs} />
+  }
 };
 export const GenTeaserStateOrg = ({ stateOrg }) => (
   <GenTeaser>
@@ -337,6 +382,11 @@ GenTeaserStateOrg.args = {
     }
   }
 };
+GenTeaserStateOrg.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserStateOrg} Description={GenTeaserDocs} />
+  }
+};
 export const GenTeaserLocation = ({ location }) => (
   <GenTeaser>
     <GenTeaser.Details>
@@ -367,6 +417,12 @@ GenTeaserLocation.args = {
     }
   }
 };
+GenTeaserLocation.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserLocation} Description={GenTeaserDocs} />
+  }
+};
+
 export const GenTeaserEvent = ({event}) => (
   <GenTeaser>
     <GenTeaser.Details>
@@ -422,6 +478,11 @@ GenTeaserEvent.args = {
     }
   }
 };
+GenTeaserEvent.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserEvent} Description={GenTeaserDocs} />
+  }
+};
 export const GenTeaserImage = ({ teaser }) => (
   <GenTeaser stacked={teaser.stacked} align={teaser.align}>
     <GenTeaser.Image img={teaser.img} />
@@ -458,7 +519,11 @@ GenTeaserImage.argTypes = {
     }
   }
 };
-
+GenTeaserImage.parameters = {
+  docs: {
+    page: () => <StoryPage StoryComponent={GenTeaserImage} Description={GenTeaserDocs} />
+  }
+};
 export default {
   title: 'organisms/GenTeaser',
   component: GenTeaser,
