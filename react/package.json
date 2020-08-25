@@ -23,7 +23,8 @@
     "lint-fix": "eslint --fix . && exit 0",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
-    "build-storybook": "npm run build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static"
+    "build-storybook": "npm run build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static",
+    "chromatic": "npx chromatic --project-token engf6vhuiv"
   },
   "pre-push": [
     "lint"
@@ -95,6 +96,7 @@
     "babel-plugin-transform-imports": "^2.0.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "babel-preset-proposals": "^0.3.0",
+    "chromatic": "^5.1.0",
     "cross-env": "^5.2.0",
     "css-loader": "^3.5.3",
     "del": "^5.1.0",
