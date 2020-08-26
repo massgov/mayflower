@@ -106,6 +106,15 @@ if (menuButton !== null) {
     toggleMenu();
   });
 
+  menuButton.addEventListener("keydown", function (e) {
+    if (e.key === "Tab" || e.code === "Tab") {
+      if (width < 621) {
+        hamburgerMenuContainer.setAttribute("tabindex", "0");
+        hamburgerMenuContainer.focus();
+      }
+    }
+  });
+
   const firstTopMenuItem = document.querySelector(".ma__header__hamburger__nav .ma__main__hamburger-nav__item:first-of-type .js-main-nav-hamburger__top-link");
   // To accomodate both button and link as the last top menu item, use 'ma__' classes instead of 'js-'.
   const lastTopMenuItem = document.querySelector(".ma__main__hamburger-nav__item:last-of-type .ma__main__hamburger-nav__top-link");
@@ -472,7 +481,7 @@ function closeMenu() {
   commonCloseMenuTasks();
   menuButton.setAttribute("aria-pressed", "false");
 
-  // Set focusn on the menu button.
+  // Set focus on the menu button.
   setTimeout(function timeoutFunction() {
     document.querySelector(".js-header-menu-button").focus();
   }, 100);
@@ -490,6 +499,10 @@ function commonCloseMenuTasks() {
 
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
+
+  if (hamburgerMenuContainer.hasAttribute("tabindex")) {
+    hamburgerMenuContainer.removeAttribute("tabindex");
+  }
 
   if(searchInput.hasAttribute("autofocus")) {
     searchInput.removeAttribute("autofocus");
