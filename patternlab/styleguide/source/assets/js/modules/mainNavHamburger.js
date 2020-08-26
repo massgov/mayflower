@@ -116,14 +116,14 @@ if (menuButton !== null) {
   if (lastTopMenuItem) {
     lastTopMenuItem.addEventListener("keydown", function (e) {
       // Without this, sift + tab set focus on the first top menu button.
-      if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
+      if ((e.shiftKey && e.key === "Tab") || (e.shiftKey && e.code === "Tab")) {
         if (width < 841) {
           setTimeout(function timeOutFunction () {
             this.closest(".js-main-nav-hamburger-toggle").previousElementSibling.querySelector(".ma__main__hamburger-nav__top-link").focus();
           }, 1);
         }
       }
-      else if (e.key === "Tab" || e.code === "9") {
+      else if (e.key === "Tab" || e.code === "Tab") {
         if (width > 840) {
           if (!this.hasAttribute("aria-expanded")) {// For link
             setFocusOnFirstTopMenu();
@@ -141,7 +141,7 @@ if (menuButton !== null) {
     if(lastTopMenuItem === document.querySelector(".ma__main__hamburger-nav__item:last-of-type button")) {
       lastSubmenuLink.addEventListener("keydown", function (e) {
         const subMenuContainer = this.closest(".js-main-nav-hamburger-content");
-        if ((e.key === "Tab" || e.code === "9") && !subMenuContainer.classList.contains(".is-closed")) {
+        if ((e.key === "Tab" || e.code === "Tab") && !subMenuContainer.classList.contains(".is-closed")) {
           // Close the submenu and move focus to the first top menu button.
           if (width > 840) {
             closeSubMenu();
@@ -155,7 +155,7 @@ if (menuButton !== null) {
   if (lastUtilMenuItem) {
     // with utility nav, utility nav content closed
     lastUtilMenuItem.addEventListener("keydown", function (e) {
-      if (e.key === "Tab" || e.code === "9") {
+      if (e.key === "Tab" || e.code === "Tab") {
         if (width < 841 && (this.getAttribute("aria-expanded") === "false")) {
           setFocusOnFirstTopMenu();
         }
@@ -165,14 +165,14 @@ if (menuButton !== null) {
     // with utility nav, last utility nav content open
     lastUtilMenuContentLink.addEventListener("keydown", function (e) {
       // Without this, sift + tab set focus on the first top menu button.
-      if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
+      if ((e.shiftKey && e.key === "Tab") || (e.shiftKey && e.code === "Tab")) {
         if (width < 841) {
           setTimeout(function timeOutFunction () {
             this.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
           }, 1);
         }
       }
-      else if (e.key === "Tab" || e.code === "9") {
+      else if (e.key === "Tab" || e.code === "Tab") {
         // Close the nav content and move focus to the first top menu button.
         if (width < 841) {
           closeNarrowUtilContent();
@@ -193,7 +193,8 @@ if (menuButton !== null) {
 
   document.addEventListener("keydown", function (e) {
     // ESC to close menus.
-    if (e.key === "Escape" || e.which === 27) {
+    // 'e.key === "Esc"' is necessary for IE11.
+    if (e.key === "Escape" || e.key === "Esc" || e.code === "Escape") {
       // Log in to... in Utility nav bar
       if (utilNavWide.querySelector(".js-util-nav-content").style.opacity === "1") {
         closeUtilWideContent();
@@ -274,7 +275,7 @@ if (menuButton !== null) {
     //   closeMenu();
     // }
 
-    // if (e.code == "Escape" || e.which == "27") {
+    // if (e.code == "Escape" || e.key == "Escape"|| e.key === "Esc") {
     //   closeMenu();
     // }
   // });
@@ -351,12 +352,13 @@ if (menuButton !== null) {
 
   itemButton.addEventListener("keydown", function (e) {
 
-    if (e.code == "ArrowDown") {
+    if (e.code == "ArrowDown" || e.key == "ArrowDown") {
       let first = subItems.getElementsByTagName("li")[0];
       first.querySelector(".js-main-nav-hamburger__link").focus();
     }
 
-    if (e.code == "Escape" || e.which == "27") {
+    // 'e.key === "Esc"' is for IE11.
+    if (e.code == "Escape" || e.key == "Escape" || e.key === "Esc") {
       if (item.classList.contains("submenu-open")) {
         // NOTE: KEEP BELOW COMMENTED LINES UNTIL THE DESIGN TEAM FINALIZES THE BEHAVIOR.
 
