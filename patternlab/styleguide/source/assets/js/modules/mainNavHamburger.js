@@ -45,7 +45,7 @@ let hamburgerMenuAlertScrolling = function() {
             result[entry.splice(0,1)[0]] = entry.join(":");
           }
 
-          let oldDisplayValue = result.display.trim();
+          let oldDisplayValue = result.display ? result.display.trim() : null;
           let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
           if (currentDisplayValue === oldDisplayValue) {
             alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
