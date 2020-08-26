@@ -193,7 +193,7 @@ if (menuButton !== null) {
 
   document.addEventListener("keydown", function (e) {
     // ESC to close menus.
-    if (e.key === "Escape" || e.which === "27") {
+    if (e.key === "Escape" || e.which === 27) {
       // Log in to... in Utility nav bar
       if (utilNavWide.querySelector(".js-util-nav-content").style.opacity === "1") {
         closeUtilWideContent();
