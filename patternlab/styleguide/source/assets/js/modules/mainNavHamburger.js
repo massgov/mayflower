@@ -34,6 +34,8 @@ let hamburgerMenuAlertScrolling = function() {
     // Add bottom padding when function is initially called.
     hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
 
+    // console.log("initial padding bottom: " + hamburgerMainNav.style.paddingBottom);
+
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
@@ -49,7 +51,9 @@ let hamburgerMenuAlertScrolling = function() {
           let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
           if (currentDisplayValue === oldDisplayValue) {
             alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
-            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+            // hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+
+            // console.log("alert is on");
           }
         }
       });
@@ -59,7 +63,14 @@ let hamburgerMenuAlertScrolling = function() {
       attributeFilter: ["style"],
       attributeOldValue: true
     });
+
+  // console.log("alertHeight: " + alertHeight);
+
   }
+
+  // console.log("hamburgerMenuAlertScrolling() ran. " + hamburgerMainNav.style.paddingBottom + " panda");
+  // console.log(hamburgerMainNav.style.paddingBottom === null);
+
 };
 
 // Not ideal, but this is here to wait for alerts to load via AJAX.
@@ -75,19 +86,43 @@ if (maAjaxPattern !== null) {
 
 if (siteAlertWrapper !== null) {
   const jsonApiObserver = new MutationObserver(function(mutations, observer) {
+
+    // console.log("siteAlertWrapper is not null.");
+
     emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
     if (emergencyAlerts !== null) {
       observer.disconnect();
     }
+
+    // console.log(emergencyAlerts.offsetHeight);
+
     hamburgerMenuAlertScrolling();
+
+  // TEST CODE
+  // Only when the page has active alerts.
+  // const navBarHeight = document.querySelector(".ma__header__hamburger-wrapper").offsetHeight;
+  // let heightAboveFlyout = hamburgerMenuContainer.getBoundingClientRect().top;
+  // // let heightAboveFlyout = alertHeight + navBarHeight;
+
+  // console.log("heightAboveFlyout: " + heightAboveFlyout);
+  // console.log("container height: " + hamburgerMenuContainer.offsetHeight);
+
+  // hamburgerMenuContainer.style.height = (screen.height - heightAboveFlyout) + "px";
+
+  // END: TEST CODE
+
   });
   jsonApiObserver.observe(siteAlertWrapper, {
     childList: true
   });
 }
-else {
-  hamburgerMenuAlertScrolling();
-}
+// else {
+
+  // console.log("siteAlertWrapper is null.");
+  // IF THERE IS NO ALERTS, CSS WOULD TAKE CARE OF THE HEIGHT, SO THIS IS NOT NECESSARY.
+
+//   hamburgerMenuAlertScrolling();
+// }
 /** DP-19336 end */
 
 // Open and close the menu
@@ -458,9 +493,9 @@ function toggleMenu() {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     openMenu();
 
-    if (utilNavWideCheck() === false) {
-      hamburgerMainNav.style.paddingBottom = 0;
-    }
+    // if (utilNavWideCheck() === false) {
+    //   hamburgerMainNav.style.paddingBottom = 0;
+    // }
     // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
