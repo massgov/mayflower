@@ -241,7 +241,7 @@ body.show-menu {
 
   &__nav-container {
     background-color: $c-gray-lightest;
-    height: 95vh;
+    height: 100vh; //95vh;
     top: 40px;
     overflow-y: auto;
     position: absolute;
@@ -252,6 +252,8 @@ body.show-menu {
     transition: left 0.3s ease, visibility 0.3s;
     width: 320px;
     z-index: $z-dropdown;
+    // The bobbom padding prevents the last item in the flyout gets cut off a the bottom.
+    padding-bottom: 1em;
 
     @media ($bp-header-toggle-min) {
 
