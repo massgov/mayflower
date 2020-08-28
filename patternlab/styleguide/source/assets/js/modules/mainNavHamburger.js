@@ -26,6 +26,9 @@ const utilNavWideCheck = function() {
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
 let emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
+
+let alertHeightValue = "";
+
 let hamburgerMenuAlertScrolling = function() {
   if (hamburgerMainNav !== null && emergencyAlerts !== null && utilNavWideCheck() !== false) {
     let alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight || 0;
@@ -33,8 +36,6 @@ let hamburgerMenuAlertScrolling = function() {
 
     // Add bottom padding when function is initially called.
     hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
-
-    // console.log("initial padding bottom: " + hamburgerMainNav.style.paddingBottom);
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
@@ -51,9 +52,7 @@ let hamburgerMenuAlertScrolling = function() {
           let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
           if (currentDisplayValue === oldDisplayValue) {
             alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
-            // hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
-
-            // console.log("alert is on");
+            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
           }
         }
       });
@@ -64,13 +63,10 @@ let hamburgerMenuAlertScrolling = function() {
       attributeOldValue: true
     });
 
-  // console.log("alertHeight: " + alertHeight);
-
+    alertHeightValue = alertHeight;
   }
 
-  // console.log("hamburgerMenuAlertScrolling() ran. " + hamburgerMainNav.style.paddingBottom + " panda");
-  // console.log(hamburgerMainNav.style.paddingBottom === null);
-
+  console.log("hamburgerMenuAlertScrolling() ran. " + hamburgerMainNav.style.paddingBottom + " panda" + alertHeightValue);
 };
 
 // Not ideal, but this is here to wait for alerts to load via AJAX.
@@ -86,28 +82,25 @@ if (maAjaxPattern !== null) {
 
 if (siteAlertWrapper !== null) {
   const jsonApiObserver = new MutationObserver(function(mutations, observer) {
-
-    // console.log("siteAlertWrapper is not null.");
-
     emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
     if (emergencyAlerts !== null) {
       observer.disconnect();
     }
 
-    // console.log(emergencyAlerts.offsetHeight);
+    console.log(emergencyAlerts);
 
     hamburgerMenuAlertScrolling();
 
   // TEST CODE
   // Only when the page has active alerts.
-  // const navBarHeight = document.querySelector(".ma__header__hamburger-wrapper").offsetHeight;
-  // let heightAboveFlyout = hamburgerMenuContainer.getBoundingClientRect().top;
-  // // let heightAboveFlyout = alertHeight + navBarHeight;
+  const navBarHeight = document.querySelector(".ma__header__hamburger-wrapper").offsetHeight;
+  let heightAboveFlyout = hamburgerMenuContainer.getBoundingClientRect().top;
+  // let heightAboveFlyout = alertHeight + navBarHeight;
 
-  // console.log("heightAboveFlyout: " + heightAboveFlyout);
-  // console.log("container height: " + hamburgerMenuContainer.offsetHeight);
+  console.log("heightAboveFlyout: " + heightAboveFlyout);
+  console.log("container height: " + hamburgerMenuContainer.offsetHeight);
 
-  // hamburgerMenuContainer.style.height = (screen.height - heightAboveFlyout) + "px";
+  hamburgerMenuContainer.style.height = (screen.height - heightAboveFlyout) + "px";
 
   // END: TEST CODE
 
