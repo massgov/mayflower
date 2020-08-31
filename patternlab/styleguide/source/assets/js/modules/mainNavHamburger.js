@@ -26,21 +26,23 @@ const utilNavWideCheck = function() {
 /** DP-19336 begin: add padding to hamburger menu to allow scrolling when alerts are loaded */
 const hamburgerMainNav = document.querySelector(".ma__header__hamburger__main-nav");
 let emergencyAlerts = document.querySelector(".ma__emergency-alerts__content");
-
-let alertHeightValue = "";
-
 let hamburgerMenuAlertScrolling = function() {
-  if (hamburgerMainNav !== null && emergencyAlerts !== null && utilNavWideCheck() !== false) {
+  // if (hamburgerMainNav !== null && emergencyAlerts !== null && utilNavWideCheck() !== false) {
+  if (hamburgerMainNav !== null && emergencyAlerts !== null) {
     let alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight || 0;
     let hamburgerMenuTop = document.querySelector(".ma__header__hamburger__nav-container").offsetTop || 0;
 
     // Add bottom padding when function is initially called.
-    hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+    // hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+    // With hamburgerMainNav, above line makes spece between the utility nav items when they are ih the flyout.
+    // So, add the bottom padding to hamburgerMenuContainer instaed.
+    hamburgerMenuContainer.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
 
     // Add bottom padding when alert style changes occur.
     const alertObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
-        if (mutationRecord.oldValue !== null && utilNavWideCheck() !== false) {
+        // if (mutationRecord.oldValue !== null && utilNavWideCheck() !== false) {
+        if (mutationRecord.oldValue !== null) {
           let result = {};
           let attributes = mutationRecord.oldValue.split(";");
           for (let i = 0; i < attributes.length; i++) {
@@ -52,7 +54,16 @@ let hamburgerMenuAlertScrolling = function() {
           let currentDisplayValue = document.querySelector(".ma__emergency-alerts__content").style.display;
           if (currentDisplayValue === oldDisplayValue) {
             alertHeight = document.querySelector(".ma__emergency-alerts").clientHeight;
-            hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+            // hamburgerMainNav.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+            hamburgerMenuContainer.style.paddingBottom = alertHeight + hamburgerMenuTop + "px";
+
+            // TEST CODE
+            // This mimics height: calc(100vh - 40px); at L.224 of _header-hamburger.scss by assigning all available vertical space in the window to the flyout container.
+            let spaceAboveFlyout = Math.max(hamburgerMenuContainer.getBoundingClientRect().top, (alertHeight + hamburgerMenuTop));
+
+            let availableScreenHeight = screen.height - spaceAboveFlyout;
+            hamburgerMenuContainer.style.height = availableScreenHeight + "px";
+            // END: TEST CODE
           }
         }
       });
@@ -62,11 +73,7 @@ let hamburgerMenuAlertScrolling = function() {
       attributeFilter: ["style"],
       attributeOldValue: true
     });
-
-    alertHeightValue = alertHeight;
   }
-
-  console.log("hamburgerMenuAlertScrolling() ran. " + hamburgerMainNav.style.paddingBottom + " panda" + alertHeightValue);
 };
 
 // Not ideal, but this is here to wait for alerts to load via AJAX.
@@ -87,35 +94,13 @@ if (siteAlertWrapper !== null) {
       observer.disconnect();
     }
 
-    console.log(emergencyAlerts);
-
     hamburgerMenuAlertScrolling();
-
-  // TEST CODE
-  // Only when the page has active alerts.
-  const navBarHeight = document.querySelector(".ma__header__hamburger-wrapper").offsetHeight;
-  let heightAboveFlyout = hamburgerMenuContainer.getBoundingClientRect().top;
-  // let heightAboveFlyout = alertHeight + navBarHeight;
-
-  console.log("heightAboveFlyout: " + heightAboveFlyout);
-  console.log("container height: " + hamburgerMenuContainer.offsetHeight);
-
-  hamburgerMenuContainer.style.height = (screen.height - heightAboveFlyout) + "px";
-
-  // END: TEST CODE
 
   });
   jsonApiObserver.observe(siteAlertWrapper, {
     childList: true
   });
 }
-// else {
-
-  // console.log("siteAlertWrapper is null.");
-  // IF THERE IS NO ALERTS, CSS WOULD TAKE CARE OF THE HEIGHT, SO THIS IS NOT NECESSARY.
-
-//   hamburgerMenuAlertScrolling();
-// }
 /** DP-19336 end */
 
 // Open and close the menu
@@ -662,15 +647,16 @@ if (null !== menuOverlay) {
 }
 
 let debouncer;
-window.onresize = function () {
+// Replaced with window.onresize = function () {} since it's triggered with LOAD instead of RESIZE.
+window.addEventListener("resize", function () {
   clearTimeout(debouncer);
   debouncer = setTimeout( () => {
     width = body.clientWidth;
-    if (utilNavWideCheck() !== false) {
+    if (width > 840) {
       hamburgerMenuAlertScrolling();
     }
   }, 100);
-};
+});
 
 
 // ** Utility nav
