@@ -1,0 +1,5 @@
+Added:
+  - project: React
+    component: InputCurrency
+    description: Fix onBlur bug to allow value 0 to be returned in onBlur callback. (#1161)
+    impact: Patch
