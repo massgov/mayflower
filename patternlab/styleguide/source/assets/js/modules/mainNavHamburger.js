@@ -194,6 +194,8 @@ if (menuButton !== null) {
   document.addEventListener("keydown", function (e) {
     // ESC to close menus.
     if (e.key === "Escape" || e.which === "27") {
+      // This prevents triggering to get out of a full screen mode in Safari.
+      e.preventDefault();
       // Log in to... in Utility nav bar
       if (utilNavWide.querySelector(".js-util-nav-content").style.opacity === "1") {
         closeUtilWideContent();
@@ -357,6 +359,8 @@ if (menuButton !== null) {
     }
 
     if (e.code == "Escape" || e.which == "27") {
+      // This prevents triggering to get out of a full screen mode in Safari.
+      e.preventDefault();
       if (item.classList.contains("submenu-open")) {
         // NOTE: KEEP BELOW COMMENTED LINES UNTIL THE DESIGN TEAM FINALIZES THE BEHAVIOR.
 
