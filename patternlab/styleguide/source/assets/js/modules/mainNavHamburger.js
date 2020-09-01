@@ -643,7 +643,6 @@ if (null !== menuOverlay) {
 }
 
 let debouncer;
-// Replaced with window.onresize = function () {} since it's triggered with LOAD instead of RESIZE.
 window.addEventListener("resize", function () {
   clearTimeout(debouncer);
   debouncer = setTimeout( () => {
