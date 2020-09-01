@@ -148,7 +148,7 @@ const Currency = (props) => {
             if (isNotNumber) {
               inputEl.setAttribute('placeholder', props.placeholder);
             } else {
-              let newValue = isNotNumber || numberValue;
+              let newValue = numberValue;
               if (hasNumberProperty(props, 'max') && newValue > props.max) {
                 newValue = props.max;
               }
