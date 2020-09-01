@@ -140,7 +140,7 @@ const Currency = (props) => {
           const handleBlur = (e) => {
             const { type } = e;
             const inputEl = ref.current;
-            const { value } = inputEl;
+            const value = inputEl && inputEl.value;
             const numberValue = Number(numbro.unformat(value));
             // isNotNumber returns true if value is null, undefined or NaN vs Number.isNaN only checks if value is NaN
             /* eslint-disable-next-line   no-restricted-globals */
