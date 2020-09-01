@@ -467,9 +467,6 @@ function toggleMenu() {
     hamburgerMenuContainer.removeAttribute("aria-hidden");
     openMenu();
 
-    // if (utilNavWideCheck() === false) {
-    //   hamburgerMainNav.style.paddingBottom = 0;
-    // }
     // Set buttons between menu button and hamburger menu unfocusable to set focus on the first focusable item in the menu at next tabbing.
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").setAttribute("tabindex", "-1");
     document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").setAttribute("tabindex", "-1");
