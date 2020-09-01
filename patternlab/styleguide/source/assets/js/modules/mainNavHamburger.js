@@ -183,13 +183,12 @@ if (menuButton !== null) {
   }
 
 
-
-  function setFocusOnFirstTopMenu () {
+  const setFocusOnFirstTopMenu = function () {
     // Timeout function is necessary to set focus on the first top menu button. Otherwise, focus is set on next focusable element outside the menu.
     setTimeout(function timeOutFunction () {
       firstTopMenuItem.focus();
     }, 1);
-  }
+  };
 
   document.addEventListener("keydown", function (e) {
     // ESC to close menus.
