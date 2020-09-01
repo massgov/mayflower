@@ -1,12 +1,12 @@
 module.exports = async (page, scenario, vp) => {
-  console.log('SCENARIO > ' + scenario.label);
+  await console.log('SCENARIO > ' + scenario.label);
 
   // Wait for all visible fonts to complete loading.
-  await page.evaluate(async function() {
+  await page.evaluate(async () => {
     await document.fonts.ready;
-  })
+  });
 
-  // Wait for all <img> elements to complete loading.
+  // // Wait for all <img> elements to complete loading.
   await page.waitForFunction(() => {
     const images = Array.from(document.images);
     const unloaded = images.filter(i => i.hasAttribute('src') && !i.complete)
@@ -14,7 +14,7 @@ module.exports = async (page, scenario, vp) => {
   });
 
   // Wait for background images to finish loading.
-  await page.evaluate(async function() {
+  await page.evaluate(() => {
     const bgHavingElements = document.querySelectorAll('[role="img"]');
     const loadPromises = Array.from(bgHavingElements).map((element) => {
       const style = getComputedStyle(element);
@@ -28,8 +28,8 @@ module.exports = async (page, scenario, vp) => {
           img.onload = () => {
             img.remove();
             resolve();
-          }
-        })
+          };
+        });
       }
       return Promise.resolve();
     });

@@ -1,10 +1,11 @@
 const path = require('path');
+const stories = require('../storybook-static/stories.json');
 
 const listDirs = require('./listDirs.js');
 const storyBookBackstop = require('./storyBookBackstop');
-
-const debug = (process.argv.indexOf('--debug') > -1);
-
+const newMapComponents = require('./storybook');
+//const debug = (process.argv.indexOf('--debug') > -1);
+const debug = false;
 // Default viewport values.
 const viewports = [
   { label: 'small_atom', width: 400, height: 250 },
@@ -19,11 +20,11 @@ const dirList = listDirs(componentsPath)
   .filter((filePath) => (filePath.indexOf('/animations') === -1))
   // Do not test styles.
   .filter((filePath) => (filePath.indexOf('/styles') === -1));
-const testComponents = storyBookBackstop.listComponents(dirList);
+//const testComponents = storyBookBackstop.listComponents(dirList);
 
 // Map discovered Component dirs to Backstop scenarios.
-const scenarios = storyBookBackstop.mapComponents(testComponents, debug);
-
+//const scenarios = storyBookBackstop.mapComponents(testComponents, debug);
+const scenarios = newMapComponents(stories.stories, debug);
 module.exports = {
   id: 'vrt',
   viewports,
@@ -41,14 +42,17 @@ module.exports = {
   // taking the snapshot. This is something Storybook prints on its own. This
   // prevents us from having to add a manual delay to compensate for Storybook's
   // slow boot time.
-  readyEvent: 'storyRendered',
+  //readyEvent: 'storyRendered',
   report: ['browser', 'CI'],
   engine: 'puppeteer',
   engineOptions: {
-    args: ['--no-sandbox']
+    args: [
+      '--no-sandbox'
+    ],
+    devtools: false
   },
-  asyncCaptureLimit: 3,
-  asyncCompareLimit: 20,
+  asyncCaptureLimit: 10,
+  asyncCompareLimit: 50,
   debug: false,
-  debugWindow: false
+  debugWindow: debug
 };

@@ -93,6 +93,7 @@ DataTableWithFilter.args = {
     accessor: (d) => Math.round(d.ORIGIN_TRIPS_PER_PERSON * 100) / 100
   }],
   data: townData,
+  isStriped: true,
   filterable: true,
   defaultPageSize: 10,
   defaultSorted: [
@@ -105,6 +106,11 @@ DataTableWithFilter.args = {
 };
 DataTableWithFilter.argTypes = {
   isStriped: {
+    control: {
+      type: 'boolean'
+    }
+  },
+  filterable: {
     control: {
       type: 'boolean'
     }
