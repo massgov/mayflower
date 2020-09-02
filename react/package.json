@@ -23,7 +23,7 @@
     "lint-fix": "eslint --fix . && exit 0",
     "prepublishOnly": "npm run build",
     "storybook": "start-storybook -p 6006 -s ./node_modules/@massds/mayflower-assets",
-    "storybook:extract": "npx sb extract",
+    "storybook:extract": "sb extract",
     "build-storybook": "npm run build:icons && build-storybook -s ./node_modules/@massds/mayflower-assets/static"
   },
   "pre-push": [
@@ -78,6 +78,7 @@
     "@storybook/addon-storysource": "^6.0.21",
     "@storybook/addon-viewport": "^6.0.21",
     "@storybook/addons": "^6.0.21",
+    "@storybook/cli": "^6.0.21",
     "@storybook/codemod": "^6.0.21",
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^6.0.21",
