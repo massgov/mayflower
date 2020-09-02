@@ -1,7 +1,7 @@
 @use "00-base/global" as *;
 
 .ma__input-typeahead {
-  font-size: 1.25rem;
+  font-size: $fonts-small;
 
   .highlight {
     color: $c-primary-alt;

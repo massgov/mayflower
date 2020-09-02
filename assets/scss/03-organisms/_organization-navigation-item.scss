@@ -82,7 +82,7 @@
       background-color: transparent;
       padding: 1rem 0;
       font-weight: $fonts-bold;
-      font-size: 1rem;
+      font-size: $fonts-xsmall;
       color: $c-black;
 
       &.section-toggle {
@@ -96,7 +96,7 @@
 
       @media ($bp-large-min) {
         height: 100%;
-        font-size: 1.125rem;
+        font-size: $fonts-smaller;
       }
     }
   }
@@ -187,7 +187,7 @@
   .ma__comp-heading {
 
     @media ($bp-large-max) {
-      font-size: 1.375rem;
+      font-size: $fonts-medium;
       font-weight: $fonts-normal;
       color: $c-primary;
       margin-bottom: 0;
@@ -199,7 +199,7 @@
 
       &::before {
         content: $close-icon;
-        font-size: 2.1rem;
+        font-size: $fonts-2xlarge;
         font-weight: 200;
         line-height: 0;
         position: absolute;
@@ -270,7 +270,7 @@
     .ma__link-list__container a {
 
       @media ($bp-large-max) {
-        font-size: 1.375rem;
+        font-size: $fonts-medium;
         font-weight: $fonts-normal;
       }
     }
@@ -320,7 +320,7 @@
           white-space: nowrap;
 
           @media ($bp-large-max) {
-            font-size: 1.375rem;
+            font-size: $fonts-medium;
             font-weight: $fonts-normal;
           }
 
@@ -456,7 +456,7 @@
     }
 
     a {
-      font-size: 1.2rem;
+      font-size: $fonts-small;
     }
   }
 

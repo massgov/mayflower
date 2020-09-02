@@ -25,6 +25,7 @@
 .ma__labelled-list {
 
   &__label {
+    font-size: $fonts-smaller;
     color: $c-font-detail;
     font-weight: $fonts-bold;
   }

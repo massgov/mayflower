@@ -61,7 +61,6 @@ InputSlider.propTypes = {
   displayValueFormat: PropTypes.oneOf(['percentage', 'value', null])
 };
 
-
 InputSlider.defaultProps = {
   defaultValue: 0,
   disabled: false

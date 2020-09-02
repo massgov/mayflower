@@ -33,7 +33,7 @@
     padding-bottom: 10px;
 
     @media ($bp-x-small-min) {
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: em(40,28);
       padding-top:38px;
       padding-bottom: 20px;
@@ -47,12 +47,12 @@
   }
 
   &__author {
-    font-size: 1.188rem;
+    font-size: $fonts-smaller;
     line-height: 1.79;
   }
 
   &__auth-title {
-    font-size: 1.188rem;
+    font-size: $fonts-smaller;
     line-height: 1.37;
   }
 }
@@ -67,7 +67,7 @@
   &__header {
 
     svg {
-      fill: $c-highlight; 
+      fill: $c-highlight;
     }
   }
 }

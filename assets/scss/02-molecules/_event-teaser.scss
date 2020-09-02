@@ -58,7 +58,7 @@
 
   &__day {
     display: block;
-    font-size: 4rem;
+    font-size: $fonts-9xlarge;
     line-height: 1;
   }
 
@@ -68,7 +68,7 @@
     margin-bottom: 0;
 
     a {
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: 1.2;
     }
   }
@@ -94,31 +94,31 @@
   &__location,
   &__date,
   &__time {
-    font-size: 1.125rem;
+    font-size: $fonts-smaller;
 
     .ma__page-header & {
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: 1.3;
     }
   }
 
   &__location {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-bottom: .25em;
   }
 
   &__date {
-    font-size: 18px;
+    font-size: $fonts-smaller;
     line-height: 1.2;
   }
 
   &__time {
-    font-size: 18px;
+    font-size: $fonts-smaller;
     line-height: 1.2;
   }
 
   &__description {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-top: 18px;
 
     @media ($bp-x-small-max) {

@@ -49,7 +49,6 @@ class MultiSelectDropDown extends React.Component {
     this.wrapperRef.removeEventListener('onblur', (e) => this.handleKeyDown(e));
   }
 
-
   onBlur = () => {
     // Time out to wait for React processing delay on activeElement
     this._timeoutID = setTimeout(() => {
@@ -62,7 +61,6 @@ class MultiSelectDropDown extends React.Component {
       }
     }, 0);
   }
-
 
   handleTagClick = (target, e) => {
     e.stopPropagation();
@@ -81,7 +79,6 @@ class MultiSelectDropDown extends React.Component {
     });
     this.focusOnComboBox();
   }
-
 
   handleClickOutside = (event) => {
     // Close the panel if the user clicks outside the component.

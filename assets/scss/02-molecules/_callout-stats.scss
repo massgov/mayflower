@@ -55,13 +55,13 @@
   }
 
   &__stat {
-    font-size: 4.125rem;
+    font-size: $fonts-9xlarge;
     line-height: 1.3;
   }
 
   &__content {
     display: block;
-    font-size: 1.438rem;
+    font-size: $fonts-medium;
     line-height: 1.3;
   }
 }

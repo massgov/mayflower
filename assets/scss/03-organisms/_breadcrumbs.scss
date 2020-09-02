@@ -26,7 +26,7 @@
 
   &__label {
     display: inline-block;
-    font-size: 1rem;
+    font-size: $fonts-xsmall;
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
 
@@ -132,7 +132,7 @@
 
   a {
     display: inline-block;
-    font-size: 17px;
+    font-size: $fonts-xsmall;
     line-height: 1;
     padding: 2px 0;
 

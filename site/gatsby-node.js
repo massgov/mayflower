@@ -1,19 +1,21 @@
-exports.onCreateWebpackConfig = ({ stage, loaders, rules, actions, getConfig }) => {
-  if (stage.startsWith("develop")) {
+exports.onCreateWebpackConfig = ({
+  stage, loaders, rules, actions, getConfig
+}) => {
+  if (stage.startsWith('develop')) {
     actions.setWebpackConfig({
       resolve: {
         alias: {
-          "react-dom": "@hot-loader/react-dom",
-        },
-      },
-    })
+          'react-dom': '@hot-loader/react-dom'
+        }
+      }
+    });
   }
-  const isSSR = stage.includes(`html`);
+  const isSSR = stage.includes('html');
   const config = getConfig();
   config.module.rules = [
     // Omit the default rule where test === '\.jsx?$'
     ...config.module.rules.filter(
-      rule => String(rule.test) !== String(/\.jsx?$/)
+      (rule) => String(rule.test) !== String(/\.jsx?$/)
     ),
     // Recreate it with custom exclude filter
     {
@@ -28,10 +30,9 @@ exports.onCreateWebpackConfig = ({ stage, loaders, rules, actions, getConfig }) 
       // presets/plugins.  This will also merge in your configuration from
       // `babel.config.js`.
       ...rules.js(),
-      //test: /\.jsx?$/,
+      // test: /\.jsx?$/,
       // Exclude all node_modules from transpilation, except for 'swiper' and 'dom7'
-      exclude: modulePath =>
-        /node_modules/.test(modulePath) 
+      exclude: (modulePath) => /node_modules/.test(modulePath)
     },
     {
       test: /pikaday/,
@@ -42,5 +43,5 @@ exports.onCreateWebpackConfig = ({ stage, loaders, rules, actions, getConfig }) 
     ...config.resolve,
     symlinks: !isSSR
   };
-  actions.replaceWebpackConfig(config)
+  actions.replaceWebpackConfig(config);
 };

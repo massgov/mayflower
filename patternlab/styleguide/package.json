@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/massgov/mayflower#readme",
   "devDependencies": {
-    "@massds/mayflower-assets": "^0.2.1",
+    "@massds/mayflower-assets": "^0.2.2",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babelify": "^8.0.0",

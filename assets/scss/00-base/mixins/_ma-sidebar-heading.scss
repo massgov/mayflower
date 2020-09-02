@@ -3,10 +3,10 @@
 @use "00-base/colors" as *;
 
 @mixin ma-sidebar-heading ($border: transparent, $color: transparent) {
-  
+
   @if ($border == transparent) {
     border-bottom: 2px solid;
-    font-size: 1.188rem;
+    font-size: $fonts-smaller;
     letter-spacing: $letter-spacing-large;
     padding-bottom: .5em;
     text-transform: uppercase;

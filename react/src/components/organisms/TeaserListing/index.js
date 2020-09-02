@@ -19,7 +19,6 @@ const TeaserListing = ({ children }) => (
   </section>
 );
 
-
 TeaserListing.propTypes = {
   /** React children to render */
   children: PropTypes.node.isRequired

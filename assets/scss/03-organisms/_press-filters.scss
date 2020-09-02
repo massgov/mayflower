@@ -73,7 +73,7 @@
   &__clear {
 
     @include ma-button-reset;
-    font-size: 1.125rem;
+    font-size: $fonts-smaller;
     display: inline-block;
     line-height: 1em;
     margin: 40px 0 0;

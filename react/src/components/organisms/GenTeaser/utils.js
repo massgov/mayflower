@@ -60,7 +60,6 @@ export const buildUrl = (event, type, window) => {
       break;
     }
 
-
     case 'outlookcom':
       calendarUrl = 'https://outlook.live.com/owa/?rru=addevent';
       calendarUrl += `&startdt=${formatTime(event.startDate)}`;

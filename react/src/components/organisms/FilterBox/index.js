@@ -112,7 +112,6 @@ FilterBox.propTypes = {
   }))
 };
 
-
 FilterBox.defaultProps = {
   id: 'filter-box',
   active: false,

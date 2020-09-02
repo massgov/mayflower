@@ -39,7 +39,7 @@
     }
 
     a {
-      font-size: 1.625rem;
+      font-size: $fonts-larger;
       line-height: 1.2;
     }
   }
@@ -55,7 +55,7 @@
   }
 
   &__item {
-    
+
     & + & {
       border-top-color: $c-bd-divider;
     }

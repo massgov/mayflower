@@ -21,7 +21,7 @@
   }
 
   &__item {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     padding-bottom: 30px;
     padding-top: 30px;
     position: relative;
@@ -33,7 +33,7 @@
   }
 
   &__date {
-    font-size: 1.375rem;
+    font-size: $fonts-medium;
     line-height: 1.35;
     position: absolute;
       top: 0;
@@ -87,7 +87,7 @@
     .ma__split50__container > *:nth-last-child(n+2) ~ & {
 
       .ma__change-log__title {
-        font-size: 2.188rem;
+        font-size: $fonts-2xlarge;
         line-height: 1.214287;
 
         &:after {

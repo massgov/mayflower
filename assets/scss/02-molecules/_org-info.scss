@@ -32,18 +32,18 @@
   }
 
   &__name {
-    font-size: 1.5rem;
+    font-size: $fonts-large;
     margin-bottom: 0;
   }
 
   &__job-title {
-    font-size: 1.25rem;
+    font-size: $fonts-small;
     margin-top: .5em;
     margin-bottom: 0;
   }
 
   &__content {
-    font-size: 18px;
+    font-size: $fonts-smaller;
 
     .ma__rich-text {
       margin-bottom: 10px;

@@ -10,7 +10,7 @@
   }
 
   html {
-    font-size: 13px;
+    font-size: $fonts-print;
   }
 
   body {
@@ -439,7 +439,7 @@
       width: 100%;
       height: auto;
       padding-left: 0;
-      font-size: 1.4rem;
+      font-size: $fonts-medium;
       page-break-inside: avoid !important;
       break-inside: avoid !important;
     }
@@ -501,7 +501,7 @@
         // checkbox
         content: "\2610";
         margin-right:5px;
-        font-size: 2.5rem;
+        font-size: $fonts-4xlarge;
       }
     }
   }
