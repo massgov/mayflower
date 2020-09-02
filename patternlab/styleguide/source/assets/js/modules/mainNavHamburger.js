@@ -115,7 +115,7 @@ if (menuButton !== null) {
   // no utility nav, sub menu closed
   if (lastTopMenuItem) {
     lastTopMenuItem.addEventListener("keydown", function (e) {
-      // Without this, sift + tab set focus on the first top menu button.
+      // Without this, shift + tab set focus on the first top menu button.
       if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
         if (width < 841) {
           setTimeout(function timeOutFunction () {
@@ -244,6 +244,78 @@ if (menuButton !== null) {
         closeMenu();
       }
     }
+  });
+
+
+
+  let submenuLinks = document.querySelectorAll(".js-main-nav-hamburger__link");
+  submenuLinks.forEach(link => {
+    link.addEventListener("keydown", function(e) {
+      let targetParent = e.target.closest(".js-main-nav-hamburger__subitem");
+
+      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+        if(targetParent.nextElementSibling) {
+          targetParent.nextElementSibling.querySelector("a").focus();
+        }
+        else {
+          // Set focus on the first sibling submenu item link.
+          document.querySelector(".js-main-nav-hamburger-content:not(.is-closed) .js-main-nav-hamburger__subitem:first-of-type a").focus();
+        }
+      }
+
+      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+        if(targetParent.previousElementSibling) {
+          targetParent.previousElementSibling.querySelector("a").focus();
+        }
+        else {
+          // Set focus on the last sibling submenu item link.
+          document.querySelector(".js-main-nav-hamburger-content:not(.is-closed) .js-main-nav-hamburger__subitem:last-of-type a").focus();
+        }
+      }
+    });
+  });
+
+  let narrowUtilContentLinks = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-content a.js-clickable-link");
+  const firstUtilContentLink = narrowUtilContentLinks[0];
+  const lastIndex = narrowUtilContentLinks.length - 1;
+  const lastUtilContentLink = narrowUtilContentLinks[lastIndex];
+  // narrowUtilContentLinks.forEach(link => {
+  narrowUtilContentLinks.forEach(function(link, i) {
+    link.addEventListener("keydown", function(e) {
+
+      if (e.key === "ArrowDown" || e.code === "ArrowDown") {
+        if (e.target === narrowUtilContentLinks[i]) {
+
+          // while (i < narrowUtilContentLinks.length) {
+
+            console.log(i);
+
+            console.log(e.target === firstUtilContentLink);
+            console.log(e.target === lastUtilContentLink);
+
+
+            if (e.target === lastUtilContentLink) {
+              console.log("last item");
+              i = 0;
+              narrowUtilContentLinks[i].focus();
+            }
+            else if (e.target === firstUtilContentLink) {
+              console.log("first item");
+              console.log(i);
+
+              i++;
+            }
+            else {
+              i++;
+            }
+
+            narrowUtilContentLinks[i].focus();
+
+            console.log(i);
+          // }
+        }
+      }
+    });
   });
 
   // NOTE: KEEPING BELOW FOR MORE KEYBOARD NAVIGATION WORK AFTER ACCESSIBILITY TEST.
@@ -481,9 +553,9 @@ function closeMenu() {
   }, 100);
 
   if ((width > 840) && document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").hasAttribute("tabindex")) {
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .goog-te-menu-value").removeAttribute("tabindex");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .direct-link").removeAttribute("tabindex");
-    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item  .js-util-nav-toggle").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .goog-te-menu-value").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .direct-link").removeAttribute("tabindex");
+    document.querySelector(".js-utility-nav--wide .ma__utility-nav__item .js-util-nav-toggle").removeAttribute("tabindex");
     document.querySelector(".js-header-search-access-button").removeAttribute("tabindex");
   }
 }
@@ -723,7 +795,10 @@ if (utilNarrowButton !== null) {
 
       closeSubMenu();
 
+      console.log();
+
       thisButton.setAttribute("aria-expanded", "true");
+      utilNarrowContent.removeAttribute("aria-hidden");
       thisNavContainer.style.pointerEvents = "none";
       /** Slide down. */
       setTimeout(function timeoutFunction() {
@@ -761,6 +836,7 @@ function closeNarrowUtilContent() {
     const thisNavContainer = utilNarrowButton.closest(".ma__utility-nav__item");
 
     utilNarrowButton.setAttribute("aria-expanded", "false");
+    utilNarrowContent.setAttribute("aria-hidden", "true");
     thisNavContainer.style.pointerEvents = "none";
 
     setTimeout(function timeoutFunction() {
