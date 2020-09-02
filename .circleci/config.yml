@@ -1,6 +1,8 @@
 
 version: 2.1
-
+orbs:
+  browser-tools: circleci/browser-tools@1.0.1
+  
 references:
   configure_npm: &configure_npm
     run: { name: 'Configure NPM', command: 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'}
@@ -165,6 +167,7 @@ jobs:
       - restore_cache:
           keys:
             - mfr-dependencies-{{ checksum "react/package.json" }}-0
+      - browser-tools/install-browser-tools
       - run: cd react && npm install
       - run:
           name: 'Install Headless Chrome dependencies'
