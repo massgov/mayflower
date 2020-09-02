@@ -25,7 +25,7 @@ const isFixedFeedback = (component) => component.kind.includes('ButtonFixedFeedb
 const mapComponents = (components, debug = false) => Object.values(components)
   .filter((component) => !['/animations', '/styles'].includes(component.kind))
   .map((component) => {
-    const { id, kind, name } = component;
+    const { id, kind, name, parameters } = component;
     const viewports = [];
     const selectors = [];
     if (isAtom(component)) {
@@ -38,6 +38,8 @@ const mapComponents = (components, debug = false) => Object.values(components)
     // an explicit selector. For all others, snapshot Storybook's render screen.
     if (isFixedFeedback(component)) {
       selectors.push('.ma__fixed-feedback-button');
+    } else if (parameters && parameters.docsOnly) {
+      selectors.push('#docs-root');
     } else {
       selectors.push('#root');
     }
@@ -56,7 +58,8 @@ const mapComponents = (components, debug = false) => Object.values(components)
       'ButtonCopy'
     ];
     const backstop = (overrides.indexOf(name) > -1) ? '&backstop=true' : '';
-    const url = `${urlBase}iframe.html?id=${id}&viewMode=story${backstop}`;
+    const viewMode = (parameters && parameters.docsOnly) ? 'docs' : 'story';
+    const url = `${urlBase}iframe.html?id=${id}&viewMode=${viewMode}${backstop}`;
     return({
       label: `${kind}/${name}`,
       url,
