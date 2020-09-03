@@ -518,6 +518,12 @@ function openMenu() {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
 
+    window.scrollTo({
+      top: scrollOffset,
+      left: 0,
+      behavior: "smooth"
+    });
+
     if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
 
       function customScrollTo(to, duration) {
