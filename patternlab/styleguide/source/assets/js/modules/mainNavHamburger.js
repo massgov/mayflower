@@ -1,3 +1,4 @@
+const osInfo = navigator.appVersion;
 const body = document.querySelector("body");
 let width = body.clientWidth;
 const feedbackButton = document.querySelector(".ma__fixed-feedback-button");
@@ -108,9 +109,36 @@ if (menuButton !== null) {
 
   menuButton.addEventListener("keydown", function (e) {
     if (e.key === "Tab" || e.code === "Tab") {
+      e.preventDefault();
+
+// alert(navigator.appVersion);
+// "5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15"
+      if (osInfo.indexOf("Mac OS X 10_15_6") !== -1 && osInfo.indexOf("Version/13.1.2 Safari/605.1.15") !== -1) {
+        document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").style.display = "none";
+      }
+
+      let focusable = hamburgerMenuContainer.querySelectorAll("button, [href], input, [tabindex]:not([tabindex='-1'])");
+
+      console.log(focusable[0]);
+
+      // focusable[0].style.background = "yellowgreen";
+
       if (width < 621) {
-        hamburgerMenuContainer.setAttribute("tabindex", "0");
-        hamburgerMenuContainer.focus();
+
+        // hamburgerMenuContainer.setAttribute("tabindex", "0");
+        // hamburgerMenuContainer.focus();
+
+        // const hamburgerMenuContainer = document.querySelector(".ma__header__hamburger__nav-container");
+
+
+        // if (focusable[0] !== hamburgerMenuContainer.querySelector(".ma__header-search__input")) {
+          // document.querySelector(".ma__header__hamburger__nav-container .ma__header-search__input").style.display = "none";
+          // hamburgerMenuContainer.querySelector(".ma__header-search__input").setAttribute("tabindex", "-1");
+
+        // }
+
+        focusable[0].focus();
+
       }
     }
   });
@@ -502,9 +530,9 @@ function commonCloseMenuTasks() {
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Open the main menu for mass.gov");
 
-  if (hamburgerMenuContainer.hasAttribute("tabindex")) {
-    hamburgerMenuContainer.removeAttribute("tabindex");
-  }
+  // if (hamburgerMenuContainer.hasAttribute("tabindex")) {
+  //   hamburgerMenuContainer.removeAttribute("tabindex");
+  // }
 
   if(searchInput.hasAttribute("autofocus")) {
     searchInput.removeAttribute("autofocus");
@@ -558,7 +586,6 @@ function jumpToSearch(e) {
     commonOpenMenuTasks();
     jumpToSearchButton.setAttribute("aria-pressed", "true");
     // Set focus on the search input field.
-    const osInfo = navigator.appVersion;
     if (osInfo.indexOf("iPhone") !== -1) {
       // Set up a temp input to display onscreen keyboard.
       const __tempEl = document.createElement("input");
