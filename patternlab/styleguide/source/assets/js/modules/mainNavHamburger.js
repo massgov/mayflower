@@ -518,14 +518,8 @@ function openMenu() {
     let emergencyAlerts = document.querySelector(".ma__emergency-alerts");
     let scrollOffset = emergencyAlerts.offsetHeight - (alertsInterface.offsetHeight/1.5);
 
-    window.scrollTo({
-      top: scrollOffset,
-      left: 0,
-      behavior: "smooth"
-    });
 
     if (navigator.userAgent.match(/iPad|iPhone|iPod|Android|Windows Phone/i)) {
-
       function customScrollTo(to, duration) {
         var start = 0,
             change = to - start,
@@ -551,12 +545,12 @@ function openMenu() {
         return -c/2 * (t*(t-2) - 1) + b;
       };
 
-      customScrollTo(scrollOffset, 1000);
-    } else{
-      window.animate({
-        scrollTop: scrollOffset
-      }, 1000, function(){
-        window.clearQueue();
+      customScrollTo(scrollOffset, 250);
+    } else {
+      window.scrollTo({
+        top: scrollOffset,
+        left: 0,
+        behavior: "smooth"
       });
     }
   }
