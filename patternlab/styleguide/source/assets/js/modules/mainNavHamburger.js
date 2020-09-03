@@ -249,7 +249,7 @@ if (menuButton !== null) {
   });
 
 
-
+  // Arrow keyboard navigation in the menu.
   let submenuLinks = document.querySelectorAll(".js-main-nav-hamburger__link");
   submenuLinks.forEach(link => {
     link.addEventListener("keydown", function(e) {
@@ -291,15 +291,23 @@ if (menuButton !== null) {
         if (e.target === lastUtilContentLink) {
           i = 0;
         }
-
-        // narrowUtilContentLinks[i].focus();
       }
 
-      // if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+      if (e.key === "ArrowUp" || e.code === "ArrowUp") {
 
-      // }
+        if (e.target === narrowUtilContentLinks[i]) {
+          if (e.target === narrowUtilContentLinks[0]) {
+            i = lastIndex;
+          }
+          else {
+            i--;
+          }
+        }
+      }
 
       narrowUtilContentLinks[i].focus();
+      // TEST OUTPUT
+      // console.log(i + ": " + document.activeElement.innerText);
     });
   });
 
@@ -436,6 +444,7 @@ if (menuButton !== null) {
     }
   });
 
+  // Replacing this with submenuLinks.forEach() since this doesn't work with Voiceover.
   // [].forEach.call(subMenuItems, function (subItem) {
   //   const prevSib = subItem.previousElementSibling;
   //   const nextSib = subItem.nextElementSibling;
