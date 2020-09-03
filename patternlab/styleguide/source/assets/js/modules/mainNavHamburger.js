@@ -516,6 +516,10 @@ function commonCloseMenuTasks() {
 function openMenu() {
   commonOpenMenuTasks();
   menuButton.setAttribute("aria-pressed", "true");
+  let alertsInterface = document.querySelector('.ma__emergency-alerts__interface');
+  if (width < 841 && alertsInterface !== null) {
+    alertsInterface.scrollIntoView();
+  }
 }
 
 function commonOpenMenuTasks() {

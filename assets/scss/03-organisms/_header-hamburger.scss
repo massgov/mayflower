@@ -7,7 +7,6 @@ body.show-menu {
   overflow: hidden;
 
   @media ($bp-header-toggle-max) {
-    position: fixed !important;
     left: 0;
   }
 }
