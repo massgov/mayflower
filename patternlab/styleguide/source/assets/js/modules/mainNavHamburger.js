@@ -142,10 +142,11 @@ if (menuButton !== null) {
       lastSubmenuLink.addEventListener("keydown", function (e) {
         const subMenuContainer = this.closest(".js-main-nav-hamburger-content");
         if ((e.key === "Tab" || e.code === "9") && !subMenuContainer.classList.contains(".is-closed")) {
-          // Close the submenu and move focus to the first top menu button.
+          // Circulate focus to the first sub menu button.
           if (width > 840) {
-            closeSubMenu();
-            setFocusOnFirstTopMenu();
+            setTimeout(function timeOutFunction () {
+              subMenuContainer.querySelector(".js-main-nav-hamburger__subitem:first-of-type .js-main-nav-hamburger__link").focus();
+            }, 1);
           }
         }
       });
@@ -168,15 +169,16 @@ if (menuButton !== null) {
       if ((e.shiftKey && e.key === "Tab") || (e.code === "16" && e.code === "9")) {
         if (width < 841) {
           setTimeout(function timeOutFunction () {
-            this.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
+            e.target.closest(".js-clickable").previousElementSibling.querySelector("a").focus();
           }, 1);
         }
       }
       else if (e.key === "Tab" || e.code === "9") {
-        // Close the nav content and move focus to the first top menu button.
+        // Move focus to the first link in the util nav content container.
         if (width < 841) {
-          closeNarrowUtilContent();
-          setFocusOnFirstTopMenu();
+          setTimeout(function timeOutFunction () {
+            e.target.closest(".js-util-nav-content").querySelector("a:first-of-type").focus();
+          }, 1);
         }
       }
     });
@@ -276,45 +278,28 @@ if (menuButton !== null) {
   });
 
   let narrowUtilContentLinks = document.querySelectorAll(".js-utility-nav--narrow .js-util-nav-content a.js-clickable-link");
-  const firstUtilContentLink = narrowUtilContentLinks[0];
   const lastIndex = narrowUtilContentLinks.length - 1;
   const lastUtilContentLink = narrowUtilContentLinks[lastIndex];
-  // narrowUtilContentLinks.forEach(link => {
   narrowUtilContentLinks.forEach(function(link, i) {
     link.addEventListener("keydown", function(e) {
 
       if (e.key === "ArrowDown" || e.code === "ArrowDown") {
-        if (e.target === narrowUtilContentLinks[i]) {
 
-          // while (i < narrowUtilContentLinks.length) {
-
-            console.log(i);
-
-            console.log(e.target === firstUtilContentLink);
-            console.log(e.target === lastUtilContentLink);
-
-
-            if (e.target === lastUtilContentLink) {
-              console.log("last item");
-              i = 0;
-              narrowUtilContentLinks[i].focus();
-            }
-            else if (e.target === firstUtilContentLink) {
-              console.log("first item");
-              console.log(i);
-
-              i++;
-            }
-            else {
-              i++;
-            }
-
-            narrowUtilContentLinks[i].focus();
-
-            console.log(i);
-          // }
+        if (e.target === narrowUtilContentLinks[i] && (e.target !== narrowUtilContentLinks[0] || e.target !== lastUtilContentLink)) {
+          i++;
         }
+        if (e.target === lastUtilContentLink) {
+          i = 0;
+        }
+
+        // narrowUtilContentLinks[i].focus();
       }
+
+      // if (e.key === "ArrowUp" || e.code === "ArrowUp") {
+
+      // }
+
+      narrowUtilContentLinks[i].focus();
     });
   });
 
@@ -451,28 +436,28 @@ if (menuButton !== null) {
     }
   });
 
-  [].forEach.call(subMenuItems, function (subItem) {
-    const prevSib = subItem.previousElementSibling;
-    const nextSib = subItem.nextElementSibling;
+  // [].forEach.call(subMenuItems, function (subItem) {
+  //   const prevSib = subItem.previousElementSibling;
+  //   const nextSib = subItem.nextElementSibling;
 
-    subItem.addEventListener("keydown", function (e) {
+  //   subItem.addEventListener("keydown", function (e) {
 
-      switch (e.code) {
-        case "ArrowUp":
-        case "ArrowLeft":
-          if (subItem === prevSib) {
-            prevSib.querySelector(".js-main-nav-hamburger__link").focus();
-          }
-          break;
-        case "ArrowDown":
-        case "ArrowRight":
-          if (subItem === nextSib) {
-            nextSib.querySelector(".js-main-nav-hamburger__link").focus();
-          }
-          break;
-      }
-    });
-  });
+  //     switch (e.code) {
+  //       case "ArrowUp":
+  //       case "ArrowLeft":
+  //         if (subItem === prevSib) {
+  //           prevSib.querySelector(".js-main-nav-hamburger__link").focus();
+  //         }
+  //         break;
+  //       case "ArrowDown":
+  //       case "ArrowRight":
+  //         if (subItem === nextSib) {
+  //           nextSib.querySelector(".js-main-nav-hamburger__link").focus();
+  //         }
+  //         break;
+  //     }
+  //   });
+  // });
 });
 
 if (jumpToSearchButton !== null) {
@@ -794,8 +779,6 @@ if (utilNarrowButton !== null) {
       // TO OPEN
 
       closeSubMenu();
-
-      console.log();
 
       thisButton.setAttribute("aria-expanded", "true");
       utilNarrowContent.removeAttribute("aria-hidden");
